@@ -1,0 +1,297 @@
+@media (min-width:992px) {
+    #offcanvasExample {
+        flex-direction: row;
+
+    }
+    .swiper-wrapper {
+        margin: 0px -450px !important;
+    }
+}
+
+@media (max-width:991px) {
+    .btn-custmer {
+
+        padding: 10px 27px;
+    }
+
+    .btn-main-style {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .form-loging {
+        left: 22% !important;
+    }
+
+    .img-res {
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    .dote {
+        top: 26% !important;
+        left: 6%;
+    }
+
+    .btn-nav {
+        margin-top: 10px;
+        width: 200px;
+    }
+
+    .serach-navbar {
+        margin-top: 10px;
+        width: 100%;
+
+    }
+
+    .res-search {
+        flex-wrap: wrap;
+        margin: 9px;
+        margin-left: 1.5rem !important;
+
+    }
+
+    .lang {
+        margin-top: 10px;
+        border: none !important;
+        background: transparent !important;
+        color: #1fb9b3 !important;
+
+    }
+
+    .lang a {
+        color: #1fb9b3 !important;
+
+    }
+
+    nav .offcanvas-start .icon-search {
+        top: 38%;
+    }
+
+    nav .nav-item {
+        border: 1px solid #1fb9b3;
+        background: #1fb9b3;
+        margin: 9px;
+    }
+
+    nav .nav-item a {
+        color: white;
+    }
+
+    .form-nav {
+        /* width: 100%; */
+    }
+
+    .navbar-nav .nav-link.active,
+    .navbar-nav .show>.nav-link {
+        color: white;
+    }
+
+    nav .dropdown-menu[data-bs-popper] {
+        top: 80%;
+        right: -12px;
+        margin-top: var(--bs-dropdown-spacer);
+    }
+
+    .circle-img img {
+        width: 100%;
+
+    }
+
+    .sec-one .text {
+        margin: 50px 0;
+        text-align: center;
+    }
+
+    .text-network {
+        margin: 10px 0 !important;
+        width: 100% !important;
+    }
+
+    .circle-img {
+        width: 350px;
+        height: 350px;
+    }
+
+    .circle-img img {
+        height: 346px;
+    }
+
+    .offcanvas.offcanvas-start {
+        overflow: auto;
+        justify-content: start !important;
+
+    }
+
+    .riad-img-carwsel {
+        position: absolute;
+        top: 0;
+
+        opacity: 0.1;
+
+    }
+
+    .owl-nav {
+        display: none;
+    }
+
+    .text-descoun-carwsel h1 {
+        padding: 10px;
+    }
+
+    .text-descoun-carwsel h2 {
+        font-size: 100px !important;
+    }
+
+    .text-descoun-carwsel h2 p {
+        top: 74px !important;
+        left: 24% !important;
+    }
+
+    .text-descoun-carwsel .subscribe-carwsel {
+        bottom: 9px !important;
+        right: 10px !important;
+    }
+
+    ;
+
+    .icon-contact {
+        left: 13% !important;
+    }
+
+    .odd {
+        margin: 45px 0;
+    }
+
+    .odd .progress {
+        transform: rotate(90deg);
+        margin: -153px -83px;
+    }
+
+    .even .progress {
+        transform: rotate(-90deg);
+        margin: 0px -80px;
+    }
+
+    .service-riadiat .text {
+
+        transform: translate(-120px, -72px);
+
+    }
+
+    .sh {
+        top: inherit;
+        margin: -87px 0;
+
+    }
+
+    .odd .sh {
+
+        margin: -87px 0;
+
+    }
+
+    .text-cover {
+        width: 100% !important;
+    }
+
+    element.style {}
+
+    .traning .box:hover .text {
+        top: 0;
+    }
+
+    .traning .box .text {
+
+        font-size: 14px !important;
+    }
+    .profile-services .list-group{
+        position: inherit !important;
+        width: 100% !important;
+    
+    }
+
+
+
+
+
+
+}
+
+@media (max-width:992px) {
+    .swiper-wrapper {
+        margin: 0px !important;
+
+    }
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+        display: none;
+    }
+
+    .img-bg-contact {
+        left: 10% !important;
+    }
+
+}
+
+.offcanvas.offcanvas-start {
+    top: 74px;
+    right: 0;
+    width: 74%;
+    border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+    transform: translateX(100%);
+    z-index: 999999999999999999;
+}
+
+.offcanvas-backdrop.show {
+    opacity: 0;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav {
+        align-items: center;
+    }
+
+}
+
+@media (max-width:496px) {
+    .img-cons {
+        /* width: 200px;
+        height: 200px; */
+        margin-top: 20px !important;
+    }
+
+    .img-cons img {
+        width: 100% !important;
+    }
+
+    .img-screen {
+        width: 250px;
+        height: 250px;
+    }
+
+    .img-screen img {
+        position: absolute;
+        left: 14%;
+        top: 55px;
+        width: 75%;
+    }
+
+    .img-person-network {
+        left: 50%;
+    }
+
+    .newsletter {
+        display: flex;
+        justify-content: center;
+    }
+
+}

@@ -1,0 +1,564 @@
+<template>
+  <div>
+    
+    
+      <div class="sec-color p-0 m-0 sec-one">
+        <div class="img-sec-one">
+          <img class="img-fluid" src="/assets/img/Group 14510.png" alt="" />
+        </div>
+        <div class="container">
+          <div class="row align-items-center pt-5 pb-5">
+            <div class="col-md-7 text ">
+              <h1 class="fs-1 text-js"> </h1>
+              <p class="fs-4 text-p">
+               
+              </p>
+              <div class="">
+                <button class="btn-custmer">انضمي الان</button>
+                <button class="btn-custmer-w">سجلي دخولك</button>
+              </div>
+            </div>
+            <div class="col-md-5 circle-img m-auto">
+              <div>
+                <img class="landing" src="/assets/img/image.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <!-- services -->
+        <ServicesPart/>
+        <!--# service-->
+        
+
+
+        <div class="sec-three mt-5">
+          <div class="feature-carousel owl-carousel owl-theme">
+            <div style="height: 287.9px" class="item">
+              <div class="carwsel-slider-item rounded-4">
+                <div class="row pt-3">
+                  <div class="col-md-7">
+                    <div class="px-4">
+                      <h3>معسكر ريادة الاعمال</h3>
+                      <h1 class="fs-1 m-0 text-white">
+                        حولي مهارتك الى مشروع رائد
+                      </h1>
+                      <div class="">
+                        <p class="pt-3">
+                          <svg
+                            width="38"
+                            height="38"
+                            viewBox="0 0 38 38"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12.4615 8.89492C11.8273 8.89492 11.3014 8.36901 11.3014 7.73482V3.09442C11.3014 2.46024 11.8273 1.93433 12.4615 1.93433C13.0957 1.93433 13.6216 2.46024 13.6216 3.09442V7.73482C13.6216 8.36901 13.0957 8.89492 12.4615 8.89492Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M24.8354 8.89492C24.2012 8.89492 23.6753 8.36901 23.6753 7.73482V3.09442C23.6753 2.46024 24.2012 1.93433 24.8354 1.93433C25.4696 1.93433 25.9955 2.46024 25.9955 3.09442V7.73482C25.9955 8.36901 25.4696 8.89492 24.8354 8.89492Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M13.2347 22.4286C13.0336 22.4286 12.8325 22.3823 12.6469 22.3049C12.4458 22.2276 12.2911 22.1193 12.1364 21.9801C11.858 21.6862 11.6879 21.2995 11.6879 20.8818C11.6879 20.6808 11.7343 20.4797 11.8116 20.2941C11.889 20.1084 11.9972 19.9383 12.1364 19.7836C12.2911 19.6444 12.4458 19.5361 12.6469 19.4588C13.2037 19.2267 13.8998 19.3505 14.3329 19.7836C14.6113 20.0775 14.7815 20.4797 14.7815 20.8818C14.7815 20.9747 14.766 21.0829 14.7505 21.1912C14.7351 21.284 14.7041 21.3768 14.6577 21.4696C14.6268 21.5624 14.5804 21.6552 14.5185 21.748C14.4721 21.8254 14.3948 21.9027 14.3329 21.9801C14.039 22.2585 13.6368 22.4286 13.2347 22.4286Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M18.6487 22.4278C18.4476 22.4278 18.2466 22.3814 18.0609 22.3041C17.8599 22.2268 17.7052 22.1185 17.5505 21.9792C17.2721 21.6854 17.1019 21.2987 17.1019 20.881C17.1019 20.6799 17.1483 20.4789 17.2257 20.2932C17.303 20.1076 17.4113 19.9375 17.5505 19.7828C17.7052 19.6436 17.8599 19.5353 18.0609 19.458C18.6178 19.2105 19.3138 19.3497 19.747 19.7828C20.0254 20.0767 20.1955 20.4789 20.1955 20.881C20.1955 20.9738 20.1801 21.0821 20.1646 21.1904C20.1491 21.2832 20.1182 21.376 20.0718 21.4688C20.0408 21.5616 19.9944 21.6544 19.9326 21.7472C19.8862 21.8246 19.8088 21.9019 19.747 21.9792C19.4531 22.2577 19.0509 22.4278 18.6487 22.4278Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M24.0621 22.4278C23.861 22.4278 23.6599 22.3814 23.4743 22.3041C23.2732 22.2268 23.1185 22.1185 22.9638 21.9792C22.902 21.9019 22.8401 21.8246 22.7782 21.7472C22.7163 21.6544 22.6699 21.5616 22.639 21.4688C22.5926 21.376 22.5617 21.2832 22.5462 21.1904C22.5307 21.0821 22.5153 20.9738 22.5153 20.881C22.5153 20.4789 22.6854 20.0767 22.9638 19.7828C23.1185 19.6436 23.2732 19.5353 23.4743 19.458C24.0466 19.2105 24.7272 19.3497 25.1603 19.7828C25.4387 20.0767 25.6089 20.4789 25.6089 20.881C25.6089 20.9738 25.5934 21.0821 25.5779 21.1904C25.5625 21.2832 25.5315 21.376 25.4851 21.4688C25.4542 21.5616 25.4078 21.6544 25.3459 21.7472C25.2995 21.8246 25.2222 21.9019 25.1603 21.9792C24.8664 22.2577 24.4642 22.4278 24.0621 22.4278Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M13.2347 27.843C13.0336 27.843 12.8325 27.7967 12.6469 27.7193C12.4613 27.642 12.2911 27.5337 12.1364 27.3945C11.858 27.1006 11.6879 26.6984 11.6879 26.2962C11.6879 26.0952 11.7343 25.8941 11.8116 25.7085C11.889 25.5074 11.9972 25.3372 12.1364 25.198C12.7088 24.6257 13.7606 24.6257 14.3329 25.198C14.6113 25.4919 14.7815 25.8941 14.7815 26.2962C14.7815 26.6984 14.6113 27.1006 14.3329 27.3945C14.039 27.6729 13.6368 27.843 13.2347 27.843Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M18.6487 27.843C18.2466 27.843 17.8444 27.6729 17.5505 27.3945C17.2721 27.1006 17.1019 26.6984 17.1019 26.2962C17.1019 26.0952 17.1483 25.8941 17.2257 25.7085C17.303 25.5074 17.4113 25.3372 17.5505 25.198C18.1228 24.6257 19.1746 24.6257 19.747 25.198C19.8862 25.3372 19.9944 25.5074 20.0718 25.7085C20.1491 25.8941 20.1955 26.0952 20.1955 26.2962C20.1955 26.6984 20.0254 27.1006 19.747 27.3945C19.4531 27.6729 19.0509 27.843 18.6487 27.843Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M24.0621 27.8429C23.6599 27.8429 23.2577 27.6727 22.9638 27.3943C22.8246 27.2551 22.7163 27.085 22.639 26.8839C22.5617 26.6983 22.5153 26.4972 22.5153 26.2961C22.5153 26.095 22.5617 25.8939 22.639 25.7083C22.7163 25.5072 22.8246 25.3371 22.9638 25.1979C23.3196 24.8421 23.861 24.6719 24.3559 24.7802C24.4642 24.7957 24.557 24.8266 24.6498 24.873C24.7427 24.904 24.8355 24.9504 24.9283 25.0123C25.0056 25.0587 25.0829 25.136 25.1603 25.1979C25.4387 25.4918 25.6089 25.8939 25.6089 26.2961C25.6089 26.6983 25.4387 27.1004 25.1603 27.3943C24.8664 27.6727 24.4642 27.8429 24.0621 27.8429Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M31.7964 15.2197H5.5008C4.86661 15.2197 4.3407 14.6938 4.3407 14.0596C4.3407 13.4254 4.86661 12.8995 5.5008 12.8995H31.7964C32.4306 12.8995 32.9565 13.4254 32.9565 14.0596C32.9565 14.6938 32.4306 15.2197 31.7964 15.2197Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M24.8356 35.1906H12.4612C6.81542 35.1906 3.56714 31.9423 3.56714 26.2965V13.1487C3.56714 7.50292 6.81542 4.25464 12.4612 4.25464H24.8356C30.4814 4.25464 33.7297 7.50292 33.7297 13.1487V26.2965C33.7297 31.9423 30.4814 35.1906 24.8356 35.1906ZM12.4612 6.57484C8.03739 6.57484 5.88734 8.72489 5.88734 13.1487V26.2965C5.88734 30.7204 8.03739 32.8704 12.4612 32.8704H24.8356C29.2595 32.8704 31.4095 30.7204 31.4095 26.2965V13.1487C31.4095 8.72489 29.2595 6.57484 24.8356 6.57484H12.4612Z"
+                              fill="#414042"
+                            />
+                          </svg>
+                          16 أكتوبر الى 26 أكتوبر
+                        </p>
+                        <p>
+                          <svg
+                            width="38"
+                            height="38"
+                            viewBox="0 0 38 38"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M18.647 35.9081C9.47449 35.9081 2.01892 28.4526 2.01892 19.2801C2.01892 10.1075 9.47449 2.65198 18.647 2.65198C27.8195 2.65198 35.2751 10.1075 35.2751 19.2801C35.2751 28.4526 27.8195 35.9081 18.647 35.9081ZM18.647 4.97218C10.7583 4.97218 4.33912 11.3914 4.33912 19.2801C4.33912 27.1687 10.7583 33.5879 18.647 33.5879C26.5357 33.5879 32.9549 27.1687 32.9549 19.2801C32.9549 11.3914 26.5357 4.97218 18.647 4.97218Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M14.2354 27.5304C14.3989 27.5304 14.5624 27.4913 14.7133 27.3869L18.6117 24.9736C19.5801 24.3736 20.2969 23.0561 20.2969 21.8951V16.5468C20.2969 16.012 19.8693 15.5685 19.3537 15.5685C18.8381 15.5685 18.4105 16.012 18.4105 16.5468V21.8951C18.4105 22.3647 18.0333 23.0561 17.6434 23.2909L13.745 25.7041C13.2922 25.9781 13.1539 26.5781 13.418 27.0477C13.6066 27.3608 13.921 27.5304 14.2354 27.5304Z"
+                              fill="#414042"
+                            />
+                          </svg>
+                          6 مـســاءً الى 9 مـســاءً
+                        </p>
+                        <p>
+                          <svg
+                            width="38"
+                            height="38"
+                            viewBox="0 0 38 38"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M18.6475 22.3424C15.3528 22.3424 12.6614 19.6664 12.6614 16.3563C12.6614 13.0461 15.3528 10.3856 18.6475 10.3856C21.9422 10.3856 24.6336 13.0616 24.6336 16.3717C24.6336 19.6819 21.9422 22.3424 18.6475 22.3424ZM18.6475 12.7058C16.6366 12.7058 14.9816 14.3454 14.9816 16.3717C14.9816 18.398 16.6212 20.0376 18.6475 20.0376C20.6738 20.0376 22.3134 18.398 22.3134 16.3717C22.3134 14.3454 20.6583 12.7058 18.6475 12.7058Z"
+                              fill="#414042"
+                            />
+                            <path
+                              d="M18.6476 35.6284C16.3583 35.6284 14.0536 34.7622 12.2593 33.0453C7.69624 28.6524 2.65368 21.6454 4.55624 13.3081C6.27319 5.7443 12.878 2.35681 18.6476 2.35681C18.6476 2.35681 18.6476 2.35681 18.663 2.35681C24.4326 2.35681 31.0374 5.7443 32.7544 13.3236C34.6415 21.6609 29.5989 28.6524 25.0359 33.0453C23.2416 34.7622 20.9368 35.6284 18.6476 35.6284ZM18.6476 4.67701C14.1464 4.67701 8.36136 7.07455 6.83003 13.8186C5.15949 21.104 9.73801 27.384 13.8834 31.3593C16.5594 33.9424 20.7512 33.9424 23.4272 31.3593C27.5571 27.384 32.1357 21.104 30.496 13.8186C28.9493 7.07455 23.1488 4.67701 18.6476 4.67701Z"
+                              fill="#414042"
+                            />
+                          </svg>
+                          اونلاين مباشر تفاعلي
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5 riad-img-carwsel">
+                    <img
+                      src="/assets/img/1663686448841 1.png"
+                      alt=""
+                      width="450.14"
+                      height="276"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="height: 287.9px" class="item">
+              <div class="carwsel-slider-item rounded-4">
+                <div class="">
+                  <div class="position-relative">
+                    <img
+                      style="opacity: 0.6"
+                      src="/assets/img/NoPath - Copy (2).jpg"
+                      alt=""
+                      height="292"
+                    />
+                    <div
+                      style="top: 5%; right: 19px"
+                      class="position-absolute"
+                    >
+                      <h3 class="text-white fw-bold pt-3">
+                        خطة العمل ودراسة الجدوى المالية
+                      </h3>
+                      <p class="w-50 pb-2">
+                        يبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن
+                        دراسة الجدوى مع قامة من قامات رياديات الأعمال
+                      </p>
+                      <button class="btn-custmer m-2 p-3">اشتركي الان</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="height: 287.9px" class="item">
+              <div
+                style="height: 287.9px"
+                class="carwsel-slider-item rounded-4"
+              >
+                <div class="text-descoun-carwsel">
+                  <h1 class="text-center m-0">
+                    خصم خاص بمناسبة العيد في اكاديمية رياديات
+                  </h1>
+                  <h2
+                    style="font-size: 185.19px"
+                    class="m-0 text-white text-center position-relative"
+                  >
+                    % 70
+                    <p style="top: 56px; left: 74%" class="position-absolute">
+                      <svg
+                        width="107"
+                        height="94"
+                        viewBox="0 0 107 94"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M81.1915 92.4384C86.9149 87.0983 94.0431 83.4125 99.7012 78.0658C100.661 77.1595 104.447 74.99 104.723 73.6053M104.723 73.6053C105.081 71.8073 100.645 69.7505 99.6239 69.2414C94.474 66.6749 85.4524 62.2818 79.5569 60.1025M104.723 73.6053C83.9625 78.5102 51.9176 68.0166 48.7853 48.8748M48.7853 48.8748C47.956 43.807 49.1532 38.133 53.123 31.9781C60.6291 20.3409 75.209 31.7358 68.575 42.6097C64.9117 48.6129 56.0376 49.5691 48.7853 48.8748ZM48.7853 48.8748C46.7022 48.6754 44.753 48.3398 43.0995 47.9485C22.5988 43.0976 5.10282 22.2476 1.99773 1.82192"
+                          stroke="white"
+                          stroke-width="2.93433"
+                          stroke-miterlimit="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </p>
+                  </h2>
+                  <div
+                    style="bottom: 26px; right: 10px"
+                    class="position-absolute"
+                  >
+                    <button class="btn-custmer-w subscribe-carwsel">
+                      اشتركي الان
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="overflow: hidden;" class="sec-four mt-5">
+          <div class="row align-items-center">
+            <div class="col-md-6" data-aos="fade-left"  data-aos-duration="2000">
+              <h2>أستشارات رياديات</h2>
+              <p style="line-height: 2" class="pt-3">
+                الان فقط يمكنك طلب أستشارة من نخبة من أفضل الريادين في مجالات
+                مختلفة مثل (اعمال، تسويق، محاسبة، نموذج عمل، قانون، استثمار ،
+                خطة عمل ، تقنية، تجميل، سياحة، ازياء، فاشن، مجوهرات)
+                <a style="color: #ffbc00" href="">
+                  أو تصبح أنت المستشار وتقدم خبراتك كستشارات
+                </a>
+              </p>
+              <button class="btn-custmer pt-3 my-2">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 11.75C12.81 11.75 12.62 11.68 12.47 11.53C12.18 11.24 12.18 10.76 12.47 10.47L20.67 2.26999C20.96 1.97999 21.44 1.97999 21.73 2.26999C22.02 2.55999 22.02 3.03999 21.73 3.32999L13.53 11.53C13.38 11.68 13.19 11.75 13 11.75Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M22 7.55C21.59 7.55 21.25 7.21 21.25 6.8V2.75H17.2C16.79 2.75 16.45 2.41 16.45 2C16.45 1.59 16.79 1.25 17.2 1.25H22C22.41 1.25 22.75 1.59 22.75 2V6.8C22.75 7.21 22.41 7.55 22 7.55Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H11C11.41 1.25 11.75 1.59 11.75 2C11.75 2.41 11.41 2.75 11 2.75H9C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V13C21.25 12.59 21.59 12.25 22 12.25C22.41 12.25 22.75 12.59 22.75 13V15C22.75 20.43 20.43 22.75 15 22.75Z"
+                    fill="white"
+                  />
+                </svg>
+                اعرفي المزيد
+              </button>
+            </div>
+
+            <div class="col-md-6" data-aos="fade-right"  data-aos-duration="2000">
+              <img class="w-100" src="/assets/img/Rectangle 1777.png" alt="" width="460" />
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- section 5 -->
+    <SectTrainingCourses />
+    <!-- #section 5-->
+      <div class="sec-six">
+        <div class="container p-3">
+            <h2>شركائنا في رياديات </h2>
+
+            <div class="row justify-content-center">
+                <div class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
+                 <img  class="rounded-circle" src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+
+                </div>
+                <div class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
+                    <img sr class="rounded-circle" c="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+   
+                </div>
+                <div class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
+                    <img class="rounded-circle" src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+   
+                   </div>
+                   <div class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
+                    <img sr class="rounded-circle" c="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+   
+                </div>
+                <div class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
+                    <img class="rounded-circle" src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+   
+                   </div>
+                   <div class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
+                       <img class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+      
+                   </div>
+                   <div class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
+                       <img class="rounded-circle" src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+      
+                      </div>
+                      <div class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
+                       <img class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+      
+                   </div>
+    
+            </div>
+        </div>
+        
+      </div>
+      <div class="sec-seven">
+        <div class="container">
+
+            <div class="row align-items-center  p-4">
+                <div class="col-md-6" data-aos="fade-up">
+                    <img class="rounded-cirle img-res" src="/assets/img/Group 14516.png" alt="" width="380" height="380">
+                </div>
+                <div class="col-md-6 position-relative" >
+                    <h2 class="text-white">تعرفي على رياديات </h2>
+                    <p  class="text-white">
+                        رياديات هي شركة سعودية تهدف لدعم ريادة الاعمال و خصوصا المرأة و تمكينها في مجال ريادة الاعمال . من خلال مموعة متكملة من الخدمات
+                    </p>
+                    <p style="    top: 113px;
+                    left: 44%;" class="position-absolute">
+                        <svg
+                          width="107"
+                          height="94"
+                          viewBox="0 0 107 94"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M81.1915 92.4384C86.9149 87.0983 94.0431 83.4125 99.7012 78.0658C100.661 77.1595 104.447 74.99 104.723 73.6053M104.723 73.6053C105.081 71.8073 100.645 69.7505 99.6239 69.2414C94.474 66.6749 85.4524 62.2818 79.5569 60.1025M104.723 73.6053C83.9625 78.5102 51.9176 68.0166 48.7853 48.8748M48.7853 48.8748C47.956 43.807 49.1532 38.133 53.123 31.9781C60.6291 20.3409 75.209 31.7358 68.575 42.6097C64.9117 48.6129 56.0376 49.5691 48.7853 48.8748ZM48.7853 48.8748C46.7022 48.6754 44.753 48.3398 43.0995 47.9485C22.5988 43.0976 5.10282 22.2476 1.99773 1.82192"
+                            stroke="white"
+                            stroke-width="2.93433"
+                            stroke-miterlimit="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </p>
+                      <div style="margin-top: 100px;" class="">
+
+                          <button class="btn border p-2 text-white bg-transpernt ">
+                            
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="#F6F8F9"/>
+                                <path d="M11.9999 18.25C11.7899 18.25 11.5899 18.22 11.4199 18.16C9.26986 17.43 5.85986 14.81 5.85986 10.91C5.85986 8.83 7.53986 7.14001 9.60986 7.14001C10.5099 7.14001 11.3399 7.45001 12.0099 8.01001C12.6799 7.45001 13.5199 7.14001 14.3999 7.14001C16.4699 7.14001 18.1499 8.83 18.1499 10.91C18.1499 14.8 14.7399 17.42 12.5799 18.16C12.4099 18.22 12.1999 18.25 11.9999 18.25ZM9.59987 8.64999C8.35987 8.64999 7.34987 9.67001 7.34987 10.92C7.34987 14.41 10.7199 16.35 11.8999 16.75C11.9399 16.76 12.0399 16.76 12.0799 16.75C13.2599 16.35 16.6299 14.41 16.6299 10.92C16.6299 9.67001 15.6199 8.64999 14.3799 8.64999C13.6799 8.64999 13.0099 8.99 12.5899 9.56C12.3099 9.94 11.6699 9.94 11.3899 9.56C10.9699 8.98 10.3199 8.64999 9.59987 8.64999Z" fill="#F6F8F9"/>
+                                </svg>
+                                
+                            تعرفي على المزيد
+
+
+                          </button>
+                      </div>
+
+                </div>
+    
+    
+    
+            </div>
+        </div>
+
+      </div>
+      <div class="sex-eight mt-5">
+        <div class="container">
+          <h2 class="text-center">ماذا يقولون عن رياديات </h2>
+            <div class="feature-carousel owl-carousel owl-theme">
+                <div class="item">
+                    <div class="row align-items-center p">
+                        <div class="col-md-8 osition-relative">
+                            <p>
+                                رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات ..
+                            شكرا رياديات 
+                            </p>
+                            <h6 style="color: #FFBC00;">
+                                سلمى احمد
+                            </h6>
+                            <div class="position-absolute dote">
+                                <img src="/assets/img/dot.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="rounded-3  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                        </div>
+                     
+
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row align-items-center p">
+                        <div class="col-md-8 osition-relative">
+                            <p>
+                                رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات ..
+                            شكرا رياديات 
+                            </p>
+                            <h6 style="color: #FFBC00;">
+                                سلمى احمد
+                            </h6>
+                            <div class="position-absolute dote">
+                                <img src="/assets/img/dot.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="rounded-3  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                        </div>
+                     
+
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row align-items-center p">
+                        <div class="col-md-8 osition-relative">
+                            <p>
+                                رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات ..
+                            شكرا رياديات 
+                            </p>
+                            <h6 style="color: #FFBC00;">
+                                سلمى احمد
+                            </h6>
+                            <div class="position-absolute dote">
+                                <img src="/assets/img/dot.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="rounded-3  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                        </div>
+                     
+
+                    </div>
+                </div>
+    
+            </div>
+
+        </div>
+
+      </div>
+      <div style="overflow: hidden;" class="sec-nighn mt-5">
+        <div class="container">
+
+          <div
+          class="d-flex justify-content-between align-items-center container my-2"
+        >
+          <h1>مدونة رياديات    </h1>
+          <div>
+            <button class="more">المزيد</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 " data-aos="fade-right" data-aos-duration="1000">
+            <div class="box rounded-3 border">
+              <div class="image">
+                <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
+              </div>
+              <div class="text p-3">
+                <h6>عنوان المدونة </h6>
+                <p>
+                  نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي
+                </p>
+              </div>
+              <div class="date text-end mx-1 p-3">
+                <p>
+                  10  sep, 2021
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
+                    </svg>
+                    
+                </p>
+  
+              </div>
+  
+            </div>
+            
+  
+          </div>
+          <div class="col-md-4 " data-aos="fade-right" data-aos-duration="2000">
+            <div class="box rounded-3 border">
+              <div class="image">
+                <img class="w-100" src="/assets/img/Rectangle 2.png" alt="" height="184">
+              </div>
+              <div class="text p-3">
+                <h6>عنوان المدونة </h6>
+                <p>
+                  نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي
+                </p>
+              </div>
+              <div class="date text-end mx-1 p-3">
+                <p>
+                  10  sep, 2021
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
+                    </svg>
+                    
+                </p>
+              </div>
+            </div>            
+          </div>
+          <div class="col-md-4 " data-aos="fade-right" data-aos-duration="3000">
+            <div class="box rounded-3 border">
+              <div class="image">
+                <img class="w-100" src="/assets/img/Rectangle 3.png" alt="" height="184">
+              </div>
+              <div class="text p-3">
+                <h6>عنوان المدونة </h6>
+                <p>
+                  نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي
+                </p>
+              </div>
+              <div class="date text-end mx-1 p-3">
+                <p>
+                  10  sep, 2021
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
+                    </svg>        
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="sec-subscripe mt-5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center p-4">
+            <div class="col-md-6">
+              <h1 class="text-white">اشتركي بالقائمة البريدية
+              </h1>
+              <p class="text-white">
+                ليصلك كل العروض والاخبار الجديدة
+              </p>
+  
+            </div>
+            <div class="col-md-6">
+              <div class="input-group input-group-lg w-75 m-auto"  >
+                <input type="text" class="form-control p-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="اكتبي بريدك الالكتروني">
+                <span class="input-group-text bg-yal text-white" id="inputGroup-sizing-lg">اشترك</span>
+              </div>
+                      </div>
+  
+          </div>
+  
+        </div>
+      </div>
+
+    
+ 
+  </div>
+</template>
+
+<script>
+import ServicesPart from './parts/services.vue'
+import SectTrainingCourses from './parts/training-courses.vue'
+export default {
+  name: 'IndexView',
+  components: {
+    ServicesPart,
+    SectTrainingCourses
+  },
+  data:()=>({
+    
+  })
+}
+</script>
