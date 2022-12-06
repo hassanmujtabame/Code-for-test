@@ -11,7 +11,7 @@
                
               </p>
               <div class="">
-                <button class="btn-custmer">انضمي الان</button>
+                <button class="btn-custmer"  @click="$router.push('/register')">انضمي الان</button>
                 <button class="btn-custmer-w" @click="$router.push('/login')">سجلي دخولك</button>
               </div>
             </div>
