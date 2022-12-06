@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg">
       <div class="container-fluid px-5">
         <a class="navbar-brand" href="../index.html"
-          ><img src="@/assets/img/logo (1) (image).png" alt=""
+          ><img src="/assets/img/logo (1) (image).png" alt=""
         /></a>
         <button
           class="navbar-toggler"
