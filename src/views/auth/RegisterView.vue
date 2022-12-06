@@ -59,9 +59,9 @@
                             <div>
                                 <p>
                                 بانشاءك حساب جديد، انت توافق على
-                                    <a href="" class="m-c">
+                                    <router-link :to="'terms-and-conditions'" class="m-c">
                                         شروط الاستخدام وسياسة الخصوصيه
-                                    </a>
+                                    </router-link>
                                 </p>
                             </div>
                         </form>

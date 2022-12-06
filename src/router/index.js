@@ -64,6 +64,12 @@ const routes = [
     meta:{layout:LayoutDefault},
     name: 'forget-check',
     component: () => import(/* webpackChunkName: "forget-password-check" */ '../views/auth/ForgetPasswordCheck.vue')
+  },
+  {
+    path: '/terms-and-conditions',
+    meta:{layout:LayoutDefault},
+    name: 'Terms-and-Conditions',
+    component: () => import(/* webpackChunkName: "Terms-and-Conditions" */ '../views/policy/Terms-and-Conditions.vue')
   }
 ]
 
