@@ -45,6 +45,12 @@ const routes = [
     meta:{layout:LayoutDefault},
     name: 'forget-edit',
     component: () => import(/* webpackChunkName: "forget-password-edit" */ '../views/auth/ForgetPasswordEdit.vue')
+  },
+  {
+    path: '/forget-password-check',
+    meta:{layout:LayoutDefault},
+    name: 'forget-check',
+    component: () => import(/* webpackChunkName: "forget-password-check" */ '../views/auth/ForgetPasswordCheck.vue')
   }
 ]
 
