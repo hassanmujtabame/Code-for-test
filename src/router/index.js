@@ -32,7 +32,13 @@ const routes = [
     path: '/forget-password',
     meta:{layout:LayoutDefault},
     name: 'forget-password',
-    component: () => import(/* webpackChunkName: "Login" */ '../views/auth/ForgetPassword.vue')
+    component: () => import(/* webpackChunkName: "forget-password" */ '../views/auth/ForgetPassword.vue')
+  },
+  {
+    path: '/forget-password-finish',
+    meta:{layout:LayoutDefault},
+    name: 'forget-password',
+    component: () => import(/* webpackChunkName: "forget-password-finish" */ '../views/auth/ForgetPasswordFinish.vue')
   }
 ]
 
