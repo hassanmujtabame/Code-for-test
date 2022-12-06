@@ -44,7 +44,7 @@
                 <div data-aos="fade-left"  data-aos-duration="2000">
                     <img
                       class="img-fluid"
-                      src="@/assets/img/Rectangle 1763.png"
+                      src="/assets/img/Rectangle 1763.png"
                       alt=""
                     />
                   </div>
@@ -62,7 +62,7 @@
               <div data-aos="fade-left"  data-aos-duration="2000">
                     <img
                       class="img-fluid"
-                      src="@/assets/img/Rectangle 1763.png"
+                      src="/assets/img/Rectangle 1763.png"
                       alt=""
                     />
                   </div>
@@ -84,7 +84,7 @@
                <div data-aos="fade-left"  data-aos-duration="2000">
                     <img
                       class="img-fluid"
-                      src="@/assets/img/Rectangle 1763.png"
+                      src="/assets/img/Rectangle 1763.png"
                       alt=""
                     />
                   </div>
@@ -106,7 +106,7 @@
                 <div data-aos="fade-left"  data-aos-duration="2000">
                     <img
                       class="img-fluid"
-                      src="@/assets/img/Rectangle 1763.png"
+                      src="/assets/img/Rectangle 1763.png"
                       alt=""
                     />
                   </div>
@@ -127,7 +127,7 @@
                 <div data-aos="fade-left"  data-aos-duration="2000">
                     <img
                       class="img-fluid"
-                      src="@/assets/img/Rectangle 1763.png"
+                      src="/assets/img/Rectangle 1763.png"
                       alt=""
                     />
                   </div>
