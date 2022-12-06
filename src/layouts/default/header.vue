@@ -83,7 +83,7 @@
                 </div>
               </form>
               <div style="    line-height: 3.5;"  class="btn-main btn-nav text-center">
-                <a href="../regester.html" class="text-white ">انضمي الينا</a>
+                <router-link :to="'/register'" class="text-white ">انضمي الينا</router-link>
               </div>
               <li class="nav-item dropdown ms-3 lang">
                 <a
