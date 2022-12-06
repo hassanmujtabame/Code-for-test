@@ -29,10 +29,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "Register" */ '../views/auth/RegisterView.vue')
   },
   {
-    path: '/forgot-password',
+    path: '/forget-password',
     meta:{layout:LayoutDefault},
-    name: 'forgot-password',
-    component: () => import(/* webpackChunkName: "Login" */ '../views/ForgotPassword.vue')
+    name: 'forget-password',
+    component: () => import(/* webpackChunkName: "Login" */ '../views/auth/ForgetPassword.vue')
   }
 ]
 
