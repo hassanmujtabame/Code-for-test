@@ -12,7 +12,7 @@ let owl_carousel = require('./assets/js/owl.carousel.min.js').default;
 window.fn = owl_carousel;
 import Swiper from 'swiper';
 window.Swiper=Swiper
-
+import './plugins/vuex'
 //import './plugins/aos'
 import mixin from './plugins/mixins'
 import App from './App.vue'
