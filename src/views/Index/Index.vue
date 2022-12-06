@@ -379,7 +379,7 @@ import ServicesPart from './parts/services.vue'
 import SectTrainingCourses from './parts/section-5/training-courses.vue'
 import SectPartnerRiadiat from './parts/section-6/partners-riadiat.vue'
 import SectAboutUs from './parts/section-7/about-us.vue'
-import SectBlog from './parts/section-8/set-blog.vue'
+import SectBlog from './parts/section-8/sect-blog.vue'
 export default {
   name: 'IndexView',
   components: {
