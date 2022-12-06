@@ -349,28 +349,9 @@
      <!-- section 8-->
      <SectBlog/>
      <!-- #section 8-->
-      <div class="sec-subscripe mt-5">
-        <div class="container">
-          <div class="row align-items-center justify-content-center p-4">
-            <div class="col-md-6">
-              <h1 class="text-white">اشتركي بالقائمة البريدية
-              </h1>
-              <p class="text-white">
-                ليصلك كل العروض والاخبار الجديدة
-              </p>
-  
-            </div>
-            <div class="col-md-6">
-              <div class="input-group input-group-lg w-75 m-auto"  >
-                <input type="text" class="form-control p-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="اكتبي بريدك الالكتروني">
-                <span class="input-group-text bg-yal text-white" id="inputGroup-sizing-lg">اشترك</span>
-              </div>
-                      </div>
-  
-          </div>
-  
-        </div>
-      </div>
+      <!-- section subscripe-->
+      <sectSubscripe/>
+      <!-- #section subscripe-->
   </div>
 </template>
 
@@ -380,6 +361,7 @@ import SectTrainingCourses from './parts/section-5/training-courses.vue'
 import SectPartnerRiadiat from './parts/section-6/partners-riadiat.vue'
 import SectAboutUs from './parts/section-7/about-us.vue'
 import SectBlog from './parts/section-8/sect-blog.vue'
+import sectSubscripe from './parts/section-subscripe/sect-subscripe.vue'
 export default {
   name: 'IndexView',
   components: {
@@ -387,7 +369,8 @@ export default {
     SectTrainingCourses,
     SectPartnerRiadiat,
     SectAboutUs,
-    SectBlog
+    SectBlog,
+    sectSubscripe
   },
   data:()=>({
     
