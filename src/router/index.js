@@ -29,6 +29,13 @@ const routes = [
     component: () => import(/* webpackChunkName: "Register" */ '../views/auth/RegisterView.vue')
   },
   {
+    path: '/register-finish',
+    meta:{layout:LayoutDefault},
+    name: 'register-finish',
+    component: () => import(/* webpackChunkName: "Register-finish" */ '../views/auth/RegisterFinish.vue')
+  }
+  ,
+  {
     path: '/forget-password',
     meta:{layout:LayoutDefault},
     name: 'forget-password',
