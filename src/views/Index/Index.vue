@@ -7,7 +7,7 @@
       <!-- #section-1 -->
       <div class="container">
         <!-- services -->
-        <ServicesPart/>
+        <SectServices/>
         <!--# service-->
         <!-- section 3-->
         <SectCampRiadiat/>
@@ -151,7 +151,7 @@
 
 <script>
 import SectMainSlider from './parts/section-1/main-slider.vue'
-import ServicesPart from './parts/services.vue'
+import SectServices from './parts/section-2/services.vue'
 import SectCampRiadiat from './parts/section-3/camp-riadiat.vue'
 import SectTrainingCourses from './parts/section-5/training-courses.vue'
 import SectPartnerRiadiat from './parts/section-6/partners-riadiat.vue'
@@ -162,7 +162,7 @@ export default {
   name: 'IndexView',
   components: {
     SectMainSlider,
-    ServicesPart,
+    SectServices,
     SectCampRiadiat,
     SectTrainingCourses,
     SectPartnerRiadiat,
