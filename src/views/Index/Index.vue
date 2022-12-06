@@ -550,7 +550,7 @@
 
 <script>
 import ServicesPart from './parts/services.vue'
-import SectTrainingCourses from './parts/training-courses.vue'
+import SectTrainingCourses from './parts/section-5/training-courses.vue'
 export default {
   name: 'IndexView',
   components: {
