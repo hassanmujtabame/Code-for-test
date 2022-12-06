@@ -33,6 +33,12 @@ const routes = [
     meta:{layout:LayoutDefault},
     name: 'register-finish',
     component: () => import(/* webpackChunkName: "Register-finish" */ '../views/auth/RegisterFinish.vue')
+  },
+  {
+    path: '/register-check',
+    meta:{layout:LayoutDefault},
+    name: 'register-check',
+    component: () => import(/* webpackChunkName: "Register-check" */ '../views/auth/RegisterCheck.vue')
   }
   ,
   {
