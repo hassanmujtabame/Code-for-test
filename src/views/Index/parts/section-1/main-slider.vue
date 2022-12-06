@@ -12,7 +12,7 @@
               </p>
               <div class="">
                 <button class="btn-custmer">انضمي الان</button>
-                <button class="btn-custmer-w">سجلي دخولك</button>
+                <button class="btn-custmer-w" @click="$router.push('/login')">سجلي دخولك</button>
               </div>
             </div>
             <div class="col-md-5 circle-img m-auto">
