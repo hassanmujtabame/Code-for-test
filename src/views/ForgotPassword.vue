@@ -5,7 +5,7 @@
                 <div class="row align-items-center p-0 position-relative ">
                     <div class="col-12 col-md-6 p-4">
                         <div style="" class="text-center " >
-                                 <img class="" src="@/assets/img/pot_1_@2x.png" alt="" width="320" height="220">
+                                 <img class="" src="/assets/img/pot_1_@2x.png" alt="" width="320" height="220">
                         </div>
                         <div class="">
 

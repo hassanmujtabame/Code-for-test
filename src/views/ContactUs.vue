@@ -27,13 +27,13 @@
                                 <img style="
                                 width: 100%;
                             
-                            " src="@/assets/img/Frame 5001.png" alt="">
+                            " src="/assets/img/Frame 5001.png" alt="">
                                 <div style="
                             
                          
                             
                             " class="position-absolute img-bg-contact">
-                                    <img class="w-100" src="@/assets/img/logo-white.png" alt="">
+                                    <img class="w-100" src="/assets/img/logo-white.png" alt="">
 
                                 </div>
                                 <div style="    top: 68%;
