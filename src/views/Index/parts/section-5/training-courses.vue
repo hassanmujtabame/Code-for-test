@@ -14,38 +14,23 @@
           </p>
           <div class="container" style="overflow:hidden">
           <swiper
-    :slides-per-view="5"
-    :space-between="10"
-      :loop="true"
-      :pagination="true"
-      :navigation="true"
-  >
+            :slides-per-view="5"
+            :space-between="10"
+              :loop="true"
+              :pagination="true"
+              :navigation="true"
+            >
               <SwiperSlide v-for="(course,i) in courses"  :key="i" >
-                <div class="rounded-5">
-                  <div class="img-courses">
-                    <img
-                      :src="course.img"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="bg-white p-3">
-                    <div>
-                      <p>{{course.title}}</p>
-                    </div>
-                    <div class="text-end mx-1">
-                      <p class="m-c">{{course.price}} {{course.currency}}</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-             
-
-           
+               <TrainingCourseCard 
+               :img="course.img"
+               :title="course.title"
+               :price="course.price"
+               :currency="course.currency"
+               />
+              </SwiperSlide>        
           </swiper>
         </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            
           </div>
         </div>
       
@@ -60,9 +45,11 @@ import { SwiperCore, Swiper, SwiperSlide } from 'swiper-vue2'
 import 'swiper/swiper-bundle.css'
 
 SwiperCore.use([Navigation, Pagination])
+import TrainingCourseCard from '@/components/cards/training-course.vue'
 export default {
   components:{
     Swiper, SwiperSlide
+    ,TrainingCourseCard
   },
  data:()=>({
     courses:[
