@@ -3,7 +3,7 @@
         <div class="img-sec-one">
           <img class="img-fluid" src="/assets/img/Group 14510.png" alt="" />
         </div>
-        <div class="container">
+        <div class="container" style="position:relative">
           <div class="row align-items-center pt-5 pb-5">
             <div class="col-md-7 text ">
               <h1 class="fs-1 text-js"> </h1>
