@@ -4,46 +4,26 @@
         
                 <div class="row align-items-center p-0 position-relative ">
                     <div class="col-12 col-md-6 p-4">
-                        <div style="    top: 17px;
-                        left: 53%;" class="position-absolute form-loging" >
+                        <div style="top: 17px;left: 53%;" class="position-absolute form-loging" >
                             <h6>
                                 ليس لديك حساب ؟   
-                                <a href="regester.html" class="m-c">
+                                <router-link :to="'register'" class="m-c">
                                       أنشئ حساب الان
-                                </a>
+                                </router-link>
                             </h6>
                         </div>
-                        <h1 class="fw-bolder">
-                            مرحبا بك من جديد
-                                                </h1>
-                        <p>
-                            لنبدأمن جديد ال انطلاق نحو المستقبل 
-
-                        </p>
+                        <h1 class="fw-bolder">مرحبا بك من جديد</h1>
+                        <p>لنبدأمن جديد ال انطلاق نحو المستقبل</p>
                         <form class="row g-3 needs-validation" novalidate>
-                    
-
                             <div class="col-md-4 w-100">
-                                <input type="email" class="form-control" id="validationCustom03"
-                                    placeholder=" البريد الالكتروني" required>
-                                
-                                
+                                <input type="email" class="form-control" id="validationCustom03"       placeholder=" البريد الالكتروني" required>
                             </div>
-
                             <div class="col-md-4 w-100 position-relative">
                                 <input id="password-field"  type="password" class="form-control " 
-             
                                     placeholder="   كلمة السر" required>
-                                    <span
-                                    style="    top: 12px;
-                                    left: 15px;
-                                    color: #CDD7D8;
-                                    font-size: 23px;
-                                " toggle="#password-field"
+                                    <span    style="top: 12px;color: #CDD7D8;font-size: 23px;" toggle="#password-field"
                                     class="fa-regular fa-eye toggle-password position-absolute">
                                 </span>
-                                
-                                
                             </div>
                             <div class="d-flex justify-content-between mt-3 ">
                                 <div class="form-check">
@@ -53,9 +33,9 @@
                                     </label>
                                     </div>
                                     <div>
-                                        <a href="" class="m-c">
+                                        <router-link :to="'/forget-password'" class="m-c">
                                             نسيت كلمة السر ؟
-                                        </a>
+                                        </router-link>
                                     </div>
                                 </div>
                             <div class="col-12 text-center ">
