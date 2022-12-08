@@ -5,7 +5,7 @@
                 <TabHead :current.sync="currentTab" group="pills"  reference="organizers">
                     منظمات الحفلات
                 </TabHead>
-                <TabHead :current.sync="currentTab" group="pills"  reference="desginer">
+                <TabHead :current.sync="currentTab" group="pills"  reference="designer">
                     مصممات الديكور
                 </TabHead>
                 <TabHead :current.sync="currentTab" group="pills"  reference="design">
