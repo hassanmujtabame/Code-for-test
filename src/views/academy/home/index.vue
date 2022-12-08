@@ -8,14 +8,13 @@
                         <p class="text-white">
                             طوري مهاراتك و أنطلقي في عالم ريادة الاعمال والعمل الحر , أكاديمية رياديات ستكون معكِ خطوة بخطوة                                                </p>
                             <div class="btn-main-style">
-                              <a href="subscribe.html" class="btn-custmer shadow mt-2">انضمي الان</a>
+                              <router-link :to="'/academy/subscribe'" class="btn-custmer shadow mt-2">انضمي الان</router-link>
                               <a class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</a>
                              </div>
                     </div>
                     <div class="col-md-6 m-auto">
                         <div style="overflow: inherit;" class="img-cons m-auto ">
-                            <img style="  
-                            position: absolute;
+                            <img style="position: absolute;
                             
                             height: 341px;
                             top: 7px;
