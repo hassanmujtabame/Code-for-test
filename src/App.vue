@@ -22,8 +22,8 @@ export default {
         }
       },
   created() {
-    this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",true)
-    this.loadJS("/js/jquery.simple-calendar.min.js",true)
+   // this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",true)
+    //this.loadJS("/js/jquery.simple-calendar.min.js",true)
     const plugin = document.createElement("script");
     plugin.innerHTML="$(function() {  AOS.init();  });"
   document.body.appendChild(plugin);
