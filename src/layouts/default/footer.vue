@@ -52,7 +52,7 @@
                       </div>
                       <div class="col-3 col-md-3">
                           <h6>الدعم</h6>
-                          <a href="#" class="d-block">الأسئلة الشائعة</a>
+                          <router-link :to="'/common-questions'" class="d-block">الأسئلة الشائعة</router-link>
                           <a href="#" class="d-block">تواصل معنا</a>
                       </div>
                   </div>

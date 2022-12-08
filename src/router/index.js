@@ -77,6 +77,12 @@ const routes = [
     meta:{layout:LayoutDefault},
     name: 'who-are-we',
     component: () => import(/* webpackChunkName: "who-are-we" */ '../views/WhoAreWe.vue')
+  },
+  {
+    path: '/common-questions',
+    meta:{layout:LayoutDefault},
+    name: 'common-questions',
+    component: () => import(/* webpackChunkName: "common-questions" */ '../views/CommonQuestions.vue')
   }
 ]
 
