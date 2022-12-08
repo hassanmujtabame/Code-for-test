@@ -4,6 +4,8 @@ import LayoutDefault from '@/layouts/default/index.vue'
 import networkRoute from './network'
 import academyRoute from './academy'
 import incubatorRoute from './incubator'
+import serviceRoute from './service-provider'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -89,7 +91,8 @@ const routes = [
   },
   ...networkRoute,
   ...academyRoute,
-  ...incubatorRoute
+  ...incubatorRoute,
+  ...serviceRoute
 ]
 
 const router = new VueRouter({
