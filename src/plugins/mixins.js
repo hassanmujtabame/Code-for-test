@@ -1,6 +1,6 @@
 const mixin = {
     methods:{
-        loadJS:(src,async=true,defer=false)=>{
+        loadJS(src,async=true,defer=false){
           const plugin = document.createElement("script");
           plugin.setAttribute(
           "src",

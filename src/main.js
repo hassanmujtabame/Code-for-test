@@ -5,6 +5,8 @@ import $ from 'jquery';
 window.$=$;
 window.fn=$;
 window.jquery=jquery;
+Vue.prototype.jQuery = jquery
+window.jQuery=jquery;
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 //require('bootstrap/dist/js/bootstrap.bundle');
 //import './assets/js/owl.carousel.min.js'

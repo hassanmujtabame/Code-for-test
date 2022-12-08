@@ -61,10 +61,23 @@ components:{
     SectioninFluenceurs,
     SectionContinueLearning,
     SectionHear
+},
+methods:{
+        loadJS(src,async=true,defer=false){
+          const plugin = document.createElement("script");
+          plugin.setAttribute(
+          "src",
+          src
+        );
+        if(defer)
+        plugin.setAttribute("defer",true)
+        plugin.async = async;
+        document.body.appendChild(plugin);
+        }
+      },
+created(){
+    
 }
 }
 </script>
 
-<style>
-
-</style>

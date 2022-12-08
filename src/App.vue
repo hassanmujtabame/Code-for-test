@@ -8,9 +8,22 @@
 </template>
 <script>
 export default {
-  
+  methods:{
+        loadJS(src,async=true,defer=false){
+          const plugin = document.createElement("script");
+          plugin.setAttribute(
+          "src",
+          src
+        );
+        if(defer)
+        plugin.setAttribute("defer",true)
+        plugin.async = async;
+        document.body.appendChild(plugin);
+        }
+      },
   created() {
-  
+    this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",true)
+    this.loadJS("/js/jquery.simple-calendar.min.js",true)
     const plugin = document.createElement("script");
     plugin.innerHTML="$(function() {  AOS.init();  });"
   document.body.appendChild(plugin);
@@ -34,4 +47,5 @@ export default {
   @import "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css";
   @import "@/assets/css/main.css";
   @import "@/assets/css/responsive.css";
+  @import "@/assets/css/calender.css";
 </style>
