@@ -22,17 +22,17 @@
                             
                             height: 341px;
                             top: 7px;
-                            left: -111px;" src="../assets/img/1664204864736 1.png" alt="" >
+                            left: -111px;" src="/assets/img/1664204864736 1.png" alt="" >
                         </div>
 
                     </div>
 
                 </div>
                 <div class="star-cons">
-                    <img src="../assets/img/starrrr.png" alt="">
+                    <img src="/assets/img/starrrr.png" alt="">
                 </div>
                 <div class="star-cons stars">
-                    <img src="../assets/img/starsss.png" alt="">
+                    <img src="/assets/img/starsss.png" alt="">
                 </div>
 
             </div>
@@ -44,7 +44,7 @@
                 <div class="col-md-6">
                     <div>
                         <div class="bg-back position-relative">
-                            <img  class="img-fluid" src="../assets/img/Group 39920 - B@2x.svg" alt="">
+                            <img  class="img-fluid" src="/assets/img/Group 39920 - B@2x.svg" alt="">
                        
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                         <div class="box border d-flex gap-4 align-items-center rounded-2">
     
                             <div>
-                                <img src="../assets/img/Vector.png" alt="">
+                                <img src="/assets/img/Vector.png" alt="">
                             </div>
                             <div>
                                 تطوير الافكار
@@ -93,7 +93,7 @@
                         <div class="box border d-flex align-items-center  gap-4  rounded-2">
     
                             <div>
-                                <img src="../assets/img/Vector2.png" alt="">
+                                <img src="/assets/img/Vector2.png" alt="">
                             </div>
                             <div>
                                 دراسة جدوى أقتصاديــــــــة                            
@@ -106,7 +106,7 @@
                         <div class="box border d-flex align-items-center gap-4 rounded-2">
     
                             <div>
-                                <img src="../assets/img/Group3.png" alt="">
+                                <img src="/assets/img/Group3.png" alt="">
                             </div>
                             <div>
                                 تجهيز عـــــرض أسـتـثـمـــــاري                                                                            </div>
@@ -117,7 +117,7 @@
                         <div class="box border d-flex align-items-center gap-4 rounded-2">
     
                             <div>
-                                <img src="../assets/img/Group4.png" alt="">
+                                <img src="/assets/img/Group4.png" alt="">
                             </div>
                             <div>
                                 تجهيز خـــطــــة العمـــــــــــــــل                                                                    </div>
@@ -129,7 +129,7 @@
             </div>
         </div>
         <div>
-            <img class="img-fluid" src="../assets/img/Component 37.png" alt="">
+            <img class="img-fluid" src="/assets/img/Component 37.png" alt="">
         </div>
         <div class="container">
             <div class="sec-three mt-5">
@@ -238,7 +238,7 @@
                         </div>
                         <div class="col-md-5 riad-img-carwsel">
                           <img
-                            src="../assets/img/1663686448841 1.png"
+                            src="/assets/img/1663686448841 1.png"
                             alt=""
                             width="450.14"
                             height="276"
@@ -253,7 +253,7 @@
                         <div class="position-relative">
                           <img
                             style="opacity: 0.6"
-                            src="../assets/img/NoPath - Copy (2).jpg"
+                            src="/assets/img/NoPath - Copy (2).jpg"
                             alt=""
                             height="292"
                           />
@@ -324,7 +324,7 @@
           
               <div class="row mt-5  ">
                 <div class="col-md-6">
-                    <img class="img-fluid rounded-3" src="../assets/img/Rectangle 1777az.png" alt="">
+                    <img class="img-fluid rounded-3" src="/assets/img/Rectangle 1777az.png" alt="">
 
                 </div>
                 <div class="col-md-6">
@@ -372,7 +372,7 @@
                      height: 160px;" class="box bg-white rounded-circle p-3">
                       <div>
 
-                       <img src="../assets/img/img-1.png" alt="">
+                       <img src="/assets/img/img-1.png" alt="">
                             
                       </div>
                       <p class="s-c">
@@ -738,7 +738,7 @@
                         <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
 
                             <div class="box">
-                                <img src="../assets/img/h1.png" alt="">
+                                <img src="/assets/img/h1.png" alt="">
                             </div>
                             <div>
                                 <h4 class="m-c mt-2"> 
@@ -756,7 +756,7 @@
                         <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
 
                             <div class="box">
-                                <img src="../assets/img/h3.png" alt="">
+                                <img src="/assets/img/h3.png" alt="">
                             </div>
                             <div>
                                 <h4 class="m-c mt-2"> 
@@ -774,7 +774,7 @@
                         <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
 
                             <div class="box">
-                                <img src="../assets/img/h4.png" alt="">
+                                <img src="/assets/img/h4.png" alt="">
                             </div>
                             <div>
                                 <h4 class="m-c mt-2"> 
@@ -792,7 +792,7 @@
                         <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
 
                             <div class="box">
-                                <img src="../assets/img/h5.png" alt="">
+                                <img src="/assets/img/h5.png" alt="">
                             </div>
                             <div>
                                 <h4 class="m-c mt-2"> 
@@ -810,7 +810,7 @@
                         <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
 
                             <div class="box">
-                                <img src="../assets/img/h6.png" alt="">
+                                <img src="/assets/img/h6.png" alt="">
                             </div>
                             <div>
                                 <h4 class="m-c mt-2"> 
@@ -828,7 +828,7 @@
                         <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
 
                             <div class="box">
-                                <img src="../assets/img/h 6.png" alt="">
+                                <img src="/assets/img/h 6.png" alt="">
                             </div>
                             <div>
                                 <h4 class="m-c mt-2"> 
@@ -846,7 +846,7 @@
                         <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
 
                             <div class="box">
-                                <img src="../assets/img/h7.png" alt="">
+                                <img src="/assets/img/h7.png" alt="">
                             </div>
                             <div>
                                 <h4 class="m-c mt-2"> 
@@ -864,7 +864,7 @@
                         <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
 
                             <div class="box">
-                                <img src="../assets/img/h8.png" alt="">
+                                <img src="/assets/img/h8.png" alt="">
                             </div>
                             <div>
                                 <h4 class="m-c mt-2"> 
@@ -892,35 +892,35 @@
 
                 
     <div class=" col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="1000">
-        <img   class="rounded-circle" src="../assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" width="150px" height="150px">
+        <img   class="rounded-circle" src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" width="150px" height="150px">
 
         </div>
         <div class=" col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="2000">
-            <img  class="rounded-circle"  src="../assets/img/Ellipse 25.png" alt="" width="150px" height="150px">
+            <img  class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="150px" height="150px">
 
         </div>
         <div class=" col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="3000">
-            <img  class="rounded-circle" src="../assets/img/Ellipse 24.png" alt="" width="150px" height="150px">
+            <img  class="rounded-circle" src="/assets/img/Ellipse 24.png" alt="" width="150px" height="150px">
 
             </div>
             <div class=" col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="3000">
-            <img  class="rounded-circle"  src="../assets/img/Ellipse 25.png" alt="" width="150px" height="150px">
+            <img  class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="150px" height="150px">
 
         </div>
         <div class=" col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="1000">
-            <img  class="rounded-circle" src="../assets/img/Ellipse 24.png" alt="" width="150px" height="150px">
+            <img  class="rounded-circle" src="/assets/img/Ellipse 24.png" alt="" width="150px" height="150px">
 
             </div>
             <div class=" col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="2000">
-                <img  class="rounded-circle"  src="../assets/img/Ellipse 25.png" alt="" width="150px" height="150px">
+                <img  class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="150px" height="150px">
 
             </div>
             <div class=" col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="3000">
-                <img  class="rounded-circle" src="../assets/img/Ellipse 24.png" alt="" width="150px" height="150px">
+                <img  class="rounded-circle" src="/assets/img/Ellipse 24.png" alt="" width="150px" height="150px">
 
                 </div>
                 <div class=" col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="3000">
-                <img  class="rounded-circle"  src="../assets/img/Ellipse 25.png" alt="" width="150px" height="150px">
+                <img  class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="150px" height="150px">
 
             </div>
             </div>
@@ -950,7 +950,7 @@
                       <div class="swiper-slide rounded-3">
                         <div class="box ">
                             <div class="">
-                                <img  src="../assets/img/Group 14502.png" alt="" width="259" height="192">
+                                <img  src="/assets/img/Group 14502.png" alt="" width="259" height="192">
                             </div>
                             <div class="text bg-white ">
                                 <h6 class="border p-3 rounded-bottom s-c"> مركز باكورة الأهلية</h6>
@@ -963,22 +963,7 @@
                       <div class="swiper-slide rounded-3">
                         <div class="box ">
                             <div class="">
-                                <img  src="../assets/img/Rectangle 17753.png" alt="" width="259" height="192">
-                            </div>
-                            <div class="text bg-white ">
-        <div class="text bg-white ">
-                                <h6 class="border p-3 rounded-bottom s-c"> مركز باكورة الأهلية</h6>
-    
-                            </div>    
-                            </div>
-    
-                        </div>
-                     
-                      </div>
-                      <div class="swiper-slide rounded-3">
-                        <div class="box ">
-                            <div class="">
-                                <img  src="../assets/img/Group 145029.png" alt="" width="259" height="192">
+                                <img  src="/assets/img/Rectangle 17753.png" alt="" width="259" height="192">
                             </div>
                             <div class="text bg-white ">
         <div class="text bg-white ">
@@ -993,7 +978,7 @@
                       <div class="swiper-slide rounded-3">
                         <div class="box ">
                             <div class="">
-                                <img  src="../assets/img/Group 1450232.png" alt="" width="259" height="192">
+                                <img  src="/assets/img/Group 145029.png" alt="" width="259" height="192">
                             </div>
                             <div class="text bg-white ">
         <div class="text bg-white ">
@@ -1008,7 +993,7 @@
                       <div class="swiper-slide rounded-3">
                         <div class="box ">
                             <div class="">
-                                <img  src="../assets/img/Group 1450232.png" alt="" width="259" height="192">
+                                <img  src="/assets/img/Group 1450232.png" alt="" width="259" height="192">
                             </div>
                             <div class="text bg-white ">
         <div class="text bg-white ">
@@ -1023,7 +1008,7 @@
                       <div class="swiper-slide rounded-3">
                         <div class="box ">
                             <div class="">
-                                <img  src="../assets/img/Group 1450232.png" alt="" width="259" height="192">
+                                <img  src="/assets/img/Group 1450232.png" alt="" width="259" height="192">
                             </div>
                             <div class="text bg-white ">
         <div class="text bg-white ">
@@ -1038,7 +1023,22 @@
                       <div class="swiper-slide rounded-3">
                         <div class="box ">
                             <div class="">
-                                <img  src="../assets/img/Group 1450232.png" alt="" width="259" height="192">
+                                <img  src="/assets/img/Group 1450232.png" alt="" width="259" height="192">
+                            </div>
+                            <div class="text bg-white ">
+        <div class="text bg-white ">
+                                <h6 class="border p-3 rounded-bottom s-c"> مركز باكورة الأهلية</h6>
+    
+                            </div>    
+                            </div>
+    
+                        </div>
+                     
+                      </div>
+                      <div class="swiper-slide rounded-3">
+                        <div class="box ">
+                            <div class="">
+                                <img  src="/assets/img/Group 1450232.png" alt="" width="259" height="192">
                             </div>
                             <div class="text bg-white ">
         <div class="text bg-white ">
@@ -1075,7 +1075,7 @@
                                 <div class="col-6  col-lg-3">
                                     <div class="box">
                                         <div>
-                                            <img src="../assets/img/nwtt1786.png" class="rounded-3" alt="" width="166">
+                                            <img src="/assets/img/nwtt1786.png" class="rounded-3" alt="" width="166">
                                         </div>
                                         <div class="p-2">
                                             <p>
@@ -1096,7 +1096,7 @@
                                 <div class="col-6  col-lg-3">
                                     <div class="box">
                                         <div>
-                                            <img src="../assets/img/img-network.png" class="rounded-3" alt="" width="166">
+                                            <img src="/assets/img/img-network.png" class="rounded-3" alt="" width="166">
                                         </div>
                                         <div class="p-2">
                                             <p>
@@ -1117,7 +1117,7 @@
                                 <div class="col-6  col-lg-3">
                                     <div class="box">
                                         <div>
-                                            <img src="../assets/img/nwtt1786.png" class="rounded-3" alt="" width="166">
+                                            <img src="/assets/img/nwtt1786.png" class="rounded-3" alt="" width="166">
                                         </div>
                                         <div class="p-2">
                                             <p>
@@ -1169,7 +1169,7 @@
             <div class="col-md-6 mt-2">
                 <div class="img-screen">
 
-                    <img class="img-fluid" src="../assets/img/mobile-screen 1.png" alt="">
+                    <img class="img-fluid" src="/assets/img/mobile-screen 1.png" alt="">
                 </div>
 
             </div>
@@ -1181,10 +1181,10 @@
                 </h2>
                 <div class="mt-4">
                     <a href="../Incubator/program-icubator.html">
-                        <img src="../assets/img/34-349265_app-store-google-play-svg 3.png" alt="">
+                        <img src="/assets/img/34-349265_app-store-google-play-svg 3.png" alt="">
                     </a>
                     <a href="../Incubator/program-icubator.html">
-                        <img src="../assets/img/34-349265_app-store-google-play-svg 1.png" alt="">
+                        <img src="/assets/img/34-349265_app-store-google-play-svg 1.png" alt="">
                     </a>
                 </div>
 
@@ -1193,16 +1193,16 @@
         </div>
    
         <div class="star position-absolute" >
-                <img  class="landing"  src="../assets/img/start.png" alt="">
+                <img  class="landing"  src="/assets/img/start.png" alt="">
         </div>
         <div class="square position-absolute" >
-            <img class="landing"  src="../assets/img/square.png" alt="">
+            <img class="landing"  src="/assets/img/square.png" alt="">
          </div>
          <div class="star-two position-absolute" >
-            <img class="landing"  src="../assets/img/start.png" alt="">
+            <img class="landing"  src="/assets/img/start.png" alt="">
          </div>
         <div class="star-big position-absolute" >
-            <img class="landing"  src="../assets/img/star-big.png" alt="">
+            <img class="landing"  src="/assets/img/star-big.png" alt="">
         </div>
     </div>
     <div class="sex-eight mt-5">
@@ -1220,11 +1220,11 @@
                               سلمى احمد
                           </h6>
                           <div class="position-absolute dote">
-                              <img src="../assets/img/dot.png" alt="">
+                              <img src="/assets/img/dot.png" alt="">
                           </div>
                       </div>
                       <div class="col-md-4">
-                          <img class="rounded-3  " src="../assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                          <img class="rounded-3  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
                       </div>
                    
 
@@ -1241,11 +1241,11 @@
                               سلمى احمد
                           </h6>
                           <div class="position-absolute dote">
-                              <img src="../assets/img/dot.png" alt="">
+                              <img src="/assets/img/dot.png" alt="">
                           </div>
                       </div>
                       <div class="col-md-4">
-                          <img class="rounded-3  " src="../assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                          <img class="rounded-3  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
                       </div>
                    
 
@@ -1262,11 +1262,11 @@
                               سلمى احمد
                           </h6>
                           <div class="position-absolute dote">
-                              <img src="../assets/img/dot.png" alt="">
+                              <img src="/assets/img/dot.png" alt="">
                           </div>
                       </div>
                       <div class="col-md-4">
-                          <img class="rounded-3  " src="../assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                          <img class="rounded-3  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
                       </div>
                    
 
