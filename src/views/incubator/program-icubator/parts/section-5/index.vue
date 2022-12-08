@@ -1,22 +1,29 @@
 <template>
-   <div class="container p-4">
+<div class="container">
+        
+        <div class="container">
             <h2 class="text-center">
                 شركائنا في مجال الازياء
             </h2>
             <div class="row">
 
-                <div v-for="(partner,i) in partners" :key="i" class="col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="1000">
-                    <ImgAvatar :img="partner.img" :alt="partner.name" size=180 />
-                </div>
-            
-            </div>
+<div v-for="(partner,i) in partners" :key="i" class="col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="1000">
+    <ImgAvatar :img="partner.img" :alt="partner.name" size=180 />
+</div>
+
+</div>
         </div>
+       
+
+
+      </div>
 </template>
+
 
 <script>
 import ImgAvatar from '@/components/avatars/img-avatar.vue';
 export default {
- name:'section-8',
+ name:'section-5',
  components:{
     ImgAvatar
 }
