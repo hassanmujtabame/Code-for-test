@@ -71,6 +71,13 @@ const routes = [
     name: 'Terms-and-Conditions',
     component: () => import(/* webpackChunkName: "Terms-and-Conditions" */ '../views/policy/Terms-and-Conditions.vue')
   }
+  ,
+  {
+    path: '/who-are-we',
+    meta:{layout:LayoutDefault},
+    name: 'who-are-we',
+    component: () => import(/* webpackChunkName: "who-are-we" */ '../views/WhoAreWe.vue')
+  }
 ]
 
 const router = new VueRouter({

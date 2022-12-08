@@ -36,7 +36,7 @@
                   <div class="row justify-content-between nav ">
                       <div class="col-3 col-md-3">
                           <h6>رياديات</h6>
-                          <a href="#" class="d-block">من نحن</a>
+                          <router-link :to="'/who-are-we'" class="d-block">من نحن</router-link>
                           <a href="#" class="d-block">مقارنة الخدمات</a>
                       </div>
                       <div class="col-3 col-md-3">
