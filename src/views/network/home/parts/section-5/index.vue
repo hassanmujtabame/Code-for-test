@@ -9,139 +9,54 @@
                   <button class="more">المزيد</button>
                 </div>
               </div>
-              <div
-                style="overflow-x: hidden"
-                swiperRef=""
-                class="swiper-container mySwiper main-swiper"
-              >
-                <div
-                 
-                  class="swiper-wrapper"
-                >
-                  <div class="swiper-slide rounded-3">
-                    <div class="box ">
-                        <div class="">
-                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                        </div>
-                        <div class="text bg-white ">
-                            <h6> العنود محمد </h6>
-                            <p class="m-c"> التصوير  </p>
+              
+              <swiper
+              style="overflow-x: hidden"
+            :slides-per-view="5"
+            :space-between="10"
+              :loop="true"
+              :pagination="true"
+              :navigation="true"
+            >
+         <SwiperSlide v-for="(member,i) in members"  :key="i" >
+                <CardMember :name="member.name"
+                :img="member.img"
+                :description="member.description"
+                />
+         </SwiperSlide>
 
-                        </div>
-
-                    </div>
-                 
-                  </div>
-                  <div class="swiper-slide rounded-3">
-                    <div class="box ">
-                        <div class="">
-                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                        </div>
-                        <div class="text bg-white ">
-                            <h6> العنود محمد </h6>
-                            <p class="m-c"> التصوير  </p>
-
-                        </div>
-
-                    </div>
-                 
-                  </div>
-                  <div class="swiper-slide rounded-3">
-                    <div class="box ">
-                        <div class="">
-                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                        </div>
-                        <div class="text bg-white ">
-                            <h6> العنود محمد </h6>
-                            <p class="m-c"> التصوير  </p>
-
-                        </div>
-
-                    </div>
-                 
-                  </div>
-                  <div class="swiper-slide rounded-3">
-                    <div class="box ">
-                        <div class="">
-                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                        </div>
-                        <div class="text bg-white ">
-                            <h6> العنود محمد </h6>
-                            <p class="m-c"> التصوير  </p>
-
-                        </div>
-
-                    </div>
-                 
-                  </div>
-                  <div class="swiper-slide rounded-3">
-                    <div class="box ">
-                        <div class="">
-                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                        </div>
-                        <div class="text bg-white ">
-                            <h6> العنود محمد </h6>
-                            <p class="m-c"> التصوير  </p>
-
-                        </div>
-
-                    </div>
-                 
-                  </div>
-                  <div class="swiper-slide rounded-3">
-                    <div class="box ">
-                        <div class="">
-                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                        </div>
-                        <div class="text bg-white ">
-                            <h6> العنود محمد </h6>
-                            <p class="m-c"> التصوير  </p>
-
-                        </div>
-
-                    </div>
-                 
-                  </div>
-                  <div class="swiper-slide rounded-3">
-                    <div class="box ">
-                        <div class="">
-                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                        </div>
-                        <div class="text bg-white ">
-                            <h6> العنود محمد </h6>
-                            <p class="m-c"> التصوير  </p>
-
-                        </div>
-
-                    </div>
-                 
-                  </div>
-                  <div class="swiper-slide rounded-3">
-                    <div class="box ">
-                        <div class="">
-                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                        </div>
-                        <div class="text bg-white ">
-                            <h6> العنود محمد </h6>
-                            <p class="m-c"> التصوير  </p>
-
-                        </div>
-
-                    </div>
-                 
-                  </div>
-           
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
+              </swiper>
             </div>
           </div>
 </template>
 
 <script>
+ import { Navigation, Pagination } from 'swiper'
+
+import { SwiperCore, Swiper, SwiperSlide } from 'swiper-vue2'
+import CardMember from './card.vue'
+// Import Swiper styles
+import 'swiper/swiper-bundle.css'
+SwiperCore.use([Navigation, Pagination])
 export default {
- name:'section-5'
+ name:'section-5',
+ components:{
+    Swiper, SwiperSlide,
+    CardMember
+  },
+  data:()=>({
+    members:[
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+
+    ]
+  })
 }
 </script>
 
