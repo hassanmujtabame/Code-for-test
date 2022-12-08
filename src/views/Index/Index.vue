@@ -101,9 +101,6 @@
      <!-- section 8-->
      <SectBlog/>
      <!-- #section 8-->
-      <!-- section subscripe-->
-      <sectSubscripe/>
-      <!-- #section subscripe-->
   </div>
 </template>
 
@@ -116,7 +113,6 @@ import SectTrainingCourses from './parts/section-5/training-courses.vue'
 import SectPartnerRiadiat from './parts/section-6/partners-riadiat.vue'
 import SectAboutUs from './parts/section-7/about-us.vue'
 import SectBlog from './parts/section-8/sect-blog.vue'
-import sectSubscripe from './parts/section-subscripe/sect-subscripe.vue'
 export default {
   name: 'IndexView',
   components: {
@@ -127,8 +123,7 @@ export default {
     SectTrainingCourses,
     SectPartnerRiadiat,
     SectAboutUs,
-    SectBlog,
-    sectSubscripe
+    SectBlog
   },
   data:()=>({
     
