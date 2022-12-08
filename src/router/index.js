@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LayoutDefault from '@/layouts/default/index.vue'
 import networkRoute from './network'
+import academyRoute from './academy'
 Vue.use(VueRouter)
 
 const routes = [
@@ -85,7 +86,8 @@ const routes = [
     name: 'common-questions',
     component: () => import(/* webpackChunkName: "common-questions" */ '../views/CommonQuestions.vue')
   },
-  ...networkRoute
+  ...networkRoute,
+  ...academyRoute
 ]
 
 const router = new VueRouter({
