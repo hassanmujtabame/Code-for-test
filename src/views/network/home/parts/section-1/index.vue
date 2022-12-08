@@ -11,8 +11,8 @@
                             شبكة رياديات بتساعدك في مشروعك من الالف الى الياء
                          </p>
                          <div class="btn-main-style">
-                          <a href="subscribe.html" class="btn-custmer shadow mt-2">انضمي الان</a>
-                          <a class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</a>
+                          <router-link :to="'/network/subscribe'" class="btn-custmer shadow mt-2">انضمي الان</router-link>
+                          <router-link :to="'/login'" class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</router-link>
                          </div>
                     </div>
                     <div class="col-md-6 m-auto">
