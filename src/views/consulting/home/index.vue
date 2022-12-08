@@ -1,0 +1,644 @@
+<template>
+   <div style="margin-top: 85px " class="consult">
+        <div class="consulting p-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1 class="fs-1 text-white">
+                            أستشارات رياديات
+                        </h1>
+                        <p class="text-white">
+                            تقدمي إلى الأمام وابدئي مشروعك باستشارة مهنية في أغلب المجالات 
+                        </p>
+                        <div class="btn-main-style">
+                            <a href="" class="btn-custmer shadow mt-2">انضمي الان</a>
+                            <a class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 m-auto">
+                        <div class="img-cons m-auto ">
+                            <img style="    border-radius: 50%;
+                            position: absolute;
+                            width: 300px;
+                            height: 300px;" src="/assets/img/Group 289326.png" alt="" >
+                        </div>                        </div>
+
+                    </div>
+
+                </div>
+                <div class="star-cons">
+                    <img src="/assets/img/starrrr.png" alt="">
+                </div>
+                <div class="star-cons stars">
+                    <img src="/assets/img/starsss.png" alt="">
+                </div>
+
+            </div>
+
+      
+        <div class="container">
+            <div class="row align-items-center m-auto">
+                <div class="col-md-6">
+                    <div>
+                        <div class="bg-back position-relative">
+                            <img  class="img-fluid" src="/assets/img/Group 1171274848.png" alt="">
+                            <div class="cute position-absolute">
+
+                                <img class=""  src="/assets/img/cuate.png" alt="" width="250px">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 text">
+                    <h2 class="fw-bolder">
+                        نساعدك على الانطلاق !
+                    </h2>
+                    <p>
+                        مع خدمة استشارات رياديات فأنت في طريقك الصحيح نحو هدفك ..نوفر لك أفضل المستشارين ليساعدوكي في تحقيق أهدافك
+                    </p>
+                    <p>
+                        أستشارات رياديات هي خدمة مركزة لرواد ورائدات الأعمال؛ لتحويل أفكارهم إلى مشروعات مربحة، وتقديم نصائح وإرشادات محددة حول الفرص العديدة المتوافرة ومزاياها.
+
+
+                    </p>
+
+                </div>
+
+            </div>
+            <div>
+                <h2 class="text-center">
+                    أهداف الاستشارة من رياديات 
+                </h2>
+                <div class="row min-riadiat">
+                    <div class="col-md-4 ">
+                        <div class="box border text-center p-3 rounded-2">
+
+                            <div>
+                                <img src="/assets/img/es 1.png" alt="">
+                            </div>
+                            <p>
+                                إن كنت تنشئين مشروعـا أو تقومين بتأسيس أو تطويــر شركــــة ناشئة، فيمكننا أن نساعدك في كل مرحلة من مراحل العمل. 
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="box border text-center p-3 rounded-2">
+
+                            <div>
+                                <img src="/assets/img/es 2.png" alt="">
+                            </div>
+                            <p>
+                                تقديم استشارات إلكترونية، وعقد جلسات استشاريـــــة متخصصة فـي مجال معين.
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="box border text-center p-3 rounded-2">
+
+                            <div>
+                                <img src="/assets/img/es 3.png" alt="">
+                            </div>
+                            <p>
+                                تنفيذ الخدمات الاستشاريــة و تطويــــر الأعمـال  فــــي مـجــالات عـــمـــل رياديات.
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-5 align-items-center">
+                <div class="col-md-6">
+                    <img class="img-fluid rounded-3" src="/assets/img/Rectangle 1777888.png" alt="">
+
+                </div>
+                <div class="col-md-6">
+                    <h2>
+                        أنطلق الان
+                    </h2>
+                    <p>
+                        أشترك في خدمة الاستشارات من رياديات و أستمتع بالكثير من المميزات و العروض 
+                    </p>
+                    <div>
+                        <p>
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.80688 26.2049C11.4107 24.8635 10.9527 22.916 10.698 21.0278C10.3667 18.5843 12.7922 16.6943 15.14 17.5697L17.6853 18.5182C14.3535 20.5223 17.1815 24.2702 16.1056 26.9128C15.6885 27.9364 14.4992 28.4264 13.4378 28.0502C12.3374 27.6601 10.776 27.1058 9.91423 26.8007C9.65509 26.7076 9.59879 26.3786 9.80688 26.2049Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M26.6229 9.84468C25.0191 11.1861 25.4771 13.1336 25.7318 15.0217C26.0631 17.4652 23.6365 19.3541 21.2898 18.4798L18.7445 17.5313C22.0752 15.5261 19.2472 11.7782 20.3232 9.13563C20.7402 8.11203 21.9295 7.62208 22.991 7.99825C24.0913 8.38837 25.6528 8.94264 26.5145 9.24778C26.7736 9.34084 26.831 9.67094 26.6229 9.84468Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M26.5299 26.3103C25.153 24.7193 23.1763 25.1534 21.2593 25.387C18.7794 25.6921 16.8374 23.2878 17.704 20.9858L18.6442 18.4891C20.7125 21.7861 24.498 19.0366 27.1929 20.12C28.2372 20.5395 28.7459 21.7139 28.372 22.7559C27.9864 23.8339 27.437 25.365 27.1346 26.2101C27.0434 26.4631 26.7084 26.5166 26.5299 26.3103Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M9.90904 9.76829C11.2881 11.3593 13.2626 10.9252 15.1797 10.6916C17.6606 10.3876 19.6026 12.7919 18.735 15.0928L17.7937 17.5884C15.7254 14.2935 11.9409 17.042 9.24497 15.9597C8.20069 15.5401 7.69194 14.3657 8.06477 13.3248C8.45144 12.2458 9.00082 10.7146 9.30325 9.86958C9.39552 9.61548 9.72945 9.56305 9.90904 9.76829Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                </svg>
+                                مجالات متنوعة و فريدة                                
+                        </p>
+                        <p>
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.80688 26.2049C11.4107 24.8635 10.9527 22.916 10.698 21.0278C10.3667 18.5843 12.7922 16.6943 15.14 17.5697L17.6853 18.5182C14.3535 20.5223 17.1815 24.2702 16.1056 26.9128C15.6885 27.9364 14.4992 28.4264 13.4378 28.0502C12.3374 27.6601 10.776 27.1058 9.91423 26.8007C9.65509 26.7076 9.59879 26.3786 9.80688 26.2049Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M26.6229 9.84468C25.0191 11.1861 25.4771 13.1336 25.7318 15.0217C26.0631 17.4652 23.6365 19.3541 21.2898 18.4798L18.7445 17.5313C22.0752 15.5261 19.2472 11.7782 20.3232 9.13563C20.7402 8.11203 21.9295 7.62208 22.991 7.99825C24.0913 8.38837 25.6528 8.94264 26.5145 9.24778C26.7736 9.34084 26.831 9.67094 26.6229 9.84468Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M26.5299 26.3103C25.153 24.7193 23.1763 25.1534 21.2593 25.387C18.7794 25.6921 16.8374 23.2878 17.704 20.9858L18.6442 18.4891C20.7125 21.7861 24.498 19.0366 27.1929 20.12C28.2372 20.5395 28.7459 21.7139 28.372 22.7559C27.9864 23.8339 27.437 25.365 27.1346 26.2101C27.0434 26.4631 26.7084 26.5166 26.5299 26.3103Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M9.90904 9.76829C11.2881 11.3593 13.2626 10.9252 15.1797 10.6916C17.6606 10.3876 19.6026 12.7919 18.735 15.0928L17.7937 17.5884C15.7254 14.2935 11.9409 17.042 9.24497 15.9597C8.20069 15.5401 7.69194 14.3657 8.06477 13.3248C8.45144 12.2458 9.00082 10.7146 9.30325 9.86958C9.39552 9.61548 9.72945 9.56305 9.90904 9.76829Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                </svg>
+                                مجالات متنوعة و فريدة                                
+                        </p>
+                        <p>
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.80688 26.2049C11.4107 24.8635 10.9527 22.916 10.698 21.0278C10.3667 18.5843 12.7922 16.6943 15.14 17.5697L17.6853 18.5182C14.3535 20.5223 17.1815 24.2702 16.1056 26.9128C15.6885 27.9364 14.4992 28.4264 13.4378 28.0502C12.3374 27.6601 10.776 27.1058 9.91423 26.8007C9.65509 26.7076 9.59879 26.3786 9.80688 26.2049Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M26.6229 9.84468C25.0191 11.1861 25.4771 13.1336 25.7318 15.0217C26.0631 17.4652 23.6365 19.3541 21.2898 18.4798L18.7445 17.5313C22.0752 15.5261 19.2472 11.7782 20.3232 9.13563C20.7402 8.11203 21.9295 7.62208 22.991 7.99825C24.0913 8.38837 25.6528 8.94264 26.5145 9.24778C26.7736 9.34084 26.831 9.67094 26.6229 9.84468Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M26.5299 26.3103C25.153 24.7193 23.1763 25.1534 21.2593 25.387C18.7794 25.6921 16.8374 23.2878 17.704 20.9858L18.6442 18.4891C20.7125 21.7861 24.498 19.0366 27.1929 20.12C28.2372 20.5395 28.7459 21.7139 28.372 22.7559C27.9864 23.8339 27.437 25.365 27.1346 26.2101C27.0434 26.4631 26.7084 26.5166 26.5299 26.3103Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M9.90904 9.76829C11.2881 11.3593 13.2626 10.9252 15.1797 10.6916C17.6606 10.3876 19.6026 12.7919 18.735 15.0928L17.7937 17.5884C15.7254 14.2935 11.9409 17.042 9.24497 15.9597C8.20069 15.5401 7.69194 14.3657 8.06477 13.3248C8.45144 12.2458 9.00082 10.7146 9.30325 9.86958C9.39552 9.61548 9.72945 9.56305 9.90904 9.76829Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                </svg>
+                                مجالات متنوعة و فريدة                                
+                        </p>
+                        <p>
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.80688 26.2049C11.4107 24.8635 10.9527 22.916 10.698 21.0278C10.3667 18.5843 12.7922 16.6943 15.14 17.5697L17.6853 18.5182C14.3535 20.5223 17.1815 24.2702 16.1056 26.9128C15.6885 27.9364 14.4992 28.4264 13.4378 28.0502C12.3374 27.6601 10.776 27.1058 9.91423 26.8007C9.65509 26.7076 9.59879 26.3786 9.80688 26.2049Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M26.6229 9.84468C25.0191 11.1861 25.4771 13.1336 25.7318 15.0217C26.0631 17.4652 23.6365 19.3541 21.2898 18.4798L18.7445 17.5313C22.0752 15.5261 19.2472 11.7782 20.3232 9.13563C20.7402 8.11203 21.9295 7.62208 22.991 7.99825C24.0913 8.38837 25.6528 8.94264 26.5145 9.24778C26.7736 9.34084 26.831 9.67094 26.6229 9.84468Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M26.5299 26.3103C25.153 24.7193 23.1763 25.1534 21.2593 25.387C18.7794 25.6921 16.8374 23.2878 17.704 20.9858L18.6442 18.4891C20.7125 21.7861 24.498 19.0366 27.1929 20.12C28.2372 20.5395 28.7459 21.7139 28.372 22.7559C27.9864 23.8339 27.437 25.365 27.1346 26.2101C27.0434 26.4631 26.7084 26.5166 26.5299 26.3103Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                <path d="M9.90904 9.76829C11.2881 11.3593 13.2626 10.9252 15.1797 10.6916C17.6606 10.3876 19.6026 12.7919 18.735 15.0928L17.7937 17.5884C15.7254 14.2935 11.9409 17.042 9.24497 15.9597C8.20069 15.5401 7.69194 14.3657 8.06477 13.3248C8.45144 12.2458 9.00082 10.7146 9.30325 9.86958C9.39552 9.61548 9.72945 9.56305 9.90904 9.76829Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                </svg>
+                                مجالات متنوعة و فريدة                                
+                        </p>
+                        <button class="btn-main"> اشتركي الان  </button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div style="background-color: #F6F8F9;">
+            <div class="container">
+
+                <div class="row mt-5 align-items-center p-3">
+              
+                    <div class="col-md-6">
+                        <h2>
+                            أنطلق الان
+                        </h2>
+                        <p>
+                            أشترك في خدمة الاستشارات من رياديات و أستمتع بالكثير من المميزات و العروض 
+                        </p>
+                        <div>
+                            <p>
+                                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.80688 26.2049C11.4107 24.8635 10.9527 22.916 10.698 21.0278C10.3667 18.5843 12.7922 16.6943 15.14 17.5697L17.6853 18.5182C14.3535 20.5223 17.1815 24.2702 16.1056 26.9128C15.6885 27.9364 14.4992 28.4264 13.4378 28.0502C12.3374 27.6601 10.776 27.1058 9.91423 26.8007C9.65509 26.7076 9.59879 26.3786 9.80688 26.2049Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M26.6229 9.84468C25.0191 11.1861 25.4771 13.1336 25.7318 15.0217C26.0631 17.4652 23.6365 19.3541 21.2898 18.4798L18.7445 17.5313C22.0752 15.5261 19.2472 11.7782 20.3232 9.13563C20.7402 8.11203 21.9295 7.62208 22.991 7.99825C24.0913 8.38837 25.6528 8.94264 26.5145 9.24778C26.7736 9.34084 26.831 9.67094 26.6229 9.84468Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M26.5299 26.3103C25.153 24.7193 23.1763 25.1534 21.2593 25.387C18.7794 25.6921 16.8374 23.2878 17.704 20.9858L18.6442 18.4891C20.7125 21.7861 24.498 19.0366 27.1929 20.12C28.2372 20.5395 28.7459 21.7139 28.372 22.7559C27.9864 23.8339 27.437 25.365 27.1346 26.2101C27.0434 26.4631 26.7084 26.5166 26.5299 26.3103Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M9.90904 9.76829C11.2881 11.3593 13.2626 10.9252 15.1797 10.6916C17.6606 10.3876 19.6026 12.7919 18.735 15.0928L17.7937 17.5884C15.7254 14.2935 11.9409 17.042 9.24497 15.9597C8.20069 15.5401 7.69194 14.3657 8.06477 13.3248C8.45144 12.2458 9.00082 10.7146 9.30325 9.86958C9.39552 9.61548 9.72945 9.56305 9.90904 9.76829Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    </svg>
+                                    مجالات متنوعة و فريدة                                
+                            </p>
+                            <p>
+                                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.80688 26.2049C11.4107 24.8635 10.9527 22.916 10.698 21.0278C10.3667 18.5843 12.7922 16.6943 15.14 17.5697L17.6853 18.5182C14.3535 20.5223 17.1815 24.2702 16.1056 26.9128C15.6885 27.9364 14.4992 28.4264 13.4378 28.0502C12.3374 27.6601 10.776 27.1058 9.91423 26.8007C9.65509 26.7076 9.59879 26.3786 9.80688 26.2049Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M26.6229 9.84468C25.0191 11.1861 25.4771 13.1336 25.7318 15.0217C26.0631 17.4652 23.6365 19.3541 21.2898 18.4798L18.7445 17.5313C22.0752 15.5261 19.2472 11.7782 20.3232 9.13563C20.7402 8.11203 21.9295 7.62208 22.991 7.99825C24.0913 8.38837 25.6528 8.94264 26.5145 9.24778C26.7736 9.34084 26.831 9.67094 26.6229 9.84468Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M26.5299 26.3103C25.153 24.7193 23.1763 25.1534 21.2593 25.387C18.7794 25.6921 16.8374 23.2878 17.704 20.9858L18.6442 18.4891C20.7125 21.7861 24.498 19.0366 27.1929 20.12C28.2372 20.5395 28.7459 21.7139 28.372 22.7559C27.9864 23.8339 27.437 25.365 27.1346 26.2101C27.0434 26.4631 26.7084 26.5166 26.5299 26.3103Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M9.90904 9.76829C11.2881 11.3593 13.2626 10.9252 15.1797 10.6916C17.6606 10.3876 19.6026 12.7919 18.735 15.0928L17.7937 17.5884C15.7254 14.2935 11.9409 17.042 9.24497 15.9597C8.20069 15.5401 7.69194 14.3657 8.06477 13.3248C8.45144 12.2458 9.00082 10.7146 9.30325 9.86958C9.39552 9.61548 9.72945 9.56305 9.90904 9.76829Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    </svg>
+                                    مجالات متنوعة و فريدة                                
+                            </p>
+                            <p>
+                                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.80688 26.2049C11.4107 24.8635 10.9527 22.916 10.698 21.0278C10.3667 18.5843 12.7922 16.6943 15.14 17.5697L17.6853 18.5182C14.3535 20.5223 17.1815 24.2702 16.1056 26.9128C15.6885 27.9364 14.4992 28.4264 13.4378 28.0502C12.3374 27.6601 10.776 27.1058 9.91423 26.8007C9.65509 26.7076 9.59879 26.3786 9.80688 26.2049Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M26.6229 9.84468C25.0191 11.1861 25.4771 13.1336 25.7318 15.0217C26.0631 17.4652 23.6365 19.3541 21.2898 18.4798L18.7445 17.5313C22.0752 15.5261 19.2472 11.7782 20.3232 9.13563C20.7402 8.11203 21.9295 7.62208 22.991 7.99825C24.0913 8.38837 25.6528 8.94264 26.5145 9.24778C26.7736 9.34084 26.831 9.67094 26.6229 9.84468Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M26.5299 26.3103C25.153 24.7193 23.1763 25.1534 21.2593 25.387C18.7794 25.6921 16.8374 23.2878 17.704 20.9858L18.6442 18.4891C20.7125 21.7861 24.498 19.0366 27.1929 20.12C28.2372 20.5395 28.7459 21.7139 28.372 22.7559C27.9864 23.8339 27.437 25.365 27.1346 26.2101C27.0434 26.4631 26.7084 26.5166 26.5299 26.3103Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M9.90904 9.76829C11.2881 11.3593 13.2626 10.9252 15.1797 10.6916C17.6606 10.3876 19.6026 12.7919 18.735 15.0928L17.7937 17.5884C15.7254 14.2935 11.9409 17.042 9.24497 15.9597C8.20069 15.5401 7.69194 14.3657 8.06477 13.3248C8.45144 12.2458 9.00082 10.7146 9.30325 9.86958C9.39552 9.61548 9.72945 9.56305 9.90904 9.76829Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    </svg>
+                                    مجالات متنوعة و فريدة                                
+                            </p>
+                            <p class="mb-4">
+                                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.80688 26.2049C11.4107 24.8635 10.9527 22.916 10.698 21.0278C10.3667 18.5843 12.7922 16.6943 15.14 17.5697L17.6853 18.5182C14.3535 20.5223 17.1815 24.2702 16.1056 26.9128C15.6885 27.9364 14.4992 28.4264 13.4378 28.0502C12.3374 27.6601 10.776 27.1058 9.91423 26.8007C9.65509 26.7076 9.59879 26.3786 9.80688 26.2049Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M26.6229 9.84468C25.0191 11.1861 25.4771 13.1336 25.7318 15.0217C26.0631 17.4652 23.6365 19.3541 21.2898 18.4798L18.7445 17.5313C22.0752 15.5261 19.2472 11.7782 20.3232 9.13563C20.7402 8.11203 21.9295 7.62208 22.991 7.99825C24.0913 8.38837 25.6528 8.94264 26.5145 9.24778C26.7736 9.34084 26.831 9.67094 26.6229 9.84468Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M26.5299 26.3103C25.153 24.7193 23.1763 25.1534 21.2593 25.387C18.7794 25.6921 16.8374 23.2878 17.704 20.9858L18.6442 18.4891C20.7125 21.7861 24.498 19.0366 27.1929 20.12C28.2372 20.5395 28.7459 21.7139 28.372 22.7559C27.9864 23.8339 27.437 25.365 27.1346 26.2101C27.0434 26.4631 26.7084 26.5166 26.5299 26.3103Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    <path d="M9.90904 9.76829C11.2881 11.3593 13.2626 10.9252 15.1797 10.6916C17.6606 10.3876 19.6026 12.7919 18.735 15.0928L17.7937 17.5884C15.7254 14.2935 11.9409 17.042 9.24497 15.9597C8.20069 15.5401 7.69194 14.3657 8.06477 13.3248C8.45144 12.2458 9.00082 10.7146 9.30325 9.86958C9.39552 9.61548 9.72945 9.56305 9.90904 9.76829Z" fill="#1FB9B3" fill-opacity="0.5"/>
+                                    </svg>
+                                    مجالات متنوعة و فريدة                                
+                            </p>
+                            <a href="regester-consulting.html" class="btn-main p-3 mt-3 text-white"> 
+                                سجل كمسشار 
+                            </a>
+                        </div>
+    
+                    </div>
+                    <div class="col-md-6">
+                        <img class="img-fluid rounded-3 " src="/assets/img/Rectangle 1777888.png" alt="">
+    
+                    </div>
+    
+    
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+
+                <div
+                class="d-flex justify-content-between align-items-center container my-2"
+              >
+                <h1> أبرز مجالات الاستشارة      </h1>
+                <div>
+                  <button class="more">المزيد</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class=" col-12 mt-3 m-auto col-md-3">
+                    <div class="box text-center shadow border rounded-3">
+                        <div>
+                            <img class="" src="/assets/img/cuate.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text-box bg-white w-100 p-4 text-center rounded-3">
+                            دراسة جدوى
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class=" col-12 mt-3 m-auto col-md-3">
+                    <div class="box text-center shadow border rounded-3">
+                        <div>
+                            <img class="" src="/assets/img/consult1775.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text-box bg-white w-100 p-4 text-center rounded-3">
+                            دراسة جدوى
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class=" col-12 mt-3 m-auto col-md-3">
+                    <div class="box text-center shadow border rounded-3">
+                        <div>
+                            <img class="" src="/assets/img/Rectangle 1775aa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text-box bg-white w-100 p-4 text-center rounded-3">
+                            دراسة جدوى
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class=" col-12 mt-3 m-auto col-md-3">
+                    <div class="box text-center shadow border rounded-3">
+                        <div>
+                            <img class="" src="/assets/img/aa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text-box bg-white w-100 p-4 text-center rounded-3">
+                            دراسة جدوى
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+              </div>
+            </div>
+            
+        </div>
+
+        <div class="sec-five mt-5 p-3">
+            <div class="">
+              <div
+                class="d-flex justify-content-between align-items-center container"
+              >
+                <h1>أبرز مستشارينا</h1>
+                <div>
+                  <button class="more">المزيد</button>
+                </div>
+              </div>
+              <p class="container">
+                تقدم رياديات دورات تعليمية وتثقفية على اعلى مستوى
+              </p>
+              <div
+                style="overflow-x: hidden"
+                class="swiper-container mySwiper main-swiper"
+              >
+                <div
+                 
+                  class="swiper-wrapper"
+                >
+                  <div class="swiper-slide rounded-3">
+                    <div class="box ">
+                        <div class="">
+                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text bg-white ">
+                            <h6> العنود محمد </h6>
+                            <p class="m-c"> التصوير  </p>
+
+                        </div>
+
+                    </div>
+                 
+                  </div>
+                  <div class="swiper-slide rounded-3">
+                    <div class="box ">
+                        <div class="">
+                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text bg-white ">
+                            <h6> العنود محمد </h6>
+                            <p class="m-c"> التصوير  </p>
+
+                        </div>
+
+                    </div>
+                 
+                  </div>
+                  <div class="swiper-slide rounded-3">
+                    <div class="box ">
+                        <div class="">
+                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text bg-white ">
+                            <h6> العنود محمد </h6>
+                            <p class="m-c"> التصوير  </p>
+
+                        </div>
+
+                    </div>
+                 
+                  </div>
+                  <div class="swiper-slide rounded-3">
+                    <div class="box ">
+                        <div class="">
+                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text bg-white ">
+                            <h6> العنود محمد </h6>
+                            <p class="m-c"> التصوير  </p>
+
+                        </div>
+
+                    </div>
+                 
+                  </div>
+                  <div class="swiper-slide rounded-3">
+                    <div class="box ">
+                        <div class="">
+                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text bg-white ">
+                            <h6> العنود محمد </h6>
+                            <p class="m-c"> التصوير  </p>
+
+                        </div>
+
+                    </div>
+                 
+                  </div>
+                  <div class="swiper-slide rounded-3">
+                    <div class="box ">
+                        <div class="">
+                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text bg-white ">
+                            <h6> العنود محمد </h6>
+                            <p class="m-c"> التصوير  </p>
+
+                        </div>
+
+                    </div>
+                 
+                  </div>
+                  <div class="swiper-slide rounded-3">
+                    <div class="box ">
+                        <div class="">
+                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text bg-white ">
+                            <h6> العنود محمد </h6>
+                            <p class="m-c"> التصوير  </p>
+
+                        </div>
+
+                    </div>
+                 
+                  </div>
+                  <div class="swiper-slide rounded-3">
+                    <div class="box ">
+                        <div class="">
+                            <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
+                        </div>
+                        <div class="text bg-white ">
+                            <h6> العنود محمد </h6>
+                            <p class="m-c"> التصوير  </p>
+
+                        </div>
+
+                    </div>
+                 
+                  </div>
+           
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+
+              <div class="mt-5">
+                <div class="riadiat-of-number">
+                    <h2 class="text-center">رياديات في ارقام  </h2>
+                    <div class="row justify-content-center ">
+                        <div class="col-6 col-md-auto mt-3">
+                            <div class="box">
+    
+                                <h5 class="m-c fw-bolder">
+                                    60000+
+                                </h5>
+                                <p>
+                                    اشتراك في برامجنا
+    
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-auto mt-3">
+                            <div class="box">
+    
+                                <h5 class="m-c fw-bolder">
+                                    5222+
+                                </h5>
+                                <p>
+                                    اشتراك في برامجنا
+    
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-auto mt-3">
+                            <div class="box">
+    
+                                <h5 class="m-c fw-bolder">
+                                    5222+
+                                </h5>
+                                <p>
+                                    اشتراك في برامجنا
+    
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-auto mt-3">
+                            <div class="box">
+    
+                                <h5 class="m-c fw-bolder">
+                                    9+
+                                </h5>
+                                <p>
+                                    اشتراك في برامجنا
+    
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-auto mt-3">
+                            <div class="box">
+    
+                                <h5 class="m-c fw-bolder">
+                                    876+
+                                </h5>
+                                <p>
+                                    اشتراك في برامجنا
+    
+                                </p>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+          </div>
+          <div class="main-top py-2 px-5 position-relative mt-5">
+              <div class="row align-items-center text-center m-auto">
+                  <div class="col-md-6 mt-2">
+                      <div class="img-screen">
+      
+                          <img class="img-fluid" src="/assets/img/mobile-screen 1.png" alt="">
+                      </div>
+      
+                  </div>
+                  <div class="col-md-6  mt-4">
+                      <h2 class="text-white fs-1">
+                          أكملي دوراتك، مراسلاتك وشاركي فـــــــي الشبكة والحاضنة من خلال تطبيق رياديــــــات
+      
+      
+                      </h2>
+                      <div class="mt-4">
+                          <a href="">
+                              <img src="/assets/img/34-349265_app-store-google-play-svg 3.png" alt="">
+                          </a>
+                          <a href="">
+                              <img src="/assets/img/34-349265_app-store-google-play-svg 1.png" alt="">
+                          </a>
+                      </div>
+      
+                  </div>
+      
+              </div>
+         
+              <div class="star position-absolute" >
+                      <img  class="landing"  src="/assets/img/start.png" alt="">
+              </div>
+              <div class="square position-absolute" >
+                  <img class="landing"  src="/assets/img/square.png" alt="">
+               </div>
+               <div class="star-two position-absolute" >
+                  <img class="landing"  src="/assets/img/start.png" alt="">
+               </div>
+              <div class="star-big position-absolute" >
+                  <img class="landing"  src="/assets/img/star-big.png" alt="">
+              </div>
+          </div>
+          <div class="sex-eight mt-5">
+            <div class="container">
+              <h2 class="text-center">  ماذا يقولون المشتركين في الاستشارات  </h2>
+                <div class="feature-carousel owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="row align-items-center p">
+                            <div class="col-12 col-md-8 osition-relative">
+                                <p>
+                                    رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات ..
+                                شكرا رياديات 
+                                </p>
+                                <h6 style="color: #FFBC00;">
+                                    سلمى احمد
+                                </h6>
+                                <div class="position-absolute dote">
+                                    <img src="/assets/img/dot.png" alt="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 ">
+                                <img class="rounded-3 m-auto  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                            </div>
+                         
+    
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row align-items-center p">
+                            <div class="col-12 col-md-8 osition-relative">
+                                <p>
+                                    رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات ..
+                                شكرا رياديات 
+                                </p>
+                                <h6 style="color: #FFBC00;">
+                                    سلمى احمد
+                                </h6>
+                                <div class="position-absolute dote">
+                                    <img src="/assets/img/dot.png" alt="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 ">
+                                <img class="rounded-3 m-auto  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                            </div>
+                         
+    
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row align-items-center p">
+                            <div class="col-12 col-md-8 osition-relative">
+                                <p>
+                                    رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات ..
+                                شكرا رياديات 
+                                </p>
+                                <h6 style="color: #FFBC00;">
+                                    سلمى احمد
+                                </h6>
+                                <div class="position-absolute dote">
+                                    <img src="/assets/img/dot.png" alt="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 ">
+                                <img class="rounded-3 m-auto  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                            </div>
+                         
+    
+                        </div>
+                    </div>
+        
+                </div>
+    
+            </div>
+    
+          </div>
+    </div>
+
+</template>
+
+<script>
+export default {
+ name:'consulting-page'
+}
+</script>
+
+<style>
+
+</style>

@@ -5,7 +5,7 @@ import networkRoute from './network'
 import academyRoute from './academy'
 import incubatorRoute from './incubator'
 import serviceRoute from './service-provider'
-
+import consultingRoute from './consulting'
 Vue.use(VueRouter)
 
 const routes = [
@@ -92,7 +92,8 @@ const routes = [
   ...networkRoute,
   ...academyRoute,
   ...incubatorRoute,
-  ...serviceRoute
+  ...serviceRoute,
+  ...consultingRoute
 ]
 
 const router = new VueRouter({
