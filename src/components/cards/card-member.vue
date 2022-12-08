@@ -3,9 +3,9 @@
                         <div class="">
                             <img  :src="img" alt="" width="259" height="192">
                         </div>
-                        <div class="text bg-white ">
+                        <div class="text bg-white " :class="{'p-3':!description}">
                             <h6>{{name}}</h6>
-                            <p class="m-c">{{description}}</p>
+                            <p v-if="description" class="m-c">{{description}}</p>
 
                         </div>
 
