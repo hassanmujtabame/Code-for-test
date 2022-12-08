@@ -11,6 +11,11 @@ const routers =[
         meta:{layout:LayoutDefault},
         name: 'incubator-subscribe',
         component: () => import(/* webpackChunkName: "incubator-subscribe" */ '../views/incubator/subscribe/index.vue') 
+    },{
+         path:'/incubator/program-icubator',
+         meta:{layout:LayoutDefault},
+         name: 'incubator-program-icubator',
+         component: () => import(/* webpackChunkName: "incubator-program-icubator" */ '../views/incubator/program-icubator/index.vue') 
     }
 ]
 export default routers;
