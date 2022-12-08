@@ -10,42 +10,38 @@
                 </div>
               </div>
               
-              <swiper
+              <DSwiper
               style="overflow-x: hidden"
             :slides-per-view="5"
             :space-between="10"
               :loop="true"
               :pagination="true"
               :navigation="true"
+              :items="items"
             >
-         <SwiperSlide v-for="(member,i) in members"  :key="i" >
-                <CardMember :name="member.name"
-                :img="member.img"
-                :description="member.description"
-                />
-         </SwiperSlide>
-
-              </swiper>
+       
+            <template  v-slot:default="{item}" >
+                <CardMember 
+                :name="item.name" 
+                :description="item.description" 
+                :img="item.img"/>
+                </template>
+            </DSwiper>
             </div>
           </div>
 </template>
 
 <script>
- import { Navigation, Pagination } from 'swiper'
-
-import { SwiperCore, Swiper, SwiperSlide } from 'swiper-vue2'
-import CardMember from './card.vue'
-// Import Swiper styles
-import 'swiper/swiper-bundle.css'
-SwiperCore.use([Navigation, Pagination])
+import DSwiper from '@/components/swiper/index.vue'
+import CardMember from '@/components/cards/card-member.vue'
 export default {
  name:'section-5',
  components:{
-    Swiper, SwiperSlide,
+  DSwiper,
     CardMember
   },
   data:()=>({
-    members:[
+    items:[
         {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
         {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
         {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
