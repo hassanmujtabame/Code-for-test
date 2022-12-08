@@ -1,389 +1,103 @@
 <template>
   <div class="network-subscribe p-3">
             <div class=" ">
-                <ul
-                  class="nav nav-pills mb-3 justify-content-center"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li class="nav-item m-2" role="presentation">
-                    <button
-                      class="nav-link active btn-custmer-w"
-                      id="pills-home-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-home"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-home"
-                      aria-selected="true"
-                      style="width: 128px;height:80px"
-
-
-                    >
-                 
-                      منظمات الحفلات
-
-                    </button>
-                  </li>
-                  <li class="nav-item m-2" role="presentation">
-                    <button
-                      class="nav-link btn-custmer-w"
-                      id="pills-profile-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-profile"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-profile"
-                      aria-selected="false"
-                      style="width: 128px;height:80px"
-
-
-                    >
-               
-    
+               <DTabs group="pills" :current.sync="currentTab">
+                <TabHead :current.sync="currentTab" group="pills"  reference="organizers">
+                    منظمات الحفلات
+                </TabHead>
+                <TabHead :current.sync="currentTab" group="pills"  reference="desginer">
                     مصممات الديكور
-
-                    </button>
-                  </li>
-                  <li class="nav-item m-2" role="presentation">
-                    <button
-                      class="nav-link btn-custmer-w"
-                      id="pills-contact-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-contact"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-contact"
-                      aria-selected="false"
-                      style="width: 128px;height:80px"
-
-
-                    >
-                   
+                </TabHead>
+                <TabHead :current.sync="currentTab" group="pills"  reference="design">
                     التصميم
-                    </button>
-                  </li>
-                  <li class="nav-item m-2" role="presentation">
-                    <button
-                      class="nav-link btn-custmer-w"
-                      id="pills-servProvider-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-servProvider"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-servProvider"
-                      aria-selected="false"
-                      style="width: 128px;height:80px"
+            </TabHead>
+            <TabHead :current.sync="currentTab" group="pills"  reference="flowers">
+                الزهور
+            </TabHead>
+            <TabHead :current.sync="currentTab" group="pills"  reference="parfum">
+                العطور
+            </TabHead>
+            <TabHead :current.sync="currentTab" group="pills"  reference="fashion">
+                الازياء
+            </TabHead>
+            <TabHead :current.sync="currentTab" group="pills"  reference="beauty">
+                التجميل
+            </TabHead>
+            <TabHead :current.sync="currentTab" group="pills"  reference="jewelry">
+                المجوهرات
+            </TabHead>
+            <div class="container">
 
-                    >
-                    
-    
-                    الزهور
-                                    </button>
-                  </li>
-                  <li class="nav-item m-2" role="presentation">
-                    <button
-                      class="nav-link btn-custmer-w"
-                      id="pills-shop-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-shop"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-shop"
-                      aria-selected="false"
-                      style="width: 128px;height:80px"
+<div class="tab-content" id="pills-tabContent">
+    <TabItem :current.sync="currentTab" group="pills" reference="organizers" v-slot="{selected}">
+        <TabOrg :selected="selected"/>
+    </TabItem>
+    <TabItem :current.sync="currentTab" group="pills" reference="designer" v-slot="{selected}">
+        <TabDesigner :selected="selected"/>
+    </TabItem>
+    <TabItem :current.sync="currentTab" group="pills" reference="design" v-slot="{selected}">
+        <TabDesign :selected="selected"/>
+    </TabItem>
+    <TabItem :current.sync="currentTab" group="pills" reference="flowers" v-slot="{selected}">
+        <TabFlowers :selected="selected"/>
+    </TabItem>
+    <TabItem :current.sync="currentTab" group="pills" reference="parfum" v-slot="{selected}">
+        <TabParfum :selected="selected"/>
+    </TabItem>
+    <TabItem :current.sync="currentTab" group="pills" reference="fashion" v-slot="{selected}">
+        <TabFashion :selected="selected"/>
+    </TabItem>
+    <TabItem :current.sync="currentTab" group="pills" reference="beauty" v-slot="{selected}">
+        <TabBeauty :selected="selected"/>
+    </TabItem>
+    <TabItem :current.sync="currentTab" group="pills" reference="jewelry" v-slot="{selected}">
+        <TabJewelry :selected="selected"/>
+    </TabItem>
+    </div>
+    </div>
 
-                    >
-                  
-    
-                    العطور
-                    </button>
-                  </li>
-                  <li class="nav-item m-2" role="presentation">
-                    <button
-                      class="nav-link btn-custmer-w"
-                      id="pills-shop-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-shop"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-shop"
-                      aria-selected="false"
-                      style="width: 128px;height:80px"
-
-                    >
-                  
-    
-                    الازياء
-                    </button>
-                  </li>
-                  <li class="nav-item m-2" role="presentation">
-                    <button
-                      class="nav-link btn-custmer-w"
-                      id="pills-shop-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-shop"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-shop"
-                      aria-selected="false"
-                      style="width: 128px;height:80px"
-
-                    >
-                  
-    
-                    التجميل
-                    </button>
-                    </li>
-                    <li class="nav-item m-2" role="presentation">
-                        <button
-                          class="nav-link btn-custmer-w"
-                          id="pills-shop-tab"
-                          data-bs-toggle="pill"
-                          data-bs-target="#pills-shop"
-                          type="button"
-                          role="tab"
-                          aria-controls="pills-shop"
-                          aria-selected="false"
-                          style="width: 128px;height:80px"
-
-
-                        >
-                      
-        
-                        المجوهرات
-                        </button>
-                  </li>
-                </ul>
-                <div class="container">
-
-                    <div class="tab-content" id="pills-tabContent">
-                      <div
-                        class="tab-pane fade show active"
-                        id="pills-home"
-                        role="tabpanel"
-                        aria-labelledby="pills-home-tab"
-                        tabindex="0"
-                      >
-                      
-            <div class="row justify-content-center">
-                <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                 <img   class="rounded-circle"  src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-
-                </div>
-                <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                    <img  class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-   
-                </div>
-                <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                    <img  class="rounded-circle"  src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-   
-                   </div>
-                   <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                    <img  class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-   
-                </div>
-                <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                    <img  class="rounded-circle"  src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-   
-                   </div>
-                   <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                       <img  class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-      
-                   </div>
-                   <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                       <img  class="rounded-circle"  src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-      
-                      </div>
-                      <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                       <img  class="rounded-circle"  src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-      
-                   </div>
-    
-            </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="pills-profile"
-                        role="tabpanel"
-                        aria-labelledby="pills-profile-tab"
-                        tabindex="0"
-                      >
-                      <div class="row justify-content-center">
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                         <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-        
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                            <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-           
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                            <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-           
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                            <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-           
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                            <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-           
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                               <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-              
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                               <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-              
-                              </div>
-                              <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                               <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-              
-                           </div>
-            
-                    </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="pills-contact"
-                        role="tabpanel"
-                        aria-labelledby="pills-contact-tab"
-                        tabindex="0"
-                      >
-                      <div class="row justify-content-center">
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                         <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-        
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                            <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-           
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                            <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-           
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                            <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-           
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                            <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-           
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                               <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-              
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                               <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-              
-                              </div>
-                              <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                               <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-              
-                           </div>
-            
-                    </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="pills-servProvider"
-                        role="tabpanel"
-                        aria-labelledby="pills-servProvider-tab"
-                        tabindex="0"
-                      >
-                      <div class="row justify-content-center">
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                         <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-        
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                            <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-           
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                            <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-           
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                            <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-           
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                            <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-           
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                               <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-              
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                               <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-              
-                              </div>
-                              <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                               <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-              
-                           </div>
-            
-                    </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="pills-shop"
-                        role="tabpanel"
-                        aria-labelledby="pills-shop-tab"
-                        tabindex="0"
-                      >
-                      <div class="row justify-content-center">
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                         <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-        
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                            <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-           
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                            <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-           
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                            <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-           
-                        </div>
-                        <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                            <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-           
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
-                               <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-              
-                           </div>
-                           <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                               <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
-              
-                              </div>
-                              <div class=" col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="3000">
-                               <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
-              
-                           </div>
-            
-                    </div>
-                      </div>
-                    </div>
-                </div>
+               </DTabs>
+               
               </div>
 
           </div>
 </template>
 
 <script>
+
+import TabItem from '@/components/tabs/TabItem.vue'
+import TabHead from '@/components/tabs/TabHead.vue'
+import DTabs from '@/components/tabs/DTabs.vue'
+
+import TabOrg from './tab-content/organizers.vue'
+import TabDesigner from './tab-content/designer.vue'
+import TabDesign from './tab-content/design.vue'
+import TabBeauty from './tab-content/beauty.vue'
+import TabFashion from './tab-content/fashion.vue'
+import TabFlowers from './tab-content/flowers.vue'
+import TabJewelry from './tab-content/jewelry.vue'
+import TabParfum from './tab-content/parfum.vue'
 export default {
-name:'section-subscribe'
+name:'section-subscribe',
+components:{
+    DTabs,
+    TabItem,
+    TabHead,
+    TabOrg,
+    TabDesigner,
+    TabDesign,
+    TabBeauty,
+    TabFashion,
+    TabFlowers,
+    TabJewelry,
+    TabParfum,
+},
+data:()=>({
+    currentTab:''
+}),
+mounted(){
+    this.currentTab='organizers'
+  }
 }
 </script>
 

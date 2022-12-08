@@ -1458,3 +1458,7 @@ position: relative;
     background-color: var(--m-color) !important;
     color: white !important;
 }
+.network-subscribe .nav-pills .nav-link{
+    width: 128px;
+    height: 80px;
+}
