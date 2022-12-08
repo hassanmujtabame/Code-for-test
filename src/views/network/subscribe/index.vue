@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import SubscribeCard from './subscribe-card.vue';
+import SubscribeCard from '@/components/cards/subscribe-card.vue';
 import DialogSubscribe from '@/components/modals/simple.vue'
 export default {
 name:'network-subscribe',
@@ -100,6 +100,7 @@ components:{
   }),
   methods:{
     choose(type){
+        console.log(type)
         this.show=true
     }
   }
