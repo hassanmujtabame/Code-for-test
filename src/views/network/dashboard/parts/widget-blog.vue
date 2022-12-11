@@ -1,5 +1,7 @@
 <template>
-  <MyBlog title="تدويناتك" :value="0"  color="#1FB9B3"/>
+  <MyBlog title="تدويناتك" :value="0"  color="#1FB9B3"
+  url="/network/blog"
+  />
 </template>
 
 <script>

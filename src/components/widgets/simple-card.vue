@@ -10,9 +10,9 @@
                             </p>
                         </div>
                         <div class="box d-flex align-items-center justify-content-between ">
-                            <button class="btn border rounded-2 bg-transparent">
+                            <router-link :to="url" class="btn border rounded-2 bg-transparent">
                                 عرض الكل 
-                            </button>
+                            </router-link>
           
                         </div>
                    </div>
@@ -32,6 +32,10 @@ export default {
     },
     color:{
         default:'#F2631C'
+    },
+    url:{
+        type:String,
+        
     }
  }
 }
