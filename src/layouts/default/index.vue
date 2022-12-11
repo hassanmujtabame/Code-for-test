@@ -12,7 +12,7 @@
 <script>
 import DefaultFooter from './footer.vue'
 import DefaultHeader from './header.vue'
-import SectSubscribe from './section-subscribe/sect-subscribe.vue';
+import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
 export default {
     name:'default-layout',
     components:{
