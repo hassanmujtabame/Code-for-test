@@ -1,6 +1,7 @@
 <template>
     <div>
       <DefaultHeader/>
+      <MyDrawer/>
       <main style="margin-top: 96px">
           <slot></slot>
           </main>
@@ -10,6 +11,7 @@
   </template>
   
   <script>
+  import MyDrawer from '@/layouts/common/drawer.vue'
   import DefaultFooter from '@/layouts/common/footer.vue'
   import DefaultHeader from './header.vue'
   import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
@@ -18,7 +20,8 @@
       components:{
           DefaultFooter,
           DefaultHeader,
-          SectSubscribe
+          SectSubscribe,
+          MyDrawer
       }
   }
   </script>
