@@ -14,6 +14,9 @@
                         </div>
                         <h1 class="fw-bolder">مرحبا بك من جديد</h1>
                         <p>لنبدأمن جديد ال انطلاق نحو المستقبل</p>
+                        <div v-if="hasError" class="alert alert-danger" role="alert">
+                            {{message}}
+                        </div>
                         <form @submit="login" class="row g-3 needs-validation" novalidate>
                             <div class="col-md-4 w-100">
                                 <input type="email" 
@@ -75,11 +78,15 @@ export default {
         form:{
             email:process.env.EMAIL||'',
             password:process.env.PASSWORD||''
-        }
+        },
+        hasError:false,
+        message:'',
     }),
     methods:{
        async login(e){
             e.preventDefault();
+            this.hasError=false;
+            this.message='';
             try {
                 let {data} = await this.$axios.post('user/auth/login',this.form);
                 if(data.success){
@@ -87,10 +94,21 @@ export default {
                     window.store.commit('auth/SET_TOKEN',token) ;
                   window.store.commit('auth/SET_USER',user);
                   this.$router.push('/')
+                }else{
+                    this.message = data.message;
+                    this.hasError=true;
                 }
                 
             } catch (error) {
-                console.log(error)
+                this.message='خطا غير معروف'
+                if(error.response){
+                    let response =error.response
+                    if(response.status==422){
+                        this.message = response.data.message;
+                    }
+                }
+
+                this.hasError=true;
             }
         }
     }
