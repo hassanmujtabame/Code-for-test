@@ -11,9 +11,15 @@
                             شبكة رياديات بتساعدك في مشروعك من الالف الى الياء
                          </p>
                          <div class="btn-main-style">
+                          <router-link v-if="user" :to="'/network/dashboard'" class="btn-custmer shadow mt-2">الصفة الرئيسية</router-link>
+
+                            <template v-else>
+
+                            
                           <router-link :to="'/network/subscribe'" class="btn-custmer shadow mt-2">انضمي الان</router-link>
                           <router-link :to="'/login'" class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</router-link>
-                         </div>
+                        </template> 
+                        </div>
                     </div>
                     <div class="col-md-6 m-auto">
                         <div class="img-cons m-auto ">
