@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import middlewiare_auth from '@/middleware/auth'
 import LayoutDefault from '@/layouts/default/index.vue'
 import networkRoute from './network'
 import academyRoute from './academy'
@@ -101,5 +102,7 @@ const router = new VueRouter({
   linkActiveClass: "parent-active",
   linkExactActiveClass: "active",
 })
-
+router.beforeEach((to,from,next)=>{
+  middlewiare_auth(to,from,next)
+})
 export default router
