@@ -83,22 +83,9 @@
                 </div>
               </form>
               <template v-if="token">
-                <li class="nav-item dropdown ms-3 lang">
-                <a
-                  class="nav-link m-c"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                 
-                  <imgAvatar :img="user.image" :size="32"/>
-                </a>
-                <ul class="dropdown-menu">
-
-                  <li><a class="dropdown-item" href="#" @click="logout">تسجيل الخروج</a></li>
-                </ul>
-              </li>
+                <UserMsg />
+                <UserNotif />
+                <UserNav />
                </template>
               <div v-else style="    line-height: 3.5;"  class="btn-main btn-nav text-center">
                
@@ -129,12 +116,17 @@
 
 <script>
 import ArrowDownSVG from '@/components/icon-svg/arrow-down.vue'
-import imgAvatar from '@/components/avatars/img-avatar.vue'
+
+import UserNav from './user-nav.vue'
+import UserMsg from './user-msg.vue'
+import UserNotif from './user-notif.vue'
 export default {
     name:'default-header',
     components:{
       ArrowDownSVG,
-      imgAvatar
+      UserNav,
+      UserMsg,
+      UserNotif
     },
     data:()=>{
     return {
