@@ -1,6 +1,12 @@
 import LayoutDefault from '@/layouts/default/index.vue'
 const routers =[
     {
+        path: '/network/dashboard',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'network-dashboard',
+        component: () => import(/* webpackChunkName: "network-dashboard" */ '../views/network/dashboard/index.vue') 
+    },
+    {
         path: '/network/home',
         meta:{layout:LayoutDefault},
         name: 'network-home',
