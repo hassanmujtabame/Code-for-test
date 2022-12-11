@@ -14,7 +14,7 @@ let page_guest = window.store.getters['auth/user'] && routeOption(to, 'auth', fa
 
 if (isAuth) {
    if(page_guest){
-        next({ path: '/dashboard' })
+        next({ path: '/' })
 }else{
     next()
 }
