@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import './plugins/axios'
 import './plugins/vee-validate'
 const jquery = require('jquery');
 import $ from 'jquery';
