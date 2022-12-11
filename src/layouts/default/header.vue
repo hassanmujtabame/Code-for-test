@@ -117,9 +117,9 @@
 <script>
 import ArrowDownSVG from '@/components/icon-svg/arrow-down.vue'
 
-import UserNav from './user-nav.vue'
-import UserMsg from './user-msg.vue'
-import UserNotif from './user-notif.vue'
+import UserNav from '@/layouts/common/user-nav.vue'
+import UserMsg from '@/layouts/common/user-msg.vue'
+import UserNotif from '@/layouts/common/user-notif.vue'
 export default {
     name:'default-header',
     components:{
