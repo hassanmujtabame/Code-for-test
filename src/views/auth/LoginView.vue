@@ -17,8 +17,14 @@
                         <div v-if="hasError" class="alert alert-danger" role="alert">
                             {{message}}
                         </div>
-                        <form @submit="login" class="row g-3 needs-validation" novalidate>
-                            <div class="col-md-4 w-100">
+                        <ValidationObserver ref="form" @submit="login" class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-4 w-100 row">
+                                <ValidationProvider
+                                    :name="$t('Email')"
+                                 vid="email"
+                                 rules="required"
+                                    v-slot="{errors}">
+                                    <div class="col-12">
                                 <input type="email" 
                                 class="form-control" 
                                 id="validationCustom03"       
@@ -27,16 +33,38 @@
                                 required
                                 >
                             </div>
-                            <div class="col-md-4 w-100 position-relative">
+                                <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                {{errors[0]}}
+                                </div>
+                                </ValidationProvider>
+                            </div>
+                            <div class="col-md-4 w-100  row">
+                                <ValidationProvider
+                                 tag="div"
+                                    :name="$t('Password')"
+                                 vid="password"
+                                 rules="required"
+                                    v-slot="{errors}">
+                                    <div class="col-12 position-relative">
                                 <input 
                                 id="password-field"  
-                                type="password"
+                                :type="show?'text':'password'"
                                 v-model="form.password"
                                  class="form-control " 
                                     placeholder="   كلمة السر" required>
-                                    <span    style="top: 12px;color: #CDD7D8;font-size: 23px;" toggle="#password-field"
-                                    class="fa-regular fa-eye toggle-password position-absolute">
+                                    <span    style="color: #CDD7D8;font-size: 23px;"
+                                     toggle="#password-field"
+                                     @click="show=!show"
+                                     
+                                    class="icon-input-end fa-regular toggle-password position-absolute"
+                                    :class="{'fa-eye': !show, 'fa-eye-slash':show }"
+                                    >
                                 </span>
+                            </div>
+                                <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                {{errors[0]}}
+                                </div>
+                                </ValidationProvider>
                             </div>
                             <div class="d-flex justify-content-between mt-3 ">
                                 <div class="form-check">
@@ -52,10 +80,10 @@
                                     </div>
                                 </div>
                             <div class="col-12 text-center ">
-                                <button class="btn btn-main  "   role="button"> تسجيل الدخول  </button>
+                                <button @click="login" class="btn btn-main  "   role="button"> تسجيل الدخول  </button>
                             </div>
                             
-                        </form>
+                        </ValidationObserver>
 
                     </div>
                     <div class=" col-12 col-md-6">
@@ -75,6 +103,7 @@
 <script>
 export default {
     data:()=>({
+        show:false,
         form:{
             email:process.env.EMAIL||'',
             password:process.env.PASSWORD||''
@@ -87,6 +116,11 @@ export default {
             e.preventDefault();
             this.hasError=false;
             this.message='';
+            let valid = await this.$refs.form.validate();
+        if(!valid){
+            console.log('form invalid');
+            return ;
+        }
             try {
                 let {data} = await this.$axios.post('user/auth/login',this.form);
                 if(data.success){
