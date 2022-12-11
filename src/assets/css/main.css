@@ -1467,3 +1467,12 @@ position: relative;
     align-items: center;
     justify-content: center;
 }
+
+.text-input-error{
+    color:#ec7979
+}
+.icon-input-end{
+    left: 10px;
+    right:auto;
+    top: 12px;
+}
