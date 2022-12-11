@@ -1,0 +1,17 @@
+<template>
+  <MyBlog title="تقييم خدماتي" :value="0" color="#1FB9B3" />
+</template>
+
+<script>
+import MyBlog from '@/components/widgets/simple-card.vue';
+export default {
+    components:{
+        MyBlog
+    }
+
+}
+</script>
+
+<style>
+
+</style>
