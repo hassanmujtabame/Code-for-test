@@ -17,7 +17,7 @@ import Swiper from 'swiper';
 window.Swiper=Swiper
 import './plugins/vuex'
 //import './plugins/aos'
-import mixin from './plugins/mixins'
+import './plugins/mixins'
 import App from './App.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -31,7 +31,6 @@ import store from './store'
 Vue.config.productionTip = false
 
 new Vue({
- mixins: [mixin],
  router,
  i18n,
  render: h => h(App),
