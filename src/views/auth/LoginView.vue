@@ -25,7 +25,7 @@
                                  rules="required"
                                     v-slot="{errors}">
                                     <div class="col-12">
-                                <input type="email" 
+                                <input type="text" 
                                 class="form-control" 
                                 id="validationCustom03"       
                                 placeholder="البريد الالكتروني" 
