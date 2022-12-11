@@ -29,7 +29,7 @@
               <!-- <a class="nav-link active" aria-current="page" href="../index.html"
                 >الرئيسية</a
               > -->
-              <router-link to="/network" class="nav-link">الرئيسية</router-link>
+              <router-link to="/network/home" class="nav-link">الرئيسية</router-link>
             </li>
             <li class="nav-item px-2">
            
