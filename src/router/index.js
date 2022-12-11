@@ -105,4 +105,5 @@ const router = new VueRouter({
 router.beforeEach((to,from,next)=>{
   middlewiare_auth(to,from,next)
 })
+window.router = router;
 export default router
