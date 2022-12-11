@@ -82,8 +82,27 @@
                   </svg>
                 </div>
               </form>
-              <div style="    line-height: 3.5;"  class="btn-main btn-nav text-center">
-                <router-link :to="'/register'" class="text-white ">انضمي الينا</router-link>
+              <template v-if="token">
+                <li class="nav-item dropdown ms-3 lang">
+                <a
+                  class="nav-link m-c"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                 
+                  <imgAvatar :img="user.image" :size="32"/>
+                </a>
+                <ul class="dropdown-menu">
+
+                  <li><a class="dropdown-item" href="#" @click="logout">تسجيل الخروج</a></li>
+                </ul>
+              </li>
+               </template>
+              <div v-else style="    line-height: 3.5;"  class="btn-main btn-nav text-center">
+               
+                <router-link  :to="'/register'" class="text-white ">انضمي الينا</router-link>
               </div>
               <li class="nav-item dropdown ms-3 lang">
                 <a
@@ -110,10 +129,12 @@
 
 <script>
 import ArrowDownSVG from '@/components/icon-svg/arrow-down.vue'
+import imgAvatar from '@/components/avatars/img-avatar.vue'
 export default {
     name:'default-header',
     components:{
-      ArrowDownSVG
+      ArrowDownSVG,
+      imgAvatar
     },
     data:()=>{
     return {
@@ -122,6 +143,12 @@ export default {
       }
     },
     methods:{
+      logout(){
+        window.store.commit('auth/CLEAR_TOKEN') ;
+        window.store.commit('auth/CLEAR_USER');
+        this.$router.push('/login')
+
+      },
       changeLang(lng){
         this.lang=lng
         document.documentElement.setAttribute('lang', lng)
