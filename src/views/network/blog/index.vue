@@ -10,8 +10,7 @@
                             كابشن بسيط عن اللقاءات واهميتها في سطرين ببساطة
                         </p>
                         <div>
-                            <button class="btn bg border text-white"  data-bs-toggle="modal"
-                            data-bs-target="#addModal">
+                            <button @click="addBlog" class="btn bg border text-white" >
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M21.3346 17H10.668C10.1213 17 9.66797 16.5467 9.66797 16C9.66797 15.4533 10.1213 15 10.668 15H21.3346C21.8813 15 22.3346 15.4533 22.3346 16C22.3346 16.5467 21.8813 17 21.3346 17Z" fill="white"/>
                                     <path d="M16 22.3327C15.4533 22.3327 15 21.8793 15 21.3327V10.666C15 10.1193 15.4533 9.66602 16 9.66602C16.5467 9.66602 17 10.1193 17 10.666V21.3327C17 21.8793 16.5467 22.3327 16 22.3327Z" fill="white"/>
@@ -85,9 +84,7 @@
                         <div class=" col-12 col-md-6 mt-3">
                             <label for="" class="position-relative">
                                 <input class="form-control py-3 px-5" type="text" placeholder="ابحث عن خدمة ">
-                                <p style="    top: 25%;
-                                right: 7px;
-                            " class="position-absolute">
+                                <p style="top: 25%;right: 7px;" class="position-absolute">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11.5 21.75C5.85 21.75 1.25 17.15 1.25 11.5C1.25 5.85 5.85 1.25 11.5 1.25C17.15 1.25 21.75 5.85 21.75 11.5C21.75 17.15 17.15 21.75 11.5 21.75ZM11.5 2.75C6.67 2.75 2.75 6.68 2.75 11.5C2.75 16.32 6.67 20.25 11.5 20.25C16.33 20.25 20.25 16.32 20.25 11.5C20.25 6.68 16.33 2.75 11.5 2.75Z" fill="#979797"/>
                                         <path d="M22.0004 22.7499C21.8104 22.7499 21.6204 22.6799 21.4704 22.5299L19.4704 20.5299C19.1804 20.2399 19.1804 19.7599 19.4704 19.4699C19.7604 19.1799 20.2404 19.1799 20.5304 19.4699L22.5304 21.4699C22.8204 21.7599 22.8204 22.2399 22.5304 22.5299C22.3804 22.6799 22.1904 22.7499 22.0004 22.7499Z" fill="#979797"/>
@@ -303,15 +300,28 @@
 
 
         </div>
+        <portal  to="body">
+        <AddBlogDialog  />
+      </portal>
     </div>
 </template>
 
 <script>
 import SectionRecentBlog from './parts/section-recent-blog/index.vue'
+import AddBlogDialog from './parts/dialogs/add-blog.vue'
 export default {
 name:'network-blog',
 components:{
-    SectionRecentBlog
+    SectionRecentBlog,
+    AddBlogDialog
+},
+data:()=>({
+
+}),
+methods:{
+  addBlog(){
+    window.EventBus.fire('add-dialog-open-dialog')
+  }
 }
 }
 </script>

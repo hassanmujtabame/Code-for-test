@@ -3,7 +3,7 @@
   :style="styleObj"
   aria-labelledby="exampleModalLabel" :aria-hidden="!dialog?'true':'false'">
     <div class="modal-dialog  modal-dialog-centered justify-content-center">
-      <div style="width: 80%;" class="modal-content text-center">
+      <div  class="modal-content text-center">
         <div class="modal-header border-0">
           <button @click="close()" type="button" class="btn-close" ></button>
         </div>
