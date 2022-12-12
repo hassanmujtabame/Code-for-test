@@ -34,6 +34,7 @@ data:()=>({
 computed:{
  styleObj(){
     return {
+      'z-index': 99999999,
         background: '#000000a3',
         display:this.dialog?'block':'none'
     }

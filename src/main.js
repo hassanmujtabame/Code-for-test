@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import  './plugins/portal-vue';
 import './plugins/axios'
 import './plugins/vee-validate'
 import EventBus from './helper/EventBus';

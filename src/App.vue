@@ -4,6 +4,8 @@
        <router-view/>
 
       </component>
+      <portal-target name="body">
+      </portal-target>
   </div>
 </template>
 <script>
