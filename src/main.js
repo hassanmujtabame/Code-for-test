@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import './plugins/axios'
 import './plugins/vee-validate'
+import EventBus from './helper/EventBus';
+window.EventBus =  new EventBus();
 const jquery = require('jquery');
 import $ from 'jquery';
 window.$=$;
