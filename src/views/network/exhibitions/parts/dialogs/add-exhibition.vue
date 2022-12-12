@@ -6,6 +6,11 @@
                         <div class="row add-portfolio m-3 p-0 position-relatiuve">
                             <div class="col-12 col-lg-4  justify-content-center m-auto">
                                 <div class="col-md-12">
+                                    <ValidationProvider
+                                        :name="$t('Image')"
+                                        vid="image"
+                                        rules="required"
+                                    v-slot="{validate,errors}">
                                     <label for="imginput" class="form-label file-label first w-100">
                                         <div class="text-center p-5">
                                             <svg width="96" height="96" viewBox="0 0 96 96" fill="none"
@@ -28,13 +33,22 @@
                                             <img class="w-100 h-100" src="none" id="image_selected" />
                                         </div>
                                     </label>
-                                    <input onchange="readURL(this);" class="form-control opacity-0" type="file"
+                                   
+                             <input @change="uploadImage($event) || validate($event)" class="form-control opacity-0" type="file"
                                         id="imginput">
+                                        <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                {{errors[0]}}
+                                </div>
+                                </ValidationProvider>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="col-md-12">
                                         <div class="text">
-
+                                            <ValidationProvider
+                                    :name="$t('Map file')"
+                                 vid="mapfile"
+                                 rules="required"
+                                    v-slot="{validate,errors}">
                                             <label for="choose-file"
                                                 class="custom-file-upload file-label  w-100 p-4 text-center d-flex justify-content-center m-auto"
                                                 id="choose-file-label">
@@ -45,23 +59,23 @@
                                                         fill="#1FB9B3" />
                                                 </svg>
 
-
-
                                                 <p class="m-c m-0 p-0">
                                                     أرفق خريطة المعرض
                                                 </p>
                                             </label>
-                                            <input name="uploadDocument" type="file" id="choose-file"
+                                            <input  @change="uploadMap($event) || validate($event)" name="uploadDocument" type="file" id="choose-file"
                                                 accept=".jpg,.jpeg,.pdf,doc,docx,application/msword,.png"
                                                 style="opacity: 0;" />
-
-                                        </div>
+                                                <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                                    {{errors[0]}}
+                                                </div>
+                                            </ValidationProvider>
 
 
                                     </div>
 
 
-
+                                </div>
                                 </div>
                                 <div class="col-md-12">
                                     <textarea class="w-100 border t-c " name="" id="" rows="10">أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت 
@@ -74,6 +88,11 @@
 
                                         <h6>هل المعرض متاح للمشاركة ؟</h6>
                                         <div class="d-flex justify-content-center   gap-2">
+                                            <ValidationProvider
+                                                :name="$t('Available')"
+                                                vid="available"
+                                                rules="required"
+                                                v-slot="{errors}">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                                     id="flexRadioDefault1" data-bs-toggle="modal" data-bs-target="#addModal2">
@@ -89,6 +108,10 @@
                                                     لا
                                                 </label>
                                             </div>
+                                            <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                                    {{errors[0]}}
+                                                </div>
+                                            </ValidationProvider>
                                         </div>
                                     </div>
                                 </div>
@@ -97,34 +120,73 @@
                             </div>
                             <div class="col-12 col-lg-8">
                                 <div class="mb-3">
+                                    <ValidationProvider
+                                                :name="$t('Title')"
+                                                vid="title"
+                                                rules="required"
+                                                v-slot="{errors}">
                                     <input type="text" class="form-control" placeholder="عنوان المعرض">
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                                    {{errors[0]}}
+                                                </div>
+                                            </ValidationProvider>
                                 </div>
                                 <div class="mb-3">
+                                    <ValidationProvider
+                                                :name="$t('Price')"
+                                                vid="price"
+                                                rules="required"
+                                                v-slot="{errors}">
                                     <input type="text" class="form-control" placeholder="سعر الدخول  ">
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                                    {{errors[0]}}
+                                                </div>
+                                    </ValidationProvider>
                                 </div>
                                 <div class=" mb-3">
+                                    <ValidationProvider
+                                                :name="$t('Date start')"
+                                                vid="date_start"
+                                                rules="required"
+                                                v-slot="{errors}">
                                     <div class="form-group position-relative">
-
                                         <input type="text" class="form-control" id="input_from"
                                             placeholder=" تاريخ بداية المعرض - تاريخ نهاية المعرض">
                                     </div>
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                                    {{errors[0]}}
+                                                </div>
+                                    </ValidationProvider>
                                 </div>
                                 <div class="mb-3">
+                                    <ValidationProvider
+                                                :name="$t('Time start')"
+                                                vid="time_start"
+                                                rules="required"
+                                                v-slot="{errors}">
                                     <div class="form-group position-relative">
 
                                         <input type="text" class="form-control" id="input_to"
                                             placeholder=" وقت بداية المعرض - وقت نهاية المعرض">
                                     </div>
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                                    {{errors[0]}}
+                                                </div>
+                                    </ValidationProvider>
                                 </div>
 
                                 <div class="mb-3 position-relative">
+                                    <ValidationProvider
+                                                :name="$t('Status')"
+                                                vid="status"
+                                                rules="required"
+                                                v-slot="{errors}">
                                     <select name="" id="" class="form-control ">
                                         <option value="" class="t-c" selected> المدينة</option>
                                         <option value="">اونلاين</option>
                                         <option value="">اوفلاين</option>
                                     </select>
-                                    <div style="    top: 7px;
-                          left: 10px;" class="position-absolute">
+                                    <div style="top: 7px;   left: 10px;" class="position-absolute">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -133,13 +195,26 @@
                                         </svg>
 
                                     </div>
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                                    {{errors[0]}}
+                                                </div>
+                                    </ValidationProvider>
                                 </div>
                                 <div class="mb-3">
+                                    <ValidationProvider
+                                                :name="$t('Map URL')"
+                                                vid="map_url"
+                                                rules="required"
+                                                v-slot="{errors}">
                                     <div class="form-group position-relative">
 
                                         <input type="text" class="form-control" id="input_to"
                                             placeholder=" حدد العنوان على جوجل ماب">
                                     </div>
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                                    {{errors[0]}}
+                                                </div>
+                                    </ValidationProvider>
                                 </div>
 
 
@@ -190,12 +265,18 @@ export default {
     tags:[],
     url:'/assets/svg/empty-image.svg',
     file:null,
+    mapFile:null,
     blog:{
         title:'',
-        description:'',
-        short_description:'',
-        category:[],
-        tag:[],
+        price:'',
+        dateStart:'',
+        dateFinish:'',
+        timeStart:'',
+        timeFinish:'',
+        status:0,
+        mapUrl:'',
+        available:false,
+       
     }
   }),
   methods:{
@@ -211,6 +292,7 @@ export default {
      formData.append('ar[description]',this.blog.description);
      formData.append('ar[short_description]',this.blog.short_description);
      formData.append('file',this.file);
+     formData.append('file',this.mapFile);
      formData.append('user_id',this.user.id);
     // for (var i = 0; i < this.blog.tag.length; i++) {
             formData.append('tags', this.blog.tag.id);
@@ -244,8 +326,9 @@ export default {
             URL.revokeObjectURL(this.url);
             this.url = '/assets/svg/empty-image.svg'
         }
-        
-
+    },
+    uploadMap(evt){
+        this.mapFile = evt.target.files[0];
     },
     async loadBlogTags(){
         try {
