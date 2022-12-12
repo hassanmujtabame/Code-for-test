@@ -38,7 +38,7 @@
               :loop="true"
               :pagination="true"
               :navigation="true"
-              :items="items" >
+              :items="itemsTest" >
               <template  v-slot:default="{item}" >
                 <exhibitionCard 
                 :img="item.img"
@@ -60,14 +60,32 @@ export default {
     exhibitionCard
  },
  data:()=>({
-    items:[
+    itemsTest:[
         {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
         {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
         {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
         {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
         {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-    ]
- })
+    ],
+    items:[]
+ }),
+ methods:{ 
+    async loadList(){
+        try {
+            let {data} = await this.$axios.get(`/network/list-favourites`)
+
+            if(data.success){
+                this.items = data.data;
+            }
+        } catch (error) {
+            console.log('error',error)
+            console.log('response',error.response)
+        }
+    }
+ },
+ mounted(){
+    this.loadList()
+ }
 }
 </script>
 
