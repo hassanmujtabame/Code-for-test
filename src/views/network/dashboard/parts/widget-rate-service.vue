@@ -1,5 +1,7 @@
 <template>
-  <MyBlog title="تقييم خدماتي" :value="0" color="#1FB9B3" />
+  <MyBlog title="تقييم خدماتي" :value="0" color="#1FB9B3" 
+  url="/"
+  />
 </template>
 
 <script>

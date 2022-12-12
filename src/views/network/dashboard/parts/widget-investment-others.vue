@@ -1,5 +1,8 @@
 <template>
-  <MyBlog title="طلباتك لاستثمار مع الاخرين" :value="0" color="#FFBC00" />
+  <MyBlog title="طلباتك لاستثمار مع الاخرين"
+   :value="0" color="#FFBC00" 
+   url="/"
+   />
 </template>
 
 <script>
