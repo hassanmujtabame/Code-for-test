@@ -1,6 +1,6 @@
 <template>
   
-        <DialogSimple :show="showDialog">
+        <DialogSimple :show.sync="showDialog">
             <ValidationObserver ref="form">
                 <div class=" add-portfolio m-3 p-0">
                     <div class="   m-auto">
