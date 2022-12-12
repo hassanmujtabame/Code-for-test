@@ -14,6 +14,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-blog" */ '../views/network/blog/index.vue') 
     },
     {
+        path: '/network/exhibitions',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-exhibitions',
+        component: () => import(/* webpackChunkName: "network-exhibitions" */ '../views/network/exhibitions/index.vue') 
+    },
+    {
         path: '/network/home',
         meta:{layout:LayoutDefault},
         name: 'network-home',
