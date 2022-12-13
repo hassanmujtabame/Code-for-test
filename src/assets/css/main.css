@@ -2,6 +2,9 @@
     font-family: change;
     src: url(../Changa_094829/Changa/Changa-VariableFont_wght.ttf);
 }
+:root {
+    --swiper-navigation-size:15px
+}
 
 * {
     box-sizing: border-box;
