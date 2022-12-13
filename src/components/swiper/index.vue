@@ -1,8 +1,12 @@
 <template>
   <swiper
+      :scrollbar="scrollbar"
+      :navigation="navigation"
+      :pagination="pagination"
+      :slides-per-view="slidesPerView"
+      :space-between="spaceBetween"
              v-bind="$attrs"
             >
-       
             <SwiperSlide v-for="(item,i) in items"  :key="i" >
                <slot :item="item">
                </slot>
@@ -21,6 +25,26 @@ SwiperCore.use([Navigation, Pagination])
 export default {
  name:'d-swiper',
  props:{
+   pagination:{
+      type:[Boolean,Object],
+      default:false,
+   },
+   navigation:{
+      type:[Boolean,Object],
+      default:true,
+   },
+   scrollbar:{
+      type:[Boolean,Object],
+      default:false,
+   },
+   slidesPerView:{
+      type:[Number],
+      default:3,
+   },
+   spaceBetween:{
+      type:[Number],
+      default:3,
+   },
     items:{
         type:Array,
         require:true
