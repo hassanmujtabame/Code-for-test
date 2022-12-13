@@ -1,0 +1,39 @@
+<template>
+   <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div >
+                        <img class="img-fluid" src="/assets/img/network 289320.png" alt="" width="470">
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <h3>
+                            بطاقة العضوية
+                        </h3>
+                        <div style="color: #979797;">
+                            رياديات ليست مجرد منصة !! نهتم بكم و  نقدم الهدايا والعروض المذهلة , ليست فقط العروض اكواد خصم  على المواقع الالكترونية ! 
+                            بل تمكنكي بطاقة العضوية من الحصول على الخصومات من المحلات والمتجار فقط ابرزي بطاقتك وأستفيدي من خصموماتك
+                                                      
+
+                        </div>
+                        <button class="btn-main"> أعرضي بطاقتك </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+          </div>
+</template>
+
+<script>
+export default {
+ name:'section-membership'
+}
+</script>
+
+<style>
+
+</style>
