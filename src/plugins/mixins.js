@@ -14,17 +14,19 @@ const mixin = {
                        });
                        return r.route.path;
                },
-            changeLang(lng){
-    
+            changeLang(lng,evt){
+                if(evt) evt.preventDefault();
+                
               Cookies.set('i18n_lang',lng)
               this.$i18n.locale=lng
               let params = {...this.$route.params,lang:lng}
              
-              this.$router.replace({
+              let r=this.$router.resolve({
                 name: this.$route.name, // put your route information in
                 params: params, // put your route information in
                 query: this.$route.query // put your route information in
               });
+              window.location = r.href
                },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");

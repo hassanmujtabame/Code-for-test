@@ -2,7 +2,7 @@
 
 import Vue from 'vue';
 import axios from "axios";
-
+import Cookies from 'js-cookie';
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
@@ -22,7 +22,8 @@ _axios.interceptors.request.use(
       console.log('store is not defined')
   } else
   if (config.baseURL === baseApiAddress && !config.headers.Authorization) {
-
+      config.headers['x-localization'] = Cookies.get('i18n_lang')
+      config.headers['Accept'] = 'application/json'
       const token = window.store.getters['auth/token'];
 
       if (token) {
