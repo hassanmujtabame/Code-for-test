@@ -1,5 +1,5 @@
 <template>
-    <portal to="body">
+   
     <div class="modal fade" 
     :style="styleObj"
     :class="{show:dialog}"
@@ -21,7 +21,6 @@
             </div>
         </div>
     </div>
-</portal>
 </template>
 
 <script>
