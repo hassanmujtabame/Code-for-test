@@ -293,7 +293,7 @@ export default {
         this.offer.link=''
         this.offer.day=''
         this.offer.start_date=''
-
+            this.$refs.form.reset()
         this.showDialog = true
     },
     closeDialog(){
