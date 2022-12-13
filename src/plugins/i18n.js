@@ -16,9 +16,11 @@ function loadLocaleMessages () {
   })
   return messages
 }
-
-export default new VueI18n({
+const _i18n=new VueI18n({
   locale:lang,
   fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'ar',
   messages: loadLocaleMessages()
 })
+window.i18n =_i18n
+export const i18n = _i18n
+ 
