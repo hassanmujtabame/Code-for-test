@@ -29,27 +29,27 @@
               <!-- <a class="nav-link active" aria-current="page" href="../index.html"
                 >الرئيسية</a
               > -->
-              <router-link to="/" class="nav-link">الرئيسية</router-link>
+              <router-link :to="{name:'index',params:{lang:$i18n.locale}}" class="nav-link">الرئيسية</router-link>
             </li>
             <li class="nav-item px-2">
            
-              <router-link to="/network/home" class="nav-link">الشبكة</router-link>
+              <router-link  :to="{name:'network-home',params:{lang:$i18n.locale}}" class="nav-link">الشبكة</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link to="/academy/home" class="nav-link">الاكاديمية</router-link>
+              <router-link :to="{name:'academy-home',params:{lang:$i18n.locale}}"  class="nav-link">الاكاديمية</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link to="/Incubator/home" class="nav-link">الحاضنة</router-link>
+              <router-link :to="{name:'incubator-home',params:{lang:$i18n.locale}}" class="nav-link">الحاضنة</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link to="/service-provider/home" class="nav-link">مقدمين الخدمات</router-link>
+              <router-link :to="{name:'service-provider-home',params:{lang:$i18n.locale}}"  class="nav-link">مقدمين الخدمات</router-link>
               
             </li>
             <li class="nav-item px-2">
-              <router-link to="/Consulting/home" class="nav-link">الاستشارات</router-link>
+              <router-link :to="{name:'consulting-home',params:{lang:$i18n.locale}}" class="nav-link">الاستشارات</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link to="/contact-us" class="nav-link">تواصل معنا</router-link>
+              <router-link :to="{name:'contact-us',params:{lang:$i18n.locale}}" class="nav-link">تواصل معنا</router-link>
             </li>
           </ul>
           <div>
@@ -100,11 +100,11 @@
                   aria-expanded="false"
                 >
                   <ArrowDownSVG />
-                  {{lang}}
+                  {{$t.locale}}
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#" @click="changeLang('EN')">English</a></li>
-                  <li><a class="dropdown-item" href="#" @click="changeLang('AR')">العربية</a></li>
+                  <li><a class="dropdown-item" href="#" @click="changeLang('en')">English</a></li>
+                  <li><a class="dropdown-item" href="#" @click="changeLang('ar')">العربية</a></li>
                 </ul>
               </li>
             </div>
@@ -140,12 +140,10 @@ export default {
         window.store.commit('auth/CLEAR_USER');
         this.$router.push('/login')
 
-      },
-      changeLang(lng){
-        this.lang=lng
-        document.documentElement.setAttribute('lang', lng)
-        document.documentElement.setAttribute('dir', lng=='AR'?'rtl':'ltr')
       }
+    },
+    mounted(){
+      console.log('lang',this.$route,this.$router)
     }
 }
 </script>

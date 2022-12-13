@@ -1,11 +1,31 @@
 
 import Vue from 'vue';
-
+import Cookies from 'js-cookie';
 import {  mapGetters } from 'vuex';
 const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            generatetoUrl(name,params={}){
+              let r=   this.$router.resolve({
+                         name: name, // put your route information in
+                         params:params, // put your route information in
+                         query: this.$route.query // put your route information in
+                       });
+                       return r.route.path;
+               },
+            changeLang(lng){
+    
+              Cookies.set('i18n_lang',lng)
+              this.$i18n.locale=lng
+              let params = {...this.$route.params,lang:lng}
+             
+              this.$router.replace({
+                name: this.$route.name, // put your route information in
+                params: params, // put your route information in
+                query: this.$route.query // put your route information in
+              });
+               },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");
               plugin.setAttribute(

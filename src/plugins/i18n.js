@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Cookies from 'js-cookie';
 import VueI18n from 'vue-i18n'
-let lang = Cookies.get('i18n_lang') || process.env.VUE_APP_I18N_LOCALE || 'ar';
+if(!Cookies.get('i18n_lang')){
+  Cookies.set('i18n_lang',process.env.VUE_APP_I18N_LOCALE || 'ar')
+}
+let lang = Cookies.get('i18n_lang');
 Vue.use(VueI18n)
 
 function loadLocaleMessages () {
@@ -22,5 +25,5 @@ const _i18n=new VueI18n({
   messages: loadLocaleMessages()
 })
 window.i18n =_i18n
-export const i18n = _i18n
+export default  _i18n
  

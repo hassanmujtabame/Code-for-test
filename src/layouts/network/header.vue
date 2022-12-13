@@ -29,14 +29,14 @@
               <!-- <a class="nav-link active" aria-current="page" href="../index.html"
                 >الرئيسية</a
               > -->
-              <router-link to="/network/home" class="nav-link">الرئيسية</router-link>
+              <router-link :to="{name:'network-home',params:{lang:$i18n.locale}}"  class="nav-link">الرئيسية</router-link>
             </li>
             <li class="nav-item px-2">
            
-              <router-link to="/network/home" class="nav-link">أعرض خدماتك</router-link>
+              <router-link :to="{name:'network-home',params:{lang:$i18n.locale}}" class="nav-link">أعرض خدماتك</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link to="/academy/home" class="nav-link">خدماتك الجاهزة</router-link>
+              <router-link :to="{name:'network-home',params:{lang:$i18n.locale}}" class="nav-link">خدماتك الجاهزة</router-link>
             </li>
            
            
@@ -96,11 +96,11 @@
                   aria-expanded="false"
                 >
                   <ArrowDownSVG />
-                  {{lang}}
+                  {{$root.$i18n.locale}}
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#" @click="changeLang('EN')">English</a></li>
-                  <li><a class="dropdown-item" href="#" @click="changeLang('AR')">العربية</a></li>
+                  <li><a class="dropdown-item" href="#" @click="changeLang('en')">English</a></li>
+                  <li><a class="dropdown-item" href="#" @click="changeLang('ar')">العربية</a></li>
                 </ul>
               </li>
             </div>
@@ -136,12 +136,11 @@ export default {
         window.store.commit('auth/CLEAR_USER');
         this.$router.push('/login')
 
-      },
-      changeLang(lng){
-        this.lang=lng
-        document.documentElement.setAttribute('lang', lng)
-        document.documentElement.setAttribute('dir', lng=='AR'?'rtl':'ltr')
       }
+      
+    },
+    mounted(){
+      console.log('lang',this.$route,this.$router)
     }
 }
 </script>

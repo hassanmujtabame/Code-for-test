@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Cookies from 'js-cookie'
 import  './plugins/portal-vue';
 import  './plugins/vue-multi-select';
 import  './plugins/components';
@@ -41,6 +42,10 @@ new Vue({
  store,
 
  mounted() {
+  let lng=Cookies.get('i18n_lang')
+  document.documentElement.setAttribute('lang', lng)
+  document.documentElement.setAttribute('dir', lng=='ar'?'rtl':'ltr')
+           
    //this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",false);
    // this.loadJS("https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js",false);
     //this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js",true)

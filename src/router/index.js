@@ -7,9 +7,18 @@ import academyRoute from './academy'
 import incubatorRoute from './incubator'
 import serviceRoute from './service-provider'
 import consultingRoute from './consulting'
+import Cookies from 'js-cookie'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path:'/',redirect:`${Cookies.get('i18n_lang')}`
+  },
+  {
+    path:'/:lang',
+    component: () => import(/* webpackChunkName: "rout" */ '../views/route.vue'),
+  children:[
+
   {
     path: '/',
     name: 'index',
@@ -68,7 +77,7 @@ const routes = [
   {
     path: '/forget-password-finish',
     meta:{layout:LayoutDefault},
-    name: 'forget-password',
+    name: 'forget-password-finish',
     component: () => import(/* webpackChunkName: "forget-password-finish" */ '../views/auth/ForgetPasswordFinish.vue')
   },
   {
@@ -107,6 +116,8 @@ const routes = [
   ...incubatorRoute,
   ...serviceRoute,
   ...consultingRoute
+]
+}
 ]
 
 const router = new VueRouter({
