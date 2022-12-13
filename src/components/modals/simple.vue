@@ -1,4 +1,5 @@
 <template>
+  <portal to="body">
   <div class="modal fade" :class="{show:dialog}"  tabindex="-1" 
   :style="styleObj"
   aria-labelledby="exampleModalLabel" :aria-hidden="!dialog?'true':'false'">
@@ -17,6 +18,7 @@
       </div>
     </div>
   </div>
+</portal>
 </template>
 
 <script>
