@@ -37,7 +37,7 @@
                                  rules="required"
                                     v-slot="{errors}">
                                     <label class="form-label">{{$t('name_company_ar')}}</label>
-                            <input type="text" v-model="offer.title" class="form-control" placeholder="عنوان التدوينة">
+                            <input type="text" v-model="offer.title" class="form-control" :placeholder="$t('name_company_ar')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -50,7 +50,7 @@
                                  rules="required"
                                     v-slot="{errors}">
                                     <label class="form-label">{{$t('name_company_en')}}</label>
-                            <input type="text" v-model="offer.title_en" class="form-control" placeholder="عنوان التدوينة">
+                            <input type="text" v-model="offer.title_en" class="form-control" :placeholder="$t('name_company_en')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -63,7 +63,7 @@
                                  rules="required"
                                     v-slot="{errors}">
                                     <label class="form-label">{{$t('start_date')}}</label>
-                            <input type="text" v-model="offer.start_date" class="form-control" placeholder="عنوان التدوينة">
+                            <input type="text" v-model="offer.start_date" class="form-control" :placeholder="$t('start_date')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -76,7 +76,7 @@
                                  rules="required"
                                     v-slot="{errors}">
                                     <label class="form-label">{{$t('during_day')}}</label>
-                            <input type="text" v-model="offer.day" class="form-control" placeholder="عنوان التدوينة">
+                            <input type="text" v-model="offer.day" class="form-control" :placeholder="$t('during_day')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -89,7 +89,7 @@
                                  rules="required"
                                     v-slot="{errors}">
                                     <label class="form-label">{{$t('link')}}</label>
-                            <input type="text" v-model="offer.link" class="form-control" placeholder="عنوان التدوينة">
+                            <input type="text" v-model="offer.link" class="form-control" :placeholder="$t('link')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -126,8 +126,8 @@
                                  rules=""
                                     v-slot="{errors}">
                         <label class="form-label">{{$t('short_description_ar')}}</label>
-                            <textarea v-model="offer.short_description" class="form-control" rows="10"
-                                placeholder=""></textarea>
+                            <textarea v-model="offer.short_description" class="form-control" rows="5"
+                                :placeholder="$t('short_description_ar')"></textarea>
                                 <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -140,8 +140,8 @@
                                  rules=""
                                     v-slot="{errors}">
                         <label class="form-label">{{$t('short_description_en')}}</label>
-                            <textarea v-model="offer.short_description_en" class="form-control" rows="10"
-                                placeholder=""></textarea>
+                            <textarea v-model="offer.short_description_en" class="form-control" rows="5"
+                                :placeholder="$t('short_description_en')"></textarea>
                                 <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -242,6 +242,7 @@ export default {
             let { data } = await this.$axios.post('/network/offers',formData)
             if(data.success){
                 console.log('success',data)
+                window.EventBus.fire('list-coupon-update')
                 this.closeDialog()
             }
         } catch (error) {

@@ -262,6 +262,7 @@ export default {
     CouponCard
  },
  data:()=>({
+  group:'list-coupon',
     metaInfo:{
         current_page:1,
         to:10,
@@ -297,6 +298,13 @@ export default {
         }
     }
  },
+ created(){
+    window.EventBus.listen(this.group+'-update',this.loadList)
+  },
+  beforeDestroy(){
+    window.EventBus.off(this.group+'-update',this.loadList)
+
+  },
  mounted(){
     this.loadList()
  }
