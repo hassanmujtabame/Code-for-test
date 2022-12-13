@@ -7,9 +7,9 @@
                 <h1> أهم اكواد الخصم     </h1>
                 <div>
          
-                      <a href="" class="btn bg-main text-white p-2" data-bs-toggle="modal" data-bs-target="#exampleModalToggle3"  >
+                      <button @click="addOffer" class="btn bg-main text-white p-2" >
                         أضف عرض او خصم
-                      </a>
+                      </button>
                   
                   </div>
               </div>
@@ -56,6 +56,11 @@ export default {
         {title:'أكسبوكس',name:'Riadiat-10',discount:10,date:'2022/12/12',during:'5',tags:['ترفيه'],img:'/assets/img/Icon ionic-logo-xbox-2.png'},
     ]
  }),
+methods:{
+  addOffer(){
+    window.EventBus.fire('add-dialog-open-dialog')
+  }
+},
  mounted(){
  
  }

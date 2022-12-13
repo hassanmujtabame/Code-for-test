@@ -10,7 +10,9 @@
         <!--section filter exhibition-->
         <SectionFilter />
         <!--#section filter exhibition-->
+        <portal to="body">
       <addExhibitionDialg />
+      </portal>
     </div>
 </template>
 

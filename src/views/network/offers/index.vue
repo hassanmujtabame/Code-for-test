@@ -11,7 +11,10 @@
         <!--#section membership-->
         <!--section coupons-->
         <SectionCoupons />
-        <!--#section coupons-->  
+        <!--#section coupons--> 
+        <portal to="body"> 
+        <addOfferDialog />
+        </portal>
         </div>
 </template>
 
@@ -20,13 +23,15 @@ import SectionHeader from './parts/section-header/index.vue'
 import SectionTopCoupons from './parts/section-top-coupons/index.vue'
 import SectionMembership from './parts/section-membership/index.vue'
 import SectionCoupons from './parts/section-coupons/index.vue'
+import addOfferDialog from './parts/dialogs/add-offer.vue'
 export default {
  name:'offers-page',
  components:{
     SectionHeader,
     SectionTopCoupons,
     SectionMembership,
-    SectionCoupons
+    SectionCoupons,
+    addOfferDialog
  }
 }
 </script>

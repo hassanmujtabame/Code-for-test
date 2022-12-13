@@ -300,7 +300,9 @@
 
 
         </div>
+        <portal to="body">
         <AddBlogDialog  />
+        </portal>
     </div>
 </template>
 

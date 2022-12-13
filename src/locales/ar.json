@@ -1,3 +1,14 @@
 {
-  "message": "hello i18n !!"
+  "Image": "صورة",
+  "start_date":"تاريخ النشر",
+  "during_day":"مدة (بالايام)",
+  "link":"الرابط",
+  "save":"حفظ",
+  "name_company_ar":"اسم الشركة (ع)",
+  "name_company_en":"اسم الشركة (إ)",
+  "Category":"صنــف",
+  "short_description_ar":"وصف مختصر (ع)",
+  "short_description_en":"وصف مختصر (إ)",
+  "description_ar":"وصـف (ع)",
+  "description_en":"وصـف (إ)"
 }
