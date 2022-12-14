@@ -1,3 +1,4 @@
+
 export const routeOption = (route, key, value) => {
     return route.matched.some((m) => {  
         return m.meta[key] === value || Object.values(m.components).some(
@@ -20,7 +21,8 @@ if (isAuth) {
 }
 } else
 if (page_auth) {
-    next({ path: '/login' })
+    console.log('langg',window.i18n.locale)
+    next({ name: 'login',params:{lang:window.i18n.locale} })
 
 } else {  
     next()
