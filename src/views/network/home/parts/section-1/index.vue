@@ -23,8 +23,7 @@
                     </div>
                     <div class="col-md-6 m-auto">
                         <div class="img-cons m-auto ">
-                            <img style="    border-radius: 50%;
-                            position: absolute;
+                            <img style="border-radius: 50%;position: absolute;
                             width: 300px;
                             height: 300px;" src="/assets/img/1664179507602 aefwG.png" alt="" >
                         </div>
