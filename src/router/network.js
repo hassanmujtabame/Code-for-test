@@ -26,6 +26,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-offers" */ '../views/network/offers/index.vue') 
     },
     {
+        path: 'network/service-provider-member',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-service-provider-member',
+        component: () => import(/* webpackChunkName: "network-service-provider-member" */ '../views/network/service-provider-member/index.vue') 
+    },
+    {
         path: 'network/member-network',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-member-network',
