@@ -140,7 +140,7 @@ export default {
       
     },
     mounted(){
-      console.log('lang',this.$route,this.$router)
+      //console.log('lang',this.$route,this.$router)
     }
 }
 </script>
