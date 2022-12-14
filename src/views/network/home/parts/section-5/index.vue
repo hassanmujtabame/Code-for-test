@@ -10,34 +10,27 @@
                 </div>
               </div>
               
-              <DSwiper
-              style="overflow-x: hidden"
-            :slides-per-view="5"
-            :space-between="10"
-              :loop="true"
-              :pagination="true"
-              :navigation="true"
-              :items="items"
-            >
-       
-            <template  v-slot:default="{item}" >
-                <CardMember 
-                :name="item.name" 
-                :description="item.description" 
-                :img="item.img"/>
+              <d-swiper           
+                :slides-per-view="5"
+                :space-between="10"
+                :items="items"
+              >
+                <template  v-slot:default="{item}" >
+                    <CardMember 
+                    :name="item.name" 
+                    :description="item.description" 
+                    :img="item.img"/>
                 </template>
-            </DSwiper>
+            </d-swiper>
             </div>
           </div>
 </template>
 
 <script>
-import DSwiper from '@/components/swiper/index.vue'
 import CardMember from '@/components/cards/card-member.vue'
 export default {
  name:'section-5',
  components:{
-  DSwiper,
     CardMember
   },
   data:()=>({
@@ -50,7 +43,6 @@ export default {
         {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
         {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
         {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-
     ]
   })
 }
