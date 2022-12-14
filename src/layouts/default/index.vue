@@ -1,7 +1,7 @@
 <template>
   <div>
     <DefaultHeader/>
-    <MyDrawer/>
+    <MyDrawer v-if="user"/>
     <main style="margin-top: 96px">
         <slot></slot>
         </main>
