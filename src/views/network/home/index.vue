@@ -40,7 +40,7 @@ import SectionOne from './parts/section-1/index.vue';
 import SectionTwo from './parts/section-2/index.vue';
 import SectionThree from './parts/section-3/index.vue';
 import SectionFour from './parts/section-4/index.vue';
-import SectionFive from './parts/section-5/index.vue';
+import SectionFive from './parts/section-top-members/index.vue';
 import SectionSubscribe from './parts/section-subscribe/index.vue';
 import SectionJoin from './parts/section-join-us/index.vue';
 import SectionNumbers from './parts/section-numbers/index.vue';
