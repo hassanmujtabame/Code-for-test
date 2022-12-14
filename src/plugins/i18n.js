@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Cookies from 'js-cookie';
 import VueI18n from 'vue-i18n'
+import { localize } from 'vee-validate';
 if(!Cookies.get('i18n_lang')){
   Cookies.set('i18n_lang',process.env.VUE_APP_I18N_LOCALE || 'ar')
 }
 let lang = Cookies.get('i18n_lang');
+localize(lang)
 Vue.use(VueI18n)
 
 function loadLocaleMessages () {

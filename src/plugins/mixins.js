@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import Cookies from 'js-cookie';
 import {  mapGetters } from 'vuex';
+import { localize } from 'vee-validate';
 const mixin = {
     install(Vue) {
         Vue.mixin({
@@ -19,6 +20,7 @@ const mixin = {
                 
               Cookies.set('i18n_lang',lng)
               this.$i18n.locale=lng
+              localize(lng)
               let params = {...this.$route.params,lang:lng}
              
               let r=this.$router.resolve({
