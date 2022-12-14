@@ -32,6 +32,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-models" */ '../views/network/models/index.vue') 
     },
     {
+        path: 'network/control-mamber-partner',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-control-mamber-partner',
+        component: () => import(/* webpackChunkName: "network-control-mamber-partner" */ '../views/network/control-mamber-partner/index.vue') 
+    },
+    {
         path: 'network/home',
         meta:{layout:LayoutDefault},
         name: 'network-home',
