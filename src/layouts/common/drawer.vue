@@ -283,7 +283,7 @@ export default {
     logout(){
         window.store.commit('auth/CLEAR_TOKEN') ;
         window.store.commit('auth/CLEAR_USER');
-        this.$router.push('/login')
+        this.$router.push({name:'login',params:{lang:this.$i18n}})
 
       },
  }
