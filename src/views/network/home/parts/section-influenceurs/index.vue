@@ -4,147 +4,45 @@
           <div
             class="d-flex justify-content-between align-items-center container"
           >
-            <h1>مأثرين وثقوا بنا     </h1>
+            <h1>مأثرين وثقوا بنا</h1>
             <div>
               <button class="more">المزيد</button>
             </div>
           </div>
-          <div
-            style="overflow-x: hidden"
-            swiperRef=""
-            class="swiper-container mySwiper main-swiper"
-          >
-            <div
-             
-              class="swiper-wrapper"
-            >
-              <div class="swiper-slide rounded-3">
-                <div class="box ">
-                    <div class="">
-                        <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                    </div>
-                    <div class="text bg-white ">
-                        <h6> العنود محمد </h6>
-                        <p class="m-c"> التصوير  </p>
-
-                    </div>
-
-                </div>
-             
-              </div>
-              <div class="swiper-slide rounded-3">
-                <div class="box ">
-                    <div class="">
-                        <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                    </div>
-                    <div class="text bg-white ">
-                        <h6> العنود محمد </h6>
-                        <p class="m-c"> التصوير  </p>
-
-                    </div>
-
-                </div>
-             
-              </div>
-              <div class="swiper-slide rounded-3">
-                <div class="box ">
-                    <div class="">
-                        <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                    </div>
-                    <div class="text bg-white ">
-                        <h6> العنود محمد </h6>
-                        <p class="m-c"> التصوير  </p>
-
-                    </div>
-
-                </div>
-             
-              </div>
-              <div class="swiper-slide rounded-3">
-                <div class="box ">
-                    <div class="">
-                        <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                    </div>
-                    <div class="text bg-white ">
-                        <h6> العنود محمد </h6>
-                        <p class="m-c"> التصوير  </p>
-
-                    </div>
-
-                </div>
-             
-              </div>
-              <div class="swiper-slide rounded-3">
-                <div class="box ">
-                    <div class="">
-                        <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                    </div>
-                    <div class="text bg-white ">
-                        <h6> العنود محمد </h6>
-                        <p class="m-c"> التصوير  </p>
-
-                    </div>
-
-                </div>
-             
-              </div>
-              <div class="swiper-slide rounded-3">
-                <div class="box ">
-                    <div class="">
-                        <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                    </div>
-                    <div class="text bg-white ">
-                        <h6> العنود محمد </h6>
-                        <p class="m-c"> التصوير  </p>
-
-                    </div>
-
-                </div>
-             
-              </div>
-              <div class="swiper-slide rounded-3">
-                <div class="box ">
-                    <div class="">
-                        <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                    </div>
-                    <div class="text bg-white ">
-                        <h6> العنود محمد </h6>
-                        <p class="m-c"> التصوير  </p>
-
-                    </div>
-
-                </div>
-             
-              </div>
-              <div class="swiper-slide rounded-3">
-                <div class="box ">
-                    <div class="">
-                        <img  src="/assets/img/Rectangle 1775qa.png" alt="" width="259" height="192">
-                    </div>
-                    <div class="text bg-white ">
-                        <h6> العنود محمد </h6>
-                        <p class="m-c"> التصوير  </p>
-
-                    </div>
-
-                </div>
-             
-              </div>
-       
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
+          <d-swiper           
+                :slides-per-view="5"
+                :space-between="10"
+                :items="items"
+              >
+                <template  v-slot:default="{item}" >
+                    <CardMember 
+                    :name="item.name" 
+                    :description="item.description" 
+                    :img="item.img"/>
+                </template>
+            </d-swiper>
         </div>
       </div>
 </template>
 
 <script>
+import CardMember from '@/components/cards/card-member.vue'
 export default {
-name:'section-influenceurs'
+ name:'section-influenceurs',
+ components:{
+    CardMember
+  },
+  data:()=>({
+    items:[
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+    ]
+  })
 }
 </script>
-
-<style>
-
-</style>
