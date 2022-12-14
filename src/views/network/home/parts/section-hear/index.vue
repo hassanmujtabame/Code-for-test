@@ -2,7 +2,7 @@
   <div class="sex-eight mt-5">
       <div class="container">
         <h2 class="text-center">ماذا يقولون المشتركات في الشبكة</h2>
-          <div class="feature-carousel owl-carousel owl-theme">
+          <div class="hear-carousel owl-carousel owl-theme">
               <div class="item">
                   <div class="row align-items-center p">
                       <div class="col-md-8 osition-relative">
@@ -75,7 +75,7 @@
 export default {
     name:'hear-about-us',
  mounted(){
-    $('.feature-carousel').owlCarousel({
+    $('.hear-carousel').owlCarousel({
     loop:true,
     margin:10,
     nav:true,
