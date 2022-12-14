@@ -19,6 +19,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 //import './assets/js/owl.carousel.min.js'
 let owl_carousel = require('./assets/js/owl.carousel.min.js').default;
 window.fn = owl_carousel;
+require('./assets/js/jquery.simple-calendar.min.js')
 import Swiper from 'swiper';
 window.Swiper=Swiper
 //import './plugins/aos'
