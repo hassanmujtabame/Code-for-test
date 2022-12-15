@@ -21,10 +21,12 @@
                 :items="items"
               >
                 <template  v-slot:default="{item}" >
+                  <router-link :to="getRouteLocale('show-profile')">
                     <CardMember 
                     :name="item.name" 
                     :description="item.description" 
                     :img="item.img"/>
+                  </router-link>
                 </template>
             </d-swiper>
              
