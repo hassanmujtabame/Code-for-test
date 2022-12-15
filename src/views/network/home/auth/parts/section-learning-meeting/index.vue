@@ -11,8 +11,8 @@
     </div>
   </div>
   <d-swiper
-  :slides-per-view="5"
-  :space-between="10"
+  :slides-per-view="3"
+  :space-between="5"
     :items="items"
               >
                 <template  v-slot:default="{item}" >
