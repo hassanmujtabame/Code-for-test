@@ -24,28 +24,6 @@
            <!-- section 8-->
            <SectionEight />
           <!--#section 8--> 
-           <!-- section 9-->
-           <SectionNine />
-          <!--#section 9-->   
-          <!-- section 10-->
-          <SectionTen />
-          <!--#section 10-->  
-          <!-- section 11-->
-          <SectionEleven />
-          <!--#section 11--> 
-          <!-- section 12-->
-          <SectionTwelve/>
-          <!--#section 12--> 
-          <!-- section 13-->
-          <SectionThreeteen />
-          <!--#section 13-->   
-          <!-- section 14-->
-        <SectionForteen />
-          <!--#section 14--> 
-        <!-- section 15-->
-        <SectionFifteen />
-          <!--#section 15-->
-      
   
       </div>
   </template>
