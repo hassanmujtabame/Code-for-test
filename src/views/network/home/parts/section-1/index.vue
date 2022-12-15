@@ -11,13 +11,13 @@
                             شبكة رياديات بتساعدك في مشروعك من الالف الى الياء
                          </p>
                          <div class="btn-main-style">
-                          <router-link v-if="user" :to="getRouteLocale('network-dashboard')" class="btn-custmer shadow mt-2">الصفة الرئيسية</router-link>
+                          <router-link v-if="user" :to="getRouteLocale('network-dashboard')" class="btn-custmer shadow mt-2">الصفحة الرئيسية</router-link>
 
                             <template v-else>
 
                             
-                          <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2">انضمي الان</router-link>
-                          <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</router-link>
+                          <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2">انضمي إلينا </router-link>
+                          <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> سجلي دخولك</router-link>
                         </template> 
                         </div>
                     </div>
