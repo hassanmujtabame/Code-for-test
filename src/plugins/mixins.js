@@ -7,6 +7,10 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+
+            getRouteLocale(name){
+            return {name,params:{lang:this.$i18n.locale}}
+            },
             generatetoUrl(name,params={}){
               let r=   this.$router.resolve({
                          name: name, // put your route information in

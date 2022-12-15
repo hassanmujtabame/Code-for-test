@@ -31,17 +31,13 @@
                                     <input id="password-field2"  type="password" class="form-control  " 
                                         placeholder="    تاكيد كلمة السر" required>
                                         <span
-                                        style="    top: 12px;
-                                        left: 15px;
-                                        color: #CDD7D8;
-                                        font-size: 23px;
-                                    " toggle="#password-field2"
+                                        style="top: 12px;left: 15px;color: #CDD7D8;font-size: 23px;" toggle="#password-field2"
                                         class="fa-regular fa-eye toggle-password position-absolute">
                                     </span>
                                 </div>
                                 <div class="col-12 text-center ">
                                     <button class="btn btn-main  " type="submit"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">  
-                                        <router-link :to="'forget-password-finish'" class="text-white">
+                                        <router-link :to="getRouteLocale('forget-password-finish')" class="text-white">
                                             تغير كلمة السر
                                         </router-link>  </button>
                                 </div>

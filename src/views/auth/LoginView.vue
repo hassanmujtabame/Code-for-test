@@ -7,7 +7,7 @@
                         <div style="top: 17px;left: 53%;" class="position-absolute form-loging" >
                             <h6>
                                 ليس لديك حساب ؟   
-                                <router-link :to="'register'" class="m-c">
+                                <router-link :to="getRouteLocale('register')" class="m-c">
                                       أنشئ حساب الان
                                 </router-link>
                             </h6>
@@ -74,7 +74,7 @@
                                     </label>
                                     </div>
                                     <div>
-                                        <router-link :to="'/forget-password'" class="m-c">
+                                        <router-link :to="getRouteLocale('forget-password')" class="m-c">
                                             نسيت كلمة السر ؟
                                         </router-link>
                                     </div>

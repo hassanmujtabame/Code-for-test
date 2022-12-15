@@ -38,7 +38,7 @@
                                 
                                 <div class="col-12 text-center ">
                                     <button class="btn btn-main  " type="submit"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">  
-                                        <router-link :to="'regester-finish'" class="text-white">
+                                        <router-link :to="getRouteLocale('register-finish')" class="text-white">
                                             أستمر
                                         </router-link>  </button>
                                 </div>

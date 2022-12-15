@@ -6,7 +6,7 @@
                     <div class="col-12 col-md-6 p-4">
                         <div style="top: 17px;left: 53%;" class="position-absolute form-loging">
                             <h6>لديك حساب بالفعل؟  
-                                <router-link :to="'/login'" class="m-c">
+                                <router-link :to="getRouteLocale('login')" class="m-c">
                                   سجل دخولك الان
                                 </router-link>
                             </h6>
@@ -32,11 +32,7 @@
                                 <input id="password-field"  type="password" class="form-control  "
                                     placeholder="   كلمة السر" required>
                                     <span
-                                    style="    top: 12px;
-                                    left: 15px;
-                                    color: #CDD7D8;
-                                    font-size: 23px;
-                                " toggle="#password-field"
+                                    style="top: 12px;left: 15px;color: #CDD7D8;font-size: 23px;" toggle="#password-field"
                                     class="fa-regular fa-eye toggle-password position-absolute">
                                 </span>
                             </div>
@@ -44,11 +40,7 @@
                                 <input id="password-field2"  type="password" class="form-control  "
                                     placeholder="تاكيد كلمة السر" required>
                                     <span
-                                    style="    top: 12px;
-                                    left: 15px;
-                                    color: #CDD7D8;
-                                    font-size: 23px;
-                                " toggle="#password-field2"
+                                    style="top: 12px;left: 15px;color: #CDD7D8;font-size: 23px;" toggle="#password-field2"
                                     class="fa-regular fa-eye toggle-password position-absolute">
                                 </span>
                             </div>
@@ -59,7 +51,7 @@
                             <div>
                                 <p>
                                 بانشاءك حساب جديد، انت توافق على
-                                    <router-link :to="'terms-and-conditions'" class="m-c">
+                                    <router-link :to="getRouteLocale('terms-and-conditions')" class="m-c">
                                         شروط الاستخدام وسياسة الخصوصيه
                                     </router-link>
                                 </p>

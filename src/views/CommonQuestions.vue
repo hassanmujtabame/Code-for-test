@@ -7,7 +7,7 @@
                         <h1 class="fs-1 text-white">الاسئلة الشائعة</h1>
                         <p class="text-white">
                             هنا تجد كل الاسئلة التي تدور في ذهنك و كيف تضمن حقوقك في المنصة اذا احتجت الى سؤال أخر 
-                            <router-link :to="'/contact-us'" class="text-dark fw-bolder fs-3">
+                            <router-link :to="getRouteLocale('contact-us')" class="text-dark fw-bolder fs-3">
                                 فتواصل معنا
                             </router-link>   
                             </p>                                     

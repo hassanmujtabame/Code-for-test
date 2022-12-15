@@ -89,7 +89,7 @@
                </template>
               <div v-else style="    line-height: 3.5;"  class="btn-main btn-nav text-center">
                
-                <router-link  :to="'/register'" class="text-white ">انضمي الينا</router-link>
+                <router-link  :to="getRouteLocale('register')" class="text-white ">انضمي الينا</router-link>
               </div>
               <li class="nav-item dropdown ms-3 lang">
                 <a
