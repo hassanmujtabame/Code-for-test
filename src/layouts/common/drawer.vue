@@ -59,10 +59,10 @@
                             fill="#1FB9B3" />
                     </svg>
 
-                    <a href="#" class="mx-2 m-c ">
+                    <router-link :to="getRouteLocale('show-profile')"  class="mx-2 m-c ">
                         الصفحة الشخصية
 
-                    </a>
+                    </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -26,6 +26,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "Index" */ '../views/Index/Index.vue')
   },
   {
+    path: 'show-profile',
+    name: 'show-profile',
+    meta:{layout:LayoutDefault},
+    component: () => import(/* webpackChunkName: "show-profile" */ '../views/common/show-profile/index.vue')
+  },
+  {
     path: 'test',
     name: 'test',
     meta:{layout:LayoutDefault},
