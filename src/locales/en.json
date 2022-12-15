@@ -10,5 +10,7 @@
   "short_description_ar":"Short description (Ar)",
   "short_description_en":"Short description (En)",
   "description_ar":"Description (Ar)",
-  "description_en":"Description (En)"
+  "description_en":"Description (En)",
+  "status_subscribe_active":"Active",
+  "status_subscribe_expired":"Expired"
 }

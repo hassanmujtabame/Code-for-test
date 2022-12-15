@@ -10,5 +10,7 @@
   "short_description_ar":"وصف مختصر (عربي)",
   "short_description_en":"وصف مختصر (إنجليزي)",
   "description_ar":"وصـف (عربي)",
-  "description_en":"وصـف (إنجليزي)"
+  "description_en":"وصـف (إنجليزي)",
+  "status_subscribe_active":"ساري",
+  "status_subscribe_expired":"إنتهى"
 }
