@@ -43,7 +43,6 @@
                     </svg>
                     <a href="#" class="mx-2 m-c ">
                         لوحة التحكم
-
                     </a>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -61,7 +60,6 @@
 
                     <router-link :to="getRouteLocale('show-profile')"  class="mx-2 m-c ">
                         الصفحة الشخصية
-
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -76,7 +74,6 @@
 
                     <a href="#" class="mx-2 m-c ">
                         طلبات شراء خدماتك
-
                     </a>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -94,7 +91,6 @@
 
                     <a href="#" class="mx-2 m-c ">
                         عروضك
-
                     </a>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -118,7 +114,6 @@
 
                     <a href="#" class="mx-2 m-c ">
                         الوظائف
-
                     </a>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -158,7 +153,6 @@
 
                     <a href="#" class="mx-2 m-c ">
                         جدول مواعيد خدماتك
-
                     </a>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -179,10 +173,9 @@
 
 
 
-                    <a href="#" class="mx-2 m-c ">
+                    <router-link :to="getRouteLocale('network-menu-subscribe')" class="mx-2 m-c ">
                         الاشتراكات
-
-                    </a>
+                    </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
