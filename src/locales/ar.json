@@ -12,5 +12,9 @@
   "description_ar":"وصـف (عربي)",
   "description_en":"وصـف (إنجليزي)",
   "status_subscribe_active":"ساري",
-  "status_subscribe_expired":"إنتهى"
+  "status_subscribe_expired":"إنتهى",
+  "rememberme":"تذكرني",
+  "forgot_password":"نسيت كلمة السر ؟",
+  "Email":"البريد الالكتروني",
+  "Password":"كلمة المرور"
 }

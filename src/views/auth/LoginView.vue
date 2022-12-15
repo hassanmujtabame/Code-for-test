@@ -28,7 +28,7 @@
                                 <input type="text" 
                                 class="form-control" 
                                 id="validationCustom03"       
-                                placeholder="البريد الالكتروني" 
+                                :placeholder="$t('Email')" 
                                 v-model="form.email"
                                 required
                                 >
@@ -51,7 +51,7 @@
                                 :type="show?'text':'password'"
                                 v-model="form.password"
                                  class="form-control " 
-                                    placeholder="   كلمة السر" required>
+                                    :placeholder="$t('Password')" required>
                                     <span    style="color: #CDD7D8;font-size: 23px;"
                                      toggle="#password-field"
                                      @click="show=!show"
@@ -70,12 +70,12 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     <label class="form-check-label" for="flexCheckDefault">
-                                       تذكرني
+                                       {{$t('rememberme')}}
                                     </label>
                                     </div>
                                     <div>
                                         <router-link :to="getRouteLocale('forget-password')" class="m-c">
-                                            نسيت كلمة السر ؟
+                                            {{$t('forgot_password')}}
                                         </router-link>
                                     </div>
                                 </div>

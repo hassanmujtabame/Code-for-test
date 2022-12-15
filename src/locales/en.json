@@ -12,5 +12,9 @@
   "description_ar":"Description (Ar)",
   "description_en":"Description (En)",
   "status_subscribe_active":"Active",
-  "status_subscribe_expired":"Expired"
+  "status_subscribe_expired":"Expired",
+  "rememberme":"Remember Me!",
+  "forgot_password":"Forgot password?",
+  "Email":"Email",
+  "Password":"Password"
 }
