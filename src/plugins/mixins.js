@@ -8,8 +8,8 @@ const mixin = {
         Vue.mixin({
           methods:{
 
-            getRouteLocale(name){
-            return {name,params:{lang:this.$i18n.locale}}
+            getRouteLocale(name,params={}){
+            return {name,params:{lang:this.$i18n.locale,...params}}
             },
             generatetoUrl(name,params={}){
               let r=   this.$router.resolve({
