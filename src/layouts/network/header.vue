@@ -33,17 +33,25 @@
             </li>
             <li class="nav-item px-2">
            
-              <router-link :to="{name:'network-home',params:{lang:$i18n.locale}}" class="nav-link">أعرض خدماتك</router-link>
+              <router-link :to="{name:'network-investment-project',params:{lang:$i18n.locale}}" class="nav-link">مشاريع للإستثمار</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link :to="{name:'network-home',params:{lang:$i18n.locale}}" class="nav-link">خدماتك الجاهزة</router-link>
+              <router-link :to="{name:'network-exhibitions',params:{lang:$i18n.locale}}" class="nav-link">المعارض</router-link>
             </li>
            
-           
+            <li class="nav-item px-2">
+              <router-link :to="{name:'network-offers',params:{lang:$i18n.locale}}" class="nav-link">العروض</router-link>
+            </li>
+            <li class="nav-item px-2">
+              <router-link :to="{name:'network-models',params:{lang:$i18n.locale}}" class="nav-link">النماذج</router-link>
+            </li>
+            <li class="nav-item px-2">
+              <router-link :to="{name:'network-blog',params:{lang:$i18n.locale}}" class="nav-link">المدونة</router-link>
+            </li>
             <li class="nav-item px-2">
               <router-link to="/contact-us" class="nav-link">تواصل معنا</router-link>
             </li>
-            <div style="    line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center">
+            <div  v-if="false" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center">
                         <a href="" class="text-white " data-bs-toggle="modal"
                         data-bs-target="#addModal">أضف خدمة جديدة</a>
                     </div>
