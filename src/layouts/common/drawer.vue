@@ -280,10 +280,12 @@
 export default {
  name:'drawer-profil',
  methods:{
-    logout(){
+    logout(evt){
+        evt.preventDefault();
+        
         window.store.commit('auth/CLEAR_TOKEN') ;
         window.store.commit('auth/CLEAR_USER');
-        this.$router.push({name:'login',params:{lang:this.$i18n}})
+        this.$router.push({name:'login',params:{lang:this.$i18n.locale}})
 
       },
  }
