@@ -58,7 +58,7 @@
                             fill="#1FB9B3" />
                     </svg>
 
-                    <router-link :to="getRouteLocale('show-profile')"  class="mx-2 m-c ">
+                    <router-link :to="getRouteLocale('my-profile')"  class="mx-2 m-c ">
                         الصفحة الشخصية
                     </router-link>
                 </div>
