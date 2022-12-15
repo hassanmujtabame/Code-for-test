@@ -69,19 +69,19 @@ const routers =[
     },
     {
         path: 'network/home',
-        meta:{layout:LayoutDefault},
+        meta:{layout:LayoutNetwork},
         name: 'network-home',
         component: () => import(/* webpackChunkName: "network-home" */ '../views/network/home/index.vue') 
     },
     {
         path: 'network/subscribe',
-        meta:{layout:LayoutDefault},
+        meta:{layout:LayoutNetwork},
         name: 'network-subscribe',
         component: () => import(/* webpackChunkName: "network-subscribe" */ '../views/network/subscribe/index.vue') 
     },
     {
         path: 'network/subscribe/finish',
-        meta:{layout:LayoutDefault},
+        meta:{layout:LayoutNetwork},
         name: 'network-subscribe-finish',
         component: () => import(/* webpackChunkName: "network-subscribe-finish" */ '../views/network/SubscribeFinish.vue') 
     }
