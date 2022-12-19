@@ -1,9 +1,9 @@
 <template>
    <div class="container">
             <div class="sec-three mt-5">
-                <div class="feature-carousel owl-carousel owl-theme">
+                <d-carousel>
                   <div style="height: 287.9px" class="item">
-                    <div class="carwsel-slider-item rounded-4">
+                    <d-carousel-slide>
                       <div class="row pt-3">
                         <div class="col-md-7">
                           <div class="px-4">
@@ -113,10 +113,10 @@
                           />
                         </div>
                       </div>
-                    </div>
+                    </d-carousel-slide>
                   </div>
                   <div style="height: 287.9px" class="item">
-                    <div class="carwsel-slider-item rounded-4">
+                    <d-carousel-slide>
                       <div class="">
                         <div class="position-relative">
                           <img
@@ -140,13 +140,10 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </d-carousel-slide>
                   </div>
                   <div style="height: 287.9px" class="item">
-                    <div
-                      style="height: 287.9px"
-                      class="carwsel-slider-item rounded-4"
-                    >
+                    <d-carousel-slide>
                       <div class="text-descoun-carwsel">
                         <h1 class="text-center m-0">
                           خصم خاص بمناسبة العيد في اكاديمية رياديات
@@ -184,9 +181,9 @@
                           </button>
                         </div>
                       </div>
-                    </div>
+                    </d-carousel-slide>
                   </div>
-                </div>
+                </d-carousel>
               </div>
 
               <div class="mt-5">
