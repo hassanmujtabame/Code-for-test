@@ -44,12 +44,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "preview-profile" */ '../views/common/preview-profile/index.vue')
   },
   {
-    path: 'my-financial-transactions',
-    meta:{layout:LayoutDefault},
-    name: 'my-financial-transactions',
-    component: () => import(/* webpackChunkName: "my-financial-transactions" */ '../views/common/my-financial-transactions/index.vue')
-  },
-  {
     path: 'test',
     name: 'test',
     meta:{layout:LayoutDefault},

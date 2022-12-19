@@ -84,6 +84,12 @@ const routers =[
         meta:{layout:LayoutNetwork},
         name: 'network-subscribe-finish',
         component: () => import(/* webpackChunkName: "network-subscribe-finish" */ '../views/network/SubscribeFinish.vue') 
+    },
+    {
+        path: 'my-financial-transactions',
+        meta:{layout:LayoutNetwork},
+        name: 'my-financial-transactions',
+        component: () => import(/* webpackChunkName: "my-financial-transactions" */ '../views/common/my-financial-transactions/index.vue')
     }
 ]
 export default routers;
