@@ -44,7 +44,7 @@
 
 <script>
 export default {
-    name:'section-14'
+    name:'section-continue-learning'
 }
 </script>
 
