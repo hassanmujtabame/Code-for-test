@@ -28,6 +28,7 @@ import App from './App.vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 window.AOS=AOS
+require('./assets/js/rSlider')
 //import installI18n from './lang/index'
 import router from './router'
 
