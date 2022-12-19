@@ -120,7 +120,12 @@
                                     margin: 20px 0px 0 0;" class="a">
 
                                 <div class="slider-container">
-                                    <input type="text" id="slider3" class="slider" />
+                                    <rslider-input
+                                         :min.sync="valueMin1" 
+                                         :max.sync="valueMax1"
+                                         :lmin="0"
+                                         :lmax="100"
+                                         />
                                 </div>
 
                             </div>
@@ -141,7 +146,12 @@
                                       margin: 20px 0px 0 0;" class="a">
 
                                 <div class="slider-container">
-                                    <input type="text" id="slider4" class="slider" />
+                                    <rslider-input
+                                         :min.sync="valueMin2" 
+                                         :max.sync="valueMax2"
+                                         :lmin="0"
+                                         :lmax="100"
+                                         />
                                 </div>
 
 
@@ -275,7 +285,13 @@
 
 <script>
 export default {
-    name: 'filterd-list'
+    name: 'filterd-list',
+    data:()=>({
+        valueMax1:40,
+        valueMin1:0,
+        valueMax2:50,
+        valueMin2:20,
+    })
 }
 </script>
 
