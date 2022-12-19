@@ -1,16 +1,15 @@
 <template>
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-profile" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-profile" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-headers text-end p-2 mx-4">
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body text-center">
             <div>
-                <img class="rounded-circle" :src="user.image" alt=""
-                    width="150" height="150">
+                <img class="rounded-circle" :src="user.image" alt="" width="150" height="150">
             </div>
             <div class="mt-3">
                 <h3 class="m-c fw-bolder">
-                  {{user.name}}
+                    {{ user.name }}
                 </h3>
                 <p>
                     مصمم واجهات امامية
@@ -58,7 +57,7 @@
                             fill="#1FB9B3" />
                     </svg>
 
-                    <router-link :to="getRouteLocale('my-profile')"  class="mx-2 m-c ">
+                    <router-link :to="getRouteLocale('my-profile')" class="mx-2 m-c ">
                         الصفحة الشخصية
                     </router-link>
                 </div>
@@ -215,9 +214,6 @@
                             d="M16.0004 28.0267C10.9871 28.0267 6.25376 25.0934 3.00043 20.0001C1.5871 17.8001 1.5871 14.2134 3.00043 12.0001C6.2671 6.90672 11.0004 3.97339 16.0004 3.97339C21.0004 3.97339 25.7338 6.90672 28.9871 12.0001C30.4004 14.2001 30.4004 17.7867 28.9871 20.0001C25.7338 25.0934 21.0004 28.0267 16.0004 28.0267ZM16.0004 5.97339C11.6938 5.97339 7.57376 8.56006 4.69376 13.0801C3.69376 14.6401 3.69376 17.3601 4.69376 18.9201C7.57376 23.4401 11.6938 26.0267 16.0004 26.0267C20.3071 26.0267 24.4271 23.4401 27.3071 18.9201C28.3071 17.3601 28.3071 14.6401 27.3071 13.0801C24.4271 8.56006 20.3071 5.97339 16.0004 5.97339Z"
                             fill="#1FB9B3" />
                     </svg>
-
-
-
                     <router-link :to="getRouteLocale('preview-profile')" class="mx-2 m-c ">
                         كيف يراني الاخرون
                     </router-link>
@@ -270,17 +266,17 @@
 
 <script>
 export default {
- name:'drawer-profil',
- methods:{
-    logout(evt){
-        evt.preventDefault();
-        
-        window.store.commit('auth/CLEAR_TOKEN') ;
-        window.store.commit('auth/CLEAR_USER');
-        this.$router.push({name:'login',params:{lang:this.$i18n.locale}})
+    name: 'drawer-profil',
+    methods: {
+        logout(evt) {
+            evt.preventDefault();
 
-      },
- }
+            window.store.commit('auth/CLEAR_TOKEN');
+            window.store.commit('auth/CLEAR_USER');
+            this.$router.push({ name: 'login', params: { lang: this.$i18n.locale } })
+
+        },
+    }
 }
 </script>
 
