@@ -1,7 +1,7 @@
 
 class CoursesApi {
     //Get all Courses
-    getAll(params){
+    getAll(params={}){
         let s="";
         Object.keys(params).forEach((key)=>{
             if(s!="") s+=`&`
