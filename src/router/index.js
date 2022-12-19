@@ -9,10 +9,10 @@ import serviceRoute from './service-provider'
 import consultingRoute from './consulting'
 import Cookies from 'js-cookie'
 Vue.use(VueRouter)
-
+let lang= Cookies.get('i18n_lang') || 'ar';
 const routes = [
   {
-    path:'/',redirect:`${Cookies.get('i18n_lang')}`
+    path:'/',redirect:`${lang}`
   },
   {
     path:'/:lang',
