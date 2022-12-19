@@ -21,9 +21,9 @@
         <!-- section exploring-specialized-entrepreneurship-->
         <section-exploring-specialized-entrepreneurship />
         <!--#section exploring-specialized-entrepreneurship-->
-         <!-- section 8-->
-         <SectionEight />
-        <!--#section 8--> 
+         <!-- section section-academy-schedule-->
+         <section-academy-schedule />
+        <!--#section section-academy-schedule--> 
          <!-- section 9-->
          <SectionNine />
         <!--#section 9-->   
@@ -58,7 +58,7 @@ import sectionTopInstructor from './parts/section-top-instructor/index.vue'
 import SectionTrainingFields from './parts/section-training-fields/index.vue'
 import SectionExploringEntrepreneurship from './parts/section-exploring-entrepreneurship/index.vue'
 import SectionExploringSpecializedEntrepreneurship from './parts/section-exploring-specialized-entrepreneurship/index.vue'
-import SectionEight from './parts/section-8/index.vue'
+import SectionAcademySchedule from './parts/section-academy-schedule/index.vue'
 import SectionNine from './parts/section-9/index.vue'
 import SectionTen from './parts/section-10/index.vue'
 import SectionEleven from './parts/section-11/index.vue'
@@ -76,7 +76,7 @@ components:{
   SectionTrainingFields,
   SectionExploringEntrepreneurship,
   SectionExploringSpecializedEntrepreneurship,
-  SectionEight,
+  SectionAcademySchedule,
   SectionNine,
   SectionTen,
   SectionEleven,

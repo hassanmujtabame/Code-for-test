@@ -80,9 +80,7 @@
                         <div class="col-md-4">
                             <div class="position-relative">
 
-                                <div style="
-                                margin: -51px 0;
-                            " id="calendarContainer" class=" e "></div>
+                              <d-calendar/>
                             </div>
 
                         </div>
@@ -97,7 +95,7 @@
 
 <script>
 export default {
-name:'section-8'
+name:'section-section-academy-schedule'
 }
 </script>
 
