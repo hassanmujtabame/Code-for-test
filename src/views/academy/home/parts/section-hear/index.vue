@@ -2,7 +2,7 @@
   <div class="sex-eight mt-5">
       <div class="container">
         <h2 class="text-center">   ماذا يقولون المشتركات في الشبكة</h2>
-          <div class="feature-carousel owl-carousel owl-theme">
+          <d-carousel>
               <div class="item">
                   <div class="row align-items-center p">
                       <div class="col-md-8 osition-relative">
@@ -67,7 +67,7 @@
                   </div>
               </div>
   
-          </div>
+          </d-carousel>
 
       </div>
 
