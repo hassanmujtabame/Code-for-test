@@ -145,6 +145,7 @@ const router = new VueRouter({
   linkExactActiveClass: "active",
 })
 router.beforeEach((to,from,next)=>{
+  window.scrollTo(0, 0)
   middlewiare_auth(to,from,next)
 })
 window.router = router;
