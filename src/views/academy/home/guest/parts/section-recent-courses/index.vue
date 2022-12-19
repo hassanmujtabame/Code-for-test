@@ -13,32 +13,27 @@
                     </button>
                   </div>
               </div>
-              <DSwiper
+              <d-swiper
               style="overflow-x: hidden"
             :slides-per-view="4"
             :space-between="10"
-              :loop="true"
-              :pagination="true"
-              :navigation="true"
               :items="items"
             >
        
             <template  v-slot:default="{item}" >
                 <CardVue :title="item.title" :img="item.img"/>
                 </template>
-            </DSwiper>
+              </d-swiper>
             </div>
           </div>
 </template>
 
 <script>
-import DSwiper from '@/components/swiper/index.vue'
 import CardVue from './card.vue'
 
 export default {
-    name:'section-11',
+    name:'section-recent-courses',
     components:{
-        DSwiper,
         CardVue
     },
     data:()=>({

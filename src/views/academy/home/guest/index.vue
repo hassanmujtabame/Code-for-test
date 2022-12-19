@@ -25,13 +25,13 @@
          <section-academy-schedule />
         <!--#section section-academy-schedule--> 
          <!-- section 9-->
-         <SectionNine />
+         <SectionBestIntructors />
         <!--#section 9-->   
         <!-- section 10-->
         <SectionTen />
         <!--#section 10-->  
         <!-- section 11-->
-        <SectionEleven />
+        <SectionRecentCourses />
         <!--#section 11--> 
         <!-- section 12-->
         <SectionTwelve/>
@@ -59,9 +59,9 @@ import SectionTrainingFields from './parts/section-training-fields/index.vue'
 import SectionExploringEntrepreneurship from './parts/section-exploring-entrepreneurship/index.vue'
 import SectionExploringSpecializedEntrepreneurship from './parts/section-exploring-specialized-entrepreneurship/index.vue'
 import SectionAcademySchedule from './parts/section-academy-schedule/index.vue'
-import SectionNine from './parts/section-9/index.vue'
+import SectionBestIntructors from './parts/section-best-intructors/index.vue'
 import SectionTen from './parts/section-10/index.vue'
-import SectionEleven from './parts/section-11/index.vue'
+import SectionRecentCourses from './parts/section-11/index.vue'
 import SectionTwelve from './parts/section-12/index.vue'
 import SectionThreeteen from './parts/section-13/index.vue'
 import SectionForteen from './parts/section-14/index.vue'
@@ -77,9 +77,9 @@ components:{
   SectionExploringEntrepreneurship,
   SectionExploringSpecializedEntrepreneurship,
   SectionAcademySchedule,
-  SectionNine,
+  SectionBestIntructors,
   SectionTen,
-  SectionEleven,
+  SectionRecentCourses,
   SectionTwelve,
   SectionThreeteen,
   SectionForteen,

@@ -13,13 +13,10 @@
                     </button>
                   </div>
               </div>
-              <DSwiper
+              <d-swiper
               style="overflow-x: hidden"
             :slides-per-view="5"
             :space-between="10"
-              :loop="true"
-              :pagination="true"
-              :navigation="true"
               :items="items"
             >
        
@@ -29,20 +26,19 @@
                 :description="item.description" 
                 :img="item.img"/>
                 </template>
-            </DSwiper>
+              </d-swiper>
  </div>
     </div>
   
 </template>
 
 <script>
-import DSwiper from '@/components/swiper/index.vue'
+
 import CardMember from '@/components/cards/card-member.vue'
 
 export default {
-    name:'section-9',
+    name:'section-best-intructors',
     components:{
-        DSwiper,
         CardMember
     },
     data:()=>({
