@@ -12,12 +12,12 @@
        <!-- section top instructor-->
        <sectionTopInstructor />
         <!--#section top instructor-->
-        <!-- section 5-->
-        <SectionFive/>
-        <!--#section 5-->
-        <!-- section 6-->
-        <SectionSix />
-        <!--#section 6-->
+        <!-- section training-fields-->
+        <SectionTrainingFields/>
+        <!--#section training-fields-->
+        <!-- section exploring-entrepreneurship-->
+        <section-exploring-entrepreneurship />
+        <!--#section exploring-entrepreneurship-->
         <!-- section 7-->
         <SectionSeven />
         <!--#section 7-->
@@ -55,8 +55,8 @@ import SectionOne from './parts/section-1/index.vue'
 import SectionTwo from './parts/section-2/index.vue'
 import SectionThree from './parts/section-3/index.vue'
 import sectionTopInstructor from './parts/section-top-instructor/index.vue'
-import SectionFive from './parts/section-5/index.vue'
-import SectionSix from './parts/section-6/index.vue'
+import SectionTrainingFields from './parts/section-training-fields/index.vue'
+import SectionExploringEntrepreneurship from './parts/section-exploring-entrepreneurship/index.vue'
 import SectionSeven from './parts/section-7/index.vue'
 import SectionEight from './parts/section-8/index.vue'
 import SectionNine from './parts/section-9/index.vue'
@@ -73,8 +73,8 @@ components:{
   SectionTwo,
   SectionThree,
   sectionTopInstructor,
-  SectionFive,
-  SectionSix,
+  SectionTrainingFields,
+  SectionExploringEntrepreneurship,
   SectionSeven,
   SectionEight,
   SectionNine,
