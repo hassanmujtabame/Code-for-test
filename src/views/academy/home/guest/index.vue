@@ -43,7 +43,7 @@
       <SectionContinueLearning />
         <!--#section 14--> 
       <!-- section 15-->
-      <SectionFifteen />
+      <SectionHear />
         <!--#section 15-->
     
 
@@ -65,7 +65,7 @@ import SectionRecentCourses from './parts/section-recent-courses/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionAcademyNumbers from './parts/section-academy-numbers/index.vue'
 import SectionContinueLearning from './parts/section-continue-learning/index.vue'
-import SectionFifteen from './parts/section-15/index.vue'
+import SectionHear from './parts/section-hear/index.vue'
 export default {
 name:"academy-home",
 components:{
@@ -83,7 +83,7 @@ components:{
   SectionOurPartners,
   SectionAcademyNumbers,
   SectionContinueLearning,
-  SectionFifteen
+  SectionHear
 }
 }
 </script>

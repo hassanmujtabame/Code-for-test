@@ -76,7 +76,7 @@
 
 <script>
 export default {
-    name:'section-15'
+    name:'section-hear-about-us'
 }
 </script>
 
