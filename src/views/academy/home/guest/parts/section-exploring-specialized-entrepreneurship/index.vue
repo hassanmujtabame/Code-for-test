@@ -10,31 +10,26 @@
                 </h1>
         
               </div>
-              <DSwiper
+              <d-swiper
               style="overflow-x: hidden"
             :slides-per-view="7"
             :space-between="10"
-              :loop="true"
-              :pagination="true"
-              :navigation="true"
               :items="items"
             >
        
             <template  v-slot:default="{item}" >
                 <CardVue :title="item.title" :img="item.img"/>
                 </template>
-                </DSwiper>
+              </d-swiper>
             </div>
           </div>
 </template>
 
 <script>
-import DSwiper from '@/components/swiper/index.vue'
 import CardVue from './card.vue'
 export default {
-    name:'section-7',
+    name:'section-exploring-specialized-entrepreneurship',
     components:{
-        DSwiper,
         CardVue
     },
     data:()=>({
