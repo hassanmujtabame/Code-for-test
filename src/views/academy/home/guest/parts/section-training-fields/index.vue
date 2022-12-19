@@ -88,7 +88,7 @@
 
 <script>
 export default {
-    name:'section-5'
+    name:'section-training-fields'
 }
 </script>
 
