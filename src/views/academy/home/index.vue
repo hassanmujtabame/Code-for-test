@@ -51,21 +51,21 @@
 </template>
 
 <script>
-import SectionOne from './parts/section-1/index.vue'
-import SectionTwo from './parts/section-2/index.vue'
-import SectionThree from './parts/section-3/index.vue'
-import SectionFour from './parts/section-4/index.vue'
-import SectionFive from './parts/section-5/index.vue'
-import SectionSix from './parts/section-6/index.vue'
-import SectionSeven from './parts/section-7/index.vue'
-import SectionEight from './parts/section-8/index.vue'
-import SectionNine from './parts/section-9/index.vue'
-import SectionTen from './parts/section-10/index.vue'
-import SectionEleven from './parts/section-11/index.vue'
-import SectionTwelve from './parts/section-12/index.vue'
-import SectionThreeteen from './parts/section-13/index.vue'
-import SectionForteen from './parts/section-14/index.vue'
-import SectionFifteen from './parts/section-15/index.vue'
+import SectionOne from './guest/parts/section-1/index.vue'
+import SectionTwo from './guest/parts/section-2/index.vue'
+import SectionThree from './guest/parts/section-3/index.vue'
+import SectionFour from './guest/parts/section-4/index.vue'
+import SectionFive from './guest/parts/section-5/index.vue'
+import SectionSix from './guest/parts/section-6/index.vue'
+import SectionSeven from './guest/parts/section-7/index.vue'
+import SectionEight from './guest/parts/section-8/index.vue'
+import SectionNine from './guest/parts/section-9/index.vue'
+import SectionTen from './guest/parts/section-10/index.vue'
+import SectionEleven from './guest/parts/section-11/index.vue'
+import SectionTwelve from './guest/parts/section-12/index.vue'
+import SectionThreeteen from './guest/parts/section-13/index.vue'
+import SectionForteen from './guest/parts/section-14/index.vue'
+import SectionFifteen from './guest/parts/section-15/index.vue'
 export default {
 name:"academy-home",
 components:{
