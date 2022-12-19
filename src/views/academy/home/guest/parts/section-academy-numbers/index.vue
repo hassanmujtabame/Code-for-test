@@ -3,7 +3,7 @@
 
 <div class="mt-5">
   <div class="riadiat-of-number">
-      <h2 class="text-center">  الاكاديمية في اراقام   </h2>
+      <h2 class="text-center">  الاكاديمية في ارقام   </h2>
       <div class="row justify-content-center ">
           <div class="col-6 col-md-auto mt-3">
               <div class="box">
@@ -76,7 +76,7 @@
 
 <script>
 export default {
-    name:'section-13'
+    name:'section-academy-numbers'
 }
 </script>
 
