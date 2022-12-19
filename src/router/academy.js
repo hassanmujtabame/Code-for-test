@@ -7,6 +7,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-home" */ '../views/academy/home/index.vue') 
     },
     {
+        path: 'academy/learning-meetings',
+        meta:{layout:LayoutDefault},
+        name: 'academy-learning-meetings',
+        component: () => import(/* webpackChunkName: "academy-learning-meetings" */ '../views/academy/learning-meetings/index.vue') 
+    },
+    {
         path: 'academy/subscribe',
         meta:{layout:LayoutDefault},
         name: 'academy-subscribe',
