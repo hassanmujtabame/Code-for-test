@@ -15,13 +15,21 @@
               </div>
               <d-swiper
               style="overflow-x: hidden"
-            :slides-per-view="4"
+            :slides-per-view="slidesperview"
             :space-between="10"
               :items="items"
             >
        
             <template  v-slot:default="{item}" >
-                <CardVue :title="item.title" :img="item.img"/>
+              <CardVue 
+                :category="item.departmentName"
+                :title="item.title" 
+                :img="item.path"
+                :price="item.price"
+                :place="item.placeNAME"
+                :description="item.description"
+                :name="item.instructorName"
+                />
                 </template>
               </d-swiper>
             </div>
@@ -29,26 +37,33 @@
 </template>
 
 <script>
-import CardVue from './card.vue'
-
+import CardVue from '@/components/cards/course.vue'
+import coursesApI from '@/services/api/courses.js'
 export default {
     name:'section-recent-courses',
     components:{
         CardVue
     },
     data:()=>({
-        items:[
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-        ]
-    })
+      slidesperview:4,
+        items:[]
+    }),
+    methods:{
+     async loadList(){
+        try {
+          let {data} = await coursesApI.getAll()
+          if(data.success){
+            this.items = data.data
+            if(this.items.length<=4) this.slidesperview=3
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      }
+    },
+    mounted(){
+      this.loadList()
+    }
 }
 </script>
 
