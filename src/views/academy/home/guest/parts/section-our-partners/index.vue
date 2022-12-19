@@ -81,7 +81,7 @@
   import TabJewelry from './tab-content/jewelry.vue'
   import TabParfum from './tab-content/parfum.vue'
   export default {
-  name:'section-subscribe',
+  name:'section-our-partners',
   components:{
       DTabs,
       TabItem,
@@ -99,7 +99,8 @@
       currentTab:''
   }),
   mounted(){
-      this.currentTab='organizers'
+    window.AOS.init({})
+      this.currentTab='organizers';
     }
   }
   </script>

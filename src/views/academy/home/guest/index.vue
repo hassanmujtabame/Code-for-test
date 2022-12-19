@@ -34,7 +34,7 @@
         <SectionRecentCourses />
         <!--#section 11--> 
         <!-- section 12-->
-        <SectionTwelve/>
+        <SectionOurPartners/>
         <!--#section 12--> 
         <!-- section 13-->
         <SectionThreeteen />
@@ -62,7 +62,7 @@ import SectionAcademySchedule from './parts/section-academy-schedule/index.vue'
 import SectionBestIntructors from './parts/section-best-intructors/index.vue'
 import SectionTen from './parts/section-10/index.vue'
 import SectionRecentCourses from './parts/section-recent-courses/index.vue'
-import SectionTwelve from './parts/section-12/index.vue'
+import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionThreeteen from './parts/section-13/index.vue'
 import SectionForteen from './parts/section-14/index.vue'
 import SectionFifteen from './parts/section-15/index.vue'
@@ -80,7 +80,7 @@ components:{
   SectionBestIntructors,
   SectionTen,
   SectionRecentCourses,
-  SectionTwelve,
+  SectionOurPartners,
   SectionThreeteen,
   SectionForteen,
   SectionFifteen
