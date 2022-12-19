@@ -76,10 +76,13 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                         <div class="row mt-3">
                             <div v-for="(item,i) in items" :key="i" class="col-md-3  mt-3" >
-                               <ModelCard 
+                              <router-link :to="getRouteLocale('network-model-show',{id:item.id})" > 
+                              <ModelCard 
                                :title="item.title" :img="item.image" 
                                 :value="item.count_download"
-                               />           
+                               />  
+                               </router-link>    
+                             
                               </div>
                         
                         </div>
