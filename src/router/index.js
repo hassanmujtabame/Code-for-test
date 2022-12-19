@@ -44,6 +44,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "preview-profile" */ '../views/common/preview-profile/index.vue')
   },
   {
+    path: 'check-out',
+    name: 'check-out',
+    meta:{layout:LayoutDefault},
+    component: () => import(/* webpackChunkName: "check-out" */ '../views/common/check-out/index.vue')
+  },
+  {
     path: 'test',
     name: 'test',
     meta:{layout:LayoutDefault},
