@@ -40,9 +40,9 @@
                             d="M11.2264 23.0666C8.75977 23.0666 6.75977 21.0666 6.75977 18.6C6.75977 16.1333 8.75977 14.1333 11.2264 14.1333C13.6931 14.1333 15.6931 16.1333 15.6931 18.6C15.6931 21.0666 13.6931 23.0666 11.2264 23.0666ZM11.2264 16.1333C9.86643 16.1333 8.75977 17.24 8.75977 18.6C8.75977 19.96 9.86643 21.0666 11.2264 21.0666C12.5864 21.0666 13.6931 19.96 13.6931 18.6C13.6931 17.24 12.5998 16.1333 11.2264 16.1333Z"
                             fill="#1FB9B3" />
                     </svg>
-                    <a href="#" class="mx-2 m-c ">
+                    <router-link :to="getRouteLocale('network-dashboard')" class="mx-2 m-c ">
                         لوحة التحكم
-                    </a>
+                    </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -200,10 +200,9 @@
 
 
 
-                    <a href="#" class="mx-2 m-c ">
+                    <router-link :to="getRouteLocale('my-financial-transactions')" class="mx-2 m-c ">
                         معملاتي المالية
-
-                    </a>
+                    </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
