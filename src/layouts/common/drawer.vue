@@ -1,7 +1,7 @@
 <template>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-profile" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-headers text-end p-2 mx-4">
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div id="myModal-drawer" class="offcanvas-headers text-end p-2 mx-4">
+            <button type="button" id="btn-close-drawer" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body text-center">
             <div>
@@ -40,8 +40,8 @@
                             d="M11.2264 23.0666C8.75977 23.0666 6.75977 21.0666 6.75977 18.6C6.75977 16.1333 8.75977 14.1333 11.2264 14.1333C13.6931 14.1333 15.6931 16.1333 15.6931 18.6C15.6931 21.0666 13.6931 23.0666 11.2264 23.0666ZM11.2264 16.1333C9.86643 16.1333 8.75977 17.24 8.75977 18.6C8.75977 19.96 9.86643 21.0666 11.2264 21.0666C12.5864 21.0666 13.6931 19.96 13.6931 18.6C13.6931 17.24 12.5998 16.1333 11.2264 16.1333Z"
                             fill="#1FB9B3" />
                     </svg>
-                    <router-link :to="getRouteLocale('network-dashboard')" class="mx-2 m-c ">
-                        لوحة التحكم
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('network-dashboard')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">لوحة التحكم </button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -57,8 +57,8 @@
                             fill="#1FB9B3" />
                     </svg>
 
-                    <router-link :to="getRouteLocale('my-profile')" class="mx-2 m-c ">
-                        الصفحة الشخصية
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('my-profile')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> الصفحة الشخصية</button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -172,8 +172,8 @@
 
 
 
-                    <router-link :to="getRouteLocale('network-menu-subscribe')" class="mx-2 m-c ">
-                        الاشتراكات
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('network-menu-subscribe')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">الاشتراكات</button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -200,8 +200,8 @@
 
 
 
-                    <router-link :to="getRouteLocale('my-financial-transactions')" class="mx-2 m-c ">
-                        معملاتي المالية
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('my-financial-transactions')" class="mx-2 m-c ">
+                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">معملاتي المالية</button> 
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -213,8 +213,8 @@
                             d="M16.0004 28.0267C10.9871 28.0267 6.25376 25.0934 3.00043 20.0001C1.5871 17.8001 1.5871 14.2134 3.00043 12.0001C6.2671 6.90672 11.0004 3.97339 16.0004 3.97339C21.0004 3.97339 25.7338 6.90672 28.9871 12.0001C30.4004 14.2001 30.4004 17.7867 28.9871 20.0001C25.7338 25.0934 21.0004 28.0267 16.0004 28.0267ZM16.0004 5.97339C11.6938 5.97339 7.57376 8.56006 4.69376 13.0801C3.69376 14.6401 3.69376 17.3601 4.69376 18.9201C7.57376 23.4401 11.6938 26.0267 16.0004 26.0267C20.3071 26.0267 24.4271 23.4401 27.3071 18.9201C28.3071 17.3601 28.3071 14.6401 27.3071 13.0801C24.4271 8.56006 20.3071 5.97339 16.0004 5.97339Z"
                             fill="#1FB9B3" />
                     </svg>
-                    <router-link :to="getRouteLocale('preview-profile')" class="mx-2 m-c ">
-                        كيف يراني الاخرون
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('preview-profile')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">كيف يراني الاخرون</button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -267,6 +267,12 @@
 export default {
     name: 'drawer-profil',
     methods: {
+        clickLink(navigate,evnt){
+            //this.myModal.hide();
+            $(`#btn-close-drawer`).click()
+            navigate(evnt)
+        },
+
         logout(evt) {
             evt.preventDefault();
 
@@ -279,6 +285,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.btn-drawer{
+    background: transparent;
+    border: none;
+}
 </style>
