@@ -7,10 +7,10 @@ class CoursesApi {
             if(s!="") s+=`&`
              s+=`${key}=${params[key]}`
         })
-        return window.axios.get(`network/courses?${s}`);
+        return window.axios.get(`academy/courses?${s}`);
     }
     getItem(id){
-        return window.axios.get(`network/courses/${id}`);
+        return window.axios.get(`academy/courses/${id}`);
     }
 }
 
