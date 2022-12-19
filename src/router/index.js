@@ -38,6 +38,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "show-profile" */ '../views/common/show-profile/index.vue')
   },
   {
+    path: 'preview-profile',
+    name: 'preview-profile',
+    meta:{layout:LayoutDefault},
+    component: () => import(/* webpackChunkName: "preview-profile" */ '../views/common/preview-profile/index.vue')
+  },
+  {
     path: 'test',
     name: 'test',
     meta:{layout:LayoutDefault},
