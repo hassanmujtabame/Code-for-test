@@ -147,11 +147,15 @@ const routes = [
 const router = new VueRouter({
   mode:'history',
   routes,
+  scrollBehavior(/*to, from, savedPosition*/) {
+    // always scroll to top
+    return { x: 0, y: 0 }
+  },
   linkActiveClass: "parent-active",
   linkExactActiveClass: "active",
 })
 router.beforeEach((to,from,next)=>{
-  window.scrollTo(0, 0)
+  //window.scrollTo(0, 0)
   middlewiare_auth(to,from,next)
 })
 window.router = router;
