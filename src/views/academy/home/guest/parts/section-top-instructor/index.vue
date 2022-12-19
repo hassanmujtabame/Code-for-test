@@ -51,7 +51,7 @@
 
 <script>
 export default {
-name:'section-4'
+name:'section-top-instructor'
 }
 </script>
 

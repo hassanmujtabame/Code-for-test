@@ -9,9 +9,9 @@
         <!-- section 3-->
         <SectionThree />
         <!--#section 3-->
-       <!-- section 4-->
-       <SectionFour />
-        <!--#section 4-->
+       <!-- section top instructor-->
+       <sectionTopInstructor />
+        <!--#section top instructor-->
         <!-- section 5-->
         <SectionFive/>
         <!--#section 5-->
@@ -54,7 +54,7 @@
 import SectionOne from './parts/section-1/index.vue'
 import SectionTwo from './parts/section-2/index.vue'
 import SectionThree from './parts/section-3/index.vue'
-import SectionFour from './parts/section-4/index.vue'
+import sectionTopInstructor from './parts/section-top-instructor/index.vue'
 import SectionFive from './parts/section-5/index.vue'
 import SectionSix from './parts/section-6/index.vue'
 import SectionSeven from './parts/section-7/index.vue'
@@ -72,7 +72,7 @@ components:{
   SectionOne,
   SectionTwo,
   SectionThree,
-  SectionFour,
+  sectionTopInstructor,
   SectionFive,
   SectionSix,
   SectionSeven,
