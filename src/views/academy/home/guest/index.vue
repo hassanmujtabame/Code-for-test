@@ -61,7 +61,7 @@ import SectionExploringSpecializedEntrepreneurship from './parts/section-explori
 import SectionAcademySchedule from './parts/section-academy-schedule/index.vue'
 import SectionBestIntructors from './parts/section-best-intructors/index.vue'
 import SectionTen from './parts/section-10/index.vue'
-import SectionRecentCourses from './parts/section-11/index.vue'
+import SectionRecentCourses from './parts/section-recent-courses/index.vue'
 import SectionTwelve from './parts/section-12/index.vue'
 import SectionThreeteen from './parts/section-13/index.vue'
 import SectionForteen from './parts/section-14/index.vue'
