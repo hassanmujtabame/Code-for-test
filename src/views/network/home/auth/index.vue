@@ -6,8 +6,8 @@
         <SectionMemeberNetwork />
        <!--schedule network-->
         <SectionScheduleNework />
-        <!-- learng meeting -->
-        <SectionLearningMeeting />
+        <!-- Educational meeting -->
+        <SectionEducationalMeeting />
         
           <!--investment projects-->
           <SectionInvestementProject/>
@@ -192,7 +192,7 @@ import SectionHeader from './parts/section-header/index.vue'
 import SectionExhibitions from './parts/section-exhibitions/index.vue'
 import SectionInvestementProject from './parts/section-investment-projects/index.vue'
 import SectionScheduleNework from './parts/section-schedule-network/index.vue'
-import SectionLearningMeeting from './parts/section-learning-meeting/index.vue'
+import SectionEducationalMeeting from './parts/section-eductional-meeting/index.vue'
 import SectionMemeberNetwork from './parts/section-member-network/index.vue'
 import SectionStory from './parts/section-successful-story/index.vue'
 import SectionPartner from './parts/section-partners/index.vue'
@@ -210,7 +210,7 @@ export default {
     SectionExhibitions,
     SectionInvestementProject,
     SectionScheduleNework,
-    SectionLearningMeeting,
+    SectionEducationalMeeting,
     SectionStory,
     SectionModels,
     SectionMemeberNetwork,

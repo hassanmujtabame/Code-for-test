@@ -31,7 +31,7 @@
 <script>
 import meetingCard from '@/components/cards/meeting.vue'
 export default {
- name:'learning-meeting',
+ name:'section-eductional-meeting',
  components:{
     meetingCard
  },
