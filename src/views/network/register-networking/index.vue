@@ -2,7 +2,7 @@
     <div class="mt-5">
         <div class="main-top p-5 position-relative">
             <h1 class="text-white p-5 fs-1"> أنضم الى عائلة شركائنا </h1>
-            <button id="btn-register" class="mx-5">
+            <a id="btn-register" href="#register-form" class="mx-5">
                 <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M12 21.5319C6.07 21.5319 1.25 17.0351 1.25 11.5028C1.25 5.97043 6.07 1.47363 12 1.47363C17.93 1.47363 22.75 5.97043 22.75 11.5028C22.75 17.0351 17.93 21.5319 12 21.5319ZM12 2.87305C6.9 2.87305 2.75 6.74477 2.75 11.5028C2.75 16.2608 6.9 20.1325 12 20.1325C17.1 20.1325 21.25 16.2608 21.25 11.5028C21.25 6.74477 17.1 2.87305 12 2.87305Z"
@@ -13,7 +13,7 @@
                 </svg>
 
                 سجل الان
-            </button>
+            </a>
             <div class="position-absolute anim-hwo-ar-you">
                 <img src="/assets/img/anim-hwo-ar-you.png" alt="">
             </div>
@@ -78,14 +78,14 @@
 
 
         </div>
-        <div style="background-color: #F6F8F9;" class="mt-5 p-4">
+        <div  style="background-color: #F6F8F9;" class="mt-5 p-4">
 
             <div class="container">
                 <div class="box bg-white  p-3  rounded-4">
 
                     <div class="row align-items-center ">
                         <div class="col-md-6">
-                            <h2>
+                            <h2 id="register-form">
                                 سجل معنا كشريك
                             </h2>
                             <p>
