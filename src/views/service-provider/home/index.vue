@@ -52,7 +52,7 @@
   import SectionSix from './parts/section-need-service/index.vue'
   import SectionSeven from './parts/section-explore-services/index.vue'
   import SectionEight from './parts/section-recent-services/index.vue'
-  import SectionNine from './parts/section-9/index.vue'
+  import SectionNine from './parts/section-continue-learning/index.vue'
   import SectionTen from './parts/section-10/index.vue'
   export default {
   name:"service-provider",
