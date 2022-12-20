@@ -29,6 +29,12 @@ const routers =[
         meta:{layout:LayoutService},
         name: 'service-provider-services-online',
         component: () => import(/* webpackChunkName: "service-provider-services-online" */ '../views/service-provider/services-online/index.vue') 
+    },
+    {
+        path: '/service-provider/services-offline',
+        meta:{layout:LayoutService},
+        name: 'service-provider-services-offline',
+        component: () => import(/* webpackChunkName: "service-provider-services-offline" */ '../views/service-provider/services-offline/index.vue') 
     }
 ]
 export default routers;
