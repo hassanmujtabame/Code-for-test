@@ -13,7 +13,7 @@
                     </button>
                   </div>
               </div>
-              <DSwiper
+              <d-swiper
               style="overflow-x: hidden"
             :slides-per-view="5"
             :space-between="10"
@@ -29,20 +29,19 @@
                 :description="item.description" 
                 :img="item.img"/>
                 </template>
-            </DSwiper>
+            </d-swiper>
  </div>
     </div>
   
 </template>
 
 <script>
-import DSwiper from '@/components/swiper/index.vue'
+
 import CardMember from '@/components/cards/card-member.vue'
 
 export default {
-    name:'section-4',
+    name:'section-best-provider',
     components:{
-        DSwiper,
         CardMember
     },
     data:()=>({
