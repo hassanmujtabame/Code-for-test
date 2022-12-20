@@ -2,7 +2,7 @@
   <d-filter-list :fakeItems="items">
 
 <template v-slot="{item}">
-    <showService 
+    <showRequest 
         :title="item.title"
         :description="item.description"
         :department="item.department"
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import showService from '@/components/cards/show-service.vue'
+import showRequest from '@/components/cards/show-request.vue'
 export default {
  name:'section-filter',
   components:{
-    showService
+    showRequest
   },
   data:()=>({
     items:[
