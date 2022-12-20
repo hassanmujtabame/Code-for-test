@@ -163,7 +163,7 @@
 
 <script>
 export default {
- name:'section-7'
+ name:'section-explore-services'
 }
 </script>
 

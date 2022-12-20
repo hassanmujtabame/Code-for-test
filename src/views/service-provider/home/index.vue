@@ -50,7 +50,7 @@
   import SectionFour from './parts/section-best-provider/index.vue'
   import SectionFive from './parts/section-recent-requests/index.vue'
   import SectionSix from './parts/section-need-service/index.vue'
-  import SectionSeven from './parts/section-7/index.vue'
+  import SectionSeven from './parts/section-explore-services/index.vue'
   import SectionEight from './parts/section-8/index.vue'
   import SectionNine from './parts/section-9/index.vue'
   import SectionTen from './parts/section-10/index.vue'
