@@ -38,10 +38,6 @@
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('service-provider-ready-services')" class="nav-link">خدماتك الجاهزة</router-link>
             </li>
-           
-            <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-offers')" class="nav-link">العروض</router-link>
-            </li>
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('contact-us')" class="nav-link">تواصل معنا</router-link>
             </li>

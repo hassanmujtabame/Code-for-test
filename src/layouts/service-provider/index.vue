@@ -1,7 +1,7 @@
 <template>
     <div>
       <DefaultHeader/>
-      <MyDrawer v-if="user"/>
+      <MyDrawer :dashboard="'service-provider-dashboard'" v-if="user"/>
       <main style="margin-top: 96px">
           <slot></slot>
           </main>
