@@ -1479,3 +1479,18 @@ position: relative;
     right:auto;
     top: 12px;
 }
+
+.service-stopped.box {
+    background: rgba(242, 99, 28, 0.2);
+    position: relative;
+}
+.service-stopped .box-stoped {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    color: #F2631C;
+    background: white;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+}
