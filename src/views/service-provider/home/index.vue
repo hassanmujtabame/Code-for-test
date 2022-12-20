@@ -2,10 +2,11 @@
     <div style="margin-top: 85px " class="consult">
           <!-- section Header-->
           <SectionOne />
-
-         <!-- section 2-->
+          <div class="container mt-5">
+         <!-- section we-helpyou-->
          <SectionTwo/>
-
+         <SectionFeatures />
+  </div>
           <!-- section 3-->
           <SectionThree />
 
@@ -43,7 +44,8 @@
   
   <script>
   import SectionOne from './parts/section-header/index.vue'
-  import SectionTwo from './parts/section-2/index.vue'
+  import SectionTwo from './parts/section-we-helpyou/index.vue'
+  import SectionFeatures from './parts/section-features/index.vue'
   import SectionThree from './parts/section-3/index.vue'
   import SectionFour from './parts/section-4/index.vue'
   import SectionFive from './parts/section-5/index.vue'
@@ -57,6 +59,7 @@
   components:{
     SectionOne,
     SectionTwo,
+    SectionFeatures,
     SectionThree,
     SectionFour,
     SectionFive,
