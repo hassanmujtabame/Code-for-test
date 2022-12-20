@@ -49,7 +49,7 @@
   import SectionThree from './parts/section-how-offer-service/index.vue'
   import SectionFour from './parts/section-best-provider/index.vue'
   import SectionFive from './parts/section-recent-requests/index.vue'
-  import SectionSix from './parts/section-6/index.vue'
+  import SectionSix from './parts/section-need-service/index.vue'
   import SectionSeven from './parts/section-7/index.vue'
   import SectionEight from './parts/section-8/index.vue'
   import SectionNine from './parts/section-9/index.vue'
