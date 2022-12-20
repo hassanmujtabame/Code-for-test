@@ -1,7 +1,7 @@
 <template>
   <d-filter-list :fakeItems="items">
     <template v-slot="{item}">
-        <router-link :to="getRouteLocale('service-provider-show-service',{id:item.id})">
+        <router-link :to="getRouteLocale('service-provider-page-service',{id:item.id})">
     <showService 
         :title="item.title"
         :description="item.description"

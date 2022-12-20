@@ -25,6 +25,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-show-services" */ '../views/service-provider/show-services/index.vue') 
     },
     {
+        path: '/service-provider/show-services/:id',
+        meta:{layout:LayoutService},
+        name: 'service-provider-page-service',
+        component: () => import(/* webpackChunkName: "service-provider-page-services" */ '../views/service-provider/page-service/index.vue') 
+    },
+    {
         path: '/service-provider/services-online',
         meta:{layout:LayoutService},
         name: 'service-provider-services-online',
