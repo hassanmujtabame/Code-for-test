@@ -17,9 +17,7 @@
               style="overflow-x: hidden"
             :slides-per-view="5"
             :space-between="10"
-              :loop="true"
-              :pagination="true"
-              :navigation="true"
+             
               :items="items"
             >
        
