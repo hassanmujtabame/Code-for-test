@@ -10,7 +10,7 @@
                             منصة تجمع أهم وألمع  رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد
                                                 </p>
                                                 <div class="btn-main-style">
-                                                    <a href="subscribe.html" class="btn-custmer shadow mt-2">انضمي الان</a>
+                                                    <a href="subscribe.html" class="btn-custmer shadow mt-2"> انضمي إلينا</a>
                                                     <a class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</a>
                                                 </div>
                     </div>
