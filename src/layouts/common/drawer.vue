@@ -40,7 +40,7 @@
                             d="M11.2264 23.0666C8.75977 23.0666 6.75977 21.0666 6.75977 18.6C6.75977 16.1333 8.75977 14.1333 11.2264 14.1333C13.6931 14.1333 15.6931 16.1333 15.6931 18.6C15.6931 21.0666 13.6931 23.0666 11.2264 23.0666ZM11.2264 16.1333C9.86643 16.1333 8.75977 17.24 8.75977 18.6C8.75977 19.96 9.86643 21.0666 11.2264 21.0666C12.5864 21.0666 13.6931 19.96 13.6931 18.6C13.6931 17.24 12.5998 16.1333 11.2264 16.1333Z"
                             fill="#1FB9B3" />
                     </svg>
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('network-dashboard')" class="mx-2 m-c ">
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale(dashboard)" class="mx-2 m-c ">
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">لوحة التحكم </button>
                     </router-link>
                 </div>
@@ -266,6 +266,12 @@
 <script>
 export default {
     name: 'drawer-profil',
+    props:{
+        dashboard:{
+            type:String,
+            default:'network-dashboard'
+        }
+    },
     methods: {
         clickLink(navigate,evnt){
             //this.myModal.hide();
