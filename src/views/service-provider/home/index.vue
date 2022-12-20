@@ -46,7 +46,7 @@
   import SectionOne from './parts/section-header/index.vue'
   import SectionTwo from './parts/section-we-helpyou/index.vue'
   import SectionFeatures from './parts/section-features/index.vue'
-  import SectionThree from './parts/section-3/index.vue'
+  import SectionThree from './parts/section-how-offer-service/index.vue'
   import SectionFour from './parts/section-4/index.vue'
   import SectionFive from './parts/section-5/index.vue'
   import SectionSix from './parts/section-6/index.vue'
