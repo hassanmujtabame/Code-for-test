@@ -17,6 +17,12 @@ const routers =[
         meta:{layout:LayoutService},
         name: 'service-provider-ready-services',
         component: () => import(/* webpackChunkName: "service-provider-ready-services" */ '../views/service-provider/ready-services/index.vue') 
+    },
+    {
+        path: '/service-provider/show-services',
+        meta:{layout:LayoutService},
+        name: 'service-provider-show-services',
+        component: () => import(/* webpackChunkName: "service-provider-show-services" */ '../views/service-provider/show-services/index.vue') 
     }
 ]
 export default routers;

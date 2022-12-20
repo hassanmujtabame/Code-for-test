@@ -33,7 +33,7 @@
             </li>
             <li class="nav-item px-2">
            
-              <router-link :to="getRouteLocale('service-provider-offer-services')" class="nav-link">أعرض خدماتك </router-link>
+              <router-link :to="getRouteLocale('service-provider-show-services')" class="nav-link">أعرض خدماتك </router-link>
             </li>
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('service-provider-ready-services')" class="nav-link">خدماتك الجاهزة</router-link>
