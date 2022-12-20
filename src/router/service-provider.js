@@ -19,6 +19,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-ready-services" */ '../views/service-provider/ready-services/index.vue') 
     },
     {
+        path: '/service-provider/ready-services/:id',
+        meta:{layout:LayoutService},
+        name: 'service-provider-ready-service',
+        component: () => import(/* webpackChunkName: "service-provider-page-service-ready" */ '../views/service-provider/page-service-ready/index.vue') 
+    },
+    {
         path: '/service-provider/show-services',
         meta:{layout:LayoutService},
         name: 'service-provider-show-services',
@@ -28,7 +34,7 @@ const routers =[
         path: '/service-provider/show-services/:id',
         meta:{layout:LayoutService},
         name: 'service-provider-page-service',
-        component: () => import(/* webpackChunkName: "service-provider-page-services" */ '../views/service-provider/page-service/index.vue') 
+        component: () => import(/* webpackChunkName: "service-provider-page-service" */ '../views/service-provider/page-service/index.vue') 
     },
     {
         path: '/service-provider/services-online',

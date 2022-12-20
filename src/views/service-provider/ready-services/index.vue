@@ -58,110 +58,19 @@
                 </div>
             </div>
             <div class="row mt-5 order">
-                <div class=" col-12 col-md-6  col-lg-4 mt-3">
-                    <div class="box">
-                        <div>
-                            <img class="w-100" src="/assets/img/Rectangle 1798.png" alt="" height="164px">
-                        </div>
-                        <div class="p-3">
-                            <div class="d-flex align-items-center justify-content-between">
-
-                                <h6>تجهيز كوشة فرح</h6>
-                                <p class="m-c"> الافراح</p>
-                            </div>
-                            <p>عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.</p>
-                        </div>
-                    </div>
+                <div v-for="(item,i) in items" :key="i" class=" col-12 col-md-6  col-lg-4 mt-3">
+                   <router-link :to="getRouteLocale('service-provider-ready-service',{id:item.id})">
+                    <readyServiceCard 
+                   :image="item.image"
+                   :title="item.title"
+                   :description="item.description"
+                   :department="item.department"
+                   :status="item.status"
+                   />
+                </router-link>
                 </div>
-                <div class=" col-12 col-md-6  col-lg-4 mt-3">
-                    <div class="box">
-                        <div>
-                            <img class="w-100" src="/assets/img/Rectangle 1798.png" alt="" height="164px">
-                        </div>
-                        <div class="p-3">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h6>تجهيز كوشة فرح</h6>
-                                <p class="m-c">
-                                    الافراح
-                                </p>
-                            </div>
-                            <p>عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-12 col-md-6  col-lg-4 mt-3">
-                    <div class="box">
-                        <div>
-                            <img class="w-100" src="/assets/img/Rectangle 1798.png" alt="" height="164px">
-                        </div>
-                        <div class="p-3">
-                            <div class="d-flex align-items-center justify-content-between">
-
-                                <h6>تجهيز كوشة فرح</h6>
-                                <p class="m-c">
-                                    الافراح
-                                </p>
-                            </div>
-                            <p>عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-12 col-md-6  col-lg-4 mt-3">
-                    <div class="box">
-                        <div>
-                            <img class="w-100" src="/assets/img/Rectangle 1798.png" alt="" height="164px">
-                        </div>
-                        <div class="p-3">
-                            <div class="d-flex align-items-center justify-content-between">
-
-                                <h6>تجهيز كوشة فرح</h6>
-                                <p class="m-c"> الافراح</p>
-                            </div>
-                            <p>عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-12 col-md-6  col-lg-4 mt-3">
-                    <div class="box">
-                        <div>
-                            <img class="w-100" src="/assets/img/Rectangle 1798.png" alt="" height="164px">
-                        </div>
-                        <div class="p-3">
-                            <div class="d-flex align-items-center justify-content-between">
-
-                                <h6>
-                                    تجهيز كوشة فرح
-                                </h6>
-                                <p class="m-c">
-                                    الافراح
-                                </p>
-                            </div>
-                            <p>عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-12 col-md-6  col-lg-4 mt-3 service-stoped">
-                    <div class="box">
-                        <div>
-                            <img class="w-100" src="/assets/img/Rectangle 1798.png" alt="" height="164px">
-                        </div>
-                        <div class="p-3">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h6>تجهيز كوشة فرح</h6>
-                                <p class="m-c">
-                                    الافراح
-                                </p>
-                            </div>
-                            <p>عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.</p>
-                        </div>
-                        <div class="box-stoped">
-                            <p class="p-1 m-0">
-                                خدمة معلقة
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                
+               
             </div>
         </div>
    
@@ -173,13 +82,24 @@
 <script>
 import SectionHear from '../home/parts/section-hear/index.vue'
 import SectionLearning from '../home/parts/section-continue-learning/index.vue'
-
+import readyServiceCard from '@/components/cards/ready-service.vue';
 export default {
  name:'ready-services',
  components:{
     SectionHear,
-    SectionLearning
- }
+    SectionLearning,
+    readyServiceCard
+ },
+ data:()=>({
+    items:[
+        {id:1,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
+        {id:2,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
+        {id:3,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
+        {id:4,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
+        {id:5,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
+        {id:6,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'stopped',image:'/assets/img/Rectangle 1798.png'},
+    ]
+ })
 }
 </script>
 
