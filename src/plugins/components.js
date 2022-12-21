@@ -6,9 +6,13 @@ import DCarousel from '@/components/carousel/index.vue'
 import DCarouselSlide from '@/components/carousel/slide.vue'
 import DFilterList from '@/components/filter-list/index.vue'
 import RSliderInput from '@/components/inputs/r-slider/index.vue'
+import DUserInfo from '@/components/cards/user-info.vue'
+import DUserInfoLi from '@/components/cards/user-info-left-img.vue'
 Vue.component('d-swiper', DSwiper)
 Vue.component('d-calendar', DCalendar)
 Vue.component('d-carousel', DCarousel)
 Vue.component('d-carousel-slide', DCarouselSlide)
 Vue.component('d-filter-list', DFilterList)
 Vue.component('rslider-input', RSliderInput)
+Vue.component('d-user-info', DUserInfo)
+Vue.component('d-user-info-li', DUserInfoLi)
