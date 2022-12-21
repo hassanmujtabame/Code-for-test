@@ -9,7 +9,11 @@
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <slot name="header"></slot>
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                    <slot name="header">
+                       
+                    </slot>
+                    </h1>
                     <button type="button" class="btn-close" @click="closeDialogLocal()" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -58,9 +62,9 @@ methods:{
     change(){
     this.$emit('change',this.dialog)
 },
-    openDialogLocal(){
+    openDialogLocal(evt){
         if(this.openDialog){
-         if(this.openDialog()===true){
+         if(this.openDialog(evt)===true){
             this.dialog=true;
             this.change()
          }
@@ -69,9 +73,9 @@ methods:{
         this.change()
     }
     },
-    closeDialogLocal(){
+    closeDialogLocal(evt){
         if(this.closeDialog){
-         if(this.closeDialog()===true){
+         if(this.closeDialog(evt)===true){
             this.dialog=false;
             this.change()
          }
