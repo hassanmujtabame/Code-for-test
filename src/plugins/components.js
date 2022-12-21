@@ -8,6 +8,11 @@ import DFilterList from '@/components/filter-list/index.vue'
 import RSliderInput from '@/components/inputs/r-slider/index.vue'
 import DUserInfo from '@/components/cards/user-info.vue'
 import DUserInfoLi from '@/components/cards/user-info-left-img.vue'
+import DDialogLarge from '@/components/modals/large.vue'
+import DDialogSimple from '@/components/modals/simple.vue'
+
+Vue.component('d-dialog-large', DDialogLarge)
+Vue.component('d-dialog-simple', DDialogSimple)
 Vue.component('d-swiper', DSwiper)
 Vue.component('d-calendar', DCalendar)
 Vue.component('d-carousel', DCarousel)
