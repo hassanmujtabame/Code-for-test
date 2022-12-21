@@ -3,11 +3,17 @@ import Vue from 'vue';
 import Cookies from 'js-cookie';
 import {  mapGetters } from 'vuex';
 import { localize } from 'vee-validate';
+
 const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
-
+            fireOpenDialog(group,data={}){
+                window.EventBus.fire(group+'-open-dialog',data)
+            },
+            fireCloseDialog(group,data={}){
+              window.EventBus.fire(group+'-open-dialog',data)
+          },
             getRouteLocale(name,params={}){
             return {name,params:{lang:this.$i18n.locale,...params}}
             },
