@@ -9,6 +9,7 @@
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
+                    <slot name="header"></slot>
                     <button type="button" class="btn-close" @click="closeDialogLocal()" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
