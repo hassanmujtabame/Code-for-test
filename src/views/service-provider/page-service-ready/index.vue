@@ -11,36 +11,10 @@
                         تصميم ازياء
                     </h3>
                 </div>
-                <div class="col-md-6 d-flex gap-2 justify-content-end">
-                    <div>
-                        <button style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"
-                            data-bs-toggle="modal" href="#addModal" role="button">
-                            <img src="/assets/svg/update.svg" />
-
-                            تعديل
-                        </button>
-                    </div>
-                    <div>
-                        <button style="height: 40px; background-color:#FFBC00 ;"
-                            class="btn-main px-3 w-100 border-0 rounded-2" data-bs-toggle="modal"
-                            href="#exampleModalToggle-stop" role="button">
-                           <img src="/assets/svg/suspendu.svg" />
-                            تعليق
-                        </button>
-                    </div>
-                    <div>
-                        <button style="height: 40px; background-color:#FF1616 ;"
-                            class="btn-main px-3 w-100 border-0 rounded-2" data-bs-toggle="modal"
-                            href="#exampleModalToggle7" role="button">
-                           <img src="/assets/svg/trash-outline.svg" />
-
-                            حذف
-                        </button>
-
-                    </div>
-
-
-                </div>
+                <!-- actions page-->
+               <ActionCrud v-if="isOwner" />
+               <ActionForVisiter v-else />
+               <!-- #actions page-->
                 <div class="row redy-services ">
                     <div class="col-md-6 mt-5 ">
 
@@ -55,8 +29,9 @@
 
 
                     <div class="col-md-6 mt-5 ">
-
-                        <div class="box border rounded-3 p-4 ">
+                        
+                            <d-user-info-li class="mb-3" v-if="!isOwner"/>
+                        <div class="box border rounded-3 p-4">
                             <div class="t-c ">
 
                                 <h4 class="border-bottom">
@@ -345,14 +320,21 @@ import SectionContinueLearning from '../home/parts/section-continue-learning/ind
 import SectionGallary from './section-gallary/index.vue'
 import SectionRateService from './section-rate-service/index.vue'
 import SectionShareService from './section-share-service/index.vue'
+import ActionCrud from './actions/crud.vue'
+import ActionForVisiter from './actions/visiter.vue'
 export default {
     name:'page-service-ready',
     components:{
+        ActionCrud,
+        ActionForVisiter,
         SectionContinueLearning,
         SectionGallary,
         SectionRateService,
         SectionShareService
-    }
+    },
+    data:()=>({
+        isOwner:false,
+    })
 
 }
 </script>
