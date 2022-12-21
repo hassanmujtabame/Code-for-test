@@ -35,9 +35,6 @@
     <d-swiper   style="overflow-x: hidden"
             :slides-per-view="3"
             :space-between="10"
-              :loop="true"
-              :pagination="true"
-              :navigation="true"
               :items="itemsTest" >
               <template  v-slot:default="{item}" >
                 <exhibitionCard 
