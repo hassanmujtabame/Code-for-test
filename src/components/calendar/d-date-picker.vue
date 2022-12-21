@@ -4,16 +4,19 @@
     
     <script>
     export default {
-     name:'d-calendar',
+     name:'d-date-picker',
      props:{
         value:{
             default:null,
+        },
+        attributes:{
+            type:[Array,Object],
         }
      },
      data:()=>{
         return{
         dateSelected:null,
-      attributes: [
+      attributesLocal: [
           {
             key: 'today',
             highlight: true,
