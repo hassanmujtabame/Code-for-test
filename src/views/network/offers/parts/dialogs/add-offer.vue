@@ -1,6 +1,6 @@
 <template>
   
-        <DialogSimple :show.sync="showDialog">
+        <DialogSimple :group="group" :openDialog="openDialog" :close-dialog="closeDialog">
             <ValidationObserver ref="form">
                 <div class=" add-portfolio m-3 p-0">
                     <div class="   m-auto">
@@ -295,18 +295,20 @@ export default {
         this.offer.start_date=''
             this.$refs.form.reset()
         this.showDialog = true
+        return true;
     },
     closeDialog(){
         this.showDialog = false
+        return true;
     }
   },
   created(){
-    window.EventBus.listen(this.group+'-open-dialog',this.openDialog)
-    window.EventBus.listen(this.group+'-close-dialog',this.closeDialog)
+    //window.EventBus.listen(this.group+'-open-dialog',this.openDialog)
+    //window.EventBus.listen(this.group+'-close-dialog',this.closeDialog)
   },
   beforeDestroy(){
-    window.EventBus.off(this.group+'-open-dialog',this.openDialog)
-    window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
+    //window.EventBus.off(this.group+'-open-dialog',this.openDialog)
+    //window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
   },
   mounted(){
     this.loadCategories()

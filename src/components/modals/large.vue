@@ -9,13 +9,13 @@
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="btn-close" @click="close()" aria-label="Close"></button>
+                    <button type="button" class="btn-close" @click="closeDialogLocal()" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <slot></slot>
+                    <slot :close="closeDialogLocal" :dialog="dialog"></slot>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <slot name="actions" :close="close">
+                    <slot name="actions" :close="closeDialogLocal" :dialog="dialog">
                     </slot>
                 </div>
             </div>
@@ -27,10 +27,18 @@
 export default {
 name:'modal-large',
 props:{
-show:{
-    type:Boolean,
-    default:false,
-}
+    group:{
+        type:String,
+        require:true
+    },
+    openDialog:{
+        type:Function,
+        default:null
+    },
+    closeDialog:{
+        type:Function,
+        default:null
+    }
 },
 data:()=>({
     dialog:false,
@@ -44,26 +52,42 @@ computed:{
     }
  }
 },
-watch:{
-  show:{
-    immediate:true,
-    handler(){
-        this.dialog=this.show
-    }
-  },
-  dialog:{
-    immediate:true,
-    handler(){
-        if(!this.dialog)
-        this.$emit('update:show',false)
-    }
-  }
-},
+
 methods:{
-    close(){
-        this.dialog=false
+    change(){
+    this.$emit('change',this.dialog)
+},
+    openDialogLocal(){
+        if(this.openDialog){
+         if(this.openDialog()===true){
+            this.dialog=true;
+            this.change()
+         }
+        }else{
+        this.dialog=true
+        this.change()
     }
-}
+    },
+    closeDialogLocal(){
+        if(this.closeDialog){
+         if(this.closeDialog()===true){
+            this.dialog=false;
+            this.change()
+         }
+        }else{
+        this.dialog=false
+        this.change()
+    }
+    }
+},
+created(){
+    window.EventBus.listen(this.group+'-open-dialog',this.openDialogLocal)
+    window.EventBus.listen(this.group+'-close-dialog',this.closeDialogLocal)
+  },
+  beforeDestroy(){
+    window.EventBus.off(this.group+'-open-dialog',this.openDialog)
+    window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
+  },
 }
 </script>
 
