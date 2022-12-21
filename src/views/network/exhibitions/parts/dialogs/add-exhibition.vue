@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="add-img-selected">
 
-                                    <img class="w-100 h-100" src="none" :id="idImage" />
+                                    <img class="w-100 h-100 image-selected-dialog" src="none" :id="idImage" />
                                 </div>
                             </label>
 
