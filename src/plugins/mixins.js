@@ -8,6 +8,9 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            generateRandomString(n){
+              return Math.random().toString().substring(2, n+2)
+            },
             fireOpenDialog(group,data={}){
                 window.EventBus.fire(group+'-open-dialog',data)
             },
