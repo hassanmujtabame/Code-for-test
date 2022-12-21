@@ -41,10 +41,9 @@
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('contact-us')" class="nav-link">تواصل معنا</router-link>
             </li>
-            <div  v-if="false" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center">
-                        <a href="" class="text-white " data-bs-toggle="modal"
-                        data-bs-target="#addModal">أضف خدمة جديدة</a>
-                    </div>
+            <button @click="openAddService" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center text-white">
+              أضف خدمة جديدة
+                    </button>
           </ul>
           <div>
   
@@ -114,6 +113,7 @@ import ArrowDownSVG from '@/components/icon-svg/arrow-down.vue'
 import UserNav from '@/layouts/common/user-nav.vue'
 import UserMsg from '@/layouts/common/user-msg.vue'
 import UserNotif from '@/layouts/common/user-notif.vue'
+
 export default {
     name:'default-header',
     components:{
@@ -129,6 +129,14 @@ export default {
       }
     },
     methods:{
+      openAddService(evt){
+        evt.preventDefault();
+        this.fireOpenDialog('dialog-add-service')
+      },
+      closeAddService(evt){
+        evt.preventDefault();
+        this.fireCloseDialog('dialog-add-service')
+      },
       logout(){
         window.store.commit('auth/CLEAR_TOKEN') ;
         window.store.commit('auth/CLEAR_USER');
