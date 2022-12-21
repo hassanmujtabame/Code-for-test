@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-6 d-flex gap-2 justify-content-end">
         <div>
-            <button style="height: 40px;" class="btn-main" data-bs-toggle="modal" href="#exampleModalToggle-serv"
+            <button @click="openBooking" style="height: 40px;" class="btn-main" data-bs-toggle="modal" href="#exampleModalToggle-serv"
                 role="button">
 
                 أطلب الخدمة
@@ -26,7 +26,12 @@
 
 <script>
 export default {
- name:'action-for-visiter'
+ name:'action-for-visiter',
+ methods:{
+    openBooking(){
+        this.fireOpenDialog('booking-service')
+    }
+ }
 }
 </script>
 
