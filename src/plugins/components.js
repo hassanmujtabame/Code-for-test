@@ -1,7 +1,9 @@
 import Vue from 'vue'
 
 import DSwiper from '@/components/swiper/index.vue'
-import DCalendar from '@/components/calendar/index.vue'
+import DCalendarSimple from '@/components/calendar/index.vue'
+import DCalendar from '@/components/calendar/calendar.vue'
+import DDatePicker from '@/components/calendar/d-date-picker.vue'
 import DCarousel from '@/components/carousel/index.vue'
 import DCarouselSlide from '@/components/carousel/slide.vue'
 import DFilterList from '@/components/filter-list/index.vue'
@@ -15,6 +17,8 @@ Vue.component('d-dialog-large', DDialogLarge)
 Vue.component('d-dialog-simple', DDialogSimple)
 Vue.component('d-swiper', DSwiper)
 Vue.component('d-calendar', DCalendar)
+Vue.component('d-calendar-simple', DCalendarSimple)
+Vue.component('d-date-picker', DDatePicker)
 Vue.component('d-carousel', DCarousel)
 Vue.component('d-carousel-slide', DCarouselSlide)
 Vue.component('d-filter-list', DFilterList)
