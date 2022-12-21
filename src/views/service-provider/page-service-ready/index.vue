@@ -312,6 +312,8 @@
         </div>
 
   <SectionContinueLearning />
+  <DialogBooking />
+  <DialogRequestService />
     </div>
 </template>
 
@@ -322,9 +324,13 @@ import SectionRateService from './section-rate-service/index.vue'
 import SectionShareService from './section-share-service/index.vue'
 import ActionCrud from './actions/crud.vue'
 import ActionForVisiter from './actions/visiter.vue'
+import DialogBooking from './dialog/booking.vue'
+import DialogRequestService from './dialog/request-service/index.vue'
 export default {
     name:'page-service-ready',
     components:{
+        DialogBooking,
+        DialogRequestService,
         ActionCrud,
         ActionForVisiter,
         SectionContinueLearning,
