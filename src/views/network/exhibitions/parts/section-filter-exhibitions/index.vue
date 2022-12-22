@@ -192,14 +192,13 @@
     <div class="col-md-9">
         <div class="row order">
             <div v-for="(item,i) in items" :key="i" class="col-md-6 mt-2">
-                <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-
+                <router-link :to="getRouteLocale('network-exhibition-show',{id:item.id})">
                     <exhibitionCard 
                 :img="item.image"
                 :title="item.user_name"
                 :description="item_test.description"
                 />
-                </a>
+                </router-link>
 
             </div>
            

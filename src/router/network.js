@@ -38,6 +38,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-exhibitions" */ '../views/network/exhibitions/index.vue') 
     },
     {
+        path: 'network/exhibitions/:id',
+        meta:{layout:LayoutNetwork},
+        name: 'network-exhibition-show',
+        component: () => import(/* webpackChunkName: "network-exhibition-show" */ '../views/network/exhibition-page/index.vue') 
+    },
+    {
         path: 'network/offers',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-offers',

@@ -37,11 +37,13 @@
             :space-between="10"
               :items="itemsTest" >
               <template  v-slot:default="{item}" >
+                <router-link :to="getRouteLocale('network-exhibition-show',{id:item.id})">
                 <exhibitionCard 
                 :img="item.img"
                 :title="item.title"
                 :description="item.description"
                 />
+            </router-link>
             </template>
        </d-swiper>
        
@@ -58,11 +60,11 @@ export default {
  },
  data:()=>({
     itemsTest:[
-        {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:1,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:2,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:3,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:4,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:5,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
     ],
     items:[]
  }),
