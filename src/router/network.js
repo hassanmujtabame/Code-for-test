@@ -26,6 +26,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-success-story-show" */ '../views/network/success-story/index.vue') 
     },
     {
+        path: 'network/my-story',
+        meta:{layout:LayoutNetwork},
+        name: 'network-my-story',
+        component: () => import(/* webpackChunkName: "network-my-story" */ '../views/network/success-story/my-story.vue') 
+    },
+    {
         path: 'network/investment-project',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-investment-project',
