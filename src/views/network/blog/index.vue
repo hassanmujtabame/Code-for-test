@@ -310,7 +310,7 @@
 import SectionRecentBlog from './parts/section-recent-blog/index.vue'
 import AddBlogDialog from './parts/dialogs/add-blog.vue'
 export default {
-name:'network-blog',
+name:'network-blogs',
 components:{
     SectionRecentBlog,
     AddBlogDialog

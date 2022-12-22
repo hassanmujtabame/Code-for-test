@@ -20,10 +20,10 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-investment-project" */ '../views/network/investment-project/index.vue') 
     },
     {
-        path: 'network/blog',
+        path: 'network/blogs',
         meta:{layout:LayoutNetwork,auth:true},
-        name: 'network-blog',
-        component: () => import(/* webpackChunkName: "network-blog" */ '../views/network/blog/index.vue') 
+        name: 'network-blogs',
+        component: () => import(/* webpackChunkName: "network-blogs" */ '../views/network/blog/index.vue') 
     },
     {
         path: 'network/exhibitions',
