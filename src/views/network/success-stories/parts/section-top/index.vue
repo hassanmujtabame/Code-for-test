@@ -1,0 +1,39 @@
+<template>
+  <div class="consulting">
+        <div class="container">
+          <div class="row align-items-center justify-content-between">
+            <div class="col-md-6">
+              <h1 class="fs-1 text-white">   قصص نجاح </h1>
+              <p class="text-white">
+                لاشك اننا نرغب بقرأه قصص نجاح الاخرين حتى نرسم طريقاً لنا مليئ بالامل والطموح  
+            </p>
+            <button class="btn border text-white px-3"   data-bs-toggle="modal"
+                data-bs-target="#addModal">
+                اعرض قصتك الان 
+            </button>
+            </div>
+            <div class="col-md-6">
+              <div style="overflow: inherit" class="m-auto text-end">
+                <img class="img-fluid" src="/assets/img/Frame@2x.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="star-cons">
+            <img src="/assets/img/starrrr.png" alt="" />
+          </div>
+          <div class="star-cons stars">
+            <img src="/assets/img/starsss.png" alt="" />
+          </div>
+        </div>
+      </div>
+</template>
+
+<script>
+export default {
+ name:'section-top'
+}
+</script>
+
+<style>
+
+</style>

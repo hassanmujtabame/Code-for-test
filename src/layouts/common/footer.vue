@@ -43,7 +43,7 @@
                           <h6>قناة رياديات</h6>
                           <a href="#" class="d-block">المدونة</a>
                           <a href="#" class="d-block">البودكاست</a>
-                          <a href="#" class="d-block">قصص نجاح</a>
+                          <router-link :to="getRouteLocale('network-success-stories')" class="d-block">قصص نجاح</router-link>
                       </div>
                       <div class="col-3 col-md-3">
                           <h6>انضمي إلينا</h6>
