@@ -38,7 +38,7 @@ export default {
       default:false,
    },
    slidesPerView:{
-      type:[Number],
+      type:[Number,String],
       default:3,
    },
    spaceBetween:{
