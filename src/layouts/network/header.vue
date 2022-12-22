@@ -46,7 +46,7 @@
               <router-link :to="getRouteLocale('network-models')" class="nav-link">النماذج</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-blog')" class="nav-link">المدونة</router-link>
+              <router-link :to="getRouteLocale('network-blogs')" class="nav-link">المدونة</router-link>
             </li>
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('contact-us')" class="nav-link">تواصل معنا</router-link>
