@@ -27,6 +27,7 @@
             </div>
              </div>
             <div v-for="(item,i) in items" :key="i" class="col-md-6 mt-3">
+                <router-link :to="getRouteLocale('network-investment-project-show',{id:item.id})"> 
                 <investmentProject
                    :title="item.title"
                    :publisher="item.publisher"
@@ -36,7 +37,7 @@
                    :ownership="item.ownership"
                    :place="item.place"
                    />
-                
+                </router-link>
             </div>
         
            
@@ -93,16 +94,12 @@ export default {
         total:0,
         total_page:0,
 
-    },
- 
-      
-       
-       items:[
-        {title:'اريد مكان مجهز بالكامل لمشغل',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,restDay:40,place:'الدمام - السعودية',description:'ارغب بايجار مكان مجهز بالكامل لمشغل يقدم خدمات ( الشعر - البشرة - الجسم ) ويحتوى المكان على ساونا و جاكوزي و حمام سباحة'},
-        {title:'اريد مكان مجهز بالكامل لمشغل',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,restDay:40,place:'الدمام - السعودية',description:'ارغب بايجار مكان مجهز بالكامل لمشغل يقدم خدمات ( الشعر - البشرة - الجسم ) ويحتوى المكان على ساونا و جاكوزي و حمام سباحة'},
-        {title:'اريد مكان مجهز بالكامل لمشغل',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,restDay:40,place:'الدمام - السعودية',description:'ارغب بايجار مكان مجهز بالكامل لمشغل يقدم خدمات ( الشعر - البشرة - الجسم ) ويحتوى المكان على ساونا و جاكوزي و حمام سباحة'},
-        {title:'اريد مكان مجهز بالكامل لمشغل',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,restDay:40,place:'الدمام - السعودية',description:'ارغب بايجار مكان مجهز بالكامل لمشغل يقدم خدمات ( الشعر - البشرة - الجسم ) ويحتوى المكان على ساونا و جاكوزي و حمام سباحة'},
-       
+    }, 
+    items:[
+        {id:1,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
+        {id:2,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
+        {id:3,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
+        {id:4,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:20},
     ]
  }),
  methods:{
