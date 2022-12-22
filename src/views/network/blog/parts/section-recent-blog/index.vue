@@ -20,15 +20,15 @@
             </div>
             <div class="row mt-3">
                 <div v-for="(blog,i) in blogs" :key="i" class="col-md-4 " >
-           <BlogInfoCard 
-            :img="blog.img"
-            :title="(blog.title+' '+i)"
-            :description="blog.description"
-            :date="blog.date"
-           />
+                    <router-link :to="getRouteLocale('network-blog-show',{id:blog.id})">
+                    <BlogInfoCard 
+                        :img="blog.img"
+                        :title="(blog.title+' '+i)"
+                        :description="blog.description"
+                        :date="blog.date"
+                    />
+                    </router-link>
           </div>
-          
-           
             </div>
         </div>
 </template>
@@ -42,9 +42,9 @@ export default {
  },
  data:()=>({
     blogs:[
-        {title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:1,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:2,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:3,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
 
     ]
  })
