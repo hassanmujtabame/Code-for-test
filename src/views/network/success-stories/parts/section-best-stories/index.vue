@@ -17,7 +17,7 @@
             <div class="row ">
 
                 <div v-for="(item,i) in stories" :key="i" class="col-12 col-md-6 col-lg-3 mt-2">
-                   <router-link :to="getRouteLocale('network-success-story-show',{id:item.id})">
+                   <router-link class="w-100" :to="getRouteLocale('network-success-story-show',{id:item.id})">
                     <d-story-card 
                     :title="item.title"
                     :name="item.user_name"
