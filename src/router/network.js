@@ -20,6 +20,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-investment-project" */ '../views/network/investment-project/index.vue') 
     },
     {
+        path: 'network/investment-project/request-add',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-investment-project-request-add',
+        component: () => import(/* webpackChunkName: "network-investment-project-request-add" */ '../views/network/investment-project-request/index.vue') 
+    },
+    {
         path: 'network/investment-project/:id',
         meta:{layout:LayoutNetwork},
         name: 'network-investment-project-show',

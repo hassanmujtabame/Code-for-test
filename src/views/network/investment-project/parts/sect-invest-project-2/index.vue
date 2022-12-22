@@ -20,9 +20,9 @@
                 </div> 
                 <div>
 
-                    <a href="" class="btn bg-main text-white p-2">
+                    <router-link :to="getRouteLocale('network-investment-project-request-add')" class="btn bg-main text-white p-2">
                         أعرض مشروعك لاستثمار
-                      </a>
+                    </router-link>
                 </div>
             </div>
              </div>

@@ -13,18 +13,15 @@
                         <option value="2">2</option>
                         <option value="3">3</option>
                       </select>
-                      <p style="    top: -13px;
-                      right: 24px;
-                      background: white;
-                  " class="position-absolute">
+                      <p style="top: -13px;background: white;" class="position-absolute">
                         ترتيب حسب 
                       </p>
                 </div> 
                 <div>
 
-                    <a href="" class="btn bg-main text-white p-2">
+                    <router-link :to="getRouteLocale('network-investment-project-request-add')" class="btn bg-main text-white p-2">
                         أعرض مشروعك لاستثمار
-                      </a>
+                    </router-link>
                 </div>
             </div>
              </div>
