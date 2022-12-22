@@ -7,13 +7,13 @@
                         <div class="col-md-12">
                             <label for="imginput" class="form-label file-label first w-100">
                                 <div class="text-center p-5">
-                                  <img :src="url"  height="96" width="96"/>
+                                  <img src="/assets/svg/empty-image.svg"  height="96" width="96"/>
                                       
                                     <p class="m-c">أضافة صورة العرض </p>
                                 </div>
                                 <div class="add-img-selected w-100">
 
-                                    <img class="" src="none" id="image_selected" width="434" height="236" />
+                                    <img class="image-selected-dialog" src="none" :id="idImage" width="100%" height="236" />
                                 </div>
                             </label>
                             <ValidationProvider
@@ -193,11 +193,13 @@ export default {
   components:{
     DialogSimple
   },
-  data:()=>({
+  data:(vm)=>{
+    return{
     group:'add-dialog',
     showDialog:false,
     categories:[],
     tags:[],
+    idImage: `image-selected-${vm.generateRandomString(8)}`,
     url:'/assets/svg/empty-image.svg',
     file:null,
     offer:{
@@ -213,7 +215,7 @@ export default {
         start_date:'',
        
     }
-  }),
+  }},
   methods:{
    async save(){
     console.log('refs',this.$refs)
@@ -259,15 +261,23 @@ export default {
         }
     },
     uploadImage(evt){
-        this.file = evt.target.files[0];
-        if(this.file)
-        this.url = URL.createObjectURL( this.file);
-        else{
-            URL.revokeObjectURL(this.url);
-            this.url = '/assets/svg/empty-image.svg'
-        }
-        
+        if (!evt.target.files && !evt.target.files[0]) {
+                this.file = null;
+                window.$('#' + this.idImage)
+                    .attr('src', 'none')
+                    .css('opacity', '0');
+                return;
+            }
+            this.file = evt.target.files[0];
+            var reader = new FileReader();
+            reader.onload =  (e) =>{
+                console.log('result',e,this.idImage)
+                window.$('#'+this.idImage)
+                    .attr('src', e.target.result)
+                    .css('opacity', '1');
 
+            };
+            reader.readAsDataURL(this.file);
     },
     async loadCategories(){
         try {
@@ -294,6 +304,9 @@ export default {
         this.offer.day=''
         this.offer.start_date=''
             this.$refs.form.reset()
+            window.$('#'+this.idImage)
+                    .attr('src', 'none')
+                    .css('opacity', '0');
         this.showDialog = true
         return true;
     },
