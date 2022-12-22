@@ -3,14 +3,17 @@
         <div class="text-end">
             <slot name="top-end"></slot>
         </div>
-        <div class="row align-items-center">
+        <div v-if="!hideTop" class="row align-items-center">
             <div class="col-12 col-md-4 mt-3">
+                <slot name="title">
                 <h4>
                     عدد الخدمات :
                     <span class="m-c"> 50 خدمة </span>
                 </h4>
+            </slot>
             </div>
             <div class="col-12 col-md-5 mt-3">
+                <slot name="search">
                 <label for="" class="position-relative w-100">
                     <input class="form-control py-3 px-5" type="text" placeholder="أبحث بالاسم   " />
                     <p style="top: 25%; right: 7px" class="position-absolute">
@@ -24,8 +27,10 @@
                         </svg>
                     </p>
                 </label>
+            </slot>
             </div>
             <div class="col-12 col-md-3 mt-3 position-relative">
+                <slot name="order">
                 <select class="form-select form-select-lg mb-3 py-3" aria-label=".form-select-lg example">
                     <option selected> الاحدث </option>
                     <option value="1">الاعلى سعرا</option>
@@ -35,11 +40,13 @@
                 <p style="top: -13px; right: 24px; background: white" class="position-absolute">
                     ترتيب حسب
                 </p>
+            </slot>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-3 mt-2">
+            <div v-if="!hideSide" class="col-md-3 mt-2">
+                <slot name="side">
                 <div class="box border p-3 rounded-3">
                     <h4>فلتر البحث</h4>
                     <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -188,10 +195,11 @@
                         </button>
                     </div>
                 </div>
+            </slot>
             </div>
-            <div class="col-md-9">
+            <div :class="{'col-md-9':!hideSide,'col-md-12':hideSide}">
                 <div class="row order">
-                    <div v-for="(item,i) in items" :key="i" class="col-12 col-md-6 mt-2">
+                    <div v-for="(item,i) in items" :key="i" :class="classColCard">
                         <div class="swiper-slide rounded-3">
                          <slot :item="item"></slot>
                         </div>
@@ -237,6 +245,18 @@
 export default {
     name: 'd-filter-list',
     props: {
+        classColCard:{
+            type:String,
+            default:'col-12 col-md-6 mt-2'
+        },
+        hideSide:{
+            type:Boolean,
+            default:false,
+        }, 
+        hideTop:{
+            type:Boolean,
+            default:false,
+        }, 
         link: {
             type: String,
             require: true
@@ -244,6 +264,10 @@ export default {
         fakeItems:{
            type:[Array,Object],
            default:()=>null
+        },
+        callList:{
+           type:Function,
+           default:null
         }
     },
     data: () => ({
@@ -273,8 +297,9 @@ export default {
                 return
             }
             try {
-                let { data } = await this.$axios.get(`${this.link}?page=${this.metaInfo.current_page}`)
-
+                
+                let { data } =this.callList?await this.callList(this.metaInfo):await this.$axios.get(`${this.link}?page=${this.metaInfo.current_page}`)
+               
                 if (data.success) {
                     this.items = data.data;
                     this.metaInfo.to = data.meta.to
