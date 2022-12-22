@@ -114,180 +114,17 @@
                   <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                         <div class="row mt-3">
-                            <div class="col-md-4 mt-3 " >
-                              <div class="box rounded-3 border">
-                                <div class="image">
-                                  <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
-                                </div>
-                                <div class="text p-3">
-                                  <h5>عنوان المدونة </h5>
-                                  <p>
-                                    نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي
-                                  </p>
-                                </div>
-                                <div class="date d-flex justify-content-between mx-1 p-3">
-                                    <p class="m-c">
-                                        ريادة الاعمال
-                                    </p>
-                                  <p>
-                                    10  sep, 2021
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
-                                      </svg>
-                                      
-                                  </p>
-                    
-                                </div>
-                    
-                              </div>
-                              
-                    
+                            <div v-for="(blog,i) in blogs" :key="i" class="col-md-4 mt-3 " >
+                              <router-link :to="getRouteLocale('network-blog-show',{id:blog.id})">
+                    <BlogInfoCard 
+                        :img="blog.img"
+                        :title="(blog.title+' '+i)"
+                        :description="blog.description"
+                        :date="blog.date"
+                    />
+                    </router-link>
                             </div>
-                            <div class="col-md-4 mt-3 " >
-                                <div class="box rounded-3 border">
-                                  <div class="image">
-                                    <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
-                                  </div>
-                                  <div class="text p-3">
-                                    <h5>عنوان المدونة </h5>
-                                    <p>
-                                      نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي
-                                    </p>
-                                  </div>
-                                  <div class="date d-flex justify-content-between mx-1 p-3">
-                                      <p class="m-c">
-                                          ريادة الاعمال
-                                      </p>
-                                    <p>
-                                      10  sep, 2021
-                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
-                                        </svg>
-                                        
-                                    </p>
-                      
-                                  </div>
-                      
-                                </div>
-                                
-                      
-                              </div>
-                              <div class="col-md-4 mt-3 " >
-                                <div class="box rounded-3 border">
-                                  <div class="image">
-                                    <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
-                                  </div>
-                                  <div class="text p-3">
-                                    <h5>عنوان المدونة </h5>
-                                    <p>
-                                      نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي
-                                    </p>
-                                  </div>
-                                  <div class="date d-flex justify-content-between mx-1 p-3">
-                                      <p class="m-c">
-                                          ريادة الاعمال
-                                      </p>
-                                    <p>
-                                      10  sep, 2021
-                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
-                                        </svg>
-                                        
-                                    </p>
-                      
-                                  </div>
-                      
-                                </div>
-                                
-                      
-                              </div>
-                              <div class="col-md-4 mt-3 " >
-                                <div class="box rounded-3 border">
-                                  <div class="image">
-                                    <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
-                                  </div>
-                                  <div class="text p-3">
-                                    <h5>عنوان المدونة </h5>
-                                    <p>
-                                      نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي
-                                    </p>
-                                  </div>
-                                  <div class="date d-flex justify-content-between mx-1 p-3">
-                                      <p class="m-c">
-                                          ريادة الاعمال
-                                      </p>
-                                    <p>
-                                      10  sep, 2021
-                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
-                                        </svg>
-                                        
-                                    </p>
-                      
-                                  </div>
-                      
-                                </div>
-                                
-                      
-                              </div>
-                              <div class="col-md-4 mt-3 " >
-                                <div class="box rounded-3 border">
-                                  <div class="image">
-                                    <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
-                                  </div>
-                                  <div class="text p-3">
-                                    <h5>عنوان المدونة </h5>
-                                    <p>
-                                      نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي
-                                    </p>
-                                  </div>
-                                  <div class="date d-flex justify-content-between mx-1 p-3">
-                                      <p class="m-c">
-                                          ريادة الاعمال
-                                      </p>
-                                    <p>
-                                      10  sep, 2021
-                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
-                                        </svg>
-                                        
-                                    </p>
-                      
-                                  </div>
-                      
-                                </div>
-                                
-                      
-                              </div>
-                              <div class="col-md-4 mt-3 " >
-                                <div class="box rounded-3 border">
-                                  <div class="image">
-                                    <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
-                                  </div>
-                                  <div class="text p-3">
-                                    <h5>عنوان المدونة </h5>
-                                    <p>
-                                      نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي
-                                    </p>
-                                  </div>
-                                  <div class="date d-flex justify-content-between mx-1 p-3">
-                                      <p class="m-c">
-                                          ريادة الاعمال
-                                      </p>
-                                    <p>
-                                      10  sep, 2021
-                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
-                                        </svg>
-                                        
-                                    </p>
-                      
-                                  </div>
-                      
-                                </div>
-                                
-                      
-                              </div>
+                            
                       
                           
                         </div>
@@ -309,14 +146,23 @@
 <script>
 import SectionRecentBlog from './parts/section-recent-blog/index.vue'
 import AddBlogDialog from './parts/dialogs/add-blog.vue'
+import BlogInfoCard from '@/components/cards/blog-info.vue';
 export default {
 name:'network-blogs',
 components:{
     SectionRecentBlog,
-    AddBlogDialog
+    AddBlogDialog,
+    BlogInfoCard
 },
 data:()=>({
-
+  blogs:[
+        {id:1,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:2,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:3,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:4,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:5,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:6,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+    ]
 }),
 methods:{
   addBlog(){
