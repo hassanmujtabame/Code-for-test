@@ -77,21 +77,8 @@ const routes = [
     path: 'register',
     meta:{layout:LayoutDefault,auth:false},
     name: 'register',
-    component: () => import(/* webpackChunkName: "Register" */ '../views/auth/RegisterView.vue')
+    component: () => import(/* webpackChunkName: "Register" */ '../views/auth/register/index.vue')
   },
-  {
-    path: 'register-finish',
-    meta:{layout:LayoutDefault},
-    name: 'register-finish',
-    component: () => import(/* webpackChunkName: "Register-finish" */ '../views/auth/RegisterFinish.vue')
-  },
-  {
-    path: 'register-check',
-    meta:{layout:LayoutDefault},
-    name: 'register-check',
-    component: () => import(/* webpackChunkName: "Register-check" */ '../views/auth/RegisterCheck.vue')
-  }
-  ,
   {
     path: 'forget-password',
     meta:{layout:LayoutDefault},
