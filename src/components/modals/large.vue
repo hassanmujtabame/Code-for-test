@@ -6,7 +6,9 @@
     :aria-hidden="!dialog?'true':'false'"
      aria-labelledby="exampleModalToggleLabel"
         tabindex="-1">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-dialog"
+        :class="{'modal-xl':xl,'modal-dialog-centered':centered}"
+        >
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
@@ -32,6 +34,14 @@
 export default {
 name:'modal-large',
 props:{
+    xl:{
+        type:Boolean,
+        default:true
+    },
+    centered:{
+        type:Boolean,
+        default:true
+    },
     group:{
         type:String,
         require:true
