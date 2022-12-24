@@ -12,12 +12,12 @@
                 </h4>
             </slot>
             </div>
-            <div v-if="title || $slots.title" class=" col-12 col-md-3 mt-3">
+            <div v-if="title || $slots.title" class=" col-12 col-md-auto mt-3">
                 <slot name="title">
               <h3 class="t-c fw-bolder">{{ title }}</h3>
             </slot>
             </div>
-            <div class="col-12 col-md-5 mt-3">
+            <div class="col-12 col-md-auto mt-3">
                 <slot name="search">
                 <label for="" class="position-relative w-100">
                     <input class="form-control py-3 px-5" type="text" placeholder="أبحث بالاسم   " />
@@ -34,7 +34,7 @@
                 </label>
             </slot>
             </div>
-            <div class="col-12 col-md-3 mt-3 position-relative">
+            <div class="col-12 col-md-auto mt-3 position-relative">
                 <slot name="order">
                 <select class="form-select form-select-lg mb-3 py-3" aria-label=".form-select-lg example">
                     <option selected> الاحدث </option>
