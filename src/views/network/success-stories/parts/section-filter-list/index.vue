@@ -2,6 +2,7 @@
    <div class="row">
           <div class="col-md-12">
             <d-filter-list hideSide 
+            hideTotal
             :call-list="loadList"
             classColCard="col-12 col-md-6 col-lg-3 mt-2"
             >
