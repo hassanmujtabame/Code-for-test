@@ -10,7 +10,7 @@
               <p class="fs-4 text-p">
                
               </p>
-              <div class="">
+              <div v-if="!token" class="">
                 <router-link custom :to="getRouteLocale('register')" v-slot="{navigate}">
                 <button class="btn-custmer"  @click="navigate">انضمي الان</button>
                 </router-link>
