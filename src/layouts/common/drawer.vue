@@ -70,10 +70,9 @@
                             d="M20.6664 30.3334C20.573 30.3334 20.4797 30.32 20.3864 30.2934C17.5064 29.4667 14.4797 29.4667 11.5997 30.2934C11.0664 30.44 10.5197 30.1334 10.3597 29.6C10.1997 29.0667 10.5197 28.52 11.053 28.36C14.2797 27.44 17.7064 27.44 20.933 28.36C21.4664 28.5067 21.773 29.0667 21.6264 29.6C21.5064 30.0534 21.1064 30.3334 20.6664 30.3334Z"
                             fill="#1FB9B3" />
                     </svg>
-
-                    <a href="#" class="mx-2 m-c ">
-                        طلبات شراء خدماتك
-                    </a>
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-request-purchase-services')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> طلبات شراء خدماتك</button>
+                    </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
