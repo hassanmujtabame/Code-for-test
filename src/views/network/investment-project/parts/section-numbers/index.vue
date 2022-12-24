@@ -2,7 +2,7 @@
   <div class="mt-5">
             <div class="riadiat-of-number">
                 <div class="row justify-content-evenly ">
-                    <div class="col-6 col-md-auto mt-3">
+                    <div class="col-6 col-md-2 mt-3">
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
@@ -14,7 +14,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-auto mt-3">
+                    <div class="col-6 col-md-2 mt-3">
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
@@ -26,7 +26,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-auto mt-3">
+                    <div class="col-6 col-md-2 mt-3">
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
@@ -38,7 +38,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-auto mt-3">
+                    <div class="col-6 col-md-2 mt-3">
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
@@ -50,7 +50,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-auto mt-3">
+                    <div class="col-6 col-md-2 mt-3">
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
