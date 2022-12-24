@@ -1,9 +1,13 @@
 <template>
     <div style="margin-top: 96px;">
-        <div class="container">
+        <d-overlay-simple v-if="loading" />
+        <div v-else-if="hasError">
+            هناك خطأ غير معروف،يرجي تحديث الصفحة
+        </div>
+        <div v-else class="container">
             <div class="d-flex flex-wrap justify-content-between">
                 <div class="">
-                    <h3>تكنولوجيا القلم الديجيتال</h3>
+                    <h3>{{  title }}</h3>
                 </div>
                 <div>
                     <button style="background-color:#F6F8F9 ;" class="btn">
@@ -41,7 +45,7 @@
                         <div class="text-start">
 
                             <h5 class="t-c">
-                                تكنولوجيا القلم الديجيتال
+                               {{ project.title}}
                             </h5>
                             <p>
                                 <span class="m-c">
@@ -446,11 +450,38 @@
 </template>
 
 <script>
+import ProjectsAPI from '@/services/api/projects.js'
 export default {
-    name: 'investment-prpject-page'
+  name: 'investment-prpject-page',
+  data:()=>{
+    return {
+      loading:true,
+      hasError:false,
+      project:{},
+      colors:['#F2631C','#FFBC00','#2C98B3']
+  }},
+  methods:{
+    async initializing() {
+      this.loading = true;
+      this.hasError = false;
+            try {
+                let { data } = await ProjectsAPI.getItem(this.$route.params.id)
+                if (data.success) {
+                   this.project = data.data;
+                }else{
+                  this.hasError = true;
+                }
+            } catch (error) {
+                console.log('error', error)
+                console.log('error response', error.response)
+                this.hasError = true;
+              }
+
+            this.loading = false;
+        }
+  },
+  mounted(){
+    this.initializing()
+  }
 }
 </script>
-
-<style>
-
-</style>
