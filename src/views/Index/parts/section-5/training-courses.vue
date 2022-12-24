@@ -13,22 +13,21 @@
             تقدم رياديات دورات تعليمية وتثقفية على اعلى مستوى
           </p>
           <div class="container" style="overflow:hidden">
-          <swiper
+          <d-swiper
             :slides-per-view="5"
             :space-between="10"
-              :loop="true"
-              :pagination="true"
-              :navigation="true"
+             
+              :items="courses"
             >
-              <SwiperSlide v-for="(course,i) in courses"  :key="i" >
+              <template v-slot="{item}" >
                <TrainingCourseCard 
-               :img="course.img"
-               :title="course.title"
-               :price="course.price"
-               :currency="course.currency"
+               :img="item.img"
+               :title="item.title"
+               :price="item.price"
+               :currency="item.currency"
                />
-              </SwiperSlide>        
-          </swiper>
+              </template>        
+          </d-swiper>
         </div>
             
           </div>
@@ -37,19 +36,11 @@
 </template>
 
 <script>
- import { Navigation, Pagination } from 'swiper'
 
-import { SwiperCore, Swiper, SwiperSlide } from 'swiper-vue2'
-
-// Import Swiper styles
-import 'swiper/swiper-bundle.css'
-
-SwiperCore.use([Navigation, Pagination])
 import TrainingCourseCard from '@/components/cards/training-course.vue'
 export default {
   components:{
-    Swiper, SwiperSlide
-    ,TrainingCourseCard
+  TrainingCourseCard
   },
  data:()=>({
     courses:[
