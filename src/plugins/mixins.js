@@ -11,6 +11,9 @@ const mixin = {
             generateRandomString(n){
               return Math.random().toString().substring(2, n+2)
             },
+            fireEvent(group,data={}){
+              window.EventBus.fire(group,data)
+          },
             fireOpenDialog(group,data={}){
                 window.EventBus.fire(group+'-open-dialog',data)
             },
