@@ -11,10 +11,12 @@ import RSliderInput from '@/components/inputs/r-slider/index.vue'
 import DUserInfo from '@/components/cards/user-info.vue'
 import DUserInfoLi from '@/components/cards/user-info-left-img.vue'
 import DStoryCard from '@/components/cards/story.vue'
+import DJobCard from '@/components/cards/job.vue'
 import DDialogLarge from '@/components/modals/large.vue'
 import DDialogSimple from '@/components/modals/simple.vue'
 import DOverlaySimple from '@/components/overlays/simple.vue'
 
+Vue.component('d-job-card', DJobCard)
 Vue.component('d-story-card', DStoryCard)
 Vue.component('d-overlays-simple', DOverlaySimple)
 Vue.component('d-dialog-large', DDialogLarge)
