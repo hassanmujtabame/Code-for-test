@@ -9,7 +9,8 @@
               </h3>
             </template>
                 <template v-slot="{item}">
-                 
+                 <router-link :to="getRouteLocale('service-provider-job-show',{id:item.id})"
+                 >
                   <d-job-card
                   :title="item.title"
                   :place="item.place"
@@ -20,11 +21,13 @@
                   :datePublish="item.datePublish"
                   :offers="item.offers"
                   >
+                
                   <template v-slot:icon>
                     <img src="/assets/svg/sewing.svg" />
 
                   </template>
                   </d-job-card>
+                </router-link>
                   </template>
       
 
@@ -36,11 +39,11 @@ export default {
  data:()=>{
     return {
         items:[
-            {title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
-            {title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
-            {title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
-            {title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
-            {title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
+            {id:1,title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
+            {id:2,title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
+            {id:3,title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
+            {id:4,title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
+            {id:5,title:'تصميم فستان لحلفة تخرج',department:'قسم الازياء',category:'الخياطة',place:'جدة',during:'7 أيام',offers:3,price:150,datePublish:'نشر منذ ساعة'},
 
         ]
     }
