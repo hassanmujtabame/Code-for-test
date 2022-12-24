@@ -1,11 +1,11 @@
 <template>
-    <div class="box rounded-3 border">
+    <div class="box rounded-3 border w-100">
               <div class="image">
                 <img class="w-100" :src="img" :alt="title" height="184">
               </div>
               <div class="text p-3">
-                <h6>{{title}}</h6>
-                <p>{{description}}</p>
+                <h6 style="height:40px">{{title}}</h6>
+                <p style="height:80px">{{description}}</p>
               </div>
               <div class="date text-end mx-1 p-3">
                 <p>

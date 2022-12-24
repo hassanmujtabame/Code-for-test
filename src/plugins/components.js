@@ -12,6 +12,7 @@ import DUserInfo from '@/components/cards/user-info.vue'
 import DUserInfoLi from '@/components/cards/user-info-left-img.vue'
 import DStoryCard from '@/components/cards/story.vue'
 import DJobCard from '@/components/cards/job.vue'
+import DBlogInfoCard from '@/components/cards/job.vue'
 import DDialogLarge from '@/components/modals/large.vue'
 import DDialogSimple from '@/components/modals/simple.vue'
 import DOverlaySimple from '@/components/overlays/simple.vue'
@@ -21,6 +22,7 @@ import RequestPurchaseCard from '@/components/cards/request-purchase-service.vue
 
 Vue.component('section-continue-learning', SectionContinueLearning)
 Vue.component('d-job-card', DJobCard)
+Vue.component('d-blog-info-card', DBlogInfoCard)
 Vue.component('d-request-purchase-card', RequestPurchaseCard)
 Vue.component('d-story-card', DStoryCard)
 Vue.component('d-overlays-simple', DOverlaySimple)
