@@ -281,6 +281,10 @@ export default {
         callList:{
            type:Function,
            default:null
+        },
+        group:{
+            type:String,
+            default:'d-filter-list'
         }
     },
     data: () => ({
@@ -327,7 +331,14 @@ export default {
     },
     mounted() {
         this.loadList()
-    }
+    },
+    created(){
+    window.EventBus.listen(this.group+'-refresh',this.loadList)
+
+  },
+  beforeDestroy(){
+    window.EventBus.off(this.group+'-refresh',this.loadList)
+  },
 }
 </script>
 
