@@ -11,8 +11,12 @@
                
               </p>
               <div class="">
-                <button class="btn-custmer"  @click="$router.push('/register')">انضمي الان</button>
-                <button class="btn-custmer-w" @click="$router.push('/login')">سجلي دخولك</button>
+                <router-link custom :to="getRouteLocale('register')" v-slot="{navigate}">
+                <button class="btn-custmer"  @click="navigate">انضمي الان</button>
+                </router-link>
+                <router-link custom :to="getRouteLocale('login')" v-slot="{navigate}">
+                <button class="btn-custmer-w" @click="navigate">سجلي دخولك</button>
+                </router-link>
               </div>
             </div>
             <div class="col-md-5 circle-img m-auto">
