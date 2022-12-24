@@ -13,6 +13,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-jobs" */ '../views/service-provider/jobs/index.vue') 
     },
     {
+        path: 'service-provider/job/:id',
+        meta:{layout:LayoutService},
+        name: 'service-provider-job-show',
+        component: () => import(/* webpackChunkName: "service-provider-job-show" */ '../views/service-provider/job-page/index.vue') 
+    },
+    {
         path: 'service-provider/dashboard',
         meta:{layout:LayoutService},
         name: 'service-provider-dashboard',
