@@ -18,7 +18,9 @@
                                                       
 
                         </div>
-                        <button class="btn-main"> أعرضي بطاقتك </button>
+                        <router-link custom :to="getRouteLocale('network-card-membership')" v-slot="{navigate}">
+                        <button @click="navigate" class="btn-main"> أعرضي بطاقتك </button>
+                        </router-link>
 
                     </div>
 
