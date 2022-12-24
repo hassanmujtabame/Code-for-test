@@ -1,30 +1,47 @@
 <template>
-     <div class="container">
             <div class="box bg-white    rounded-3">
         
                 <div class="row align-items-center p-0 position-relative ">
                     <div class="col-12 col-md-6 p-4">
                         <div style="" class="text-center " >
-                                 <img class="" src="/assets/img/pot_2.png" alt="" width="320" height="220">
+                                 <img class="" src="/assets/img/pot_1_.png" alt="" width="320" height="220">
                         </div>
-                        <div class=" text-center">
+                        <div class="">
 
-                            <h1 class="fw-bolder m-c fs-1 ">
-                                تهانينا
+                            <h1 class="fw-bolder ">
+                                يسعدنا تسجيلك معنا 
                                                                                                             </h1>
                             <p>
-                                تم الانتهاء من أول خطوة في التسجيل بنجاح                              
+                                أرسلنا اليك رمز التأكيد على ايميلك  
+                                <span>
+                                    {{data.form.email}}
+                                </span>
                             </p>
                             <p>
-                                تبقى فقط أختيار الباقة المناسبة لك 
-                            </p>                       
+                                لم يصلك الرمز؟
+                                <a href="" class="m-c">
+                                    أعد الارسال
+                                </a>
+                            </p>
+                            <form class="row g-3 needs-validation " novalidate>
+                        
+    
+                                <div class="col-md-4 w-100">
+                                    <input type="text" class="form-control" id="validationCustom01"
+                                        placeholder="  رمز التاكيد" required>
+                                    
+                                    
+                                </div>
+    
+                         
                                 
                                 <div class="col-12 text-center ">
-                                    <button class="btn btn-main  " type="submit"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">  أختاري الباقة الان  </button>
+                                    <button class="btn btn-main" >  
+                                            أستمر
+                                     </button>
                                 </div>
-               
+                            </form>
                         </div>
-
                     </div>
                     <div class=" col-12 col-md-6">
                         <div class="box">
@@ -69,17 +86,20 @@
                                 </linearGradient>
                                 </defs>
                                 </svg>
-                                
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 </template>
 
 <script>
 export default {
-
+    props:{
+    data:{
+        type:[Array,Object],
+        require:true
+    }
+ }
 }
 </script>
 
