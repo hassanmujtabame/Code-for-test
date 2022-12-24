@@ -1,29 +1,22 @@
 <template>
   <div style="margin-top: 96px;">
-    <div class="container blog-page">
+    <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+      هناك خطأ غير معروف يرجي تحديث الصفحة
+    </div>
+    <div v-else class="container blog-page">
       <div class=" position-relative">
-        <img class="w-100" src="/assets/img/Rectangle 1774.png" alt="" height="432">
+        <img class="w-100" :src="blog.image" :alt="blog.title" height="432">
         <div class="d-flex gap-2 position-absolute bottom-0 data">
-          <p style="background-color:#F2631C ;" class="p-1 px-2 rounded-2 text-white m-0">
-            ريادة الاعمال
+          <p v-for="(cat,c) in blog.categories" :key="c" :style="{'background-color':colors[c%3]}" class="p-1 px-2 rounded-2 text-white m-0">
+            {{ cat.name }}
           </p>
-          <p style="background-color:#FFBC00 ;" class="p-1 px-2 rounded-2 text-white m-0">
-            ادارة المشارع
-          </p>
-          <p style="background-color:#F2631C ;" class="p-1 px-2 rounded-2 text-white m-0">
-            قيادة
-          </p>
-          <p style="background-color:#2C98B3 ;" class="p-1 px-2 rounded-2 text-white m-0">
-            تكنولوجي
-          </p>
-
         </div>
       </div>
 
       <div class="row mt-5">
         <div class=" col-12 col-md-8">
-          <h3 class="m-c">
-            خطة العمل ودراسة الجدوى المالية
+          <h3 class="m-c">{{ blog.title }}
           </h3>
           <p class="pargrapg">
             وهناك الكثيرون غيرهم ممن طبقوا مبادئ ريادة الاعمال، وقدموا للعالم حلولاً مبتكرةً في كافة المجالات، استفادت،
@@ -211,8 +204,39 @@
 </template>
 
 <script>
+import BlogsAPI from '@/services/api/blogs.js'
 export default {
-  name: 'blog-page'
+  name: 'blog-page',
+  data:()=>{
+    return {
+      loading:true,
+      hasError:false,
+      blog:{},
+      colors:['#F2631C','#FFBC00','#2C98B3']
+  }},
+  methods:{
+    async initializing() {
+      this.loading = true;
+      this.hasError = false;
+            try {
+                let { data } = await BlogsAPI.getItem(this.$route.params.id)
+                if (data.success) {
+                   this.blog = data.data;
+                }else{
+                  this.hasError = true;
+                }
+            } catch (error) {
+                console.log('error', error)
+                console.log('error response', error.response)
+                this.hasError = true;
+              }
+
+            this.loading = false;
+        }
+  },
+  mounted(){
+    this.initializing()
+  }
 }
 </script>
 
