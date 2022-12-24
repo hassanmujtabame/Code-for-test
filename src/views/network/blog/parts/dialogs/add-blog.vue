@@ -126,6 +126,7 @@
 
 </template>
 <script>
+import BlogsAPI from '@/services/api/blogs.js'
 import DialogSimple from '@/components/modals/simple.vue'
 export default {
   components:{
@@ -207,7 +208,7 @@ export default {
     },
     async loadBlogTags(){
         try {
-            let {data} =  await this.$axios.get('/network/blogs-tags')
+            let {data} =  await BlogsAPI.getTags()
             if(data.success){
                 this.tags = data.data
             }
