@@ -139,6 +139,9 @@ export default {
                     let response =error.response
                     if(response.status==422){
                         this.message = response.data.message;
+                        if(Object.hasOwnProperty.call(response.data,'errors')){
+                            this.$refs.form.setErrors(response.data.errors)
+                        }
                     }
                 }
 
