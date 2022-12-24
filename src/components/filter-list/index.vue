@@ -4,12 +4,17 @@
             <slot name="top-end"></slot>
         </div>
         <div v-if="!hideTop" class="row align-items-center">
-            <div class="col-12 col-md-4 mt-3">
-                <slot name="title">
+            <div v-if="!hideTotal" class="col-12 col-md-4 mt-3">
+                <slot name="total">
                 <h4>
                     عدد الخدمات :
                     <span class="m-c"> 50 خدمة </span>
                 </h4>
+            </slot>
+            </div>
+            <div v-if="title || $slots.title" class=" col-12 col-md-3 mt-3">
+                <slot name="title">
+              <h3 class="t-c fw-bolder">{{ title }}</h3>
             </slot>
             </div>
             <div class="col-12 col-md-5 mt-3">
@@ -245,9 +250,17 @@
 export default {
     name: 'd-filter-list',
     props: {
+        title:{
+            type:String,
+            default:null
+        },
         classColCard:{
             type:String,
             default:'col-12 col-md-6 mt-2'
+        },
+        hideTotal:{
+            type:Boolean,
+            default:false,
         },
         hideSide:{
             type:Boolean,
