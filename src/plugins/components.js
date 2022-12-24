@@ -15,7 +15,9 @@ import DJobCard from '@/components/cards/job.vue'
 import DDialogLarge from '@/components/modals/large.vue'
 import DDialogSimple from '@/components/modals/simple.vue'
 import DOverlaySimple from '@/components/overlays/simple.vue'
+import SectionContinueLearning from '@/components/sections/section-continue-learning/index.vue'
 
+Vue.component('section-continue-learning', SectionContinueLearning)
 Vue.component('d-job-card', DJobCard)
 Vue.component('d-story-card', DStoryCard)
 Vue.component('d-overlays-simple', DOverlaySimple)
