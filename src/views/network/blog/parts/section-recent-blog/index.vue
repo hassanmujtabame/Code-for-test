@@ -22,8 +22,8 @@
                 <div v-for="(blog,i) in blogs" :key="i" class="col-md-4 " >
                     <router-link :to="getRouteLocale('network-blog-show',{id:blog.id})">
                     <BlogInfoCard 
-                        :img="blog.img"
-                        :title="(blog.title+' '+i)"
+                        :img="blog.image"
+                        :title="blog.title"
                         :description="blog.description"
                         :date="blog.date"
                     />
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import BlogsAPI from '@/services/api/blogs.js'
 import BlogInfoCard from '@/components/cards/blog-info.vue';
 export default {
  name:'recent-blogs',
@@ -42,12 +43,31 @@ export default {
  },
  data:()=>({
     blogs:[
-        {id:1,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:2,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:3,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:1,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:2,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:3,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
 
     ]
- })
+ }),
+ methods:{
+    async getRecents() {
+            try {
+                let { data } = await BlogsAPI.getRecent()
+                if (data.success) {
+
+                    let blogs = data.data;
+
+                    this.blogs=blogs.filter((c,i)=>i<3)
+                }
+            } catch (error) {
+                console.log('error', error)
+                console.log('error response', error.response)
+            }
+        }
+ },
+ mounted(){
+    this.getRecents()
+ }
 }
 </script>
 
