@@ -16,7 +16,7 @@ class BlogsApi {
         return window.axios.get(`network/blogs-categories`);
     }
     getRecent(){
-        return window.axios.get(`network/blogs`);
+        return window.axios.get(`network/latest-blogs`);
     }
     getTags(){
         return window.axios.get(`network/blogs-tags`);
