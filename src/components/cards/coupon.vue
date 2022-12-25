@@ -9,8 +9,8 @@
                                   <div class="px-2" >
                                       <img class="border p-2" :src="img" alt="" width="57" height="57">
                                   </div>
-                                  <div class="text-start">
-                                      <h5>
+                                  <div class="text-start px-3">
+                                      <h5 style="height:48px">
                                           {{title}}
                                       </h5>
                                       <p class="t-c">
