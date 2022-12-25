@@ -1,12 +1,9 @@
 
-class ModelsApi {
+import BaseApi from "./base-service";
+class ModelsApi extends BaseApi{
     //Get all Models
     getAll(params={}){
-        let s="";
-        Object.keys(params).forEach((key)=>{
-            if(s!="") s+=`&`
-             s+=`${key}=${params[key]}`
-        })
+        let s=this.generateQueryUrl(params)
         return window.axios.get(`network/models?${s}`);
     }
     getCategories(){

@@ -1,12 +1,9 @@
 
-class CoursesApi {
+import BaseApi from "./base-service";
+class CoursesApi extends BaseApi{
     //Get all Courses
     getAll(params={}){
-        let s="";
-        Object.keys(params).forEach((key)=>{
-            if(s!="") s+=`&`
-             s+=`${key}=${params[key]}`
-        })
+        let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/courses?${s}`);
     }
     getItem(id){

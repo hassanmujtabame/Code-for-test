@@ -1,18 +1,9 @@
 
-class OffersApi {
+import BaseApi from "./base-service";
+class OffersApi extends BaseApi{
     //Get all Offers
     getAll(params={}){
-        let s="";
-        Object.keys(params).forEach((key)=>{
-            if(s!="") s+=`&`
-            if( Array.isArray(params[key]))
-            params[key].forEach((element,i) => {
-                if(i!==0) s+=`&`
-                s+=`${key}[]=${element}`
-            });
-            else
-             s+=`${key}=${params[key]}`
-        })
+        let s=this.generateQueryUrl(params)
         return window.axios.get(`network/offers?${s}`);
     }
     getItem(id){

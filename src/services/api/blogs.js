@@ -1,12 +1,9 @@
 
-class BlogsApi {
+import BaseApi from "./base-service";
+class BlogsApi extends BaseApi {
     //Get all Blogs
     getAll(params={}){
-        let s="";
-        Object.keys(params).forEach((key)=>{
-            if(s!="") s+=`&`
-             s+=`${key}=${params[key]}`
-        })
+        let s=this.generateQueryUrl(params)
         return window.axios.get(`network/blogs?${s}`);
     }
     getItem(id){
