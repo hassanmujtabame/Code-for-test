@@ -11,8 +11,7 @@
 
             </div>
             <div class="col-md-6 text-end">
-                <button class="btn bg-main bg border text-white" data-bs-toggle="modal"
-                    data-bs-target="#addModal">
+                <button @click="openAddDialog" class="btn bg-main bg border text-white" >
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -69,6 +68,11 @@ export default {
     items:[]
  }),
  methods:{ 
+    methods:{
+    openAddDialog(){
+        window.EventBus.fire('add-dialog-open-dialog')
+    }
+  },
     async loadList(){
         try {
             let {data} = await this.$axios.get(`/network/list-favourites`)
