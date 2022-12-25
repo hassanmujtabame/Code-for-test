@@ -4,6 +4,7 @@
        <SectionHeader/>
         <!-- section recent models-->
         <SectionRecentModel />
+        <SectionFilterList />
     </div>
 </template>
 
@@ -11,11 +12,13 @@
 import SectionHeader from './parts/section-header/index.vue'
 
 import SectionRecentModel from './parts/section-recent-models/index.vue'
+import SectionFilterList from './parts/section-filter-list/index.vue'
 export default {
  name:'models-page',
  components:{
     SectionHeader,
-    SectionRecentModel
+    SectionRecentModel,
+    SectionFilterList
  }
 }
 </script>
