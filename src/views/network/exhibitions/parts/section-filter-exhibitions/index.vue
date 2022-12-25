@@ -1,12 +1,18 @@
 <template>
     <div class="container mt-5">
-        <d-filter-list :call-list="loadList" classColCard="col-md-6 mt-2" pluralName="المعارض" singleName="معرض">
+        <d-filter-list 
+        :fakeItems="item_test" 
+        :call-list="loadList" 
+        classColCard="col-md-6 mt-2" 
+        pluralName="المعارض" 
+        singleName="معرض"
+        >
             <template v-slot:default="{ item }">
                 <router-link class="router-link" :to="getRouteLocale('network-exhibition-show', { id: item.id })">
                     <exhibitionCard 
                     :img="item.image" 
                     :title="item.user_name" 
-                    :description="item_test.description" 
+                    :description="item.description" 
                     />
                 </router-link>
             </template>
@@ -29,7 +35,14 @@ export default {
         sidebarBox
     },
     data: () => ({
-        item_test: { title: 'معرض الازياء الرجالي', img: '/assets/img/Rectangle -network.png', description: 'معرض متكام لبيع و تنسيق الزهور' },
+        item_test: [
+        {id:1,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:2,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:3,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:4,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:5,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+  
+    ],
         items: []
     }),
     methods: {
