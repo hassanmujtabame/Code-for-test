@@ -13,10 +13,10 @@
           <button class="more">المزيد</button>
         </div>
       </div>
-      <d-swiper :slides-per-view="5" :space-between="10" :items="items">
+      <d-swiper v-if="loading" :slides-per-view="5" :space-between="10" :items="items">
         <template v-slot:default="{ item }">
           <router-link :to="getRouteLocale('show-profile')">
-            <CardMember :name="item.name" :description="item.description" :img="item.img" />
+            <CardMember :name="item.name" :description="item.description" :img="item.image" />
           </router-link>
         </template>
       </d-swiper>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import MembersAPI from '@/services/api/members.js'
 import CardMember from '@/components/cards/card-member.vue'
 export default {
   name: 'section-member-network',
@@ -32,16 +33,32 @@ export default {
     CardMember
   },
   data: () => ({
+    loading:true,
     items: [
-      { name: 'العنقود محمد', img: '/assets/img/Rectangle 1775qa.png', description: 'التصوير' },
-      { name: 'العنقود محمد', img: '/assets/img/Rectangle 1775qa.png', description: 'التصوير' },
-      { name: 'العنقود محمد', img: '/assets/img/Rectangle 1775qa.png', description: 'التصوير' },
-      { name: 'العنقود محمد', img: '/assets/img/Rectangle 1775qa.png', description: 'التصوير' },
-      { name: 'العنقود محمد', img: '/assets/img/Rectangle 1775qa.png', description: 'التصوير' },
-      { name: 'العنقود محمد', img: '/assets/img/Rectangle 1775qa.png', description: 'التصوير' },
-      { name: 'العنقود محمد', img: '/assets/img/Rectangle 1775qa.png', description: 'التصوير' },
-      { name: 'العنقود محمد', img: '/assets/img/Rectangle 1775qa.png', description: 'التصوير' },
+      { name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
+      { name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
+      { name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
+      { name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
+      { name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
+      { name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
+      { name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
+      { name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
+      
     ]
-  })
+  }),
+  methods:{
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await MembersAPI.getAll();
+          if(data.success){
+            //this.items = data.data
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  }
 }
 </script>
