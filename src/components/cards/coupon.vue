@@ -1,7 +1,7 @@
 <template>
     <div class="border rounded-3 ">
-                            <div class="d-flex justify-content-end p-3">
-                                  <p  style=" background-color:#414042 ;width: fit-content;"  class="text-white px-3 rounded-2">
+                            <div class="d-flex justify-content-end p-3" style="height:75px">
+                                  <p v-if="tag" style=" background-color:#414042 ;width: fit-content;"  class="text-white px-3 rounded-2">
                                       {{tag}}
                                   </p>
                               </div>
