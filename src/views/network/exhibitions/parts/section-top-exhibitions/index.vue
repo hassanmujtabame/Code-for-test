@@ -69,10 +69,9 @@ export default {
     items:[]
  }),
  methods:{ 
-    methods:{
+
     openAddDialog(){
-        window.EventBus.fire('add-dialog-open-dialog')
-    }
+       this.fireEvent('add-dialog-open-dialog')
   },
     async loadList(){
         try {
