@@ -1,6 +1,10 @@
 <template>
   
-        <DialogSimple :show.sync="showDialog">
+        <d-dialog-large :xl="false" 
+        :group="group" 
+        :closeDialog="closeDialog"
+        :openDialog="openDialog"
+        >
             <ValidationObserver ref="form" >
                 <div class=" add-portfolio m-3 p-0">
                     <div class="   m-auto">
@@ -122,16 +126,12 @@
                  انشري التدوينة 
             </button>
         </template>
-      </DialogSimple>
+      </d-dialog-large>
 
 </template>
 <script>
 import BlogsAPI from '@/services/api/blogs.js'
-import DialogSimple from '@/components/modals/simple.vue'
 export default {
-  components:{
-    DialogSimple
-  },
   data:(vm)=>{
     return{
     group:'add-dialog',
@@ -170,9 +170,11 @@ export default {
             formData.append('categories', this.blog.category.id);
    // }
         try {
-            let { data } = await this.$axios.post('/network/blogs',formData)
+            let { data } = await BlogsAPI.addBlog(formData)
             if(data.success){
                 console.log('success',data)
+                //this.fireEvent('list-blogs-update')
+                this.closeEvent()
             }
         } catch (error) {
             //
@@ -218,7 +220,7 @@ export default {
     },
     async loadBlogCategories(){
         try {
-            let {data} =  await this.$axios.get('/network/blogs-categories')
+            let {data} =  await BlogsAPI.getCategories()
             if(data.success){
                 this.categories = data.data
             }
@@ -230,19 +232,25 @@ export default {
         window.$('#'+this.idImage)
                     .attr('src', 'none')
                     .css('opacity', '0');
-        this.showDialog = true
+        this.showDialog = true;
+        return true;
     },
     closeDialog(){
         this.showDialog = false
+
+        return true;
+    },
+    closeEvent(){
+       this.fireEvent(this.group+'-close-dialog')
     }
   },
   created(){
-    window.EventBus.listen(this.group+'-open-dialog',this.openDialog)
-    window.EventBus.listen(this.group+'-close-dialog',this.closeDialog)
+    //window.EventBus.listen(this.group+'-open-dialog',this.openDialog)
+    //window.EventBus.listen(this.group+'-close-dialog',this.closeDialog)
   },
   beforeDestroy(){
-    window.EventBus.off(this.group+'-open-dialog',this.openDialog)
-    window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
+    //window.EventBus.off(this.group+'-open-dialog',this.openDialog)
+    //window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
   },
   mounted(){
     this.loadBlogTags()
