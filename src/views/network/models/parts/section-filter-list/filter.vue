@@ -21,7 +21,7 @@
             </template>
 
             <template v-slot="{ item }">
-                              <router-link :to="getRouteLocale('network-model-show',{id:item.id})" > 
+                              <router-link class="route-link" :to="getRouteLocale('network-model-show',{id:item.id})" > 
                               <ModelCard
                                :title="item.title" :img="item.image" 
                                 :value="item.count_download"
