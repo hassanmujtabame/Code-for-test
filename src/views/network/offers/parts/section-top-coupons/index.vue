@@ -9,11 +9,18 @@
           </button>
         </div>
       </div>
-      <d-swiper :items="items" :slides-per-view="3" :space-between="5">
+      <d-swiper v-if="!loading" :items="items" :slides-per-view="3" :space-between="5">
         <template v-slot="{ item }">
           <div class=" mt-2 ">
-            <CouponCard :img="item.img" :title="item.title" :discount="item.discount" :date="item.date"
-              :during="item.during" :name="item.name" :tag="item.tags[0]" />
+            <CouponCard 
+            :img="item.image"                   
+              :title="item.name_company" 
+          :discount="item.discount"
+            :date="item.start_date" 
+            :during="item.day" 
+            :name="item.code" 
+            :tag="item.category ? item.category.name : ''" 
+              />
           </div>
         </template>
       </d-swiper>
@@ -22,6 +29,7 @@
 </template>
 
 <script>
+import OffersApi from '@/services/api/offers.js'
 import CouponCard from '@/components/cards/coupon.vue'
 export default {
   name: 'corpon-section',
@@ -29,22 +37,30 @@ export default {
     CouponCard
   },
   data: () => ({
-    items: [
-      { title: 'أكسبوكس', name: 'Riadiat-10', discount: 10, date: '2022/12/12', during: '5', tags: ['ترفيه'], img: '/assets/img/Icon ionic-logo-xbox-2.png' },
-      { title: 'أكسبوكس', name: 'Riadiat-10', discount: 10, date: '2022/12/12', during: '5', tags: ['ترفيه'], img: '/assets/img/Icon ionic-logo-xbox-2.png' },
-      { title: 'أكسبوكس', name: 'Riadiat-10', discount: 10, date: '2022/12/12', during: '5', tags: ['ترفيه'], img: '/assets/img/Icon ionic-logo-xbox-2.png' },
-      { title: 'أكسبوكس', name: 'Riadiat-10', discount: 10, date: '2022/12/12', during: '5', tags: ['ترفيه'], img: '/assets/img/Icon ionic-logo-xbox-2.png' },
-      { title: 'أكسبوكس', name: 'Riadiat-10', discount: 10, date: '2022/12/12', during: '5', tags: ['ترفيه'], img: '/assets/img/Icon ionic-logo-xbox-2.png' },
-    ]
+    loading:true,
+    items: []
   }),
-  methods: {
+  methods:{
     addOffer() {
       window.EventBus.fire('add-dialog-open-dialog')
-    }
-  },
-  mounted() {
-
-  }
+    },
+    async getRecents() {
+      this.loading = true;
+            try {
+                let { data } = await OffersApi.getRecent()
+                if (data.success) {
+                    this.items=data.data
+                }
+            } catch (error) {
+                console.log('error', error)
+                console.log('error response', error.response)
+            }
+            this.loading = false;
+        }
+ },
+ mounted(){
+    this.getRecents()
+ }
 }
 </script>
 
