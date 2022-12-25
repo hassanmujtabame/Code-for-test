@@ -10,7 +10,7 @@ class ModelsApi {
         return window.axios.get(`network/models?${s}`);
     }
     getCategories(){
-        return window.axios.get(`network/blogs-categories`);//إستعمال مؤقت 
+        return window.axios.get(`network/categories`);
     }
     getItem(id){
         return window.axios.get(`network/models/${id}`);
