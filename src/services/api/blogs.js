@@ -24,6 +24,9 @@ class BlogsApi extends BaseApi {
     updateBlog(id,data){
         return window.axios.put(`network/blogs/${id}`,data);  
     }
+    deleteBlog(id){
+        return window.axios.delete(`network/blogs/${id}`);  
+    }
 }
 
 export default new BlogsApi();
