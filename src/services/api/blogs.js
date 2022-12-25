@@ -21,6 +21,9 @@ class BlogsApi extends BaseApi {
     addBlog(data){
         return window.axios.post(`network/blogs`,data);  
     }
+    updateBlog(id,data){
+        return window.axios.put(`network/blogs/${id}`,data);  
+    }
 }
 
 export default new BlogsApi();
