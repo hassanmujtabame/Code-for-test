@@ -7,8 +7,8 @@
             <div v-if="!hideTotal" class="col-12 col-md-4 mt-3">
                 <slot name="total">
                 <h4>
-                    عدد الخدمات :
-                    <span class="m-c"> 50 خدمة </span>
+                    عدد {{pluralName}} :
+                    <span class="m-c"> {{metaInfo.total}} {{singleName}} </span>
                 </h4>
             </slot>
             </div>
@@ -253,6 +253,14 @@ export default {
         title:{
             type:String,
             default:null
+        },
+        pluralName:{
+            type:String,
+            default:'خدمات'
+        },
+        singleName:{
+            type:String,
+            default:'خدمة'
         },
         classColCard:{
             type:String,
