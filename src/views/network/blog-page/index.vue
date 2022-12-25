@@ -22,7 +22,23 @@
            </p>
         </div>
         <div class="col-12 col-md-4">
-          <div class="box border rounded-3 p-2">
+          <div v-if="isOwner" class="box  rounded-3 p-2">
+          <div class="text-end">
+                  
+                        <button @click="openEditDialog" class="btn bg-main border-0 text-white p-2 mx-1"   >
+                           <img src="/assets/svg/update.svg" />   
+                           تعديل 
+                        </button>
+                        <button @click="openDeleteDialog" class="btn bg-danger border-0 text-white p-2"   >
+                            <img src="/assets/svg/trash-outline.svg" />
+                           حذف 
+                        </button>
+
+                        
+                  
+          </div>
+          </div>
+          <div v-else class="box border rounded-3 p-2">
             <div class="row justify-content-center">
               <div class="col-md-4 img-service text-center">
                 <img class="rounded-circle " src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt=""
@@ -170,21 +186,38 @@
         </div>
       </div>
     </div>
+    <portal to="body">
+    <UpdateBlogDialog />
+    <deleteBlogDialog/>
+  </portal>
   </div>
 </template>
 
 <script>
 import BlogsAPI from '@/services/api/blogs.js'
+import UpdateBlogDialog from '../blog/parts/dialogs/update-blog.vue'
+import deleteBlogDialog from '../blog/parts/dialogs/del-blog.vue'
 export default {
   name: 'blog-page',
+  components:{
+    UpdateBlogDialog,
+    deleteBlogDialog
+  },
   data:()=>{
     return {
+      isOwner:true,
       loading:true,
       hasError:false,
       blog:{},
       colors:['#F2631C','#FFBC00','#2C98B3']
   }},
   methods:{
+    openEditDialog(){
+      this.fireOpenDialog('update-blog',this.blog)
+    },
+    openDeleteDialog(){
+      this.fireOpenDialog('delete-blog',this.blog)
+    },
     async initializing() {
       this.loading = true;
       this.hasError = false;
