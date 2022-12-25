@@ -8,6 +8,20 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            generateQueryUrl(params){
+              let s="";
+              Object.keys(params).forEach((key)=>{
+                  if(s!="") s+=`&`
+                  if( Array.isArray(params[key]))
+                  params[key].forEach((element,i) => {
+                      if(i!==0) s+=`&`
+                      s+=`${key}[]=${element}`
+                  });
+                  else
+                   s+=`${key}=${params[key]}`
+              })
+              return s
+            },
             generateRandomString(n){
               return Math.random().toString().substring(2, n+2)
             },
