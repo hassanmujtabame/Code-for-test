@@ -7,7 +7,9 @@
   >
     <h1> لقاءات تعليمية      </h1>
     <div>
-      <button class="more">المزيد</button>
+      <router-link custom :to="getRouteLocale('network-learning-meetings')" v-slot="{navigate}">
+      <button @click="navigate" class="more">المزيد</button>
+      </router-link>
     </div>
   </div>
   <d-swiper
