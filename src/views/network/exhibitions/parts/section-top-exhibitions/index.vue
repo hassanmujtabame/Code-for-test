@@ -36,7 +36,7 @@
             :space-between="10"
               :items="itemsTest" >
               <template  v-slot:default="{item}" >
-                <router-link :to="getRouteLocale('network-exhibition-show',{id:item.id})">
+                <router-link class="router-link" :to="getRouteLocale('network-exhibition-show',{id:item.id})">
                 <exhibitionCard 
                 :img="item.img"
                 :title="item.title"
