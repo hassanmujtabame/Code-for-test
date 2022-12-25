@@ -21,6 +21,9 @@ class BlogsApi {
     getTags(){
         return window.axios.get(`network/blogs-tags`);
     }
+    addBlog(data){
+        return window.axios.post(`network/blogs`,data);  
+    }
 }
 
 export default new BlogsApi();
