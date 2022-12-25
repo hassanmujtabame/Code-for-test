@@ -1,6 +1,6 @@
 <template>
   
-        <DialogSimple :group="group" :openDialog="openDialog" :close-dialog="closeDialog">
+        <d-dialog-large :group="group" :openDialog="openDialog" :close-dialog="closeDialog">
             <ValidationObserver ref="form">
                 <div class=" add-portfolio m-3 p-0">
                     <div class="   m-auto">
@@ -184,15 +184,12 @@
                 {{$t('save')}}
             </button>
         </template>
-      </DialogSimple>
+      </d-dialog-large>
 
 </template>
 <script>
-import DialogSimple from '@/components/modals/large.vue'
+import offersAPI from '@/services/api/offers';
 export default {
-  components:{
-    DialogSimple
-  },
   data:(vm)=>{
     return{
     group:'add-dialog',
@@ -241,7 +238,7 @@ export default {
             formData.append('category_id', this.offer.category_id.id);
    // }
         try {
-            let { data } = await this.$axios.post('/network/offers',formData)
+            let { data } = await offersAPI.addOffer(formData)
             if(data.success){
                 console.log('success',data)
                 window.EventBus.fire('list-coupon-update')
@@ -281,7 +278,7 @@ export default {
     },
     async loadCategories(){
         try {
-            let {data} =  await this.$axios.get('/network/offers-categories')
+            let {data} =  await offersAPI.getCategories()
             if(data.success){
                 this.categories = data.data
             }
@@ -323,9 +320,11 @@ export default {
     //window.EventBus.off(this.group+'-open-dialog',this.openDialog)
     //window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
   },
-  mounted(){
-    this.loadCategories()
-    console.log(this.$refs)
+ async mounted(){
+    console.log('mou')
+  //await  this.loadCategories()
+  console.log('moddu')
+    //console.log(this.$refs)
   }
 }
 </script>
