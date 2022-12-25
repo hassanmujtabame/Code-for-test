@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import exhibitionAPI from '@/services/api/exhibitions.js'
 import exhibitionCard from '@/components/cards/exhibition.vue';
 export default {
  name:'top-exhibitions',
@@ -75,7 +76,7 @@ export default {
   },
     async loadList(){
         try {
-            let {data} = await this.$axios.get(`/network/list-favourites`)
+            let {data} = await exhibitionAPI.getRecent()
 
             if(data.success){
                 this.items = data.data;
