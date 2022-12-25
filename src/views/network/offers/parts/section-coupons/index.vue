@@ -11,7 +11,7 @@
           :title="item.name_company" 
           :discount="item.discount"
             :date="item.start_date" 
-            :during="item.day" :name="item.name" 
+            :during="item.day" :name="item.code" 
             :tag="item.category ? item.category.name : ''" 
             />
 
