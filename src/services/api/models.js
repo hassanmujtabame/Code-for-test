@@ -16,7 +16,7 @@ class ModelsApi {
         return window.axios.get(`network/models/${id}`);
     }
     getRecent(){
-        return window.axios.get(`network/models`);
+        return window.axios.get(`network/latest-models`);
     }
 }
 

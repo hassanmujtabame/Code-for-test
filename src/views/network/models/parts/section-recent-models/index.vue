@@ -12,8 +12,8 @@
                
                   <div v-for="(item,i) in items" :key="i" class="col-md-3 " >
                     <router-link class="route-link" :to="getRouteLocale('network-model-show',{id:item.id})" > 
-                    <ModelCard :title="item.title" :img="item.img" 
-                    :value="item.value"      
+                    <ModelCard :title="item.title" :img="item.image" 
+                    :value="item.count_download"      
                      />   
                      </router-link>
                   </div>
@@ -30,19 +30,14 @@ export default {
     ModelCard
  },
  data:()=>({
-    items:[
-        {id:23,title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
-        {id:24,title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
-        {id:38,title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
-        {id:39,title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500}
-    ]
+    items:[]
  }),
  methods:{
     async getRecents() {
             try {
                 let { data } = await ModelsAPI.getRecent()
                 if (data.success) {
-                   //
+                   this.items = data.data
                 }
             } catch (error) {
                 console.log('error', error)
