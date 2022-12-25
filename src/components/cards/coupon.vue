@@ -9,7 +9,7 @@
                                   <div class="px-2" >
                                       <img class="border p-2" :src="img" alt="" width="57" height="57">
                                   </div>
-                                  <div class="text-start px-3">
+                                  <div class="text-start">
                                       <h5>
                                           {{title}}
                                       </h5>
