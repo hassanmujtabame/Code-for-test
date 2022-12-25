@@ -11,7 +11,7 @@
             <div class="row mt-3">
                
                   <div v-for="(item,i) in items" :key="i" class="col-md-3 " >
-                    <router-link class="route-link" :to="getRouteLocale('network-model-show',{id:item.id})" > 
+                    <router-link class="router-link" :to="getRouteLocale('network-model-show',{id:item.id})" > 
                     <ModelCard :title="item.title" :img="item.image" 
                     :value="item.count_download"      
                      />   
