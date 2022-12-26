@@ -1,5 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 const webpack = require("webpack");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin;
 module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
@@ -9,6 +11,7 @@ module.exports = defineConfig({
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
         }),
+        new BundleAnalyzerPlugin()
     ]
   },
   pluginOptions: {
