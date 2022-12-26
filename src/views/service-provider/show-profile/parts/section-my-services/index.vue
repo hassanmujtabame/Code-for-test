@@ -13,7 +13,7 @@
         </p>
         <div class="row p-2 order">
             <div v-for="(item,k) in items" :key="k" class="col-md-4 mt-2">
-                <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <router-link class="router-link" :to="getRouteLocale('service-provider-ready-service',{id:item.id})">
                     <MyServiceCard 
                      :image="item.image"
                      :title="item.title"
@@ -22,15 +22,16 @@
                      :category="item.category"
                      :price="item.price"
                      :name="item.name"
+                     :status="item.status"
                     />
-                </a>
+                </router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import MyServiceCard from './card.vue'
+import MyServiceCard from '@/components/cards/ready-service.vue';
 export default {
  name:'section-my-services',
  components:{
@@ -39,12 +40,12 @@ export default {
  data:()=>{
     return {
         items:[
-            {id:1,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة'},
-            {id:2,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة'},
-            {id:3,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة'},
-            {id:4,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة'},
-            {id:5,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة'},
-            {id:6,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة'}
+            {id:1,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:2,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:3,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:4,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:5,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:6,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'}
                ]
     }
  }

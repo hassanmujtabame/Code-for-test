@@ -16,10 +16,12 @@
             >
        
             <template  v-slot:default="{item}" >
+              <router-link class="router-link" :to="getRouteLocale('service-provider-show-profile',{id:item.id})">
                 <CardMember 
                 :name="item.name" 
                 :description="item.description" 
                 :img="item.img"/>
+              </router-link>
                 </template>
             </d-swiper>
  </div>
@@ -38,15 +40,15 @@ export default {
     },
     data:()=>({
         items:[
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
+            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
+            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
+            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
+            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
+            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
+            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
+            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
+            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
+            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
         ]
     })
 }
