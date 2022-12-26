@@ -75,7 +75,7 @@
   export default {
       name:'hear-about-us',
    mounted(){
-      $('.hear-carousel').owlCarousel({
+      window.$('.hear-carousel').owlCarousel({
       loop:true,
       margin:10,
       nav:true,
