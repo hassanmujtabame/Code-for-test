@@ -115,7 +115,7 @@ export default {
     offers:{
         type:[String,Number]
     },
-    durring:{
+    during:{
         type:String
     },
     price:{
