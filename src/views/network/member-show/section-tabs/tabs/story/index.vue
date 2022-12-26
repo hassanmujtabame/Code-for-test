@@ -19,7 +19,12 @@
 
 <script>
 export default {
- name:'story-tab'
+ name:'story-tab',
+ props:{
+  userId:{
+    type:[String,Number]
+  }
+ },
 }
 </script>
 

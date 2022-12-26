@@ -23,27 +23,27 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-courses-watched" role="tabpanel" aria-labelledby="pills-courses-watched-tab" tabindex="0">
         <!--courses watched-->
-        <TabCourses />
+        <TabCourses :userId="userId" />
     </div>
     <div class="tab-pane fade" id="pills-blog" role="tabpanel" aria-labelledby="pills-blog-tab" tabindex="0">
        <!--blogs-->
-       <TabBlog />
+       <TabBlog  :userId="userId"/>
     </div>
     <div class="tab-pane fade" id="pills-exhibitions" role="tabpanel" aria-labelledby="pills-exhibitions-tab" tabindex="0">
         <!-- exhibitions-->
-        <TabExhibitions/>
+        <TabExhibitions :userId="userId"/>
     
     </div>
     <div class="tab-pane fade" id="pills-project" role="tabpanel" aria-labelledby="pills-project-tab" tabindex="0">
 
       <!-- project-->
-        <TabProject />
+        <TabProject :userId="userId" />
 
     </div>
 
     <div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab" tabindex="0">
         <!-- story-->
-        <TabStory/>
+        <TabStory :userId="userId"/>
     </div>
   </div>
 </div>
@@ -51,12 +51,17 @@
 
 <script>
 import TabCourses from './tabs/courses-watched/index.vue'
-import TabBlog from './tabs/blog/blog/blog.vue'
+import TabBlog from './tabs/blog/index.vue'
 import TabExhibitions from './tabs/exhibitions/index.vue'
 import TabStory from './tabs/story/index.vue'
 import TabProject from './tabs/project/index.vue'
 export default {
  name:'section-tabs',
+ props:{
+  userId:{
+    type:[String,Number]
+  }
+ },
  components:{ 
     TabCourses,
     TabBlog,
