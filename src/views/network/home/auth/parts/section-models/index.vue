@@ -6,7 +6,12 @@
               >
                 <h1> نماذج رياديات      </h1>
                 <div>
-                  <button class="more">المزيد</button>
+                <router-link class="router-link" custom 
+                :to="getRouteLocale('network-models')"
+                v-slot="{navigate}"
+                >
+                  <button @click="navigate" class="more"> المزيد</button>
+                </router-link>
                 </div>
               </div>
               <d-swiper  

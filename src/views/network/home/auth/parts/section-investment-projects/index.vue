@@ -6,7 +6,12 @@
               >
                 <h1> مشاريع الاستثمار      </h1>
                 <div>
-                  <button class="more">اعرف  اكثر</button>
+                  <router-link class="router-link" custom 
+                :to="getRouteLocale('network-investment-project')"
+                v-slot="{navigate}"
+                >
+              <button @click="navigate" class="more">اعرف  اكثر</button>
+                </router-link>
                 </div>
               </div>
                 <div v-for="(item,i) in items" :key="i" class="col-md-6 mt-3">

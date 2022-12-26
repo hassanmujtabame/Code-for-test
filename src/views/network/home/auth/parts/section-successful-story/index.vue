@@ -5,7 +5,12 @@
           >
             <h1>  قصص نجاح      </h1>
             <div>
-              <button class="more">اعرف  اكثر</button>
+                <router-link class="router-link" custom 
+                :to="getRouteLocale('network-success-stories')"
+                v-slot="{navigate}"
+                >
+              <button @click="navigate" class="more">اعرف  اكثر</button>
+                </router-link>
             </div>
           </div>
             <div class="row">

@@ -5,7 +5,12 @@
           >
             <h1> المعارض      </h1>
             <div>
-              <button class="more">المزيد</button>
+              <router-link class="router-link" custom 
+                :to="getRouteLocale('network-exhibitions')"
+                v-slot="{navigate}"
+                >
+                  <button @click="navigate" class="more"> المزيد</button>
+                </router-link>
             </div>
           </div>
             <div class="row">
