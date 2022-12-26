@@ -7,7 +7,7 @@
     classColCard="col-12 col-md-4 mt-4">
       <template v-slot="{ item }">
 
-        <router-link class="router-link" :to="getRouteLocale('network-home')">
+        <router-link class="router-link" :to="getRouteLocale('network-member-show',{id:item.id})">
           <ItemCard 
           :name="item.name" 
           :description="item.description" 

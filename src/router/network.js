@@ -98,6 +98,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-member-network" */ '../views/network/member-network/index.vue') 
     },
     {
+        path: 'network/members/:id',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-member-show',
+        component: () => import(/* webpackChunkName: "network-member-show" */ '../views/network/member-show/index.vue') 
+    },
+    {
         path: 'network/models',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-models',
