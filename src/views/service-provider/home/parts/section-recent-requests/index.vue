@@ -1,7 +1,14 @@
 <template>
  <div class="container mt-5"> 
-            <div class="row order">
-                <h2>أحدث الطلبات </h2>
+<div class="d-flex justify-content-between align-items-center container">
+                    <h2>أحدث الطلبات </h2>
+            <div>
+                <router-link class="router-link" custom :to="getRouteLocale('service-provider-show-services')" v-slot="{navigate}">
+                    <button @click="navigate" class="more">المزيد</button>
+                </router-link>
+              </div>
+          </div>
+          <div class="row order">
                 <div class="col-12 col-md-6 mt-2">
                     <div class="box  p-3 rounded-3" >
 

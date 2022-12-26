@@ -4,14 +4,8 @@
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-                <h1>مقدمي خدمات مميزين     </h1>
-                <div>
-                    <button class="more">
-                      <a href="" class="text-dark">
-                          المزيد
-                      </a>
-                    </button>
-                  </div>
+                <h1 class="w-100 text-center"> أفضل مقدمي الخدمة هذا الشهر</h1>
+            
               </div>
               <d-swiper
               style="overflow-x: hidden"
