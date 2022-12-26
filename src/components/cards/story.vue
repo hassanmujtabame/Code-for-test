@@ -5,7 +5,7 @@
                 height="192">
         </div>
         <div class="text-center p-2">
-            <h5>{{ title }}</h5>
+            <h5 style="height:48px">{{ title }}</h5>
             <div>
                 <small class="m-c">{{ name }}
                 </small>
