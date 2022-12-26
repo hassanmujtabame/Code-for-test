@@ -4,13 +4,13 @@
                 <ProjectCard 
                  :title="item.title"
                  :image="item.image"
-                   :publisher="item['user info'].name"
-                   :date-publish="item.datePublish"
-                   :rest-day="item.restDay"
-                   :investor="item.investor"
-                   :minimum-goal="item.minimumGoal"
+                   :publisher="item.user_info.name"
+                   :date-publish="item.created_at"
+                   :rest-day="item.rest_days"
+                   :investor="item.count_invest"
+                   :minimum-goal="item.min_cost"
                    :ownership="item.offered_property"
-                   :amount="item.amount"
+                   :amount="item.cost"
                 />
             </div>
         
