@@ -10,7 +10,12 @@
       <div class="d-flex justify-content-between align-items-center container">
         <h1>أعضاء الشبكة</h1>
         <div>
-          <button class="more">المزيد</button>
+          <router-link class="router-link" custom 
+                :to="getRouteLocale('network-member-network')"
+                v-slot="{navigate}"
+                >
+              <button @click="navigate" class="more">المزيد</button>
+            </router-link>
         </div>
       </div>
       <d-swiper v-if="loading" :slides-per-view="5" :space-between="10" :items="items">
