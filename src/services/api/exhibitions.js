@@ -6,6 +6,10 @@ class ExhibitionsApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/exhibitions?${s}`);
     }
+    getHomeNetwork(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/home-exhibitions?${s}`);
+    }
     getItem(id){
         return window.axios.get(`network/exhibitions/${id}`);
     }

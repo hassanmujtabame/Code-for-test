@@ -6,6 +6,10 @@ class ProjectsApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/projects?${s}`);
     }
+    getHomeNetwork(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/home-projects?${s}`);
+    }
     getItem(id){
         return window.axios.get(`network/projects/${id}`);
     }

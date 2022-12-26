@@ -6,6 +6,10 @@ class LearningMeetingApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/meetings?${s}`);
     }
+    getHomeNetwork(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/home-meetings?${s}`);
+    }
     getItem(id){
         return window.axios.get(`network/meetings/${id}`);
     }
