@@ -5,7 +5,7 @@
               </div>
               <div class="text p-3">
                 <h6 style="height:40px">{{title}}</h6>
-                <p style="height:80px">{{description}}</p>
+                <p style="height:80px" class="description-blog" v-html="description"></p>
               </div>
               <div class="date text-end mx-1 p-3">
                 <p>
@@ -45,5 +45,12 @@ export default {
 .image{
   height:184px
 }
-
+.description-blog{
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
 </style>
