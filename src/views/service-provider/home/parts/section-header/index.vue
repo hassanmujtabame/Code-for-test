@@ -10,18 +10,13 @@
                             منصة تجمع أهم وألمع  رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد
                                                 </p>
                                                 <div class="btn-main-style">
-                                                    <a href="subscribe.html" class="btn-custmer shadow mt-2"> انضمي إلينا</a>
-                                                    <a class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</a>
+                                                    <router-link  :to="getRouteLocale('service-provider-subscribe')" class="btn-custmer shadow mt-2"> انضمي إلينا</router-link>
+                                                    <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</router-link>
                                                 </div>
                     </div>
                     <div class="col-md-6 m-auto">
                         <div style="overflow: inherit;" class="img-cons m-auto ">
-                            <img style="  
-                            position: absolute;
-                              width: 341px;
-                            height: 341px;
-                            top: 7px;
-                            left: -36px;" src="/assets/img/1664280407882 1.png" alt="" >
+                            <img style=" position: absolute;width: 341px; height: 341px;top: 7px;left: -36px;" src="/assets/img/1664280407882 1.png" alt="" >
                         </div>
 
                     </div>
