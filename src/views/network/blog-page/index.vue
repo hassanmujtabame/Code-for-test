@@ -41,15 +41,15 @@
           <div v-else class="box border rounded-3 p-2">
             <div class="row justify-content-center">
               <div class="col-md-4 img-service text-center">
-                <img class="rounded-circle " src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt=""
+                <img class="rounded-circle " :src="blog.user_info.image" :alt="blog.user_info.name"
                   width="100" height="100">
               </div>
               <div class="col-md-8 t-c">
                 <h4 class="fw-bold">
-                  عبد الرحمن الشيخ
+                 {{ blog.user_info.name}}
                 </h4>
                 <p>
-                  مصمم واجهات امامية لدي خبرة كثيرة في تصميم
+                  {{ blog.user_info.job}}
                 </p>
                 <div class="message-service">
                   <button class="text-white border-0 p-2 px-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -225,6 +225,7 @@ export default {
                 let { data } = await BlogsAPI.getItem(this.$route.params.id)
                 if (data.success) {
                    this.blog = data.data;
+                   this.isOwner = this.blog.user_info.id==this.user.id
                 }else{
                   this.hasError = true;
                 }
