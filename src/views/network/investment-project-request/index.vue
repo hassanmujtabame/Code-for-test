@@ -49,22 +49,20 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3 d-flex align-items-center">
-                                <label for="exampleInputEmail1" class="form-label m-c w-25 mx-1 fw-bold">عنوان المشروع:
+                                <label  class="form-label m-c w-25 mx-1 fw-bold">عنوان المشروع:
                                 </label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" placeholder="أكتب عنوان بوضوح">
+                                <input v-model="project.title" class="form-control" 
+                                     placeholder="أكتب عنوان بوضوح">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3 d-flex align-items-center position-relative">
-                                <label for="exampleInputEmail1" class="form-label m-c w-25 mx-1 fw-bold">الملكية
+                                <label  class="form-label m-c w-25 mx-1 fw-bold">الملكية
                                     الطروحة: </label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" placeholder="أدخل قيمة المبلغ ">
-                                <div style="    top: 27%;
-                                left: 10px;" class="position-absolute m-c fw-bolder">
+                                <input class="form-control" v-model="project.offered_property"
+                                     placeholder="أدخل قيمة المبلغ ">
+                                <div style="top: 27%;left: 10px;" class="position-absolute m-c fw-bolder">
                                     %
-
                                 </div>
                             </div>
                         </div>
@@ -72,7 +70,7 @@
                             <div class="mb-3 d-flex align-items-center position-relative">
                                 <label for="exampleInputEmail1" class="form-label m-c w-25 mx-1 fw-bold">مبلغ التمويل
                                     المطلوب : </label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                <input v-model="project.offered_property" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp" placeholder="أدخل الحد الادنى للمبلغ  ">
                                 <div style="    top: 28%;
                             left: 10px;" class="position-absolute m-c fw-bolder">
@@ -463,7 +461,48 @@
 <script>
 //صفحة طلب عرض مشروع استثمارى/شبكة
 export default {
-    name: 'investment-project-request'
+    name: 'investment-project-request',
+    data:()=>({
+        idImage: `image-selected-${vm.generateRandomString(8)}`,
+        file:null,
+        project:{
+          cost:"",
+          title:"",
+          project_name_ar:"",
+          project_name_en:"",
+          description_ar:"",
+          description_en:"",
+          category_id:"",
+          offered_property:10,
+          link_face:"",
+          link_linked:"",
+          link_ins:"",
+          link_twi:"",
+          link_per:"",
+
+        }
+    }),
+    methods:{
+        uploadImage(evt){
+        if (!evt.target.files && !evt.target.files[0]) {
+                this.file = null;
+                window.$('#' + this.idImage)
+                    .attr('src', 'none')
+                    .css('opacity', '0');
+                return;
+            }
+            this.file = evt.target.files[0];
+            var reader = new FileReader();
+            reader.onload =  (e) =>{
+                console.log('result',e,this.idImage)
+                window.$('#'+this.idImage)
+                    .attr('src', e.target.result)
+                    .css('opacity', '1');
+
+            };
+            reader.readAsDataURL(this.file);
+    },
+    }
 }
 </script>
 
