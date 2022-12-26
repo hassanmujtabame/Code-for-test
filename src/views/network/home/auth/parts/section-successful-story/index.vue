@@ -15,105 +15,47 @@
           </div>
             <div class="row">
 
-                <div class="col-md-3">
-                    <div class="box border rounded-3">
-                        <div>
-                            <img class="w-100 rounded-top" src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" height="192">
-                        </div>
-                        <div class="text-center p-2">
-                            <h5>
-                                رحلتي في كلية الهندسه
-                            </h5>
-                            <div>
-                                <small class="m-c">
-                                    عبد الرحمن الشيخ 
-                                </small>
-                                <span>
-                                    |
-                                </span>
-                                <small class="t-c">
-                                    مصمم واجهات امامية 
-                                </small>
-                            </div>
-                        </div>
-                    </div>
+                <div v-for="(item,i) in items" :key="i" class="col-md-3">
+                    <d-story-card
+                        :image="item.image"
+                        :title="item.title"
+                        :name="item.user_info.name"
+                        :description="item.user_info.job"
+                    />
+              
                 </div>
-                <div class="col-md-3">
-                    <div class="box border rounded-3">
-                        <div>
-                            <img class="w-100 rounded-top" src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" height="192">
-                        </div>
-                        <div class="text-center p-2">
-                            <h5>
-                                رحلتي في كلية الهندسه
-                            </h5>
-                            <div>
-                                <small class="m-c">
-                                    عبد الرحمن الشيخ 
-                                </small>
-                                <span>
-                                    |
-                                </span>
-                                <small class="t-c">
-                                    مصمم واجهات امامية 
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box border rounded-3">
-                        <div>
-                            <img class="w-100 rounded-top" src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" height="192">
-                        </div>
-                        <div class="text-center p-2">
-                            <h5>
-                                رحلتي في كلية الهندسه
-                            </h5>
-                            <div>
-                                <small class="m-c">
-                                    عبد الرحمن الشيخ 
-                                </small>
-                                <span>
-                                    |
-                                </span>
-                                <small class="t-c">
-                                    مصمم واجهات امامية 
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box border rounded-3">
-                        <div>
-                            <img class="w-100 rounded-top" src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" height="192">
-                        </div>
-                        <div class="text-center p-2">
-                            <h5>
-                                رحلتي في كلية الهندسه
-                            </h5>
-                            <div>
-                                <small class="m-c">
-                                    عبد الرحمن الشيخ 
-                                </small>
-                                <span>
-                                    |
-                                </span>
-                                <small class="t-c">
-                                    مصمم واجهات امامية 
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
           </div>
 </template>
 
 <script>
+import StoriesAPI from '@/services/api/stories.js'
 export default {
- name:'section-successfull-story'
+ name:'section-successfull-story',
+ data:()=>({
+    loading:true,
+    total:0,
+    items: []
+}),
+ methods:{
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await StoriesAPI.getHomeNetwork();
+          if(data.success){
+            this.items = data.data
+            this.total = data.meta.total
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  },
+  mounted(){
+    this.initlizing()
+  }
 }
 </script>
 

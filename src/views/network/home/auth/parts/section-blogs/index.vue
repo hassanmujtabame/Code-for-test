@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="row">
-                <div v-for="(blog,i) in blogs" :key="i" class="col-md-4 " data-aos="fade-right" data-aos-duration="1000">
+                <div v-for="(blog,i) in items" :key="i" class="col-md-4 " data-aos="fade-right" data-aos-duration="1000">
                     <router-link class="router-link" :to="getRouteLocale('network-blog-show',{id:blog.id})">
                     <d-blog-info-card 
                         :img="blog.image"
@@ -29,26 +29,27 @@ import BlogsAPI from '@/services/api/blogs.js'
 export default {
  name:'section-blogs',
  data:()=>({
-    blogs:[]
+    loading:true,
+  total:0,
+    items:[]
  }),
  methods:{
-    async getRecents() {
-            try {
-                let { data } = await BlogsAPI.getRecent()
-                if (data.success) {
-
-                    let blogs = data.data;
-
-                    this.blogs=blogs.filter((c,i)=>i<3)
-                }
-            } catch (error) {
-                console.log('error', error)
-                console.log('error response', error.response)
-            }
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await BlogsAPI.getHomeNetwork();
+          if(data.success){
+            this.items = data.data
+            this.total = data.meta.total
+          }
+        } catch (error) {
+          console.log('error',error)
         }
- },
- mounted(){
-    this.getRecents()
+      this.loading = false;
+    }
+  },
+  mounted(){
+    this.initlizing()
     window.AOS.init()
  }
 }

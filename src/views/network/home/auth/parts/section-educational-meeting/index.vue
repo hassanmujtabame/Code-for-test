@@ -13,16 +13,17 @@
     </div>
   </div>
   <d-swiper
+  v-if="!loading"
   :slides-per-view="3"
   :space-between="5"
     :items="items"
               >
                 <template  v-slot:default="{item}" >
                 <meetingCard 
-                     :img="item.img"
+                     :img="item.image"
                      :title="item.title"
-                     :owner="item.owner"
-                     :date="item.date"
+                     :owner="item.user_info.name"
+                     :date="`${item.date} ${item.time}`"
                     />
         </template>
     </d-swiper>
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+import meetingsAPI from '@/services/api/learning-meetings.js'
 import meetingCard from '@/components/cards/meeting.vue'
 export default {
  name:'section-eductional-meeting',
@@ -38,7 +40,10 @@ export default {
     meetingCard
  },
  data:()=>({
+  loading:true,
+  total:0,
     items:[
+    /*{title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
     {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
     {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
     {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
@@ -48,10 +53,28 @@ export default {
     {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
     {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
     {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-
+*/
     ]
- })
+ }),
+ methods:{
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await meetingsAPI.getHomeNetwork();
+          if(data.success){
+            this.items = data.data
+            this.total = data.meta.total
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  },
+  mounted(){
+    this.initlizing()
+  }
+ 
 }
 </script>
 

@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import projectsAPI from '@/services/api/projects.js'
 import investmentProject from '@/components/cards/investment-project.vue';
 export default {
  name:'investment-projects',
@@ -40,13 +41,34 @@ export default {
     investmentProject
  },
  data:()=>({
+  loading:true,
+  total:0,
     items:[
-        {title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
+       /* {title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
         {title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
         {title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
         {title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:20},
-    ]
- })
+        */
+      ]
+ }),
+ methods:{
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await projectsAPI.getHomeNetwork();
+          if(data.success){
+            this.items = data.data
+            this.total = data.meta.total
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  },
+  mounted(){
+    this.initlizing()
+  }
 }
 </script>
 

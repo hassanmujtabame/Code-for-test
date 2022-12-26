@@ -3,7 +3,7 @@
     <h2 class="m-c text-center">
       بنضمامك لنا أسرة الشبكة أصبح عددها
       <a href="" class="y-c">
-        520
+        {{total}}
       </a>
     </h2>
     <div class="">
@@ -18,7 +18,7 @@
             </router-link>
         </div>
       </div>
-      <d-swiper v-if="loading" :slides-per-view="5" :space-between="10" :items="items">
+      <d-swiper v-if="!loading" :slides-per-view="5" :space-between="10" :items="items">
         <template v-slot:default="{ item }">
           <router-link :to="getRouteLocale('network-member-show',{id:item.id})">
             <CardMember :name="item.name" :description="item.description" :img="item.image" />
@@ -39,7 +39,9 @@ export default {
   },
   data: () => ({
     loading:true,
+    total:0,
     items: [
+     /*{ id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
      { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
      { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
      { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
@@ -47,23 +49,26 @@ export default {
      { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
      { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
      { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-     { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-      
+      */
     ]
   }),
   methods:{
     async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await MembersAPI.getAll();
+          let { data } =  await MembersAPI.getHomeNetwork();
           if(data.success){
-            //this.items = data.data
+            this.items = data.data
+            this.total = data.meta.total
           }
         } catch (error) {
           console.log('error',error)
         }
       this.loading = false;
     }
+  },
+  mounted(){
+    this.initlizing()
   }
 }
 </script>
