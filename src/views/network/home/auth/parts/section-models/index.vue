@@ -15,13 +15,14 @@
                 </div>
               </div>
               <d-swiper  
+              v-if="!loading"
               :slides-per-view="4"
               :items='items'
               >
                 
                  <template v-slot="{item}">
-                    <ModelItem :title="item.title" :img="item.img" 
-                    :value="item.value"      />   
+                    <ModelItem :title="item.title" :img="item.image" 
+                    :value="item.count_download"      />   
                   
            
                 </template>
@@ -34,6 +35,7 @@
 </template>
 
 <script>
+import modelsAPI from '@/services/api/models.js'
 import ModelItem from '@/components/cards/model.vue'
 export default {
  name:'section-models',
@@ -41,16 +43,37 @@ export default {
     ModelItem
  },
  data:()=>({
+  total:0,
+  loading:true,
     items:[
-        {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
+       /* {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
         {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
         {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
         {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
         {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
         {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500}
-    ]
- })
-}
+    */
+      ]
+ }),
+ methods:{
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await modelsAPI.getHomeNetwork();
+          if(data.success){
+            this.items = data.data
+            this.total = data.meta.total
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  },
+  mounted(){
+    this.initlizing()
+  }
+ }
 </script>
 
 <style>
