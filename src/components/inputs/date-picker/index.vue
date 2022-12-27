@@ -96,3 +96,8 @@ input{
     direction: ltr;
 }
 </style>
+<style>
+.vc-popover-content-wrapper.is-interactive{
+  direction: ltr !important;
+}
+</style>
