@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Cookies from 'js-cookie'
+import './plugins/ckeditor'
 import  './plugins/portal-vue';
 import  './plugins/vue-multi-select';
 import  './plugins/components';

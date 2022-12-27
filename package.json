@@ -10,6 +10,8 @@
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^35.4.0",
+    "@ckeditor/ckeditor5-vue2": "^3.0.1",
     "aos": "^2.3.1",
     "bootstrap": "^5.2.2",
     "core-js": "^3.8.3",
@@ -66,5 +68,5 @@
       "vue/no-unused-components": "warn"
     }
   },
-  "browserslist":"defaults"
+  "browserslist": "defaults"
 }
