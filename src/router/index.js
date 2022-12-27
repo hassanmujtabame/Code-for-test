@@ -143,6 +143,9 @@ const router = new VueRouter({
 })
 router.beforeEach((to,from,next)=>{
   //window.scrollTo(0, 0)
+ if(to.params.lang && ["ar","en"].includes(to.params.lang)){
+  Cookies.set('i18n_lang',to.params.lang)
+ }
   middlewiare_auth(to,from,next)
 })
 window.router = router;
