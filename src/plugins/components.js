@@ -8,6 +8,7 @@ import DCarousel from '@/components/carousel/index.vue'
 import DCarouselSlide from '@/components/carousel/slide.vue'
 import DFilterList from '@/components/filter-list/index.vue'
 import RSliderInput from '@/components/inputs/r-slider/index.vue'
+import DatePickerInput from '@/components/inputs/date-picker/index.vue'
 import DCkeditorClassicInput from '@/components/inputs/d-ckeditor/classic.vue'
 import DUserInfo from '@/components/cards/user-info.vue'
 import DUserInfoLi from '@/components/cards/user-info-left-img.vue'
@@ -21,6 +22,7 @@ import SectionContinueLearning from '@/components/sections/section-continue-lear
 import RequestPurchaseCard from '@/components/cards/request-purchase-service.vue'
 
 
+Vue.component('date-picker-input', DatePickerInput)
 Vue.component('d-ckeditor-classic', DCkeditorClassicInput)
 Vue.component('section-continue-learning', SectionContinueLearning)
 Vue.component('d-job-card', DJobCard)
