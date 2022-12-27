@@ -5,7 +5,7 @@
         :closeDialog="closeDialog"
         :openDialog="openDialog"
         >
-            <ValidationObserver ref="form" v-if="showDialog" >
+            <ValidationObserver ref="form"  >
                 <div class=" add-portfolio m-3 p-0">
                     <div class="   m-auto">
                         <div class="col-md-12">
@@ -110,7 +110,9 @@
                                  rules="required"
                                     v-slot="{errors}">
                         <label class="form-label">محتوي التدوينة</label>
-                            <d-ckeditor-classic v-model="blog.description" class="form-control" rows="10"
+                            <d-ckeditor-classic 
+                            v-if="showDialog"
+                            v-model="blog.description" class="form-control" rows="10"
                                 placeholder=""></d-ckeditor-classic>
                                 <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -151,6 +153,7 @@ export default {
         tag:[],
     }
   }},
+  
   methods:{
    async save(){
     let valid = await this.$refs.form.validate();
@@ -238,10 +241,10 @@ export default {
         this.blog.tag=data.tags[0]
         this.blog.description=data.description
         this.blog.title=data.title
+        this.showDialog = true;
         window.$('#'+this.idImage)
                     .attr('src', this.imageUrl??'none')
                     .css('opacity', this.imageUrl?'1':'0');
-        this.showDialog = true;
         return true;
     },
     closeDialog(){
