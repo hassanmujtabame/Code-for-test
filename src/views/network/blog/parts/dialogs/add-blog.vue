@@ -110,8 +110,8 @@
                                  rules="required"
                                     v-slot="{errors}">
                         <label class="form-label">محتوي التدوينة</label>
-                            <textarea v-model="blog.description" class="form-control" rows="10"
-                                placeholder=""></textarea>
+                            <d-ckeditor-classic v-model="blog.description" class="form-control" rows="10"
+                                placeholder=""></d-ckeditor-classic>
                                 <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
