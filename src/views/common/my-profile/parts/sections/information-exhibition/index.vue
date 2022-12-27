@@ -2,7 +2,7 @@
  <div id="list-item-1">
                 <div class="box border ">
                     <h3 class="border-bottom py-2 t-c px-3">
-                        معومات العرض
+                        معلومات العرض
                     </h3>
                     <div class="row p-3">
                         <div class="col-md-3">

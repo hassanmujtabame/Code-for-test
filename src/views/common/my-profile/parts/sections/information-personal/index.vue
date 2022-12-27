@@ -2,7 +2,7 @@
  <div id="list-item-2">
                 <div class="box border mt-5 ">
                         <h3 class="border-bottom py-2 t-c px-3">
-                            معومات شخصية   
+                            معلومات شخصية   
                         </h3>
                         <form action="">
                             <div class=" p-3">
