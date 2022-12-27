@@ -142,24 +142,43 @@
                         </ValidationProvider>
                     </div>
                     <div class=" mb-3 row">
-                    
+                        <!-- date start-->
+                        <div class="col-23 col-md-6">
+                            <ValidationProvider 
+                            :name="$t('Start-date')" 
+                            vid="start_date" 
+                            rules="required"
+                                v-slot="{ errors }">
+                                <div class="form-group position-relative">
+                                    <label>{{ $t('Start-date') }}</label>
+                                    <date-picker-input v-model="itemForm.start_date"
+                                    
+                                    mode="date"
+                                    class="form-control"
+                                    >
+                                    </date-picker-input>
+                                </div>
+                                <div v-if="errors.length !== 0" class="col-12 text-input-error">
+                                    {{ errors[0] }}
+                                </div>
+                            </ValidationProvider>
+                        </div>
                         <!-- date end-->
-                        <div class="col-23 col-md-12">
+                        <div class="col-23 col-md-6">
                             <ValidationProvider 
                             :name="$t('End-date')" 
                             vid="end_date" 
                             rules="required"
                                 v-slot="{ errors }">
                                 <div class="form-group position-relative">
-                                    <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
-                                    <date-picker-range 
-                                    :valueStart.sync="itemForm.start_date"
-                                    :valueEnd.sync="itemForm.end_date"
-                                   mask="YYYY-MM-DD"
+                                    <label>{{ $t('End-date') }}</label>
+                                    <date-picker-input 
+                                    v-model="itemForm.end_date"
+                                   
                                     mode="date"
                                     class="form-control"
                                     >
-                                    </date-picker-range>
+                                    </date-picker-input>
                                 </div>
                                 <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                     {{ errors[0] }}
@@ -167,33 +186,51 @@
                             </ValidationProvider>
                         </div>
                     </div>
-                    <div class=" mb-3 row">
-                    
-                    <!-- time end-->
-                    <div class="col-23 col-md-12">
-                        <ValidationProvider 
-                        :name="$t('End-time')" 
-                        vid="end_date" 
-                        rules="required"
-                            v-slot="{ errors }">
-                            <div class="form-group position-relative">
-                                <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
-                                <date-picker-range 
-                                :valueStart.sync="itemForm.start_time"
-                                :valueEnd.sync="itemForm.end_time"
-                               
-                                mode="time"
-                                mask="HH:mm"
-                                class="form-control"
-                                >
-                                </date-picker-range>
-                            </div>
+                    <div class="mb-3 row">
+                        <!-- start time-->
+                        <div class="col-12 col-md-6">
+                        <ValidationProvider :name="$t('End-time')" 
+                            vid="start_time" 
+                            rules=""
+                            v-slot="{ errors }"
+                        >
+                        <div class="form-group position-relative">
+                                    <label>{{ $t('Start-time') }}</label>
+                                    <date-picker-input v-model="itemForm.start_time"
+                                    class="form-control"
+                                  
+                                    mode="time"
+                                    mask="HH:mm"
+                                    >
+                                    </date-picker-input>
+                                </div>
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
                             </div>
                         </ValidationProvider>
+                        </div>
+                        <!-- end time-->
+                        <div class="col-12 col-md-6">
+                        <ValidationProvider 
+                        :name="$t('End-time')" 
+                        vid="end_time" 
+                        rules=""
+                            v-slot="{ errors }">
+                            <label>{{ $t('End-time') }}</label>
+                                    <date-picker-input 
+                                    v-model="itemForm.end_time"
+                                  
+                                    class="form-control"
+                                    mode="time"
+                                    mask="HH:mm"
+                                    >
+                                    </date-picker-input>
+                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
+                                {{ errors[0] }}
+                            </div>
+                        </ValidationProvider>
+                        </div>
                     </div>
-                </div>
 
                     <div class="mb-3 position-relative">
                         <ValidationProvider :name="$t('city')" 
