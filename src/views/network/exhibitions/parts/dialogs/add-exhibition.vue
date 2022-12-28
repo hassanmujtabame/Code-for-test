@@ -70,12 +70,12 @@
                     <div class="col-md-12">
                         <ValidationProvider 
                                 :name="$t('details-enter')" 
-                                vid="detail_enter" 
-                                rules=""
+                                vid="details"  rules=""
                                     v-slot="{  errors }">
-                        <d-ckeditor-classic class="w-100 border t-c " name="" id="" rows="10">أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت 
-                                مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )
-                                 </d-ckeditor-classic>
+                        <d-ckeditor-classic 
+                        v-model="itemForm.details"
+                        class="w-100 border t-c " 
+                         rows="10"></d-ckeditor-classic>
                                  <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                         {{ errors[0] }}
                                     </div>
@@ -87,16 +87,18 @@
 
                             <h6>هل المعرض متاح للمشاركة ؟</h6>
                             <div class="d-flex justify-content-center   gap-2">
-                                <ValidationProvider :name="$t('Available')" vid="available" rules="required"
+                                <ValidationProvider :name="$t('Available')"
+                                 vid="is_share"
+                                 rules="required"
                                     v-slot="{ errors }">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" :value="true" v-model="itemForm.available" name="flexRadioDefault">
+                                        <input class="form-check-input" type="radio" :value="1" v-model="itemForm.is_share" name="flexRadioDefault">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             نعم
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" :value="false" v-model="itemForm.available" name="flexRadioDefault"
+                                        <input class="form-check-input" type="radio" :value="0" v-model="itemForm.is_share" name="flexRadioDefault"
                                             id="flexRadioDefault2" >
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             لا
@@ -173,7 +175,7 @@
                     <div class="col-23 col-md-12">
                         <ValidationProvider 
                         :name="$t('End-time')" 
-                        vid="end_date" 
+                        vid="end_time" 
                         rules="required"
                             v-slot="{ errors }">
                             <div class="form-group position-relative">
@@ -286,19 +288,18 @@ export default {
         file: null,
         mapFile: null,
         itemForm: {
-            title: '',
             content:'',
-            address:'',
             city:'',
+            address:'',
             price: '',
             start_date : '',
             end_date: '',
+            category_id:null,
+            title: '',
             start_time: '',
             end_time: '',
-            category_id:null,
-            status: 0,
-            mapUrl: '',
-            available: false,
+            details:'',
+            is_share: 0,
         }
     }
 },
@@ -310,19 +311,22 @@ export default {
                 return;
             }
             let formData = new FormData();
-            formData.append('title', this.itemForm.title);
             formData.append('content', this.itemForm.content);
-            formData.append('start_date', this.itemForm.start_date);
-            formData.append('end_date', this.itemForm.end_date);
-            formData.append('start_time', this.itemForm.start_time);
-            formData.append('end_time', this.itemForm.end_time);
             formData.append('city', this.itemForm.city);
             formData.append('address', this.itemForm.address);
-            formData.append('file', this.file);
-            formData.append('mapfile', this.mapFile);
+            formData.append('price', this.itemForm.price);
+            formData.append('start_date', this.itemForm.start_date);
+            formData.append('end_date', this.itemForm.end_date);
+            formData.append('category_id', this.itemForm.category_id);
+            formData.append('title', this.itemForm.title);
+            formData.append('start_time', this.itemForm.start_time);
+            formData.append('end_time', this.itemForm.end_time);
+            formData.append('details', this.itemForm.details);
+            formData.append('is_share', this.itemForm.is_share);
+            formData.append('image', this.file);
+            formData.append('imageMap', this.mapFile);
             formData.append('user_id', this.user.id);
 
-            formData.append('category_id', this.itemForm.category_id);
             try {
                 let { data } = await exhibitionsAPI.addExhibition(formData)
                 if (data.success) {
@@ -365,16 +369,6 @@ export default {
         uploadMap(evt) {
             this.mapFile = evt.target.files[0];
         },
-        async loadBlogTags() {
-            try {
-                let { data } = await this.$axios.get('/network/blogs-tags')
-                if (data.success) {
-                    this.tags = data.data
-                }
-            } catch (error) {
-                console.log('error', error)
-            }
-        },
         async loadBlogCategories() {
             try {
                 let { data } = await this.$axios.get('/network/categories')
@@ -387,19 +381,18 @@ export default {
         },
         openDialog() {
             this.itemForm= {
-            title: '',
-            content:'',
-            address:'',
+                content:'',
             city:'',
+            address:'',
             price: '',
-            category_id:null,
             start_date : '',
             end_date: '',
+            category_id:null,
+            title: '',
             start_time: '',
             end_time: '',
-            status: 0,
-            mapUrl: '',
-            available: false,
+            details:'',
+            is_share: 0,
         }
         this.file = null;
         this.showImage = false;
