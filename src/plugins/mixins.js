@@ -43,10 +43,10 @@ const mixin = {
               window.EventBus.fire(group,data)
           },
             fireOpenDialog(group,data={}){
-                window.EventBus.fire(group+'-open-dialog',data)
+                this.fireEvent(group+'-open-dialog',data)
             },
             fireCloseDialog(group,data={}){
-              window.EventBus.fire(group+'-open-dialog',data)
+              this.fireEvent(group+'-close-dialog',data)
           },
             getRouteLocale(name,params={}){
             return {name,params:{lang:this.$i18n.locale,...params}}
@@ -58,6 +58,16 @@ const mixin = {
                          query: this.$route.query // put your route information in
                        });
                        return r.route.path;
+               },
+               refreshPage(){
+                console.log('proccess',process);
+                
+                let r=this.$router.resolve({
+                  name: this.$route.name, // put your route information in
+                  params: this.$route.params, // put your route information in
+                  query: this.$route.query // put your route information in
+                });
+                window.location = r.href
                },
             changeLang(lng,evt){
                 if(evt) evt.preventDefault();
