@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-let baseApiAddress = process.env.NODE_ENV === 'production' ? "/api/v1" : 'https://test.riadiat.sa/api/v1'
+let baseApiAddress = process.env.NODE_ENV === 'production' ? "https://test.riadiat.sa/api/v1" : 'https://test.riadiat.sa/api/v1'
 let config = {
   baseURL: process.env.baseURL || process.env.apiUrl || baseApiAddress
   // timeout: 60 * 1000, // Timeout
