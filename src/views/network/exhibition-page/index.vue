@@ -400,7 +400,7 @@ export default {
   },
   data:()=>{
     return {
-      isOwner:true,
+      isOwner:false,
       loading:true,
       hasError:false,
       itemPage:{},
@@ -426,7 +426,7 @@ export default {
                    this.itemPage = data.data;
                    this.itemPage.start_time = this.convertTime(this.itemPage.start_time)
                    this.itemPage.end_time = this.convertTime(this.itemPage.end_time)
-                   this.isOwner = true;//this.itemPage.user_info.id==this.user.id
+                   this.isOwner = this.itemPage.user_info.id==this.user.id
                 }else{
                   this.hasError = true;
                 }

@@ -175,7 +175,7 @@ export default {
   },
   data:()=>{
     return {
-      isOwner:true,
+      isOwner:false,
       loading:true,
       hasError:false,
       itemPage:{},
