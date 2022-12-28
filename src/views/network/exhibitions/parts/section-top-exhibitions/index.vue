@@ -31,16 +31,19 @@
         </div>
 
     </div>
-    <d-swiper   style="overflow-x: hidden"
+    <d-swiper v-if="!loading"  style="overflow-x: hidden"
             :slides-per-view="3"
             :space-between="10"
-              :items="itemsTest" >
+              :items="items" >
               <template  v-slot:default="{item}" >
                 <router-link class="router-link" :to="getRouteLocale('network-exhibition-show',{id:item.id})">
                 <exhibitionCard 
-                :img="item.img"
-                :title="item.title"
-                :description="item.description"
+                :img="item.image"
+                :userName="item.user_info.name"
+                :city="item.city"
+                price="دخول مجاني"
+                title="معرض الازياء الرجالي"
+                :description="item.content"
                 />
             </router-link>
             </template>
@@ -60,12 +63,13 @@ export default {
  },
  data:()=>({
     itemsTest:[
-        {id:1,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:2,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:3,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:4,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:5,title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:44,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:43,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:44,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:43,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:44,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
     ],
+    loading:true,
     items:[]
  }),
  methods:{ 
@@ -74,6 +78,7 @@ export default {
        this.fireEvent('add-dialog-open-dialog')
   },
     async loadList(){
+        this.loading = true;
         try {
             let {data} = await exhibitionAPI.getRecent()
 
@@ -84,6 +89,7 @@ export default {
             console.log('error',error)
             console.log('response',error.response)
         }
+        this.loading = false;
     }
  },
  mounted(){

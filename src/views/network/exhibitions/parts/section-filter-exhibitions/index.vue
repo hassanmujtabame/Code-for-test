@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-5">
         <d-filter-list 
-        :fakeItems="item_test" 
+       
         :call-list="loadList" 
         classColCard="col-md-6 mt-2" 
         pluralName="المعارض" 
@@ -11,8 +11,11 @@
                 <router-link class="router-link" :to="getRouteLocale('network-exhibition-show', { id: item.id })">
                     <exhibitionCard 
                     :img="item.image" 
-                    :title="item.user_name" 
-                    :description="item.description" 
+                    :price="item.price"
+                    :place="item.city"
+                    :userName="item.user_info.name" 
+                    :description="item.content" 
+                     title="معرض الازياء الرجالي"
                     />
                 </router-link>
             </template>
