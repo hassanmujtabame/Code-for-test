@@ -4,6 +4,10 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin;
 module.exports = defineConfig({
   transpileDependencies: true,
+  devServer: {
+
+    port: 8050,
+  },
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
@@ -11,7 +15,9 @@ module.exports = defineConfig({
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
         }),
-        new BundleAnalyzerPlugin()
+        new BundleAnalyzerPlugin({
+          analyzerMode: "disabled"
+      })
     ]
   },
   pluginOptions: {
