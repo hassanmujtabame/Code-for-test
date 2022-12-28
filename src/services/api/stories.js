@@ -13,6 +13,9 @@ class StoriesApi extends BaseApi{
     getItem(id){
         return window.axios.get(`network/stories/${id}`);
     }
+    getMyStory(){
+        return window.axios.get(`network/current-story`);
+    }
 }
 
 export default new StoriesApi();
