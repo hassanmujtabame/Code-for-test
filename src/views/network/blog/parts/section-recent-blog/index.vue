@@ -20,12 +20,12 @@
             </div>
             <div class="row mt-3">
                 <div v-for="(blog,i) in blogs" :key="i" class="col-md-4 " >
-                    <router-link :to="getRouteLocale('network-blog-show',{id:blog.id})">
+                    <router-link class="router-link" :to="getRouteLocale('network-blog-show',{id:blog.id})">
                     <BlogInfoCard 
                         :img="blog.image"
                         :title="blog.title"
-                        :description="blog.description"
-                        :date="blog.date"
+                        :description="blog.short_description"
+                        :date="blog.created_at"
                     />
                     </router-link>
           </div>
@@ -42,15 +42,17 @@ export default {
     BlogInfoCard
  },
  data:()=>({
+    loading:true,
     blogs:[
-        {id:1,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+       /* {id:1,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
         {id:2,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
         {id:3,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-
+*/
     ]
  }),
  methods:{
     async getRecents() {
+        this.loading = true;
             try {
                 let { data } = await BlogsAPI.getRecent()
                 if (data.success) {
@@ -63,6 +65,7 @@ export default {
                 console.log('error', error)
                 console.log('error response', error.response)
             }
+            this.loading = false;
         }
  },
  mounted(){

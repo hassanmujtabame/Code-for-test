@@ -25,8 +25,8 @@
                    
                     :img="item.image" 
                     :title="item.title" 
-                    :description="item.description"
-                        :date="'10  sep, 2021'" />
+                    :description="item.short_description"
+                        :date="item.created_at" />
                 </router-link>
             </template>
 
