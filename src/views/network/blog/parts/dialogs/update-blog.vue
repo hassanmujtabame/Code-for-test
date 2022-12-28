@@ -96,8 +96,11 @@
                                  rules=""
                                     v-slot="{errors}">
                         <label class="form-label">اختصار المحتوي التدوينة</label>
-                            <textarea v-model="blog.short_description" class="form-control" rows="10"
-                                placeholder=""></textarea>
+                        <d-ckeditor-classic 
+                            v-if="showDialog"
+                            
+                            v-model="blog.short_description" class="form-control" rows="10"
+                                placeholder=""></d-ckeditor-classic>
                                 <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -240,6 +243,7 @@ export default {
         this.blog.category=data.categories[0]
         this.blog.tag=data.tags[0]
         this.blog.description=data.description
+        this.blog.short_description=data.short_description
         this.blog.title=data.title
         this.showDialog = true;
         window.$('#'+this.idImage)
