@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4 img-service text-center">
                 <img class="rounded-circle " :src="member.image" :alt="member.name"
-                    width="145" height="145">
+                    :width="sizeImage" :height="sizeImage">
             </div>
             <div class="col-md-8 t-c">
                 <h4 class="fw-bold">
@@ -35,6 +35,10 @@
 export default {
     name:'user-info-li',
  props:{
+    sizeImage:{
+        type:String,
+        default:'145'
+    },
    member:{
      type:[Array,Object],
      default:()=>{return {
