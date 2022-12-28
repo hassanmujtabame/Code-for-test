@@ -462,7 +462,7 @@
 //صفحة طلب عرض مشروع استثمارى/شبكة
 export default {
     name: 'investment-project-request',
-    data:()=>({
+    data:(vm)=>({
         idImage: `image-selected-${vm.generateRandomString(8)}`,
         file:null,
         project:{
