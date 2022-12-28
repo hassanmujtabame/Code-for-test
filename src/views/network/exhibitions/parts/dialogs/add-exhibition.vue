@@ -244,6 +244,13 @@
                         </ValidationProvider>
                     </div>
                     <div class="mb-3 position-relative">
+                        <ValidationProvider 
+                        :name="$t('category')" 
+                        vid="category_id" 
+                        rules="required"
+                         v-slot="{ errors }"
+                         >
+                         <div class="form-group position-relative">
                         <select v-model="itemForm.category_id"  class="form-control">
                             <option disabled value="" class="t-c"> تصنيفات المعرض</option>
                             <option :key="i" v-for="(option,i) in categories" :value="option.id">
@@ -260,6 +267,11 @@
                             </svg>
 
                         </div>
+                    </div>
+                        <div v-if="errors.length !== 0" class="col-12 text-input-error">
+                                {{ errors[0] }}
+                            </div>
+                    </ValidationProvider>
                     </div>
 
                 </div>

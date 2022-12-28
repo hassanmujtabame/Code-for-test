@@ -32,7 +32,7 @@
                            <img src="/assets/svg/update.svg" />   
                            تعديل 
                         </button>
-                        <button class="btn bg-danger border-0 text-white p-2"   >
+                        <button  @click="openDeleteDialog" class="btn bg-danger border-0 text-white p-2"   >
                             <img src="/assets/svg/trash-outline.svg" />
                            حذف 
                         </button>
@@ -382,7 +382,8 @@
             </div>
         </div>
         <portal to="body">
-            <UpdateDialog />
+            <UpdateDialog  @success="refreshPage()"/>
+            <deleteDialog />
         </portal>
     </div>
 </template>
@@ -390,11 +391,12 @@
 <script>
 import exhibitionsAPI from '@/services/api/exhibitions';
 import UpdateDialog from '../exhibitions/parts/dialogs/update-exhibition.vue'
+import deleteDialog from '../exhibitions/parts/dialogs/del-exhibition.vue'
 export default {
     name:'exhibition-page',
     components:{
         UpdateDialog,
-   // deleteDialog
+        deleteDialog
   },
   data:()=>{
     return {

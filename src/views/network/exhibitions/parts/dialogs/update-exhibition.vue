@@ -151,53 +151,44 @@
                     
                         <!-- date end-->
                         <div class="col-23 col-md-12">
-                            <ValidationProvider 
-                            :name="$t('End-date')" 
-                            vid="end_date" 
-                            rules="required"
-                                v-slot="{ errors }">
+                           
                                 <div class="form-group position-relative">
                                     <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
                                     <date-picker-range 
                                     :valueStart.sync="itemForm.start_date"
                                     :valueEnd.sync="itemForm.end_date"
+                                    :names="{start:$t('Start-date'),end:$t('End-date')}"
+                                :vids="{start:'start_date',end:'end_date'}"
+                                :rules="{start:'required',end:'required'}"
                                    mask="YYYY-MM-DD"
                                     mode="date"
                                     class="form-control"
                                     >
                                     </date-picker-range>
                                 </div>
-                                <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                    {{ errors[0] }}
-                                </div>
-                            </ValidationProvider>
+                                
                         </div>
                     </div>
                     <div class=" mb-3 row">
                     
                     <!-- time end-->
                     <div class="col-23 col-md-12">
-                        <ValidationProvider 
-                        :name="$t('End-time')" 
-                        vid="end_time" 
-                        rules="required"
-                            v-slot="{ errors }">
+                       
                             <div class="form-group position-relative">
                                 <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
                                 <date-picker-range 
                                 :valueStart.sync="itemForm.start_time"
                                 :valueEnd.sync="itemForm.end_time"
-                               
+                                :names="{start:$t('Start-time'),end:$t('End-time')}"
+                                :vids="{start:'start_time',end:'end_time'}"
+                                :rules="{start:'required',end:'required'}"
                                 mode="time"
                                 mask="HH:mm"
                                 class="form-control"
                                 >
                                 </date-picker-range>
                             </div>
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
-                        </ValidationProvider>
+                            
                     </div>
                 </div>
 
@@ -248,6 +239,13 @@
                         </ValidationProvider>
                     </div>
                     <div class="mb-3 position-relative">
+                        <ValidationProvider 
+                        :name="$t('category')" 
+                        vid="category_id" 
+                        rules="required"
+                         v-slot="{ errors }"
+                         >
+                         <div class="form-group position-relative">
                         <select v-model="itemForm.category_id"  class="form-control">
                             <option disabled value="" class="t-c"> تصنيفات المعرض</option>
                             <option :key="i" v-for="(option,i) in categories" :value="option.id">
@@ -255,6 +253,7 @@
                             </option>
 
                         </select>
+                    
                         <div style="top: 7px;left: 10px;" class="position-absolute">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -264,6 +263,11 @@
                             </svg>
 
                         </div>
+                    </div>
+                        <div v-if="errors.length !== 0" class="col-12 text-input-error">
+                                {{ errors[0] }}
+                            </div>
+                    </ValidationProvider>
                     </div>
 
                 </div>
@@ -310,6 +314,7 @@ export default {
     methods: {
         async save() {
             let valid = await this.$refs.form.validate();
+            console.log('save',valid)
             if (!valid) {
                 console.log('form invalid', this.$refs.form);
                 return;
@@ -335,10 +340,11 @@ export default {
                 let { data } = await exhibitionsAPI.updateExhibition(this.itemForm.id,formData)
                 if (data.success) {
                     console.log('success', data)
+                    this.$emit('success')
                     this.fireCloseDialog(this.group)
                 }
             } catch (error) {
-                //
+              console.log(error)
                 if (error.response) {
                     let response = error.response
                     console.log('error', response)
