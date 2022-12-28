@@ -21,8 +21,10 @@ import DDialogSimple from '@/components/modals/simple.vue'
 import DOverlaySimple from '@/components/overlays/simple.vue'
 import SectionContinueLearning from '@/components/sections/section-continue-learning/index.vue'
 import RequestPurchaseCard from '@/components/cards/request-purchase-service.vue'
+import ErrorInput from '@/components/error-input/index.vue'
 
 
+Vue.component('d-error-input', ErrorInput)
 Vue.component('date-picker-input', DatePickerInput)
 Vue.component('date-picker-range', DatePickerRange)
 Vue.component('d-ckeditor-classic', DCkeditorClassicInput)
