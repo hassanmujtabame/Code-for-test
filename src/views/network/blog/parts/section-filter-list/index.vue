@@ -20,9 +20,9 @@
             </template>
 
             <template v-slot="{ item }">
-                <router-link custom v-slot="{navigate}" :to="getRouteLocale('network-blog-show', { id: item.id })">
+                <router-link  class="router-link" :to="getRouteLocale('network-blog-show', { id: item.id })">
                     <BlogInfoCard 
-                    @click="navigate"
+                   
                     :img="item.image" 
                     :title="item.title" 
                     :description="item.description"
