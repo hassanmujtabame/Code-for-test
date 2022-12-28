@@ -60,8 +60,9 @@ const mixin = {
                        return r.route.path;
                },
                refreshPage(){
-                console.log('proccess',process);
                 
+                if(process.env.NODE_ENV=='development')
+                return;
                 let r=this.$router.resolve({
                   name: this.$route.name, // put your route information in
                   params: this.$route.params, // put your route information in
