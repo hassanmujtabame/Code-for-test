@@ -26,7 +26,10 @@ class ExhibitionsApi extends BaseApi{
         return window.axios.post(`network/exhibitions`,data);  
     }
     updateExhibition(id,data){
-        return window.axios.pull(`network/exhibitions/${id}`,data);  
+        return window.axios.put(`network/exhibitions/${id}`,data);  
+    }
+    deleteExhibition(id){
+        return window.axios.delete(`network/exhibitions/${id}`);  
     }
 }
 
