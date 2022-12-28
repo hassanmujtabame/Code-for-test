@@ -76,6 +76,15 @@
 export default {
     name:'date-picker-range',
     props:{
+      rules:{
+        type:[Array,Object],
+        default:()=>{
+          return {
+            start:"",
+            end:""
+          }
+        }
+      },
         valueStart:{
             type:String
         },
@@ -151,15 +160,26 @@ export default {
     valueStart:{
         immediate:true,
         handler(val){
-            if(val)
-            this.range.start = new Date(val)
+          if(!val) return;
+              let date=new Date(val);
+            if(this.mode=='time'){
+              date= new Date();
+             date.setHours(val.split(':')[0],val.split(':')[1],0)
+            }
+    
+            this.range.start = date
         }
     },
     valueEnd:{
         immediate:true,
         handler(val){
-            if(val)
-            this.range.end = new Date(val)
+          if(!val) return;
+          let date=new Date(val);
+            if(this.mode=='time'){
+              date= new Date();
+             date.setHours(val.split(':')[0],val.split(':')[1],0)
+            }
+            this.range.end = date
         }
     },
     range:{
