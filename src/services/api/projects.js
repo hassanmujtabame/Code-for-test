@@ -13,6 +13,12 @@ class ProjectsApi extends BaseApi{
     getItem(id){
         return window.axios.get(`network/projects/${id}`);
     }
+    addItem(data){
+        return window.axios.post(`network/projects`,data);  
+    }
+    getCategories(){
+        return window.axios.get(`network/projects-categories`);
+    }
 }
 
 export default new ProjectsApi();
