@@ -1,21 +1,34 @@
 <template>
     <div style="margin-top: 96px;">
-        <div class="container blog-page">
+        <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+      هناك خطأ غير معروف يرجي تحديث الصفحة
+    </div>
+        <div  v-else class="container blog-page">
             <div class=" position-relative">
-                <img class="w-100" src="/assets/img/Rectangle 1774a.png" alt="" height="432">
-
+                <img class="w-100" :src="itemPage.image" :alt="itemPage.title" height="432">
+                <div class="d-flex gap-2 position-absolute bottom-0 data">
+                    <template  v-if="itemPage.categories && itemPage.categories.length">
+                    <p  v-for="(cat,c) in itemPage.categories" :key="c" :style="{'background-color':colors[c%3]}" class="p-1 px-2 rounded-2 text-white m-0">
+                    {{ cat.name }}
+                    </p>
+                </template>
+                <p  v-else :style="{'background-color':colors[0]}" class="p-1 px-2 rounded-2 text-white m-0">
+                    {{ itemPage.categoryName }}
+                    </p>
+        </div>
             </div>
             <div class="row mt-5">
                 <div class="row mb-3">
                     <div class="col-md-6">
 
                         <h3 class="m-c">
-                            معرض التمور
+                        {{ itemPage.title??'معرض' }}
                         </h3>
                     </div>
                     <div class="col-md-6  text-end">
                         <template v-if="isOwner">
-                        <button class="btn bg-main border-0 text-white p-2 mx-1"   >
+                        <button @click="openEditDialog" class="btn bg-main border-0 text-white p-2 mx-1"   >
                            <img src="/assets/svg/update.svg" />   
                            تعديل 
                         </button>
@@ -34,24 +47,10 @@
                 <div class=" col-12 col-md-8">
 
                     <p class="t-c p-0 m-0">
-                        تاريخ نشر: 12-4-2022
+                        تاريخ نشر: {{ itemPage.date_publish }}
                     </p>
-                    <p class="pargrapg">
-                        مهرجان تمور الأحساء في السعودية يعتبر من العوامل المهمه لزيادة الجذب السياحي للمواطنين و زوار
-                        المملكة العربية السعودية، و دشن أمير منطقة الشرقية “سعود بن نايف بن عبد العزيز” ذلك يوم الاربعاء
-                        12 يناير في نسخته الرابعة بالمملكة، حيث أكد الأمير أن “مدينة الأحساء” أنها سجلت 11 رقم قياسي في
-                        موسوعة جينيس العالمية، كما انها تحتوي على أفضل وأجود أنواع التمور بالعالم مشيرا إلي أن “مدينة
-                        الأحساء” تحتوي على 2.2 مليون نخلة، حيث حضر العديد من الشخصيات المهمه في ليلة افتتاح هذا المهرجان
-                        ومن أهم الشخصيات التي حضرت “الأمير بندر بن محمد محافظ الأحساء و عصام الملا أمين المدينة و فهد
-                        المطلق رئيس هيئة تطوير المنطقة
-                        لقد تم تمديد فترة المعرض إلي 22 فبراير وذلك نتيجة الاقبال الشديد عليه، كما تعدى عدد زوار المعرض
-                        400 ألف شخص، حيث أنه يضم 40 جناح خاصة بالشركات الوطنية التي تصنع التمور، سوف نتعرف على أهم
-                        منتجات المعرض فيما يلي:
-                        كعكعات التمر.
-                        السمبوسك.
-                        الكنافة.
-                        خلطة التوت البري بالتمر.
-                        عصير التمر باللبن.
+                    <p class="pargrapg" v-html="itemPage.content">
+                        
                     </p>
                     <div class="rounded-3 border mt-4 p-4">
                         <h4 class="border-bottom">
@@ -127,18 +126,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <d-user-info-li />
+                    <d-user-info-li v-if="!isOwner" sizeImage="100" :member="itemPage.user_info" />
                     <div class="box border rounded-3 p-2 mt-3">
                         <h3 class="border-bottom py-2">
                             تفاصيل المعرض
                         </h3>
 
                         <div class="">
-                            <div class="box">
-                                بعض الملاحظات عن حضور اللمعرض زي مثلا نرجو عدم اصحاب الاطفال او اي تفاصيل تانية عن
-                                الحضور مثلا يمنع الدخول بالمأكولات - لو معرض ازياء هنلقوه لا يوجد غرفة للقياس في المعرض
-                                لو مجوهرات ممكن نقوله ثمن الثمن المجوهرات يدفع كاش ولا يوجد تقسيط وهذكدا - تعليمات
-                                الدخول يعني بمعنى اصح
+                            <div class="box" v-html="itemPage.details">
                             </div>
                             <div class="pt-3">
                                 <h3 class="border-bottom py-2">
@@ -158,7 +153,7 @@
                                         <p>
                                             المشاهدات :
                                             <span class="m-c">
-                                                250
+                                                {{ itemPage.views??'N/A'}}
                                             </span>
                                         </p>
                                     </div>
@@ -182,7 +177,7 @@
                                         <p>
                                             سعر الدخول :
                                             <span class="m-c">
-                                                مجاني </span>
+                                                {{ itemPage.price }} </span>
                                         </p>
                                     </div>
                                     <div class="col-md-6 d-flex">
@@ -198,7 +193,7 @@
                                         <p>
                                             المشاركين :
                                             <span class="m-c">
-                                                50 </span>
+                                                {{ itemPage.subscribers??'N/A' }} </span>
                                         </p>
                                     </div>
                                     <div class="col-md-6 d-flex">
@@ -214,7 +209,7 @@
                                         <p>
                                             المدينة :
                                             <span class="m-c">
-                                                الدمام </span>
+                                                {{ itemPage.city }} </span>
                                         </p>
                                     </div>
                                     <div class="col-md-6 d-flex">
@@ -305,18 +300,54 @@
                                                 fill="#979797" />
                                         </svg>
                                         <p>
-                                            مـن يوم
+                                            مـن 
                                             <span class="m-c">
-                                                12-11-2022 </span>
-                                        </p>
-
-                                        <p>
-                                            الى يوم
-                                            <span class="m-c">
-                                                12-12-2022 </span>
+                                                {{ itemPage.start_date }} </span>
                                         </p>
                                     </div>
                                     <div class="col-md-6 d-flex">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8 5.75C7.59 5.75 7.25 5.41 7.25 5V2C7.25 1.59 7.59 1.25 8 1.25C8.41 1.25 8.75 1.59 8.75 2V5C8.75 5.41 8.41 5.75 8 5.75Z"
+                                                fill="#979797" />
+                                            <path
+                                                d="M16 5.75C15.59 5.75 15.25 5.41 15.25 5V2C15.25 1.59 15.59 1.25 16 1.25C16.41 1.25 16.75 1.59 16.75 2V5C16.75 5.41 16.41 5.75 16 5.75Z"
+                                                fill="#979797" />
+                                            <path
+                                                d="M8.5 14.5023C8.37 14.5023 8.24 14.4723 8.12 14.4223C7.99 14.3723 7.89 14.3023 7.79 14.2123C7.61 14.0223 7.5 13.7723 7.5 13.5023C7.5 13.3723 7.53 13.2423 7.58 13.1223C7.63 13.0023 7.7 12.8923 7.79 12.7923C7.89 12.7023 7.99 12.6323 8.12 12.5823C8.48 12.4323 8.93 12.5123 9.21 12.7923C9.39 12.9823 9.5 13.2423 9.5 13.5023C9.5 13.5623 9.49 13.6323 9.48 13.7023C9.47 13.7623 9.45 13.8223 9.42 13.8823C9.4 13.9423 9.37 14.0023 9.33 14.0623C9.3 14.1123 9.25 14.1623 9.21 14.2123C9.02 14.3923 8.76 14.5023 8.5 14.5023Z"
+                                                fill="#979797" />
+                                            <path
+                                                d="M12 14.4989C11.87 14.4989 11.74 14.4689 11.62 14.4189C11.49 14.3689 11.39 14.2989 11.29 14.2089C11.11 14.0189 11 13.7689 11 13.4989C11 13.3689 11.03 13.2389 11.08 13.1189C11.13 12.9989 11.2 12.8889 11.29 12.7889C11.39 12.6989 11.49 12.6289 11.62 12.5789C11.98 12.4189 12.43 12.5089 12.71 12.7889C12.89 12.9789 13 13.2389 13 13.4989C13 13.5589 12.99 13.6289 12.98 13.6989C12.97 13.7589 12.95 13.8189 12.92 13.8789C12.9 13.9389 12.87 13.9989 12.83 14.0589C12.8 14.1089 12.75 14.1589 12.71 14.2089C12.52 14.3889 12.26 14.4989 12 14.4989Z"
+                                                fill="#979797" />
+                                            <path
+                                                d="M15.5 14.4989C15.37 14.4989 15.24 14.4689 15.12 14.4189C14.99 14.3689 14.89 14.2989 14.79 14.2089C14.75 14.1589 14.71 14.1089 14.67 14.0589C14.63 13.9989 14.6 13.9389 14.58 13.8789C14.55 13.8189 14.53 13.7589 14.52 13.6989C14.51 13.6289 14.5 13.5589 14.5 13.4989C14.5 13.2389 14.61 12.9789 14.79 12.7889C14.89 12.6989 14.99 12.6289 15.12 12.5789C15.49 12.4189 15.93 12.5089 16.21 12.7889C16.39 12.9789 16.5 13.2389 16.5 13.4989C16.5 13.5589 16.49 13.6289 16.48 13.6989C16.47 13.7589 16.45 13.8189 16.42 13.8789C16.4 13.9389 16.37 13.9989 16.33 14.0589C16.3 14.1089 16.25 14.1589 16.21 14.2089C16.02 14.3889 15.76 14.4989 15.5 14.4989Z"
+                                                fill="#979797" />
+                                            <path
+                                                d="M8.5 17.9992C8.37 17.9992 8.24 17.9692 8.12 17.9192C8 17.8692 7.89 17.7992 7.79 17.7092C7.61 17.5192 7.5 17.2592 7.5 16.9992C7.5 16.8692 7.53 16.7392 7.58 16.6192C7.63 16.4892 7.7 16.3792 7.79 16.2892C8.16 15.9192 8.84 15.9192 9.21 16.2892C9.39 16.4792 9.5 16.7392 9.5 16.9992C9.5 17.2592 9.39 17.5192 9.21 17.7092C9.02 17.8892 8.76 17.9992 8.5 17.9992Z"
+                                                fill="#979797" />
+                                            <path
+                                                d="M12 17.9992C11.74 17.9992 11.48 17.8892 11.29 17.7092C11.11 17.5192 11 17.2592 11 16.9992C11 16.8692 11.03 16.7392 11.08 16.6192C11.13 16.4892 11.2 16.3792 11.29 16.2892C11.66 15.9192 12.34 15.9192 12.71 16.2892C12.8 16.3792 12.87 16.4892 12.92 16.6192C12.97 16.7392 13 16.8692 13 16.9992C13 17.2592 12.89 17.5192 12.71 17.7092C12.52 17.8892 12.26 17.9992 12 17.9992Z"
+                                                fill="#979797" />
+                                            <path
+                                                d="M15.5 18.0009C15.24 18.0009 14.98 17.8909 14.79 17.7109C14.7 17.6209 14.63 17.5109 14.58 17.3809C14.53 17.2609 14.5 17.1309 14.5 17.0009C14.5 16.8709 14.53 16.7409 14.58 16.6209C14.63 16.4909 14.7 16.3809 14.79 16.2909C15.02 16.0609 15.37 15.9509 15.69 16.0209C15.76 16.0309 15.82 16.0509 15.88 16.0809C15.94 16.1009 16 16.1309 16.06 16.1709C16.11 16.2009 16.16 16.2509 16.21 16.2909C16.39 16.4809 16.5 16.7409 16.5 17.0009C16.5 17.2609 16.39 17.5209 16.21 17.7109C16.02 17.8909 15.76 18.0009 15.5 18.0009Z"
+                                                fill="#979797" />
+                                            <path
+                                                d="M20.5 9.83984H3.5C3.09 9.83984 2.75 9.49984 2.75 9.08984C2.75 8.67984 3.09 8.33984 3.5 8.33984H20.5C20.91 8.33984 21.25 8.67984 21.25 9.08984C21.25 9.49984 20.91 9.83984 20.5 9.83984Z"
+                                                fill="#979797" />
+                                            <path
+                                                d="M16 22.75H8C4.35 22.75 2.25 20.65 2.25 17V8.5C2.25 4.85 4.35 2.75 8 2.75H16C19.65 2.75 21.75 4.85 21.75 8.5V17C21.75 20.65 19.65 22.75 16 22.75ZM8 4.25C5.14 4.25 3.75 5.64 3.75 8.5V17C3.75 19.86 5.14 21.25 8 21.25H16C18.86 21.25 20.25 19.86 20.25 17V8.5C20.25 5.64 18.86 4.25 16 4.25H8Z"
+                                                fill="#979797" />
+                                        </svg>
+                                       
+                                        <p>
+                                            الى
+                                            <span class="m-c">
+                                                {{ itemPage.end_date }} </span>
+                                        </p>
+                                    </div>
+                                    <!--time-->
+                                    <div class="col-md-12 d-flex">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <rect width="24" height="24" fill="white" />
@@ -331,15 +362,16 @@
                                                 fill="#979797" />
                                         </svg>
                                         <p>
-                                            9 صباحا حتى 6 مساءا
+                                            {{ convertTime(itemPage.start_time)??'N/A' }} حتى {{ convertTime(itemPage.end_time)??'N/A' }}
                                         </p>
                                     </div>
+                                
                                 </div>
                                 <div class=" text-center border-top">
                                     <h1>
                                         تاريخ النشر :
                                         <span class="m-c">
-                                            22/10/2022
+                                            {{ itemPage.date_publish }}
                                         </span>
                                     </h1>
                                 </div>
@@ -349,19 +381,68 @@
                 </div>
             </div>
         </div>
+        <portal to="body">
+            <UpdateDialog />
+        </portal>
     </div>
 </template>
 
 <script>
+import exhibitionsAPI from '@/services/api/exhibitions';
+import UpdateDialog from '../exhibitions/parts/dialogs/update-exhibition.vue'
 export default {
     name:'exhibition-page',
-    data:()=>{
-        return {
-            isOwner:true
+    components:{
+        UpdateDialog,
+   // deleteDialog
+  },
+  data:()=>{
+    return {
+      isOwner:true,
+      loading:true,
+      hasError:false,
+      itemPage:{},
+      colors:['#F2631C','#FFBC00','#2C98B3']
+  }},
+  methods:{
+    convertTime(time){
+        if(!time) return time;
+   return time.substring(0,5)
+    },
+    openEditDialog(){
+      this.fireOpenDialog('update-dialog',this.itemPage)
+    },
+    openDeleteDialog(){
+      this.fireOpenDialog('delete-dialog',this.itemPage)
+    },
+    async initializing() {
+      this.loading = true;
+      this.hasError = false;
+            try {
+                let { data } = await exhibitionsAPI.getItem(this.$route.params.id)
+                if (data.success) {
+                   this.itemPage = data.data;
+                   this.itemPage.start_time = this.convertTime(this.itemPage.start_time)
+                   this.itemPage.end_time = this.convertTime(this.itemPage.end_time)
+                   this.isOwner = true;//this.itemPage.user_info.id==this.user.id
+                }else{
+                  this.hasError = true;
+                }
+            } catch (error) {
+                console.log('error', error)
+                console.log('error response', error.response)
+                this.hasError = true;
+              }
+
+            this.loading = false;
         }
-    }
-};
+  },
+  mounted(){
+    this.initializing()
+  }
+}
 </script>
 
 <style>
+
 </style>
