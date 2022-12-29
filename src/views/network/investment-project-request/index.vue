@@ -41,12 +41,12 @@
                         <div style="   background: #ff000021; height: 25px;" class="form-check form-switch ">
                             <label class="form-check-label" for="flexSwitchCheckChecked">أستثمار مادي</label>
                             <input class="form-check-input" type="radio" name="investment_type" role="switch" id="flexSwitchCheckChecked"
-                            v-model="itemForm.investment_type" value="1">
+                            v-model="itemForm.investment_type" value="mady">
                         </div>
                         <div style="height: 25px;" class="form-check form-switch mx-3">
                             <label class="form-check-label" for="flexSwitchCheckChecked2">أستثمار مادي</label>
                             <input class="form-check-input" type="radio" name="investment_type" role="switch" id="flexSwitchCheckChecked2"
-                            v-model="itemForm.investment_type" value="0">
+                            v-model="itemForm.investment_type" value="notmady">
                         </div>
                     </div>
                     <d-error-input v-if="errors.length" :errors="errors"/>
@@ -551,7 +551,7 @@ export default {
           description:"",
           category_id:null,
           offered_property:0,
-          investment_type:1,
+          investment_type:'mady',
           minimum_investment:null,
           amount_financing_required:null,
           description_user:'',
