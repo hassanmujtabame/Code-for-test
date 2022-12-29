@@ -26,6 +26,11 @@ export default {
   created() {
    // this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",true)
     //this.loadJS("/js/jquery.simple-calendar.min.js",true)
+    if(this.$i18n.locale=='ar')
+    this.loadCSS('https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css')
+    else
+    this.loadCSS('https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css')
+    
     const plugin = document.createElement("script");
     plugin.innerHTML="$(function() {  AOS.init();  });"
   document.body.appendChild(plugin);
@@ -42,7 +47,7 @@ export default {
 }
 </script>
 <style>
-  @import "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css";
+  /*@import "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css";*/
   @import "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css";
   /*@import "https://unpkg.com/aos@2.3.1/dist/aos.css";*/
   @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css";
