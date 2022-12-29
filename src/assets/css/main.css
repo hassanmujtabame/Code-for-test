@@ -1531,3 +1531,6 @@ position: relative;
            line-clamp: 4; 
    -webkit-box-orient: vertical;
 }
+.rotateY-180{
+    transform:rotateY(180deg)
+}

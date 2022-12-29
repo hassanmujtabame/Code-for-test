@@ -1,6 +1,6 @@
 <template>
   <div class="sec-color p-0 m-0 sec-one">
-        <div class="img-sec-one">
+        <div class="img-sec-one" :class="{'rotateY-180':$i18n.locale!=='ar'}">
           <img class="img-fluid" src="/assets/img/Group 14510.png" alt="" />
         </div>
         <div class="container" style="position:relative">
