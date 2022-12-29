@@ -1,5 +1,7 @@
 <template>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-profile" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas"
+    :class="{'offcanvas-end':$i18n.locale=='ar','offcanvas-start':$i18n.locale=='en'}"
+    tabindex="-1" id="offcanvas-profile" aria-labelledby="offcanvasExampleLabel">
         <div id="myModal-drawer" class="offcanvas-headers text-end p-2 mx-4">
             <button type="button" id="btn-close-drawer" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
@@ -41,7 +43,7 @@
                             fill="#1FB9B3" />
                     </svg>
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale(dashboard)" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> التحكم </button>
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('Dashboard') }} </button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -89,7 +91,7 @@
                     </svg>
 
                     <a href="#" class="mx-2 m-c ">
-                        عروضك
+                        {{ $t('your-offers') }}
                     </a>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -173,7 +175,7 @@
 
 
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('network-menu-subscribe')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">الاشتراكات</button>
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('subscribes') }}</button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -201,7 +203,7 @@
 
 
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('my-financial-transactions')" class="mx-2 m-c ">
-                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">معملاتي المالية</button> 
+                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('My-financial-transactions') }}</button> 
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -214,7 +216,7 @@
                             fill="#1FB9B3" />
                     </svg>
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('preview-profile')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">كيف يراني الاخرون</button>
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('how-see-me-others') }}</button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">

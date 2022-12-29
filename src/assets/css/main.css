@@ -1502,3 +1502,15 @@ position: relative;
     color: black;
     width: 100%;
 }
+
+.offcanvas.offcanvas-start {
+    top: 0;
+    right: 0;
+    left: auto;
+    width: var(--bs-offcanvas-width) !important;
+    border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+    transform: translateX(-100%);
+}
+.text-start {
+    text-align: start!important;
+}
