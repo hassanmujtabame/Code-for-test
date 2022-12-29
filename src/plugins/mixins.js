@@ -95,6 +95,15 @@ const mixin = {
             plugin.setAttribute("defer",true)
             plugin.async = async;
             document.body.appendChild(plugin);
+            },
+            loadCSS(src){
+              const plugin = document.createElement("link");
+              plugin.setAttribute(
+              "href",
+              src
+            );
+            plugin.setAttribute('rel',"stylesheet")
+            document.head.prepend(plugin);
             }
           },
             computed: {
