@@ -19,7 +19,7 @@
                                 <div class="text-center p-5">
                                     <img src="/assets/svg/empty-image.svg">
 
-                                    <p class="m-c">أضافة صورة العرض </p>
+                                    <p class="m-c">{{ $t('add_image_exhibition') }}</p>
                                 </div>
                                 <div class="add-img-selected">
 
@@ -38,7 +38,7 @@
                         <div class="col-md-12">
                             <div class="text">
                                 <ValidationProvider 
-                                :name="$t('Map file')" 
+                                :name="$t('Map image')" 
                                 vid="mapfile" 
                                 rules=""
                                     v-slot="{ validate, errors }">
@@ -53,7 +53,7 @@
                                         </svg>
 
                                         <p class="m-c m-0 p-0">
-                                            أرفق خريطة المعرض
+                                        {{ $t('attachment_exhibition_image') }}
                                         </p>
                                     </label>
                                     <input @change="uploadMap($event) || validate($event)" name="uploadDocument"
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-md-12">
                         <ValidationProvider 
-                                :name="$t('details-enter')" 
+                                :name="$t('details-enter-exhibition')" 
                                 vid="details"  rules=""
                                     v-slot="{  errors }">
                         <d-ckeditor-classic 
@@ -91,21 +91,21 @@
 
                             <h6>هل المعرض متاح للمشاركة ؟</h6>
                             <div class="d-flex justify-content-center   gap-2">
-                                <ValidationProvider :name="$t('Available')"
+                                <ValidationProvider :name="$t('Available-share')"
                                  vid="is_share"
                                  rules="required"
                                     v-slot="{ errors }">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" :value="1" v-model="itemForm.is_share" name="flexRadioDefault">
                                         <label class="form-check-label" for="flexRadioDefault1">
-                                            نعم
+                                            {{$t('yes') }}
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" :value="0" v-model="itemForm.is_share" name="flexRadioDefault"
                                             id="flexRadioDefault2" >
                                         <label class="form-check-label" for="flexRadioDefault2">
-                                            لا
+                                            {{ $t('no') }}
                                         </label>
                                     </div>
                                     <div v-if="errors.length !== 0" class="col-12 text-input-error">
@@ -275,7 +275,7 @@
         </ValidationObserver>
         <template v-slot:actions>
             <button @click="save" type="button" class="btn btn-main">
-                انشري التدوينة
+                {{  $t('publish_blog') }}
             </button>
         </template>
     </d-dialog-large>
