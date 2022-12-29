@@ -24,10 +24,10 @@
                       </a>
                   </div>
                   <div class="policy-links">
-                      <router-link :to="getRouteLocale('terms-and-conditions')">
+                      <router-link :to="getRouteLocale('Terms-and-Conditions')">
                           {{ $t('terms-use') }}
                       </router-link>
-                      <router-link :to="getRouteLocale('terms-and-conditions')">
+                      <router-link :to="getRouteLocale('Terms-and-Conditions')">
                           {{ $t('Privacy-policy') }}
                       </router-link>
                   </div>
