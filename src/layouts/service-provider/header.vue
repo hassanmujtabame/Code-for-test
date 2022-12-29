@@ -31,7 +31,16 @@ export default {
     components:{
       TemplateHeader
     },
-   
+   methods:{
+    openAddService(evt){
+        evt.preventDefault();
+        this.fireOpenDialog('dialog-add-service')
+      },
+      closeAddService(evt){
+        evt.preventDefault();
+        this.fireCloseDialog('dialog-add-service')
+      },
+   }
 }
 </script>
 
