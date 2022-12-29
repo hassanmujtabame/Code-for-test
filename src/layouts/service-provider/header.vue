@@ -34,11 +34,11 @@ export default {
    methods:{
     openAddService(evt){
         evt.preventDefault();
-        this.fireOpenDialog('dialog-add-service')
+        this.fireOpenDialog('add-ready-service-dialog')
       },
       closeAddService(evt){
         evt.preventDefault();
-        this.fireCloseDialog('dialog-add-service')
+        this.fireCloseDialog('add-ready-service-dialog')
       },
    }
 }
