@@ -24,41 +24,41 @@
                       </a>
                   </div>
                   <div class="policy-links">
-                      <a href="#">
-                          شروط الاستخدام
-                      </a>
-                      <a href="#">
-                          سياسة الخصوصية
-                      </a>
+                      <router-link :to="getRouteLocale('terms-and-conditions')">
+                          {{ $t('terms-use') }}
+                      </router-link>
+                      <router-link :to="getRouteLocale('terms-and-conditions')">
+                          {{ $t('Privacy-policy') }}
+                      </router-link>
                   </div>
               </div>
               <div class="col-12 col-md-7 mt-2">
                   <div class="row justify-content-between nav ">
                       <div class="col-3 col-md-3">
-                          <h6>رياديات</h6>
-                          <router-link :to="getRouteLocale('who-are-we')" class="d-block">من نحن</router-link>
-                          <a href="#" class="d-block">مقارنة الخدمات</a>
+                          <h6>{{ $t('Riadiat') }}</h6>
+                          <router-link :to="getRouteLocale('who-are-we')" class="d-block">{{ $t('who-are-we') }}</router-link>
+                          <a href="#" class="d-block">{{ $t('comparation-services') }}</a>
                       </div>
                       <div class="col-3 col-md-3">
-                          <h6>قناة رياديات</h6>
-                          <a href="#" class="d-block">المدونة</a>
-                          <a href="#" class="d-block">البودكاست</a>
-                          <router-link :to="getRouteLocale('network-success-stories')" class="d-block">قصص نجاح</router-link>
+                          <h6>{{ $t('riadiat-channel') }}</h6>
+                          <router-link  :to="getRouteLocale('network-blogs')" class="d-block">{{ $t('Blogs') }}</router-link>
+                          <a href="#" class="d-block">{{ $t('podcast') }}</a>
+                          <router-link :to="getRouteLocale('network-success-stories')" class="d-block">{{ $t('success-story') }}</router-link>
                       </div>
                       <div class="col-3 col-md-3">
-                          <h6>انضمي إلينا</h6>
-                          <a href="#" class="d-block">التوظيف</a>
-                          <a href="#" class="d-block">التسويق بالعمولة</a>
+                          <h6>{{ $t('join-us') }}</h6>
+                          <router-link :to="getRouteLocale('service-provider-jobs')" class="d-block">{{ $t('recruitment') }}</router-link>
+                          <a href="#" class="d-block">{{ $t('Affiliate-marketing') }}</a>
                       </div>
                       <div class="col-3 col-md-3">
-                          <h6>الدعم</h6>
-                          <router-link :to="getRouteLocale('common-questions')" class="d-block">الأسئلة الشائعة</router-link>
-                          <a href="#" class="d-block">تواصل معنا</a>
+                          <h6>{{ $t('support') }}</h6>
+                          <router-link :to="getRouteLocale('common-questions')" class="d-block">{{ $t('faq') }}</router-link>
+                          <router-link :to="getRouteLocale('contact-us')" class="d-block">{{ $t('contact-us') }}</router-link>
                       </div>
                   </div>
               </div>
               <div class="col-12 col-md-2   text-center mt-2">
-                  <h6>  حملي التطبيق</h6>
+                  <h6>  {{ $t('download-application') }}</h6>
         <div class="newsletter">
 
           <div>
