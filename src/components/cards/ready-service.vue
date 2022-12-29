@@ -10,7 +10,7 @@
                     {{department}}
                 </p>
             </div>
-            <p>{{ description }}</p>
+            <p class="text-four-lines" style="height:108px" v-html="description"></p>
         </div>
         <div v-if="status=='stopped'" class="box-stoped">
                             <p class="p-1 m-0">
