@@ -321,9 +321,12 @@ export default {
                 this.items = this.fakeItems
                 return
             }
+            if(!this.callList && !this.link)
+            return;
             try {
                 
-                let { data } =this.callList?await this.callList(this.metaInfo):await this.$axios.get(`${this.link}?page=${this.metaInfo.current_page}`)
+                //let { data } =await this.callList(this.metaInfo)
+               let { data } =this.callList?await this.callList(this.metaInfo):await this.$axios.get(`${this.link}?page=${this.metaInfo.current_page}`)
                
                 if (data.success) {
                     this.items = data.data;
