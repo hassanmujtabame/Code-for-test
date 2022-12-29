@@ -1,6 +1,6 @@
 <template>
     <div style="margin-top: 96px;">
-        <d-overlay-simple v-if="loading" />
+        <d-overlays-simple v-if="loading" />
         <div v-else-if="hasError">
             هناك خطأ غير معروف،يرجي تحديث الصفحة
         </div>
