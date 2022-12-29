@@ -147,53 +147,41 @@
                     
                         <!-- date end-->
                         <div class="col-23 col-md-12">
-                            <ValidationProvider 
-                            :name="$t('End-date')" 
-                            vid="end_date" 
-                            rules="required"
-                                v-slot="{ errors }">
+                          
                                 <div class="form-group position-relative">
                                     <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
                                     <date-picker-range 
                                     :valueStart.sync="itemForm.start_date"
                                     :valueEnd.sync="itemForm.end_date"
+                                    :names="{start:$t('Start-date'),end:$t('End-date')}"
+                                :vids="{start:'start_date',end:'end_date'}"
+                                :rules="{start:'required',end:'required'}"
                                    mask="YYYY-MM-DD"
                                     mode="date"
                                     class="form-control"
                                     >
                                     </date-picker-range>
                                 </div>
-                                <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                    {{ errors[0] }}
-                                </div>
-                            </ValidationProvider>
                         </div>
                     </div>
                     <div class=" mb-3 row">
                     
                     <!-- time end-->
                     <div class="col-23 col-md-12">
-                        <ValidationProvider 
-                        :name="$t('End-time')" 
-                        vid="end_time" 
-                        rules="required"
-                            v-slot="{ errors }">
                             <div class="form-group position-relative">
                                 <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
                                 <date-picker-range 
                                 :valueStart.sync="itemForm.start_time"
                                 :valueEnd.sync="itemForm.end_time"
-                               
+                                :names="{start:$t('Start-time'),end:$t('End-time')}"
+                                :vids="{start:'start_time',end:'end_time'}"
+                                :rules="{start:'required',end:'required'}"
                                 mode="time"
                                 mask="HH:mm"
                                 class="form-control"
                                 >
                                 </date-picker-range>
                             </div>
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
-                        </ValidationProvider>
                     </div>
                 </div>
 
