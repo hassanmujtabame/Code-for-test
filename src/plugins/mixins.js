@@ -83,7 +83,11 @@ const mixin = {
                 params: params, // put your route information in
                 query: this.$route.query // put your route information in
               });
-              window.location = r.href
+              //console.log(r)
+              //this.$router.go(r.route)
+              window.location.assign(r.href)
+              window.location.reload()
+              //window.location = '/'+r.href
                },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");
