@@ -7,7 +7,7 @@
         <div v-else class="container">
             <div class="d-flex flex-wrap justify-content-between">
                 <div class="">
-                    <h3>{{  title }}</h3>
+                    <h3>{{  project.title }}</h3>
                 </div>
                 <div>
                     <button style="background-color:#F6F8F9 ;" class="btn">
@@ -22,9 +22,7 @@
                         قدم بلاغ
                     </button>
                 </div>
-
             </div>
-
             <div class="row mt-3">
                 <div class="col-md-6">
                     <iframe style="height: 360px;" class="rounded-3 w-100"
@@ -39,7 +37,7 @@
                         <p class="text-end t-c">
                             تاريخ النشر
                             <span>
-                                : 22\12\2022
+                                : {{project.created_at}}
                             </span>
                         </p>
                         <div class="text-start">
@@ -49,7 +47,7 @@
                             </h5>
                             <p>
                                 <span class="m-c">
-                                    500,000
+                                    {{project.amount_financing_required}}
                                 </span>
                                 <span class="y-c">
                                     ريال سعودي
@@ -65,25 +63,20 @@
                                         <div class="d-flex justify-content-between">
                                             <p>
                                                 <span class="fw-bolder t-c fs-6">
-                                                    من 500 مستثمر
+                                                    من {{project.count_invest}} مستثمر
                                                 </span>
-
                                             </p>
-
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between">
 
                                 <small class="t-c text-start">
                                     <span>
-                                        50%
+                                        {{project.minimum_investment}}%
                                     </span>
                                     من الحد الأدنى المطلوب
-
                                 </small>
                                 <small class="t-c text-start">
                                     <span>
@@ -93,16 +86,13 @@
                                         500.00
                                     </span>
                                     رس
-
                                 </small>
                             </div>
                             <div class="mt-2">
                                 <div>
-
                                     <a class="btn bg-main text-white" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop">
                                         تمويل المشروع
-
                                     </a>
                                     <button class="btn border m-c">
                                         <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
@@ -112,13 +102,12 @@
                                                 stroke="#1FB9B3" stroke-width="1.4" />
                                         </svg>
                                         مشاركة
-
                                     </button>
                                 </div>
                                 <p class="mt-1 t-c">
                                     الحد الأدنى للاستثمار:
                                     <span>
-                                        500 رس
+                                        {{project.minimum_investment}} رس
                                     </span>
                                 </p>
                             </div>
@@ -127,7 +116,6 @@
                         <div class=" row justify-content-between">
                             <div class="col-md-5 d-flex">
                                 <div class="t-c">
-
                                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -143,18 +131,15 @@
                                 </div>
                                 <div class="t-c">
                                     <small>
-
                                         باقي عن غلق الجولة
                                     </small>
-
                                     <p class="text-dark">
-                                        40 يوم
+                                        {{project.rest_days}} يوم
                                     </p>
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex">
                                 <div class="t-c">
-
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -170,27 +155,19 @@
                                             d="M9.08667 10.4939C8.96 10.4939 8.83334 10.4472 8.73334 10.3472L4.02 5.63389C3.82667 5.44056 3.82667 5.12056 4.02 4.92723C4.21333 4.73389 4.53333 4.73389 4.72666 4.92723L9.44 9.64054C9.63334 9.83388 9.63334 10.1539 9.44 10.3472C9.34667 10.4472 9.21334 10.4939 9.08667 10.4939Z"
                                             fill="#979797" />
                                     </svg>
-
                                 </div>
                                 <div class="t-c">
                                     <small>
-
                                         الملكية المطروحة
                                     </small>
-
                                     <p class="text-dark">
-                                        30 %
+                                        {{project.offered_property}} %
                                     </p>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
-
-
                 </div>
-
             </div>
             <div class="row justify-content-between mt-3">
 
@@ -198,27 +175,16 @@
                     <h3>
                         عن المشروع
                     </h3>
-                    <p>
-                        لسبتعد ورشة العمل؛ إحدى الوسائل التي يتمّ من خلالها؛ تبادل الخبرات والأدوار في مجالٍ ما؛ حيثُ
-                        يجتمع أهل الخبرة، والمدربين في حقلٍ مُعيّن، مع العديد من الأشخاص المُهتمين بذاك المجال، والساعين
-                        إلى تطوير أنفسهم؛ من خلال المعلومات المشروحة في الورشة، والتدريبات العملية المُقدَمَة أثناءها.
-                    </p>
+                    <p v-html="project.description"></p>
                     <h3>
                         المشكلة المستهدف حلها
                     </h3>
-                    <p>
-                        لسبتعد ورشة العمل؛ إحدى الوسائل التي يتمّ من خلالها؛ تبادل الخبرات والأدوار في مجالٍ ما؛ حيثُ
-                        يجتمع أهل الخبرة، والمدربين في حقلٍ مُعيّن، مع العديد من الأشخاص المُهتمين بذاك المجال، والساعين
-                        إلى تطوير أنفسهم؛ من خلال المعلومات المشروحة في الورشة، والتدريبات العملية المُقدَمَة أثناءها.
-                    </p>
+                    <p v-html="project.problem_solved">
+                      </p>
                     <h3>
                         الخطة المستقبلية
                     </h3>
-                    <p>
-                        لسبتعد ورشة العمل؛ إحدى الوسائل التي يتمّ من خلالها؛ تبادل الخبرات والأدوار في مجالٍ ما؛ حيثُ
-                        يجتمع أهل الخبرة، والمدربين في حقلٍ مُعيّن، مع العديد من الأشخاص المُهتمين بذاك المجال، والساعين
-                        إلى تطوير أنفسهم؛ من خلال المعلومات المشروحة في الورشة، والتدريبات العملية المُقدَمَة أثناءها.
-                    </p>
+                    <p v-html="project.future_plan"></p>
                     <div>
                         <iframe style="height: 360px;" class="rounded-3 w-100"
                             src="https://www.youtube.com/embed/dGG9pWXS3ZQ" title="مقطع تعريفي عن شركة رياديات"
@@ -229,13 +195,9 @@
 
                     </div>
                     <h3>
-                        الخطة المستقبلية
+                        عن الفريق
                     </h3>
-                    <p>
-                        لسبتعد ورشة العمل؛ إحدى الوسائل التي يتمّ من خلالها؛ تبادل الخبرات والأدوار في مجالٍ ما؛ حيثُ
-                        يجتمع أهل الخبرة، والمدربين في حقلٍ مُعيّن، مع العديد من الأشخاص المُهتمين بذاك المجال، والساعين
-                        إلى تطوير أنفسهم؛ من خلال المعلومات المشروحة في الورشة، والتدريبات العملية المُقدَمَة أثناءها.
-                    </p>
+                    <p v-html="project.description_user"></p>
                 </div>
                 <div class="col-md-4">
                     <div>
