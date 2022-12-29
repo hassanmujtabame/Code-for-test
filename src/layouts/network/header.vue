@@ -107,8 +107,8 @@
                   {{$root.$i18n.locale}}
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#" @click="changeLang('en',$event)">English</a></li>
-                  <li><a class="dropdown-item" href="#" @click="changeLang('ar',$event)">العربية</a></li>
+                  <li><a class="dropdown-item" href="#" v-if="$i18n.locale!='en'" @click="changeLang('en',$event)">English</a></li>
+                  <li><a class="dropdown-item" href="#" v-if="$i18n.locale!='ar'" @click="changeLang('ar',$event)">العربية</a></li>
                 </ul>
               </li>
             </div>
