@@ -386,7 +386,7 @@
                                         </span>
                                     </p>
                                     <p class="p-0 m-0">
-                                        <a href="" class="m-c">
+                                        <a :href="project.investment_contract" class="m-c" download>
 
                                             <svg width="19" height="18" viewBox="0 0 19 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
