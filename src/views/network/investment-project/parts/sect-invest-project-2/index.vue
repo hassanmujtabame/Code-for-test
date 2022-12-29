@@ -34,7 +34,7 @@
                    :date-publish="item.datePublish"
                    :rest-day="item.restDay"
                    :description="item.description"
-                   :ownership="item.ownership"
+                   :offered_property="item.offered_property"
                    :place="item.place"
                    />
                 </router-link>
@@ -96,10 +96,10 @@ export default {
 
     }, 
     items:[
-        {id:1,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
-        {id:2,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
-        {id:3,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
-        {id:4,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',ownership:30,amount:'500,000',restDay:40,investor:500,minimumGoal:20},
+        {id:1,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',offered_property:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
+        {id:2,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',offered_property:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
+        {id:3,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',offered_property:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
+        {id:4,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',offered_property:30,amount:'500,000',restDay:40,investor:500,minimumGoal:20},
     ]
  }),
  methods:{

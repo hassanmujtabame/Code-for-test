@@ -77,7 +77,7 @@
 
                                     الملكية المطروحة 
                                     <p class="text-dark">
-                                        {{ownership}} %
+                                        {{offered_property}} %
                                     </p>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ export default {
   publisher:{
         type:String
     },
-    ownership:{
+    offered_property:{
         type:[String,Number]
     },
     amount:{

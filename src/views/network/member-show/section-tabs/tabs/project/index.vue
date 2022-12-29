@@ -9,7 +9,7 @@
                    :rest-day="item.rest_days"
                    :investor="item.count_invest"
                    :minimum-goal="item.min_cost"
-                   :ownership="item.offered_property"
+                   :offered_property="item.offered_property"
                    :amount="item.cost"
                 />
             </div>
