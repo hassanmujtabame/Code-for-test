@@ -75,5 +75,14 @@
   "download-application": "Download App",
   "Privacy-policy": "Privacy policy",
   "terms-use": "terms of use",
-  "faq": "FAQ"
+  "faq": "FAQ",
+  "publish-service": "Publish service",
+  "execution-during": "execution during",
+  "service-field": "Service field",
+  "tags": "Tags",
+  "keywords": "Keywords",
+  "selectLabel": "Click to select",
+  "selectedLabel": "Selected",
+  "deselectLabel": "Click to deselect",
+  "Tag": "Tag"
 }

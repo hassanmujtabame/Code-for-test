@@ -75,5 +75,13 @@
   "download-application": "حملي التطبيق",
   "Privacy-policy": "سياسة الخصوصية",
   "terms-use": "شروط الاستخدام",
-  "faq": "الأسئلة الشائعة"
+  "faq": "الأسئلة الشائعة",
+  "publish-service": "انشري الخدمة",
+  "execution-during": "مدة التنفيذ",
+  "service-field": "مجال الخدمة",
+  "keywords": "الكلمات المفتاحية",
+  "selectLabel": "أنقر لتحـددها",
+  "selectedLabel": "محـددة",
+  "deselectLabel": "انقر لازالتها",
+  "Tag": "وسم"
 }
