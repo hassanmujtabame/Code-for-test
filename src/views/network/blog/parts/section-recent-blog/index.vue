@@ -7,8 +7,7 @@
                     </h2>
                 </div>
                 <div>
-                    <button class="btn bg-main border text-white" data-bs-toggle="modal"
-                    data-bs-target="#addModal">
+                    <button @click="addBlog" class="btn bg-main border text-white" >
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21.3346 17H10.668C10.1213 17 9.66797 16.5467 9.66797 16C9.66797 15.4533 10.1213 15 10.668 15H21.3346C21.8813 15 22.3346 15.4533 22.3346 16C22.3346 16.5467 21.8813 17 21.3346 17Z" fill="white"/>
                             <path d="M16 22.3327C15.4533 22.3327 15 21.8793 15 21.3327V10.666C15 10.1193 15.4533 9.66602 16 9.66602C16.5467 9.66602 17 10.1193 17 10.666V21.3327C17 21.8793 16.5467 22.3327 16 22.3327Z" fill="white"/>
@@ -51,6 +50,9 @@ export default {
     ]
  }),
  methods:{
+    addBlog(){
+    window.EventBus.fire('add-dialog-open-dialog')
+  },
     async getRecents() {
         this.loading = true;
             try {
