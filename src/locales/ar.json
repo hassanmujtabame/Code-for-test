@@ -34,5 +34,11 @@
   "add_image_exhibition": "أضافة صورة العرض",
   "city": "مدينة",
   "Address": "حدد العنوان",
-  "content": "محتوى"
+  "content": "محتوى",
+  "personal_page": "الصفحة الشخصية",
+  "requisitions-services": "طلبات شراء خدماتك",
+  "jobs": "وظائف",
+  "schedules-your-services": "جدول مواعيد خدماتك",
+  "password-change-request": "طلب تغيير كلمة السر",
+  "logout": "تسجيل الخروج"
 }

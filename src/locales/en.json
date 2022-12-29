@@ -34,5 +34,11 @@
   "add_image_exhibition": "Add image for exhibition",
   "city": "City",
   "Address": "Address",
-  "content": "Content"
+  "content": "Content",
+  "personal_page": "Personal page",
+  "requisitions-services": "Requisitions for your services",
+  "jobs": "Jobs",
+  "schedules-your-services": "Schedule your services",
+  "password-change-request": "Password change request",
+  "logout": "Logout"
 }

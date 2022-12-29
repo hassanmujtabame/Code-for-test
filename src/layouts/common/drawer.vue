@@ -41,7 +41,7 @@
                             fill="#1FB9B3" />
                     </svg>
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale(dashboard)" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">لوحة التحكم </button>
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> التحكم </button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -58,7 +58,7 @@
                     </svg>
 
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('my-profile')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> الصفحة الشخصية</button>
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('personal_page') }}</button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -71,7 +71,8 @@
                             fill="#1FB9B3" />
                     </svg>
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-request-purchase-services')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> طلبات شراء خدماتك</button>
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('requisitions-services') }}
+                            </button>
                     </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -111,7 +112,7 @@
                     </svg>
 
                     <a href="#" class="mx-2 m-c ">
-                        الوظائف
+                        {{$t('jobs')}}
                     </a>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -150,7 +151,7 @@
 
 
                     <a href="#" class="mx-2 m-c ">
-                        جدول مواعيد خدماتك
+                        {{ $t('schedules-your-services') }}
                     </a>
                 </div>
                 <div class="box  mx-2 mt-3 ">
@@ -237,7 +238,7 @@
 
 
                     <a href="#" class="mx-2 m-c ">
-                        طلب تغيير كلمة السر
+                        {{ $t('password-change-request') }}
 
                     </a>
                 </div>
@@ -254,7 +255,7 @@
                             fill="#FF1616" />
                     </svg>
                     <button  @click="logout" class="btn-drawer text-danger">
-                        تسجيل الخروج
+                        {{ $t('logout') }}
                     </button>
                 </div>
             </div>
