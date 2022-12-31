@@ -85,5 +85,7 @@
   "selectedLabel": "Selected",
   "deselectLabel": "Click to deselect",
   "Tag": "Tag",
-  "state-service": "State of service"
+  "state-service": "State of service",
+  "lower-price": "Lower price",
+  "higher-price": "higher price"
 }

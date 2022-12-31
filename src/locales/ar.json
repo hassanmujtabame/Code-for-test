@@ -84,5 +84,7 @@
   "selectedLabel": "محـددة",
   "deselectLabel": "انقر لازالتها",
   "Tag": "وسم",
-  "state-service": "نوع الخدمة"
+  "state-service": "نوع الخدمة",
+  "lower-price": "الاقل سعرا",
+  "higher-price": "أعلى سعر"
 }
