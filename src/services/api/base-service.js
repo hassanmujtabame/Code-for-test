@@ -2,7 +2,8 @@ class BaseApi {
     generateQueryUrl(params){
         let s="";
         Object.keys(params).forEach((key)=>{
-            if(params[key]===null) return;
+            if(typeof(params[key])=='undefined' || params[key] ==null)
+           return;
             if(s!="") s+=`&`
             if( Array.isArray(params[key]))
             params[key].forEach((element,i) => {
