@@ -6,22 +6,27 @@
       :slides-per-view="slidesPerView"
       :space-between="spaceBetween"
              v-bind="$attrs"
+             v-on="$listeners"
             >
-            <SwiperSlide v-for="(item,i) in items"  :key="i" >
-               <slot :item="item">
+            <SwiperSlide v-for="(item,i) in items"  :key="i"
+            >
+             
+               <slot :item="item" >
                </slot>
+
                 </SwiperSlide>
             
                 </swiper>
 </template>
 
 <script>
- import { Navigation, Pagination } from 'swiper'
+ import { Navigation, Pagination,Thumbs,Controller  } from 'swiper'
 
-import { SwiperCore, Swiper, SwiperSlide } from 'swiper-vue2'
+import { SwiperCore, Swiper,SwiperSlide } from 'swiper-vue2'
 // Import Swiper styles
 import 'swiper/swiper-bundle.css'
-SwiperCore.use([Navigation, Pagination])
+SwiperCore.use([Navigation, Pagination,Thumbs,Controller ])
+
 export default {
  name:'d-swiper',
  props:{
@@ -55,7 +60,3 @@ export default {
  }
 }
 </script>
-
-<style>
-
-</style>
