@@ -83,5 +83,6 @@
   "selectLabel": "أنقر لتحـددها",
   "selectedLabel": "محـددة",
   "deselectLabel": "انقر لازالتها",
-  "Tag": "وسم"
+  "Tag": "وسم",
+  "state-service": "نوع الخدمة"
 }

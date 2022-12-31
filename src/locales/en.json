@@ -84,5 +84,6 @@
   "selectLabel": "Click to select",
   "selectedLabel": "Selected",
   "deselectLabel": "Click to deselect",
-  "Tag": "Tag"
+  "Tag": "Tag",
+  "state-service": "State of service"
 }
