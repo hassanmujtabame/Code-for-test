@@ -1,6 +1,8 @@
 import Vue from 'vue'
 
 import DSwiper from '@/components/swiper/index.vue'
+import DSwiper2 from '@/components/swiper/v2/index.vue'
+import DSwiperSlide from '@/components/swiper/v2/slider.vue'
 import DCalendarSimple from '@/components/calendar/index.vue'
 import DCalendar from '@/components/calendar/calendar.vue'
 import DDatePicker from '@/components/calendar/d-date-picker.vue'
@@ -37,6 +39,8 @@ Vue.component('d-overlays-simple', DOverlaySimple)
 Vue.component('d-dialog-large', DDialogLarge)
 Vue.component('d-dialog-simple', DDialogSimple)
 Vue.component('d-swiper', DSwiper)
+Vue.component('d-swiper-2', DSwiper2)
+Vue.component('d-swiper-slide', DSwiperSlide)
 Vue.component('d-calendar', DCalendar)
 Vue.component('d-calendar-simple', DCalendarSimple)
 Vue.component('d-date-picker', DDatePicker)
