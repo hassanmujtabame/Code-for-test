@@ -10,6 +10,10 @@ class ServiceProviderApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/ready-services?${s}`);
     }
+    getReadyServiceItem(id,params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/provider/ready-services/${id}?${s}`);
+    }
     getCategories(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/project-categories?${s}`);
