@@ -3,7 +3,7 @@ import BaseApi from "../../base-service";
 class ServiceProviderApi extends BaseApi{
     //Get all project-categories
 
-    getMyRequestAll(params={}){
+    getAll(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/user/my-services?${s}`);
     }
@@ -12,7 +12,10 @@ class ServiceProviderApi extends BaseApi{
         return window.axios.get(`service-provider/user/my-services/${id}?${s}`);
     }
     
-    
+    getCategories(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/provider/project-categories?${s}`);
+    }
     
 }
 
