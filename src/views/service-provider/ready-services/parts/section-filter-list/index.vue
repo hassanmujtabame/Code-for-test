@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import readyServiceAPIs from '@/services/api/ready-service'
+import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import readyServiceCard from '@/components/cards/ready-service.vue';
 export default {
     name: 'section-filter-list',
