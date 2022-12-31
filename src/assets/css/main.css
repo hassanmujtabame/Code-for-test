@@ -1075,7 +1075,10 @@ padding: 10px;
     height: 100%;
     opacity: 0.4;
   }
+  .redy-services .mySwiper .swiper-slide.swiper-slide-active {
 
+    opacity: 1;
+  }
   .redy-services  .mySwiper .swiper-slide-thumb-active {
     opacity: 1;
   }
