@@ -68,7 +68,9 @@ const mixin = {
                   params: this.$route.params, // put your route information in
                   query: this.$route.query // put your route information in
                 });
-                window.location = r.href
+                //window.location = r.href
+                window.location.assign(r.href)
+                window.location.reload()
                },
             changeLang(lng,evt){
                 if(evt) evt.preventDefault();
