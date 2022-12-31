@@ -73,6 +73,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-show-service-page" */ '../views/service-provider/show-services/page/index.vue') 
     },
     {
+        path: 'service-provider/show-services/:id/progress',
+        meta:{layout:LayoutService},
+        name: 'service-provider-show-service-in-process',
+        component: () => import(/* webpackChunkName: "service-provider-show-service-page-progress" */ '../views/service-provider/show-services/request-page-in-progress/index.vue') 
+    },
+    {
         path: 'service-provider/show-services/:id',
         meta:{layout:LayoutService},
         name: 'service-provider-page-service',
