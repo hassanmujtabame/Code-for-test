@@ -14,7 +14,7 @@
             </template>
 
             <template v-slot="{ item }">
-                <router-link  class="router-link" :to="getRouteLocale('network-blog-show', { id: item.id })">
+                <router-link  class="router-link" :to="getRouteLocale('service-provider-ready-service', { id: item.id })">
                     <readyServiceCard 
                     :image="item.image"
                    :title="item.title"
