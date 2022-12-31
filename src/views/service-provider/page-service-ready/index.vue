@@ -1,6 +1,10 @@
 <template>
     <div style="margin-top:85px">
-        <div class="container">
+        <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+      هناك خطأ غير معروف يرجي تحديث الصفحة
+    </div>
+        <div v-else class="container">
 
             <div class="row justify-content-between">
                 <div class="col-md-6">
@@ -8,7 +12,7 @@
                         <span class="m-c">
                             خدمة جاهزة :
                         </span>
-                        تصميم ازياء
+                        {{ itemPage.title}}
                     </h3>
                 </div>
                 <!-- actions page-->
@@ -19,11 +23,11 @@
                     <div class="col-md-6 mt-5 ">
 
                         <!-- gallary-->
-                        <SectionGallary />
+                        <SectionGallary :item="itemPage" />
                         <!--rate service-->
-                        <SectionRateService />
+                        <SectionRateService :item="itemPage" />
                          <!--share service-->
-                        <SectionShareService />
+                        <SectionShareService :item="itemPage"/>
                        
                     </div>
 
@@ -37,15 +41,7 @@
                                 <h4 class="border-bottom">
                                     وصف الخدمة
                                 </h4>
-                                <p>
-                                    تصميم ازياء مميزة من بداية الاسكتش حتى اتنفيذ
-
-                                    لدي خبرة كبيرة في مجال التصميم و مرفق بعض من اعمالي فقط تواصلي معي واخبريني ماذا
-                                    تفضلين و نبدأ بالتنفيذ فورا
-                                </p>
-                                <p>
-                                    **يمكن زيادة سعر الخدمة اذا اختار العميل نوع اقمشة عالي السعر
-                                </p>
+                                <p v-html="itemPage.description"></p>
                             </div>
                             <div>
                                 <h3 class="border-bottom p-2">
@@ -66,7 +62,7 @@
                                             المشاهدات:
                                         </span>
                                         <span class="m-c">
-                                            250
+                                            {{itemPage.views??'N/A'}}
                                         </span>
 
                                     </div>
@@ -82,7 +78,7 @@
                                             التقيمات:
                                         </span>
                                         <span class="m-c">
-                                            4.5
+                                            {{ itemPage.rate??'N/A'}}
                                         </span>
 
                                     </div>
@@ -100,7 +96,7 @@
                                             المشترين:
                                         </span>
                                         <span class="m-c">
-                                            1000
+                                            {{itemPage.n_buyers??'N/A'}}
                                         </span>
                                     </div>
                                     <div class="col-6 p-2">
@@ -123,7 +119,7 @@
                                             سعر الخدمة
                                         </span>
                                         <span class="m-c">
-                                            2500 ريال
+                                            {{itemPage.price}} ريال
                                         </span>
 
                                     </div>
@@ -150,7 +146,7 @@
                                             التصنيف:
                                         </span>
                                         <span class="m-c">
-                                            اوفلاين
+                                            {{itemPage.state=='offline'?'اوفلاين':'اونلان'}}
                                         </span>
 
                                     </div>
@@ -171,7 +167,7 @@
                                             مدة التنفيذ :
                                         </span>
                                         <span class="m-c">
-                                            7ايام
+                                            {{itemPage.execution_period??'N/A'}}ايام
                                         </span>
 
                                     </div>
@@ -205,7 +201,7 @@
                                             المجال:
                                         </span>
                                         <span class="m-c">
-                                            افراح
+                                            {{itemPage.categories.length?itemPage.categories.map(x=>x.name).join(','):'N/A'}}
                                         </span>
 
                                     </div>
@@ -223,7 +219,7 @@
                                             العنوان :
                                         </span>
                                         <span class="m-c">
-                                            الدمام
+                                            {{itemPage.city??'N/A'}}
                                         </span>
 
                                     </div>
@@ -256,7 +252,7 @@
                                             مكان التنفيذ أو التسليم :
                                         </span>
                                         <span class="m-c">
-                                            ما يفضله العميل
+                                         {{itemPage.execution_place??'N/A'}}
                                         </span>
 
                                     </div>
@@ -267,24 +263,10 @@
                                     الكلمات المفتاحية
                                 </h3>
                                 <div class="d-flex flex-wrap justify-content-between text-white word-intial pt-3">
-                                    <p>
-                                        كوشة
+                                    <p v-for="(keyw,i) in itemPage.keywords.split(',')" :key="i">
+                                        {{keyw}}
                                     </p>
-                                    <p>
-                                        كوشة
-                                    </p>
-                                    <p>
-                                        كوشة
-                                    </p>
-                                    <p>
-                                        كوشة
-                                    </p>
-                                    <p>
-                                        كوشة
-                                    </p>
-                                    <p>
-                                        كوشة
-                                    </p>
+                                    
                                 </div>
                             </div>
                             <div class="text-center">
@@ -292,7 +274,7 @@
                                     تاريخ النشر:
                                 </span>
                                 <span class="m-c fw-bolder">
-                                    22/12/2022
+                                    {{itemPage.start_date??'N/A'}}
                                 </span>
                             </div>
                         </div>
@@ -318,6 +300,7 @@
 </template>
 
 <script>
+import readyServiceAPIs from '@/services/api/ready-service'
 import SectionContinueLearning from '../home/parts/section-continue-learning/index.vue'
 import SectionGallary from './section-gallary/index.vue'
 import SectionRateService from './section-rate-service/index.vue'
@@ -339,9 +322,47 @@ export default {
         SectionShareService
     },
     data:()=>({
+        loading:true,
+        hasError:false,
+        itemPage:{},
         isOwner:false,
-    })
+    }),
+    methods:{
+    openEditDialog(){
+      this.fireOpenDialog('update-blog',this.itemPage)
+    },
+    openDeleteDialog(){
+      this.fireOpenDialog('delete-blog',this.itemPage)
+    },
+    async initializing() {
+      this.loading = true;
+      this.hasError = false;
+            try {
+                let { data } = await readyServiceAPIs.getItem(this.$route.params.id)
+                if (data.success) {
+                   this.itemPage = data.data;
+                   this.isOwner = this.itemPage.user_id==this.user.id
+                   try {
+                  await readyServiceAPIs.setAsView(this.$route.params.id)
+                } catch (error) {
+                    console.log('error', error)
+                    console.log('error response', error.response)
+                }
+                }else{
+                  this.hasError = true;
+                }
+            } catch (error) {
+                console.log('error', error)
+                console.log('error response', error.response)
+                this.hasError = true;
+              }
 
+            this.loading = false;
+        }
+  },
+  mounted(){
+    this.initializing()
+  }
 }
 </script>
 

@@ -73,7 +73,13 @@
 
 <script>
 export default {
- name:'section-share-service'
+ name:'section-share-service',
+ props:{
+    item:{
+        type:[Object,Array],
+        require:true
+    }
+ }
 }
 </script>
 

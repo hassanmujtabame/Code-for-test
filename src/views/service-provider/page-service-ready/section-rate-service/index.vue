@@ -12,102 +12,10 @@
 
             </div>
             <div>
-                <div class="comment px-4 py-2 border-bottom  ">
-
-
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h1 class="m-0 m-c fw-bolder d-flex align-items-center gap-2">
-                            <div>
-                                <img class="rounded-circle"
-                                    src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" width="50"
-                                    height="50">
-                            </div>
-                            ليلى احمد
-                        </h1>
-                        <p class="m-0">
-
-                            <span>
-                                <i class="fa-solid fa-star "></i>
-                                <i class="fa-solid fa-star active"></i>
-                                <i class="fa-solid fa-star active"></i>
-                                <i class="fa-solid fa-star active"></i>
-                                <i class="fa-solid fa-star active"></i>
-
-
-                            </span>
-                        </p>
-
-                    </div>
-
-                    <small class="s-c ">
-                        دكتور مميز لقد أستفدت منه الكثير
-                    </small>
-                </div>
-                <div class="comment px-4 py-2 border-bottom  ">
-
-
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h1 class="m-0 m-c fw-bolder d-flex align-items-center gap-2">
-                            <div>
-                                <img class="rounded-circle"
-                                    src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" width="50"
-                                    height="50">
-                            </div>
-                            ليلى احمد
-                        </h1>
-                        <p class="m-0">
-
-                            <span>
-                                <i class="fa-solid fa-star "></i>
-                                <i class="fa-solid fa-star active"></i>
-                                <i class="fa-solid fa-star active"></i>
-                                <i class="fa-solid fa-star active"></i>
-                                <i class="fa-solid fa-star active"></i>
-
-
-                            </span>
-                        </p>
-
-                    </div>
-
-                    <small class="s-c ">
-                        دكتور مميز لقد أستفدت منه الكثير
-                    </small>
-                </div>
-                <div class="comment px-4 py-2   ">
-
-
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h1 class="m-0 m-c fw-bolder d-flex align-items-center gap-2">
-                            <div>
-                                <img class="rounded-circle"
-                                    src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" width="50"
-                                    height="50">
-                            </div>
-                            ليلى احمد
-                        </h1>
-                        <p class="m-0">
-
-                            <span>
-                                <i class="fa-solid fa-star "></i>
-                                <i class="fa-solid fa-star active"></i>
-                                <i class="fa-solid fa-star active"></i>
-                                <i class="fa-solid fa-star active"></i>
-                                <i class="fa-solid fa-star active"></i>
-
-
-                            </span>
-                        </p>
-
-                    </div>
-
-                    <small class="s-c ">
-                        دكتور مميز لقد أستفدت منه الكثير
-                    </small>
-                </div>
+                <rateCard v-for="(rateItem,i) in rates" :key="i"
+                :item="rateItem" 
+                :showBorder="(rates.length-1)>i"
+                />
             </div>
 
         </div>
@@ -115,8 +23,35 @@
 </template>
 
 <script>
+let itemTest={
+            note:'دكتور مميز لقد أستفدت منه الكثير',
+            rate:3,
+            user_info:{
+                id:148,
+                image:'/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg',
+                name:'ليلى احمد'
+            }
+        }
+let ratesTest=[
+            itemTest,
+            itemTest,
+            itemTest,
+        ]
+import rateCard from './rate-card.vue';
 export default {
-    name: 'section-rate-service'
+    name: 'section-rate-service',
+    components:{
+        rateCard
+    },
+     props:{
+    item:{
+        type:[Object,Array],
+        require:true
+    }
+    },
+    data:(vm)=>({
+         rates:vm.item.rates??ratesTest
+    })
 }
 </script>
 

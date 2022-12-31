@@ -57,8 +57,8 @@
    data:(vm)=>({
       thumbsSwiper: null,
       controlledSwiper:null,
-      items:itemsTest
-      //items:vm.item.medias??itemsTest
+      //items:itemsTest
+      items:vm.item.medias??itemsTest
    }),
       methods: {
        
