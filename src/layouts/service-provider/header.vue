@@ -8,10 +8,13 @@
             </li>
             <li class="nav-item px-2">
            
-              <router-link :to="getRouteLocale('service-provider-show-services')" class="nav-link">{{ $t('show-your-services') }} </router-link>
+              <router-link :to="getRouteLocale('service-provider-ready-services')" class="nav-link">{{ $t('services') }} </router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('service-provider-ready-services')" class="nav-link">{{ $t('your-ready-service') }}</router-link>
+              <router-link :to="getRouteLocale('service-provider-show-services')" class="nav-link">{{ $t('requests') }}</router-link>
+            </li>
+            <li class="nav-item px-2">
+              <router-link :to="getRouteLocale('service-provider-request-purchase-services')" class="nav-link">{{ $t('my-purshares') }}</router-link>
             </li>
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
