@@ -18,7 +18,7 @@
                                           <path d="M10.6801 78.8002C9.72006 78.8002 8.76006 78.3202 8.20006 77.4802C7.28006 76.1202 7.64006 74.2402 9.04006 73.3202L28.7601 60.0802C33.0801 57.1602 39.0401 57.5202 42.9601 60.8402L44.2801 62.0002C46.2801 63.7202 49.6801 63.7202 51.6401 62.0002L68.2801 47.7202C72.5201 44.0802 79.2001 44.0802 83.4801 47.7202L90.0001 53.3202C91.2401 54.4002 91.4001 56.2802 90.3201 57.5602C89.2401 58.8002 87.3601 58.9602 86.0801 57.8802L79.5601 52.2802C77.5601 50.5602 74.1601 50.5602 72.1601 52.2802L55.5201 66.5602C51.2801 70.2002 44.6001 70.2002 40.3201 66.5602L39.0001 65.4002C37.1601 63.8402 34.1201 63.6802 32.0801 65.0802L12.3601 78.3202C11.8401 78.6402 11.2401 78.8002 10.6801 78.8002Z" fill="#1FB9B3"/>
                                           </svg>
                                           
-                                        <p class="m-c">أضافة صورة العرض </p>
+                                        <p class="m-c">أضافة صورة</p>
                                     </div>
                                     <div class="add-img-selected">
     
@@ -104,14 +104,14 @@
                           
                         <div class="mb-3 position-relative">
                         <ValidationProvider 
-                        :name="$t('category')" 
-                        vid="category_id" 
+                        :name="$t('state-service')" 
+                        vid="state" 
                         rules="required"
                          v-slot="{ errors }"
                          >
                          <div class="form-group position-relative">
                         <select v-model="itemForm.category_id"  class="form-control">
-                            <option disabled value="" class="t-c"> تصنيفات المعرض</option>
+                            <option disabled value="" class="t-c"> {{$t('state-service')}} </option>
                             <option :key="i" v-for="(option,i) in categories" :value="option.id">
                                 {{ option.name }}
                             </option>
@@ -218,7 +218,10 @@ data:(vm)=>{
 return{
 group:'add-ready-service-dialog',
 showDialog:false,
-categories:[],
+categories:[
+    {id:'online',name:'اونلاين'},
+    {id:'offline',name:'اوفلاين'},
+],
 tags:[],
 
 idImage: `image-selected-${vm.generateRandomString(8)}`,
@@ -232,6 +235,7 @@ itemForm:{
     field_id:'',
     tag:'',
     category_id:'',
+    state:'',
     description:''
 }
 }},
@@ -306,7 +310,7 @@ async loadBlogCategories(){
     try {
         let {data} =  await ServiceProviderAPIs.getCategories()
         if(data.success){
-            this.categories = data.data
+            this.fields = data.data
         }
     } catch (error) {
          console.log('error',error)
