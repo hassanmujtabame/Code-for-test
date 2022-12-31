@@ -2,7 +2,7 @@
   <d-filter-list :call-list="loadList">
 
 <template v-slot="{item}">
-  <router-link :to="getRouteLocale('service-provider-page-service',{id:item.id})">
+  <router-link class="router-link" :to="getRouteLocale('service-provider-show-service-page',{id:item.id})">
     <showRequest 
         :title="item.title"
         :description="item.description"
