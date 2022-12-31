@@ -1,5 +1,5 @@
 
-import BaseApi from "./base-service";
+import BaseApi from "../../base-service";
 class ServiceProviderApi extends BaseApi{
     //Get all project-categories
 
