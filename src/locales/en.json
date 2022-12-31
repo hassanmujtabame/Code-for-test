@@ -87,5 +87,8 @@
   "Tag": "Tag",
   "state-service": "State of service",
   "lower-price": "Lower price",
-  "higher-price": "higher price"
+  "higher-price": "higher price",
+  "services": "Services",
+  "requests": "Requests",
+  "my-purshares": "My purshares"
 }

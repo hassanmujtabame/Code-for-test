@@ -86,5 +86,8 @@
   "Tag": "وسم",
   "state-service": "نوع الخدمة",
   "lower-price": "الاقل سعرا",
-  "higher-price": "أعلى سعر"
+  "higher-price": "أعلى سعر",
+  "services": "خدمات",
+  "requests": "الطلبات",
+  "my-purshares": "مشترياتي"
 }
