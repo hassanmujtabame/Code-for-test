@@ -25,7 +25,7 @@
 </div>
 
 <small class="s-c ">
-    {{ item.description}}
+    {{ item.note}}
 </small>
 </div>
 </template>
