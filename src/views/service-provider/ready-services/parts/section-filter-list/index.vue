@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import serviceProviderAPIs from '@/services/api/service-provider.js'
+import readyServiceAPIs from '@/services/api/ready-service'
 import readyServiceCard from '@/components/cards/ready-service.vue';
 export default {
     name: 'section-filter-list',
@@ -63,11 +63,11 @@ export default {
                 page: metaInfo.current_page,
                 category_id: this.category_id
             }
-            return await serviceProviderAPIs.getReadyServicesAll(params)
+            return await readyServiceAPIs.getAll(params)
         },
         async getCategories() {
             try {
-                let { data } = await serviceProviderAPIs.getCategories()
+                let { data } = await readyServiceAPIs.getCategories()
                 if (data.success) {
 
                     let categories = data.data;
