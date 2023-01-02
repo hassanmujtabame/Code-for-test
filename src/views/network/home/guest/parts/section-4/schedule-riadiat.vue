@@ -88,8 +88,3 @@ export default {
 }
 </script>
 
-<style >
-.schedule-guest .vc-weeks{
-margin-top: 20px;
-}
-</style>
