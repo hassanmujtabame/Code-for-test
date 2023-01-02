@@ -1,9 +1,9 @@
 <template>
-    <div class="mt-5">
+    <div class="mt-5 p-4" style="    background: #80808012;">
         <h2 class="text-center text-bold"> أهداف شبكة رياديات</h2>
         <div class="row min-riadiat network">
             <div class="col-md-3 mt-2 ">
-                <div class="box border d-flex align-items-center rounded-2">
+                <div class="network-goal-item box border d-flex align-items-center rounded-2">
                     <div>
                         <img src="/assets/img/a1.svg" alt="">
                     </div>
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-md-3 mt-2 ">
-                <div class="box border d-flex align-items-center rounded-2">
+                <div class="network-goal-item box border d-flex align-items-center rounded-2">
 
                     <div>
                         <img src="/assets/img/a2.svg" alt="">
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="col-md-3 mt-2 ">
-                <div class="box border d-flex align-items-center rounded-2">
+                <div class="network-goal-item box border d-flex align-items-center rounded-2">
 
                     <div>
                         <img src="/assets/img/a3.png" alt="">
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="col-md-3 mt-2 ">
-                <div class="box border d-flex align-items-center rounded-2">
+                <div class="network-goal-item box border d-flex align-items-center rounded-2">
                     <div>
                         <img src="/assets/img/a4.png" alt="">
                     </div>
@@ -52,6 +52,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.network-goal-item[data-v-7e87801c] {
+    box-shadow: 0px 0px 6px 0.1px #1fb9b369;
+}
+.network-goal-item:hover{
+    box-shadow: 0px 0px 10px 2px var( --m-color);
+}
 </style>
