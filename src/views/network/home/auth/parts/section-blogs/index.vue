@@ -1,5 +1,5 @@
 <template>
-    <div style="overflow: hidden;" class="sec-nighn mt-5">
+    <div style="overflow: hidden;" class="sec-nighn my-5">
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center container my-2">
