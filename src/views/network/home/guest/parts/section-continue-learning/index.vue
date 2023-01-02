@@ -1,5 +1,5 @@
 <template>
-  <div class="main-top py-2 px-5 position-relative mt-5">
+  <div class="main-top py-2 px-5 position-relative">
         <div class="row align-items-center text-center m-auto">
             <div class="col-md-6 mt-2">
                 <div class="img-screen">
