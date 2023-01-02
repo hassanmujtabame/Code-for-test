@@ -4,7 +4,7 @@
         
                 <div class="row align-items-center p-0 position-relative ">
                     <div class="col-12 col-md-6 p-4">
-                        <div style="top: 17px;left: 53%;" class="position-absolute form-loging" >
+                        <div :style="{top: '17px',left: $i18n.locale=='ar'?'auto':'0',right: $i18n.locale!=='ar'?'auto':'0'}" class="position-absolute form-loging" >
                             <h6>
                                 ليس لديك حساب ؟   
                                 <router-link :to="getRouteLocale('register')" class="m-c">
