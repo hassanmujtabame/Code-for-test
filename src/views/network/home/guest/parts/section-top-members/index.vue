@@ -6,7 +6,7 @@
               >
                 <h1>أعضاء مميزات    </h1>
                 <div>
-                  <button class="more">المزيد</button>
+                  <!---->
                 </div>
               </div>
               
