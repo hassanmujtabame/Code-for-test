@@ -7,10 +7,10 @@
                 </div>
                 <div class="col-md-6">
                     <div>
-                        <h3>
+                        <h3 class="text-bold">
                             أنضم اليهم الان
                         </h3>
-                        <div style="color: #979797;">
+                        <div class="mt-4" style="color: #979797;">
                             أحصلي على بطاقة العضوية من رياديات و أستمتعي بخدمات مميزة :
                             <ul >
                                 <li >
