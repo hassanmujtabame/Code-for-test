@@ -73,8 +73,8 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="position-relative">
-                                <div style="margin: -51px 0;" id="calendarContainer" class=" e "></div>
+                            <div class="schedule-guest position-relative">
+                                <d-calendar  style="margin: -51px 0;width:350px" />
                             </div>
                         </div>
                     </div>
@@ -88,6 +88,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style >
+.schedule-guest .vc-weeks{
+margin-top: 20px;
+}
 </style>
