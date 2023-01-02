@@ -113,8 +113,15 @@
         logout(){
           window.store.commit('auth/CLEAR_TOKEN') ;
           window.store.commit('auth/CLEAR_USER');
-          this.$router.push('/login')
-  
+          //this.$router.push(this.getRouteLocate('login'))
+          let r=this.$router.resolve({
+                  name: 'login', // put your route information in
+                  params: {lang:this.$i18n.locale}, // put your route information in
+               
+                });
+                //window.location = r.href
+                window.location.assign(r.href)
+                window.location.reload()
         }
         
       },
