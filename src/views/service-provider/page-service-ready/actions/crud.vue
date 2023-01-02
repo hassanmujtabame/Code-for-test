@@ -17,7 +17,7 @@
                         </button>
                     </div>
                     <div>
-                        <button style="height: 40px; background-color:#FF1616 ;"
+                        <button @click="openDeleteDialog" style="height: 40px; background-color:#FF1616 ;"
                             class="btn-main px-3 w-100 border-0 rounded-2" data-bs-toggle="modal"
                             href="#exampleModalToggle7" role="button">
                            <img src="/assets/svg/trash-outline.svg" />
@@ -33,7 +33,16 @@
 
 <script>
 export default {
- name:'action-crud'
+ name:'action-crud',
+ props:['itemPage'],
+ methods:{
+    openEditDialog(){
+      this.fireOpenDialog('update-ready-service',this.itemPage)
+    },
+    openDeleteDialog(){
+      this.fireOpenDialog('delete-ready-service',this.itemPage)
+    },
+ }
 }
 </script>
 

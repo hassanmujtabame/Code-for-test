@@ -16,7 +16,7 @@
                     </h3>
                 </div>
                 <!-- actions page-->
-               <ActionCrud v-if="isOwner" />
+               <ActionCrud :itemPage="itemPage" v-if="isOwner" />
                <ActionForVisiter v-else />
                <!-- #actions page-->
                 <div class="row redy-services ">
@@ -294,8 +294,11 @@
         </div>
 
   <SectionContinueLearning />
+  <portal to="body">
   <DialogBooking />
   <DialogRequestService />
+  <DialogDeleteService />
+</portal>
     </div>
 </template>
 
@@ -309,10 +312,12 @@ import ActionCrud from './actions/crud.vue'
 import ActionForVisiter from './actions/visiter.vue'
 import DialogBooking from './dialog/booking.vue'
 import DialogRequestService from './dialog/request-service/index.vue'
+import DialogDeleteService from '@/layouts/service-provider/dialogs/del-service.vue'
 export default {
     name:'page-service-ready',
     components:{
         DialogBooking,
+        DialogDeleteService,
         DialogRequestService,
         ActionCrud,
         ActionForVisiter,
@@ -328,12 +333,7 @@ export default {
         isOwner:false,
     }),
     methods:{
-    openEditDialog(){
-      this.fireOpenDialog('update-blog',this.itemPage)
-    },
-    openDeleteDialog(){
-      this.fireOpenDialog('delete-blog',this.itemPage)
-    },
+
     async initializing() {
       this.loading = true;
       this.hasError = false;
