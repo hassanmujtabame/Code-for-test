@@ -20,6 +20,15 @@ class ServiceProviderApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/project-categories?${s}`);
     }
+    add(data){
+        return window.axios.post(`network/provider/ready-services`,data);  
+    }
+    update(id,data){
+        return window.axios.put(`network/provider/ready-services/${id}`,data);  
+    }
+    delete(id){
+        return window.axios.delete(`network/provider/ready-services/${id}`);  
+    }
     
 }
 
