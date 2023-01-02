@@ -6,16 +6,16 @@
                         <h1 class="fs-1 text-white">
                             شبكة رياديات 
                                                 </h1>
-                        <p class="text-white">
-                            طموحة و تسعين لتحقيق حلمك و شغفك ؟
+                        <p class="text-white">طموحة و تسعين لتحقيق حلمك و شغفك ؟
+                        <br/>
                             شبكة رياديات بتساعدك في مشروعك من الالف الى الياء
                          </p>
-                         <div class="btn-main-style">
+                         <div class="btn-main-style mt-5">
                           <router-link v-if="user" :to="getRouteLocale('network-dashboard')" class="btn-custmer shadow mt-2">الصفة الرئيسية</router-link>
 
                             <template v-else>
 
-                            
+
                           <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2">{{ $t('join-us') }}</router-link>
                           <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">{{ $t('login-female') }}</router-link>
                         </template> 
