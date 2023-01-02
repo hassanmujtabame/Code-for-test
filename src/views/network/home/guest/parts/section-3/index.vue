@@ -4,62 +4,28 @@
                 من هم أعضاء الشبكة
             </h2>
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
+                <div v-for="(item,i) in items" :key="i" class="col-12 col-md-6 col-lg-3 mt-3">
                     <div class="box">
-                        <div class="position-relative">
-                            <img src="/assets/img/network289322.png" alt="">
+                        <div class="position-relative text-center">
+                            <d-hover v-slot="{hover}">
+                            <img :src="hover?'/assets/img/network289322-colored.png':'/assets/img/network289322.png'" alt=""
+                             :style="hover?{transform: 'rotate(45deg)'}:{}"
+                            />
+                            
                             <div  class="position-absolute bg-white img-person-network ">
-                            <p class="m-c">
-                                رائدة اعمال 
+                            <p :class="{'m-c':!hover}">
+                               {{ item.name }}
                             </p>
-
+                       
                             </div>
+                        </d-hover>
                         </div>
                     </div>
                     
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                    <div class="box">
-                        <div class="position-relative">
-                            <img src="/assets/img/network289322.png" alt="">
-                            <div  class="position-absolute bg-white img-person-network ">
-                                <p class="m-c">
-                                    مؤثرون 
-                                                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                    <div class="box">
-                        <div class="position-relative">
-                            <img src="/assets/img/network289322.png" alt="">
-                            <div  class="position-absolute bg-white img-person-network ">
-                                <p class="m-c">
-                                    مستثمرون
-                                                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mt-3">
-                    <div class="box">
-                        <div class="position-relative">
-                            <img src="/assets/img/network289322.png" alt="">
-                            <div  class="position-absolute bg-white img-person-network ">
-                                <p class="m-c">
-                                    معلنين
-                                                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-
+             
+              
+              
             </div>
 
         </div>
@@ -67,7 +33,15 @@
 
 <script>
 export default {
-name:'section-3'
+name:'section-3',
+data:()=>({
+    items:[
+        {name:'رائدة اعمال '},
+        {name:'مؤثرون'},
+        {name:'مستثمرون'},
+        {name:'معلنين'},
+    ]
+})
 }
 </script>
 
