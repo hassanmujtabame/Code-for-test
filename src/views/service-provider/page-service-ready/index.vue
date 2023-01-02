@@ -298,6 +298,7 @@
   <DialogBooking />
   <DialogRequestService />
   <DialogDeleteService />
+  <DialogUpdateService />
 </portal>
     </div>
 </template>
@@ -313,12 +314,14 @@ import ActionForVisiter from './actions/visiter.vue'
 import DialogBooking from './dialog/booking.vue'
 import DialogRequestService from './dialog/request-service/index.vue'
 import DialogDeleteService from '@/layouts/service-provider/dialogs/del-service.vue'
+import DialogUpdateService from '@/layouts/service-provider/dialogs/update-service/index.vue'
 export default {
     name:'page-service-ready',
     components:{
         DialogBooking,
         DialogDeleteService,
         DialogRequestService,
+        DialogUpdateService,
         ActionCrud,
         ActionForVisiter,
         SectionContinueLearning,

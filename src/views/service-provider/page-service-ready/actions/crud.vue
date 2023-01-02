@@ -1,7 +1,7 @@
 <template>
    <div class="col-md-6 d-flex gap-2 justify-content-end">
                     <div>
-                        <button style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"
+                        <button @click="openEditDialog" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"
                             data-bs-toggle="modal" href="#addModal" role="button">
                             <img src="/assets/svg/update.svg" />
 
