@@ -16,8 +16,8 @@
                             <template v-else>
 
                             
-                          <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2">انضمي الان</router-link>
-                          <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</router-link>
+                          <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2">{{ $t('join-us') }}</router-link>
+                          <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">{{ $t('login-female') }}</router-link>
                         </template> 
                         </div>
                     </div>

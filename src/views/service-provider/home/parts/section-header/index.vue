@@ -10,8 +10,8 @@
                             منصة تجمع أهم وألمع  رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد
                                                 </p>
                                                 <div class="btn-main-style">
-                                                    <router-link  :to="getRouteLocale('service-provider-subscribe')" class="btn-custmer shadow mt-2"> انضمي إلينا</router-link>
-                                                    <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</router-link>
+                                                    <router-link  :to="getRouteLocale('service-provider-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
+                                                    <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}</router-link>
                                                 </div>
                     </div>
                     <div class="col-md-6 m-auto">
