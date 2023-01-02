@@ -10,7 +10,8 @@
           </div>
           <div class="row order mt-3">
             <div v-for="(item,i) in items" :key="i" class="col-md-4">
-               
+              <router-link  class="router-link" :to="getRouteLocale('service-provider-ready-service', { id: item.id })">
+
                     <CardService 
                     :image="item.image"
                     :description="item.description"
@@ -19,6 +20,7 @@
                     :price="item.price"
                     :name="item.user_name"
                     />
+                    </router-link>
             </div>
           </div>
 
