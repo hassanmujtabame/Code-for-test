@@ -1549,3 +1549,6 @@ position: relative;
     z-index: 5;
     opacity: 0;
 }
+.text-bold {
+    font-weight: 900;
+}
