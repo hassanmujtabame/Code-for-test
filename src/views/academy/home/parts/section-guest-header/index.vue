@@ -7,8 +7,8 @@
                         <p class="text-white">
                             طوري مهاراتك و أنطلقي في عالم ريادة الاعمال والعمل الحر , أكاديمية رياديات ستكون معكِ خطوة بخطوة                                                </p>
                             <div class="btn-main-style">
-                              <router-link :to="getRouteLocale('academy-subscribe')" class="btn-custmer shadow mt-2">انضمي إلينا </router-link>
-                              <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> سجلي دخولك </router-link>
+                              <router-link :to="getRouteLocale('academy-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
+                              <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
                              </div>
                     </div>
                     <div class="col-md-6 m-auto">

@@ -10,18 +10,13 @@
                             أول خطوة لتحقيقه أشتراكك في حاضنة رياديات 
                         </p>                           
                             <div class="btn-main-style">
-                              <a href="subscribe.html" class="btn-custmer shadow mt-2">انضمي الان</a>
-                              <a class="btn-custmer-w bg-transparent text-white mt-2">سجلي دخولك</a>
+                              <a href="subscribe.html" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
+                              <a class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }} </a>
                           </div>
                     </div>
                     <div class="col-md-6 m-auto">
                         <div style="overflow: inherit;" class="img-cons m-auto ">
-                            <img style="  
-                            position: absolute;
-                            
-                            height: 341px;
-                            top: 7px;
-                            left: -111px;" src="/assets/img/1664204864736 1.png" alt="" >
+                            <img style="position: absolute;height: 341px;top: 7px;left: -111px;" src="/assets/img/1664204864736 1.png" alt="" >
                         </div>
 
                     </div>
