@@ -255,7 +255,7 @@
 <script>
 import PlusCircleOutlineIcon from '@/components/icon-svg/plus-circle-outline.vue'
 import TrashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
-import ServiceProviderAPIs from '@/services/api/service-provider'
+import ServiceProviderAPIs from '@/services/api/service-provider/provider/ready-service'
 export default {
     name:'add-ready-service-dialog',
     components:{
@@ -274,7 +274,7 @@ return{
         showImage:false,
         idImage: `image-selected-${vm.generateRandomString(8)}`,
         url:'/assets/svg/empty-image.svg',
-        file:null,
+        attachment:null,
         imageFile:null,
         gallaries:[],
         gallariesUrl:[],
@@ -299,7 +299,7 @@ let valid = await this.$refs.form.validate();
         formData.append('images[]', this.gallaries[i]);
 }
 for ( i = 0; i < this.itemForm.category_id.length; i++) {
-        formData.append('categories[]', this.itemForm.category_id[i]);
+        formData.append('categories[]', this.itemForm.category_id[i].id);
 }
     try {
         let { data } = await ServiceProviderAPIs.add(formData)
@@ -362,11 +362,11 @@ uploadImage(evt){
 uploadFile(evt){
     console.log('uploadFile')
     if (!evt.target.files && !evt.target.files[0]) {
-            this.file = null;
+            this.attachment = null;
             
             return;
         }
-        this.file = evt.target.files[0];
+        this.attachment = evt.target.files[0];
 },
 async loadCategories(){
     try {
@@ -391,7 +391,7 @@ openDialog(){
 this.gallaries = [];
 this.gallariesUrl = []
     this.imageFile = null;
-    this.file = null;
+    this.attachment = null;
 
     this.showImage = false
     this.showDialog = true;
