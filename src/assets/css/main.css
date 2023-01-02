@@ -1537,3 +1537,6 @@ position: relative;
 .rotateY-180{
     transform:rotateY(180deg)
 }
+.multiselect__tag>span{
+ color:white
+}
