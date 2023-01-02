@@ -110,16 +110,28 @@
                         <div class="mb-3">
                             <ValidationProvider
                                     :name="$t('execution-during')"
-                                 vid="during"
+                                 vid="execution_period"
                                  rules="required"
                                     v-slot="{errors}">
-                            <input type="text" v-model="itemForm.during" class="form-control" :placeholder="$t('execution-during')">
+                            <input type="text" v-model="itemForm.execution_period" class="form-control" :placeholder="$t('execution-during')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
                                 </ValidationProvider>
                         </div>
-                          
+                        <!-- execution place-->
+                        <div class="mb-3">
+                            <ValidationProvider
+                                    :name="$t('execution-place')"
+                                 vid="execution_place"
+                                 rules="required"
+                                    v-slot="{errors}">
+                            <input type="text" v-model="itemForm.execution_place" class="form-control" :placeholder="$t('execution-place')">
+                            <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                {{errors[0]}}
+                                </div>
+                                </ValidationProvider>
+                        </div>  
                         <div class="mb-3 position-relative">
                         <ValidationProvider 
                         :name="$t('state-service')" 
@@ -292,6 +304,8 @@ let valid = await this.$refs.form.validate();
  formData.append('desc',this.itemForm.description);
  formData.append('price',this.itemForm.price);
  formData.append('state',this.itemForm.state);
+ formData.append('execution_period',this.itemForm.execution_period)
+ formData.append('execution_place',this.itemForm.execution_place)
  formData.append('file',this.attachment);
  formData.append('keywords',this.itemForm.keywords);
  formData.append('images[]', this.imageFile); // main image as first in gallary
@@ -382,7 +396,8 @@ openDialog(){
     this.itemForm =Object.assign({},{
     title:'',
     price:'',
-    during:'',
+    execution_period:'',
+    execution_place:'',
     keywords:'',
     category_id:[],
     state:'',
