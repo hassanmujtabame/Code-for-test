@@ -194,7 +194,7 @@
 
                                     </label>
                                 </div>
-                                <div class="col-12 m-2">
+                                <div class="col-12 m-2 text-end">
                                     <button class="btn btn-main  " type="submit" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal" role="button"> {{ $t('Register-now') }} </button>
                                 </div>
