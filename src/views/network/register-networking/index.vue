@@ -1,7 +1,7 @@
 <template>
     <div class="mt-5">
         <div class="main-top p-5 position-relative">
-            <h1 class="text-white p-5 fs-1"> أنضم الى عائلة شركائنا </h1>
+            <h1 class="text-white p-5 fs-1"> {{ $t('Join-our-family-of-partners') }}</h1>
             <a id="btn-register" href="#register-form" class="mx-5">
                 <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -86,54 +86,48 @@
                     <div class="row align-items-center ">
                         <div class="col-md-6">
                             <h2 id="register-form">
-                                سجل معنا كشريك
+                                {{ $t('Register-with-us-as-a-partner') }}
+                               
                             </h2>
                             <p>
-                                أدخل البيانات التالية بدقة لتكون شريك معنا
+                                {{ $t('Enter-the-following-data-accurately-partner-with-us')}}
+                             
 
                             </p>
                             <form class="row g-3 needs-validation" novalidate>
                                 <div class="col-md-4 w-100">
                                     <input type="text" class="form-control" id="validationCustom03"
-                                        placeholder=" اسم الشركة" required>
+                                        :placeholder="$t('company-name')" required>
 
                                 </div>
 
                                 <div class="col-md-4 w-100">
                                     <input type="email" class="form-control" id="validationCustom03"
-                                        placeholder=" البريد الالكتروني" required>
+                                        :placeholder="$t('Email')" required>
 
 
                                 </div>
 
                                 <div class="col-md-4 w-100">
                                     <input type="number" class="form-control" id="validationCustom03"
-                                        placeholder="  رقم الجوال" required>
+                                        :placeholder="$t('Phone')" required>
 
 
                                 </div>
                                 <div class="col-md-4 w-100 position-relative">
                                     <input id="password-field" type="password" class="form-control  "
-                                         placeholder="   كلمة السر" required>
-                                    <span style="    top: 12px;
-                                        left: 15px;
-                                        color: #CDD7D8;
-                                        font-size: 23px;
-                                    " toggle="#password-field"
-                                        class="fa-regular fa-eye toggle-password position-absolute">
+                                         :placeholder="$t('Password')" required>
+                                    <span                                     toggle="#password-field"
+                                        class="fa-regular fa-eye toggle-password position-absolute eye-password-icon">
                                     </span>
 
 
                                 </div>
                                 <div class="col-md-4 w-100 position-relative">
                                     <input id="password-field2" type="password" class="form-control  "
-                                        placeholder="   كلمة السر" required>
-                                    <span style="    top: 12px;
-                                        left: 15px;
-                                        color: #CDD7D8;
-                                        font-size: 23px;
-                                    " toggle="#password-field2"
-                                        class="fa-regular fa-eye toggle-password position-absolute">
+                                        :placeholder="$t('Password_confirm')" required>
+                                    <span  toggle="#password-field2"
+                                        class="fa-regular fa-eye toggle-password position-absolute eye-password-icon">
                                     </span>
 
 
@@ -159,7 +153,7 @@
                                 </div>
                                 <div class="col-md-4 w-100">
                                     <input type="text" class="form-control px-2" id="validationCustom03"
-                                        placeholder="    الخدمات المقدمة" required>
+                                        :placeholder="$t('provided-services')" required>
 
 
                                 </div>
@@ -715,5 +709,11 @@ export default {
     background: transparent;
     padding: 10px 25px;
     color: white
+}
+.eye-password-icon{
+    top: 12px;
+    left: 15px;
+    color: #CDD7D8;
+    font-size: 23px;
 }
 </style>

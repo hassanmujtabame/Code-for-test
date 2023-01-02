@@ -13,7 +13,7 @@
                                 <div class="text-center p-5">
                                   <img src="/assets/svg/empty-image.svg"  height="96" width="96"/>
                                       
-                                    <p class="m-c">أضافة صورة العرض </p>
+                                    <p class="m-c">{{ $t('add-image') }}</p>
                                 </div>
                                 <div class="add-img-selected w-100">
 
@@ -48,21 +48,21 @@
                         </div>
                         <div class="mb-3 position-relative">
                             <ValidationProvider
-                                    :name="$t('Category')"
+                                    :name="$t('blog-category')"
                                  vid="categories"
                                  rules="required"
                                     v-slot="{errors}">
-                            <label class="form-label">صنف التدوينة</label>
+                            <label class="form-label">{{ $t('blog-category') }}</label>
                             <multi-select v-model="blog.category" 
-                            selectLabel="أنقر لتحـددها"
-                            selectedLabel="محـددة" 
-                            deselectLabel="انقر لازالتها"
+                            :selectLabel="$t('selectLabel')"
+                            :selectedLabel="$t('selectedLabel')" 
+                            :deselectLabel="$t('deselectLabel')"
                             :options="categories" 
                             :multiple="false"  
                             :group-select="false" 
                             placeholder="" 
                             track-by="id" label="name">
-                                <span slot="noResult">لم يتم العثور على عناصر. ضع في اعتبارك تغيير استعلام البحث.</span>
+                                <span slot="noResult"></span>
                             </multi-select>
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -71,18 +71,18 @@
                       </div>
                       <div class="mb-3 position-relative">
                         <ValidationProvider
-                                    :name="$t('Tag')"
+                                    :name="$t('blog_topic')"
                                  vid="tags"
                                  rules="required"
                                     v-slot="{errors}">
-                        <label class="form-label">مواضيع التدوينة</label>
+                        <label class="form-label">{{ $t('blog_topic') }}</label>
                             <multi-select v-model="blog.tag" 
-                            selectLabel="أنقر لتحـددها"
-                            selectedLabel="محـددة" 
-                            deselectLabel="انقر لازالتها" 
+                            :selectLabel="$t('selectLabel')" 
+                            :selectedLabel="$t('selectedLabel')"
+                            :deselectLabel="$t('deselectLabel')"
                             :options="tags" :multiple="false"  
                             :group-select="false" placeholder="" track-by="id" label="name">
-                                <span slot="noResult">لم يتم العثور على عناصر. ضع في اعتبارك تغيير استعلام البحث.</span>
+                                <span slot="noResult">{{ $t('no-result-search') }}</span>
                             </multi-select>
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -91,11 +91,11 @@
                       </div>
                       <div class="mb-3">
                             <ValidationProvider
-                                    :name="$t('short-description')"
+                                    :name="$t('short-description-blog')"
                                  vid="ar.short_description"
                                  rules=""
                                     v-slot="{errors}">
-                        <label class="form-label">اختصار المحتوي التدوينة</label>
+                        <label class="form-label"> {{ $t('short-description-blog') }}</label>
                         <d-ckeditor-classic 
                             v-if="showDialog"
                             
@@ -108,11 +108,11 @@
                         </div>
                         <div class="mb-3">
                             <ValidationProvider
-                                    :name="$t('Tag')"
+                                    :name="$t('description_blog')"
                                  vid="tag"
                                  rules="required"
                                     v-slot="{errors}">
-                        <label class="form-label">محتوي التدوينة</label>
+                        <label class="form-label">{{ $t('description_blog') }}</label>
                             <d-ckeditor-classic 
                             v-if="showDialog"
                             v-model="blog.description" class="form-control" rows="10"
@@ -128,7 +128,7 @@
       
         <template v-slot:actions>
             <button @click="save" type="button" class="btn btn-main">
-                 انشري التدوينة 
+                {{ $t('save_modifications') }}
             </button>
         </template>
       </d-dialog-large>

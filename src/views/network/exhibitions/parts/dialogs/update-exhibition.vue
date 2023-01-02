@@ -89,7 +89,7 @@
                     <div class="col-md-12">
                         <div class="border p-3 text-center">
 
-                            <h6>هل المعرض متاح للمشاركة ؟</h6>
+                            <h6>{{ $t('is_exhibition_available_for_shared') }}</h6>
                             <div class="d-flex justify-content-center   gap-2">
                                 <ValidationProvider :name="$t('Available-share')"
                                  vid="is_share"
@@ -153,7 +153,7 @@
                         <div class="col-23 col-md-12">
                            
                                 <div class="form-group position-relative">
-                                    <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
+                                    <label> {{ $t('Start-date') }} - {{$t('End-date')}} </label>
                                     <date-picker-range 
                                     :valueStart.sync="itemForm.start_date"
                                     :valueEnd.sync="itemForm.end_date"
@@ -175,7 +175,7 @@
                     <div class="col-23 col-md-12">
                        
                             <div class="form-group position-relative">
-                                <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
+                                <label>  {{ $t('Start-time') }} - {{$t('End-time')}} </label>
                                 <date-picker-range 
                                 :valueStart.sync="itemForm.start_time"
                                 :valueEnd.sync="itemForm.end_time"
@@ -247,7 +247,7 @@
                          >
                          <div class="form-group position-relative">
                         <select v-model="itemForm.category_id"  class="form-control">
-                            <option disabled value="" class="t-c"> تصنيفات المعرض</option>
+                            <option disabled value="" class="t-c"> {{ $t('exhibition_categories') }} </option>
                             <option :key="i" v-for="(option,i) in categories" :value="option.id">
                                 {{ option.name }}
                             </option>
@@ -275,7 +275,7 @@
         </ValidationObserver>
         <template v-slot:actions>
             <button @click="save" type="button" class="btn btn-main">
-                {{  $t('publish_blog') }}
+                {{  $t('publish') }}
             </button>
         </template>
     </d-dialog-large>
@@ -417,14 +417,6 @@ export default {
             this.showDialog = false
             return true;
         }
-    },
-    created() {
-        // window.EventBus.listen(this.group+'-open-dialog',this.openDialog)
-        //window.EventBus.listen(this.group+'-close-dialog',this.closeDialog)
-    },
-    beforeDestroy() {
-        //window.EventBus.off(this.group+'-open-dialog',this.openDialog)
-        //window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
     },
     mounted() {
         //this.loadBlogTags()

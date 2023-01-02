@@ -4,8 +4,8 @@
        
         :call-list="loadList" 
         classColCard="col-md-6 mt-2" 
-        pluralName="المعارض" 
-        singleName="معرض"
+        :pluralName="$t('exhibitions')" 
+        :singleName="$t('exhibition')"
         >
             <template v-slot:default="{ item }">
                 <router-link class="router-link" :to="getRouteLocale('network-exhibition-show', { id: item.id })">

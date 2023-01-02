@@ -1,8 +1,8 @@
 <template>
  <div class="container mt-5">
         <d-filter-list
-        pluralName='لقاءات'
-        singleName="لقاء"
+        :pluralName="$t('meetings')"
+        :singleName="$t('meeting')"
         :call-list="loadList"
         classColCard="col-12 col-md-6 mt-2"
         >

@@ -7,7 +7,7 @@
             <div v-if="!hideTotal" class="col-12 col-md-4 mt-3">
                 <slot name="total">
                 <h4>
-                    عدد {{pluralName}} :
+                    {{$t('nomber')}} {{pluralName}} :
                     <span class="m-c"> {{metaInfo.total}} {{singleName}} </span>
                 </h4>
             </slot>
@@ -53,7 +53,7 @@
             <div v-if="!hideSide" class="col-md-3 mt-2">
                 <slot name="side">
                 <div class="box border p-3 rounded-3">
-                    <h4>فلتر البحث</h4>
+                    <h4>{{ $t('filter') }}</h4>
                     <div class="accordion" id="accordionPanelsStayOpenExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">

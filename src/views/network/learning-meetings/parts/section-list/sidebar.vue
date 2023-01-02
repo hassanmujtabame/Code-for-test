@@ -1,6 +1,6 @@
 <template>
    <div class="box border p-3 rounded-3">
-              <h4>فلتر البحث</h4>
+              <h4>{{ $t('filter') }}</h4>
               <div class="accordion" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="panelsStayOpen-headingOne">

@@ -1,8 +1,8 @@
 <template>
   <div class="container mt-5">
     <d-filter-list :call-list="loadList"
-    pluralName="أكواد"
-    singleName="كود"
+    :pluralName="$t('coupons')"
+    :singleName="$t('coupon')"
      classColCard="col-md-6 mt-2">
       <template v-slot="{ item }">
         <a href="">

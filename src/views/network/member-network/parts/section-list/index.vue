@@ -2,8 +2,8 @@
   <div class="container mt-5">
     <d-filter-list 
     :call-list="loadList" 
-    pluralName="الأعضاء"
-    singleName="عضو"
+    :pluralName="$t('members')"
+    :singleName="$t('member')"
     classColCard="col-12 col-md-4 mt-4">
       <template v-slot="{ item }">
 

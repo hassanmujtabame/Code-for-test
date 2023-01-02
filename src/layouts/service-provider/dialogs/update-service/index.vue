@@ -171,15 +171,15 @@
                                     v-slot="{errors}">
                             <label class="form-label">المجال</label>
                             <multi-select v-model="itemForm.category_id" 
-                            selectLabel="أنقر لتحـددها"
-                            selectedLabel="محـددة" 
-                            deselectLabel="انقر لازالتها"
+                            :selectLabel="$t('selectLabel')"
+                            :selectedLabel="$t('selectedLabel')" 
+                            :deselectLabel="$t('deselectLabel')"
                             :options="categories" 
                             :multiple="true"  
                             :group-select="false" 
                             placeholder="" 
                             track-by="id" label="name">
-                                <span slot="noResult">لم يتم العثور على عناصر. ضع في اعتبارك تغيير استعلام البحث.</span>
+                                <span slot="noResult">{{ $t('no-result-search') }}</span>
                             </multi-select>
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -259,7 +259,7 @@
   
     <template v-slot:actions>
         <button @click="save" type="button" class="btn btn-main">
-           {{ $t('publish-service') }}
+           {{ $t('save_modifications') }}
         </button>
     </template>
   </d-dialog-large>

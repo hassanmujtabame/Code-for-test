@@ -13,7 +13,7 @@
                                 <div class="text-center p-5">
                                   <img src="/assets/svg/empty-image.svg"  height="96" width="96"/>
                                       
-                                    <p class="m-c">أضافة صورة العرض </p>
+                                    <p class="m-c">{{ $t('add-image') }} </p>
                                 </div>
                                 <div class="add-img-selected w-100">
 
@@ -54,15 +54,15 @@
                                     v-slot="{errors}">
                             <label class="form-label">صنف التدوينة</label>
                             <multi-select v-model="blog.category" 
-                            selectLabel="أنقر لتحـددها"
-                            selectedLabel="محـددة" 
-                            deselectLabel="انقر لازالتها"
+                            :selectLabel="$t('selectLabel')"
+                            :selectedLabel="$t('selectedLabel')" 
+                            :deselectLabel="$t('deselectLabel')"
                             :options="categories" 
                             :multiple="false"  
                             :group-select="false" 
                             placeholder="" 
                             track-by="id" label="name">
-                                <span slot="noResult">لم يتم العثور على عناصر. ضع في اعتبارك تغيير استعلام البحث.</span>
+                                <span slot="noResult">{{ $t('no-result-search') }}</span>
                             </multi-select>
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -77,12 +77,12 @@
                                     v-slot="{errors}">
                         <label class="form-label">مواضيع التدوينة</label>
                             <multi-select v-model="blog.tag" 
-                            selectLabel="أنقر لتحـددها"
-                            selectedLabel="محـددة" 
-                            deselectLabel="انقر لازالتها" 
+                            :selectLabel="$t('selectLabel')"
+                            :selectedLabel="$t('selectedLabel')" 
+                            :deselectLabel="$t('deselectLabel')" 
                             :options="tags" :multiple="false"  
                             :group-select="false" placeholder="" track-by="id" label="name">
-                                <span slot="noResult">لم يتم العثور على عناصر. ضع في اعتبارك تغيير استعلام البحث.</span>
+                                <span slot="noResult">{{ $t('no-result-search') }}</span>
                             </multi-select>
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}

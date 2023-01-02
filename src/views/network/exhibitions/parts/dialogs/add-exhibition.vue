@@ -15,7 +15,7 @@
                                 <div class="text-center p-5">
                                     <img src="/assets/svg/empty-image.svg">
 
-                                    <p class="m-c">أضافة صورة العرض </p>
+                                    <p class="m-c">{{ $t('add-image') }} </p>
                                 </div>
                                 <div class="add-img-selected">
 
@@ -94,14 +94,14 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" :value="1" v-model="itemForm.is_share" name="flexRadioDefault">
                                         <label class="form-check-label" for="flexRadioDefault1">
-                                            نعم
+                                            {{$t('yes')}}
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" :value="0" v-model="itemForm.is_share" name="flexRadioDefault"
                                             id="flexRadioDefault2" >
                                         <label class="form-check-label" for="flexRadioDefault2">
-                                            لا
+                                            {{$t('no')}}
                                         </label>
                                     </div>
                                     <div v-if="errors.length !== 0" class="col-12 text-input-error">
