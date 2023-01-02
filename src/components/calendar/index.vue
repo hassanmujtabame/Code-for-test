@@ -72,5 +72,17 @@ export default {
 </script>
 
 <style>
-
+/*
+.e .calendar header{
+position: relative;
+}
+.e .calendar header .btn-prev {
+    top: calc(50% - 15px);
+    left: 0;
+    transform: rotate(-180deg);
+}
+.e .calendar header .btn-next {
+  top: calc(50% - 15px);
+    right: 0;
+}*/
 </style>
