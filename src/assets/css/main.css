@@ -1552,3 +1552,29 @@ position: relative;
 .text-bold {
     font-weight: 900;
 }
+/** carousel navigators**/
+
+.owl-theme .owl-nav .owl-next,
+.owl-theme .owl-nav .owl-prev{
+    font-size: 15px;
+    border: 1px solid #1fb9b3 !important;
+    color: #1fb9b3 !important;
+    font-weight: bolder !important;
+    line-height: 1.5 !important;
+    width: 30px!important;
+    height: 30px;
+    border-radius: 5px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+}
+
+.owl-theme .owl-nav .owl-next>span,
+.owl-theme .owl-nav .owl-prev>span{
+    font-size: 32px;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    color: #1fb9b3 !important;
+}
