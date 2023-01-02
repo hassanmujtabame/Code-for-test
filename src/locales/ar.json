@@ -124,5 +124,6 @@
   "company-name": "اسم الشركة",
   "Phone": "رقم الجوال",
   "Password_confirm": "تأكيد كلمة المرور",
-  "provided-services": "الخدمات المقدمة"
+  "provided-services": "الخدمات المقدمة",
+  "Register-now": "سجل الان!"
 }

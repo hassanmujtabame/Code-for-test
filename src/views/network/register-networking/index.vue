@@ -12,10 +12,10 @@
                         fill="white" />
                 </svg>
 
-                سجل الان
+                {{ $t('Register-now') }}
             </a>
-            <div class="position-absolute anim-hwo-ar-you">
-                <img src="/assets/img/anim-hwo-ar-you.png" alt="">
+            <div class="position-absolute anim-hwo-ar-you" :style="$i18n.locale!=='ar'?{left: auto,right: 0}:{}">
+                <img src="/assets/img/anim-hwo-ar-you.png" :class="{'rotateY-180':$i18n.locale!=='ar'}" alt="">
             </div>
             <div class="star position-absolute">
                 <img class="landing" src="/assets/img/start.png" alt="">
@@ -196,7 +196,7 @@
                                 </div>
                                 <div class="col-12 m-2">
                                     <button class="btn btn-main  " type="submit" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal" role="button">سجل الان </button>
+                                        data-bs-target="#exampleModal" role="button"> {{ $t('Register-now') }} </button>
                                 </div>
 
                             </form>

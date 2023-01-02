@@ -125,5 +125,6 @@
   "company-name": "Company name",
   "Phone": "Phone number",
   "Password_confirm": "Password confirmation",
-  "provided-services": "Provided services"
+  "provided-services": "Provided services",
+  "Register-now": "Register now!"
 }
