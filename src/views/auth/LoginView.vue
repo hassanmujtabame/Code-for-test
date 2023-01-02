@@ -127,7 +127,8 @@ export default {
                     let {token,...user} = data.data
                     window.store.commit('auth/SET_TOKEN',token) ;
                   window.store.commit('auth/SET_USER',user);
-                  this.$router.push('/')
+                  //this.$router.push('/')
+                  window.location.reload()
                 }else{
                     this.message = data.message;
                     this.hasError=true;
