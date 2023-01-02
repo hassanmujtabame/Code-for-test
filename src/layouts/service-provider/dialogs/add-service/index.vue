@@ -5,7 +5,7 @@
     :closeDialog="closeDialog"
     :openDialog="openDialog"
     >
-        <ValidationObserver ref="form" >
+        <ValidationObserver v-if="showDialog" ref="form" >
         
                     <div class="row add-portfolio m-3 p-0">
                         <div class="col-12 col-lg-4  justify-content-center m-auto">
@@ -22,11 +22,20 @@
                                     </div>
                                     <div class="add-img-selected">
     
-                                        <img class="w-100 h-100" src="none" id="image_selected" />
+                                        <img class="w-100 h-100 image-selected-dialog" :style="{opacity:showImage?'1':'0'}" :src="showImage??'none'" :id="idImage" />
                                     </div>
                                 </label>
-                                <input onchange="readURL(this);" class="form-control d-none" type="file"
+                                <ValidationProvider
+                                    :name="$t('Image')"
+                                 vid="image"
+                                 rules="required"
+                                    v-slot="{validate,errors}">
+                                <input @change="uploadImage($event) || validate($event)" class="form-control d-none" type="file"
                                     id="imginput">
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                {{errors[0]}}
+                                </div>
+                                </ValidationProvider>
                             </div>
                             <div class="col-md-12">
                                 <div class="col-md-12">
@@ -46,9 +55,18 @@
                                               اضافة ملف
                                             </p>
                                         </label>
-                                        <input name="uploadDocument" type="file" id="choose-file"
+                                        <ValidationProvider
+                                    :name="$t('File')"
+                                 vid="file"
+                                 rules="required"
+                                    v-slot="{validate,errors}">
+                                        <input name="uploadDocument" @change="uploadFile($event) || validate($event)" type="file" id="choose-file"
                                             accept=".jpg,.jpeg,.pdf,doc,docx,application/msword,.png"
                                             style="display: none;" />
+                                            <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                {{errors[0]}}
+                                </div>
+                                </ValidationProvider>
     
                                     </div>
     
@@ -95,7 +113,7 @@
                                  vid="during"
                                  rules="required"
                                     v-slot="{errors}">
-                            <input type="text" v-model="itemForm.during" class="form-control" placeholder="عنوان التدوينة">
+                            <input type="text" v-model="itemForm.during" class="form-control" :placeholder="$t('execution-during')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -110,9 +128,9 @@
                          v-slot="{ errors }"
                          >
                          <div class="form-group position-relative">
-                        <select v-model="itemForm.category_id"  class="form-control">
+                        <select v-model="itemForm.state"  class="form-control">
                             <option disabled value="" class="t-c"> {{$t('state-service')}} </option>
-                            <option :key="i" v-for="(option,i) in categories" :value="option.id">
+                            <option :key="i" v-for="(option,i) in states" :value="option.id">
                                 {{ option.name }}
                             </option>
 
@@ -133,39 +151,33 @@
                     </ValidationProvider>
                     </div>
                     <div class="mb-3 position-relative">
-                        <ValidationProvider 
-                        :name="$t('service-field')" 
-                        vid="field_id" 
-                        rules="required"
-                         v-slot="{ errors }"
-                         >
-                         <div class="form-group position-relative">
-                        <select v-model="itemForm.field_id"  class="form-control">
-                            <option disabled value="" class="t-c">{{ $t('service-field') }}</option>
-                            <option :key="i" v-for="(option,i) in fields" :value="option.id">
-                                {{ option.name }}
-                            </option>
-
-                        </select>
-                        <div style="top: 7px;left: 10px;" class="position-absolute">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z"
-                                    fill="#737373" />
-                            </svg>
-
-                        </div>
-                    </div>
-                        <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
-                    </ValidationProvider>
+                        <ValidationProvider
+                                    :name="$t('Category')"
+                                 vid="categories"
+                                 rules="required"
+                                    v-slot="{errors}">
+                            <label class="form-label">المجال</label>
+                            <multi-select v-model="itemForm.category_id" 
+                            selectLabel="أنقر لتحـددها"
+                            selectedLabel="محـددة" 
+                            deselectLabel="انقر لازالتها"
+                            :options="categories" 
+                            :multiple="true"  
+                            :group-select="false" 
+                            placeholder="" 
+                            track-by="id" label="name">
+                                <span slot="noResult">لم يتم العثور على عناصر. ضع في اعتبارك تغيير استعلام البحث.</span>
+                            </multi-select>
+                            <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                {{errors[0]}}
+                                </div>
+                                </ValidationProvider>
+                      </div>
                     </div>
                     <div class="mb-3">
                             <ValidationProvider
-                                    :name="$t('Tag')"
-                                 vid="tag"
+                                    :name="$t('description')"
+                                 vid="description"
                                  rules="required"
                                     v-slot="{errors}">
                         <label class="form-label">أكتب التفاصيل الخاصة بالخدمة بدقة</label>
@@ -180,24 +192,54 @@
                            
                         <div class="mb-3 position-relative">
                         <ValidationProvider
-                                    :name="$t('Tag')"
-                                 vid="tags"
+                                    :name="$t('keywords')"
+                                 vid="keywords"
                                  rules="required"
                                     v-slot="{errors}">
                         <label class="form-label">{{$t('keywords')}}</label>
-                            <multi-select v-model="itemForm.tag" 
-                            :selectLabel='$t("selectLabel")'
-                            :selectedLabel='$t("selectedLabel") '
-                            :deselectLabel="$t('deselectLabel')"
-                            :options="tags" :multiple="false"  
-                            :group-select="false" placeholder="" track-by="id" label="name">
-                                <span slot="noResult">لم يتم العثور على عناصر. ضع في اعتبارك تغيير استعلام البحث.</span>
-                            </multi-select>
+                            <d-multi-select-tag v-model="itemForm.keywords" 
+                              >
+    
+                            </d-multi-select-tag>
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
                                 </ValidationProvider>
-                      </div>
+                      
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="form-label col-12">{{$t('gallary')}}</label>
+                            
+                             <div class="col-md-12">
+                                <div style="height:50px;width:50px" class="position-relative">
+                                <label  class="form-label file-label first w-100">
+                                    <div class="">
+                                      <PlusCircleOutlineIcon :size="48" />
+                                    </div>
+                                    <div class="add-img-selected">
+                                    <img class="image-selected-dialog" :src="'none'" />
+                                    </div>
+                                </label>
+                               
+                                <input @change="uploadGallary($event)"  multiple="multiple" class="form-control hidden-file-input" type="file"
+                                    >
+                                </div>
+                            </div>
+                            <!-- gallary show -->
+                            <div class="col-12">
+                                <div class="list-add-gallary mt-1" >
+                                        <div style="height:100px;width:100px" class="bx-img-gallary"
+                                        v-for="(g,i) in gallariesUrl" :key="i"
+                                        >
+                                      
+                                        <button @click="removeGallary(i)" class="btn-close">
+                                            <TrashOutlineIcon :size="24"  />
+                                        </button>
+                                       
+                                        <img class="w-100 h-100" :src='g'  />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
         </ValidationObserver>
@@ -211,33 +253,32 @@
 
 </template>
 <script>
+import PlusCircleOutlineIcon from '@/components/icon-svg/plus-circle-outline.vue'
+import TrashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
 import ServiceProviderAPIs from '@/services/api/service-provider'
 export default {
     name:'add-ready-service-dialog',
+    components:{
+        PlusCircleOutlineIcon,
+        TrashOutlineIcon
+    },
 data:(vm)=>{
 return{
-group:'add-ready-service-dialog',
-showDialog:false,
-categories:[
-    {id:'online',name:'اونلاين'},
-    {id:'offline',name:'اوفلاين'},
-],
-tags:[],
-
-idImage: `image-selected-${vm.generateRandomString(8)}`,
-url:'/assets/svg/empty-image.svg',
-file:null,
-fields:[],
-itemForm:{
-    title:'',
-    price:'',
-    durring:'',
-    field_id:'',
-    tag:'',
-    category_id:'',
-    state:'',
-    description:''
-}
+        group:'add-ready-service-dialog',
+        showDialog:false,
+        states:[
+            {id:'online',name:'اونلاين'},
+            {id:'offline',name:'اوفلاين'},
+        ],
+        categories:[],
+        showImage:false,
+        idImage: `image-selected-${vm.generateRandomString(8)}`,
+        url:'/assets/svg/empty-image.svg',
+        file:null,
+        imageFile:null,
+        gallaries:[],
+        gallariesUrl:[],
+        itemForm:{}
 }},
 methods:{
 async save(){
@@ -248,17 +289,20 @@ let valid = await this.$refs.form.validate();
     }
  let formData = new FormData();
  formData.append('title',this.itemForm.title);
- formData.append('description',this.itemForm.description);
- formData.append('image',this.file);
- formData.append('user_id',this.user.id);
-// for (var i = 0; i < this.itemFormtag.length; i++) {
-        formData.append('tags', this.itemForm.tag.id);
-//}
-//for ( i = 0; i < this.itemFormcategory.length; i++) {
-        formData.append('categories', this.itemForm.category.id);
-// }
+ formData.append('desc',this.itemForm.description);
+ formData.append('price',this.itemForm.price);
+ formData.append('state',this.itemForm.state);
+ formData.append('file',this.attachment);
+ formData.append('keywords',this.itemForm.keywords);
+ formData.append('images[]', this.imageFile); // main image as first in gallary
+ for (var i = 0; i < this.gallaries.length; i++) {
+        formData.append('images[]', this.gallaries[i]);
+}
+for ( i = 0; i < this.itemForm.category_id.length; i++) {
+        formData.append('categories[]', this.itemForm.category_id[i]);
+}
     try {
-        let { data } = await ServiceProviderAPIs.addBlog(formData)
+        let { data } = await ServiceProviderAPIs.add(formData)
         if(data.success){
             console.log('success',data)
             //this.fireEvent('list-blogs-update')
@@ -277,72 +321,93 @@ let valid = await this.$refs.form.validate();
        
     }
 },
-uploadImage(evt){
-    if (!evt.target.files && !evt.target.files[0]) {
-            this.file = null;
-            window.$('#' + this.idImage)
-                .attr('src', 'none')
-                .css('opacity', '0');
+removeGallary(index){
+    this.gallaries.splice(index, 1);
+    this.gallariesUrl.splice(index, 1);
+},
+uploadGallary(evt){
+    console.log('uploadGallary',evt.target.files)
+    if (!evt.target.files && evt.target.files.length===0) {
+        console.log('empty')
             return;
         }
-        this.file = evt.target.files[0];
+        for(let i=0;i<evt.target.files.length; i++){
+            let file = evt.target.files[i]
+            this.gallaries.push(file)
+           
+        var reader = new FileReader();
+        reader.onload =  (e) =>{
+           
+            this.gallariesUrl.push( e.target.result) 
+        };
+        reader.readAsDataURL(file);
+        }
+        
+},
+uploadImage(evt){
+    console.log('uploadImage')
+    if (!evt.target.files && !evt.target.files[0]) {
+            this.imageFile = null;
+            this.showImage = false
+            return;
+        }
+        this.imageFile = evt.target.files[0];
         var reader = new FileReader();
         reader.onload =  (e) =>{
             console.log('result',e,this.idImage)
-            window.$('#'+this.idImage)
-                .attr('src', e.target.result)
-                .css('opacity', '1');
-
+            this.showImage = e.target.result
         };
-        reader.readAsDataURL(this.file);
+        reader.readAsDataURL(this.imageFile);
 },
-async loadBlogTags(){
-    try {
-        let {data} =  await ServiceProviderAPIs.getTags()
-        if(data.success){
-            this.tags = data.data
+uploadFile(evt){
+    console.log('uploadFile')
+    if (!evt.target.files && !evt.target.files[0]) {
+            this.file = null;
+            
+            return;
         }
-    } catch (error) {
-         console.log('error',error)
-    }
+        this.file = evt.target.files[0];
 },
-async loadBlogCategories(){
+async loadCategories(){
     try {
         let {data} =  await ServiceProviderAPIs.getCategories()
         if(data.success){
-            this.fields = data.data
+            this.categories = data.data
         }
     } catch (error) {
          console.log('error',error)
     }
 },
 openDialog(){
-    window.$('#'+this.idImage)
-                .attr('src', 'none')
-                .css('opacity', '0');
+    this.itemForm =Object.assign({},{
+    title:'',
+    price:'',
+    during:'',
+    keywords:'',
+    category_id:[],
+    state:'',
+    description:''
+})
+this.gallaries = [];
+this.gallariesUrl = []
+    this.imageFile = null;
+    this.file = null;
+
+    this.showImage = false
     this.showDialog = true;
     return true;
 },
 closeDialog(){
     this.showDialog = false
-
     return true;
 },
 closeEvent(){
    this.fireEvent(this.group+'-close-dialog')
 }
-},
-created(){
-//window.EventBus.listen(this.group+'-open-dialog',this.openDialog)
-//window.EventBus.listen(this.group+'-close-dialog',this.closeDialog)
-},
-beforeDestroy(){
-//window.EventBus.off(this.group+'-open-dialog',this.openDialog)
-//window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
+
 },
 mounted(){
-//this.loadBlogTags()
-//this.loadBlogCategories()
+    this.loadCategories()
 }
 }
 </script>
@@ -352,5 +417,31 @@ label{
 width:100%;
 text-align: start;
 }
-
+.bx-img-gallary{
+    padding:5px;
+    margin-right:5px;
+    margin-left:5px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    border: 1px solid;
+    display: inline-block;
+}
+.list-add-gallary{
+    max-width: 100%;
+    overflow: auto;
+    background: #80808042;
+    width: 100%;
+    height: 100px;
+   
+}
+.list-add-gallary .bx-img-gallary .btn-close{
+    position: absolute;
+    background: #b41313f7;
+    border: 0;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>

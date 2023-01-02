@@ -1,7 +1,12 @@
 <template>
     <div>
-      <DefaultHeader/>
-      <MyDrawer :dashboard="'service-provider-dashboard'" v-if="user"/>
+        <template v-if="user">
+            <localHeader />
+            <MyDrawer :dashboard="'service-provider-dashboard'"/>
+        </template>
+      <DefaultHeader v-else/>
+
+
       <main style="margin-top: 96px">
           <slot></slot>
           </main>
@@ -14,7 +19,8 @@
   <script>
   import MyDrawer from '@/layouts/common/drawer.vue'
   import DefaultFooter from '@/layouts/common/footer.vue'
-  import DefaultHeader from './header.vue'
+  import DefaultHeader from '../default/header.vue'
+  import localHeader from './header.vue'
   import AddServiceDialog from './dialogs/add-service/index.vue'
   import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
   export default {
@@ -22,6 +28,7 @@
       components:{
           DefaultFooter,
           DefaultHeader,
+          localHeader,
           SectSubscribe,
           AddServiceDialog,
           MyDrawer
