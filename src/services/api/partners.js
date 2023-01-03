@@ -9,6 +9,13 @@ class PartnersApi extends BaseApi{
     getItem(id){
         return window.axios.get(`network/partners/${id}`);
     }
+
+    addItem(data){
+        return window.axios.post(`network/partners`,data);  
+    }
+    getCategories(){
+        return window.axios.get(`network/categories`);
+    }
 }
 
 export default new PartnersApi();
