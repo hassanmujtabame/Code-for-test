@@ -10,65 +10,182 @@
                         <p>
                             {{ $t('Enter-the-following-data-accurately-partner-with-us') }}
                         </p>
-                        <form class="row g-3 needs-validation" novalidate>
+                        <ValidationObserver 
+                        ref="form"
+                        tag="form" @submit="save" autocomplete="off" class="row g-3 needs-validation" novalidate>
                             <div class="col-md-4 w-100">
-                                <input type="text" class="form-control" id="validationCustom03"
-                                    :placeholder="$t('company-name')" required>
+                                <ValidationProvider
+                                :name="$t('company-name')" 
+                                vid="company_name"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                <input type="text" class="form-control" 
+                                v-model="itemForm.company_name"
+                                    :placeholder="$t('company-name')">
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                      
+                                </ValidationProvider>
 
                             </div>
-
+                            <template v-if="!token">
                             <div class="col-md-4 w-100">
-                                <input type="email" class="form-control" id="validationCustom03"
-                                    :placeholder="$t('Email')" required>
+                                <ValidationProvider
+                                :name="$t('Email')" 
+                                vid="email"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                <input type="email" class="form-control" 
+                                 v-model="itemForm.email"
+                                    :placeholder="$t('Email')" >
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                </ValidationProvider>
                             </div>
                             <div class="col-md-4 w-100">
-                                <input type="number" class="form-control" id="validationCustom03"
-                                    :placeholder="$t('Phone')" required>
-
+                                <ValidationProvider
+                                :name="$t('Phone')" 
+                                vid="phone"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                <input type="text" class="form-control"
+                                autocomplete="off" 
+                                name="phone"
+                                    :placeholder="$t('Phone')" 
+                                    v-model="itemForm.phone">
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                </ValidationProvider>
 
                             </div>
-                            <div class="col-md-4 w-100 position-relative">
-                                <input id="password-field" type="password" class="form-control  "
-                                    :placeholder="$t('Password')" required>
+                            <div class="col-md-4 w-100">
+                                <ValidationProvider
+                                :name="$t('Password')" 
+                                vid="password"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                <div class="position-relative">
+                                <input id="password-field"
+                                name="password"
+                                type="password" class="form-control  "
+                                    v-model="itemForm.password"
+                                :placeholder="$t('Password')" >
                                 <span toggle="#password-field"
                                     class="fa-regular fa-eye toggle-password position-absolute eye-password-icon">
                                 </span>
                             </div>
-                            <div class="col-md-4 w-100 position-relative">
-                                <input id="password-field2" type="password" class="form-control  "
-                                    :placeholder="$t('Password_confirm')" required>
+                            <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                </ValidationProvider>
+                            </div>
+                            <div class="col-md-4 w-100">
+                                <ValidationProvider
+                                :name="$t('Password_confirm')" 
+                                vid="password_confirm"
+                                rules="required|confirmed:password"
+                                v-slot="{errors}"
+                                >
+                                <div class="position-relative">
+                                <input id="password-field2" type="password"
+                                class="form-control  " 
+                                    v-model="itemForm.password_confirm"
+                                :placeholder="$t('Password_confirm')" >
                                 <span toggle="#password-field2"
                                     class="fa-regular fa-eye toggle-password position-absolute eye-password-icon">
                                 </span>
+                                </div>
+                                <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                </ValidationProvider>
                             </div>
+                        </template>
                             <div class="col-md-4 w-100">
-                                <input type="text" class="form-control" id="validationCustom03"
-                                    placeholder="   رابط الموقع الالكتروني الخاص بالشركة" required>
-                            </div>
+                                <ValidationProvider
+                                :name="$t('company_website')" 
+                                vid="website"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                <input type="text" class="form-control" 
+                                    :placeholder="$t('company_website')" 
+                                    v-model="itemForm.website"
+                                    >
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                </ValidationProvider>
+                                </div>
                             <div class="col-md-4 w-100">
-                                <select class="form-select px-3" id="validationCustom04" required>
-                                    <option selected disabled>مجال التخصص</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+                                <ValidationProvider
+                                :name="$t('specialist_field')" 
+                                vid="category_id"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                <select v-model="itemForm.category_id" class="form-select px-3"  >
+                                    <option selected disabled>{{ $t('specialist_field') }}</option>
+                                    <option v-for="(cat,i) in categories" :key="i" 
+                                    :value="cat.id">{{ cat.name }}</option>
+                                   
 
                                 </select>
+                                <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                </ValidationProvider>
                             </div>
                             <div class="col-md-4 w-100">
-                                <input type="text" class="form-control px-2" id="validationCustom03"
-                                    :placeholder="$t('provided-services')" required>
+                                <ValidationProvider
+                                :name="$t('provided-services')" 
+                                vid="services"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                <d-multi-select-tag v-model="itemForm.services"
+                                :placeholder="$t('add_service')" 
+                              >
+    
+                            </d-multi-select-tag> 
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                </ValidationProvider>
                             </div>
                             <div class="col-md-4 w-100">
-
-                                <textarea name="" class="form-control px-2" id="validationCustom03" cols="30" rows="5"
-                                    placeholder="ماذا ستقدم لرياديات ؟"></textarea>
-                            </div>
+                                <ValidationProvider
+                                    :name="$t('What_will_you_offer_to_Riadiat')"
+                                 vid="description"
+                                 rules=""
+                                    v-slot="{errors}">
+                        <label class="form-label">{{ $t('What_will_you_offer_to_Riadiat') }}</label>
+                                <d-ckeditor-classic  v-model="itemForm.description" class="form-control px-2"  cols="30" rows="5"
+                                    :placeholder="$t('What_will_you_offer_to_Riadiat')"></d-ckeditor-classic>
+                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                </ValidationProvider>
+                                </div>
                             <div class="col-md-4 w-100">
+                                <ValidationProvider
+                                :name="$t('Commercial_Register')" 
+                                vid="services"
+                                rules="required"
+                                v-slot="{errors,validate}"
+                                >
                                 <label class="w-100 position-relative border rounded-2">
-                                    <input type="file" id="validationCustom03" class="form-control opacity-0 " required>
-                                    <svg style="    top: 6px;
-                                        left: 6px;" class="position-absolute" width="24" height="24"
+                                    <input type="file"  @change="uploadFile($event) || validate($event)"  class="form-control opacity-0 "
+                                    accept=".pdf"
+                                    required>
+                                    <svg style="top: 6px;left: 6px;" class="position-absolute" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
@@ -84,18 +201,22 @@
                                             fill="#CDD7D8" />
                                     </svg>
                                     <p style="top: 6px;right: 13px; color:#979797;" class="position-absolute px-2">
-                                        السجل التجاري (بحد أقصى 10 ميجا)
+                                      {{ $t('Commercial_Register_max_10') }}
                                     </p>
 
 
                                 </label>
+                                <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                        {{errors[0]}}
+                                    </div>
+                                </ValidationProvider>
                             </div>
                             <div class="col-12 m-2 text-end">
-                                <button class="btn btn-main  " type="submit" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" role="button"> {{ $t('Register-now') }} </button>
+                                <button class="btn btn-main  " type="submit" @click="save"
+                                    role="button"> {{ $t('Register-now') }} </button>
                             </div>
 
-                        </form>
+                        </ValidationObserver>
 
                     </div>
                     <div class="col-md-6">
@@ -108,27 +229,105 @@
     </div>
 </template>
 <script>
+import PartnersAPI from '@/services/api/partners.js'
 import ImageBox from './image-box.vue'
 export default {
     name: 'form-register',
     components:{
-        ImageBox
-    },
+    ImageBox
+    
+},
     data:()=>{
         return {
+            loading:false,
+            categories:[],
             itemForm:{
                 company_name:'',
                 website:'',
                 services:'',
                 category_id:'',
+                password:'',
+                password_confirm:'',
+                email:'',
                 description:'',
-                pdf:''
+                phone:'',
+                pdf:null
             }
         }
+    },
+    methods:{
+async save(evt){
+    if(evt) evt.preventDefault();
+    
+            let valid = await this.$refs.form.validate();
+        if(!valid){
+            console.log('form invalid');
+            return ;
+        }
+            let formData = new FormData();
+            Object.keys(this.itemForm).forEach(key=>{
+                if(this.token && ['email','phone','password','password_confirm'].includes(key))
+                return;
+                formData.append(key,this.itemForm[key])
+            })
+            try {
+                let { data } = await PartnersAPI.addItem(formData)
+                if(data.success){
+                //
+                console.log('data',data)
+                
+                Object.keys(this.itemForm).forEach(key=>{
+                    this.itemForm[key]=null;
+                })
+                this.$nextTick(() => {
+                        if (this.$refs["form"]) {
+                        this.$refs.form.reset();
+                        }
+                    });
+                }
+            } catch (error) {
+                console.log('error',error)
+                if(error.response){
+                    let response =error.response
+                    console.log('error',response)
+                    if(response.status==422){
+                        if(response.data.errors)
+                        this.$refs.form.setErrors(response.data.errors)
+                    }
+                }
+            }
+    },
+    uploadFile(evt){
+    if (!evt.target.files && !evt.target.files[0]) {
+            this.itemForm.pdf = null;
+            
+            return;
+        }
+        this.itemForm.pdf = evt.target.files[0];
+    },
+    async loadCategories(){
+    try {
+        let {data} =  await PartnersAPI.getCategories()
+        if(data.success){
+            this.categories = data.data
+        }
+    } catch (error) {
+         console.log('error',error)
+    }
+},
+    },
+    mounted(){
+        this.loadCategories()
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+ .eye-password-icon{
+    top: 12px;
+    left: 10px;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
 </style>

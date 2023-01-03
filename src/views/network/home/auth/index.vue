@@ -34,7 +34,7 @@
                                     لانك عضو في شبكة رياديات يمكنك طلب استشارات  من مستشارينا المميزين في اغلب المجالات بكل سهولة     
                                 </p>
                                 <button  class="border  border-white rounded-2  text-white bg-main p-2">
-                                    اعرف المزيد
+                                    {{ $t('know_more') }} 
                                 </button>
                             </div>
                             <div>

@@ -19,9 +19,11 @@
                             يمكنك ترقية حسابك الان من عضو في الشبكة الى شريك في منصة رياديات والاستفادة بالكثير من المميزات
 
                         </p>
-                        <button  class="border  border-white rounded-2  text-white bg-transparent p-2">
-                            اعرف المزيد
+                        <router-link custom :to="getRouteLocale('register-networking')" v-slot="{navigate}">
+                        <button @click="navigate"  class="border  border-white rounded-2  text-white bg-transparent p-2">
+                           {{ $t('know_more') }}
                         </button>
+                    </router-link>
                     </div>
                     <div>
                         <img class="img-fluid"  src="/assets/img/ve 1.png" alt="">
@@ -43,7 +45,7 @@
                             لانك عضو في شبكة رياديات يمكنك طلب استشارات  من مستشارينا المميزين في اغلب المجالات بكل سهولة     
                         </p>
                         <button  class="border  border-white rounded-2  text-white bg-main p-2">
-                            اعرف المزيد
+                            {{ $t('know_more') }} 
                         </button>
                     </div>
                     <div>
