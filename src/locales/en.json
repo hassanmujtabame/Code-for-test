@@ -126,5 +126,7 @@
   "Phone": "Phone number",
   "Password_confirm": "Password confirmation",
   "provided-services": "Provided services",
-  "Register-now": "Register now!"
+  "Register-now": "Register now!",
+  "suspend": "Suspend",
+  "cancel-suspend": "Cancel suspend"
 }
