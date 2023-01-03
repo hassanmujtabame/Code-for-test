@@ -128,5 +128,13 @@
   "provided-services": "Provided services",
   "Register-now": "Register now!",
   "suspend": "Suspend",
-  "cancel-suspend": "Cancel suspend"
+  "cancel-suspend": "Cancel suspend",
+  "company_website": "Company website",
+  "specialist_field": "Field of specialization",
+  "Commercial_Register_max_10": "Commercial Register (maximum 10 MB)",
+  "Commercial_Register": "Commercial Register",
+  "What_will_you_offer_to_Riadiat": "What will you offer to Riadiat?",
+  "add_service": "Add a service",
+  "Add_this_as_new_tag": "Add this as new tag",
+  "Search_or_add_a_tag": "Search or add a tag"
 }

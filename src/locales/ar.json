@@ -127,5 +127,13 @@
   "provided-services": "الخدمات المقدمة",
   "Register-now": "سجل الان!",
   "suspend": "تعليق",
-  "cancel-suspend": "إلغاء التعليق"
+  "cancel-suspend": "إلغاء التعليق",
+  "company_website": "موقع الالكتروني الشركة",
+  "specialist_field": "مجال التخصص",
+  "Commercial_Register_max_10": "  السجل التجاري (بحد أقصى 10 ميجا)",
+  "Commercial_Register": "السجل التجاري",
+  "What_will_you_offer_to_Riadiat": "ماذا ستقدم لرياديات ؟",
+  "add_service": "أضف خدمة",
+  "Add_this_as_new_tag": "أضف هذا كوسم جديدة",
+  "Search_or_add_a_tag": "البحث أو إضافة وسم"
 }
