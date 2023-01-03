@@ -16,7 +16,7 @@
                     </h3>
                 </div>
                 <!-- actions page-->
-               <ActionCrud :itemPage="itemPage" v-if="isOwner" />
+               <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
                <ActionForVisiter v-else />
                <!-- #actions page-->
                 <div class="row redy-services ">
@@ -336,7 +336,11 @@ export default {
         isOwner:false,
     }),
     methods:{
-
+        suspend(val){
+            console.log('val',val)
+            this.itemPage.is_suspend=val;
+            console.log('is_suspend',this.itemPage)
+        },
     async initializing() {
       this.loading = true;
       this.hasError = false;
