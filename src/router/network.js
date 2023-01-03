@@ -152,7 +152,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "my-financial-transactions" */ '../views/common/my-financial-transactions/index.vue')
     },
     {
-        path: 'register-networking',
+        path: 'network/register-networking',
         meta:{layout:LayoutNetwork},
         name: 'register-networking',
         component: () => import(/* webpackChunkName: "register-networking" */ '../views/network/register-networking/index.vue')
