@@ -8,14 +8,14 @@
         <!--أعرف اكثر عن مجالات الاستثمار-->
         <SectionKnowMore />
       </div>
-      <!--أحدث دورتنا -->
-      <SectionRecentCourses/>
+      <!--جولات تنتهي هذا الاسبوع -->
+      <SectionNearExpired/>
 
       <div class="container mt-5">
 
-    <!-- مشاريع الاستثمار 1-->
+    <!-- مشاريع الاستثمار مادي-->
         <section-invest-project-1 />
-<!-- مشاريع الاستثمار 2-->
+<!-- مشاريع الاستثمار معنوي-->
 <section-invest-project-2 />
       </div>
 
@@ -27,7 +27,7 @@
 import SectionHeader from './parts/section-header/index.vue'
 import SectionNumbers from './parts/section-numbers/index.vue'
 import SectionKnowMore from './parts/section-know-more/index.vue'
-import SectionRecentCourses from './parts/section-recent-courses/index.vue'
+import SectionNearExpired from './parts/sect-project-near-expired/index.vue'
 import SectionInvestProject1 from './parts/sect-invest-project-1/index.vue'
 import SectionInvestProject2 from './parts/sect-invest-project-2/index.vue'
 export default {
@@ -36,7 +36,7 @@ components:{
     SectionHeader,
     SectionNumbers,
     SectionKnowMore,
-    SectionRecentCourses,
+    SectionNearExpired,
     SectionInvestProject1,
     SectionInvestProject2
 }
