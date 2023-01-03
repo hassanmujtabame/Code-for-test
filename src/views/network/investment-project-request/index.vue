@@ -578,7 +578,9 @@ export default {
             let { data } = await ProjectAPI.addItem(formData)
             if(data.success){
                 console.log('success',data)
-                //this.fireEvent('list-blogs-update')
+                if(data.data.id){
+                    this.$router.push(this.getRouteLocale('network-investment-project-show'),{id:data.data.id})
+                }else
                 this.clearProject()
             }
         } catch (error) {
