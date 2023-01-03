@@ -44,9 +44,9 @@
                         <p  class="text-dark">
                             لانك عضو في شبكة رياديات يمكنك طلب استشارات  من مستشارينا المميزين في اغلب المجالات بكل سهولة     
                         </p>
-                        <button  class="border  border-white rounded-2  text-white bg-main p-2">
+                        <router-link :to="getRouteLocale('consulting-page')" class="border  border-white rounded-2  text-white bg-main p-2">
                             {{ $t('know_more') }} 
-                        </button>
+                        </router-link>
                     </div>
                     <div>
                         <img class="img-fluid"  src="/assets/img/vuesax/v2.png" alt="">
