@@ -29,12 +29,14 @@
             <div v-for="(item,i) in items" :key="i" class="col-md-6 mt-3">
                 <router-link :to="getRouteLocale('network-investment-project-show',{id:item.id})"> 
                 <investmentProject
-                   :title="item.title"
-                   :publisher="item.publisher"
-                   :date-publish="item.datePublish"
-                   :rest-day="item.restDay"
-                   :description="item.description"
+                :title="item.title"
+                   :publisher="item.user_info.name"
+                   :date-publish="item.created_at"
+                   :rest-day="item.rest_days"
+                   :investor="item.count_invest"
+                   :minimum-goal="item.minimum_investment"
                    :offered_property="item.offered_property"
+                   :amount="item.amount_financing_required"
                    :place="item.place"
                    />
                 </router-link>
@@ -96,10 +98,10 @@ export default {
 
     }, 
     items:[
-        {id:1,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',offered_property:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
-        {id:2,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',offered_property:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
-        {id:3,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',offered_property:30,amount:'500,000',restDay:40,investor:500,minimumGoal:50},
-        {id:4,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',datePublish:'22/12/2022',offered_property:30,amount:'500,000',restDay:40,investor:500,minimumGoal:20},
+        {id:1,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
+        {id:2,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
+        {id:3,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
+        {id:4,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:20},
     ]
  }),
  methods:{
