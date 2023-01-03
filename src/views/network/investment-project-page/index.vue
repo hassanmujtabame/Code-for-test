@@ -90,12 +90,12 @@
                             </div>
                             <div class="mt-2">
                                 <div>
-                                    <a v-if="isOwner" class="btn bg-main text-white" data-bs-toggle="modal"
+                                    <a v-if="!isOwner" class="btn bg-main text-white" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop">
-                                        تمويل المشروع
+                                       {{ $t('Project_financing') }} 
                                     </a>
                                     <a v-else class="btn bg-main text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
-                                            تقديم عرض        
+                                       {{ $t('Make_an_offer') }}            
                                     </a>
                                     <button class="btn border m-c">
                                         <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
