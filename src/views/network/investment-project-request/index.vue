@@ -36,7 +36,7 @@
                                 >
                     <div class="d-flex ">
                         <p class="mx-3">
-                            حدد نوع الاستثمار :
+                            {{ $t('Select_the_type_of_investment') }}:
                         </p>
                         <div style="   background: #ff000021; height: 25px;" class="form-check form-switch ">
                             <label class="form-check-label" for="flexSwitchCheckChecked">{{ $t('physical-investment') }}</label>
