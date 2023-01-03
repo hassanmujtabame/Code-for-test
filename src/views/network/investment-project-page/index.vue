@@ -90,9 +90,12 @@
                             </div>
                             <div class="mt-2">
                                 <div>
-                                    <a class="btn bg-main text-white" data-bs-toggle="modal"
+                                    <a v-if="isOwner" class="btn bg-main text-white" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop">
                                         تمويل المشروع
+                                    </a>
+                                    <a v-else class="btn bg-main text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+                                            تقديم عرض        
                                     </a>
                                     <button class="btn border m-c">
                                         <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
@@ -419,6 +422,7 @@ export default {
     return {
       loading:true,
       hasError:false,
+      isOwner:false,
       project:{},
       colors:['#F2631C','#FFBC00','#2C98B3']
   }},
@@ -429,6 +433,8 @@ export default {
             try {
                 let { data } = await ProjectsAPI.getItem(this.$route.params.id)
                 if (data.success) {
+                    
+                    this.isOwner = this.user && data.data.user_info.id===this.user.id
                    this.project = data.data;
                 }else{
                   this.hasError = true;
