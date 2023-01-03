@@ -68,9 +68,14 @@ const mixin = {
                   params: this.$route.params, // put your route information in
                   query: this.$route.query // put your route information in
                 });
-                //window.location = r.href
-                window.location.assign(r.href)
-                window.location.reload()
+                if(this.$router.mode=='hash'){
+                  window.location.assign(r.href)
+                  window.location.reload()
+                }
+                else{
+                  window.location = r.href
+                }
+                
                },
             changeLang(lng,evt){
                 if(evt) evt.preventDefault();
@@ -87,9 +92,11 @@ const mixin = {
               });
               //console.log(r)
               //this.$router.go(r.route)
+              if(this.$router.mode=='hash'){
               window.location.assign(r.href)
               window.location.reload()
-              //window.location = '/'+r.href
+              }else
+              window.location =r.href
                },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");
