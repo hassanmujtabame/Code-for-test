@@ -14,8 +14,8 @@
 
                 {{ $t('Register-now') }}
             </a>
-            <div class="position-absolute anim-hwo-ar-you" :style="$i18n.locale!=='ar'?{left: auto,right: 0}:{}">
-                <img src="/assets/img/anim-hwo-ar-you.png" :class="{'rotateY-180':$i18n.locale!=='ar'}" alt="">
+            <div class="position-absolute anim-hwo-ar-you" :style="$i18n.locale !== 'ar' ? { left: auto, right: 0 } : {}">
+                <img src="/assets/img/anim-hwo-ar-you.png" :class="{ 'rotateY-180': $i18n.locale !== 'ar' }" alt="">
             </div>
             <div class="star position-absolute">
                 <img class="landing" src="/assets/img/start.png" alt="">
@@ -56,7 +56,6 @@
                             </div>
                             <p>
                                 وضع شعار الشركة علـــــى موقع شبكة رياديـــــــــــات لإعلانها كجهة مشاركــــــة </p>
-
                         </div>
                     </div>
                     <div class="col-md-4 ">
@@ -74,25 +73,17 @@
 
                 </div>
             </div>
-
-
-
         </div>
-        <div  style="background-color: #F6F8F9;" class="mt-5 p-4">
-
+        <div style="background-color: #F6F8F9;" class="mt-5 p-4">
             <div class="container">
                 <div class="box bg-white  p-3  rounded-4">
-
                     <div class="row align-items-center ">
                         <div class="col-md-6">
                             <h2 id="register-form">
                                 {{ $t('Register-with-us-as-a-partner') }}
-                               
                             </h2>
                             <p>
-                                {{ $t('Enter-the-following-data-accurately-partner-with-us')}}
-                             
-
+                                {{ $t('Enter-the-following-data-accurately-partner-with-us') }}
                             </p>
                             <form class="row g-3 needs-validation" novalidate>
                                 <div class="col-md-4 w-100">
@@ -104,10 +95,7 @@
                                 <div class="col-md-4 w-100">
                                     <input type="email" class="form-control" id="validationCustom03"
                                         :placeholder="$t('Email')" required>
-
-
                                 </div>
-
                                 <div class="col-md-4 w-100">
                                     <input type="number" class="form-control" id="validationCustom03"
                                         :placeholder="$t('Phone')" required>
@@ -116,30 +104,22 @@
                                 </div>
                                 <div class="col-md-4 w-100 position-relative">
                                     <input id="password-field" type="password" class="form-control  "
-                                         :placeholder="$t('Password')" required>
-                                    <span                                     toggle="#password-field"
+                                        :placeholder="$t('Password')" required>
+                                    <span toggle="#password-field"
                                         class="fa-regular fa-eye toggle-password position-absolute eye-password-icon">
                                     </span>
-
-
                                 </div>
                                 <div class="col-md-4 w-100 position-relative">
                                     <input id="password-field2" type="password" class="form-control  "
                                         :placeholder="$t('Password_confirm')" required>
-                                    <span  toggle="#password-field2"
+                                    <span toggle="#password-field2"
                                         class="fa-regular fa-eye toggle-password position-absolute eye-password-icon">
                                     </span>
-
-
                                 </div>
                                 <div class="col-md-4 w-100">
                                     <input type="text" class="form-control" id="validationCustom03"
                                         placeholder="   رابط الموقع الالكتروني الخاص بالشركة" required>
-
-
                                 </div>
-
-
                                 <div class="col-md-4 w-100">
                                     <select class="form-select px-3" id="validationCustom04" required>
                                         <option selected disabled>مجال التخصص</option>
@@ -149,26 +129,20 @@
                                         <option>4</option>
 
                                     </select>
-
                                 </div>
                                 <div class="col-md-4 w-100">
                                     <input type="text" class="form-control px-2" id="validationCustom03"
                                         :placeholder="$t('provided-services')" required>
-
-
                                 </div>
                                 <div class="col-md-4 w-100">
 
                                     <textarea name="" class="form-control px-2" id="validationCustom03" cols="30"
                                         rows="5" placeholder="ماذا ستقدم لرياديات ؟"></textarea>
-
-
                                 </div>
                                 <div class="col-md-4 w-100">
                                     <label class="w-100 position-relative border rounded-2">
                                         <input type="file" id="validationCustom03" class="form-control opacity-0 "
                                             required>
-
                                         <svg style="    top: 6px;
                                         left: 6px;" class="position-absolute" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -185,10 +159,8 @@
                                                 d="M12 18.2302C9.88995 18.2302 7.76995 17.8902 5.75995 17.2202C5.36995 17.0902 5.15995 16.6602 5.28995 16.2702C5.41995 15.8802 5.84996 15.6602 6.23996 15.8002C9.95996 17.0402 14.05 17.0402 17.77 15.8002C18.16 15.6702 18.59 15.8802 18.72 16.2702C18.85 16.6602 18.64 17.0902 18.25 17.2202C16.23 17.9002 14.11 18.2302 12 18.2302Z"
                                                 fill="#CDD7D8" />
                                         </svg>
-                                        <p style="    top: 6px;
-                                        right: 13px; color: #979797;" class="position-absolute px-2">
+                                        <p style="top: 6px;right: 13px; color:#979797;" class="position-absolute px-2">
                                             السجل التجاري (بحد أقصى 10 ميجا)
-
                                         </p>
 
 
@@ -702,7 +674,7 @@ export default {
 </script>
 
 <style scoped>
-#btn-register{
+#btn-register {
     border: 1px solid #FFFFFF;
     box-shadow: 0px 4px 15px 1px rgb(0 0 0 / 25%);
     border-radius: 8px;
@@ -710,7 +682,8 @@ export default {
     padding: 10px 25px;
     color: white
 }
-.eye-password-icon{
+
+.eye-password-icon {
     top: 12px;
     left: 15px;
     color: #CDD7D8;
