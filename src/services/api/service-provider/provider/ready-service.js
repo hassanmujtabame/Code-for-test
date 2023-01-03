@@ -29,6 +29,12 @@ class ServiceProviderApi extends BaseApi{
     delete(id){
         return window.axios.delete(`service-provider/provider/ready-services/${id}`);  
     }
+    suspend(id){
+        return window.axios.post(`service-provider/provider/ready-services/suspend/${id}`);  
+    }
+    notSuspend(id){
+        return window.axios.post(`service-provider/provider/ready-services/not-suspend/${id}`);  
+    }
     
 }
 
