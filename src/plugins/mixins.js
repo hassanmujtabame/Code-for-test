@@ -8,6 +8,17 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            logout(evt) {
+              if(evt)
+              evt.preventDefault();
+  
+              window.store.commit('auth/CLEAR_TOKEN');
+              window.store.commit('auth/CLEAR_USER');
+              if(this.$router.mode=='history')
+              this.$router.push({ name: 'login', params: { lang: this.$i18n.locale } })
+                  if(this.$router.mode=='hash')
+             window.location.reload()
+          },
             dateToString(date){
               if(!date) return null;
              return date.toISOString().split("T")[0]
