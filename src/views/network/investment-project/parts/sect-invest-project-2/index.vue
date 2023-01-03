@@ -4,7 +4,7 @@
             <div  class="d-flex justify-content-between align-items-center container">
           <div class="">
 
-              <h1> مشاريع الاستثمار      </h1>
+            <h1>  {{ $t('Moral_investment_projects') }}</h1>
           </div>
             <div class="d-flex   align-items-center gap-2">
                 <div  class="  mt-3 position-relative">
