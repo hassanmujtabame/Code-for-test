@@ -7,6 +7,7 @@ import  './plugins/components';
 import  './plugins/v-calendar.js';
 import './plugins/axios'
 import './plugins/vee-validate'
+import userAPI from './services/api/user';
 import EventBus from './helper/EventBus';
 window.EventBus =  new EventBus();
 const jquery = require('jquery');
@@ -44,9 +45,31 @@ new Vue({
  i18n,
  render: h => h(App),
  store,
-
+methods:{
+  async loadCurrentUser(){
+      try {
+         let { data } = await  userAPI.me()
+         if(data.success){
+            let {token,...user} = data.data;
+            window.store.commit('auth/SET_TOKEN',token) ;
+            window.store.commit('auth/SET_USER',user);
+         }
+      } catch (error) {
+         console.log('error',error)
+         console.log('error response',error.response)
+         if(error.response){
+            let response =error.response
+            if(response.status==401){
+               this.logout()
+           }
+         }
+         
+      }
+   }
+},
  mounted() {
-  let lng=Cookies.get('i18n_lang')
+  let lng=Cookies.get('i18n_lang')??'ar';
+  this.loadCurrentUser()
   document.documentElement.setAttribute('lang', lng)
   document.documentElement.setAttribute('dir', lng=='ar'?'rtl':'ltr')
            
