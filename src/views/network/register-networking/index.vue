@@ -14,7 +14,7 @@
 
                 {{ $t('Register-now') }}
             </a>
-            <div class="position-absolute anim-hwo-ar-you" :style="$i18n.locale !== 'ar' ? { left: auto, right: 0 } : {}">
+            <div class="position-absolute anim-hwo-ar-you" :style="$i18n.locale !== 'ar' ? { left: 'auto', right: 0 } : {}">
                 <img src="/assets/img/anim-hwo-ar-you.png" :class="{ 'rotateY-180': $i18n.locale !== 'ar' }" alt="">
             </div>
             <div class="star position-absolute">
