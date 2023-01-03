@@ -39,14 +39,14 @@
                             حدد نوع الاستثمار :
                         </p>
                         <div style="   background: #ff000021; height: 25px;" class="form-check form-switch ">
-                            <label class="form-check-label" for="flexSwitchCheckChecked">أستثمار مادي</label>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">{{ $t('physical-investment') }}</label>
                             <input class="form-check-input" type="radio" name="investment_type" role="switch" id="flexSwitchCheckChecked"
-                            v-model="itemForm.investment_type" value="mady">
+                            v-model="itemForm.investment_type" value="physical">
                         </div>
                         <div style="height: 25px;" class="form-check form-switch mx-3">
-                            <label class="form-check-label" for="flexSwitchCheckChecked2">أستثمار مادي</label>
+                            <label class="form-check-label" for="flexSwitchCheckChecked2">{{ $t('moral-investment') }}</label>
                             <input class="form-check-input" type="radio" name="investment_type" role="switch" id="flexSwitchCheckChecked2"
-                            v-model="itemForm.investment_type" value="notmady">
+                            v-model="itemForm.investment_type" value="moral">
                         </div>
                     </div>
                     <d-error-input v-if="errors.length" :errors="errors"/>
