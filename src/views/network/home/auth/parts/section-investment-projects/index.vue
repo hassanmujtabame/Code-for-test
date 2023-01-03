@@ -15,7 +15,8 @@
                 </div>
               </div>
                 <div v-for="(item,i) in items" :key="i" class="col-md-6 mt-3">
-                   <investmentProject
+                <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
+                  <investmentProject
                    :title="item.title"
                    :publisher="item.publisher"
                    :date-publish="item.datePublish"
@@ -25,6 +26,7 @@
                    :offered_property="item.offered_property"
                    :amount="item.amount"
                    />
+                   </router-link>
                 </div>
                
             </div>
