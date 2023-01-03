@@ -286,8 +286,10 @@ export default {
 
             window.store.commit('auth/CLEAR_TOKEN');
             window.store.commit('auth/CLEAR_USER');
+            if(this.$router.mode=='history')
             this.$router.push({ name: 'login', params: { lang: this.$i18n.locale } })
-
+                if(this.$router.mode=='hash')
+           window.location.reload()
         },
     }
 }
