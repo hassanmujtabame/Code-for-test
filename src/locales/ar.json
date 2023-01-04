@@ -145,5 +145,8 @@
   "Project_financing": "تمويل المشروع",
   "Make_an_offer": "تقديم عرض ",
   "login": "تسجيل الدخول",
-  "full-name": "الاسم الكامل"
+  "full-name": "الاسم الكامل",
+  "subject": "الموضوع",
+  "title_message": "عنوان الرسالة",
+  "message": "الرسالة"
 }

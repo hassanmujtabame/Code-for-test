@@ -146,5 +146,8 @@
   "Project_financing": "Project financing",
   "Make_an_offer": "Make an offer",
   "login": "Login",
-  "full-name": "Full name"
+  "full-name": "Full name",
+  "subject": "Subject",
+  "title_message": "Message title",
+  "message": "Message"
 }
