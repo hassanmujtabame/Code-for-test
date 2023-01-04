@@ -1,12 +1,15 @@
 <template>
       <div class="row">
             <div  class="d-flex justify-content-between align-items-center container">
-          <div class="">
-
-              <h1 class="text-bold">  {{ $t('Material_investment_projects') }}</h1>
-          </div>
-            <div class="d-flex   align-items-center gap-2">
-                <div  class="  mt-3 position-relative">
+            <d-filter-list
+            classColCard="col-md-6 mt-3"
+            :call-list="initializing"
+            hideSide
+            >
+            <template v-slot:total>
+                <h1 class="text-bold">  {{ $t('physical_investment_projects') }}</h1>
+            </template>
+                <template v-slot:order>
                     <select class="form-select form-select-lg mb-3  py-3" aria-label=".form-select-lg example">
                         <option selected> المضاف حديثا   </option>
                         <option value="1">الاعلى سعرا</option>
@@ -16,17 +19,16 @@
                       <p style="top: -13px;background: white;" class="position-absolute">
                         ترتيب حسب 
                       </p>
-                </div> 
-                <div>
+                </template> 
+                <template v-slot:head-end>
 
                     <router-link :to="getRouteLocale('network-investment-project-request-add')" class="btn bg-main text-white p-2">
                         أعرض مشروعك لاستثمار
                     </router-link>
-                </div>
-            </div>
-             </div>
-             <div v-for="(item,i) in items" :key="i" class="col-md-6 mt-3">
-                <router-link :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
+                </template>
+         <template v-slot:default="{item}">
+          
+                <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
                 <investmentProject
                    :title="item.title"
                    :publisher="item.user_info.name"
@@ -39,11 +41,14 @@
                    :place="item.place"
                    />
                 </router-link>
-                </div>
+            </template>
+            </d-filter-list>
+        </div>
         </div>
 </template>
 
 <script>
+import projectsAPI from '@/services/api/projects.js'
 import investmentProject from '@/components/cards/investment-project.vue';
 export default {
  name:'sect-invest-project-1',
@@ -51,13 +56,25 @@ export default {
     investmentProject
  },
  data:()=>({
-    items:[
+    projects:[
         {id:1,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
         {id:2,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
         {id:3,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
         {id:4,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:20},
-    ]
- })
+    ],
+
+ }),
+ methods:{
+    async initializing(metaInfo){
+     
+                let params = {
+                page: metaInfo.current_page,
+                investment_type:'physical'
+            }
+                return await projectsAPI.getAll(params)
+
+    }
+ }
 }
 </script>
 
