@@ -47,8 +47,14 @@
                 </p>
             </slot>
             </div>
+            <div v-if="$slots['head-end']" class="col-12 col-md-auto mt-3"
+            :style="{ 'margin-right':$i18n.locale?'auto':'', 'margin-left':$i18n.locale?'auto':''}">
+            <slot name="head-end"></slot>
+            </div>
         </div>
-
+        <div v-if="$slots['before-body']" class="row">
+            <slot name="before-body"></slot>
+            </div>
         <div class="row">
             <div v-if="!hideSide" class="col-md-3 mt-2">
                 <slot name="side">
