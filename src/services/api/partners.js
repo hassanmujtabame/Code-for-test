@@ -16,6 +16,18 @@ class PartnersApi extends BaseApi{
     getCategories(){
         return window.axios.get(`network/categories`);
     }
+
+    getPartnersHome(){
+        /* for list partners in home page*/
+        return window.axios.get(`user/partner-home`);  
+    }
+    getPartnersByCat(cat=null){
+        /* for list partners by category id*/
+        let url = 'user/partner-home';
+        if(cat)
+        url = `user/partner-home?category_id=${cat}`
+        return window.axios.get(url);  
+    }
 }
 
 export default new PartnersApi();

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import commonAPI from '@/services/api/common.js'
+import partnersAPI from '@/services/api/partners.js'
 import ImgAvatar from '@/components/avatars/img-avatar.vue';
 export default {
     components:{
@@ -36,7 +36,7 @@ export default {
     async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await commonAPI.getPartnersHome();
+          let { data } =  await partnersAPI.getPartnersHome();
           if(data.success){
             this.items = data.data
           }
