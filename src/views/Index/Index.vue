@@ -40,7 +40,7 @@ import SectCampRiadiat from './parts/section-3/camp-riadiat.vue'
 import SectConsultingRiadiat from './parts/section-4/consulting-riadiat.vue'
 import SectTrainingCourses from './parts/section-training-courses/index.vue'
 import SectPartnerRiadiat from './parts/section-partners/index.vue'
-import SectAboutUs from './parts/section-7/about-us.vue'
+import SectAboutUs from './parts/section-about-us/index.vue'
 import SectHearAboutUs from './parts/section-hear-about-us/index.vue'
 import SectBlog from './parts/section-section-blog/index.vue'
 export default {
