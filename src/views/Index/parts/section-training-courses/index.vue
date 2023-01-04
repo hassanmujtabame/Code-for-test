@@ -40,6 +40,7 @@
 import commmonAPI from '@/services/api/common.js'
 import TrainingCourseCard from '@/components/cards/training-course.vue'
 export default {
+  name:'training-courses',
   components:{
   TrainingCourseCard
   },
