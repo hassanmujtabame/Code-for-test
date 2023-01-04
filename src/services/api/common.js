@@ -5,7 +5,7 @@ class CommonApi extends BaseApi {
     ContactUsSend(data){
         return window.axios.post(`contact-us`,{data});
     }
-    getPartnerHome(){
+    getPartnersHome(){
         /* for list partners in home page*/
         return window.axios.get(`user/partner-home`);  
     }
