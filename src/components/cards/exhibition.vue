@@ -8,7 +8,7 @@
                         <h6 class=" mt-2  fw-bolder text-start">
                         {{title}}
                         </h6>
-                        <p class="t-c" v-html="description">
+                        <p class="t-c text-two-lines exhibition-card-title" v-html="description">
                         </p>
                         <div class="d-flex justify-content-between flex-wrap">
                             <p>
@@ -99,6 +99,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.exhibition-card-title{
+    height:54px
+}
 </style>
