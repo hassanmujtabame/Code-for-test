@@ -36,7 +36,7 @@ export default {
     async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await commonAPI.getPartnerHome();
+          let { data } =  await commonAPI.getPartnersHome();
           if(data.success){
             this.items = data.data
           }
