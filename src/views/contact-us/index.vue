@@ -12,14 +12,27 @@
                             فلنناقش سوياً كيف يمكننا مساعدة شركة أعمالك
                         </p>
                         <form action="">
+                            <ValidationProvider
+                                 tag="div"
+                                    :name="$t('full-name')"
+                                 vid="password"
+                                 rules="required"
+                                    v-slot="{errors}">
+                                    <label class="form-lable">{{ $t('full-name') }}</label>
                             <input type="text" class=" mt-2 w-100" placeholder="الاسم بالكامل">
+                            <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                {{errors[0]}}
+                                </div>
+                           </ValidationProvider>
                             <input type="emil" class=" mt-2 w-100" placeholder=" البريد الالكتروني">
                             <input type="text" class=" mt-2 w-100" placeholder=" عنوان الرسالة">
                             <textarea class=" mt-2 w-100" name="" id="" cols="30" rows="5"
                                 placeholder="الرسالة"></textarea>
 
                         </form>
-
+                        <div class="text-start mt-2 ">
+                                <button @click="sendMessage" class="btn btn-main"   role="button"> {{ $t('login') }}  </button>
+                            </div>
                     </div>
                     <div class="col-md-6">
                         <div class="box">
@@ -141,9 +154,14 @@
 <script>
 
 export default {
-  name: 'ContactUs',
+  name: 'contact-us',
   components: {
    
+  },
+  methods:{
+    sendMessage(){
+
+    }
   }
 }
 </script>

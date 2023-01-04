@@ -65,7 +65,7 @@ const routes = [
     path: 'contact-us',
     meta:{layout:LayoutDefault},
     name: 'contact-us',
-    component: () => import(/* webpackChunkName: "ContactUs" */ '../views/ContactUs.vue')
+    component: () => import(/* webpackChunkName: "ContactUs" */ '../views/contact-us/index.vue')
   },
   {
     path: 'login',
