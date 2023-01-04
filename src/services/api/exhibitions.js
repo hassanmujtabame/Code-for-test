@@ -14,7 +14,7 @@ class ExhibitionsApi extends BaseApi{
         return window.axios.get(`network/exhibitions/${id}`);
     }
     getCategories(){
-        return window.axios.get(`network/exhibitions-categories`);
+        return window.axios.get(`network/categories`);
     }
     getRecent(){
         return window.axios.get(`network/latest-exhibitions`);
