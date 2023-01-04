@@ -191,8 +191,9 @@
 
 <script>
 export default {
+  name:'camp-riadiat',
   mounted(){
-    $('.feature-carousel').owlCarousel({
+    window.$('.feature-carousel').owlCarousel({
     loop:true,
     margin:10,
     nav:true,
