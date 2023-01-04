@@ -42,7 +42,7 @@ import SectTrainingCourses from './parts/section-training-courses/index.vue'
 import SectPartnerRiadiat from './parts/section-partners/index.vue'
 import SectAboutUs from './parts/section-7/about-us.vue'
 import SectHearAboutUs from './parts/section-hear-about-us/index.vue'
-import SectBlog from './parts/section-8/sect-blog.vue'
+import SectBlog from './parts/section-section-blog/index.vue'
 export default {
   name: 'IndexView',
   components: {

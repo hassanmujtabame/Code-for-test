@@ -27,6 +27,7 @@
 import BlogsAPI from '@/services/api/blogs.js'
 import BlogInfoCard from '@/components/cards/blog-info.vue';
 export default {
+  name:'section-blog',
  components:{
     BlogInfoCard
  },
