@@ -98,10 +98,10 @@ export default {
 
     }, 
     items:[
-        {id:1,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
-        {id:2,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
-        {id:3,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
-        {id:4,title:'تكنولوجيا القلم الديجيتال',publisher:'خالد أسماعيل',created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:20},
+        {id:1,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
+        {id:2,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
+        {id:3,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
+        {id:4,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:20},
     ]
  }),
  methods:{
