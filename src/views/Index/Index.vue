@@ -35,7 +35,7 @@
 
 <script>
 import SectMainSlider from './parts/section-1/main-slider.vue'
-import SectServices from './parts/section-2/services.vue'
+import SectServices from './parts/section-services/index.vue'
 import SectCampRiadiat from './parts/section-camp-riadiat/index.vue'
 import SectConsultingRiadiat from './parts/section-consulting/index.vue'
 import SectTrainingCourses from './parts/section-training-courses/index.vue'

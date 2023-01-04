@@ -156,7 +156,7 @@ import TabItem from '@/components/tabs/TabItem.vue'
 import TabHead from '@/components/tabs/TabHead.vue'
 import DTabs from '@/components/tabs/DTabs.vue'
 export default {
-    name:'ServicesPart',
+    name:'services-section',
     components: {
     WorldSVG,
     LightSVG,
