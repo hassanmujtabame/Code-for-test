@@ -149,5 +149,6 @@
   "full-name": "Full name",
   "subject": "Subject",
   "title_message": "Message title",
-  "message": "Message"
+  "message": "Message",
+  "more": "More"
 }
