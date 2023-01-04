@@ -22,6 +22,9 @@ class ProjectsApi extends BaseApi{
     getRecents(){
         return window.axios.get(`network/projects`);// we will use latest projects
     }
+    getStatistics(){
+        return window.axios.get(`network/statistics-projects`);
+    }
 }
 
 export default new ProjectsApi();
