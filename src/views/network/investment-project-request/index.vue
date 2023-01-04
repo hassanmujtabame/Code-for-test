@@ -270,11 +270,11 @@
                          v-slot="{ errors }"
                          >
                          <div class="col-4">
-                                    <label  class="form-label m-c fw-bold">موعد غلق الجولة :</label>
+                                    <label  class="form-label m-c fw-bold"> صنف  :</label>
                                 </div>
                                 <div class="col-8 position-relative d-flex  align-items-center">
                         <select v-model="itemForm.category_id"  class="form-control">
-                            <option disabled value="" class="t-c"> تصنيفات المعرض</option>
+                            <option disabled value="" class="t-c"> تصنيفات </option>
                             <option :key="i" v-for="(option,i) in categories" :value="option.id">
                                 {{ option.name }}
                             </option>
@@ -551,7 +551,7 @@ export default {
           description:"",
           category_id:null,
           offered_property:0,
-          investment_type:'mady',
+          investment_type:'physical',
           minimum_investment:null,
           amount_financing_required:null,
           description_user:'',
@@ -576,12 +576,13 @@ export default {
      formData.append('image',this.file);
         try {
             let { data } = await ProjectAPI.addItem(formData)
+            console.log('success',data)
             if(data.success){
-                console.log('success',data)
-                if(data.data.id){
-                    this.$router.push(this.getRouteLocale('network-investment-project-show'),{id:data.data.id})
-                }else
-                this.clearProject()
+               
+               
+                    this.$router.push(this.getRouteLocale('network-investment-project-show',{id:data.data[0].project_id}))
+
+                
             }
         } catch (error) {
             //
@@ -640,6 +641,7 @@ export default {
     }
     },
     mounted(){
+        this.loadCategories()
         this.clearProject()
     }
 }
