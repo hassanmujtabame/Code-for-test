@@ -6,7 +6,7 @@
           >
             <h1>نقدم دورتنا بكل شغف</h1>
             <div>
-              <button class="more">المزيد</button>
+              <button class="more">{{$t('more')}}</button>
             </div>
           </div>
           <p class="container">
@@ -14,14 +14,15 @@
           </p>
           <div class="container" style="overflow:hidden">
           <d-swiper
+          v-if="!loading"
             :slides-per-view="5"
             :space-between="10"
              
-              :items="courses"
+              :items="items"
             >
               <template v-slot="{item}" >
                <TrainingCourseCard 
-               :img="item.img"
+               :img="item.image_path"
                :title="item.title"
                :price="item.price"
                :currency="item.currency"
@@ -36,7 +37,7 @@
 </template>
 
 <script>
-
+import commmonAPI from '@/services/api/common.js'
 import TrainingCourseCard from '@/components/cards/training-course.vue'
 export default {
   components:{
@@ -44,15 +45,42 @@ export default {
   },
  data:()=>({
     courses:[
-    {img:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:2000,currency:'ريال'},
-    {img:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-    {img:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-    {img:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-    {img:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-    {img:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-   {img:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-    ]
- })
+    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:2000,currency:'ريال'},
+    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+   {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    ],
+    loading:true,
+  total:0,
+  itemExample:{
+    id: 6,
+            title: "تصميم الازياء",
+            image_path: "https://test.riadiat.sa/storage/117/courses-1768.png",
+            description: "تصميم الازياء",
+            "price": 1500
+          },
+    items:[]
+ }),
+ methods:{
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await commmonAPI.getCoursesHome();
+          if(data.success){
+            this.items = data.data
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  },
+  mounted(){
+    this.initlizing()
+ }
 }
 </script>
 
