@@ -7,8 +7,13 @@ class CommonApi extends BaseApi {
     }
     getPartnerHome(){
         /* for list partners in home page*/
-        return window.axios.get(`user/partner-home`);
-        
+        return window.axios.get(`user/partner-home`);  
+    }
+
+    getOpinions(params={department_name:'riadiat'}){
+        /* ماذا يقولون عن رياديات */
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`user/what-do-subscribers-say?${s}`);  
     }
    
 }
