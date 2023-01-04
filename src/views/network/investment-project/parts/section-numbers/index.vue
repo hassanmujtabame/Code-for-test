@@ -6,7 +6,7 @@
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
-                                60000+
+                                {{statics.invest_projects}}
                             </h5>
                             <p>
                                 مشروع لاستثمار
@@ -18,7 +18,7 @@
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
-                                5222+
+                                {{statics.invested}}
                             </h5>
                             <p>
                                 مسثمر
@@ -30,7 +30,7 @@
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
-                                5222+
+                                {{statics.investment_amounts}}
                             </h5>
                             <p>
                                 مبالغ الاستثمار
@@ -42,7 +42,7 @@
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
-                                9+
+                                {{statics.demand_investment}}
                             </h5>
                             <p>
                                 طالبين للاستثمار
@@ -54,7 +54,7 @@
                         <div class="box">
     
                             <h5 class="m-c fw-bolder">
-                                876+
+                                {{statics.moral_investments}}
                             </h5>
                             <p>
                                 أستثمارات معنوية
@@ -71,8 +71,33 @@
 </template>
 
 <script>
+import projectAPI from '@/services/api/projects'
 export default {
- name:'section-numbers'
+ name:'section-numbers',
+ data:()=>({
+   statics: {
+        "invest_projects": 'N/A',
+        "invested": 'N/A',
+        "investment_amounts": 'N/A',
+        "demand_investment": 'N/A',
+        "moral_investments": 'N/A'
+    }
+ }),
+ methods:{
+    async initializing(){
+        try {
+            let {data} =  await projectAPI.getStatistics()
+            if(data.success){
+                this.statics =Object.assign(this.statics,data.data) 
+            }
+        } catch (error) {
+             console.log('error',error)
+        }
+    }
+ },
+ mounted(){
+    this.initializing()
+ }
 }
 </script>
 
