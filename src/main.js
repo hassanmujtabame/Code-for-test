@@ -69,6 +69,7 @@ methods:{
 },
  mounted() {
   let lng=Cookies.get('i18n_lang')??'ar';
+  if(this.token)
   this.loadCurrentUser()
   document.documentElement.setAttribute('lang', lng)
   document.documentElement.setAttribute('dir', lng=='ar'?'rtl':'ltr')
