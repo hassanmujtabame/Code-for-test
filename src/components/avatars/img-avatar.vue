@@ -1,8 +1,9 @@
 <template>
-    <div class="d-image-avatar" :style="{height:`${size}px`,width:`${size}px`, 'background-image':`url(${img})`}"
+    <img class="d-image-avatar" 
+    :src="img"
+    :style="{height:`${size}px`,width:`${size}px`}"
     v-bind="$attrs"
-    >
-</div>
+    />
 </template>
 
 <script>
@@ -22,10 +23,10 @@ export default {
 <style scoped>
 .d-image-avatar {
 
-    border: 1px solid #80808021;
+    /*border: 1px solid #80808021;*/
     border-radius: 50%!important;
-    background-size: cover;
+    /*background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center;*/
 }
 </style>
