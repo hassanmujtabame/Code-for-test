@@ -7,11 +7,12 @@
        <SectionNumbers />
         <!--أعرف اكثر عن مجالات الاستثمار-->
         <SectionKnowMore />
-      </div>
-      <!--جولات تنتهي هذا الاسبوع -->
+        <!--جولات تنتهي هذا الاسبوع -->
       <SectionNearExpired/>
+      </div>
+      
 
-      <div class="container mt-5">
+      <div class="mt-5">
 
     <!-- مشاريع الاستثمار مادي-->
         <section-invest-project-1 />
