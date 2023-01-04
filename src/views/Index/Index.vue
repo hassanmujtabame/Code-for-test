@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import SectMainSlider from './parts/section-1/main-slider.vue'
+import SectMainSlider from './parts/section-header/main-slider.vue'
 import SectServices from './parts/section-services/index.vue'
 import SectCampRiadiat from './parts/section-camp-riadiat/index.vue'
 import SectConsultingRiadiat from './parts/section-consulting/index.vue'
