@@ -85,15 +85,15 @@ export default {
     },
     userName:{
         type:String,
-        default:'سارة'
+        default:'N/A'
     },
     place:{
         type:String,
-        default:'جدة'
+        default:'N/A'
     },
     price:{
         type:[String,Number],
-        default:'دخول مجاني'
+        default:'N/A'
     }
 }
 }
