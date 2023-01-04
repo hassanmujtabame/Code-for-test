@@ -41,7 +41,7 @@ import SectionTwo from './parts/section-2/index.vue';
 import SectionThree from './parts/section-3/index.vue';
 import SectionSchedules from './parts/section-schedules/index.vue';
 import SectionTopMember from './parts/section-top-members/index.vue';
-import SectionPartners from './parts/section-partners/index.vue';
+import SectionPartners from '../auth/parts/section-partners/index.vue';
 import SectionJoin from './parts/section-join-us/index.vue';
 import SectionNumbers from './parts/section-numbers/index.vue';
 import SectioninFluenceurs from './parts/section-influenceurs/index.vue';

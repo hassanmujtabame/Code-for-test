@@ -1,7 +1,7 @@
 <template>
     <div class="network-subscribe p-3">
         <h2 class="text-center">
-              شركائنا في أكاديمية رياديات 
+              شركائنا في الشبكة رياديات 
             </h2>
               <div class=" ">
                  <DTabs group="pills" :current.sync="currentTab">

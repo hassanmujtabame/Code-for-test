@@ -15,6 +15,7 @@
 import partnersAPI from '@/services/api/partners.js'
 import ImgAvatar from '@/components/avatars/img-avatar.vue';
 export default {
+  name:'partners-riadiat',
     components:{
         ImgAvatar
     },
