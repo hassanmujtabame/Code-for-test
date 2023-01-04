@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item  show">
                 <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
@@ -50,121 +50,70 @@
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
                     aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <div v-for="(cat,i) in categories" :key="i" class="form-check">
+                            <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="radio">
                             <label class="form-check-label" for="defaultCheck1">
-                                الازياء
+                                {{cat.name}}
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                المجوهرات
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-                            <label class="form-check-label" for="defaultCheck3">
-                                تجميل
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-                            <label class="form-check-label" for="defaultCheck4">
-                                منظمات الحفلات
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-                            <label class="form-check-label" for="defaultCheck5">
-                                التصوير الفوتوغرافية
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
-                            <label class="form-check-label" for="defaultCheck6">
-                                التصميم
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
-                            <label class="form-check-label" for="defaultCheck7">
-                                مصممات الديكور
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
-                            <label class="form-check-label" for="defaultCheck8">
-                                العاملين في الافراح
-                            </label>
-                        </div>
+                  
                     </div>
                 </div>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseThree">
-                        المدة
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseThree" class="accordion-collapse "
-                    aria-labelledby="panelsStayOpen-headingThree">
-                    <div style="margin: 20px 0px 0 0" class="a">
-                                    <div class="slider-container">
-                                        <rslider-input
-                                         :min.sync="filter.valueMinDuring" 
-                                         :max.sync="filter.valueMaxDuring"
-                                         :lmin="0"
-                                         :lmax="100"
-                                         />
-                                    </div>
-                                </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFour">
-                        التكلفة
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseFour" class="accordion-collapse "
-                    aria-labelledby="panelsStayOpen-headingFour">
-                    <div style="margin: 20px 0px 0 0" class="a">
-                                    <div class="slider-container">
-                                        <rslider-input
-                                         :min.sync="filter.valueMinAmount" 
-                                         :max.sync="filter.valueMaxAmount"
-                                         :lmin="0"
-                                         :lmax="100"
-                                         />
-                                    </div>
-                                </div>
-                </div>
-            </div>
+         
         </div>
     </div>
 </template>
 
 <script>
+import exhibitionsAPIs from '@/services/api/exhibitions.js'
+
 export default {
  name:'sidebar-box',
- data:()=>({
+ props:{
+    filterItem:{
+        type:[Object,Array],//defaults values
+        require:true
+    }
+ },
+ data:(vm)=>{
+    return{
+        states:[
+            {id:null,name:'الكل'},
+            {id:'online',name:'خدمات اونلاين'},
+            {id:'offline',name:'خدمات اوفلاين'},
+        ],
+        categories:[],
+    filter:vm.filterItem
+ }},
+ watch:{
     filter:{
-    isOnline:true,
-    category_id:[],
-    valueMinDuring:0,
-    valueMaxDuring:100,
-    valueMinAmount:0,
-    valueMaxAmount:100
-   }
- })
+        deep:true,
+        handler(val){
+            this.$emit('change',val)
+        }
+    }
+ },
+ methods:{
+
+ async getCategories() {
+            try {
+                let { data } = await exhibitionsAPIs.getCategories()
+                if (data.success) {
+
+                    let categories = data.data;
+                    categories.unshift({ id: null, name: 'الكل' })
+                    this.categories=categories
+                }
+            } catch (error) {
+                console.log('error', error)
+                console.log('error response', error.response)
+            }
+        }
+    },
+    mounted() {
+        this.getCategories();
+    }
 }
 </script>
 
-<style>
-
-</style>

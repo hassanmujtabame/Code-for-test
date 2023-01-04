@@ -20,7 +20,7 @@
                 </router-link>
             </template>
             <template v-slot:side>
-                <sidebarBox />
+                <sidebarBox :filterItem="filterItem"/>
             </template>
         </d-filter-list>
 
@@ -38,6 +38,15 @@ export default {
         sidebarBox
     },
     data: () => ({
+        filterItem:{
+      price:'asc',
+      state:null,
+      category_id:null,
+      valueMinDuring:0,
+      valueMaxDuring:100,
+      priceMin:null,
+      priceMax:null
+    },
         item_test: [
         {id:1,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
         {id:2,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
