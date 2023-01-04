@@ -2,7 +2,7 @@
   <div class="sex-eight mt-5">
         <div class="container">
           <h2 class="text-center">ماذا يقولون عن رياديات </h2>
-            <div class="feature-carousel owl-carousel owl-theme">
+            <div  :id="carouselId" class="feature-carousel owl-carousel owl-theme">
             <ItemSlide
             v-for="(item,i) in items"
             :key="i"
@@ -23,10 +23,12 @@ export default {
  components:{
     ItemSlide
  },
- data:()=>({
+ data:(vm)=>{
+    return {
+    carouselId:`carousel-${vm.generateRandomString(8)}`,
     loading:true,
     items:[]
- }),
+ }},
  methods:{
     
     async initializing(){
@@ -45,7 +47,7 @@ export default {
  },
  async mounted(){
     await this.initializing()
-    window.$('.feature-carousel').owlCarousel({
+    window.$(`#${this.carouselId}`).owlCarousel({
     loop:true,
     margin:10,
     nav:true,
