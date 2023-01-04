@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                             <div class="col-12 text-center ">
-                                <button @click="login" class="btn btn-main  "   role="button"> تسجيل الدخول  </button>
+                                <button @click="login" class="btn btn-main  "   role="button"> {{ $t('login') }}  </button>
                             </div>
                             
                         </ValidationObserver>
