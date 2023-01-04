@@ -4,18 +4,18 @@
           <div
           class="d-flex justify-content-between align-items-center container my-2"
         >
-          <h1>مدونة رياديات    </h1>
+          <h1>مدونة رياديات</h1>
           <div>
-            <button class="more">المزيد</button>
+            <router-link :to="getRouteLocale('network-blogs')" class="more">{{$t('more')}}</router-link>
           </div>
         </div>
         <div class="row">
-          <div v-for="(blog,i) in blogs" :key="i" class="col-md-4 " data-aos="fade-right" data-aos-duration="1000">
+          <div v-for="(blog,i) in items" :key="i" class="col-md-4 " data-aos="fade-right" data-aos-duration="1000">
            <BlogInfoCard 
-            :img="blog.img"
-            :title="(blog.title+' '+i)"
+           :img="blog.image"
+            :title="blog.title"
             :description="blog.description"
-            :date="blog.date"
+            :date="blog.created_at"
            />
           </div>
         </div>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import BlogsAPI from '@/services/api/blogs.js'
 import BlogInfoCard from '@/components/cards/blog-info.vue';
 export default {
  components:{
@@ -31,12 +32,35 @@ export default {
  },
  data:()=>({
     blogs:[
-        {title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
 
     ]
- })
+    ,
+    loading:true,
+  total:0,
+    items:[]
+ }),
+ methods:{
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await BlogsAPI.getHomeNetwork();
+          if(data.success){
+            this.items = data.data
+            this.total = data.meta.total
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  },
+ async mounted(){
+   await this.initlizing()
+    window.AOS.init()
+ }
 }
 </script>
 
