@@ -29,12 +29,13 @@
        <template v-slot:default="{item}">
         
               <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
-              <investmentProject
+              <DMoralProjectLarge
                  :title="item.title"
+                 :description="item.description"
                  :publisher="item.user_info.name"
                  :date-publish="item.created_at"
                  :rest-day="item.rest_days"
-                 :investor="item.count_invest"
+                 :offers="item.count_invest"
                  :minimum-goal="item.minimum_investment"
                  :offered_property="item.offered_property"
                  :amount="item.amount_financing_required"
@@ -49,11 +50,12 @@
 
 <script>
 import projectsAPI from '@/services/api/projects.js'
-import investmentProject from '@/components/cards/offer-investment-project.vue';
+import DMoralProjectLarge from '@/components/cards/projects/moral/large.vue';
+//import investmentProject from '@/components/cards/offer-investment-project.vue';
 export default {
-name:'sect-invest-project-1',
+name:'sect-invest-project-moral',
 components:{
-  investmentProject
+  DMoralProjectLarge
 },
 data:()=>({
   projects:[
@@ -68,10 +70,9 @@ methods:{
   async initializing(metaInfo){
    
               let params = {
-              page: metaInfo.current_page,
-              investment_type:'moral'
+              page: metaInfo.current_page
           }
-              return await projectsAPI.getAll(params)
+              return await projectsAPI.getAllPage('moral',4,params)
 
   }
 }
