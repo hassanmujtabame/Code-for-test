@@ -1,5 +1,6 @@
 <template>
   <div class="box border rounded-top rounded-2 p-2">
+    <div class="text-start">
                         <p class="text-end t-c">
                             تاريخ النشر 
                             <span>
@@ -43,6 +44,7 @@
 
                             </small>
                         </div>
+                    </div>
                         <hr>
                         <div class=" row justify-content-between">
                             <div class="d-flex col-md-4">

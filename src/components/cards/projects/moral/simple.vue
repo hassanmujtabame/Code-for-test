@@ -1,6 +1,6 @@
 <template>
-    <div class="box border rounded-3">
-        <div class="p-2">
+    <div class="box border rounded-top rounded-2 p-2">
+        <div class="p-2 text-start section-top-info">
 
             <p class="text-end t-c">
                 تاريخ النشر
@@ -13,10 +13,34 @@
             </h5>
             <p v-html="description"></p>
             <p>في {{ place }}</p>
+           
         </div>
-        <div style="background-color: #414042d4;" class="col-md-12  dashbord rounded-bottom">
+        <hr/>
+        <div  class="col-md-12  dashbord rounded-bottom">
             <div class=" row justify-content-between p-1 ">
-              
+                <div class="d-flex col-md-6">
+                    <div class="t-c">
+
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 22.75C6.76 22.75 2.5 18.49 2.5 13.25C2.5 8.01 6.76 3.75 12 3.75C17.24 3.75 21.5 8.01 21.5 13.25C21.5 18.49 17.24 22.75 12 22.75ZM12 5.25C7.59 5.25 4 8.84 4 13.25C4 17.66 7.59 21.25 12 21.25C16.41 21.25 20 17.66 20 13.25C20 8.84 16.41 5.25 12 5.25Z"
+                                fill="white" />
+                            <path
+                                d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
+                                fill="white" />
+                            <path
+                                d="M15 2.75H9C8.59 2.75 8.25 2.41 8.25 2C8.25 1.59 8.59 1.25 9 1.25H15C15.41 1.25 15.75 1.59 15.75 2C15.75 2.41 15.41 2.75 15 2.75Z"
+                                fill="white" />
+                        </svg>
+
+                    </div>
+                    <div class="t-c">
+                        باقي عن غلق الجولة
+                        <p :class="classRestDays">
+                            {{ restDay }} يوم
+                        </p>
+                    </div>
+                </div>
                 <div class="d-flex col-md-6">
                     <div class="t-c">
 
@@ -34,37 +58,15 @@
 
 
                     </div>
-                    <div class="text-white">
+                    <div class="t-c">
                         الايجار 
-                        <p class="t-c">
+                        <p class="text-dark">
                             من {{minRent}} ألف -{{maxRent}} ألف
                         </p>
                     </div>
                 </div>
                 
-                <div class="d-flex col-md-6">
-                    <div class="t-c">
-
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 22.75C6.76 22.75 2.5 18.49 2.5 13.25C2.5 8.01 6.76 3.75 12 3.75C17.24 3.75 21.5 8.01 21.5 13.25C21.5 18.49 17.24 22.75 12 22.75ZM12 5.25C7.59 5.25 4 8.84 4 13.25C4 17.66 7.59 21.25 12 21.25C16.41 21.25 20 17.66 20 13.25C20 8.84 16.41 5.25 12 5.25Z"
-                                fill="white" />
-                            <path
-                                d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
-                                fill="white" />
-                            <path
-                                d="M15 2.75H9C8.59 2.75 8.25 2.41 8.25 2C8.25 1.59 8.59 1.25 9 1.25H15C15.41 1.25 15.75 1.59 15.75 2C15.75 2.41 15.41 2.75 15 2.75Z"
-                                fill="white" />
-                        </svg>
-
-                    </div>
-                    <div class="text-white">
-                        باقي عن غلق الجولة
-                        <p class="t-c">
-                            {{ restDay }} يوم
-                        </p>
-                    </div>
-                </div>
+                
               
             </div>
         </div>
@@ -114,11 +116,18 @@ export default {
             type: [String, Number],
             default:'N/A'
         },
+        classRestDays: {
+            type: String,
+            default:'text-dark'
+        },
 
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+.section-top-info{
+    height: 187px;
+    overflow: hidden;
+}
 </style>

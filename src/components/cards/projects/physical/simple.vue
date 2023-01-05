@@ -1,15 +1,16 @@
 <template>
   <div class="box border rounded-top rounded-2 p-2">
+    <div class="text-start section-top-info">
                         <p class="text-end t-c">
                             تاريخ النشر 
                             <span>
                                 : {{datePublish}}
                             </span>
                         </p>
-                        <h5>
+                        <h5 class="text-start">
                            {{title}}
                         </h5>
-                        <p>
+                        <p class="text-start">
                             <span class="m-c">
                                 {{amount}}
                             </span>
@@ -17,6 +18,7 @@
                                 ريال سعودي
                             </span>
                         </p>
+                    
                         <div class="col-md-12 mt-5 dashbord">
                             <div style="height: 10px;" class="progress ">
                                 <div   class="progress-bar" role="progressbar" aria-label="Example with label" style="height: 10px;" :style="{width: `${minimumGoal}%`}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -43,6 +45,7 @@
 
                             </small>
                         </div>
+                    </div>
                         <hr>
                         <div class=" row justify-content-between">
                             <div class="d-flex col-md-6">
@@ -57,7 +60,7 @@
                                 <div class="t-c">
 
                                     باقي عن غلق الجولة 
-                                    <p class="text-dark">
+                                    <p :class="classRestDays">
                                         {{restDay}} يوم
                                     </p>
                                 </div>
@@ -113,11 +116,18 @@ export default {
     },
     investor:{
         type:[String,Number]
-    }
+    } ,
+    classRestDays: {
+            type: String,
+            default:'text-dark'
+        },
 }
 }
 </script>
 
-<style>
-
+<style scoped>
+.section-top-info{
+    height: 187px;
+    overflow: hidden;
+}
 </style>

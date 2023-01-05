@@ -1,6 +1,6 @@
 <template>
-    <div class="box border rounded-3">
-        <div class="p-2">
+    <div class="box border rounded-top rounded-2 p-2">
+        <div class="p-2 text-start">
 
             <p class="text-end t-c">
                 تاريخ النشر
@@ -11,7 +11,7 @@
             <h5>
                 {{ title }}
             </h5>
-            <p>{{ description }}</p>
+            <p v-html="description"></p>
         </div>
         <div style="background-color: #414042d4;" class="col-md-12  dashbord rounded-bottom">
             <div class=" row justify-content-between p-1 ">
