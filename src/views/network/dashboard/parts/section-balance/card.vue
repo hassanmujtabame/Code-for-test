@@ -5,7 +5,7 @@
                 {{title}}
             </p>
             <h3 class=" fw-bolder" :class="classValue">
-                0 ر.س
+                {{ value }} ر.س
             </h3>
 
   </div>
@@ -28,8 +28,13 @@ props:{
         default:'m-c'
     },
     value:{
-        default:''
+        default:'N/A'
     },
+},
+watch:{
+    value(){
+        //
+    }
 }
 }
 </script>
