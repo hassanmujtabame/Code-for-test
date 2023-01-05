@@ -7,7 +7,7 @@
      aria-labelledby="exampleModalToggleLabel"
         tabindex="-1">
         <div class="modal-dialog"
-        :class="{'modal-xl':xl,'modal-dialog-centered':centered}"
+        :class="{'modal-xl':xl,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen}"
         >
             <div class="modal-content">
                 <div class="modal-header">
@@ -37,6 +37,10 @@ props:{
     xl:{
         type:Boolean,
         default:true
+    },
+    fullscreen:{
+        type:Boolean,
+        default:false
     },
     centered:{
         type:Boolean,
