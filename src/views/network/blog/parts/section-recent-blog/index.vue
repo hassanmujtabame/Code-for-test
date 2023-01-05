@@ -51,7 +51,7 @@ export default {
  }),
  methods:{
     addBlog(){
-    window.EventBus.fire('add-dialog-open-dialog')
+    this.fireOpenDialog('add-dialog')
   },
     async getRecents() {
         this.loading = true;
