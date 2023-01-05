@@ -20,10 +20,11 @@
           :space-bitween="10"
           >
           <template v-slot="{item}">
-            <router-link :to="getRouteLocale('network-investment-project-show',{id:item.id})"> 
-            <investmentProject style="width:95%"
+            <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})"> 
+            <DPhysicalProjectSimple v-if="item.investment_type=='physical'" style="width:95%"
             :image="item.image"
                    :title="item.title"
+                   :description="item.description"
                    :publisher="item.user_info.name"
                    :date-publish="item.created_at"
                    :rest-day="item.rest_days"
@@ -31,6 +32,20 @@
                    :minimum-goal="item.minimum_investment"
                    :offered_property="item.offered_property"
                    :amount="item.amount_financing_required"
+                   classRestDays="text-danger"
+                   />
+            <DMoralProjectSimple v-else style="width:95%"
+            :image="item.image"
+                   :title="item.title"
+                   :description="item.description"
+                   :publisher="item.user_info.name"
+                   :date-publish="item.created_at"
+                   :rest-day="item.rest_days"
+                   :offers="item.count_invest"
+                   :minimum-goal="item.minimum_investment"
+                   :offered_property="item.offered_property"
+                   :amount="item.amount_financing_required"
+                   classRestDays="text-danger"
                    />
             </router-link>
           </template>
@@ -47,11 +62,14 @@
 
 <script>
 import projectsAPI from '@/services/api/projects';
-import investmentProject from '@/components/cards/investment-project.vue';
+import DMoralProjectSimple from '@/components/cards/projects/moral/simple.vue';
+import DPhysicalProjectSimple from '@/components/cards/projects/physical/simple.vue';
+
 export default {
  name:'sect-recent-courses',
  components:{
-    investmentProject
+  DMoralProjectSimple,
+  DPhysicalProjectSimple
  },
  data:()=>({
   loading:true,
@@ -67,7 +85,7 @@ export default {
   async loadList(){
     this.loading = true;
     try {
-      let {data} = await projectsAPI.getRecents()
+      let {data} = await projectsAPI.getEndWeek()
       if(data.success){
         this.items = data.data.filter((x,i)=>i<5)
       }
