@@ -36,7 +36,7 @@
                     <div class="text-white">
                         عدد العروض
                         <p class="t-c">
-                            10 عروض
+                            {{ offers }} عروض
                         </p>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <div class="text-white">
                         الايجار السنوي
                         <p class="t-c">
-                            من 20 ألف -50 ألف
+                            من {{minRent}} ألف -{{maxRent}} ألف
                         </p>
                     </div>
                 </div>
@@ -160,26 +160,44 @@ export default {
     name: 'offer-investment-project',
     props: {
         title: {
-            type: String
+            type: String,
+            default:'N/A'
         },
         datePublish: {
-            type: String
+            type: String,
+            default:'N/A'
         },
         publisher: {
-            type: String
+            type: String,
+            default:'N/A'
         },
         offered_property: {
-            type: [String, Number]
+            type: [String, Number],
+            default:'N/A'
+        },
+        offers: {
+            type: [String, Number],
+            default:'N/A'
         },
         place: {
-            type: String
+            type: String,
+            default:'N/A'
         },
         description: {
             type: String
         },
         restDay: {
-            type: [String, Number]
-        }
+            type: [String, Number],
+            default:'N/A'
+        },
+        minRent: {
+            type: [String, Number],
+            default:'N/A'
+        },
+        maxRent: {
+            type: [String, Number],
+            default:'N/A'
+        },
 
     }
 }
