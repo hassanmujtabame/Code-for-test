@@ -29,8 +29,9 @@
          <template v-slot:default="{item}">
           
                 <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
-                <investmentProject
+                <DPhysicalProjectLarge
                    :title="item.title"
+                   :description="item.description"
                    :publisher="item.user_info.name"
                    :date-publish="item.created_at"
                    :rest-day="item.rest_days"
@@ -49,11 +50,12 @@
 
 <script>
 import projectsAPI from '@/services/api/projects.js'
-import investmentProject from '@/components/cards/investment-project.vue';
+import DPhysicalProjectLarge from '@/components/cards/projects/physical/large.vue';
+//import investmentProject from '@/components/cards/investment-project.vue';
 export default {
  name:'sect-invest-project-1',
  components:{
-    investmentProject
+    DPhysicalProjectLarge
  },
  data:()=>({
     projects:[
@@ -68,10 +70,10 @@ export default {
     async initializing(metaInfo){
      
                 let params = {
-                page: metaInfo.current_page,
-                investment_type:'physical'
+                page: metaInfo.current_page
             }
-                return await projectsAPI.getAll(params)
+            return await projectsAPI.getAllPage('physical',4,params)
+
 
     }
  }
