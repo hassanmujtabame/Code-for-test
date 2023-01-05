@@ -415,19 +415,26 @@
             <confirmMakeOfferDiag />
             <successMakeOfferDiag />
             <makeOfferDiag />
+            <makeCheckoutDiag />
+            <confirmMakeFinanceDiag />
         </portal>
     </div>
 </template>
 
 <script>
 import ProjectsAPI from '@/services/api/projects.js'
+
 import confirmMakeOfferDiag from './dialogs/confirm-make-offer.vue'
 import successMakeOfferDiag from './dialogs/success-make-offer.vue'
 import makeOfferDiag from './dialogs/make-offer.vue'
+import confirmMakeFinanceDiag from './dialogs/confirm-make-finance.vue'
+import makeCheckoutDiag from './dialogs/checkout.vue'
 export default {
   name: 'investment-prpject-page',
   components:{
     confirmMakeOfferDiag,
+    makeCheckoutDiag,
+    confirmMakeFinanceDiag,
     successMakeOfferDiag,
     makeOfferDiag
   },

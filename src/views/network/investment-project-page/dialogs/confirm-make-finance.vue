@@ -17,7 +17,7 @@
 </template>
 <template v-slot:actions>
     <button
-        @click="openOfferDialog"
+        @click="openCheckoutDialog"
                class="btn bg-main text-white"
                >  تقديم طلب </button>
 </template>
@@ -38,13 +38,11 @@ export default {
   },
   data:()=>({
     showDialog:false,
-    project:{
-    
-    }
+    project:{}
   }),
   methods:{
-    openOfferDialog(){
-    this.fireOpenDialog('make-offer');
+    openCheckoutDialog(){
+    this.fireOpenDialog('checkout-project');
     this.closeMe()
   },
   closeMe(){
