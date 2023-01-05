@@ -150,5 +150,12 @@
   "subject": "Subject",
   "title_message": "Message title",
   "message": "Message",
-  "more": "More"
+  "more": "More",
+  "title_demande": "Title demande",
+  "title_request": "Title request",
+  "value_rent": "Value rent",
+  "address_place_details": "Address",
+  "space_place": "space of the place",
+  "write_your_message": "Write your message",
+  "Ok": "Ok"
 }

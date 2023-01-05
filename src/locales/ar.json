@@ -149,5 +149,12 @@
   "subject": "الموضوع",
   "title_message": "عنوان الرسالة",
   "message": "الرسالة",
-  "more": "المزيد"
+  "more": "المزيد",
+  "title_demande": "العنوان المطلوب",
+  "title_request": "عنوان الطلب",
+  "value_rent": "قيمة الإيجار",
+  "address_place_details": "عنوان المكان بالتفصيل",
+  "space_place": "مساحة المكان",
+  "write_your_message": "اكتب رسالتك",
+  "Ok": "حسنا"
 }
