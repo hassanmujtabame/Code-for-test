@@ -90,13 +90,13 @@
                             </div>
                             <div class="mt-2">
                                 <div>
-                                    <a v-if="!isOwner" class="btn bg-main text-white" data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">
+                                    <button v-if="project.investment_type=='physical'" @click="openConfirmFinanceDialog" class="btn bg-main text-white" 
+                                        >
                                        {{ $t('Project_financing') }} 
-                                    </a>
-                                    <a v-else class="btn bg-main text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+                                    </button>
+                                    <button v-else class="btn bg-main text-white" @click="openConfirmOfferDialog" >
                                        {{ $t('Make_an_offer') }}            
-                                    </a>
+                                    </button>
                                     <button class="btn border m-c">
                                         <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -411,13 +411,26 @@
                 </div>
             </div>
         </div>
+        <portal to="body">
+            <confirmMakeOfferDiag />
+            <successMakeOfferDiag />
+            <makeOfferDiag />
+        </portal>
     </div>
 </template>
 
 <script>
 import ProjectsAPI from '@/services/api/projects.js'
+import confirmMakeOfferDiag from './dialogs/confirm-make-offer.vue'
+import successMakeOfferDiag from './dialogs/success-make-offer.vue'
+import makeOfferDiag from './dialogs/make-offer.vue'
 export default {
   name: 'investment-prpject-page',
+  components:{
+    confirmMakeOfferDiag,
+    successMakeOfferDiag,
+    makeOfferDiag
+  },
   data:()=>{
     return {
       loading:true,
@@ -427,6 +440,12 @@ export default {
       colors:['#F2631C','#FFBC00','#2C98B3']
   }},
   methods:{
+    openConfirmFinanceDialog(){
+    this.fireOpenDialog('confirm-make-finance',this.project)
+  },
+    openConfirmOfferDialog(){
+    this.fireOpenDialog('confirm-make-offer',this.project)
+  },
     async initializing() {
       this.loading = true;
       this.hasError = false;
