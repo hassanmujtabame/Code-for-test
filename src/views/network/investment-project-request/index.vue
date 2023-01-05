@@ -530,14 +530,21 @@
 
             </div>
         </div>
+        <portal to="body">
+            <successAddProjectDiag />
+        </portal>
     </div>
 </template>
 
 <script>
 //صفحة طلب عرض مشروع استثمارى/شبكة
 import ProjectAPI from '@/services/api/projects.js'
+import successAddProjectDiag from './dialogs/success-add-project.vue';
 export default {
     name: 'investment-project-request',
+    components:{
+        successAddProjectDiag
+    },
     data:(vm)=>({
         categories:[],
         clearing:true,
@@ -561,6 +568,9 @@ export default {
         }
     }),
     methods:{
+        openSuccessDialog(){
+    this.fireOpenDialog('success-add-project')
+  },
         async save(evt){
             evt.preventDefault();
             
@@ -578,9 +588,16 @@ export default {
             let { data } = await ProjectAPI.addItem(formData)
             console.log('success',data)
             if(data.success){
-               
-               
-                    this.$router.push(this.getRouteLocale('network-investment-project-show',{id:data.data[0].project_id}))
+                this.openSuccessDialog()
+                Object.keys(this.itemForm).forEach(key=>{
+                    this.itemForm[key]=this.project_default[key];
+                })
+                this.$nextTick(() => {
+                        if (this.$refs["form"]) {
+                        this.$refs.form.reset();
+                        }
+                    });
+                   // this.$router.push(this.getRouteLocale('network-investment-project-show',{id:data.data[0].project_id}))
 
                 
             }
