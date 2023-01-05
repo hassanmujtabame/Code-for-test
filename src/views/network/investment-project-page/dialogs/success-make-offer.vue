@@ -18,7 +18,7 @@
             </div>
 </template>
 <template v-slot:actions>
-  <a class="btn bg-main text-white" >الصفحة الرئيسية</a>
+  <a class="btn bg-main text-white" >{{ $t('Ok') }}</a>
 </template>
 </d-dialog-large>
 </template>

@@ -42,7 +42,7 @@ export default {
   }),
   methods:{
     openOfferDialog(){
-    this.fireOpenDialog('make-offer');
+    this.fireOpenDialog('make-offer',this.project);
     this.closeMe()
   },
   closeMe(){

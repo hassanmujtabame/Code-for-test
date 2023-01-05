@@ -6,7 +6,7 @@
 >
 <template v-slot:header>قدم طلبك الان</template>
 <template v-slot:default>
-  <div>
+  <ValidationObserver ref="form" tag="form" @submit="save">
     <!--title-->
     <ValidationProvider
       tag="div"
@@ -47,28 +47,36 @@
     <ValidationProvider
       tag="div"
       :name="$t('space_place')"
-      vid="space_place"
+      vid="place_area"
       rules="required"
 
       v-slot="{errors}"
       >
-      <input type="text" v-model="itemForm.space_place" class="form-control rounded-2 p-2 mt-2" :placeholder="$t('space_place')">
+      <input type="text" v-model="itemForm.place_area" class="form-control rounded-2 p-2 mt-2" :placeholder="$t('space_place')">
       <d-error-input v-if="errors.length" :errors="errors"/>
       </ValidationProvider>         
        <!--أكتب رسالتك  للعميل-->
     <ValidationProvider
       tag="div"
       :name="$t('write_your_message')"
-      vid="message"
+      vid="desc"
       rules="required"
 
       v-slot="{errors}"
       >
 
-      <textarea v-model="itemForm.message" class="w-100 border p-1 mt-2" rows="10" :placeholder="$t('write_your_message')"></textarea>
+      <textarea v-model="itemForm.desc" class="w-100 border p-1 mt-2" rows="10" :placeholder="$t('write_your_message')"></textarea>
       <d-error-input v-if="errors.length" :errors="errors"/>
       </ValidationProvider>    
-     
+      <!-- ارفق صور او فيديو هات للمكان-->
+    <ValidationProvider
+      tag="div"
+      :name="$t('File')"
+      vid="image"
+      rules="required"
+
+      v-slot="{errors,validate}"
+      >
 
                     <div class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-center">
                         <label for="fileinput1" class="form-label">
@@ -86,10 +94,12 @@
                             ارفق صور او فيديو هات للمكان
                         </span>
                     </div>
-                </div>
+                    <d-error-input v-if="errors.length" :errors="errors"/>
+      </ValidationProvider>
+  </ValidationObserver>
 </template>
 <template v-slot:actions>
-  <button class="btn bg-main text-white" @click="save">ارسال الطلب</button>
+  <button  class="btn bg-main text-white" @click="save">ارسال الطلب</button>
 </template>
 </d-dialog-large>
 </template>
@@ -105,13 +115,14 @@ export default {
   },
   data:()=>({
     showDialog:false,
+    project:{},
     itemForm:{
       title:'',
+      place_area:'',
       rent:null,
       address:'',
-      space_place:'',
-      message:'',
-      attachment:null,
+      desc:'',
+      image:null,
     }
   }),
   methods:{
@@ -133,8 +144,9 @@ export default {
             Object.keys(this.itemForm).forEach(key=>{
                 formData.append(key,this.itemForm[key])
             })
+            formData.append('invest_project_id',this.project.id)
             try {
-                let { data } = await projectsAPI.addOffer(formData)
+                let { data } = await projectsAPI.makeOffer(formData)
                 if(data.success){
                   this.openSuccessDialog()
                   this.closeMe()
@@ -161,13 +173,14 @@ export default {
     },
   uploadFile(evt){
     if (!evt.target.files && !evt.target.files[0]) {
-            this.itemForm.attachment = null;
+            this.itemForm.image = null;
             
             return;
         }
-        this.itemForm.attachment = evt.target.files[0];
+        this.itemForm.image = evt.target.files[0];
     },
-    openDialog(){
+    openDialog(data){
+      this.project = data;
         this.showDialog = true;
         return true;
     },
