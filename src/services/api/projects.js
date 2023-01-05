@@ -6,6 +6,13 @@ class ProjectsApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/projects?${s}`);
     }
+    getAllPage(type,perPage,params={}){
+        /** for get projects [moral|physical] 
+         * perPage (4|8)
+        */
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/${type}-projects-list-${perPage}?${s}`);
+    }
     getHomeNetwork(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/home-projects?${s}`);
