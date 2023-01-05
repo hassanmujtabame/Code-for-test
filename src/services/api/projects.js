@@ -37,6 +37,10 @@ class ProjectsApi extends BaseApi{
     getStatistics(){
         return window.axios.get(`network/statistics-projects`);
     }
+    makeOffer(dataItem){
+        return window.axios.post(`network/project-user-offers`,dataItem);
+
+    }
 }
 
 export default new ProjectsApi();
