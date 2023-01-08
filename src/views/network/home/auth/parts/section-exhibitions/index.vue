@@ -3,13 +3,13 @@
             <div
             class="d-flex justify-content-between align-items-center container"
           >
-            <h1> المعارض</h1>
+            <h1>{{ $t('exhibitions') }}</h1>
             <div>
               <router-link class="router-link" custom 
                 :to="getRouteLocale('network-exhibitions')"
                 v-slot="{navigate}"
                 >
-                  <button @click="navigate" class="more"> المزيد</button>
+                  <button @click="navigate" class="more"> {{$t('more')}}</button>
                 </router-link>
             </div>
           </div>
@@ -22,9 +22,6 @@
                 :userName="item.user_info.name"
                 />
                 </div>
-               
-                
-                
             </div>
 
           </div>
