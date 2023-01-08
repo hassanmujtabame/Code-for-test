@@ -5,10 +5,10 @@
   <div
     class="d-flex justify-content-between align-items-center container"
   >
-    <h1> لقاءات تعليمية      </h1>
+    <h1>{{ $t('learning-meetings') }}</h1>
     <div>
       <router-link custom :to="getRouteLocale('network-learning-meetings')" v-slot="{navigate}">
-      <button @click="navigate" class="more">المزيد</button>
+      <button @click="navigate" class="more">{{ $t('more') }}</button>
       </router-link>
     </div>
   </div>
