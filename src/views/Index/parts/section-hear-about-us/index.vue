@@ -1,7 +1,7 @@
 <template>
   <div class="sex-eight mt-5">
         <div class="container">
-          <h2 class="text-center">ماذا يقولون عن رياديات </h2>
+          <h2 class="text-center">{{ $t('what-do-they-say-about-us') }} </h2>
             <div  :id="carouselId" class="feature-carousel owl-carousel owl-theme">
             <ItemSlide
             v-for="(item,i) in items"
