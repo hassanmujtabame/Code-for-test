@@ -36,7 +36,7 @@
                     <div class="text-white">
                         عدد العروض
                         <p class="t-c">
-                            {{ offers }} عروض
+                            {{ offers }} {{$t('offers')}}
                         </p>
                     </div>
                 </div>
