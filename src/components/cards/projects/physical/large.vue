@@ -93,7 +93,7 @@
                                         
                                 </div>
                                 <div class="t-c">
-                                    اسم الناشر :
+                                    {{ $t('publisher-name')  }}  :
                                     <p class="text-dark">
                                       {{publisher}}
                                     </p>

@@ -144,7 +144,7 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        اسم الناشر
+                        {{ $t('publisher-name')  }} 
                         <p class="t-c">
                             {{ publisher }}
                         </p>
