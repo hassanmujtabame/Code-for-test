@@ -14,7 +14,7 @@
               <router-link :to="{name:'academy-home',params:{lang:$i18n.locale}}"  class="nav-link">{{ $t('academy') }}</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link :to="{name:'incubator-home',params:{lang:$i18n.locale}}" class="nav-link">{{ $t('Babysitter') }}</router-link>
+              <router-link :to="{name:'incubator-home',params:{lang:$i18n.locale}}" class="nav-link">{{ $t('incubator') }}</router-link>
             </li>
             <li class="nav-item px-2">
               <router-link :to="{name:'service-provider-home',params:{lang:$i18n.locale}}"  class="nav-link">{{ $t('services-provider') }}</router-link>
