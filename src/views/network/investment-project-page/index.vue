@@ -76,7 +76,7 @@
                                     <span>
                                         {{project.minimum_investment}}%
                                     </span>
-                                    من الحد الأدنى المطلوب
+                                    {{ $t('required-minimum')  }} 
                                 </small>
                                 <small class="t-c text-start">
                                     <span>

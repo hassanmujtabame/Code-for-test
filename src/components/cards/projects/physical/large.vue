@@ -40,7 +40,7 @@
                                 <span>
                                     {{minimumGoal}}%
                                 </span>
-                                من الحد الأدنى المطلوب
+                                {{ $t('required-minimum')  }} 
 
                             </small>
                         </div>

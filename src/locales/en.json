@@ -219,5 +219,6 @@
   "rest-days-to-end": "It remains to close the round",
   "day": "day",
   "offered-property": "Property offered",
-  "publisher-name": "publisher name"
+  "publisher-name": "publisher name",
+  "required-minimum": "required minimum"
 }

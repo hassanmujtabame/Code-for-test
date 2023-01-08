@@ -500,7 +500,7 @@
                                                                         <span>
                                                                             50%
                                                                         </span>
-                                                                        من الحد الأدنى المطلوب
+                                                                        {{ $t('required-minimum')  }} 
                         
                                                                     </small>
                                                                 </div>
@@ -588,7 +588,7 @@
                                                                         <span>
                                                                             50%
                                                                         </span>
-                                                                        من الحد الأدنى المطلوب
+                                                                        {{ $t('required-minimum')  }} 
                         
                                                                     </small>
                                                                 </div>
