@@ -4,7 +4,7 @@
           <div
           class="d-flex justify-content-between align-items-center container my-2"
         >
-          <h1>مدونة رياديات</h1>
+          <h1>{{ $t('riadiat-blogger') }}</h1>
           <div>
             <router-link :to="getRouteLocale('network-blogs')" class="more">{{$t('more')}}</router-link>
           </div>

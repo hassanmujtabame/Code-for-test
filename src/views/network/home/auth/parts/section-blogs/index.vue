@@ -3,7 +3,7 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center container my-2">
-                <h1>مدونة رياديات </h1>
+                <h1>{{ $t('riadiat-blogger') }} </h1>
                 <div>
                     <button class="more">المزيد</button>
                 </div>
