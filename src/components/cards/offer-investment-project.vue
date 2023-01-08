@@ -58,7 +58,7 @@
 
                     </div>
                     <div class="text-white">
-                        الايجار السنوي
+                       {{ $t('annual-rent') }}
                         <p class="t-c">
                             من {{minRent}} ألف -{{maxRent}} ألف
                         </p>
