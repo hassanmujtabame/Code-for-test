@@ -119,7 +119,7 @@
                                             سعر الخدمة
                                         </span>
                                         <span class="m-c">
-                                            {{itemPage.price}} ريال
+                                            {{itemPage.price}} {{ $t('riyals') }}
                                         </span>
 
                                     </div>

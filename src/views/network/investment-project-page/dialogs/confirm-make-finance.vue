@@ -12,7 +12,7 @@
     <h3>هل أنت متأكد من تمويل هذا المشروع ؟</h3>
               
               <p class="m-c fs-5 m-3">  
-                سيتم تحويلك للدفع الان اختار قيمة التمويل الذي ترغب به عما لا يقل عن {{project.minimum_investment}} ريال
+                سيتم تحويلك للدفع الان اختار قيمة التمويل الذي ترغب به عما لا يقل عن {{project.minimum_investment}} {{ $t('riyals') }}
               </p>
 </template>
 <template v-slot:actions>
