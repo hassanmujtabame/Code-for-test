@@ -34,7 +34,7 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        عدد العروض
+                        {{ $t('offers-count') }}
                         <p class="t-c">
                             {{ offers }} {{$t('offers')}}
                         </p>
