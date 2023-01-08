@@ -271,7 +271,7 @@
                             </div>
                             <div class="text-center">
                                 <span>
-                                    تاريخ النشر:
+                                    {{ $t('publish-date') }}:
                                 </span>
                                 <span class="m-c fw-bolder">
                                     {{itemPage.start_date??'N/A'}}

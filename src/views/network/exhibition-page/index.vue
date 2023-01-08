@@ -369,7 +369,7 @@
                                 </div>
                                 <div class=" text-center border-top">
                                     <h1>
-                                        تاريخ النشر :
+                                        {{ $t('publish-date') }} :
                                         <span class="m-c">
                                             {{ itemPage.date_publish }}
                                         </span>

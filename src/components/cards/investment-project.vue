@@ -1,7 +1,7 @@
 <template>
   <div class="box border rounded-top rounded-2 p-2">
                         <p class="text-end t-c">
-                            تاريخ النشر 
+                            {{ $t('publish-date') }} 
                             <span>
                                 : {{datePublish}}
                             </span>

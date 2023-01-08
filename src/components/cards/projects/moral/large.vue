@@ -3,7 +3,7 @@
         <div class="p-2 text-start">
 
             <p class="text-end t-c">
-                تاريخ النشر
+                {{ $t('publish-date') }}
                 <span>
                     : {{ datePublish }}
                 </span>

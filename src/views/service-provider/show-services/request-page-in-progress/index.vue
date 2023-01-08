@@ -434,7 +434,7 @@
                             </div>
                             <div class="text-center">
                                 <span>
-                                    تاريخ النشر:
+                                    {{ $t('publish-date') }}:
                                 </span>
                                 <span class="m-c fw-bolder">
                                     22/12/2022
