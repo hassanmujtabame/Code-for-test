@@ -4,13 +4,14 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-md-6">
                         <h1 class="fs-1 text-white">
-                            شبكة رياديات                                                                     </h1>
+                            {{ $t('Riadiat-network') }}                                                                     </h1>
                         <p class="text-white">
-                            طموحة و تسعين لتحقيق حلمك و شغفك ؟
+                            {{ $t('riadiat-network-home-text-1') }}
                             <br/>
-                            شبكة رياديات بتساعدك في مشروعك من الالف الى الياء</p>
+                            {{ $t('riadiat-network-home-text-2') }}
+                            </p>
                             <p class="text-white">
-                               ويمكن من خلالها الحصول على المساعدة والتشجيع للدخول في مجال ريادة الأعمال من خلال مجموعة من الخدمات والمزايا
+                                {{ $t('riadiat-network-home-text-3') }}
                         </p>     
                                                                
                     </div>
