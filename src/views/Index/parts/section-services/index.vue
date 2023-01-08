@@ -1,28 +1,28 @@
 <template>
   <div style="overflow: hidden;" class="sec-tow">
           <div class="text">
-            <h1>خدمات رياديات لك</h1>
-            <p>تقدم رياديات لكي الكثير من الخدمات المميزة والفريدة</p>
+            <h1>{{ $t('Riadiat-services-for-you') }}</h1>
+            <p>{{ $t('Riadiat-services-for-you-content') }}</p>
           </div>
           <div class=" ">
             <DTabs group="pills" :current.sync="currentTab">
              
                 <TabHead :current.sync="currentTab" group="pills"  reference="home">
                  <WorldSVG/>
-                  الشبكه
+                  {{$t('network')}}
                 </TabHead>
              
             
                 <TabHead :current.sync="currentTab" group="pills" reference="profile">
                   
                 <LightSVG/>
-                  الحاضنة
+                {{ $t('incubator') }}
                 </TabHead>
               
               
                 <TabHead :current.sync="currentTab" group="pills" reference="contact">
                  <CameraSVG/>
-                  الاكاديمية
+                  {{ $t('academy') }}
                 </TabHead>
         
               
@@ -30,11 +30,11 @@
                 
                   <HeartSVG/>
 
-                  مقدمين الخدمات
+                  {{ $t('service-providers') }}
                 </TabHead>
                 <TabHead :current.sync="currentTab" group="pills" reference="shop">
                   <ShopSVG/>
-                  السوق
+                  {{ $t('market') }}
                 </TabHead>
             </DTabs>
             <div class="tab-content" id="pills-tabContent">
@@ -48,7 +48,7 @@
                       alt=""
                     />
                   </div>
-                <ServiceCard :selected="selected" title="الشبكة">
+                <ServiceCard :selected="selected" :title="$t('network')">
                   هي الأولى من نوعها قد تم تأسيسها خصيصا للجيل الجديد من
                       الرياديات والقياديات الريادية النسائية لتلهم الرياديات
                       وكبار المدراء التنفيذيين والذين يبحثون عن تلك الفرصة
@@ -66,7 +66,7 @@
                       alt=""
                     />
                   </div>
-                  <ServiceCard title="الحاضنة" :selected="selected">
+                  <ServiceCard :title="$t('incubator')" :selected="selected">
                     هي الأولى من نوعها قد تم تأسيسها خصيصا للجيل الجديد من
                       الرياديات والقياديات الريادية النسائية لتلهم الرياديات
                       وكبار المدراء التنفيذيين والذين يبحثون عن تلك الفرصة
@@ -88,7 +88,7 @@
                       alt=""
                     />
                   </div>
-                  <ServiceCard title="الاكاديمية" :selected="selected">
+                  <ServiceCard :title="$t('academy')" :selected="selected">
                       هي الأولى من نوعها قد تم تأسيسها خصيصا للجيل الجديد من
                       الرياديات والقياديات الريادية النسائية لتلهم الرياديات
                       وكبار المدراء التنفيذيين والذين يبحثون عن تلك الفرصة
@@ -110,7 +110,7 @@
                       alt=""
                     />
                   </div>
-                  <ServiceCard title="مقدمي الخدمة" :selected="selected">
+                  <ServiceCard :title="$t('service-providers')" :selected="selected">
                       هي الأولى من نوعها قد تم تأسيسها خصيصا للجيل الجديد من
                       الرياديات والقياديات الريادية النسائية لتلهم الرياديات
                       وكبار المدراء التنفيذيين والذين يبحثون عن تلك الفرصة
@@ -131,7 +131,7 @@
                       alt=""
                     />
                   </div>
-                  <ServiceCard title="السوق" :selected="selected">
+                  <ServiceCard :title="$t('market')" :selected="selected">
                       هي الأولى من نوعها قد تم تأسيسها خصيصا للجيل الجديد من
                       الرياديات والقياديات الريادية النسائية لتلهم الرياديات
                       وكبار المدراء التنفيذيين والذين يبحثون عن تلك الفرصة

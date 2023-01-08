@@ -8,7 +8,7 @@
                     </p>
                     <BtnSimple :selected="true">
                      <OpenLinkSVG/>
-                      اعرفي المزيد
+                     {{ $t('know-more') }}
                     </BtnSimple>
                   </div>
 </template>

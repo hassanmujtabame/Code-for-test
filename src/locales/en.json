@@ -138,11 +138,11 @@
   "Add_this_as_new_tag": "Add this as new tag",
   "Search_or_add_a_tag": "Search or add a tag",
   "know_more": "More",
-  "physical-investment": "physical investment",
+  "physical-investment": "Physical inverstment",
   "moral-investment": "Moral investment",
   "physical_investment_projects": "Physical investment projects",
   "Moral_investment_projects": "Moral investment projects",
-  "Select_the_type_of_investment": "Select the type of investment",
+  "Select_the_type_of_investment": "Select investment type",
   "Project_financing": "Project financing",
   "Make_an_offer": "Make an offer",
   "login": "Login",
@@ -157,5 +157,13 @@
   "address_place_details": "Address",
   "space_place": "space of the place",
   "write_your_message": "Write your message",
-  "Ok": "Ok"
+  "Ok": "Ok",
+  "investment_type": "Inverstment type",
+  "Riadiat-services-for-you": "Riadiat's services for you",
+  "Riadiat-services-for-you-content": "Entrepreneurs provide you with a lot of distinctive and unique services",
+  "incubator": "Incubator",
+  "services-providers": "Services providers",
+  "market": "Market",
+  "service-providers": "Service providers",
+  "know-more": "Know more"
 }
