@@ -4,13 +4,12 @@
             <div class="col-md-6" data-aos="fade-left"  data-aos-duration="2000">
               <h2>{{ $t('Riadiat-consulting') }}</h2>
               <p style="line-height: 2" class="pt-3">
-                الان فقط يمكنك طلب أستشارة من نخبة من أفضل الريادين في مجالات
-                مختلفة مثل (اعمال، تسويق، محاسبة، نموذج عمل، قانون، استثمار ،
-                خطة عمل ، تقنية، تجميل، سياحة، ازياء، فاشن، مجوهرات)
+                {{ $t('Riadiat-consulting-text') }}
                 <a style="color: #ffbc00" href="">
-                  أو تصبح أنت المستشار وتقدم خبراتك كستشارات
+                  {{ $t('Riadiat-consulting-link') }}
                 </a>
               </p>
+              <div class="w-100 text-end">
               <button class="btn-custmer pt-3 my-2">
                 <svg
                   width="24"
@@ -34,6 +33,7 @@
                 </svg>
                 {{$t('know-more')}}
               </button>
+            </div>
             </div>
 
             <div class="col-md-6" data-aos="fade-right"  data-aos-duration="2000">
