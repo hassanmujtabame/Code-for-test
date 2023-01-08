@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="t-c">
                                     <small>
-                                        الملكية المطروحة
+                                        {{ $t('offered-property')  }} 
                                     </small>
                                     <p class="text-dark">
                                         {{project.offered_property}} %

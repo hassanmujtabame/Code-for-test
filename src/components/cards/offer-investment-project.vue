@@ -123,7 +123,7 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        الملكية المطروحة
+                        {{ $t('offered-property')  }} 
                         <p class="t-c">
                             {{ offered_property }} %
                         </p>

@@ -77,7 +77,7 @@
                             </div>
                             <div class="t-c">
 
-                                الملكية المطروحة 
+                                {{ $t('offered-property')  }}  
                                 <p class="text-dark">
                                     30 %
                                 </p>
@@ -165,7 +165,7 @@
                             </div>
                             <div class="t-c">
 
-                                الملكية المطروحة 
+                                {{ $t('offered-property')  }}  
                                 <p class="text-dark">
                                     30 %
                                 </p>

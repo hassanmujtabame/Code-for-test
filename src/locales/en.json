@@ -217,5 +217,6 @@
   "from": "from",
   "place": "place",
   "rest-days-to-end": "It remains to close the round",
-  "day": "day"
+  "day": "day",
+  "offered-property": "Property offered"
 }
