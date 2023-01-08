@@ -26,7 +26,7 @@
                                         <div class="d-flex justify-content-between">
                                             <p>
                                                 <span class="fw-bolder t-c fs-6">
-                                                    من {{investor}} مستثمر
+                                                    {{investor}} {{ $t('of-investor') }}
                                                 </span>
                                          
                                             </p>
