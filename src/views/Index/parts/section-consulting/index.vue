@@ -2,7 +2,7 @@
   <div style="overflow: hidden;" class="sec-four mt-5">
           <div class="row align-items-center">
             <div class="col-md-6" data-aos="fade-left"  data-aos-duration="2000">
-              <h2>أستشارات رياديات</h2>
+              <h2>{{ $t('Riadiat-consulting') }}</h2>
               <p style="line-height: 2" class="pt-3">
                 الان فقط يمكنك طلب أستشارة من نخبة من أفضل الريادين في مجالات
                 مختلفة مثل (اعمال، تسويق، محاسبة، نموذج عمل، قانون، استثمار ،
@@ -32,7 +32,7 @@
                     fill="white"
                   />
                 </svg>
-                اعرفي المزيد
+                {{$t('know-more')}}
               </button>
             </div>
 

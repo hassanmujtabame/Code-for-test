@@ -16,7 +16,7 @@
                             500,000
                         </span>
                         <span class="y-c">
-                            ريال سعودي
+                            {{$t('SAR')}}
                         </span>
                     </p>
                     <div class="col-md-12 mt-5 dashbord">
@@ -104,7 +104,7 @@
                             500,000
                         </span>
                         <span class="y-c">
-                            ريال سعودي
+                            {{$t('SAR')}}
                         </span>
                     </p>
                     <div class="col-md-12 mt-5 dashbord">

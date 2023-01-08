@@ -15,7 +15,7 @@
                                 {{amount}}
                             </span>
                             <span class="y-c">
-                                ريال سعودي
+                                {{$t('SAR')}}
                             </span>
                         </p>
                     

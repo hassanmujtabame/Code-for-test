@@ -50,7 +50,7 @@
                                     {{project.amount_financing_required}}
                                 </span>
                                 <span class="y-c">
-                                    ريال سعودي
+                                    {{$t('SAR')}}
                                 </span>
                             </p>
                         </div>
