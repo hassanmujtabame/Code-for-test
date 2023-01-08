@@ -160,7 +160,7 @@
   "Ok": "Ok",
   "investment_type": "Inverstment type",
   "Riadiat-services-for-you": "Riadiat's services for you",
-  "Riadiat-services-for-you-content": "Entrepreneurs provide you with a lot of distinctive and unique services",
+  "Riadiat-services-for-you-content": "Riadiat provides you with a lot of distinctive and unique services",
   "incubator": "Incubator",
   "services-providers": "Services providers",
   "market": "Market",
@@ -172,5 +172,8 @@
   "subscribe-newsletter": "subscribe newsletter",
   "subscribe-newsletter-text": "To receive all new offers and news",
   "Subscribe": "Subscribe",
-  "write-your-email": "Write your email"
+  "write-your-email": "Write your email",
+  "home-section-courses-title": "We present our course with passion",
+  "home-section-courses-text": "Riadiat provides educational and educational courses at the highest level",
+  "our-partners-in-riadiat": "Our partners in Riadiat"
 }

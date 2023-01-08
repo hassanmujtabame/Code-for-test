@@ -1,7 +1,7 @@
 <template>
     <div class="sec-six">
         <div class="container p-3">
-            <h2>شركائنا في رياديات </h2>
+            <h2>{{ $t('our-partners-in-riadiat') }}</h2>
             <div class="row justify-content-center">
                 <div v-for="(partner,i) in items" :key="i" class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
                     <ImgAvatar :img="partner.image_path"  size=180 />

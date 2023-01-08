@@ -4,13 +4,13 @@
           <div
             class="d-flex justify-content-between align-items-center container"
           >
-            <h1>نقدم دورتنا بكل شغف</h1>
+            <h1>{{ $t('home-section-courses-title') }}</h1>
             <div>
               <button class="more">{{$t('more')}}</button>
             </div>
           </div>
           <p class="container">
-            تقدم رياديات دورات تعليمية وتثقفية على اعلى مستوى
+            {{ $t('home-section-courses-text') }}
           </p>
           <div class="container" style="overflow:hidden">
           <d-swiper
