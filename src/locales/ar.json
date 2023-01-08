@@ -193,5 +193,17 @@
   "network-sect-members-network-count": "بنضمامك لنا أسرة الشبكة أصبح عددها",
   "network-members": "أعضاء الشبكة",
   "riadiat-network-schedule": " جدول شبكة رياديات",
-  "riadiat-network-schedule-text": "هنا تجدين كل المواعيد  المهمة الخاصة بالشبكة"
+  "riadiat-network-schedule-text": "هنا تجدين كل المواعيد  المهمة الخاصة بالشبكة",
+  "January": "يناير",
+  "February": "فبراير",
+  "March": "مارس",
+  "April": "ابريل",
+  "May": "مايو",
+  "June": "يونيو",
+  "July": "يوليو",
+  "August": "اغسطس",
+  "September": "سبتمبر",
+  "October": "اكتوبر",
+  "November": "نوفمبر",
+  "December": "ديسمبر"
 }

@@ -194,5 +194,17 @@
   "network-sect-members-network-count": "By joining us, the network's family has become its number",
   "network-members": "Network members",
   "riadiat-network-schedule": "Riadiat network schedule",
-  "riadiat-network-schedule-text": "Here you will find all the important dates of the network"
+  "riadiat-network-schedule-text": "Here you will find all the important dates of the network",
+  "January": "January",
+  "February": "February",
+  "March": "March",
+  "April": "April",
+  "May": "May",
+  "June": "June",
+  "July": "July",
+  "August": "August",
+  "September": "September",
+  "October": "October",
+  "November": "November",
+  "December": "December"
 }

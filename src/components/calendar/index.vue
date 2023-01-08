@@ -50,7 +50,7 @@ export default {
  }
  },
  mounted(){
-    $("#"+this.id).simpleCalendar({
+    window.$("#"+this.id).simpleCalendar({
       displayYear: true,              // Display year in header
         fixedStartDay: true,            // Week begin always by monday or by day set by number 0 = sunday, 7 = saturday, false = month always begin by first day of the month
         displayEvent: this.displayEvent,             // Display existing event
@@ -63,8 +63,8 @@ export default {
         onEventSelect: function() {}, // Callback on event selection - use $(this).data('event') to access the event
         onEventCreate: function( $el ) {},          // Callback fired when an HTML event is created - see $(this).data('event')
         onDayCreate:   function( $el, d, m, y ) {},  // Callback fired when an HTML day is created   - see $(this).data('today'), .data('todayEvents')
-  months: ['يناير', 'فبراير', 'مارس', 'ابريل', 'مايو', 'يونيو', 'يوليو', 'اغسطس', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر'],
-  days: ['الاحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],
+  months:[this.$t('January'), this.$t('February'), this.$t('March'), this.$t('April'), this.$t('May'), this.$t('June'), this.$t('July'), this.$t('August'), this.$t('September'), this.$t('October'), this.$t('November') , this.$t('December')],
+  days:this.$i18n.locale=='ar'?['الاحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت']:undefined,
 })
 
  }
