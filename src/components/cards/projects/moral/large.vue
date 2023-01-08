@@ -101,7 +101,7 @@
                     <div class="text-white">
                         {{ $t('rest-days-to-end') }}
                         <p class="t-c">
-                            {{ restDay }} يوم
+                            {{ restDay }} {{ $t('day') }}
                         </p>
                     </div>
                 </div>
