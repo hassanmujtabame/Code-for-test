@@ -2,11 +2,12 @@
    <div class="container">
             <div class=" table-network ">
                 <h2>
-                    جدول شبكة رياديات
+                   {{ $t('riadiat-network-schedule') }}
     
                 </h2>
                 <p>
-                    هنا تجدين كل المواعيد  المهمة الخاصة بالشبكة
+                    {{ $t('riadiat-network-schedule-text') }}
+                    
                 </p>
                 
                 <div style="background-color: #F6F8F9;">
