@@ -6,7 +6,7 @@
               >
                 <h1>أبرز مستشارينا</h1>
                 <div>
-                  <button class="more">المزيد</button>
+                  <button class="more">{{ $t('more') }}</button>
                 </div>
               </div>
               <p class="container">

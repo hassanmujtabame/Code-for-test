@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-md-6 text-end">
                     <button class="btn bg-main text-white p-2 px-3" data-bs-toggle="modal" data-bs-target="#addModal">
-                        المزيد
+                        {{ $t('more') }}
                     </button>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                     <div>
                         <button class="more">
                             <a href="" class="text-dark">
-                                المزيد
+                                {{ $t('more') }}
                             </a>
                         </button>
                     </div>

@@ -6,7 +6,7 @@
                 <h1>أعضاء الشبكة </h1>
                 <div>
                     <router-link custom :to="getRouteLocale('network-success-stories')" v-slot="{navigate}">
-                    <button @click="navigate" class="more">المزيد</button>
+                    <button @click="navigate" class="more">{{ $t('more') }}</button>
                 </router-link>
                 </div>
             </div>

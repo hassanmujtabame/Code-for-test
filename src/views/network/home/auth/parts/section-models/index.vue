@@ -10,7 +10,7 @@
                 :to="getRouteLocale('network-models')"
                 v-slot="{navigate}"
                 >
-                  <button @click="navigate" class="more"> المزيد</button>
+                  <button @click="navigate" class="more"> {{ $t('more') }}</button>
                 </router-link>
                 </div>
               </div>

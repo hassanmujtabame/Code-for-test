@@ -8,7 +8,7 @@
     <h1> لقاءات تعليمية      </h1>
     <div>
       <router-link custom :to="getRouteLocale('academy-learning-meetings')" v-slot="{navigate}">
-      <button @click="navigate" role="link" class="more">المزيد</button>
+      <button @click="navigate" role="link" class="more">{{ $t('more') }}</button>
       </router-link>
     </div>
   </div>

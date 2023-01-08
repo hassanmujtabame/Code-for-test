@@ -8,7 +8,7 @@
                 <div>
                     <button class="more">
                       <a href="" class="text-dark">
-                          المزيد
+                          {{ $t('more') }}
                       </a>
                     </button>
                   </div>

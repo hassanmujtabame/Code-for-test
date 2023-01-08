@@ -6,7 +6,7 @@ class="d-flex justify-content-between align-items-center container my-2"
 >
 <h1> أبرز مجالات الاستشارة      </h1>
 <div>
-  <button class="more">المزيد</button>
+  <button class="more">{{ $t('more') }}</button>
 </div>
 </div>
 <div class="row">

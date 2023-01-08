@@ -4,7 +4,7 @@
                     <h2>أحدث الطلبات </h2>
             <div>
                 <router-link class="router-link" custom :to="getRouteLocale('service-provider-show-services')" v-slot="{navigate}">
-                    <button @click="navigate" class="more">المزيد</button>
+                    <button @click="navigate" class="more">{{ $t('more') }}</button>
                 </router-link>
               </div>
           </div>
