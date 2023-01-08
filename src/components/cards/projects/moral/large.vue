@@ -99,7 +99,7 @@
 
                     </div>
                     <div class="text-white">
-                        باقي عن غلق الجولة
+                        {{ $t('rest-days-to-end') }}
                         <p class="t-c">
                             {{ restDay }} يوم
                         </p>

@@ -517,7 +517,7 @@
                                                                         </div>
                                                                         <div class="t-c">
                         
-                                                                            باقي عن غلق الجولة 
+                                                                            {{ $t('rest-days-to-end') }} 
                                                                             <p class="text-dark">
                                                                                 40 يوم
                                                                             </p>
@@ -605,7 +605,7 @@
                                                                         </div>
                                                                         <div class="t-c">
                         
-                                                                            باقي عن غلق الجولة 
+                                                                            {{ $t('rest-days-to-end') }} 
                                                                             <p class="text-dark">
                                                                                 40 يوم
                                                                             </p>

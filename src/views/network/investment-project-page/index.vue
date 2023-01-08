@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="t-c">
                                     <small>
-                                        باقي عن غلق الجولة
+                                        {{ $t('rest-days-to-end') }}
                                     </small>
                                     <p class="text-dark">
                                         {{project.rest_days}} يوم

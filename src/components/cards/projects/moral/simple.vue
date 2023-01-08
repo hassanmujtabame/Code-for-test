@@ -35,7 +35,7 @@
 
                     </div>
                     <div class="t-c">
-                        باقي عن غلق الجولة
+                        {{ $t('rest-days-to-end') }}
                         <p :class="classRestDays">
                             {{ restDay }} يوم
                         </p>
