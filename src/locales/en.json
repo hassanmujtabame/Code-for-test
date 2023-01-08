@@ -213,5 +213,7 @@
   "riadiat-models": "Riadiat models",
   "publish-date": "publish date",
   "offers-count": "Offers count",
-  "annual-rent": "annual rent"
+  "annual-rent": "annual rent",
+  "from": "from",
+  "place": "place"
 }

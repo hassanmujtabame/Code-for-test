@@ -60,7 +60,7 @@
                     <div class="text-white">
                        {{ $t('annual-rent') }}
                         <p class="t-c">
-                            من {{minRent}} ألف -{{maxRent}} ألف
+                            {{$t('from')}} {{minRent}}  -  {{maxRent}} 
                         </p>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        المكان
+                        {{ $t('place') }}
                         <p class="t-c">
                             {{ place }}
                         </p>

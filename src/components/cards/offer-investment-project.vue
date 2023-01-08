@@ -76,7 +76,7 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        المكان
+                        {{ $t('place') }}
                         <p class="t-c">
                             {{ place }}
                         </p>
