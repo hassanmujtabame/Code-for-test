@@ -4,13 +4,13 @@
                 <div
                 class="d-flex justify-content-between align-items-center container"
               >
-                <h1> مشاريع الاستثمار      </h1>
+                <h1> {{ $t('investment-projects') }}      </h1>
                 <div>
                   <router-link class="router-link" custom 
                 :to="getRouteLocale('network-investment-project')"
                 v-slot="{navigate}"
                 >
-              <button @click="navigate" class="more">اعرف  اكثر</button>
+              <button @click="navigate" class="more">{{ $t('know-more') }}</button>
                 </router-link>
                 </div>
               </div>
