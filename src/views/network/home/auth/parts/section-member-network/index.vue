@@ -1,20 +1,20 @@
 <template>
   <div class="sec-five mt-5 p-3">
     <h2 class="m-c text-center">
-      بنضمامك لنا أسرة الشبكة أصبح عددها
+      {{ $t('network-sect-members-network-count') }}
       <a href="" class="y-c">
         {{total}}
       </a>
     </h2>
     <div class="">
       <div class="d-flex justify-content-between align-items-center container">
-        <h1>أعضاء الشبكة</h1>
+        <h1>{{ $t('network-members') }}</h1>
         <div>
           <router-link class="router-link" custom 
                 :to="getRouteLocale('network-member-network')"
                 v-slot="{navigate}"
                 >
-              <button @click="navigate" class="more">المزيد</button>
+              <button @click="navigate" class="more">{{ $t('more') }}</button>
             </router-link>
         </div>
       </div>
