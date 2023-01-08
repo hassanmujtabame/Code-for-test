@@ -34,7 +34,9 @@ props:{
     },
     currency:{
         type:String,
-        default:'ريال'
+        default:function(){
+          return this.$t('riyals')
+        }
     }
 }
 }

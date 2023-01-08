@@ -262,11 +262,15 @@ export default {
         },
         pluralName:{
             type:String,
-            default:'خدمات'
+            default:function(){
+          return this.$t('services')
+        }
         },
         singleName:{
             type:String,
-            default:'خدمة'
+            default:function(){
+          return this.$t('service')
+        }
         },
         classColCard:{
             type:String,
