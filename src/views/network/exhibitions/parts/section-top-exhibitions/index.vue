@@ -40,7 +40,7 @@
                 <exhibitionCard 
                 :img="item.image"
                 :userName="item.user_info.name"
-                :city="item.city"
+                :place="item.city"
                 price="دخول مجاني"
                 title="معرض الازياء الرجالي"
                 :description="item.content"
