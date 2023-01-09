@@ -105,28 +105,36 @@
 export default {
  props:{
     title:{
-        type:String
+        type:String,
+        default:'N/A'
     },
     datePublish:{
-        type:String
+        type:String,
+        default:'N/A'
     },
   publisher:{
-        type:String
+        type:String,
+        default:'N/A'
     },
     offered_property:{
-        type:[String,Number]
+        type:[String,Number],
+        default:'N/A'
     },
     amount:{
-        type:[String,Number]
+        type:[String,Number],
+        default:'N/A'
     },
     restDay:{
-        type:[String,Number]
+        type:[String,Number],
+        default:'N/A'
     },
     minimumGoal:{
-        type:[String,Number]
+        type:[String,Number],
+        default:'N/A'
     },
     investor:{
-        type:[String,Number]
+        type:[String,Number],
+        default:'N/A'
     }
 }
 }
