@@ -1,5 +1,6 @@
 <template>
-    <div class="mt-5 blog">
+    <div class="mt-5">
+    <div class="blog">
         <ul class="nav nav-pills mb-3 rounded-2 align-items-center" id="pills-tab" role="tablist">
             <h5 class="m-c fw-bolder m-0">
                 تصنيف المواضيع :
@@ -37,6 +38,7 @@
 
 
         </d-filter-list>
+    </div>
     </div>
 </template>
 
@@ -91,6 +93,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.blog{
+    border: 1px solid #c6c6c68c;
+    border-radius: 9px;
+}
 </style>
