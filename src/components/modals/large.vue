@@ -10,7 +10,7 @@
         :class="{'modal-xl':xl,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen}"
         >
             <div class="modal-content">
-                <div class="modal-header">
+                <div v-if="!hideHeader" class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
                     <slot name="header">
                        
@@ -45,6 +45,10 @@ props:{
     centered:{
         type:Boolean,
         default:true
+    },
+    hideHeader:{
+        type:Boolean,
+        default:false
     },
     group:{
         type:String,
