@@ -219,5 +219,10 @@
   "offered-property": "الملكية المطروحة",
   "publisher-name": "اسم الناشر",
   "required-minimum": "من الحد الأدنى المطلوب",
-  "of-investor": "من المستثمر"
+  "of-investor": "من المستثمر",
+  "rate-your-experience": "قيم تجربتك",
+  "write-your-comment": "اكتب تعليقك",
+  "send-rate": "أرسل التقيم",
+  "rate": "تقييم",
+  "comment": "تعليق"
 }

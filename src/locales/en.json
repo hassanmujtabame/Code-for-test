@@ -221,5 +221,10 @@
   "offered-property": "Property offered",
   "publisher-name": "publisher name",
   "required-minimum": "required minimum",
-  "of-investor": "of an investor"
+  "of-investor": "of an investor",
+  "rate-your-experience": "Rate!",
+  "write-your-comment": "Write your comment",
+  "send-rate": "Send rate",
+  "rate": "rate",
+  "comment": "comment"
 }
