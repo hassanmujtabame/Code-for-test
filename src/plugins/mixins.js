@@ -11,7 +11,7 @@ const mixin = {
             getTranslateMonth(month){
               /* month :0-11 */
               let months = [this.$t('January'), this.$t('February'), this.$t('March'), this.$t('April'), this.$t('May'), this.$t('June'), this.$t('July'), this.$t('August'), this.$t('September'), this.$t('October'), this.$t('November') , this.$t('December')];
-                return months(month)
+                return months[month]
             },
             logout(evt) {
               if(evt)
