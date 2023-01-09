@@ -1,5 +1,5 @@
 <template>
-  <div class="sec-five mt-5 p-3">
+  <div class="mt-5 p-3">
 
 <div class="container">
   <div
