@@ -1580,3 +1580,19 @@ position: relative;
     margin: 0;
     color: #1fb9b3 !important;
 }
+/** update css swiper */
+.swiper-container{
+    position: unset;
+ }
+ .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+     right: -35px;
+     left: auto;
+ }
+ .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+     left: -20px;
+     right: auto;
+ }
+ .swiper-button-next.swiper-button-disabled,
+  .swiper-button-prev.swiper-button-disabled {
+     opacity: 0;
+ }
