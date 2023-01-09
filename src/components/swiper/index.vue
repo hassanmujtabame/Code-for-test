@@ -1,4 +1,5 @@
 <template>
+   <div class="position-relative">
   <swiper
       :scrollbar="scrollbar"
       :navigation="navigation"
@@ -17,6 +18,7 @@
                 </SwiperSlide>
             
                 </swiper>
+               </div>
 </template>
 
 <script>
