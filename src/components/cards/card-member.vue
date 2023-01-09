@@ -3,7 +3,7 @@
                         <div class="">
                             <img  :src="img" alt="" width="259" height="192">
                         </div>
-                        <div class="text-center bg-white " :class="{'p-3':!description}">
+                        <div class="text-center bg-white box-deatils" :class="{'p-3':!description}">
                             <h6 class="network-member-name">{{name}}</h6>
                             <p v-if="description" class="m-c network-member-description">{{description}}</p>
 
@@ -30,6 +30,12 @@ export default {
 </script>
 
 <style scoped>
+.box{
+    width: 259px;
+}
+.box-deatils{
+    max-width: 100%;
+}
 .network-member-name{
     font-size: 24px;
     color:var(--b-color)
