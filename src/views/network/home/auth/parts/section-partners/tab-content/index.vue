@@ -1,7 +1,7 @@
 <template>
 <div class="row justify-content-around">
     <div v-for="(im,i) in items" :key="i" class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                    <ImgAvatar :img="partner.image_path" :alt="im.name??''"  size=180 />
+                    <ImgAvatar :img="im.image_path" :alt="im.name??''"  size=180 />
                 </div>
             </div>
 </template>
