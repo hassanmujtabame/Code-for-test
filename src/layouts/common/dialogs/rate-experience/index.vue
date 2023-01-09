@@ -5,7 +5,7 @@
     :openDialog="openDialog"
     >
     <template v-slot:header>
-      {{ title }}
+     {{ $t('rate-your-experience-in') }} {{ title }}
     </template>
     <template v-slot:default>
       <div class="container">
@@ -87,6 +87,8 @@ export default {
         console.log('form invalid');
         return ;
     }
+    this.openSuccessDialog()
+    this.closeEvent()
     },
     openDialog(){
       this.itemForm.rate = null;
@@ -100,7 +102,10 @@ closeDialog(){
 },
 closeEvent(){
    this.fireEvent(this.group+'-close-dialog')
-}
+},
+openSuccessDialog(){
+        this.fireOpenDialog('rate-success', this.title)
+    }
   }
 }
 </script>

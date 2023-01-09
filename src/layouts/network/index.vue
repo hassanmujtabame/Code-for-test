@@ -14,8 +14,9 @@
           <DefaultFooter/>
           <portal to="body">
             <RateYourExperience
-            title="قيم تجربتك في شبكة"
+            :title="$t('network')"
             />
+            <RateSuccessExperience />
           </portal>
     </div>
   </template>
@@ -23,6 +24,7 @@
   <script>
   import RateYourExperienceBtn from '../common/rate-experience.vue'
   import RateYourExperience from '../common/dialogs/rate-experience/index.vue'
+  import RateSuccessExperience from '../common/dialogs/rate-experience/success-rate.vue'
   import MyDrawer from '@/layouts/common/drawer.vue'
   import DefaultFooter from '@/layouts/common/footer.vue'
   import DefaultHeader from '../default/header.vue'
@@ -37,6 +39,7 @@
           SectSubscribe,
           RateYourExperienceBtn,
           RateYourExperience,
+          RateSuccessExperience,
           MyDrawer
       }
   }
