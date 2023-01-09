@@ -11,7 +11,7 @@
         <p class="text-white m-0 p-0">{{title}}
         </p>
         <p  class="text-white p-0 m-0">
-           {{date}}
+           {{dateText}}
         </p>
     </div>
 
@@ -33,6 +33,15 @@ export default {
     },
     date:{
         type:String,
+    }
+ },
+ computed:{
+    dateText(){
+        if(!this.date) return 'N/A';
+            let date = new Date(this.date);
+            let d = date.getDate()
+            let m = this.getTranslateMonth(date.getMonth());
+        return `${d} ${m}`
     }
  }
 }
