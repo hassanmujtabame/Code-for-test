@@ -1606,3 +1606,11 @@ position: relative;
     width: 350px;
     height: 390px;
  }
+
+ /** filter list pagination **/
+ .disabled>.page-link, .page-link.disabled {
+    color: var(--m-color);
+}
+.page-link {
+    color:#73737378;;
+}
