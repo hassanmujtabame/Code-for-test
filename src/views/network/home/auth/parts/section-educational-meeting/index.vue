@@ -1,9 +1,9 @@
 <template>
   <div class="sec-five mt-5 p-3">
 
-<div class="">
+<div class="container">
   <div
-    class="d-flex justify-content-between align-items-center container"
+    class="d-flex justify-content-between align-items-center"
   >
     <h1>{{ $t('learning-meetings') }}</h1>
     <div>
