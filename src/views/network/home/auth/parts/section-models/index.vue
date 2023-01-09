@@ -1,8 +1,8 @@
 <template>
-   <div class="sec-five mt-5 p-3">
-            <div class="">
+   <div class="mt-5 p-3">
+            <div class="container">
               <div
-                class="d-flex justify-content-between align-items-center container"
+                class="d-flex justify-content-between align-items-center "
               >
                 <h1> {{ $t('riadiat-models') }} </h1>
                 <div>
@@ -19,16 +19,12 @@
               :slides-per-view="4"
               :items='items'
               >
-                
                  <template v-slot="{item}">
+                  <router-link class="router-link" :to="getRouteLocale('network-model-show',{id:item.id})">
                     <ModelItem :title="item.title" :img="item.image" 
-                    :value="item.count_download"      />   
-                  
-           
-                </template>
-               
-            
-             
+                    :value="item.count_download"      />
+                  </router-link> 
+                </template>             
             </d-swiper>
           </div>
           </div>
