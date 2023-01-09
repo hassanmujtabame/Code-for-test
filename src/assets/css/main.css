@@ -1589,7 +1589,7 @@ position: relative;
      left: auto;
  }
  .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
-     left: -20px;
+     left: -35px;
      right: auto;
  }
  .swiper-button-next.swiper-button-disabled,
