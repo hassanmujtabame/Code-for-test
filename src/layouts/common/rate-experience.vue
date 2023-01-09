@@ -36,7 +36,7 @@ export default {
 <style>
 .rate-experience{
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     left: auto;
     right:0;
     border-radius:  8px 0 0 8px ;
