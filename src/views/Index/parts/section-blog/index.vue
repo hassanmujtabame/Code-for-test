@@ -16,6 +16,7 @@
             :title="blog.title"
             :description="blog.description"
             :date="blog.created_at"
+            :categories="blog.categories"
            />
           </div>
         </div>

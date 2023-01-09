@@ -21,6 +21,7 @@
                 <div v-for="(blog,i) in blogs" :key="i" class="col-md-4 " >
                     <router-link class="router-link" :to="getRouteLocale('network-blog-show',{id:blog.id})">
                     <BlogInfoCard 
+                    :categories="blog.categories"
                         :img="blog.image"
                         :title="blog.title"
                         :description="blog.short_description"

@@ -38,7 +38,9 @@ export default {
  computed:{
     dateText(){
         if(!this.date) return 'N/A';
-            let date = new Date(this.date);
+        let parts = this.date.trim().split('-');
+           
+           let date = new Date(parts[2],parts[1],parts[0]);
             let d = date.getDate()
             let m = this.getTranslateMonth(date.getMonth());
         return `${d} ${m}`

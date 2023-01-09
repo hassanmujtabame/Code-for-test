@@ -7,13 +7,25 @@
                 <h6 style="height:40px">{{title}}</h6>
                 <p style="height:80px" class="description-blog" v-html="description"></p>
               </div>
-              <div class="date text-end mx-1 p-3">
+              <div class="d-flex">
+                <div class="date text-start mx-1 p-3 flex-grow-1">
+                  <div class="d-flex gap-2   data">
+          <p v-for="(cat,c) in categories" :key="c" :style="{'color':`${colors[c%3]}!important`}" class="p-1 px-2 rounded-2 text-white m-0">
+            {{ cat.name }}
+          </p>
+        </div>
+              </div>
+              <div class="date text-end mx-1 p-3 flex-shrink-0">
                 <p>
-                 {{date}}
+                 
+                <bdi style="padding: 0 5px;">{{dateText}}</bdi>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
                     </svg>
                 </p>
+                
+              </div>
+              
               </div>
             </div>
 </template>
@@ -36,8 +48,28 @@ export default {
     description:{
         type:String,
         default:''
+    },
+    categories:{
+        type:[Array,Object],
+        default:()=>{ return []}
     }
-  }
+  },
+  data:()=>({
+    colors:['#F2631C','#FFBC00','#2C98B3']
+  }),
+ computed:{
+    dateText(){
+        if(!this.date) return 'N/A';
+        let parts = this.date.trim().split('-');
+           
+            let date = new Date(parts[2],parts[1],parts[0]);
+            if(date=='Invalid Date') return this.date.trim()
+            let d = date.getDate()
+            let m =  date.toLocaleString('default', { month: 'short' });
+            let y =date.getFullYear();
+        return `${d} ${m},${y}`
+    }
+ }
 }
 </script>
 

@@ -15,6 +15,7 @@
             :title="(blog.title+' '+i)"
             :description="blog.description"
             :date="blog.date"
+            :categories="blog.categories"
            />
           </div>
               

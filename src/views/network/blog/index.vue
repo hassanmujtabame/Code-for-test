@@ -63,14 +63,12 @@
 import SectionFilterList from './parts/section-filter-list/index.vue'
 import SectionRecentBlog from './parts/section-recent-blog/index.vue'
 import AddBlogDialog from './parts/dialogs/add-blog.vue'
-import BlogInfoCard from '@/components/cards/blog-info.vue';
 export default {
 name:'network-blogs',
 components:{
     SectionFilterList,
     SectionRecentBlog,
     AddBlogDialog,
-    BlogInfoCard
 },
 data:()=>({
   blogs:[

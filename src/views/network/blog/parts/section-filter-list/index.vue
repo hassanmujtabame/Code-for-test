@@ -22,7 +22,7 @@
             <template v-slot="{ item }">
                 <router-link  class="router-link" :to="getRouteLocale('network-blog-show', { id: item.id })">
                     <BlogInfoCard 
-                   
+                    :categories="item.categories"
                     :img="item.image" 
                     :title="item.title" 
                     :description="item.short_description"
