@@ -6,8 +6,8 @@
         {{total}}
       </a>
     </h2>
-    <div class="">
-      <div class="d-flex justify-content-between align-items-center container">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
         <h1 class="text-bold">{{ $t('network-members') }}</h1>
         <div>
           <router-link class="router-link" custom 
@@ -18,7 +18,7 @@
             </router-link>
         </div>
       </div>
-      <d-swiper v-if="!loading" :slides-per-view="5" :space-between="10" :items="items">
+      <d-swiper v-if="!loading" :slides-per-view="4" :space-between="10" :items="items">
         <template v-slot:default="{ item }">
           <router-link class="router-link" :to="getRouteLocale('network-member-show',{id:item.id})">
             <CardMember :name="item.name" :description="item.description" :img="item.image" />
