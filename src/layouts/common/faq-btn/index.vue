@@ -30,8 +30,8 @@ export default {
     
     padding: 2px;
     border-radius:32px ;
-    border: 1px solid rgba(31, 185, 180, 30%);
-    background-color: rgba(31, 185, 180, 30%);
+    border: 1px solid #b5e5e4;
+    background-color:#b5e5e4;
 }
 html[dir=ltr] .faq-btn-fixed{
     left: 0;
