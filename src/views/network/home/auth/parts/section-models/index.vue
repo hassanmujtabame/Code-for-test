@@ -32,7 +32,7 @@
 
 <script>
 import modelsAPI from '@/services/api/models.js'
-import ModelItem from '@/components/cards/model.vue'
+import ModelItem from '@/components/cards/model-icon.vue'
 export default {
  name:'section-models',
  components:{
