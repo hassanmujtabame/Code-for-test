@@ -219,8 +219,10 @@
             </div>
             <div class=" mt-5">
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item" :class="{ disabled: (metaInfo.current_page == 1) }">
+                    <ul class="pagination justify-content-center"
+                    :style="{'flex-direction': $i18n.locale=='ar'?'row-reverse':'row'}"
+                    >
+                        <li class="page-item rotateY-180" :class="{ disabled: (metaInfo.current_page == 1) }">
                             <button @click="changePage(1)" class="page-link">
                                 <svg width="10" height="15" viewBox="0 0 10 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -235,7 +237,7 @@
                             <button @click="changePage(p)" class="page-link border-0" href="#">{{ p }}</button>
                         </li>
 
-                        <li class="page-item" :class="{ disabled: (metaInfo.current_page == metaInfo.total_page) }">
+                        <li class="page-item rotateY-180" :class="{ disabled: (metaInfo.current_page == metaInfo.total_page)}">
                             <button @click="changePage(metaInfo.total_page)" class="page-link" href="#">
                                 <svg width="10" height="15" viewBox="0 0 10 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
