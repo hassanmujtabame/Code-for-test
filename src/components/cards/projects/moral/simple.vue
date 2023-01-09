@@ -12,7 +12,7 @@
                 {{ title }}
             </h5>
             <p v-html="description"></p>
-            <p>في {{ place }}</p>
+            <p>{{$t('in')}} {{ place }}</p>
            
         </div>
         <hr/>
@@ -37,7 +37,7 @@
                     <div class="t-c">
                         {{ $t('rest-days-to-end') }}
                         <p :class="classRestDays">
-                            {{ restDay }} {{ $t('day') }}
+                            {{ restDay??'N/A' }} {{ $t('day') }}
                         </p>
                     </div>
                 </div>
@@ -59,9 +59,9 @@
 
                     </div>
                     <div class="t-c">
-                        الايجار 
+                        {{ $t('rent') }} 
                         <p class="text-dark">
-                            من {{minRent}} ألف -{{maxRent}} ألف
+                            من {{minRent??'N/A'}} ألف -{{maxRent??'N/A'}} ألف
                         </p>
                     </div>
                 </div>

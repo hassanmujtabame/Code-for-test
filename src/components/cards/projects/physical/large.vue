@@ -12,7 +12,7 @@
                         </h5>
                         <p>
                             <span class="m-c">
-                                {{amount}}
+                                {{amount??'N/A'}}
                             </span>
                             <span class="y-c">
                                 {{$t('SAR')}}
@@ -25,7 +25,7 @@
                                         <div class="d-flex justify-content-between">
                                             <p>
                                                 <span class="fw-bolder t-c fs-6">
-                                                    {{investor}} {{ $t('of-investor') }}
+                                                    {{investor??'N/A'}} {{ $t('of-investor') }}
                                                 </span>
                                          
                                             </p>
@@ -38,7 +38,7 @@
                             </div>
                             <small>
                                 <span>
-                                    {{minimumGoal}}%
+                                    {{minimumGoal??'N/A'}}%
                                 </span>
                                 {{ $t('required-minimum')  }} 
 
@@ -60,7 +60,7 @@
 
                                     {{ $t('rest-days-to-end') }} 
                                     <p class="text-dark">
-                                        {{restDay}} {{$t('day')}}
+                                        {{restDay??'N/A'}} {{$t('day')}}
                                     </p>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
 
                                     {{ $t('offered-property')  }}  
                                     <p class="text-dark">
-                                        {{offered_property}} %
+                                        {{offered_property??'N/A'}} %
                                     </p>
                                 </div>
                             </div>

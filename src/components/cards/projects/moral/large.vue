@@ -36,7 +36,7 @@
                     <div class="text-white">
                         {{ $t('offers-count') }}
                         <p class="t-c">
-                            {{ offers }} {{$t('offers')}}
+                            {{ offers??'N/A' }} {{$t('offers')}}
                         </p>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <div class="text-white">
                        {{ $t('annual-rent') }}
                         <p class="t-c">
-                            {{$t('from')}} {{minRent}}  -  {{maxRent}} 
+                            {{$t('from')}} {{minRent??'N/A'}}  -  {{maxRent??'N/A'}} 
                         </p>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                     <div class="text-white">
                         {{ $t('rest-days-to-end') }}
                         <p class="t-c">
-                            {{ restDay }} {{ $t('day') }}
+                            {{ restDay??'N/A' }} {{ $t('day') }}
                         </p>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                     <div class="text-white">
                         {{ $t('offered-property')  }} 
                         <p class="t-c">
-                            {{ offered_property }} %
+                            {{ offered_property??'N/A' }} %
                         </p>
                     </div>
                 </div>
