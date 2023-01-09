@@ -84,7 +84,7 @@
                         <div class="col-md-4">
                             <div class="position-relative">
                                 <!--calendar-->
-                                <d-calendar-simple />
+                                <d-calendar class="calendar-schedule"/>
                             </div>
                         </div>
     

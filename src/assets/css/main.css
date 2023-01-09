@@ -1596,3 +1596,13 @@ position: relative;
   .swiper-button-prev.swiper-button-disabled {
      opacity: 0;
  }
+
+ /** calend section schedule */
+
+ .calendar-schedule{
+    margin: -51px 0;
+    left: 0;
+    position: absolute;
+    width: 350px;
+    height: 390px;
+ }
