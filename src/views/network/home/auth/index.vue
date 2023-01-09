@@ -92,6 +92,7 @@
           <SectionPartner />
           <!-- تشاركينا ؟-->
           <SectionJoinUs />
+          <SectionPodcast/> 
         <!--مدونات-->
         <SectionBlogs />
 
@@ -102,6 +103,7 @@
 
 <script>
 import SectionHeader from './parts/section-header/index.vue'
+import SectionPodcast from './parts/section-podcast/index.vue'
 import SectionExhibitions from './parts/section-exhibitions/index.vue'
 import SectionInvestementProject from './parts/section-investment-projects/index.vue'
 import SectionScheduleNework from './parts/section-schedule-network/index.vue'
@@ -119,6 +121,7 @@ export default {
  components:{
   SectionPartner,
   SectionBlogs,
+  SectionPodcast,
   SectionHear,
   SectionContinueLearning,
     SectionHeader,
