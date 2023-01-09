@@ -4,9 +4,15 @@
             <h5 class="m-c fw-bolder m-0">
                 تصنيف المواضيع :
             </h5>
-            <li v-for="(btn, i) in categories" :key="i" class="nav-item" role="presentation">
-                <button @click="changeCategories(btn.id)" class="nav-link" :class="{ active: category_id === btn.id }" type="button">{{ btn.name }}</button>
+            <template  v-for="(btn, i) in categories"> 
+            <li  class="nav-item" role="presentation"  :key="'r'+i">
+                <button @click="changeCategories(btn.id)" class="nav-link" :class="{ active: category_id === btn.id }" type="button">{{ btn.name }}
+                
+                </button>
+                
             </li>
+            <li v-if="categories.length>(i+1)" :key="'d-'+i"> | </li>
+        </template>
         </ul>
         <d-filter-list :call-list="loadList" 
         hideSide
