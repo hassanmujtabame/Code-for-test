@@ -26,12 +26,22 @@
                         </div>
                     </div>
                 </div>
+                <template v-if="false">
                 <div class="star-cons">
                     <img src="/assets/img/starrrr.png" alt="" />
                 </div>
                 <div class="star-cons stars">
                     <img src="/assets/img/starsss.png" alt="" />
                 </div>
+                <div class="star position-absolute" >
+                <img  class="landing"  src="/assets/img/start.png" alt="">
+            </div>
+            </template>
+        
+        <div class="position-absolute" style="width: 100%;height: 100%;top: 0;left: 0" >
+            <img class="landing"  src="/assets/img/background-blogs-header.png" >
+         </div>
+        
             </div>
         </div>
         <div class="container mt-5">
