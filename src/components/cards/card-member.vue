@@ -4,8 +4,8 @@
                             <img  :src="img" alt="" width="259" height="192">
                         </div>
                         <div class="text-center bg-white " :class="{'p-3':!description}">
-                            <h6>{{name}}</h6>
-                            <p v-if="description" class="m-c">{{description}}</p>
+                            <h6 class="network-member-name">{{name}}</h6>
+                            <p v-if="description" class="m-c network-member-description">{{description}}</p>
 
                         </div>
 
@@ -29,6 +29,13 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.network-member-name{
+    font-size: 24px;
+    color:var(--b-color)
+}
+.network-member-description{
+    font-size: 24px;
+    color:#1FB9B3
+}
 </style>
