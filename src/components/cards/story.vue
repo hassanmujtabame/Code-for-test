@@ -7,7 +7,7 @@
         <div class="text-center p-2">
             <h5 style="height:48px">{{ title }}</h5>
             <div>
-                <small class="m-c">{{ name }}
+                <small class="m-c">{{ name??'N/A' }}
                 </small>
                 <span>
                     |

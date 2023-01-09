@@ -16,13 +16,14 @@
             <div class="row">
 
                 <div v-for="(item,i) in items" :key="i" class="col-md-3">
+                  <router-link class="router-link" :to="getRouteLocale('network-success-story-show',{id:item.id})">
                     <d-story-card
                         :image="item.image"
                         :title="item.title"
                         :name="item.user_info.name"
                         :description="item.user_info.job"
                     />
-              
+                  </router-link>
                 </div>
                 
             </div>
