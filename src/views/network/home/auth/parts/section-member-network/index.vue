@@ -1,6 +1,6 @@
 <template>
   <div class="sec-five mt-5 p-3">
-    <h2 class="m-c text-center">
+    <h2 class="m-c text-center text-bold">
       {{ $t('network-sect-members-network-count') }}
       <a href="" class="y-c">
         {{total}}
@@ -8,7 +8,7 @@
     </h2>
     <div class="">
       <div class="d-flex justify-content-between align-items-center container">
-        <h1>{{ $t('network-members') }}</h1>
+        <h1 class="text-bold">{{ $t('network-members') }}</h1>
         <div>
           <router-link class="router-link" custom 
                 :to="getRouteLocale('network-member-network')"
@@ -20,7 +20,7 @@
       </div>
       <d-swiper v-if="!loading" :slides-per-view="5" :space-between="10" :items="items">
         <template v-slot:default="{ item }">
-          <router-link :to="getRouteLocale('network-member-show',{id:item.id})">
+          <router-link class="router-link" :to="getRouteLocale('network-member-show',{id:item.id})">
             <CardMember :name="item.name" :description="item.description" :img="item.image" />
           </router-link>
         </template>
