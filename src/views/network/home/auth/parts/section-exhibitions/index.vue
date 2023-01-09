@@ -18,6 +18,8 @@
                   <exhibitionCard 
                 :img="item.image"
                 :title="item.title"
+                :price="item.price"
+                :place="item.city"
                 :description="item.content"
                 :userName="item.user_info.name"
                 />

@@ -41,8 +41,8 @@
                 :img="item.image"
                 :userName="item.user_info.name"
                 :place="item.city"
-                price="دخول مجاني"
-                title="معرض الازياء الرجالي"
+                :price="item.price"
+                :title="item.title"
                 :description="item.content"
                 />
             </router-link>

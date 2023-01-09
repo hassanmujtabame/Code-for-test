@@ -15,7 +15,7 @@
                     :place="item.city"
                     :userName="item.user_info.name" 
                     :description="item.content" 
-                     title="معرض الازياء الرجالي"
+                     :title="item.title"
                     />
                 </router-link>
             </template>
