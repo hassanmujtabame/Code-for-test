@@ -66,20 +66,24 @@ export default {
     Swiper, SwiperSlide
  },
  data:(vm)=>{
-   let responsive = {
+   let responsive;
+   if(vm.slidesPerView!='auto')
+    responsive = {
       640: {
         slidesPerView: 1,
         
       },
       768: {
-        slidesPerView: vm.slidesPerView-1,
+        slidesPerView: vm.slidesPerView>1?vm.slidesPerView-1:1,
       },
       1024: {
         slidesPerView: vm.slidesPerView,
       },
     }
+    else 
+    responsive = vm.$attrs.breakpoints??{}
    return {
-      breakpoints:vm.isAuto?responsive:{} ,
+      breakpoints:(vm.isAuto || vm.slidesPerView=='auto')?responsive:{} ,
    }
  }
 }
