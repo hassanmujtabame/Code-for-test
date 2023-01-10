@@ -1623,3 +1623,10 @@ position: relative;
 .shadow-hover:hover {
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
 }
+
+/** swiper mobile */
+.swiper-mobile .swiper-slide img {
+    -o-object-fit: unset;
+    object-fit: unset;
+    max-width: 100%;
+  }

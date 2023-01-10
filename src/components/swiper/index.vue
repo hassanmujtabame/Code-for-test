@@ -1,5 +1,5 @@
 <template>
-   <div class="position-relative">
+   <div class="position-relative" :class="{'swiper-mobile':isMobile}">
   <swiper
       :scrollbar="scrollbar"
       :navigation="navigation"
