@@ -1,5 +1,7 @@
 <template>
-        <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
+        <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"
+        @ready="ckEditorReady"
+        ></ckeditor>
 </template>
 
 <script>
@@ -11,7 +13,7 @@
             value:{
                 type:String
             },
-            eConfig:{
+            editorConfig:{
                 type:[Object,Array],
 
                 default:()=>{return {
@@ -19,11 +21,10 @@
                 }}
             }
         },
-        data(vm) {
+        data() {
             return {
                 editor: ClassicEditor,
                 editorData: '<p></p>',
-                editorConfig: vm.eConfig
             };
         },
         watch:{
@@ -36,6 +37,15 @@
             editorData(){
                 this.$emit('input',this.editorData)
             }
+        },
+        methods:{
+            
+ckEditorReady(editor) {
+    if(this.editorConfig.minHeight)
+      editor.ui.view.editable.element.style.minHeight = this.editorConfig.minHeight
+}
+
+
         }
     }
 </script>
