@@ -4,7 +4,7 @@
     <div v-else-if="hasError">
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
-        <div  v-else class="container blog-page">
+        <div  v-else class="container exhibition-page">
             <div class=" position-relative">
                 <img class="w-100" :src="itemPage.image" :alt="itemPage.title" height="432">
                 <div class="d-flex gap-2 position-absolute bottom-0 data">

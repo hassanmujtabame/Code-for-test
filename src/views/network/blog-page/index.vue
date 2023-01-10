@@ -18,8 +18,8 @@
         <div class=" col-12 col-md-8">
           <h3 class="m-c">{{ itemPage.title }}
           </h3>
-          <p class="pargrapg" v-html="itemPage.description">
-           </p>
+          <div class="pargrapg" v-html="itemPage.description">
+          </div>
         </div>
         <div class="col-12 col-md-4">
           <div v-if="isOwner" class="box  rounded-3 p-2">
@@ -215,5 +215,7 @@ export default {
 </script>
 
 <style>
-
+.blog-page .pargrapg>*{
+  width:100% !important;
+}
 </style>
