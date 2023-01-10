@@ -1,7 +1,7 @@
 <template>
   <BtnSimple
                   class="nav-link"
-                  :class="{active:current==reference}"
+                  :class="{active:current==reference,...className}"
                   :id="`${group}-${reference}-tab`"
                   :data-bs-toggle="group"
                   :data-bs-target="`#${group}-${reference}`"
@@ -28,6 +28,10 @@ props:{
    reference:{
     type:String,
         require:true,
+   },
+   className:{
+    type:[Object],
+        default:()=>{return {}},
    },
     current:{
         type:String,

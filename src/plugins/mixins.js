@@ -137,6 +137,7 @@ const mixin = {
           },
             computed: {
                 ...mapGetters({
+                    isMobile: 'core/isMobile',
                     user: 'auth/user',
                     token: 'auth/token',
                     authenticated: 'auth/authenticated',

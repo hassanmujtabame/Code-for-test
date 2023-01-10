@@ -1,7 +1,9 @@
 <template>
  
-    <li class="nav-item m-2" role="presentation">
-        <BtnTab @selected="selected" :current="currentLocal" :group="group"  :reference="reference">
+    <li class="nav-item m-2" :class="{'w-100':isMobile}" role="presentation">
+        <BtnTab @selected="selected" :current="currentLocal" :group="group"  :reference="reference"
+        :className="{'w-100':isMobile}"
+        >
             <slot></slot>
                 </BtnTab>
         
