@@ -1,8 +1,8 @@
 <template>
-   <div class="main-top py-2 px-5 position-relative mt-5">
-            <div class="row align-items-center m-auto">
-               <div class="row p-5 m-auto">
-                <div class="col-md-8 mt-3">
+   <div class="main-top py-2  position-relative mt-5" :class="{'px-5':!isMobile}">
+            
+               <div class="row align-items-center p-5 m-auto">
+                <div class="col-12 col-md-8 mt-3">
                   <h2 class="text-white">
                     تشاركينا ؟
                   </h2>
@@ -41,8 +41,6 @@
 
                </div>
     
-            </div>
-       
             <div class="star position-absolute" >
                     <img  class="landing"  src="/assets/img/start.png" alt="">
             </div>

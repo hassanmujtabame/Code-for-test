@@ -24,8 +24,8 @@
                 </div>
                 <div class="col-md-6">
                     <div  class="shadow-hover box border  p-5 rounded-2">
-                        <div class="d-flex ">
-                            <div class="w-75">
+                        <div class="d-flex " :class="{'flex-column-reverse':isMobile}">
+                            <div :class="{'w-75':!isMobile,'w-100':isMobile}">
 
                                 <h3 class="text-dark">
                                     تحتاج الى المساعدة ؟
@@ -52,13 +52,13 @@
           <SectionStory/>
          <!--نماذج رياديات -->
          <SectionModels />
-          <div class="main-top py-2 px-5 position-relative mt-5">
+          <div class="main-top py-2 position-relative mt-5" :class="{'px-5':!isMobile,'px-3':isMobile}">
             <div class="row align-items-center m-auto">
-                <div class="box col-md-6" >
+                <div class="box col-12 col-md-6" >
 
-                    <h1 class="text-white fw-bolder fs-2">
+                    <h1 class="text-white fw-bolder " :class="{'fs-2':!isMobile,'fs-6':isMobile}">
                         محتاج خدمة ؟ تبحث عن موظف مميز ؟                     </h1>
-                    <p class="text-white w-75">
+                    <p class="text-white" :class="{'w-75':!isMobile,'w-100':isMobile}">
                         اذا كنت تريد شراء الخدمات الجاهزة التي يقوم مقدمين الخدمات بأضافتها او حتى طلب خدمات خاصة او البحث عن موظفين مميزين لشركتك كل ماعليك فعله هو الدخول الى منصة مقدمي الخدمات                    </p>
                    <router-link :to="getRouteLocale('service-provider-home')" class="btn border p-2 text-white bg-transpernt svg-network ">
                       
