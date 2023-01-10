@@ -51,4 +51,14 @@ html[dir=ltr] .faq-btn-fixed{
   margin: 0;
   color:white;
 }
+@media screen and (max-width: 600px) {
+  .faq-btn-title{
+    display: none;
+    width: 0px;
+    padding:0;
+    margin: 0;
+  }
+}
+  
+
 </style>

@@ -59,4 +59,24 @@ html[dir=ltr] .rate-experience{
     font-size: 16px;
     color: #979797;
 }
+@media screen and (max-width: 600px) {
+    .rate-experience{
+        height: auto;
+        width: 30px;
+    }
+    .rate-experience-wrapper {
+  padding: 2px;
+
+}
+    .rate-experience-star svg {
+        height: 24px;
+        width: 24px;
+    }
+    .rate-experience-text{
+    display: none;
+    width: 0px;
+    padding:0;
+    margin: 0;
+  }
+}
 </style>
