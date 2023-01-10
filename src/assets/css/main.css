@@ -1632,10 +1632,13 @@ position: relative;
   }
 
   .calendar-schedule.mobile {
-  
     left: auto;
     position: unset;
     width: 100%;
     height: 390px;
     margin: 0 auto;
   }
+  .h-40px{
+    height: 40px !important;
+  }
+  
