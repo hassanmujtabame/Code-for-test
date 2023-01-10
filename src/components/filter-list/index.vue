@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5">
+    <div class="container mt-5 filter-list">
         <div class="text-end">
             <slot name="top-end"></slot>
         </div>
@@ -12,12 +12,13 @@
                 </h4>
             </slot>
             </div>
-            <div v-if="title || $slots.title" class=" col-12 col-md-auto mt-3">
+            <div v-if="!hideTitle"  class=" col-12 col-md-2 mt-3">
                 <slot name="title">
-              <h3 class="t-c fw-bolder">{{ title }}</h3>
+              <h3 v-if="title" class="t-c fw-bolder">{{ title }}</h3>
             </slot>
             </div>
-            <div class="col-12 col-md-auto mt-3">
+            <div class="col-12 col-md-6 mt-3 row">
+                <div class="col-12 col-md-6">
                 <slot name="search">
                 <label for="" class="position-relative w-100">
                     <input class="form-control py-3 px-5" type="text" placeholder="أبحث بالاسم   " />
@@ -33,8 +34,8 @@
                     </p>
                 </label>
             </slot>
-            </div>
-            <div class="col-12 col-md-auto mt-3 position-relative">
+        </div>
+        <div class="col-12 col-md-6 position-relative">
                 <slot name="order">
                 <select class="form-select form-select-lg mb-3 py-3" aria-label=".form-select-lg example">
                     <option selected> الاحدث </option>
@@ -47,7 +48,9 @@
                 </p>
             </slot>
             </div>
-            <div v-if="$slots['head-end']" class="col-12 col-md-auto mt-3"
+            </div>
+            <!--ordzer-->
+            <div v-if="$slots['head-end']" class="col-12 col-md-auto"
             :style="{ 'margin-right':$i18n.locale?'auto':'', 'margin-left':$i18n.locale?'auto':''}">
             <slot name="head-end"></slot>
             </div>
@@ -279,6 +282,10 @@ export default {
             default:'col-12 col-md-6 mt-2'
         },
         hideTotal:{
+            type:Boolean,
+            default:false,
+        },
+        hideTitle:{
             type:Boolean,
             default:false,
         },

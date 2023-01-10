@@ -5,6 +5,7 @@
             classColCard="col-md-6 mt-3"
             :call-list="initializing"
             hideSide
+            hideTitle
             >
             <template v-slot:total>
                 <h1 class="text-bold">  {{ $t('physical_investment_projects') }}</h1>
