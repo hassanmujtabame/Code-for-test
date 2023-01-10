@@ -4,8 +4,9 @@
       :scrollbar="scrollbar"
       :navigation="navigation"
       :pagination="pagination"
-      :slides-per-view="slidesPerView"
+      :slides-per-view="isAuto?'auto':slidesPerView"
       :space-between="spaceBetween"
+      :breakpoints="breakpoints"
              v-bind="$attrs"
              v-on="$listeners"
             >
@@ -44,6 +45,10 @@ export default {
       type:[Boolean,Object],
       default:false,
    },
+   isAuto:{
+      type:[Boolean],
+      default:false,
+   },
    slidesPerView:{
       type:[Number,String],
       default:3,
@@ -59,6 +64,23 @@ export default {
  },
  components:{
     Swiper, SwiperSlide
+ },
+ data:(vm)=>{
+   let responsive = {
+      640: {
+        slidesPerView: 1,
+        
+      },
+      768: {
+        slidesPerView: vm.slidesPerView-1,
+      },
+      1024: {
+        slidesPerView: vm.slidesPerView,
+      },
+    }
+   return {
+      breakpoints:vm.isAuto?responsive:{} ,
+   }
  }
 }
 </script>
