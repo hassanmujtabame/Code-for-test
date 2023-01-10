@@ -7,7 +7,7 @@
      aria-labelledby="exampleModalToggleLabel"
         tabindex="-1">
         <div class="modal-dialog"
-        :class="{'modal-xl':xl&&!lg,'modal-lg':lg,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen}"
+        :class="{'modal-xl':xl&&!mlg,'modal-lg':mlg,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen}"
         >
             <div class="modal-content">
                 <div v-if="!hideHeader" class="modal-header">
@@ -38,7 +38,7 @@ props:{
         type:Boolean,
         default:true
     },
-    lg:{
+    mlg:{
         type:Boolean,
         default:false
     },
@@ -85,6 +85,7 @@ methods:{
     this.$emit('change',this.dialog)
 },
     openDialogLocal(evt){
+        console.log('opens')
         if(this.openDialog){
          if(this.openDialog(evt)===true){
             this.dialog=true;
