@@ -15,6 +15,7 @@
   <d-swiper
   v-if="!loading"
   :slides-per-view="3"
+  is-auto
   :space-between="5"
     :items="items"
               >

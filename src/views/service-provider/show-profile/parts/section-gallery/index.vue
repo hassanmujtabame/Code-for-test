@@ -20,6 +20,7 @@
         </h3>
         <d-swiper :items="items" 
         :slidesPerView="4"
+        is-auto
         :space-between="10"
         class="swiper p-2">
             <template v-slot="{}">

@@ -124,6 +124,7 @@
                 </div>
                 <d-swiper 
                 :items="memberitems"
+                is-auto
                           :loop="true"
                           :spaceBetween=10
                               :slidesPerView=4

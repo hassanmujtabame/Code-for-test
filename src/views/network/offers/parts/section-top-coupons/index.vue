@@ -9,7 +9,12 @@
           </button>
         </div>
       </div>
-      <d-swiper v-if="!loading" :items="items" :slides-per-view="3" :space-between="5">
+      <d-swiper v-if="!loading" 
+      :items="items" 
+      is-auto
+      :slides-per-view="3" 
+      :space-between="5"
+      >
         <template v-slot="{ item }">
           <div class=" mt-2 ">
             <CouponCard 

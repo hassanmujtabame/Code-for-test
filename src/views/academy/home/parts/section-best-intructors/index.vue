@@ -16,6 +16,7 @@
               <d-swiper
               style="overflow-x: hidden"
             :slides-per-view="5"
+            is-auto
             :space-between="10"
               :items="items"
             >

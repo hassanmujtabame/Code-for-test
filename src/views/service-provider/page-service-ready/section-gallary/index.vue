@@ -8,6 +8,7 @@
                               :items="items" 
                               :spaceBetween="10"
                               :slidesPerView="1"
+                              is-auto
                               :loop="true"
                               :navigation='{
                               nextEl: ".swiper-button-next",
@@ -28,6 +29,7 @@
                           :loop="true"
                           :spaceBetween=10
                               :slidesPerView=4
+                              is-auto
                             :freeMode="true"
                               @swiper="setThumbsSwiper"
                               watch-slides-progress

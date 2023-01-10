@@ -60,7 +60,7 @@
               <button class="more">{{ $t('more') }}</button>
             </div>
           </div>
-          <d-swiper :items="items">
+          <d-swiper is-auto :items="items">
              <template v-slot="{item}">
               <router-link :to="getRouteLocale('academy-learning-meeting-show',{id:item.id})">
                 <meetingCard 

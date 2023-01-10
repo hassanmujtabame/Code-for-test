@@ -11,6 +11,7 @@
           </div>
           <d-swiper           
                 :slides-per-view="5"
+                is-auto
                 :space-between="10"
                 :items="items"
               >

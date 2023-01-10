@@ -12,7 +12,7 @@
               style="overflow-x: hidden"
             :slides-per-view="5"
             :space-between="10"
-             
+            is-auto
               :items="items"
             >
        

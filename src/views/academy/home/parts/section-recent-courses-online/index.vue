@@ -16,6 +16,7 @@
               <d-swiper
             :slides-per-view="slidesperview"
             :space-between="10"
+            is-auto
               :items="items"
             >
        

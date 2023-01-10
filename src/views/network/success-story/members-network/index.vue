@@ -10,7 +10,8 @@
                 </router-link>
                 </div>
             </div>
-            <d-swiper v-if="!loading" class="swiper-container m1ySwiper-templete main-swiper"
+            <d-swiper v-if="!loading"
+             class="swiper-container m1ySwiper-templete main-swiper"
             :items="stories"
             :slidesPerView="'auto'"
             :spaceBetween="5" 

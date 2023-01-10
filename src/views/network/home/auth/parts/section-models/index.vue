@@ -17,6 +17,7 @@
               <d-swiper  
               v-if="!loading"
               :slides-per-view="4"
+              is-auto
               :items='items'
               >
                  <template v-slot="{item}">

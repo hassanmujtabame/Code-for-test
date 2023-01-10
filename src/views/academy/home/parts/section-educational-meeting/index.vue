@@ -15,6 +15,7 @@
   <d-swiper
   :slides-per-view="3"
   :space-between="5"
+  is-auto
     :items="items"
               >
                 <template  v-slot:default="{item}" >

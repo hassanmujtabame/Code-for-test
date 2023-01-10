@@ -5,6 +5,7 @@
                 <h2 class="text-center">الشبكة  في ارقام  </h2>
                 <d-swiper  v-if="!loading" 
                 :items="categories"
+                is-auto
                 classColCard="col-6 col-md-auto mt-3"
                 :slides-per-view="7"
                 >

@@ -13,6 +13,7 @@
               <d-swiper
               style="overflow-x: hidden"
             :slides-per-view="7"
+            is-auto
             :space-between="10"
               :items="items"
             >
