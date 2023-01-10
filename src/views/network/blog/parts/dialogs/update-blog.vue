@@ -137,7 +137,7 @@ export default {
      formData.append('file',this.file);
      formData.append('user_id',this.user.id);
     // for (var i = 0; i < this.blog.tag.length; i++) {
-            formData.append('tags', this.blog.tag.id);
+           // formData.append('tags', this.blog.tag.id);
     //}
     //for ( i = 0; i < this.blog.category.length; i++) {
             formData.append('categories', this.blog.category.id);
@@ -206,7 +206,7 @@ export default {
         this.imageUrl = data.image
         this.blog.id=data.id
         this.blog.category=data.categories[0]
-        this.blog.tag=data.tags[0]
+        //this.blog.tag=data.tags[0]
         this.blog.description=data.description
         this.blog.short_description=data.short_description
         this.blog.title=data.title

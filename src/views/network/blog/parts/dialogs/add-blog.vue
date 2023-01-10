@@ -137,7 +137,7 @@ export default {
      formData.append('file',this.file);
      formData.append('user_id',this.user.id);
     // for (var i = 0; i < this.blog.tag.length; i++) {
-            formData.append('tags', this.blog.tag.id);
+            //formData.append('tags', this.blog.tag.id);
     //}
     //for ( i = 0; i < this.blog.category.length; i++) {
             formData.append('categories', this.blog.category.id);
