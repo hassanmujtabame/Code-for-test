@@ -26,19 +26,19 @@
                         </div>
                     </div>
                 </div>
-                <template v-if="false">
-                <div class="star-cons">
+                <template >
+                <div class="star-cons-blog">
                     <img src="/assets/img/starrrr.png" alt="" />
                 </div>
-                <div class="star-cons stars">
+                <div class="star-cons-blog stars">
                     <img src="/assets/img/starsss.png" alt="" />
                 </div>
-                <div class="star position-absolute" >
+                <div class="star-blog position-absolute" >
                 <img  class="landing"  src="/assets/img/start.png" alt="">
             </div>
             </template>
         
-        <div class="position-absolute" style="width: 100%;height: 100%;top: 0;left: 0" >
+        <div v-if="false" class="position-absolute" style="width: 100%;height: 100%;top: 0;left: 0" >
             <img class="landing"  src="/assets/img/background-blogs-header.png" >
          </div>
         
@@ -89,5 +89,23 @@ methods:{
 </script>
 
 <style>
-
+.star-cons-blog {
+    position: absolute;
+    right: 7.15%;
+    left: 81.19%;
+    top: 9.72%;
+    bottom: 71.67%;
+}
+.star-cons-blog.stars {
+    right: 30.56%;
+    left: 60.06%;
+    top: 14.17%;
+    bottom: 80.28%;
+}
+.star-blog {
+    right: 27.29%;
+    left: 69.44%;
+    top: 44.59%;
+    bottom: 37.92%;
+}
 </style>
