@@ -1,6 +1,7 @@
 <template>
   
-        <d-dialog-large :xl="false" 
+        <d-dialog-large 
+        lg
         :group="group" 
         :closeDialog="closeDialog"
         :openDialog="openDialog"
@@ -8,8 +9,8 @@
             <ValidationObserver ref="form" >
                 <div class=" add-portfolio m-3 p-0">
                     <div class="   m-auto">
-                        <div class="col-md-12">
-                            <label for="imginput" class="form-label file-label first w-100">
+                        <div class="col-md-12 text-center">
+                            <label for="imginput" class="img-zone form-label file-label first w-100">
                                 <div class="text-center p-5">
                                   <img src="/assets/svg/empty-image.svg"  height="96" width="96"/>
                                       
@@ -264,5 +265,7 @@ label{
     width:100%;
     text-align: start;
 }
-
+.img-zone{
+    max-width: 430px;
+}
 </style>
