@@ -4,7 +4,7 @@
                         <img class="w-100 rounded-top" :src="img" :alt="title"
                             height="167">
                     </div>
-                    <div class="p-2">
+                    <div class="p-2 text-start">
                         <h6 class=" mt-2  fw-bolder text-start">
                         {{title}}
                         </h6>
