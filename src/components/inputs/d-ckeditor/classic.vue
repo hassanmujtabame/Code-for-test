@@ -10,15 +10,20 @@
         props:{
             value:{
                 type:String
+            },
+            eConfig:{
+                type:[Object,Array],
+
+                default:()=>{return {
+                    // The configuration of the editor.
+                }}
             }
         },
-        data() {
+        data(vm) {
             return {
                 editor: ClassicEditor,
-                editorData: '<p>Content of the editor.</p>',
-                editorConfig: {
-                    // The configuration of the editor.
-                }
+                editorData: '<p></p>',
+                editorConfig: vm.eConfig
             };
         },
         watch:{
