@@ -33,7 +33,7 @@
     </div>
     <d-swiper v-if="!loading"  style="overflow-x: hidden"
             :slides-per-view="3"
-            :space-between="10"
+            :space-between="20"
               :items="items" >
               <template  v-slot:default="{item}" >
                 <router-link class="router-link" :to="getRouteLocale('network-exhibition-show',{id:item.id})">
