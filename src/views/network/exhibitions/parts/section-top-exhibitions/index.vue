@@ -1,8 +1,8 @@
 <template>
-   <div class="sec-five mt-5 p-3">
+   <div class=" p-3">
 
-<div class="">
-    <div class="container">
+<div class="container">
+    <div class="">
         <div class="row justify-content-between mt-5">
             <div class="col-md-6">
                 <h2>
