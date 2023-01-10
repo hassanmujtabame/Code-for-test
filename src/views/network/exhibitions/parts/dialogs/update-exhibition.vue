@@ -8,8 +8,8 @@
     >
         <ValidationObserver v-if="showDialog" ref="form">
             <div class="row add-portfolio m-3 p-0 position-relatiuve">
-                <div class="col-12 col-lg-4  justify-content-center m-auto">
-                    <div class="col-md-12">
+                <div class="col-12 col-lg-5  justify-content-center m-auto">
+                    <div class="col-md-10">
                         <ValidationProvider :name="$t('Image')" 
                         vid="image"
                          rules=""
@@ -34,7 +34,7 @@
                             </div>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
                         <div class="col-md-12">
                             <div class="text">
                                 <ValidationProvider 
@@ -71,13 +71,14 @@
 
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
                         <ValidationProvider 
                                 :name="$t('details-enter-exhibition')" 
                                 vid="details"  rules=""
                                     v-slot="{  errors }">
                         <d-ckeditor-classic 
                         v-model="itemForm.details"
+                        :editorConfig='configEnter'
                         class="w-100 border t-c " 
                          rows="10"></d-ckeditor-classic>
                                  <div v-if="errors.length !== 0" class="col-12 text-input-error">
@@ -86,7 +87,7 @@
                         </ValidationProvider>
 
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
                         <div class="border p-3 text-center">
 
                             <h6>{{ $t('is_exhibition_available_for_shared') }}</h6>
@@ -118,7 +119,7 @@
 
 
                 </div>
-                <div class="col-12 col-lg-8">
+                <div class="col-12 col-lg-7">
                     <div class="mb-3">
                         <ValidationProvider 
                         :name="$t('Title')" 
@@ -230,6 +231,7 @@
                         <d-ckeditor-classic 
                             class="form-control" 
                             rows="10"
+                            :editorConfig="configContent"
                             v-model="itemForm.content"
                             placeholder="أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )">
                         </d-ckeditor-classic>
@@ -295,6 +297,11 @@ export default {
         tags: [],
         file: null,
         mapFile: null,
+        configContent:{minHeight:"150px",
+                            placeholder:"أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )"
+                    },
+        configEnter:{minHeight:"150px",placeholder:"أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )"},
+        
         itemForm: {
             content:'',
             city:'',

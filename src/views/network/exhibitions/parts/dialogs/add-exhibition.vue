@@ -8,8 +8,8 @@
     >
         <ValidationObserver ref="form">
             <div class="row add-portfolio m-3 p-0 position-relatiuve">
-                <div class="col-12 col-lg-4  justify-content-center m-auto">
-                    <div class="col-md-12">
+                <div class="col-12 col-lg-5  justify-content-center m-auto">
+                    <div class="col-md-10">
                         <ValidationProvider :name="$t('Image')" vid="image" rules="required" v-slot="{ validate, errors }">
                             <label for="imginput" class="form-label file-label first w-100">
                                 <div class="text-center p-5">
@@ -24,13 +24,13 @@
                             </label>
 
                             <input @change="uploadImage($event) || validate($event)" class="form-control opacity-0"
-                                type="file" id="imginput">
+                                type="file" id="imginput" style="display:none">
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
                             </div>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
                         <div class="col-md-12">
                             <div class="text">
                                 <ValidationProvider 
@@ -67,13 +67,15 @@
 
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
                         <ValidationProvider 
                                 :name="$t('details-enter')" 
                                 vid="details"  rules=""
                                     v-slot="{  errors }">
                         <d-ckeditor-classic 
                         v-model="itemForm.details"
+
+                        :editorConfig='configEnter'
                         class="w-100 border t-c " 
                          rows="10"></d-ckeditor-classic>
                                  <div v-if="errors.length !== 0" class="col-12 text-input-error">
@@ -82,14 +84,16 @@
                         </ValidationProvider>
 
                     </div>
-                    <div class="col-md-12">
-                        <div class="border p-3 text-center">
+                    <div class="col-md-10">
+                        <div class="border mt-2 p-3 text-center">
 
                             <h6>هل المعرض متاح للمشاركة ؟</h6>
-                            <div class="d-flex justify-content-center   gap-2">
+                           
                                 <ValidationProvider :name="$t('Available')"
                                  vid="is_share"
                                  rules="required"
+                                 tag="div"
+                                 class="d-flex justify-content-center   gap-2"
                                     v-slot="{ errors }">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" :value="1" v-model="itemForm.is_share" name="flexRadioDefault">
@@ -108,13 +112,13 @@
                                         {{ errors[0] }}
                                     </div>
                                 </ValidationProvider>
-                            </div>
+                            
                         </div>
                     </div>
 
 
                 </div>
-                <div class="col-12 col-lg-8">
+                <div class="col-12 col-lg-7">
                     <div class="mb-3">
                         <ValidationProvider 
                         :name="$t('Title')" 
@@ -224,7 +228,8 @@
                             class="form-control" 
                             rows="10"
                             v-model="itemForm.content"
-                            placeholder="أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )">
+                            :editorConfig='configContent'
+                            >
                         </d-ckeditor-classic>
                         <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
@@ -239,12 +244,11 @@
                          v-slot="{ errors }"
                          >
                          <div class="form-group position-relative">
-                        <select v-model="itemForm.category_id"  class="form-control">
-                            <option disabled value="" class="t-c"> تصنيفات المعرض</option>
+                        <select v-model="itemForm.category_id"  class="form-control" plaeholder="تصنيفات المعرض">
+                            <option disabled :value="null"  class="t-c" selected> تصنيفات المعرض</option>
                             <option :key="i" v-for="(option,i) in categories" :value="option.id">
                                 {{ option.name }}
                             </option>
-
                         </select>
                         <div style="top: 7px;left: 10px;" class="position-absolute">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -267,7 +271,7 @@
         </ValidationObserver>
         <template v-slot:actions>
             <button @click="save" type="button" class="btn btn-main">
-                انشري التدوينة
+             {{$t("publish-exhibition")}}
             </button>
         </template>
     </d-dialog-large>
@@ -287,6 +291,10 @@ export default {
         tags: [],
         file: null,
         mapFile: null,
+        configContent:{minHeight:"150px",
+                            placeholder:"أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )"
+                    },
+        configEnter:{minHeight:"150px",placeholder:"أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )"},
         itemForm: {
             content:'',
             city:'',
