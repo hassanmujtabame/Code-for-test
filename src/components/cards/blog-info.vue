@@ -3,7 +3,7 @@
               <div class="image">
                 <img class="w-100" :src="img" :alt="title" height="184">
               </div>
-              <div class="text p-3">
+              <div class="text p-3 text-start">
                 <h6 style="height:40px">{{title}}</h6>
                 <p style="height:80px" class="description-blog" v-html="description"></p>
               </div>
