@@ -36,11 +36,11 @@
                     <div class="">
                         <div class="mb-3">
                             <ValidationProvider
-                                    :name="$t('Title')"
+                                    :name="$t('blog-title')"
                                  vid="title"
                                  rules="required"
                                     v-slot="{errors}">
-                            <input type="text" v-model="blog.title" class="form-control" placeholder="عنوان التدوينة">
+                            <input type="text" v-model="blog.title" class="form-control" :placeholder="$t('blog-title')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -69,43 +69,8 @@
                                 </div>
                                 </ValidationProvider>
                       </div>
-                      <div class="mb-3 position-relative">
-                        <ValidationProvider
-                                    :name="$t('blog_topic')"
-                                 vid="tags"
-                                 rules="required"
-                                    v-slot="{errors}">
-                        <label class="form-label">{{ $t('blog_topic') }}</label>
-                            <multi-select v-model="blog.tag" 
-                            :selectLabel="$t('selectLabel')" 
-                            :selectedLabel="$t('selectedLabel')"
-                            :deselectLabel="$t('deselectLabel')"
-                            :options="tags" :multiple="false"  
-                            :group-select="false" placeholder="" track-by="id" label="name">
-                                <span slot="noResult">{{ $t('no-result-search') }}</span>
-                            </multi-select>
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
-                                </ValidationProvider>
-                      </div>
-                      <div class="mb-3">
-                            <ValidationProvider
-                                    :name="$t('short-description-blog')"
-                                 vid="ar.short_description"
-                                 rules=""
-                                    v-slot="{errors}">
-                        <label class="form-label"> {{ $t('short-description-blog') }}</label>
-                        <d-ckeditor-classic 
-                            v-if="showDialog"
-                            
-                            v-model="blog.short_description" class="form-control" rows="10"
-                                placeholder=""></d-ckeditor-classic>
-                                <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
-                                </ValidationProvider>
-                        </div>
+                     
+                
                         <div class="mb-3">
                             <ValidationProvider
                                     :name="$t('description_blog')"
