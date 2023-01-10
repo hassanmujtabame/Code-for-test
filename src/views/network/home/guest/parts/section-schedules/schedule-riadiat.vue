@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="schedule-guest position-relative">
-                                <d-calendar  style="margin: -51px 0;width:350px" />
+                                <d-calendar class="calendar-schedule" :class="{'mobile':isMobile}"/>
                             </div>
                         </div>
                     </div>
