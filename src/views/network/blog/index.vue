@@ -82,7 +82,7 @@ data:()=>({
 }),
 methods:{
   addBlog(){
-    window.EventBus.fire('add-dialog-open-dialog')
+       this.fireOpenDialog('add-dialog')
   }
 }
 }
