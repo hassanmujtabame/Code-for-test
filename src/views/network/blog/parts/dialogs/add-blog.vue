@@ -146,14 +146,13 @@ export default {
             let { data } = await BlogsAPI.addBlog(formData)
             if(data.success){
                 console.log('success',data)
-                //this.fireEvent('list-blogs-update')
+               this.fireOpenDialog('success-add-blog',data.data)
                 this.closeEvent()
             }
         } catch (error) {
             //
             if(error.response){
                     let response =error.response
-                    console.log('error',response)
                     if(response.status==422){
                         if(response.data.errors)
                         this.$refs.form.setErrors(response.data.errors)
