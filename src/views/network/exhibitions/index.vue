@@ -12,6 +12,7 @@
         <!--#section filter exhibition-->
         <portal to="body">
       <addExhibitionDialg />
+      <addSuccessExhibitionDialg />
       </portal>
     </div>
 </template>
@@ -21,13 +22,15 @@ import SectionHeader from './parts/section-header/index.vue';
 import SectionTop from './parts/section-top-exhibitions/index.vue';
 import SectionFilter from './parts/section-filter-exhibitions/index.vue';
 import addExhibitionDialg from './parts/dialogs/add-exhibition.vue';
+import addSuccessExhibitionDialg from './parts/dialogs/success-add-exhibition.vue';
 export default {
  name:'exhibitions-page',
  components:{
     SectionHeader,
     SectionTop,
     SectionFilter,
-    addExhibitionDialg
+    addExhibitionDialg,
+    addSuccessExhibitionDialg
  }
 }
 </script>
