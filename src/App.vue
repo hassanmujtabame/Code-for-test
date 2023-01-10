@@ -11,7 +11,10 @@
 <script>
 export default {
   methods:{
-        loadJS(src,async=true,defer=false){
+    onResizeBrowser () {
+      this.$store.dispatch('core/setIsMobile',window.innerWidth < 600)
+    },
+    loadJS(src,async=true,defer=false){
           const plugin = document.createElement("script");
           plugin.setAttribute(
           "src",
@@ -23,6 +26,15 @@ export default {
         document.body.appendChild(plugin);
         }
       },
+      beforeDestroy () {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', this.onResizeBrowser, { passive: true })
+    }
+  },
+  mounted () {
+    this.onResizeBrowser()
+    window.addEventListener('resize', this.onResizeBrowser, { passive: true })
+  },
   created() {
    // this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",true)
     //this.loadJS("/js/jquery.simple-calendar.min.js",true)
