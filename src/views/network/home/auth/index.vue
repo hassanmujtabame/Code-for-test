@@ -17,13 +17,13 @@
           <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="box">
-                        <img class="w-100" src="/assets/img/Component 40.png" alt="" height="295">
+                    <div class=" box">
+                        <img class="w-100 shadow-hover" src="/assets/img/Component 40.png" alt="" height="295">
 
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div  class="box border  p-5 rounded-2">
+                    <div  class="shadow-hover box border  p-5 rounded-2">
                         <div class="d-flex ">
                             <div class="w-75">
 

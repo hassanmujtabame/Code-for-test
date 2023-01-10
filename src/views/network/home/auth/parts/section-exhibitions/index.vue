@@ -15,6 +15,7 @@
           </div>
             <div class="row">
                 <div v-for="(item,i) in items" :key="i" class="col-md-4 mt-3">
+                  <router-link class="router-link" :to="getRouteLocale('network-exhibition-show',{id:item.id})">
                   <exhibitionCard 
                 :img="item.image"
                 :title="item.title"
@@ -23,6 +24,7 @@
                 :description="item.content"
                 :userName="item.user_info.name"
                 />
+              </router-link>
                 </div>
             </div>
 

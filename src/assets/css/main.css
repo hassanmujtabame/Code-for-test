@@ -1614,3 +1614,12 @@ position: relative;
 .page-link {
     color:#73737378;;
 }
+
+
+/** shadow boxed */
+.router-link > .box:hover {
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+}
+.shadow-hover:hover {
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+}
