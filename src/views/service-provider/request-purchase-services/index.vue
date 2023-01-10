@@ -26,7 +26,7 @@
                         </label>
                     </div>
                     <div class=" col-12 col-md-3 mt-3 position-relative">
-                        <select class="form-select form-select-lg mb-3  py-3 m-c" aria-label=".form-select-lg example">
+                        <select class="form-select mb-3  py-3 m-c" aria-label=".form-select-lg example">
                             <option selected> قرب موعد التسليم </option>
                             <option value="1">الاعلى سعرا</option>
                             <option value="2">2</option>

@@ -17,7 +17,7 @@
     </router-link>
 </template>
 <template v-slot:order>
-                <select v-model="filterItem.price" class="form-select form-select-lg mb-3 py-3" aria-label=".form-select-lg example">  
+                <select v-model="filterItem.price" class="form-select mb-3 py-3" aria-label=".form-select-lg example">  
                     <option v-for="(item,i) in orderList" :key="i" :value="item.id">{{ item.name }}</option>
                 </select>
                 <p style="top: -13px; right: 24px; background: white" class="position-absolute">

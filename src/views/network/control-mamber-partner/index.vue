@@ -61,7 +61,7 @@
           </div>
           <div class="col-12 col-md-3 mt-3 position-relative">
             <select
-              class="form-select form-select-lg mb-3 py-3"
+              class="form-select mb-3 py-3"
               aria-label=".form-select-lg example"
             >
               <option selected> الاحدث </option>
