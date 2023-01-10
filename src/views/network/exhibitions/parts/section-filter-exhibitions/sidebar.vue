@@ -9,31 +9,22 @@
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                         aria-controls="panelsStayOpen-collapseOne">
-                        تصنيف الخدمة
+                        تصنيف
                     </button>
                 </h2>
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                     aria-labelledby="panelsStayOpen-headingOne">
                     <div class="accordion-body">
                         <div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            <div v-for="(state,i) in states" :key="i" class="form-check">
+                                <input class="form-check-input" type="radio" :value="state.id" v-model="filter.state" 
+                                :selected="state.id===filter.state"
+                                name="stateRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
-                                    خدمات اونلاين
-
-
+                                   {{state.name}}
                                 </label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    خدمات اوفلاين
-                                </label>
-                            </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -43,7 +34,7 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                         aria-controls="panelsStayOpen-collapseTwo">
-                        مجالات الاختصاص
+                        مجالات المعرض
 
                     </button>
                 </h2>
@@ -61,6 +52,11 @@
                 </div>
             </div>
          
+        </div>
+        <div class="mt-3 text-center">
+            <button @click="updateFilter" class="btn-main">
+                {{$t('save')}}
+            </button>
         </div>
     </div>
 </template>
@@ -87,15 +83,17 @@ export default {
     filter:vm.filterItem
  }},
  watch:{
-    filter:{
+    /*filter:{
         deep:true,
         handler(val){
             this.$emit('change',val)
         }
-    }
+    }*/
  },
  methods:{
-
+ updateFilter(){
+    this.$emit('change',this.filter)
+ },
  async getCategories() {
             try {
                 let { data } = await exhibitionsAPIs.getCategories()

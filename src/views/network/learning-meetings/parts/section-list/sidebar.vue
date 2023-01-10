@@ -12,7 +12,7 @@
                       aria-expanded="true"
                       aria-controls="panelsStayOpen-collapseOne"
                     >
-                      تصنيف الخدمة
+                      تصنيف
                     </button>
                   </h2>
                   <div
