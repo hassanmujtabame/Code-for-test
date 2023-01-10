@@ -1642,3 +1642,6 @@ position: relative;
     height: 40px !important;
   }
   
+  .blog-info-category,.blog-info-date{
+    padding: 1rem !important;
+  }

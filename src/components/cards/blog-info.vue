@@ -1,5 +1,5 @@
 <template>
-    <div class="box rounded-3 border w-100">
+    <div class="box rounded-3 border w-100 blog-info-card">
               <div class="image">
                 <img class="w-100" :src="img" :alt="title" height="184">
               </div>
@@ -8,14 +8,14 @@
                 <p style="height:80px" class="description-blog" v-html="description"></p>
               </div>
               <div class="d-flex">
-                <div class="date text-start mx-1 p-3 flex-grow-1">
+                <div class="blog-info-category date text-start mx-1 flex-grow-1">
                   <div class="d-flex gap-2   data">
           <p v-for="(cat,c) in categories" :key="c" :style="{'color':`${colors[c%3]}!important`}" class="p-1 px-2 rounded-2 text-white m-0">
             {{ cat.name }}
           </p>
         </div>
               </div>
-              <div class="date text-end mx-1 p-3 flex-shrink-0">
+              <div class="blog-info-date date text-end mx-1 flex-shrink-0">
                 <p>
                  
                 <bdi style="padding: 0 5px;">{{dateText}}</bdi>
