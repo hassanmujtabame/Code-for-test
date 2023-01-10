@@ -1,5 +1,5 @@
 <template>
-  <div class="main-top py-2 px-5 position-relative">
+  <div class="main-top py-2  position-relative" :class="{'px-5':!isMobile,'px-3':isMobile}">
         <div class="row align-items-center text-center m-auto">
             <div class="col-md-6 mt-2">
                 <div class="img-screen">
@@ -9,17 +9,17 @@
 
             </div>
             <div class="col-md-6  mt-4">
-                <h2 class="text-white fs-1">
+                <h2 class="text-white" :class="{'fs-1':!isMobile,'fs-6':isMobile}">
                     أكملي دوراتك، مراسلاتك وشاركي فـــــــي الشبكة والحاضنة من خلال تطبيق رياديــــــات
 
 
                 </h2>
                 <div class="mt-4">
                     <a href="">
-                        <img src="/assets/img/34-349265_app-store-google-play-svg 3.png" alt="">
+                        <img :class="{'h-40px':isMobile}" src="/assets/img/34-349265_app-store-google-play-svg 3.png" alt="">
                     </a>
                     <a href="">
-                        <img src="/assets/img/34-349265_app-store-google-play-svg 1.png" alt="">
+                        <img :class="{'h-40px':isMobile}" src="/assets/img/34-349265_app-store-google-play-svg 1.png" alt="">
                     </a>
                 </div>
 
