@@ -68,4 +68,5 @@ export default {
   @import "@/assets/css/main.css";
   @import "@/assets/css/responsive.css";
   @import "@/assets/css/calender.css";
+  @import "@/assets/css/mobile.css";
 </style>
