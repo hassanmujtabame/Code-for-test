@@ -1614,9 +1614,3 @@ position: relative;
 .page-link {
     color:#73737378;;
 }
-
-/**  filter by order**/
-.filter-list .form-select{
-    padding-top: 0.8rem!important;
-    padding-bottom: 0.8rem!important;
-}

@@ -4,6 +4,8 @@
        
         :call-list="loadList" 
         classColCard="col-md-6 mt-2" 
+        classColSearch="col-12 col-md-8"
+        classColOrder="col-12 col-md-4"
         :pluralName="$t('exhibitions')" 
         :singleName="$t('exhibition')"
         >

@@ -11,9 +11,8 @@
                 </ul>
                 <d-filter-list :call-list="loadList" 
         hideSide
-        hideTotal
         classColCard="col-md-3  mt-3">
-            <template v-slot:title>
+            <template v-slot:total>
 
                 <h3 class="t-c ">
                     نماذج: {{ categoryName }}

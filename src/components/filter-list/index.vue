@@ -18,35 +18,35 @@
             </slot>
             </div>
             <div class="col-12 col-md-6 mt-3 row">
-                <div class="col-12 col-md-6">
-                <slot name="search">
-                <label for="" class="position-relative w-100">
-                    <input class="form-control py-3 px-5" type="text" placeholder="أبحث بالاسم   " />
-                    <p style="top: 25%; right: 7px" class="position-absolute">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.5 21.75C5.85 21.75 1.25 17.15 1.25 11.5C1.25 5.85 5.85 1.25 11.5 1.25C17.15 1.25 21.75 5.85 21.75 11.5C21.75 17.15 17.15 21.75 11.5 21.75ZM11.5 2.75C6.67 2.75 2.75 6.68 2.75 11.5C2.75 16.32 6.67 20.25 11.5 20.25C16.33 20.25 20.25 16.32 20.25 11.5C20.25 6.68 16.33 2.75 11.5 2.75Z"
-                                fill="#979797" />
-                            <path
-                                d="M22.0004 22.7499C21.8104 22.7499 21.6204 22.6799 21.4704 22.5299L19.4704 20.5299C19.1804 20.2399 19.1804 19.7599 19.4704 19.4699C19.7604 19.1799 20.2404 19.1799 20.5304 19.4699L22.5304 21.4699C22.8204 21.7599 22.8204 22.2399 22.5304 22.5299C22.3804 22.6799 22.1904 22.7499 22.0004 22.7499Z"
-                                fill="#979797" />
-                        </svg>
-                    </p>
-                </label>
-            </slot>
-        </div>
-        <div class="col-12 col-md-6 position-relative">
-                <slot name="order">
-                <select class="form-select form-select-lg mb-3 py-3" aria-label=".form-select-lg example">
-                    <option selected> الاحدث </option>
-                    <option value="1">الاعلى سعرا</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <p style="top: -13px; right: 24px; background: white" class="position-absolute">
-                    ترتيب حسب
+            <div :class="classColSearch">
+            <slot name="search">
+            <label for="" class="position-relative w-100">
+                <input class="form-control py-3 px-5" type="text" placeholder="أبحث بالاسم" />
+                <p style="top: 25%; right: 7px" class="position-absolute">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.5 21.75C5.85 21.75 1.25 17.15 1.25 11.5C1.25 5.85 5.85 1.25 11.5 1.25C17.15 1.25 21.75 5.85 21.75 11.5C21.75 17.15 17.15 21.75 11.5 21.75ZM11.5 2.75C6.67 2.75 2.75 6.68 2.75 11.5C2.75 16.32 6.67 20.25 11.5 20.25C16.33 20.25 20.25 16.32 20.25 11.5C20.25 6.68 16.33 2.75 11.5 2.75Z"
+                            fill="#979797" />
+                        <path
+                            d="M22.0004 22.7499C21.8104 22.7499 21.6204 22.6799 21.4704 22.5299L19.4704 20.5299C19.1804 20.2399 19.1804 19.7599 19.4704 19.4699C19.7604 19.1799 20.2404 19.1799 20.5304 19.4699L22.5304 21.4699C22.8204 21.7599 22.8204 22.2399 22.5304 22.5299C22.3804 22.6799 22.1904 22.7499 22.0004 22.7499Z"
+                            fill="#979797" />
+                    </svg>
                 </p>
-            </slot>
+            </label>
+        </slot>
+            </div>
+            <div :class="classColOrder" class="position-relative">
+                    <slot name="order">
+                    <select class="form-select form-select-lg mb-3 py-3" aria-label=".form-select-lg example">
+                        <option selected> الاحدث </option>
+                        <option value="1">الاعلى سعرا</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <p style="top: -13px; right: 24px; background: white" class="position-absolute">
+                        ترتيب حسب
+                    </p>
+                </slot>
             </div>
             </div>
             <!--ordzer-->
@@ -69,27 +69,21 @@
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                                     aria-controls="panelsStayOpen-collapseOne">
-                                    تصنيف الخدمة
-                                </button>
+                                    تصنيف                                </button>
                             </h2>
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                                 aria-labelledby="panelsStayOpen-headingOne">
                                 <div class="accordion-body">
                                     <div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault1" />
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                خدمات اونلاين
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault2" checked />
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                                خدمات اوفلاين
-                                            </label>
-                                        </div>
+                                        <div v-for="(state,i) in states" :key="i" class="form-check">
+                                <input class="form-check-input" type="radio" :value="state.id" v-model="stateValue" 
+                                :selected="state.id===state"
+                                name="stateRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                   {{state.name}}
+                                </label>
+                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -281,6 +275,14 @@ export default {
             type:String,
             default:'col-12 col-md-6 mt-2'
         },
+        classColSearch:{
+            type:String,
+            default:'col-12 col-md-6'
+        },
+        classColOrder:{
+            type:String,
+            default:'col-12 col-md-6'
+        },
         hideTotal:{
             type:Boolean,
             default:false,
@@ -315,6 +317,12 @@ export default {
         }
     },
     data: () => ({
+        states:[
+            {id:null,name:'الكل'},
+            {id:'online',name:'خدمات اونلاين'},
+            {id:'offline',name:'خدمات اوفلاين'},
+        ],
+        stateValue:null,
         metaInfo: {
             current_page: 1,
             to: 10,
@@ -371,7 +379,3 @@ export default {
   },
 }
 </script>
-
-<style>
-
-</style>
