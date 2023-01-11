@@ -1650,3 +1650,11 @@ position: relative;
   .multiselect__content>.multiselect__element span{
     color:black
   } 
+  .m-b{
+    color: var(--b-color) !important;
+  }
+.btn-text{
+    background: transparent;
+    border: none;
+    font-size: 13px;
+}
