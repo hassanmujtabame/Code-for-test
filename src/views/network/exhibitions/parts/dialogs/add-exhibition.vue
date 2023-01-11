@@ -194,7 +194,19 @@
                         vid="city" 
                         rules="required" v-slot="{ errors }"
                         >
-                            <input type="text" class="form-control " v-model="itemForm.city" placeholder="المدينة"/>
+                        <multi-select v-model="itemForm.city" 
+                            :selectLabel="$t('selectLabel')"
+                            :selectedLabel="$t('selectedLabel')" 
+                            :deselectLabel="$t('deselectLabel')"
+                            :options="cities" 
+                            :multiple="false"  
+                            :group-select="false" 
+                            placeholder="" 
+                            :custom-label="(it)=>`${it.name}-${it.region.name}`"
+                            track-by="id" label="name">
+                                <span slot="noResult">{{ $t('no-result-search') }}</span>
+                            </multi-select>
+                        
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
                             </div>
@@ -279,6 +291,7 @@
 </template>
 <script>
 import exhibitionsAPI from '@/services/api/exhibitions';
+import commonAPI from '@/services/api/common';
 export default {
 
     data: (vm) => {
@@ -287,6 +300,7 @@ export default {
         showDialog: false,
         idImage: `image-selected-${vm.generateRandomString(8)}`,
         categories: [],
+        cities:[],
         showImage:false,
         tags: [],
         file: null,
@@ -297,7 +311,7 @@ export default {
         configEnter:{minHeight:"150px",placeholder:"أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )"},
         itemForm: {
             content:'',
-            city:'',
+            city:null,
             address:'',
             price: '',
             start_date : '',
@@ -388,6 +402,16 @@ export default {
                 console.log('error', error)
             }
         },
+        async loadCities() {
+            try {
+                let { data } = await commonAPI.cities()
+                if (data.success) {
+                    this.cities = data.data
+                }
+            } catch (error) {
+                console.log('error', error)
+            }
+        },
         openDialog() {
             this.itemForm= {
                 content:'',
@@ -405,9 +429,6 @@ export default {
         }
         this.file = null;
         this.showImage = false;
-            /*window.$('#'+this.idImage)
-                    .attr('src', 'none')
-                    .css('opacity', '0');*/
             this.showDialog = true;
             return true;
         },
@@ -417,16 +438,8 @@ export default {
             return true;
         }
     },
-    created() {
-        // window.EventBus.listen(this.group+'-open-dialog',this.openDialog)
-        //window.EventBus.listen(this.group+'-close-dialog',this.closeDialog)
-    },
-    beforeDestroy() {
-        //window.EventBus.off(this.group+'-open-dialog',this.openDialog)
-        //window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
-    },
     mounted() {
-        //this.loadBlogTags()
+        this.loadCities()
         this.loadBlogCategories()
     }
 }
