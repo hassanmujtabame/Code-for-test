@@ -26,6 +26,10 @@ class CommonApi extends BaseApi {
     */
     return window.axios.post(`user/rate-category`,data);  
    }
+   cities(params = {}){
+    let s=this.generateQueryUrl(params)
+     return window.axios.get(`user/cities?${s}`);   
+   }
 }
 
 export default new CommonApi();
