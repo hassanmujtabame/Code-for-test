@@ -411,13 +411,13 @@
                 </div>
             </div>
         </div>
-        <portal to="body">
+        
             <confirmMakeOfferDiag />
             <successMakeOfferDiag />
             <makeOfferDiag />
             <makeCheckoutDiag />
             <confirmMakeFinanceDiag />
-        </portal>
+     
     </div>
 </template>
 
@@ -428,7 +428,7 @@ import confirmMakeOfferDiag from './dialogs/confirm-make-offer.vue'
 import successMakeOfferDiag from './dialogs/success-make-offer.vue'
 import makeOfferDiag from './dialogs/make-offer.vue'
 import confirmMakeFinanceDiag from './dialogs/confirm-make-finance.vue'
-import makeCheckoutDiag from './dialogs/checkout.vue'
+import makeCheckoutDiag from './dialogs/check-out/index.vue'
 export default {
   name: 'investment-prpject-page',
   components:{
@@ -448,6 +448,7 @@ export default {
   }},
   methods:{
     openConfirmFinanceDialog(){
+        console.log('confirm-make-finance')
     this.fireOpenDialog('confirm-make-finance',this.project)
   },
     openConfirmOfferDialog(){
