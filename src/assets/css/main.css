@@ -1645,3 +1645,8 @@ position: relative;
   .blog-info-category,.blog-info-date{
     padding: 1rem !important;
   }
+
+
+  .multiselect__content>.multiselect__element span{
+    color:black
+  } 
