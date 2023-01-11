@@ -15,6 +15,17 @@ class CommonApi extends BaseApi {
      let s=this.generateQueryUrl(params)
      return window.axios.get(`user/courses-home?${s}`);  
    }
+   rate(data){
+    /** تقييم تجربة */
+    /*
+     data:{
+        rate : 1
+        category_name: 'network' or 'service-provider'
+        comment:'تجربة رائعة'
+     }
+    */
+    return window.axios.post(`user/rate-category`,data);  
+   }
 }
 
 export default new CommonApi();
