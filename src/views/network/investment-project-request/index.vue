@@ -297,8 +297,9 @@
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
+                                            <InputFile @input="itemForm.description_file=$event" />
                                         </div>
-                                        <InputFile @input="itemForm.description_file=$event" />
+                                        
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-md-2">
@@ -321,6 +322,7 @@
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
+                                            <InputFile @input="itemForm.problem_solved_file=$event" />
                                         </div>
                                     </div>
                                     <div class="row mt-4">
@@ -343,6 +345,7 @@
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
+                                            <InputFile @input="itemForm.future_plan_file=$event" />
                                         </div>
                                     </div>
                                 </div>
@@ -374,6 +377,7 @@
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
+                                            <InputFile @input="itemForm.description_user_file=$event" />
                                         </div>
                                     </div>
                                     <div class="mt-4">
@@ -517,6 +521,10 @@ export default {
             future_plan: '',
             problem_solved: '',
             end_date: null,
+            description_user_file: null,
+            future_plan_file: null,
+            problem_solved_file: null,
+            description_file:null
         }
     }),
     computed:{
