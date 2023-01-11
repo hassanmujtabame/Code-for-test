@@ -267,6 +267,7 @@
 
                                                 <div class="col-12 position-relative">
                                                     <d-ckeditor-classic v-model="itemForm.description"
+                                                    :editorConfig="editorConfig"
                                                         class="w-100 border p-2" rows="15"
                                                         placeholder="أكتب بعض تفاصيل المشروع">
                                                     </d-ckeditor-classic>
@@ -290,6 +291,7 @@
 
                                                 <div class="col-12 position-relative">
                                                     <d-ckeditor-classic v-model="itemForm.problem_solved"
+                                                    :editorConfig="editorConfig"
                                                         class="w-100 border p-2" rows="15"
                                                         placeholder="أكتب عن  المشكلة المستهدف حلها">
                                                     </d-ckeditor-classic>
@@ -312,6 +314,7 @@
 
                                                 <div class="col-12 position-relative">
                                                     <d-ckeditor-classic v-model="itemForm.future_plan"
+                                                    :editorConfig="editorConfig"
                                                         class="w-100 border p-2" rows="15"
                                                         placeholder="أكتب عن  خطتك للمستقبل وعن الاهداف التي ترغب في تحقيقها">
                                                     </d-ckeditor-classic>
@@ -344,12 +347,14 @@
                                                 <div class="col-12 position-relative">
                                                     <d-ckeditor-classic v-model="itemForm.description_user"
                                                         class="w-100 border p-2" rows="15"
+                                                        :editorConfig="editorConfig"
                                                         placeholder="أكتب بعض تفاصيل المشروع"></d-ckeditor-classic>
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
                                         </div>
                                     </div>
+                                    <div class="mt-4">
                                     <div class="row">
                                         <div class="col-md-2">
 
@@ -363,6 +368,7 @@
 
                                                 <div class="col-12 position-relative">
                                                     <d-ckeditor-classic v-model="itemForm.description_user"
+                                                    :editorConfig="editorConfig"
                                                         class="w-100 border p-2" rows="15"
                                                         placeholder="قم بوضع @  وكتابة اسم كل فرد في فريقك"></d-ckeditor-classic>
                                                 </div>
@@ -370,6 +376,7 @@
                                             </ValidationProvider>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -460,6 +467,10 @@ export default {
         fileContact: null,
         showImage: false,
         itemForm: {},
+        editorConfig:{
+            minHeight:'150px',
+            height:'150px',
+        },
         project_default: {
             title: "",
             description: "",
@@ -475,6 +486,11 @@ export default {
         }
     }),
     methods: {
+        editorConfig1( config )
+        {
+            console.log('ee',config)
+            config.height = eval(this.element.$.rows*40) + 'px';
+        },
         openSuccessDialog() {
             this.fireOpenDialog('success-add-project')
         },
