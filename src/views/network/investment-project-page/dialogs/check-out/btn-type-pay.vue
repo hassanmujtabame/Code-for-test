@@ -58,6 +58,7 @@ props:{value:{},valueDefault:{},
   padding:2px 5px;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 .btn-type-pay input[type=radio]:checked::after{
   content: '';

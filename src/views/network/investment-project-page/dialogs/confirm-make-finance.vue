@@ -42,7 +42,7 @@ export default {
   }),
   methods:{
     openCheckoutDialog(){
-    this.fireOpenDialog('checkout-project');
+    this.fireOpenDialog('checkout-project',this.project);
     this.closeMe()
   },
   closeMe(){
