@@ -18,6 +18,7 @@
           <portal to="body">
             <RateYourExperience
             :title="$t('service-providers')"
+            category="service-provider"
             />
             <RateSuccessExperience />
           </portal>

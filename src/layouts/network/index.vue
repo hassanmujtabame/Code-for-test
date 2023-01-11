@@ -16,6 +16,7 @@
           <portal to="body">
             <RateYourExperience
             :title="$t('network')"
+            category="network"
             />
             <RateSuccessExperience />
           </portal>
