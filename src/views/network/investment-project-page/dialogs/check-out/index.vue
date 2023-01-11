@@ -89,8 +89,8 @@
                     </div>
                     </div>
                     <div class="col-md-5 justify-content-end tex-end">
-
-                        <div class="box border p-4 ">
+                        <div class="border" style="width:360px;height:352px;padding:55px 12px">
+                        <div class="box " style="width: 335px;height: 242px;">
                             <h6 class="">
                                 مول المشروع
                             </h6>
@@ -102,7 +102,7 @@
                         
                             </div>
                             <div>
-                                <p>
+                                <p style="font-size: 12px;text-align: center;">
                                     بإتمامك لعملية الشراء أنت توافق على
                                     <span>
                                         <a href="" class="m-c">
@@ -117,6 +117,7 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
     
