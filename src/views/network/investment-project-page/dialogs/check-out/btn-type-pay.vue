@@ -88,5 +88,25 @@ props:{value:{},valueDefault:{},
     height: 10px;
     outline: 2px solid var(--m-color);
 }
+@media screen and (max-width: 600px){
+  .btn-type-pay>label{
+  font-size: 10px;
 
+}
+.btn-type-pay input[type=radio]:checked::after{
+    width: 4px;
+    height: 4px;
+
+} 
+  .btn-type-pay input[type=radio]{
+    width: 5px;
+    height: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .btn-type-pay input[type=radio]:checked {
+    width: 5px;
+    height: 5px;
+  }
+}
 </style>

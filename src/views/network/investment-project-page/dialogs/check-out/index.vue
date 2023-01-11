@@ -46,9 +46,9 @@
                                 </span>
                             </div>
                             <div class="col-12 mt-5 row">
-                                <div class="col-12  d-flex justify-content-between">
-                                <div class="m-b">أو أضف بطاقة جديدة</div>
-                                <div>
+                                <div class="col-12  d-flex justify-content-between form-card">
+                                <div class="m-b form-title">أو أضف بطاقة جديدة</div>
+                                <div class="form-icons">
                                     <visa2Icon />
                                     <mastercardIcon />
                                     <noPathIcon />
@@ -231,6 +231,7 @@ export default {
 </script>
 
 <style scoped>
+
 .payment-card-detail{
     width:360px;
     height:352px;
@@ -258,6 +259,26 @@ export default {
         }
             .payment-card-detail > .box{
                 width: 100%;
-            }    
+            }   
+            input,label{
+                font-size: 0.65rem;
+            }
+            .form-text {
+                font-size: 0.55rem; 
+            } 
+            .form-card{
+                padding: 0;
+            }
+            .form-card .form-title{
+                font-size: .75rem;
+            }
+            .form-check{
+                display: flex;
+                align-items: center;
+            }
+            .form-check-label{
+                margin-left: 2px;
+                margin-right: 2px;
+            }
         }
 </style>
