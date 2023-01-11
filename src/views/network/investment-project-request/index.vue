@@ -298,6 +298,7 @@
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
                                         </div>
+                                        <InputFile @input="itemForm.description_file=$event" />
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-md-2">
@@ -483,10 +484,12 @@
 //صفحة طلب عرض مشروع استثمارى/شبكة
 import ProjectAPI from '@/services/api/projects.js'
 import successAddProjectDiag from './dialogs/success-add-project.vue';
+import InputFile from './input-file.vue'
 export default {
     name: 'investment-project-request',
     components: {
-        successAddProjectDiag
+        successAddProjectDiag,
+        InputFile
     },
     data: (vm) => ({
         categories: [],
