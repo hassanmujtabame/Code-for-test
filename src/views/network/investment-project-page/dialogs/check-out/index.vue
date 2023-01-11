@@ -15,7 +15,7 @@
                 <div class="row justify-content-between">
                     <div class="col-md-5">
                         
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <!-- btn pyment type-->
                             <div class="col-12">
                               <div class="group-btn-type-pay">
@@ -88,9 +88,9 @@
                         
                     </div>
                     </div>
-                    <div class="col-md-5 justify-content-end tex-end">
-                        <div class="border" style="width:360px;height:352px;padding:55px 12px">
-                        <div class="box " style="width: 335px;height: 242px;">
+                    <div class="col-md-5 justify-content-end tex-end ">
+                        <div class="border mt-2 payment-card-detail" >
+                        <div class="box ">
                             <h6 class="">
                                 مول المشروع
                             </h6>
@@ -231,6 +231,14 @@ export default {
 </script>
 
 <style scoped>
+.payment-card-detail{
+    width:360px;
+    height:352px;
+    padding:55px 12px
+}
+.payment-card-detail > .box{
+    width: 335px;height: 242px;
+}
 .group-btn-type-pay {
     display: flex;
     justify-content: space-evenly;
@@ -240,9 +248,16 @@ export default {
     flex: 1;
     margin-left: 3px;
 }
-        @media (max-width:460px) {
+        @media (max-width:600px) {
             .chekout{
                 margin: 0 !important;
-            }            
+            }        
+            .payment-card-detail{
+            width:100%;
+
+        }
+            .payment-card-detail > .box{
+                width: 100%;
+            }    
         }
 </style>
