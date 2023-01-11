@@ -191,10 +191,10 @@
 
                     <div class="mb-3 position-relative">
                         <ValidationProvider :name="$t('city')" 
-                        vid="city" 
+                        vid="region_id" 
                         rules="required" v-slot="{ errors }"
                         >
-                        <multi-select v-model="itemForm.city" 
+                        <multi-select v-model="itemForm.region_id" 
                             :selectLabel="$t('selectLabel')"
                             :selectedLabel="$t('selectedLabel')" 
                             :deselectLabel="$t('deselectLabel')"
@@ -311,7 +311,7 @@ export default {
         configEnter:{minHeight:"150px",placeholder:"أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )"},
         itemForm: {
             content:'',
-            city:null,
+            region_id:null,
             address:'',
             price: '',
             start_date : '',
@@ -334,7 +334,7 @@ export default {
             }
             let formData = new FormData();
             formData.append('content', this.itemForm.content);
-            formData.append('city', this.itemForm.city);
+            formData.append('region_id', this.itemForm.region_id);
             formData.append('address', this.itemForm.address);
             formData.append('price', this.itemForm.price);
             formData.append('start_date', this.itemForm.start_date);
@@ -415,7 +415,7 @@ export default {
         openDialog() {
             this.itemForm= {
                 content:'',
-            city:'',
+                region_id:null,
             address:'',
             price: '',
             start_date : '',
