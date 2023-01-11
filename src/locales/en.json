@@ -238,5 +238,8 @@
   "publish-blog": "Publish blog",
   "Home": "Home",
   "blog": "Blog",
-  "publish-exhibition": "publish exhibition"
+  "publish-exhibition": "publish exhibition",
+  "team": "Team",
+  "select-team": "Select team",
+  "your_request": "Your request"
 }
