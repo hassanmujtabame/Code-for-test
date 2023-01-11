@@ -14,7 +14,7 @@
                     <d-blog-info-card 
                         :img="blog.image"
                         :title="blog.title"
-                        :description="blog.description"
+                        :description="blog.short_description??blog.description"
                         :date="blog.created_at"
                     />
                     </router-link>

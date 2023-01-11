@@ -24,7 +24,7 @@
                     :categories="blog.categories"
                         :img="blog.image"
                         :title="blog.title"
-                        :description="blog.short_description"
+                        :description="blog.short_description??blog.description"
                         :date="blog.created_at"
                     />
                     </router-link>
