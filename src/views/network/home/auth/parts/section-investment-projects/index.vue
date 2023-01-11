@@ -18,13 +18,14 @@
                 <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
                   <investmentProject
                    :title="item.title"
-                   :publisher="item.publisher"
-                   :date-publish="item.datePublish"
-                   :rest-day="item.restDay"
-                   :investor="item.investor"
-                   :minimum-goal="item.minimumGoal"
+                   :description="item.description"
+                   :publisher="item.user_info.name"
+                   :date-publish="item.created_at"
+                   :rest-day="item.rest_days"
+                   :investor="item.count_invest"
+                   :minimum-goal="item.minimum_investment"
                    :offered_property="item.offered_property"
-                   :amount="item.amount"
+                   :amount="item.amount_financing_required"
                    />
                    </router-link>
                 </div>
