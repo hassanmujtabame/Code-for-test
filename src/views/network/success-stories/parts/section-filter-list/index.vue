@@ -28,7 +28,7 @@
                     </label>
                 </template>
                 <template v-slot:order>
-                    <select class="form-select mb-3 py-3" aria-label=".form-select-lg example">
+                    <select class="form-select mb-3 py-3 m-c" aria-label=".form-select-lg example">
                         <option selected> الاحدث </option>
                         <option value="1">الاعلى سعرا</option>
                         <option value="2">2</option>
