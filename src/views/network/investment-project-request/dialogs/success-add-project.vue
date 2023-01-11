@@ -20,7 +20,7 @@
             </div>
 </template>
 <template v-slot:actions>
-  <button @click="closeMe" class="btn bg-main text-white" >{{ $t('Ok') }}</button>
+  <button @click="goToProjects" class="btn bg-main text-white" >{{ $t('Home-page') }}</button>
 </template>
 </d-dialog-large>
 </template>
@@ -37,6 +37,11 @@ export default {
     showDialog:false,
   }),
   methods:{
+    goToProjects(){
+      this.closeMe();
+      this.$router.push(this.getRouteLocate('network-investment-project'))
+      
+    },
     closeMe(){
     this.fireCloseDialog(this.group)
   },

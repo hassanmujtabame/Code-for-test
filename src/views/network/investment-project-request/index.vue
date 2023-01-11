@@ -56,7 +56,7 @@
                 <ValidationObserver v-if="!clearing" ref="form">
                     <div class="row">
                         <!--image-->
-                        <div class="   m-auto">
+                        <div v-if="false" class="   m-auto">
                             <div class="col-md-12">
                                 <label for="imginput" class="form-label file-label first w-100">
                                     <div class="text-center p-5">
@@ -215,7 +215,7 @@
                             </div>
                         </div>
                         <!--category-->
-                        <div class="col-md-6">
+                        <div class="col-md-6" v-if="false">
                             <div class="mb-3 position-relative">
                                 <ValidationProvider :name="$t('category')" tag="div" class="row" vid="category_id"
                                     rules="required" v-slot="{ errors }">
@@ -254,7 +254,28 @@
                         <div class="  p-2">
                             <div class="mt-4">
                                 <div>
-                                    <div class="row">
+                                    <div v-if="isMoral" class="row">
+                                        <div class="col-md-2">
+
+                                            <h4 class=" m-c fw-bolder">
+                                                 ما هو طلبك؟ :
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <ValidationProvider tag="div" class="row" :name="$t('your_request')"
+                                                vid="your_request" rules="required" v-slot="{ errors }">
+
+                                                <div class="col-12 position-relative">
+                                                    <textarea v-model="itemForm.your_request"
+                                                        class="w-100 border p-2" rows="2"
+                                                        placeholder="أكتب  في سطرين ماذا تريد">
+                                                    </textarea>
+                                                </div>
+                                                <d-error-input v-if="errors.length" :errors="errors" />
+                                            </ValidationProvider>
+                                        </div>
+                                    </div>
+                                    <div class="row " :class="{'mt-4':itemForm.investment_type!='physical'}">
                                         <div class="col-md-2">
 
                                             <h4 class=" m-c fw-bolder">
@@ -359,18 +380,18 @@
                                         <div class="col-md-2">
 
                                             <h4 class=" m-c fw-bolder">
-                                                منشن لفريقك :
+                                                {{ $t('select-team') }} :
                                             </h4>
                                         </div>
                                         <div class="col-md-10">
-                                            <ValidationProvider tag="div" class="row" :name="$t('description_user')"
-                                                vid="description_user" rules="required" v-slot="{ errors }">
+                                            <ValidationProvider tag="div" class="row" :name="$t('team')"
+                                                vid="team" rules="required" v-slot="{ errors }">
 
-                                                <div class="col-12 position-relative">
-                                                    <d-ckeditor-classic v-model="itemForm.description_user"
-                                                    :editorConfig="editorConfig"
-                                                        class="w-100 border p-2" rows="15"
-                                                        placeholder="قم بوضع @  وكتابة اسم كل فرد في فريقك"></d-ckeditor-classic>
+                                                <div class="col-12">
+                                                    <input v-model="itemForm.team"
+                
+                                                        class="w-100 border p-2" 
+                                                        placeholder="قم بوضع @  وكتابة اسم كل فرد في فريقك"/>
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
@@ -381,23 +402,29 @@
                             </div>
                         </div>
                     </div>
+                 
                     <div class="border  mt-5 ">
 
                         <h3 class=" fw-bolder border-bottom p-3">
-                            فيديو المشروع
+                           {{itemForm.investment_type=='physical'?' فيديو المشروع':'صورة العرض الرئيسية للمشروع'}}
                         </h3>
                         <div class="  p-2">
                             <div class="col-md-">
                                 <div class="mb-3 d-flex align-items-center ">
                                     <label for="" class="form-label m-c w-25 mx-1 fw-bold">
-                                        فيديو المشروع :
+                                        {{itemForm.investment_type=='physical'?'فيديو المشروع':'صورة المشروع'}} :
                                     </label>
+                                    <ValidationProvider :name="$t('Image')" 
+                                    vid="image" rules="required"
+                                    v-slot="{ validate, errors }">
                                     <div
                                         class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-between">
-                                        <input class="form-control d-none" type="file" onchange="readName(this)"
+                                        <input class="form-control d-none" type="file" 
+                                        @change="uploadImage($event) || validate($event)"
                                             id="fileinput1">
                                         <span id="selected_filename" class="mx-3 gray font-13 ">
-                                            قم بارفاق فيديو توضيحي لمشروعك
+                                            
+                                            {{itemForm.investment_type=='physical'?'قم بارفاق فيديو توضيحي لمشروعك':'قم بارفاق صورة توضيحي لمشروعك'}}
                                         </span>
                                         <label for="fileinput1" class="form-label">
                                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
@@ -414,6 +441,8 @@
                                             </svg>
                                         </label>
                                     </div>
+                                    <d-error-input v-if="errors.length" :errors="errors" />
+                                    </ValidationProvider>
                                 </div>
                             </div>
                         </div>
@@ -473,6 +502,8 @@ export default {
         },
         project_default: {
             title: "",
+            team:'',
+            your_request:'',
             description: "",
             category_id: null,
             offered_property: 0,
@@ -485,6 +516,11 @@ export default {
             end_date: null,
         }
     }),
+    computed:{
+        isMoral(){
+            return this.itemForm.investment_type!='physical'
+        }
+    },
     methods: {
         editorConfig1( config )
         {
