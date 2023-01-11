@@ -57,6 +57,7 @@
 
 <script>
 import startItem from './star-item.vue'
+import commonAPI from '@/services/api/common';
 export default {
   name:'rate-your-experience-network',
   props:{
@@ -65,6 +66,10 @@ export default {
         default:'rate-your-experience-network'
     },
     title:{
+      type:String,
+      require:true
+    },
+    category:{
       type:String,
       require:true
     }
@@ -87,8 +92,17 @@ export default {
         console.log('form invalid');
         return ;
     }
-    this.openSuccessDialog()
-    this.closeEvent()
+    let formData =Object.assign({category_name:this.category},this.itemForm)
+    try {
+      let {data} = await commonAPI.rate(formData)
+      if(data.success){
+        this.openSuccessDialog()
+        this.closeEvent()
+      }
+    } catch (error) {
+        console.log('error',error)
+    }
+   
     },
     openDialog(){
       this.itemForm.rate = null;
