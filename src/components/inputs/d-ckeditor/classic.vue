@@ -1,5 +1,10 @@
 <template>
-    <ckeditor :editor="editor" v-model="editorData" :config="editorConfig" @ready="ckEditorReady"></ckeditor>
+    <ckeditor :id="id" :editor="editor" v-model="editorData" 
+    :config="editorConfig" 
+    @ready="ckEditorReady"
+    @blur="hideToolbar()"
+    @focus="showToolbar()"
+    ></ckeditor>
 </template>
 
 <script>
@@ -21,10 +26,12 @@ export default {
             }
         }
     },
-    data() {
+    data(vm) {
         return {
+            id:`editor-${vm.generateRandomString(8)}`,
             editor: ClassicEditor,
             editorData: '<p></p>',
+            elementEditor:null,
         };
     },
     watch: {
@@ -39,8 +46,21 @@ export default {
         }
     },
     methods: {
+        diplayToolbar(value){
+            if(!this.elementEditor) return;
 
+                let elements = this.elementEditor.getElementsByClassName('ck-editor__top');
+                elements[0].style.display = value;
+            },
+            hideToolbar(){
+                this.diplayToolbar('none');
+            },
+            showToolbar(){
+                this.diplayToolbar('block');
+            },
         ckEditorReady(editor) {
+            this.elementEditor = editor.ui.view.element;
+            this.hideToolbar()
             if (this.editorConfig.minHeight)
                 editor.ui.view.editable.element.style.minHeight = this.editorConfig.minHeight
         }
