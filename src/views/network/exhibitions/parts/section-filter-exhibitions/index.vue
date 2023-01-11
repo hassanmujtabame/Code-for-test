@@ -43,7 +43,7 @@ export default {
         filterItem:{
       price:'asc',
       state:null,
-      category_id:null,
+      category_id:[],
       valueMinDuring:0,
       valueMaxDuring:100,
       priceMin:null,

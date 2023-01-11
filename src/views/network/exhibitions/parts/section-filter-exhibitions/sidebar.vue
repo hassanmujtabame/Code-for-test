@@ -42,7 +42,7 @@
                     aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
                         <div v-for="(cat,i) in categories" :key="i" class="form-check">
-                            <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="radio">
+                            <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="checkbox">
                             <label class="form-check-label" for="defaultCheck1">
                                 {{cat.name}}
                             </label>
@@ -100,7 +100,7 @@ export default {
                 if (data.success) {
 
                     let categories = data.data;
-                    categories.unshift({ id: null, name: 'الكل' })
+                    //categories.unshift({ id: null, name: 'الكل' })
                     this.categories=categories
                 }
             } catch (error) {
