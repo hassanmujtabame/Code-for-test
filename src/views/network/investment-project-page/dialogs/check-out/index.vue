@@ -31,8 +31,7 @@
                                 <btnTypePay name="pay-type" justify="start" 
                                 :valueDefault="'back'"
                                 v-model="itemForm.payment_type"
-                                >
-                                    <visa2Icon />
+                                >                                    <visa2Icon />
                                    4152 البطاقة المنتهية بـ
                                 </btnTypePay>
                                 <span class="mx-2">
@@ -235,7 +234,7 @@ export default {
     },
   },
   mounted(){
-    this.fireOpenDialog('checkout-project');
+   // this.fireOpenDialog('checkout-project');
   }
 }
 
