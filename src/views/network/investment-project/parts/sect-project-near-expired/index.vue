@@ -17,7 +17,7 @@
           v-if="!loading"
           :items="items"
           is-auto
-          :slides-per-view="3"
+          :slides-per-view="4"
           :space-bitween="10"
           >
           <template v-slot="{item}">
