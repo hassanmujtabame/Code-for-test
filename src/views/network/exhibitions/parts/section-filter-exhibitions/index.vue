@@ -45,7 +45,7 @@ export default {
         filterItem:{
             search:null,
       price:'asc',
-      state:null,
+      is_share:'all',
       category_id:[],
       valueMinDuring:0,
       valueMaxDuring:100,
