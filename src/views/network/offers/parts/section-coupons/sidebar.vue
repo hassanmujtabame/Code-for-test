@@ -100,6 +100,11 @@
                 </div>
             </div>
         </div>
+        <div class="mt-3 text-center">
+            <button @click="updateFilter" class="btn-main">
+                {{$t('save')}}
+            </button>
+        </div>
     </div>
 </template>
 
@@ -120,15 +125,18 @@ export default {
    }
   }),
   watch:{
-    filter:{
+   /* filter:{
         immediate:true,
         deep:true,
         handler(val){
             this.$emit('update',val)
         }
-    }
+    }*/
   },
  methods: {
+    updateFilter(){
+    this.$emit('change',this.filter)
+ },
     async getCategories() {
             try {
                 let { data } = await OffersApi.getCategories()

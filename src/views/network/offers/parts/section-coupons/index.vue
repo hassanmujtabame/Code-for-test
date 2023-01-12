@@ -18,7 +18,7 @@
         </a>
       </template>
       <template v-slot:side>
-        <SidebarBox @update="updateFilter" />
+        <SidebarBox @change="changeFilter" />
       </template>
     </d-filter-list>
   </div>
@@ -35,7 +35,7 @@ export default {
   },
   data: () => ({
     group: 'list-coupon',
-    filter:{
+    filterItem:{
       isOnline:true,
       category_id:[],
     valueMinDuring:0,
@@ -49,9 +49,9 @@ export default {
     items: []
   }),
   methods: {
-    updateFilter(data){
-      this.filter = data
-      this.fireEvent('d-filter-list-refresh')
+    changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
     },
     async loadList(metaInfo) {
       //let {category_id,...restFilter} = this.filter
@@ -59,7 +59,7 @@ export default {
       try {
         let params={
           page:metaInfo.current_page,
-          ...this.filter
+          ...this.filterItem
         }
        return await OffersApi.getAll(params);
 
