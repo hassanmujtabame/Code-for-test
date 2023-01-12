@@ -1,11 +1,18 @@
 <template>
-<vc-calendar  class="my-schedule" :attributes="attributes" :locale="$i18n.locale" style="direction:ltr" v-bind="$attrs"/>
+<vc-calendar   class="my-schedule" :attributes="$attrs.attributes??attributes" :locale="$i18n.locale" style="direction:ltr" v-bind="$attrs" 
+v-on="$listeners"
+>
+<template #day-popover="props">
+  <slot name="day-popover" v-bind="props"></slot>
+  </template>
+</vc-calendar>
 </template>
 
 <script>
 export default {
  name:'d-calendar',
- data:()=>({
+ data:()=>{
+  return {
   attributes: [
       {
         key: 'today',
@@ -14,7 +21,8 @@ export default {
       }
     ],
   id:'d-calendar-'+Math.random().toString().substring(2,16)
- })
+ }
+}
 }
 </script>
 
