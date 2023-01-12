@@ -76,8 +76,8 @@ export default {
     return{
         states:[
             {id:null,name:'الكل'},
-            {id:'online',name:'خدمات اونلاين'},
-            {id:'offline',name:'خدمات اوفلاين'},
+            {id:'shared',name:'متاح للمشاركة'},
+            {id:'visite',name:'زيارة فقط'},
         ],
         categories:[],
     filter:vm.filterItem
