@@ -243,5 +243,7 @@
   "select-team": "Select team",
   "your_request": "Your request",
   "change": "change",
-  "Video": "Video"
+  "Video": "Video",
+  "pm": "pm",
+  "am": "am"
 }

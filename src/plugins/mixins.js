@@ -8,6 +8,24 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+             timeFormatAMPM(time){
+              let _time = time.split(':')
+              let date = new Date();
+              date.setHours(_time[0])
+              date.setMinutes(_time[1])
+                let hours = date.getHours();
+              let minutes = date.getMinutes();  
+                
+              const ampm = hours >= 12 ? this.$t('pm') : this.$t('am');
+            
+              hours %= 12;
+              hours = hours || 12;    
+              minutes = minutes < 10 ? `0${minutes}` : minutes;
+            
+              const strTime = `${hours}:${minutes} ${ampm}`;
+            
+              return strTime;
+            },
             getTranslateMonth(month){
               /* month :0-11 */
               let months = [this.$t('January'), this.$t('February'), this.$t('March'), this.$t('April'), this.$t('May'), this.$t('June'), this.$t('July'), this.$t('August'), this.$t('September'), this.$t('October'), this.$t('November') , this.$t('December')];
