@@ -22,7 +22,7 @@
                 </router-link>
             </template>
             <template v-slot:side>
-                <sidebarBox :filterItem="filterItem"/>
+                <sidebarBox :filterItem="filterItem" @change="changeFilter"/>
             </template>
         </d-filter-list>
 
@@ -60,10 +60,15 @@ export default {
         items: []
     }),
     methods: {
+        changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
+        },
         async loadList(metaInfo) {
             try {
                 let params = {
-                    page: metaInfo.current_page
+                    page: metaInfo.current_page,
+                    ...this.filterItem
                 }
                 return await exhibitionAPI.getAll(params)
 
