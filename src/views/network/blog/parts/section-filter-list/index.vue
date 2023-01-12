@@ -6,13 +6,13 @@
                 تصنيف المواضيع :
             </h5>
             <template  v-for="(btn, i) in categories"> 
-            <li  class="nav-item" role="presentation"  :key="'r'+i">
+            <li v-if="true" class="nav-item" role="presentation"  :key="'r'+i">
                 <button @click="changeCategories(btn.id)" class="nav-link" :class="{ active: category_id === btn.id }" type="button">{{ btn.name }}
                 
                 </button>
                 
             </li>
-            <li v-if="categories.length>(i+1)" :key="'d-'+i"> | </li>
+            <li v-if="categories.length>(i+1)" :key="'d'+i"> | </li>
         </template>
         </ul>
         <d-filter-list :call-list="loadList" 
