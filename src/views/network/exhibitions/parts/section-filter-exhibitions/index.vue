@@ -8,6 +8,8 @@
         classColOrder="col-12 col-md-4"
         :pluralName="$t('exhibitions')" 
         :singleName="$t('exhibition')"
+        orderName="price"
+        @change="changeFilter"
         >
             <template v-slot:default="{ item }">
                 <router-link class="router-link" :to="getRouteLocale('network-exhibition-show', { id: item.id })">
@@ -41,6 +43,7 @@ export default {
     },
     data: () => ({
         filterItem:{
+            search:null,
       price:'asc',
       state:null,
       category_id:[],

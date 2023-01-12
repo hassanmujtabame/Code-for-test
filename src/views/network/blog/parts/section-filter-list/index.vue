@@ -17,6 +17,8 @@
         </ul>
         <d-filter-list :call-list="loadList" 
         hideSide
+        orderName="created_at"
+        @change="changeFilter"
         classColCard="col-md-4 mt-3">
             <template v-slot:total>
 
@@ -53,6 +55,9 @@ export default {
     data: () => ({
         categories: [{ id: null, name: 'الكل' }],
         category_id: null,
+        filterItem:{
+            created_at:'asc'
+        }
     }),
     computed:{
         categoryName(){
@@ -65,10 +70,15 @@ export default {
             this.category_id=cat;
             this.fireEvent('d-filter-list-refresh')
         },
+        changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
+        },
         async loadList(metaInfo) {
             let params = {
                 page: metaInfo.current_page,
-                category_id: this.category_id
+                category_id: this.category_id,
+                ...this.filterItem
             }
             return await BlogsAPI.getAll(params)
         },

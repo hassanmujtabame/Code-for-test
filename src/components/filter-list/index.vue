@@ -21,7 +21,7 @@
             <div :class="classColSearch">
             <slot name="search">
             <label for="" class="position-relative w-100">
-                <input class="form-control py-3 px-5" type="text" placeholder="إبحث" />
+                <input class="form-control py-3 px-5" type="text" v-model="filter.search" @change="updateFilter" placeholder="إبحث" />
                 <p style="top: 25%; right: 7px" class="position-absolute">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -37,11 +37,8 @@
             </div>
             <div :class="classColOrder" class="position-relative">
                     <slot name="order">
-                    <select class="form-select mb-3 py-3 m-c" aria-label=".form-select-lg example">
-                        <option selected> الاحدث </option>
-                        <option value="1">الاعلى سعرا</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <select @change="updateFilter" v-model="filter.order" class="form-select mb-3 py-3 m-c" aria-label=".form-select-lg example">
+                        <option v-for="(opt,i) in orderOpts"  :key="i" :value="opt.id"> {{opt.name}} </option>
                     </select>
                     <p style="top: -13px; right: 24px; background: white" class="position-absolute">
                         ترتيب حسب
@@ -307,6 +304,20 @@ export default {
            type:[Array,Object],
            default:()=>null
         },
+        orderOpts:{
+           type:[Array,Object],
+           default:()=>{
+            return [
+                {id:'asc',name:'الاحدث'},
+                {id:'desc',name:'الاقدم',}
+            ]   
+           }
+        },
+        orderName:{
+           type:String,
+           default:'order'
+        }   
+        ,
         callList:{
            type:Function,
            default:null
@@ -323,6 +334,10 @@ export default {
             {id:'offline',name:'خدمات اوفلاين'},
         ],
         stateValue:null,
+        filter:{
+            order:'asc',
+            search:''
+        },
         metaInfo: {
             current_page: 1,
             to: 10,
@@ -337,6 +352,12 @@ export default {
         items: []
     }),
     methods: {
+        updateFilter(){
+            let obj = {}
+                obj[this.orderName] = this.filter.order
+                obj.search = this.filter.search
+                this.$emit('change',obj)
+        },
         changePage(page) {
             if (this.metaInfo.current_page !== page) {
                 this.metaInfo.current_page = page;
