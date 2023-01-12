@@ -7,7 +7,7 @@
   >
     <h1>{{ $t('Riadiat-podcats') }}</h1>
     <div>
-      <router-link custom :to="getRouteLocale('network-learning-meetings')" v-slot="{navigate}">
+      <router-link custom :to="getRouteLocale('network-podcasts')" v-slot="{navigate}">
       <button @click="navigate" class="more">{{ $t('more') }}</button>
       </router-link>
     </div>
