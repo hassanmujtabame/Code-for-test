@@ -3,7 +3,7 @@
     <div class="podcast">
         <ul class="nav nav-pills mb-3 rounded-2 align-items-center" id="pills-tab" role="tablist">
             <h5 class="m-c fw-bolder m-0">
-                تصنيف المواضيع :
+                {{ $t('podcast_category') }} :
             </h5>
             <template  v-for="(btn, i) in categories"> 
             <li v-if="true" class="nav-item" role="presentation"  :key="'r'+i">
@@ -23,7 +23,7 @@
             <template v-slot:total>
 
                 <h3 class="t-c ">
-                    تدوينات: {{ categoryName }}
+                 {{ categoryName }}
                 </h3>
             </template>
 
