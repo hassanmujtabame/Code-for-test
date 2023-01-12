@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import AnimateCard from './card.vue'
+import AnimateCard from '@/components/cards/image-card-membership/index.vue'
 export default {
  name:'section-membership',
  components:{
