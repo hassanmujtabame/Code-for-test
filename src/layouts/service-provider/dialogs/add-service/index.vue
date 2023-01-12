@@ -28,9 +28,9 @@
                                 <ValidationProvider
                                     :name="$t('Image')"
                                  vid="image"
-                                 rules="required"
+                                 rules="required|image"
                                     v-slot="{validate,errors}">
-                                <input @change="validate($event) || uploadImage($event)" class="form-control d-none" type="file"
+                                <input @change="uploadImage($event) || validate($event)" class="form-control d-none" type="file"
                                     id="imginput">
                                     <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}

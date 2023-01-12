@@ -70,9 +70,9 @@
                                             height="236" />
                                     </div>
                                 </label>
-                                <ValidationProvider :name="$t('Image')" vid="image" rules="required"
+                                <ValidationProvider :name="$t('Image')" vid="image" rules="required|image"
                                     v-slot="{ validate, errors }">
-                                    <input @change="validate($event) || uploadImage($event)"
+                                    <input @change="uploadImage($event) || validate($event)"
                                         class="form-control opacity-0 " type="file" id="imginput">
                                     <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                         {{ errors[0]}}
@@ -417,19 +417,20 @@
                             <div class="col-md-">
                                 <div class="mb-3 d-flex align-items-center ">
                                     <label for="" class="form-label m-c w-25 mx-1 fw-bold">
-                                        {{itemForm.investment_type=='physical'?'فيديو المشروع':'صورة المشروع'}} :
+                                        {{isMoral?'صورة المشروع':'فيديو المشروع'}} :
                                     </label>
-                                    <ValidationProvider :name="$t('Image')" 
-                                    vid="image" rules="required"
+                                    <ValidationProvider :name="isMoral?$t('Image'):$t('Video')" 
+                                    vid="image" 
+                                    :rules="isMoral?'required|image':'required|ext:mp4'"
                                     v-slot="{ validate, errors }">
                                     <div
                                         class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-between">
                                         <input class="form-control d-none" type="file" 
-                                        @change="validate($event) || uploadImage($event)"
+                                        @change="uploadImage($event) || validate($event)"
                                             id="fileinput1">
                                         <span id="selected_filename" class="mx-3 gray font-13 ">
                                             
-                                            {{itemForm.investment_type=='physical'?'قم بارفاق فيديو توضيحي لمشروعك':'قم بارفاق صورة توضيحي لمشروعك'}}
+                                            {{isMoral?'قم بارفاق صورة توضيحي لمشروعك':'قم بارفاق فيديو توضيحي لمشروعك'}}
                                         </span>
                                         <label for="fileinput1" class="form-label">
                                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"

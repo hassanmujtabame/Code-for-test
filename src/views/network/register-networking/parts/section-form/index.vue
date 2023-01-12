@@ -178,11 +178,11 @@
                                 <ValidationProvider
                                 :name="$t('Commercial_Register')" 
                                 vid="services"
-                                rules="required"
+                                rules="required|ext:pdf"
                                 v-slot="{errors,validate}"
                                 >
                                 <label class="w-100 position-relative border rounded-2">
-                                    <input type="file"  @change="uploadFile($event) || validate($event)"  class="form-control opacity-0 "
+                                    <input type="file"  @change="validate($event) || uploadFile($event)"  class="form-control opacity-0 "
                                     accept=".pdf"
                                     required>
                                     <svg style="top: 6px;left: 6px;" class="position-absolute" width="24" height="24"

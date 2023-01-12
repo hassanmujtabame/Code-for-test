@@ -10,7 +10,7 @@
             <div class="row add-portfolio m-3 p-0 position-relatiuve">
                 <div class="col-12 col-lg-5  justify-content-center m-auto">
                     <div class="col-md-10">
-                        <ValidationProvider :name="$t('Image')" vid="image" rules="required" v-slot="{ validate, errors }">
+                        <ValidationProvider :name="$t('Image')" vid="image" rules="required|image" v-slot="{ validate, errors }">
                             <label for="imginput" class="form-label file-label first w-100">
                                 <div class="text-center p-5">
                                     <img src="/assets/svg/empty-image.svg">
@@ -23,7 +23,7 @@
                                 </div>
                             </label>
 
-                            <input @change="validate($event) || uploadImage($event)" class="form-control opacity-0"
+                            <input @change="uploadImage($event) || validate($event)" class="form-control opacity-0"
                                 type="file" id="imginput" style="display:none">
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
