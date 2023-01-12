@@ -68,6 +68,18 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-blog-show" */ '../views/network/blog-page/index.vue') 
     },
     {
+        path: 'network/podcasts',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-podcasts',
+        component: () => import(/* webpackChunkName: "network-podcasts" */ '../views/network/podcasts/index.vue') 
+    },
+    {
+        path: 'network/podcasts/:id',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-podcast-show',
+        component: () => import(/* webpackChunkName: "network-podcast-show" */ '../views/network/podcast-page/index.vue') 
+    },
+    {
         path: 'network/exhibitions',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-exhibitions',
