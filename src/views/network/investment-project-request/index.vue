@@ -72,7 +72,7 @@
                                 </label>
                                 <ValidationProvider :name="$t('Image')" vid="image" rules="required"
                                     v-slot="{ validate, errors }">
-                                    <input @change="uploadImage($event) || validate($event)"
+                                    <input @change="validate($event) || uploadImage($event)"
                                         class="form-control opacity-0 " type="file" id="imginput">
                                     <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                         {{ errors[0]}}
@@ -425,7 +425,7 @@
                                     <div
                                         class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-between">
                                         <input class="form-control d-none" type="file" 
-                                        @change="uploadImage($event) || validate($event)"
+                                        @change="validate($event) || uploadImage($event)"
                                             id="fileinput1">
                                         <span id="selected_filename" class="mx-3 gray font-13 ">
                                             

@@ -27,7 +27,7 @@
                                 </div>
                             </label>
 
-                            <input @change="uploadImage($event) || validate($event)" class="form-control opacity-0"
+                            <input @change="validate($event) || uploadImage($event)" class="form-control opacity-0"
                                 type="file" id="imginput">
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
