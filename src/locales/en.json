@@ -64,7 +64,7 @@
   "your-ready-service": "Your ready services",
   "riadiat-channel": "Riadiat channel",
   "success-story": "Success story",
-  "podcast": "Poscast",
+  "podcast": "Podcast",
   "comparation-services": "Comparation services",
   "Riadiat": "Riadiat",
   "who-are-we": "Who are we",
@@ -247,5 +247,6 @@
   "pm": "pm",
   "am": "am",
   "titled": "titled",
-  "at-time": "At time"
+  "at-time": "At time",
+  "recently-podcast": "recently podcast"
 }
