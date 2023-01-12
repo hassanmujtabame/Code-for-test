@@ -86,6 +86,7 @@ export default {
 },
  methods:{
     dayclick(day){
+        if(process.env.NODE_ENV !== 'production')
         console.log('day',day)
     },
     async loadList(){
