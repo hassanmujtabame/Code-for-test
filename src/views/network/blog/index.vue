@@ -53,10 +53,10 @@
             <SectionFilterList />
 
         </div>
-        <portal to="body">
+        
         <AddBlogDialog  />
         <SuccessAddBlogDialog />
-        </portal>
+        
     </div>
 </template>
 

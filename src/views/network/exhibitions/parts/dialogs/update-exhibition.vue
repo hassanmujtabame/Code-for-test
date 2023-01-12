@@ -27,7 +27,7 @@
                                 </div>
                             </label>
 
-                            <input @change="uploadImage($event) || validate($event)" class="form-control opacity-0"
+                            <input @change="uploadImage($event,validate) || validate($event)" class="form-control opacity-0"
                                 type="file" id="imginput">
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
@@ -363,15 +363,24 @@ export default {
 
             }
         },
-        uploadImage(evt) {
-            if (!evt.target.files && !evt.target.files[0]) {
-                this.file = null;
-                this.showImage =  false;
+        makeImageEmpty(){
+        this.file = null;
+        this.showImage =  false;
                 window.$('#' + this.idImage)
                     .attr('src', 'none')
                     .css('opacity', '0');
+    },
+    async uploadImage(evt,validate){
+       let resValid = await validate(evt)
+       if(!resValid.valid){
+                this.makeImageEmpty();
+                return;
+       }
+        if (!evt.target.files && !evt.target.files[0]) {
+            this.makeImageEmpty();
                 return;
             }
+        
             this.file = evt.target.files[0];
             var reader = new FileReader();
             reader.onload =  (e) =>{

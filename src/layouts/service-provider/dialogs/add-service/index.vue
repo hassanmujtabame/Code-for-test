@@ -30,7 +30,7 @@
                                  vid="image"
                                  rules="required|image"
                                     v-slot="{validate,errors}">
-                                <input @change="uploadImage($event) || validate($event)" class="form-control d-none" type="file"
+                                <input @change="uploadImage($event,validate) || validate($event)" class="form-control d-none" type="file"
                                     id="imginput">
                                     <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -358,13 +358,20 @@ uploadGallary(evt){
         }
         
 },
-uploadImage(evt){
-    console.log('uploadImage')
-    if (!evt.target.files && !evt.target.files[0]) {
-            this.imageFile = null;
-            this.showImage = false
-            return;
-        }
+makeImageEmpty(){
+        this.imageFile = null;
+        this.showImage = false
+    },
+    async uploadImage(evt,validate){
+       let resValid = await validate(evt)
+       if(!resValid.valid){
+                this.makeImageEmpty();
+                return;
+       }
+        if (!evt.target.files && !evt.target.files[0]) {
+            this.makeImageEmpty();
+                return;
+            }
         this.imageFile = evt.target.files[0];
         var reader = new FileReader();
         reader.onload =  (e) =>{
