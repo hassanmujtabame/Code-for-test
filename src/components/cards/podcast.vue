@@ -3,7 +3,7 @@
                         <div class="podcast-card-wrapper">
                             <div class="podcast-card-image position-relative">
                                 <div class="podcast-card-play">
-                                    <PlayIcon />
+                                    <PlayIcon class="podcast__icon-play" />
                                 </div>
                             <img  :src="image" :alt="name"  >
                         </div>
@@ -60,6 +60,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.podcast__icon-play {
+    border: 1px solid #c6c6c6ad;
+    border-radius: 50%;
+    cursor: pointer;
 }
 .box-deatils{
     padding-top: 5px;

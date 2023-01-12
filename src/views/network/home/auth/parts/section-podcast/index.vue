@@ -20,10 +20,10 @@
     :items="items"
               >
                 <template  v-slot:default="{item}" >
-                <meetingCard 
-                     :img="item.image"
-                     :name="item.name"
-                     :description="item.description"
+                <podcastCard 
+                     :image="item.image"
+                     :name="item.title"
+                     :description="item.time_duration"
 
                     />
         </template>
@@ -33,12 +33,12 @@
 </template>
 
 <script>
-import meetingsAPI from '@/services/api/learning-meetings.js'
-import meetingCard from '@/components/cards/podcast.vue'
+import podcastsAPI from '@/services/api/podcasts.js'
+import podcastCard from '@/components/cards/podcast.vue'
 export default {
  name:'section-podcast',
  components:{
-    meetingCard
+  podcastCard
  },
  data:()=>({
   loading:true,
@@ -49,7 +49,7 @@ export default {
     async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await meetingsAPI.getHomeNetwork();
+          let { data } =  await podcastsAPI.getRecent();
           if(data.success){
             this.items = data.data
             this.total = data.meta.total
