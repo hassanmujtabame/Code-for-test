@@ -56,7 +56,7 @@
 
 <script>
 import schedulesAPI from '@/services/api/schedules';
-import scheduleNetworkCard from './card-schedule.vue'
+import scheduleNetworkCard from '@/components/cards/card-schedule.vue'
 export default {
  name:'schedule-network',
  components:{

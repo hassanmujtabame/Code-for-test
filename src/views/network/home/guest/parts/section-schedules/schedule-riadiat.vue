@@ -1,90 +1,109 @@
 <template>
   <div class=" table-network ">
-                <h2>جدول شبكة رياديات</h2>
-                <p>هنا تجدين كل المواعيد  المهمة الخاصة بالشبكة</p>
+    <h2>{{ $t('riadiat-network-schedule') }}</h2>
+                <p>{{ $t('riadiat-network-schedule-text') }}</p>
                 
                 <div style="background-color: #F6F8F9;">
                     <div class="row p-2">
                         <div class="col-md-8">
                             <div class="row">
-                                <div class="col-6  col-lg-3">
-                                    <div class="box">
-                                        <div>
-                                            <img src="/assets/img/nwtt1786.png" class="rounded-3" alt="" width="166">
-                                        </div>
-                                        <div class="p-2">
-                                            <p>
-                                                مقدمة في ريادة الأعمال
-                                            </p>
-                                            <p>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.9995 22.7497C6.06951 22.7497 1.24951 17.9297 1.24951 11.9997C1.24951 6.06972 6.06951 1.24972 11.9995 1.24972C17.9295 1.24972 22.7495 6.06972 22.7495 11.9997C22.7495 17.9297 17.9295 22.7497 11.9995 22.7497ZM11.9995 2.74972C6.89951 2.74972 2.74951 6.89972 2.74951 11.9997C2.74951 17.0997 6.89951 21.2497 11.9995 21.2497C17.0995 21.2497 21.2495 17.0997 21.2495 11.9997C21.2495 6.89972 17.0995 2.74972 11.9995 2.74972Z" fill="#737373"/>
-                                                    <path d="M9.14769 17.3335C9.25338 17.3335 9.35907 17.3082 9.45663 17.2407L11.977 15.6806C12.603 15.2926 13.0664 14.4409 13.0664 13.6903V10.2327C13.0664 9.88689 12.79 9.60016 12.4566 9.60016C12.1233 9.60016 11.8469 9.88689 11.8469 10.2327V13.6903C11.8469 13.9939 11.603 14.4409 11.351 14.5927L8.83062 16.1528C8.53793 16.3299 8.4485 16.7179 8.61923 17.0215C8.74118 17.2239 8.94444 17.3335 9.14769 17.3335Z" fill="#737373"/>
-                                                    </svg>
-                                                   <span>
-                                                    9:30 صباحا
-                                                   </span> 
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6  col-lg-3">
-                                    <div class="box">
-                                        <div>
-                                            <img src="/assets/img/img-network.png" class="rounded-3" alt="" width="166">
-                                        </div>
-                                        <div class="p-2">
-                                            <p>
-                                                مقدمة في ريادة الأعمال
-                                            </p>
-                                            <p>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.9995 22.7497C6.06951 22.7497 1.24951 17.9297 1.24951 11.9997C1.24951 6.06972 6.06951 1.24972 11.9995 1.24972C17.9295 1.24972 22.7495 6.06972 22.7495 11.9997C22.7495 17.9297 17.9295 22.7497 11.9995 22.7497ZM11.9995 2.74972C6.89951 2.74972 2.74951 6.89972 2.74951 11.9997C2.74951 17.0997 6.89951 21.2497 11.9995 21.2497C17.0995 21.2497 21.2495 17.0997 21.2495 11.9997C21.2495 6.89972 17.0995 2.74972 11.9995 2.74972Z" fill="#737373"/>
-                                                    <path d="M9.14769 17.3335C9.25338 17.3335 9.35907 17.3082 9.45663 17.2407L11.977 15.6806C12.603 15.2926 13.0664 14.4409 13.0664 13.6903V10.2327C13.0664 9.88689 12.79 9.60016 12.4566 9.60016C12.1233 9.60016 11.8469 9.88689 11.8469 10.2327V13.6903C11.8469 13.9939 11.603 14.4409 11.351 14.5927L8.83062 16.1528C8.53793 16.3299 8.4485 16.7179 8.61923 17.0215C8.74118 17.2239 8.94444 17.3335 9.14769 17.3335Z" fill="#737373"/>
-                                                    </svg>
-                                                   <span>
-                                                    9:30 صباحا
-                                                   </span> 
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6  col-lg-3">
-                                    <div class="box">
-                                        <div>
-                                            <img src="/assets/img/nwtt1786.png" class="rounded-3" alt="" width="166">
-                                        </div>
-                                        <div class="p-2">
-                                            <p>
-                                                مقدمة في ريادة الأعمال
-                                            </p>
-                                            <p>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.9995 22.7497C6.06951 22.7497 1.24951 17.9297 1.24951 11.9997C1.24951 6.06972 6.06951 1.24972 11.9995 1.24972C17.9295 1.24972 22.7495 6.06972 22.7495 11.9997C22.7495 17.9297 17.9295 22.7497 11.9995 22.7497ZM11.9995 2.74972C6.89951 2.74972 2.74951 6.89972 2.74951 11.9997C2.74951 17.0997 6.89951 21.2497 11.9995 21.2497C17.0995 21.2497 21.2495 17.0997 21.2495 11.9997C21.2495 6.89972 17.0995 2.74972 11.9995 2.74972Z" fill="#737373"/>
-                                                    <path d="M9.14769 17.3335C9.25338 17.3335 9.35907 17.3082 9.45663 17.2407L11.977 15.6806C12.603 15.2926 13.0664 14.4409 13.0664 13.6903V10.2327C13.0664 9.88689 12.79 9.60016 12.4566 9.60016C12.1233 9.60016 11.8469 9.88689 11.8469 10.2327V13.6903C11.8469 13.9939 11.603 14.4409 11.351 14.5927L8.83062 16.1528C8.53793 16.3299 8.4485 16.7179 8.61923 17.0215C8.74118 17.2239 8.94444 17.3335 9.14769 17.3335Z" fill="#737373"/>
-                                                    </svg>
-                                                   <span>
-                                                    9:30 صباحا
-                                                   </span> 
-                                            </p>
-                                        </div>
-                                    </div>
+                                <div v-for="(item,i) in items.filter((x,i)=>i<3)" :key="i" class="col-6  col-lg-3">
+                                   <scheduleNetworkCard 
+                                   :image="item.image"
+                                   :title="item.categoryName"
+                                   :time="item.time"
+                                   />
                                 </div>
                             </div>
+    
                         </div>
                         <div class="col-md-4">
-                            <div class="schedule-guest position-relative">
-                                <d-calendar class="calendar-schedule" :class="{'mobile':isMobile}"/>
+                            <div class="position-relative">
+                                <!--calendar-->
+                                <d-calendar v-if="!loading" class="calendar-schedule" 
+                                :class="{'mobile':isMobile}"
+                                :attributes="attributes"
+                                @dayclick="dayclick"
+                                >
+                                <template #day-popover="{ day, format, masks }">
+                                    <div class="text-xs text-gray-300 font-semibold text-center">
+                                    {{ format(day.date, masks.dayPopover) }}
+                                    <hr class="mt-1"/>
+                                    <div :class="{'text-right':$i18n.locale=='ar','text-left':$i18n.locale!=='ar'}">
+                                    <p   class=" pb-1 mb-1">{{ day.attributes[0].customData.categoryName }}</p>
+                                    <p  class=" pb-1 mb-1">{{ $t('titled') }} :  {{ day.attributes[0].customData.title }}</p>
+                                    <p class=" pb-1 mb-1">{{ $t('at-time') }} :  {{ timeFormatAMPM(day.attributes[0].customData.time) }}</p>
+                                    </div>    
+                                </div>
+                                </template>
+                                </d-calendar>
                             </div>
                         </div>
+    
                     </div>
+    
                 </div>
             </div>
 </template>
 
 <script>
+import schedulesAPI from '@/services/api/schedules';
+import scheduleNetworkCard from '@/components/cards/card-schedule.vue'
 export default {
-
+ name:'schedule-network',
+ components:{
+    scheduleNetworkCard
+ },
+ data:()=>{
+    return {
+        loading:false,
+        items:[],
+    }
+ },
+ computed:{
+ attributes() {
+      return [
+        // Attributes for todos
+        ...this.items.map(event => ({
+          dates: event.date,
+          dot: {
+            color: 'red',
+            //class: todo.isComplete ? 'opacity-75' : '',
+          },
+          popover: true,
+          customData: event,
+        })),
+      ];
+    },
+},
+ methods:{
+    dayclick(day){
+        if(process.env.NODE_ENV !== 'production')
+        console.log('day',day)
+    },
+    async loadList(){
+        this.loading = true;
+        try {
+         let { data } = await schedulesAPI.getHomeNetwork() 
+         if(data.success){
+            this.items = data.data
+            if(process.env.NODE_ENV !== 'production')
+            this.items.push({id: -1, title: "تجريب", categoryName: "ويبنار تججريب",
+date:new Date(),image:null,time:"02:37"})
+         }
+        } catch (error) {
+            console.log('error',error)
+        }
+        this.loading = false;
+    }
+ },
+ mounted(){
+  this.loadList() 
+ }
 }
 </script>
+
+<style>
+
+</style>
 
