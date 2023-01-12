@@ -51,7 +51,7 @@
 <script>
 import podcastsAPI from '@/services/api/podcasts.js'
 import UpdateItemDialog from '../podcasts/parts/dialogs/update-item.vue'
-import deleteItemDialog from '../bpodcastslog/parts/dialogs/del-item.vue'
+import deleteItemDialog from '../podcasts/parts/dialogs/del-item.vue'
 export default {
   name: 'blog-page',
   components:{
