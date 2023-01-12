@@ -9,6 +9,9 @@ class PodcastsApi extends BaseApi {
     getItem(id){
         return window.axios.get(`network/poudcasts/${id}`);
     }
+    getCategories(){
+        return window.axios.get(`network/blogs-categories`);
+    }
     getRecent(){
         return window.axios.get(`network/latest-poudcasts`);
     }
