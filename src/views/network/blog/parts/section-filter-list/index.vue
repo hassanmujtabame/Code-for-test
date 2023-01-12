@@ -31,7 +31,7 @@
                     :categories="item.categories"
                     :img="item.image" 
                     :title="item.title" 
-                    :description="blog.short_description??blog.description"
+                    :description="item.short_description??item.description"
                         :date="item.created_at" />
                 </router-link>
             </template>
