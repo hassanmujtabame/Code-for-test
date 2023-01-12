@@ -1658,3 +1658,9 @@ position: relative;
     border: none;
     font-size: 13px;
 }
+.text-right{
+    text-align: right !important;
+}
+.text-left{
+    text-align: left !important;
+}
