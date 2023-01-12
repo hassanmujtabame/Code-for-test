@@ -3,7 +3,8 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div >
-                        <img class="img-fluid" src="/assets/img/network 289320.png" alt="" width="470">
+                        <img v-if="false" class="img-fluid" src="/assets/img/network 289320.png" alt="" width="470">
+                    <AnimateCard />
                     </div>
 
                 </div>
@@ -31,8 +32,12 @@
 </template>
 
 <script>
+import AnimateCard from './card.vue'
 export default {
- name:'section-membership'
+ name:'section-membership',
+ components:{
+    AnimateCard
+ }
 }
 </script>
 
