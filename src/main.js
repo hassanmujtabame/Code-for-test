@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Cookies from 'js-cookie'
+import './plugins/vee-validate'
 import './plugins/ckeditor'
 import  './plugins/portal-vue';
 import  './plugins/vue-multi-select';
 import  './plugins/components';
 import  './plugins/v-calendar.js';
 import './plugins/axios'
-import './plugins/vee-validate'
+
+import './plugins/i18n'
+import './plugins/sweetalert2'
 import userAPI from './services/api/user';
 import EventBus from './helper/EventBus';
 window.EventBus =  new EventBus();
@@ -35,14 +38,14 @@ require('./assets/js/rSlider')
 //import installI18n from './lang/index'
 import router from './router'
 
-import i18n from './plugins/i18n'
+
 import store from './store'
 
 Vue.config.productionTip = false
 
 new Vue({
  router,
- i18n,
+i18n,
  render: h => h(App),
  store,
 methods:{
