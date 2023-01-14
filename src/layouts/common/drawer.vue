@@ -277,7 +277,7 @@ export default {
     methods: {
         clickLink(navigate,evnt){
             //this.myModal.hide();
-            $(`#btn-close-drawer`).click()
+            window.$(`#btn-close-drawer`).click()
             navigate(evnt)
         },
     }

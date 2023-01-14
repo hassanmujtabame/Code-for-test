@@ -57,12 +57,12 @@ export default {
         disableEventDetails: this.disableEventDetails, // disable showing event details
         disableEmptyDetails: this.disableEmptyDetails, // disable showing empty date details
         events: [],
-        onInit: function (calendar) {}, // Callback after first initialization
-        onMonthChange: function (month, year) {}, // Callback on month change
+        onInit: function (/*calendar*/) {}, // Callback after first initialization
+        onMonthChange: function (/*month, year*/) {}, // Callback on month change
         onDateSelect: this.onSelectDate, // Callback on date selection
         onEventSelect: function() {}, // Callback on event selection - use $(this).data('event') to access the event
-        onEventCreate: function( $el ) {},          // Callback fired when an HTML event is created - see $(this).data('event')
-        onDayCreate:   function( $el, d, m, y ) {},  // Callback fired when an HTML day is created   - see $(this).data('today'), .data('todayEvents')
+        onEventCreate: function( /*$el*/ ) {},          // Callback fired when an HTML event is created - see $(this).data('event')
+        onDayCreate:   function( /*$el, d, m, y */) {},  // Callback fired when an HTML day is created   - see $(this).data('today'), .data('todayEvents')
   months:[this.$t('January'), this.$t('February'), this.$t('March'), this.$t('April'), this.$t('May'), this.$t('June'), this.$t('July'), this.$t('August'), this.$t('September'), this.$t('October'), this.$t('November') , this.$t('December')],
   days:this.$i18n.locale=='ar'?['الاحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت']:undefined,
 })

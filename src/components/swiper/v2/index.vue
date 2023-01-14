@@ -23,7 +23,6 @@ import {  SwiperCore,Swiper  } from 'swiper-vue2'
 // Import Swiper styles
 import 'swiper/swiper-bundle.css'
 SwiperCore.use([Navigation, Pagination,Thumbs])
-import SwiperSlide from './slider.vue'
 export default {
  name:'d-swiper',
  props:{

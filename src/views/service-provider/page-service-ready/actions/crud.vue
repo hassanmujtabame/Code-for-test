@@ -42,7 +42,7 @@ import ServiceProviderAPIs from '@/services/api/service-provider/provider/ready-
 export default {
  name:'action-crud',
  props:['itemPage'],
- data:(vm)=>{
+ data:(/*vm*/)=>{
     return{
         loading:false,
  }
@@ -51,7 +51,7 @@ watch:{
  itemPage:{
     deep:true,
     immediate:true,
-    handler(val){
+    handler(/*val*/){
         //
     }
  }

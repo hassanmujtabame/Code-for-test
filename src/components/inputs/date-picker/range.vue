@@ -156,7 +156,7 @@ export default {
       console.log('value',value,test,this.$children[0].$locale)
       this.$emit('input',value)
 */
-      let ok = false
+      
       if (typeof val === 'string')
         this.$emit(name, val)
       else

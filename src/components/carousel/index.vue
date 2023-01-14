@@ -46,7 +46,7 @@ export default {
  }),
  methods:{
  reloadComponent(){
-    $(`#${this.id}`).owlCarousel({
+    window.$(`#${this.id}`).owlCarousel({
     loop:this.loop,
     margin:this.margin,
     nav:this.nav,

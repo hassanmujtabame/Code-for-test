@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import MembersNetwork from './members-network/index.vue'
 import StoriesApi from '@/services/api/stories.js'
 export default {
     props:{
@@ -53,9 +52,6 @@ export default {
         }
     },
  name:'show-story',
- components:{
-    MembersNetwork
- },
  data:()=>{
     return {
       loading:true,

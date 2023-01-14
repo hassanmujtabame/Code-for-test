@@ -124,7 +124,7 @@
 		return this.createScale();
 	};
 
-	RS.prototype.createScale = function (resize) {
+	RS.prototype.createScale = function (/*resize*/) {
 		this.step = this.sliderWidth / (this.conf.values.length - 1);
 
 		for (var i = 0, iLen = this.conf.values.length; i < iLen; i++) {

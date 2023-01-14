@@ -45,7 +45,7 @@ export default {
               this.$emit('update:max', this.contentMax)
     },
     initialize(){
-       this.slider= new rSlider({
+       this.slider= new window.rSlider({
             target: "#"+this.id,
             values: { min: this.lmin, max: this.lmax },
             step: 10,

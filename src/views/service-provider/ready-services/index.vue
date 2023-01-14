@@ -35,13 +35,11 @@
 import SectionFilterList from './parts/section-filter-list/index'
 import SectionHear from '../home/parts/section-hear/index.vue'
 import SectionLearning from '../home/parts/section-continue-learning/index.vue'
-import readyServiceCard from '@/components/cards/ready-service.vue';
 export default {
  name:'ready-services',
  components:{
     SectionHear,
     SectionLearning,
-    readyServiceCard,
     SectionFilterList
  },
  data:()=>({

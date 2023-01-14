@@ -313,7 +313,7 @@ let valid = await this.$refs.form.validate();
  /*for (var i = 0; i < this.gallaries.length; i++) {
         formData.append('images[]', this.gallaries[i]);
 }*/
-for ( i = 0; i < this.itemForm.category_id.length; i++) {
+for ( let i = 0; i < this.itemForm.category_id.length; i++) {
         formData.append('categories[]', this.itemForm.category_id[i].id);
 }
     try {

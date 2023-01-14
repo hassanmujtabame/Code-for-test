@@ -8,6 +8,7 @@
 
 <script>
 import ItemCard from './card.vue'
+import blogsAPI from '@/services/api/blogs.js'
 export default {
  name:'courses-tab',
  components:{
