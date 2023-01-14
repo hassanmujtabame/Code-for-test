@@ -8,6 +8,9 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            setErrorsForm(form,response){
+              form.setErrors(response.data.errors)
+            },
              timeFormatAMPM(time){
               let _time = time.split(':')
               let date = new Date();
