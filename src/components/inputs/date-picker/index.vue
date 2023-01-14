@@ -1,6 +1,6 @@
 <template>
   <vc-date-picker v-model="date" 
-  :locale="$i18n.locale" class="datetime-input" :style="{direction:'ltr','text-align':$i18n.locale=='ar'?'rtl':'ltr'}"
+  :locale="$i18n.locale" class="datetime-input" :style="{direction:$i18n.locale=='ar'?'rtl':'ltr'}"
   :mode="mode" :is24hr="is24hr"  :masks="masks">
     <template v-slot="{ inputValue, inputEvents }">
     <input
