@@ -5,6 +5,7 @@
         :singleName="$t('meeting')"
         :call-list="loadList"
         classColCard="col-12 col-md-6 mt-2"
+        @change="changeFilter"
         >
               <template v-slot="{item}">
                 
@@ -37,22 +38,23 @@ components:{
 },
 data: () => ({
         filterItem:{
-            search:null,
-      price:'asc',
+      search:null,
+      created_at:'asc',
       is_share:'all',
-      category_id:[],
-      valueMinDuring:0
+      category_id:[]
     }
     }),
     methods: {
         changeFilter(val){
+          console.log(val)
             this.filterItem = {...this.filterItem,...val}
             this.fireEvent('d-filter-list-refresh')
         },
     async loadList(metaInfo){
         try {
           let params = {
-            page:metaInfo.current_page
+            page:metaInfo.current_page,
+            ...this.filterItem
           }
             return await learningMeetingsAPI.getAll(params)
 
