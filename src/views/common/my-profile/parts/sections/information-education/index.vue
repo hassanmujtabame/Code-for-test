@@ -4,7 +4,7 @@
                     <h3 class="border-bottom py-2 t-c px-3">
                         معلومات الدراسة  
                     </h3>
-                    <form action="">
+                    <ValidationObserver ref="form">
                         <div class=" p-3">
                                 <div class="row align-items-start ">
                                     <label class="col-md-3 m-c fs-5 fw-bolder">
@@ -20,14 +20,21 @@
                                             </svg>
                                             
                                             
-                                            الكليـــــــــة:
+                                            {{ $t('college') }} :
 
                                     </label>
                                     <div class="col-md-9 row mb-3 ">
                                     
-                                            <div class="">
-                                                <input type="text" class="form-control" placeholder=" أكتب اسم كليتك">
-                                            </div>
+                                        <ValidationProvider
+                                                tag="div"
+                                                :name="$t('college')"
+                                                vid="user_data.college"
+                                                rules="required"
+                                                v-slot="{errors}"
+                                                >
+                                                <input type="text" v-model="itemForm.college" class="form-control" placeholder=" أكتب اسم كليتك">
+                                            <d-error-input :errors="errors" v-if="errors.length" />
+                                        </ValidationProvider>
                                   
                                     </div>
                                 
@@ -46,15 +53,21 @@
                                             
                                             
                                             
-                                            الـتـخـصـص :
+                                            {{ $t('specialization') }} :
 
                                     </label>
                                     <div class="col-md-9 row mb-3 ">
                                     
-                                            <div class="">
-                                                <input type="text" class="form-control" placeholder="حدد تخصصك في الكلية">
-                                            </div>
-                                  
+                                            <ValidationProvider
+                                                tag="div"
+                                                :name="$t('specialization')"
+                                                vid="user_data.specialization"
+                                                rules="required"
+                                                v-slot="{errors}"
+                                                >
+                                                <input type="text" v-model="itemForm.specialization" class="form-control" placeholder="حدد تخصصك في الكلية">
+                                            <d-error-input :errors="errors" v-if="errors.length" />
+                                        </ValidationProvider>
                                     </div>
                                 
 
@@ -71,26 +84,33 @@
                                                 
                                                 
                                                 
-                                                الدرجة العلمية :
+                                                {{$t('learn_degree')}}  :
     
                                         </label>
                                         <div class="col-md-9 row">
                                             <div class="w-100 ">
-
+                                                <ValidationProvider
+                                                tag="div"
+                                                :name="$t('learn_degree')"
+                                                vid="user_data.degree"
+                                                rules="required"
+                                                v-slot="{errors}"
+                                                >
                                                 <div class="  position-relative mb-3 ">
-                                                    <select name="" id="" class="form-control p-2" >
-                                                        <option value="" class="t-c " selected> درجتك العلمية</option>
-                                                        <option value="">ذكر </option>
-                                                        <option value="">انثى</option>
+                                                    <select v-model="itemForm.degree" class="form-control p-2" >
+                                                        <option value="" class="t-c " disabled selected> درجتك العلمية</option>
+                                                        <option v-for="(d,i) in degrees" :key="i" :value="d.id">{{d.name}}</option>
+                                                      
                                                     </select>
-                                                    <div style="    top: 7px;
-                                                    left: 10px;" class="position-absolute">
+                                                    <div style="top: 7px;left: 10px;" class="position-absolute">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#737373"/>
                                                             </svg>
                                                             
                                                     </div>
                                                 </div>
+                                                <d-error-input :errors="errors" v-if="errors.length" />
+                                        </ValidationProvider>
                                             </div>
                                     
 
@@ -110,23 +130,30 @@
                                             
                                             
                                             
-                                            سنة التخرج   :
+                                            {{$t('graduation_year')}}  :
 
                                     </label>
                                     <div class="col-md-9 row mb-3 ">
                                     
-                                            <div class="">
-                                                <input type="text" class="form-control" placeholder="حدد تخصصك في الكلية">
-                                            </div>
+                                        <ValidationProvider
+                                                tag="div"
+                                                :name="$t('graduation_year')"
+                                                vid="user_data.graduation_year"
+                                                rules="required"
+                                                v-slot="{errors}"
+                                                >
+                                                <input type="text" v-model="itemForm.graduation_year" class="form-control" placeholder="حدد سنة التخرج">
+                                                <d-error-input :errors="errors" v-if="errors.length" />
+                                        </ValidationProvider>
                                   
                                     </div>
                                 
 
                                 </div>
                         </div>
-                    </form>
+                    </ValidationObserver>
                     <div class="m-auto text-center p-3">
-                        <button class="btn-main">
+                        <button @click="save" class="btn-main">
                             {{$t('save')}}
                         </button>
                     </div>
@@ -135,8 +162,57 @@
 </template>
 
 <script>
+import userAPI from '@/services/api/user.js'
 export default {
- name:'list-item'
+ name:'list-item',
+ data:()=>{
+    return {
+        degrees:[
+            {id:'high-school',name:'ثانوي'},
+            {id:'diploma',name:'دبلوم'},
+            {id:"bachelor",name:'بكالوريوس'},
+            {id:"master",name:'ماجستير'},
+            {id:'phd',name:'دكتوراة '},
+        ],
+        itemForm:{
+            college:'',
+            degree:'',
+            graduation_year:'',
+            specialization:'',
+        }
+    }
+ },
+ methods:{
+    async save(evt){
+            if(evt) evt.preventDefault();
+            let valid = await this.$refs.form.validate();
+            if(!valid){
+                console.log('form invalid')
+                return;
+            }
+             let formData =  new FormData();
+             Object.keys(this.itemForm).forEach(key=>{
+                formData.append(`user_data[${key}]`,this.itemForm[key])
+             })
+             
+            try {
+                let {data} = await userAPI.postPersonalInformation(formData)
+                if(data.success){
+                    window.SwalSuccess(data.message)
+                }else{
+                    window.SwalError(data.message)
+                }
+            } catch (error) {
+                console.log('error',error)
+                if(error.response){
+                    if(error.response.status == 422){
+                        this.$refs.form.setErrors(error.response.data)
+                    }
+                }
+                
+            }
+    }
+ }
 }
 </script>
 
