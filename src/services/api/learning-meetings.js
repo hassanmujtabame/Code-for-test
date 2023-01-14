@@ -11,7 +11,7 @@ class LearningMeetingApi extends BaseApi{
         return window.axios.get(`network/home-meetings?${s}`);
     }
     getCategories(){
-        return window.axios.get(`network/learning-meetings-categories`);
+        return window.axios.get(`network/categories`);
     }
     getItem(id){
         return window.axios.get(`network/meetings/${id}`);
