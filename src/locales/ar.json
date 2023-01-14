@@ -259,5 +259,10 @@
   "nationality": "جنسية",
   "Gendre": "الجنس",
   "gender": "جنس",
-  "number_residence_id": "رقم الهوية / الاقامة"
+  "number_residence_id": "رقم الهوية / الاقامة",
+  "faculty": "الأساتذه",
+  "college": "كلية",
+  "specialization": "الـتـخـصـص",
+  "learn_degree": "الدرجة العلمية",
+  "graduation_year": "سنة التخرج"
 }

@@ -260,5 +260,10 @@
   "nationality": "Nationality",
   "Gendre": "gendre",
   "gender": "gender",
-  "number_residence_id": "Identification number / Location"
+  "number_residence_id": "Identification number / Location",
+  "faculty": "faculty",
+  "college": "college",
+  "specialization": "specialization",
+  "learn_degree": "degree",
+  "graduation_year": "Graduation Year"
 }
