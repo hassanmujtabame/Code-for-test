@@ -8,6 +8,25 @@ class UserApi extends BaseApi {
     statisticsNetwork(){
         return window.axios.get(`user/statistics-network`);
     }
+    displayInformation(){
+        return window.axios.get(`user/display-information`);
+    }
+    postDisplayInformation(data){
+        return window.axios.post(`user/display-information`,data);
+    }
+    personalInformation(){
+        return window.axios.get(`user/personal-information`);
+    }
+    postPersonalInformation(data){
+        return window.axios.post(`user/personal-information`,data);
+    }
+    contactInfo(){
+        return window.axios.get(`user/contact-info`);
+    }
+    postContactInfo(data){
+        return window.axios.post(`user/contact-info`,data);
+    }
+
 }
 
 export default new UserApi();
