@@ -315,7 +315,7 @@ export default {
         },
         orderName:{
            type:String,
-           default:'order'
+           default:'created_at'
         }   
         ,
         callList:{
