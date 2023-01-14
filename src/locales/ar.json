@@ -6,7 +6,7 @@
   "save": "حفظ",
   "name_company_ar": "اسم الشركة (عربي)",
   "name_company_en": "اسم الشركة (إنجليزي)",
-  "Category": "صنــف",
+  "Category": "تصنيف",
   "short_description_ar": "وصف مختصر (عربي)",
   "short_description_en": "وصف مختصر (إنجليزي)",
   "description_ar": "وصـف (عربي)",
@@ -247,5 +247,8 @@
   "titled": "بعنوان",
   "at-time": "على الساعة",
   "recently-podcast": "أحدث بودكاست ",
-  "podcast_category": "تصنيف البودكاست"
+  "podcast_category": "تصنيف البودكاست",
+  "Webinar": "نقاش عبر الويب",
+  "B2B": "بزنس تو بزنس (B2B)",
+  "all": "الكل"
 }
