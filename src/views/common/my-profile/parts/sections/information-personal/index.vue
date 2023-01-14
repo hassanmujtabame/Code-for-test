@@ -4,10 +4,10 @@
                         <h3 class="border-bottom py-2 t-c px-3">
                             معلومات شخصية   
                         </h3>
-                        <form action="">
+                        <ValidationObserver ref="form">
                             <div class=" p-3">
                                     <div class="row align-items-start">
-                                        <label class="col-md-3 m-c fs-5 fw-bolder">
+                                        <label class="col-md-4 m-c fs-5 fw-bolder">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22C1.25 21.59 1.59 21.25 2 21.25H22C22.41 21.25 22.75 21.59 22.75 22C22.75 22.41 22.41 22.75 22 22.75Z" fill="#1FB9B3"/>
                                                 <path d="M20.8899 22.75C20.4799 22.75 20.1399 22.41 20.1399 22V13C20.1399 11.76 18.9799 10.75 17.5599 10.75H6.43986C5.01986 10.75 3.85986 11.76 3.85986 13V22C3.85986 22.41 3.51986 22.75 3.10986 22.75C2.69986 22.75 2.35986 22.41 2.35986 22V13C2.35986 10.93 4.18986 9.25 6.43986 9.25H17.5499C19.7999 9.25 21.6299 10.93 21.6299 13V22C21.6399 22.41 21.2999 22.75 20.8899 22.75Z" fill="#1FB9B3"/>
@@ -17,66 +17,26 @@
                                                 <path d="M16 5.75C15.59 5.75 15.25 5.41 15.25 5V3C15.25 2.59 15.59 2.25 16 2.25C16.41 2.25 16.75 2.59 16.75 3V5C16.75 5.41 16.41 5.75 16 5.75Z" fill="#1FB9B3"/>
                                                 <path d="M12 5.75C11.59 5.75 11.25 5.41 11.25 5V2C11.25 1.59 11.59 1.25 12 1.25C12.41 1.25 12.75 1.59 12.75 2V5C12.75 5.41 12.41 5.75 12 5.75Z" fill="#1FB9B3"/>
                                                 </svg>
-                                                تاريخ الميلاد :
+                                                {{$t('birthday')}} :
     
                                         </label>
-                                        <div class="col-md-9 row">
-                                            <div class="col-md-4">
-
-                                                <div class="mb-3  position-relative">
-                                                    <select name="" id="" class="form-control p-2" >
-                                                        <option value="" class="t-c " selected>يوم</option>
-                                                        <option value="">الاحد</option>
-                                                        <option value="">الاثنين</option>
-                                                    </select>
-                                                    <div style="top: 7px;left: 10px;" class="position-absolute">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#737373"/>
-                                                            </svg>
-                                                            
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-
-                                                <div class="mb-3  position-relative">
-                                                    <select name="" id="" class="form-control p-2" >
-                                                        <option value="" class="t-c" selected>شهر</option>
-                                                        <option value="">الاحد</option>
-                                                        <option value="">الاثنين</option>
-                                                    </select>
-                                                    <div style="    top: 7px;
-                                                    left: 10px;" class="position-absolute">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#737373"/>
-                                                            </svg>
-                                                            
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-
-                                                <div class="mb-3  position-relative">
-                                                    <select name="" id="" class="form-control p-2" >
-                                                        <option value="" class="t-c" selected>سنة</option>
-                                                        <option value="">الاحد</option>
-                                                        <option value="">الاثنين</option>
-                                                    </select>
-                                                    <div style="    top: 7px;
-                                                    left: 10px;" class="position-absolute">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#737373"/>
-                                                            </svg>
-                                                            
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                        <div class="col-md-8 row mb-3">
+                                            <ValidationProvider
+                                                tag="div"
+                                                :name="$t('birthday')"
+                                                vid="user_data.date"
+                                                rules="required"
+                                                v-slot="{errors}"
+                                                >
+                                               
+                                                <date-picker-input mode="date" class="form-control" v-model="itemForm.date" />
+                                            <d-error-input :errors="errors" v-if="errors.length"/>
+                                            </ValidationProvider>
                                         </div>
     
                                     </div>
                                     <div class="row align-items-start ">
-                                        <label class="col-md-3 m-c fs-5 fw-bolder">
+                                        <label class="col-md-4 m-c fs-5 fw-bolder">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="#1FB9B3"/>
                                                 <path d="M9.00023 21.75H8.00023C7.59023 21.75 7.25023 21.41 7.25023 21C7.25023 20.59 7.57023 20.26 7.98023 20.25C6.41023 14.89 6.41023 9.11 7.98023 3.75C7.57023 3.74 7.25023 3.41 7.25023 3C7.25023 2.59 7.59023 2.25 8.00023 2.25H9.00023C9.24023 2.25 9.47023 2.37 9.61023 2.56C9.75023 2.76 9.79023 3.01 9.71023 3.24C7.83023 8.89 7.83023 15.11 9.71023 20.77C9.79023 21 9.75023 21.25 9.61023 21.45C9.47023 21.63 9.24023 21.75 9.00023 21.75Z" fill="#1FB9B3"/>
@@ -84,20 +44,27 @@
                                                 <path d="M12 17.1998C9.21 17.1998 6.43 16.8098 3.75 16.0198C3.74 16.4198 3.41 16.7498 3 16.7498C2.59 16.7498 2.25 16.4098 2.25 15.9998V14.9998C2.25 14.7598 2.37 14.5298 2.56 14.3898C2.76 14.2498 3.01 14.2098 3.24 14.2898C8.89 16.1698 15.12 16.1698 20.77 14.2898C21 14.2098 21.25 14.2498 21.45 14.3898C21.65 14.5298 21.76 14.7598 21.76 14.9998V15.9998C21.76 16.4098 21.42 16.7498 21.01 16.7498C20.6 16.7498 20.27 16.4298 20.26 16.0198C17.57 16.8098 14.79 17.1998 12 17.1998Z" fill="#1FB9B3"/>
                                                 <path d="M20.9998 9.74986C20.9198 9.74986 20.8398 9.73986 20.7598 9.70986C15.1098 7.82986 8.87978 7.82986 3.22978 9.70986C2.82978 9.83986 2.40978 9.62986 2.27978 9.23986C2.15978 8.83986 2.36978 8.41986 2.75978 8.28986C8.71978 6.29986 15.2798 6.29986 21.2298 8.28986C21.6198 8.41986 21.8398 8.84986 21.6998 9.23986C21.6098 9.54986 21.3098 9.74986 20.9998 9.74986Z" fill="#1FB9B3"/>
                                                 </svg>
-                                                الجنسيــــــة :
+                                                {{$t('nationality')}} :
                                         </label>
-                                        <div class="col-md-9 row mb-3 ">
+                                        <div class="col-md-8 row mb-3 ">
                                         
-                                                <div class="">
-                                                    <input type="text" class="form-control" placeholder="حدد جنسيتك">
-                                                </div>
-                                      
+                                            <ValidationProvider
+                                                tag="div"
+                                                :name="$t('nationality')"
+                                                vid="user_data.nationality"
+                                                rules="required"
+                                                v-slot="{errors}"
+                                                >
+                                                    <input type="text" v-model="itemForm.nationality" class="form-control" placeholder="حدد جنسيتك">
+                                            
+                                                <d-error-input :errors="errors" v-if="errors.length"/>
+                                            </ValidationProvider>
                                         </div>
                                     
 
                                     </div>
-                                    <div class="row  align-items-start">
-                                            <label class="col-md-3 m-c fs-5 fw-bolder">
+                                    <div class="row  align-items-start mb-4">
+                                            <label class="col-md-4 m-c fs-5 fw-bolder">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M9.15957 11.62C9.12957 11.62 9.10957 11.62 9.07957 11.62C9.02957 11.61 8.95957 11.61 8.89957 11.62C5.99957 11.53 3.80957 9.25 3.80957 6.44C3.80957 3.58 6.13957 1.25 8.99957 1.25C11.8596 1.25 14.1896 3.58 14.1896 6.44C14.1796 9.25 11.9796 11.53 9.18957 11.62C9.17957 11.62 9.16957 11.62 9.15957 11.62ZM8.99957 2.75C6.96957 2.75 5.30957 4.41 5.30957 6.44C5.30957 8.44 6.86957 10.05 8.85957 10.12C8.91957 10.11 9.04957 10.11 9.17957 10.12C11.1396 10.03 12.6796 8.42 12.6896 6.44C12.6896 4.41 11.0296 2.75 8.99957 2.75Z" fill="#1FB9B3"/>
                                                     <path d="M16.5394 11.75C16.5094 11.75 16.4794 11.75 16.4494 11.74C16.0394 11.78 15.6194 11.49 15.5794 11.08C15.5394 10.67 15.7894 10.3 16.1994 10.25C16.3194 10.24 16.4494 10.24 16.5594 10.24C18.0194 10.16 19.1594 8.96 19.1594 7.49C19.1594 5.97 17.9294 4.74 16.4094 4.74C15.9994 4.75 15.6594 4.41 15.6594 4C15.6594 3.59 15.9994 3.25 16.4094 3.25C18.7494 3.25 20.6594 5.16 20.6594 7.5C20.6594 9.8 18.8594 11.66 16.5694 11.75C16.5594 11.75 16.5494 11.75 16.5394 11.75Z" fill="#1FB9B3"/>
@@ -105,25 +72,32 @@
                                                     <path d="M18.3397 20.75C17.9897 20.75 17.6797 20.51 17.6097 20.15C17.5297 19.74 17.7897 19.35 18.1897 19.26C18.8197 19.13 19.3997 18.88 19.8497 18.53C20.4197 18.1 20.7297 17.56 20.7297 16.99C20.7297 16.42 20.4197 15.88 19.8597 15.46C19.4197 15.12 18.8697 14.88 18.2197 14.73C17.8197 14.64 17.5597 14.24 17.6497 13.83C17.7397 13.43 18.1397 13.17 18.5497 13.26C19.4097 13.45 20.1597 13.79 20.7697 14.26C21.6997 14.96 22.2297 15.95 22.2297 16.99C22.2297 18.03 21.6897 19.02 20.7597 19.73C20.1397 20.21 19.3597 20.56 18.4997 20.73C18.4397 20.75 18.3897 20.75 18.3397 20.75Z" fill="#1FB9B3"/>
                                                     </svg>
 
-                                                    النـــــــــــوع :
+                                                    {{$t('gender')}}:
                                             </label>
-                                            <div class="col-md-9 row">
+                                            <div class="col-md-8 row">
                                                 <div class="w-100 ">
-    
+                                                    <ValidationProvider
+                                                    tag="div"
+                                                :name="$t('gender')"
+                                                vid="user_data.gender"
+                                                rules="required"
+                                                v-slot="{errors}"
+                                                >
                                                     <div class="  position-relative ">
-                                                        <select name="" id="" class="form-control p-2" >
+                                                        <select v-model="itemForm.gender"  class="form-control p-2" >
                                                             <option value="" class="t-c " selected>حدد نوعك</option>
-                                                            <option value="">ذكر </option>
-                                                            <option value="">انثى</option>
+                                                            <option value="1">ذكر </option>
+                                                            <option value="2">انثى</option>
                                                         </select>
-                                                        <div style="    top: 7px;
-                                                        left: 10px;" class="position-absolute">
+                                                        <div style="top: 7px;left: 10px;" class="position-absolute">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#737373"/>
                                                                 </svg>
                                                                 
                                                         </div>
                                                     </div>
+                                                    <d-error-input :errors="errors" v-if="errors.length"/>
+                                            </ValidationProvider>
                                                 </div>
                                         
     
@@ -131,7 +105,7 @@
         
                                     </div>
                                     <div class="row align-items-start ">
-                                            <label class="col-md-3 m-c fs-5 fw-bolder">
+                                            <label class="col-md-4 m-c fs-5 fw-bolder">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M22 9.25H2C1.59 9.25 1.25 8.91 1.25 8.5C1.25 8.09 1.59 7.75 2 7.75H22C22.41 7.75 22.75 8.09 22.75 8.5C22.75 8.91 22.41 9.25 22 9.25Z" fill="#1FB9B3"/>
                                                     <path d="M8 17.25H6C5.59 17.25 5.25 16.91 5.25 16.5C5.25 16.09 5.59 15.75 6 15.75H8C8.41 15.75 8.75 16.09 8.75 16.5C8.75 16.91 8.41 17.25 8 17.25Z" fill="#1FB9B3"/>
@@ -141,24 +115,32 @@
                                                     
                                                     
                                                     
-                                                    رقم الهوية / الاقامة :
+                                                   {{ $t('number_residence_id') }} :
         
                                             </label>
-                                            <div class="col-md-9 row">
+                                            <div class="col-md-8 row">
                                                 <div class="col-md-12">
-    
-                                                    <div class="mb-3">
-                                                    </div>
-                                                        <input type="text" class="form-control" placeholder="ادخل رقم هويتك الوطنية">
+                                                    <ValidationProvider
+                                                    tag="div"
+                                                    class="mb-3"
+                                                :name="$t('number_residence_id')"
+                                                vid="user_data.residence_number"
+                                                rules="required"
+                                                v-slot="{errors}"
+                                                >
+                                                
+                                                        <input type="text" v-model="itemForm.residence_number" class="form-control" placeholder="ادخل رقم هويتك الوطنية">
+                                                        <d-error-input :errors="errors" v-if="errors.length"/>
+                                            </ValidationProvider>
                                                     </div>
                                                 </div>
                                         
     
                                     </div>
                             </div>
-                        </form>
+                        </ValidationObserver>
                         <div class="m-auto text-center p-3">
-                            <button class="btn-main">
+                            <button @click="save" class="btn-main">
                                 {{$t('save')}}
                             </button>
                         </div>
@@ -168,8 +150,50 @@
 </template>
 
 <script>
+import userAPI from '@/services/api/user.js'
 export default {
- name:'list-item'
+ name:'list-item',
+ data:()=>{
+    return {
+        itemForm:{
+                gender:'',
+                date:'',
+                nationality:'',
+                residence_number:'',
+        }
+    }
+ },
+ methods:{
+    async save(evt){
+            if(evt) evt.preventDefault();
+            let valid = await this.$refs.form.validate();
+            if(!valid){
+                console.log('form invalid')
+                return;
+            }
+             let formData =  new FormData();
+             Object.keys(this.itemForm).forEach(key=>{
+                formData.append(`user_data[${key}]`,this.itemForm[key])
+             })
+             
+            try {
+                let {data} = await userAPI.postPersonalInformation(formData)
+                if(data.success){
+                    window.SwalSuccess(data.message)
+                }else{
+                    window.SwalError(data.message)
+                }
+            } catch (error) {
+                console.log('error',error)
+                if(error.response){
+                    if(error.response.status == 422){
+                        this.$refs.form.setErrors(error.response.data)
+                    }
+                }
+                
+            }
+    }
+ }
 }
 </script>
 
