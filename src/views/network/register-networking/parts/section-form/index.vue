@@ -273,9 +273,6 @@ async save(evt){
             try {
                 let { data } = await PartnersAPI.addItem(formData)
                 if(data.success){
-                //
-                console.log('data',data)
-                
                 Object.keys(this.itemForm).forEach(key=>{
                     this.itemForm[key]=null;
                 })
@@ -284,6 +281,8 @@ async save(evt){
                         this.$refs.form.reset();
                         }
                     });
+                }else{
+                    window.SwalError(data.message)
                 }
             } catch (error) {
                 console.log('error',error)
