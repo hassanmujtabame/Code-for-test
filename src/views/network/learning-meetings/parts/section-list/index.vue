@@ -19,7 +19,7 @@
                   </a>
               </template>
               <template v-slot:side>
-                <sidebarBox/>
+                <sidebarBox  :filterItem="filterItem" @change="changeFilter"/>
               </template>
         </d-filter-list>
       </div> 
@@ -35,23 +35,20 @@ components:{
   meetingCard,
   sidebarBox
 },
-data:()=>({
-
-       items_test:[
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-  ],
- }),
- methods:{
-
+data: () => ({
+        filterItem:{
+            search:null,
+      price:'asc',
+      is_share:'all',
+      category_id:[],
+      valueMinDuring:0
+    }
+    }),
+    methods: {
+        changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
+        },
     async loadList(metaInfo){
         try {
           let params = {
