@@ -2,6 +2,7 @@ export default{
     CLEAR_AUTH(state){
         localStorage.clear();
         state.token = null;
+        state.partner = null;
         localStorage.removeItem("auth_token");
         state.user = null;
         localStorage.removeItem("auth_user");
