@@ -255,5 +255,6 @@
   "Error": "Error",
   "Success": "Success",
   "Warning": "Warning",
-  "Info": "Info"
+  "Info": "Info",
+  "birthday": "birthday"
 }
