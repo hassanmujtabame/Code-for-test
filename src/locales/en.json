@@ -251,5 +251,9 @@
   "recently-podcast": "recently podcast",
   "podcast_category": "podcast category",
   "all": "all",
-  "Webinar": "Webinar"
+  "Webinar": "Webinar",
+  "Error": "Error",
+  "Success": "Success",
+  "Warning": "Warning",
+  "Info": "Info"
 }
