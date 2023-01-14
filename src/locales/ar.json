@@ -264,5 +264,8 @@
   "college": "كلية",
   "specialization": "الـتـخـصـص",
   "learn_degree": "الدرجة العلمية",
-  "graduation_year": "سنة التخرج"
+  "graduation_year": "سنة التخرج",
+  "position_role": "المسمى الوظيفي",
+  "industry": "المجال",
+  "years_experience": "سنوات الخبرة"
 }

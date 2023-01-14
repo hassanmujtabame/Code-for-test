@@ -265,5 +265,8 @@
   "college": "college",
   "specialization": "specialization",
   "learn_degree": "degree",
-  "graduation_year": "Graduation Year"
+  "graduation_year": "Graduation Year",
+  "position_role": "Position role",
+  "industry": "industry",
+  "years_experience": "Years of Experience"
 }
