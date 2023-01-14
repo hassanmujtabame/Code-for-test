@@ -164,7 +164,7 @@
 <script>
 import userAPI from '@/services/api/user.js'
 export default {
- name:'list-item',
+ name:'eduction-item',
  data:()=>{
     return {
         degrees:[
