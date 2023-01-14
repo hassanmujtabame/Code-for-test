@@ -255,5 +255,9 @@
   "Success": "تمت بنجاح",
   "Warning": "تحذير",
   "Info": "معلومة",
-  "birthday": "عيد الميلاد"
+  "birthday": "عيد الميلاد",
+  "nationality": "جنسية",
+  "Gendre": "الجنس",
+  "gender": "جنس",
+  "number_residence_id": "رقم الهوية / الاقامة"
 }

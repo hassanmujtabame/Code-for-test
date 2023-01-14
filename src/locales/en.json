@@ -256,5 +256,9 @@
   "Success": "Success",
   "Warning": "Warning",
   "Info": "Info",
-  "birthday": "birthday"
+  "birthday": "birthday",
+  "nationality": "Nationality",
+  "Gendre": "gendre",
+  "gender": "gender",
+  "number_residence_id": "Identification number / Location"
 }
