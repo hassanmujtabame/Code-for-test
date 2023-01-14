@@ -51,16 +51,7 @@ export default {
       valueMaxDuring:100,
       priceMin:null,
       priceMax:null
-    },
-        item_test: [
-        {id:1,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:2,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:3,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:4,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:5,title:'معرض الازياء الرجالي',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-  
-    ],
-        items: []
+    }
     }),
     methods: {
         changeFilter(val){
