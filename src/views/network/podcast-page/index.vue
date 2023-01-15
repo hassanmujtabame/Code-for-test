@@ -4,42 +4,17 @@
     <div v-else-if="hasError">
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
-    <div v-else class="container podcast-page">
-      <div class=" position-relative">
-        <img class="w-100" :src="itemPage.image" :alt="itemPage.categoryName" height="432">
-        <div class="d-flex gap-2 position-absolute bottom-0 data">
-          <p  :style="{'background-color':colors[c%3]}" class="p-1 px-2 rounded-2 text-white m-0">
-            {{ itemPage.categoryName }}
-          </p>
-        </div>
-      </div>
+    <div v-else class=" podcast-page">
+      
 
       <div class="row mt-5">
-        <div class=" col-12 col-md-8">
-          <h3 class="m-c">{{ itemPage.title }}
-          </h3>
-          
-        </div>
-        <div class="col-12 col-md-4">
-          <div v-if="isOwner" class="box  rounded-3 p-2">
-          <div class="text-end">
-                  
-                        <button @click="openEditDialog" class="btn bg-main border-0 text-white p-2 mx-1"   >
-                           <img src="/assets/svg/update.svg" />   
-                           تعديل 
-                        </button>
-                        <button @click="openDeleteDialog" class="btn bg-danger border-0 text-white p-2"   >
-                            <img src="/assets/svg/trash-outline.svg" />
-                           حذف 
-                        </button>
-
-                        
-                  
-          </div>
-          </div>
-          
-        </div>
+        <SectionPodcastHeader :itemPage="itemPage" />
       </div>
+      <div class="container">
+      <div class="row">
+        <SectionPodcastRecent />
+      </div>
+    </div>
     </div>
   
     <UpdateItemDialog />
@@ -52,11 +27,15 @@
 import podcastsAPI from '@/services/api/podcasts.js'
 import UpdateItemDialog from '../podcasts/parts/dialogs/update-item.vue'
 import deleteItemDialog from '../podcasts/parts/dialogs/del-item.vue'
+import SectionPodcastRecent from '../home/auth/parts/section-podcast/index.vue'
+import SectionPodcastHeader from './section-header/index.vue'
 export default {
   name: 'blog-page',
   components:{
     UpdateItemDialog,
-    deleteItemDialog
+    deleteItemDialog,
+    SectionPodcastRecent,
+    SectionPodcastHeader
   },
   data:()=>{
     return {
