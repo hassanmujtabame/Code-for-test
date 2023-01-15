@@ -228,11 +228,11 @@ export default {
             }
             let formData = new FormData();
             Object.keys(this.itemForm).forEach(key => {
-                formData.append(`user_data[${key}]`, this.itemForm[key])
+                formData.append(`${key}`, this.itemForm[key])
             })
 
             try {
-                let { data } = await userAPI.postPersonalInformation(formData)
+                let { data } = await userAPI.postStudyInformation(formData)
                 if (data.success) {
                     window.SwalSuccess(data.message)
                 } else {
