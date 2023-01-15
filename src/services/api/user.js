@@ -38,7 +38,9 @@ class UserApi extends BaseApi {
     postContactInfo(data){
         return window.axios.post(`user/contact-info`,data);
     }
-
+    postNotifSettings(data){
+        return window.axios.post(`user/notification-settings`,data);
+    }
     getIndustries(data){
         /** مجال الشركة التي يعمل بها */
         return window.axios.get(`user/fileds`,data);
