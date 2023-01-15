@@ -28,7 +28,7 @@
   import RateYourExperienceBtn from '../common/rate-experience.vue'
   import RateYourExperience from '../common/dialogs/rate-experience/index.vue'
   import RateSuccessExperience from '../common/dialogs/rate-experience/success-rate.vue'
-  import MyDrawer from '@/layouts/common/drawer.vue'
+  import MyDrawer from './drawer.vue'
   import DefaultFooter from '@/layouts/common/footer.vue'
   import DefaultHeader from '../default/header.vue'
   import localHeader from './header.vue'
