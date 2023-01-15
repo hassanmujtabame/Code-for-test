@@ -24,12 +24,12 @@
                                             <ValidationProvider
                                                 tag="div"
                                                 :name="$t('birthday')"
-                                                vid="user_data.date"
+                                                vid="birth_date"
                                                 rules="required"
                                                 v-slot="{errors}"
                                                 >
                                                
-                                                <date-picker-input mode="date" class="form-control" v-model="itemForm.date" />
+                                                <date-picker-input mode="date" class="form-control" v-model="itemForm.birth_date" />
                                             <d-error-input :errors="errors" v-if="errors.length"/>
                                             </ValidationProvider>
                                         </div>
@@ -51,7 +51,7 @@
                                             <ValidationProvider
                                                 tag="div"
                                                 :name="$t('nationality')"
-                                                vid="user_data.nationality"
+                                                vid="nationality"
                                                 rules="required"
                                                 v-slot="{errors}"
                                                 >
@@ -79,7 +79,7 @@
                                                     <ValidationProvider
                                                     tag="div"
                                                 :name="$t('gender')"
-                                                vid="user_data.gender"
+                                                vid="gender"
                                                 rules="required"
                                                 v-slot="{errors}"
                                                 >
@@ -124,12 +124,12 @@
                                                     tag="div"
                                                     class="mb-3"
                                                 :name="$t('number_residence_id')"
-                                                vid="user_data.residence_number"
+                                                vid="identification_number"
                                                 rules="required"
                                                 v-slot="{errors}"
                                                 >
                                                 
-                                                        <input type="text" v-model="itemForm.residence_number" class="form-control" placeholder="ادخل رقم هويتك الوطنية">
+                                                        <input type="text" v-model="itemForm.identification_number" class="form-control" placeholder="ادخل رقم هويتك الوطنية">
                                                         <d-error-input :errors="errors" v-if="errors.length"/>
                                             </ValidationProvider>
                                                     </div>
@@ -157,9 +157,9 @@ export default {
     return {
         itemForm:{
                 gender:'',
-                date:'',
+                birth_date:'',
                 nationality:'',
-                residence_number:'',
+                identification_number:'',
         }
     }
  },
@@ -173,7 +173,7 @@ export default {
             }
              let formData =  new FormData();
              Object.keys(this.itemForm).forEach(key=>{
-                formData.append(`user_data[${key}]`,this.itemForm[key])
+                formData.append(`${key}`,this.itemForm[key])
              })
              
             try {
