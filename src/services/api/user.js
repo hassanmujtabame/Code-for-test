@@ -39,6 +39,11 @@ class UserApi extends BaseApi {
         return window.axios.post(`user/contact-info`,data);
     }
 
+    getIndustries(data){
+        /** مجال الشركة التي يعمل بها */
+        return window.axios.get(`user/fileds`,data);
+    }
+
 }
 
 export default new UserApi();
