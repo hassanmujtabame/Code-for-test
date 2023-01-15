@@ -20,8 +20,9 @@
                         <div class="col-md-4">
                             <div class="position-relative">
                                 <!--calendar-->
-                                <d-calendar v-if="!loading" class="calendar-schedule" 
-                                :class="{'mobile':isMobile}"
+                                <div  class="calendar-schedule"  :class="{'mobile':isMobile}">
+                                <d-calendar v-if="!loading" 
+                                
                                 :attributes="attributes"
                                 @dayclick="dayclick"
                                 >
@@ -37,6 +38,7 @@
                                 </div>
                                 </template>
                                 </d-calendar>
+                                </div>
                             </div>
                         </div>
     
