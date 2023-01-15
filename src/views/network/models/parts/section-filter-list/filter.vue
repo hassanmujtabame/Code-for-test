@@ -12,6 +12,7 @@
              </template>
                 </ul>
                 <d-filter-list :call-list="loadList" 
+                @change="changeFilter"
         hideSide
         classColCard="col-md-3  mt-3">
             <template v-slot:total>
@@ -44,17 +45,10 @@ export default {
     ModelCard
  },
  data:()=>({
-    metaInfo:{
-        current_page:1,
-        to:10,
-        total:0,
-        total_page:0,
-
+    filterItem:{
+        search:null,
+        created_at:'asc',
     },
- 
-       item_test: {title:'معرض الازياء الرجالي',img:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-       
-    items:[],
     categories: [{ id: null, name: 'الكل' }],
     category_id:null
  }),
@@ -65,21 +59,20 @@ export default {
         }
     },
  methods:{
+    changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
+        },
   changeCategories(cat){
             this.category_id=cat;
             this.fireEvent('d-filter-list-refresh')
         },
-    changePage(page){
-       if(this.metaInfo.current_page!==page){
-        this.metaInfo.current_page=page;
-        this.loadList()
-       }
-    },
     async loadList(metaInfo){
         try {
           let params={
             page:metaInfo.current_page,
-            category_id:this.category_id
+            category_id:this.category_id,
+            ...this.filterItem
           }
            return await ModelsAPI.getAll(params)
 
