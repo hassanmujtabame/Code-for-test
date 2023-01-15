@@ -38,7 +38,7 @@
                                 </div>
                                 </ValidationProvider>
                             </div>
-                            <div class="col-md-4 w-100  row">
+                            <div class="col-md-4 w-100 mt-3 row">
                                 <ValidationProvider
                                  tag="div"
                                     :name="$t('Password')"
