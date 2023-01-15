@@ -20,6 +20,12 @@ class UserApi extends BaseApi {
     postPersonalInformation(data){
         return window.axios.post(`user/personal-information`,data);
     }
+    studyInformation(){
+        return window.axios.get(`user/study-information`);
+    }
+    postStudyInformation(data){
+        return window.axios.post(`user/study-information`,data);
+    }
     contactInfo(){
         return window.axios.get(`user/contact-info`);
     }
