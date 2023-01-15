@@ -12,9 +12,9 @@
                         </label>
                         <div class="col-md-9 row mb-3 ">
 
-                            <ValidationProvider tag="div" :name="$t('position_role')" vid="user_data.job" rules="required"
+                            <ValidationProvider tag="div" :name="$t('position_role')" vid="job_title" rules="required"
                                 v-slot="{ errors }">
-                                <input type="text" v-model="itemForm.job" class="form-control"
+                                <input type="text" v-model="itemForm.job_title" class="form-control"
                                     placeholder="مسماك الوظيفي ( مهندس - طبيب- مصمم - رائد اعمال)">
                                     <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
@@ -26,10 +26,10 @@
                         </label>
                         <div class="col-md-9 row">
                             <div class="w-100 ">
-                                <ValidationProvider tag="div" :name="$t('industry')" vid="user_data.specialization" rules="required"
+                                <ValidationProvider tag="div" :name="$t('industry')" vid="field_id" rules="required"
                                 v-slot="{ errors }">
                                 <div class="position-relative mb-3 ">
-                                    <select v-model="itemForm.specialization" class="form-control p-2">
+                                    <select v-model="itemForm.field_id" class="form-control p-2">
                                         <option value="" class="t-c" disabled selected> حدد مجالك</option>
                                         <option v-for="(d,i) in industries" :key="i" :value="d.id">{{ d.name}} </option>
                                     </select>
@@ -53,9 +53,9 @@
                         </label>
                         <div class="col-md-9 row mb-3 ">
 
-                            <ValidationProvider tag="div" :name="$t('years_experience')" vid="user_data.years_of_experience" rules="required"
+                            <ValidationProvider tag="div" :name="$t('years_experience')" vid="year_experience" rules="required"
                                 v-slot="{ errors }">
-                                <input type="text" v-model="itemForm.years_of_experience" class="form-control" placeholder="   سوات الخبرة">
+                                <input type="text" v-model="itemForm.year_experience" class="form-control" placeholder="   سوات الخبرة">
                                 <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
 
@@ -78,14 +78,11 @@ export default {
     name: 'professional-item',
     data: () => {
         return {
-            industries: [
-                { id: 'industry', name: 'قطاع صناعي' },
-                { id: 'goverment', name: 'قطاع حكومي' },
-            ],
+            industries: [],
             itemForm: {
-                job: '',
-                years_of_experience: '',
-                specialization: '',
+                job_title: '',
+                year_experience: '',
+                field_id: '',
             }
         }
     },
@@ -99,11 +96,11 @@ export default {
             }
             let formData = new FormData();
             Object.keys(this.itemForm).forEach(key => {
-                formData.append(`user_data[${key}]`, this.itemForm[key])
+                formData.append(`${key}`, this.itemForm[key])
             })
 
             try {
-                let { data } = await userAPI.postPersonalInformation(formData)
+                let { data } = await userAPI.postCareerInformation(formData)
                 if (data.success) {
                     window.SwalSuccess(data.message)
                 } else {
@@ -118,7 +115,22 @@ export default {
                 }
 
             }
+        },
+        async loadIndustries(){
+                try {
+                    let { data } = await userAPI.getIndustries()
+                if (data.success) {
+                   this.industries =  data.data
+                } else {
+                    window.SwalError(data.message)
+                }
+                } catch (error) {
+                    console.log('error', error)
+                }
         }
+    },
+    mounted(){
+        this.loadIndustries()
     }
 }
 </script>
