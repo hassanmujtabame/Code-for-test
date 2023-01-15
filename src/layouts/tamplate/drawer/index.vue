@@ -6,7 +6,7 @@
             <button type="button" id="btn-close-drawer" class="btn-close" data-bs-dismiss-old="offcanvas" @click="closeDrawer" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body text-center">
-            <div>
+            <div class="avatar-profile">
                 <img class="rounded-circle" :src="user.image" alt="" width="150" height="150">
             </div>
             <div class="mt-3">
@@ -14,7 +14,7 @@
                     {{ user.name }}
                 </h3>
                 <p>
-                    مصمم واجهات امامية
+                    {{user.job}}
                 </p>
             </div>
             <div class="d-flex flex-column service-provider-navbar">
@@ -47,7 +47,7 @@
                     </router-link>
                 </div>
                 <!-- slot -->
-                <slot></slot>
+                <slot :clickLink="clickLink"></slot>
                 <div class="text-start mt-3">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -110,6 +110,10 @@ export default {
 </script>
 
 <style scoped>
+.avatar-profile>img{
+ border-radius: 50%;
+ border:1px solid #c3c3c352;
+}
 .btn-drawer{
     background: transparent;
     border: none;
