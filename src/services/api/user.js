@@ -32,6 +32,12 @@ class UserApi extends BaseApi {
     postCareerInformation(data){
         return window.axios.post(`user/career-information`,data);
     }
+    residenceInformation(){
+        return window.axios.get(`user/residence-information`);
+    }
+    postResidenceInformation(data){
+        return window.axios.post(`user/residence-information`,data);
+    }
     contactInfo(){
         return window.axios.get(`user/contact-info`);
     }
@@ -44,6 +50,9 @@ class UserApi extends BaseApi {
     getIndustries(data){
         /** مجال الشركة التي يعمل بها */
         return window.axios.get(`user/fileds`,data);
+    }
+    getCountries(){
+        return window.axios.get(`user/countries`);
     }
 
 }
