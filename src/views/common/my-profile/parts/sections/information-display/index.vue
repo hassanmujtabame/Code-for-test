@@ -4,6 +4,7 @@
                     <h3 class="border-bottom py-2 t-c px-3">
                         معلومات العرض
                     </h3>
+                    <ValidationObserver ref="form">
                     <div class="row p-3">
                         <div class="col-md-3">
                             <div class="main-img">
@@ -12,11 +13,19 @@
                              
                                         <div class="add-img-selected">
         
-                                            <img class="w-100 h-100 rounded-circle" :src="urlTmp??url" id="image_selected-2" />
+                                            <img class="w-100 h-100 rounded-circle" :src="urlTmp??imageUser" id="image_selected-2" />
                                         </div>
                                     </label>
-                                    <input @change="uploadImage" class="form-control d-none" type="file"
+                                    <ValidationProvider
+                                    :name="$t('Image')"
+                                    vid="image"
+                                    rules="image"
+                                    v-slot="{validate,errors}"
+                                    >
+                                    <input @change="uploadImage($event,validate)" class="form-control d-none" type="file"
                                         id="imginput">
+                                        <d-error-input :errors="errors" v-if="errors.length"></d-error-input>
+                                    </ValidationProvider>
                                 </div>  
                                 <!-- <img class="rounded-circle img-person" src="../assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" width="140" height="140"> -->
                                 <p class="pen">
@@ -44,36 +53,91 @@
                                         
                                 </p>
                             </div>
-                            <textarea name="" id="" class="w-100 border-0" rows="10">
-                                
+                            <ValidationProvider
+                                    :name="$t('Bio')"
+                                    vid="bio"
+                                    rules=""
+                                    v-slot="{errors}"
+                                    >
+                            <textarea v-model="itemForm.bio" class="w-100 border-0" rows="10">
                             </textarea>
-                      
+                            <d-error-input :errors="errors" v-if="errors.length"></d-error-input>
+                            </ValidationProvider>
                         </div>
                         <div class="m-auto text-center p-3">
-                            <button class="btn-main">
+                            <button @click="save" class="btn-main">
                                 {{$t('save')}}
                             </button>
                         </div>
                     </div>
-
+                </ValidationObserver>
                 </div>
 
             </div>  
 </template>
 
 <script>
+import userAPI from '@/services/api/user.js'
 export default {
- name:'exhibition-item',
- data:() => ({ 
-    url: '',
+ name:'display-info-item',
+ data:() => {
+   return { 
+  
     urlTmp:null,
-    file:null,
- }),
+    itemForm:{
+        image:null,
+        bio:null,
+    }
+ }
+},
+computed:{
+  imageUser(){
+    return this.user.image
+  }
+},
  methods:{
-    uploadImage(evt){
-        this.file = evt.target.files[0];
-        if(this.file)
-        this.urlTmp = URL.createObjectURL( this.file);
+    async save(evt) {
+            if (evt) evt.preventDefault();
+            let valid = await this.$refs.form.validate();
+            if (!valid) {
+                console.log('form invalid')
+                return;
+            }
+            let formData = new FormData();
+            Object.keys(this.itemForm).forEach(key => {
+                formData.append(`${key}`, this.itemForm[key])
+            })
+
+            try {
+                let { data } = await userAPI.postDisplayInformation(formData)
+                if (data.success) {
+                    window.SwalSuccess(data.message)
+                } else {
+                    window.SwalError(data.message)
+                }
+            } catch (error) {
+                console.log('error', error)
+                if (error.response) {
+                    if (error.response.status == 422) {
+                        this.$refs.form.setErrors(error.response.data)
+                    }
+                }
+
+            }
+        },
+    async uploadImage(evt,validate){
+        let valid = await validate(evt);
+        if(!valid.valid){
+            this.itemForm.image = null;
+            if(this.urlTmp) {
+                URL.revokeObjectURL(this.urlTmp);
+                this.urlTmp = null
+            }
+            return
+        }
+        this.itemForm.image = evt.target.files[0];
+        if(this.itemForm.image)
+        this.urlTmp = URL.createObjectURL( this.itemForm.image);
         else{
             URL.revokeObjectURL(this.urlTmp);
             this.urlTmp = null
@@ -81,9 +145,6 @@ export default {
         
 
     },
- },
- created(){
-    this.url=this.user.image
  }
 }
 </script>
