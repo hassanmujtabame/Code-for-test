@@ -115,6 +115,10 @@ export default {
         console.log('onplay',event)
         this.$emit('play',true)
      },
+     onended(event) {
+        console.log('onended',event)
+        this.$emit('ended',true)
+     },
      onpause(event) {
         console.log('onpause',event)
         this.$emit('pause',true)
@@ -143,11 +147,11 @@ export default {
        // console.log('formattedTime', event.srcElement.currentTime, event.srcElement.duration)
 
      },
-     onprogress(event){
-        console.log('onprogress',event)
+     onprogress(/*event*/){
+        //console.log('onprogress',event)
      },
      ontimeupdate(event){
-        console.log('ontimeupdate',event)
+       // console.log('ontimeupdate',event)
         this.progress = event.target.currentTime*100/ event.target.duration
         let { h, m, s} = this.timeToParts(event.target.currentTime)
         var formattedTime =  this.timeFormat(h,m,s);
@@ -172,6 +176,7 @@ export default {
         this.$refs.myaudio.removeEventListener('playing',this.onplaying);
         this.$refs.myaudio.removeEventListener('pause',this.onpause);
         this.$refs.myaudio.removeEventListener('timeupdate',this.ontimeupdate);
+        this.$refs.myaudio.removeEventListener('ended',this.onended);
     } 
  },
  mounted(){
@@ -187,6 +192,7 @@ export default {
             this.$refs.myaudio.addEventListener('playing',this.onplaying);
             this.$refs.myaudio.addEventListener('pause',this.onpause);
             this.$refs.myaudio.addEventListener('timeupdate',this.ontimeupdate);
+            this.$refs.myaudio.addEventListener('ended',this.onended);
             
         }
     })

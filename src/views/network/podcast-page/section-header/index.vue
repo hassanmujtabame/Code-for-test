@@ -29,6 +29,7 @@
                                     @play="play = $event"
                                     @timeupdate="ontimeupdate"
                                     @pause="onpause"
+                                    @ended="onended"
                                     @playing="onplaying"
                                     :link-audio="itemPage.audio" :sizeCircle="hover ? 18 : 12"
                                      :heightBar="hover ? 4 : 2">
@@ -46,14 +47,13 @@
 
 <script>
 import playIcon from '@/components/icon-svg/play.vue';
-import pauseIcon from '@/components/icon-svg/pause.vue';
+//import pauseIcon from '@/components/icon-svg/pause.vue';
 import progressBar from './progress-bar.vue'
 export default {
     name: 'section-header',
     props: ['itemPage'],
     components: {
         playIcon,
-        pauseIcon,
         progressBar
     },
     data:()=>{
@@ -79,6 +79,11 @@ export default {
         },
         ontimeupdate(data){
             this.currentTime = data.current
+        },
+        onended(){
+            this.playing = false;
+            this.pause = false;
+            this.play = false;
         },
         onpause(){
             this.playing = false;
