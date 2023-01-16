@@ -269,5 +269,13 @@
   "position_role": "Position role",
   "industry": "industry",
   "years_experience": "Years of Experience",
-  "Bio": "Bio"
+  "Bio": "Bio",
+  "Country": "Country",
+  "Region": "Region",
+  "City": "City",
+  "Street": "Street",
+  "write_street_name": "write street name",
+  "write_city_name": "Write city name",
+  "write_region_name": "write region name",
+  "select_country": "Select country"
 }

@@ -268,5 +268,13 @@
   "position_role": "المسمى الوظيفي",
   "industry": "المجال",
   "years_experience": "سنوات الخبرة",
-  "Bio": "نبذة تعريفية"
+  "Bio": "نبذة تعريفية",
+  "Country": "الدولـــــة",
+  "Region": "المنطقة",
+  "City": "المدينـــة",
+  "Street": "الشــــارع",
+  "write_street_name": "أكتب اسم الشارع",
+  "write_city_name": " أكتب اسم المدينة",
+  "write_region_name": "أكتب اسم المنطقة",
+  "select_country": "حدد الدولة"
 }
