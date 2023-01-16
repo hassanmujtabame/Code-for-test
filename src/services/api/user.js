@@ -51,9 +51,7 @@ class UserApi extends BaseApi {
         /** مجال الشركة التي يعمل بها */
         return window.axios.get(`user/fileds`,data);
     }
-    getCountries(){
-        return window.axios.get(`user/countries`);
-    }
+    
 
 }
 

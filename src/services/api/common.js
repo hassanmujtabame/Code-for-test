@@ -30,6 +30,10 @@ class CommonApi extends BaseApi {
     let s=this.generateQueryUrl(params)
      return window.axios.get(`user/cities?${s}`);   
    }
+   getCountries(params = {}){
+    let s=this.generateQueryUrl(params)
+    return window.axios.get(`user/countries?${s}`);
+}
 }
 
 export default new CommonApi();

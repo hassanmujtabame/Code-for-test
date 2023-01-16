@@ -137,6 +137,7 @@
 
 <script>
 import userAPI from '@/services/api/user.js'
+import commonAPI from '@/services/api/common.js'
 export default {
  name:'residence-item',
  props:['currentUser'],
@@ -186,7 +187,7 @@ export default {
     },
     async loadCountries(){
         try{
-            let {data } = await userAPI.getCountries()
+            let {data } = await commonAPI.getCountries()
             if(data.success){
                 this.countries = data.data
             }
