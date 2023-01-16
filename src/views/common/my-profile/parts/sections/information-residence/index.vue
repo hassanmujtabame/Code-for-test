@@ -4,7 +4,7 @@
                     <h3 class="border-bottom py-2 t-c px-3">
                         معلومات الاقامة 
                     </h3>
-                    <form action="">
+                    <ValidationObserver ref="form">
                         <div class=" p-3">
                             <div class="row  align-items-start">
                                 <label class="col-md-3 m-c fs-5 fw-bolder">
@@ -12,79 +12,33 @@
                                         <path d="M11.9999 14.1704C9.86988 14.1704 8.12988 12.4404 8.12988 10.3004C8.12988 8.16043 9.86988 6.44043 11.9999 6.44043C14.1299 6.44043 15.8699 8.17043 15.8699 10.3104C15.8699 12.4504 14.1299 14.1704 11.9999 14.1704ZM11.9999 7.94043C10.6999 7.94043 9.62988 9.00043 9.62988 10.3104C9.62988 11.6204 10.6899 12.6804 11.9999 12.6804C13.3099 12.6804 14.3699 11.6204 14.3699 10.3104C14.3699 9.00043 13.2999 7.94043 11.9999 7.94043Z" fill="#1FB9B3"/>
                                         <path d="M12.0002 22.76C10.5202 22.76 9.03018 22.2 7.87018 21.09C4.92018 18.25 1.66018 13.72 2.89018 8.33C4.00018 3.44 8.27018 1.25 12.0002 1.25C12.0002 1.25 12.0002 1.25 12.0102 1.25C15.7402 1.25 20.0102 3.44 21.1202 8.34C22.3402 13.73 19.0802 18.25 16.1302 21.09C14.9702 22.2 13.4802 22.76 12.0002 22.76ZM12.0002 2.75C9.09018 2.75 5.35018 4.3 4.36018 8.66C3.28018 13.37 6.24018 17.43 8.92018 20C10.6502 21.67 13.3602 21.67 15.0902 20C17.7602 17.43 20.7202 13.37 19.6602 8.66C18.6602 4.3 14.9102 2.75 12.0002 2.75Z" fill="#1FB9B3"/>
                                         </svg>
-                                        
-                                        
-                                        
-                                        
-                                        الدولـــــة :
-
+                                        {{ $t('Country') }} :
                                 </label>
                                 <div class="col-md-9 row">
                                     <div class="w-100 ">
-
+                                        <ValidationProvider 
+                                        :name="$t('Country')"
+                                        vid="country"
+                                        rules="required"
+                                        v-slot="{errors}"
+                                        >
                                         <div class="  position-relative mb-3 ">
-                                            <select name="" id="" class="form-control p-2" >
-                                                <option value="" class="t-c " selected>  حدد الدولة</option>
-                                                <option value="">ذكر </option>
-                                                <option value="">انثى</option>
+                                            <select v-model="itemForm.country" class="form-control p-2" >
+                                                <option value="" class="t-c " disabled selected>{{ $t('select_country') }}</option>
+                                                <option v-for="(country,i) in countries" :key="i" :value="country.id">{{ country.name}} </option>
                                             </select>
-                                            <div style="    top: 7px;
-                                            left: 10px;" class="position-absolute">
+                                            <div style="top: 7px;left: 10px;" class="position-absolute">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#737373"/>
-                                                    </svg>
-                                                    
+                                                    </svg> 
                                             </div>
                                         </div>
+                                        <d-error-input :error="errors" v-if="errors.length" />
+                                    </ValidationProvider>
                                     </div>
-                            
-
                                 </div>
-
                              </div>
-                             <div class="row  align-items-start">
-                                <label class="col-md-3 m-c fs-5 fw-bolder">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 20.25C7.45 20.25 3.75 16.55 3.75 12C3.75 7.45 7.45 3.75 12 3.75C16.55 3.75 20.25 7.45 20.25 12C20.25 16.55 16.55 20.25 12 20.25ZM12 5.25C8.28 5.25 5.25 8.28 5.25 12C5.25 15.72 8.28 18.75 12 18.75C15.72 18.75 18.75 15.72 18.75 12C18.75 8.28 15.72 5.25 12 5.25Z" fill="#1FB9B3"/>
-                                        <path d="M12 15.75C9.93 15.75 8.25 14.07 8.25 12C8.25 9.93 9.93 8.25 12 8.25C14.07 8.25 15.75 9.93 15.75 12C15.75 14.07 14.07 15.75 12 15.75ZM12 9.75C10.76 9.75 9.75 10.76 9.75 12C9.75 13.24 10.76 14.25 12 14.25C13.24 14.25 14.25 13.24 14.25 12C14.25 10.76 13.24 9.75 12 9.75Z" fill="#1FB9B3"/>
-                                        <path d="M12 4.75C11.59 4.75 11.25 4.41 11.25 4V2C11.25 1.59 11.59 1.25 12 1.25C12.41 1.25 12.75 1.59 12.75 2V4C12.75 4.41 12.41 4.75 12 4.75Z" fill="#1FB9B3"/>
-                                        <path d="M4 12.75H2C1.59 12.75 1.25 12.41 1.25 12C1.25 11.59 1.59 11.25 2 11.25H4C4.41 11.25 4.75 11.59 4.75 12C4.75 12.41 4.41 12.75 4 12.75Z" fill="#1FB9B3"/>
-                                        <path d="M12 22.75C11.59 22.75 11.25 22.41 11.25 22V20C11.25 19.59 11.59 19.25 12 19.25C12.41 19.25 12.75 19.59 12.75 20V22C12.75 22.41 12.41 22.75 12 22.75Z" fill="#1FB9B3"/>
-                                        <path d="M22 12.75H20C19.59 12.75 19.25 12.41 19.25 12C19.25 11.59 19.59 11.25 20 11.25H22C22.41 11.25 22.75 11.59 22.75 12C22.75 12.41 22.41 12.75 22 12.75Z" fill="#1FB9B3"/>
-                                        </svg>
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        المدينـــة  :
-
-                                </label>
-                                <div class="col-md-9 row">
-                                    <div class="w-100 ">
-
-                                        <div class="  position-relative mb-3 ">
-                                            <select name="" id="" class="form-control p-2" >
-                                                <option value="" class="t-c " selected>   حدد المدينة</option>
-                                                <option value="">ذكر </option>
-                                                <option value="">انثى</option>
-                                            </select>
-                                            <div style="    top: 7px;
-                                            left: 10px;" class="position-absolute">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z" fill="#737373"/>
-                                                    </svg>
-                                                    
-                                            </div>
-                                        </div>
-                                    </div>
-                            
-
-                                </div>
-
-                             </div>
-                                
-                                <div class="row align-items-start ">
+                             <div class="row align-items-start ">
                                     <label class="col-md-3 m-c fs-5 fw-bolder">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M20.3799 21.13C20.1799 21.13 19.9899 21.05 19.8499 20.91L13.4699 14.53C13.1799 14.24 13.1799 13.76 13.4699 13.47L21.2 5.74001C21.39 5.55001 21.6799 5.48001 21.9399 5.55001C22.1999 5.63001 22.3999 5.84001 22.4599 6.10001C22.6499 6.95001 22.7499 7.90001 22.7499 9.00001V15C22.7499 17.77 22.1699 19.64 20.9099 20.91C20.7699 21.05 20.5599 21.08 20.3799 21.13ZM15.0599 14L20.3199 19.26C20.9499 18.29 21.2499 16.91 21.2499 15V9.00001C21.2499 8.59001 21.2399 8.21001 21.2099 7.85001L15.0599 14Z" fill="#1FB9B3"/>
@@ -97,19 +51,51 @@
                                             
                                             
                                             
-                                            المنطقة  :
+                                            {{ $t('Region') }}  :
 
                                     </label>
                                     <div class="col-md-9 row mb-3 ">
                                     
-                                            <div class="">
-                                                <input type="text" class="form-control" placeholder="  أكتب اسم المنطقة ">
-                                            </div>
+                                        <ValidationProvider 
+                                        :name="$t('Region')"
+                                        vid="region"
+                                        rules="required"
+                                        v-slot="{errors}"
+                                        >
+                                                <input type="text" v-model="itemForm.region" class="form-control" :placeholder="$t('write_region_name')">
+                                                <d-error-input :error="errors" v-if="errors.length" />
+                                    </ValidationProvider>
                                   
                                     </div>
                                 
 
                                 </div>
+                             <div class="row  align-items-start">
+                                <label class="col-md-3 m-c fs-5 fw-bolder">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20.25C7.45 20.25 3.75 16.55 3.75 12C3.75 7.45 7.45 3.75 12 3.75C16.55 3.75 20.25 7.45 20.25 12C20.25 16.55 16.55 20.25 12 20.25ZM12 5.25C8.28 5.25 5.25 8.28 5.25 12C5.25 15.72 8.28 18.75 12 18.75C15.72 18.75 18.75 15.72 18.75 12C18.75 8.28 15.72 5.25 12 5.25Z" fill="#1FB9B3"/>
+                                        <path d="M12 15.75C9.93 15.75 8.25 14.07 8.25 12C8.25 9.93 9.93 8.25 12 8.25C14.07 8.25 15.75 9.93 15.75 12C15.75 14.07 14.07 15.75 12 15.75ZM12 9.75C10.76 9.75 9.75 10.76 9.75 12C9.75 13.24 10.76 14.25 12 14.25C13.24 14.25 14.25 13.24 14.25 12C14.25 10.76 13.24 9.75 12 9.75Z" fill="#1FB9B3"/>
+                                        <path d="M12 4.75C11.59 4.75 11.25 4.41 11.25 4V2C11.25 1.59 11.59 1.25 12 1.25C12.41 1.25 12.75 1.59 12.75 2V4C12.75 4.41 12.41 4.75 12 4.75Z" fill="#1FB9B3"/>
+                                        <path d="M4 12.75H2C1.59 12.75 1.25 12.41 1.25 12C1.25 11.59 1.59 11.25 2 11.25H4C4.41 11.25 4.75 11.59 4.75 12C4.75 12.41 4.41 12.75 4 12.75Z" fill="#1FB9B3"/>
+                                        <path d="M12 22.75C11.59 22.75 11.25 22.41 11.25 22V20C11.25 19.59 11.59 19.25 12 19.25C12.41 19.25 12.75 19.59 12.75 20V22C12.75 22.41 12.41 22.75 12 22.75Z" fill="#1FB9B3"/>
+                                        <path d="M22 12.75H20C19.59 12.75 19.25 12.41 19.25 12C19.25 11.59 19.59 11.25 20 11.25H22C22.41 11.25 22.75 11.59 22.75 12C22.75 12.41 22.41 12.75 22 12.75Z" fill="#1FB9B3"/>
+                                        </svg>
+                                        {{$t('City')}}  :
+                                </label>
+                                <div class="col-md-9 row mb-3">
+                                    <ValidationProvider 
+                                        :name="$t('City')"
+                                        vid="city"
+                                        rules="required"
+                                        v-slot="{errors}"
+                                        >
+                                                <input type="text" v-model="itemForm.city" class="form-control" :placeholder="$t('write_city_name')">
+                                                <d-error-input :error="errors" v-if="errors.length" />
+                                    </ValidationProvider>
+                                </div>
+                             </div>
+                                
+                                
                                 <div class="row align-items-start ">
                                     <label class="col-md-3 m-c fs-5 fw-bolder">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,27 +106,28 @@
                                             <path d="M3.99997 6.75043C3.80997 6.75043 3.61994 6.68043 3.46994 6.53043L1.46994 4.53043C1.17994 4.24043 1.17994 3.76043 1.46994 3.47043L3.46994 1.47043C3.75994 1.18043 4.24 1.18043 4.53 1.47043C4.82 1.76043 4.82 2.24043 4.53 2.53043L3.05997 4.00043L4.53 5.47043C4.82 5.76043 4.82 6.24043 4.53 6.53043C4.38 6.68043 4.18997 6.75043 3.99997 6.75043Z" fill="#1FB9B3"/>
                                             <path d="M20 6.75043C19.81 6.75043 19.6199 6.68043 19.4699 6.53043C19.1799 6.24043 19.1799 5.76043 19.4699 5.47043L20.94 4.00043L19.4699 2.53043C19.1799 2.24043 19.1799 1.76043 19.4699 1.47043C19.7599 1.18043 20.24 1.18043 20.53 1.47043L22.53 3.47043C22.82 3.76043 22.82 4.24043 22.53 4.53043L20.53 6.53043C20.38 6.68043 20.19 6.75043 20 6.75043Z" fill="#1FB9B3"/>
                                             </svg>
-                                            
-                                            
-                                            
-                                            
-                                            الشــــارع  :
-
+                                            {{ $t('Street') }}  :
                                     </label>
                                     <div class="col-md-9 row mb-3 ">
                                     
-                                            <div class="">
-                                                <input type="text" class="form-control" placeholder="   أكتب اسم الشارع  ">
-                                            </div>
+                                        <ValidationProvider 
+                                        :name="$t('Street')"
+                                        vid="street"
+                                        rules="required"
+                                        v-slot="{errors}"
+                                        >
+                                                <input type="text" v-model="itemForm.street" class="form-control" :placeholder="$t('write_street_name')">
+                                                <d-error-input :error="errors" v-if="errors.length" />
+                                    </ValidationProvider>
                                   
                                     </div>
                                 
 
                                 </div>
                         </div>
-                    </form>
+                    </ValidationObserver>
                     <div class="m-auto text-center p-3">
-                        <button class="btn-main">
+                        <button @click="save" class="btn-main">
                             {{$t('save')}}
                         </button>
                     </div>
@@ -149,8 +136,68 @@
 </template>
 
 <script>
+import userAPI from '@/services/api/user.js'
 export default {
- name:'list-item'
+ name:'residence-item',
+ data:()=>{
+    return {
+        countries:[],
+        cities:[],
+        itemForm:{
+            country:null,
+            region:null,
+            city:null,
+            street:null
+        }
+    
+    }
+ },
+ methods:{
+    async save(evt){
+            if(evt) evt.preventDefault();
+            let valid = await this.$refs.form.validate();
+            if(!valid){
+                console.log('form invalid')
+                return;
+            }
+             let formData =  new FormData();
+             Object.keys(this.itemForm).forEach(key=>{
+                formData.append(`${key}`,this.itemForm[key])
+             })
+             
+            try {
+                let {data} = await userAPI.postResidenceInformation(formData)
+                if(data.success){
+                    window.SwalSuccess(data.message)
+                }else{
+                    window.SwalError(data.message)
+                }
+            } catch (error) {
+                console.log('error',error)
+                if(error.response){
+                    if(error.response.status == 422){
+                        this.$refs.form.setErrors(error.response.data)
+                    }
+                }
+                
+            }
+    },
+    async loadCountries(){
+        try{
+            let {data } = await userAPI.getCountries()
+            if(data.success){
+                this.countries = data.data
+            }
+        }catch(error){
+            this.countries = [
+            {id:'sa',name:'السعودية'}
+        ]
+        }
+    }
+ },
+ mounted(){
+    this.loadCountries()
+ }
 }
 </script>
 
