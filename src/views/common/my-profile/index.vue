@@ -9,7 +9,7 @@
         <div class="col-12 col-md-8 mt-3">
           <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
                     <!-- معومات العرض-->
-                    <SectionExhibition />
+                    <SectionDisplay />
                     <!--معومات شخصية  -->
                     <SectionPersonal/>
                     <!--معلومات الدراسة -->
@@ -37,7 +37,7 @@
 
 <script>
 import Sidebar from './parts/sidebar/index.vue'
-import SectionExhibition from './parts/sections/information-exhibition/index.vue'
+import SectionDisplay from './parts/sections/information-display/index.vue'
 import SectionPersonal from './parts/sections/information-personal/index.vue'
 import SectionEducation from './parts/sections/information-education/index.vue'
 import SectionProfessional from './parts/sections/information-professional/index.vue'
@@ -50,7 +50,7 @@ export default {
  name:'show-profile',
  components:{
     Sidebar,
-    SectionExhibition,
+    SectionDisplay,
     SectionPersonal,
     SectionEducation,
     SectionCommunication,
