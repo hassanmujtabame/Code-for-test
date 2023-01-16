@@ -75,7 +75,7 @@ export default {
     statusText(){
         switch (this.status) {
             case 'active': return this.$t('status_subscribe_active')
-            case 'expired': return this.$t('status_subscribe_expired')
+            case 'finished': return this.$t('status_subscribe_expired')
         
             default:return ''
         }
