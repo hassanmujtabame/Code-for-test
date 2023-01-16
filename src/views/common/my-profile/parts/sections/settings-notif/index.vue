@@ -66,6 +66,7 @@
 import userAPI from '@/services/api/user.js'
 export default {
  name:'settings-notif-item',
+ props:['currentUser'],
  data:()=>({
     itemForm:{
         courses_notification: 0,

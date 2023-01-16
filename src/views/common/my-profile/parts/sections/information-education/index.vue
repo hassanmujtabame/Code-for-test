@@ -201,6 +201,7 @@
 import userAPI from '@/services/api/user.js'
 export default {
     name: 'eduction-item',
+ props:['currentUser'],
     data: () => {
         return {
             degrees: [

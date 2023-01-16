@@ -1,6 +1,11 @@
 <template>
   <div style="margin-top: 96px;">
-<div class="container">
+    <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+     {{ hasError }}
+    </div>
+    <div v-else class="container">
+
     <div class="row  profile-services ">
         <div class="col-12 col-md-4 mt-3">
           <!--sidebar-->
@@ -9,23 +14,23 @@
         <div class="col-12 col-md-8 mt-3">
           <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
                     <!-- معومات العرض-->
-                    <SectionDisplay />
+                    <SectionDisplay  :currentUser="currentUser"/>
                     <!--معومات شخصية  -->
-                    <SectionPersonal/>
+                    <SectionPersonal  :currentUser="currentUser"/>
                     <!--معلومات الدراسة -->
-                    <SectionEducation />
+                    <SectionEducation  :currentUser="currentUser" />
                     <!--معلومات مهنية -->
-                    <SectionProfessional />
+                    <SectionProfessional   :currentUser="currentUser"/>
                     <!--معلومات الاقامة -->
-                    <SectionResidence />
+                    <SectionResidence   :currentUser="currentUser"/>
                     <!-- معلومات التواصل -->
-                    <SectionCommunication />
+                    <SectionCommunication   :currentUser="currentUser"/>
                     <!-- اعدادات الاشعارات -->
-                    <SectionSettingsNotif />
+                    <SectionSettingsNotif   :currentUser="currentUser"/>
                     <!--قائمة الحظر -->
-                    <SectionListBlocks />
+                    <SectionListBlocks   :currentUser="currentUser"/>
                     <!--معرض الاعمال -->
-                    <SectionShowerProject />
+                    <SectionShowerProject   :currentUser="currentUser"/>
                  
           </div>
         </div>
@@ -36,6 +41,7 @@
 </template>
 
 <script>
+import userAPI from '@/services/api/user.js'
 import Sidebar from './parts/sidebar/index.vue'
 import SectionDisplay from './parts/sections/information-display/index.vue'
 import SectionPersonal from './parts/sections/information-personal/index.vue'
@@ -59,6 +65,38 @@ export default {
     SectionSettingsNotif,
     SectionListBlocks,
     SectionShowerProject
+ },
+ data:()=>{
+  return {
+    currentUser:{},
+    loading:false,
+    hasError:false,
+  }
+ },
+ methods:{
+  async loadCurrentUser(){
+    this.loading  = true;
+    this.hasError  = false;
+      try {
+         let { data } = await  userAPI.me()
+         if(data.success){
+           this.currentUser = data.data
+         }else{
+          this.hasError = data.message
+         }
+      } catch (error) {
+         if(error.response){
+            let response =error.response
+            if(response.status==401){
+               this.logout()
+           }else{
+            this.hasError = ' هناك خطأ غير معروف يرجي تحديث الصفحة'
+           }
+         }
+         
+      }
+      this.loading  = false;
+   }
  }
 }
 </script>

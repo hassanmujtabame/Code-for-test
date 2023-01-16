@@ -153,6 +153,7 @@
 import userAPI from '@/services/api/user.js'
 export default {
  name:'list-item',
+ props:['currentUser'],
  data:()=>{
     return {
         itemForm:{

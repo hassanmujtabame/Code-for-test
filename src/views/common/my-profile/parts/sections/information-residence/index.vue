@@ -139,6 +139,7 @@
 import userAPI from '@/services/api/user.js'
 export default {
  name:'residence-item',
+ props:['currentUser'],
  data:()=>{
     return {
         countries:[],

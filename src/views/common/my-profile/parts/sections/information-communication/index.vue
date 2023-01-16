@@ -67,7 +67,8 @@
 
 <script>
 export default {
- name:'list-item'
+ name:'list-item',
+ props:['currentUser']
 }
 </script>
 

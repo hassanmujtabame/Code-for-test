@@ -80,6 +80,7 @@
 import userAPI from '@/services/api/user.js'
 export default {
  name:'display-info-item',
+ props:['currentUser'],
  data:() => {
    return { 
   
