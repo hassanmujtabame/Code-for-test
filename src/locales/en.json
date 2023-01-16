@@ -282,5 +282,9 @@
   "female": "Female",
   "free_subscibe": "free subscibe",
   "monthly_subscribe": "Monthly subscribe",
-  "annually_subscribe": "Annually subscribe"
+  "annually_subscribe": "Annually subscribe",
+  "hour_s": "Hour(s)",
+  "and": "and",
+  "minute_s": "minute(s)",
+  "second_s": "second(s)"
 }

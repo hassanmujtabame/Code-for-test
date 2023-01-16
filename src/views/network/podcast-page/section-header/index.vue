@@ -13,23 +13,29 @@
                 <div class="podcast-item__content">
                     <h1 class="podcast-item__title">{{ itemPage.title }}</h1>
                     <div class="podcast-item__subtitle">
-                        <span>{{ itemPage.time_duration }}</span>
-                        <span>{{ itemPage.date ?? 'N/A' }}</span>
+                        <span>{{ time_duration_str }}</span>
+                        <span>{{ itemPage.created_at ?? 'N/A' }}</span>
                     </div>
                     <div class="podcast-item__player">
-                        <div class="podcast-item__player-icon">
-                            <playIcon :bgColor="'var(--m-color)'" :playColor="'#FFFFFF'" />
+                        <div class="podcast-item__player-icon"  @click="doPlay">
+                            <playIcon v-if="!play || pause" :bgColor="'var(--m-color)'" :playColor="'#FFFFFF'" />
+                            <playIcon v-if="playing" :bgColor="'var(--m-color)'" :playColor="'red'" />
                         </div>
                         <div class="podcast-item__player-progress">
-                            <div class="podcast-item__player-progress-start-time">02:05</div>
+                            <div class="podcast-item__player-progress-start-time">{{currentTime}}</div>
                             <div class="podcast-item__player-progress-bar">
                                 <d-hover v-slot="{ hover }">
-                                    <progressBar :sizeCircle="hover ? 18 : 12"
+                                    <progressBar @loaded="loadedAudio" 
+                                    @play="play = $event"
+                                    @timeupdate="ontimeupdate"
+                                    @pause="onpause"
+                                    @playing="onplaying"
+                                    :link-audio="itemPage.audio" :sizeCircle="hover ? 18 : 12"
                                      :heightBar="hover ? 4 : 2">
                                     </progressBar>
                                 </d-hover>
                             </div>
-                            <div class="podcast-item__player-progress-end-time">55:00</div>
+                            <div class="podcast-item__player-progress-end-time"> {{ time_duration }}</div>
                         </div>
                     </div>
                 </div>
@@ -40,13 +46,52 @@
 
 <script>
 import playIcon from '@/components/icon-svg/play.vue';
+import pauseIcon from '@/components/icon-svg/pause.vue';
 import progressBar from './progress-bar.vue'
 export default {
     name: 'section-header',
     props: ['itemPage'],
     components: {
         playIcon,
+        pauseIcon,
         progressBar
+    },
+    data:()=>{
+        return {
+            currentTime:'00:00',
+            play:false,
+            playing:false,
+            pause:false,
+          time_duration:'N/A',
+          time_duration_str:'N/A',
+        }
+    },
+    methods:{
+        doEvent(data){
+            this.fireEvent('audio-tracker-audio-events',data)
+        },
+        doPlay(){
+            if(this.playing)
+            this.doEvent({action:'pause'});
+           else
+            this.doEvent({action:'play'});
+            
+        },
+        ontimeupdate(data){
+            this.currentTime = data.current
+        },
+        onpause(){
+            this.playing = false;
+            this.pause = true;
+        },
+        onplaying(){
+            this.playing = true;
+            this.pause = false;
+        },
+        loadedAudio(data){
+            this.time_duration_str = data.time_str
+            this.time_duration = data.time
+        }
     }
 }
 </script>
@@ -183,6 +228,7 @@ html[dir=ltr] .podcast-item__content {
     color: #FFFFFF;
     padding: 0 18px;
     font-size: 12px;
+    min-width: 50px;
 }
 
 .podcast-item__player-progress-bar {

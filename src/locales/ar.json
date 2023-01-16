@@ -281,5 +281,9 @@
   "female": "أنثى",
   "free_subscibe": "اشتراك مجاني",
   "monthly_subscribe": "اشتراك شهري",
-  "annually_subscribe": "اشترك سنويا"
+  "annually_subscribe": "اشترك سنويا",
+  "hour_s": "ساعة",
+  "and": "و",
+  "minute_s": "دقيقة",
+  "second_s": "ثانية"
 }
