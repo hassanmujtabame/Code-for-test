@@ -278,5 +278,8 @@
   "write_region_name": "أكتب اسم المنطقة",
   "select_country": "حدد الدولة",
   "male": "ذكر",
-  "female": "أنثى"
+  "female": "أنثى",
+  "free_subscibe": "اشتراك مجاني",
+  "monthly_subscribe": "اشتراك شهري",
+  "annually_subscribe": "اشترك سنويا"
 }

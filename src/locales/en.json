@@ -279,5 +279,8 @@
   "write_region_name": "write region name",
   "select_country": "Select country",
   "male": "Male",
-  "female": "Female"
+  "female": "Female",
+  "free_subscibe": "free subscibe",
+  "monthly_subscribe": "Monthly subscribe",
+  "annually_subscribe": "Annually subscribe"
 }
