@@ -81,19 +81,20 @@ import userAPI from '@/services/api/user.js'
 export default {
  name:'display-info-item',
  props:['currentUser'],
- data:() => {
+ data:(vm) => {
    return { 
   
     urlTmp:null,
+    imageUrl:vm.currentUser.image,
     itemForm:{
         image:null,
-        bio:null,
+        bio:vm.currentUser.bio,
     }
  }
 },
 computed:{
   imageUser(){
-    return this.user.image
+    return this.imageUrl
   }
 },
  methods:{

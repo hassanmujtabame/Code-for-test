@@ -85,9 +85,9 @@
                                                 >
                                                     <div class="  position-relative ">
                                                         <select v-model="itemForm.gender"  class="form-control p-2" >
-                                                            <option value="" class="t-c " selected>حدد نوعك</option>
-                                                            <option value="1">ذكر </option>
-                                                            <option value="2">انثى</option>
+                                                            <option value="" class="t-c " disabled selected>حدد نوعك</option>
+                                                            <option value="male">{{$t('male')}} </option>
+                                                            <option value="female">{{$t('female')}}</option>
                                                         </select>
                                                         <div style="top: 7px;left: 10px;" class="position-absolute">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,13 +154,14 @@ import userAPI from '@/services/api/user.js'
 export default {
  name:'list-item',
  props:['currentUser'],
- data:()=>{
+ data:(vm)=>{
     return {
         itemForm:{
                 gender:'',
                 birth_date:'',
                 nationality:'',
                 identification_number:'',
+                ...vm.currentUser.personal_informations
         }
     }
  },

@@ -202,7 +202,7 @@ import userAPI from '@/services/api/user.js'
 export default {
     name: 'eduction-item',
  props:['currentUser'],
-    data: () => {
+    data: (vm) => {
         return {
             degrees: [
                 { id: 'high-school', name: 'ثانوي' },
@@ -216,6 +216,7 @@ export default {
                 degree: '',
                 graduation_year: '',
                 specialization: '',
+                ...vm.currentUser.study_informations
             }
         }
     },

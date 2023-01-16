@@ -67,12 +67,13 @@ import userAPI from '@/services/api/user.js'
 export default {
  name:'settings-notif-item',
  props:['currentUser'],
- data:()=>({
+ data:(vm)=>({
     itemForm:{
         courses_notification: 0,
         blogs_notification: 0,
         attachments_notification: 0,
-        meeting_notification: 0
+        meeting_notification: 0,
+        ...vm.currentUser.notification_settings
     }
  }),
  methods:{

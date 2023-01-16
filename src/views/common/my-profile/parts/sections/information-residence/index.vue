@@ -18,12 +18,12 @@
                                     <div class="w-100 ">
                                         <ValidationProvider 
                                         :name="$t('Country')"
-                                        vid="country"
+                                        vid="country_id"
                                         rules="required"
                                         v-slot="{errors}"
                                         >
                                         <div class="  position-relative mb-3 ">
-                                            <select v-model="itemForm.country" class="form-control p-2" >
+                                            <select v-model="itemForm.country_id" class="form-control p-2" >
                                                 <option value="" class="t-c " disabled selected>{{ $t('select_country') }}</option>
                                                 <option v-for="(country,i) in countries" :key="i" :value="country.id">{{ country.name}} </option>
                                             </select>
@@ -140,15 +140,16 @@ import userAPI from '@/services/api/user.js'
 export default {
  name:'residence-item',
  props:['currentUser'],
- data:()=>{
+ data:(vm)=>{
     return {
         countries:[],
         cities:[],
         itemForm:{
-            country:null,
+            country_id:null,
             region:null,
             city:null,
-            street:null
+            street:null,
+            ...vm.currentUser.residence_informations
         }
     
     }

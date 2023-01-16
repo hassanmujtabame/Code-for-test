@@ -69,7 +69,7 @@ export default {
  data:()=>{
   return {
     currentUser:{},
-    loading:false,
+    loading:true,
     hasError:false,
   }
  },
@@ -97,6 +97,9 @@ export default {
       }
       this.loading  = false;
    }
+ },
+ mounted(){
+  this.loadCurrentUser()
  }
 }
 </script>

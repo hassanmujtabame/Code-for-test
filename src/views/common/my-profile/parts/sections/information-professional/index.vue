@@ -77,13 +77,14 @@ import userAPI from '@/services/api/user.js'
 export default {
     name: 'professional-item',
  props:['currentUser'],
-    data: () => {
+    data: (vm) => {
         return {
             industries: [],
             itemForm: {
                 job_title: '',
                 year_experience: '',
                 field_id: '',
+                ...vm.currentUser.career_informations
             }
         }
     },

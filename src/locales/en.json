@@ -277,5 +277,7 @@
   "write_street_name": "write street name",
   "write_city_name": "Write city name",
   "write_region_name": "write region name",
-  "select_country": "Select country"
+  "select_country": "Select country",
+  "male": "Male",
+  "female": "Female"
 }
