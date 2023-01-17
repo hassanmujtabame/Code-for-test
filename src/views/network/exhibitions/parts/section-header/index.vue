@@ -15,7 +15,8 @@
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit" class="m-auto text-end">
-                            <img class="img-fluid" src="/assets/img/vector 555@2x.png" alt="" />
+                            <img class="cloud-bg" src="/assets/svg/Group 1171275412.svg" alt="" />
+                            <img class="img-header" src="/assets/img/vector 555@2x.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -44,6 +45,18 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.cloud-bg{
+    position: absolute;
+    width: 635.34px;
+    height: 370.04px;
+    left: -37.3px;
+    top: 27px;
+    transform: rotate(13.26deg);
+    z-index: 0;
+}
+.img-header{
+    width: 488.29px;
+    height: 355.51px;
+}
 </style>
