@@ -249,7 +249,7 @@
   "recently-podcast": "أحدث بودكاست ",
   "podcast_category": "تصنيف البودكاست",
   "Webinar": "نقاش عبر الويب",
-  "B2B": "بزنس تو بزنس (B2B)",
+  "B2B": "بزنس تو بزنس",
   "all": "الكل",
   "Error": "خطأ",
   "Success": "تمت بنجاح",
@@ -285,5 +285,8 @@
   "hour_s": "ساعة",
   "and": "و",
   "minute_s": "دقيقة",
-  "second_s": "ثانية"
+  "second_s": "ثانية",
+  "the_meetings": "اللقاءات",
+  "search": "إبحث",
+  "search_by_name": "إبحث بالإسم"
 }

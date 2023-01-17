@@ -286,5 +286,9 @@
   "hour_s": "Hour(s)",
   "and": "and",
   "minute_s": "minute(s)",
-  "second_s": "second(s)"
+  "second_s": "second(s)",
+  "B2B": "B2B",
+  "the_meetings": "Meetings",
+  "search": "search",
+  "search_by_name": "search by name"
 }
