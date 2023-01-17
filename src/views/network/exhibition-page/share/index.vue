@@ -28,7 +28,7 @@
                 <div class=" col-12 col-md-8">
                     <div class="border p-4">
                         <h3 class=" p-2">
-                            أستمارة المشاركة 
+                            إستمارة المشاركة 
                             <span class="m-c">
 
                                 في {{itemPage.title}}
