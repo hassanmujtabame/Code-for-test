@@ -291,5 +291,17 @@
   "the_meetings": "Meetings",
   "search": "search",
   "search_by_name": "search by name",
-  "shared": "Shared"
+  "shared": "Shared",
+  "exhibition_title": "Exhibition title",
+  "enter_price": "Enter price",
+  "entry_price": "Entry price",
+  "the_city": "City",
+  "add-display-image": "add display image",
+  "exhibition_map_file": "exhibition map file",
+  "is_exhibition_available_for_sharing": "Is available for sharing?",
+  "start_date_exhibition": "start date exhibition",
+  "end_date_exhibition": "End date exhibition",
+  "start_time_exhibition": "start time exhibition",
+  "end_time_exhibition": "end time exhibition",
+  "exhibition_category": "exhibition category"
 }

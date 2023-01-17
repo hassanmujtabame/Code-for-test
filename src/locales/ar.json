@@ -289,5 +289,17 @@
   "the_meetings": "اللقاءات",
   "search": "إبحث",
   "search_by_name": "إبحث بالإسم",
-  "shared": "المشاركة"
+  "shared": "المشاركة",
+  "exhibition_title": "عنوان المعرض",
+  "enter_price": "أدخل السعر",
+  "entry_price": "سعر الدخول",
+  "the_city": "المدينة",
+  "add-display-image": "أضف صورة العرض",
+  "exhibition_map_file": " أرفق خريطة المعرض",
+  "is_exhibition_available_for_sharing": "هل المعرض متاح  للمشاركة ؟",
+  "start_date_exhibition": "تاريخ بداية المعرض",
+  "end_date_exhibition": "تاريخ نهاية المعرض",
+  "start_time_exhibition": "وقت بداية المعرض",
+  "end_time_exhibition": "وقت نهاية المعرض",
+  "exhibition_category": "تصنيف المعرض"
 }
