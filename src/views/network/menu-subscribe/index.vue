@@ -17,7 +17,7 @@
                     </div>
                     <subscribeItem 
                     v-for="(item,i) in items" :key="i"
-                    :title="getTitle(item.package_type)"
+                    :title="getTitleSubscribe(item.package_type)"
                 
                     :status="item.package_status"
                     :price="item.package_price"
@@ -51,15 +51,7 @@ export default {
     ]
  }),
  methods:{
-    getTitle(type){
-        switch (type) {
-            case 'free': return this.$t('free_subscibe');
-            case 'month': return this.$t('monthly_subscribe');
-            case 'year': return this.$t('annually_subscribe');
-            default: return 'N/A'
-
-        }
-    },
+   
     async loadList(){
         try {
             let { data } = await networkAPI.getSubscribes()

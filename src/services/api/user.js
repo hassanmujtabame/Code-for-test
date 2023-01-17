@@ -51,6 +51,10 @@ class UserApi extends BaseApi {
         /** مجال الشركة التي يعمل بها */
         return window.axios.get(`user/fileds`,data);
     }
+
+    checkoutNetwork(package_id,data={}){
+        return window.axios.get(`user-checkout?package_id=${package_id}`,data);
+    }
     
 
 }

@@ -20,34 +20,17 @@
             </div>
             <div class="shadow bg-white rounded-bottom">
                 <div class="row p-3">
-                    <div class="col-md-4  mt-2 s">
+                    <div v-for="(pack,p) in packages" :key="p" class="col-md-4  mt-2">
                         <SubscribeCard
-                        title="الاشتراك العادي"
-                        price="مجاناً"
+                        :title="getTitleSubscribe(pack.type)"
+                        :price="pack.price"
                         :features="['تواصلي مع أعضاء الشبكة','شاركي في اللقاءات المستمرة لرواد الشبكة','تواصلي مع أعضاء الشبكة']"
-                        type-subscribe="normal"
+                        :type-subscribe="pack.type"
                         @selected="choose"
                         ></SubscribeCard>
                      
                     </div>
-                    <div class="col-md-4 mt-2">
-                        <SubscribeCard
-                        title="الاشتراك الشهري"
-                        price="500 يال"
-                        :features="['تواصلي مع أعضاء الشبكة','شاركي في اللقاءات المستمرة لرواد الشبكة','تواصلي مع أعضاء الشبكة']"
-                        type-subscribe="monthly"
-                        @selected="choose"
-                        ></SubscribeCard>
-                    </div>
-                    <div class="col-md-4 mt-2">
-                        <SubscribeCard
-                        title="الاشتراك السنوي"
-                        price="1500 ريال"
-                        :features="['تواصلي مع أعضاء الشبكة','شاركي في اللقاءات المستمرة لرواد الشبكة','تواصلي مع أعضاء الشبكة']"
-                        type-subscribe="annual"
-                        @selected="choose"
-                        ></SubscribeCard>
-                    </div>
+
                 </div>
             </div>
 
@@ -89,6 +72,7 @@
 <script>
 import SubscribeCard from '@/components/cards/subscribe-card.vue';
 import DialogSubscribe from '@/components/modals/simple.vue'
+import networkAPI from '@/services/api/network.js'
 export default {
 name:'network-subscribe',
 components:{
@@ -97,12 +81,26 @@ components:{
 },
   data:()=>({
     show:false,
+    packages:[],
   }),
   methods:{
     choose(type){
         console.log(type)
         this.show=true
+    },
+    async loadPackages(){
+        try {
+            let { data } = await networkAPI.getPackages();
+            if(data.success){
+                this.packages = data.data
+            }
+        } catch (error) {
+            console.log('error',error)
+        }
     }
+  },
+  mounted(){
+    this.loadPackages()
   }
 }
 </script>

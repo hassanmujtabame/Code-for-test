@@ -8,6 +8,15 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            getTitleSubscribe(type){
+              switch (type) {
+                  case 'free': return this.$t('free_subscibe');
+                  case 'month': return this.$t('monthly_subscribe');
+                  case 'year': return this.$t('annually_subscribe');
+                  default: return 'N/A'
+      
+              }
+          },
             setErrorsForm(form,response){
               form.setErrors(response.data.errors)
             },

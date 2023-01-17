@@ -6,7 +6,7 @@
 
                          <h2 class="fw-bolder">{{title}}</h2>
                          <h1 class="y-c fw-bolder fs-1 py-4">
-                             {{price}}
+                             {{typeSubscribe=='free'?`0`:price}} {{ $t('riyals') }}
                          </h1>
                          <div class="text-start">
 
@@ -35,7 +35,7 @@ export default {
         type:String,
     },
     price:{
-        type:String
+        type:[String,Number]
     },
     typeSubscribe:{
         type:String

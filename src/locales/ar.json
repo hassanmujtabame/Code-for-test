@@ -315,5 +315,6 @@
   "number_days": "عدد الأيام",
   "exhibition_attechment": "مرفق",
   "exhibition_rent_price": "سعر الإيجار",
-  "exhibition_insurance_price": "سعر التأمين"
+  "exhibition_insurance_price": "سعر التأمين",
+  "free": "مجانا"
 }

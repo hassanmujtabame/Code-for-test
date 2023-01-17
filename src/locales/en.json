@@ -317,5 +317,6 @@
   "number_days": "Number days",
   "exhibition_attechment": "Attachment",
   "exhibition_rent_price": "Rental price",
-  "exhibition_insurance_price": "insurance price"
+  "exhibition_insurance_price": "insurance price",
+  "free": "Free"
 }
