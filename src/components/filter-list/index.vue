@@ -21,7 +21,7 @@
             <div :class="classColSearch">
             <slot name="search">
             <label for="" class="position-relative w-100">
-                <input class="form-control py-3 px-5" type="text" v-model="filter.search" @change="updateFilter" placeholder="إبحث" />
+                <input class="form-control py-3 px-5" type="text" v-model="filter.search" @change="updateFilter" :placeholder="searchPlacehoder" />
                 <p style="top: 25%; right: 7px" class="position-absolute">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -262,6 +262,13 @@ export default {
           return this.$t('services')
         }
         },
+        searchPlacehoder:{
+            type:String,
+            default:function(){
+          return this.$t('search')
+        }
+        },
+        
         singleName:{
             type:String,
             default:function(){
