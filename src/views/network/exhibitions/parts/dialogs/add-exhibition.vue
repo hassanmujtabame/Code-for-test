@@ -8,14 +8,14 @@
     >
         <ValidationObserver ref="form">
             <div class="row add-portfolio m-3 p-0 position-relatiuve">
-                <div class="col-12 col-lg-5  justify-content-center m-auto">
+                <div class="col-12 col-lg-5  justify-content-center mx-auto">
                     <div class="col-md-10">
                         <ValidationProvider :name="$t('Image')" vid="image" rules="required|image" v-slot="{ validate, errors }">
                             <label for="imginput" class="form-label file-label first w-100">
                                 <div class="text-center p-5">
                                     <img src="/assets/svg/empty-image.svg">
 
-                                    <p class="m-c">{{ $t('add-image') }} </p>
+                                    <p class="m-c">{{ $t('add-display-image') }} </p>
                                 </div>
                                 <div class="add-img-selected">
 
@@ -34,7 +34,7 @@
                         <div class="col-md-12">
                             <div class="text">
                                 <ValidationProvider 
-                                :name="$t('Map file')" 
+                                :name="$t('exhibition_map_file')" 
                                 vid="mapfile" 
                                 rules=""
                                     v-slot="{ validate, errors }">
@@ -87,13 +87,13 @@
                     <div class="col-md-10">
                         <div class="border mt-2 p-3 text-center">
 
-                            <h6>هل المعرض متاح للمشاركة ؟</h6>
+                            <h6>{{$t('is_exhibition_available_for_sharing')}}</h6>
                            
-                                <ValidationProvider :name="$t('Available')"
+                                <ValidationProvider :name="$t('is_exhibition_available_for_sharing')"
                                  vid="is_share"
                                  rules="required"
                                  tag="div"
-                                 class="d-flex justify-content-center   gap-2"
+                                 class="d-flex justify-content-evenly   gap-2"
                                     v-slot="{ errors }">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" :value="1" v-model="itemForm.is_share" name="flexRadioDefault">
@@ -121,14 +121,15 @@
                 <div class="col-12 col-lg-7">
                     <div class="mb-3">
                         <ValidationProvider 
-                        :name="$t('Title')" 
+                        :name="$t('exhibition_title')" 
                         vid="title" 
                         rules="required" 
                         v-slot="{ errors }"
                         >
+                        <label class="form-label">{{$t('exhibition_title')}}</label>
                             <input type="text" class="form-control" 
                             v-model="itemForm.title"
-                            :placeholder="$t('Title')">
+                            :placeholder="hidePlaceholder?'':$t('exhibition_title')">
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
                             </div>
@@ -136,12 +137,12 @@
                     </div>
                     <div class="mb-3">
                         <ValidationProvider 
-                        :name="$t('Price')" 
+                        :name="$t('entry_price')" 
                         vid="price" 
                         rules="required" 
                         v-slot="{ errors }">
-
-                            <input type="text" v-model="itemForm.price" class="form-control" :placeholder="$t('Price')">
+                        <label class="form-label">{{ $t('entry_price') }}</label>
+                            <input type="text" v-model="itemForm.price" class="form-control" :placeholder="hidePlaceholder?'':$t('entry_price')">
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
                             </div>
@@ -153,7 +154,7 @@
                         <div class="col-23 col-md-12">
                           
                                 <div class="form-group position-relative">
-                                    <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
+                                    <label class="form-label">{{ $t('start_date_exhibition') }} - {{ $t('end_date_exhibition') }}</label>
                                     <date-picker-range 
                                     :valueStart.sync="itemForm.start_date"
                                     :valueEnd.sync="itemForm.end_date"
@@ -173,7 +174,7 @@
                     <!-- time end-->
                     <div class="col-23 col-md-12">
                             <div class="form-group position-relative">
-                                <label>تاريخ بداية المعرض - تاريخ نهاية المعرض</label>
+                                <label class="form-label">{{ $t('start_time_exhibition') }} - {{ $t('end_time_exhibition') }}</label>
                                 <date-picker-range 
                                 :valueStart.sync="itemForm.start_time"
                                 :valueEnd.sync="itemForm.end_time"
@@ -190,10 +191,11 @@
                 </div>
 
                     <div class="mb-3 position-relative">
-                        <ValidationProvider :name="$t('city')" 
+                        <ValidationProvider :name="$t('the_city')" 
                         vid="region_id" 
                         rules="required" v-slot="{ errors }"
                         >
+                        <label class="form-label">{{ $t('the_city') }}</label>
                         <multi-select v-model="itemForm.region_id" 
                             :selectLabel="$t('selectLabel')"
                             :selectedLabel="$t('selectedLabel')" 
@@ -201,7 +203,7 @@
                             :options="cities" 
                             :multiple="false"  
                             :group-select="false" 
-                            placeholder="" 
+                            :placeholder="hidePlaceholder?'':$t('the_city')" 
                             :custom-label="(it)=>`${it.name}-${it.region.name}`"
                             track-by="id" label="name">
                                 <span slot="noResult">{{ $t('no-result-search') }}</span>
@@ -219,10 +221,10 @@
                          v-slot="{ errors }"
                          >
                             <div class="form-group position-relative">
-
+                                <label class="form-label">{{ $t('Address') }}</label>
                                 <input type="text" class="form-control" 
                                     v-model="itemForm.address"
-                                    placeholder="حدد العنوان">
+                                    :placeholder="hidePlaceholder?'':'حدد العنوان'">
                             </div>
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
@@ -250,14 +252,15 @@
                     </div>
                     <div class="mb-3 position-relative">
                         <ValidationProvider 
-                        :name="$t('category')" 
+                        :name="$t('exhibition_categories')" 
                         vid="category_id" 
                         rules="required"
                          v-slot="{ errors }"
                          >
                          <div class="form-group position-relative">
-                        <select v-model="itemForm.category_id"  class="form-control" plaeholder="تصنيفات المعرض">
-                            <option disabled :value="null"  class="t-c" selected> تصنيفات المعرض</option>
+                            <label class="form-label">{{ $t('exhibition_categories') }}</label>
+                        <select v-model="itemForm.category_id"  class="form-control" :plaeholder="$t('exhibition_categories')">
+                            <option disabled :value="null"  class="t-c" selected>{{ $t('exhibition_categories') }}</option>
                             <option :key="i" v-for="(option,i) in categories" :value="option.id">
                                 {{ option.name }}
                             </option>
@@ -305,6 +308,7 @@ export default {
         tags: [],
         file: null,
         mapFile: null,
+        hidePlaceholder:true,
         configContent:{minHeight:"150px",
                             placeholder:"أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )"
                     },

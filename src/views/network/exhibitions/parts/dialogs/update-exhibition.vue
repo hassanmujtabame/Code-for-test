@@ -8,7 +8,7 @@
     >
         <ValidationObserver v-if="showDialog" ref="form">
             <div class="row add-portfolio m-3 p-0 position-relatiuve">
-                <div class="col-12 col-lg-5  justify-content-center m-auto">
+                <div class="col-12 col-lg-5  justify-content-center mx-auto">
                     <div class="col-md-10">
                         <ValidationProvider :name="$t('Image')" 
                         vid="image"
@@ -38,7 +38,7 @@
                         <div class="col-md-12">
                             <div class="text">
                                 <ValidationProvider 
-                                :name="$t('Map image')" 
+                                :name="$t('exhibition_map_file')" 
                                 vid="mapfile" 
                                 rules=""
                                     v-slot="{ validate, errors }">
@@ -91,8 +91,8 @@
                         <div class="border p-3 text-center">
 
                             <h6>{{ $t('is_exhibition_available_for_shared') }}</h6>
-                            <div class="d-flex justify-content-center   gap-2">
-                                <ValidationProvider :name="$t('Available-share')"
+                            <div class="d-flex justify-content-evently   gap-2">
+                                <ValidationProvider :name="$t('is_exhibition_available_for_shared')"
                                  vid="is_share"
                                  rules="required"
                                     v-slot="{ errors }">
@@ -122,14 +122,15 @@
                 <div class="col-12 col-lg-7">
                     <div class="mb-3">
                         <ValidationProvider 
-                        :name="$t('Title')" 
+                        :name="$t('exhibition_title')" 
                         vid="title" 
                         rules="required" 
                         v-slot="{ errors }"
                         >
+                        <label class="form-label">{{ $t('exhibition_title') }}</label>
                             <input type="text" class="form-control" 
                             v-model="itemForm.title"
-                            :placeholder="$t('Title')">
+                            :placeholder="hidePlaceholder?'': $t('exhibition_title')">
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
                             </div>
@@ -137,12 +138,13 @@
                     </div>
                     <div class="mb-3">
                         <ValidationProvider 
-                        :name="$t('Price')" 
+                        :name="$t('entry_price')" 
                         vid="price" 
                         rules="required" 
                         v-slot="{ errors }">
-
-                            <input type="text" v-model="itemForm.price" class="form-control" :placeholder="$t('Price')">
+                        <label class="form-label">{{ $t('entry_price') }}</label>
+                            <input type="text" v-model="itemForm.price" class="form-control" 
+                            :placeholder="hidePlaceholder?'':$t('entry_price')">
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
                             </div>
@@ -154,7 +156,7 @@
                         <div class="col-23 col-md-12">
                            
                                 <div class="form-group position-relative">
-                                    <label> {{ $t('Start-date') }} - {{$t('End-date')}} </label>
+                                    <label class="form-label">{{ $t('start_date_exhibition') }} - {{ $t('end_date_exhibition') }}</label>
                                     <date-picker-range 
                                     :valueStart.sync="itemForm.start_date"
                                     :valueEnd.sync="itemForm.end_date"
@@ -176,7 +178,7 @@
                     <div class="col-23 col-md-12">
                        
                             <div class="form-group position-relative">
-                                <label>  {{ $t('Start-time') }} - {{$t('End-time')}} </label>
+                                <label class="form-label">{{ $t('start_time_exhibition') }} - {{ $t('end_time_exhibition') }}</label>
                                 <date-picker-range 
                                 :valueStart.sync="itemForm.start_time"
                                 :valueEnd.sync="itemForm.end_time"
@@ -194,11 +196,23 @@
                 </div>
 
                     <div class="mb-3 position-relative">
-                        <ValidationProvider :name="$t('city')" 
-                        vid="city" 
+                        <ValidationProvider :name="$t('the_city')" 
+                        vid="region_id" 
                         rules="required" v-slot="{ errors }"
                         >
-                            <input type="text" class="form-control " v-model="itemForm.city" placeholder="المدينة"/>
+                        <label class="form-label">{{ $t('the_city') }}</label>
+                        <multi-select v-model="itemForm.region_id" 
+                            :selectLabel="$t('selectLabel')"
+                            :selectedLabel="$t('selectedLabel')" 
+                            :deselectLabel="$t('deselectLabel')"
+                            :options="cities" 
+                            :multiple="false"  
+                            :group-select="false" 
+                            :placeholder="hidePlaceholder?'': $t('the_city')" 
+                            :custom-label="(it)=>`${it.name}-${it.region.name}`"
+                            track-by="id" label="name">
+                                <span slot="noResult">{{ $t('no-result-search') }}</span>
+                            </multi-select>
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
                             </div>
@@ -214,7 +228,7 @@
 
                                 <input type="text" class="form-control" 
                                     v-model="itemForm.address"
-                                    placeholder="حدد العنوان">
+                                    :placeholder="hidePlaceholder?'': 'حدد العنوان'">
                             </div>
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
@@ -242,14 +256,14 @@
                     </div>
                     <div class="mb-3 position-relative">
                         <ValidationProvider 
-                        :name="$t('category')" 
+                        :name="$t('exhibition_categories')" 
                         vid="category_id" 
                         rules="required"
                          v-slot="{ errors }"
                          >
                          <div class="form-group position-relative">
                         <select v-model="itemForm.category_id"  class="form-control">
-                            <option disabled value="" class="t-c"> {{ $t('exhibition_categories') }} </option>
+                            <option disabled value="" class="t-c" > {{ $t('exhibition_categories') }} </option>
                             <option :key="i" v-for="(option,i) in categories" :value="option.id">
                                 {{ option.name }}
                             </option>
@@ -277,7 +291,7 @@
         </ValidationObserver>
         <template v-slot:actions>
             <button @click="save" type="button" class="btn btn-main">
-                {{  $t('publish') }}
+                {{  $t('publish-exhibition') }}
             </button>
         </template>
     </d-dialog-large>
@@ -285,6 +299,7 @@
 </template>
 <script>
 import exhibitionsAPI from '@/services/api/exhibitions';
+import commonAPI from '@/services/api/common';
 export default {
 
     data: (vm) => {
@@ -293,7 +308,9 @@ export default {
         showDialog: false,
         idImage: `image-selected-${vm.generateRandomString(8)}`,
         categories: [],
+        cities:[],
         showImage:false,
+        hidePlaceholder:true,
         tags: [],
         file: null,
         mapFile: null,
@@ -304,7 +321,7 @@ export default {
         
         itemForm: {
             content:'',
-            city:'',
+            region_id:'',
             address:'',
             price: '',
             start_date : '',
@@ -328,7 +345,7 @@ export default {
             }
             let formData = new FormData();
             formData.append('content', this.itemForm.content);
-            formData.append('city', this.itemForm.city);
+            formData.append('region_id', this.itemForm.region_id);
             formData.append('address', this.itemForm.address);
             formData.append('price', this.itemForm.price);
             formData.append('start_date', this.itemForm.start_date);
@@ -407,7 +424,7 @@ export default {
         openDialog(dataItem) {
             this.itemForm=Object.assign({
                 content:'',
-            city:'',
+            region_id:'',
             address:'',
             price: '',
             start_date : '',
@@ -431,10 +448,20 @@ export default {
             console.log('close ')
             this.showDialog = false
             return true;
-        }
+        },
+        async loadCities() {
+            try {
+                let { data } = await commonAPI.cities()
+                if (data.success) {
+                    this.cities = data.data
+                }
+            } catch (error) {
+                console.log('error', error)
+            }
+        },
     },
     mounted() {
-        //this.loadBlogTags()
+        this.loadCities()
         this.loadBlogCategories()
     }
 }
