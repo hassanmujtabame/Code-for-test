@@ -87,7 +87,7 @@ export default {
         require:true
     },
     isShared:{
-        type:Boolean,
+        type:[Boolean,Number],
         require:false
     },
     title:{
