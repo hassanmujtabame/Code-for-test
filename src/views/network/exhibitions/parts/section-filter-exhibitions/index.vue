@@ -8,7 +8,13 @@
         classColOrder="col-12 col-md-4"
         :pluralName="$t('exhibitions')" 
         :singleName="$t('exhibition')"
-        orderName="created_at"
+        :searchPlaceholder="$t('search')"
+        orderName="price"
+        :orderOpts="
+             [
+                {id:'asc',name:'الأقل سعرا'},
+                {id:'desc',name:'الأغلى سعرا',}
+            ]"
         @change="changeFilter"
         >
             <template v-slot:default="{ item }">
@@ -43,8 +49,8 @@ export default {
     },
     data: () => ({
         filterItem:{
-            search:null,
-      created_at:'asc',
+        search:null,
+      price:'asc',
       is_share:'all',
       category_id:[],
       valueMinDuring:0,

@@ -31,16 +31,16 @@
             </div>
             <div class="accordion-item  show">
                 <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
                         aria-controls="panelsStayOpen-collapseTwo">
                         مجالات المعرض
 
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
                     aria-labelledby="panelsStayOpen-headingTwo">
-                    <div class="accordion-body">
+                    <div class="accordion-body show">
                         <div v-for="(cat,i) in categories" :key="i" class="form-check">
                             <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="checkbox">
                             <label class="form-check-label" for="defaultCheck1">
