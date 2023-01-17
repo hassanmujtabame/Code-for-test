@@ -1,13 +1,11 @@
 <template>
    <div class="consulting p-5">
-            <div class="container">
+            <div class="netwok-home-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="fs-1 text-white">
-                            شبكة رياديات 
-                                                </h1>
-                        <p class="text-white">طموحة و تسعين لتحقيق حلمك و شغفك ؟
-                        <br/>
+                        <h1 class="semi-bold fs-r-56 text-white">شبكة رياديات </h1>
+                        <p class="fs-r-24 text-white">طموحة و تسعين لتحقيق حلمك و شغفك ؟</p>
+                        <p class="fs-r-24 text-white">    
                             شبكة رياديات بتساعدك في مشروعك من الالف الى الياء
                          </p>
                          <div class="btn-main-style mt-5">
@@ -16,8 +14,8 @@
                             <template v-else>
 
 
-                          <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2">{{ $t('join-us') }}</router-link>
-                          <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">{{ $t('login-female') }}</router-link>
+                          <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer fs-r-24 shadow mt-2">{{ $t('join-us') }}</router-link>
+                          <router-link :to="getRouteLocale('login')" class="btn-custmer-w fs-r-24 bg-transparent text-white mt-2">{{ $t('login-female') }}</router-link>
                         </template> 
                         </div>
                     </div>

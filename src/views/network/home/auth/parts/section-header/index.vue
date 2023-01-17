@@ -1,16 +1,16 @@
 <template>
-  <div class="consulting ">
-            <div class="container">
+  <div class="consulting p-5">
+            <div class="netwok-home-header">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-md-6">
-                        <h1 class="fs-1 text-white">
+                        <h1 class="semi-bold fs-r-56 text-white">
                             {{ $t('Riadiat-network') }}                                                                     </h1>
-                        <p class="text-white">
+                        <p class="fs-r-24 text-white">
                             {{ $t('riadiat-network-home-text-1') }}
                             <br/>
                             {{ $t('riadiat-network-home-text-2') }}
                             </p>
-                            <p class="text-white">
+                            <p class="fs-r-24 text-white">
                                 {{ $t('riadiat-network-home-text-3') }}
                         </p>     
                                                                
@@ -32,5 +32,4 @@ export default {
 </script>
 
 <style>
-
 </style>
