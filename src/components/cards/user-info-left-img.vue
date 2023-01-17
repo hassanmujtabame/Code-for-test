@@ -9,7 +9,7 @@
                 <h4 class="fw-bold">
                   {{member.name}}
                 </h4>
-                <p>{{ member.summary }}</p>
+                <p>{{ member.bio??member.job }}</p>
                 <div class="message-service">
                     <button class="text-white border-0 p-2 px-3" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
