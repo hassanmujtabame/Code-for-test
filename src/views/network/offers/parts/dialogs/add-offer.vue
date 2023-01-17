@@ -9,7 +9,7 @@
                                 <div class="text-center p-5">
                                   <img src="/assets/svg/empty-image.svg"  height="96" width="96"/>
                                       
-                                    <p class="m-c">{{ $t('add-image') }} </p>
+                                    <p class="m-c">{{ $t('add-display-image') }} </p>
                                 </div>
                                 <div class="add-img-selected w-100">
 
