@@ -305,5 +305,17 @@
   "end_time_exhibition": "end time exhibition",
   "exhibition_category": "exhibition category",
   "add_exhibition": "add exhibition",
-  "fill-out-form": "Fill out form"
+  "fill-out-form": "Fill out form",
+  "booth_name": "booth name",
+  "product_types": "product types",
+  "your_own_booth_name": "your own booth name",
+  "resume_what_you_serve": "resume what you serve",
+  "nomber_people": "nomber people",
+  "count_people": "count people",
+  "number_people": "number people",
+  "booth": "booth",
+  "number_days": "Number days",
+  "exhibition_attechment": "Attachment",
+  "exhibition_rent_price": "Rental price",
+  "exhibition_insurance_price": "insurance price"
 }

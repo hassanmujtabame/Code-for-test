@@ -92,6 +92,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-exhibition-show" */ '../views/network/exhibition-page/index.vue') 
     },
     {
+        path: 'network/exhibitions/:id/share',
+        meta:{layout:LayoutNetwork},
+        name: 'network-exhibition-share',
+        component: () => import(/* webpackChunkName: "network-exhibition-share" */ '../views/network/exhibition-page/share/index.vue') 
+    },
+    {
         path: 'network/offers',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-offers',

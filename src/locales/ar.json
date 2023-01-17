@@ -303,5 +303,17 @@
   "end_time_exhibition": "وقت نهاية المعرض",
   "exhibition_category": "تصنيف المعرض",
   "add_exhibition": "أضف معرض",
-  "fill-out-form": "املئ الاستمارة"
+  "fill-out-form": "املئ الاستمارة",
+  "booth_name": "اسم البوث",
+  "product_types": "أنواع منتجاتك",
+  "your_own_booth_name": "اسم البوث الخاص بك",
+  "resume_what_you_serve": "نبذه",
+  "nomber_people": "الناس نومبر",
+  "count_people": "عد الناس",
+  "number_people": "عدد الأشخاص",
+  "booth": "كشك",
+  "number_days": "عدد الأيام",
+  "exhibition_attechment": "مرفق",
+  "exhibition_rent_price": "سعر الإيجار",
+  "exhibition_insurance_price": "سعر التأمين"
 }
