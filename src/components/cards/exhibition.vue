@@ -1,8 +1,9 @@
 <template>
    <div class="box border rounded-top">
-                    <div>
+                    <div class="position-relative">
                         <img class="w-100 rounded-top" :src="img" :alt="title"
                             height="167">
+                            <button v-if="isShared" class="btn-shared-exibition"><tickCircleIcon />{{ $t('shared') }}</button>
                     </div>
                     <div class="p-2 text-start">
                         <h6 class=" mt-2  fw-bolder text-start">
@@ -74,12 +75,20 @@
 </template>
 
 <script>
+import tickCircleIcon from '../icon-svg/tick-circle.vue';
 export default {
  name:'exhibition-card',
+ components:{
+    tickCircleIcon
+ },
  props:{
     img:{
         type:String,
         require:true
+    },
+    isShared:{
+        type:Boolean,
+        require:false
     },
     title:{
         type:String,
@@ -107,5 +116,27 @@ export default {
 <style scoped>
 .exhibition-card-title{
     height:54px
+}
+.btn-shared-exibition{
+    font-size: 12px;
+    border-radius: 4px;
+    border:none;
+    height: 24px;
+    background:var(--m-color);
+    position:absolute;
+    top:5px;
+    color:#FFF;
+    left: 5px;
+}
+html[dir=ltr] .btn-shared-exibition{
+    right: 5px; 
+    left:auto
+}
+.btn-shared-exibition svg{
+    margin-left: 5px;
+}
+html[dir=ltr] .btn-shared-exibition svg{
+    margin-left: 0;
+    margin-right: 5px;
 }
 </style>

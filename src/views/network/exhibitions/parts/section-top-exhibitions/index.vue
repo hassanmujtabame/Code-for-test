@@ -44,6 +44,7 @@
                 :place="item.city"
                 :price="item.price"
                 :title="item.title"
+                :isShared="item.is_share"
                 :description="item.content"
                 />
             </router-link>

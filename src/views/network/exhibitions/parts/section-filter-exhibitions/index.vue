@@ -23,6 +23,7 @@
                     :img="item.image" 
                     :price="item.price"
                     :place="item.city"
+                    :isShared="item.is_share"
                     :userName="item.user_info.name" 
                     :description="item.content" 
                      :title="item.title"

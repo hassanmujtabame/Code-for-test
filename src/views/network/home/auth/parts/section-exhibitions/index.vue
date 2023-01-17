@@ -22,6 +22,7 @@
                 :price="item.price"
                 :place="item.city"
                 :description="item.content"
+                :isShared="item.is_share"
                 :userName="item.user_info.name"
                 />
               </router-link>
