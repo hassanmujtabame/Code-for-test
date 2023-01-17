@@ -10,7 +10,7 @@
                             <p>
                              {{member.job}}
                             </p>
-                            <p class="t-c">{{member.summary}}
+                            <p class="t-c">{{member.bio}}
                             </p>
                         </div>
                         <div class=" text-center">
