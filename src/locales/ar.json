@@ -301,5 +301,6 @@
   "end_date_exhibition": "تاريخ نهاية المعرض",
   "start_time_exhibition": "وقت بداية المعرض",
   "end_time_exhibition": "وقت نهاية المعرض",
-  "exhibition_category": "تصنيف المعرض"
+  "exhibition_category": "تصنيف المعرض",
+  "add_exhibition": "أضف معرض"
 }

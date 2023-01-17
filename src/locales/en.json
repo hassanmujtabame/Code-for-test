@@ -303,5 +303,6 @@
   "end_date_exhibition": "End date exhibition",
   "start_time_exhibition": "start time exhibition",
   "end_time_exhibition": "end time exhibition",
-  "exhibition_category": "exhibition category"
+  "exhibition_category": "exhibition category",
+  "add_exhibition": "add exhibition"
 }
