@@ -17,8 +17,8 @@
                   <div class="accordion-body">
                       <div>
                           <div v-for="(state,i) in states" :key="i" class="form-check">
-                              <input class="form-check-input" type="radio" :value="state.id" v-model="filter.is_share" 
-                              :selected="state.id===filter.is_share"
+                              <input class="form-check-input" type="radio" :value="state.id" v-model="filter.type" 
+                              :selected="state.id===filter.type"
                               name="stateRadioDefault"
                                   id="flexRadioDefault1">
                               <label class="form-check-label" for="flexRadioDefault1">
@@ -31,15 +31,15 @@
           </div>
           <div class="accordion-item  show">
               <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
                       aria-controls="panelsStayOpen-collapseTwo">
                       مجالات القاء
                   </button>
               </h2>
-              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
                   aria-labelledby="panelsStayOpen-headingTwo">
-                  <div class="accordion-body">
+                  <div class="accordion-body show">
                       <div v-for="(cat,i) in categories" :key="i" class="form-check">
                           <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="checkbox">
                           <label class="form-check-label" for="defaultCheck1">
@@ -75,9 +75,9 @@ data:(vm)=>{
   return{
       states:[
           {id:'all',name:vm.$t('all')},
-          {id:'assembly',name:'مجلس'},
-          {id:'b2b',name:vm.$t('B2B')},
-          {id:'webinar',name:vm.$t('Webinar')},
+          {id:'board',name:'مجلس'},
+          {id:'business_to_business',name:vm.$t('B2B')},
+          {id:'web_discussion',name:vm.$t('Webinar')},
 
       ],
       categories:[],
