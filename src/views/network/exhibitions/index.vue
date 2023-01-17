@@ -10,10 +10,10 @@
         <!--section filter exhibition-->
         <SectionFilter />
         <!--#section filter exhibition-->
-        <portal to="body">
+        
       <addExhibitionDialg />
       <addSuccessExhibitionDialg />
-      </portal>
+    
     </div>
 </template>
 
