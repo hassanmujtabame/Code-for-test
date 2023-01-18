@@ -39,11 +39,12 @@
                             <div class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('your_own_booth_name')"
-                                vid="booth_name"
+                                vid="brand_name"
                                 rules="required"
                                 v-slot="{errors}"
                                 >
-                                <input type="text" v-model="itemForm.booth_name" class="form-control border p-2 rounded-2" 
+                                <label class="form-label">{{ $t('your_own_booth_name') }}</label>
+                                <input type="text" v-model="itemForm.brand_name" class="form-control border p-2 rounded-2" 
                                 placeholder=" أسم علامتك التجارية او محلك">
                             <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
@@ -51,11 +52,12 @@
                             <div class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('product_types')"
-                                vid="product_types"
+                                vid="type_products"
                                 rules="required"
                                 v-slot="{errors}"
                                 >
-                                <input type="text" v-model="itemForm.product_types" class="form-control border p-2 rounded-2" placeholder="أدخل اكثر من 5 بينهم فاصلة ">
+                                <label class="form-label">{{ $t('product_types') }}</label>
+                                <input type="text" v-model="itemForm.type_products" class="form-control border p-2 rounded-2" placeholder="أدخل اكثر من 5 بينهم فاصلة ">
                             <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
 
@@ -63,11 +65,12 @@
                             <div class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('resume_what_you_serve')"
-                                vid="resume"
+                                vid="desc"
                                 rules="required"
                                 v-slot="{errors}"
                                 >
-                                <textarea  v-model="itemForm.resume"  class=" w-100 border p-2 rounded-2" rows="10" placeholder="أكتب نبذه عن ماذا تريد ان تقدم"></textarea>
+                                <label class="form-label">{{ $t('resume_what_you_serve') }}</label>
+                                <textarea  v-model="itemForm.desc"  class=" w-100 border p-2 rounded-2" rows="10" placeholder="أكتب نبذه عن ماذا تريد ان تقدم"></textarea>
                                 <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
                             </div>
@@ -75,12 +78,13 @@
 
                                 <ValidationProvider 
                                 :name="$t('number_people')"
-                                vid="number_people"
+                                vid="number_persons"
                                 rules="required"
                                 v-slot="{errors}"
                                 >
+                                <label class="form-label">{{ $t('number_people') }}</label>
                                 <div class="mb-3 position-relative">
-                                    <select v-model="itemForm.number_people" class="form-control ">
+                                    <select v-model="itemForm.number_persons" class="form-control ">
                                         <option value="" class="t-c" selected> عدد  الاشخاص </option>
                                         <option v-for="n in 10" :key="n" :value="n">{{n}}</option>
                                     </select>
@@ -100,12 +104,13 @@
                             <div class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('booth')"
-                                vid="booth_id"
+                                vid="booking_type"
                                 rules="required"
                                 v-slot="{errors}"
                                 >
+                                <label class="form-label">{{ $t('booth') }}</label>
                                 <div class="mb-3 position-relative">
-                                    <select v-model="itemForm.booth_id" class="form-control ">
+                                    <select v-model="itemForm.booking_type" class="form-control ">
                                         <option value="" class="t-c" disabled selected>   اختر البوث الذي تريد حجزه من البوثات المتاحة  </option>
                                         <option v-for="(booth,i) in boothes" :key="i" :value="booth.id">{{ booth.name }}</option>
                                     </select>
@@ -125,12 +130,13 @@
                             <div class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('number_days')"
-                                vid="num_days"
+                                vid="number_days_booking"
                                 rules="required"
                                 v-slot="{errors}"
                                 >
+                                <label class="form-label">{{ $t('number_days') }}</label>
                                 <div class="mb-3 position-relative">
-                                    <select v-model="itemForm.num_days" class="form-control ">
+                                    <select v-model="itemForm.number_days_booking" class="form-control ">
                                         <option value="" class="t-c" disabled selected>  عدد الايام الذي تريد حجزها </option>
                                         <option v-for="n in 30" :key="n" :value="n">{{n}}</option>
                                     </select>
@@ -150,10 +156,11 @@
                             <div class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('exhibition_attechment')"
-                                vid="attachment"
-                                rules="required"
+                                vid="media"
+                                rules="required|ext:mp4,jpeg,jpg,png,bmp"
                                 v-slot="{errors,validate}"
                                 >
+                              
                                 <div class="d-flex upload-request-file form-control align-items-center  mb-3">
                                     <label for="fileinput1" class="form-label">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +168,7 @@
                                             </svg>
                                     </label>
 
-                                    <input class="form-control d-none" type="file" @change="loadImage($event,validate) || validate($event)" id="fileinput1">
+                                    <input class="form-control d-none" type="file" @change="uploadImage($event,validate) || validate($event)" id="fileinput1">
                                     <span id="selected_filename" class="mx-3 gray font-13 ">
                                         ارفق صور و فيدوهات لمنتجاتك او لبوثاتك السابقة
                                     </span>
@@ -203,7 +210,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn bg-main px-5 py-3 text-white"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <button class="btn bg-main px-5 py-3 text-white" @click="save">
                                     ارسل الاستمارة
                                 </button>
                             </div>
@@ -214,6 +221,7 @@
                                 <d-user-info-li v-if="!isOwner" sizeImage="100" :member="itemPage.user_info" />
                 <!--details-exhibition-->
                 <detailsExhibitionSection :itemPage="itemPage" />
+                <successSharedExhibitionDialog />
             </div>
         </div>
     </div>
@@ -223,32 +231,41 @@
 <script>
 import exhibitionsAPI from '@/services/api/exhibitions';
 import detailsExhibitionSection from './details-exhibition.vue';
+import successSharedExhibitionDialog from '../../exhibitions/parts/dialogs/success-shared-exhibition.vue';
 export default {
  name:'share-exhibition',
  components:{
-    detailsExhibitionSection
+    detailsExhibitionSection,
+    successSharedExhibitionDialog
  },
   data:()=>{
     return {
-        boothes:[],
+        boothes:[
+            {id:1,name:'تجريب'}
+        ],
       isOwner:false,
       loading:true,
       hasError:false,
       itemPage:{},
+
       itemForm:{
-        booth_name:'',
-        booth_id:'',
-        product_types:'',
-        resume:'',
-        number_people:0,
-        num_days:0,
-        attachment:null,
+
+        brand_name:'',
+        booking_type:'',
+        type_products:'',
+        desc:'',
+        number_persons:0,
+        number_days_booking:0,
+        media:null,
         rental_price:0,
         insurance_price:0
       },
       colors:['#F2631C','#FFBC00','#2C98B3']
   }},
   methods:{
+    openSuccessSharedDialog(){
+        this.fireOpenDialog('success-shared-exhibition')
+    },
     async save() {
             let valid = await this.$refs.form.validate();
             if (!valid) {
@@ -259,11 +276,11 @@ export default {
             Object.keys(this.itemForm).forEach(key=>{
                 formData.append(key,this.itemForm[key])
             })
+            formData.append('exhibition_id',this.$route.params.id)
             try {
                 let { data } = await exhibitionsAPI.shareExhibition(formData)
                 if (data.success) {
-                    console.log('success', data)
-
+                    this.openSuccessSharedDialog()
                 }
             } catch (error) {
                 //
@@ -291,7 +308,7 @@ export default {
       this.fireOpenDialog('delete-dialog',this.itemPage)
     },
     makeImageEmpty(){
-        this.itemForm.attachment = null;
+        this.itemForm.media = null;
     },
     async uploadImage(evt,validate){
        let resValid = await validate(evt)
@@ -304,7 +321,7 @@ export default {
                 return;
             }
         
-            this.itemForm.attachment = evt.target.files[0];
+            this.itemForm.media = evt.target.files[0];
         },
     async initializing() {
       this.loading = true;
