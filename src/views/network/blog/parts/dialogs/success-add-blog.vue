@@ -42,7 +42,7 @@
    methods:{
       goBlog(){
         this.closeEvent()
-        this.$router.push(this.getRouteLocale('network-blog-show',{id:this.blog.id}))
+        this.$router.push(this.getRouteLocale('network-blog-show',{id:this.blog.blog_id}))
       },
       openDialog(data){
         this.blog=Object.assign({},data);
