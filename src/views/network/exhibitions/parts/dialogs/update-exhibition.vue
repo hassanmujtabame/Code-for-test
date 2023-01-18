@@ -201,7 +201,7 @@
                         rules="required" v-slot="{ errors }"
                         >
                         <label class="form-label">{{ $t('the_city') }}</label>
-                        <multi-select v-model="itemForm.region_id" 
+                        <multi-select v-model="region" 
                             :selectLabel="$t('selectLabel')"
                             :selectedLabel="$t('selectedLabel')" 
                             :deselectLabel="$t('deselectLabel')"
@@ -318,7 +318,7 @@ export default {
                             placeholder:"أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )"
                     },
         configEnter:{minHeight:"150px",placeholder:"أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )"},
-        
+        region:null,
         itemForm: {
             content:'',
             region_id:'',
@@ -345,7 +345,8 @@ export default {
             }
             let formData = new FormData();
             formData.append('content', this.itemForm.content);
-            formData.append('region_id', this.itemForm.region_id);
+            if(this.region)
+            formData.append('region_id', this.region.id);
             formData.append('address', this.itemForm.address);
             formData.append('price', this.itemForm.price);
             formData.append('start_date', this.itemForm.start_date);
@@ -436,6 +437,7 @@ export default {
             details:'',
             is_share: 0,
         },dataItem)
+        this.region ={ id: this.itemForm.region_id,name:''}
         this.file = null;
         this.showImage = dataItem.image;
             /*window.$('#'+this.idImage)
