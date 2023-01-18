@@ -75,7 +75,7 @@ export default {
  data:(vm)=>{
     return{
         states:[
-            {id:'all',name:'الكل'},
+            {id:null,name:'الكل'},
             {id:'1',name:'متاح للمشاركة'},
             {id:'0',name:'زيارة فقط'},
         ],
