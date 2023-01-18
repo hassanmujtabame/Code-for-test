@@ -55,31 +55,7 @@
             <div class="mt-5">
                 <ValidationObserver v-if="!clearing" ref="form">
                     <div class="row">
-                        <!--image-->
-                        <div v-if="false" class="   m-auto">
-                            <div class="col-md-12">
-                                <label for="imginput" class="form-label file-label first w-100">
-                                    <div class="text-center p-5">
-                                        <img src="/assets/svg/empty-image.svg" height="96" width="96" />
-
-                                        <p class="m-c">أضافة صورة للمشروع </p>
-                                    </div>
-                                    <div class="add-img-selected w-100">
-                                        <img class="image-selected-dialog" :src="showImage ?? 'none'"
-                                            :style="{ opacity: showImage ? '1' : '0' }" :id="idImage" width="100%"
-                                            height="236" />
-                                    </div>
-                                </label>
-                                <ValidationProvider :name="$t('Image')" vid="image" rules="required|image"
-                                    v-slot="{ validate, errors }">
-                                    <input @change="uploadImage($event,validate) || validate($event)"
-                                        class="form-control opacity-0 " type="file" id="imginput">
-                                    <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                        {{ errors[0]}}
-                                    </div>
-                                </ValidationProvider>
-                            </div>
-                        </div>
+                    
                         <!-- title -->
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -179,7 +155,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <ValidationProvider tag="div" class="row" :name="$t('investment_contract')"
-                                    vid="investment_contract" rules="required" v-slot="{ validate, errors }">
+                                    vid="investment_contract" rules="required|ext:pdf" v-slot="{ validate, errors }">
                                     <div class="col-4">
                                         <label class="form-label m-c fw-bold">
                                             العقد الاستثماري :
@@ -419,16 +395,17 @@
                                     <label for="" class="form-label m-c w-25 mx-1 fw-bold">
                                         {{isMoral?'صورة المشروع':'فيديو المشروع'}} :
                                     </label>
+
                                     <ValidationProvider :name="isMoral?$t('Image'):$t('Video')" 
                                     vid="image" 
-                                    :rules="isMoral?'required|image':'required|ext:mp4'"
+                                    :rules="isMoral ? 'required|image' : 'required|ext:mp4'"
                                     v-slot="{ validate, errors }">
-                                    <div
-                                        class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-between">
-                                        <input class="form-control d-none" type="file" 
-                                        @change="uploadImage($event,validate) || validate($event)"
-                                            id="fileinput1">
-                                        <span id="selected_filename" class="mx-3 gray font-13 ">
+                                    <div class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-between">
+                                        <input class="form-control" 
+                                        type="file" 
+                                        @change="uploadImage($event,validate)"
+                                            id="fileinputImageVideo" />
+                                        <span   class="mx-3 gray font-13 ">
                                             
                                             {{isMoral?'قم بارفاق صورة توضيحي لمشروعك':'قم بارفاق فيديو توضيحي لمشروعك'}}
                                         </span>
@@ -479,9 +456,9 @@
                 </ValidationObserver>
             </div>
         </div>
-        <portal to="body">
+     
             <successAddProjectDiag />
-        </portal>
+
     </div>
 </template>
 
@@ -525,7 +502,8 @@ export default {
             description_user_file: null,
             future_plan_file: null,
             problem_solved_file: null,
-            description_file:null
+            description_file:null,
+            video_image:null,
         }
     }),
     computed:{
@@ -547,7 +525,7 @@ export default {
 
             let valid = await this.$refs.form.validate();
             if (!valid) {
-                console.log('form invalid');
+                console.log('form invalid',valid);
                 return;
             }
             let formData = new FormData();
@@ -595,7 +573,22 @@ export default {
         makeImageEmpty(){
         this.file = null;
     },
+    async uploadVideo(evt,validate){
+       let resValid = await validate(evt)
+       if(!resValid.valid){
+                this.video_image =  null;
+                return;
+       }
+        if (!evt.target.files && !evt.target.files[0]) {
+            this.video_image =  null;
+                return;
+            }
+        
+            this.video_image = evt.target.files[0];
+
+        },
     async uploadImage(evt,validate){
+    
        let resValid = await validate(evt)
        if(!resValid.valid){
                 this.makeImageEmpty();
@@ -643,5 +636,9 @@ export default {
 </script>
 
 <style>
-
+#fileinputImageVideo{
+    
+    position: absolute;
+    opacity: 0;
+}
 </style>

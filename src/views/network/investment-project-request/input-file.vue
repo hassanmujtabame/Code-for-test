@@ -16,8 +16,8 @@
                     fill="#979797" />
             </svg>
         </label>
-        <input class="form-control d-none" type="file" @change="uploadFile($event)" id="fileinput1">
-        <span id="selected_filename" class="mx-3 gray font-13 ">
+        <input class="form-control" type="file" @change="uploadFile($event)">
+        <span  class="mx-3 gray font-13 ">
             ارفق صورة او فيديو
         </span>
     </div>
@@ -33,6 +33,7 @@ export default {
     },
     methods:{
         uploadFile(evt) {
+            console.log('evt load')
             if (!evt.target.files && !evt.target.files[0]) {
                 this.file = null;
                 return;
@@ -44,6 +45,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+input{
+    position: absolute;
+    opacity: 0;
+}
 </style>
