@@ -59,7 +59,7 @@ export default {
             this.fireCloseDialog(this.group)
         },
         openCheckOutPage(){
-            this.fireOpenDialog('checkout-project-physical',{amount:250})
+            this.fireOpenDialog('checkout-project-physical',{item:{amount:3000}})
             this.closeEvent()
         },
         closeDialog(){
