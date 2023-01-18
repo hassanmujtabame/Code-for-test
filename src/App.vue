@@ -6,10 +6,15 @@
       </component>
       <portal-target name="body">
       </portal-target>
+      <JoinASPartnerDialog />
   </div>
 </template>
 <script>
+import JoinASPartnerDialog from '@/common/dialogs/join-as-partner.vue'
 export default {
+  components:{
+    JoinASPartnerDialog
+  },
   methods:{
     onResizeBrowser () {
       this.$store.dispatch('core/setIsMobile',window.innerWidth < 600)
