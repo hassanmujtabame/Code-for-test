@@ -273,7 +273,12 @@
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
-                                            <InputFile @input="itemForm.description_file=$event" />
+                                           
+                                            <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('attachment')"
+                                                vid="description_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
+                                            <InputFile @change="loadStandardFile($event,validate,'description_file') || validate($event)" />
+                                            <d-error-input v-if="errors.length" :errors="errors" />
+                                            </ValidationProvider>
                                         </div>
                                         
                                     </div>
@@ -298,7 +303,12 @@
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
-                                            <InputFile @input="itemForm.problem_solved_file=$event" />
+
+                                            <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('attachment')"
+                                                vid="problem_solved_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
+                                            <InputFile @change="loadStandardFile($event,validate,'problem_solved_file') || validate($event)" />
+                                            <d-error-input v-if="errors.length" :errors="errors" />
+                                            </ValidationProvider>
                                         </div>
                                     </div>
                                     <div class="row mt-4">
@@ -321,7 +331,12 @@
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
-                                            <InputFile @input="itemForm.future_plan_file=$event" />
+                                            
+                                            <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('attachment')"
+                                                vid="future_plan_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
+                                            <InputFile @change="loadStandardFile($event,validate,'future_plan_file') || validate($event)" />
+                                            <d-error-input v-if="errors.length" :errors="errors" />
+                                            </ValidationProvider>
                                         </div>
                                     </div>
                                 </div>
@@ -353,7 +368,11 @@
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
-                                            <InputFile @input="itemForm.description_user_file=$event" />
+                                            <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('about_team')"
+                                                vid="description_user_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
+                                            <InputFile @change="loadStandardFile($event,validate,'description_user_file') || validate($event)" />
+                                            <d-error-input v-if="errors.length" :errors="errors" />
+                                            </ValidationProvider>
                                         </div>
                                     </div>
                                     <div class="mt-4">
@@ -512,6 +531,18 @@ export default {
         }
     },
     methods: {
+       async loadStandardFile(evt,validate,name){
+        let resValid = await validate(evt);
+        if(!resValid){
+            this.itemForm[name] = null
+            return;
+        }
+            if (!evt.target.files && !evt.target.files[0]) {
+                this.itemForm[name] = null;
+                return;
+            }
+            this.itemForm[name] = evt.target.files[0];
+        },
         editorConfig1( config )
         {
             console.log('ee',config)
