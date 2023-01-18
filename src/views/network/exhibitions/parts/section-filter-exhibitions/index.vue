@@ -8,7 +8,7 @@
         classColOrder="col-12 col-md-4"
         :pluralName="$t('exhibitions')" 
         :singleName="$t('exhibition')"
-        :searchPlaceholder="$t('search')"
+        :searchPlaceholder="$t('search_by_service')"
         orderName="price"
         :orderOpts="
              [
