@@ -112,7 +112,7 @@ export default {
                 console.log('error', error)
                 if (error.response) {
                     if (error.response.status == 422) {
-                        this.$refs.form.setErrors(error.response.data)
+                        this.$refs.form.setErrors(error.response.data.errors)
                     }
                 }
 

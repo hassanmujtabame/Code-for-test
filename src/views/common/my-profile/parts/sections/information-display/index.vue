@@ -7,6 +7,15 @@
                     <ValidationObserver ref="form">
                     <div class="row p-3">
                         <div class="col-md-3">
+                            <ValidationProvider
+                                    :name="$t('Image')"
+                                    tag="div"
+                                    vid="image"
+                                    rules="image"
+                                    v-slot="{validate,errors}"
+                                    >
+                            <d-error-input :errors="errors" v-if="errors.length"></d-error-input>
+
                             <div class="main-img">
                                 <div class="col-md-12">
                                     <label for="imginput" class="form-label file-label first w-100">
@@ -16,16 +25,12 @@
                                             <img class="w-100 h-100 rounded-circle" :src="urlTmp??imageUser" id="image_selected-2" />
                                         </div>
                                     </label>
-                                    <ValidationProvider
-                                    :name="$t('Image')"
-                                    vid="image"
-                                    rules="image"
-                                    v-slot="{validate,errors}"
-                                    >
+                                    
+                                    <div>
                                     <input @change="uploadImage($event,validate)" class="form-control d-none" type="file"
                                         id="imginput">
-                                        <d-error-input :errors="errors" v-if="errors.length"></d-error-input>
-                                    </ValidationProvider>
+                                    </div>
+                                       
                                 </div>  
                                 <!-- <img class="rounded-circle img-person" src="../assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" width="140" height="140"> -->
                                 <p class="pen">
@@ -38,6 +43,7 @@
                                         
                                 </p>
                             </div>
+                                    </ValidationProvider>
                         </div>
                         <div class="col-md-8 border ">
                             <div class="d-flex justify-content-between t-c p-2">
@@ -119,9 +125,10 @@ computed:{
                 }
             } catch (error) {
                 console.log('error', error)
+                console.log('error', error.response)
                 if (error.response) {
                     if (error.response.status == 422) {
-                        this.$refs.form.setErrors(error.response.data)
+                        this.$refs.form.setErrors(error.response.data.errors)
                     }
                 }
 
