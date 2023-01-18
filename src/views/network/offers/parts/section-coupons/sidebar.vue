@@ -63,8 +63,8 @@
                     <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">
                                         <rslider-input
-                                         :min.sync="filter.valueMinDiscount" 
-                                         :max.sync="filter.valueMaxDiscount"
+                                         :min.sync="filter.min_discount" 
+                                         :max.sync="filter.max_discount"
                                          :tooltips="{start:'#v%',end:'#v%'}"
                                          :lmin="0"
                                          :lmax="100"
@@ -96,9 +96,9 @@ export default {
  data: (vm) => {
     return{
         states:[
-            {id:'all',name:'الكل'},
+            {id:null,name:'الكل'},
             {id:'soon',name:'ينتهي قريبا'},
-            {id:'after-week',name:'ينتهي بعد اسبوع'},
+            {id:'end-week',name:'ينتهي بعد اسبوع'},
         ],
      categories: [],
         

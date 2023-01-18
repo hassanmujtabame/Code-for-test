@@ -43,12 +43,12 @@ export default {
   data: () => ({
     group: 'list-coupon',
     filterItem:{
-      search:'',
+      search:null,
       price:'asc',
-      expired:'all',
+      expired:null,
       category_id:[],
-    valueMinDiscount:0,
-    valueMaxDiscount:100,
+    min_discount:0,
+    max_discount:100,
 
     },
     item_test: { title: 'معرض الازياء الرجالي', img: '/assets/img/Rectangle -network.png', description: 'معرض متكام لبيع و تنسيق الزهور' },
