@@ -24,7 +24,7 @@
                         <SubscribeCard
                         :title="getTitleSubscribe(pack.type)"
                         :price="pack.price"
-                        :features="['تواصلي مع أعضاء الشبكة','شاركي في اللقاءات المستمرة لرواد الشبكة','تواصلي مع أعضاء الشبكة']"
+                        :features="pack.features.map(c=>c.desc)"
                         :type-subscribe="pack.type"
                         @selected="choose"
                         ></SubscribeCard>
