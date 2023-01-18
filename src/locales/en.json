@@ -241,7 +241,7 @@
   "publish-exhibition": "publish exhibition",
   "team": "Team",
   "select-team": "Select team",
-  "your_request": "Your request",
+  "what_is_your_request": "Your request",
   "change": "change",
   "Video": "Video",
   "pm": "pm",
@@ -320,5 +320,16 @@
   "exhibition_insurance_price": "insurance price",
   "free": "Free",
   "join-as-partner": "join as partner",
-  "search_for_coupon": "search for coupon"
+  "search_for_coupon": "search for coupon",
+  "project_title": "Project title",
+  "offered_property": "offered property",
+  "amount_financing_required": "amount financing required",
+  "minimum_investment": "minimum_investment",
+  "project_close_session": "project close session",
+  "investment_contract": "investment contract",
+  "upload_contract": "upload contract",
+  "about_project": "about project",
+  "problem_for_solving": "problem for solving",
+  "future_plan": "Future plan",
+  "about_team": "About team"
 }

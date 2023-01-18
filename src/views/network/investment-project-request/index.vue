@@ -60,10 +60,10 @@
                         <div class="col-md-6">
                             <div class="mb-3">
 
-                                <ValidationProvider tag="div" class="row" :name="$t('Title-project')" vid="title"
+                                <ValidationProvider tag="div" class="row" :name="$t('project_title')" vid="title"
                                     rules="required" v-slot="{ errors }">
                                     <div class="col-4">
-                                        <label class="form-label m-c fw-bold">عنوان المشروع:</label>
+                                        <label class="form-label m-c fw-bold">{{ $t('project_title') }} :</label>
                                     </div>
                                     <div class="col-8">
                                         <input v-model="itemForm.title" class="form-control col-8"
@@ -81,7 +81,7 @@
                                 <ValidationProvider tag="div" class="row" :name="$t('offered_property')"
                                     vid="offered_property" rules="required" v-slot="{ errors }">
                                     <div class="col-4">
-                                        <label class="form-label m-c fw-bold">الملكية الطروحة:</label>
+                                        <label class="form-label m-c fw-bold">{{ $t('offered_property') }} :</label>
                                     </div>
                                     <div class="col-8 position-relative">
                                         <input class="form-control" v-model.number="itemForm.offered_property"
@@ -100,7 +100,7 @@
                                 <ValidationProvider tag="div" class="row" :name="$t('amount_financing_required')"
                                     vid="amount_financing_required" rules="required" v-slot="{ errors }">
                                     <div class="col-4">
-                                        <label class="form-label m-c fw-bold">مبلغ التمويل المطلوب :</label>
+                                        <label class="form-label m-c fw-bold">{{ $t('amount_financing_required') }}  :</label>
                                     </div>
                                     <div class="col-8 position-relative ">
                                         <input v-model="itemForm.amount_financing_required" class="form-control"
@@ -119,7 +119,7 @@
                                 <ValidationProvider tag="div" class="row" :name="$t('minimum_investment')"
                                     vid="minimum_investment" rules="required" v-slot="{ errors }">
                                     <div class="col-4">
-                                        <label class="form-label m-c fw-bold">الحد الادنى الاستثمار :</label>
+                                        <label class="form-label m-c fw-bold">{{ $t('minimum_investment') }}   :</label>
                                     </div>
                                     <div class="col-8 position-relative">
                                         <input v-model="itemForm.minimum_investment" class="form-control"
@@ -135,10 +135,10 @@
                         <!-- project_end_date -->
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <ValidationProvider tag="div" class="row" :name="$t('project_end_date')" vid="end_date"
+                                <ValidationProvider tag="div" class="row" :name="$t('project_close_session')" vid="end_date"
                                     rules="required" v-slot="{ errors }">
                                     <div class="col-4">
-                                        <label class="form-label m-c fw-bold">موعد غلق الجولة :</label>
+                                        <label class="form-label m-c fw-bold">{{ $t('project_close_session') }}   :</label>
                                     </div>
                                     <div class="col-8 position-relative d-flex  align-items-center">
                                         <date-picker-input class="form-control " mode="date" v-model="itemForm.end_date"
@@ -158,14 +158,14 @@
                                     vid="investment_contract" rules="required|ext:pdf" v-slot="{ validate, errors }">
                                     <div class="col-4">
                                         <label class="form-label m-c fw-bold">
-                                            العقد الاستثماري :
+                                             {{ $t('investment_contract') }} :
                                         </label>
                                     </div>
                                     <div class="col-8 position-relative d-flex  align-items-center">
                                         <div
                                             class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-between">
                                             <span id="selected_filename" class="mx-3 gray font-13 ">
-                                                حمل العقد
+                                               {{ $t('upload_contract') }} 
                                             </span>
                                             <input class="form-control opacity-0 w-100 position-absolute" type="file"
                                                 @change="uploadContract($event) || validate($event)">
@@ -234,11 +234,11 @@
                                         <div class="col-md-2">
 
                                             <h4 class=" m-c fw-bolder">
-                                                 ما هو طلبك؟ :
+                                                 {{ $t('what_is_your_request') }}:
                                             </h4>
                                         </div>
                                         <div class="col-md-10">
-                                            <ValidationProvider tag="div" class="row" :name="$t('your_request')"
+                                            <ValidationProvider tag="div" class="row" :name="$t('what_is_your_request')"
                                                 vid="your_request" rules="required" v-slot="{ errors }">
 
                                                 <div class="col-12 position-relative">
@@ -255,11 +255,11 @@
                                         <div class="col-md-2">
 
                                             <h4 class=" m-c fw-bolder">
-                                                عن المشروع :
+                                                {{ $t('about_project') }}  :
                                             </h4>
                                         </div>
                                         <div class="col-md-10">
-                                            <ValidationProvider tag="div" class="row" :name="$t('description')"
+                                            <ValidationProvider tag="div" class="row" :name="$t('about_project')"
                                                 vid="description" rules="required" v-slot="{ errors }">
 
                                                 <div class="col-12 position-relative">
@@ -285,7 +285,7 @@
                                             </h4>
                                         </div>
                                         <div class="col-md-10">
-                                            <ValidationProvider tag="div" class="row" :name="$t('problem_solved')"
+                                            <ValidationProvider tag="div" class="row" :name="$t('problem_for_solving')"
                                                 vid="problem_solved" rules="required" v-slot="{ errors }">
 
                                                 <div class="col-12 position-relative">
@@ -338,11 +338,11 @@
                                     <div class="row">
                                         <div class="col-md-2">
                                             <h4 class=" m-c fw-bolder">
-                                                عن الفريق :
+                                                {{ $t('about_team') }}  :
                                             </h4>
                                         </div>
                                         <div class="col-md-10">
-                                            <ValidationProvider tag="div" class="row" :name="$t('description_user')"
+                                            <ValidationProvider tag="div" class="row" :name="$t('about_team')"
                                                 vid="description_user" rules="required" v-slot="{ errors }">
 
                                                 <div class="col-12 position-relative">

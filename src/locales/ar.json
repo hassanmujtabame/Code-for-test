@@ -239,7 +239,7 @@
   "publish-exhibition": "أنشر المعرض",
   "team": "فريق",
   "select-team": "حدد فريق",
-  "your_request": "ما هو طلبك؟",
+  "what_is_your_request": "ما هو طلبك؟",
   "change": "تعديل",
   "Video": "فيديو",
   "am": "صباحا",
@@ -318,5 +318,16 @@
   "exhibition_insurance_price": "سعر التأمين",
   "free": "مجانا",
   "join-as-partner": "انضم كشريك",
-  "search_for_coupon": "إبحث عن كود"
+  "search_for_coupon": "إبحث عن كود",
+  "project_title": "عنوان المشروع",
+  "offered_property": "الملكية الطروحة",
+  "amount_financing_required": "مبلغ التمويل المطلوب",
+  "minimum_investment": "الحد الادنى الاستثمار",
+  "project_close_session": "موعد غلق الجولة",
+  "investment_contract": "العقد الاستثماري",
+  "upload_contract": "حمل العقد",
+  "about_project": "عن المشروع",
+  "problem_for_solving": "المشكلـــــــــــــــة المستهدف حلها",
+  "future_plan": "الخطة المستقبلية",
+  "about_team": "عن الفريق"
 }

@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="star-cons">
-        src="/assets    <img src="/assets/img/starrrr.png" alt="" />
+          <img src="/assets/img/starrrr.png" alt="" />
           </div>
           <div class="star-cons stars">
             <img src="/assets/img/starsss.png" alt="" />
