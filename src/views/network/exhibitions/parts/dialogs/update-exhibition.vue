@@ -7,7 +7,7 @@
     
     >
         <ValidationObserver v-if="showDialog" ref="form">
-            <div class="row add-portfolio m-3 p-0 position-relatiuve">
+            <div class="form-exhibition row add-portfolio m-3 p-0 position-relatiuve">
                 <div class="col-12 col-lg-5  justify-content-center mx-auto">
                     <div class="col-md-10">
                         <ValidationProvider :name="$t('Image')" 
@@ -471,5 +471,10 @@ export default {
 label {
     width: 100%;
     text-align: start;
+}
+</style>
+<style>
+.form-exhibition .vc-time-picker .vc-date-time .vc-date{
+    display: none !important;
 }
 </style>
