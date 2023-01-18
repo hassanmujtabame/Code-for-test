@@ -10,9 +10,17 @@ export default {
     type:[Number,String],
     default:0
   },
+  tooltips:{
+    type:[Array,Object],
+    default:null
+  },
   max:{
     type:[Number,String],
     default:100
+  },
+  step:{
+    type:[Number,String],
+    default:1
   },
   lmin:{
     type:[Number,String],
@@ -48,7 +56,8 @@ export default {
        this.slider= new window.rSlider({
             target: "#"+this.id,
             values: { min: this.lmin, max: this.lmax },
-            step: 10,
+            step: this.step,
+            tooltips:this.tooltips,
             range: true,
             set: [this.contentMin,  this.contentMax],
             scale: true,

@@ -16,18 +16,13 @@
                     aria-labelledby="panelsStayOpen-headingOne">
                     <div class="accordion-body">
                         <div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" v-model="filter.isOnline" :value="true" name="flexRadioDefault"
+                            <div v-for="(state,i) in states" :key="i" class="form-check">
+                                <input class="form-check-input" type="radio" :value="state.id" v-model="filter.expired" 
+                                :selected="state.id===filter.expired"
+                                name="stateRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
-                                    خدمات اونلاين
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" v-model="filter.isOnline" :value="false" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    خدمات اوفلاين
+                                   {{state.name}}
                                 </label>
                             </div>
                         </div>
@@ -39,7 +34,7 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                         aria-controls="panelsStayOpen-collapseTwo">
-                        مجالات الاختصاص
+                        مجالات العروض
                     </button>
                 </h2>
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
@@ -60,7 +55,7 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                         aria-controls="panelsStayOpen-collapseThree">
-                        المدة
+                        قيمة الخصم
                     </button>
                 </h2>
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse "
@@ -68,8 +63,9 @@
                     <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">
                                         <rslider-input
-                                         :min.sync="filter.valueMinDuring" 
-                                         :max.sync="filter.valueMaxDuring"
+                                         :min.sync="filter.valueMinDiscount" 
+                                         :max.sync="filter.valueMaxDiscount"
+                                         :tooltips="{start:'#v%',end:'#v%'}"
                                          :lmin="0"
                                          :lmax="100"
                                          />
@@ -77,28 +73,7 @@
                                 </div>
                 </div>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFour">
-                        التكلفة
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseFour" class="accordion-collapse "
-                    aria-labelledby="panelsStayOpen-headingFour">
-                    <div style="margin: 20px 0px 0 0" class="a">
-                                    <div class="slider-container">
-                                        <rslider-input
-                                         :min.sync="filter.valueMinAmount" 
-                                         :max.sync="filter.valueMaxAmount"
-                                         :lmin="0"
-                                         :lmax="100"
-                                         />
-                                    </div>
-                                </div>
-                </div>
-            </div>
+         
         </div>
         <div class="mt-3 text-center">
             <button @click="updateFilter" class="btn-main">
@@ -112,18 +87,23 @@
 import OffersApi from '@/services/api/offers.js'
 export default {
  name:'sidebar-box',
- data: () => ({
+ props:{
+    filterItem:{
+        type:[Object,Array],//defaults values
+        require:true
+    }
+ },
+ data: (vm) => {
+    return{
+        states:[
+            {id:'all',name:'الكل'},
+            {id:'soon',name:'ينتهي قريبا'},
+            {id:'after-week',name:'ينتهي بعد اسبوع'},
+        ],
      categories: [],
         
-   filter:{
-    isOnline:true,
-    category_id:[],
-    valueMinDuring:0,
-    valueMaxDuring:100,
-    valueMinAmount:0,
-    valueMaxAmount:100
-   }
-  }),
+     filter:vm.filterItem
+  }},
   watch:{
    /* filter:{
         immediate:true,

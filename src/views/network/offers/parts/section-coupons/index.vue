@@ -3,6 +3,14 @@
     <d-filter-list :call-list="loadList"
     :pluralName="$t('coupons')"
     :singleName="$t('coupon')"
+    @change="changeFilter"
+    :searchPlaceholder="$t('search_for_coupon')"
+    orderName="price"
+        :orderOpts="
+             [
+                {id:'asc',name:'الأقل سعرا'},
+                {id:'desc',name:'الأغلى سعرا',}
+            ]"
      classColCard="col-md-6 mt-2">
       <template v-slot="{ item }">
         <a href="">
@@ -18,7 +26,7 @@
         </a>
       </template>
       <template v-slot:side>
-        <SidebarBox @change="changeFilter" />
+        <SidebarBox :filterItem="filterItem" @change="changeFilter" />
       </template>
     </d-filter-list>
   </div>
@@ -36,12 +44,13 @@ export default {
   data: () => ({
     group: 'list-coupon',
     filterItem:{
-      isOnline:true,
+      search:'',
+      price:'asc',
+      expired:'all',
       category_id:[],
-    valueMinDuring:0,
-    valueMaxDuring:100,
-    valueMinAmount:0,
-    valueMaxAmount:100
+    valueMinDiscount:0,
+    valueMaxDiscount:100,
+
     },
     item_test: { title: 'معرض الازياء الرجالي', img: '/assets/img/Rectangle -network.png', description: 'معرض متكام لبيع و تنسيق الزهور' },
     categories: [{ id: null, name: 'الكل' }],

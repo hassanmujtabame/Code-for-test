@@ -32,6 +32,7 @@
 			scale:		true,
 			labels:		true,
 			tooltip:	true,
+			tooltips:   null,
 			step: 		null,
 			disabled:	false,
 			onChange:	null
@@ -227,8 +228,9 @@
 
 		if (this.conf.range) {
 			if (this.conf.tooltip) {
-				this.tipL.innerHTML = this.conf.values[this.values.start];
-				this.tipR.innerHTML = this.conf.values[this.values.end];
+				let tooltips = this.conf.tooltips;
+				this.tipL.innerHTML = tooltips?tooltips['start'].replace('#v',this.values.start): this.conf.values[this.values.start];
+				this.tipR.innerHTML = tooltips?tooltips['end'].replace('#v',this.values.end): this.conf.values[this.values.end];
 			}
 			this.input.value = this.conf.values[this.values.start] + ',' + this.conf.values[this.values.end];
 			this.pointerR.style.left = (this.values.end * this.step - (this.pointerWidth / 2)) + 'px';

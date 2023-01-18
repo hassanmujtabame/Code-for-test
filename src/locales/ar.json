@@ -115,8 +115,8 @@
   "meetings": "لقاءات",
   "meeting": "لقاء",
   "member": "عضو",
-  "coupons": "كوبونات",
-  "coupon": "قسيمة",
+  "coupons": "الاكواد",
+  "coupon": "كود",
   "filter": "فلتر البحث",
   "Join-our-family-of-partners": "انضم إلى عائلة شركائنا",
   "Register-with-us-as-a-partner": "سجل معنا كشريك",
@@ -317,5 +317,6 @@
   "exhibition_rent_price": "سعر الإيجار",
   "exhibition_insurance_price": "سعر التأمين",
   "free": "مجانا",
-  "join-as-partner": "انضم كشريك"
+  "join-as-partner": "انضم كشريك",
+  "search_for_coupon": "إبحث عن كود"
 }
