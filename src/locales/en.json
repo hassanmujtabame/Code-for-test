@@ -241,7 +241,7 @@
   "publish-exhibition": "publish exhibition",
   "team": "Team",
   "select-team": "Select team",
-  "what_is_your_request": "Your request",
+  "what_is_your_request": "what is your request?",
   "change": "change",
   "Video": "Video",
   "pm": "pm",
@@ -331,5 +331,6 @@
   "about_project": "about project",
   "problem_for_solving": "problem for solving",
   "future_plan": "Future plan",
-  "about_team": "About team"
+  "about_team": "About team",
+  "attachment": "attachment"
 }
