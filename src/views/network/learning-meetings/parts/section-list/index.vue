@@ -4,7 +4,7 @@
         :pluralName="$t('the_meetings')"
         :singleName="$t('meeting')"
         :call-list="loadList"
-        :searchPlacehoder="$t('search_by_name')"
+        :searchPlaceholder="$t('search_by_name')"
         classColCard="col-12 col-md-6 mt-2"
         @change="changeFilter"
         >
