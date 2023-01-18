@@ -13,7 +13,7 @@
             ]"
      classColCard="col-md-6 mt-2">
       <template v-slot="{ item }">
-        <a href="">
+       
           <CouponCard 
           img="/assets/img/Icon ionic-logo-xbox-2.png" 
           :title="item.name_company" 
@@ -23,7 +23,6 @@
             :tag="item.category ? item.category.name : ''" 
             />
 
-        </a>
       </template>
       <template v-slot:side>
         <SidebarBox :filterItem="filterItem" @change="changeFilter" />
