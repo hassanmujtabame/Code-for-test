@@ -12,9 +12,9 @@
         <!--section coupons-->
         <SectionCoupons />
         <!--#section coupons--> 
-        <portal to="body"> 
+    
         <addOfferDialog />
-        </portal>
+  
         </div>
 </template>
 
