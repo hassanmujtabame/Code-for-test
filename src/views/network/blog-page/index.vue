@@ -156,10 +156,10 @@
         </div>
       </div>
     </div>
-    <portal to="body">
+
     <UpdateBlogDialog />
     <deleteBlogDialog/>
-  </portal>
+
   </div>
 </template>
 
