@@ -400,7 +400,7 @@
                                     vid="image" 
                                     :rules="isMoral ? 'required|image' : 'required|ext:mp4'"
                                     v-slot="{ validate, errors }">
-                                    <div class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-between">
+                                    <div class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-between position-relative">
                                         <input class="form-control" 
                                         type="file" 
                                         @change="uploadImage($event,validate)"
