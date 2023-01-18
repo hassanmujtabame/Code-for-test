@@ -11,7 +11,7 @@
                         الغير مرتبة .
                         اذا كنت غير متأكد من مشروعك فنحن نقدم خدمة تجهيز المشاريع الاستثمار يمكنك الحصول عليها من
                         <span>
-                            <a href="" class="text-dark fw-bolder">
+                            <a @click="openConfirmSubscribeDialog" href="#" class="text-dark fw-bolder">
                                 هنا
                             </a>
                         </span>
@@ -477,7 +477,8 @@
         </div>
      
             <successAddProjectDiag />
-
+            <confirmSubscribeProjectDiag />
+            <checkoutProjectDiag />
     </div>
 </template>
 
@@ -485,11 +486,15 @@
 //صفحة طلب عرض مشروع استثمارى/شبكة
 import ProjectAPI from '@/services/api/projects.js'
 import successAddProjectDiag from './dialogs/success-add-project.vue';
+import confirmSubscribeProjectDiag from './dialogs/confirm-subscribe-project.vue';
+import checkoutProjectDiag from './dialogs/check-out/index.vue';
 import InputFile from './input-file.vue'
 export default {
     name: 'investment-project-request',
     components: {
         successAddProjectDiag,
+        confirmSubscribeProjectDiag,
+        checkoutProjectDiag,
         InputFile
     },
     data: (vm) => ({
@@ -548,8 +553,13 @@ export default {
             console.log('ee',config)
             config.height = eval(this.element.$.rows*40) + 'px';
         },
-        openSuccessDialog() {
+        openSuccessDialog(evt) {
+            evt.preventDefault();
             this.fireOpenDialog('success-add-project')
+        },
+        openConfirmSubscribeDialog(evt) {
+            evt.preventDefault();
+            this.fireOpenDialog('confirm-subscribe-project')
         },
         async save(evt) {
             evt.preventDefault();
