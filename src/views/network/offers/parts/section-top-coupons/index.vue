@@ -47,7 +47,10 @@ export default {
   }),
   methods:{
     addOffer() {
-      window.EventBus.fire('add-dialog-open-dialog')
+      if(!this.userPartner)
+      this.fireOpenDialog('join-as-partner',this.getRouteLocale('register-networking'))
+      else
+      this.fireOpenDialog('add-dialog')
     },
     async getRecents() {
       this.loading = true;
