@@ -16,7 +16,7 @@
                                       <p class="t-c">
                                           احصل على خصم {{discount}}% عند استخدامك كود الخصم
                                       </p>
-                                      <button class="btn border p-2  px-3 m-c">
+                                      <button @click="copyToClipboard" class="btn border p-2  px-3 m-c">
                                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                               <path d="M11.4 22.75H7.6C3.21 22.75 1.25 20.79 1.25 16.4V12.6C1.25 8.21 3.21 6.25 7.6 6.25H10.6C11.01 6.25 11.35 6.59 11.35 7C11.35 7.41 11.01 7.75 10.6 7.75H7.6C4.02 7.75 2.75 9.02 2.75 12.6V16.4C2.75 19.98 4.02 21.25 7.6 21.25H11.4C14.98 21.25 16.25 19.98 16.25 16.4V13.4C16.25 12.99 16.59 12.65 17 12.65C17.41 12.65 17.75 12.99 17.75 13.4V16.4C17.75 20.79 15.79 22.75 11.4 22.75Z" fill="#1FB9B3"/>
                                               <path d="M16.9977 14.1505H13.7977C10.9877 14.1505 9.84766 13.0105 9.84766 10.2005V7.00048C9.84766 6.70048 10.0277 6.42048 10.3077 6.31048C10.5877 6.19048 10.9077 6.26048 11.1277 6.47048L17.5277 12.8705C17.7377 13.0805 17.8077 13.4105 17.6877 13.6905C17.5777 13.9705 17.2977 14.1505 16.9977 14.1505ZM11.3477 8.81048V10.2005C11.3477 12.1905 11.8077 12.6505 13.7977 12.6505H15.1877L11.3477 8.81048Z" fill="#1FB9B3"/>
@@ -25,7 +25,8 @@
                                               <path d="M19.1875 17.75C18.7775 17.75 18.4375 17.41 18.4375 17C18.4375 16.59 18.7775 16.25 19.1875 16.25C20.3275 16.25 21.2475 15.32 21.2475 14.19V8C21.2475 7.59 21.5875 7.25 21.9975 7.25C22.4075 7.25 22.7475 7.59 22.7475 8V14.19C22.7475 16.15 21.1475 17.75 19.1875 17.75Z" fill="#1FB9B3"/>
                                               <path d="M22 8.75048H19C16.34 8.75048 15.25 7.66048 15.25 5.00048V2.00048C15.25 1.70048 15.43 1.42048 15.71 1.31048C15.99 1.19048 16.31 1.26048 16.53 1.47048L22.53 7.47048C22.74 7.68048 22.81 8.01048 22.69 8.29048C22.58 8.57048 22.3 8.75048 22 8.75048ZM16.75 3.81048V5.00048C16.75 6.83048 17.17 7.25048 19 7.25048H20.19L16.75 3.81048Z" fill="#1FB9B3"/>
                                               </svg>
-                                              {{name}}
+                                              <span :id="couponId">{{name}}</span>
+                                              <span class="copyAlert " :id="`${couponId}-alert`"></span>
                                       </button>
                                   </div>
                               </div>
@@ -74,10 +75,51 @@
       during:{
           type:[String,Number]
       }
+   },
+   data:(vm)=>{
+    return {
+        couponId:`code-coupon-${vm.generateRandomString(8)}`
+    }
+   },
+   methods:{
+     copyToClipboard() {
+  // Get the text field
+  var copyText = document.getElementById(this.couponId);
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.innerHTML);
+  const copyDiv = document.getElementById(this.couponId+"-alert")
+    copyDiv.textContent = "Copied!";
+    copyDiv.style.display = "inline"; 
+    copyDiv.style.animationName = "disappear";
+    copyDiv.style.animationDuration = "2.5s"; 
+    setTimeout(function(){ 
+    copyDiv.style.display = "none"; 
+    copyDiv.style.animationName = "none"; 
+    }, 2400);
+  // Alert the copied text
+  //alert("Copied the text: " + copyText.innerHTML);
+}
    }
   }
   </script>
   
   <style>
-  
+  .copyAlert {
+  opacity: 0;
+  color:rgb(79, 222, 79)
+}
+
+@keyframes disappear {
+  30% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
   </style>
