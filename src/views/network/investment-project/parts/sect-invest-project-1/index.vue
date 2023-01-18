@@ -2,25 +2,21 @@
       <div class="row">
             <div  class="d-flex justify-content-between align-items-center container">
             <d-filter-list
+            group="d-filter-list-1"
             classColCard="col-md-6 mt-3"
             :call-list="initializing"
             hideSide
             hideTitle
+            :orderOpts="[
+                {id:'asc',name:'المضاف حديثا'},
+                {id:'desc',name:'الاقدم'}
+            ]"
+             @change="changeFilter"
             >
             <template v-slot:total>
                 <h1 class="text-bold">  {{ $t('physical_investment_projects') }}</h1>
             </template>
-                <template v-slot:order>
-                    <select class="form-select mb-3  py-3 m-c" aria-label=".form-select-lg example">
-                        <option selected> المضاف حديثا   </option>
-                        <option value="1">الاعلى سعرا</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                      </select>
-                      <p style="top: -13px;background: white;" class="position-absolute">
-                        ترتيب حسب 
-                      </p>
-                </template> 
+             
                 <template v-slot:head-end>
 
                     <router-link :to="getRouteLocale('network-investment-project-request-add')" class="btn bg-main text-white p-2">
@@ -59,19 +55,21 @@ export default {
     DPhysicalProjectLarge
  },
  data:()=>({
-    projects:[
-        {id:1,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
-        {id:2,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
-        {id:3,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:50},
-        {id:4,title:'تكنولوجيا القلم الديجيتال',user_info:{name:'خالد أسماعيل'},created_at:'22/12/2022',offered_property:30,amount_financing_required:'500,000',rest_days:40,count_invest:500,minimum_investment:20},
-    ],
+    filterItem:{
+        search:'',created_at:'asc'
+    }
 
  }),
  methods:{
+    changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-1-refresh')
+    },
     async initializing(metaInfo){
      
                 let params = {
-                page: metaInfo.current_page
+                page: metaInfo.current_page,
+                ...this.filterItem
             }
             return await projectsAPI.getAllPage('physical',4,params)
 
