@@ -42,7 +42,7 @@ export default {
   }),
   methods:{
     openCheckoutDialog(){
-    this.fireOpenDialog('checkout-project',this.project);
+    this.fireOpenDialog('checkout-project',{item:{amount:this.project.minimum_investment},data:this.project});
     this.closeMe()
   },
   closeMe(){

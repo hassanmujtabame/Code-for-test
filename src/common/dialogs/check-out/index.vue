@@ -105,7 +105,7 @@
                                     <h6 class="">
                                         {{ title_ }}
                                     </h6>
-                                    <slot :item="itemForm"></slot>
+                                    <slot :item="itemForm" :otherData="otherData"></slot>
 
                                     <div class="input-group mb-3 mt-2">
 
@@ -189,7 +189,7 @@ export default {
             card_cvv:'',
             expiry_date:'',
         
-
+             otherData:{},
             itemForm: {
                 payment_type: 1,
                 amount: null,
@@ -240,6 +240,8 @@ export default {
         },
 
         openDialog(data) {
+    
+            this.otherData = data.data;
             this.itemForm = Object.assign({ payment_type: 1, amount: null }, data.item)
             this.showDialog = true;
             return true;
