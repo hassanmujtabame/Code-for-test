@@ -33,6 +33,9 @@ export default {
     },
     date:{
         type:String,
+    },
+    time:{
+        type:String,
     }
  },
  computed:{
