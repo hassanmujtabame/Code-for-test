@@ -13,6 +13,9 @@ class LearningMeetingApi extends BaseApi{
     getCategories(){
         return window.axios.get(`network/categories`);
     }
+    postJoinMeeting(id){
+        return window.axios.post(`network/meeting-join/`,{meeting_id:id});
+    }
     getItem(id){
         return window.axios.get(`network/meetings/${id}`);
     }
