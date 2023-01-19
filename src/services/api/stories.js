@@ -6,6 +6,12 @@ class StoriesApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/stories?${s}`);
     }
+    addItem(data){
+        return window.axios.post(`network/stories`,data);  
+    }
+    updateItem(id,data){
+        return window.axios.put(`network/stories/${id}`,data);  
+    }
     getHomeNetwork(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/home-stories?${s}`);

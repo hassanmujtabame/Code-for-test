@@ -12,7 +12,7 @@
                 <span>
                     |
                 </span>
-                <small class="t-c">{{ description }}
+                <small class="t-c">{{ description??'N/A' }}
                 </small>
             </div>
         </div>

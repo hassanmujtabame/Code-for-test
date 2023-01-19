@@ -9,7 +9,7 @@
                     </h3>
                 </div>
                 <div class="col-md-6 text-end">
-                    <button class="btn bg-main text-white p-2 px-3" data-bs-toggle="modal" data-bs-target="#addModal">
+                    <button class="btn bg-main text-white p-2 px-3" @click="openAddStory">
                         اعرض قصتك الان
                     </button>
                 </div>
@@ -19,9 +19,10 @@
                 <div v-for="(item,i) in stories" :key="i" class="col-12 col-md-6 col-lg-3 mt-2">
                    <router-link class="w-100" :to="getRouteLocale('network-success-story-show',{id:item.id})">
                     <d-story-card 
-                    :title="item.title"
-                    :name="item.user_name"
                     :image="item.image"
+                        :title="item.title"
+                        :name="item.user_info.name"
+                        :description="item.user_info.job"
                    />
                 </router-link>
                 </div>
@@ -42,6 +43,9 @@ export default {
  }
 },
 methods:{
+  openAddStory(){
+    this.fireOpenDialog('add-story')
+  },
     async initializing(){
         this.loading=true;
         this.hasError=false

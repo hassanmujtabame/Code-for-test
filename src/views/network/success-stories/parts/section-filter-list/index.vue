@@ -15,9 +15,10 @@
                 <template v-slot:default="{item}">
                     <router-link class="w-100" :to="getRouteLocale('network-success-story-show',{id:item.id})">
                     <d-story-card 
-                    :title="item.title"
-                    :name="item.user_name"
                     :image="item.image"
+                        :title="item.title"
+                        :name="item.user_info.name"
+                        :description="item.user_info.job"
                    />
                 </router-link>
                 </template>

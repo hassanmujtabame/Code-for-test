@@ -10,6 +10,8 @@
           <SectionFilterList />
        
     </div>
+    <AddStoryDialog />
+    <SuccessAddStoryDialog />
  </div>
 </template>
 
@@ -17,12 +19,16 @@
 import SectionTop from './parts/section-top/index.vue'
 import SectionBestStories from './parts/section-best-stories/index.vue'
 import SectionFilterList from './parts/section-filter-list/index.vue'
+import AddStoryDialog from './parts/dialogs/add-item.vue'
+import SuccessAddStoryDialog from './parts/dialogs/success-add-item.vue'
 export default {
  name:'successful-stories',
  components:{
     SectionTop,
     SectionBestStories,
-    SectionFilterList
+    SectionFilterList,
+    AddStoryDialog,
+    SuccessAddStoryDialog
  }
 }
 </script>

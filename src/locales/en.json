@@ -336,5 +336,7 @@
   "search_by_service": "Search by service",
   "subscribe-now": "subscribe now!",
   "confirm_join_meeting": "Confirm join",
-  "confirm_cancel_join_meeting": "confirm cancel join meeting"
+  "confirm_cancel_join_meeting": "confirm cancel join meeting",
+  "publish-story": "Publish my story",
+  "story-title": "Story title"
 }

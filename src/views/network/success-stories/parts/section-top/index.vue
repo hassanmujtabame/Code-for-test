@@ -7,8 +7,7 @@
               <p class="text-white">
                 لاشك اننا نرغب بقرأه قصص نجاح الاخرين حتى نرسم طريقاً لنا مليئ بالامل والطموح  
             </p>
-            <button class="btn border text-white px-3"   data-bs-toggle="modal"
-                data-bs-target="#addModal">
+            <button class="btn border text-white px-3"  @click="openAddStory">
                 اعرض قصتك الان 
             </button>
             </div>
@@ -30,7 +29,12 @@
 
 <script>
 export default {
- name:'section-top'
+ name:'section-top',
+ methods:{
+  openAddStory(){
+    this.fireOpenDialog('add-story')
+  }
+ }
 }
 </script>
 
