@@ -23,7 +23,7 @@
             <template v-slot:total>
 
                 <h3 class="t-c ">
-                    تدوينات: {{ categoryName }}
+                    تدوينات {{ categoryName }}
                 </h3>
             </template>
 
