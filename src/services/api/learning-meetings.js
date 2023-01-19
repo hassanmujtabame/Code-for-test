@@ -13,11 +13,14 @@ class LearningMeetingApi extends BaseApi{
     getCategories(){
         return window.axios.get(`network/categories`);
     }
+    getOtherMeetings(id){
+        return window.axios.get(`network/other-meetings/${id}`);
+    }
     postJoinMeeting(id){
         return window.axios.post(`network/meeting-join/`,{meeting_id:id});
     }
     postCancelJoinMeeting(id){
-        return window.axios.post(`network/meeting-cancel-join/`,{meeting_id:id});
+        return window.axios.post(`network/user-cancel-meeting/`,{meeting_id:id});
     }
     getItem(id){
         return window.axios.get(`network/meetings/${id}`);
