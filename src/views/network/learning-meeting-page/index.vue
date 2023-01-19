@@ -1,8 +1,11 @@
 <template>
-  <div style="margin-top: 96px;">
+ <div style="margin-top: 96px;">
+    <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+      هناك خطأ غير معروف يرجي تحديث الصفحة
+    </div>
+    <div v-else class="container">
 
-
-<div class="container">
     <div class="box shadow p-3">
 
         <div class="row">
@@ -48,34 +51,8 @@
 
 
 </div>
-<div>
-    <div class="sec-five mt-5 p-3">
-
-        <div class="">
-          <div
-            class="d-flex justify-content-between align-items-center container"
-          >
-            <h1> لقاءات تعليمية أخرى    </h1>
-            <div>
-              <button class="more">{{ $t('more') }}</button>
-            </div>
-          </div>
-          <d-swiper is-auto :items="[1,2,3,4,5,6,7,8,9,10]">
-             <template v-slot="{item}">
-              <router-link class="router-link" :to="getRouteLocale('network-learning-meeting-show',{id:item.id})">
-                <meetingCard 
-                    :img="itemTest.image"
-                     :title="itemTest.title"
-                     :owner="itemTest.owner"
-                     :date="itemTest.date"
-                     :time="itemTest.time"
-                    />
-                    </router-link>
-            </template>
-        </d-swiper>
-        </div>
-      </div>
-</div>
+<!-- others meetings-->
+<SectionOtherMeetings  />
 <confirmJoinMeetingDialog />
 <successJoinMeetingDialog />
 </div>
@@ -85,11 +62,11 @@
 import meetingsAPI from '@/services/api/learning-meetings.js'
 import confirmJoinMeetingDialog from '../learning-meetings/dialogs/confirm-join-meeting.vue';
 import successJoinMeetingDialog from '../learning-meetings/dialogs/success-join-meeting.vue';
-    import meetingCard from '@/components/cards/meeting.vue'
+ import SectionOtherMeetings from './parts/other-meetings/index.vue'   
 export default {
  name:'meeting-page',
  components:{
-    meetingCard,
+  SectionOtherMeetings,
     confirmJoinMeetingDialog,
     successJoinMeetingDialog
  },
@@ -107,6 +84,7 @@ export default {
         ,image:'/assets/img/learning.png'
         ,video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'
     },
+    items:[],
     itemTest:{id:1
       ,title:'خطة العمل ودراسة الجدوى المالية'
       ,categoryName:'مجلس',
@@ -138,7 +116,7 @@ export default {
               }
 
             this.loading = false;
-        }
+        },
   },
   mounted(){
     this.initializing()
