@@ -20,6 +20,17 @@ const mixin = {
             setErrorsForm(form,response){
               form.setErrors(response.data.errors)
             },
+            dateTextMonth(dateT){
+              if(!dateT) return 'N/A';
+  
+              let parts = dateT.trim().split('-');
+                 
+                 let date = new Date(parts[0],parts[1],parts[2]);
+                  let d = date.getDate()
+                  let y = date.getFullYear()
+                  let m = this.getTranslateMonth(date.getMonth());
+              return `${d} ${m} ${y}`
+          },
              timeFormatAMPM(time){
               let _time = time.split(':')
               let date = new Date();
