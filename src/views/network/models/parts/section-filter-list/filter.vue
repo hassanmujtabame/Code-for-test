@@ -18,7 +18,7 @@
             <template v-slot:total>
 
                 <h3 class="t-c ">
-                    نماذج: {{ categoryName }}
+                    نماذج {{ categoryName }}
                 </h3>
             </template>
 
