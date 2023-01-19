@@ -20,7 +20,7 @@
             </button>
           </div>
           <div class="mt-3">
-          <button @click="cancelJoin" style="height: 40px;" class="btn btn-custmer-danger">تراجع عن الانضمام</button>
+          <button @click="confirmCancelJoin" style="height: 40px;" class="btn btn-custmer-danger">تراجع عن الانضمام</button>
           </div>
   </div>
       </template>
@@ -41,9 +41,7 @@ export default {
     showed:false,
  }),
  methods:{
-  async cancelJoin(){
 
-  },
   goBack(){
     this.closeEvent()
   },
