@@ -17,7 +17,7 @@
   هل أنت متأكد من أنضمامك للقاء ؟
  </p>
  <p class="m-c m-0">
-  بأنضمامك الى هذا اللقاء سيتبقى لك 3 لقاءات هذا الشهر
+  بأنضمامك الى هذا اللقاء سيتبقى لك {{itemDialog.number_participants+1}} لقاءات هذا الشهر
  </p>
 </div>
     </template>
@@ -51,6 +51,7 @@ export default {
             if(data.success){
                 console.log('success',data)
                 this.openSuccessJoinMeeting()
+                this.$emit('success',true)
                 this.closeEvent()
             }
         } catch (error) {

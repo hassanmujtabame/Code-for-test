@@ -29,7 +29,7 @@
                   </p>
                   <div>
                     <button v-if="!isJoined"  @click="openConfirmJoinMeeting" class="btn bg-main p-2 px-4 text-white">أنضم الى اللقاء</button>
-                    <button else @click="openConfirmCancelMeeting" class="btn bg-danger p-2 px-4 text-white">أنضم الى اللقاء</button>
+                    <button v-else @click="openConfirmCancelMeeting" class="btn bg-danger p-2 px-4 text-white">أنضم الى اللقاء</button>
                   </div>
                 </div>
             </div>
@@ -54,9 +54,9 @@
 </div>
 <!-- others meetings-->
 <SectionOtherMeetings  />
-<confirmJoinMeetingDialog />
-<successJoinMeetingDialog />
-<confirmCancelJoinMeetingDialog />
+<confirmJoinMeetingDialog @success="isJoined = true" />
+<successJoinMeetingDialog @cancel="isJoined = false" />
+<confirmCancelJoinMeetingDialog @success="isJoined = false" />
 </div>
 </template>
 
@@ -113,6 +113,7 @@ export default {
                 let { data } = await meetingsAPI.getItem(this.$route.params.id)
                 if (data.success) {
                    this.itemPage = data.data;
+                    this.isJoined= this.itemPage.is_participant
                    this.isOwner = this.itemPage.user_info.id==this.user.id
                 }else{
                   this.hasError = true;

@@ -46,6 +46,7 @@ export default {
         try {
             let {data} = await meetingsAPI.postCancelJoinMeeting(this.itemDialog.id)
             if(data.success){
+              this.$emit('success',false)
                 this.closeEvent()
             }
         } catch (error) {

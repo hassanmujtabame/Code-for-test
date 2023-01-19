@@ -37,7 +37,7 @@ export default {
     }
  },
  data:()=>({
-    blog:{id:null},
+  itemDialog:{id:null},
     showed:false,
  }),
  methods:{
@@ -50,6 +50,7 @@ export default {
             let {data} = await meetingsAPI.postCancelJoinMeeting(this.itemDialog.id)
             if(data.success){
                 console.log('success',data)
+                this.$emit('cancel',false)
                 this.closeEvent()
             }
         } catch (error) {
@@ -58,7 +59,7 @@ export default {
         }
     },
     openDialog(data){
-      this.blog=Object.assign({},data);
+      this.itemDialog=Object.assign({},data);
       this.showed=true
       return true;
     },
