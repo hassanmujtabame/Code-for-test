@@ -74,7 +74,7 @@ props:{
 data:(vm)=>{
   return{
       states:[
-          {id:'all',name:vm.$t('all')},
+          {id:null,name:vm.$t('all')},
           {id:'board',name:'مجلس'},
           {id:'business_to_business',name:vm.$t('B2B')},
           {id:'web_discussion',name:vm.$t('Webinar')},

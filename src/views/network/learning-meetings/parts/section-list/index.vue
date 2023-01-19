@@ -41,7 +41,7 @@ data: () => ({
         filterItem:{
       search:null,
       created_at:'asc',
-      type:'all',
+      type:null,
       category_id:[]
     }
     }),
