@@ -54,9 +54,9 @@
 </div>
 <!-- others meetings-->
 <SectionOtherMeetings  />
-<confirmJoinMeetingDialog @success="isJoined = true" />
-<successJoinMeetingDialog @cancel="isJoined = false" />
-<confirmCancelJoinMeetingDialog @success="isJoined = false" />
+<confirmJoinMeetingDialog @success="successJoined" />
+<successJoinMeetingDialog @cancel="successCanceled" />
+<confirmCancelJoinMeetingDialog @success="successCanceled" />
 </div>
 </template>
 
@@ -81,13 +81,8 @@ export default {
       hasError:false,
       colors:['#F2631C','#FFBC00','#2C98B3'],
       itemPage:{
-        title:'خطة العمل ودراسة الجدوى المالية'
-        ,categoryName:'مجلس'
-        ,date:'23 يوليو'
-        ,time:'2:23 ص'
-        ,content:'يبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعمال يبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعماليبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعماليبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعماليبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعماليبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعمال'
-        ,image:'/assets/img/learning.png'
-        ,video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'
+       
+        video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'
     },
     items:[],
     itemTest:{id:1
@@ -100,6 +95,14 @@ export default {
 
  }),
  methods:{
+  successJoined(){
+    this.isJoined = true;
+    this.itemPage.available_meetings_month -=1 
+  },
+  successCanceled(){
+    this.isJoined = true;
+    this.itemPage.available_meetings_month +=1 
+  },
   openConfirmJoinMeeting(){
     this.fireOpenDialog('confirm-join-meeting',this.itemPage)
   },

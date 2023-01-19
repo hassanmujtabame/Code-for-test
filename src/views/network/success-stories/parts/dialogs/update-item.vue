@@ -6,8 +6,8 @@
         :closeDialog="closeDialog"
         :openDialog="openDialog"
         >
-            <ValidationObserver ref="form"  >
-                <div class=" add-portfolio m-3 p-0">
+        <ValidationObserver ref="form">
+            <div v-if="showDialog" class=" add-portfolio m-3 p-0">
                 <div class="   m-auto">
                     <h3>
                         ألهمي الاخرين بقصتك
@@ -15,16 +15,36 @@
                 </div>
                 <div class="">
                     <div class="mb-3">
-                        <input type="text" class="form-control" placeholder=" عنوان القصة">
+                        <ValidationProvider
+                            :name="$t('story-title')"
+                            vid="title"
+                            rules="required"
+                                    v-slot="{errors}">
+                                    <label class="form-label">{{$t('story-title')}}</label>
+                                <input type="text" v-model="itemDialog.title" class="form-control" placeholder=" عنوان القصة">
+                            <d-error-input :errors="errors" v-if="errors.length" />
+                        </ValidationProvider>
                     </div>
 
                     <div class="mb-3">
-                        <textarea class="form-control" rows="10" placeholder="    أكتبي قصتك هنا"></textarea>
+                        <ValidationProvider
+                            :name="$t('story-title')"
+                            vid="title"
+                            rules="required"
+                                    v-slot="{errors}">
+                                    <label class="form-label">{{$t('story-title')}}</label>
+
+                        <d-ckeditor-classic v-model="itemDialog.description" 
+                        class="form-control" 
+                        rows="10"
+                        :editorConfig="{minHeight:'150px'}"
+                        placeholder="أكتبي قصتك هنا"/>
+                        <d-error-input :errors="errors" v-if="errors.length" />
+                        </ValidationProvider>
                     </div>
                 </div>
             </div>
-            </ValidationObserver>
-      
+        </ValidationObserver>
         <template v-slot:actions>
             <button @click="save" type="button" class="btn btn-main">
                 {{ $t('save_modifications') }}
@@ -46,12 +66,12 @@ export default {
     url:'/assets/svg/empty-image.svg',
     imageUrl:'none',
     file:null,
+    itemOrigin:{},
     itemDialog:{
         id:null,
         title:'',
         description:'',
-        short_description:'',
-    }
+       }
   }},
   
   methods:{
@@ -69,6 +89,7 @@ export default {
             let { data } = await StoriesAPI.updateItem(this.itemDialog.id,formData)
             if(data.success){
                 console.log('success',data)
+                this.$emit('updated', this.itemDialog)
                 this.closeEvent()
             }
         } catch (error) {
@@ -86,7 +107,10 @@ export default {
         }
     },
     openDialog(data){
-        this.itemDialog.id=data
+        this.itemOrigin = data
+        this.itemDialog.id = data.id
+        this.itemDialog.title = data.title
+        this.itemDialog.description = data.description
         this.showDialog = true;
         return true;
     },
