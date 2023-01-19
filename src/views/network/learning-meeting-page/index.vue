@@ -28,7 +28,8 @@
                    {{itemPage.content}}
                   </p>
                   <div>
-                    <button  @click="openConfirmMeeting" class="btn bg-main p-2 px-4 text-white">أنضم الى اللقاء</button>
+                    <button v-if="!isJoined"  @click="openConfirmJoinMeeting" class="btn bg-main p-2 px-4 text-white">أنضم الى اللقاء</button>
+                    <button else @click="openConfirmCancelMeeting" class="btn bg-danger p-2 px-4 text-white">أنضم الى اللقاء</button>
                   </div>
                 </div>
             </div>
@@ -55,22 +56,26 @@
 <SectionOtherMeetings  />
 <confirmJoinMeetingDialog />
 <successJoinMeetingDialog />
+<confirmCancelJoinMeetingDialog />
 </div>
 </template>
 
 <script>
 import meetingsAPI from '@/services/api/learning-meetings.js'
 import confirmJoinMeetingDialog from '../learning-meetings/dialogs/confirm-join-meeting.vue';
+import confirmCancelJoinMeetingDialog from '../learning-meetings/dialogs/confirm-cancel-join-meeting.vue';
 import successJoinMeetingDialog from '../learning-meetings/dialogs/success-join-meeting.vue';
  import SectionOtherMeetings from './parts/other-meetings/index.vue'   
 export default {
  name:'meeting-page',
  components:{
   SectionOtherMeetings,
+  confirmCancelJoinMeetingDialog,
     confirmJoinMeetingDialog,
     successJoinMeetingDialog
  },
  data:()=>({
+  isJoined:false,
   isOwner:false,
       loading:true,
       hasError:false,
@@ -95,8 +100,11 @@ export default {
 
  }),
  methods:{
-  openConfirmMeeting(){
+  openConfirmJoinMeeting(){
     this.fireOpenDialog('confirm-join-meeting',this.itemPage)
+  },
+  openConfirmCancelMeeting(){
+    this.fireOpenDialog('confirm-cancel-join-meeting',this.itemPage)
   },
   async initializing() {
       this.loading = true;
