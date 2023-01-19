@@ -1,7 +1,7 @@
 <template>
-  <div class="container-creditcard preload">
-        <div  class="creditcard" ref="creditcard" @click="cardClicked">
-            <div v-show="showFront" class="front">
+  <div class="container-creditcard">
+        <div  class="creditcard" ref="creditcard" :class="{'flipped':!showFront}" @click="cardClicked">
+            <div class="front">
                 <div id="ccsingle"></div>
                 <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
@@ -64,7 +64,7 @@
                     </g>
                 </svg>
             </div>
-            <div v-show="!showFront" class="back">
+            <div  class="back">
                 <svg version="1.1" id="cardback" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
                     <g id="Front">
@@ -125,11 +125,11 @@ data:()=>({
  methods:{
     cardClicked(/*evt*/){
         
-        if (this.$refs.creditcard.classList.contains('flipped')) {
+      /*  if (this.$refs.creditcard.classList.contains('flipped')) {
             this.$refs.creditcard.classList.remove('flipped');
     } else {
         this.$refs.creditcard.classList.add('flipped');
-    }
+    }*/
     this.showFront =!this.showFront
     },
     async changeCardNumber(data){
@@ -228,6 +228,9 @@ swapColor (basecolor) {
             input.setAttribute('class', 'darkcolor ' + basecolor + 'dark');
         });
 },
+changeFace(data){
+    this.showFront = data == 'front';
+}
  },
  created(){
     this.cardnumber_mask = IMask.createMask({
@@ -330,7 +333,7 @@ this.securitycode_mask =new IMask.createMask({
 });
 console.log(this.cardnumber_mask,this.cardnumber_mask.masked)
 //this.cardnumber_mask.on("accept",this.onAcceptCardNumber );
-
+window.EventBus.listen(this.group+'-show-face',this.changeFace)
     window.EventBus.listen(this.group+'-brand-card',this.changeBrandIcon)
     window.EventBus.listen(this.group+'-card-number',this.changeCardNumber)
     window.EventBus.listen(this.group+'-card-holder',this.changeCardHolder)
@@ -339,6 +342,7 @@ console.log(this.cardnumber_mask,this.cardnumber_mask.masked)
 
   },
   beforeDestroy(){
+    window.EventBus.off(this.group+'-show-face',this.changeFace)
     window.EventBus.off(this.group+'-brand-card',this.changeBrandIcon)
     window.EventBus.off(this.group+'-card-number',this.changeCardNumber)
     window.EventBus.off(this.group+'-card-holder',this.changeCardHolder)
@@ -353,13 +357,7 @@ mounted(){
 </script>
 
 <style>
-/* CREDIT CARD IMAGE STYLING */
-.preload * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
-    -o-transition: none !important;
-}
+
 #ccsingle {
     position: absolute;
     right: 15px;
@@ -578,30 +576,42 @@ mounted(){
 #cardback .st13 {
     font-size: 37.769px;
 }
-
+/* CREDIT CARD IMAGE STYLING */
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition:none !important
+}
 /* FLIP ANIMATION */
 .container-creditcard {
     perspective: 1000px;
+    max-height: 251px;
+    height: 54vw;
 }
 
 .creditcard {
     direction: ltr;
-   display: flex;
-   flex-direction: column;
+    position: relative;
     width: 100%;
     max-width: 400px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    transition: -webkit-transform 0.6s;
-    -webkit-transition: -webkit-transform 0.6s;
-    transition: transform 0.6s;
-    transition: transform 0.6s, -webkit-transform 0.6s;
+    transition: -webkit-transform 0.9s;
+    -webkit-transition: -webkit-transform 0.9s;
+    transition: transform 0.9s;
+    transition: transform 0.9s, -webkit-transform 0.9s;
+   /* -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;*/
     cursor: pointer;
 }
 
 .creditcard .front,
 .creditcard .back {
-    /*position: absolute;*/
+    position: absolute;
     width: 100%;
     max-width: 400px;
     -webkit-backface-visibility: hidden;

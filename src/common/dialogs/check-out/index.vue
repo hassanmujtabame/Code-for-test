@@ -53,15 +53,18 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <input type="text" v-model="card_holder" class="border rounded-2 w-100  p-2 " name=""
-                                                            id="" placeholder=" اسم على البطاقة">
+                                                        @focus="sendChangeFaceCard('front')"
+                                                        id="" placeholder=" اسم على البطاقة">
                                                     </div>
                                                     <div class="col-12">
                                                         <input type="text" v-model="card_number" class="border rounded-2 w-100  p-2 mt-3"
-                                                            name="" id="" placeholder="رقم البطاقة">
+                                                        @focus="sendChangeFaceCard('front')"    
+                                                        name="" id="" placeholder="رقم البطاقة">
                                                     </div>
                                                     <div class="col-6">
                                                         <input type="text" name="date_end"
                                                         v-model="expiry_date"
+                                                        @focus="sendChangeFaceCard('front')"
                                                             class="border rounded-2 w-100  p-2 mt-3" id=""
                                                             placeholder="  تاريخ الانتهاء">
                                                         <div id="date_endHelp" class="form-text">على نمط شهر/سنة</div>
@@ -69,6 +72,7 @@
                                                     <div class="col-6">
                                                         <input type="text" class="border rounded-2 w-100  p-2 mt-3"
                                                         v-model="card_cvv"
+                                                        @focus="sendChangeFaceCard('back')"
                                                         name="pin" id="" placeholder=" رمز الحماية">
                                                         <div id="pinHelp" class="form-text"><bdi>3 أو 4 ارقام</bdi>
                                                         </div>
@@ -207,6 +211,9 @@ export default {
         },
     },
     methods: {
+        sendChangeFaceCard(face){
+            this.fireEvent(`credit-card-image-show-face`,face)
+        },
         sendEventCard(name,data){
             this.fireEvent(`credit-card-image-${name}`,data)
         },
