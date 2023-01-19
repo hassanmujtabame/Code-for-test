@@ -1,5 +1,5 @@
 <template>
-  <div class=" mt-5 p-3">
+  <div class="container mt-5 p-3">
     <div class="">
       <div class="d-flex justify-content-between align-items-center container">
         <h1> أهم اكواد الخصم </h1>
