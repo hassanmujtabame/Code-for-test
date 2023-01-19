@@ -29,7 +29,7 @@
                         }"
             >
                 <template v-slot="{item}">
-                    <router-link class="w-100" :to="getRouteLocale('network-success-story-show',{id:item.id})">
+                    <router-link class="router-link w-100" :to="getRouteLocale('network-success-story-show',{id:item.id})">
                     <d-story-card 
                     :image="item.image"
                         :title="item.title"

@@ -62,8 +62,11 @@ export default {
  methods:{
     openUpdateStory(){
     this.fireOpenDialog('update-story',this.story)
-  },
- }
+  }
+ },
+  mounted(){
+
+  }
  
 
  

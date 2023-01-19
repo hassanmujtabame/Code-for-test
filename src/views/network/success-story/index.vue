@@ -5,6 +5,7 @@
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
     <div v-else  class="container">
+      <span style="display:none">{{ storyId }}</span>
         <ShowStory :isOwner="isOwner" :story="story" />
        <!-- members of network-->
        <MembersNetwork />
@@ -33,6 +34,18 @@ export default {
       hasError:false,
     }
  },
+ computed:{
+  storyId(){
+    return this.$route.params.id
+  }
+ },
+ watch:{
+  storyId:{
+   handler(){
+    this.initializing()
+   }
+  }
+ },
  methods:{
   updateStory(newStory){
    this.story = {...this.story,...newStory}
@@ -60,7 +73,7 @@ export default {
     }
  },
  mounted(){
-    this.initializing()
+  this.initializing()
  }
 }
 </script>
