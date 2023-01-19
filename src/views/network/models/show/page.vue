@@ -28,8 +28,8 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div>
-                    <img class="w-100" :src="item.image" alt="" height="384">
+                <div class="rounded-3">
+                    <img class="w-100 rounded-3" :src="item.image" alt="" height="384">
                    
               
                 </div>
