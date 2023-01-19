@@ -1709,3 +1709,10 @@ position: relative;
   .netwok-home-header{
     margin: 0 84px;
 }
+
+.btn-custmer-danger {
+
+    border: 1px solid #f70000  !important;
+
+    color: #f70000  !important;
+}
