@@ -25,7 +25,7 @@
 
       </template>
       <template v-slot:side>
-        <SidebarBox :filterItem="filterItem" @change="changeFilter" />
+        <SidebarBox :filterItem="filterSide" @change="changeFilter" />
       </template>
     </d-filter-list>
   </div>
@@ -42,6 +42,13 @@ export default {
   },
   data: () => ({
     group: 'list-coupon',
+    filterSide:{
+      expired:null,
+      category_id:[],
+    min_discount:0,
+    max_discount:100,
+
+    },
     filterItem:{
       search:null,
       price:'asc',

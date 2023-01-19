@@ -56,7 +56,8 @@ export default {
         categories: [{ id: null, name: 'الكل' }],
         category_id: null,
         filterItem:{
-            created_at:'asc'
+            created_at:'asc',
+            search:null
         }
     }),
     computed:{

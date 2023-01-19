@@ -21,7 +21,7 @@
                   </router-link>
               </template>
               <template v-slot:side>
-                <sidebarBox  :filterItem="filterItem" @change="changeFilter"/>
+                <sidebarBox  :filterItem="filterSide" @change="changeFilter"/>
               </template>
         </d-filter-list>
       </div> 
@@ -38,6 +38,10 @@ components:{
   sidebarBox
 },
 data: () => ({
+  filterSide:{
+      type:null,
+      category_id:[]
+    },
         filterItem:{
       search:null,
       created_at:'asc',

@@ -73,6 +73,7 @@ export default {
     }
  },
  data:(vm)=>{
+
     return{
         states:[
             {id:null,name:'الكل'},

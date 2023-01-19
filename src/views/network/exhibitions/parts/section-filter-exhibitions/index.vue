@@ -15,7 +15,8 @@
                 {id:'asc',name:'الأقل سعرا'},
                 {id:'desc',name:'الأغلى سعرا',}
             ]"
-        @change="changeFilter"
+            @change="changeFilter"
+  
         >
             <template v-slot:default="{ item }">
                 <router-link class="router-link" :to="getRouteLocale('network-exhibition-show', { id: item.id })">
@@ -31,7 +32,7 @@
                 </router-link>
             </template>
             <template v-slot:side>
-                <sidebarBox :filterItem="filterItem" @change="changeFilter"/>
+                <sidebarBox :filterItem="filterSide" @change="changeFilter"/>
             </template>
         </d-filter-list>
 
@@ -49,16 +50,17 @@ export default {
         sidebarBox
     },
     data: () => ({
-        filterItem:{
-        search:null,
-      price:'asc',
+
+    filterSide:{
       is_share:null,
       category_id:[],
-      valueMinDuring:0,
-      valueMaxDuring:100,
-      priceMin:null,
-      priceMax:null
-    }
+    },
+        filterItem:{
+            search:null,
+            price:'asc',
+            is_share:null,
+            category_id:[],
+        }
     }),
     methods: {
         changeFilter(val){
