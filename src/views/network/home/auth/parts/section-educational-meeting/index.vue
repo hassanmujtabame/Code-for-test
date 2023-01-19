@@ -20,12 +20,15 @@
     :items="items"
               >
                 <template  v-slot:default="{item}" >
+                  <router-link class="router-link" :to="getRouteLocale('network-learning-meeting-show',{id:item.id})">
+
                 <meetingCard 
                      :img="item.image"
                      :title="item.title"
                      :owner="item.user_info.name"
                      :date="`${item.date} ${item.time}`"
                     />
+                    </router-link>
         </template>
     </d-swiper>
 </div>

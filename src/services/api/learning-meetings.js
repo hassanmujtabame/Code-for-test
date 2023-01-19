@@ -16,6 +16,9 @@ class LearningMeetingApi extends BaseApi{
     postJoinMeeting(id){
         return window.axios.post(`network/meeting-join/`,{meeting_id:id});
     }
+    postCancelJoinMeeting(id){
+        return window.axios.post(`network/meeting-cancel-join/`,{meeting_id:id});
+    }
     getItem(id){
         return window.axios.get(`network/meetings/${id}`);
     }

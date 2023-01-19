@@ -10,15 +10,15 @@
         >
               <template v-slot="{item}">
                 
-                  <a href="">
+                  <router-link class="router-link" :to="getRouteLocale('network-learning-meeting-show',{id:item.id})">
                     <meetingCard 
                      :img="item.image"
                      :title="item.title"
                      :owner="item.userName"
                      :date="item.date"
                     />
-           
-                  </a>
+        
+                  </router-link>
               </template>
               <template v-slot:side>
                 <sidebarBox  :filterItem="filterItem" @change="changeFilter"/>

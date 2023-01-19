@@ -140,6 +140,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-learning-meetings" */ '../views/network/learning-meetings/index.vue') 
     },
     {
+        path: 'network/learning-meetings/:id',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-learning-meeting-show',
+        component: () => import(/* webpackChunkName: "network-learning-meeting-show" */ '../views/network/learning-meeting-page/index.vue') 
+    },
+    {
         path: 'network/control-mamber-partner',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-control-mamber-partner',
