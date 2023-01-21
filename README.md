@@ -7,7 +7,14 @@
 3-قم باضافة هذا السيريب الى web.php 
 
 `
-Route::get('/{any}', function () {
+Route::get('/', function () {
     return file_get_contents(public_path('index.html'));
 })->where('any', '.*');
+Route::get('/ar/{any}', function () {
+    return file_get_contents(public_path('index.html'));
+})->where('any', '.*');
+Route::get('/en/{any}', function () {
+    return file_get_contents(public_path('index.html'));
+})->where('any', '.*');
+
 `
