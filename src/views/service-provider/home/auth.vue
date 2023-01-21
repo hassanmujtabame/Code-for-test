@@ -1,57 +1,57 @@
 <template>
     <div style="margin-top: 85px " class="consult">
           <!-- section Header-->
-          <SectionOne />
+          <SectionAuthHeader />
           <!-- section recent-requests-->
-          <SectionFive/>
+          <SectionRecentRequests/>
           <!-- section explore-services-->
-          <SectionSeven />
+          <SectionExploreServices />
           <!-- section recent-services-->
-          <SectionEight />
+          <SectionRecentServices />
           <!-- section seek for job-->
           <SectionSeekJob />
          <!-- section best-provider-->
-         <SectionFour />
+         <SectionBestProvider />
 
           
 
           <!-- section need-service-->
-          <SectionSix />
+          <SectionNeedService />
           
 
            
 
            <!-- section continue-learning-->
-           <SectionNine />
+           <SectionContinueLearning />
  
           <!-- section hear-->
-          <SectionTen />
+          <SectionHear />
 
       </div>
   </template>
   
   <script>
-  import SectionOne from './parts/section-auth-header/index.vue'
+  import SectionAuthHeader from './parts/section-auth-header/index.vue'
   import SectionSeekJob from './parts/section-seek-job/index.vue'
-  import SectionFour from './parts/section-best-provider/index.vue'
-  import SectionFive from './parts/section-recent-requests/index.vue'
-  import SectionSix from './parts/section-need-service/index.vue'
-  import SectionSeven from './parts/section-explore-services/index.vue'
-  import SectionEight from './parts/section-recent-services/index.vue'
-  import SectionNine from './parts/section-continue-learning/index.vue'
-  import SectionTen from './parts/section-hear/index.vue'
+  import SectionBestProvider from './parts/section-best-provider/index.vue'
+  import SectionRecentRequests from './parts/section-recent-requests/index.vue'
+  import SectionNeedService from './parts/section-need-service/index.vue'
+  import SectionExploreServices from './parts/section-explore-services/index.vue'
+  import SectionRecentServices from './parts/section-recent-services/index.vue'
+  import SectionContinueLearning from './parts/section-continue-learning/index.vue'
+  import SectionHear from './parts/section-hear/index.vue'
   export default {
   name:"service-provider-guest",
   components:{
-    SectionOne,
+    SectionAuthHeader,
     SectionSeekJob,
-    SectionFour,
-    SectionFive,
-    SectionSix,
-    SectionSeven,
-    SectionEight,
-    SectionNine,
-    SectionTen
+    SectionBestProvider,
+    SectionRecentRequests,
+    SectionNeedService,
+    SectionExploreServices,
+    SectionRecentServices,
+    SectionContinueLearning,
+    SectionHear
   }
   }
   </script>
