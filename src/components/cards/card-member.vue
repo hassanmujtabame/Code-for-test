@@ -6,16 +6,26 @@
                         <div class="text-center bg-white box-deatils" :class="{'p-3':!description}">
                             <h6 class="network-member-name">{{name}}</h6>
                             <p v-if="description" class="m-c network-member-description">{{description}}</p>
-
+                            <div v-if="showRate">
+                            <RateStars  :value="rate" :size="16"  />
                         </div>
-
                     </div>
+                        </div>
+                        
 </template>
 
 <script>
+import RateStars from '../rate-stars/index'
 export default {
  name:'card-parson',
+ components:{
+    RateStars
+ },
  props:{
+    showRate:{
+        type:Boolean,
+        default:false
+    },
     img:{
         type:String
     },
@@ -24,6 +34,10 @@ export default {
     },
     description:{
         type:String
+    },
+    rate:{
+        type:[String,Number],
+        default:0
     }
  }
 }

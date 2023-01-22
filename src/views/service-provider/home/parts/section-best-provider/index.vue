@@ -1,6 +1,6 @@
 <template>
   <div class="sec-five p-3">
-            <div class="">
+            <div class="container">
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
@@ -9,8 +9,7 @@
               </div>
               <d-swiper
               v-if="!loading"
-              style="overflow-x: hidden"
-            :slides-per-view="5"
+            :slides-per-view="4"
             :space-between="10"
             is-auto
               :items="items"
@@ -21,7 +20,9 @@
                 <CardMember 
                 :name="item.name" 
                 :description="item.job" 
-                :img="item.image"/>
+                :img="item.image"
+                showRate
+                />
               </router-link>
                 </template>
             </d-swiper>
@@ -41,17 +42,7 @@ export default {
     },
     data:()=>({
       loading:true,
-        items:[
-           /* {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {id:1,name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-    */]
+        items:[]
     }),
     methods:{
       async loadList(){
