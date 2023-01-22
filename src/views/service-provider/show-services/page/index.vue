@@ -18,7 +18,7 @@
 
                         </span>
                         <span class="m-c">
-                            تصميم فستان لحلفة تخرج
+                      {{itemPage.title}}
 
                         </span>
 
@@ -356,8 +356,7 @@
                                                 fill="#1FB9B3" />
                                         </svg>
 
-                                        <p style="    top: 6px;
-                                        right: 13px; " class="position-absolute px-2 m-c">
+                                        <p style="top: 6px;right: 13px; " class="position-absolute px-2 m-c">
                                             أرفق ملف
 
                                         </p>
@@ -458,10 +457,10 @@ export default {
     }),
     methods:{
     openEditDialog(){
-      this.fireOpenDialog('update-blog',this.itemPage)
+      this.fireOpenDialog('update-item',this.itemPage)
     },
     openDeleteDialog(){
-      this.fireOpenDialog('delete-blog',this.itemPage)
+      this.fireOpenDialog('delete-item',this.itemPage)
     },
     async initializing() {
       this.loading = true;
