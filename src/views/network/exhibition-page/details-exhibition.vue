@@ -49,7 +49,7 @@
                                         <p>
                                             سعر الدخول :
                                             <span class="m-c">
-                                                {{ itemPage.price }} </span>
+                                                {{ itemPage.price===0?$t('free-enter'):`${itemPage.price} ${$t('riyals')}` }} </span>
                                         </p>
                                     </div>
                                     <div class="col-md-6 d-flex">
