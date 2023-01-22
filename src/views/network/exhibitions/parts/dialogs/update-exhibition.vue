@@ -140,7 +140,7 @@
                         <ValidationProvider 
                         :name="$t('entry_price')" 
                         vid="price" 
-                        rules="required" 
+                        rules="required|numeric" 
                         v-slot="{ errors }">
                         <label class="form-label">{{ $t('entry_price') }}</label>
                             <input type="text" v-model="itemForm.price" class="form-control" 
