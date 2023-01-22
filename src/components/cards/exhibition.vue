@@ -29,10 +29,10 @@
                                         fill="#979797" />
                                 </svg>
                                 <template v-if="price=='0'">
-                                   {{ $t('free-enter') }}}
+                                   {{ $t('free-enter') }}
                                 </template>
                                 <template v-else>
-                               {{ price??'N/A'}}
+                            {{ $t('ticket') }}   {{ price??'N/A'}} {{ $t('riyals') }}
                             </template>
                             </p>
                             <p>
