@@ -12,19 +12,13 @@
                 <p>
                     يمكنك دائماً تبديل بين خدمات رياديات المختلفة  
                 </p>
-                <ul class="nav nav-pills mb-3 d-flex gap-2 flex-wrap " id="pills-tab" role="tablist">
-                    <a class="nav-item" role="presentation">
-                      <button class="nav-link p-2 text-dark active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">شبكة رياديــــــات</button>
-                    </a>
-                    <a class="nav-item" role="presentation">
-                      <button class="nav-link p-2 text-dark" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">حاضنة رياديات</button>
-                    </a>
-                    <a class="nav-item" role="presentation">
-                      <button class="nav-link p-2 text-dark" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">اكاديمية رياديات</button>
-                    </a>
-                    <a class="nav-item" role="presentation">
-                      <button class="nav-link p-2 text-dark" id="pills-souq-tab" data-bs-toggle="pill" data-bs-target="#pills-souq" type="button" role="tab" aria-controls="pills-souq" aria-selected="false" >سوق رياديات</button>
-                    </a>
+                <ul class="nav nav-pills mb-3 d-flex gap-2 flex-wrap "  role="tablist">
+                    
+                      <button  class="nav-link p-2 text-dark active">شبكة رياديات</button>
+                  
+                    
+                      <button v-for="(btn,i) in btns" :key="i" @click="openConfirmDialog(btn,$event)" class="nav-link p-2 text-dark" >{{ btn.title }} </button>
+                       
                   </ul>
             
             </div>
@@ -35,21 +29,40 @@
             <!-- card info -->
             <cardInfo v-else />
         </div>
+        <ConfirmChangeDeprtment />
     </div>
 </template>
 
 <script>
 import firstTimeView from './first-time.vue';
 import cardInfo from './card-info.vue';
+import ConfirmChangeDeprtment from './go-other-section.vue'
 export default {
     name:'section-header',
 components:{
     firstTimeView,
-    cardInfo
+    cardInfo,
+    ConfirmChangeDeprtment
 },
-data:()=>({
+data:(vm)=>{
+  return {
     isFirst:true,// will related to backend value
-})
+    btns:[
+      {id:'service-provider',title:'مقدمي الخدمة',route:vm.getRouteLocale('service-provider-home')},
+      {id:'incubator',title:'حاضنة رياديات',route:vm.getRouteLocale('incubator-home')},
+      {id:'academy',title:'اكاديمية رياديات',route:vm.getRouteLocale('academy-home')},
+      //{id:'market',title:'سوق رياديات',route:vm.getRouteLocale('service-provider-home')},
+    ]
+}},
+methods:{
+  openConfirmDialog(dept,evt){
+    if(evt)
+    evt.preventDefault();
+    
+
+    this.fireOpenDialog('go-to-pther-section',dept)
+  }
+}
 }
 </script>
 
