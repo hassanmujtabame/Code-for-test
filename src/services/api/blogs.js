@@ -26,6 +26,7 @@ class BlogsApi extends BaseApi {
         return window.axios.post(`network/blogs`,data);  
     }
     updateBlog(id,data){
+        data.append('_method','PUT')
         return window.axios.put(`network/blogs/${id}`,data);  
     }
     deleteBlog(id){

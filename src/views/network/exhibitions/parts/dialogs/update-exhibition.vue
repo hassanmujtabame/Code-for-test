@@ -209,7 +209,7 @@
                             :multiple="false"  
                             :group-select="false" 
                             :placeholder="hidePlaceholder?'': $t('the_city')" 
-                            :custom-label="(it)=>`${it.name}-${it.region.name}`"
+                            :custom-label="(it)=>`${it.name}-${it.region?it.region.name:''}`"
                             track-by="id" 
                             label="name"
                             >
@@ -375,7 +375,11 @@
 <script>
 import exhibitionsAPI from '@/services/api/exhibitions';
 import commonAPI from '@/services/api/common';
+import trashOutlineIcon from '@/components/icon-svg/trash-outline.vue';
 export default {
+components:{
+    trashOutlineIcon
+},
 
     data: (vm) => {
         return{
@@ -544,7 +548,8 @@ watch:{
             is_share: 0,
         },dataItem)
         this.is_share = dataItem.is_share
-        this.region ={ id: this.itemForm.region_id,name:''}
+       
+        this.region = this.cities.find(x=>x.id==this.itemForm.region_id)
         this.file = null;
         this.showImage = dataItem.image;
             /*window.$('#'+this.idImage)
