@@ -21,6 +21,7 @@
                 :name="item.name" 
                 :description="item.job" 
                 :img="item.image"
+                :rate="item.rate"
                 showRate
                 />
               </router-link>

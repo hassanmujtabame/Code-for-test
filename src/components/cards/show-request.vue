@@ -113,7 +113,7 @@ export default {
         type:[String,Number]
     },
     resetDays:{
-        type:String
+        type:[String,Number]
     },
     price:{
         type:[String,Number]
