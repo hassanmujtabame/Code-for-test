@@ -36,7 +36,7 @@ export default {
     async initializing(){
         this.loading = true;
         try {
-            let {data} =  await commonAPI.getOpinions({department_name:'riadiat'})
+            let {data} =  await commonAPI.getOpinions({department_name:'network'})
             console.log(data)
             if(data.success){
                 this.items =data.data

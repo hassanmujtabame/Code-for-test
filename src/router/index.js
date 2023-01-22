@@ -32,7 +32,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "my-profile" */ '../views/common/my-profile/index.vue')
   },
   {
-    path: 'show-profile',
+    path: 'show-profile/:id',
     name: 'show-profile',
     meta:{layout:LayoutDefault},
     component: () => import(/* webpackChunkName: "show-profile" */ '../views/common/show-profile/index.vue')

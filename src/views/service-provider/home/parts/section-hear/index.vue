@@ -1,81 +1,53 @@
 <template>
-    <div class="sex-eight mt-5">
-        <div class="container">
-          <h2 class="text-center">ماذا يقولون المشتركات في الشبكة</h2>
-            <div class="hear-carousel owl-carousel owl-theme">
-                <div class="item">
-                    <div class="row align-items-center p">
-                        <div class="col-md-8 osition-relative">
-                            <p>
-                                رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات ..
-                            شكرا رياديات 
-                            </p>
-                            <h6 style="color: #FFBC00;">
-                                سلمى احمد
-                            </h6>
-                            <div class="position-absolute dote">
-                                <img src="/assets/img/dot.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <img class="rounded-3  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
-                        </div>
-                     
-  
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="row align-items-center p">
-                        <div class="col-md-8 osition-relative">
-                            <p>
-                                رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات ..
-                            شكرا رياديات 
-                            </p>
-                            <h6 style="color: #FFBC00;">
-                                سلمى احمد
-                            </h6>
-                            <div class="position-absolute dote">
-                                <img src="/assets/img/dot.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <img class="rounded-3  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
-                        </div>
-                     
-  
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="row align-items-center p">
-                        <div class="col-md-8 osition-relative">
-                            <p>
-                                رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات رياديات  ساعدتني كثيرا في البداية فلقد قدمت لي الكثير من الحلول و الاستشارات و الدورات ..
-                            شكرا رياديات 
-                            </p>
-                            <h6 style="color: #FFBC00;">
-                                سلمى احمد
-                            </h6>
-                            <div class="position-absolute dote">
-                                <img src="/assets/img/dot.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <img class="rounded-3  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
-                        </div>
-                     
-                    </div>
-                </div>
-  
-            </div>
+    <div v-if="items.length" class="sex-eight mt-5">
+          <div class="container">
+            <h2 class="text-center">ماذا يقولون المشتركات في مقدمي الخدمة</h2>
+              <div  :id="carouselId" class="feature-carousel owl-carousel owl-theme">
+              <ItemSlide
+              v-for="(item,i) in items"
+              :key="i"
+                      :desc="item.desc"
+                      :name="item.user_info.name"
+                      :image="item.user_info.image"
+              />
+              </div>
+          </div>
         </div>
-      </div>
   </template>
   
   <script>
+  import commonAPI from '@/services/api/common'
+  import ItemSlide from '@/components/cards/opinion-item'
   export default {
-      name:'hear-about-us',
-   mounted(){
-      window.$('.hear-carousel').owlCarousel({
+   name:'section-hear',
+   components:{
+      ItemSlide
+   },
+   data:(vm)=>{
+      return {
+      carouselId:`carousel-${vm.generateRandomString(8)}`,
+      loading:true,
+      items:[]
+   }},
+   methods:{
+      
+      async initializing(){
+          this.loading = true;
+          try {
+              let {data} =  await commonAPI.getOpinions({department_name:'service-provider'})
+              console.log(data)
+              if(data.success){
+                  this.items =data.data
+              }
+          } catch (error) {
+               console.log('error',error)
+          }
+          this.loading = false;
+      }
+   },
+   async mounted(){
+      await this.initializing()
+      window.$(`#${this.carouselId}`).owlCarousel({
       loop:true,
       margin:10,
       nav:true,
@@ -95,5 +67,7 @@
    }
   }
   </script>
+  
   <style>
+  
   </style>
