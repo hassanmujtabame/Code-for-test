@@ -256,9 +256,11 @@ export default {
         }
     },
     methods:{
+        openSuccessRegister(){
+            this.fireOpenDialog('success-register-as-partner')
+        },
 async save(evt){
     if(evt) evt.preventDefault();
-    
             let valid = await this.$refs.form.validate();
         if(!valid){
             console.log('form invalid');
@@ -276,6 +278,7 @@ async save(evt){
                 Object.keys(this.itemForm).forEach(key=>{
                     this.itemForm[key]=null;
                 })
+                this.openSuccessRegister()
                 this.$nextTick(() => {
                         if (this.$refs["form"]) {
                         this.$refs.form.reset();

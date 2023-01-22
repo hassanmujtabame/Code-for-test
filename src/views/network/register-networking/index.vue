@@ -36,7 +36,7 @@
         <SectionForm />
         <!--  خدمات رياديات لك-->
         <SectionServices />
-        
+        <successRegisterDialog />
     </div>
 </template>
 
@@ -44,10 +44,12 @@
 import SectionForm from './parts/section-form/index.vue'
 import SectionServices from './parts/section-services/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
+import successRegisterDialog from './parts/dialogs/success-register.vue'
 export default {
     name: 'register-networking',
     components:{
         SectionForm,
+        successRegisterDialog,
         SectionServices,
         SectionFeatures
     }
