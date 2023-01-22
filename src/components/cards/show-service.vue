@@ -6,13 +6,13 @@
         <div class="p-3">
             <div class="d-flex justify-content-between">
 
-                <h6 class="text-dark">{{ title }}
+                <h6 class="text-dark">{{ title??'N/A' }}
                 </h6>
                 <p class="m-c">
-                    {{department}}
+                    {{department??'N/A'}}
                 </p>
             </div>
-            <p class="text-dark">{{ description }}
+            <p class="text-dark">{{ description??'N/A' }}
             </p>
             <div class="d-flex gap-2">
 
@@ -29,7 +29,7 @@
 
                 <p class="t-c">
                    <schoolWalletIcon />
-                    {{owner}}
+                    {{owner??'N/A'}}
                 </p>
 
             </div>
