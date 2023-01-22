@@ -50,9 +50,9 @@ methods:{
         this.loading=true;
         this.hasError=false
         try {
-            let { data } = await StoriesApi.getAll();//just use this for test list of stories
+            let { data } = await StoriesApi.getBestStories();//just use this for test list of stories
             if(data.success){
-                    this.stories=data.data.filter((x,i)=>i<4);      
+                    this.stories=data.data    
             }else{
                 this.hasError=true
             }

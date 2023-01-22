@@ -1,8 +1,8 @@
 <template>
     <div class="box border rounded-3">
-        <div>
+        <div class="box-img">
             <img class="w-100 rounded-top" :src="image" :alt="name"
-                height="192">
+                height="260">
         </div>
         <div class="text-center p-2">
             <h5 style="height:48px">{{ title }}</h5>
@@ -39,6 +39,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.box-img>img{
+    min-height: 259px;
+}
 </style>

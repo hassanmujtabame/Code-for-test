@@ -17,6 +17,10 @@ class StoriesApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/home-stories?${s}`);
     }
+    getBestStories(params={},paginate=4){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/home-stories?paginate=${paginate}${s?'&'+s:''}`);
+    }
     getItem(id){
         return window.axios.get(`network/stories/${id}`);
     }
