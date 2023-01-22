@@ -341,5 +341,7 @@
   "story-title": "Story title",
   "ticket": "ticket",
   "confirm_redirect": "confirm redirect",
-  "exhibition_map_url": "exhibition map url"
+  "exhibition_map_url": "exhibition map url",
+  "minimum_rent": "The minimum rental value",
+  "maximum_rent": "The maximum rental value"
 }

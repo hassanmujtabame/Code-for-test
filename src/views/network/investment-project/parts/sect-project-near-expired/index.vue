@@ -43,9 +43,9 @@
                    :date-publish="item.created_at"
                    :rest-day="item.rest_days"
                    :offers="item.count_invest"
-                   :minimum-goal="item.minimum_investment"
+                   :maxRent="item.minimum_investment"
                    :offered_property="item.offered_property"
-                   :amount="item.amount_financing_required"
+                   :minRent="item.amount_financing_required"
                    classRestDays="text-danger"
                    />
             </router-link>

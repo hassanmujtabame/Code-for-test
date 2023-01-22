@@ -94,6 +94,50 @@
                                 </ValidationProvider>
                             </div>
                         </div>
+                        <!-- moral project-->
+
+                        <template v-if="isMoral" >
+                            <!-- minimum_rent -->
+                            <div class="col-md-6">
+                            <div class="mb-3">
+                                <ValidationProvider tag="div" class="row" :name="$t('minimum_rent')"
+                                    vid="amount_financing_required" rules="required" v-slot="{ errors }">
+                                    <div class="col-4">
+                                        <label class="form-label m-c fw-bold">{{ $t('minimum_rent') }}  :</label>
+                                    </div>
+                                    <div class="col-8 position-relative ">
+                                        <input v-model="itemForm.amount_financing_required" class="form-control"
+                                            placeholder="أدخل الحد الادنى للمبلغ  ">
+                                        <div style="top: 20%;left: 15px;" class="position-absolute m-c fw-bolder">
+                                            ريال
+                                        </div>
+                                    </div>
+                                    <d-error-input v-if="errors.length" :errors="errors" />
+                                </ValidationProvider>
+                            </div>
+                        </div>
+                        <!-- maxnimum_rent -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <ValidationProvider tag="div" class="row" :name="$t('maximum_rent')"
+                                    vid="minimum_investment" rules="required" v-slot="{ errors }">
+                                    <div class="col-4">
+                                        <label class="form-label m-c fw-bold">{{ $t('maximum_rent') }}   :</label>
+                                    </div>
+                                    <div class="col-8 position-relative">
+                                        <input v-model="itemForm.minimum_investment" class="form-control"
+                                            placeholder="أدخل قيمة المبلغ">
+                                        <div style="top: 20%;left: 15px;" class="position-absolute m-c fw-bolder">
+                                            ريال
+                                        </div>
+                                    </div>
+                                    <d-error-input v-if="errors.length" :errors="errors" />
+                                </ValidationProvider>
+                            </div>
+                        </div>
+                        </template>
+                        <!-- physical project-->
+                        <template v-else>
                         <!-- amount_financing_required -->
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -132,6 +176,7 @@
                                 </ValidationProvider>
                             </div>
                         </div>
+                    </template>
                         <!-- project_end_date -->
                         <div class="col-md-6">
                             <div class="mb-3">

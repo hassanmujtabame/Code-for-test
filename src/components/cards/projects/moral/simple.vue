@@ -61,7 +61,7 @@
                     <div class="t-c">
                         {{ $t('rent') }} 
                         <p class="text-dark">
-                            من {{minRent??'N/A'}} ألف -{{maxRent??'N/A'}} ألف
+                            من {{minRent??'N/A'}} -{{maxRent??'N/A'}}
                         </p>
                     </div>
                 </div>
