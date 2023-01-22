@@ -340,5 +340,6 @@
   "publish-story": "Publish my story",
   "story-title": "Story title",
   "ticket": "ticket",
-  "confirm_redirect": "confirm redirect"
+  "confirm_redirect": "confirm redirect",
+  "exhibition_map_url": "exhibition map url"
 }

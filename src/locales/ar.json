@@ -338,5 +338,6 @@
   "publish-story": "انشري القصة ",
   "story-title": "عنوان القصة",
   "ticket": "تيكت",
-  "confirm_redirect": "تأكيد الانتقال"
+  "confirm_redirect": "تأكيد الانتقال",
+  "exhibition_map_url": "حدد العنوان على جوجل ماب"
 }

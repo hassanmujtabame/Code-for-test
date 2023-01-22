@@ -134,7 +134,8 @@
                                         <p>
                                             العنوان :
                                             <span class="m-c">
-                                                أضغط هنا </span>
+                                                <a target="_blank" :href="itemPage.address"
+                                               >أضغط هنا </a></span>
                                         </p>
                                     </div>
                                     <div class="col-md-6 d-flex">

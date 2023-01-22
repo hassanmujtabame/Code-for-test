@@ -216,15 +216,15 @@
                     </div>
                     <div class="mb-3">
                         <ValidationProvider 
-                        :name="$t('Address')" 
+                        :name="$t('exhibition_map_url')" 
                         vid="address" rules="required"
                          v-slot="{ errors }"
                          >
                             <div class="form-group position-relative">
-                                <label class="form-label">{{ $t('Address') }}</label>
+                                <label class="form-label">{{ $t('exhibition_map_url') }}</label>
                                 <input type="text" class="form-control" 
                                     v-model="itemForm.address"
-                                    :placeholder="hidePlaceholder?'':'حدد العنوان'">
+                                    :placeholder="hidePlaceholder?'':$t('exhibition_map_url')">
                             </div>
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
                                 {{ errors[0] }}
