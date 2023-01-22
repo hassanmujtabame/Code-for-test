@@ -55,6 +55,19 @@ class UserApi extends BaseApi {
     checkoutNetwork(package_id,data={}){
         return window.axios.get(`user-checkout?package_id=${package_id}`,data);
     }
+    sendMessageToProvider(data){
+        /**
+         * user_id: الى هوه صاحب الخدمه الجاهزه
+
+            from_user_id:token
+
+            message:
+
+            title
+         */
+        return window.axios.post(`service-provider/user/send-message-to-provider`,data);
+
+    }
     
 
 }
