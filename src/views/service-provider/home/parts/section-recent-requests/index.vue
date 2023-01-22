@@ -10,7 +10,8 @@
           </div>
           <div class="row order">
                 <div v-for="(item,i) in items" :key="i" class="col-12 col-md-6 mt-2">
-                <CardService
+               <router-link class="router-link" :to="getRouteLocale('service-provider-show-service-page',{id:item.id})">
+                  <CardService
                 :image="item.image"
                 :title="item.title"
                 :description="item.description"
@@ -22,6 +23,7 @@
                 :department="item.categories && item.categories.length?item.categories[0].name:'N/A'"
            
                 />
+              </router-link>
                 </div>
             </div>
 
@@ -29,7 +31,7 @@
 </template>
 
 <script>
-import serviceRequestAPIs from '@/services/api/service-provider-request';
+import myRequestsAPIs from '@/services/api/service-provider/user/my-requests.js'
 import CardService from './card.vue'
 export default {
  name:'section-recent-requests',
@@ -45,7 +47,7 @@ export default {
       async loadList(){
           this.loading = true;
           try {
-            let { data } = await serviceRequestAPIs.getRecent()
+            let { data } = await myRequestsAPIs.getRecent()
             if(data.success){
               this.items = data.data
             }

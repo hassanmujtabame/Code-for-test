@@ -11,7 +11,10 @@ class ServiceProviderApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/user/my-services/${id}?${s}`);
     }
-    
+    getRecent(params={},paginate=6){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/user/orders?paginate=${paginate}${s?'&'+s:''}`);
+    } 
     getCategories(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/project-categories?${s}`);
