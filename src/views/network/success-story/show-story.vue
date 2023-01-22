@@ -7,7 +7,7 @@
                         <h3 class="m-c">{{ story.title }}
                         </h3>
                         <p class="t-c">
-                            تاريخ نشر: 12-4-2022
+                            تاريخ نشر: {{dateTextMonth(story.publish_date)}}
                         </p>
                         <p v-html="story.description">
                         </p>
