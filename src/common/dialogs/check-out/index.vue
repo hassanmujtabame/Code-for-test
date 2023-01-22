@@ -105,9 +105,9 @@
                                     <h6 class="">
                                         {{ title_ }}
                                     </h6>
-                                    <slot :item="itemForm" :otherData="otherData"></slot>
+                                    <slot :dialog="showDialog" :item="itemForm" :otherData="otherData"></slot>
 
-                                    <div class="input-group mb-3 mt-2">
+                                    <div v-if="!hideAmount" class="input-group mb-3 mt-2">
 
                                         <input type="text" :disabled="!changeable_" v-model="itemForm.amount"
                                             class="form-control" placeholder="ادخل المبلغ">
@@ -160,6 +160,10 @@ export default {
             default: 'تفاصيل الدفع'
         },
         changeable: {
+            type: Boolean,
+            default: false,
+        },
+        hideAmount: {
             type: Boolean,
             default: false,
         }

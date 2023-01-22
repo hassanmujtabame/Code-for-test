@@ -36,6 +36,7 @@
 
         </div>
      <successSubscribeDialog />
+     <checkoutPackageDiag />
     </div>
 </template>
 
@@ -43,22 +44,42 @@
 import SubscribeCard from '@/components/cards/subscribe-card.vue';
 import networkAPI from '@/services/api/network.js'
 import successSubscribeDialog from './success-subscribe-dialog.vue';
+import checkoutPackageDiag from './check-out/index.vue';
+
+
 export default {
 name:'network-subscribe',
 components:{
     SubscribeCard,
+    checkoutPackageDiag,
     successSubscribeDialog
 },
   data:()=>({
     show:false,
-    packages:[],
-    selected_package:null,
+    packages:[]
   }),
   methods:{
+    getTypePackage(data){
+        switch (data.type) {
+            case 'free': return this.$t('free');
+            case 'month': return this.$t('monthly');
+            case 'year': return this.$t('annually');
+            default:
+                return 'N/A';
+        }
+    },
+    openCheckoutDialog(data){
+        this.fireOpenDialog('checkout-subscribe-network',{item:{amount:data.price,title:this.$t('Riadiat-network'),type:this.getTypePackage(data)},data:data})
+    },
+    openSuccessSubscribed(data){
+        this.fireOpenDialog('success-network-subscribed', data)
+    },
     choose(pack){
-        console.log(pack)
-        this.selected_package=pack;
-        this.fireOpenDialog('success-network-subscribed', pack)
+        if(pack.type=='free')
+        this.openSuccessSubscribed( pack)
+        else{
+            this.openCheckoutDialog(pack)
+        }
     },
    
     async loadPackages(){

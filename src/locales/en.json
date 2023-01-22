@@ -351,5 +351,6 @@
   "monthly_package": "monthly package",
   "annual_package": "annual package",
   "free_package": "package for free",
-  "the_network": "The network"
+  "the_network": "The network",
+  "annually": "annually"
 }
