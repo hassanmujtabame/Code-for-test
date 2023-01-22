@@ -2,9 +2,9 @@
     <div class="mt-5 blog">
         <d-filter-list :call-list="loadList" 
         hideSide
-        hideTotal
+        @change="changeFilter"
         classColCard="col-md-4 mt-3">
-            <template v-slot:title>
+            <template v-slot:total>
 
                
                     <button @click="openAddService" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center text-white">
@@ -40,16 +40,17 @@ export default {
         readyServiceCard
     },
     data: () => ({
-        categories: [{ id: null, name: 'الكل' }],
-        category_id: null,
-    }),
-    computed:{
-        categoryName(){
-            let category = this.categories.find(cat=>cat.id==this.category_id)
-            return category.name
+
+        filterItem:{
+            search:null,
+            created_at:'asc'
         }
-    },
+    }),
     methods: {
+        changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
+        },
         openAddService(evt){
         evt.preventDefault();
         this.fireOpenDialog('add-ready-service-dialog')
@@ -61,7 +62,8 @@ export default {
         async loadList(metaInfo) {
             let params = {
                 page: metaInfo.current_page,
-                category_id: this.category_id
+        
+                ...this.filterItem
             }
             return await readyServiceAPIs.getAll(params)
         },
