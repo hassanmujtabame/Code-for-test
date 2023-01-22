@@ -17,7 +17,9 @@
           <SectionRecentRequests/>
 
           <!-- section 6-->
+          <div class="mt-2">
           <SectionNeedService />
+        </div>
           <!-- section 7-->
           <SectionExploreServices />
 
