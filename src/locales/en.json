@@ -344,5 +344,7 @@
   "exhibition_map_url": "exhibition map url",
   "minimum_rent": "The minimum rental value",
   "maximum_rent": "The maximum rental value",
-  "day_s": "Day(s)"
+  "day_s": "Day(s)",
+  "rent_price": "Rent price",
+  "observation_for_participant": "observation for participant"
 }

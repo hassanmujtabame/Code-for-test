@@ -342,5 +342,7 @@
   "exhibition_map_url": "حدد العنوان على جوجل ماب",
   "minimum_rent": "الحد الادنى لقيمة الايجار",
   "maximum_rent": "الحد الاعلى لقيمة الايجار",
-  "day_s": "يوم"
+  "day_s": "يوم",
+  "rent_price": "سعر الإيجار",
+  "observation_for_participant": "ملاحظة للمشاركين"
 }

@@ -97,13 +97,13 @@
                                  rules="required"
                                     v-slot="{ errors }">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" :value="1" v-model="itemForm.is_share" name="flexRadioDefault">
+                                        <input class="form-check-input" type="radio" :value="1" v-model="is_share" name="flexRadioDefault">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             {{$t('yes') }}
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" :value="0" v-model="itemForm.is_share" name="flexRadioDefault"
+                                        <input class="form-check-input" type="radio" :value="0" v-model="is_share" name="flexRadioDefault"
                                             id="flexRadioDefault2" >
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             {{ $t('no') }}
@@ -210,7 +210,9 @@
                             :group-select="false" 
                             :placeholder="hidePlaceholder?'': $t('the_city')" 
                             :custom-label="(it)=>`${it.name}-${it.region.name}`"
-                            track-by="id" label="name">
+                            track-by="id" 
+                            label="name"
+                            >
                                 <span slot="noResult">{{ $t('no-result-search') }}</span>
                             </multi-select>
                             <div v-if="errors.length !== 0" class="col-12 text-input-error">
@@ -288,6 +290,78 @@
                     </div>
 
                 </div>
+                <div class="" ref="booth">
+                    <div  v-if="is_share" >
+                <h3>مشاركة الاعضاء في معرضك</h3>
+                <p>بناء على خريطة موقعك حدد البوثات المتاحة للحجز واكتب اسعارها 
+                </p>
+            
+                    <div class="row add-portfolio m-3 p-0 position-relatiuve">
+                        <div class="col-12 col-lg-6">
+                            <div  v-for="(bn,i) in this.itemForm.booth_name" :key="i" class="mb-3">
+                                <ValidationProvider 
+                                :name="$t('booth_name')" 
+                                tag='div'
+                                :vid="`booth_name.${i}`" 
+                                rules="required"
+                                v-slot="{ errors }"
+                            >
+                            <label class="form-label">{{ $t('booth_name') }}</label>
+                                <input type="text" v-model="itemForm.booth_name[i]" class="form-control" placeholder="أدخل اسم البوث">
+                           <d-error-input :errors="errors" v-if="errors.length" />
+                            </ValidationProvider>
+                            </div>
+                    </div>
+                    <div  class="col-12 col-lg-6">
+                        <div  v-for="(bp,j) in this.itemForm.rental_price" :key="'hh'+j" class="mb-3 d-flex">
+                        <div>
+                                <ValidationProvider 
+                                :name="$t('rent_price')" 
+                                tag='div'
+                                :vid="`rental_price.${j}`" 
+                                rules="required|numeric"
+                                v-slot="{ errors }"
+                            >
+                            <label class="form-label">{{ $t('rent_price') }}</label>
+                            <div class="position-relative d-flex">
+                            <input type="text" v-model="itemForm.rental_price[j]" class="form-control" placeholder="سعر ا الايجار ">
+                            <div class="d-flex align-items-center">
+                        <button v-if="j!==0" @click="removeBooth(j)"
+                        style="border: none;background: transparent;color: red;"
+                        ><trashOutlineIcon color="red" :size="24"/></button>
+                       </div>
+                        </div>
+                            <d-error-input :errors="errors" v-if="errors.length" />
+                            </ValidationProvider>
+                        </div>
+                      
+                    </div>
+                    </div>
+                    
+                    <div  class="col-12 mb-3 ">
+                        <button @click="addBooth" class="btn m-c border p-2 px-3 ">
+                            المزيد من البوثات
+                        </button>
+
+                    </div>
+                    <div>
+                        <ValidationProvider 
+                                :name="$t('observation_for_participant')" 
+                                tag='div'
+                                vid="notice_peoples" 
+                                rules="required"
+                                v-slot="{ errors }"
+                            >
+                            <label class="form-label">{{ $t('observation_for_participant') }}</label>
+                        <textarea v-model="itemForm.notice_peoples" class="w-100 p-3 border"   rows="10" placeholder="أكتب تنويه للاشخاص المشاركين في المعرض "></textarea>
+                        <d-error-input :errors="errors" v-if="errors.length" />
+                            </ValidationProvider>
+                    </div>
+
+            
+                </div>
+                    </div>
+            </div>
             </div>
         </ValidationObserver>
         <template v-slot:actions>
@@ -320,6 +394,7 @@ export default {
                     },
         configEnter:{minHeight:"150px",placeholder:"أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )"},
         region:null,
+        is_share:0,
         itemForm: {
             content:'',
             region_id:'',
@@ -336,7 +411,27 @@ export default {
         }
     }
 },
+watch:{
+    is_share(){
+        this.itemForm.is_share = this.is_share;
+        if(this.is_share){
+            this.$nextTick(()=>{
+                this.gotoShare()
+            })
+        }
+    }
+},
     methods: {
+        addBooth(){
+         
+         this.itemForm.booth_name.push(null)
+         this.itemForm.rental_price.push(null)
+     },
+     removeBooth(id){
+         if(id==0) return ;
+         this.itemForm.booth_name.splice(id,1)
+         this.itemForm.rental_price.splice(id,1)
+     },
         async save() {
             let valid = await this.$refs.form.validate();
             console.log('save',valid)
@@ -357,10 +452,17 @@ export default {
             formData.append('start_time', this.itemForm.start_time);
             formData.append('end_time', this.itemForm.end_time);
             formData.append('details', this.itemForm.details);
-            formData.append('is_share', this.itemForm.is_share);
+            formData.append('is_share', this.is_share);
             formData.append('image', this.file);
             formData.append('imageMap', this.mapFile);
             formData.append('user_id', this.user.id);
+            formData.append('notice_peoples', this.itemForm.notice_peoples);
+            this.itemForm.booth_name.forEach(name=>{
+                formData.append('booth_name[]', name);
+            })
+            this.itemForm.rental_price.forEach(price=>{
+                formData.append('rental_price[]', price);
+            })
 
             try {
                 let { data } = await exhibitionsAPI.updateExhibition(this.itemForm.id,formData)
@@ -425,6 +527,9 @@ export default {
         },
         openDialog(dataItem) {
             this.itemForm=Object.assign({
+                booth_name:[null],
+                rental_price:[null],
+            notice_peoples:'',
                 content:'',
             region_id:'',
             address:'',
@@ -438,6 +543,7 @@ export default {
             details:'',
             is_share: 0,
         },dataItem)
+        this.is_share = dataItem.is_share
         this.region ={ id: this.itemForm.region_id,name:''}
         this.file = null;
         this.showImage = dataItem.image;
@@ -462,6 +568,18 @@ export default {
                 console.log('error', error)
             }
         },
+        gotoShare(){
+    
+      this.$nextTick(()=>{
+        var element = this.$refs["booth"];
+        var top = element.offsetTop;
+        var div = document.getElementsByClassName('form-exhibition')[0]
+       // window.$('.form-exhibition').scrollTop(top);
+       console.log('gottoshare',top,div)
+       div.scrollTo(0, top-50);
+      })
+
+        }
     },
     mounted() {
         this.loadCities()
