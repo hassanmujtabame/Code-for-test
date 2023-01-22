@@ -7,7 +7,7 @@
               <p class="text-white">
                 لاشك اننا نرغب بقرأه قصص نجاح الاخرين حتى نرسم طريقاً لنا مليئ بالامل والطموح  
             </p>
-            <button class="btn border text-white px-3"  @click="openAddStory">
+            <button v-if="user && !user.has_story" class="btn border text-white px-3"  @click="openAddStory">
                 اعرض قصتك الان 
             </button>
             </div>

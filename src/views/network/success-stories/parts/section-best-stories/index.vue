@@ -9,7 +9,7 @@
                     </h3>
                 </div>
                 <div class="col-md-6 text-end">
-                    <button class="btn bg-main text-white p-2 px-3" @click="openAddStory">
+                    <button v-if="user && !user.has_story" class="btn bg-main text-white p-2 px-3" @click="openAddStory">
                         اعرض قصتك الان
                     </button>
                 </div>
