@@ -87,7 +87,7 @@ export default {
         let formattedTime="";
         if(h)
         formattedTime +=h.toString().padStart(2, '0')+ ':'
-        if(m)
+        //if(m)
         formattedTime += m.toString().padStart(2, '0')+ ':'
         formattedTime += s.toString().padStart(2, '0');
         return formattedTime
@@ -155,6 +155,7 @@ export default {
         this.progress = event.target.currentTime*100/ event.target.duration
         let { h, m, s} = this.timeToParts(event.target.currentTime)
         var formattedTime =  this.timeFormat(h,m,s);
+      
         this.$emit('timeupdate',{current:formattedTime})
      },
      onplaying(event){
