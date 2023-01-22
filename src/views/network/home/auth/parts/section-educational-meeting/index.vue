@@ -26,7 +26,8 @@
                      :img="item.image"
                      :title="item.title"
                      :owner="item.user_info.name"
-                     :date="`${item.date} ${item.time}`"
+                     :date="item.date"
+                     :time="item.time"
                     />
                     </router-link>
         </template>
