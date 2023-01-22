@@ -36,6 +36,7 @@
  
          </div>
       <successSubscribeDialog />
+      <checkoutPackageDiag/>
      </div>
  </template>
  
@@ -43,23 +44,41 @@
  import SubscribeCard from '@/components/cards/subscribe-card.vue';
  import providerAPI from '@/services/api/service-provider.js'
  import successSubscribeDialog from './success-subscribe-dialog.vue';
+ import checkoutPackageDiag from './check-out/index.vue';
  export default {
  name:'network-subscribe',
  components:{
      SubscribeCard,
-     successSubscribeDialog
+     successSubscribeDialog,
+     checkoutPackageDiag
  },
    data:()=>({
      show:false,
-     packages:[],
-     selected_package:null,
+     packages:[]
    }),
    methods:{
-     choose(pack){
-         console.log(pack)
-         this.selected_package=pack;
-         this.fireOpenDialog('success-provider-subscribed', pack)
-     },
+    getTypePackage(data){
+        switch (data.type) {
+            case 'free': return this.$t('free');
+            case 'month': return this.$t('monthly');
+            case 'year': return this.$t('annually');
+            default:
+                return 'N/A';
+        }
+    },
+    openCheckoutDialog(data){
+        this.fireOpenDialog('checkout-subscribe-service-provider',{item:{amount:data.price,title:this.$t('service-providers'),type:this.getTypePackage(data)},data:data})
+    },
+    openSuccessSubscribed(data){
+        this.fireOpenDialog('success-provider-subscribed', data)
+    },
+    choose(pack){
+        if(pack.type=='free')
+        this.openSuccessSubscribed( pack)
+        else{
+            this.openCheckoutDialog(pack)
+        }
+    },
     
      async loadPackages(){
          try {
