@@ -26,7 +26,7 @@
                         :price="pack.price"
                         :features="pack.features.map(c=>c.desc)"
                         :type-subscribe="pack.type"
-                        @selected="choose"
+                        @selected="choose(pack)"
                         ></SubscribeCard>
                      
                     </div>
@@ -35,59 +35,32 @@
             </div>
 
         </div>
-        <DialogSubscribe :show.sync="show">
-                <template>
-          <p class="px-3">
-            حتى تتمكن من الانضمام الى باقي خدمتنا
-            (
-            <a href="home.html" class="m-c">
-                الاكاديمية
-            </a>
-            او
-            <a href="../Incubator/home.html" class="m-c">
-                الحاضنة
-            </a>
-            او
-            <a href="../service-provider/home.html" class="m-c">
-                مقدمي الخدمة
-            </a>
-            )
-            يجب ان تكون عضو في شبكة رياديات  أولا
-            زر الصفحة التعريفية
-            <a href="../index.html" class="m-c">
-                لشبكة رياديات
-
-            </a>
-       
-          </p>
-          </template>
-        <template v-slot:actions>
-            <a href="home.html" type="button" class="btn btn-main py-2 h-100 w-50" >الاستمرار</a>
-          <button type="button" class="btn  border-danger text-danger w-50" data-bs-dismiss="modal">تراجع عن التسجيل</button>
-        </template>
-                </DialogSubscribe>
+     <successSubscribeDialog />
     </div>
 </template>
 
 <script>
 import SubscribeCard from '@/components/cards/subscribe-card.vue';
-import DialogSubscribe from '@/components/modals/simple.vue'
 import networkAPI from '@/services/api/network.js'
+import successSubscribeDialog from './success-subscribe-dialog.vue';
 export default {
 name:'network-subscribe',
 components:{
     SubscribeCard,
-    DialogSubscribe
+    successSubscribeDialog
 },
   data:()=>({
     show:false,
     packages:[],
+    selected_package:null,
   }),
   methods:{
-    choose(type){
-        console.log(type)
-        this.show=true
+    choose(pack){
+        console.log(pack)
+        this.selected_package=pack;
+        this.fireOpenDialog('success-network-subscribed', pack)
     },
+   
     async loadPackages(){
         try {
             let { data } = await networkAPI.getPackages();

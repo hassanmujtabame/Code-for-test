@@ -346,5 +346,10 @@
   "maximum_rent": "The maximum rental value",
   "day_s": "Day(s)",
   "rent_price": "Rent price",
-  "observation_for_participant": "observation for participant"
+  "observation_for_participant": "observation for participant",
+  "monthly": "monthly",
+  "monthly_package": "monthly package",
+  "annual_package": "annual package",
+  "free_package": "package for free",
+  "the_network": "The network"
 }

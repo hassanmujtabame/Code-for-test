@@ -316,7 +316,7 @@
   "exhibition_attechment": "مرفق",
   "exhibition_rent_price": "سعر الإيجار",
   "exhibition_insurance_price": "سعر التأمين",
-  "free": "مجانا",
+  "free": "مجاناً",
   "join-as-partner": "انضم كشريك",
   "search_for_coupon": "إبحث عن كود",
   "project_title": "عنوان المشروع",
@@ -344,5 +344,10 @@
   "maximum_rent": "الحد الاعلى لقيمة الايجار",
   "day_s": "يوم",
   "rent_price": "سعر الإيجار",
-  "observation_for_participant": "ملاحظة للمشاركين"
+  "observation_for_participant": "ملاحظة للمشاركين",
+  "monthly": "شهريا",
+  "monthly_package": "الباقة الشهرية",
+  "annual_package": "الباقة السنوية",
+  "free_package": "الباقة مجاناً",
+  "the_network": "الشبكة"
 }

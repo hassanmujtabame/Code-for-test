@@ -4,13 +4,14 @@
 
                      <div>
 
-                         <h2 class="fw-bolder">{{title}}</h2>
+                         <h2 class="fw-bolder subscribe-title">{{title}}</h2>
                          <h1 class="y-c fw-bolder fs-1 py-4">
-                             {{typeSubscribe=='free'?`0`:price}} {{ $t('riyals') }}
+                            <span class="subscribe-price">{{typeSubscribe=='free'?$t('free'):price}}</span>
+                             <span class="subscribe-price-currency" v-if="typeSubscribe!=='free'">{{ $t('riyals') }}</span>
                          </h1>
                          <div class="text-start">
 
-                             <p v-for="(feature,i) in features" :key="i">
+                             <p class="subscribe-feature" v-for="(feature,i) in features" :key="i">
                                  <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                      <path d="M4.53915 7.60486L1.5259 4.59162L0.521484 5.59604L4.53915 9.6137L13.1484 1.00442L12.144 0L4.53915 7.60486Z" fill="#1FB9B3"/>
                                  </svg>
@@ -19,7 +20,7 @@
                          </div>
                      </div>
                      <div >
-                         <a @click="selected" href="#" class="btn-main px-4 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                         <a @click="selected" href="#" class="btn-main px-4 py-2" >
                              اشتركي الآن
                          </a>
                      </div>
@@ -46,13 +47,38 @@ export default {
     }
   },
   methods:{
-    selected(){
+    selected(evt){
+        evt.preventDefault();
+        
         this.$emit('selected',this.typeSubscribe)
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
+.subscribe-title{
+   color: #003439;
+   font-size: 32px;
+}
+.subscribe-feature{
+    font-weight: 400;
+font-size: 16px;
+line-height: 17px;
+/* or 106% */
 
+
+
+color: #0C2F33;
+}
+.subscribe-price{
+    font-size: 56px;
+    font-weight: 600;
+    color:#FFBC00
+}
+.subscribe-price-currency{
+    font-size: 24px;
+    font-weight: 500;
+    color:#FFBC00
+}
 </style>
