@@ -1720,3 +1720,7 @@ position: relative;
 
     color: #f70000  !important;
 }
+
+.no-border{
+    border:none !important;
+}
