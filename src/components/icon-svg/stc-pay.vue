@@ -1,5 +1,5 @@
 <template>
-  <svg width="74" height="31" viewBox="0 0 74 31" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg :width="width" :height="height" viewBox="0 0 74 31" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="74" height="31" fill="url(#pattern0)"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -12,7 +12,17 @@
 
 <script>
 export default {
-
+  props:{
+      width:{
+        type:[String,Number],
+        default:74
+      },
+      height:{
+        type:[String,Number],
+        default:31
+      }
+      
+    }
 }
 </script>
 
