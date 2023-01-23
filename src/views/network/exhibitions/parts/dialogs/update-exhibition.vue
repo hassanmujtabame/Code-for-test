@@ -91,9 +91,11 @@
                         <div class="border p-3 text-center">
 
                             <h6>{{ $t('is_exhibition_available_for_shared') }}</h6>
-                            <div class="d-flex justify-content-evently   gap-2">
+                          
                                 <ValidationProvider :name="$t('is_exhibition_available_for_shared')"
-                                 vid="is_share"
+                                tag="div" 
+                                vid="is_share"
+                                class="d-flex justify-content-evenly   gap-2"
                                  rules="required"
                                     v-slot="{ errors }">
                                     <div class="form-check">
@@ -113,7 +115,7 @@
                                         {{ errors[0] }}
                                     </div>
                                 </ValidationProvider>
-                            </div>
+                            
                         </div>
                     </div>
 
