@@ -8,6 +8,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-dashboard" */ '../views/network/dashboard/index.vue') 
     },
     {
+        path: 'network/my-profile',
+        name: 'network-my-profile',
+        meta:{layout:LayoutNetwork,auth:true},
+        component: () => import(/* webpackChunkName: "network-my-profile" */ '../views/network/my-profile/index.vue')
+    },
+    {
         path: 'network/menu-subscribe',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-menu-subscribe',

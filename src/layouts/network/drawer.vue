@@ -14,7 +14,7 @@
                             fill="#1FB9B3" />
                     </svg>
 
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('my-profile')" class="mx-2 m-c ">
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('network-my-profile')" class="mx-2 m-c ">
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('personal_page') }}</button>
                     </router-link>
                 </div>
