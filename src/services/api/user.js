@@ -8,9 +8,7 @@ class UserApi extends BaseApi {
     statisticsNetwork(){
         return window.axios.get(`user/statistics-network`);
     }
-    displayInformation(){
-        return window.axios.get(`user/display-information`);
-    }
+    
     postDisplayInformation(data){
         return window.axios.post(`user/display-information`,data);
     }
@@ -68,7 +66,24 @@ class UserApi extends BaseApi {
         return window.axios.post(`service-provider/user/send-message-to-provider`,data);
 
     }
-    
+    displayInformation(id){
+        /** get display information for an user */
+        /** id: user */
+        return window.axios.get(`user/display-information/${id}`);
+    }
+    getStoryUser(id){
+        /** get succes story for an user */
+        return window.axios.get(`network/stoy/${id}`);
+    }
+    getProjectsUser(id){
+        return window.axios.get(`network/projects?user_id=${id}`);
+    }
+    getExhibitionstUser(id){
+        return window.axios.get(`network/exhibitions?user_id=${id}`);
+    }
+    getBlogstUser(id){
+        return window.axios.get(`network/blogs?user_id=${id}`);
+    }
 
 }
 

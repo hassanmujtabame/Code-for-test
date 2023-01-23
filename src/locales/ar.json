@@ -353,5 +353,9 @@
   "annually": "سنويا",
   "Riadiat-incubator": "حاضنة رياديات",
   "Riadiat-academy": "أكاديمية رياديات",
-  "new_card": "بطاقة جديدة"
+  "new_card": "بطاقة جديدة",
+  "close": "يغلق",
+  "open": "يفتح",
+  "opened": "مفتوح",
+  "closed": "مغلق"
 }

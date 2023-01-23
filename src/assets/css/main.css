@@ -1724,3 +1724,10 @@ position: relative;
 .no-border{
     border:none !important;
 }
+.btn-more-loading{
+    border: 1px solid #c3c3c3;
+    border-radius: 8px;
+    padding: 10px 5px;
+    width: 100%;
+    color: #09763c;
+}

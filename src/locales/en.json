@@ -355,5 +355,9 @@
   "annually": "annually",
   "Riadiat-incubator": "Riadiat incubator",
   "Riadiat-academy": "Riadiat academy",
-  "new_card": "New card"
+  "new_card": "New card",
+  "open": "Open",
+  "close": "Close",
+  "opened": "Opened",
+  "closed": "Opened"
 }

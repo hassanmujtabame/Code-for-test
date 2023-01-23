@@ -20,6 +20,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-preview-profile" */ '../views/network/preview-profile/index.vue')
     },
     {
+        path: 'network/show-profile/:id',
+        name: 'network-show-profile',
+        meta:{layout:LayoutNetwork},
+        component: () => import(/* webpackChunkName: "network-show-profile" */ '../views/network/show-profile/index.vue')
+    },
+    {
         path: 'network/menu-subscribe',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-menu-subscribe',
