@@ -530,6 +530,7 @@ watch:{
             }
         },
         openDialog(dataItem) {
+           let {post_member,...restDat} =dataItem 
             this.itemForm=Object.assign({
                 booth_name:[null],
                 rental_price:[null],
@@ -546,8 +547,15 @@ watch:{
             end_time: '',
             details:'',
             is_share: 0,
-        },dataItem)
-        this.is_share = dataItem.is_share
+        },restDat)
+        this.is_share = restDat.is_share
+        if(post_member){
+            let {booth_name,rental_price,notice_peoples} = post_member
+        this.itemForm.booth_name=booth_name;
+        this.itemForm.rental_price=rental_price;
+        this.itemForm.notice_peoples=notice_peoples;
+        }
+        
        
         this.region = this.cities.find(x=>x.id==this.itemForm.region_id)
         this.file = null;
