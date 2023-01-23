@@ -7,6 +7,7 @@
     <div v-else >
         <div class="row">
             <div v-for="(item,i) in items" :key="i" class="col-md-6 mt-2">
+                <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
              <projectCard 
              :title="item.title"
                    :description="item.description"
@@ -19,6 +20,7 @@
                    :amount="item.amount_financing_required"
                    :place="item.place"
              />
+             </router-link>
             </div>
         </div>
         <!-- end row-->

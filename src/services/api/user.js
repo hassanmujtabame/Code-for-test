@@ -84,7 +84,9 @@ class UserApi extends BaseApi {
     getBlogstUser(id){
         return window.axios.get(`network/blogs?user_id=${id}`);
     }
-
+    getCoursesUser(id){
+        return window.axios.post(`user/user-meetings`,{user_id:id});
+    }
 }
 
 export default new UserApi();

@@ -5,7 +5,9 @@
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
     <div v-else >
+
     <ItemCard v-for="(item,i) in items" :key="i"
+    :itemId="item.id"
     :title="item.title"
     :price="item.price"
     :date="item.date_publish"

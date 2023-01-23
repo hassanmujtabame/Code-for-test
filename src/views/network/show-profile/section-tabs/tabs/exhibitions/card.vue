@@ -51,7 +51,7 @@
 
 
                 </div>
-                <button class="btn bg-main bg-main rounded-2 p-1 text-white mt-2">
+                <button @click="$router.push(getRouteLocale('network-exhibition-show',{id:itemId}))" class="btn bg-main bg-main rounded-2 p-1 text-white mt-2">
                     صفحة  المعارض
                 </button>
             </div>
@@ -79,6 +79,9 @@ export default {
         type:String
     },
     price:{
+        type:[String,Number]
+    },
+    itemId:{
         type:[String,Number]
     },
  }
