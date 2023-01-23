@@ -10,7 +10,8 @@
                 </div>
               </div>
               
-              <d-swiper           
+              <d-swiper    
+                v-if="!loading"
                 :slides-per-view="5"
                 is-auto
                 :space-between="10"
@@ -19,8 +20,7 @@
                 <template  v-slot:default="{item}" >
                     <CardMember 
                     :name="item.name" 
-                    :description="item.description" 
-                    :img="item.img"/>
+                    :image="item.image"/>
                 </template>
             </d-swiper>
             </div>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import memberAPI from '@/services/api/members'
 import CardMember from '@/components/cards/card-member.vue'
 export default {
  name:'section-5',
@@ -35,17 +36,35 @@ export default {
     CardMember
   },
   data:()=>({
+    loading:true,
     items:[
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-    ]
-  })
+       /* {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+  */]
+  }),
+  methods:{
+   async initializing(){
+    this.loading = true
+      try{
+        let {data} =await memberAPI.getHomeNetwork()
+        if(data.success){
+          this.items = data.data
+        }
+      }catch(error){
+        console.log('error',error)
+      }
+      this.loading = false
+    }
+  },
+  mounted(){
+    this.initializing()
+  }
 }
 </script>
 
