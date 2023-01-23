@@ -65,7 +65,7 @@
 
 
 
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('my-financial-transactions')" class="mx-2 m-c ">
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-financial-transactions')" class="mx-2 m-c ">
                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('My-financial-transactions') }}</button> 
                     </router-link>
                 </div>

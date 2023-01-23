@@ -182,11 +182,17 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-subscribe-finish" */ '../views/network/SubscribeFinish.vue') 
     },
     {
-        path: 'my-financial-transactions',
+        path: 'network/my-financial-transactions',
         meta:{layout:LayoutNetwork},
-        name: 'my-financial-transactions',
-        component: () => import(/* webpackChunkName: "my-financial-transactions" */ '../views/common/my-financial-transactions/index.vue')
+        name: 'network-my-financial-transactions',
+        component: () => import(/* webpackChunkName: "network-my-financial-transactions" */ '../views/network/my-financial-transactions/index.vue')
     },
+    {
+        path: 'network/balance-charge',
+        name: 'network-balance-charge',
+        meta:{layout:LayoutNetwork},
+        component: () => import(/* webpackChunkName: "network-balance-charge" */ '../views/network/balance-charge/index.vue')
+      },
     {
         path: 'network/register-networking',
         meta:{layout:LayoutNetwork},

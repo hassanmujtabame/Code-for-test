@@ -113,6 +113,18 @@ const routers =[
         meta:{layout:LayoutService},
         name: 'service-provider-services-offline',
         component: () => import(/* webpackChunkName: "service-provider-services-offline" */ '../views/service-provider/services-offline/index.vue') 
-    }
+    },
+    {
+        path: 'service-provider/my-financial-transactions',
+        meta:{layout:LayoutService},
+        name: 'service-provider-my-financial-transactions',
+        component: () => import(/* webpackChunkName: "service-provider-my-financial-transactions" */ '../views/network/my-financial-transactions/index.vue')
+    },
+    {
+        path: 'service-provider/balance-charge',
+        name: 'service-provider-balance-charge',
+        meta:{layout:LayoutService},
+        component: () => import(/* webpackChunkName: "service-provider-balance-charge" */ '../views/service-provider/balance-charge/index.vue')
+      },
 ]
 export default routers;
