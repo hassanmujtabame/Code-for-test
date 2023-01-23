@@ -44,6 +44,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "preview-profile" */ '../views/common/preview-profile/index.vue')
   },
   {
+    path: 'balance-charge',
+    name: 'balance-charge',
+    meta:{layout:LayoutDefault},
+    component: () => import(/* webpackChunkName: "balance-charge" */ '../views/common/balance-charge/index.vue')
+  },
+  {
     path: 'check-out',
     name: 'check-out',
     meta:{layout:LayoutDefault},
