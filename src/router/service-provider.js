@@ -13,6 +13,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-my-profile" */ '../views/service-provider/my-profile/index.vue')
     },
     {
+        path: 'service-provider/preview-profile',
+        name: 'service-provider-preview-profile',
+        meta:{layout:LayoutService,auth:true},
+        component: () => import(/* webpackChunkName: "service-provider-preview-profile" */ '../views/service-provider/preview-profile/index.vue')
+    },
+    {
         path: 'service-provider/subscribe',
         meta:{layout:LayoutService},
         name: 'service-provider-subscribe',
