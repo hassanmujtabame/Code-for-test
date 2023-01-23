@@ -4,7 +4,7 @@
 
            <div class="row">
                <div class="col-md-4  mt-3">
-                   <userInfoCard />
+                   <userInfoCard :member="user" />
                </div>
                <div class="col-md-8 mt-3 ">
                    <div v-if="false" class="row border px-2">
