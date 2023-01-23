@@ -17,6 +17,8 @@
                     <SectionDisplay  :currentUser="currentUser"/>
                     <!--معومات شخصية  -->
                     <SectionPersonal  :currentUser="currentUser"/>
+                    <!-- بطاقات الدفع -->
+                    <SectionPaymentCards />
                     <!--معلومات الدراسة -->
                     <SectionEducation  :currentUser="currentUser" />
                     <!--معلومات مهنية -->
@@ -43,6 +45,7 @@
 <script>
 import userAPI from '@/services/api/user.js'
 import Sidebar from './parts/sidebar/index.vue'
+import SectionPaymentCards from './parts/sections/payment-cards/index.vue'
 import SectionDisplay from './parts/sections/information-display/index.vue'
 import SectionPersonal from './parts/sections/information-personal/index.vue'
 import SectionEducation from './parts/sections/information-education/index.vue'
@@ -64,7 +67,8 @@ export default {
     SectionResidence,
     SectionSettingsNotif,
     SectionListBlocks,
-    SectionShowerProject
+    SectionShowerProject,
+    SectionPaymentCards
  },
  data:()=>{
   return {
