@@ -1,5 +1,5 @@
 <template>
-  <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg :width="size" :height="size" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="icons8-mastercard-logo">
 <path id="Path 146" d="M16.4688 0C12.2436 0 8.81836 3.42521 8.81836 7.65041C8.81836 11.8756 12.2436 15.3008 16.4688 15.3008C20.694 15.3008 24.1192 11.8756 24.1192 7.65041C24.1192 3.42521 20.694 0 16.4688 0Z" fill="#FF9800"/>
 <path id="Path 147" d="M7.72658 0C3.50138 0 0.0761719 3.42521 0.0761719 7.65041C0.0761719 11.8756 3.50137 15.3008 7.72658 15.3008C11.9518 15.3008 15.377 11.8756 15.377 7.65041C15.377 3.42521 11.9518 0 7.72658 0Z" fill="#D50000"/>
@@ -11,7 +11,13 @@
 
 <script>
 export default {
-
+  props:{
+      size:{
+        type:[String,Number],
+        default:26
+      }
+      
+    }
 }
 </script>
 
