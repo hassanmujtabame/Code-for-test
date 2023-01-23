@@ -203,12 +203,17 @@
             </slot>
             </div>
             <div :class="{'col-md-9':!hideSide,'col-md-12':hideSide}">
-                <div class="row order">
+                <div class="row">
+                <div class="col-12 row order">
                     <div v-for="(item,i) in items" :key="i" :class="classColCard">
                         <div class="swiper-slide rounded-3">
                          <slot :item="item"></slot>
                         </div>
                     </div>
+                </div>
+                <div class="col-12">
+                    <slot name="list" :items="items"></slot>
+                </div>
                 </div>
             </div>
             <div class=" mt-5">
