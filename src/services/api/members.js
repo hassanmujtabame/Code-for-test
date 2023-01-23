@@ -10,6 +10,10 @@ class MembersApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/home-members?${s}`);
     }
+    getInfluenceursNetwork(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/home-members?${s}`);
+    }
     getItem(id){
         return window.axios.get(`network/members/${id}`);
     }

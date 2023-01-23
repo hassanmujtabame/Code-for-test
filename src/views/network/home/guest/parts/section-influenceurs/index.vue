@@ -1,6 +1,6 @@
 <template>
    <div class="sec-five mt-5 p-3">
-        <div class="">
+        <div class="container">
           <div
             class="d-flex justify-content-between align-items-center container"
           >
@@ -9,8 +9,9 @@
               <button class="more">{{ $t('more') }}</button>
             </div>
           </div>
-          <d-swiper           
-                :slides-per-view="5"
+          <d-swiper      
+          v-if="!loading"    
+                :slides-per-view="4"
                 is-auto
                 :space-between="10"
                 :items="items"
@@ -19,7 +20,7 @@
                     <CardMember 
                     :name="item.name" 
                     :description="item.description" 
-                    :img="item.img"/>
+                    :img="item.image"/>
                 </template>
             </d-swiper>
         </div>
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+import memberAPI from '@/services/api/members'
 import CardMember from '@/components/cards/card-member.vue'
 export default {
  name:'section-influenceurs',
@@ -34,16 +36,29 @@ export default {
     CardMember
   },
   data:()=>({
-    items:[
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-    ]
-  })
+    loading:true,
+    items:[]
+  }),
+  methods:{
+   async initializing(){
+    this.loading = true
+      try{
+        let {data} =await memberAPI.getInfluenceursNetwork()
+        if(data.success){
+          this.items = data.data
+        }
+      }catch(error){
+        console.log('error',error)
+      }
+      this.loading = false
+    }
+  },
+  mounted(){
+    this.initializing()
+  }
 }
 </script>
+
+<style>
+
+</style>

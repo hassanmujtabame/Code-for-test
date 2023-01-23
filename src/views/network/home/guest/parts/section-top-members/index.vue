@@ -1,6 +1,6 @@
 <template>
   <div class="sec-five mt-5 p-3">
-            <div class="">
+            <div class="container">
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
@@ -12,7 +12,7 @@
               
               <d-swiper    
                 v-if="!loading"
-                :slides-per-view="5"
+                :slides-per-view="4"
                 is-auto
                 :space-between="10"
                 :items="items"
@@ -20,7 +20,7 @@
                 <template  v-slot:default="{item}" >
                     <CardMember 
                     :name="item.name" 
-                    :image="item.image"/>
+                    :img="item.image"/>
                 </template>
             </d-swiper>
             </div>
