@@ -4,7 +4,9 @@
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-                <h1 class="w-100 text-center"> أفضل مقدمي الخدمة هذا الشهر</h1>
+                <h1 class="w-100 text-center">
+                  مقدمي خدمة مميزين
+                  </h1>
             
               </div>
               <d-swiper
