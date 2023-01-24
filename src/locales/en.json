@@ -360,5 +360,6 @@
   "close": "Close",
   "opened": "Opened",
   "closed": "Opened",
-  "insurance_price": "insurance price"
+  "insurance_price": "insurance price",
+  "send_request": "Send request"
 }

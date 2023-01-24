@@ -47,7 +47,7 @@
                         </ValidationProvider>
                     </ValidationObserver>
                     <div class="text-start mt-2 ">
-                        <button @click="sendMessage" class="btn btn-main" role="button"> {{ $t('login') }} </button>
+                        <button @click="sendMessage" class="btn btn-main" role="button"> {{ $t('send_request') }} </button>
                     </div>
                 </div>
                 <div class="col-md-6">

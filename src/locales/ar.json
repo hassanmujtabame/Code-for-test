@@ -358,5 +358,6 @@
   "open": "يفتح",
   "opened": "مفتوح",
   "closed": "مغلق",
-  "insurance_price": "سعر التأمين"
+  "insurance_price": "سعر التأمين",
+  "send_request": "ارسل الطلب"
 }
