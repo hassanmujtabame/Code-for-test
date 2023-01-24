@@ -287,10 +287,10 @@
                 <h3>مشاركة الاعضاء في معرضك</h3>
                 <p>بناء على خريطة موقعك حدد البوثات المتاحة للحجز واكتب اسعارها 
                 </p>
-            
-                    <div class="row add-portfolio m-3 p-0 position-relatiuve">
-                        <div class="col-12 col-md-5 col-lg-5">
-                            <div  v-for="(bn,i) in this.itemForm.booth_name" :key="i" class="mb-3">
+                <!-- list boothes-->
+                <div  v-for="(bn,i) in this.itemForm.booth_name" :key="'bo'+i" class="row  m-3 p-0 position-relatiuve">
+                    <div class="col-12 col-md-5 col-lg-5">
+                            <div  class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('booth_name')" 
                                 tag='div'
@@ -305,18 +305,18 @@
                             </div>
                     </div>
                     <div  class="col-12 col-md-3 col-lg-3">
-                        <div  v-for="(bp,m) in this.itemForm.rental_price" :key="'dhh'+m" class="mb-3 d-flex">
+                        <div  class="mb-3 d-flex">
                         <div>
                                 <ValidationProvider 
                                 :name="$t('rent_price')" 
                                 tag='div'
-                                :vid="`rental_price.${m}`" 
+                                :vid="`rental_price.${i}`" 
                                 rules="required|numeric"
                                 v-slot="{ errors }"
                             >
                             <label class="form-label">{{ $t('rent_price') }}</label>
                             <div class="position-relative d-flex">
-                            <input type="text" v-model="itemForm.rental_price[m]" class="form-control" :placeholder="$t('rent_price')">
+                            <input type="text" v-model="itemForm.rental_price[i]" class="form-control" :placeholder="$t('rent_price')">
                             <div class="d-flex align-items-center">
                        </div>
                         </div>
@@ -327,20 +327,20 @@
                     </div>
                     </div>
                     <div  class="col-12 col-md-4 col-lg-4">
-                        <div  v-for="(bp,j) in this.itemForm.insurance_price" :key="'hh'+j" class="mb-3 d-flex">
+                        <div  class="mb-3 d-flex">
                         <div>
                                 <ValidationProvider 
                                 :name="$t('insurance_price')" 
                                 tag='div'
-                                :vid="`insurance_price.${j}`" 
+                                :vid="`insurance_price.${i}`" 
                                 rules="required|numeric"
                                 v-slot="{ errors }"
                             >
                             <label class="form-label">{{ $t('insurance_price') }}</label>
                             <div class="position-relative d-flex">
-                            <input type="text" v-model="itemForm.insurance_price[j]" class="form-control" :placeholder="$t('insurance_price')">
+                            <input type="text" v-model="itemForm.insurance_price[i]" class="form-control" :placeholder="$t('insurance_price')">
                             <div class="d-flex align-items-center">
-                        <button v-if="j!==0" @click="removeBooth(j)"
+                        <button v-if="i!==0" @click="removeBooth(i)"
                         style="border: none;background: transparent;color: red;"
                         ><trashOutlineIcon color="red" :size="24"/></button>
                        </div>
@@ -351,6 +351,12 @@
                       
                     </div>
                     </div>
+                </div>
+                <!-- end list-->
+                    <div class="row m-3 p-0 position-relatiuve">
+                   
+                
+                   
                     
                     <div  class="col-12 mb-3 ">
                         <button @click="addBooth" class="btn m-c border p-2 px-3 ">
