@@ -14,15 +14,17 @@
                             <stcPayIcon :width="26" :height="26" v-if="card.paymentBrand=='stc'" />
                         <mastercardIcon  v-if="card.paymentBrand=='mastercard'" />    
                         </span>
-                        <svg id="ccicon" class="ccicon" width="750" height="471"
+                        <span :data-item="card.id" class="ccicon-list">
+                        <svg id="ccicon-list" class="ccicon-list" width="750" height="471"
                                                           viewBox="0 0 750 471" version="1.1" 
                                                           xmlns="http://www.w3.org/2000/svg" 
                                                           xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                          v-if="card.ccicon" 
-                                                          v-html="card.ccicon"
+                                                          v-if="getIcon(card.paymentBrand)" 
+                                                          v-html="getIcon(card.paymentBrand)"
                                                           >
                         </svg>
-                            <bdi> البطاقة المنتهية بـ</bdi> {{card.card_number?card.card_number.slice(-4):'N/A'}}
+                    </span>
+                            <bdi> البطاقة المنتهية بـ</bdi> {{card.last4Digits?card.last4Digits.slice(-4):'N/A'}}
                         </btnTypePay>
                         <span class="mx-2">
                             <button @click="openAddCreditCard(card.id)" class="btn-text t-c"><editIcon/></button>
@@ -50,6 +52,7 @@ import plusIcon from '@/components/icon-svg/plus-rect-round.vue'
 import editIcon from '@/components/icon-svg/pencil-edit.vue'
 import btnTypePay from './btn-type-pay.vue'
 import addCreditCardDialog from './add-card-dialog.vue'
+import cardVisaIcons from '@/plugins/card-visa-icons'
 export default {
  name:'payment-cards',
  components:{
@@ -73,12 +76,18 @@ export default {
     }
  },
  methods:{
+    getIcon(icon){
+       return cardVisaIcons[icon]
+     
+    },
     addCreditCard({card,type}){
         if(type=='add')
         this.cards.push(card)
         else{
            let index = this.cards.findIndex(x=>x.id==card.id)
-           this.cards[index] = {...this.cards[index],card}
+           this.cards[index].ccicon =card.ccicon
+           this.cards[index].paymentBrand =card.paymentBrand
+           this.cards[index].last4Digits =card.last4Digits
         }
     },
     openAddCreditCard(id=null){

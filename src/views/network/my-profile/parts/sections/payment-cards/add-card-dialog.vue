@@ -7,7 +7,7 @@
     :closeDialog="closeDialog"
     :openDialog="openDialog"
     >
-        <ValidationObserver ref="form" >
+        <ValidationObserver v-if="showDialog" ref="form" >
             <div class="col-12" style="box-shadow: 0px 1px 4px 0px;padding: 29px;">
                                         <div class="mt-3">
                                             <form action="">
@@ -143,7 +143,7 @@ let valid = await this.$refs.form.validate();
         formData.append('card_number', this.card_number)
         formData.append('expiryYear', expiryYear)
         formData.append('expiryMonth', expiryMonth)
-        formData.append('paymentBrand', this.stateNumber.cardType)
+        formData.append('paymentBrand', this.stateNumber.cardtype)
         formData.append('card_cvv', this.card_cvv)
 
 
@@ -153,8 +153,9 @@ let valid = await this.$refs.form.validate();
             let card = {
                 id:this.card_payment_id ?? data.data.payment_id,
             card_holder:this.card_holder,
+            last4Digits:this.card_number.slice(-4),
             card_number:this.card_number,
-            paymentBrand:this.stateNumber.cardType,
+            paymentBrand:this.stateNumber.cardtype,
             ccicon:this.stateNumber.ccicon,
             card_cvv:this.card_cvv,
            }
@@ -175,6 +176,13 @@ let valid = await this.$refs.form.validate();
 },
 openDialog(data){
     this.card_payment_id =  data.id
+    this.card_number = '';
+    this.card_holder = '';
+    this.card_cvv = '';
+    this.expiry_date = '';
+    this.stateNumber.correct = false;
+    this.stateNumber.ccicon = '';
+
     this.showDialog = true;
     return true;
 },

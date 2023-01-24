@@ -99,7 +99,7 @@ class UserApi extends BaseApi {
          * card_holder | card_number | expiryYear | card_cvv | expiryMonth | paymentBrand
          */
         data.append('_method','PUT')
-        return window.axios.post(`update-payment-card/${id}`,data);
+        return window.axios.post(`user/payment-cards/${id}`,data);
     }
     getCreditCards(){
         return window.axios.get(`user/payment-cards`);

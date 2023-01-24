@@ -1746,3 +1746,10 @@ html[dir=ltr] .ccicon {
     left: auto;
     right: -4px; 
 }
+
+.ccicon-list{
+    height: 22px;
+    border-radius: 8px;
+    width: 60px;
+
+}
