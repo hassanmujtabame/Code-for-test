@@ -9,34 +9,40 @@
                             <div class="d-flex px-2 w-100">
                         <btnTypePay name="pay-type" style="flex:1" class="no-border" justify="start" :valueDefault="'back'"
                            >
-                           <span style="width:40px">
-                            <visa2Icon v-if="card.type=='visa'" />
-                            <stcPayIcon :width="26" :height="26" v-if="card.type=='stc'" />
-                        <mastercardIcon  v-if="card.type=='mastercard'" />    
+                           <span v-if="false" style="width:40px">
+                            <visa2Icon v-if="card.paymentBrand=='visa'" />
+                            <stcPayIcon :width="26" :height="26" v-if="card.paymentBrand=='stc'" />
+                        <mastercardIcon  v-if="card.paymentBrand=='mastercard'" />    
                         </span>
-
-                            <bdi> البطاقة المنتهية بـ</bdi> {{card.text}}
+                        <svg id="ccicon" class="ccicon" width="750" height="471"
+                                                          viewBox="0 0 750 471" version="1.1" 
+                                                          xmlns="http://www.w3.org/2000/svg" 
+                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                          v-if="card.ccicon" 
+                                                          v-html="card.ccicon"
+                                                          >
+                        </svg>
+                            <bdi> البطاقة المنتهية بـ</bdi> {{card.card_number?card.card_number.slice(-4):'N/A'}}
                         </btnTypePay>
                         <span class="mx-2">
-                            <button class="btn-text t-c"><editIcon/></button>
+                            <button @click="openAddCreditCard(card.id)" class="btn-text t-c"><editIcon/></button>
                         </span>
                     </div>
                    <hr/>
                         </div>
                     </ValidationObserver>
                     <div class="m-auto p-3">
-                        <button @click="openAddCreditCard" class="btn-custmer-w">
+                        <button @click="openAddCreditCard()" class="btn-custmer-w">
                            <plusIcon :size="24"/> {{$t('new_card')}}
                         </button>
                     </div>
                </div> 
-               <addCreditCardDialog />  
+               <addCreditCardDialog  @success="addCreditCard"/>  
             </div>  
 </template>
 
 <script>
 import userAPI from '@/services/api/user.js'
-import commonAPI from '@/services/api/common.js'
 import stcPayIcon from '@/components/icon-svg/stc-pay.vue'
 import visa2Icon from '@/components/icon-svg/visa.vue'
 import mastercardIcon from '@/components/icon-svg/master-card.vue'
@@ -58,11 +64,7 @@ export default {
  data:()=>{
     return {
         countries:[],
-        cards:[
-            {id:1,text:'4252',type:'visa'},
-            {id:2,text:'444',type:'stc'},
-            {id:2,text:'444',type:'mastercard'},
-        ],
+        cards:[],
         itemForm:{
            
         
@@ -71,20 +73,26 @@ export default {
     }
  },
  methods:{
-    openAddCreditCard(){
-      this.fireOpenDialog('add-credit-card');
+    addCreditCard({card,type}){
+        if(type=='add')
+        this.cards.push(card)
+        else{
+           let index = this.cards.findIndex(x=>x.id==card.id)
+           this.cards[index] = {...this.cards[index],card}
+        }
+    },
+    openAddCreditCard(id=null){
+      this.fireOpenDialog('add-credit-card',{id});
     },
 
     async loadCards(){
         try{
-            let {data } = await commonAPI.getCountries()
+            let {data } = await userAPI.getCreditCards()
             if(data.success){
-                this.countries = data.data
+                this.cards = data.data
             }
         }catch(error){
-            this.countries = [
-            {id:'sa',name:'السعودية'}
-        ]
+                console.log('error',error)
         }
     }
  },

@@ -110,9 +110,9 @@
                                 >
                                 <label class="form-label">{{ $t('booth') }}</label>
                                 <div class="mb-3 position-relative">
-                                    <select v-model="itemForm.booking_type" class="form-control ">
+                                    <select v-model="booking_type" class="form-control ">
                                         <option value="" class="t-c" disabled selected>   اختر البوث الذي تريد حجزه من البوثات المتاحة  </option>
-                                        <option v-for="(booth,i) in boothes" :key="i" :value="booth.id">{{ booth.name }}</option>
+                                        <option v-for="(booth,i) in itemPage.post_member.booth_name" :key="i" :value="(i+1)">{{ booth }}</option>
                                     </select>
                                     <div style="top: 7px;left: 10px;" class="position-absolute">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -186,10 +186,9 @@
                                         <ValidationProvider 
                                 :name="$t('exhibition_rent_price')"
                                 vid="rental_price"
-                                rules="required"
                                 v-slot="{errors}"
                                 >
-                                        <input type="text" v-model="itemForm.rental_price" class="p-3 w-50 h-75 border-0 bg-light" name="" id="" placeholder="2500ريال">
+                                        <input type="text" disabled :value="itemForm.rental_price" class="p-3 w-50 h-75 border-0 bg-light" name="" id="" placeholder="2500ريال">
                                         <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
                                     </div>
@@ -200,10 +199,10 @@
                                         <ValidationProvider 
                                 :name="$t('exhibition_insurance_price')"
                                 vid="insurance_price"
-                                rules="required"
+                                rules=""
                                 v-slot="{errors}"
                                 >
-                                        <input type="text" v-model="itemForm.insurance_price" class="p-3 w-50 h-75 border-0 bg-light" name="" id="" placeholder="2500ريال">
+                                        <input type="text" disabled :value="itemForm.insurance_price" class="p-3 w-50 h-75 border-0 bg-light" name="" id="" placeholder="2500ريال">
                                         <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
                                     </div>
@@ -247,9 +246,8 @@ export default {
       loading:true,
       hasError:false,
       itemPage:{},
-
+      booking_type:null,
       itemForm:{
-
         brand_name:'',
         booking_type:'',
         type_products:'',
@@ -262,6 +260,20 @@ export default {
       },
       colors:['#F2631C','#FFBC00','#2C98B3']
   }},
+  watch:{
+    booking_type(){
+        
+        if(this.booking_type){
+            this.itemForm.booking_type = this.itemPage.post_member.booth_name[this.booking_type-1];
+            this.itemForm.rental_price =  this.itemPage.post_member.rental_price[this.booking_type-1];
+            this.itemForm.insurance_price =  this.itemPage.post_member.insurance_price[this.booking_type-1];
+        }else{
+            this.itemForm.rental_price = 0;
+            this.itemForm.insurance_price = 0;
+            this.itemForm.booking_type = null;
+        }
+    }
+  },
   methods:{
     openSuccessSharedDialog(){
         this.fireOpenDialog('success-shared-exhibition')

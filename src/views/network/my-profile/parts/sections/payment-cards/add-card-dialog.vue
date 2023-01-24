@@ -118,13 +118,14 @@
 
 </template>
 <script>
-import BlogsAPI from '@/services/api/blogs.js'
+import userAPI from '@/services/api/user.js'
 import creditCardMixins from '@/common/mixins/credit-card.vue';
 export default {
     mixins:[creditCardMixins],
 data:()=>{
 return{
 group:'add-credit-card',
+card_payment_id:null,
 showDialog:false,
 }},
 methods:{
@@ -135,13 +136,29 @@ let valid = await this.$refs.form.validate();
         return ;
     }
  let formData = new FormData();
+ let  expiryMonth=this.expiry_date.split('/')[0];
+ let  expiryYear=this.expiry_date.split('/')[1];
+
+        formData.append('card_holder', this.card_holder)
+        formData.append('card_number', this.card_number)
+        formData.append('expiryYear', expiryYear)
+        formData.append('expiryMonth', expiryMonth)
+        formData.append('paymentBrand', this.stateNumber.cardType)
+        formData.append('card_cvv', this.card_cvv)
 
 
     try {
-        let { data } = await BlogsAPI.addBlog(formData)
+        let { data } = this.card_payment_id ? await  userAPI.updateCreditCardInfo(this.card_payment_id,formData): await userAPI.addCreditCardInfo(formData)
         if(data.success){
-            console.log('success',data)
-           this.fireOpenDialog('success-add-blog',data.data[0])
+            let card = {
+                id:this.card_payment_id ?? data.data.payment_id,
+            card_holder:this.card_holder,
+            card_number:this.card_number,
+            paymentBrand:this.stateNumber.cardType,
+            ccicon:this.stateNumber.ccicon,
+            card_cvv:this.card_cvv,
+           }
+           this.$emit('success',{card,type:this.card_payment_id?'update':'add'})
             this.closeEvent()
         }
     } catch (error) {
@@ -156,8 +173,8 @@ let valid = await this.$refs.form.validate();
        
     }
 },
-openDialog(){
-   
+openDialog(data){
+    this.card_payment_id =  data.id
     this.showDialog = true;
     return true;
 },

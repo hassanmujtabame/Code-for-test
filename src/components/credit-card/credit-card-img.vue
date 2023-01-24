@@ -173,7 +173,7 @@ onExpirtyDateAccept (val) {
             value:this.card_number
         }
     } else {
-        console.log('ok number',this.cardnumber_mask)
+        //console.log('ok number',this.cardnumber_mask)
         this.card_number = this.cardnumber_mask.value;
         let mask_c =  this.cardnumber_mask.currentMask.mask.replaceAll(' ','')
         send_data ={
@@ -294,7 +294,7 @@ this.expirationdate_mask = new IMask.createMask({
 this.securitycode_mask =new IMask.createMask({
     mask: '0000',
 });
-console.log(this.cardnumber_mask,this.cardnumber_mask.masked)
+//console.log(this.cardnumber_mask,this.cardnumber_mask.masked)
 //this.cardnumber_mask.on("accept",this.onAcceptCardNumber );
 window.EventBus.listen(this.group+'-show-face',this.changeFace)
     window.EventBus.listen(this.group+'-brand-card',this.changeBrandIcon)

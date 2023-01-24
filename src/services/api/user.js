@@ -87,6 +87,23 @@ class UserApi extends BaseApi {
     getCoursesUser(id){
         return window.axios.post(`user/user-meetings`,{user_id:id});
     }
+    addCreditCardInfo(data){
+        /**
+         * card_holder | card_number | expiryYear | card_cvv | expiryMonth | paymentBrand
+         */
+        //data.append('_method','PUT')
+        return window.axios.post(`user/payment-cards`,data);
+    }
+    updateCreditCardInfo(id,data){
+        /**
+         * card_holder | card_number | expiryYear | card_cvv | expiryMonth | paymentBrand
+         */
+        data.append('_method','PUT')
+        return window.axios.post(`update-payment-card/${id}`,data);
+    }
+    getCreditCards(){
+        return window.axios.get(`user/payment-cards`);
+    }
 }
 
 export default new UserApi();
