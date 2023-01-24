@@ -102,6 +102,7 @@
 <script>
 import IMask from 'imask';
 import BrandsIcon from '@/plugins/card-visa-icons'
+import masks from '@/plugins/maskes-credit-cards';
 export default {
     props:{
         group:{
@@ -123,17 +124,11 @@ data:()=>({
     ccsingle:null,
 }),
  methods:{
-    cardClicked(/*evt*/){
-        
-      /*  if (this.$refs.creditcard.classList.contains('flipped')) {
-            this.$refs.creditcard.classList.remove('flipped');
-    } else {
-        this.$refs.creditcard.classList.add('flipped');
-    }*/
+    cardClicked(){
     this.showFront =!this.showFront
     },
     async changeCardNumber(data){
-        let masked = await this.cardnumber_mask.resolve(data);
+        await this.cardnumber_mask.resolve(data);
       this.onAcceptCardNumber()
     },
     changeCardHolder(data){
@@ -143,7 +138,7 @@ data:()=>({
         this.card_cvv = data
     },
    async changeExpiryDate(data){
-        let masked = await this.expirationdate_mask.resolve(data);
+         await this.expirationdate_mask.resolve(data);
         this.expiry_date = this.onExpirtyDateAccept (data)
 
     },
@@ -154,8 +149,17 @@ data:()=>({
 
 onExpirtyDateAccept (val) {
     if (this.expirationdate_mask.value.length == 0 || this.expirationdate_mask.value!=val) {
+        this.fireEvent(this.group+'-state-expiry-date',{
+            correct:false,
+            value:'MM/YY'
+        })
         return 'MM/YY';
+        
     } else {
+        this.fireEvent(this.group+'-state-expiry-date',{
+            correct:true,
+            value:this.expirationdate_mask.value
+        })
         return  this.expirationdate_mask.value;
     }
 },
@@ -163,8 +167,18 @@ onExpirtyDateAccept (val) {
 
     if (this.cardnumber_mask.value.length == 0) {
         this.card_number = '0123 4567 8910 1112';
+        this.fireEvent(this.group+'-state-card-number',{
+            correct:false,
+            cardtype:false,
+            value:this.card_number
+        })
     } else {
         this.card_number = this.cardnumber_mask.value;
+        this.fireEvent(this.group+'-state-card-number',{
+            correct:true,
+            cardtype:this.cardnumber_mask.currentMask,
+            value:this.card_number
+        })
     }
     switch (this.cardnumber_mask.currentMask.cardtype) {
         case 'american express':
@@ -234,72 +248,7 @@ changeFace(data){
  },
  created(){
     this.cardnumber_mask = IMask.createMask({
-  mask:  [
-        {
-            mask: '0000 000000 00000',
-            regex: '^3[47]\\d{0,13}',
-            cardtype: 'american express'
-        },
-        {
-            mask: '0000 0000 0000 0000',
-            regex: '^(?:6011|65\\d{0,2}|64[4-9]\\d?)\\d{0,12}',
-            cardtype: 'discover'
-        },
-        {
-            mask: '0000 000000 0000',
-            regex: '^3(?:0([0-5]|9)|[689]\\d?)\\d{0,11}',
-            cardtype: 'diners'
-        },
-        {
-            mask: '0000 0000 0000 0000',
-            regex: '^(5[1-5]\\d{0,2}|22[2-9]\\d{0,1}|2[3-7]\\d{0,2})\\d{0,12}',
-            cardtype: 'mastercard'
-        },
-        // {
-        //     mask: '0000-0000-0000-0000',
-        //     regex: '^(5019|4175|4571)\\d{0,12}',
-        //     cardtype: 'dankort'
-        // },
-        // {
-        //     mask: '0000-0000-0000-0000',
-        //     regex: '^63[7-9]\\d{0,13}',
-        //     cardtype: 'instapayment'
-        // },
-        {
-            mask: '0000 000000 00000',
-            regex: '^(?:2131|1800)\\d{0,11}',
-            cardtype: 'jcb15'
-        },
-        {
-            mask: '0000 0000 0000 0000',
-            regex: '^(?:35\\d{0,2})\\d{0,12}',
-            cardtype: 'jcb'
-        },
-        {
-            mask: '0000 0000 0000 0000',
-            regex: '^(?:5[0678]\\d{0,2}|6304|67\\d{0,2})\\d{0,12}',
-            cardtype: 'maestro'
-        },
-        // {
-        //     mask: '0000-0000-0000-0000',
-        //     regex: '^220[0-4]\\d{0,12}',
-        //     cardtype: 'mir'
-        // },
-        {
-            mask: '0000 0000 0000 0000',
-            regex: '^4\\d{0,15}',
-            cardtype: 'visa'
-        },
-        {
-            mask: '0000 0000 0000 0000',
-            regex: '^62\\d{0,14}',
-            cardtype: 'unionpay'
-        },
-        {
-            mask: '0000 0000 0000 0000',
-            cardtype: 'Unknown'
-        }
-    ],
+    mask: masks,
     dispatch: function (appended, dynamicMasked) {
         var number = (dynamicMasked.value + appended).replace(/\D/g, '');
 
@@ -313,7 +262,7 @@ changeFace(data){
 });
    //Mask the Expiration Date
 this.expirationdate_mask = new IMask.createMask({
-    mask: 'MM{/}YY',
+    mask: '{MM/YY}',
     blocks: {
     YY: {
       mask: '00',
