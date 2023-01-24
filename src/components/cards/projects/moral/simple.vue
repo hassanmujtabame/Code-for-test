@@ -11,7 +11,7 @@
             <h5>
                 {{ title }}
             </h5>
-            <p v-html="description"></p>
+            <p class="text-two-lines" v-html="description"></p>
             <p>{{$t('in')}} {{ place }}</p>
            
         </div>

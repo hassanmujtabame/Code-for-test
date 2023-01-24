@@ -11,7 +11,7 @@
             <h5>
                 {{ title }}
             </h5>
-            <p v-html="description"></p>
+            <p class="text-two-lines" v-html="description"></p>
         </div>
         <div style="background-color: #414042d4;" class="col-md-12  dashbord rounded-bottom">
             <div class=" row justify-content-between p-1 ">
