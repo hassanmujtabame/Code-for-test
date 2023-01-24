@@ -47,33 +47,87 @@
                                     </div>
                                     <div class="col-12" style="box-shadow: 0px 1px 4px 0px;padding: 29px;">
                                         <div class="mt-3">
-                                            <form action="">
+                                            <ValidationObserver ref="form" >
                                                 <div class="row">
                                                     <div class="col-12">
+                                                        <ValidationProvider 
+                                                        :name="$t('card_holder')"
+                                                        vid="card_holder"
+                                                        rules="required|alpha_spaces"
+                                                        v-slot="{errors}"
+                                                        >
+                                                        <label class="form-label">{{ $t('card_holder') }}</label>
                                                         <input type="text" v-model="card_holder" class="border rounded-2 w-100  p-2 " name=""
                                                         @focus="sendChangeFaceCard('front')"
-                                                        id="" placeholder=" اسم على البطاقة">
+                                                         :placeholder="$t('card_holder')">
+                                                         <d-error-input :errors="errors" v-if="errors.length" />
+                                                    </ValidationProvider>
                                                     </div>
                                                     <div class="col-12">
-                                                        <input type="text" v-model="card_number" class="border rounded-2 w-100  p-2 mt-3"
+                                                        <ValidationProvider 
+                                                        tag="div"
+                                                        class="mt-3"
+                                                        :name="$t('card_number')"
+                                                        vid="card_number"
+                                                        :rules="ruleCardNumber"
+                                                        v-slot="{errors}"
+                                                        >
+                                                        <label class="form-label">{{ $t('card_number') }}</label>
+                                                        <div class="position-relative">
+                                                        <input :maxlength="stateNumber.correct?stateNumber.mask_length:null" type="text" v-model="card_number" class="border rounded-2 w-100  p-2"
                                                         @focus="sendChangeFaceCard('front')"    
-                                                        name="" id="" placeholder="رقم البطاقة">
+                                                         :placeholder="$t('card_number')">
+                                                         <svg id="ccicon" class="ccicon" width="750" height="471"
+                                                          viewBox="0 0 750 471" version="1.1" 
+                                                          xmlns="http://www.w3.org/2000/svg" 
+                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                          v-if="stateNumber.ccicon" 
+                                                          v-html="stateNumber.ccicon"
+                                                          >
+                                                        
+                                                        </svg>
+                                                         
+                                                        </div>
+                                                        <d-error-input :errors="errors" v-if="errors.length" />
+                                                    </ValidationProvider>
                                                     </div>
                                                     <div class="col-6">
-                                                        <input type="text" name="date_end"
+                                                        <ValidationProvider 
+                                                        tag="div"
+                                                        class="mt-3"
+                                                        :name="$t('expiry_date')"
+                                                        vid="expiry_date"
+                                                        rules="required|length:5"
+                                                        v-slot="{errors}"
+                                                        >
+                                                        <label class="form-label">{{ $t('expiry_date') }}</label>
+                                                        <input maxlength="5" type="text" 
                                                         v-model="expiry_date"
                                                         @focus="sendChangeFaceCard('front')"
-                                                            class="border rounded-2 w-100  p-2 mt-3" id=""
-                                                            placeholder="  تاريخ الانتهاء">
+                                                            class="border rounded-2 w-100  p-2 " id=""
+                                                            :placeholder="$t('expiry_date')">
                                                         <div id="date_endHelp" class="form-text">على نمط شهر/سنة</div>
+                                                        <d-error-input :errors="errors" v-if="errors.length" />
+                                                    </ValidationProvider>
                                                     </div>
                                                     <div class="col-6">
-                                                        <input type="text" class="border rounded-2 w-100  p-2 mt-3"
+                                                        <ValidationProvider 
+                                                        tag="div"
+                                                        class="mt-3"
+                                                        :name="$t('security_code')"
+                                                        vid="card_cvv"
+                                                        rules="required|numeric|min:3|max:4"
+                                                        v-slot="{errors}"
+                                                        >
+                                                        <label class="form-label">{{ $t('security_code') }}</label>
+                                                        <input maxlength="4" type="text" class="border rounded-2 w-100  p-2"
                                                         v-model="card_cvv"
                                                         @focus="sendChangeFaceCard('back')"
-                                                        name="pin" id="" placeholder=" رمز الحماية">
+                                                         placeholder="">
                                                         <div id="pinHelp" class="form-text"><bdi>3 أو 4 ارقام</bdi>
                                                         </div>
+                                                        <d-error-input :errors="errors" v-if="errors.length" />
+                                                    </ValidationProvider>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-check mt-3">
@@ -85,10 +139,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </ValidationObserver>
+
 
                                         </div>
-                                        <CreditCardImage />
+                                        <CreditCardImage :group="groupCard" />
                                     </div>
                                     <div class="col-12">
                                     </div>
@@ -142,7 +197,9 @@ import noPathIcon from '@/components/icon-svg/no-path.vue'
 import mastercardIcon from '@/components/icon-svg/master-card.vue'
 import CreditCardImage from '@/components/credit-card/credit-card-img.vue'
 
+import creditCardMixins from '@/common/mixins/credit-card.vue';
 export default {
+    mixins:[creditCardMixins],
 
     props: {
         group: {
@@ -190,11 +247,6 @@ export default {
                 { id: 3, name: 'applePayIcon', type: 'icon' },
                 { id: 2, name: 'stcPayIcon', type: 'icon' },
             ],
-       
-            card_number:'',
-            card_holder:'',
-            card_cvv:'',
-            expiry_date:'',
             itemForm:vm.defaultForm
         }
     },

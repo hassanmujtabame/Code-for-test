@@ -7,10 +7,10 @@
     :closeDialog="closeDialog"
     :openDialog="openDialog"
     >
-        <ValidationObserver v-if="showDialog" ref="form" >
+        
             <div class="col-12" style="box-shadow: 0px 1px 4px 0px;padding: 29px;">
                                         <div class="mt-3">
-                                            <form action="">
+                                            <ValidationObserver v-if="showDialog" ref="form" >
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <ValidationProvider 
@@ -92,22 +92,14 @@
                                                         <d-error-input :errors="errors" v-if="errors.length" />
                                                     </ValidationProvider>
                                                     </div>
-                                                    <div class="col-12">
-                                                        <div class="form-check mt-3">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="flexcheckDefault">
-                                                            <label class="form-check-label m-c" for="flexcheckDefault">
-                                                                {{ $t('save') }}
-                                                            </label>
-                                                        </div>
-                                                    </div>
+                                                    
                                                 </div>
-                                            </form>
+                                            </ValidationObserver>
 
                                         </div>
                                         <d-credit-card :group="groupCard" />
                                     </div>
-        </ValidationObserver>
+        
   
     <template v-slot:actions>
         <button @click="save" type="button" class="btn btn-main">
