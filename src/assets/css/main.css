@@ -1731,3 +1731,18 @@ position: relative;
     width: 100%;
     color: #09763c;
 }
+
+.ccicon {
+    height: 36px;
+    position: absolute;
+    left: -4px;
+    border-radius: 8px;
+    top: calc(50% - 19px);
+    width: 60px;
+    z-index: 6;
+}
+html[dir=ltr] .ccicon {
+   
+    left: auto;
+    right: -4px; 
+}

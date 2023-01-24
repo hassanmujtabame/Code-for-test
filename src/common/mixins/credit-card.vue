@@ -7,7 +7,16 @@ export default {
             card_holder:'',
             card_cvv:'',
             expiry_date:'',
+            stateNumber:{
+                correct:false,
+                ccicon:''
+            }
     }),
+    computed:{
+        ruleCardNumber(){
+            return `required|numeric${!this.stateNumber.correct?'':('|digits:'+this.stateNumber.mask_length)}`
+        }
+    },
     watch:{
         card_number(){
             this.sendNumberCard()
@@ -44,6 +53,15 @@ export default {
         payment() {
             this.$emit('payment', this.itemForm)
         },
+        changStateNumber(data){
+            this.stateNumber = {...this.stateNumber,...data}
+        }
+    },
+    created(){
+        window.EventBus.listen(this.groupCard + '-state-card-number',this.changStateNumber)
+    },
+    beforeDestroy(){
+        window.EventBus.off(this.groupCard + '-state-card-number',this.changStateNumber)
     }
 }
 </script>

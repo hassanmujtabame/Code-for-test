@@ -25,11 +25,12 @@
                         </div>
                     </ValidationObserver>
                     <div class="m-auto p-3">
-                        <button @click="save" class="btn-custmer-w">
+                        <button @click="openAddCreditCard" class="btn-custmer-w">
                            <plusIcon :size="24"/> {{$t('new_card')}}
                         </button>
                     </div>
-               </div>   
+               </div> 
+               <addCreditCardDialog />  
             </div>  
 </template>
 
@@ -42,6 +43,7 @@ import mastercardIcon from '@/components/icon-svg/master-card.vue'
 import plusIcon from '@/components/icon-svg/plus-rect-round.vue'
 import editIcon from '@/components/icon-svg/pencil-edit.vue'
 import btnTypePay from './btn-type-pay.vue'
+import addCreditCardDialog from './add-card-dialog.vue'
 export default {
  name:'payment-cards',
  components:{
@@ -50,7 +52,8 @@ export default {
     plusIcon,
     visa2Icon,
     mastercardIcon,
-    stcPayIcon
+    stcPayIcon,
+    addCreditCardDialog
  },
  data:()=>{
     return {
@@ -68,36 +71,11 @@ export default {
     }
  },
  methods:{
-    async save(evt){
-            if(evt) evt.preventDefault();
-            let valid = await this.$refs.form.validate();
-            if(!valid){
-                console.log('form invalid')
-                return;
-            }
-             let formData =  new FormData();
-             Object.keys(this.itemForm).forEach(key=>{
-                formData.append(`${key}`,this.itemForm[key])
-             })
-             
-            try {
-                let {data} = await userAPI.postResidenceInformation(formData)
-                if(data.success){
-                    window.SwalSuccess(data.message)
-                }else{
-                    window.SwalError(data.message)
-                }
-            } catch (error) {
-                console.log('error',error)
-                if(error.response){
-                    if(error.response.status == 422){
-                        this.$refs.form.setErrors(error.response.data.errors)
-                    }
-                }
-                
-            }
+    openAddCreditCard(){
+      this.fireOpenDialog('add-credit-card');
     },
-    async loadCountries(){
+
+    async loadCards(){
         try{
             let {data } = await commonAPI.getCountries()
             if(data.success){
@@ -111,7 +89,7 @@ export default {
     }
  },
  mounted(){
-    this.loadCountries()
+    this.loadCards()
  }
 }
 </script>

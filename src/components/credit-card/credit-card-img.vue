@@ -164,71 +164,85 @@ onExpirtyDateAccept (val) {
     }
 },
     onAcceptCardNumber () {
-
+            let send_data = {}
     if (this.cardnumber_mask.value.length == 0) {
         this.card_number = '0123 4567 8910 1112';
-        this.fireEvent(this.group+'-state-card-number',{
+        send_data={
             correct:false,
             cardtype:false,
             value:this.card_number
-        })
+        }
     } else {
+        console.log('ok number',this.cardnumber_mask)
         this.card_number = this.cardnumber_mask.value;
-        this.fireEvent(this.group+'-state-card-number',{
+        let mask_c =  this.cardnumber_mask.currentMask.mask.replaceAll(' ','')
+        send_data ={
             correct:true,
-            cardtype:this.cardnumber_mask.currentMask,
-            value:this.card_number
-        })
+            cardtype:this.cardnumber_mask.currentMask.cardtype,
+            value:this.card_number,
+            regex:this.cardnumber_mask.currentMask.regex,
+            mask:mask_c,
+            mask_length:mask_c.length,
+        }
     }
     switch (this.cardnumber_mask.currentMask.cardtype) {
         case 'american express':
-            //this.ccicon.innerHTML = amex;
+            send_data.ccicon = BrandsIcon.amex;
+            //this.ccicon.innerHTML = BrandsIcon.amex;
             this.ccsingle.innerHTML = BrandsIcon.amex_single;
             this.swapColor('green');
             break;
         case 'visa':
-            //this.ccicon.innerHTML = visa;
+            send_data.ccicon = BrandsIcon.visa;
+            //this.ccicon.innerHTML = BrandsIcon.visa;
             this.ccsingle.innerHTML = BrandsIcon.visa_single;
             this.swapColor('lime');
             break;
         case 'diners':
-            //this.ccicon.innerHTML = diners;
+            send_data.cciconL = BrandsIcon.diners;
+            //this.ccicon.innerHTML = BrandsIcon.diners;
             this.ccsingle.innerHTML = BrandsIcon.diners_single;
             this.swapColor('orange');
             break;
         case 'discover':
-           // this.ccicon.innerHTML = discover;
+            send_data.ccicon = BrandsIcon.discover;
+           // this.ccicon.innerHTML = BrandsIcon.discover;
             this.ccsingle.innerHTML = BrandsIcon.discover_single;
             this.swapColor('purple');
             break;
         case ('jcb' || 'jcb15'):
-            //this.ccicon.innerHTML = jcb;
+            send_data.ccicon = BrandsIcon.jcb;
+            //this.ccicon.innerHTML = BrandsIcon.jcb;
             this.ccsingle.innerHTML = BrandsIcon.jcb_single;
             this.swapColor('red');
             break;
         case 'maestro':
-            //this.ccicon.innerHTML = maestro;
+            send_data.ccicon = BrandsIcon.maestro;
+            //this.ccicon.innerHTML = BrandsIcon.maestro;
             this.ccsingle.innerHTML = BrandsIcon.maestro_single;
             this.swapColor('yellow');
             break;
         case 'mastercard':
-            //this.ccicon.innerHTML = mastercard;
+            send_data.ccicon = BrandsIcon.mastercard;
+            //this.ccicon.innerHTML = BrandsIcon.mastercard;
             this.ccsingle.innerHTML = BrandsIcon.mastercard_single;
             this.swapColor('lightblue');
 
             break;
         case 'unionpay':
-            //this.ccicon.innerHTML = unionpay;
+            send_data.ccicon = BrandsIcon.unionpay;
+            //this.ccicon.innerHTML = BrandsIcon.unionpay;
             this.ccsingle.innerHTML = BrandsIcon.unionpay_single;
             this.swapColor('cyan');
             break;
         default:
+            send_data.ccicon = '';
            // this.ccicon.innerHTML = '';
             this.ccsingle.innerHTML = '';
             this.swapColor('grey');
             break;
     }
-
+    this.fireEvent(this.group+'-state-card-number',send_data)
 },
 swapColor (basecolor) {
     document.querySelectorAll('.lightcolor')
