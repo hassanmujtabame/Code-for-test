@@ -75,7 +75,7 @@ const mixin = {
              let h= date.getHours()+""
              m=m.padStart(2, '0')
              h=h.padStart(2, '0')
-             console.log('bb',date,`${h}:${m}`)
+             //console.log('bb',date,`${h}:${m}`)
              //.toString().padStart(2, '0')
               return `${h}:${m}`
             },

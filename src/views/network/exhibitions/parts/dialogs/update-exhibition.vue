@@ -469,9 +469,9 @@ watch:{
      },
         async save() {
             let valid = await this.$refs.form.validate();
-            console.log('save',valid)
+            //console.log('save',valid)
             if (!valid) {
-                console.log('form invalid', this.$refs.form);
+                console.log('form invalid');
                 return;
             }
             let formData = new FormData();
@@ -505,7 +505,7 @@ watch:{
             try {
                 let { data } = await exhibitionsAPI.updateExhibition(this.itemForm.id,formData)
                 if (data.success) {
-                    console.log('success', data)
+                    //console.log('success', data)
                     this.$emit('success')
                     this.fireCloseDialog(this.group)
                 }
@@ -624,7 +624,7 @@ watch:{
         var top = element.offsetTop;
         var div = document.getElementsByClassName('form-exhibition')[0]
        // window.$('.form-exhibition').scrollTop(top);
-       console.log('gottoshare',top,div)
+       //console.log('gottoshare',top,div)
        div.scrollTo(0, top-50);
       })
 

@@ -145,7 +145,7 @@ export default {
         try {
             let { data } = await BlogsAPI.addBlog(formData)
             if(data.success){
-                console.log('success',data)
+                //console.log('success',data)
                this.fireOpenDialog('success-add-blog',data.data[0])
                 this.closeEvent()
             }
@@ -209,7 +209,7 @@ export default {
         }
     },
     openDialog(){
-        console.log('open')
+        //console.log('open')
         window.$('#'+this.idImage)
                     .attr('src', 'none')
                     .css('opacity', '0');

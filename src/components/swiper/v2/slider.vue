@@ -13,14 +13,14 @@ export default {
  },
 methods:{
    test(t,b){
-      console.log('tesddt',t,b)
+      //console.log('tesddt',t,b)
       /**
        *  updateClasses(swiper,el,classNames)
        */
    }
 },
 mounted(){
-   console.log('swiper-slider',this)
+   //console.log('swiper-slider',this)
  }
 }
 </script>

@@ -501,7 +501,7 @@ watch:{
             try {
                 let { data } = await exhibitionsAPI.addExhibition(formData)
                 if (data.success) {
-                    console.log('success', data)
+                    //console.log('success', data)
                     this.fireOpenDialog('success-add-exhibition',data.data)
                     this.fireCloseDialog(this.group)
                 }

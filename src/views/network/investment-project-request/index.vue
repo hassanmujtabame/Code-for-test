@@ -595,7 +595,7 @@ export default {
         },
         editorConfig1( config )
         {
-            console.log('ee',config)
+            //console.log('ee',config)
             config.height = eval(this.element.$.rows*40) + 'px';
         },
         openSuccessDialog(evt) {
@@ -621,7 +621,7 @@ export default {
             formData.append('image', this.file);
             try {
                 let { data } = await ProjectAPI.addItem(formData)
-                console.log('success', data)
+                //console.log('success', data)
                 if (data.success) {
                     this.openSuccessDialog()
                     Object.keys(this.itemForm).forEach(key => {

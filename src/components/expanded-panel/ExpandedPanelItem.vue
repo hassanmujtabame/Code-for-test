@@ -27,7 +27,7 @@ mounted () {
   //console.log('this',this._uid,this.$parent.$children[0]._uid)
   let id=this.$parent.$attrs.id;
   let index = this.$parent.$children.findIndex(x=>x._uid==this._uid)+1;
-  console.log(index)
+  //console.log(index)
        this.id = id+'-'+index
        this.idh = id+'-header'+index
     }

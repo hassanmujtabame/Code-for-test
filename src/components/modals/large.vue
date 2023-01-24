@@ -85,7 +85,7 @@ methods:{
     this.$emit('change',this.dialog)
 },
     openDialogLocal(evt){
-        console.log('opens')
+        //console.log('opens')
         if(this.openDialog){
          if(this.openDialog(evt)===true){
             this.dialog=true;

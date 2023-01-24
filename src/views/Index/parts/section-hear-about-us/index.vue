@@ -35,7 +35,7 @@ export default {
         this.loading = true;
         try {
             let {data} =  await commonAPI.getOpinions({department_name:'riadiat'})
-            console.log(data)
+            //console.log(data)
             if(data.success){
                 this.items =data.data
             }

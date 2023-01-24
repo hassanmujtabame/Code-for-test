@@ -88,7 +88,7 @@ export default {
            // this.fireEvent('d-filter-list5-refresh')
         },
         async loadList(metaInfo) {
-            console.log('loadList')
+            //console.log('loadList')
             try {
                 let params = {
                     page: metaInfo.current_page,

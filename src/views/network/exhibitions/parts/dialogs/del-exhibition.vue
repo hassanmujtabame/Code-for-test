@@ -45,7 +45,7 @@ export default {
         try {
             let {data} = await serviceAPI.deleteExhibition(this.itemSelected.id)
             if(data.success){
-                console.log('success',data)
+                //console.log('success',data)
                 //this.fireEvent('list-blogs-update')
                 this.closeEvent()
                 this.$router.push(this.getRouteLocale('network-exhibitions'))

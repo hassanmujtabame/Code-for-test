@@ -318,7 +318,7 @@ for ( i = 0; i < this.itemForm.category_id.length; i++) {
     try {
         let { data } = await ServiceProviderAPIs.add(formData)
         if(data.success){
-            console.log('success',data)
+            //console.log('success',data)
             //this.fireEvent('list-blogs-update')
             this.closeEvent()
         }
@@ -340,9 +340,9 @@ removeGallary(index){
     this.gallariesUrl.splice(index, 1);
 },
 uploadGallary(evt){
-    console.log('uploadGallary',evt.target.files)
+    //console.log('uploadGallary',evt.target.files)
     if (!evt.target.files && evt.target.files.length===0) {
-        console.log('empty')
+        //console.log('empty')
             return;
         }
         for(let i=0;i<evt.target.files.length; i++){
@@ -381,7 +381,7 @@ makeImageEmpty(){
         reader.readAsDataURL(this.imageFile);
 },
 uploadFile(evt){
-    console.log('uploadFile')
+    //console.log('uploadFile')
     if (!evt.target.files && !evt.target.files[0]) {
             this.attachment = null;
             

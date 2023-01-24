@@ -78,7 +78,7 @@ export default {
   },
    mounted() {
       this.$root.$on('input', (value) => {
-        console.log('dxggdfg',value);
+        //console.log('dxggdfg',value);
       });
     }
 

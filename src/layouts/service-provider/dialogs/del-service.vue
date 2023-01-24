@@ -46,7 +46,7 @@ export default {
         try {
             let {data} = await ServiceProviderAPIs.delete(this.itemForm.id)
             if(data.success){
-                console.log('success',data)
+                //console.log('success',data)
                 this.closeEvent()
                 this.$router.push(this.getRouteLocale('service-provider-ready-services'))
             }

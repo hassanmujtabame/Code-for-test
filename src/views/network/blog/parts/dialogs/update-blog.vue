@@ -146,7 +146,7 @@ export default {
         try {
             let { data } = await BlogsAPI.updateBlog(this.blog.id,formData)
             if(data.success){
-                console.log('success',data)
+                //console.log('success',data)
                 //this.fireEvent('list-blogs-update')
                 this.closeEvent()
             }
@@ -183,7 +183,7 @@ export default {
             this.file = evt.target.files[0];
             var reader = new FileReader();
             reader.onload =  (e) =>{
-                console.log('result',e,this.idImage)
+                //console.log('result',e,this.idImage)
                 window.$('#'+this.idImage)
                     .attr('src', e.target.result)
                     .css('opacity', '1');
