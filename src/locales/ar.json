@@ -359,5 +359,9 @@
   "opened": "مفتوح",
   "closed": "مغلق",
   "insurance_price": "سعر التأمين",
-  "send_request": "ارسل الطلب"
+  "send_request": "ارسل الطلب",
+  "card_holder": "اسم على البطاقة",
+  "card_number": "رقم البطاقة",
+  "expiry_date": "تاريخ الانتهاء",
+  "security_code": "رمز الحماية"
 }
