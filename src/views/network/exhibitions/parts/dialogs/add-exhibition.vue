@@ -289,7 +289,7 @@
                 </p>
             
                     <div class="row add-portfolio m-3 p-0 position-relatiuve">
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12 col-md-5 col-lg-5">
                             <div  v-for="(bn,i) in this.itemForm.booth_name" :key="i" class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('booth_name')" 
@@ -304,19 +304,41 @@
                             </ValidationProvider>
                             </div>
                     </div>
-                    <div  class="col-12 col-lg-6">
-                        <div  v-for="(bp,j) in this.itemForm.rental_price" :key="'hh'+j" class="mb-3 d-flex">
+                    <div  class="col-12 col-md-3 col-lg-3">
+                        <div  v-for="(bp,m) in this.itemForm.rental_price" :key="'dhh'+m" class="mb-3 d-flex">
                         <div>
                                 <ValidationProvider 
                                 :name="$t('rent_price')" 
                                 tag='div'
-                                :vid="`rental_price.${j}`" 
+                                :vid="`rental_price.${m}`" 
                                 rules="required|numeric"
                                 v-slot="{ errors }"
                             >
                             <label class="form-label">{{ $t('rent_price') }}</label>
                             <div class="position-relative d-flex">
-                            <input type="text" v-model="itemForm.rental_price[j]" class="form-control" placeholder="سعر ا الايجار ">
+                            <input type="text" v-model="itemForm.rental_price[m]" class="form-control" :placeholder="$t('rent_price')">
+                            <div class="d-flex align-items-center">
+                       </div>
+                        </div>
+                            <d-error-input :errors="errors" v-if="errors.length" />
+                            </ValidationProvider>
+                        </div>
+                      
+                    </div>
+                    </div>
+                    <div  class="col-12 col-md-4 col-lg-4">
+                        <div  v-for="(bp,j) in this.itemForm.insurance_price" :key="'hh'+j" class="mb-3 d-flex">
+                        <div>
+                                <ValidationProvider 
+                                :name="$t('insurance_price')" 
+                                tag='div'
+                                :vid="`insurance_price.${j}`" 
+                                rules="required|numeric"
+                                v-slot="{ errors }"
+                            >
+                            <label class="form-label">{{ $t('insurance_price') }}</label>
+                            <div class="position-relative d-flex">
+                            <input type="text" v-model="itemForm.insurance_price[j]" class="form-control" :placeholder="$t('insurance_price')">
                             <div class="d-flex align-items-center">
                         <button v-if="j!==0" @click="removeBooth(j)"
                         style="border: none;background: transparent;color: red;"
@@ -394,6 +416,7 @@ components:{
         booths:1,
         itemForm: {
             booth_name:[''],
+            insurance_price:[''],
             rental_price:[''],
             content:'',
             region_id:null,
@@ -425,11 +448,14 @@ watch:{
          
             this.itemForm.booth_name.push(null)
             this.itemForm.rental_price.push(null)
+            this.itemForm.insurance_price.push(null)
         },
         removeBooth(id){
             if(id==0) return ;
             this.itemForm.booth_name.splice(id,1)
             this.itemForm.rental_price.splice(id,1)
+            this.itemForm.insurance_price.splice(id,1)
+            
         },
         async save() {
             let valid = await this.$refs.form.validate();
@@ -461,7 +487,10 @@ watch:{
             this.itemForm.rental_price.forEach(price=>{
                 formData.append('rental_price[]', price);
             })
-          
+            this.itemForm.insurance_price.forEach(price=>{
+                formData.append('insurance_price[]', price);
+            })
+            
 
             try {
                 let { data } = await exhibitionsAPI.addExhibition(formData)
@@ -538,6 +567,7 @@ watch:{
             this.itemForm= {
                 booth_name:[null],
                 rental_price:[null],
+                insurance_price:[null],
             notice_peoples:'',
                 content:'',
                 region_id:null,

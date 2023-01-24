@@ -359,5 +359,6 @@
   "open": "Open",
   "close": "Close",
   "opened": "Opened",
-  "closed": "Opened"
+  "closed": "Opened",
+  "insurance_price": "insurance price"
 }
