@@ -26,8 +26,9 @@ import DOverlaySimple from '@/components/overlays/simple.vue'
 import SectionContinueLearning from '@/components/sections/section-continue-learning/index.vue'
 import RequestPurchaseCard from '@/components/cards/request-purchase-service.vue'
 import ErrorInput from '@/components/error-input/index.vue'
+import CreditCardImage from '@/components/credit-card/credit-card-img.vue'
 
-
+Vue.component('d-credit-card', CreditCardImage)
 Vue.component('d-error-input', ErrorInput)
 Vue.component('d-multi-select-tag', DMultiSelecetTagInput)
 Vue.component('date-picker-input', DatePickerInput)
