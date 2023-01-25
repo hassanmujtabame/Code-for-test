@@ -8,6 +8,9 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            router_push(link,data={}){
+              this.$router.push(this.getRouteLocale(link,data))
+            },
             getTitleSubscribe(type){
               switch (type) {
                   case 'free': return this.$t('free_subscibe');
