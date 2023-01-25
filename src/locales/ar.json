@@ -366,5 +366,8 @@
   "security_code": "رمز الحماية",
   "confirm_delete_credit_card_message": " أنت الان على وشك حذف معلومات بطاقة الدفع من الموقع",
   "credit_card_end_with": "البطاقة المنتهية بـ",
-  "send_abuse": "إرسال إبلاغ"
+  "send_abuse": "إرسال إبلاغ",
+  "month_s": "شهر",
+  "year_s": "سنة",
+  "time_ago": "منذ"
 }
