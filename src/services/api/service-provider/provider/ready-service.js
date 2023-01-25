@@ -1,6 +1,6 @@
 
 import BaseApi from "../../base-service";
-class ServiceProviderApi extends BaseApi{
+class readyServicesApi extends BaseApi{
     //Get all project-categories
 
     getAll(params={}){
@@ -35,7 +35,17 @@ class ServiceProviderApi extends BaseApi{
     notSuspend(id){
         return window.axios.post(`service-provider/provider/ready-services/not-suspend/${id}`);  
     }
-    
+    getRateReadyServicesStatistics(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/provider/ready-services-statistics?${s}`);
+    }
+    getRequestForPurchaseMyservice(params={}){
+        let s=this.generateQueryUrl(params)
+        /**
+         * status :  underway waiting  cancel finished
+         */
+        return window.axios.get(`service-provider/provider/request-purchase-services?${s}`);
+    }
 }
 
-export default new ServiceProviderApi();
+export default new readyServicesApi();
