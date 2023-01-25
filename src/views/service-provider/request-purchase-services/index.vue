@@ -22,12 +22,12 @@
         <template v-slot:default="{item}">
             <d-request-purchase-card
                             :status="item.status"
-                            :service="item.service"
-                            :name="item.name"
+                            :service="item.title"
+                            :name="item.from_user"
                             :dateRequest="item.dateRequest"
-                            :place="item.place"
-                            :during="item.during"
-                            :requests="item.requests"
+                            :place="item.city"
+                            :during="item.rest_days"
+                            :requests="item.count_requests"
                             :description="item.description"
                             :homeDelivery="item.homeDelivery"
                             :delivery="item.delivery"
