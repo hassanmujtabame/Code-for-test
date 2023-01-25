@@ -38,6 +38,9 @@ export default {
             return list
         }
  },
+ watch:{
+    value(){}
+ },
  data:(vm)=>{
     return {
         value_:vm.value
