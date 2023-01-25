@@ -121,7 +121,7 @@
                                     تقيم اعمالي
                                 </h5>
                                 <p>
-                                    0
+                                    {{itemCard.count_rate}}
                                 </p>
                             </div>
                             <div class="box d-flex align-items-center justify-content-between ">
@@ -129,7 +129,7 @@
                                     عرض التقييمات 
                                 </button>
                                 <div>
-                                    <d-rate-stars  :size="32" :value="rate"/>
+                                    <d-rate-stars  :size="32" :value="itemCard.rate"/>
                                 </div>
                             </div>
                     </div>
