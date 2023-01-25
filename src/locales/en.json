@@ -374,5 +374,6 @@
   "year_s": "Year(s)",
   "time_ago": "a go",
   "confirm_delete_finish_request_message": "Are you sure to finish this request?",
-  "confirm_finish": "Finish Confirmation"
+  "confirm_finish": "Finish Confirmation",
+  "more_services": "More services"
 }
