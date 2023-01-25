@@ -201,9 +201,10 @@ export default {
     },
     statusName(){
         switch (this.status) {
-            case 'completed': return "مكتمل";
-            case 'pending': return "قيد الانتظار";
-            case 'processing': return "قيد التنفيذ";
+            case 'finished': return "مكتمل";
+            case 'waiting': return "قيد الانتظار";
+            case 'underway': return "قيد التنفيذ";
+            case 'cancel': return"ملغاة";
                 
         
             default:
@@ -215,14 +216,19 @@ export default {
 </script>
 
 <style scoped>
-.status-request-processing{
+.box{
+    padding: 10px;
+}
+.status-request-underway{
     background-color: #F2631C;
 }
-.status-request-pending{
+.status-request-waiting{
     background-color: #FFBC00;
 }
-.status-request-completed{
+.status-request-finished{
     background-color: #1FB9B3;
 }
-
-</style>
+.status-request-cancel{
+    background-color: red;
+}
+</style>    
