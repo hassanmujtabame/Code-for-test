@@ -25,7 +25,7 @@
                             :status="item.status"
                             :service="item.title"
                             :name="item.from_user"
-                            :dateRequest="item.dateRequest"
+                            :dateRequest="item.created_at"
                             :place="item.city"
                             :during="item.implementation_period"
                             :requests="item.count_requests"
