@@ -39,7 +39,7 @@
     </div>
 </template>
 <script>
-import readyServiceAPi from '@/services/api/service-provider/provider/ready-service'
+import myRequestAPi from '@/services/api/service-provider/user/my-requests'
 export default {
     name: 'request-purchase-services',
     data:()=>{
@@ -74,7 +74,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await readyServiceAPi.getRequestForPurchaseMyservice(params)
+                return await myRequestAPi.getRequestForPurchaseService(params)
 
             } catch (error) {
                 console.log('error', error)
