@@ -56,10 +56,10 @@ class readyServicesApi extends BaseApi{
         return window.axios.get(`service-provider/provider/request-purchase-services?${s}`);
     }
     cancelRequestForPurchaseService(id){
-        return window.axios.post(`service-provider/provider/request-purchase-services-cancel/${id}`);
+        return window.axios.get(`service-provider/provider/request-purchase-services-cancel/${id}`);
     }
     finisheRequestForPurchaseService(id){
-        return window.axios.post(`service-provider/provider/request-purchase-services-finished/${id}`);
+        return window.axios.get(`service-provider/provider/request-purchase-services-finished/${id}`);
     }
 
 }

@@ -46,7 +46,7 @@
                             <ul class="dropdown-menu">
                               <li><a class="dropdown-item"  data-bs-toggle="modal" href="#exampleModalToggle3" role="button">تعديل قيمة الصفقة</a></li>
                               <li><a class="dropdown-item" href="#">تعديل موعد التسليم</a></li>
-                              <li><a class="dropdown-item" href="#"> حذف و أنهاء المشروع</a></li>
+                              <li><a class="dropdown-item" @click="openConfirmFinishDialog"> حذف و أنهاء المشروع</a></li>
                             </ul>
                           </div>
                     </div>
@@ -506,7 +506,9 @@ export default {
   }},
   methods:{
    
-    openDeleteDialog(){
+    openConfirmFinishDialog(evt){
+        if(evt) evt.preventDefault();
+        
       this.fireOpenDialog('confirm-finish-request',this.itemPage)
     },
     async initializing() {
@@ -517,7 +519,6 @@ export default {
                 let { data } = await readyServiceAPI.getItem(this.$route.params.id)
                 if (data.success) {
                    this.itemPage = data.data;
-                   this.isOwner = this.itemPage.user_info.id==this.user.id
                 }else{
                   this.hasError = true;
                   this.msgError = data.message
