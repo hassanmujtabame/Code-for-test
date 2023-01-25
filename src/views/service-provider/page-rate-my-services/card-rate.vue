@@ -11,7 +11,7 @@
             </div>
             <div class="page-rate-service__item-description">{{ description }}</div>
             <div class="page-rate-service__item-service">
-                <a href="#">{{ service.title }}</a>
+                <router-link :to="getRouteLocale('service-provider-ready-service',{id:service.id})">{{ service.title }}</router-link>
             </div>
 
     </div>

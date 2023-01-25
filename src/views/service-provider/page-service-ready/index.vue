@@ -263,10 +263,11 @@
                                     الكلمات المفتاحية
                                 </h3>
                                 <div class="d-flex flex-wrap justify-content-between text-white word-intial pt-3">
+                                    <template v-if="itemPage.keywords">
                                     <p v-for="(keyw,i) in itemPage.keywords.split(',')" :key="i">
                                         {{keyw}}
                                     </p>
-                                    
+                                </template>
                                 </div>
                             </div>
                             <div class="text-center">
