@@ -29,7 +29,7 @@ export default {
     link:{
         type:String,
         default:()=>{
-            return this.getRouteLocale('network-my-profile')
+            return this.getRouteLocale('service-provider-my-profile')
         }
     }
  }

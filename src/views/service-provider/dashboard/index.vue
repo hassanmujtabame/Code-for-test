@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import SectionTop from './parts/section-top/index.vue'
+import SectionTop from './parts/section-header/index.vue'
 import SectionFirstVisit from './parts/section-first-visit/index.vue'
 import SectionBalance from './parts/section-balance/index.vue'
 import SectionMyOffers from './parts/section-my-offers/index.vue'
