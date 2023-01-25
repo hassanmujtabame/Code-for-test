@@ -7,7 +7,7 @@
             class="rounded-1 px-2 py-1 text-white" :class="statusClass">
            {{ statusName }}
         </p>
-        <h4 class="m-c ">
+        <h4 class="box-title m-c " @click="router_push('service-provider-show-service-page',{id:itemId})">
             طلب شراء خدمة :
             <span>
                 {{ service }}
@@ -191,7 +191,7 @@ export default {
         type:[String,Number],
     },
     during:{
-        type:String,
+        type:[String,Number],
     },
     dateRequest:{
         type:String,
@@ -221,6 +221,9 @@ export default {
 <style scoped>
 .box{
     padding: 10px;
+}
+.box-title{
+    cursor: pointer;
 }
 .status-request-underway{
     background-color: #F2631C;

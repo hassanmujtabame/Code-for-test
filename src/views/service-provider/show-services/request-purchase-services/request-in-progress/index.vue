@@ -1,6 +1,13 @@
 <template>
   <div style="margin-top:85px">
-        <div class="container">
+    <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+        <div class="container d-flex align-items-center justify-content-center" style="min-height:200px">
+            {{ msgError }}
+        </div>
+        
+    </div>
+    <div v-else class="container">
 
             <div class="row justify-content-between">
                 <div class="col-md-6">
@@ -493,6 +500,7 @@ export default {
     return {
       loading:true,
       hasError:false,
+      msgError:null,
       itemPage:{},
       colors:['#F2631C','#FFBC00','#2C98B3']
   }},
@@ -504,6 +512,7 @@ export default {
     async initializing() {
       this.loading = true;
       this.hasError = false;
+      this.msgError = null;
             try {
                 let { data } = await readyServiceAPI.getItem(this.$route.params.id)
                 if (data.success) {
@@ -511,11 +520,13 @@ export default {
                    this.isOwner = this.itemPage.user_info.id==this.user.id
                 }else{
                   this.hasError = true;
+                  this.msgError = data.message
                 }
             } catch (error) {
                 console.log('error', error)
                 console.log('error response', error.response)
                 this.hasError = true;
+                this.msgError = 'هناك خطأ غير معروف يرجي تحديث الصفحة'
               }
 
             this.loading = false;
