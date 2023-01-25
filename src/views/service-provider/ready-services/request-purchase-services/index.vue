@@ -27,11 +27,11 @@
                             :name="item.from_user"
                             :dateRequest="item.dateRequest"
                             :place="item.city"
-                            :during="item.rest_days"
+                            :during="item.implementation_period"
                             :requests="item.count_requests"
                             :description="item.description"
-                            :homeDelivery="item.homeDelivery"
-                            :delivery="item.delivery"
+                            :homeDelivery="item.home_delivery"
+                            :delivery="item.delivery_product_available"
                             >
                         </d-request-purchase-card>
         </template>
