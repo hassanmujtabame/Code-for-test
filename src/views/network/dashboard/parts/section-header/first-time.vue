@@ -13,7 +13,7 @@
                 <br>
                 يجيب أستكمال بيانتك حتـى تستطيع البــــــدء بتقديم الخدمـــــــــــات
             </p>
-            <router-link :to="getRouteLocale('my-profile')" class="border px-3 py-2 rounded-2 bg-transparent">
+            <router-link :to="getRouteLocale('network-my-profile')" class="border px-3 py-2 rounded-2 bg-transparent">
                 أكمل الان بيانتك
             </router-link>
         </div>
