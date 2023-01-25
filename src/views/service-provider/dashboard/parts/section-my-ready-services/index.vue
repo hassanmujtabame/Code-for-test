@@ -98,7 +98,7 @@
                                 </p>
                             </div>
                             <div class="box d-flex align-items-center justify-content-between ">
-                                <button class="btn border rounded-2 bg-transparent">
+                                <button @click="router_push('service-provider-rate-my-service')" class="btn border rounded-2 bg-transparent">
                                     عرض التقييمات 
                                 </button>
                                 <div>

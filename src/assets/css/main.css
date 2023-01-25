@@ -4,7 +4,8 @@
 }
 :root {
     --swiper-navigation-size:15px;
-    --b-color:#737373
+    --b-color:#737373;
+    --bg-gray: #d1d1d159;
 }
 
 * {
@@ -16,7 +17,9 @@
     font-family: change;
 
 }
-
+body{
+    background: #d1d1d159;
+}
 a {
     text-decoration: none;
 }

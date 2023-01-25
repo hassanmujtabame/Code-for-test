@@ -368,5 +368,6 @@
   "expiry_date": "expiry date",
   "security_code": "security code",
   "confirm_delete_credit_card_message": "You are about to delete your credit card info",
-  "credit_card_end_with": "credit card end with"
+  "credit_card_end_with": "credit card end with",
+  "send_abuse": "send abuse"
 }

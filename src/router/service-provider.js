@@ -125,6 +125,12 @@ const routers =[
         name: 'service-provider-balance-charge',
         meta:{layout:LayoutService},
         component: () => import(/* webpackChunkName: "service-provider-balance-charge" */ '../views/service-provider/balance-charge/index.vue')
+      }, 
+      {
+        path: 'service-provider/rate-my-services',
+        name: 'service-provider-rate-my-service',
+        meta:{layout:LayoutService},
+        component: () => import(/* webpackChunkName: "service-provider-rate-my-service" */ '../views/service-provider/page-rate-my-services/index.vue')
       },
 ]
 export default routers;

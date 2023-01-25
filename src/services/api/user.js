@@ -101,6 +101,9 @@ class UserApi extends BaseApi {
         data.append('_method','PUT')
         return window.axios.post(`user/payment-cards/${id}`,data);
     }
+    deleteCreditCardInfo(id){
+        return window.axios.delete(`user/payment-cards/${id}`);
+    }
     getCreditCards(){
         return window.axios.get(`user/payment-cards`);
     }
