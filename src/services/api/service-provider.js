@@ -30,6 +30,11 @@ class ServiceProviderApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/packages?${s}`);
     }
+
+    getBalance(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/provider/view-balance?${s}`);
+    }
     
 }
 

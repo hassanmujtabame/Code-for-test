@@ -11,7 +11,7 @@
                     الرصيد الكلي
             </p>
             <h3 class="m-c fw-bolder">
-                0 ر.س
+                {{itemCard.total_balance}} ر.س
             </h3>
         </div>
         <div class="col-md-4 border-end  text-center p-2 ">
@@ -28,7 +28,7 @@
                 الرصيد المعلق
             </p>
             <h3 class="text-danger fw-bolder">
-                0 ر.س
+                {{itemCard.outstanding_balance}} ر.س
             </h3>
         </div>
         <div class="col-md-4 p-2 text-center ">
@@ -45,15 +45,43 @@
                 الرصيد  المتاح
             </p>
             <h3 class="text-warning fw-bolder">
-                0 ر.س
+                {{itemCard.available_balance}} ر.س
             </h3>
         </div>
     </div>
 </template>
 
 <script>
+import serviceProviderAPI from '@/services/api/service-provider.js'
 export default {
- name:'section-balance'
+ name:'section-balance',
+ data:()=>({
+
+    loading:true,
+    itemCard:{
+        available_balance: 'N/A',
+        outstanding_balance: 'N/A',
+        total_balance:'N/A'
+    }
+ }),
+ methods:{
+    async initializing(){
+        console.log('ss')
+        this.loading =  true;
+        try {
+           let { data } = await   serviceProviderAPI.getBalance() 
+           if(data.success){
+            this.itemCard =  data.data
+           }
+        } catch (error) {
+            console.log('error',error)
+        }
+        this.loading =  false;
+    }
+ },
+ mounted(){
+    this.initializing()
+ }
 }
 </script>
 
