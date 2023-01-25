@@ -20,9 +20,10 @@
                             :name="item.from_user"
                             :image="item.image"
                             :rate="item.rate"
+                            :date="`${item.created_at} ${item.time}`"
                             :description="item.comment"
                             :service="{
-                                id:1,
+                                id:item.service_id,
                                 title:item.title
                             }"
                             @send-abuse="openSendAbuse(item)"

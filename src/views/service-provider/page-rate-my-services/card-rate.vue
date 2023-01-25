@@ -21,7 +21,7 @@
             
         </div>
         <div class="page-rate-service__item-date">
-            منذ يوم
+        <bdi>  {{date?timeAgoToHuman(date):'N/A'}}</bdi>
         </div>
     </div>
 
@@ -48,6 +48,9 @@ export default {
     description:{
         type:String,
         default:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta recusandae hic non doloremque velit obcaecati esse? Nostrum nisi mollitia aliquid veritatis beatae aperiam fugit fuga, quos soluta, odio accusantium amet!'
+    },
+    date:{
+        type:String,
     },
     service:{
         type:[Object,Array],
