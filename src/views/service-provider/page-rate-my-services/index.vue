@@ -72,12 +72,13 @@ export default {
 
 <style>
 .page-rate-service{
-    margin-top: 160px;
-    background-color: transparent;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    background-color: var(--bg-gray);
 
 }
 .page-rate-service-mobile{
-    margin-top: 100px;
+    padding-top: 80px;
 }
 .page-rate-service-card{
     background: white;
