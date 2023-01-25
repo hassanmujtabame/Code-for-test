@@ -7,7 +7,7 @@
                         خدماتي الجاهزة 
                     </h3>
                     <p class="fw-bolder fs-3">
-                        300
+                        {{ itemCard.count_ready_service }}
                     </p>
                 </div>
                 <div class="row ">
@@ -18,14 +18,14 @@
                                     <div class="d-flex justify-content-between">
                                         <p>
                                             <span class="fw-bolder m-c fs-6">
-                                                100
+                                                {{ itemCard.service_finished }}
                                             </span>
                                             <span class="fs-6">
                                                 خدمة مكتملة
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            25%
+                                            {{calcPercent(itemCard.service_finished,itemCard.count_ready_service)}}%
                                         </p>
                                     </div>
                         
@@ -40,7 +40,7 @@
                                     <div class="d-flex justify-content-between">
                                         <p>
                                             <span class="fw-bolder m-c fs-6">
-                                                52
+                                               {{ itemCard.service_waiting }}
                                             
                                             </span>
                                             <span class="fs-6">
@@ -48,7 +48,7 @@
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            25%
+                                            {{calcPercent(itemCard.service_waiting,itemCard.count_ready_service)}}%
                                         </p>
                                     </div>
                         
@@ -63,7 +63,7 @@
                                     <div class="d-flex justify-content-between">
                                         <p>
                                             <span style="color:#FFBC00 ;" class="fw-bolder m-c fs-6">
-                                              3
+                                                {{ itemCard.service_underway }}
                                             
                                             </span>
                                             <span class="fs-6">
@@ -73,7 +73,7 @@
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            1%
+                                            {{calcPercent(itemCard.service_underway,itemCard.count_ready_service)}}%
                                         </p>
                                     </div>
                         
@@ -94,7 +94,7 @@
                                     تقيم خدماتي
                                 </h5>
                                 <p>
-                                    0
+                                   {{itemCard.count_rate}}
                                 </p>
                             </div>
                             <div class="box d-flex align-items-center justify-content-between ">
@@ -103,7 +103,7 @@
                                 </button>
                                 <div>
                                     <div>
-                                    <d-rate-stars  :size="32" :value="rate"/>
+                                    <d-rate-stars  :size="32" :value="itemCard.rate"/>
                                 </div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                 الرسائل الجديدة
                             </h5>
                             <p>
-                                0
+                                {{itemCard.provider_message_count}}
                             </p>
                         </div>
                         <div class="box d-flex align-items-center justify-content-between ">
@@ -130,11 +130,44 @@
 </template>
 
 <script>
+import readyServicesAPI from '@/services/api/service-provider/provider/ready-service.js'
 export default {
  name:'section-my-ready-services',
  data:()=>({
-    rate:3,
- })
+
+    loading:true,
+    itemCard:{
+        count_ready_service:0,
+        provider_message_count: 0,
+        rate: 0,
+        count_rate:0,
+        service_finished: 0,
+        service_underway: 0,
+        service_waiting: 0
+    }
+ }),
+ methods:{
+    calcPercent(x,total){
+        if(!total) return 0
+        return Math.floor(x/total * 100)
+    },
+    async initializing(){
+        console.log('ss')
+        this.loading =  true;
+        try {
+           let { data } = await   readyServicesAPI.getRateReadyServicesStatistics() 
+           if(data.success){
+            this.itemCard =  data.data
+           }
+        } catch (error) {
+            console.log('error',error)
+        }
+        this.loading =  false;
+    }
+ },
+ mounted(){
+    this.initializing()
+ }
 }
 </script>
 
