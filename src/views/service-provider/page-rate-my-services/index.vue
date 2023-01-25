@@ -5,9 +5,9 @@
             <d-filter-list
             hideSide
             :searchPlaceholder="$t('search_by_service')"
-            :fakeItems="items"
             :call-list="loadList"
             classColCard="col-12"
+            @change="changeFilter"
             >
             <template v-slot:total>
                 
@@ -17,8 +17,14 @@
                 </template>
             <template v-slot="{item}">
                 <cardRate
-                            :name="'اسم المقيم'"
-                            :images="item.image"
+                            :name="item.from_user"
+                            :image="item.image"
+                            :rate="item.rate"
+                            :description="item.comment"
+                            :service="{
+                                id:1,
+                                title:item.title
+                            }"
                             @send-abuse="openSendAbuse(item)"
                             >
                             </cardRate>
@@ -32,6 +38,7 @@
 <script>
 import cardRate from './card-rate.vue';
 import sendAbuseDialog from './abuse-comment.vue'
+import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
 export default {
     name: 'request-purchase-services',
     components:{
@@ -47,12 +54,7 @@ export default {
                 {label:'طلبات تعمل عليها',status:"processing"},
                 {label:'طلبات تم الانتهاء منها',status:"completed"},
             ],
-            items:[
-                {service:'تصميم ازياء',name:'محمد علي',place:'الدمام',price:'2500',during:'7 أيام',dateRequest:'25-10-2022',status:'completed',homeDelivery:true,delivery:true},
-                {service:'تصميم ازياء',name:'محمد علي',place:'الدمام',price:'2500',during:'7 أيام',dateRequest:'25-10-2022',status:'processing',homeDelivery:true,delivery:true},
-                {service:'تصميم ازياء',name:'محمد علي',place:'الدمام',price:'2500',during:'7 أيام',dateRequest:'25-10-2022',status:'pending',homeDelivery:true,delivery:true},
-                {service:'تصميم ازياء',name:'محمد علي',place:'الدمام',price:'2500',during:'7 أيام',dateRequest:'25-10-2022',status:'completed',homeDelivery:true,delivery:true},
-            ]
+  
         }
         
     },
@@ -60,11 +62,22 @@ export default {
     openSendAbuse(item){
       this.fireOpenDialog('abuse-comment',item);
     },
-        changeFilter(status){
-            this.status=status
+    changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
         },
-        loadList(){
+        async loadList(metaInfo) {
+            try {
+                let params = {
+                    page: metaInfo.current_page,
+                    ...this.filterItem
+                }
+                return await readyServiceAPI.getListRates(params)
 
+            } catch (error) {
+                console.log('error', error)
+                console.log('response', error.response)
+            }
         }
     }
 }

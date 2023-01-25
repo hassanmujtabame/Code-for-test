@@ -51,6 +51,11 @@ class readyServicesApi extends BaseApi{
         return window.axios.get(`service-provider/provider/service-offers-statistics?${s}`);
     }
 
+    getListRates(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/provider/rates?${s}`);
+    }
+
 }
 
 export default new readyServicesApi();
