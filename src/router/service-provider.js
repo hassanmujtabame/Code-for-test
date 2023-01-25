@@ -34,7 +34,7 @@ const routers =[
         path: 'service-provider/request-purchase-services',
         meta:{layout:LayoutService},
         name: 'service-provider-request-purchase-services',
-        component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/request-purchase-services/index.vue') 
+        component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/ready-services/request-purchase-services/index.vue') 
     },
     {
         path: 'service-provider/my-schedule',
