@@ -13,7 +13,7 @@
                 <div class="row ">
                     <div class="col-md-6 mt-5">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" role="progressbar" aria-label="Example with label" :style="{width: `${percentFinished}%`}" :aria-valuenow="percentFinished" aria-valuemin="0" aria-valuemax="100">
                                 <div class="position-absolute text">
                                     <div class="d-flex justify-content-between">
                                         <p>
@@ -25,7 +25,7 @@
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            {{calcPercent(itemCard.service_finished,itemCard.count_ready_service)}}%
+                                            {{percentFinished}}%
                                         </p>
                                     </div>
                         
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-6 mt-5">
                         <div class="progress">
-                            <div class="progress-bar tow" role="progressbar" aria-label="Example with label" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar tow" role="progressbar" aria-label="Example with label" :style="{width: `${percentWaiting}%`}" :aria-valuenow="percentWaiting" aria-valuemin="0" aria-valuemax="100">
                                 <div class="position-absolute text">
                                     <div class="d-flex justify-content-between">
                                         <p>
@@ -48,7 +48,7 @@
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            {{calcPercent(itemCard.service_waiting,itemCard.count_ready_service)}}%
+                                            {{percentWaiting}}%
                                         </p>
                                     </div>
                         
@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-md-6 mt-5">
                         <div class="progress three">
-                            <div class="progress-bar three" role="progressbar" aria-label="Example with label" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar three" role="progressbar" aria-label="Example with label" :style="{width: `${percentUnderway}%`}" :aria-valuenow="percentUnderway" aria-valuemin="0" aria-valuemax="100">
                                 <div class="position-absolute text">
                                     <div class="d-flex justify-content-between">
                                         <p>
@@ -73,7 +73,7 @@
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            {{calcPercent(itemCard.service_underway,itemCard.count_ready_service)}}%
+                                            {{percentUnderway}}%
                                         </p>
                                     </div>
                         
@@ -146,11 +146,23 @@ export default {
         service_waiting: 0
     }
  }),
+ computed:{
+  percentFinished(){
+    return this.calcPercent(this.itemCard.service_finished,this.itemCard.count_ready_service)
+  },
+  percentUnderway(){
+    return this.calcPercent(this.itemCard.service_underway,this.itemCard.count_ready_service)
+  },
+  percentWaiting(){
+    return this.calcPercent(this.itemCard.service_waiting,this.itemCard.count_ready_service)
+  }
+ },
  methods:{
     calcPercent(x,total){
         if(!total) return 0
         return Math.floor(x/total * 100)
     },
+
     async initializing(){
         console.log('ss')
         this.loading =  true;

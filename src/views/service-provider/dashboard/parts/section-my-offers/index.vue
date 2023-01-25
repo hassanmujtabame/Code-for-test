@@ -7,25 +7,25 @@
                         عروضي
                     </h3>
                     <p class="fw-bolder fs-3">
-                        0
+                        {{itemCard.count_offers}}
                     </p>
                 </div>
                 <div class="row ">
                     <div class="col-md-6 mt-5">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" role="progressbar" aria-label="Example with label" :style="{width: `${percentUnderway}%`}" :aria-valuenow="percentUnderway" aria-valuemin="0" aria-valuemax="100">
                                 <div class="position-absolute text">
                                     <div class="d-flex justify-content-between">
                                         <p>
                                             <span class="fw-bolder m-c fs-6">
-                                                0
+                                                {{itemCard.service_finished}}
                                             </span>
                                             <span class="fs-6">
                                                 عرض مكتمل
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            0%
+                                            {{percentFinished}}%
                                         </p>
                                     </div>
                         
@@ -35,12 +35,12 @@
                     </div>
                     <div class="col-md-6 mt-5">
                         <div class="progress">
-                            <div class="progress-bar tow" role="progressbar" aria-label="Example with label" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar tow" role="progressbar" aria-label="Example with label" :style="{width: `${percentWaiting}%`}" :aria-valuenow="percentWaiting" aria-valuemin="0" aria-valuemax="100">
                                 <div class="position-absolute text">
                                     <div class="d-flex justify-content-between">
                                         <p>
                                             <span class="fw-bolder m-c fs-6">
-                                                0
+                                                {{itemCard.service_waiting}}
                                             
                                             </span>
                                             <span class="fs-6">
@@ -50,7 +50,7 @@
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            0%
+                                            {{percentWaiting}}%
                                         </p>
                                     </div>
                         
@@ -60,12 +60,12 @@
                     </div>
                     <div class="col-md-6 mt-5">
                         <div class="progress three">
-                            <div class="progress-bar three" role="progressbar" aria-label="Example with label" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar three" role="progressbar" aria-label="Example with label" :style="{width: `${percentUnderway}%`}" :aria-valuenow="percentUnderway" aria-valuemin="0" aria-valuemax="100">
                                 <div class="position-absolute text">
                                     <div class="d-flex justify-content-between">
                                         <p>
                                             <span style="color:#FFBC00 ;" class="fw-bolder m-c fs-6">
-                                            0
+                                                {{itemCard.service_underway}}
                                             
                                             </span>
                                             <span class="fs-6">
@@ -75,7 +75,7 @@
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            0%
+                                            {{percentUnderway}}%
                                         </p>
                                     </div>
                         
@@ -85,12 +85,12 @@
                     </div>
                     <div class="col-md-6 mt-5">
                         <div class="progress four">
-                            <div class="progress-bar four" role="progressbar" aria-label="Example with label" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar four" role="progressbar" aria-label="Example with label" :style="{width: `${percentExcluded}%`}" :aria-valuenow="percentExcluded" aria-valuemin="0" aria-valuemax="100">
                                 <div class="position-absolute text">
                                     <div class="d-flex justify-content-between">
                                         <p>
                                             <span style="color:#FFBC00 ;" class="fw-bolder m-c fs-6">
-                                            0
+                                           {{itemCard.service_excluded}}
                                             
                                             </span>
                                             <span class="fs-6">
@@ -100,7 +100,7 @@
                                             </span>
                                         </p>
                                         <p class="fs-6 t-c">
-                                            0%
+                                            {{percentExcluded}}%
                                         </p>
                                     </div>
                         
@@ -155,11 +155,60 @@
 </template>
 
 <script>
+import readyServicesAPI from '@/services/api/service-provider/provider/ready-service.js'
 export default {
  name:'section-my-offers',
  data:()=>({
-    rate:3,
- })
+
+    loading:true,
+    itemCard:{
+        count_offers:0,
+        service_waiting:0,
+        service_excluded:0,
+        service_underway:0,
+        service_finished:0,
+        provider_message_count:0,
+        count_rate:1,
+        rate:5
+    }
+ }),
+ computed:{
+  percentFinished(){
+    return this.calcPercent(this.itemCard.service_finished,this.itemCard.count_offers)
+  },
+  percentUnderway(){
+    return this.calcPercent(this.itemCard.service_underway,this.itemCard.count_offers)
+  },
+  percentWaiting(){
+    return this.calcPercent(this.itemCard.service_waiting,this.itemCard.count_offers)
+  }
+  ,
+  percentExcluded(){
+    return this.calcPercent(this.itemCard.service_excluded,this.itemCard.count_offers)
+  }
+ },
+ methods:{
+    calcPercent(x,total){
+        if(!total) return 0
+        return Math.floor(x/total * 100)
+    },
+    async initializing(){
+        console.log('ss')
+        this.loading =  true;
+        try {
+           let { data } = await   readyServicesAPI.getServiceOffersStatistics() 
+           if(data.success){
+            this.itemCard =  data.data
+           }
+        } catch (error) {
+            console.log('error',error)
+        }
+        this.loading =  false;
+    }
+ },
+ mounted(){
+    this.initializing()
+ }
 }
 </script>
 
