@@ -21,6 +21,7 @@
         </template>
         <template v-slot:default="{item}">
             <d-request-purchase-card
+                            :itemId="item.id"
                             :status="item.status"
                             :service="item.title"
                             :name="item.from_user"

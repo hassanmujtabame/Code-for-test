@@ -37,6 +37,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/ready-services/request-purchase-services/index.vue') 
     },
     {
+        path: 'service-provider/request-purchase-services/:id/progress',
+        meta:{layout:LayoutService},
+        name: 'service-provider-request-purchase-service-progress',
+        component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/ready-services/request-purchase-services/request-in-progress/index.vue') 
+    },
+    {
         path: 'service-provider/my-schedule',
         meta:{layout:LayoutService},
         name: 'service-provider-my-schedule',

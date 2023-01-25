@@ -143,7 +143,7 @@
     {{ description }}   
     </p>
     <div class="d-flex  gap-1 flex-wrap">
-        <button style="height: 40px; width: 100px;" class="btn-main px-2 ">
+        <button @click="router_push('service-provider-request-purchase-service-progress',{id:itemId})" style="height: 40px; width: 100px;" class="btn-main px-2 ">
             طلب تسليم
         </button>
         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   ">
@@ -158,6 +158,9 @@
 export default {
     name:'request-card',
  props:{
+    itemId:{
+        type:[String,Number],
+    },
     name:{
         type:String,
     },
