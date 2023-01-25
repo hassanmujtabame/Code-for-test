@@ -102,30 +102,16 @@
                                     عرض التقييمات 
                                 </button>
                                 <div>
-                                    <div class="d-flex justify-content-center">
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                    </div>
+                                    <div>
+                                    <d-rate-stars  :size="32" :value="rate"/>
+                                </div>
                                 </div>
                             </div>
                     </div>
                     <div class="col-md-12 border mt-3 p-3">
                         <div class="box d-flex align-items-center justify-content-between ">
                             <h5>
-                                تقيم خدماتي
+                                الرسائل الجديدة
                             </h5>
                             <p>
                                 0
@@ -145,7 +131,10 @@
 
 <script>
 export default {
- name:'section-my-ready-services'
+ name:'section-my-ready-services',
+ data:()=>({
+    rate:3,
+ })
 }
 </script>
 

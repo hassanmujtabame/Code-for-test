@@ -27,8 +27,10 @@ import SectionContinueLearning from '@/components/sections/section-continue-lear
 import RequestPurchaseCard from '@/components/cards/request-purchase-service.vue'
 import ErrorInput from '@/components/error-input/index.vue'
 import CreditCardImage from '@/components/credit-card/credit-card-img.vue'
+import DRateStars from '@/components/rate-stars/index.vue'
 
 Vue.component('d-credit-card', CreditCardImage)
+Vue.component('d-rate-stars', DRateStars)
 Vue.component('d-error-input', ErrorInput)
 Vue.component('d-multi-select-tag', DMultiSelecetTagInput)
 Vue.component('date-picker-input', DatePickerInput)

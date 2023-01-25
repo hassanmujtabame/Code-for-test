@@ -7,10 +7,12 @@
         <!--section balance-->
         <SectionBalance />
       <!--section my ready services-->
-      <SectionMyOffers />
+      <SectionMyReadyServices />
+      
       
       <!--section my offers-->
-      <SectionMyReadyServices />
+      <SectionMyOffers />
+      
     
 </div>
 </main>

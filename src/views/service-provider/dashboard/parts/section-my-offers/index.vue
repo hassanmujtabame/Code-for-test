@@ -129,23 +129,7 @@
                                     عرض التقييمات 
                                 </button>
                                 <div>
-                                    <div class="d-flex justify-content-center">
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star fs-3"></i>
-                                        </span>
-                                    </div>
+                                    <d-rate-stars  :size="32" :value="rate"/>
                                 </div>
                             </div>
                     </div>
@@ -172,7 +156,10 @@
 
 <script>
 export default {
- name:'section-my-offers'
+ name:'section-my-offers',
+ data:()=>({
+    rate:3,
+ })
 }
 </script>
 
