@@ -4,10 +4,81 @@ import Cookies from 'js-cookie';
 import {  mapGetters } from 'vuex';
 import { localize } from 'vee-validate';
 
+
 const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            timeAgoToHuman(date)
+            {
+              console.log('dd',date)
+              // Calculate the difference in milliseconds
+              let date1 = new Date(date)
+              let date2 = new Date()
+              var millisec = date2.getTime() - date1.getTime();
+              var s = (millisec / 1000).toFixed(1);
+
+              var m = (millisec / (1000 * 60)).toFixed(1);
+      
+              var h = (millisec / (1000 * 60 * 60)).toFixed(1);
+      
+              var d = (millisec / (1000 * 60 * 60 * 24)).toFixed(1);
+              var mth = (millisec / (1000 * 60 * 60 * 24*30)).toFixed(1);
+              var y = (millisec / (1000 * 60 * 60 * 24*30*12)).toFixed(1);
+              let ago=this.$t('time_ago');
+              let result = "";
+              let label = ""
+              if (s < 60) {
+                label = this.$t('second_s')
+                if(mth>2 && mth<=10 && this.$i18n.locale=='ar') label= "ثوني";
+                if(mth==2 && this.$i18n.locale=='ar') return ago+" "+"ثانتين";
+                if(mth==1 && this.$i18n.locale=='ar') return ago+" "+label;
+                if(mth==1 && this.$i18n.locale=='en') return "a second"+" "+ago;
+                result = Math.floor(m) +" "+ label;
+    
+              } else if (m < 60) {
+                label = this.$t('minute_s')
+                if(mth>2 && mth<=10 && this.$i18n.locale=='ar') label= "دقائق";
+                if(mth==2 && this.$i18n.locale=='ar') return ago+" "+"دقيقتين";
+                if(mth==1 && this.$i18n.locale=='ar') return ago+" "+label;
+                if(mth==1 && this.$i18n.locale=='en') return "a second"+" "+ago;
+                result = Math.floor(m) +" "+ label;
+              } else if (h < 24) {
+                label = this.$t('hour_s')
+                if(mth>2 && mth<=10 && this.$i18n.locale=='ar') label= "ساعات";
+                if(mth==2 && this.$i18n.locale=='ar') return ago+" "+"ساعتين";
+                if(mth==1 && this.$i18n.locale=='ar') return ago+" "+label;
+                if(mth==1 && this.$i18n.locale=='en') return "an Hour"+" "+ago;
+                result = Math.floor(h) +" "+ label;
+              } else if (d < 30) {
+                label = this.$t('day_s')
+                if(mth>2 && mth<=10 && this.$i18n.locale=='ar') label= "أيام";
+                if(mth==2 && this.$i18n.locale=='ar') return ago+" "+"يومين";
+                if(mth==1 && this.$i18n.locale=='ar') return ago+" "+label;
+                if(mth==1 && this.$i18n.locale=='en') return "a day"+" "+ago;
+                result = Math.floor(d) +" "+ label;
+              }else if (mth < 12) {
+                 label = this.$t('month_s')
+                if(mth>2 && mth<=10 && this.$i18n.locale=='ar') label= "أشهر";
+                if(mth==2 && this.$i18n.locale=='ar') return ago+" "+"شهرين";
+                if(mth==1 && this.$i18n.locale=='ar') return ago+" "+"شهر";
+                if(mth==1 && this.$i18n.locale=='en') return "a month"+" "+ago;
+                 result = Math.floor(mth) +" "+ label;
+               
+            }else {
+              label = this.$t('year_s')
+              if(mth>2 && mth<=10 && this.$i18n.locale=='ar') label= "سنوات";
+              if(mth==2 && this.$i18n.locale=='ar') return ago+" "+"سنتين";
+              if(mth==1 && this.$i18n.locale=='ar') return ago+" "+label;
+              if(mth==1 && this.$i18n.locale=='en') return "a year"+" "+ago;
+              result = Math.floor(y) +" "+ label;
+          }
+        
+          if(this.$i18n.locale=="ar")
+          return ago+" "+result;
+          else
+           return result+" "+ago;
+            },
             router_push(link,data={}){
               this.$router.push(this.getRouteLocale(link,data))
             },
