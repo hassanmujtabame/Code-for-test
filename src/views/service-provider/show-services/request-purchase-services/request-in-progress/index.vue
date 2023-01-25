@@ -44,8 +44,8 @@
                                 قائمة الاوامر
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item"  data-bs-toggle="modal" href="#exampleModalToggle3" role="button">تعديل قيمة الصفقة</a></li>
-                              <li><a class="dropdown-item" href="#">تعديل موعد التسليم</a></li>
+                              <li><a class="dropdown-item"  @click="openChangePriceDialog">تعديل قيمة الصفقة</a></li>
+                              <li><a class="dropdown-item" @click="openChangeDateDeliveryDialog">تعديل موعد التسليم</a></li>
                               <li><a class="dropdown-item" @click="openConfirmFinishDialog"> حذف و أنهاء المشروع</a></li>
                             </ul>
                           </div>
@@ -484,17 +484,20 @@
 
         </div>
 <ConfirmFinishRequest />
+<ChangePriceRequest />
     </div>
 </template>
 
 <script>
 import ConfirmFinishRequest from './dialogs/confirm-finish-request.vue'
+import ChangePriceRequest from './dialogs/change-value-amount.vue'
 import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
 
 export default {
  name:'Service-request-page-in-progress',
  components:{
-    ConfirmFinishRequest
+    ConfirmFinishRequest,
+    ChangePriceRequest
  },
   data:()=>{
     return {
@@ -505,7 +508,16 @@ export default {
       colors:['#F2631C','#FFBC00','#2C98B3']
   }},
   methods:{
-   
+    openChangeDateDeliveryDialog(evt){
+        if(evt) evt.preventDefault();
+        
+        this.fireOpenDialog('change-value-amount',this.itemPage)
+    },
+    openChangePriceDialog(evt){
+        if(evt) evt.preventDefault();
+        
+      this.fireOpenDialog('change-value-amount',this.itemPage)
+    },
     openConfirmFinishDialog(evt){
         if(evt) evt.preventDefault();
         
