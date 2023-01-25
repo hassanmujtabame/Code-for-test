@@ -476,13 +476,54 @@
             </div>
 
         </div>
-
+<ConfirmFinishRequest />
     </div>
 </template>
 
 <script>
+import ConfirmFinishRequest from './dialogs/confirm-finish-request.vue'
+import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
+
 export default {
- name:'Service-request-page-in-progress'
+ name:'Service-request-page-in-progress',
+ components:{
+    ConfirmFinishRequest
+ },
+  data:()=>{
+    return {
+      loading:true,
+      hasError:false,
+      itemPage:{},
+      colors:['#F2631C','#FFBC00','#2C98B3']
+  }},
+  methods:{
+   
+    openDeleteDialog(){
+      this.fireOpenDialog('confirm-finish-request',this.itemPage)
+    },
+    async initializing() {
+      this.loading = true;
+      this.hasError = false;
+            try {
+                let { data } = await readyServiceAPI.getItem(this.$route.params.id)
+                if (data.success) {
+                   this.itemPage = data.data;
+                   this.isOwner = this.itemPage.user_info.id==this.user.id
+                }else{
+                  this.hasError = true;
+                }
+            } catch (error) {
+                console.log('error', error)
+                console.log('error response', error.response)
+                this.hasError = true;
+              }
+
+            this.loading = false;
+        }
+  },
+  mounted(){
+    this.initializing()
+  }
 }
 </script>
 

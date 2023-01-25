@@ -372,5 +372,7 @@
   "send_abuse": "send abuse",
   "month_s": "month(s)",
   "year_s": "Year(s)",
-  "time_ago": "a go"
+  "time_ago": "a go",
+  "confirm_delete_finish_request_message": "Are you sure to finish this request?",
+  "confirm_finish": "Finish Confirmation"
 }

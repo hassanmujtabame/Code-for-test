@@ -369,5 +369,7 @@
   "send_abuse": "إرسال إبلاغ",
   "month_s": "شهر",
   "year_s": "سنة",
-  "time_ago": "منذ"
+  "time_ago": "منذ",
+  "confirm_delete_finish_request_message": "هل انت متاكد من إنهاء المشروع",
+  "confirm_finish": "تأكيد الإنهاء"
 }

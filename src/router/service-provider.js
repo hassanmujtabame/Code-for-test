@@ -31,18 +31,6 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-show-profile" */ '../views/service-provider/show-profile/index.vue') 
     },
     {
-        path: 'service-provider/request-purchase-services',
-        meta:{layout:LayoutService},
-        name: 'service-provider-request-purchase-services',
-        component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/ready-services/request-purchase-services/index.vue') 
-    },
-    {
-        path: 'service-provider/request-purchase-services/:id/progress',
-        meta:{layout:LayoutService},
-        name: 'service-provider-request-purchase-service-progress',
-        component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/ready-services/request-purchase-services/request-in-progress/index.vue') 
-    },
-    {
         path: 'service-provider/my-schedule',
         meta:{layout:LayoutService},
         name: 'service-provider-my-schedule',
@@ -97,11 +85,23 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-show-service-page-progress" */ '../views/service-provider/show-services/request-page-in-progress/index.vue') 
     },
     {
+        path: 'service-provider/request-purchase-services',
+        meta:{layout:LayoutService},
+        name: 'service-provider-request-purchase-services',
+        component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/show-services/request-purchase-services/index.vue') 
+    },
+    {
+        path: 'service-provider/request-purchase-services/:id/progress',
+        meta:{layout:LayoutService},
+        name: 'service-provider-request-purchase-service-progress',
+        component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/show-services/request-purchase-services/request-in-progress/index.vue') 
+    },
+    /*{
         path: 'service-provider/show-services/:id',
         meta:{layout:LayoutService},
         name: 'service-provider-page-service',
-        component: () => import(/* webpackChunkName: "service-provider-page-service" */ '../views/service-provider/page-service/index.vue') 
-    },
+        component: () => import( '../views/service-provider/page-service/index.vue') 
+    },*/
     {
         path: 'service-provider/menu-subscribe',
         meta:{layout:LayoutService,auth:true},
