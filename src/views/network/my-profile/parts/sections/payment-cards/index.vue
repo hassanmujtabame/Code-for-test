@@ -24,10 +24,13 @@
                                                           >
                         </svg>
                     </span>
-                            <bdi> البطاقة المنتهية بـ</bdi> {{card.last4Digits?card.last4Digits.slice(-4):'N/A'}}
+                            <bdi> {{$t('credit_card_end_with')}}</bdi> {{card.last4Digits?card.last4Digits.slice(-4):'N/A'}}
                         </btnTypePay>
                         <span class="mx-2">
                             <button @click="openAddCreditCard(card.id)" class="btn-text t-c"><editIcon/></button>
+                        </span>
+                        <span class="mx-2">
+                            <button @click="openDelCreditCard(card)" class="btn-text text-danger"><i class="fa-solid fa-trash-can"></i></button>
                         </span>
                     </div>
                    <hr/>
@@ -40,6 +43,7 @@
                     </div>
                </div> 
                <addCreditCardDialog  @success="addCreditCard"/>  
+               <delCreditCardDialog @success="deletedCreditCard" />
             </div>  
 </template>
 
@@ -52,6 +56,7 @@ import plusIcon from '@/components/icon-svg/plus-rect-round.vue'
 import editIcon from '@/components/icon-svg/pencil-edit.vue'
 import btnTypePay from './btn-type-pay.vue'
 import addCreditCardDialog from './add-card-dialog.vue'
+import delCreditCardDialog from './confirm-delete-item.vue'
 import cardVisaIcons from '@/plugins/card-visa-icons'
 export default {
  name:'payment-cards',
@@ -62,7 +67,8 @@ export default {
     visa2Icon,
     mastercardIcon,
     stcPayIcon,
-    addCreditCardDialog
+    addCreditCardDialog,
+    delCreditCardDialog
  },
  data:()=>{
     return {
@@ -80,6 +86,9 @@ export default {
        return cardVisaIcons[icon]
      
     },
+    deletedCreditCard(card){
+        this.cards =  this.cards.filter(c=>c.id!=card.id)
+    },
     addCreditCard({card,type}){
         if(type=='add')
         this.cards.push(card)
@@ -93,7 +102,9 @@ export default {
     openAddCreditCard(id=null){
       this.fireOpenDialog('add-credit-card',{id});
     },
-
+    openDelCreditCard(card){
+      this.fireOpenDialog('confirm-delete-creditcard',card);
+    },
     async loadCards(){
         try{
             let {data } = await userAPI.getCreditCards()

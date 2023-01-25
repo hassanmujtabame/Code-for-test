@@ -366,5 +366,7 @@
   "card_holder": "Card holder",
   "card_number": "Card number",
   "expiry_date": "expiry date",
-  "security_code": "security code"
+  "security_code": "security code",
+  "confirm_delete_credit_card_message": "You are about to delete your credit card info",
+  "credit_card_end_with": "credit card end with"
 }
