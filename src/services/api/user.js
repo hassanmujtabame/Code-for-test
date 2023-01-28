@@ -119,7 +119,7 @@ class UserApi extends BaseApi {
         return window.axios.get(`user/my-work-gallaries?${s}`);
     }
     sendAbuseCommentOnRate(data){
-        return window.axios.get(`service-provider/provider/report-comments`,{data});
+        return window.axios.post(`service-provider/provider/report-comments`,data);
     }
    
 }
