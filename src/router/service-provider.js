@@ -55,6 +55,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-dashboard" */ '../views/service-provider/dashboard/index.vue') 
     },
     {
+        path: 'service-provider/my-offers',
+        meta:{layout:LayoutService},
+        name: 'service-provider-my-offers',
+        component: () => import(/* webpackChunkName: "service-provider-my-offers" */ '../views/service-provider/page-my-offers/index.vue') 
+    },
+    {
         path: 'service-provider/ready-services',
         meta:{layout:LayoutService},
         name: 'service-provider-ready-services',
