@@ -190,6 +190,10 @@ const mixin = {
                        });
                        return r.route.path;
                },
+               routeToUrl(name,params={},query ={}){
+                let r= this.$router.resolve(this.getRouteLocale(name,params,query));
+                return r?r.href:'#'
+               },
                refreshPage(){
                 
                 if(process.env.NODE_ENV=='development')
