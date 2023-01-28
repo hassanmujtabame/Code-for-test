@@ -374,5 +374,7 @@
   "confirm_finish": "تأكيد الإنهاء",
   "more_services": "المزيد من الخدمات",
   "reason_objection": "سبب الاعتراض",
-  "service-title": "عنوان الخدمة"
+  "service-title": "عنوان الخدمة",
+  "online": "اونلاين",
+  "offline": "أوفلاين"
 }

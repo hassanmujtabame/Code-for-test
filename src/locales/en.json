@@ -377,5 +377,7 @@
   "confirm_finish": "Finish Confirmation",
   "more_services": "More services",
   "reason_objection": "The reason for the objection",
-  "service-title": "Service title"
+  "service-title": "Service title",
+  "online": "online",
+  "offline": "offline"
 }
