@@ -10,7 +10,7 @@
         يمكنك عرض نفسك لتوظيف  في قائمة خريجين رياديات                  </p>
     </div>
     <div class="col-md-6 text-end">
-    <button style="height: 40px;" class="btn-main"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button @click="router_push('service-provider-graduate-riadiat')" style="height: 40px;" class="btn-main"  >
 
         متاح للتوظيف
         

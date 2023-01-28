@@ -7,6 +7,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-home" */ '../views/service-provider/home/index.vue') 
     },
     {
+        path: 'service-provider/graduate-riadiat',
+        meta:{layout:LayoutService},
+        name: 'service-provider-graduate-riadiat',
+        component: () => import(/* webpackChunkName: "service-provider-graduate-riadiat" */ '../views/service-provider/graduate-riadiat/index.vue') 
+    },
+    {
         path: 'service-provider/my-profile',
         name: 'service-provider-my-profile',
         meta:{layout:LayoutService,auth:true},
