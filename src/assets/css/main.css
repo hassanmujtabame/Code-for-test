@@ -1734,7 +1734,9 @@ position: relative;
     width: 100%;
     color: #09763c;
 }
-
+.btn-more-loading-disabled{
+    color: #5e5f5f;
+}
 .ccicon {
     height: 36px;
     position: absolute;

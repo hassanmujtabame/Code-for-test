@@ -11,6 +11,8 @@
             </svg>
             الخدمات التي تقدمها
         </p>
+        <div>
+            <d-overlays-simple v-if="loading" />
         <div class="row p-2 order">
             <div v-for="(item,k) in items" :key="k" class="col-md-4 mt-2">
                 <router-link class="router-link" :to="getRouteLocale('service-provider-ready-service',{id:item.id})">
@@ -18,18 +20,19 @@
                      :image="item.image"
                      :title="item.title"
                      :description="item.description"
-                     :place="item.place"
-                     :category="item.category"
+                     :place="item.city"
+                     :category="item.categories.length && item.categories[0]"
                      :price="item.price"
-                     :name="item.name"
-                     :status="item.status"
+                     :name="item.user_name"
+                     :status="item.state"
                     />
                 </router-link>
             </div>
         </div>
+        </div>
         <div class="row">
         <div class="col-12">
-            <button class="btn-more-loading"><plusRectRoundIcon /> {{ $t('more_services') }} </button>
+            <button v-if="isThereMore" :disabled="!isThereMore" :class="{'btn-more-loading-disabled':!isThereMore}" class="btn-more-loading"><plusRectRoundIcon /> {{ $t('more_services') }} </button>
         </div>
         </div>
     </div>
@@ -38,6 +41,7 @@
 <script>
 import MyServiceCard from '@/components/cards/ready-service.vue';
 import plusRectRoundIcon from '@/components/icon-svg/plus-rect-round.vue';
+import UserApi from '@/services/api/user.js';
 export default {
  name:'section-my-services',
  components:{
@@ -45,6 +49,13 @@ export default {
  },
  data:()=>{
     return {
+        loading:false,
+        metaInfo:{
+            current_page: 1,
+            to: 10,
+            total: 0,
+            total_page: 0,
+        },
         items:[
             {id:1,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
             {id:2,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
@@ -54,6 +65,34 @@ export default {
             {id:6,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'}
                ]
     }
+ },
+ computed:{
+  isThereMore(){
+    return this.metaInfo.total_page && this.metaInfo.current_page < this.metaInfo.total_page
+  }
+ },
+ methods:{
+    async loadList(){
+        this.loading =  true;
+        try {
+            let params = {
+                paginate:6
+            }
+            let { data } =  await UserApi.getMyReadyService(params)
+                if(data.success){
+                    this.items = data.data;
+                    this.metaInfo.to = data.meta.to
+                    this.metaInfo.total = data.meta.total;
+                    this.metaInfo.total_page = data.meta.last_page;
+                }
+        } catch (error) {
+            console.log('error',error)
+        }
+        this.loading =  false;
+    }
+ },
+ mounted(){
+    this.loadList()
  }
 }
 </script>

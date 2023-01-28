@@ -107,6 +107,18 @@ class UserApi extends BaseApi {
     getCreditCards(){
         return window.axios.get(`user/payment-cards`);
     }
+    getMyReadyService(params={}){
+        let s=this.generateQueryUrl(params)
+        /**
+         * paginate = x for change default count per page = 10
+         */
+        return window.axios.get(`service-provider/user/my-services?${s}`);
+    }
+    getMyWorkGallaries(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`user/my-work-gallaries?${s}`);
+    }
+   
 }
 
 export default new UserApi();
