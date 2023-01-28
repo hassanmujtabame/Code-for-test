@@ -61,6 +61,7 @@ export default {
     },
     methods:{
         changeStatus(status){
+            this.status =  status
             this.filterItem.status=status;
             this.fireEvent('d-filter-list-refresh')
         },
