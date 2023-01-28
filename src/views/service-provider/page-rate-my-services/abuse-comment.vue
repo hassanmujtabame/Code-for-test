@@ -61,7 +61,7 @@ export default {
                 return;
             }
         try {
-            let {data} = await userAPI.sendAbuseCommentOnRate({comment:this.comment,id:this.itemDialog.id})
+            let {data} = await userAPI.sendAbuseCommentOnRate({comment:this.comment,rate_id:this.itemDialog.id})
             if(data.success){
               this.$emit('success',this.itemDialog)
                 this.closeEvent()
