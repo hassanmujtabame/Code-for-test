@@ -39,11 +39,15 @@ export default {
         },
         tagPlaceholder:{
             type:String,
-            default:'Add this as new tag'
+            default:()=>{
+              return window.i18n.t('add-this-as-new-tag')
+            }
         },
         placeholder:{
             type:String,
-            default:'Search or add a tag'
+            default:()=>{
+              return window.i18n.t('search-or-add-tag')
+            }
         },
         options:{
             type:[Array,Object],

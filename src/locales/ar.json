@@ -84,7 +84,7 @@
   "selectedLabel": "محـددة",
   "deselectLabel": "انقر لازالتها",
   "Tag": "وسم",
-  "state-service": "نوع الخدمة",
+  "state-service": "تصنيف الخدمة",
   "lower-price": "الاقل سعرا",
   "higher-price": "أعلى سعر",
   "services": "خدمات",
@@ -376,5 +376,11 @@
   "reason_objection": "سبب الاعتراض",
   "service-title": "عنوان الخدمة",
   "online": "اونلاين",
-  "offline": "أوفلاين"
+  "offline": "أوفلاين",
+  "service-category": "المجال",
+  "service-description": "تفاصيل حول الخدمة",
+  "gallery": "معرض الصور",
+  "service-price": "سعر الخدمة",
+  "add-this-as-new-tag": "أضف هذا كعلامة جديدة",
+  "search-or-add-tag": "البحث أو إضافة علامة"
 }

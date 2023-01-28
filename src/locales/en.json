@@ -379,5 +379,11 @@
   "reason_objection": "The reason for the objection",
   "service-title": "Service title",
   "online": "online",
-  "offline": "offline"
+  "offline": "offline",
+  "service-category": "Service category",
+  "service-description": "details about service",
+  "gallery": "Gallery",
+  "service-price": "Service price",
+  "add-this-as-new-tag": "Add this as new tag",
+  "search-or-add-tag": "Search or add a tag"
 }

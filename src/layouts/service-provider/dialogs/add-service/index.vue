@@ -8,7 +8,7 @@
         <ValidationObserver v-if="showDialog" ref="form" >
         
                     <div class="row add-portfolio m-3 p-0">
-                        <div class="col-12 col-lg-4  justify-content-center m-auto">
+                        <div class="col-12 col-lg-4  justify-content-center mx-auto">
                             <div class="col-md-12">
                                 <label for="imginput" class="form-label file-label first w-100">
                                     <div class="text-center p-5">
@@ -87,6 +87,7 @@
                                  vid="title"
                                  rules="required"
                                     v-slot="{errors}">
+                                    <label class="form-label">{{ $t('service-title') }}</label>
                             <input type="text" v-model="itemForm.title" class="form-control" :placeholder="$t('service-title')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -96,11 +97,12 @@
                            <!--price-->
                            <div class="mb-3">
                             <ValidationProvider
-                                    :name="$t('Price')"
+                                    :name="$t('service-price')"
                                  vid="price"
                                  rules="required"
                                     v-slot="{errors}">
-                            <input type="text" v-model="itemForm.price" class="form-control" placeholder="سعر الخدمة">
+                                    <label class="form-label">{{ $t('service-price') }}</label>
+                            <input type="text" v-model="itemForm.price" class="form-control" :placeholder="$t('service-price')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -113,6 +115,7 @@
                                  vid="execution_period"
                                  rules="required"
                                     v-slot="{errors}">
+                                    <label class="form-label">{{ $t('execution-during') }}</label>
                             <input type="text" v-model="itemForm.execution_period" class="form-control" :placeholder="$t('execution-during')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -126,6 +129,7 @@
                                  vid="execution_place"
                                  rules="required"
                                     v-slot="{errors}">
+                                    <label class="form-label">{{ $t('execution-place') }}</label>
                             <input type="text" v-model="itemForm.execution_place" class="form-control" :placeholder="$t('execution-place')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -140,6 +144,7 @@
                          v-slot="{ errors }"
                          >
                          <div class="form-group position-relative">
+                            <label class="form-label">{{ $t('state-service') }}</label>
                         <select v-model="itemForm.state"  class="form-control">
                             <option disabled value="" class="t-c"> {{$t('state-service')}} </option>
                             <option :key="i" v-for="(option,i) in states" :value="option.id">
@@ -164,11 +169,11 @@
                     </div>
                     <div class="mb-3 position-relative">
                         <ValidationProvider
-                                    :name="$t('Category')"
+                                    :name="$t('service-category')"
                                  vid="categories"
                                  rules="required"
                                     v-slot="{errors}">
-                            <label class="form-label">المجال</label>
+                            <label class="form-label">{{$t('service-category')}}</label>
                             <multi-select v-model="itemForm.category_id" 
                             :selectLabel="$t('selectLabel')"
                             :selectedLabel="$t('selectedLabel')" 
@@ -185,10 +190,10 @@
                                 </div>
                                 </ValidationProvider>
                       </div>
-                    </div>
+                    
                     <div class="mb-3">
                             <ValidationProvider
-                                    :name="$t('description')"
+                                    :name="$t('service-description')"
                                  vid="description"
                                  rules="required"
                                     v-slot="{errors}">
@@ -219,8 +224,9 @@
                                 </ValidationProvider>
                       
                         </div>
+                    </div>
                         <div class="mb-3 row">
-                            <label class="form-label col-12">{{$t('gallary')}}</label>
+                            <label class="form-label col-12">{{$t('gallery')}}</label>
                             
                              <div class="col-md-12">
                                 <div style="height:50px;width:50px" class="position-relative">
