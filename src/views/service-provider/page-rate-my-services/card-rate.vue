@@ -37,6 +37,10 @@ export default {
         type:String,
         default:'/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg',
     },
+    itemId:{
+        type:[String,Number],
+
+    },
     rate:{
         type:[String,Number],
         default:4

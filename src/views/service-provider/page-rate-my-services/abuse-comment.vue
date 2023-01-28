@@ -14,11 +14,23 @@
  <p class="dialog-desc m-0">
   أخبرنا من فضلك عن سبب انزعاجك من هذا التعليق وسوف نقوم باتخاذ الإجراء المناسب
  </p>
+ <ValidationObserver ref="form">
  <div class="mt-4">
-  <textarea class="form-control" rows="3" placeholder="سبب الاعتراض على التعليق">
-
-  </textarea>
+  <ValidationProvider
+  :name="$t('reason_objection')"
+  vid="comment"
+  rules="required"
+  v-slot="{errors}"
+  >
+  <textarea class="form-control" 
+  v-model="comment" 
+  rows="3" 
+  placeholder="سبب الاعتراض على التعليق"
+  ></textarea>
+  <d-error-input :errors="error" v-if="errors.length>0" />
+</ValidationProvider>
  </div>
+</ValidationObserver>
 </div>
     </template>
     <template v-slot:actions>
@@ -38,15 +50,18 @@ export default {
  },
  data:()=>({
     itemDialog:{id:null},
+    comment:'',
     showed:false,
  }),
  methods:{
-  sendAbuse(){
-
-  },
-    async delBlog(){
+    async sendAbuse(){
+      let valid = this.$refs.form.validate()
+      if (!valid) {
+                console.log('form invalid')
+                return;
+            }
         try {
-            let {data} = await userAPI.deleteCreditCardInfo(this.itemDialog.id)
+            let {data} = await userAPI.sendAbuseCommentOnRate({comment:this.comment,d:this.itemDialog.id})
             if(data.success){
               this.$emit('success',this.itemDialog)
                 this.closeEvent()

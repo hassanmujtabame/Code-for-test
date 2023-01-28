@@ -17,6 +17,7 @@
                 </template>
             <template v-slot="{item}">
                 <cardRate
+                            :itemId="item.id"
                             :name="item.from_user"
                             :image="item.image"
                             :rate="item.rate"

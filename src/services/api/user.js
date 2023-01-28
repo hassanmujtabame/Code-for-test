@@ -118,6 +118,9 @@ class UserApi extends BaseApi {
         let s=this.generateQueryUrl(params)
         return window.axios.get(`user/my-work-gallaries?${s}`);
     }
+    sendAbuseCommentOnRate(data){
+        return window.axios.get(`service-provider/provider/report-comments`,{data});
+    }
    
 }
 
