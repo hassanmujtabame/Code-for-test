@@ -373,5 +373,6 @@
   "confirm_delete_finish_request_message": "هل انت متاكد من إنهاء المشروع",
   "confirm_finish": "تأكيد الإنهاء",
   "more_services": "المزيد من الخدمات",
-  "reason_objection": "سبب الاعتراض"
+  "reason_objection": "سبب الاعتراض",
+  "service-title": "عنوان الخدمة"
 }

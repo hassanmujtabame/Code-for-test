@@ -83,11 +83,11 @@
                            <!--title-->
                            <div class="mb-3">
                             <ValidationProvider
-                                    :name="$t('Title')"
+                                    :name="$t('service-title')"
                                  vid="title"
                                  rules="required"
                                     v-slot="{errors}">
-                            <input type="text" v-model="itemForm.title" class="form-control" placeholder="عنوان التدوينة">
+                            <input type="text" v-model="itemForm.title" class="form-control" :placeholder="$t('service-title')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
