@@ -382,5 +382,8 @@
   "gallery": "معرض الصور",
   "service-price": "سعر الخدمة",
   "add-this-as-new-tag": "أضف هذا كعلامة جديدة",
-  "search-or-add-tag": "البحث أو إضافة علامة"
+  "search-or-add-tag": "البحث أو إضافة علامة",
+  "part-time": "دوام جزئى",
+  "full-time": "دوام كامل",
+  "N/A": "N/A"
 }

@@ -68,10 +68,9 @@
                             d="M13.3333 19.7066C13.2933 19.7066 13.2533 19.7066 13.2133 19.7066C9.55999 19.2933 5.99999 17.96 2.91999 15.8533C2.46665 15.5466 2.34665 14.92 2.65332 14.4666C2.95999 14.0133 3.58665 13.8933 4.03999 14.2C6.85332 16.12 10.0933 17.3333 13.4267 17.72C13.9733 17.7866 14.3733 18.28 14.3067 18.8266C14.2667 19.3333 13.84 19.7066 13.3333 19.7066Z"
                             fill="#1FB9B3" />
                     </svg>
-
-                    <a href="#" class="mx-2 m-c ">
-                        {{$t('jobs')}}
-                    </a>
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-control-jobs')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('jobs') }}</button>
+                    </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -2,6 +2,8 @@
   <svg  fill="none" stroke-linecap="round" 
               stroke-linejoin="round" 
               stroke-width="2" 
+              :width="size"
+              :height="size"
               viewBox="0 0 24 24" 
               stroke="currentColor" 
               >
@@ -11,7 +13,17 @@
 
 <script>
 export default {
- name:"time-icon"
+ name:"time-icon",
+  props:{
+    size:{
+      type:[String,Number],
+      default:24
+    },
+    color:{
+      type:String,
+      default:'#979797'
+    }
+  }
 }
 </script>
 

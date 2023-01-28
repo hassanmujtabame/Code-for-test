@@ -385,5 +385,8 @@
   "gallery": "Gallery",
   "service-price": "Service price",
   "add-this-as-new-tag": "Add this as new tag",
-  "search-or-add-tag": "Search or add a tag"
+  "search-or-add-tag": "Search or add a tag",
+  "part-time": "Part-time",
+  "full-time": "full-time",
+  "N/A": "N/A"
 }
