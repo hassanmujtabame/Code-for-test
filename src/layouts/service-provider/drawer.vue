@@ -44,10 +44,10 @@
                             d="M10.987 12.9599C9.16033 12.9599 7.66699 11.4666 7.66699 9.63995C7.66699 7.81328 9.16033 6.31995 10.987 6.31995C12.8137 6.31995 14.307 7.81328 14.307 9.63995C14.307 11.4666 12.8137 12.9599 10.987 12.9599ZM10.987 8.33328C10.267 8.33328 9.66699 8.91995 9.66699 9.65328C9.66699 10.3866 10.2537 10.9733 10.987 10.9733C11.707 10.9733 12.307 10.3866 12.307 9.65328C12.307 8.91995 11.707 8.33328 10.987 8.33328Z"
                             fill="#1FB9B3" />
                     </svg>
-
-                    <a href="#" class="mx-2 m-c ">
-                        {{ $t('your-offers') }}
-                    </a>
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-offers')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('your-offers') }}</button>
+                    </router-link>
+                    
                 </div>
                 
                 <div class="box  mx-2 mt-3 ">
