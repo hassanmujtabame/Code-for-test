@@ -24,6 +24,7 @@
           </div>
           <div class="row p-5">
             <div class="col-md-4">
+              <router-link class="router-link" :to="getRouteLocale('service-provider-my-schedule-show',{id:'massage'})">
               <div class="box border rounded-2 p-5">
                 <div class="d-flex flex-column align-items-center">
                   <p>
@@ -44,8 +45,10 @@
 
                 </div>
               </div>
+            </router-link>
             </div>
             <div class="col-md-4">
+              <router-link class="router-link" :to="getRouteLocale('service-provider-my-schedule-show',{id:'massage'})">
               <div class="box border rounded-2 p-5">
                 <div class="d-flex flex-column align-items-center">
                   <p>
@@ -67,8 +70,10 @@
 
                 </div>
               </div>
+              </router-link>
             </div>
             <div class="col-md-4">
+              <router-link class="router-link" :to="getRouteLocale('service-provider-my-schedule-show',{id:'massage'})">
               <div class="box border rounded-2 p-5">
                 <div class="d-flex flex-column align-items-center">
                   <p>
@@ -87,6 +92,7 @@
                   </h3>
                 </div>
               </div>
+              </router-link>
             </div>
           </div>
         </div>
