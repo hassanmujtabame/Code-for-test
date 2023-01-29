@@ -56,9 +56,9 @@ export default {
             status:null,
             actions:[
                 {label:'كل عروضك',status:null},
-                {label:'عروض تم اختيارك بها',status:"waiting"},
-                {label:'لم تتم الموافقة بعد',status:"underway"},
-                {label:'تم استبعادك',status:"finished"},
+                {label:'عروض تم اختيارك بها',status:"selected"},
+                {label:'لم تتم الموافقة بعد',status:"waiting"},
+                {label:'تم استبعادك',status:"excluded"},
             ],
             filterItem:{
                 search:null,

@@ -125,10 +125,9 @@ export default {
     },
     statusName(){
         switch (this.status) {
-            case 'finished': return "مكتمل";
+            case 'selected': return "مختارة";
             case 'waiting': return "قيد الانتظار";
-            case 'underway': return "قيد التنفيذ";
-            case 'cancel': return"ملغاة";
+            case 'excluded': return"مستبعدة";
                 
         
             default:
@@ -147,16 +146,14 @@ export default {
     cursor: pointer;
     margin:0 5px
 }
-.status-request-underway{
-    background-color: #F2631C;
-}
+
 .status-request-waiting{
     background-color: #FFBC00;
 }
-.status-request-finished{
+.status-request-selected{
     background-color: #1FB9B3;
 }
-.status-request-cancel{
+.status-request-excluded{
     background-color: #414042;
 }
 
