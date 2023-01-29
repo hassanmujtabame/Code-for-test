@@ -4,7 +4,7 @@ class ServiceProviderApi extends BaseApi {
 
     getSubscribes(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user-subscriptions?${s}`);
+        return window.axios.get(`service-provider/provider/user-subscriptions?${s}`);
     }
    
 }
