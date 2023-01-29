@@ -105,7 +105,7 @@ const mixin = {
                   let m = this.getTranslateMonth(date.getMonth());
               return `${d} ${m} ${y}`
           },
-             timeFormatAMPM(time){
+             timeFormatAMPM(time,abrev=false){
               let _time = time.split(':')
               let date = new Date();
               date.setHours(_time[0])
@@ -113,8 +113,9 @@ const mixin = {
                 let hours = date.getHours();
               let minutes = date.getMinutes();  
                 
-              const ampm = hours >= 12 ? this.$t('pm') : this.$t('am');
-            
+              let ampm = hours >= 12 ? this.$t('pm') : this.$t('am');
+              if(abrev && this.$i18n.locale=='ar')
+              ampm = hours >= 12 ? 'م' : 'ص';
               hours %= 12;
               hours = hours || 12;    
               minutes = minutes < 10 ? `0${minutes}` : minutes;
