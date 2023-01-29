@@ -156,8 +156,8 @@
                                     <div class="position-relative">           
                                     <select v-model="itemForm.max_period" class="form-control ">
                                         <option value="" class="t-c" selected> أقصى مدة للخدمة</option>
-                                        <option value="">يوم</option>
-                                        <option value="">يومين</option>
+                                        <option value="1">يوم</option>
+                                        <option value="2">يومين</option>
                                     </select>
                                     <div style="top: 7px;left: 10px;" class="position-absolute">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
