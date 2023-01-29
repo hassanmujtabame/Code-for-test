@@ -11,7 +11,7 @@
               </p>
             </div>
             <div class="col-md-6 text-end">
-              <button @click="openDialogNewSchedule" style="height: 40px;" class="btn-main"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button @click="openDialogNewSchedule" style="height: 40px;" class="btn-main" >
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M21.3333 17H10.6666C10.12 17 9.66663 16.5467 9.66663 16C9.66663 15.4533 10.12 15 10.6666 15H21.3333C21.88 15 22.3333 15.4533 22.3333 16C22.3333 16.5467 21.88 17 21.3333 17Z" fill="white"/>
                   <path d="M16 22.3337C15.4533 22.3337 15 21.8803 15 21.3337V10.667C15 10.1203 15.4533 9.66699 16 9.66699C16.5467 9.66699 17 10.1203 17 10.667V21.3337C17 21.8803 16.5467 22.3337 16 22.3337Z" fill="white"/>

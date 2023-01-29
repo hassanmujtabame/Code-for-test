@@ -390,5 +390,13 @@
   "available-for-hiring": "متاح للتوظيف",
   "part_time": "دوام جزئى",
   "full_time": "دوام كامل",
-  "expected_salary": "الراتب المتوقع"
+  "expected_salary": "الراتب المتوقع",
+  "service-name": "الخدمة",
+  "start_date_schedule": " تاريخ بداية الجدول",
+  "end_date_schedule": "تاريخ نهاية الجدول",
+  "start_time_schedule": "وقت بدء",
+  "end_time_schedule": "نهاية الوقت",
+  "max_service_period": "أقصى مدة للخدمة",
+  "max_service_number": "أقصى عدد من العملاء لكل موعد",
+  "color": "اللون"
 }

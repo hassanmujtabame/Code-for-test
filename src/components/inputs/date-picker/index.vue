@@ -1,7 +1,11 @@
 <template>
   <vc-date-picker v-model="date" 
+  :disabledDates="disabledDates"
   :locale="$i18n.locale" class="datetime-input" :style="{direction:$i18n.locale=='ar'?'rtl':'ltr'}"
-  :mode="mode" :is24hr="is24hr"  :masks="masks">
+  :mode="mode" :is24hr="is24hr"  :masks="masks"
+  :maxDate="maxDate"
+  :minDate="minDate"
+  >
     <template v-slot="{ inputValue, inputEvents }">
     <input
         
@@ -25,6 +29,15 @@ export default {
             type:Boolean,
             default:true
         },
+        disabledDates:{
+          default:null,
+        },
+        minDate:{
+          default:null,
+        },
+        maxDate:{
+          default:null,
+        },
         mode:{
             type:String,
             default:'dateTime'
@@ -44,6 +57,21 @@ export default {
     };
   },
   watch:{
+    disabledDates:{
+      deep:true,
+        immediate:true,
+        handler(){}
+    },
+    maxDate:{
+      deep:true,
+        immediate:true,
+        handler(){}
+    },
+    mainDate:{
+      deep:true,
+        immediate:true,
+        handler(){}
+    },
     value:{
         immediate:true,
         handler(val){

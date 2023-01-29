@@ -393,5 +393,13 @@
   "available-for-hiring": "available for hiring",
   "part_time": "Part-time",
   "full_time": "Full-time",
-  "expected_salary": "expected salary"
+  "expected_salary": "expected salary",
+  "service-name": "Service",
+  "start_date_schedule": "start date schedule",
+  "end_date_schedule": "End date schedule",
+  "start_time_schedule": "start time schedule",
+  "end_time_schedule": "end time schedule",
+  "max_service_period": "max service period",
+  "max_service_number": "max service number",
+  "color": "Color"
 }
