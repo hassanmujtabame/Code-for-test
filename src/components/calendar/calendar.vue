@@ -1,7 +1,14 @@
 <template>
-<vc-calendar   class="my-schedule" :attributes="$attrs.attributes??attributes" :locale="$i18n.locale" style="direction:ltr" v-bind="$attrs" 
+<vc-calendar   
+class="my-schedule" 
+:attributes="$attrs.attributes??attributes"
+ :locale="$i18n.locale" style="direction:ltr" 
+ v-bind="$attrs" 
 v-on="$listeners"
 >
+<template #day-content="props">
+  <slot name="day-content" v-bind="props"></slot>
+  </template>
 <template #day-popover="props">
   <slot name="day-popover" v-bind="props"></slot>
   </template>
