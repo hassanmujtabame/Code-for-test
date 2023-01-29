@@ -17,8 +17,8 @@
                     <div class="accordion-body">
                         <div>
                             <div v-for="(state,i) in states" :key="i" class="form-check">
-                                <input class="form-check-input" type="radio" :value="state.id" v-model="filter.is_share" 
-                                :selected="state.id===filter.is_share"
+                                <input class="form-check-input" type="radio" :value="state.id" v-model="filter.graduate" 
+                                :selected="state.id===filter.graduate"
                                 name="stateRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
@@ -50,7 +50,52 @@
                     </div>
                 </div>
             </div>
-         
+            <div class="accordion-item show">
+                <h2 class="accordion-header" id="panelsStayOpen-headingExperience">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapse" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseExperience">
+                        سنوات الخبرة
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseExperience" class="accordion-collapse collapse show "
+                    aria-labelledby="panelsStayOpen-headingExperience">
+                    <div style="margin: 20px 0px 0 0" class="a">
+                                    <div class="slider-container">
+                                        <rslider-input
+                                         :min.sync="filter.year_experience_from" 
+                                         :max.sync="filter.year_experience_to"
+                                         :step="1"
+                                         :lmin="0"
+                                         :lmax="40"
+                                         />
+                                    </div>
+                                </div>
+                </div>
+            </div>
+            <div class="accordion-item show">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseThree">
+                      الراتب المتوقع
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show "
+                    aria-labelledby="panelsStayOpen-headingThree">
+                    <div style="margin: 20px 0px 0 0" class="a">
+                                    <div class="slider-container">
+                                        <rslider-input
+                                         :min.sync="filter.expected_salary_from" 
+                                         :max.sync="filter.expected_salary_to"
+                                         :step="50"
+                                         :lmin="0"
+                                         :lmax="30000"
+                                         />
+                                    </div>
+                                </div>
+                </div>
+            </div>
         </div>
         <div class="mt-3 text-center">
             <button @click="updateFilter" class="btn-main">
@@ -76,8 +121,8 @@ export default {
     return{
         states:[
             {id:null,name:'الكل'},
-            {id:'1',name:'الاكاديمية'},
-            {id:'0',name:'الحاضنة'},
+            {id:'academy',name:'الاكاديمية'},
+            {id:'incubator',name:'الحاضنة'},
         ],
         categories:[],
     filter:vm.filterItem

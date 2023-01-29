@@ -48,18 +48,22 @@ export default {
     data: () => ({
 
     filterSide:{
-      is_share:null,
+        graduate:null,
       category_id:[],
       year_experience_from:0,
-      year_experience_to:40
+      year_experience_to:40,
+      expected_salary_from:0,
+      expected_salary_to:30000,
     },
         filterItem:{
             search:null,
             rate:'desc',
-            is_share:null,
+            graduate:null,
             category_id:[],
             year_experience_from:0,
-         year_experience_to:40
+         year_experience_to:40,
+         expected_salary_from:0,
+      expected_salary_to:30000,
         }
     }),
     methods: {
