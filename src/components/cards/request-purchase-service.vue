@@ -7,7 +7,7 @@
             class="rounded-1 px-2 py-1 text-white" :class="statusClass">
            {{ statusName }}
         </p>
-        <h4 class="box-title m-c " @click="router_push('service-provider-show-service-page',{id:itemId})">
+        <h4 class="box-title m-c " @click="router_push('service-provider-request-purchase-service-show',{id:itemId})">
             طلب شراء خدمة :
             <span>
                 {{ service }}
