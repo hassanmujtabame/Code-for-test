@@ -47,19 +47,19 @@
                                                                     </span>
                                                                 </p>
                                                             </label>
-                                                            <date-picker-input mode="date" class="form-control" :max-date='itemForm.not_end_date?itemForm.end_date:""' v-model="itemForm.start_date" />
+                                                            <date-picker-input mode="date" class="form-control" :max-date='itemForm.is_end_date?itemForm.end_date:""' v-model="itemForm.start_date" />
                                                             <d-error-input :errors="errors" v-if="errors.length" />
                                                         </ValidationProvider>
                                                     </div>
                                                     <div class="col-md-6">
                                                         
                                                             <ValidationProvider
-                                                                v-show="!itemForm.not_end_date" 
+                                                                v-show="!itemForm.is_end_date" 
                                                                 tag="div"
                                                                 class="form-group"
                                                                 :name="$t('end_date_schedule')"
                                                                 vid="end_date"
-                                                                :rules="itemForm.not_end_date?'':'required'"
+                                                                :rules="itemForm.is_end_date?'':'required'"
                                                                 v-slot="{errors}"
                                                             >
                                                             <label for="input_to">
@@ -76,7 +76,7 @@
                                                         </ValidationProvider>
                                                     </div>
                                                     <div  class="form-check m-2">
-                                                        <input class="form-check-input" type="checkbox" v-model="itemForm.not_end_date"
+                                                        <input class="form-check-input" type="checkbox" v-model="itemForm.is_end_date"
                                                             id="flexCheckChecked" checked>
                                                         <label class="form-check-label t-c" for="flexCheckChecked">
                                                             لايوجد تاريخ النهاية
@@ -222,7 +222,7 @@ export default {
     return {
         showDialog:false,
         itemForm:{
-            not_end_date:false,
+            is_end_date:false,
             start_date:null,
             end_date:null,
             title:'',
@@ -261,7 +261,7 @@ export default {
     },
     openDialog(){
         this.itemForm={
-            not_end_date:false,
+            is_end_date:false,
             start_date:null,
             end_date:null,
             title:'',
