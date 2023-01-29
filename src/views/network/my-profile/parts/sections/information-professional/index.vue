@@ -53,9 +53,29 @@
                         </label>
                         <div class="col-md-9 row mb-3 ">
 
-                            <ValidationProvider tag="div" :name="$t('years_experience')" vid="year_experience" rules="required"
+                            <ValidationProvider tag="div" 
+                            :name="$t('years_experience')"
+                             vid="year_experience" 
+                             rules="required|numeric"
                                 v-slot="{ errors }">
                                 <input type="text" v-model="itemForm.year_experience" class="form-control" placeholder="   سوات الخبرة">
+                                <d-error-input :errors="errors" v-if="errors.length" />
+                            </ValidationProvider>
+
+                        </div>
+                    </div>
+                    <div class="row align-items-start ">
+                        <label class="col-md-3 m-c fs-5 fw-bolder">
+                           {{$t('expected_salary')}}:
+                        </label>
+                        <div class="col-md-9 row mb-3 ">
+
+                            <ValidationProvider tag="div" 
+                            :name="$t('expected_salary')" 
+                            vid="expected_salary"
+                             rules="required|numeric"
+                                v-slot="{ errors }">
+                                <input type="text" v-model="itemForm.expected_salary" class="form-control" :placeholder="$t('expected_salary')">
                                 <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
 
@@ -83,6 +103,7 @@ export default {
             itemForm: {
                 job_title: '',
                 year_experience: '',
+                expected_salary: '',
                 field_id: '',
                 ...vm.currentUser.career_informations
             }

@@ -389,5 +389,6 @@
   "graduate": "خريج",
   "available-for-hiring": "متاح للتوظيف",
   "part_time": "دوام جزئى",
-  "full_time": "دوام كامل"
+  "full_time": "دوام كامل",
+  "expected_salary": "الراتب المتوقع"
 }
