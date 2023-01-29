@@ -106,7 +106,7 @@
                             fill="#1FB9B3" />
                     </svg>
                     
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-schedule')" class="mx-2 m-c ">
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-schedules')" class="mx-2 m-c ">
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('schedules-your-services') }}</button>
                     </router-link>
                 </div>

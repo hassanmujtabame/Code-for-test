@@ -37,10 +37,10 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-show-profile" */ '../views/service-provider/show-profile/index.vue') 
     },
     {
-        path: 'service-provider/my-schedule',
+        path: 'service-provider/my-schedules',
         meta:{layout:LayoutService},
-        name: 'service-provider-my-schedule',
-        component: () => import(/* webpackChunkName: "service-provider-my-schedule" */ '../views/service-provider/my-schedule/index.vue') 
+        name: 'service-provider-my-schedules',
+        component: () => import(/* webpackChunkName: "service-provider-my-schedules" */ '../views/service-provider/my-schedules/index.vue') 
     },
     {
         path: 'service-provider/control-jobs',
