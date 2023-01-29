@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import exhibitionAPI from '@/services/api/members.js'
+import GraduateJobsApi from '@/services/api/graduate-jobs'
 import sidebarBox from './sidebar.vue';
 import exhibitionCard from '@/components/cards/card-member.vue';
 export default {
@@ -50,12 +50,16 @@ export default {
     filterSide:{
       is_share:null,
       category_id:[],
+      year_experience_from:0,
+      year_experience_to:40
     },
         filterItem:{
             search:null,
             rate:'desc',
             is_share:null,
             category_id:[],
+            year_experience_from:0,
+         year_experience_to:40
         }
     }),
     methods: {
@@ -69,7 +73,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await exhibitionAPI.getAll(params)
+                return await GraduateJobsApi.getAll(params)
 
             } catch (error) {
                 console.log('error', error)

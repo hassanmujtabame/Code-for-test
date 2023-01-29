@@ -15,7 +15,16 @@
 
         <template v-slot:default="{item}">
             <CardInfo :item-id="item.id"
-                          
+            :dateRequest="item.created_at"
+            :name="item.user_name"
+                          :title="item.title"
+                          :status="item.status"
+                          :state="item.state"
+                          :price="item.expected_salary"
+                          :job="item.job_name"
+                          :experience="item.required_experience"
+                          :description="item.desc"
+                          :type-work="item.type_job" 
                           
                             >
                         </CardInfo>
@@ -59,7 +68,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await userAPI.getMyOffers(params)
+                return await userAPI.getMyJobsApplied(params)
 
             } catch (error) {
                 console.log('error', error)

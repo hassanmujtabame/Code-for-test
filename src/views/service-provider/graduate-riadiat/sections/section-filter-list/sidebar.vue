@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import exhibitionsAPIs from '@/services/api/exhibitions.js'
+import GraduateJobsApi from '@/services/api/graduate-jobs'
 
 export default {
  name:'sidebar-box',
@@ -96,7 +96,7 @@ export default {
  },
  async getCategories() {
             try {
-                let { data } = await exhibitionsAPIs.getCategories()
+                let { data } = await GraduateJobsApi.getCategories()
                 if (data.success) {
 
                     let categories = data.data;

@@ -125,6 +125,16 @@ class UserApi extends BaseApi {
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/service-offers?${s}`);
     }
+    getMyJobsOpen(params={}){
+        /** الوظائف التى اعلنت عليها */
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/provider/provider-jobs?${s}`);
+    }
+    getMyJobsApplied(params={}){
+        /** الوظائف التى تقدمت اليها */
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/provider/jobs-applied?${s}`);
+    }
    
 }
 

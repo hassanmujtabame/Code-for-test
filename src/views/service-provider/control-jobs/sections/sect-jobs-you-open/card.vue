@@ -99,37 +99,37 @@ props:{
     },
     description:{
         type:String,
-        default:'تفاصيل الوظيفة يتم اضافتها بواسطة صاحب الاعلان تفاصيل الوظيفة يتم اضافتها بواسطة صاحب الاعلانتفاصيل الوظيفة يتم اضافتها بواسطة'
+        default:'N/A'
     },
     status:{
         type:String,
-        default:'waiting'
+        default:'N/A'
     },
     state:{
         type:String,//online | offline
-        default:'online'
+        default:'N/A'
     },
     typeWork:{
         type:String,//part time | full time
-        default:'full-time'
+        default:'N/A'
     },
 
     experience:{
         type:[String,Number],
-        default:'3'
+        default:'N/A'
     },
     price:{
         type:[String,Number],
-        default:'1500'
+        default:'N/A'
     },
     job:{
         type:String,
-        default:'مصمم جرافيك'
+        default:'N/A'
     },
   
     dateRequest:{
         type:String,
-        default:'2010-02-11'
+        default:'N/A'
     }
 
  }
