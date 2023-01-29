@@ -105,11 +105,10 @@
                             d="M21.3333 30.3333H10.6667C5.8 30.3333 3 27.5333 3 22.6666V11.3333C3 6.46663 5.8 3.66663 10.6667 3.66663H21.3333C26.2 3.66663 29 6.46663 29 11.3333V22.6666C29 27.5333 26.2 30.3333 21.3333 30.3333ZM10.6667 5.66663C6.85333 5.66663 5 7.51996 5 11.3333V22.6666C5 26.48 6.85333 28.3333 10.6667 28.3333H21.3333C25.1467 28.3333 27 26.48 27 22.6666V11.3333C27 7.51996 25.1467 5.66663 21.3333 5.66663H10.6667Z"
                             fill="#1FB9B3" />
                     </svg>
-
-
-                    <a href="#" class="mx-2 m-c ">
-                        {{ $t('schedules-your-services') }}
-                    </a>
+                    
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-schedule')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('schedules-your-services') }}</button>
+                    </router-link>
                 </div>
                 <div class="box  mx-2 mt-3 ">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
