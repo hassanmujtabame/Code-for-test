@@ -1,10 +1,13 @@
 <template>
   <vc-date-picker v-model="date" 
   :disabledDates="disabledDates"
-  :locale="$i18n.locale" class="datetime-input" :style="{direction:$i18n.locale=='ar'?'rtl':'ltr'}"
+  :locale="$i18n.locale" class="datetime-input"
+  :class="{'hidden-date__time':hideDate}"
+  :style="{direction:$i18n.locale=='ar'?'rtl':'ltr'}"
   :mode="mode" :is24hr="is24hr"  :masks="masks"
   :maxDate="maxDate"
   :minDate="minDate"
+  :modelConfig="modelConfig" 
   >
     <template v-slot="{ inputValue, inputEvents }">
     <input
@@ -24,6 +27,14 @@ export default {
     props:{
         value:{
             type:String
+        },
+        hideDate:{
+          type:Boolean,
+          default:false
+        },
+        dateT:{
+          Type:String,
+          default:null
         },
         is24hr:{
             type:Boolean,
@@ -51,12 +62,21 @@ export default {
     return {
       date: null,
       modelV:null,
+      modelConfig: {
+        start: {
+          timeAdjust: vm.mode == 'date' ? '00:00:00' : undefined,
+          dateAdjust: vm.mode == 'time' ? vm.DateT??vm.dateToString(new Date()) : undefined
+        }
+      },
       masks:{
         input:vm.mask
           }
     };
   },
   watch:{
+    dateT(){
+
+    },
     disabledDates:{
       deep:true,
         immediate:true,
@@ -97,8 +117,9 @@ export default {
             if(this.mode=='date')
             this.$emit('input',this.dateToString(val))
             else
-            if(this.mode=='time')
-            this.$emit('input',this.timeToString(val))
+            if(this.mode=='time'){
+              this.$emit('input',this.timeToString(val))
+            }
             else  
             this.$emit('input',val.toISOString())
         }
@@ -127,5 +148,9 @@ input{
 <style>
 .vc-popover-content-wrapper.is-interactive{
   direction: ltr !important;
+}
+.hidden-date__time .vc-time-picker .vc-date-time .vc-date{
+    display: none !important;
+
 }
 </style>
