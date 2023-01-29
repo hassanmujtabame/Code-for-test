@@ -11,12 +11,12 @@
                                 <ValidationProvider
                                 tag="div"
                                 :name="$t('service-name')"
-                                vid="service"
+                                vid="title"
                                 rules="required"
                                 v-slot="{errors}"
                                 >
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" v-model="itemForm.service"  :placeholder="$t('service-name')">
+                                    <input type="text" class="form-control" v-model="itemForm.title"  :placeholder="$t('service-name')">
                                 </div>
                                 <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
@@ -54,12 +54,12 @@
                                                     <div class="col-md-6">
                                                         
                                                             <ValidationProvider
-                                                                v-if="itemForm.not_end_date" 
+                                                                v-show="!itemForm.not_end_date" 
                                                                 tag="div"
                                                                 class="form-group"
                                                                 :name="$t('end_date_schedule')"
                                                                 vid="end_date"
-                                                                rules="required"
+                                                                :rules="itemForm.not_end_date?'':'required'"
                                                                 v-slot="{errors}"
                                                             >
                                                             <label for="input_to">
@@ -103,7 +103,7 @@
                                                                 tag="div"
                                                                 class="form-group"
                                                                 :name="$t('start_time_schedule')"
-                                                                vid="start_time"
+                                                                vid="start_hour"
                                                                 rules="required"
                                                                 v-slot="{errors}"
                                                             >
@@ -115,7 +115,7 @@
                                                                     </span>
                                                                 </p>
                                                             </label>
-                                                            <date-picker-input mode="time" class="form-control" v-model="itemForm.start_time" />
+                                                            <date-picker-input mode="time" hideDate class="form-control"  v-model="itemForm.start_hour" />
                                                                 <d-error-input :errors="errors" v-if="errors.length" />
                                                         </ValidationProvider>
                                                            
@@ -125,7 +125,7 @@
                                                                 tag="div"
                                                                 class="form-group"
                                                                 :name="$t('end_time_schedule')"
-                                                                vid="end_time"
+                                                                vid="end_hour"
                                                                 rules="required"
                                                                 v-slot="{errors}"
                                                             >
@@ -136,7 +136,7 @@
                                                                     </span>
                                                                 </p>
                                                             </label>
-                                                            <date-picker-input mode="time" class="form-control" v-model="itemForm.end_time" />
+                                                            <date-picker-input mode="time" hideDate class="form-control" v-model="itemForm.end_hour" />
                                                                 <d-error-input :errors="errors" v-if="errors.length" />
                                                         </ValidationProvider>
                                                     </div>
@@ -147,14 +147,14 @@
                                 <ValidationProvider
                                     tag="div"
                                     :name="$t('max_service_period')"
-                                    vid="max_period"
+                                    vid="max_service"
                                     rules="required|numeric"
                                     v-slot="{errors}">
                                 <div class="mb-3">
                                    
                                     <label class="form-label">أقصى مدة للخدمة</label>    
                                     <div class="position-relative">           
-                                    <select v-model="itemForm.max_period" class="form-control ">
+                                    <select v-model="itemForm.max_service" class="form-control ">
                                         <option value="" class="t-c" selected> أقصى مدة للخدمة</option>
                                         <option value="1">يوم</option>
                                         <option value="2">يومين</option>
@@ -175,11 +175,11 @@
                                 <ValidationProvider
                                     tag="div"
                                     :name="$t('max_service_number')"
-                                    vid="max_number"
+                                    vid="max_client"
                                     rules="required|numeric"
                                     v-slot="{errors}">
                                     <label class="form-label">{{ $t('max_service_number') }}</label>
-                                    <input type="text" v-model="itemForm.max_number" class="form-control" placeholder="أقصى عدد من العملاء لكل موعد">
+                                    <input type="text" v-model="itemForm.max_client" class="form-control" placeholder="أقصى عدد من العملاء لكل موعد">
                                     <d-error-input :errors="errors" v-if="errors.length" />
                                 </ValidationProvider>
                                 </div>
@@ -201,7 +201,7 @@
                     </ValidationObserver>
                     </template>
                 <template v-slot:actions>
-                    <button type="button" class="btn btn-main" >
+                    <button @click="save" type="button" class="btn btn-main" >
                         انشئ الجدول
                     </button>
                 </template>
@@ -209,6 +209,7 @@
 </template>
 
 <script>
+import ScheduleAPI from '@/services/api/service-provider/schedules'
 export default {
  name:'dialog-new-schedule',
  props:{
@@ -224,11 +225,11 @@ export default {
             not_end_date:false,
             start_date:null,
             end_date:null,
-            service:'',
-            start_time:null,
-            end_time:null,
-            max_period:null,
-            max_number:null,
+            title:'',
+            start_hour:null,
+            end_hour:null,
+            max_service:null,
+            max_client:null,
             color:'#ffffff',
             
         }
@@ -241,9 +242,16 @@ export default {
                 console.log('form invalid');
                 return;
             }
-
+            let formData =  new FormData();
+            Object.keys(this.itemForm).forEach(key=>{
+                formData.append(key,this.itemForm[key])
+            })
             try {
-                //
+               let { data } = await ScheduleAPI.addItem(formData)
+               if(data.success){
+
+                this.closeEvent()
+               }
             } catch (error) {
                 console.log('error',error)
             }
@@ -256,16 +264,20 @@ export default {
             not_end_date:false,
             start_date:null,
             end_date:null,
-            service:'',
-            start_time:null,
-            end_time:null,
-            max_period:null,
-            max_number:null,
+            title:'',
+            start_hour:null,
+            end_hour:null,
+            max_service:null,
+            max_client:null,
             color:'#ffffff',
             
         }
         this.showDialog =  true;
-        this.$refs.form.reset()
+        this.$nextTick(()=>{
+            if(this.$refs && this.$refs['form'])
+            this.$refs.form.reset()
+        })
+        
         return true;
     },
     closeDialog(){
