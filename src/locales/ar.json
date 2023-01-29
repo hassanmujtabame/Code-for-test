@@ -387,5 +387,7 @@
   "full-time": "دوام كامل",
   "N/A": "N/A",
   "graduate": "خريج",
-  "available-for-hiring": "متاح للتوظيف"
+  "available-for-hiring": "متاح للتوظيف",
+  "part_time": "دوام جزئى",
+  "full_time": "دوام كامل"
 }

@@ -390,5 +390,7 @@
   "full-time": "full-time",
   "N/A": "N/A",
   "graduate": "graduate",
-  "available-for-hiring": "available for hiring"
+  "available-for-hiring": "available for hiring",
+  "part_time": "Part-time",
+  "full_time": "Full-time"
 }
