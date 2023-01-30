@@ -95,8 +95,15 @@ export default {
     value:{
         immediate:true,
         handler(val){
-            if(val)
-            this.date = new Date(val)
+          if (!val) return;
+        let date = new Date(val);
+        if (this.mode == 'time') {
+          date = new Date();
+          date.setHours(val.split(':')[0], val.split(':')[1], 0)
+        }
+              this.date = date
+            
+            
         }
     },
     date:{

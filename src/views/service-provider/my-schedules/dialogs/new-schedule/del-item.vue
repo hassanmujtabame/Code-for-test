@@ -20,7 +20,7 @@
     {{blog.start_date}} =>{{blog.end_date}}
  </p>
  <p class="m-c m-0">
-    {{blog.start_time}} =>{{blog.end_time}}
+    {{blog.start_hour}} =>{{blog.end_hour}}
  </p>
 </div>
     </template>

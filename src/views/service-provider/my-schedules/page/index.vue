@@ -73,8 +73,8 @@
                     <div v-for="attr in attributes" :key="attr.id"
                       class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1 w-100">
                       <div class="text-center" :class="attr.customData.class">
-                        <bdi > {{ timeFormatAMPM(attr.customData.start_time, true) }} : {{
-                          timeFormatAMPM(attr.customData.end_time, true)
+                        <bdi > {{ timeFormatAMPM(attr.customData.start_hour, true) }} : {{
+                          timeFormatAMPM(attr.customData.end_hour, true)
                         }}</bdi>
                       </div>
                       <div class="text-center w-100">
@@ -242,7 +242,7 @@ export default {
             this.items.push(
               {
                 id: -1, title: "تجريب", categoryName: "ويبنار تججريب",
-                start_date: this.dateToString(new Date()),end_date: this.dateToString(new Date()), image: null, start_time: "02:37", end_time: '15:00',
+                start_date: this.dateToString(new Date()),end_date: this.dateToString(new Date()), image: null, start_hour: "02:37", end_hour: '15:00',
                 class: 'text-white' ,
 
               }
