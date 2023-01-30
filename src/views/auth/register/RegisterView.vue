@@ -86,7 +86,7 @@
                         </ValidationProvider>
                         <ValidationProvider
                                     :name="$t('Password-confirm')"
-                                 vid="password"
+                                 vid="passwordConfirm"
                                  rules="required"
                                     v-slot="{errors}">
                             <div class="col-md-4 w-100 row mb-2">
