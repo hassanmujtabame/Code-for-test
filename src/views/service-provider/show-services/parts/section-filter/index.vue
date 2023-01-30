@@ -1,6 +1,6 @@
 <template>
   <d-filter-list :call-list="loadList"
-  @change="updateFilter"
+  @change="changeFilter"
   :searchPlaceholder="$t('search-for-project')"
   orderName="price"
   :orderOpts="
@@ -35,7 +35,7 @@
             </template>
             <template v-slot:side>
               <SidebarBox :filterItem="fitlterSide" 
-              @change="updateFilter"/>
+              @change="changeFilter"/>
             </template>
 </d-filter-list>
 </template>

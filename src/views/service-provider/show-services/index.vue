@@ -5,7 +5,7 @@
                 <div class="row justify-content-between">
                     <div class="col-md-6">
                         <h1 class="fs-1 text-white">أعرض خدماتك</h1>
-                        <p class="text-white">
+                        <p class="text-white fs-r-24">
                             يمكنك عرض خدماتك ومهارتك على أصحاب المشاريع  و تحديد قيمة الصفقة المناسبة لكلاً منكم </p>         
                     </div>
                     <div class="col-md-6">
