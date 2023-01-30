@@ -75,7 +75,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await readyServiceAPI.getRequestForPurchaseService(params)
+                return await readyServiceAPI.getRequestsForPurchaseService(params)
 
             } catch (error) {
                 console.log('error', error)

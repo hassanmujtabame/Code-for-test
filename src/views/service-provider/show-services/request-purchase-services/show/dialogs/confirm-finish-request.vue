@@ -44,7 +44,7 @@ export default {
  methods:{
     async delBlog(){
         try {
-            let {data} = await readyServiceAPI.finisheRequestForPurchaseService(this.itemDialog.id)
+            let {data} = await readyServiceAPI.finisheRequestsForPurchaseService(this.itemDialog.id)
             if(data.success){
                 this.router_push('service-provider-request-purchase-services')
                 this.closeEvent()

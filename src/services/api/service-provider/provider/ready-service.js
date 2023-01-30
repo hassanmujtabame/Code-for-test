@@ -48,20 +48,24 @@ class readyServicesApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/rates?${s}`);
     }
-    getRequestForPurchaseService(params={}){
+    getRequestsForPurchaseService(params={}){
         let s=this.generateQueryUrl(params)
         /**
          * status :  underway waiting  cancel finished
          */
         return window.axios.get(`service-provider/provider/request-purchase-services?${s}`);
     }
-    cancelRequestForPurchaseService(id){
+    getRequestForPurchaseService(id){
+       
+        return window.axios.get(`service-provider/provider/request-purchase-services/${id}`);
+    }
+    cancelRequestsForPurchaseService(id){
         return window.axios.get(`service-provider/provider/request-purchase-services-cancel/${id}`);
     }
-    finisheRequestForPurchaseService(id){
+    finisheRequestsForPurchaseService(id){
         return window.axios.get(`service-provider/provider/request-purchase-services-finished/${id}`);
     }
-    changePriceRequestForPurchaseService(id,data){
+    changePriceRequestsForPurchaseService(id,data){
         return window.axios.get(`service-provider/provider/request-purchase-services-finished/${id}`,data);
     }
 
