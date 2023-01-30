@@ -401,5 +401,9 @@
   "color": "اللون",
   "new-password": "كلمة المرور جديدة",
   "Password-confirm": "تأكيد كلمة المرور",
-  "add": "أضف"
+  "add": "أضف",
+  "category-schedule": "تصنيف الجداول",
+  "confirm_delete_category_schedule_message": " أنت الان على وشك حذف تصنيف للموعيد الخاصة بك",
+  "update": "تحديث",
+  "confirm_delete_schedule_message": " أنت الان على وشك حذف موعد الخاصة بك"
 }

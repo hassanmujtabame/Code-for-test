@@ -403,5 +403,9 @@
   "max_service_number": "max service number",
   "color": "Color",
   "new-password": "New password",
-  "Password-confirm": "Password confirm"
+  "Password-confirm": "Password confirm",
+  "category-schedule": "category schedule",
+  "confirm_delete_category_schedule_message": "You are about to delete your category schedule",
+  "update": "Update",
+  "confirm_delete_schedule_message": "You are about to delete your schedule"
 }

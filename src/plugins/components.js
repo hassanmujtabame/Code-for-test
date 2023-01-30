@@ -28,7 +28,25 @@ import RequestPurchaseCard from '@/components/cards/request-purchase-service.vue
 import ErrorInput from '@/components/error-input/index.vue'
 import CreditCardImage from '@/components/credit-card/credit-card-img.vue'
 import DRateStars from '@/components/rate-stars/index.vue'
-
+/*Vue.directive('click-outside', {
+    priority: 700,
+    bind () {
+      let self  = this
+      this.event = function (event) { 
+          console.log('emitting event')
+          self.vm.$emit(self.expression,event) 
+         }
+      this.el.addEventListener('click', this.stopProp)
+      document.body.addEventListener('click',this.event)
+    },
+    
+    unbind() {
+        console.log('unbind')
+      this.el.removeEventListener('click', this.stopProp)
+      document.body.removeEventListener('click',this.event)
+    },
+    stopProp(event) {event.stopPropagation() }
+  })*/
 Vue.component('d-credit-card', CreditCardImage)
 Vue.component('d-rate-stars', DRateStars)
 Vue.component('d-error-input', ErrorInput)

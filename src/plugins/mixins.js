@@ -106,6 +106,7 @@ const mixin = {
               return `${d} ${m} ${y}`
           },
              timeFormatAMPM(time,abrev=false){
+              if(!time) return '';
               let _time = time.split(':')
               let date = new Date();
               date.setHours(_time[0])
