@@ -1,7 +1,7 @@
 <template>
   <div class="main-top py-5 position-relative">
         <h1 class="text-white px-5 fs-1"> {{ $t('your-ready-services') }} </h1>
-        <p class="text-white px-5 fs-24" style="max-width:500px">
+        <p class="text-white px-5 fs-r-24" style="max-width:702px">
           يقوم مقدمي الخدمات بعرض خدامتهم و مهارتهم و يمكنك شراء هذه الخدمات و التواصل مع اصحابها بكل سهولة
         </p>
         <div class="position-absolute top-0" :class="{'rotateY-180':$i18n.locale!='ar','right-0':$i18n.locale!='ar','left-0':$i18n.locale=='ar'}">
