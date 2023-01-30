@@ -1,14 +1,10 @@
 <template>
   <div class="main-top p-5 position-relative">
-        <h1 class="text-white p-5 fs-1"> خدمات اوفلاين  </h1>
-        <button
-         id="btn-signup"
-          class="mx-5"
-        >
-          <img src="/assets/svg/heart-circle.svg" />
-          سجل الان
-        </button>
-        <div class="position-absolute anim-hwo-ar-you">
+        <h1 class="text-white p-5 fs-1"> {{ $t('offline-services') }} </h1>
+        <p class="text-white">
+          انها ميزة فريدة في مقدمي خدمات رياديات فالان يمكنك طلب خدمة حرفية اوفلاين بكل سهولة 
+</p>
+        <div class="position-absolute top-0" :class="{'rotateY-180':$i18n.locale!='ar','right-0':$i18n.locale!='ar','left-0':$i18n.locale=='ar'}">
           <img src="/assets/img/anim-hwo-ar-you.png" alt="" />
         </div>
         <div class="star position-absolute">

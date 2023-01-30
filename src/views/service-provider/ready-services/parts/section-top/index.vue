@@ -1,8 +1,8 @@
 <template>
- <div class="main-top p-5 position-relative">
-        <h1 class="text-white p-5 fs-1"> {{ $t('online-services') }} </h1>
+  <div class="main-top p-5 position-relative">
+        <h1 class="text-white p-5 fs-1"> {{ $t('your-ready-services') }} </h1>
         <p class="text-white">
-          هي خدمات متوعة و مميزة يقدمها مقدم الخدمة عبر الانترنت يمكنك التواصل معه  و طلب ماتريده
+          يمكنك أضافة خدماتك و ما يمكنك تقديمه الى العملاء كخدمات جاهزة يمكنهم طلب شرائها منك
 </p>
         <div class="position-absolute top-0" :class="{'rotateY-180':$i18n.locale!='ar','right-0':$i18n.locale!='ar','left-0':$i18n.locale=='ar'}">
           <img src="/assets/img/anim-hwo-ar-you.png" alt="" />

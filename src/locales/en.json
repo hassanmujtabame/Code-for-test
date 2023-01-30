@@ -409,5 +409,7 @@
   "update": "Update",
   "confirm_delete_schedule_message": "You are about to delete your schedule",
   "ready-services": "ready services",
-  "your-ready-services": "your ready services"
+  "your-ready-services": "your ready services",
+  "offline-services": "offline services",
+  "online-services": "Online services"
 }

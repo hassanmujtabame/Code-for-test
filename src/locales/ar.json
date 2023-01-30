@@ -407,5 +407,7 @@
   "update": "تحديث",
   "confirm_delete_schedule_message": " أنت الان على وشك حذف موعد الخاصة بك",
   "ready-services": "خدمات جاهزة",
-  "your-ready-services": "خدماتك الجاهزة"
+  "your-ready-services": "خدماتك الجاهزة",
+  "offline-services": "خدمات اوفلاين",
+  "online-services": "خدمات أونلاين"
 }
