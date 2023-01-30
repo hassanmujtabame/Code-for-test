@@ -154,7 +154,7 @@ const routers =[
         path: 'service-provider/my-financial-transactions',
         meta:{layout:LayoutService},
         name: 'service-provider-my-financial-transactions',
-        component: () => import(/* webpackChunkName: "service-provider-my-financial-transactions" */ '../views/network/my-financial-transactions/index.vue')
+        component: () => import(/* webpackChunkName: "service-provider-my-financial-transactions" */ '../views/service-provider/my-financial-transactions/index.vue')
     },
     {
         path: 'service-provider/balance-charge',
