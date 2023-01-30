@@ -411,5 +411,6 @@
   "ready-services": "ready services",
   "your-ready-services": "your ready services",
   "offline-services": "offline services",
-  "online-services": "Online services"
+  "online-services": "Online services",
+  "search-for-project": "search for a project"
 }

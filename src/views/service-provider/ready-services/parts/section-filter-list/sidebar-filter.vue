@@ -55,7 +55,7 @@
                                     المدة
                                 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse"
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse  collapse show"
                                 aria-labelledby="panelsStayOpen-headingThree">
                                 <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">
@@ -77,7 +77,7 @@
                                     التكلفة
                                 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse"
+                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
                                 aria-labelledby="panelsStayOpen-headingFour">
                                 <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">

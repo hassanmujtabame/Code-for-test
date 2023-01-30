@@ -1,5 +1,14 @@
 <template>
-  <d-filter-list :call-list="loadList">
+  <d-filter-list :call-list="loadList"
+  @change="updateFilter"
+  :searchPlaceholder="$t('search-for-project')"
+  orderName="price"
+  :orderOpts="
+        [
+          {id:'asc',name:'الأقل سعرا'},
+          {id:'desc',name:'الأغلى سعرا',}
+      ]"
+  >
 
 <template v-slot="{item}">
   <router-link class="router-link" :to="getRouteLocale('service-provider-show-service-page',{id:item.id})">
@@ -25,7 +34,8 @@
                 </p>
             </template>
             <template v-slot:side>
-              <SidebarBox :filterItem="filterItem"  @change="filterItem=$event"/>
+              <SidebarBox :filterItem="fitlterSide" 
+              @change="updateFilter"/>
             </template>
 </d-filter-list>
 </template>
@@ -47,37 +57,33 @@ export default {
         {id:'asc',name:vm.$t('lower-price')},
         {id:'desc',name:vm.$t('higher-price')},
     ],
+    fitlterSide:{
+            state:null,
+            category_id:[],
+            cities:[],
+            max_period:100,
+            min_period:0,
+            max_price:1000,
+            min_price:0,
+        },
     filterItem:{
+      search:null,
       price:'asc',
       state:null,
-      category_id:null,
-      valueMinDuring:0,
-      valueMaxDuring:100,
-      priceMin:null,
-      priceMax:null
+      category_id:[],
+      cities:[],
+      max_period:100,
+            min_period:0,
+            max_price:1000,
+            min_price:0,
     },
-    items:[
-        {id:1,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500},
-        {id:2,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500},
-        {id:3,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500},
-        {id:4,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500},
-        {id:5,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500},
-        {id:6,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500},
-        {id:7,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500},
-        {id:8,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500},
-        {id:9,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500},
-        {id:10,title:'تصميم فستان لحلفة تخرج',description:'أحتاج مصممة ازياء على وجهه السرعة تصمم لي فستان بسيط لحفلة تخرجي',department:'قسم الازياء',category:'الخياطة',place:'جدة',rest_days:'6 أيام',count_offer:'3',start_date:'نشر منذ ساعة',price:1500}
-    ]
+    items:[]
   }},
-  watch:{
-  filterItem:{
-    deep:true,
-    handler(){
-      this.fireEvent('d-filter-list-refresh')
-    }
-  }
-  },
     methods: {
+      changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
+        },
         openAddService(evt){
         evt.preventDefault();
         this.fireOpenDialog('add-my-request-dialog')
@@ -89,7 +95,6 @@ export default {
         async loadList(metaInfo) {
             let params = {
                 page: metaInfo.current_page,
-                category_id: this.category_id,
                 ...this.filterItem
             }
             return await myRequestsAPIs.getAll(params)

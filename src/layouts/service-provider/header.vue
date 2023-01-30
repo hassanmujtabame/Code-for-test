@@ -8,7 +8,7 @@
             </li>
             
             <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('service-provider-show-services')" class="nav-link">{{ $t('requests') }}</router-link>
+              <router-link :to="getRouteLocale('service-provider-show-services')" class="nav-link">{{ $t('show-your-services') }}</router-link>
             </li>
             <li class="nav-item px-2">
            <router-link :to="getRouteLocale('service-provider-ready-services')" class="nav-link">{{ $t('your-ready-services') }} </router-link>
