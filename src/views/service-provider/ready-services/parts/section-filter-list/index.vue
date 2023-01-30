@@ -2,6 +2,7 @@
     <div class="mt-5 blog">
         <d-filter-list :call-list="loadList" 
         @change="changeFilter"
+        :searchPlaceholder="$t('search_by_service')"
         orderName="price"
         :orderOpts="
              [
@@ -12,14 +13,7 @@
             <template v-slot:side>
                 <sidebarFilter   @change="changeFilter" :filter-item="fitlterSide" />
                 </template>
-            <template v-slot:total>
-
-               
-                    <button @click="openAddService" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center text-white">
-              {{ $t('add-new-service') }}
-                    </button>
-             
-            </template>
+            
 
             <template v-slot="{ item }">
                 <router-link  class="router-link" :to="getRouteLocale('service-provider-ready-service', { id: item.id })">
