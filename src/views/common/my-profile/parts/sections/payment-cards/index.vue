@@ -9,39 +9,55 @@
                             <div class="d-flex px-2 w-100">
                         <btnTypePay name="pay-type" style="flex:1" class="no-border" justify="start" :valueDefault="'back'"
                            >
-                           <span style="width:40px">
-                            <visa2Icon v-if="card.type=='visa'" />
-                            <stcPayIcon :width="26" :height="26" v-if="card.type=='stc'" />
-                        <mastercardIcon  v-if="card.type=='mastercard'" />    
+                           <span v-if="false" style="width:40px">
+                            <visa2Icon v-if="card.paymentBrand=='visa'" />
+                            <stcPayIcon :width="26" :height="26" v-if="card.paymentBrand=='stc'" />
+                        <mastercardIcon  v-if="card.paymentBrand=='mastercard'" />    
                         </span>
-
-                            <bdi> البطاقة المنتهية بـ</bdi> {{card.text}}
+                        <span :data-item="card.id" class="ccicon-list">
+                        <svg id="ccicon-list" class="ccicon-list" width="750" height="471"
+                                                          viewBox="0 0 750 471" version="1.1" 
+                                                          xmlns="http://www.w3.org/2000/svg" 
+                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                          v-if="getIcon(card.paymentBrand)" 
+                                                          v-html="getIcon(card.paymentBrand)"
+                                                          >
+                        </svg>
+                    </span>
+                            <bdi> {{$t('credit_card_end_with')}}</bdi> {{card.last4Digits?card.last4Digits.slice(-4):'N/A'}}
                         </btnTypePay>
                         <span class="mx-2">
-                            <button class="btn-text t-c"><editIcon/></button>
+                            <button @click="openAddCreditCard(card.id)" class="btn-text t-c"><editIcon/></button>
+                        </span>
+                        <span class="mx-2">
+                            <button @click="openDelCreditCard(card)" class="btn-text text-danger"><i class="fa-solid fa-trash-can"></i></button>
                         </span>
                     </div>
                    <hr/>
                         </div>
                     </ValidationObserver>
                     <div class="m-auto p-3">
-                        <button @click="save" class="btn-custmer-w">
+                        <button @click="openAddCreditCard()" class="btn-custmer-w">
                            <plusIcon :size="24"/> {{$t('new_card')}}
                         </button>
                     </div>
-               </div>   
+               </div> 
+               <addCreditCardDialog  @success="addCreditCard"/>  
+               <delCreditCardDialog @success="deletedCreditCard" />
             </div>  
 </template>
 
 <script>
 import userAPI from '@/services/api/user.js'
-import commonAPI from '@/services/api/common.js'
 import stcPayIcon from '@/components/icon-svg/stc-pay.vue'
 import visa2Icon from '@/components/icon-svg/visa.vue'
 import mastercardIcon from '@/components/icon-svg/master-card.vue'
 import plusIcon from '@/components/icon-svg/plus-rect-round.vue'
 import editIcon from '@/components/icon-svg/pencil-edit.vue'
 import btnTypePay from './btn-type-pay.vue'
+import addCreditCardDialog from './add-card-dialog.vue'
+import delCreditCardDialog from './confirm-delete-item.vue'
+import cardVisaIcons from '@/plugins/card-visa-icons'
 export default {
  name:'payment-cards',
  components:{
@@ -50,16 +66,14 @@ export default {
     plusIcon,
     visa2Icon,
     mastercardIcon,
-    stcPayIcon
+    stcPayIcon,
+    addCreditCardDialog,
+    delCreditCardDialog
  },
  data:()=>{
     return {
         countries:[],
-        cards:[
-            {id:1,text:'4252',type:'visa'},
-            {id:2,text:'444',type:'stc'},
-            {id:2,text:'444',type:'mastercard'},
-        ],
+        cards:[],
         itemForm:{
            
         
@@ -68,50 +82,42 @@ export default {
     }
  },
  methods:{
-    async save(evt){
-            if(evt) evt.preventDefault();
-            let valid = await this.$refs.form.validate();
-            if(!valid){
-                console.log('form invalid')
-                return;
-            }
-             let formData =  new FormData();
-             Object.keys(this.itemForm).forEach(key=>{
-                formData.append(`${key}`,this.itemForm[key])
-             })
-             
-            try {
-                let {data} = await userAPI.postResidenceInformation(formData)
-                if(data.success){
-                    window.SwalSuccess(data.message)
-                }else{
-                    window.SwalError(data.message)
-                }
-            } catch (error) {
-                console.log('error',error)
-                if(error.response){
-                    if(error.response.status == 422){
-                        this.$refs.form.setErrors(error.response.data.errors)
-                    }
-                }
-                
-            }
+    getIcon(icon){
+       return cardVisaIcons[icon]
+     
     },
-    async loadCountries(){
+    deletedCreditCard(card){
+        this.cards =  this.cards.filter(c=>c.id!=card.id)
+    },
+    addCreditCard({card,type}){
+        if(type=='add')
+        this.cards.push(card)
+        else{
+           let index = this.cards.findIndex(x=>x.id==card.id)
+           this.cards[index].ccicon =card.ccicon
+           this.cards[index].paymentBrand =card.paymentBrand
+           this.cards[index].last4Digits =card.last4Digits
+        }
+    },
+    openAddCreditCard(id=null){
+      this.fireOpenDialog('add-credit-card',{id});
+    },
+    openDelCreditCard(card){
+      this.fireOpenDialog('confirm-delete-creditcard',card);
+    },
+    async loadCards(){
         try{
-            let {data } = await commonAPI.getCountries()
+            let {data } = await userAPI.getCreditCards()
             if(data.success){
-                this.countries = data.data
+                this.cards = data.data
             }
         }catch(error){
-            this.countries = [
-            {id:'sa',name:'السعودية'}
-        ]
+                console.log('error',error)
         }
     }
  },
  mounted(){
-    this.loadCountries()
+    this.loadCards()
  }
 }
 </script>
