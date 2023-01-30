@@ -11,7 +11,6 @@ const mixin = {
           methods:{
             timeAgoToHuman(date)
             {
-              console.log('dd',date)
               // Calculate the difference in milliseconds
               let date1 = new Date(date)
               let date2 = new Date()
