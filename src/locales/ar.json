@@ -398,5 +398,7 @@
   "end_time_schedule": "نهاية الوقت",
   "max_service_period": "أقصى مدة للخدمة",
   "max_service_number": "أقصى عدد من العملاء لكل موعد",
-  "color": "اللون"
+  "color": "اللون",
+  "new-password": "كلمة المرور جديدة",
+  "Password-confirm": "تأكيد كلمة المرور"
 }

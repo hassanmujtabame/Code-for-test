@@ -401,5 +401,7 @@
   "end_time_schedule": "end time schedule",
   "max_service_period": "max service period",
   "max_service_number": "max service number",
-  "color": "Color"
+  "color": "Color",
+  "new-password": "New password",
+  "Password-confirm": "Password confirm"
 }

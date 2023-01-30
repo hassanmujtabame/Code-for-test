@@ -110,6 +110,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "forget-password-check" */ '../views/auth/ForgetPasswordCheck.vue')
   },
   {
+    path: 'change-password',
+    meta:{layout:LayoutDefault},
+    name: 'change-check',
+    component: () => import(/* webpackChunkName: "change-password" */ '../views/auth/change-password/index.vue')
+  },
+  {
     path: 'terms-and-conditions',
     meta:{layout:LayoutDefault},
     name: 'Terms-and-Conditions',
