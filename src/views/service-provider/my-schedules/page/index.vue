@@ -115,7 +115,7 @@
     <delCatItemDialog />
     <DialogNewCategorySchedule @success="successUpdate"/>
     <delItemDialog @success="deleteEventSuccess" />
-    <DialogNewSchedule />
+    <DialogNewSchedule @success="updateEventSuccess"/>
   </div>
 </template>
 
@@ -161,7 +161,16 @@ export default {
       this.fireOpenDialog('delete-schedule',this.eventSelected)
       this.hideMenu()
     },
-    deleteEventSuccess(){},
+    deleteEventSuccess(item){
+      this.items =  this.items.filter(x=>x.id!=item.id)
+      this.updateAttributes();
+    },
+    updateEventSuccess(item){
+    
+     let index = this.items.findIndex(x=>x.id==item.id)
+     this.items[index] = Object.assign(this.items[index],item)
+      this.updateAttributes();
+    },
     successUpdate(dataEvent){
             this.category_schedule.title=dataEvent.title
             this.category_schedule.color=dataEvent.color;

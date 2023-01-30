@@ -238,7 +238,7 @@ export default {
             try {
                 let { data } = this.itemForm.id?await ScheduleAPI.updateItem(this.itemForm.id,formData): await ScheduleAPI.addItem(formData)
                 if (data.success) {
-                    this.emit('success',this.itemForm)
+                    this.$emit('success',this.itemForm)
                     this.closeEvent()
                 }
             } catch (error) {

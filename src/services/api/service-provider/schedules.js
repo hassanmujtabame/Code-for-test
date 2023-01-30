@@ -11,6 +11,7 @@ class ScheduleServiceProviderApi extends BaseApi {
         return window.axios.post(`service-provider/provider/provider-schedules`,data);
     }
     updateItem(id,data){
+        data.append('_method','PUT')
         return window.axios.post(`service-provider/provider/provider-schedules/${id}`,data);
     }
     deleteItem(id){
