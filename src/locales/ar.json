@@ -405,5 +405,7 @@
   "category-schedule": "تصنيف الجداول",
   "confirm_delete_category_schedule_message": " أنت الان على وشك حذف تصنيف للموعيد الخاصة بك",
   "update": "تحديث",
-  "confirm_delete_schedule_message": " أنت الان على وشك حذف موعد الخاصة بك"
+  "confirm_delete_schedule_message": " أنت الان على وشك حذف موعد الخاصة بك",
+  "ready-services": "خدمات جاهزة",
+  "your-ready-services": "خدماتك الجاهزة"
 }

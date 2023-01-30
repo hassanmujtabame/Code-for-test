@@ -6,13 +6,13 @@
               > -->
               <router-link :to="getRouteLocale('service-provider-home')"  class="nav-link">{{ $t('Home-page') }}</router-link>
             </li>
-            <li class="nav-item px-2">
-           
-              <router-link :to="getRouteLocale('service-provider-ready-services')" class="nav-link">{{ $t('services') }} </router-link>
-            </li>
+            
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('service-provider-show-services')" class="nav-link">{{ $t('requests') }}</router-link>
             </li>
+            <li class="nav-item px-2">
+           <router-link :to="getRouteLocale('service-provider-ready-services')" class="nav-link">{{ $t('your-ready-services') }} </router-link>
+         </li>
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
             </li>

@@ -1,9 +1,17 @@
 <template>
     <div class="mt-5 blog">
         <d-filter-list :call-list="loadList" 
-        hideSide
         @change="changeFilter"
+        orderName="price"
+        :orderOpts="
+             [
+                {id:'asc',name:'الأقل سعرا'},
+                {id:'desc',name:'الأغلى سعرا',}
+            ]"
         classColCard="col-md-4 mt-3">
+            <template v-slot:side>
+                <sidebarFilter :filter-item="fitlterSide" />
+                </template>
             <template v-slot:total>
 
                
@@ -34,16 +42,31 @@
 <script>
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import readyServiceCard from '@/components/cards/ready-service.vue';
+import sidebarFilter from './sidebar-filter.vue'
 export default {
     name: 'section-filter-list',
     components:{
-        readyServiceCard
+        readyServiceCard,
+        sidebarFilter
     },
     data: () => ({
-
+        fitlterSide:{
+            state:null,
+            category_id:[],
+            max_period:100,
+            min_period:0,
+            max_price:1000,
+            min_price:0,
+        },
         filterItem:{
             search:null,
-            created_at:'asc'
+            price:'asc',
+            state:null,
+            category_id:[],
+            max_period:100,
+            min_period:0,
+            max_price:1000,
+            min_price:0,
         }
     }),
     methods: {
