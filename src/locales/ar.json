@@ -400,5 +400,6 @@
   "max_service_number": "أقصى عدد من العملاء لكل موعد",
   "color": "اللون",
   "new-password": "كلمة المرور جديدة",
-  "Password-confirm": "تأكيد كلمة المرور"
+  "Password-confirm": "تأكيد كلمة المرور",
+  "add": "أضف"
 }

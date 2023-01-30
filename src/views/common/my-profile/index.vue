@@ -39,6 +39,7 @@
       </div>
 
 </div>
+
 </div>
 </template>
 
@@ -68,7 +69,8 @@ export default {
     SectionSettingsNotif,
     SectionListBlocks,
     SectionShowerProject,
-    SectionPaymentCards
+    SectionPaymentCards,
+    
  },
  data:()=>{
   return {

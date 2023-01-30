@@ -13,8 +13,27 @@
                                 
                             معرض الاعمال
                         </h3>
-               
+                        <div>
+                            <button @click="openAddImage" class="btn-custmer">إضافة صورة</button>
+                        </div>
 
+                    </div>
+                    <div>
+
+                        <d-swiper 
+                        v-if="!loading"
+                        :items="items" 
+                        :slidesPerView="4"
+                        is-auto
+                        :space-between="10"
+                        class="p-2">
+                        <template v-slot="{item}">
+                            <div class="my-work-box">
+                                <span @click="delItem(item.id)" class="my-work-box__close"><i class="fa fa-times" aria-hidden="true"></i></span>
+                            <img :src="item.image_path" alt="">
+                            </div>
+                        </template>
+                    </d-swiper>
                     </div>
                     <div>
                      
@@ -32,17 +51,92 @@
 
                     </div>
                 
-               </div>   
+               </div>  
+               <addItemImageProjectDialog @success="loadList" /> 
             </div>
 </template>
 
 <script>
+import UserApi from '@/services/api/user.js';
+import addItemImageProjectDialog from './add-item-image.vue';
+
 export default {
  name:'list-item',
- props:['currentUser']
+ props:['currentUser'],
+ components:{
+    addItemImageProjectDialog
+ },
+    data: () => {
+        return {
+            loading : true,
+            items: []
+        }
+    },
+ methods:{
+    openAddImage(){
+        this.fireOpenDialog('add-item-image-project')
+    },
+   async delItem(id){
+
+        try {
+   
+            let { data } =  await UserApi.deleteMyWorkGallary(id)
+                if(data.success){
+                  this.loadList()
+                }
+        } catch (error) {
+            console.log('error',error)
+        }
+  
+    },
+    async loadList(){
+        this.loading =  true;
+        try {
+            let params = {}
+            let { data } =  await UserApi.getMyWorkGallaries(params)
+                if(data.success){
+                    this.items = data.data;
+                    
+                }
+        } catch (error) {
+            console.log('error',error)
+        }
+        this.loading =  false;
+    }
+ },
+ mounted(){
+    this.loadList()
+ }
 }
 </script>
 
-<style>
+<style scoped>
+.my-work-box{
+    border: 0.5px solid #d1d1d1;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    padding:5px;
+    position: relative;
+}
+.my-work-box>img{
 
+    border-radius: 4px;
+    width:100%;
+    height:100%;
+}
+.my-work-box__close{
+    cursor: pointer;
+    position:absolute;
+    border-radius: 50%;
+    height: 24px;
+    width: 25px;
+    background: white;
+    color: black;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>
