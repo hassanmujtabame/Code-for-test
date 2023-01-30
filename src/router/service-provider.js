@@ -16,7 +16,7 @@ const routers =[
         path: 'service-provider/my-profile',
         name: 'service-provider-my-profile',
         meta:{layout:LayoutService,auth:true},
-        component: () => import(/* webpackChunkName: "service-provider-my-profile" */ '../views/my-profile/index.vue')
+        component: () => import(/* webpackChunkName: "service-provider-my-profile" */ '../views/common/my-profile/index.vue')
     },
     {
         path: 'service-provider/preview-profile',
