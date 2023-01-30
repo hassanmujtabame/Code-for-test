@@ -10,7 +10,7 @@
             ]"
         classColCard="col-md-4 mt-3">
             <template v-slot:side>
-                <sidebarFilter :filter-item="fitlterSide" />
+                <sidebarFilter   @change="changeFilter" :filter-item="fitlterSide" />
                 </template>
             <template v-slot:total>
 
