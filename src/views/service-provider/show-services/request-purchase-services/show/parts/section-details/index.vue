@@ -5,14 +5,9 @@
                                 <h4 class="border-bottom">
                                     تفاصيل من طالب الخدمة
                                 </h4>
-                                <p>
-                                    تصميم ازياء مميزة من بداية الاسكتش حتى اتنفيذ 
-    
-                                                            لدي خبرة كبيرة في مجال التصميم و مرفق بعض من اعمالي فقط تواصلي معي واخبريني ماذا تفضلين و نبدأ بالتنفيذ فورا
-                                </p>
-                                <p>
-                                    **يمكن زيادة سعر الخدمة اذا اختار العميل نوع اقمشة عالي السعر
-                                </p>
+                                <p v-html="itemPage.note">
+                                   </p>
+                                
                                 <div class="border-top d-flex gap-2 flex-wrap">
                                     <small class="t-c ">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
