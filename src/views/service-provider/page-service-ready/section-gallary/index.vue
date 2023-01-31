@@ -60,7 +60,7 @@
    },
    data:(vm)=>{
     let gallery = []
-    if(vm.item.medias.length)gallery=vm.item.medias;
+    if(vm.item.medias.length)gallery=vm.item.medias.filter(x=>true);
    gallery.unshift({id:-1,image_path:vm.item.image})
     
    return  {

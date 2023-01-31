@@ -28,7 +28,7 @@
                                 <ValidationProvider
                                     :name="$t('Image')"
                                  vid="image"
-                                 rules="required|image"
+                                 rules="image"
                                     v-slot="{validate,errors}">
                                 <input @change="uploadImage($event,validate) || validate($event)" class="form-control d-none" type="file"
                                     id="imginput">
@@ -70,7 +70,7 @@
                                         <ValidationProvider
                                     :name="$t('File')"
                                  vid="file"
-                                 rules="required|image"
+                                 rules="image"
                                     v-slot="{validate,errors}">
                                         <input name="uploadDocument" @change="uploadGallary($event,validate) || validate($event)" type="file" id="choose-file"
                                             accept=".jpg,.jpeg,.png"
@@ -324,6 +324,7 @@ let valid = await this.$refs.form.validate();
  formData.append('execution_period',this.itemForm.execution_period)
  formData.append('execution_place',this.itemForm.execution_place)
  formData.append('state',this.itemForm.state);
+ formData.append('image',this.imageFile);
  //formData.append('file',this.attachment);
  formData.append('keywords',this.itemForm.keywords);
  //formData.append('images[]', this.imageFile); // main image as first in gallary
@@ -389,12 +390,8 @@ async uploadGallary(evt,validate){
 
             let {data} = await readyServiceAPIs.addGalleriesItem(this.itemForm.id,formData)
                 if(data.success){
-                    var reader = new FileReader();
-                    reader.onload =  (e) =>{
-                    
-                        this.gallariesUrl.push( {id:data.data.media_id,image_path:e.target.result}) 
-                    };
-                 reader.readAsDataURL(file);
+                
+                        this.gallariesUrl.push( {id:data.data.id,image_path:data.data.image}) 
                 }
         } catch (error) {
             //
