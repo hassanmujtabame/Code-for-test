@@ -54,7 +54,12 @@
     <p class="t-c">
          <!--timer-->
          <TimerIcon />
+         <template v-if="resetDays">
             {{ $t('ends-yet') }} {{ resetDays }} {{ $t('day_s') }}
+        </template>
+        <template v-else>
+            {{ $t('timeover') }}
+        </template>
 
     </p>
     <p class="t-c">
@@ -113,7 +118,7 @@ export default {
         type:[String,Number]
     },
     resetDays:{
-        type:[String,Number]
+        type:[Number]
     },
     price:{
         type:[String,Number]

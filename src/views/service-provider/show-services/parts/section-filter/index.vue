@@ -12,7 +12,7 @@
 
 <template v-slot="{item}">
   <router-link class="router-link" :to="getRouteLocale('service-provider-show-service-page',{id:item.id})">
-    <showRequest 
+    <showService 
         :title="item.title"
         :description="item.description"
         :department="item.department"
@@ -25,14 +25,6 @@
      />
     </router-link>
 </template>
-<template v-slot:order>
-                <select v-model="filterItem.price" class="form-select mb-3 py-3" aria-label=".form-select-lg example">  
-                    <option v-for="(item,i) in orderList" :key="i" :value="item.id">{{ item.name }}</option>
-                </select>
-                <p style="top: -13px; right: 24px; background: white" class="position-absolute">
-                    ترتيب حسب
-                </p>
-            </template>
             <template v-slot:side>
               <SidebarBox :filterItem="fitlterSide" 
               @change="changeFilter"/>
@@ -43,11 +35,11 @@
 <script>
 import myRequestsAPIs from '@/services/api/service-provider/user/my-requests.js'
 import SidebarBox from './sidebar.vue'
-import showRequest from '@/components/cards/show-request.vue'
+import showService from '@/components/cards/show-service.vue'
 export default {
  name:'section-filter',
   components:{
-    showRequest,
+    showService,
     SidebarBox
   },
   data:(vm)=>{
