@@ -300,7 +300,8 @@
   <DialogRequestService />
   <DialogDeleteService />
   <DialogUpdateService />
-
+<DialogSuccessSuspendService @suspend="suspend" />
+<DialogSuccessRepublishService />
     </div>
 </template>
 
@@ -315,12 +316,16 @@ import ActionForVisiter from './actions/visiter.vue'
 import DialogBooking from './dialog/booking.vue'
 import DialogRequestService from './dialog/request-service/index.vue'
 import DialogDeleteService from '@/layouts/service-provider/dialogs/del-service.vue'
+import DialogSuccessSuspendService from '@/layouts/service-provider/dialogs/success-suspend-service.vue'
+import DialogSuccessRepublishService from '@/layouts/service-provider/dialogs/success-republish-service.vue'
 import DialogUpdateService from '@/layouts/service-provider/dialogs/update-service/index.vue'
 export default {
     name:'page-service-ready',
     components:{
         DialogBooking,
         DialogDeleteService,
+        DialogSuccessSuspendService,
+        DialogSuccessRepublishService,
         DialogRequestService,
         DialogUpdateService,
         ActionCrud,
@@ -338,9 +343,13 @@ export default {
     }),
     methods:{
         suspend(val){
-            console.log('val',val)
+                if(val){
+                    this.fireOpenDialog('success-suspend-service',this.itemPage)
+                }else{
+                    this.fireOpenDialog('success-republish-service',this.itemPage)
+
+                }
             this.itemPage.is_suspend=val;
-            console.log('is_suspend',this.itemPage)
         },
     async initializing() {
       this.loading = true;

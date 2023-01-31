@@ -412,5 +412,9 @@
   "online-services": "خدمات أونلاين",
   "search-for-project": "ابحث عن مشروع",
   "timeover": "انتهى الوقت",
-  "days": "أيام"
+  "days": "أيام",
+  "republish": "إعادة النشر",
+  "modify": "تعديل",
+  "modification": "تعديل",
+  "delete": "حذف"
 }

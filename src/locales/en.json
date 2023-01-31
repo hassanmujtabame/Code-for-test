@@ -414,5 +414,9 @@
   "online-services": "Online services",
   "search-for-project": "search for a project",
   "timeover": "timeover",
-  "days": "Days"
+  "days": "Days",
+  "republish": "republish",
+  "modify": "modify",
+  "modification": "Modification",
+  "delete": "Delete"
 }

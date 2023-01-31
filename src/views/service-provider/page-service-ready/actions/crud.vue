@@ -5,21 +5,21 @@
                              href="#addModal" >
                             <img src="/assets/svg/update.svg" />
 
-                            تعديل
+                            {{$t('modification')}}
                         </button>
                     </div>
-                    <div  v-if="!loading">
-                        <button @click="suspendItem" v-if="!itemPage.is_suspend" style="height: 40px; background-color:#FFBC00 ;"
+                    <div>
+                        <button :disabled="loading" @click="suspendItem" v-if="!itemPage.is_suspend" style="height: 40px; background-color:#FFBC00 ;"
                             class="btn-main px-3 w-100 border-0 rounded-2" 
                            role="button">
                            <img src="/assets/svg/suspendu.svg" />
                             {{$t('suspend')}}
                         </button>
-                        <button @click="notSuspendItem" v-else style="height: 40px; background-color:#FFBC00 ;"
+                        <button :disabled="loading" @click="notSuspendItem" v-else style="height: 40px; background-color:#FFBC00 ;"
                             class="btn-main px-3 w-100 border-0 rounded-2" 
                             role="button">
                            <img src="/assets/svg/suspendu.svg" />
-                            {{$t('cancel-suspend')}}
+                            {{$t('republish')}}
                         </button>
                     </div>
                     <div>
@@ -28,7 +28,7 @@
                             href="#exampleModalToggle7" role="button">
                            <img src="/assets/svg/trash-outline.svg" />
 
-                            حذف
+                            {{$t('delete')}}
                         </button>
 
                     </div>
