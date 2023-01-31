@@ -1,8 +1,10 @@
 <template>
-   <div class="accordion-item border-bottom m-2">
-                          <h2 class="accordion-header" :id="idh">
+   <div class="accordion-item  m-2" :class="{'border-bottom':borderBottom}">
+                          <h2 v-if="title" class="accordion-header" :id="idh">
+                            <slot name="before-btn"></slot>
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="`#${id}`" aria-expanded="false" :aria-controls="id">{{title}}</button>
                           </h2>
+                          <slot  name="title" :id="id"></slot>
                           <div :id="id" class="accordion-collapse collapse" :aria-labelledby="idh" data-bs-parent="#accordionFlushExample1">
                             <div class="accordion-body">
                                 <slot></slot>
@@ -16,6 +18,10 @@ export default {
 props:{
     title:{
         type:String,
+        require:true
+    },
+    borderBottom:{
+        type:Boolean,
         require:true
     }
 },

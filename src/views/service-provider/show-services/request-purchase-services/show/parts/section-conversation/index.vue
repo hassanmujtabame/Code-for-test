@@ -75,6 +75,19 @@ export default {
     }
  },
  methods:{
+    pushMessage(){
+        let date = new Date();
+            let date_only = this.dateToString(date);
+            let time_only = this.dateToString(date);
+        this.conversations.push(
+            {id:6,
+                content:this.message,
+                date:date_only,time:time_only,datetime:date,
+                isMe:true}
+                
+        )
+        this.message =  ''
+    },
     async sendMessage(evt){
         evt.preventDefault();
         
@@ -83,18 +96,19 @@ export default {
                 console.log('invalid')
                 return;
             }
-            let date = new Date();
-            let date_only = this.dateToString(date);
-            let time_only = this.dateToString(date);
-        this.conversations.push(
-            {id:6,
-                content:this.message,
-                time_human:'منذ 17 يوما و 24 دقيقة',
-                date:date_only,time:time_only,datetime:date,
-                isMe:true}
-                
-        )
-        this.message =  ''
+            let formData = new FormData();
+            formData.append('message',this.message)
+            formData.append('user_id',this.itemPage.user_info.id)
+            formData.append('service_id',this.itemPage.id)
+            try {
+                let { data } = await window.axios.post('service-provider/user/send-message-to-provider')
+                 if(data.success){
+                    this.pushMessage()
+                 }
+            } catch (error) {
+                //
+            }
+            
     }
  }
 }

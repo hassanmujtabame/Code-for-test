@@ -41,12 +41,41 @@
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
                     aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
-                        <div v-for="(cat,i) in categories" :key="i" class="form-check">
+                    
+                        <ExpandedPanel
+                        :id="('accordionFlushCat')"
+                        >
+                        <ExpandedPanelItem 
+                        v-for="(cat,i) in categories" :key="i"
+                        class="form-check"
+                        :borderBottom="false"
+                        >
+                          <template v-slot:title="{id}">
+                            <div  class="form-check">
                             <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="checkbox">
-                            <label class="form-check-label" for="defaultCheck1">
+                            <label class="form-check-label accordion-label collapsed" 
+                             type="button" data-bs-toggle="collapse"
+                            :data-bs-target="`#${id}`" aria-expanded="false" :aria-controls="id">
                                 {{cat.name}}
                             </label>
                         </div>
+                          </template>
+                           
+                        <!-- children-->
+                        
+                        <template v-slot:default>
+                            <div class="cat-children">
+                            <div v-for="(catc,j) in cat.childreen" :key="j" class="form-check">
+                                    <input v-model="filter.category_id" :value="catc.id" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        {{catc.name}}
+                                    </label>
+                                </div>
+                                </div>
+                        </template>
+                        </ExpandedPanelItem>
+                    </ExpandedPanel>
+                  
                     </div>
                 </div>
             </div>
@@ -129,9 +158,15 @@
 
 <script>
 import myRequestsAPIs from '@/services/api/service-provider/user/my-requests.js'
+import ExpandedPanel from '@/components/expanded-panel/ExpandedPanel.vue';
+import ExpandedPanelItem from '@/components/expanded-panel/ExpandedPanelItem.vue';
 
 export default {
  name:'sidebar-box',
+ components:{
+    ExpandedPanel, 
+    ExpandedPanelItem 
+ },
  props:{
     filterItem:{
         type:[Object,Array],//defaults values
@@ -189,6 +224,54 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.accordion-body{
+    padding:0 !important
+}
+.accordion-label::after {
+    flex-shrink: 0;
+    width: var(--bs-accordion-btn-icon-width);
+    height: var(--bs-accordion-btn-icon-width);
+    margin-right: auto;
+    content: "";
+    background-image: var(--bs-accordion-btn-icon);
+    background-repeat: no-repeat;
+    background-size: var(--bs-accordion-btn-icon-width);
+    transition: var(--bs-accordion-btn-icon-transition);
+}
 
+
+html[lang=ar] .accordion-button::after {
+    left: 0;
+}
+.accordion-label{
+    position: relative;
+    width: 100%;
+
+}
+.accordion-label::after {
+    position: absolute;
+}
+html[lang=ar] .accordion-label::after {
+    left: 0;
+    margin-left:-5px ;
+}
+html:not([lang=ar]) .accordion-label::after {
+    right: 0;
+    margin-right:-5px ;
+}
+.accordion-label:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-active-icon);
+    transform: var(--bs-accordion-btn-icon-transform);
+}
+html[lang=ar] .cat-children{
+    padding-right:15px
+}
+html:not([lang=ar]) .cat-children{
+    padding-left:15px
+}
+.cat-children label{
+    font-size: 12px;
+    color:#818080;
+}
 </style>
