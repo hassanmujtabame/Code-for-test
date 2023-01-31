@@ -3,32 +3,46 @@
                             <div class=" justify-content-center border-bottom ">
                                 <div class=" img-service text-center">
                                     <img class="rounded-circle "
-                                        src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt=""
+                                        :src="itemPage.user_info.image" :alt="itemPage.user_info.name"
                                         width="120" height="120">
                                 </div>
                                 <div class=" t-c text-center mt-3">
                                     <h4 class="fw-bold">
-                                        عبد الرحمن الشيخ
+                                    {{itemPage.user_info.name}}
                                     </h4>
                                     <p>
-                                        عضو في الشبكة
+                                        {{itemPage.user_info.graduate??'N/A'}}
                                     </p>
 
 
                                 </div>
 
                             </div>
-                            <div>
+                            <ValidationObserver tag="div" class="position-relative" ref="form">
+                                <d-overlays-simple v-if="sending" />
                                 <h3 class="m-c p-2">
                                     أضف عرضك
                                 </h3>
-                                <div>
-                                    <textarea name="" class="w-100 border p-2 rounded-2" id="" rows="7"
+                                <ValidationProvider
+                                :name="$t('your-offer')"
+                                vid="note"
+                                tag="div"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                    <textarea v-model="itemForm.note" class="w-100 border p-2 rounded-2" id="" rows="7"
                                         placeholder="أكتب ماذا يمكنك أن تقدم  "></textarea>
-                                </div>
+                                        <d-error-input :errors="errors" v-if="errors.length" />
+                                </ValidationProvider>
                                 <div class="col-md-4 w-100">
+                                    <ValidationProvider
+                                :name="$t('attachment')"
+                                vid="file"
+                                rules=""
+                                v-slot="{errors}"
+                                >
                                     <label class="w-100 position-relative  rounded-2">
-                                        <input type="file" id="validationCustom03" class="form-control opacity-0 "
+                                        <input type="file" @change="uploadFile($event)" id="validationCustom03" class="form-control opacity-0 "
                                             required>
 
                                         <svg style="    top: 12px;" class="position-absolute" width="16" height="16"
@@ -54,6 +68,8 @@
 
 
                                     </label>
+                                    <d-error-input :errors="errors" v-if="errors.length" />
+                                </ValidationProvider>
                                 </div>
                                 <div class="col-12 m-2 m-auto text-center">
                                     <button @click="sendOffer" class="btn btn-main  w-75" type="submit"  role="button">
@@ -75,7 +91,7 @@
 
                                     </button>
                                 </div>
-                            </div>
+                            </ValidationObserver>
                             <SuccessSendOffer />
                         </div>
 </template>
@@ -88,9 +104,55 @@ name:'section-user-info',
  components:{
     SuccessSendOffer
  },
+ data:()=>{
+    return{
+        sending:false,
+        itemForm:{
+                note:'',
+                file:null,
+        }
+    }
+ },
  methods:{
-    sendOffer(){
-        this.fireOpenDialog('success-send-offer')
+    uploadFile(evt){
+    if (!evt.target.files && !evt.target.files[0]) {
+            this.itemForm.file = null;
+            
+            return;
+        }
+        this.itemForm.file = evt.target.files[0];
+    },
+    async sendOffer(){
+        this.sending = true;
+        let valid  = this.$refs.form.validate();
+        if(!valid){
+            this.sending = false;
+            return ;
+        }
+        try {
+            let formData = new FormData();
+            Object.keys(this.itemForm).forEach(key=>{
+                formData.append(key,this.itemForm[key])
+            })
+            formData.append('user_id',this.itemPage.user_info.id)
+            let { data } = await window.axios.post('service-provider/user/offer-for-service',formData)
+            if(data.success){
+                this.fireOpenDialog('success-send-offer');
+                this.itemForm.note = '';
+                this.itemForm.file = null;
+                this.$refs.form.reset();
+            }
+        } catch (error) {
+            console.log('error',error)
+            if(error.response){
+                let response =error.response
+                if(response.status==422){
+                    if(response.data.errors)
+                    this.$refs.form.setErrors(response.data.errors)
+                }
+            }
+        }
+        this.sending = false;
     }
  }
 }

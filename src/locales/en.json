@@ -418,5 +418,6 @@
   "republish": "republish",
   "modify": "modify",
   "modification": "Modification",
-  "delete": "Delete"
+  "delete": "Delete",
+  "your-offer": "Your offer"
 }
