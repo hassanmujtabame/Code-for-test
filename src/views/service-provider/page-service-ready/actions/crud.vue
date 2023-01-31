@@ -2,7 +2,7 @@
    <div class="col-md-6 d-flex gap-2 justify-content-end">
                     <div>
                         <button @click="openEditDialog" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"
-                            data-bs-toggle="modal" href="#addModal" role="button">
+                             href="#addModal" >
                             <img src="/assets/svg/update.svg" />
 
                             تعديل
@@ -24,7 +24,7 @@
                     </div>
                     <div>
                         <button @click="openDeleteDialog" style="height: 40px; background-color:#FF1616 ;"
-                            class="btn-main px-3 w-100 border-0 rounded-2" data-bs-toggle="modal"
+                            class="btn-main px-3 w-100 border-0 rounded-2" 
                             href="#exampleModalToggle7" role="button">
                            <img src="/assets/svg/trash-outline.svg" />
 
