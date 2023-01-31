@@ -15,13 +15,14 @@
           <AddServiceDialog />
           <DefaultFooter/>
 
-          <portal to="body">
+          
             <RateYourExperience
             :title="$t('service-providers')"
             category="service-provider"
             />
             <RateSuccessExperience />
-          </portal>
+          <d-success-message />
+          <sendMsgProvider />
     </div>
   </template>
   
@@ -35,9 +36,11 @@
   import localHeader from './header.vue'
   import AddServiceDialog from './dialogs/add-service/index.vue'
   import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
+  import sendMsgProvider from './dialogs/send-message/index'
   export default {
       name:'network-layout',
       components:{
+        sendMsgProvider,
         RateYourExperienceBtn,
         RateYourExperience,
           DefaultFooter,

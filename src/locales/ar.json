@@ -417,5 +417,7 @@
   "modify": "تعديل",
   "modification": "تعديل",
   "delete": "حذف",
-  "your-offer": "عرضك"
+  "your-offer": "عرضك",
+  "message-title": "عنوان الرسالة",
+  "send": "إرسال"
 }

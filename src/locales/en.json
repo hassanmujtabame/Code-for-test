@@ -419,5 +419,7 @@
   "modify": "modify",
   "modification": "Modification",
   "delete": "Delete",
-  "your-offer": "Your offer"
+  "your-offer": "Your offer",
+  "message-title": "Message title",
+  "send": "Send"
 }

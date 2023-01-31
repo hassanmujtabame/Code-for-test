@@ -34,7 +34,11 @@
 
                     <div class="col-md-6 mt-5 ">
                         
-                            <d-user-info-li class="mb-3" v-if="!isOwner"/>
+                            <d-user-info-li group-dialog="send-message-to-provider" :member="itemPage.user_info" 
+                            :dataEvent="dataEventMessage"
+                            class="mb-3" v-if="!isOwner"
+                            
+                            />
                         <div class="box border rounded-3 p-4">
                             <div class="t-c ">
 
@@ -335,12 +339,18 @@ export default {
         SectionRateService,
         SectionShareService
     },
-    data:()=>({
+    data:()=>{
+        return {
+            dataEventMessage:{
+                formData:{user_id:null},
+                opts:{}
+            },
         loading:true,
         hasError:false,
         itemPage:{},
         isOwner:false,
-    }),
+    }
+},
     methods:{
         suspend(val){
                 if(val){
@@ -358,6 +368,9 @@ export default {
                 let { data } = await readyServiceAPIs.getItem(this.$route.params.id)
                 if (data.success) {
                    this.itemPage = data.data;
+                   this.dataEventMessage.formData.user_id = data.data.user_id
+                   this.dataEventMessage.opts.user = data.data.user_info
+
                    this.isOwner = this.itemPage.user_id==this.user.id
                    try {
                   await readyServiceAPIs.setAsView(this.$route.params.id)

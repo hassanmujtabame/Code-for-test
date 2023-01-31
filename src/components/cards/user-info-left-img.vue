@@ -9,10 +9,10 @@
                 <h4 class="fw-bold">
                   {{member.name}}
                 </h4>
-                <p>{{ member.bio??member.job }}</p>
+                <p>{{ member.description??member.job }}</p>
                 <div class="message-service">
-                    <button class="text-white border-0 p-2 px-3" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">
+                    <button class="text-white border-0 p-2 px-3"
+                       @click="sendMessage" >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M17 21.25H7C3.35 21.25 1.25 19.15 1.25 15.5V8.5C1.25 4.85 3.35 2.75 7 2.75H17C20.65 2.75 22.75 4.85 22.75 8.5V15.5C22.75 19.15 20.65 21.25 17 21.25ZM7 4.25C4.14 4.25 2.75 5.64 2.75 8.5V15.5C2.75 18.36 4.14 19.75 7 19.75H17C19.86 19.75 21.25 18.36 21.25 15.5V8.5C21.25 5.64 19.86 4.25 17 4.25H7Z"
@@ -39,6 +39,17 @@ export default {
         type:String,
         default:'145'
     },
+    groupDialog:{
+        type:String,
+    },
+    dataEvent:{
+        default:()=>{return {
+            /**
+             formData:{},
+            opts:{}
+             */
+        }}
+    },
    member:{
      type:[Array,Object],
      default:()=>{return {
@@ -48,6 +59,13 @@ export default {
         summary:'مصمم واجهات محترفة لدي الكثير من الخبرة في تصميم الازياء والعبايات يسرني مساعدتك'
      }}
    }
+ },
+ methods:{
+    sendMessage(){
+        if(!this.groupDialog) return;
+        if(!this.member.id) return;
+        this.fireOpenDialog(this.groupDialog,this.dataEvent)
+    }
  }
 }
 </script>

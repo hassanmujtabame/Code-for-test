@@ -15,7 +15,7 @@
                         </div>
                         <div class=" text-center">
                             <div class="message-service">
-                                <button class="text-white border-0 p-2 px-3"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <button @click="sendMessage" class="text-white border-0 p-2 px-3">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -36,6 +36,9 @@
 export default {
  name:'user-info-card',
  props:{
+    groupDialog:{
+        type:String,
+    },
    member:{
      type:[Array,Object],
      default:()=>{return {
@@ -45,6 +48,16 @@ export default {
         summary:'مصمم واجهات محترفة لدي الكثير من الخبرة في تصميم الازياء والعبايات يسرني مساعدتك'
      }}
    }
+ },
+ methods:{
+    sendMessage(){
+        if(!this.groupDialog) return;
+        if(!this.member.id) return;
+        this.fireEvent(this.groupDialog,{
+            formData:{user_id:this.member.id},
+            opts:{}
+        })
+    }
  }
 }
 </script>
