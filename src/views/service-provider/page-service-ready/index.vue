@@ -295,12 +295,12 @@
         </div>
 
   <SectionContinueLearning />
-  <portal to="body">
+
   <DialogBooking />
   <DialogRequestService />
   <DialogDeleteService />
   <DialogUpdateService />
-</portal>
+
     </div>
 </template>
 
