@@ -60,7 +60,7 @@ export default {
     fitlterSide:{
             state:null,
             category_id:[],
-            cities:[],
+            city_id:[],
             max_period:100,
             min_period:0,
             max_price:1000,
@@ -71,7 +71,7 @@ export default {
       price:'asc',
       state:null,
       category_id:[],
-      cities:[],
+      city_id:[],
       max_period:100,
             min_period:0,
             max_price:1000,
