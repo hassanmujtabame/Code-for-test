@@ -37,8 +37,21 @@
                                 </div>
                                 </ValidationProvider>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 ">
+                                <div class="row"
+                                style="max-height: 295px;overflow: auto;"
+                                >
+                                <!-- show galleries-->
+                                <div class="col-md-6 my-1"
+                                v-for="(g,i) in gallariesUrl" :key="i"
+                                >
+                                <galleryImage @remove="removeGallary" :item="{id:i,src:g}" />
+                                </div>
+                                </div>
+                                </div>
+                                
                                 <div class="col-md-12">
+                                    <!-- attchment galleries-->
                                     <div class="text">
     
                                         <label for="choose-file" class="custom-file-upload file-label  w-100 p-2 text-center "
@@ -52,16 +65,16 @@
                                               
     
                                             <p class="m-c"> 
-                                              اضافة ملف
+                                              اضافة مرفقات
                                             </p>
                                         </label>
                                         <ValidationProvider
                                     :name="$t('File')"
                                  vid="file"
-                                 rules="required"
+                                 rules="required|image"
                                     v-slot="{validate,errors}">
-                                        <input name="uploadDocument" @change="uploadFile($event) || validate($event)" type="file" id="choose-file"
-                                            accept=".jpg,.jpeg,.pdf,doc,docx,application/msword,.png"
+                                        <input name="uploadDocument" @change="uploadGallary($event,validate) || validate($event)" type="file" id="choose-file"
+                                            accept=".jpg,.jpeg,.png"
                                             style="display: none;" />
                                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
@@ -75,7 +88,6 @@
         
     
     
-                            </div>
     
     
                         </div>
@@ -225,7 +237,7 @@
                       
                         </div>
                     </div>
-                        <div class="mb-3 row">
+                        <div v-if="false" class="mb-3 row">
                             <label class="form-label col-12">{{$t('gallery')}}</label>
                             
                              <div class="col-md-12">
@@ -274,11 +286,13 @@
 import PlusCircleOutlineIcon from '@/components/icon-svg/plus-circle-outline.vue'
 import TrashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
 import ServiceProviderAPIs from '@/services/api/service-provider/provider/ready-service'
+import galleryImage  from './gallery-image.vue'
 export default {
     name:'add-ready-service-dialog',
     components:{
         PlusCircleOutlineIcon,
-        TrashOutlineIcon
+        TrashOutlineIcon,
+        galleryImage
     },
 data:(vm)=>{
 return{
@@ -345,7 +359,13 @@ removeGallary(index){
     this.gallaries.splice(index, 1);
     this.gallariesUrl.splice(index, 1);
 },
-uploadGallary(evt){
+async uploadGallary(evt,validate){
+    if(validate){
+        let resValid = await validate(evt)
+       if(!resValid.valid){
+                return;
+       }
+    }
     //console.log('uploadGallary',evt.target.files)
     if (!evt.target.files && evt.target.files.length===0) {
         //console.log('empty')
