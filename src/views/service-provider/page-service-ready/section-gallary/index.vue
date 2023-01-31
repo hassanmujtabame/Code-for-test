@@ -61,7 +61,7 @@
    data:(vm)=>{
     let gallery = []
     if(vm.item.medias.length)gallery=vm.item.medias;
-    else gallery.push({id:1,image_path:vm.item.image})
+   gallery.unshift({id:-1,image_path:vm.item.image})
     
    return  {
       thumbsSwiper: null,
