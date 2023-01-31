@@ -56,12 +56,17 @@
           require:true
       }
    },
-   data:(vm)=>({
+   data:(vm)=>{
+    let gallery = []
+    if(vm.item.medias.length)gallery=vm.item.medias;
+    else gallery.push({id:1,image_path:vm.item.image})
+    
+   return  {
       thumbsSwiper: null,
       controlledSwiper:null,
       //items:itemsTest
-      items:vm.item.medias??itemsTest
-   }),
+      items:gallery//??itemsTest
+   }},
       methods: {
        
         setThumbsSwiper(swiper) {
