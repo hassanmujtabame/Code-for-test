@@ -18,14 +18,17 @@
             معرض اعمالك
 
         </h3>
-        <d-swiper :items="items" 
+        <d-swiper 
+        v-if="!loading"
+        :items="items" 
         :slidesPerView="4"
         is-auto
         :space-between="10"
-        class="swiper p-2">
-            <template v-slot="{}">
-                <img src="/assets/img/Rectangle 1798.png" alt="">
-
+        class="p-2">
+            <template v-slot="{item}">
+                <div class="my-work-box">
+                <img :src="item.image_path" alt="">
+                </div>
             </template>
 
 
@@ -36,26 +39,52 @@
 </template>
 
 <script>
+import UserApi from '@/services/api/user.js';
+
 export default {
     name: 'section-gallery',
     data: () => {
         return {
-            items: [
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-                {},
-            ]
+            loading : true,
+            items: []
         }
+    },
+ methods:{
+    async loadList(){
+        this.loading =  true;
+        try {
+            let params = {
+                user_id:this.$route.params.id
+            }
+            let { data } =  await UserApi.getMyWorkGallaries(params)
+                if(data.success){
+                    this.items = data.data;
+                    
+                }
+        } catch (error) {
+            console.log('error',error)
+        }
+        this.loading =  false;
     }
+ },
+ mounted(){
+    this.loadList()
+ }
 }
 </script>
 
 <style>
+.my-work-box{
+    border: 0.5px solid #d1d1d1;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    padding:5px
+}
+.my-work-box>img{
 
+    border-radius: 4px;
+    width:100%;
+    height:100%;
+}
 </style>
