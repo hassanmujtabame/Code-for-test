@@ -127,7 +127,7 @@
                                  vid="execution_period"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{ $t('execution-during') }}</label>
+                                    <label class="form-label">{{ $t('execution-during') }} ({{ $t('days') }})</label>
                             <input type="text" v-model="itemForm.execution_period" class="form-control" :placeholder="$t('execution-during')">
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}

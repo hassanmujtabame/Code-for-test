@@ -413,5 +413,6 @@
   "offline-services": "offline services",
   "online-services": "Online services",
   "search-for-project": "search for a project",
-  "timeover": "timeover"
+  "timeover": "timeover",
+  "days": "Days"
 }
