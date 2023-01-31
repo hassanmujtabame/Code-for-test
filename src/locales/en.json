@@ -97,7 +97,7 @@
   "short-description": "Short description",
   "confirm_delete": "Delete Confirmation",
   "confirm_delete_blog_message": "You are about to delete your blog",
-  "confirm_delete_ready_service_message": "You are about to delete your ready service",
+  "confirm_delete_ready_service_message": "Are you sure to delete your ready service?",
   "save_modifications": "Save modifications",
   "description_blog": "Blog's content",
   "short-description-blog": "Blog's short description",

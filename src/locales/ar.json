@@ -96,7 +96,7 @@
   "short-description": "وصف مختصر",
   "confirm_delete": "تأكيد الحذف",
   "confirm_delete_blog_message": " أنت الان على وشك حذف التدوينة الخاصة بك",
-  "confirm_delete_ready_service_message": "أنت على وشك حذف خدمتك الجاهزة",
+  "confirm_delete_ready_service_message": "هل أنت متأكد من حذف خدمتك الجاهزة ؟",
   "save_modifications": "حفظ التعديلات",
   "description_blog": "محتوي المدونة",
   "short-description-blog": "اختصار المحتوي التدوينة",
