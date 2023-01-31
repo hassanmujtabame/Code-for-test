@@ -24,7 +24,8 @@ class readyServicesApi extends BaseApi{
         return window.axios.post(`service-provider/provider/ready-services`,data);  
     }
     update(id,data){
-        return window.axios.put(`service-provider/provider/ready-services/${id}`,data);  
+        data.append('_method','PUT')
+        return window.axios.post(`service-provider/provider/ready-services/${id}`,data);  
     }
     delete(id){
         return window.axios.delete(`service-provider/provider/ready-services/${id}`);  
@@ -68,7 +69,17 @@ class readyServicesApi extends BaseApi{
     changePriceRequestsForPurchaseService(id,data){
         return window.axios.get(`service-provider/provider/request-purchase-services-finished/${id}`,data);
     }
-
+   /** for galleries a ready service */
+   getGalleriesAll(service_id,params){
+    let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/provider/ready-services/${service_id}/galleries?${s}`);
+    }
+    addGalleriesItem(service_id,data){
+            return window.axios.post(`service-provider/provider/ready-services/${service_id}/galleries`,data);
+    }
+    deleteGalleriesItem(service_id,id){
+        return window.axios.delete(`service-provider/provider/ready-services/${service_id}/galleries/${id}`);
+}
 }
 
 export default new readyServicesApi();

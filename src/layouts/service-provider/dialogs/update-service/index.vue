@@ -37,7 +37,8 @@
                                 </div>
                                 </ValidationProvider>
                             </div>
-                            <div class="col-md-12 ">
+                            <div class="col-md-12 position-relative">
+                                <d-overlays-simple v-if="gallery_deleting"/>
                                 <div class="row"
                                 style="max-height: 295px;overflow: auto;"
                                 >
@@ -45,13 +46,13 @@
                                 <div class="col-md-6 my-1"
                                 v-for="(g,i) in gallariesUrl" :key="i"
                                 >
-                                <galleryImage @remove="removeGallary" :item="{id:i,src:g}" />
+                                <galleryImage @remove="removeGallary" :item="{id:g.id,src:g.image_path}" />
                                 </div>
                                 </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="text">
-    
+                                    <div class="text position-relative">
+                                            <d-overlays-simple v-if="gallery_loading"/>
                                         <label for="choose-file" class="custom-file-upload file-label  w-100 p-2 text-center "
                                             id="choose-file-label">
                                             <svg width="58" height="56" viewBox="0 0 58 56" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -279,7 +280,7 @@
 <script>
 import PlusCircleOutlineIcon from '@/components/icon-svg/plus-circle-outline.vue'
 import TrashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
-import ServiceProviderAPIs from '@/services/api/service-provider/provider/ready-service'
+import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import galleryImage  from '../add-service/gallery-image.vue'
 
 export default {
@@ -297,6 +298,8 @@ return{
             {id:'online',name:'اونلاين'},
             {id:'offline',name:'اوفلاين'},
         ],
+        gallery_loading : false,
+        gallery_deleting : false,
         categories:[],
         showImage:false,
         idImage: `image-selected-${vm.generateRandomString(8)}`,
@@ -331,7 +334,7 @@ for ( let i = 0; i < this.itemForm.category_id.length; i++) {
         formData.append('categories[]', this.itemForm.category_id[i].id);
 }
     try {
-        let { data } = await ServiceProviderAPIs.add(formData)
+        let { data } = await readyServiceAPIs.update(this.itemForm.id,formData)
         if(data.success){
             //console.log('success',data)
             //this.fireEvent('list-blogs-update')
@@ -350,21 +353,54 @@ for ( let i = 0; i < this.itemForm.category_id.length; i++) {
        
     }
 },
-removeGallary(index){
-    this.gallaries.splice(index, 1);
+async removeGallary(id){
+    this.gallery_deleting = true;
+    try {
+
+let {data} = await readyServiceAPIs.deleteGalleriesItem(this.itemForm.id,id)
+    if(data.success){
+        let index  = this.gallariesUrl.findIndex(x=>x.id==id)
+    //this.gallaries.splice(index, 1);
     this.gallariesUrl.splice(index, 1);
+    }
+} catch (error) {
+//
+}
+this.gallery_deleting = false;  
 },
 async uploadGallary(evt,validate){
+    this.gallery_loading =  true;
     if(validate){
         let resValid = await validate(evt)
        if(!resValid.valid){
+        this.gallery_loading =  false;
                 return;
        }
     }
     if (!evt.target.files && evt.target.files.length===0) {
         //console.log('empty')
+        this.gallery_loading =  false;
             return;
         }
+        let file = evt.target.files[0]
+        let formData = new FormData();
+        formData.append('image',file)
+        try {
+
+            let {data} = await readyServiceAPIs.addGalleriesItem(this.itemForm.id,formData)
+                if(data.success){
+                    var reader = new FileReader();
+                    reader.onload =  (e) =>{
+                    
+                        this.gallariesUrl.push( {id:data.data.media_id,image_path:e.target.result}) 
+                    };
+                 reader.readAsDataURL(file);
+                }
+        } catch (error) {
+            //
+        }
+        this.gallery_loading =  false;
+        /*
         for(let i=0;i<evt.target.files.length; i++){
             let file = evt.target.files[i]
             this.gallaries.push(file)
@@ -376,7 +412,7 @@ async uploadGallary(evt,validate){
         };
         reader.readAsDataURL(file);
         }
-        
+        */
 },
 makeImageEmpty(){
         this.imageFile = null;
@@ -411,7 +447,7 @@ uploadFile(evt){
 },
 async loadCategories(){
     try {
-        let {data} =  await ServiceProviderAPIs.getCategories()
+        let {data} =  await readyServiceAPIs.getCategories()
         if(data.success){
             this.categories = data.data
         }
@@ -421,6 +457,7 @@ async loadCategories(){
 },
 openDialog(dataItem){
     this.itemForm =Object.assign({
+    id:dataItem.id,
     title:dataItem.title,
     price:dataItem.price,
     execution_period:dataItem.execution_period,
@@ -445,7 +482,6 @@ closeDialog(){
 closeEvent(){
    this.fireEvent(this.group+'-close-dialog')
 }
-
 },
 mounted(){
     this.loadCategories()
