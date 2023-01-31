@@ -127,6 +127,10 @@ class UserApi extends BaseApi {
     sendAbuseCommentOnRate(data){
         return window.axios.post(`service-provider/provider/report-comments`,data);
     }
+    sendAbuseReadyService(data){
+        return window.axios.post(`service-provider/user/report-service`,data);
+        
+    }
    getMyOffers(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/service-offers?${s}`);
