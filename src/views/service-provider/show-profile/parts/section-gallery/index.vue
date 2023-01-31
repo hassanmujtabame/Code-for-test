@@ -27,7 +27,7 @@
         class="p-2">
             <template v-slot="{item}">
                 <div class="my-work-box">
-                <img :src="item.image_path" alt="">
+                <img :src="item.image" alt="">
                 </div>
             </template>
 
@@ -43,6 +43,7 @@ import UserApi from '@/services/api/user.js';
 
 export default {
     name: 'section-gallery',
+    props:['userPage'],
     data: () => {
         return {
             loading : true,
@@ -54,7 +55,7 @@ export default {
         this.loading =  true;
         try {
             let params = {
-                user_id:this.$route.params.id
+                user_id:this.userPage.id
             }
             let { data } =  await UserApi.getMyWorkGallaries(params)
                 if(data.success){

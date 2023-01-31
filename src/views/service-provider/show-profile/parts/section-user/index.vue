@@ -2,17 +2,17 @@
     <div>
   <div class="box info border p-3">
                         <div class="main-img text-center m-auto">
-                            <img class="rounded-circle img-person" :src="user.image" :alt="user.name" width="140" height="140">
+                            <img class="rounded-circle img-person" :src="userPage.image" :alt="userPage.name" width="140" height="140">
                         </div>
                         <div class=" text-center">
                             <h5 class="m-c mt-2">
-                             {{user.name}}
+                             {{userPage.name}}
                             </h5>
                             <p>
-                                {{user.job}}
+                                {{userPage.job_title}}
                             </p>
                             <p class="t-c">
-                                {{user.bio}}
+                                {{userPage.description}}
                                </p>
                         </div>
                         <p class="rating">
@@ -68,6 +68,7 @@ import readyServiceAPI from '@/services/api/service-provider/provider/ready-serv
 
 export default {
  name:'section-user',
+ props:['userPage'],
  data:()=>({
     loading:true,
     items:[],
@@ -87,7 +88,7 @@ export default {
         this.loading =  true;
         try {
             let params={
-                user_id:this.$route.params.id
+                user_id:this.userPage.id
             }
            let { data } = await   readyServiceAPI.getRateReadyServicesStatistics(params) 
            if(data.success){

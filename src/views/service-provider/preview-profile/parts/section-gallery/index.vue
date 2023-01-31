@@ -27,7 +27,7 @@
         class="p-2">
             <template v-slot="{item}">
                 <div class="my-work-box">
-                <img :src="item.image_path" alt="">
+                <img :src="item.image" alt="">
                 </div>
             </template>
 

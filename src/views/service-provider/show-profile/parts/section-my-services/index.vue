@@ -44,6 +44,7 @@ import plusRectRoundIcon from '@/components/icon-svg/plus-rect-round.vue';
 import UserApi from '@/services/api/user.js';
 export default {
  name:'section-my-services',
+ props:['userPage'],
  components:{
     MyServiceCard,plusRectRoundIcon
  },
@@ -70,7 +71,7 @@ export default {
         try {
             let params = {
                 paginate:6,
-                user_id:this.$route.params.id
+                user_id:this.userPage.id
             }
             let { data } =  await UserApi.getMyReadyService(params)
                 if(data.success){
