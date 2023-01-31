@@ -266,9 +266,9 @@
                                 <h3 class="border-bottom p-2">
                                     الكلمات المفتاحية
                                 </h3>
-                                <div class="d-flex flex-wrap justify-content-between text-white word-intial pt-3">
+                                <div class="d-flex flex-wrap justify-content-start text-white word-intial pt-3">
                                     <template v-if="itemPage.keywords">
-                                    <p v-for="(keyw,i) in itemPage.keywords.split(',')" :key="i">
+                                    <p class="mx-1" v-for="(keyw,i) in itemPage.keywords.split(',')" :key="i">
                                         {{keyw}}
                                     </p>
                                 </template>
