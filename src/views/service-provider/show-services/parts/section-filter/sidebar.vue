@@ -175,7 +175,6 @@ export default {
                 if (data.success) {
 
                     let categories = data.data;
-                    categories.unshift({ id: null, name: 'الكل' })
                     this.categories=categories
                 }
             } catch (error) {
