@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="px-5">
       <div class="box">
           <!--mySwiper2-->
                               <d-swiper 
@@ -22,6 +22,7 @@
   
                           </div>
                           <!--mySwiper service-provider-->
+                          <div class="px-2">
                           <d-swiper
   
                           class="mySwiper service-provider" 
@@ -38,6 +39,7 @@
                                           <img style="height:115px" :src="item.image_path" />
                                       </template>
                               </d-swiper>
+                            </div>
                      
     </div>
   </template>
