@@ -17,7 +17,7 @@ class ServiceProviderApi extends BaseApi{
     } 
     getCategories(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/provider/project-categories?${s}`);
+        return window.axios.get(`service-provider/user/service-categories?${s}`);
     }
     
 
