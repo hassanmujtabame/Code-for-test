@@ -45,8 +45,8 @@
   import SectionNeedService from './parts/section-need-service/index.vue'
   import SectionExploreServices from './parts/section-explore-services/index.vue'
   import SectionRecentServices from './parts/section-recent-services/index.vue'
-  import SectionContinueLearning from './parts/section-continue-learning/index.vue'
-  import SectionHear from './parts/section-hear/index.vue'
+  import SectionContinueLearning from '@/views/service-provider/common-components/section-continue-learning/index.vue'
+  import SectionHear from '@/views/service-provider/common-components/section-hear/index.vue'
   export default {
   name:"service-provider-guest",
   components:{
