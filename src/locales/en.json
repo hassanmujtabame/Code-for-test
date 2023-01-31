@@ -407,7 +407,7 @@
   "category-schedule": "category schedule",
   "confirm_delete_category_schedule_message": "You are about to delete your category schedule",
   "update": "Update",
-  "confirm_delete_schedule_message": "You are about to delete your schedule",
+  "confirm_delete_schedule_message": "Are you sure to delete the schedule? ",
   "ready-services": "ready services",
   "your-ready-services": "your ready services",
   "offline-services": "offline services",

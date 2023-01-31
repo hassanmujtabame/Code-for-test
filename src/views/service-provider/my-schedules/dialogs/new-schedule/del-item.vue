@@ -16,12 +16,10 @@
  <p class="mt-1">
   {{ $t('confirm_delete_schedule_message') }}
  </p>
- <p class="m-c m-0">
-    {{blog.start_date}} =>{{blog.end_date}}
+ <p class="t-c m-0">
+  عن تأكيد حذف الجدول لن يتم حذفه قبل الرجوع الى الادمن  لتأكد من انه لا يوجد حجز في مواعيد الجدول
  </p>
- <p class="m-c m-0">
-    {{blog.start_hour}} =>{{blog.end_hour}}
- </p>
+
 </div>
     </template>
     <template v-slot:actions>
