@@ -3,7 +3,7 @@
     <h2>{{ $t('riadiat-network-schedule') }}</h2>
                 <p>{{ $t('riadiat-network-schedule-text') }}</p>
                 
-                <div style="background-color: #F6F8F9;">
+                <div style="background-color: #F6F8F9;;min-height: 200px;">
                     <div class="row p-2">
                         <div class="col-md-8">
                             <div class="row">
