@@ -421,5 +421,7 @@
   "delete": "Delete",
   "your-offer": "Your offer",
   "message-title": "Message title",
-  "send": "Send"
+  "send": "Send",
+  "execution_period": "execution period",
+  "execution_place": "execution place"
 }

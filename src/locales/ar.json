@@ -419,5 +419,7 @@
   "delete": "حذف",
   "your-offer": "عرضك",
   "message-title": "عنوان الرسالة",
-  "send": "إرسال"
+  "send": "إرسال",
+  "execution_period": "وقت تنفيذ",
+  "execution_place": "مكان التنفيذ"
 }

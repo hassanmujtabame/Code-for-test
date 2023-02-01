@@ -17,7 +17,7 @@
                 </div>
                 <!-- actions page-->
                <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
-               <ActionForVisiter v-else />
+               <ActionForVisiter v-else :itemPage="itemPage" />
                <!-- #actions page-->
                 <div class="row redy-services ">
                     <div class="col-md-6 mt-5 ">
@@ -300,7 +300,7 @@
 
   <SectionContinueLearning />
 
-  <DialogBooking />
+  <DialogBooking  />
   <DialogRequestService />
   <DialogDeleteService />
   <DialogUpdateService />

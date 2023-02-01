@@ -120,7 +120,7 @@ export default {
                 let test= this.$children[0].$locale.format(val, this.mask)
                 console.log('value',value,test,this.$children[0].$locale)
                 this.$emit('input',value)
-       */
+                */
             if(this.mode=='date')
             this.$emit('input',this.dateToString(val))
             else
@@ -133,7 +133,7 @@ export default {
     }
   },
    mounted() {
-      this.$root.$on('input', (value) => {
+      this.$root.$on('input', (/*value*/) => {
         //console.log('dxggdfg',value);
       });
     }

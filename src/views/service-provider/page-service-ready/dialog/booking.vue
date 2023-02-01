@@ -1,24 +1,24 @@
 <template>
-  <!-- -------------------------------- request service  -->
-  <d-dialog-large :group="group"
+  <d-dialog-large 
+  :group="group"
   :openDialog="openDialog"
   :closeDialog="closeDialog"
+  :xl="false"
   >
-
-<template v-slot:default="{dialog}">
- <div>
-  {{ dateSelected?dateSelected.toISOString().split("T")[0]:'' }}
- </div>
-    <d-date-picker v-if="dialog" v-model="dateSelected" 
-    :attributes="attributes_date" 
-    :min-date="minDate"
-    is-expanded  
-    class="date-service-provider " 
-    />
-            </template>
-        <template v-slot:actions="{close}">
-          <button @click="doBooking(close)" :disabled="!dateSelected" style="height: 45px;" class="btn btn-main" >حجز</button>
-          <button type="button" class="btn btn-custmer-w " @click="close">الغاء</button>
+      <template v-slot:default="{dialog}">
+        <div>
+          {{ dateSelected?dateSelected.toISOString().split("T")[0]:'' }}
+        </div>
+        <d-date-picker v-if="dialog" v-model="dateSelected" 
+        :attributes="attributes_date" 
+        :min-date="minDate"
+        is-expanded  
+        class="date-service-provider " 
+        />
+      </template>
+        <template v-slot:actions="">
+          <button @click="doBooking" :disabled="!dateSelected" style="height: 45px;" class="btn btn-main" >حجز</button>
+          <button type="button" class="btn btn-custmer-w " @click="closeEvent">الغاء</button>
         </template>
 
   
@@ -47,21 +47,30 @@ export default {
           }
         ],
     dateSelected:null,
-    minDate:null
+    minDate:null,
+    itemDialog :{},
   }
  },
  methods:{
-  openDialog(){
+  openDialog(dataEvent){
             this.dateSelected = null
             this.minDate=new Date()
+            this.itemDialog = {...dataEvent}
             return true;
         },
         closeDialog(){
             return true;
         },
-  doBooking(close){
-    close()
-    this.fireOpenDialog('request-service',this.dateSelected.toISOString().split("T")[0])
+        closeEvent(){
+          this.fireCloseDialog(this.group)
+        },
+  doBooking(){
+    this.closeEvent()
+    let dataEvent = {
+      date:this.dateSelected.toISOString().split("T")[0],
+      item:this.itemDialog
+    }
+    this.fireOpenDialog('request-service',dataEvent)
   }
  }
  }
