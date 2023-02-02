@@ -11,7 +11,7 @@
 
                             <div class="row justify-content-center">
                                 <!-- btn pyment type-->
-                                <div class="col-12">
+                                <div v-if="false" class="col-12">
                                     <div class="group-btn-type-pay">
                                         <btnTypePay name="pay-type" v-for="(btn, i) in payment_types" :key="i"
                                             :valueDefault="btn.id" v-model="itemForm.payment_type">
@@ -25,21 +25,28 @@
                                 <div class="m-b  mt-3 mb-1" style="font-size:14px">
                                     إعادة الدفع من خلال
                                 </div>
-                                <div class="col-12 d-flex align-items-center">
-
-                                    <btnTypePay name="pay-type" justify="start" :valueDefault="'back'"
+                                <div v-for="(card,i) in cards" :key="i" class="col-12 d-flex align-items-center">
+                                    <div class="d-flex px-2 w-100">
+                                    <btnTypePay name="pay-type" justify="start" class="mt-1" :valueDefault="card.id"
                                         v-model="itemForm.payment_type">
                                         <visa2Icon />
-                                        <bdi> البطاقة المنتهية بـ</bdi> 4152
+                                        <bdi> البطاقة المنتهية بـ</bdi> {{card.last4Digits}}
                                     </btnTypePay>
                                     <span class="mx-2">
                                         <button class="btn-text m-c">{{ $t('change') }}</button>
                                     </span>
+                                    </div>
                                 </div>
                                 <div class="col-12 mt-5 row">
-                                    <div class="col-12  d-flex justify-content-between form-card">
-                                        <div class="m-b form-title">أو أضف بطاقة جديدة</div>
-                                        <div class="form-icons">
+                                    <div class="col-12  d-flex justify-content-between form-card mb-2">
+                                        <div class="m-b form-title">
+                                            <btnTypePay name="pay-type" justify="start" :valueDefault="'new'"
+                                        v-model="itemForm.payment_type">
+                                        <visa2Icon v-if="false" />
+                                        أو أضف بطاقة جديدة
+                                    </btnTypePay>
+                                            </div>
+                                        <div v-if="false" class="form-icons">
                                             <visa2Icon />
                                             <mastercardIcon />
                                             <noPathIcon />
@@ -131,7 +138,7 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-check mt-3">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input v-model="saveCard" class="form-check-input" type="checkbox"
                                                                 name="flexcheckDefault">
                                                             <label class="form-check-label m-c" for="flexcheckDefault">
                                                                 {{ $t('save') }}
@@ -196,7 +203,7 @@ import visa2Icon from '@/components/icon-svg/visa.vue'
 import noPathIcon from '@/components/icon-svg/no-path.vue'
 import mastercardIcon from '@/components/icon-svg/master-card.vue'
 import CreditCardImage from '@/components/credit-card/credit-card-img.vue'
-
+import userAPI from '@/services/api/user.js'
 import creditCardMixins from '@/common/mixins/credit-card.vue';
 export default {
     mixins:[creditCardMixins],
@@ -224,7 +231,7 @@ export default {
         },
         defaultForm:{
             type:[Array,Object],
-            default:()=>{return { payment_type: 1,
+            default:()=>{return { payment_type: 'new',
                 amount: null,}}
         }
     },
@@ -238,7 +245,10 @@ export default {
         CreditCardImage
     },
     data: (vm) => {
+        let def_form= {...vm.defaultForm}
         return {
+            cards:[],
+            saveCard:false,
             changeable_: vm.changeable,
             title_: vm.title,
             showDialog: false,
@@ -247,7 +257,7 @@ export default {
                 { id: 3, name: 'applePayIcon', type: 'icon' },
                 { id: 2, name: 'stcPayIcon', type: 'icon' },
             ],
-            itemForm:vm.defaultForm
+            itemForm:def_form
         }
     },
     watch:{
@@ -265,7 +275,17 @@ export default {
         },
     },
     methods: {
-        sendChangeFaceCard(face){
+        async loadCards(){
+        try{
+            let {data } = await userAPI.getCreditCards()
+            if(data.success){
+                this.cards = data.data
+            }
+        }catch(error){
+                console.log('error',error)
+        }
+    },
+     sendChangeFaceCard(face){
             this.fireEvent(`credit-card-image-show-face`,face)
         },
         sendEventCard(name,data){
@@ -283,9 +303,39 @@ export default {
         sendExpiryCard(){
             this.sendEventCard('expiry-date',this.expiry_date)
         },
-        payment() {
-            this.$emit('payment', this.itemForm)
+       async payment() {
+            if(!this.itemForm.payment_type){
+                window.SwalError('من فضل إختر بطافة للدفع')
+                return ;
+            }
+            if(this.itemForm.payment_type=='new'){
+             let valid = await this.$refs.form.validate()
+             if(!valid){
+                window.SwalError('من فضل إملئ معلومات بطافة للدفع')
+                return;
+             }
+            }
+            let data={
+                cardInfo:{
+                    card_number:this.card_number,
+                    card_holder:this.card_holder,
+                    card_cvv:this.card_cvv,
+                    expiry_date:this.expiry_date,
+                    paymentBrand:this.stateNumber.cardtype,
+                    saveCard:this.saveCard
+                },
+                item:{
+                    payment_type:this.itemForm.payment_type,
+                    amount:this.itemForm.amount,
+                    
+                },
+                otherData:this.otherData
+            }
+            this.$emit('payment', data)
         },
+    },
+    mounted(){
+        this.loadCards()
     }
 }
 

@@ -17,7 +17,7 @@
             <h4 class="t-c">
                 معلومات الخدمة {{ dateSelected }}
             </h4>
-            <div v-if="showDialog">
+            <ValidationObserver ref="form" v-if="showDialog">
                 <p>
                     هذه المعلومات تم أضافتها بواسطه مقدم الخدمة يمكنكم دائما التواصل معاً و تغيرها في اي وقت بما يتناسب
                     مع مطلباتكم أنت و مقدم الخدمة
@@ -86,6 +86,7 @@
                         class="mb-3"
                         :name="$t('execution_period')"
                         vid="execution_period"
+                        rules="required"
                         v-slot="{errors}"
                         >
                         <label class="form-label"> وقت تنفيذ او استلام الخدمة</label>
@@ -112,8 +113,9 @@
                         <ValidationProvider
                         tag="div"
                         class="mb-3"
-                        :name="$t('execution_period')"
-                        vid="execution_period"
+                        :name="$t('specific_date')"
+                        vid="specific_date"
+                        rules="required"
                         v-slot="{errors}"
                         >
                         <date-picker-input
@@ -129,6 +131,7 @@
                         class="mb-3"
                         :name="$t('execution_place')"
                         vid="execution_place"
+                        rules="required"
                         v-slot="{errors}"
                         >
                         <label class="form-label"> مكان التنفيذ او التسليم</label>
@@ -184,14 +187,26 @@
                         </div>
                     </div>
                     <div>
+                        <ValidationProvider
+                        tag="div"
+                        class="mb-3"
+                        :name="$t('details')"
+                        vid="description"
+                        rules="required"
+                        v-slot="{errors}"
+                        >
+                        <label class="form-label">تفاصيل </label>
+                        
                         <textarea v-model="itemForm.description" class="w-100 rounded-1 border p-2" rows="8"
                             placeholder="أكتب بعض التفاصيل الاخرى"></textarea>
-                    </div>
+                            <d-error-input :errors="errors" v-if="errors.length" />
+                    </ValidationProvider>
+                        </div>
                 </div>
-            </div>
+            </ValidationObserver>
         </template>
         <template v-slot:actions>
-            <button class="btn btn-main" >تأكيد
+            <button @click="save" class="btn btn-main" >تأكيد
                 الحجز
             </button>
         </template>
@@ -224,6 +239,23 @@ export default {
             if(this.itemForm.count>1)
             this.itemForm.count-=1;
         },
+        async save(){
+            let valid = this.$refs.form.validate();
+            if(!valid) {
+                return;
+            }
+            let dataMessage = {
+                    title:'لقد تم حجز الموعد بنجاح',
+                    description:'عند تأكيد مقدم الخدمة لطلبك ستتمكن من دفع قيمة الخدمة و الاستفادة منها'
+                }
+            this.fireOpenDialog('standard-success-message',dataMessage)
+            this.closeEvent()
+            try {
+               //
+            } catch (error) {
+                //
+            }
+        },
         openDialog(dataEvent){
             this.itemForm={
                 booking_date : null,
@@ -243,6 +275,9 @@ export default {
         closeDialog(){
             this.showDialog = false;
             return true;
+        },
+        closeEvent(){
+            this.fireCloseDialog(this.group)
         }
     }
 }

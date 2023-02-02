@@ -25,7 +25,7 @@ class NetworkApi extends BaseApi {
             payment_id
             package_id
         */
-        return window.axios.get(`network/user-checkout`,data);
+        return window.axios.post(`network/user-checkout`,data);
     }
    
 

@@ -423,5 +423,7 @@
   "message-title": "Message title",
   "send": "Send",
   "execution_period": "execution period",
-  "execution_place": "execution place"
+  "execution_place": "execution place",
+  "specific_date": "specific date",
+  "details": "details"
 }
