@@ -15,6 +15,13 @@ class JobsServiceApi extends BaseApi {
     deleteItem(id){
         return window.axios.delete(`service-provider/user/jobs/${id}`);  
     }
+    getCategories(){
+        return window.axios.get(`service-provider/user/service-categories`);  
+    }
+    getFields(id,params){
+        let s=this.generateQueryUrl({...params,service_category_id:id})
+        return window.axios.get(`service-provider/user/service-fields?${s}`); 
+    }
 
 }
 

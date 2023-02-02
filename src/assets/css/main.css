@@ -1779,3 +1779,8 @@ html[dir=ltr] .ccicon {
 
     z-index: 99999999999999 !important;
 }
+select.show-arrow{
+      -webkit-appearance: auto !important; 
+     -moz-appearance: auto  !important;
+     appearance: auto !important;
+}

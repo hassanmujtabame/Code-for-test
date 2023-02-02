@@ -28,46 +28,36 @@
                     <!--department-->
                     <div class="mb-3 position-relative">
                         <ValidationProvider
+                        tag="div"
+                        class="form-group"
                                 :name="$t('job-department')"
-                             vid="department_id"
+                             vid="service_category_id"
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('job-department') }} </label>
-                        <multi-select v-model="itemForm.department_id" 
-                        :selectLabel="$t('selectLabel')"
-                        :selectedLabel="$t('selectedLabel')" 
-                        :deselectLabel="$t('deselectLabel')"
-                        :options="categories" 
-                        :multiple="false"  
-                        :group-select="false" 
-                        placeholder="" 
-                        track-by="id" label="name">
-                            <span slot="noResult">{{ $t('no-result-search') }}</span>
-                        </multi-select>
+                        <select class="form-control show-arrow" v-model="itemForm.service_category_id" 
+                        @change="loadFields">
+                        <option v-for="(cat,i) in categories" :key="i" :value="cat.id"> {{ cat.name }}</option>
+                        </select>
                         <div v-if="errors.length!==0" class="col-12 text-input-error">
                             {{errors[0]}}
                             </div>
                             </ValidationProvider>
                   </div>
-                <!-- job category -->
+                <!-- job fields -->
                 <div class="mb-3 position-relative">
                         <ValidationProvider
+                        tag="div"
+                        class="form-group"
                                 :name="$t('job-category')"
-                             vid="category_id"
+                             vid="field_id"
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('job-category') }} </label>
-                        <multi-select v-model="itemForm.category_id" 
-                        :selectLabel="$t('selectLabel')"
-                        :selectedLabel="$t('selectedLabel')" 
-                        :deselectLabel="$t('deselectLabel')"
-                        :options="categories" 
-                        :multiple="false"  
-                        :group-select="false" 
-                        placeholder="" 
-                        track-by="id" label="name">
-                            <span slot="noResult">{{ $t('no-result-search') }}</span>
-                        </multi-select>
+                        <select class="form-control show-arrow" v-model="itemForm.field_id" >
+                        <option v-for="(cat,i) in fields" :key="i" :value="cat.id"> {{ cat.name }}</option>
+                        </select>
+                
                         <div v-if="errors.length!==0" class="col-12 text-input-error">
                             {{errors[0]}}
                             </div>
@@ -90,23 +80,17 @@
                      <!-- type job -->
                 <div class="mb-3 position-relative">
                         <ValidationProvider
+                        tag="div"
+                        class="form-group"
                                 :name="$t('job-type')"
                              vid="type"
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('job-type') }} </label>
-                        <multi-select v-model="itemForm.type" 
-                                :selectLabel="$t('selectLabel')"
-                                :selectedLabel="$t('selectedLabel')" 
-                                :deselectLabel="$t('deselectLabel')"
-                                :options="job_types" 
-                                :multiple="false"  
-                                :group-select="false" 
-                                placeholder="" 
-                        track-by="id" label="name"
-                        >
-                            <span slot="noResult">{{ $t('no-result-search') }}</span>
-                        </multi-select>
+                        <select class="form-control show-arrow" v-model="itemForm.type" >
+                        <option v-for="(cat,i) in job_types" :key="i" :value="cat.id"> {{ cat.name }}</option>
+                        </select>
+                    
                         <div v-if="errors.length!==0" class="col-12 text-input-error">
                             {{errors[0]}}
                             </div>
@@ -128,23 +112,17 @@
                 <!-- job location -->
                 <div class="mb-3 position-relative">
                         <ValidationProvider
+                        tag="div"
+                        class="form-group"
                                 :name="$t('job-location')"
                              vid="work_location"
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('job-location') }} </label>
-                        <multi-select v-model="itemForm.work_location" 
-                                :selectLabel="$t('selectLabel')"
-                                :selectedLabel="$t('selectedLabel')" 
-                                :deselectLabel="$t('deselectLabel')"
-                                :options="work_locations" 
-                                :multiple="false"  
-                                :group-select="false" 
-                                placeholder="" 
-                        track-by="id" label="name"
-                        >
-                            <span slot="noResult">{{ $t('no-result-search') }}</span>
-                        </multi-select>
+                        <select class="form-control show-arrow" v-model="itemForm.work_location" >
+                        <option v-for="(cat,i) in work_locations" :key="i" :value="cat.id"> {{ cat.name }}</option>
+                        </select>
+                       
                         <div v-if="errors.length!==0" class="col-12 text-input-error">
                             {{errors[0]}}
                             </div>
@@ -158,18 +136,10 @@
                                     rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('job-duration-contract') }} </label>
-                        <multi-select v-model="itemForm.duration_contract" 
-                                :selectLabel="$t('selectLabel')"
-                                :selectedLabel="$t('selectedLabel')" 
-                                :deselectLabel="$t('deselectLabel')"
-                                :options="duration_contracts" 
-                                :multiple="false"  
-                                :group-select="false" 
-                                placeholder="" 
-                        track-by="id" label="name"
-                        >
-                            <span slot="noResult">{{ $t('no-result-search') }}</span>
-                        </multi-select>
+                        <select class="form-control show-arrow" v-model="itemForm.duration_contract" >
+                        <option v-for="(cat,i) in duration_contracts" :key="i" :value="cat.id"> {{ cat.name }}</option>
+                        </select>
+                        
                         <div v-if="errors.length!==0" class="col-12 text-input-error">
                             {{errors[0]}}
                             </div>
@@ -246,7 +216,7 @@ return{
 group:'add-job',
 showDialog:false,
 categories:[],
-departments:[],
+fields:[],
 job_types:[
     {id:'part_time',name:vm.$t('part_time')},
     {id:'full_time',name:vm.$t('full_time')},
@@ -255,7 +225,9 @@ work_locations:[
     {id:'online',name:vm.$t('online')},
     {id:'offline',name:vm.$t('offline')},
 ],
-duration_contracts:[],
+duration_contracts:[
+    {id:1,name:'سنة كاملة بالاضافة الى التجديد'}
+],
 file:null,
 itemForm:{
 }
@@ -307,6 +279,24 @@ async loadTags(){
          console.log('error',error)
     }
 },
+
+async loadFields(val){
+    console.log('cc',val)
+    this.itemForm.field_id = null;
+   
+    if(!this.itemForm.service_category_id) {
+        this.fields = [];
+        return;
+    }
+    try {
+        let {data} =  await jobsProviderAPIs.getFields(this.itemForm.service_category_id)
+        if(data.success){
+            this.fields = data.data
+        }
+    } catch (error) {
+         console.log('error',error)
+    }
+},
 async loadCategories(){
     try {
         let {data} =  await jobsProviderAPIs.getCategories()
@@ -320,13 +310,12 @@ async loadCategories(){
 openDialog(){
     this.itemForm={
         title:'',
-        department_id:null,
-        category_id:null,
+        field_id:null,
         company_name:null,
         type:null,//part_time || full_time
         expected_salary:null,
         required_experience:null,
-        service_category_id:null,
+        service_category_id:null,//department
         job_name:null,
         duration_contract:null,
     }
@@ -343,6 +332,7 @@ closeEvent(){
 }
 },
 mounted(){
+    this.loadCategories()
 }
 }
 </script>
