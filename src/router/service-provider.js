@@ -26,7 +26,7 @@ const routers =[
     },
     {
         path: 'service-provider/subscribe',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-subscribe',
         component: () => import(/* webpackChunkName: "service-provider-subscribe" */ '../views/service-provider/subscribe/index.vue') 
     },
@@ -61,7 +61,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-jobs" */ '../views/service-provider/jobs/index.vue') 
     },
     {
-        path: 'service-provider/job/:id',
+        path: 'service-provider/jobs/:id',
         meta:{layout:LayoutService},
         name: 'service-provider-job-show',
         component: () => import(/* webpackChunkName: "service-provider-job-show" */ '../views/service-provider/job-page/index.vue') 
