@@ -47,7 +47,7 @@ export default {
             let {data} = await jobsProviderAPIs.deleteItem(this.itemDialog.id)
             if(data.success){
                 this.closeEvent()
-                this.$router.push(this.getRouteLocale('servicer-provider-jobs'))
+                this.$router.push(this.getRouteLocale('service-provider-jobs'))
             }
         } catch (error) {
             console.log('error',error)
