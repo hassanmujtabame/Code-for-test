@@ -10,7 +10,7 @@ class NetworkApi extends BaseApi {
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/packages?${s}`);
     }
-    chechoutPackage(data){
+    checkoutPackage(data){
         /*
           type if 0
             paymentBrand
