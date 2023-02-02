@@ -24,13 +24,13 @@
                  >
                   <d-job-card
                   :title="item.title"
-                  :place="item.place"
-                  :description="item.description"
+                  :place="item.state"
+                  :description="item.desc"
                   :during="item.during"
-                  :department="item.department"
-                  :category="item.category"
-                  :datePublish="item.datePublish"
-                  :offers="item.offers"
+                  :department="item.category_name"
+                  :category="item.field_name??item.filed_name"
+                  :datePublish="item.created_at"
+                  :offers="item.count_offers"
                   >
                 
                   <template v-slot:icon>

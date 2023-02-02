@@ -61,7 +61,7 @@
                                         {{ $t('job-category') }} :
                                     </span>
                                     <span class="m-c">
-                                       {{itemPage.filed_name}}
+                                       {{itemPage.field_name??itemPage.filed_name}}
                                     </span>
                                         
                                 </div>
