@@ -2,6 +2,7 @@
     <div>
     <ItemCard 
     v-for="(item,i) in items" :key="i" 
+    :itemId="item.id"
     :image="item.image"
     :title="item.content"
     :date="item.date"

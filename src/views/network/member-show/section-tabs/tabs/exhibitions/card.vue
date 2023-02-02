@@ -50,9 +50,9 @@
 
 
                 </div>
-                <button class="btn bg-main bg-main rounded-2 p-1 text-white mt-2">
+                <router-link :to="getRouteLocale('network-exhibition-show',{id:itemId})" class="btn bg-main bg-main rounded-2 p-1 text-white mt-2">
                     صفحة  المعارض
-                </button>
+                </router-link>
             </div>
 
         </div>
