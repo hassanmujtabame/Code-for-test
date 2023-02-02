@@ -106,7 +106,7 @@ export default {
     
        console.mylog('sending',pay_info)
       try {
-        let { data } = await networkAPI.chechoutPackage(pay_info)
+        let { data } = await networkAPI.checkoutPackage(pay_info)
         if(data.success){
           
           console.log('success',data)
