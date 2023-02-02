@@ -3,6 +3,7 @@
 :group="group"
 title=" تفاصيل الدفع"
 hideAmount
+@payment="payment"
 >
 <template v-slot:default="{ item,dialog }">
   <div v-if="dialog" class="d-flex flex-wrap gap-2">
@@ -59,6 +60,7 @@ hideAmount
 </template>
 <script>
 import CheckOutDialog from '@/common/dialogs/check-out/index'
+import providerAPI from '@/services/api/service-provider.js'
 export default {
   name:"checkout-subscribe-service-provider",
   props:{
@@ -73,7 +75,56 @@ export default {
   data:()=>({
     showDialog:false,
 
-  })
+  }),
+  methods:{
+    async payment(evt){
+      console.log('payment',evt)
+      let {item,cardInfo,otherData} = evt;
+      let pay_info = {};
+      if(item.payment_type == 'new')
+       {
+        let  expiryMonth=cardInfo.expiry_date.split('/')[0];
+      let  expiryYear=cardInfo.expiry_date.split('/')[1];
+       pay_info = {
+        type:0,
+        paymentBrand:cardInfo.paymentBrand,
+        card_number:cardInfo.card_number,
+        card_holder:cardInfo.card_holder,
+        cvv:cardInfo.card_cvv,
+        expiryMonth:expiryMonth,
+        expiryYear:expiryYear,
+        save:cardInfo.saveCard,
+        package_id:otherData.id
+       }
+       }else{
+        pay_info = {
+          type:1,
+          payment_id:item.payment_type,
+          package_id:otherData.id
+        }
+       }
+    
+       console.mylog('sending',pay_info)
+      try {
+        let { data } = await providerAPI.checkoutPackage(pay_info)
+        if(data.success){
+          
+          console.log('success',data)
+          this.openSuccessSubscribed(otherData)
+        }else{
+          window.SwalError(data.message)
+        }
+      } catch (error) {
+      console.log('error',error)
+      }
+    },
+    closeEvent(){
+      this.fireCloseDialog(this.group)
+    },
+    openSuccessSubscribed(data){
+        this.fireOpenDialog('success-provider-subscribed', data)
+    },
+  }
 }
 
 </script>
