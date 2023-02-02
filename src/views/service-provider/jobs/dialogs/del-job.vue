@@ -55,7 +55,7 @@ export default {
         }
     },
     openDialog(data){
-      this.blog=Object.assign({},data);
+      this.itemDialog=Object.assign({},data);
       this.showed=true
       return true;
     },
