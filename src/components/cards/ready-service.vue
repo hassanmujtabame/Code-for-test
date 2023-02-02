@@ -1,6 +1,6 @@
 <template>
     <div class="box" :class="{'service-stopped':status=='stopped'}">
-        <div>
+        <div style="height:164px">
             <img class="w-100" :src="image" alt="" height="164px">
         </div>
         <div class="p-3">
