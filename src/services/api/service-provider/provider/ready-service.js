@@ -33,6 +33,11 @@ class readyServicesApi extends BaseApi{
     suspend(id){
         return window.axios.post(`service-provider/provider/ready-services/suspend/${id}`);  
     }
+    confirmBooking(data){
+
+        return window.axios.post(`service-provider/user/book-services`,data);  
+
+    }
     notSuspend(id){
         return window.axios.post(`service-provider/provider/ready-services/not-suspend/${id}`);  
     }
