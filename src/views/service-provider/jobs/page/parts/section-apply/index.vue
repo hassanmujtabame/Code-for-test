@@ -95,7 +95,11 @@ export default {
         try {
             let {data} = await jobsProviderAPIs.applyJob(formData)
             if(data.success){
-                window.SwalSuccess(data.data.message)
+                let dataMessage = {
+                    title:'لقد تم إرسال طلب توظيفك بنجاح',
+                    description:'سيتواصل معك صاحب العمل اذا وجدك مناسب لاحتياجته ،  نتمنى لك كل التوفيق '
+                }
+                this.showSuccessMsgProvider(dataMessage) 
             }else{
                 window.SwalError(data.data.message)
             }

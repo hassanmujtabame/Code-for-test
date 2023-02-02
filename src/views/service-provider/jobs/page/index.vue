@@ -58,15 +58,15 @@
                    
                     <div class="col-md-6">
                         <!--section details-->
-                        <SectionDetails :itemPage="itemPage" />
+                        <SectionDetails :isOwner="isOwner" :itemPage="itemPage" />
                     </div>
-                    <div class="col-md-6">
+                    <div v-if="!isOwner" class="col-md-6">
                         <!--section apply-->
-                        <SectionApply :itemPage="itemPage"/>
+                        <SectionApply :isOwner="isOwner" :itemPage="itemPage"/>
                     </div>
                     <div class="col-md-6">
                             <!--section requirement-->
-                        <sectionRequirement :itemPage="itemPage"/>
+                        <sectionRequirement :isOwner="isOwner" :itemPage="itemPage"/>
                     </div>
                 </div>
             </div>
@@ -129,10 +129,8 @@ export default {
             let { data } = await jobsProviderAPIs.getItem(this.$route.params.id)
             if(data.success){
                 this.itemPage = data.data
-                this.isOwner = this.itemPage.user_info.id==this.user.id
-                if(!Object.hasOwnProperty.call(this.itemPage,'is_suspend')){
-                    this.itemPage.is_suspend = 0;
-                }
+                this.isOwner =  this.itemPage.user_info.id==this.user.id
+                
             }else{
                 this.hasError = true;
             }
