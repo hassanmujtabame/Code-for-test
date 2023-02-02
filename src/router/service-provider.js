@@ -64,7 +64,7 @@ const routers =[
         path: 'service-provider/jobs/:id',
         meta:{layout:LayoutService},
         name: 'service-provider-job-show',
-        component: () => import(/* webpackChunkName: "service-provider-job-show" */ '../views/service-provider/job-page/index.vue') 
+        component: () => import(/* webpackChunkName: "service-provider-job-show" */ '../views/service-provider/jobs/page/index.vue') 
     },
     {
         path: 'service-provider/dashboard',

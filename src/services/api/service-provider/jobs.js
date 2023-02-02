@@ -18,12 +18,27 @@ class JobsServiceApi extends BaseApi {
     deleteItem(id){
         return window.axios.delete(`service-provider/user/jobs/${id}`);  
     }
+    suspendItem(id){
+        return window.axios.post(`service-provider/user/jobs/suspend/${id}`);  
+    }
+    notSuspendItem(id){
+        return window.axios.post(`service-provider/user/jobs/not-suspend/${id}`);  
+    }
     getCategories(){
         return window.axios.get(`service-provider/user/service-categories`);  
     }
     getFields(id,params){
         let s=this.generateQueryUrl({...params,service_category_id:id})
         return window.axios.get(`service-provider/user/service-fields?${s}`); 
+    }
+    applyJob(data){
+       /*
+       note
+        job_id
+        cv
+       */
+        return window.axios.post(`service-provider/user/apply-job`,data); 
+
     }
 
 }

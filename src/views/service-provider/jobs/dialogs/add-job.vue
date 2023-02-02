@@ -36,7 +36,7 @@
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('job-department') }} </label>
                         <select class="form-control show-arrow" v-model="itemForm.service_category_id" 
-                        @change="loadFields">
+                        @change="loadFields($event)">
                         <option v-for="(cat,i) in categories" :key="i" :value="cat.id"> {{ cat.name }}</option>
                         </select>
                         <div v-if="errors.length!==0" class="col-12 text-input-error">
@@ -197,11 +197,11 @@
             </div>
         </ValidationObserver>
         <template v-slot:header>
-           <div class="m-c"> {{ $t('post-job') }} </div>          
+           <div class="m-c"> {{ itemForm.id?$t('update-job'):$t('post-job') }} </div>          
         </template>
     <template v-slot:actions>
         <button @click="save" type="button" class="btn btn-main">
-             {{ $t('post-the-job') }} 
+             {{ itemForm.id?$t('update'):$t('post-the-job') }} 
         </button>
     </template>
   </d-dialog-large>
@@ -247,7 +247,7 @@ let valid = await this.$refs.form.validate();
 
 
     try {
-        let { data } = await jobsProviderAPIs.addItem(formData)
+        let { data } = this.itemForm.id?await jobsProviderAPIs.updateItem(this.itemForm.id,formData):await jobsProviderAPIs.addItem(formData)
         if(data.success){
             let dataEvent={
                 title:'تهانينا لقد انتهيت من اعلان الوظيفة',
@@ -280,8 +280,9 @@ async loadTags(){
     }
 },
 
-async loadFields(val){
+async loadFields(val,ch=true){
     console.log('cc',val)
+    if(ch)
     this.itemForm.field_id = null;
    
     if(!this.itemForm.service_category_id) {
@@ -307,8 +308,9 @@ async loadCategories(){
          console.log('error',error)
     }
 },
-openDialog(){
+openDialog(dataEvent){
     this.itemForm={
+        id:null,
         title:'',
         field_id:null,
         company_name:null,
@@ -318,6 +320,30 @@ openDialog(){
         service_category_id:null,//department
         job_name:null,
         duration_contract:null,
+    }
+    if(dataEvent){
+        let { id,
+        title,
+        field_id,
+        company_name,
+        type,//part_time || full_time
+        expected_salary,
+        required_experience,
+        service_category_id,
+        job_name,
+        duration_contract
+    } = dataEvent
+        this.itemForm = {...this.itemForm,id,
+        title,
+        field_id,
+        company_name,
+        type,
+        expected_salary,
+        required_experience,
+        service_category_id,
+        job_name,
+        duration_contract}
+        this.loadFields(service_category_id,false)
     }
     this.showDialog = true;
     return true;
