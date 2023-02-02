@@ -27,7 +27,7 @@ const routers =[
     },
     {
         path: 'network/menu-subscribe',
-        meta:{layout:LayoutNetwork,auth:true},
+        meta:{auth:true,layout:LayoutNetwork},
         name: 'network-menu-subscribe',
         component: () => import(/* webpackChunkName: "network-menu-subscribe" */ '../views/network/menu-subscribe/index.vue') 
     },
@@ -177,7 +177,7 @@ const routers =[
     },
     {
         path: 'network/subscribe',
-        meta:{layout:LayoutNetwork},
+        meta:{layout:LayoutNetwork,auth:true},
         name: 'network-subscribe',
         component: () => import(/* webpackChunkName: "network-subscribe" */ '../views/network/subscribe/index.vue') 
     },
