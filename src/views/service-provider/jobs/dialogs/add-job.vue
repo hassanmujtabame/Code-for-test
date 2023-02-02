@@ -319,6 +319,7 @@ openDialog(dataEvent){
         required_experience:null,
         service_category_id:null,//department
         job_name:null,
+        work_location:null,//online || offline
         duration_contract:null,
     }
     if(dataEvent){
@@ -331,6 +332,7 @@ openDialog(dataEvent){
         required_experience,
         service_category_id,
         job_name,
+        work_location,
         duration_contract
     } = dataEvent
         this.itemForm = {...this.itemForm,id,
@@ -342,6 +344,7 @@ openDialog(dataEvent){
         required_experience,
         service_category_id,
         job_name,
+        work_location,
         duration_contract}
         this.loadFields(service_category_id,false)
     }
