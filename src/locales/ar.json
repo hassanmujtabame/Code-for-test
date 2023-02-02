@@ -423,5 +423,21 @@
   "execution_period": "وقت تنفيذ",
   "execution_place": "مكان التنفيذ",
   "specific_date": "تاريخ محدد",
-  "details": "تفاصيل"
+  "details": "تفاصيل",
+  "job": "وظيفة",
+  "the_jobs": "الوظائف",
+  "training": "تدريب",
+  "contract-work": "عمل بعقد",
+  "Employment-contract": "عقد عمل",
+  "job-title": "عنوان الوظيفة",
+  "job-department": "القسم",
+  "job-category": "المجال",
+  "job-type": "نوع الوظيفة",
+  "job-location": "مقر العمل",
+  "job-duration-contract": "مدة العقد",
+  "job-position-name": "المسمى الوظيفي",
+  "required_experience": "الخبرة المطلوبة",
+  "job-description": "تفاصيل الوظيفة",
+  "post-job": "أعلن عن وظيفة",
+  "post-the-job": "أعلن عن الوظيفة"
 }

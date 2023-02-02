@@ -425,5 +425,21 @@
   "execution_period": "execution period",
   "execution_place": "execution place",
   "specific_date": "specific date",
-  "details": "details"
+  "details": "details",
+  "job": "job",
+  "the_jobs": "the jobs",
+  "training": "internship",
+  "contract-work": "contract work",
+  "Employment-contract": "Employment contract",
+  "job-title": "Job title",
+  "job-department": "Department",
+  "job-category": "Domain",
+  "job-type": "Job type",
+  "job-location": "Job location",
+  "job-duration-contract": "Contract period",
+  "job-position-name": "Position name",
+  "required_experience": "Required experience",
+  "job-description": "Job description",
+  "post-job": "Post a job",
+  "post-the-job": "Post the job"
 }
