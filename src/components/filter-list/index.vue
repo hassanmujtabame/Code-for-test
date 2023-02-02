@@ -4,7 +4,7 @@
             <slot name="top-end"></slot>
         </div>
         <div v-if="!hideTop" class="row align-items-center">
-            <div v-if="!hideTotal" class="col-12 col-md-4 mt-3">
+            <div v-if="!hideTotal" class="col-12  mt-3" :class="classTotal">
                 <slot name="total">
                 <h4>
                     {{$t('nomber')}} {{pluralName}} :
@@ -12,12 +12,12 @@
                 </h4>
             </slot>
             </div>
-            <div v-if="!hideTitle"  class=" col-12 col-md-2 mt-3">
+            <div v-if="!hideTitle"  class=" col-12  mt-3" :class="classTitle">
                 <slot name="title">
               <h3 v-if="title" class="t-c fw-bolder">{{ title }}</h3>
             </slot>
             </div>
-            <div class="col-12 col-md-6 mt-3 row">
+            <div class="col-12 mt-3 row" :class="classSearchOrder">
             <div :class="classColSearch">
             <slot name="search">
             <label for="" class="position-relative w-100">
@@ -287,6 +287,18 @@ export default {
         classColSearch:{
             type:String,
             default:'col-12 col-md-6'
+        },
+        classTotal:{
+            type:String,
+            default:'col-md-4'
+        },
+        classTitle:{
+            type:String,
+            default:'col-md-2'
+        },
+        classSearchOrder:{
+            type:String,
+            default:'col-md-6'
         },
         classColOrder:{
             type:String,
