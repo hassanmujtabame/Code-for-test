@@ -4,18 +4,20 @@
         <SectionTop />
         <!-- section filter list-->
         <SectionFilterList />
+        <AddJobDialog />
     </div>
 </template>
 
 <script>
 import SectionFilterList from './parts/section-filter-list/index.vue';
 import SectionTop from './parts/section-top'
-
+import AddJobDialog from './dialogs/add-job.vue'
 export default {
  name:'provider-service-jobs',
  components:{
     SectionFilterList,
-    SectionTop
+    SectionTop,
+    AddJobDialog
  }
 }
 </script>
