@@ -172,8 +172,8 @@
                                         fill="white" />
                                 </svg>
                             </button>
-                            <input type="text" v-model="itemForm.count" name="number" id="in-number">
-                            <button :disabled="itemForm.count<=1" class="btn-inc" @click="decrease" id="decrease" for="number">
+                            <input type="text" v-model="itemForm.number_person" name="number" id="in-number">
+                            <button :disabled="itemForm.number_person<=1" class="btn-inc" @click="decrease" id="decrease" for="number">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -191,13 +191,13 @@
                         tag="div"
                         class="mb-3"
                         :name="$t('details')"
-                        vid="description"
+                        vid="note"
                         rules="required"
                         v-slot="{errors}"
                         >
                         <label class="form-label">تفاصيل </label>
                         
-                        <textarea v-model="itemForm.description" class="w-100 rounded-1 border p-2" rows="8"
+                        <textarea v-model="itemForm.note" class="w-100 rounded-1 border p-2" rows="8"
                             placeholder="أكتب بعض التفاصيل الاخرى"></textarea>
                             <d-error-input :errors="errors" v-if="errors.length" />
                     </ValidationProvider>
@@ -215,6 +215,7 @@
 </template>
 
 <script>
+import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 export default {
     name: 'request-service-dialog',
     props:{
@@ -233,25 +234,32 @@ export default {
     },
     methods:{
         increase(){
-            this.itemForm.count+=1;
+            this.itemForm.number_person+=1;
         },
         decrease(){
-            if(this.itemForm.count>1)
-            this.itemForm.count-=1;
+            if(this.itemForm.number_person>1)
+            this.itemForm.number_person-=1;
         },
         async save(){
             let valid = this.$refs.form.validate();
             if(!valid) {
                 return;
             }
-            let dataMessage = {
+           
+            let formData = new FormData();
+            Object.keys(this.itemForm).forEach(key=>{
+                formData.append(key,this.itemForm[key])
+            })
+            try {
+               let { data } = await readyServiceAPIs.confirmBooking(formData);
+               if(data.success){
+                let dataMessage = {
                     title:'لقد تم حجز الموعد بنجاح',
                     description:'عند تأكيد مقدم الخدمة لطلبك ستتمكن من دفع قيمة الخدمة و الاستفادة منها'
                 }
             this.fireOpenDialog('standard-success-message',dataMessage)
             this.closeEvent()
-            try {
-               //
+               }
             } catch (error) {
                 //
             }
@@ -263,8 +271,8 @@ export default {
                 execution_place : null,
                 execution_period : null,
                 service_id : dataEvent.item.id,
-                description : '',
-                count : 1,
+                note : '',
+                number_person : 1,
             }
             this.dateSelected = dataEvent.date
             this.itemForm.booking_date = dataEvent.date
