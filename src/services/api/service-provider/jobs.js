@@ -5,6 +5,9 @@ class JobsServiceApi extends BaseApi {
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/user/jobs?${s}`);
     }
+    getItem(id){
+        return window.axios.get(`service-provider/user/jobs/${id}`);
+    }
     addItem(data){
         return window.axios.post(`service-provider/user/jobs`,data);  
     }
