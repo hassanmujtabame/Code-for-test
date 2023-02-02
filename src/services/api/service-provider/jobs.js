@@ -40,6 +40,9 @@ class JobsServiceApi extends BaseApi {
         return window.axios.post(`service-provider/user/apply-job`,data); 
 
     }
+    getGraduateJobPage(){
+        return window.axios.post(`service-provider/user/apply-job`); 
+    }
 
 }
 
