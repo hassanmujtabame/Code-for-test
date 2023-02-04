@@ -28,13 +28,23 @@ export default{
         localStorage.setItem("auth_token", token);
     },
     SET_USER(state,payload){
-        let {partner,...user} = payload;
+        let {partner,subscribes,...user} = payload;
         state.user=user;
         state.partner = partner?? null; // if undefined makes it null
+        state.subscribeNetwork = subscribes&&subscribes.network?subscribes.network:null
+        state.subscribeProvider = subscribes&&subscribes.subscribeProvider?subscribes.subscribeProvider:null
         localStorage.setItem("auth_user", JSON.stringify(user));
     },
     SET_PARTNER(state,payload){
         state.partner=payload;
+        
+    },
+    SET_SUBSCRIBE_NETWORK(state,payload){
+        state.subscribeNetwork=payload;
+        
+    },
+    SET_SUBSCRIBE_PROVIDER(state,payload){
+        state.subscribeProvider=payload;
         
     }
 

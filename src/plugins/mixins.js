@@ -265,6 +265,8 @@ const mixin = {
                     isMobile: 'core/isMobile',
                     user: 'auth/user',
                     userPartner: 'auth/partner',
+                    userSubNetwork: 'auth/subscribeNetwork',
+                    userSubProvider: 'auth/subscribeProvider',
                     token: 'auth/token',
                     authenticated: 'auth/authenticated',
                    

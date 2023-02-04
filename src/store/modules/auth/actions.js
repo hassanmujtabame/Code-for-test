@@ -8,6 +8,12 @@ export default {
      setPartner ({commit}, payload) { 
       commit('SET_PARTNER',payload)
    },
+   setSubscribeNetwork ({commit}, payload) { 
+      commit('SET_SUBSCRIBE_NETWORK',payload)
+   },
+   setSubscribeProvider ({commit}, payload) { 
+      commit('SET_SUBSCRIBE_PROVIDER',payload)
+   },
      clearToken ({commit}) { 
         commit('CLEAR_TOKEN')
      },

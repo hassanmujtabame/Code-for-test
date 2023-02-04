@@ -9,6 +9,12 @@ export default {
     partner (state) { 
         return state.partner;
     },
+    subscribeNetwork (state) { 
+        return state.subscribeNetwork;
+    },
+    subscribeProvider (state) { 
+        return state.subscribeProvider;
+    },
     authenticated(state){
         return !!state.user || !!localStorage.getItem('auth_user')
     }
