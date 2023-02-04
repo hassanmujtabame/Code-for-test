@@ -19,7 +19,7 @@
                             </p>                       
                                 
                                 <div class="col-12 text-center ">
-                                    <router-link class="btn btn-main  " :to="getRouteLocale('network-subscribe')" role="button">  أختاري الباقة الان  </router-link>
+                                    <a class="btn btn-main  " @click="login" role="button">  أختاري الباقة الان  </a>
                                 </div>
                
                         </div>
@@ -82,6 +82,55 @@ export default {
         type:[Array,Object],
         require:true
     }
+ },
+ data:()=>{
+    return {
+        message:'',
+        hasError:false
+    }
+ },
+ methods:{
+    async login(e){
+        if(e)
+            e.preventDefault();
+          let {
+            email,
+            password
+        }=this.dataInfo.form
+            try {
+                let {data} = await this.$axios.post('user/auth/login',{
+            email,
+            password
+        });
+                if(data.success){
+                    let {token,...user} = data.data
+                    window.store.commit('auth/SET_TOKEN',token) ;
+                  window.store.commit('auth/SET_USER',user);
+                  this.router_push('network-subscribe')
+                }else{
+                    this.message = data.message;
+                    this.hasError=true;
+                }
+                
+            } catch (error) {
+                console.log('error',error)
+                this.message='خطا غير معروف'
+                if(error.response){
+                    let response =error.response
+                    if(response.status==422){
+                        this.message = response.data.message;
+                        if(Object.hasOwnProperty.call(response.data,'errors')){
+                            this.$refs.form.setErrors(response.data.errors)
+                        }
+                    }else
+                    if(response.status==401){
+                        this.message = response.data.message;
+                    }
+                }
+
+                this.hasError=true;
+            }
+        }
  }
 }
 </script>

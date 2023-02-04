@@ -28,7 +28,8 @@ export default {
         this.dataCheck=evt
         this.status='check';
     },
-    afterSuccessCheck(/*evt*/){
+    afterSuccessCheck(evt){
+      this.dataFinish= evt
         this.status='finish';
     },
  },

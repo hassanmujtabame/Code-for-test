@@ -26,7 +26,7 @@
                                     أعد الارسال
                                 </a>
                             </p>
-                            <ValidateObserver class="row g-3 needs-validation " ref="form">
+                            <ValidationObserver class="row g-3 needs-validation " ref="form">
                         
     
                                 <ValidationProvider
@@ -50,7 +50,7 @@
                                             أستمر
                                      </button>
                                 </div>
-                            </ValidateObserver>
+                            </ValidationObserver>
                         </div>
                     </div>
                     <div class=" col-12 col-md-6">
