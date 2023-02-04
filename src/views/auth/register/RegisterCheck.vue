@@ -17,8 +17,8 @@
                                     {{dataInfo.form.email}}
                                 </span>
                             </p>
-                            <p v-if="code">
-                            للتجريب فقط :رقم التاكيد هو {{code}}
+                            <p v-if="code" style="color:red">
+                            للتجريب فقط :رقم التاكيد هو <i>{{code}}</i>
                             </p>
                             <p>
                                 لم يصلك الرمز؟
