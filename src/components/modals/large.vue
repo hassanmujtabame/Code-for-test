@@ -4,14 +4,14 @@
     :style="styleObj"
     :class="{show:dialog}"
     :aria-hidden="!dialog?'true':'false'"
-     aria-labelledby="exampleModalToggleLabel"
+     :aria-labelledby="`modal-large-${modalId}`"
         tabindex="-1">
         <div class="modal-dialog"
         :class="{'modal-xl':xl&&!mlg,'modal-lg':mlg,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen}"
         >
             <div class="modal-content">
                 <div v-if="!hideHeader" class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                    <h1 class="modal-title fs-5" :id="`modal-large-${modalId}`">
                     <slot name="header">
                        
                     </slot>
@@ -67,9 +67,11 @@ props:{
         default:null
     }
 },
-data:()=>({
+data:(vm)=>{
+   return {
+    modalId:vm.generateRandomString(8),
     dialog:false,
-}),
+}},
 computed:{
  styleObj(){
     return {
