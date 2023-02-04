@@ -6,6 +6,7 @@
         <SectionFilterList />
         <SectionGraduateRiadiat />
         <SectionContinueLearning />
+        <SectionHear />
         <AddJobDialog />
     </div>
 </template>
@@ -24,7 +25,8 @@ export default {
     SectionContinueLearning,
     SectionGraduateRiadiat,
     SectionTop,
-    AddJobDialog
+    AddJobDialog,
+    SectionHear
  }
 }
 </script>
