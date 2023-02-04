@@ -39,8 +39,8 @@ export default {
   },
   methods:{
     openAddDialog(){
-        window.EventBus.fire('add-dialog-open-dialog')
-    }
+       this.fireOpenDialog('add-dialog')
+  },
   }
 }
 </script>
@@ -53,7 +53,7 @@ export default {
     left: -37.3px;
     top: 27px;
     transform: rotate(13.26deg);
-    z-index: 0;
+    z-index: -1;
 }
 .img-header{
     width: 488.29px;

@@ -68,7 +68,7 @@ export default {
  methods:{ 
 
     openAddDialog(){
-       this.fireEvent('add-dialog-open-dialog')
+       this.fireOpenDialog('add-dialog')
   },
     async loadList(){
         this.loading = true;
