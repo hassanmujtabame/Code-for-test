@@ -327,7 +327,7 @@ openDialog(dataEvent){
         title,
         field_id,
         company_name,
-        type,//part_time || full_time
+        type_job,//part_time || full_time
         expected_salary,
         required_experience,
         service_category_id,
@@ -339,7 +339,7 @@ openDialog(dataEvent){
         title,
         field_id,
         company_name,
-        type,
+        type:type_job,
         expected_salary,
         required_experience,
         service_category_id,
