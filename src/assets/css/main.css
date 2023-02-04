@@ -1788,7 +1788,10 @@ select.show-arrow{
      -moz-appearance: auto  !important;
      appearance: auto !important;
 }
-
+.max-width-100-hidden{
+    max-width:100vw !important;
+    overflow-x:hidden !important
+}
 .modal{
     z-index: 1000;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="sec-seven">
+  <div class="sec-seven  max-width-100-hidden">
         <div class="container">
             <div class="row align-items-center  p-4">
                 <div class="col-md-6" data-aos="fade-up">

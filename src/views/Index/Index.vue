@@ -5,7 +5,7 @@
       <!-- section-1 -->
       <SectMainSlider />
       <!-- #section-1 -->
-      <div class="container">
+      <div class="container  max-width-100-hidden">
         <!-- services -->
         <SectServices/>
         <!--# service-->
@@ -20,7 +20,7 @@
     <SectTrainingCourses />
     <!-- #section 5-->
     <!-- section 6-->
-      <SectPartnerRiadiat/>
+      <SectPartnerRiadiat />
     <!-- #section 6 -->
     <!-- section 7-->
      <SectAboutUs/>
@@ -28,7 +28,7 @@
       <!--section hear about us-->
       <SectHearAboutUs />
      <!-- section 8-->
-     <SectBlog/>
+     <SectBlog v-if="false"/>
      <!-- #section 8-->
   </div>
 </template>

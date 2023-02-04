@@ -1,5 +1,5 @@
 <template>
-  <div class="consulting p-5">
+  <div class="consulting " :class="{'p-5':!isMobile}">
             <div class="netwok-home-header">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-md-6">
