@@ -151,6 +151,7 @@
   </template>
   
   <script>
+import jobsProviderAPIs from '@/services/api/service-provider/jobs'
   export default {
     name:'graduate-riadiat-second-step',
    props:{
@@ -194,11 +195,11 @@ let valid = await this.$refs.form.validate();
 
 
     try {
-        let { data } = this.itemForm.id?await jobsProviderAPIs.updateItem(this.itemForm.id,formData):await jobsProviderAPIs.addItem(formData)
+        let { data } = await jobsProviderAPIs.sendJob(formData)
         if(data.success){
             let dataEvent={
-                title:'تهانينا لقد انتهيت من اعلان الوظيفة',
-                description:'سيراجع فريقنا الاعلان في خلال ساعات و سنخبرك عندما يتم عرضه في صفحة الوظائف'
+                title:'لقد تم ارسال عرض العمل بنجاح',
+                description:'ستواصل معك مقدم الخدمة اذا قبل بعرض  توظيفك لتحديد موعد لمقايلة العمل '
             }
            this.fireOpenDialog('standard-success-message',dataEvent)
             this.closeEvent()
