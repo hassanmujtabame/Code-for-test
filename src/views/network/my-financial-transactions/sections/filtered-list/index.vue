@@ -56,13 +56,13 @@
 </template>
 
 <script>
-import exhibitionAPI from '@/services/api/exhibitions.js'
+import networkAPI from '@/services/api/network.js'
 import sidebarBox from './sidebar.vue';
-import exhibitionCard from '@/components/cards/exhibition.vue';
+//import exhibitionCard from '@/components/cards/exhibition.vue';
 export default {
     name: 'filter-exhibitions',
     components: {
-        exhibitionCard,
+        //exhibitionCard,
         sidebarBox
     },
     data: () => ({
@@ -94,7 +94,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-               return await exhibitionAPI.getAll(params)
+               return await networkAPI.getMyTransaction(params)
 
             } catch (error) {
                 console.log('error', error)
