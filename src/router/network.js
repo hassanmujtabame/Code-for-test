@@ -86,6 +86,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-blog-show" */ '../views/network/blog-page/index.vue') 
     },
     {
+        path: 'network/affiliate-marketing',
+        meta:{layout:LayoutNetwork},
+        name: 'network-affiliate-marketing',
+        component: () => import(/* webpackChunkName: "network-podcasts" */ '../views/network/affiliate-marketing/index.vue') 
+    },
+    {
         path: 'network/podcasts',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-podcasts',

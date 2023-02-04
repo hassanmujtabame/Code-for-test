@@ -48,7 +48,7 @@
                       <div class="col-3 col-md-3">
                           <h6>{{ $t('join-us') }}</h6>
                           <router-link :to="getRouteLocale('service-provider-jobs')" class="d-block">{{ $t('recruitment') }}</router-link>
-                          <a href="#" class="d-block">{{ $t('Affiliate-marketing') }}</a>
+                          <router-link :to="getRouteLocale('network-affiliate-marketing')" class="d-block">{{ $t('Affiliate-marketing') }}</router-link>
                       </div>
                       <div class="col-3 col-md-3">
                           <h6>{{ $t('support') }}</h6>

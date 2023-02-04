@@ -1701,6 +1701,10 @@ position: relative;
   .fs-r-56{
     font-size: 56px;
   }
+  .fs-r-56-72{
+    font-size: 56px;
+    line-height: 72px;
+  }
   .fs-r-12{
     font-size: 12px;
     line-height: 17px;
