@@ -42,7 +42,7 @@
                       <div class="col-3 col-md-3">
                           <h6>{{ $t('riadiat-channel') }}</h6>
                           <router-link  :to="getRouteLocale('network-blogs')" class="d-block">{{ $t('Blogs') }}</router-link>
-                          <a href="#" class="d-block">{{ $t('podcast') }}</a>
+                          <router-link  :to="getRouteLocale('network-podcasts')" class="d-block">{{ $t('podcast') }}</router-link>
                           <router-link :to="getRouteLocale('network-success-stories')" class="d-block">{{ $t('success-story') }}</router-link>
                       </div>
                       <div class="col-3 col-md-3">
