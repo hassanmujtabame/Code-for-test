@@ -35,6 +35,10 @@ class ServiceProviderApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/view-balance?${s}`);
     }
+    rechargeBalance(data){
+        return window.axios.post(`service-provider/user/recharge-balance`,data);
+
+    }
     checkoutPackage(data){
         /*
           type if 0
