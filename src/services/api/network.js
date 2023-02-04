@@ -10,6 +10,10 @@ class NetworkApi extends BaseApi {
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/packages?${s}`);
     }
+    rechargeBalance(data){
+        return window.axios.post(`network/recharge-balance`,data);
+
+    }
     checkoutPackage(data){
         /*
           type if 0
