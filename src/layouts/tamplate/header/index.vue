@@ -22,13 +22,14 @@
             <div class="offcanvas-header">
               <button
                 type="button "
+                id="btn-close-header"
                 class="btn-close me-3 m-c"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
             </div>
-            <ul class="navbar-nav me-4 mb-2 mb-lg-0" >
-              <slot></slot>
+            <ul  class="navbar-nav me-4 mb-2 mb-lg-0" >
+              <slot :closeNavList="closeNavList" :clickLink="clickLink"></slot>
             </ul>
             <div>
     
@@ -86,10 +87,19 @@
       data:()=>{
       return {
         lang:'AR',
+        showMobileNav:false,
             
         }
       },
       methods:{
+        closeNavList(){
+          window.$(`#btn-close-header`).click()
+        },
+        clickLink(navigate,evnt){
+            //this.myModal.hide();
+            this.closeNavList()
+            navigate(evnt)
+        },
         logout(){
           window.store.commit('auth/CLEAR_TOKEN') ;
           window.store.commit('auth/CLEAR_USER');
@@ -99,6 +109,10 @@
         
       },
       mounted(){
+
+       window.$(`#offcanvasExample .nav-link`).click(()=>{
+        this.closeNavList()
+       })
       }
   }
   </script>
