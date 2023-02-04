@@ -122,9 +122,9 @@ export default {
             if(e)
             e.preventDefault();
          
-                let {phone} = this.dataInfo.form
+                let {email} = this.dataInfo.form
             try {
-                let {data} = await this.$axios.post('user/auth/resend-code',{phone});
+                let {data} = await this.$axios.post('user/auth/resend-code',{email});
                 if(data.success){
                    this.code = data.data.pin_code
                 }else{
@@ -148,10 +148,10 @@ export default {
             if(e)
             e.preventDefault();
          
-                let {phone} = this.dataInfo.form
+                let {email} = this.dataInfo.form
                 let pin_code = this.pin_code
             try {
-                let {data} = await this.$axios.post('user/auth/verify-code',{phone,pin_code});
+                let {data} = await this.$axios.post('user/auth/verify-code',{email,pin_code});
                 if(data.success){
                     this.$emit('success',this.dataInfo)
                 }else{
