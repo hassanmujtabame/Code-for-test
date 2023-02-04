@@ -123,7 +123,7 @@ textarea {
 nav.navbar {
     position: fixed;
     top: 0;
-    z-index: 99999998;
+    z-index: 50;
     background: white;
     width: 100%;
 }
@@ -1787,4 +1787,16 @@ select.show-arrow{
       -webkit-appearance: auto !important; 
      -moz-appearance: auto  !important;
      appearance: auto !important;
+}
+
+.modal{
+    z-index: 1000;
+}
+@media screen and (max-width:300px){
+    .modal{
+        width: 100vw;
+    }
+    .modal-body {
+        padding: 0 !important;
+    }
 }
