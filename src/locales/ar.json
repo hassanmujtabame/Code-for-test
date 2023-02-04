@@ -446,5 +446,6 @@
   "the_experience": "الخبرة",
   "download_cv": "تحميل السيرة الذاتية",
   "continuity": "الاستمرار",
-  "confirm-code": "رمز التاكيد"
+  "confirm-code": "رمز التاكيد",
+  "resend-code": "أعد إرسال الرمز"
 }
