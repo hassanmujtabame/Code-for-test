@@ -4,7 +4,7 @@
           <div class="row align-items-center justify-content-between">
             <div class="col-md-6">
               <h1 class="fs-1 text-white">وظف خريجين رياديات</h1>
-              <p class="text-white">
+              <p class="text-white fs-r-24">
                 تقدم رياديات العديد من الدورات المميزة و الفريدة لذلك فان
                 خريجينا هما الافضل في الساحة بكل تأكيد يمكنك توظيفهم بكل سهولة
               </p>
