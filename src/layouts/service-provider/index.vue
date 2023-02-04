@@ -42,7 +42,7 @@
   import graduateRiadiatFirstStep from './dialogs/graduate-riadiat/first'
   import graduateRiadiatFirstSecond from './dialogs/graduate-riadiat/second'
   export default {
-      name:'network-layout',
+      name:'provider-layout',
       components:{
         sendMsgProvider,
         RateYourExperienceBtn,
