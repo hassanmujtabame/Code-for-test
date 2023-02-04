@@ -135,6 +135,7 @@ export default {
                 }
                 
             } catch (error) {
+                console.log('error',error)
                 this.message='خطا غير معروف'
                 if(error.response){
                     let response =error.response
@@ -143,6 +144,9 @@ export default {
                         if(Object.hasOwnProperty.call(response.data,'errors')){
                             this.$refs.form.setErrors(response.data.errors)
                         }
+                    }else
+                    if(response.status==401){
+                        this.message = response.data.message;
                     }
                 }
 
