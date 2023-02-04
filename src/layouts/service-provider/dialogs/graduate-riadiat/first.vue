@@ -79,7 +79,10 @@
       showed:false,
    }),
    methods:{
-    nextStep(){},
+    nextStep(){
+        this.closeEvent()
+        this.fireOpenDialog('graduate-riadiat-recruitment-2')
+    },
       openDialog(data){
         this.itemDialog=Object.assign({},data);
         this.showed=true
@@ -94,7 +97,8 @@
       }
    },
    mounted(){
-    if(process.env.NODE_ENV=='development')
+    console.mylog(process.env)
+    if(process.env.DIALOG_SEND_RECRUITMENT)
     this.fireOpenDialog(this.group)
    }
   }

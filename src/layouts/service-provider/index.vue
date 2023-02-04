@@ -20,10 +20,11 @@
             :title="$t('service-providers')"
             category="service-provider"
             />
-            <RateSuccessExperience />
+          <RateSuccessExperience />
           <d-success-message />
           <sendMsgProvider />
           <graduateRiadiatFirstStep />
+          <graduateRiadiatFirstSecond />
     </div>
   </template>
   
@@ -39,6 +40,7 @@
   import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
   import sendMsgProvider from './dialogs/send-message/index'
   import graduateRiadiatFirstStep from './dialogs/graduate-riadiat/first'
+  import graduateRiadiatFirstSecond from './dialogs/graduate-riadiat/second'
   export default {
       name:'network-layout',
       components:{
@@ -52,7 +54,8 @@
           AddServiceDialog,
           RateSuccessExperience,
           MyDrawer,
-          graduateRiadiatFirstStep
+          graduateRiadiatFirstStep,
+          graduateRiadiatFirstSecond
       }
   }
   </script>
