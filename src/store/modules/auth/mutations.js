@@ -32,7 +32,7 @@ export default{
         state.user=user;
         state.partner = partner?? null; // if undefined makes it null
         state.subscribeNetwork = subscribes&&subscribes.network?subscribes.network:null
-        state.subscribeProvider = subscribes&&subscribes.subscribeProvider?subscribes.subscribeProvider:null
+        state.subscribeProvider = subscribes&&subscribes.service_provider?subscribes.service_provider:null
         localStorage.setItem("auth_user", JSON.stringify(user));
     },
     SET_PARTNER(state,payload){
