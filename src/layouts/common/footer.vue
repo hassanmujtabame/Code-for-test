@@ -86,6 +86,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+footer{
+    max-width: 100vw;
+    overflow: hidden;
+}
 </style>
