@@ -1,5 +1,6 @@
 <template>
-  <TemplateHeader>
+  <TemplateHeader >
+    <template v-slot="{closeNavList}" >
             <li class="nav-item px-2">
               <!-- <a class="nav-link active" aria-current="page" href="../index.html"
                 >الرئيسية</a
@@ -16,10 +17,10 @@
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
             </li>
-            <button @click="openAddService" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center text-white">
+            <button @click="openAddService($event,closeNavList)" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center text-white">
               {{ $t('add-new-service') }}
                     </button>
-       
+                  </template>
     </TemplateHeader>
 </template>
 
@@ -32,8 +33,9 @@ export default {
       TemplateHeader
     },
    methods:{
-    openAddService(evt){
+    openAddService(evt,closeNavList){
         evt.preventDefault();
+        closeNavList()
         this.fireOpenDialog('add-ready-service-dialog')
       },
       closeAddService(evt){
