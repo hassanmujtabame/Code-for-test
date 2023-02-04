@@ -109,7 +109,8 @@ export default {
         let { data } = await networkAPI.checkoutPackage(pay_info)
         if(data.success){
           
-          console.log('success',data)
+          console.mylog('success',data)
+          this.closeEvent()
           this.openSuccessSubscribed(otherData)
         }else{
           window.SwalError(data.message)
