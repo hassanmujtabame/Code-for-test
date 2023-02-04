@@ -4,7 +4,7 @@
           <router-link class="navbar-brand" :to="getRouteLocale('index')"
             ><img src="/assets/img/logo (1) (image).png" alt=""
           /></router-link>
-          <div class="d-block d-sm-none">
+          <div v-if="false" class="d-block d-sm-none">
             <SearchInput />
           </div>
           <button
