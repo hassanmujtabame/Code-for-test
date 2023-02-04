@@ -17,8 +17,15 @@
                     {{ itemDialog.description }}
                 </p>
               </div>
-         
-              <div class="mt-3">
+              <template v-if="itemDialog.btns" >
+              <div  v-for="(btn,i) in itemDialog.btns"
+                :key="i" class="mt-3">
+                <button
+                @click="callAction(btn)" style="height: 40px;" :class="[btn.class??'btn btn-custmer']"> {{btn.title}}</button>
+
+              </div>
+            </template>
+              <div v-else class="mt-3">
             <button @click="closeEvent" style="height: 40px;" class="btn btn-custmer"> {{$t('Home')}}</button>
           </div>
           
@@ -38,12 +45,19 @@
       }
    },
    data:()=>({
-    itemDialog:{title:null,description:null},
+    itemDialog:{title:null,description:null,btns:null},
       showed:false,
    }),
    methods:{
+    callAction(btn){
+      if(btn.action){
+        btn.action()
+      }
+      this.closeEvent()
+    },
       openDialog(data){
         this.itemDialog=Object.assign({},data);
+        if(!data.btns)  this.itemDialog.btns= null
         this.showed=true
         return true;
       },
