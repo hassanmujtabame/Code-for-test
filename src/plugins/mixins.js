@@ -95,6 +95,9 @@ const mixin = {
          this.fireOpenDialog('standard-success-message',dataEvent)
           
           },
+          showSuccessMsg(dataEvent){
+            this.fireOpenDialog('standard-success-message',dataEvent)
+             },
             setErrorsForm(form,response){
               form.setErrors(response.data.errors)
             },
