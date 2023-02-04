@@ -449,5 +449,6 @@
   "download_cv": "download CV",
   "continuity": "continuity",
   "confirm-code": "Confirm code",
-  "resend-code": "resend code"
+  "resend-code": "resend code",
+  "amount": "Amount"
 }

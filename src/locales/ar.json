@@ -447,5 +447,6 @@
   "download_cv": "تحميل السيرة الذاتية",
   "continuity": "الاستمرار",
   "confirm-code": "رمز التاكيد",
-  "resend-code": "أعد إرسال الرمز"
+  "resend-code": "أعد إرسال الرمز",
+  "amount": "كمية"
 }
