@@ -13,7 +13,10 @@
                             <p class="fs-r-24 text-white">
                                 {{ $t('riadiat-network-home-text-3') }}
                         </p>     
-                                                               
+                        <div class="btn-main-style mt-5">
+                          <router-link v-if="!userSubNetwork || !userSubNetwork.subscribe" :to="getRouteLocale('network-subscribe')" class="btn-custmer fs-r-24 shadow mt-2">{{ $t('join-us') }}</router-link>
+
+                            </div>                                   
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit;" class=" m-auto text-end">
