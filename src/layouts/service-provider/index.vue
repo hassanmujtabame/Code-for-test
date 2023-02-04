@@ -23,6 +23,7 @@
             <RateSuccessExperience />
           <d-success-message />
           <sendMsgProvider />
+          <graduateRiadiatFirstStep />
     </div>
   </template>
   
@@ -37,6 +38,7 @@
   import AddServiceDialog from './dialogs/add-service/index.vue'
   import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
   import sendMsgProvider from './dialogs/send-message/index'
+  import graduateRiadiatFirstStep from './dialogs/graduate-riadiat/first'
   export default {
       name:'network-layout',
       components:{
@@ -49,7 +51,8 @@
           SectSubscribe,
           AddServiceDialog,
           RateSuccessExperience,
-          MyDrawer
+          MyDrawer,
+          graduateRiadiatFirstStep
       }
   }
   </script>
