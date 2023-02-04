@@ -19,7 +19,7 @@
                             </p>                       
                                 
                                 <div class="col-12 text-center ">
-                                    <button class="btn btn-main  " type="submit"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">  أختاري الباقة الان  </button>
+                                    <router-link class="btn btn-main  " :to="getRouteLocale('network-subscribe')" role="button">  أختاري الباقة الان  </router-link>
                                 </div>
                
                         </div>
@@ -78,7 +78,7 @@
 <script>
 export default {
  props:{
-    data:{
+    dataInfo:{
         type:[Array,Object],
         require:true
     }

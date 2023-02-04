@@ -14,33 +14,43 @@
                             <p>
                                 أرسلنا اليك رمز التأكيد على ايميلك  
                                 <span>
-                                    {{data.form.email}}
+                                    {{dataInfo.form.email}}
                                 </span>
+                            </p>
+                            <p v-if="code">
+                            للتجريب فقط :رقم التاكيد هو {{code}}
                             </p>
                             <p>
                                 لم يصلك الرمز؟
-                                <a href="" class="m-c">
+                                <a href="#" @click="resendCode"  class="m-c">
                                     أعد الارسال
                                 </a>
                             </p>
-                            <form class="row g-3 needs-validation " novalidate>
+                            <ValidateObserver class="row g-3 needs-validation " ref="form">
                         
     
-                                <div class="col-md-4 w-100">
-                                    <input type="text" class="form-control" id="validationCustom01"
-                                        placeholder="  رمز التاكيد" required>
+                                <ValidationProvider
+                                tag="div"
+                                :name="$t('confirm-code')"
+                                class="col-md-4 w-100"
+                                vid="pin_code"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                    <input type="text" v-model="pin_code" class="form-control" 
+                                        placeholder="  رمز التاكيد" >
                                     
-                                    
-                                </div>
+                                    <d-error-input :errors="errors" v-if="errors" />
+                                </ValidationProvider>
     
                          
                                 
                                 <div class="col-12 text-center ">
-                                    <button class="btn btn-main" >  
+                                    <button @click="verifyCode" class="btn btn-main" >  
                                             أستمر
                                      </button>
                                 </div>
-                            </form>
+                            </ValidateObserver>
                         </div>
                     </div>
                     <div class=" col-12 col-md-6">
@@ -95,11 +105,73 @@
 <script>
 export default {
     props:{
-    data:{
+        dataInfo:{
         type:[Array,Object],
         require:true
     }
- }
+ },
+    data:(vm)=>{
+        return {
+            code:vm.dataInfo.data.data.pin_code,
+            pin_code:'',
+        }
+    },
+    methods: {
+
+        async resendCode(e){
+            if(e)
+            e.preventDefault();
+         
+                let {phone} = this.dataInfo.form
+            try {
+                let {data} = await this.$axios.post('user/auth/resend-code',{phone});
+                if(data.success){
+                   this.code = data.data.pin_code
+                }else{
+                    window.SwalError(data.message)
+                }
+                
+            } catch (error) {
+                window.SwalError('خطا غير معروف')
+                if(error.response){
+                    let response =error.response
+                    if(response.status==422){
+                        this.message = response.data.message;
+                        if(Object.hasOwnProperty.call(response.data,'errors')){
+                            this.$refs.form.setErrors(response.data.errors)
+                        }
+                    }
+                }
+            }
+        },
+        async verifyCode(e){
+            if(e)
+            e.preventDefault();
+         
+                let {phone} = this.dataInfo.form
+                let pin_code = this.pin_code
+            try {
+                let {data} = await this.$axios.post('user/auth/verify-code',{phone,pin_code});
+                if(data.success){
+                    this.$emit('success',this.dataInfo)
+                }else{
+                    window.SwalError(data.message)
+                }
+                
+            } catch (error) {
+                window.SwalError('خطا غير معروف')
+                if(error.response){
+                    let response =error.response
+                    if(response.status==422){
+                        this.message = response.data.message;
+                        if(Object.hasOwnProperty.call(response.data,'errors')){
+                            this.$refs.form.setErrors(response.data.errors)
+                        }
+                    }
+                }
+            }
+        }
+    },
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
  <div class="container">
  <RegisterForm @success="afterSuccessForm" v-if="status=='form'" />
- <RegisterCheck @success="afterSuccessCheck" :data="dataCheck" v-if="status=='check'" />
- <RegisterFinish v-if="status=='finish'" :data="dataFinish" />
+ <RegisterCheck @success="afterSuccessCheck" :dataInfo="dataCheck" v-if="status=='check'" />
+ <RegisterFinish v-if="status=='finish'" :dataInfo="dataFinish" />
   </div>
 </template>
 
