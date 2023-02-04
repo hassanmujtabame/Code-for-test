@@ -330,6 +330,12 @@ export default {
         },
     },
     mounted() {
+        if(process.env.NODE_ENV=='development'){
+            this.card_number ='4242424242424242'
+            this.card_cvv ='123'
+            this.expiry_date = '09/23'
+            this.card_holder = 'full name'
+        }
         this.loadCards()
     }
 }
