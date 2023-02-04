@@ -642,6 +642,14 @@ label {
     width: 100%;
     text-align: start;
 }
+@media screen and (max-width:600px){
+    .form-label{
+        font-size: 0.8rem;
+    }
+    .form-control {
+    font-size: .8rem;
+    }
+}
 </style>
 <style>
 .form-exhibition .vc-time-picker .vc-date-time .vc-date{

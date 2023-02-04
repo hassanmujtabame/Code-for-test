@@ -1799,6 +1799,20 @@ select.show-arrow{
     .netwok-home-header{
         margin: 0 5px;
     }
+   
+        .form-label{
+            font-size: 0.8rem;
+        }
+        .form-control {
+        font-size: .8rem;
+        }
+
+.btn{
+    font-size: 0.8rem;
+}
+.btn-main {
+    height: 36px;
+}
 }
 @media screen and (max-width:300px){
     .modal{
