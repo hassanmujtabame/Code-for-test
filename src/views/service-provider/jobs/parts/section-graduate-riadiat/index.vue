@@ -15,7 +15,7 @@
       <d-swiper v-if="!loading" is-auto :slides-per-view="4" :space-between="10" :items="items">
         <template v-slot:default="{ item }">
           <router-link class="router-link" :to="getRouteLocale('network-member-show',{id:item.id})">
-            <CardMember :name="item.name" :description="item.description" :img="item.image" />
+            <CardMember :name="item.name" :description="item.job_name" :img="item.image" />
           </router-link>
         </template>
       </d-swiper>
@@ -52,7 +52,7 @@ export default {
     }
   },
   mounted(){
-    //this.initlizing()
+    this.initlizing()
   }
 }
 </script>
