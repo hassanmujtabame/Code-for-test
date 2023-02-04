@@ -1,5 +1,5 @@
 <template>
- <div style="margin-top: 85px" class="consult">
+ <div style="margin-top: 85px" class="consult max-width-100-hidden">
       <!--section top-->
       <SectionTop />
       <div class="container mt-5">

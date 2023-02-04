@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5">
+  <div class="mt-5 max-width-100-hidden">
        
         <!--section header-->
         <SectionHeader />
