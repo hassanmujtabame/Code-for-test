@@ -182,12 +182,23 @@ let valid = await this.$refs.form.validate();
         let { data } = this.itemForm.id?await myRequestsSPAPIs.updateItem(this.itemForm.id,formData):await myRequestsSPAPIs.addItem(formData)
 
         if(data.success){
-            let dataEvent={
+            let dataEvent;
+            if(!this.itemForm.id)
+             dataEvent={
                 title:'لقد تم أضافة طلب جديد لك',
                 description:'سيتم مراجعة الطلب  من خلالنا  خلال يوم  و سنخبرك عندما يكون جاهز  لاستقبال الطلبات'
             }
+            
+            else{
+                dataEvent={
+                title:'لقد تم تعديل طلبك',
+                description:''
+            }
+            }
            this.fireOpenDialog('standard-success-message',dataEvent)
             this.closeEvent()
+        }else{
+            window.SwalError(data.message)
         }
     } catch (error) {
         //
