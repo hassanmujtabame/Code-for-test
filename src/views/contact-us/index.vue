@@ -17,33 +17,25 @@
                             v-slot="{ errors }">
                             <label class="form-lable">{{ $t('full-name') }}</label>
                             <input type="text" v-model="itemForm.name" class=" mt-2 w-100" :placeholder="$t('full-name')">
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                         <!--email -->
                         <ValidationProvider tag="div" :name="$t('Email')" vid="email" rules="required|email"
                             v-slot="{ errors }">
                             <input type="text" v-model="itemForm.email" class=" mt-2 w-100" :placeholder="$t('Email')">
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                         <!-- title_message -->
                         <ValidationProvider tag="div"  :name="$t('title_message')" vid="title_message" rules="required"
                             v-slot="{ errors }">
                             <input type="text" v-model="itemForm.title_message" class=" mt-2 w-100" :placeholder="$t('title_message')">
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                         <!--message-->
                         <ValidationProvider tag="div"  :name="$t('message')" vid="message" rules="required"
                             v-slot="{ errors }">
                         <textarea class=" mt-2 w-100" v-model="itemForm.message" cols="30" rows="5" :placeholder="$t('message')"></textarea>
-                        <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                        <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                     </ValidationObserver>
                     <div class="text-start mt-2 ">

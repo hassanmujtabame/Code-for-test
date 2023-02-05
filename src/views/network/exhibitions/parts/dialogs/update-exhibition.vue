@@ -29,9 +29,7 @@
 
                             <input @change="uploadImage($event,validate) || validate($event)" class="form-control opacity-0"
                                 type="file" id="imginput">
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                     </div>
                     <div class="col-md-10">
@@ -133,9 +131,7 @@
                             <input type="text" class="form-control" 
                             v-model="itemForm.title"
                             :placeholder="hidePlaceholder?'': $t('exhibition_title')">
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
@@ -147,9 +143,7 @@
                         <label class="form-label">{{ $t('entry_price') }}</label>
                             <input type="text" v-model="itemForm.price" class="form-control" 
                             :placeholder="hidePlaceholder?'':$t('entry_price')">
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                     </div>
                     <div class=" mb-3 row">
@@ -217,9 +211,7 @@
                             >
                                 <span slot="noResult">{{ $t('no-result-search') }}</span>
                             </multi-select>
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
@@ -235,9 +227,7 @@
                                     v-model="itemForm.address"
                                     :placeholder="hidePlaceholder?'': $t('exhibition_map_url')">
                             </div>
-                            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
@@ -254,9 +244,7 @@
                             v-model="itemForm.content"
                             placeholder="أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )">
                         </d-ckeditor-classic>
-                        <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                        <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
@@ -276,9 +264,7 @@
                         </select>
                     
                     </div>
-                        <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                {{ errors[0] }}
-                            </div>
+                        <d-error-input :errors="errors" v-if="errors.length>0" />
                     </ValidationProvider>
                     </div>
 
