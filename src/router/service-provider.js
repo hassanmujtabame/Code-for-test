@@ -37,6 +37,18 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-show-profile" */ '../views/service-provider/show-profile/index.vue') 
     },
     {
+        path: 'service-provider/my-purchases',
+        meta:{layout:LayoutService,auth:true},
+        name: 'service-provider-client-my-purchases',
+        component: () => import(/* webpackChunkName: "service-provider-my-purchases" */ '../views/service-provider/client/my-purchases/index.vue') 
+    },
+    {
+        path: 'service-provider/my-requests',
+        meta:{layout:LayoutService,auth:true},
+        name: 'service-provider-client-my-requests',
+        component: () => import(/* webpackChunkName: "service-provider-my-requests" */ '../views/service-provider/client/my-requests/index.vue') 
+    },
+    {
         path: 'service-provider/my-schedules',
         meta:{layout:LayoutService,auth:true},
         name: 'service-provider-my-schedules',
