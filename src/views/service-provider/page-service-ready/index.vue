@@ -304,6 +304,7 @@
   <DialogRequestService />
   <DialogDeleteService />
   <DialogUpdateService />
+  <CheckOutDialog />
 <DialogSuccessSuspendService @suspend="suspend" />
 <DialogSuccessRepublishService />
     </div>
@@ -323,9 +324,11 @@ import DialogDeleteService from '@/layouts/service-provider/dialogs/del-service.
 import DialogSuccessSuspendService from '@/layouts/service-provider/dialogs/success-suspend-service.vue'
 import DialogSuccessRepublishService from '@/layouts/service-provider/dialogs/success-republish-service.vue'
 import DialogUpdateService from '@/layouts/service-provider/dialogs/update-service/index.vue'
+import CheckOutDialog from './dialog/check-out/index'
 export default {
     name:'page-service-ready',
     components:{
+        CheckOutDialog,
         DialogBooking,
         DialogDeleteService,
         DialogSuccessSuspendService,

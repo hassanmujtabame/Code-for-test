@@ -30,6 +30,13 @@ export default {
  props:['itemPage'],
  methods:{
     openBooking(){
+        if(this.itemPage.state=='online'){
+
+        this.fireOpenDialog('checkout-ready-service-online',{item:{amount:this.itemPage.price,title:this.itemPage.title},data:this.itemPage})
+
+        }
+       
+        else
         this.fireOpenDialog('booking-service',this.itemPage)
     }
  }
