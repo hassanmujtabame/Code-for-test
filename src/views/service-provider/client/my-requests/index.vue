@@ -39,7 +39,7 @@
     </div>
 </template>
 <script>
-import myRequestClientAPI from '@/services/api/service-provider/user/my-request-client.js'
+import myRequestClientAPI from '@/services/api/service-provider/user/my-requests-client.js'
 export default {
     name: 'request-purchase-services',
     data:()=>{
