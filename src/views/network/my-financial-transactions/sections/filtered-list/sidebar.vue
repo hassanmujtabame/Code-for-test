@@ -42,7 +42,7 @@
                     aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body show">
                         <div v-for="(cat,i) in categories" :key="i" class="form-check">
-                            <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="checkbox">
+                            <input v-model="filter.time_period" :value="cat.id" class="form-check-input" type="radio">
                             <label class="form-check-label" for="defaultCheck1">
                                 {{cat.name}}
                             </label>
@@ -64,11 +64,11 @@
                     <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">
                                         <rslider-input
-                                         :min.sync="filter.min_discount" 
-                                         :max.sync="filter.max_discount"
-                                         :step="100"
+                                         :min.sync="filter.min_balance" 
+                                         :max.sync="filter.max_balance"
+                                         :step="10"
                                          :lmin="0"
-                                         :lmax="30000"
+                                         :lmax="1000"
                                          />
                                     </div>
                                 </div>
@@ -84,8 +84,6 @@
 </template>
 
 <script>
-import exhibitionsAPIs from '@/services/api/exhibitions.js'
-
 export default {
  name:'sidebar-box',
  props:{
@@ -98,14 +96,23 @@ export default {
 
     return{
         states:[
-     
-            {id:'1',name:'مستحقاتك'},
-            {id:'2',name:'شحن رصيدك'},
-            {id:'3',name:'رسوم'},
-            {id:'4',name:'سحب رصيدك'},
+
+            {id:'dues',name:'مستحقاتك'},
+            {id:'recharge_balance',name:'شحن رصيدك'},
+            {id:'fees',name:'رسوم'},
+            {id:'balance_withdrawal',name:'سحب رصيدك'},
 
         ],
-        categories:[],
+        categories:[
+            {id:'last_month',name:vm.$t('last_month')},
+            {id:'last_six_months',name:vm.$t('last_six_months')},
+            {id:'last_year',name:vm.$t('last_year')},
+            {id:'last_two_years',name:vm.$t('last_two_years')},
+            {id:'before_three_years',name:vm.$t('before_three_years')},
+            {id:'before_five_years',name:vm.$t('before_five_years')},
+            {id:'five_years_and_more',name:vm.$t('five_years_and_more')},
+
+        ],
     filter:vm.filterItem
  }},
 
@@ -113,23 +120,10 @@ export default {
  updateFilter(){
     this.$emit('change',this.filter)
  },
- async getCategories() {
-            try {
-                let { data } = await exhibitionsAPIs.getCategories()
-                if (data.success) {
 
-                    let categories = data.data;
-                
-                    this.categories=categories
-                }
-            } catch (error) {
-                console.log('error', error)
-                console.log('error response', error.response)
-            }
-        }
     },
     mounted() {
-        this.getCategories();
+      
     }
 }
 </script>
