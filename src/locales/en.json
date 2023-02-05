@@ -450,5 +450,15 @@
   "continuity": "continuity",
   "confirm-code": "Confirm code",
   "resend-code": "resend code",
-  "amount": "Amount"
+  "amount": "Amount",
+  "request-title": "Request title",
+  "request-price": "Request price",
+  "request-category": "Service category",
+  "request-field": "Request field",
+  "speciality": "speciality",
+  "request-description": "Request description",
+  "add-new-request": "New request",
+  "specialite": "Specialite",
+  "select-specialite": "Select specialite",
+  "required-skills": "Required skills"
 }

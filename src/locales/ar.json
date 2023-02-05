@@ -420,7 +420,7 @@
   "your-offer": "عرضك",
   "message-title": "عنوان الرسالة",
   "send": "إرسال",
-  "execution_period": "وقت تنفيذ",
+  "execution_period": "مدة تنفيذ",
   "execution_place": "مكان التنفيذ",
   "specific_date": "تاريخ محدد",
   "details": "تفاصيل",
@@ -448,5 +448,15 @@
   "continuity": "الاستمرار",
   "confirm-code": "رمز التاكيد",
   "resend-code": "أعد إرسال الرمز",
-  "amount": "كمية"
+  "amount": "كمية",
+  "request-title": "عنوان الطلب",
+  "request-price": "سعر الطلب",
+  "request-category": "تصنيف الخدمة",
+  "request-field": "مجال الخدمة",
+  "speciality": "الاختصاص",
+  "request-description": "وصف الطلب",
+  "add-new-request": "أضف طلب",
+  "specialite": "الإختصاص",
+  "select-specialite": "حدد الاختصاص",
+  "required-skills": "المهارات المطلوبة"
 }

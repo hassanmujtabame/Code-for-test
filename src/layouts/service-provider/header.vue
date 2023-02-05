@@ -18,7 +18,7 @@
               <router-link :to="getRouteLocale('contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
             </li>
             <button @click="openAddService($event,closeNavList)" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center text-white">
-              {{ $t('add-new-service') }}
+              {{ isRequestPage?$t('add-new-request'):$t('add-new-service') }}
                     </button>
                   </template>
     </TemplateHeader>
@@ -32,10 +32,18 @@ export default {
     components:{
       TemplateHeader
     },
+    computed:{
+      isRequestPage(){
+       return this.$route.name.startsWith('service-provider-show-service')
+      }
+    },
    methods:{
     openAddService(evt,closeNavList){
         evt.preventDefault();
         closeNavList()
+        if(this.isRequestPage)
+        this.fireOpenDialog('add-request-sp')
+        else
         this.fireOpenDialog('add-ready-service-dialog')
       },
       closeAddService(evt){
