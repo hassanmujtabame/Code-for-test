@@ -221,15 +221,15 @@ let valid = await this.$refs.form.validate();
         this.itemForm={
         id:null,
         title:'',
-        field_id:null,
         company_name:null,
         type:null,//part_time || full_time
         expected_salary:null,
         required_experience:0,
-        service_category_id:null,//department
         job_name:null,
         work_location:null,//online || offline
         duration_contract:null,
+        desc:null,
+        user_id:this.itemDialog.id
     }
         this.showed=true
         return true;

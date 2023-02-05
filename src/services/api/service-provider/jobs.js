@@ -44,7 +44,7 @@ class JobsServiceApi extends BaseApi {
         return window.axios.get(`service-provider/user/Employing-riadiat-graduates`); 
     }
     sendJob(data){
-        return window.axios.post(`service-provider/user/send-job`,data); 
+        return window.axios.post(`service-provider/user/job-riadiat-graduates`,data); 
 
     }
 
