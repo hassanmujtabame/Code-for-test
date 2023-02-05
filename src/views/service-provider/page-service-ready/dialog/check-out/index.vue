@@ -62,13 +62,13 @@ export default {
         expiryMonth:expiryMonth,
         expiryYear:expiryYear,
         save:cardInfo.saveCard,
-        package_id:otherData.id
+        service_id:otherData.id
        }
        }else{
         pay_info = {
           type:1,
           payment_id:item.payment_type,
-          package_id:otherData.id
+          service_id:otherData.id
         }
        }
     

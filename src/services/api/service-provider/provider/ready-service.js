@@ -86,7 +86,9 @@ class readyServicesApi extends BaseApi{
         return window.axios.delete(`service-provider/provider/ready-services/${service_id}/galleries/${id}`);
 }
 checkoutService (data){
-    console.mylog(data)
+    console.mylog(data);
+    return window.axios.post(`service-provider/user/purchase-service-checkout`,data);
+
 }
 }
 
