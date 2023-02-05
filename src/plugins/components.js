@@ -26,6 +26,8 @@ import DDialogSimple from '@/components/modals/simple.vue'
 import DOverlaySimple from '@/components/overlays/simple.vue'
 import SectionContinueLearning from '@/components/sections/section-continue-learning/index.vue'
 import RequestPurchaseCard from '@/components/cards/request-purchase-service.vue'
+import MyPurchaseCard from '@/components/cards/my-purchase-client.vue'
+import MyRequestCard from '@/components/cards/my-request-client.vue'
 import ErrorInput from '@/components/error-input/index.vue'
 import CreditCardImage from '@/components/credit-card/credit-card-img.vue'
 import DRateStars from '@/components/rate-stars/index.vue'
@@ -61,6 +63,8 @@ Vue.component('section-continue-learning', SectionContinueLearning)
 Vue.component('d-job-card', DJobCard)
 Vue.component('d-blog-info-card', DBlogInfoCard)
 Vue.component('d-request-purchase-card', RequestPurchaseCard)
+Vue.component('d-my-purchase-card', MyPurchaseCard)
+Vue.component('d-my-request-card', MyRequestCard)
 Vue.component('d-story-card', DStoryCard)
 Vue.component('d-overlays-simple', DOverlaySimple)
 Vue.component('d-dialog-large', DDialogLarge)
