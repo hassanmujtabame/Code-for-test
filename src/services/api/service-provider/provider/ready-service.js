@@ -85,6 +85,9 @@ class readyServicesApi extends BaseApi{
     deleteGalleriesItem(service_id,id){
         return window.axios.delete(`service-provider/provider/ready-services/${service_id}/galleries/${id}`);
 }
+checkoutService (data){
+    console.mylog(data)
+}
 }
 
 export default new readyServicesApi();

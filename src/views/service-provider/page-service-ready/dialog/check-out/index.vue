@@ -28,7 +28,7 @@ hideAmount
 </template>
 <script>
 import CheckOutDialog from '@/common/dialogs/check-out/index'
-import networkAPI from '@/services/api/network.js'
+import readyserviceAPI from '@/services/api/service-provider/provider/ready-service.js'
 export default {
   name:"checkout-ready-service-online",
   props:{
@@ -74,7 +74,7 @@ export default {
     
        console.mylog('sending',pay_info)
       try {
-        let { data } = await networkAPI.checkoutPackage(pay_info)
+        let { data } = await readyserviceAPI.checkoutService(pay_info)
         if(data.success){
           
           console.mylog('success',data)
