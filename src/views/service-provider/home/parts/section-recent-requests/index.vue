@@ -15,16 +15,16 @@
           <showRequest 
           :title="item.title"
         :description="item.description"
-        :category="item.category"
+        :category="item.field_name"
         :price="item.price"
         :during="item.rest_days"
         :place="item.city"
         :offers="item.count_offer"
-        :datePublish="item.start_date"
+        :datePublish="item.created_at"
           :image="item.image" 
             :resetDays="item.rest_days" 
 
-            :department="item.categories && item.categories.length ? item.categories[0].name : 'N/A'" />
+            :department="item.category_name" />
         </router-link>
       </div>
     </div>
@@ -35,7 +35,7 @@
 <script>
 import myRequestsAPIs from '@/services/api/service-provider/user/my-requests.js'
 //import CardService from './card.vue'
-import showRequest from '@/components/cards/show-request.vue'
+import showRequest from '@/components/cards/show-service.vue'
 export default {
   name: 'section-recent-requests',
   components: {

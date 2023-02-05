@@ -15,13 +15,13 @@
     <showService 
         :title="item.title"
         :description="item.description"
-        :department="item.department"
-        :category="item.category"
+        :department="item.category_name"
+        :category="item.field_name"
         :price="item.price"
         :during="item.rest_days"
         :place="item.city"
         :offers="item.count_offer"
-        :datePublish="item.start_date"
+        :datePublish="item.created_at"
      />
     </router-link>
 </template>

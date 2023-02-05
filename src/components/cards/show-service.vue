@@ -47,9 +47,7 @@
       </div>
   
   </div>
-  <p class="box-description text-two-lines t-c fs-r-16-24">
-   {{ description }}
-  </p>
+  <p class="box-description text-two-lines t-c fs-r-16-24" v-html="description"> </p>
   <div class="d-flex gap-2">
       <p class="t-c fs-r-12 mb-0">
            <!--timer-->
