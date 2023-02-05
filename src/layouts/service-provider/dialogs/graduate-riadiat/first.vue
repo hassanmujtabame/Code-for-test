@@ -81,7 +81,7 @@
    methods:{
     nextStep(){
         this.closeEvent()
-        this.fireOpenDialog('graduate-riadiat-recruitment-2')
+        this.fireOpenDialog('graduate-riadiat-recruitment-2',this.itemDialog)
     },
       openDialog(data){
         this.itemDialog=Object.assign({},data);
@@ -99,7 +99,7 @@
    mounted(){
     console.mylog(process.env)
     if(process.env.DIALOG_SEND_RECRUITMENT)
-    this.fireOpenDialog(this.group)
+    this.fireOpenDialog(this.group,{id:148})
    }
   }
   </script>

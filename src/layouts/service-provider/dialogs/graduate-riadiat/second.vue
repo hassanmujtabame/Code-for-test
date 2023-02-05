@@ -8,7 +8,7 @@
         <span class="m-c">وظف خريج رياديات</span>
     </template>
       <template v-slot>
-      <ValidationObserver ref="form" >
+      <ValidationObserver v-if="showDialog" ref="form" >
          <!--company name-->
          <div class="mb-3">
                         <ValidationProvider
@@ -167,7 +167,7 @@ import jobsProviderAPIs from '@/services/api/service-provider/jobs'
     return {
       itemDialog:{id:null},
       itemForm:{},
-      showed:false,
+      showDialog:false,
       job_types:[
     {id:'part_time',name:vm.$t('part_time')},
     {id:'full_time',name:vm.$t('full_time')},
@@ -228,14 +228,14 @@ let valid = await this.$refs.form.validate();
         job_name:null,
         work_location:null,//online || offline
         duration_contract:null,
-        desc:null,
+        desc:'',
         user_id:this.itemDialog.id
     }
-        this.showed=true
+        this.showDialog=true
         return true;
       },
       closeDialog(){
-        this.showed=false
+        this.showDialog=false
         return true;
       },
       closeEvent(){
