@@ -263,12 +263,12 @@ let valid = await this.$refs.form.validate();
     if(ch)
     this.itemForm.field_id = null;
    
-    if(!this.itemForm.service_category_id) {
+    if(!this.itemForm.category_id) {
         this.fields = [];
         return;
     }
     try {
-        let {data} =  await myRequestsSPAPIs.getFields(this.itemForm.service_category_id)
+        let {data} =  await myRequestsSPAPIs.getFields(this.itemForm.category_id)
         if(data.success){
             this.fields = data.data
         }
