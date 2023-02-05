@@ -7,7 +7,7 @@
       @change="changeFilter"
       >
         <template v-slot:total>
-            <h4 class="fw-bold">{{ $t('my-purchases') }}</h4>
+            <h4 class="fw-bold">مشاريع</h4>
         </template>
         <template v-slot:before-body>
             <ul class="nav nav-pills  mb-3">
@@ -20,7 +20,7 @@
                 </ul>
         </template>
         <template v-slot:default="{item}">
-            <d-my-purchase-card
+            <d-my-request-card
                             :itemId="item.id"
                             :status="item.status"
                             :service="item.title"
@@ -33,23 +33,23 @@
                             :homeDelivery="item.home_delivery"
                             :delivery="item.delivery_product_available"
                             >
-                        </d-my-purchase-card>
+                        </d-my-request-card>
         </template>
       </d-filter-list>
     </div>
 </template>
 <script>
-import myPurchasesAPI from '@/services/api/service-provider/user/my-purchases.js'
+import myRequestClientAPI from '@/services/api/service-provider/user/my-request-client.js'
 export default {
     name: 'request-purchase-services',
     data:()=>{
         return {
             status:null,
             actions:[
-                {label:'كل المشتريات',status:null},
-                {label:'لم يوافق عليها  بعد',status:"waiting"},
-                {label:'قيد التنفيذ',status:"underway"},
-                {label:'قمت بأستلمها',status:"finished"},
+                {status:null,label:'كل مشاريعك'},
+                {status:'waiting',label:'في انتظار موافقتك'},
+                {status:'underway',label:'مشاريع قيد التنفيذ'},
+                {status:'finished',label:'مشاريع مكتملة'},
             ],
             filterItem:{
                 search:null,
@@ -75,7 +75,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await myPurchasesAPI.getAll(params)
+                return await myRequestClientAPI.getAll(params)
 
             } catch (error) {
                 console.log('error', error)
