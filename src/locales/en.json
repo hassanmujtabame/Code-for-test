@@ -462,5 +462,13 @@
   "select-specialite": "Select specialite",
   "required-skills": "Required skills",
   "request-domain": "Request domain",
-  "my-purchases": "my purchases"
+  "my-purchases": "my purchases",
+  "last_month": "last month",
+  "last_six_months": "last six months",
+  "lastest_month": "lastest month",
+  "last_year": "last year",
+  "last_two_years": "Last two years",
+  "before_three_years": "Before three years",
+  "before_five_years": "before 05 years",
+  "five_years_and_more": "05 years and more"
 }

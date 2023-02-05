@@ -460,5 +460,13 @@
   "select-specialite": "حدد الاختصاص",
   "required-skills": "المهارات المطلوبة",
   "request-domain": "مجال الخدمة",
-  "my-purchases": "مشترياتي"
+  "my-purchases": "مشترياتي",
+  "last_month": "أخر الشهر",
+  "last_six_months": "اخر 6 أشهر",
+  "lastest_month": "الشهر الماضي",
+  "last_year": "اخر سنة",
+  "last_two_years": "أخر سنتين",
+  "before_three_years": "قبل 03 سنوات",
+  "before_five_years": "قبل 05 سنوات",
+  "five_years_and_more": "05 سنوات فأكثر"
 }
