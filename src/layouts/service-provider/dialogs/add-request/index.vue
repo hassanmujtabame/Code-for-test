@@ -143,7 +143,7 @@
   </template>
   
   <script>
-import myRequestsSPAPIs from '@/services/api/service-provider/user/my-requests'
+import myRequestsSPAPIs from '@/services/api/service-provider/provider/my-requests'
 
   export default {
     name:'add-request-sp',

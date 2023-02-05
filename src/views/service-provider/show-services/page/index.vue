@@ -185,7 +185,7 @@
 </template>
 
 <script>
-import myRequestsAPIs from '@/services/api/service-provider/user/my-requests.js'
+import myRequestsAPIs from '@/services/api/service-provider/provider/my-requests.js'
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import SectionUserInfo from './parts/section-user-info/index.vue'
 import SectionContinueLearning from '@/views/service-provider/common-components/section-continue-learning/index.vue'

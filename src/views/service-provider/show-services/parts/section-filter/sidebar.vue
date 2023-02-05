@@ -157,7 +157,7 @@
 </template>
 
 <script>
-import myRequestsAPIs from '@/services/api/service-provider/user/my-requests.js'
+import myRequestsAPIs from '@/services/api/service-provider/provider/my-requests.js'
 import ExpandedPanel from '@/components/expanded-panel/ExpandedPanel.vue';
 import ExpandedPanelItem from '@/components/expanded-panel/ExpandedPanelItem.vue';
 
