@@ -134,6 +134,7 @@ name:'section-user-info',
             Object.keys(this.itemForm).forEach(key=>{
                 formData.append(key,this.itemForm[key])
             })
+            formData.append('service_d',this.itemPage.id)
             formData.append('user_id',this.itemPage.user_info.id)
             let { data } = await window.axios.post('service-provider/user/offer-for-service',formData)
             if(data.success){
