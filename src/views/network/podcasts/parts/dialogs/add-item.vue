@@ -3,7 +3,7 @@
         <d-dialog-large 
         mlg
         :group="group" 
-
+        :loading="loading"
         :closeDialog="closeDialog"
         :openDialog="openDialog"
         >
@@ -107,6 +107,7 @@ import objAPI from '@/services/api/podcasts.js'
 export default {
   data:(vm)=>{
     return{
+        loading:false,
     group:'add-dialog-item',
     showDialog:false,
     categories:[],
@@ -124,9 +125,11 @@ export default {
   }},
   methods:{
    async save(){
+    this.loading =  true;
     let valid = await this.$refs.form.validate();
         if(!valid){
             console.log('form invalid');
+            this.loading =  false;
             return ;
         }
      let formData = new FormData();
@@ -150,6 +153,7 @@ export default {
                 }
            
         }
+        this.loading =  false;
     },
     makeImageEmpty(){
         this.file = null;
@@ -190,7 +194,7 @@ export default {
         }
     },
     openDialog(){
-        console.log('open')
+        this.loading =  false;
         window.$('#'+this.idImage)
                     .attr('src', 'none')
                     .css('opacity', '0');

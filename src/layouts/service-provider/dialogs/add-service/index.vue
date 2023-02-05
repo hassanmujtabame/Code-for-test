@@ -4,7 +4,9 @@
     :group="group" 
     :closeDialog="closeDialog"
     :openDialog="openDialog"
+    :loading="loading"
     >
+   
         <ValidationObserver v-if="showDialog" ref="form" >
         
                     <div class="row add-portfolio m-3 p-0">
@@ -286,6 +288,7 @@ export default {
     },
 data:(vm)=>{
 return{
+    loading: false,
         group:'add-ready-service-dialog',
         showDialog:false,
         states:[
@@ -304,9 +307,11 @@ return{
 }},
 methods:{
 async save(){
+    this.loading = true;
 let valid = await this.$refs.form.validate();
     if(!valid){
         console.log('form invalid');
+        this.loading = false
         return ;
     }
  let formData = new FormData();
@@ -344,6 +349,7 @@ for ( i = 0; i < this.itemForm.category_id.length; i++) {
             }
        
     }
+    this.loading = false;
 },
 removeGallary(index){
     this.gallaries.splice(index, 1);
@@ -437,6 +443,7 @@ this.gallariesUrl = []
 },
 closeDialog(){
     this.showDialog = false
+    this.loading = false
     return true;
 },
 closeEvent(){

@@ -4,6 +4,7 @@
     :group="group" 
     :closeDialog="closeDialog"
     :openDialog="openDialog"
+    :loading="loading"
     >
         <ValidationObserver v-if="showDialog" ref="form" >
         
@@ -281,6 +282,7 @@ export default {
     },
 data:(vm)=>{
 return{
+    laoding:false,
         group:'update-ready-service',
         showDialog:false,
         states:[
@@ -301,11 +303,14 @@ return{
 }},
 methods:{
 async save(){
+    this.loading = true;
 let valid = await this.$refs.form.validate();
     if(!valid){
         console.log('form invalid');
+        this.loading = false;
         return ;
     }
+    
  let formData = new FormData();
  formData.append('title',this.itemForm.title);
  formData.append('desc',this.itemForm.description);
@@ -342,6 +347,7 @@ for ( let i = 0; i < this.itemForm.category_id.length; i++) {
             }
        
     }
+    this.loading = false;
 },
 async removeGallary(id){
     this.gallery_deleting = true;
@@ -463,6 +469,7 @@ this.gallariesUrl = dataItem.medias
 },
 closeDialog(){
     this.showDialog = false
+    this.loading = false;
     return true;
 },
 closeEvent(){

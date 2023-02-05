@@ -2,6 +2,7 @@
   
         <d-dialog-large 
         mlg
+        :loading="loading"
         :group="group" 
         :closeDialog="closeDialog"
         :openDialog="openDialog"
@@ -58,6 +59,7 @@ import StoriesAPI from '@/services/api/stories.js'
 export default {
   data:(vm)=>{
     return{
+        loading:false,
     group:'update-story',
     showDialog:false,
     categories:[],
@@ -76,9 +78,11 @@ export default {
   
   methods:{
    async save(){
+    this.loading =  true;
     let valid = await this.$refs.form.validate();
         if(!valid){
             console.log('form invalid');
+            this.loading =  false;
             return ;
         }
      let formData = new FormData();
@@ -105,6 +109,7 @@ export default {
                 }
            
         }
+        this.loading =  false;
     },
     openDialog(data){
         this.itemOrigin = data

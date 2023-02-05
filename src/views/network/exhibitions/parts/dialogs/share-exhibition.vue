@@ -4,6 +4,7 @@
     :openDialog="openDialog" 
     :close-dialog="closeDialog"
     :mlg="true"
+    :loading="loading"
     >
     <div v-if="showDialog" class="text-center">
                   <div>
@@ -36,6 +37,7 @@ export default {
     },
     data: () => {
         return{
+            loading:false,
             showDialog:false,
             itemPage:{}
         }

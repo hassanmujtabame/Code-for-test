@@ -1,6 +1,10 @@
 <template>
 
-    <d-dialog-large :xl="false" :group="group" :closeDialog="closeDialog" :openDialog="openDialog">
+    <d-dialog-large :xl="false" :group="group" 
+    :closeDialog="closeDialog" 
+    :openDialog="openDialog"
+    :loading="loading"
+    >
         <ValidationObserver ref="form">
             <div v-if="showDialog" class=" add-portfolio m-3 p-0">
                 <div class="   m-auto">
@@ -53,6 +57,7 @@ import StoriesAPI from '@/services/api/stories.js'
 export default {
     data: () => {
         return {
+            loading:false,
             group: 'add-story',
             showDialog: false,
             itemDialog: {
@@ -63,9 +68,11 @@ export default {
     },
     methods: {
         async save() {
+            this.loading =  true;
             let valid = await this.$refs.form.validate();
             if (!valid) {
                 console.log('form invalid');
+                this.loading =  false;
                 return;
             }
             let formData = new FormData();
@@ -92,9 +99,10 @@ export default {
                 }
 
             }
+            this.loading =  false;
         },
         openDialog() {
-            console.log('open')
+            this.loading =  false;
             Object.keys(this.itemDialog).forEach(key => {
                  this.itemDialog[key]='';
             })

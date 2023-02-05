@@ -1,6 +1,8 @@
 <template>
   
-        <d-dialog-large :group="group" :openDialog="openDialog" :close-dialog="closeDialog">
+        <d-dialog-large :group="group" :openDialog="openDialog" :close-dialog="closeDialog"
+        :loading="loading"
+        >
             <ValidationObserver ref="form">
                 <div class=" add-portfolio m-3 p-0">
                     <div class="   m-auto">
@@ -192,6 +194,7 @@ import offersAPI from '@/services/api/offers';
 export default {
   data:(vm)=>{
     return{
+        loading:false,
     group:'add-dialog',
     showDialog:false,
     categories:[],
@@ -215,10 +218,11 @@ export default {
   }},
   methods:{
    async save(){
-    console.log('refs',this.$refs)
+    this.loading =  true;
     let valid = await this.$refs.form.validate();
         if(!valid){
             console.log('form invalid');
+            this.loading =  false;
             return ;
         }
      let formData = new FormData();
@@ -256,6 +260,7 @@ export default {
                 }
            
         }
+        this.loading =  false;
     },
     makeImageEmpty(){
         this.file = null;
@@ -296,7 +301,7 @@ export default {
         }
     },
     openDialog(){
-        console.log('open ')
+        this.loading =  false;
         this.url='/assets/svg/empty-image.svg'
         this.file=null;
         this.offer.title=''

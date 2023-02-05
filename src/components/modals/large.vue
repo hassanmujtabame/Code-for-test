@@ -18,6 +18,9 @@
                     </h1>
                     <button type="button" class="btn-close" @click="closeDialogLocal()" aria-label="Close"></button>
                 </div>
+                <div class="position-relative">
+                <d-overlays-simple v-if="loading" />
+
                 <div class="modal-body">
                     <slot :close="closeDialogLocal" :dialog="dialog"></slot>
                 </div>
@@ -25,6 +28,7 @@
                     <slot name="actions" :close="closeDialogLocal" :dialog="dialog">
                     </slot>
                 </div>
+            </div>
             </div>
         </div>
     </div>
@@ -45,6 +49,10 @@ props:{
     fullscreen:{
         type:Boolean,
         default:false
+    },
+    loading:{
+        type:Boolean,
+        default:false,
     },
     centered:{
         type:Boolean,
@@ -72,6 +80,9 @@ data:(vm)=>{
     modalId:vm.generateRandomString(8),
     dialog:false,
 }},
+watch:{
+    loading(){}
+},
 computed:{
  styleObj(){
     return {

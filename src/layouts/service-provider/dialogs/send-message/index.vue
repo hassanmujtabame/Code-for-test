@@ -108,6 +108,7 @@ export default {
     },
     closeDialog(){
         this.showDialog =  false;
+        this.sending  = false;
         return true;
     },
     openDialog(dataEvent){

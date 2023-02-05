@@ -3,6 +3,7 @@
     :xl="false"
     :openDialog="openDialog"
     :closeDialog="closeDialog"
+    :loading="loading"
     >
       <template v-slot>
       <ValidationObserver ref="form" >
@@ -154,6 +155,7 @@ import myRequestsSPAPIs from '@/services/api/service-provider/user/my-requests'
    },
    data:(vm)=>{
     return {
+        loading:false,
       itemDialog:{id:null},
       itemForm:{},
       showDialog:false,
@@ -166,9 +168,11 @@ states:[
    }},
    methods:{
     async save(){
+        this.loading =  true;
 let valid = await this.$refs.form.validate();
     if(!valid){
         console.log('form invalid');
+        this.loading =  false;
         return ;
     }
     let formData = new FormData();
@@ -211,9 +215,10 @@ let valid = await this.$refs.form.validate();
             }
        
     }
+    this.loading =  false;
 },
       openDialog(dataEvent){
-
+        this.loading =  false;
         this.itemForm={
         id:null,
         title:'',

@@ -3,7 +3,7 @@
     <d-dialog-large 
     mlg
     :group="group" 
-
+    :loading="loading"
     :closeDialog="closeDialog"
     :openDialog="openDialog"
     >
@@ -213,6 +213,7 @@ import jobsProviderAPIs from '@/services/api/service-provider/jobs'
 export default {
 data:(vm)=>{
 return{
+    loading:false,
 group:'add-job',
 showDialog:false,
 categories:[],
@@ -234,9 +235,11 @@ itemForm:{
 }},
 methods:{
 async save(){
+    this.loading =  false;
 let valid = await this.$refs.form.validate();
     if(!valid){
         console.log('form invalid');
+        this.loading =  false;
         return ;
     }
     let formData = new FormData();
@@ -267,6 +270,7 @@ let valid = await this.$refs.form.validate();
             }
        
     }
+    this.loading =  false;
 },
 
 async loadTags(){
@@ -309,6 +313,7 @@ async loadCategories(){
     }
 },
 openDialog(dataEvent){
+    this.loading =  false;
     this.itemForm={
         id:null,
         title:'',

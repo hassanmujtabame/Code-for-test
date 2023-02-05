@@ -165,6 +165,7 @@ import jobsProviderAPIs from '@/services/api/service-provider/jobs'
    },
    data:(vm)=>{
     return {
+        loading:false,
       itemDialog:{id:null},
       itemForm:{},
       showDialog:false,
@@ -182,9 +183,11 @@ duration_contracts:[
    }},
    methods:{
     async save(){
+        this.loading =  true;
 let valid = await this.$refs.form.validate();
     if(!valid){
         console.log('form invalid');
+        this.loading =  false;
         return ;
     }
     let formData = new FormData();
@@ -215,8 +218,10 @@ let valid = await this.$refs.form.validate();
             }
        
     }
+    this.loading =  false;
 },
       openDialog(data){
+        this.loading =  false;
         this.itemDialog=Object.assign({},data);
         this.itemForm={
         id:null,

@@ -4,7 +4,7 @@
     :group="group" 
     :openDialog="openDialog" 
     :close-dialog="closeDialog"
-    
+    :loading="loading"
     >
         <ValidationObserver ref="form">
             <div class="form-exhibition row add-portfolio m-3 p-0 position-relatiuve">
@@ -374,6 +374,7 @@ components:{
 },
     data: (vm) => {
         return{
+            loading:false,
         group: 'add-dialog',
         showDialog: false,
         idImage: `image-selected-${vm.generateRandomString(8)}`,
@@ -435,9 +436,11 @@ watch:{
             
         },
         async save() {
+            this.loading =  true;
             let valid = await this.$refs.form.validate();
             if (!valid) {
                 console.log('form invalid');
+                this.loading =  false;
                 return;
             }
             let formData = new FormData();
@@ -487,6 +490,7 @@ watch:{
                 }
 
             }
+            this.loading =  false;
         },
         makeImageEmpty(){
         this.file = null;
@@ -541,6 +545,7 @@ watch:{
             }
         },
         openDialog() {
+            this.loading =  false;
             this.itemForm= {
                 booth_name:[null],
                 rental_price:[null],
