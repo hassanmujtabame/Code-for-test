@@ -455,9 +455,10 @@
   "request-field": "مجال الخدمة",
   "speciality": "الاختصاص",
   "request-description": "وصف الطلب",
-  "add-new-request": "أضف طلب",
+  "add-new-request": "أطلب خدمة جديدة",
   "specialite": "الإختصاص",
   "select-specialite": "حدد الاختصاص",
   "required-skills": "المهارات المطلوبة",
-  "request-domain": "مجال الخدمة"
+  "request-domain": "مجال الخدمة",
+  "my-purchases": "مشترياتي"
 }
