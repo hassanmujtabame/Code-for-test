@@ -43,16 +43,34 @@
                                 <d-error-input :errors="errors" v-if="errors.length" />
                         </ValidationProvider>
                     </div>
+                    <!-- specialites -->
+             <div class="mb-3">
+                        <ValidationProvider
+                        tag="div"
+                        class="form-group"
+                                :name="$t('request-category')"
+                             vid="state"
+                             rules="required"
+                                v-slot="{errors}">
+                        <label class="form-label">{{ $t('request-category') }} </label>
+                        <select class="form-select" v-model="itemForm.state" >
+                        <option v-for="(spec,i) in states" :key="i" :value="spec.id"> {{ spec.name }}</option>
+                        </select>
+                       
+                        <d-error-input :errors="errors" v-if="errors.length" />
+                    </ValidationProvider>
+                  </div>
+             
           <!-- category -->
           <div class="mb-3">
                         <ValidationProvider
                         tag="div"
                         class="form-group"
-                                :name="$t('request-category')"
+                                :name="$t('request-domain')"
                              vid="category_id"
                              rules="required"
                                 v-slot="{errors}">
-                        <label class="form-label">{{ $t('request-category') }} </label>
+                        <label class="form-label">{{ $t('request-domain') }} </label>
                         <select class="form-select" v-model="itemForm.category_id" 
                         @change="loadFields($event)"
                         >
@@ -67,11 +85,11 @@
                         <ValidationProvider
                         tag="div"
                         class="form-group"
-                                :name="$t('request-field')"
+                                :name="$t('specialite')"
                              vid="field_id"
                              rules="required"
                                 v-slot="{errors}">
-                        <label class="form-label">{{ $t('request-field') }} </label>
+                        <label class="form-label">{{ $t('select-specialite') }} </label>
                         <select class="form-select" v-model="itemForm.field_id" >
                         <option v-for="(field,i) in fields" :key="i" :value="field.id"> {{ field.name }}</option>
                         </select>
@@ -80,23 +98,6 @@
                     </ValidationProvider>
                   </div>
                      
-             <!-- specialites -->
-             <div class="mb-3">
-                        <ValidationProvider
-                        tag="div"
-                        class="form-group"
-                                :name="$t('specialite')"
-                             vid="speciaite_id"
-                             rules="required"
-                                v-slot="{errors}">
-                        <label class="form-label">{{ $t('select-specialite') }} </label>
-                        <select class="form-select" v-model="itemForm.speciaite_id" >
-                        <option v-for="(spec,i) in specialites" :key="i" :value="spec.id"> {{ spec.name }}</option>
-                        </select>
-                       
-                        <d-error-input :errors="errors" v-if="errors.length" />
-                    </ValidationProvider>
-                  </div>
              
                  
                     <div class="mb-3">
@@ -158,7 +159,10 @@ import myRequestsSPAPIs from '@/services/api/service-provider/user/my-requests'
       showDialog:false,
       categories:[],
 fields:[],
-specialites:[],
+states:[
+    {id:'online',name:vm.$t('online')},
+    {id:'offline',name:vm.$t('offline')},
+],
    }},
    methods:{
     async save(){
@@ -202,9 +206,10 @@ let valid = await this.$refs.form.validate();
         this.itemForm={
         id:null,
         title:'',
-        field_id:null,
+        state:'',
+        
         category_id:null,
-        specialite_id:null,
+        field_id:null,
         price:null,
         execution_period:0,
         description:'',
@@ -215,7 +220,7 @@ let valid = await this.$refs.form.validate();
             title,
         field_id,
         category_id,
-        specialite_id,
+        state,
         price,
         execution_period,
         description,
@@ -225,7 +230,7 @@ let valid = await this.$refs.form.validate();
             title,
         field_id,
         category_id,
-        specialite_id,
+        state,
         price,
         execution_period,
         description,

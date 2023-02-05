@@ -458,5 +458,6 @@
   "add-new-request": "أضف طلب",
   "specialite": "الإختصاص",
   "select-specialite": "حدد الاختصاص",
-  "required-skills": "المهارات المطلوبة"
+  "required-skills": "المهارات المطلوبة",
+  "request-domain": "مجال الخدمة"
 }

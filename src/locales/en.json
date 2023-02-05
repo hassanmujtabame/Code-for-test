@@ -460,5 +460,6 @@
   "add-new-request": "New request",
   "specialite": "Specialite",
   "select-specialite": "Select specialite",
-  "required-skills": "Required skills"
+  "required-skills": "Required skills",
+  "request-domain": "Request domain"
 }
