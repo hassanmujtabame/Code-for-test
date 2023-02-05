@@ -38,13 +38,13 @@ const routers =[
     },
     {
         path: 'service-provider/my-schedules',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-my-schedules',
         component: () => import(/* webpackChunkName: "service-provider-my-schedules" */ '../views/service-provider/my-schedules/index.vue') 
     },
     {
         path: 'service-provider/my-schedules/:id',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-my-schedule-show',
         component: () => import(/* webpackChunkName: "service-provider-my-schedule-show" */ '../views/service-provider/my-schedules/page/index.vue') 
     },
@@ -62,19 +62,19 @@ const routers =[
     },
     {
         path: 'service-provider/jobs/:id',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-job-show',
         component: () => import(/* webpackChunkName: "service-provider-job-show" */ '../views/service-provider/jobs/page/index.vue') 
     },
     {
         path: 'service-provider/dashboard',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-dashboard',
         component: () => import(/* webpackChunkName: "service-provider-dashboard" */ '../views/service-provider/dashboard/index.vue') 
     },
     {
         path: 'service-provider/my-offers',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-my-offers',
         component: () => import(/* webpackChunkName: "service-provider-my-offers" */ '../views/service-provider/page-my-offers/index.vue') 
     },
@@ -86,7 +86,7 @@ const routers =[
     },
     {
         path: 'service-provider/ready-services/:id',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-ready-service',
         component: () => import(/* webpackChunkName: "service-provider-page-service-ready" */ '../views/service-provider/page-service-ready/index.vue') 
     },
@@ -98,31 +98,31 @@ const routers =[
     },
     {
         path: 'service-provider/show-services/:id',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-show-service-page',
         component: () => import(/* webpackChunkName: "service-provider-show-service-page" */ '../views/service-provider/show-services/page/index.vue') 
     },
     {
         path: 'service-provider/show-services/:id/progress',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-show-service-in-process',
         component: () => import(/* webpackChunkName: "service-provider-show-service-page-progress" */ '../views/service-provider/show-services/request-page-in-progress/index.vue') 
     },
     {
         path: 'service-provider/request-purchase-services',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-request-purchase-services',
         component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/show-services/request-purchase-services/index.vue') 
     },
     {
         path: 'service-provider/request-purchase-services/:id/progress',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-request-purchase-service-progress',
         component: () => import(/* webpackChunkName: "service-provider-request-purchase-progress" */ '../views/service-provider/show-services/request-purchase-services/request-in-progress/index.vue') 
     },
     {
         path: 'service-provider/request-purchase-services/:id',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-request-purchase-service-show',
         component: () => import(/* webpackChunkName: "service-provider-request-purchase-show" */ '../views/service-provider/show-services/request-purchase-services/show/index.vue') 
     },
@@ -152,20 +152,20 @@ const routers =[
     },
     {
         path: 'service-provider/my-financial-transactions',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-my-financial-transactions',
         component: () => import(/* webpackChunkName: "service-provider-my-financial-transactions" */ '../views/service-provider/my-financial-transactions/index.vue')
     },
     {
         path: 'service-provider/balance-charge',
         name: 'service-provider-balance-charge',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         component: () => import(/* webpackChunkName: "service-provider-balance-charge" */ '../views/service-provider/balance-charge/index.vue')
       }, 
       {
         path: 'service-provider/rate-my-services',
         name: 'service-provider-rate-my-service',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         component: () => import(/* webpackChunkName: "service-provider-rate-my-service" */ '../views/service-provider/page-rate-my-services/index.vue')
       },
 ]

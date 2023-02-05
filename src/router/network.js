@@ -45,7 +45,7 @@ const routers =[
     },
     {
         path: 'network/my-story',
-        meta:{layout:LayoutNetwork},
+        meta:{layout:LayoutNetwork,auth:true},
         name: 'network-my-story',
         component: () => import(/* webpackChunkName: "network-my-story" */ '../views/network/success-story/my-story.vue') 
     },
@@ -63,7 +63,7 @@ const routers =[
     },
     {
         path: 'network/investment-project/:id',
-        meta:{layout:LayoutNetwork},
+        meta:{layout:LayoutNetwork,auth:true},
         name: 'network-investment-project-show',
         component: () => import(/* webpackChunkName: "network-investment-project-show" */ '../views/network/investment-project-page/index.vue') 
     },
@@ -111,13 +111,13 @@ const routers =[
     },
     {
         path: 'network/exhibitions/:id',
-        meta:{layout:LayoutNetwork},
+        meta:{layout:LayoutNetwork,auth:true},
         name: 'network-exhibition-show',
         component: () => import(/* webpackChunkName: "network-exhibition-show" */ '../views/network/exhibition-page/index.vue') 
     },
     {
         path: 'network/exhibitions/:id/share',
-        meta:{layout:LayoutNetwork},
+        meta:{layout:LayoutNetwork,auth:true},
         name: 'network-exhibition-share',
         component: () => import(/* webpackChunkName: "network-exhibition-share" */ '../views/network/exhibition-page/share/index.vue') 
     },
@@ -195,14 +195,14 @@ const routers =[
     },
     {
         path: 'network/my-financial-transactions',
-        meta:{layout:LayoutNetwork},
+        meta:{layout:LayoutNetwork,auth:true},
         name: 'network-my-financial-transactions',
         component: () => import(/* webpackChunkName: "network-my-financial-transactions" */ '../views/network/my-financial-transactions/index.vue')
     },
     {
         path: 'network/balance-charge',
         name: 'network-balance-charge',
-        meta:{layout:LayoutNetwork},
+        meta:{layout:LayoutNetwork,auth:true},
         component: () => import(/* webpackChunkName: "network-balance-charge" */ '../views/network/balance-charge/index.vue')
       },
     {
