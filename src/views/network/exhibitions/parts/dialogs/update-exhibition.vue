@@ -58,9 +58,7 @@
                                         type="file" id="choose-file"
                                 
                                         accept=".jpg,.jpeg,.pdf,doc,docx,application/msword,.png" style="opacity: 0;" />
-                                    <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                        {{ errors[0] }}
-                                    </div>
+                                    <d-error-input :errors="errors" v-if="errors.length>0" />>
                                 </ValidationProvider>
 
 
@@ -79,9 +77,7 @@
                         :editorConfig='configEnter'
                         class="w-100 border t-c " 
                          rows="10"></d-ckeditor-classic>
-                                 <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                        {{ errors[0] }}
-                                    </div>
+                                 <d-error-input :errors="errors" v-if="errors.length>0" />>
                         </ValidationProvider>
 
                     </div>
@@ -109,9 +105,7 @@
                                             {{ $t('no') }}
                                         </label>
                                     </div>
-                                    <div v-if="errors.length !== 0" class="col-12 text-input-error">
-                                        {{ errors[0] }}
-                                    </div>
+                                    <d-error-input :errors="errors" v-if="errors.length>0" />>
                                 </ValidationProvider>
                             
                         </div>

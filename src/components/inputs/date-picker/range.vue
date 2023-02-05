@@ -26,9 +26,7 @@
                 :class="isDragging ? 'text-gray-600' : 'text-gray-900'" :value="inputValue.start"
                 v-on="inputEvents.start" />
             </div>
-            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-              {{ errors[0] }}
-            </div>
+            <d-error-input :errors="errors" v-if="errors.length>0" />
           </ValidationProvider>
         </div>
         <span class="col-auto">
@@ -51,9 +49,7 @@
                 :class="isDragging ? 'text-gray-600' : 'text-gray-900'" :value="inputValue.end"
                 v-on="inputEvents.end" />
             </div>
-            <div v-if="errors.length !== 0" class="col-12 text-input-error">
-              {{ errors[0] }}
-            </div>
+            <d-error-input :errors="errors" v-if="errors.length>0" />
           </ValidationProvider>
         </div>
       </div>
