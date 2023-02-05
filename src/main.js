@@ -14,7 +14,7 @@ import userAPI from './services/api/user';
 import EventBus from './helper/EventBus';
 console.mylog = (...args) =>{
    if(process.env.NODE_ENV=='development')
-   console.log(args)
+   console.log(...args)
 } 
 window.EventBus =  new EventBus();
 const jquery = require('jquery');
@@ -60,6 +60,7 @@ methods:{
             let {token,...user} = data.data;
             window.store.commit('auth/SET_TOKEN',token) ;
             window.store.commit('auth/SET_USER',user);
+            window.store.commit('auth/SET_IS_PROVIDER',window.store.getters['auth/isProvider']);
          }
       } catch (error) {
          console.log('error',error)

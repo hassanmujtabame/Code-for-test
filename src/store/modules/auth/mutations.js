@@ -19,6 +19,7 @@ export default{
         state.user = null;
         state.partner = null;
         localStorage.removeItem("auth_user");
+        localStorage.removeItem("user_provider");
     },
     CLEAR_PARTNER(state){
         state.partner = null;
@@ -27,12 +28,20 @@ export default{
         state.token =token;
         localStorage.setItem("auth_token", token);
     },
+    SET_IS_PROVIDER(state,payload){
+        let data =payload;
+       console.mylog('SET_IS_PROVIDER',state,!!data,state.subscribeProvider)
+        if(data)
+        data= (!!data && !!state.subscribeProvider)
+        //console.mylog('SET_IS_PROVIDER',data)
+        localStorage.setItem("user_provider", data?'Y':'N');
+    },
     SET_USER(state,payload){
-        let {partner,subscribes,...user} = payload;
+        let {partner,subscribers,...user} = payload;
         state.user=user;
         state.partner = partner?? null; // if undefined makes it null
-        state.subscribeNetwork = subscribes&&subscribes.network?subscribes.network:null
-        state.subscribeProvider = subscribes&&subscribes.service_provider?subscribes.service_provider:null
+        state.subscribeNetwork = subscribers&&subscribers.network?subscribers.network.subscribe:null
+        state.subscribeProvider = subscribers&&subscribers.service_provider?!!subscribers.service_provider.subscribe:null
         localStorage.setItem("auth_user", JSON.stringify(user));
     },
     SET_PARTNER(state,payload){

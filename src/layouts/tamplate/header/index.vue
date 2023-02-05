@@ -35,7 +35,7 @@
     
               <div class="d-flex res-search">
                 <!-- search input -->
-                <SearchInput />
+                <SearchInput v-if="!hideSearch"/>
                 <template v-if="token">
                   <UserMsg />
                   <UserNotif />
@@ -77,6 +77,12 @@
   import SearchInput from './search.vue'
   export default {
       name:'default-header',
+      props:{
+        hideSearch:{
+          type:Boolean,
+          default:false
+        }
+      },
       components:{
         SearchInput,
         ArrowDownSVG,

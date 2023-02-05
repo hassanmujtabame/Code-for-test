@@ -205,8 +205,8 @@ const mixin = {
                },
                refreshPage(){
                 
-                if(process.env.NODE_ENV=='development')
-                return;
+                //if(process.env.NODE_ENV=='development')
+                //return;
                 let r=this.$router.resolve({
                   name: this.$route.name, // put your route information in
                   params: this.$route.params, // put your route information in
@@ -268,6 +268,7 @@ const mixin = {
                     isMobile: 'core/isMobile',
                     user: 'auth/user',
                     userPartner: 'auth/partner',
+                    userIsProvider: 'auth/isProvider',
                     userSubNetwork: 'auth/subscribeNetwork',
                     userSubProvider: 'auth/subscribeProvider',
                     token: 'auth/token',

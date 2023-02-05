@@ -161,6 +161,7 @@ export default {
                     let {token,...user} = data.data
                     window.store.commit('auth/SET_TOKEN',token) ;
                   window.store.commit('auth/SET_USER',user);
+                  window.store.commit('auth/SET_IS_PROVIDER',false);
                   //this.$router.push('/')
                   window.location.reload()
                 }else{
