@@ -95,7 +95,7 @@
                                 </div>
                                 </ValidationProvider>
                         </div>
-                        <div class="col-12 mb-3 position-relative">
+                        <div class="col-12 mb-3">
                             <ValidationProvider
                                     :name="$t('Category')"
                                  vid="category_id"

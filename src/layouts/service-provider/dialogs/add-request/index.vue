@@ -44,7 +44,7 @@
                         </ValidationProvider>
                     </div>
           <!-- category -->
-          <div class="mb-3 position-relative">
+          <div class="mb-3">
                         <ValidationProvider
                         tag="div"
                         class="form-group"
@@ -53,7 +53,7 @@
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('request-category') }} </label>
-                        <select class="form-control show-arrow" v-model="itemForm.category_id" 
+                        <select class="form-select" v-model="itemForm.category_id" 
                         @change="loadFields($event)"
                         >
                         <option v-for="(cat,i) in categories" :key="i" :value="cat.id"> {{ cat.name }}</option>
@@ -63,7 +63,7 @@
                     </ValidationProvider>
                   </div>
                      <!--field-->
-                     <div class="mb-3 position-relative">
+                     <div class="mb-3">
                         <ValidationProvider
                         tag="div"
                         class="form-group"
@@ -72,7 +72,7 @@
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('request-field') }} </label>
-                        <select class="form-control show-arrow" v-model="itemForm.field_id" >
+                        <select class="form-select" v-model="itemForm.field_id" >
                         <option v-for="(field,i) in fields" :key="i" :value="field.id"> {{ field.name }}</option>
                         </select>
                     
@@ -81,7 +81,7 @@
                   </div>
                      
              <!-- specialites -->
-             <div class="mb-3 position-relative">
+             <div class="mb-3">
                         <ValidationProvider
                         tag="div"
                         class="form-group"
@@ -90,7 +90,7 @@
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('select-specialite') }} </label>
-                        <select class="form-control show-arrow" v-model="itemForm.speciaite_id" >
+                        <select class="form-select" v-model="itemForm.speciaite_id" >
                         <option v-for="(spec,i) in specialites" :key="i" :value="spec.id"> {{ spec.name }}</option>
                         </select>
                        

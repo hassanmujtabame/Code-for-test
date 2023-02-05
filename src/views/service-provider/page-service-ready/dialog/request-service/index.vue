@@ -90,21 +90,13 @@
                         v-slot="{errors}"
                         >
                         <label class="form-label"> وقت تنفيذ او استلام الخدمة</label>
-                        <div class="position-relative">
-                        <select v-model="itemForm.execution_period" class="form-control ">
+                        <div class="">
+                        <select v-model="itemForm.execution_period" class="form-select ">
                             <option value="" class="t-c" selected> وقت تنفيذ او استلام الخدمة</option>
                             <option value="specific_date">تحديد موعد التنفيذ</option>
                             <option value="time_available_product">الاستلام  وقت توفر المنتج</option>
                         </select>
-                        <div style="top: 7px;left: 10px;" class="position-absolute">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z"
-                                    fill="#737373" />
-                            </svg>
-
-                        </div>
+                    
                         </div>
                         <d-error-input :errors="errors" v-if="errors.length" />
                     </ValidationProvider>
@@ -135,19 +127,11 @@
                         v-slot="{errors}"
                         >
                         <label class="form-label"> مكان التنفيذ او التسليم</label>
-                        <div class="position-relative">
-                        <select v-model="itemForm.execution_place" class="form-control ">
+                        <div class="">
+                        <select v-model="itemForm.execution_place" class="form-select ">
                             <option value="" class="t-c" selected > مكان التنفيذ او التسليم</option>
                             <option value="delivery_home">توصيل للمنزل</option>
                         </select>
-                        <div style="top: 7px;left: 10px;" class="position-absolute">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z"
-                                    fill="#737373" />
-                            </svg>
-                        </div>
                         </div>
                         <d-error-input :errors="errors" v-if="errors.length" />
                     </ValidationProvider>

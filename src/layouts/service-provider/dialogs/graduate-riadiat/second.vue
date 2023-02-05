@@ -24,7 +24,7 @@
                         </ValidationProvider>
                     </div>
           <!-- type job -->
-          <div class="mb-3 position-relative">
+          <div class="mb-3">
                         <ValidationProvider
                         tag="div"
                         class="form-group"
@@ -33,7 +33,7 @@
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('job-type') }} </label>
-                        <select class="form-control show-arrow" v-model="itemForm.type" >
+                        <select class="form-select" v-model="itemForm.type" >
                         <option v-for="(cat,i) in job_types" :key="i" :value="cat.id"> {{ cat.name }}</option>
                         </select>
                     
@@ -56,7 +56,7 @@
                         </ValidationProvider>
                     </div>
              <!-- job location -->
-             <div class="mb-3 position-relative">
+             <div class="mb-3">
                         <ValidationProvider
                         tag="div"
                         class="form-group"
@@ -65,7 +65,7 @@
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('job-location') }} </label>
-                        <select class="form-control show-arrow" v-model="itemForm.work_location" >
+                        <select class="form-select" v-model="itemForm.work_location" >
                         <option v-for="(cat,i) in work_locations" :key="i" :value="cat.id"> {{ cat.name }}</option>
                         </select>
                        
@@ -75,14 +75,14 @@
                     </ValidationProvider>
                   </div>
                    <!-- job duration contract -->
-                <div class="mb-3 position-relative">
+                <div class="mb-3">
                         <ValidationProvider
                                 :name="$t('job-duration-contract')"
                                 vid="duration_contract"
                                     rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('job-duration-contract') }} </label>
-                        <select class="form-control show-arrow" v-model="itemForm.duration_contract" >
+                        <select class="form-select" v-model="itemForm.duration_contract" >
                         <option v-for="(cat,i) in duration_contracts" :key="i" :value="cat.id"> {{ cat.name }}</option>
                         </select>
                         
@@ -115,7 +115,7 @@
                                 v-slot="{errors}">
                                 <label class="form-label">{{ $t('required_experience') }} </label>
 
-                                    <select class="form-control show-arrow" v-model="itemForm.required_experience" >
+                                    <select class="form-select" v-model="itemForm.required_experience" >
                             <option  :value="0"> غير مطلوبة</option>
                             <option v-for="(ex,i) in 10" :key="i" :value="ex"> {{ ex }}</option>
                             </select>

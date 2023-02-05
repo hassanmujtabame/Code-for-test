@@ -148,16 +148,16 @@
                                 </div>
                                 </ValidationProvider>
                         </div>  
-                        <div class="mb-3 position-relative">
+                        <div class="mb-3">
                         <ValidationProvider 
                         :name="$t('state-service')" 
                         vid="state" 
                         rules="required"
                          v-slot="{ errors }"
                          >
-                         <div class="form-group position-relative">
+                         <div class="form-group">
                             <label class="form-label">{{ $t('state-service') }}</label>
-                        <select v-model="itemForm.state"  class="form-control show-arrow">
+                        <select v-model="itemForm.state"  class="form-select">
                             <option disabled value="" class="t-c"> {{$t('state-service')}} </option>
                             <option :key="i" v-for="(option,i) in states" :value="option.id">
                                 {{ option.name }}
@@ -171,7 +171,7 @@
                             </div>
                     </ValidationProvider>
                     </div>
-                    <div class="mb-3 position-relative">
+                    <div class="mb-3">
                         <ValidationProvider
                                     :name="$t('service-category')"
                                  vid="categories"
@@ -211,7 +211,7 @@
                         </div>
     
                            
-                        <div class="mb-3 position-relative">
+                        <div class="mb-3">
                         <ValidationProvider
                                     :name="$t('keywords')"
                                  vid="keywords"

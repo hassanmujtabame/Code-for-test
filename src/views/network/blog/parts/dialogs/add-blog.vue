@@ -48,7 +48,7 @@
                                 </div>
                                 </ValidationProvider>
                         </div>
-                        <div class="mb-3 position-relative">
+                        <div class="mb-3">
                             <ValidationProvider
                                     :name="$t('blog-category')"
                                  vid="categories"

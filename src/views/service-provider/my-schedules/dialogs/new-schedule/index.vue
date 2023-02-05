@@ -8,20 +8,12 @@
                         <ValidationProvider tag="div" :name="$t('service-name')" vid="category_id" rules="required"
                             v-slot="{ errors }">
                            
-                                <div class="mb-3 position-relative">
-                                    <select v-model="itemForm.category_id" class="form-control ">
+                                <div class="mb-3">
+                                    <select v-model="itemForm.category_id" class="form-select ">
                                         <option value="" class="t-c" selected>{{ $t('service-name') }} </option>
                                         <option v-for="(cat,i) in categories" :key="i" :value="cat.id">{{cat.title}}</option>
 
                                     </select>
-                                    <div style="top: 7px;left: 10px;" class="position-absolute">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z"
-                                                fill="#737373" />
-                                        </svg>
-                                    </div>
                                 </div>
                                                      
                             <d-error-input :errors="errors" v-if="errors.length" />
@@ -138,20 +130,12 @@
                             <div class="mb-3">
 
                                 <label class="form-label">أقصى مدة للخدمة</label>
-                                <div class="position-relative">
-                                    <select v-model="itemForm.max_service" class="form-control ">
+                                <div class="">
+                                    <select v-model="itemForm.max_service" class="form-select ">
                                         <option value="" class="t-c" selected> أقصى مدة للخدمة</option>
                                         <option value="1">يوم</option>
                                         <option value="2">يومين</option>
                                     </select>
-                                    <div style="top: 7px;left: 10px;" class="position-absolute">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.9995 16.8001C11.2995 16.8001 10.5995 16.5301 10.0695 16.0001L3.54953 9.48014C3.25953 9.19014 3.25953 8.71014 3.54953 8.42014C3.83953 8.13014 4.31953 8.13014 4.60953 8.42014L11.1295 14.9401C11.6095 15.4201 12.3895 15.4201 12.8695 14.9401L19.3895 8.42014C19.6795 8.13014 20.1595 8.13014 20.4495 8.42014C20.7395 8.71014 20.7395 9.19014 20.4495 9.48014L13.9295 16.0001C13.3995 16.5301 12.6995 16.8001 11.9995 16.8001Z"
-                                                fill="#737373" />
-                                        </svg>
-                                    </div>
                                 </div>
                             </div>
                             <d-error-input :errors="errors" v-if="errors.length" />
