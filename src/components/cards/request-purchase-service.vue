@@ -139,8 +139,7 @@
     </p>
 </div>
 <div class="d-flex flex-wrap align-items-center justify-content-between">
-    <p class="t-c w-75 m-0">
-    {{ description }}   
+    <p class="t-c w-75 m-0" v-html="description">
     </p>
     <div class="d-flex  gap-1 flex-wrap">
         <button @click="router_push('service-provider-request-purchase-service-progress',{id:itemId})" style="height: 40px; width: 100px;" class="btn-main px-2 ">
