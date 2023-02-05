@@ -5,18 +5,18 @@ class ServiceProviderApi extends BaseApi{
 
     getAll(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/my-services?${s}`);
+        return window.axios.get(`service-provider/user/orders?${s}`);
     }
     getItem(id,params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/my-services/${id}?${s}`);
+        return window.axios.get(`service-provider/user/orders/${id}?${s}`);
     }
     addItem(data){
-        return window.axios.post(`service-provider/user/my-services`,data);
+        return window.axios.post(`service-provider/user/orders`,data);
     }
     updateItem(id,data){
         data.append('_method','PUT')
-        return window.axios.post(`service-provider/user/my-services/${id}`,data);
+        return window.axios.post(`service-provider/user/orders/${id}`,data);
     }
     deleteItem(id){
       
