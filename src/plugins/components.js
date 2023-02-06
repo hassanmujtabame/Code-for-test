@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import DSuccessMessage from '@/common/dialogs/success-message/index.vue'
+import DConfirmMessage from '@/common/dialogs/confirm-message/index.vue'
 import DSwiper from '@/components/swiper/index.vue'
 import DSwiper2 from '@/components/swiper/v2/index.vue'
 import DSwiperSlide from '@/components/swiper/v2/slider.vue'
@@ -52,6 +53,7 @@ import DRateStars from '@/components/rate-stars/index.vue'
   })*/
   
 Vue.component('d-success-message', DSuccessMessage)
+Vue.component('d-confirm-message', DConfirmMessage)
 Vue.component('d-credit-card', CreditCardImage)
 Vue.component('d-rate-stars', DRateStars)
 Vue.component('d-error-input', ErrorInput)

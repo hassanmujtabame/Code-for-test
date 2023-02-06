@@ -37,15 +37,15 @@
 
   <script>
  export default {
-    name:'standard-success-message',
+    name:'standard-confirm-message',
    props:{
       group:{
           type:String,
-          default:'standard-success-message'
+          default:'standard-confirm-message'
       }
    },
    data:()=>({
-    itemDialog:{title:null,description:null,btns:null,image:'/assets/img/cuate-2.png'},
+    itemDialog:{title:null,description:null,btns:null,image:'/assets/img/tick-square-2.png'},
       showed:false,
    }),
    methods:{
@@ -58,7 +58,7 @@
       openDialog(data){
         this.itemDialog=Object.assign({},data);
         if(!data.btns)  this.itemDialog.btns= null
-        if(!data.image) this.itemDialog.image = '/assets/img/cuate-2.png'
+        if(!data.image) this.itemDialog.image = '/assets/img/tick-square-2.png'
         this.showed=true
         return true;
       },

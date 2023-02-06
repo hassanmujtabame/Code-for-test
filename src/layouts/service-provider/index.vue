@@ -23,6 +23,7 @@
             />
           <RateSuccessExperience />
           <d-success-message />
+          <d-confirm-message />
           <sendMsgProvider />
           <graduateRiadiatFirstStep />
           <graduateRiadiatFirstSecond />

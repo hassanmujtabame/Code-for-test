@@ -97,10 +97,13 @@ const mixin = {
           },
           showSuccessMsg(dataEvent){
             this.fireOpenDialog('standard-success-message',dataEvent)
-             },
-            setErrorsForm(form,response){
-              form.setErrors(response.data.errors)
-            },
+          },
+          showConfirmMsg(dataEvent){
+            this.fireOpenDialog('standard-confirm-message',dataEvent)
+          },
+          setErrorsForm(form,response){
+            form.setErrors(response.data.errors)
+          },
             dateTextMonth(dateT){
               if(!dateT) return 'N/A';
   

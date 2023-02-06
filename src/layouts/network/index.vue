@@ -20,6 +20,7 @@
             />
             <RateSuccessExperience />
             <d-success-message />
+            <d-confirm-message />
          
     </div>
   </template>
