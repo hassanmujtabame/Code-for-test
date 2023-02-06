@@ -2,7 +2,7 @@
    <div class="box border rounded-3 p-4">
                             <div class=" justify-content-center border-bottom ">
                                 <div class=" img-service text-center">
-                                    <img class="rounded-circle " @click="showProfile"
+                                    <img class="rounded-circle clickable" @click="showProfile"
                                         :src="itemPage.user_info.image" :alt="itemPage.user_info.name"
                                         width="120" height="120">
                                 </div>
