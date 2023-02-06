@@ -1829,3 +1829,6 @@ select.show-arrow{
 .filter-list{
     background-color: white;
 }
+.clickable{
+    cursor: pointer;
+}

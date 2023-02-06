@@ -1,7 +1,7 @@
 <template>
 <div class=" my-profile box info border p-3">
                         <div class="main-img text-center m-auto">
-                            <img class="rounded-circle img-person" :src="member.image" :alt="member.name" width="140" height="140">
+                            <img class="rounded-circle img-person clickable" @click="showProfile" :src="member.image" :alt="member.name" width="140" height="140">
                         </div>
                         <div class=" text-center">
                             <h5 class="m-c mt-2">
@@ -39,6 +39,9 @@ export default {
     groupDialog:{
         type:String,
     },
+    routeName:{
+        type:String,
+    },
    member:{
      type:[Array,Object],
      default:()=>{return {
@@ -50,6 +53,11 @@ export default {
    }
  },
  methods:{
+    showProfile(){
+        if(this.routeName){
+            this.router_push(this.routeName,{id:this.member.id})
+        }
+    },
     sendMessage(){
         if(!this.groupDialog) return;
         if(!this.member.id) return;
@@ -62,6 +70,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.img-person{
+    min-height: 140px;
+    min-width: 140px;
+}
 </style>

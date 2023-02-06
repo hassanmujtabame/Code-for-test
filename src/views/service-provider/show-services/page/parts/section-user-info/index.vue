@@ -2,7 +2,7 @@
    <div class="box border rounded-3 p-4">
                             <div class=" justify-content-center border-bottom ">
                                 <div class=" img-service text-center">
-                                    <img class="rounded-circle "
+                                    <img class="rounded-circle " @click="showProfile"
                                         :src="itemPage.user_info.image" :alt="itemPage.user_info.name"
                                         width="120" height="120">
                                 </div>
@@ -114,6 +114,9 @@ name:'section-user-info',
     }
  },
  methods:{
+    showProfile(){
+        this.router_push('service-provider-show-profile',{id:this.itemPage.user_info.id})
+    },
     uploadFile(evt){
     if (!evt.target.files && !evt.target.files[0]) {
             this.itemForm.file = null;

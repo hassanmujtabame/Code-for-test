@@ -1,7 +1,7 @@
 <template>
     <div class="box border rounded-2 align-items-center  p-4 row">
         <div class="col-md-5">
-            <img class="rounded-circle" :src="member.image" :alt="member.name"
+            <img class="rounded-circle img-person clickable" @click="showProfile" :src="member.image" :alt="member.name"
                 width="150" height="150">
         </div>
         <div class="col-md-6  ">
@@ -24,6 +24,9 @@
 export default {
  name:'user-dash-info',
  props:{
+    routeName:{
+        type:String,
+    },
    member:{
      type:[Array,Object],
      default:()=>{return {
@@ -32,10 +35,20 @@ export default {
         job:'مصمم واجهات اميامية',
      }}
    }
+ },
+ methods:{
+    showProfile(){
+        if(this.routeName){
+            this.router_push(this.routeName,{id:this.member.id})
+        }
+    },
  }
 }
 </script>
 
-<style>
-
+<style scoped>
+.img-person{
+    min-height: 150px;
+    min-width: 150px;
+}
 </style>

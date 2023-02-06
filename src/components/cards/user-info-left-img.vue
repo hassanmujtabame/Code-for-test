@@ -2,8 +2,8 @@
     <div class="box border rounded-3 p-4">
         <div class="row justify-content-center">
             <div class="col-md-4 img-service text-center">
-                <img class="rounded-circle " :src="member.image" :alt="member.name"
-                    :width="sizeImage" :height="sizeImage">
+                <img class="rounded-circle img-person clickable" @click="showProfile" :src="member.image" :alt="member.name"
+                    :width="sizeImage" :height="sizeImage" :style="{'min-height':`${sizeImage}px`,'min-width':`${sizeImage}px`}">
             </div>
             <div class="col-md-8 t-c">
                 <h4 class="fw-bold">
@@ -42,6 +42,9 @@ export default {
     groupDialog:{
         type:String,
     },
+    routeName:{
+        type:String,
+    },
     dataEvent:{
         default:()=>{return {
             /**
@@ -61,6 +64,12 @@ export default {
    }
  },
  methods:{
+    showProfile(){
+        console.mylog('sss',this.routeName)
+        if(this.routeName){
+            this.router_push(this.routeName,{id:this.member.id})
+        }
+    },
     sendMessage(){
         if(!this.groupDialog) return;
         if(!this.member.id) return;

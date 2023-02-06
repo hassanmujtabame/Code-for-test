@@ -32,7 +32,7 @@ const routers =[
     },
     {
         path: 'service-provider/:id/show-profile',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-show-profile',
         component: () => import(/* webpackChunkName: "service-provider-show-profile" */ '../views/service-provider/show-profile/index.vue') 
     },

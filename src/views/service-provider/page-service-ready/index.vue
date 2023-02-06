@@ -34,7 +34,7 @@
 
                     <div class="col-md-6 mt-5 ">
                         
-                            <d-user-info-li group-dialog="send-message-to-provider" :member="itemPage.user_info" 
+                            <d-user-info-li route-name="service-provider-show-profile" group-dialog="send-message-to-provider" :member="itemPage.user_info" 
                             :dataEvent="dataEventMessage"
                             class="mb-3" v-if="!isOwner"
                             
