@@ -39,7 +39,7 @@ export default {
         {route:'service-provider-ready-services', text:vm.$t('your-ready-services'),provider:true},
         {route:'contact-us',text:vm.$t('contact-us'),provider:true},
         /** client */
-        {route:'service-provider-show-services', text:vm.$t('service'),provider:false},
+        {route:'service-provider-ready-services', text:vm.$t('service'),provider:false},
         {route:'service-provider-client-my-requests', text:vm.$t('requests'),provider:false},
         {route:'service-provider-client-my-purchases', text:vm.$t('my-purchases'),provider:false},
         {route:'contact-us',text:vm.$t('contact-us'),provider:false}
