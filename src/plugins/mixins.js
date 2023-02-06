@@ -245,6 +245,10 @@ const mixin = {
               }else
               window.location =r.href
                },
+               switchRoleProvider(){
+                this.$store.commit('auth/SET_IS_PROVIDER',!this.userIsProvider)
+                this.refreshPage()
+              },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");
               plugin.setAttribute(

@@ -53,8 +53,7 @@ export default {
     },
    methods:{
     switchRole(){
-      this.$store.commit('auth/SET_IS_PROVIDER',!this.userIsProvider)
-      this.refreshPage()
+     this.switchRoleProvider()
     },
     openAddService(evt,closeNavList){
         evt.preventDefault();

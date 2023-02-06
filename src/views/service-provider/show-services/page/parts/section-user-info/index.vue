@@ -123,6 +123,31 @@ name:'section-user-info',
         this.itemForm.file = evt.target.files[0];
     },
     async sendOffer(){
+        if(!this.userIsProvider && this.userSubProvider){
+            let dataEvent ={
+                image:'/assets/img/Group 1171275670.png',
+                title:'لا يمكنك تقديم عرض تقديم الخدمة',
+                description:'حتى تتمكن من التقديم على الخدمات يجب ان تكون كمقدم خدمة في المنصة',
+                btns:[
+                    {title:'تحول كمقدم خدمة',action:()=>this.switchRoleProvider(),class:'btn btn-custmer'}
+                ]
+            }
+            this.showSuccessMsg(dataEvent)
+            return;
+        }
+        if(!this.userSubProvider){
+            let dataEvent ={
+                image:'/assets/img/Group 1171275670.png',
+                title:'لا يمكنك تقديم عرض تقديم الخدمة',
+                description:'حتى تتمكن من التقديم على الخدمات يجب ان تكون مشترك كمقدم خدمة في المنصة',
+                btns:[
+                    {title:'إشترك الان',action:()=>this.router_push('service-provider-subscribe'),class:'btn btn-custmer'}
+                ]
+            
+            }
+            this.showSuccessMsg(dataEvent)
+            return;
+        }
         this.sending = true;
         let valid  = this.$refs.form.validate();
         if(!valid){
