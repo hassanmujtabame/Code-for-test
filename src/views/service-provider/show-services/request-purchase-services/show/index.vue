@@ -78,7 +78,7 @@
                         <!-- section details-->
                         <SectionDetails :item-page="itemPage" />
                         <!-- section-conversation-->
-                        <SectionConversation />
+                        <SectionConversation :item-page="itemPage"/>
                     </div>
 
 
