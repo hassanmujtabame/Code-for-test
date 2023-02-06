@@ -226,10 +226,8 @@ import ChangePriceRequest from './dialogs/change-value-amount.vue'
         },
         async confirmDeliveredProduct(){
             try {
-               // let {data} =  await myRequestsAPIs.confirmDelivery(this.itemPage.user_offer.id)
-               let data = {
-                success:true
-               } 
+                let {data} =  await myRequestsAPIs.confirmDelivery(this.itemPage.user_offer.id)
+              // let data = {  success:true }
                if(data.success){
                     this.showConfirmRateProvider()
                 }else{
