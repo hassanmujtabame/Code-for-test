@@ -24,7 +24,7 @@
                             :itemId="item.id"
                             :status="item.status"
                             :service="item.title"
-                            :name="item.user_info"
+                            :name="item.user_info.name"
                             :price="item.price"
                             :dateRequest="item.created_at"
                             :place="item.city"
