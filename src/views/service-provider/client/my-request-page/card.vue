@@ -17,7 +17,7 @@
             تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل
         </div>
         <div class="mt-2">
-            <button class="btn btn-custmer">اقبل العرض</button>
+            <button class="btn btn-custmer" @click="acceptConfirm">اقبل العرض</button>
         </div>
     </div>
     <div class="box-provider-offer_end">
@@ -34,11 +34,35 @@
 <script>
 import timeIcon from '@/components/icon-svg/time.vue';
 import imgAvatar from '@/components/avatars/img-avatar.vue';
+import myRequestsClientAPI from '@/services/api/service-provider/user/my-requests-client.js'
+
 export default {
  name:'card-info',
  components:{
     timeIcon,
     imgAvatar
+ },
+ methods:{
+        async sendAcception() {
+            try {
+                let params = {}
+                return await myRequestsClientAPI.getAll(params)
+
+            } catch (error) {
+                console.log('error', error)
+                console.log('response', error.response)
+            }
+        },
+    acceptConfirm(){
+        let dataEvent ={
+            title:'هل أنت متأكد  من قبولك العرض',
+            description:'عند تأكيد قبول الطلب ستخصم منك قيمة العرض و ستضاف الى حساب رياديات لحين انتهاء المشروع و تسليم المستحقات لمقدم الخدمة',
+            btns:[
+                {title:'تأكيد الطلب',action:()=> this.sendAcception(),class:'btn btn-custmer'}
+            ]
+        }
+        this.showConfirmMsg(dataEvent);
+    }
  }
 }
 </script>

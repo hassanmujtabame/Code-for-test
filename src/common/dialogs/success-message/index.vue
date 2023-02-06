@@ -26,7 +26,9 @@
               </div>
             </template>
               <div v-else class="mt-3">
-            <button @click="closeEvent" style="height: 40px;" class="btn btn-custmer"> {{$t('Home')}}</button>
+            <button @click="closeEvent" :disabled="btn.loading" style="height: 40px;" class="btn btn-custmer"> 
+              <i v-if="btn.loading"  class="fa fa-spinner fa-spin"  aria-hidden="true"></i>
+              {{$t('Home')}}</button>
           </div>
           
   </div>
@@ -49,15 +51,22 @@
       showed:false,
    }),
    methods:{
-    callAction(btn){
+   async callAction(btn){
       if(btn.action){
-        btn.action()
+        btn.loading = true;
+       await btn.action()
+       btn.loading = false;
       }
       this.closeEvent()
     },
       openDialog(data){
+        if(data.btns){
+        data.btns.forEach(btn=> btn.loading=false)
+      }
         this.itemDialog=Object.assign({},data);
-        if(!data.btns)  this.itemDialog.btns= null
+        if(!data.btns)  this.itemDialog.btns= null;
+       
+        
         if(!data.image) this.itemDialog.image = '/assets/img/cuate-2.png'
         this.showed=true
         return true;

@@ -21,7 +21,10 @@
               <div  v-for="(btn,i) in itemDialog.btns"
                 :key="i" class="mt-3">
                 <button
-                @click="callAction(btn)" style="height: 40px;" :class="[btn.class??'btn btn-custmer']"> {{btn.title}}</button>
+                @click="callAction(btn)" :disabled="btn.loading" style="height: 40px;" :class="[btn.class??'btn btn-custmer']">
+                <i v-if="btn.loading"  class="fa fa-spinner fa-spin"  aria-hidden="true"></i>
+                {{btn.title}}
+              </button>
 
               </div>
             </template>
@@ -48,16 +51,23 @@
     itemDialog:{title:null,description:null,btns:null,image:'/assets/img/tick-square-2.png'},
       showed:false,
    }),
+
    methods:{
-    callAction(btn){
+   async callAction(btn){
       if(btn.action){
-        btn.action()
+        btn.loading = true;
+       await btn.action()
+       btn.loading = false;
       }
       this.closeEvent()
     },
       openDialog(data){
+      if(data.btns){
+        data.btns.forEach(btn=> btn.loading=false)
+      }
         this.itemDialog=Object.assign({},data);
         if(!data.btns)  this.itemDialog.btns= null
+        
         if(!data.image) this.itemDialog.image = '/assets/img/tick-square-2.png'
         this.showed=true
         return true;

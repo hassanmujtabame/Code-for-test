@@ -44,7 +44,7 @@
     
 </template>
 <script>
-import myPurchasesAPI from '@/services/api/service-provider/user/my-purchases.js'
+import myRequestsClientAPI from '@/services/api/service-provider/user/my-requests-client.js'
 import CardItem from './card.vue'
 export default {
     name: 'my-request-page',
@@ -86,7 +86,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await myPurchasesAPI.getAll(params)
+                return await myRequestsClientAPI.getAll(params)
 
             } catch (error) {
                 console.log('error', error)
