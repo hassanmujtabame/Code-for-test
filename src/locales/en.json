@@ -474,5 +474,6 @@
   "switch-to-buyer": "switch to buyer",
   "switch-to-provider": "switch to provider",
   "my-requests": "My requests",
-  "project": "Project"
+  "project": "Project",
+  "delivery_place": "مكان التنفيذ او التسليم"
 }

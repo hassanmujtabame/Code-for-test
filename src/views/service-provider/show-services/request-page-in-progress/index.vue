@@ -52,7 +52,7 @@
                       </div>
       
                       <div> 
-                          <button style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2" data-bs-toggle="modal" href="#addModal" role="button">
+                          <button @click="confirmDeliveredProductMsg" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"  role="button">
                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M12.9998 14.75H11.9998C11.5898 14.75 11.2498 14.41 11.2498 14C11.2498 13.59 11.5898 13.25 11.9998 13.25H12.9998C13.6898 13.25 14.2498 12.69 14.2498 12V2.75H5.99978C4.81978 2.75 3.73975 3.38998 3.15975 4.41998C2.95975 4.77998 2.49979 4.91002 2.13979 4.71002C1.77979 4.51002 1.64975 4.05 1.84975 3.69C2.68975 2.19 4.27978 1.25 5.99978 1.25H14.9998C15.4098 1.25 15.7498 1.59 15.7498 2V12C15.7498 13.52 14.5198 14.75 12.9998 14.75Z" fill="white"/>
                                   <path d="M19 20.75H18C17.59 20.75 17.25 20.41 17.25 20C17.25 19.31 16.69 18.75 16 18.75C15.31 18.75 14.75 19.31 14.75 20C14.75 20.41 14.41 20.75 14 20.75H10C9.59 20.75 9.25 20.41 9.25 20C9.25 19.31 8.69 18.75 8 18.75C7.31 18.75 6.75 19.31 6.75 20C6.75 20.41 6.41 20.75 6 20.75H5C2.93 20.75 1.25 19.07 1.25 17C1.25 16.59 1.59 16.25 2 16.25C2.41 16.25 2.75 16.59 2.75 17C2.75 18.24 3.76 19.25 5 19.25H5.34998C5.67998 18.1 6.74 17.25 8 17.25C9.26 17.25 10.32 18.1 10.65 19.25H13.36C13.69 18.1 14.75 17.25 16.01 17.25C17.27 17.25 18.33 18.1 18.66 19.25H19C20.24 19.25 21.25 18.24 21.25 17V14.75H19C18.04 14.75 17.25 13.96 17.25 13V10C17.25 9.04 18.03 8.25 19 8.25L17.93 6.38C17.71 5.99 17.29 5.75 16.84 5.75H15.75V12C15.75 13.52 14.52 14.75 13 14.75H12C11.59 14.75 11.25 14.41 11.25 14C11.25 13.59 11.59 13.25 12 13.25H13C13.69 13.25 14.25 12.69 14.25 12V5C14.25 4.59 14.59 4.25 15 4.25H16.84C17.83 4.25 18.74 4.78001 19.23 5.64001L20.94 8.63C21.07 8.86 21.07 9.15 20.94 9.38C20.81 9.61 20.56 9.75 20.29 9.75H19C18.86 9.75 18.75 9.86 18.75 10V13C18.75 13.14 18.86 13.25 19 13.25H22C22.41 13.25 22.75 13.59 22.75 14V17C22.75 19.07 21.07 20.75 19 20.75Z" fill="white"/>
@@ -65,7 +65,7 @@
                                   </svg>
                                   
                                   
-                                  طلب تسليم المشروع 
+                                  تاكيد إستلام المشروع 
                           </button>
                       </div>
                      
@@ -126,7 +126,7 @@
   </template>
   
   <script>
-import myRequestsAPIs from '@/services/api/service-provider/provider/my-requests.js'
+import myRequestsAPIs from '@/services/api/service-provider/user/my-requests-client.js'
   import SectionConversation from './parts/section-conversation/index.vue'
   import SectionDesc from './parts/section-description/index.vue'
   import SectionDetails from './parts/section-details/index.vue'
@@ -151,6 +151,104 @@ import ChangePriceRequest from './dialogs/change-value-amount.vue'
         colors:['#F2631C','#FFBC00','#2C98B3']
     }},
     methods:{
+        showConfirmRateProvider(){
+            let dataEvent = {
+            image:'/assets/img/Group 3024.png',
+            title:'قيم مقدم الخدمة بشكل شخصي',
+            description:'قم بتقيم مقدم الخدمة و تعامله معك و اتقانه لعمله لا تقيم الخدمة نفسها الان',
+            groupBtns:'d-flex justify-content-evenly',
+            onClose:this.showConfirmRateService,
+            btns:[
+            {title:'قيم',action:()=>this.showRateProvider(),class:'btn btn-custmer'},
+                {title:'تخطي',action:()=>this.showConfirmRateService(),class:'btn btn-custmer-w'}
+            ]
+        } 
+        this.showSuccessMsg(dataEvent)
+        },
+        showRateProvider(){
+            let dataEvent = {
+            title:'قيم  مقدم الخدمة',
+            description:'هل كان متعاون ؟ هل كان متفاعل معك وسريع الرد ؟',
+            onClose:this.showConfirmRateService(),
+            btns:[
+            {title:'تقييم',action:(evt,form)=>this.rateProvider(evt,form),class:'btn btn-custmer'},
+            ]
+        }
+            this.showRateMsg(dataEvent)
+        },
+       async rateProvider(data,form){
+            console.mylog(data,this)
+            let valid = await form.validate();
+            if(!valid){
+                console.mylog('invalid')
+                return false;
+            }
+            this.showConfirmRateService()
+            return true;
+        },
+        
+        
+        
+        async rateService(data,form){
+            console.mylog(data,this)
+            let valid = await form.validate();
+            if(!valid){
+                console.mylog('invalid')
+                return false;
+            }
+            this.router_push('service-provider-home')
+            return true;
+        },
+        showRateService(){
+            let dataEvent = {
+            title:'قيم الخدمة',
+            description:'هل نالت الخدمة رضاك ؟ هل كانت بشكل المطلوب ؟',
+            btns:[
+            {title:'تقييم',action:(evt,form)=>this.rateService(evt,form),class:'btn btn-custmer'},
+            ]
+        }
+            this.showRateMsg(dataEvent)
+        },
+        showConfirmRateService(){
+           setTimeout(()=>{
+            let dataEvent = {
+            image:'/assets/img/Frame1.png',
+            title:'الان حان دور تقيم الخدمة',
+            description:'قم بتقيم الخدمة نفسها , هل وجدت الخدمة كما ترغب؟ هل كانت متقنة و جيدة بنسبة لك',
+            groupBtns:'d-flex justify-content-evenly',
+            btns:[
+            {title:'قيم',action:()=>this.showRateService(),class:'btn btn-custmer'},
+                {title:'تخطي',action:()=> this.router_push('service-provider-home'),class:'btn btn-custmer-w'}
+            ]
+        } 
+        this.showSuccessMsg(dataEvent)
+    },500)
+        },
+        async confirmDeliveredProduct(){
+            try {
+               // let {data} =  await myRequestsAPIs.confirmDelivery(this.itemPage.user_offer.id)
+               let data = {
+                success:true
+               } 
+               if(data.success){
+                    this.showConfirmRateProvider()
+                }else{
+                    window.SwalError(data.message)
+                }
+            } catch (error) {
+                //
+            }
+        },
+    confirmDeliveredProductMsg(){
+        let dataEvent = {
+            title:'هل أنت متأكد انك استلمت الخدمة ؟',
+            description:'تأكد جيداً من انك قمت بأستلام الخدمة كاملة من مقدم الخدمة قبل تأكيد الاستلام',
+            btns:[
+                {title:'تأكيد الاستلام',action:()=>this.confirmDeliveredProduct(),class:'btn btn-custmer'}
+            ]
+        }
+        this.showConfirmMsg(dataEvent)
+    },
       openChangeDateDeliveryDialog(evt){
           if(evt) evt.preventDefault();
           

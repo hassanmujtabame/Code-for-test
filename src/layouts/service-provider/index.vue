@@ -24,6 +24,7 @@
           <RateSuccessExperience />
           <d-success-message />
           <d-confirm-message />
+          <d-rate-dialog />
           <sendMsgProvider />
           <graduateRiadiatFirstStep />
           <graduateRiadiatFirstSecond />

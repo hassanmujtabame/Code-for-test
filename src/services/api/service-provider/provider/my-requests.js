@@ -37,6 +37,10 @@ class ServiceProviderApi extends BaseApi{
     confirmDelivery(id){
         return window.axios.get(`service-provider/provider/ready-services/project-delivery/${id}`); 
     }
+    acceptRequestPurchase(id){
+        return window.axios.get(`service-provider/provider/ready-services/accept/${id}`); 
+
+    }
 }
 
 export default new ServiceProviderApi();

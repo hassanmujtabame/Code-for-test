@@ -16,7 +16,7 @@
                        
                     </slot>
                     </h1>
-                    <button type="button" class="btn-close" @click="closeDialogLocal()" aria-label="Close"></button>
+                    <button type="button" class="btn-close" @click="closeDialogLocal($event,true)" aria-label="Close"></button>
                 </div>
                 <div class="position-relative">
                 <d-overlays-simple v-if="loading" />
@@ -109,9 +109,9 @@ methods:{
         this.change()
     }
     },
-    closeDialogLocal(evt){
+    closeDialogLocal(evt=null,btn=false){
         if(this.closeDialog){
-         if(this.closeDialog(evt)===true){
+         if(this.closeDialog(evt,btn)===true){
             this.dialog=false;
             this.change()
          }

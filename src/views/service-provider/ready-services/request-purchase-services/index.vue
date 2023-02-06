@@ -21,6 +21,7 @@
         </template>
         <template v-slot:default="{item}">
             <d-request-purchase-card
+                            :item="item"
                             :itemId="item.id"
                             :status="item.status"
                             :service="item.title"
@@ -36,12 +37,17 @@
                         </d-request-purchase-card>
         </template>
       </d-filter-list>
+      <confirmRequestPurchase />
     </div>
 </template>
 <script>
 import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
+import confirmRequestPurchase from './dialogs/confirm-request-puchase.vue'
 export default {
     name: 'request-purchase-services',
+    components:{
+        confirmRequestPurchase
+    },
     data:()=>{
         return {
             status:null,

@@ -98,6 +98,9 @@ const mixin = {
           showSuccessMsg(dataEvent){
             this.fireOpenDialog('standard-success-message',dataEvent)
           },
+          showRateMsg(dataEvent){
+            this.fireOpenDialog('standard-rate-dialog',dataEvent)
+          },
           showConfirmMsg(dataEvent){
             this.fireOpenDialog('standard-confirm-message',dataEvent)
           },

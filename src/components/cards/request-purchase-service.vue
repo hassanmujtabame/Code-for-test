@@ -141,9 +141,12 @@
 <div class="d-flex flex-wrap align-items-center justify-content-between">
     <p class="t-c w-75 m-0" v-html="description">
     </p>
-    <div class="d-flex  gap-1 flex-wrap">
-        <button @click="router_push('service-provider-request-purchase-service-progress',{id:itemId})" style="height: 40px; width: 100px;" class="btn-main px-2 ">
+    <div v-if="['waiting','underway'].includes(status)"  class="d-flex  gap-1 flex-wrap">
+        <button v-if="status=='underway'" @click="askDeliveryPurchase" style="height: 40px; width: 100px;" class="btn-main px-2 ">
             طلب تسليم
+        </button>
+        <button v-if="status=='waiting'" @click="confirmRequestPurchase" style="height: 40px; width: 100px;" class="btn-main px-2 ">
+            تاكيد الطلب
         </button>
         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   ">
             إلغاء الطلب
@@ -157,6 +160,9 @@
 export default {
     name:'request-card',
  props:{
+    item:{
+        type:[Object,Array],
+    },
     itemId:{
         type:[String,Number],
     },
@@ -213,6 +219,14 @@ export default {
                 return this.status
         }
     }
+ },
+ methods:{
+    confirmRequestPurchase(){
+        this.fireOpenDialog('confirm-request-purchase',this.item)
+    },
+    askDeliveryPurchase(){
+        this.router_push('service-provider-request-purchase-service-progress',{id:this.itemId})
+    },
  }
 }
 </script>
