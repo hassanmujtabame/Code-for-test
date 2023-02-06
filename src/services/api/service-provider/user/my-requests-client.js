@@ -9,7 +9,7 @@ class ServiceProviderApi extends BaseApi{
     }
     getItem(id,params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/my-orders/${id}?${s}`);
+        return window.axios.get(`service-provider/user/orders/${id}?${s}`);
     }
     addItem(data){
         return window.axios.post(`service-provider/user/orders`,data);
@@ -37,7 +37,15 @@ class ServiceProviderApi extends BaseApi{
     confirmDelivery(id){
         return window.axios.get(`service-provider/provider/ready-services/project-delivery/${id}`); 
     }
+    getOffersAll(id,params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`service-provider/user/my-orders/${id}?${s}`);
+    }
+    acceptOffer(id){
+        /** id of Offer for this request */
+        return window.axios.get(`service-provider/user/my-order/${id}`);
 
+    }
 }
 
 export default new ServiceProviderApi();

@@ -1,6 +1,10 @@
 <template>
     <div class="bg-body-page py-3" style="margin-top: 96px;">
-
+        <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+      هناك خطأ غير معروف يرجي تحديث الصفحة
+    </div>
+    <div v-else >
       <d-filter-list
       :call-list="loadList"
       hideSide
@@ -8,7 +12,7 @@
       @change="changeFilter"
       >
         <template v-slot:total>
-            <h4 class="fw-bold">{{ $t('project') }}</h4>
+            <h4 class="fw-bold">{{ $t('project') }} : {{ itemPage.title }}</h4>
         </template>
         <template v-slot:before-body>
             <ul class="nav nav-pills  mb-3">
@@ -25,21 +29,13 @@
         </template>
         <template v-slot:default="{item}">
             <CardItem
-                            :itemId="item.id"
-                            :status="item.status"
-                            :service="item.title"
-                            :name="item.from_user"
-                            :dateRequest="item.created_at"
-                            :place="item.city"
-                            :during="item.implementation_period"
-                            :requests="item.count_requests"
-                            :description="item.description"
-                            :homeDelivery="item.home_delivery"
-                            :delivery="item.delivery_product_available"
+                            :item="item"
+                           
                             >
                         </CardItem>
         </template>
       </d-filter-list>
+    </div>
     </div>
     
 </template>
@@ -53,6 +49,8 @@ export default {
     },
     data:()=>{
         return {
+            loading:false,
+            hasError:false,
             status:null,
             actions:[
                 {status:null,label:'كل طلبات'},
@@ -62,6 +60,7 @@ export default {
            
     
             ],
+            itemPage:{},
             filterItem:{
                 search:null,
                 created_at:'asc',
@@ -71,6 +70,24 @@ export default {
         
     },
     methods:{
+        async initialize(){
+            this.loading = true;
+            this.hasError = false;
+            try {
+
+                let { data } = await myRequestsClientAPI.getItem(this.$route.params.id)
+                        if(data.success){
+                            this.itemPage = data.data
+                        }else{
+                            this.hasError = true;
+                        }
+            } catch (error) {
+                console.log('error', error)
+                console.log('response', error.response)
+                this.hasError = true;
+            }
+            this.loading = false;
+        },
         changeStatus(status){
             this.status =  status
             this.filterItem.status=status;
@@ -86,13 +103,16 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await myRequestsClientAPI.getItem(params)
+                return await myRequestsClientAPI.getOffersAll(this.itemPage.id,params)
 
             } catch (error) {
                 console.log('error', error)
                 console.log('response', error.response)
             }
         }
+    },
+    mounted(){
+        this.initialize()
     }
 }
 </script>

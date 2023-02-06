@@ -5,26 +5,28 @@
         <!-- provider info -->
         <div class="d-flex align-items-center">
             <div class="box-provider-offer__image">
-               <imgAvatar :img="user.image" :size="58" />
+               <imgAvatar :img="item.user_info.image" :size="58" />
             </div>
             <div class="box-provider-offer__info mx-3 ">
-                <h2 class="box-provider-offer__info-name">علا مصطفي</h2>
-                <h4 class="box-provider-offer__info-job">مصمم جرافيك</h4>
+                <h2 class="box-provider-offer__info-name">{{item.user_info.name}}</h2>
+                <h4 class="box-provider-offer__info-job">{{ item.user_info.job }}</h4>
             </div>
         </div>
         <!-- provider text-->
-        <div class="t-c">
-            تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل
+        <div class="t-c" v-html="item.note">
         </div>
         <div class="mt-2">
-            <button class="btn btn-custmer" @click="acceptConfirm">اقبل العرض</button>
+            <button :disabled="laoding" class="btn btn-custmer" @click="acceptConfirm">
+                <i v-if="laoding" class="fas fa-spinner fa-spin"></i>
+                اقبل العرض
+            </button>
         </div>
     </div>
     <div class="box-provider-offer_end">
         <div class="t-c box-provider-offer__date">
             <timeIcon :size="24" color="currentColor" />
             <span class="mx-2">تاريخ تقديمك العرض :</span>
-        <span>2023-10-11</span>
+        <span>{{dateText}}</span>
         </div>
     </div>
 </div>
@@ -42,16 +44,37 @@ export default {
     timeIcon,
     imgAvatar
  },
+ props:{
+    item:{
+        type:[Array,Object]
+    }
+ },
+ computed:{
+    dateText(){
+        return this.item.created_at?this.item.created_at.split('T')[0]:''
+    }
+ },
+ data:()=>{
+    return {
+        laoding:false,
+    }
+ },
  methods:{
-        async sendAcception() {
+        async sendAcception(){
             try {
-                let params = {}
-                return await myRequestsClientAPI.getAll(params)
+                this.loading =  true;
+                let { data } = await myRequestsClientAPI.acceptOffer(this.item.id) 
+                if(data.success){
+                    //
+                }else{
+                    window.SwalError(data.message)
+                }
 
             } catch (error) {
                 console.log('error', error)
                 console.log('response', error.response)
             }
+            this.loading =  false;
         },
     acceptConfirm(){
         let dataEvent ={
