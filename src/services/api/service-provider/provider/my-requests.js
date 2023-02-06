@@ -34,7 +34,9 @@ class ServiceProviderApi extends BaseApi{
         let s=this.generateQueryUrl({...params,service_category_id:id})
         return window.axios.get(`service-provider/user/service-fields?${s}`); 
     }
-
+    confirmDelivery(id){
+        return window.axios.get(`service-provider/provider/ready-services/project-delivery/${id}`); 
+    }
 }
 
 export default new ServiceProviderApi();
