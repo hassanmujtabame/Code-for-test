@@ -49,6 +49,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-my-requests" */ '../views/service-provider/client/my-requests/index.vue') 
     },
     {
+        path: 'service-provider/my-requests/:id',
+        meta:{layout:LayoutService,auth:true},
+        name: 'service-provider-client-my-request-page',
+        component: () => import(/* webpackChunkName: "service-provider-my-request-page" */ '../views/service-provider/client/my-request-page/index.vue') 
+    },
+    {
         path: 'service-provider/my-schedules',
         meta:{layout:LayoutService,auth:true},
         name: 'service-provider-my-schedules',

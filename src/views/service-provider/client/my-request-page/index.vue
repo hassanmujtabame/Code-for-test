@@ -1,5 +1,6 @@
 <template>
-    <div style="margin-top: 96px;">
+    <div class="bg-body-page py-3" style="margin-top: 96px;">
+
       <d-filter-list
       :call-list="loadList"
       hideSide
@@ -7,7 +8,7 @@
       @change="changeFilter"
       >
         <template v-slot:total>
-            <h4 class="fw-bold">مشاريع</h4>
+            <h4 class="fw-bold">{{ $t('project') }}</h4>
         </template>
         <template v-slot:before-body>
             <ul class="nav nav-pills  mb-3">
@@ -19,40 +20,47 @@
                     </li>
                 </ul>
         </template>
+        <template v-slot:search>
+            <button class="btn btn-custmer">صفحة الطلب</button>
+        </template>
         <template v-slot:default="{item}">
-            <router-link class="router-link" :to="getRouteLocale('service-provider-client-my-request-page',{id:item.id})">
-            <d-my-request-card
+            <CardItem
                             :itemId="item.id"
                             :status="item.status"
                             :service="item.title"
-                            :name="item.user_info.name"
+                            :name="item.from_user"
                             :dateRequest="item.created_at"
                             :place="item.city"
-                            :price="item.price"
-                            :during="item.execution_period"
+                            :during="item.implementation_period"
                             :requests="item.count_requests"
                             :description="item.description"
                             :homeDelivery="item.home_delivery"
                             :delivery="item.delivery_product_available"
                             >
-                        </d-my-request-card>
-                    </router-link>
+                        </CardItem>
         </template>
       </d-filter-list>
     </div>
+    
 </template>
 <script>
-import myRequestClientAPI from '@/services/api/service-provider/user/my-requests-client.js'
+import myPurchasesAPI from '@/services/api/service-provider/user/my-purchases.js'
+import CardItem from './card.vue'
 export default {
-    name: 'request-purchase-services',
+    name: 'my-request-page',
+    components:{
+        CardItem
+    },
     data:()=>{
         return {
             status:null,
             actions:[
-                {status:null,label:'كل مشاريعك'},
-                {status:'waiting',label:'في انتظار موافقتك'},
-                {status:'underway',label:'مشاريع قيد التنفيذ'},
-                {status:'finished',label:'مشاريع مكتملة'},
+                {status:null,label:'كل طلبات'},
+                {status:"provider",label:'مقدمي الخدمة تعرفهم'},
+                {status:"graduate",label:'خريجي رياديات'},
+                {status:"best_rate",label:'الاعلى تقييما'},
+           
+    
             ],
             filterItem:{
                 search:null,
@@ -78,7 +86,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await myRequestClientAPI.getAll(params)
+                return await myPurchasesAPI.getAll(params)
 
             } catch (error) {
                 console.log('error', error)

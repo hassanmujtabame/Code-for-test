@@ -7,11 +7,9 @@
               class="rounded-1 px-2 py-1 text-white" :class="statusClass">
              {{ statusName }}
           </p>
-          <h4 class="box-title m-c " @click="router_push('service-provider-request-purchase-service-show',{id:itemId})">
-              طلب شراء خدمة :
-              <span>
-                  {{ service }}
-              </span>
+          <h4 class="box-title m-c mx-2" @click="router_push('service-provider-request-purchase-service-show',{id:itemId})">
+                  {{ service??'N/A' }}
+
           </h4>
       </div>
       <div>
@@ -90,7 +88,7 @@
                   d="M10.0002 1.83325H6.00024C5.72691 1.83325 5.50024 1.60659 5.50024 1.33325C5.50024 1.05992 5.72691 0.833252 6.00024 0.833252H10.0002C10.2736 0.833252 10.5002 1.05992 10.5002 1.33325C10.5002 1.60659 10.2736 1.83325 10.0002 1.83325Z"
                   fill="#737373" />
           </svg>
-          مدة التنفيذ: {{ during }} 
+          مدة التنفيذ: {{ during }}  {{ $t('day_s') }}
       </p>
       <p v-if="homeDelivery" class="t-c">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"

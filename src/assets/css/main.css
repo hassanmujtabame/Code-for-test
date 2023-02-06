@@ -1822,3 +1822,10 @@ select.show-arrow{
         padding: 0 !important;
     }
 }
+
+.bg-body-page{
+    background-color: #F6F8F9 !important;
+}
+.filter-list{
+    background-color: white;
+}
