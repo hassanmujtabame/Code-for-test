@@ -149,8 +149,8 @@
                                     <span>
                                         المهارات المطلوبة :
                                     </span>
-                                    <div class="d-flex justify-content-center flex-wrap gap-3 mt-2">
-                                        <p v-for="(skill,i) in itemPage.skills" :key="i" 
+                                    <div class="d-flex justify-content-start flex-wrap gap-3 mt-2">
+                                        <p v-for="(skill,i) in itemPage.skills.split(',')" :key="i" 
                                         
                                         :style="{'background-color':colors[i%4]}" class="rounded-2 px-3 text-white">
                                             {{skill}}
