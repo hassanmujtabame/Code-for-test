@@ -46,7 +46,7 @@
                                            {{item.from_user}}
                                         </p>
                                     </div>
-                                    <div>
+                                    <div class="flex-shrink-0">
                                         <d-rate-stars :size="16" :value="item.rate"/>
     
                                     </div>
