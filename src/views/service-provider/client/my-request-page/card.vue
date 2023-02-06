@@ -16,6 +16,9 @@
         <div class="t-c">
             تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل تفاصيل العرض الذي  سيقدمه لمقدم الخدمة للعميل
         </div>
+        <div class="mt-2">
+            <button class="btn btn-custmer">اقبل العرض</button>
+        </div>
     </div>
     <div class="box-provider-offer_end">
         <div class="t-c box-provider-offer__date">
