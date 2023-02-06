@@ -117,6 +117,7 @@
       mounted(){
 
        window.$(`#offcanvasExample .nav-link`).click(()=>{
+        if(this.isMobile)
         this.closeNavList()
        })
       }
