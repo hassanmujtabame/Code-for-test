@@ -282,7 +282,7 @@ export default {
     },
 data:(vm)=>{
 return{
-    laoding:false,
+    loading:false,
         group:'update-ready-service',
         showDialog:false,
         states:[
