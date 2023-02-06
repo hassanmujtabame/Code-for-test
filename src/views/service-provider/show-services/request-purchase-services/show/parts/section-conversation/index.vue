@@ -38,6 +38,8 @@
                                         </ValidationProvider>
                                             <div class="m-2">
                                                 <button :disabled="!message" @click="sendMessage" class="bg-main border rounded-2 p-2 text-white">
+                                                    <i v-if="loading" class="fa fa-spinner  fa-spin" aria-hidden="true"></i>
+                                                   
                                                     ارسل رساله 
                                                 </button>
                                             </div>
@@ -63,6 +65,7 @@ export default {
             let date_only = vm.dateToString(date);
             let time_only = vm.dateToString(date);
     return {
+        loading:false,
         message:'',
         conversations:[
             {id:1,date:date_only,time:time_only,datetime:date,content:'اهلا وسهلا متحمسة للعمل سويا',time_human:'منذ 17 يوما و 24 دقيقة',isMe:true},
@@ -90,10 +93,11 @@ export default {
     },
     async sendMessage(evt){
         evt.preventDefault();
-        
+        this.loading = true;
             let valid =  this.$refs.form.validate();
             if(!valid){
                 console.log('invalid')
+                this.loading = false;
                 return;
             }
             let formData = new FormData();
@@ -101,14 +105,14 @@ export default {
             formData.append('user_id',this.itemPage.user_info.id)
             formData.append('service_id',this.itemPage.id)
             try {
-                let { data } = await window.axios.post('service-provider/user/send-message-to-provider')
+                let { data } = await window.axios.post('service-provider/user/send-message-to-provider',formData)
                  if(data.success){
                     this.pushMessage()
                  }
             } catch (error) {
                 //
             }
-            
+            this.loading = false; 
     }
  }
 }
