@@ -1,5 +1,5 @@
 <template>
-   <div class="border mt-3">
+   <div class="border">
 
                         
 <ul class="nav nav-pills mb-3 gap-3 border-bottom pb-3 py-3 px-2" id="pills-tab" role="tablist">
@@ -51,7 +51,7 @@
 
 <script>
 import TabCourses from './tabs/courses-watched/index.vue'
-import TabBlog from './tabs/blog/blog/blog.vue'
+import TabBlog from './tabs/blog/index.vue'
 import TabExhibitions from './tabs/exhibitions/index.vue'
 import TabStory from './tabs/story/index.vue'
 import TabProject from './tabs/project/index.vue'

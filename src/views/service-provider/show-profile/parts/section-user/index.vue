@@ -121,6 +121,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.img-person{
+    min-height:140px;
+    min-width:140px;
+}
 </style>
