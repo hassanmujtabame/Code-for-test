@@ -86,7 +86,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await myRequestsClientAPI.getAll(params)
+                return await myRequestsClientAPI.getItem(params)
 
             } catch (error) {
                 console.log('error', error)

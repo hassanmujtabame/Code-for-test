@@ -9,7 +9,7 @@ class ServiceProviderApi extends BaseApi{
     }
     getItem(id,params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/orders/${id}?${s}`);
+        return window.axios.get(`service-provider/user/my-orders/${id}?${s}`);
     }
     addItem(data){
         return window.axios.post(`service-provider/user/orders`,data);
@@ -33,6 +33,9 @@ class ServiceProviderApi extends BaseApi{
     getFields(id,params){
         let s=this.generateQueryUrl({...params,service_category_id:id})
         return window.axios.get(`service-provider/user/service-fields?${s}`); 
+    }
+    confirmDelivery(id){
+        return window.axios.get(`service-provider/provider/ready-services/project-delivery/${id}`); 
     }
 
 }
