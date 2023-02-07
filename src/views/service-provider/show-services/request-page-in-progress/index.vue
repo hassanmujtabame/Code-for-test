@@ -176,27 +176,60 @@ import ChangePriceRequest from './dialogs/change-value-amount.vue'
         }
             this.showRateMsg(dataEvent)
         },
-       async rateProvider(data,form){
-            console.mylog(data,this)
+       async rateProvider(dataE,form){
+            console.mylog(dataE,this)
             let valid = await form.validate();
             if(!valid){
                 console.mylog('invalid')
                 return false;
             }
-            this.showConfirmRateService()
+            let formData = new FormData()
+            Object.keys(dataE).forEach(key=>{
+                formData.append(key,dataE[key])
+            })
+            formData.append('user_id', this.itemPage.user_info.id)
+            try{
+                let {data} = await myRequestsAPIs.rateProvider(formData)
+                if(data.success){
+                    this.showConfirmRateService()
+                }else{
+                    window.SwalError(data.message);
+                    return false;
+                }
+            }catch(error){
+                //
+                console.log('error',error)
+                return false;
+            }
+            
             return true;
         },
-        
-        
-        
-        async rateService(data,form){
-            console.mylog(data,this)
+        async rateService(dataE,form){
+            console.mylog(dataE,this)
             let valid = await form.validate();
             if(!valid){
                 console.mylog('invalid')
                 return false;
             }
-            this.router_push('service-provider-home')
+            let formData = new FormData()
+            Object.keys(dataE).forEach(key=>{
+                formData.append(key,dataE[key])
+            })
+            formData.append('user_id', this.itemPage.user_info.id)
+            try{
+                let {data} = await myRequestsAPIs.rateService(formData)
+                if(data.success){
+                    this.router_push('service-provider-home')
+                }else{
+                    window.SwalError(data.message)
+                    return false;
+                }
+            }catch(error){
+                //
+                console.log('error',error)
+                return false;
+            }
+            
             return true;
         },
         showRateService(){

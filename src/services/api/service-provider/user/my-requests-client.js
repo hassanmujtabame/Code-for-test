@@ -46,6 +46,12 @@ class ServiceProviderApi extends BaseApi{
         return window.axios.get(`service-provider/user/my-order/${id}`);
 
     }
+    rateProvider(data){
+        return window.axios.post(`service-provider/user/rate`,data);
+    }
+    rateService(data){
+        return window.axios.post(`service-provider/user/rate/ready-service`,data);
+    }
 }
 
 export default new ServiceProviderApi();
