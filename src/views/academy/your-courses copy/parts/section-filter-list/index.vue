@@ -1,23 +1,28 @@
 <template>
 <d-filter-list :fake-items="items"
-classColCard="col-12 col-md-4 mt-3"
 hideSide
+hideOrder
+classSearchOrder="col-12 col-md-4"
+classColSearch="col-12"
 >
 <template v-slot:total="{}">
-   <h1 class="fw-bolder">دوراتي التدريبة</h1>
+    <button class="btn bg-main text-white" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+           <plusCircleOutline :size="24" color="currentColor"/>
+            أضافة دورة جديدة
+          </button>
 </template>
-
+<template v-slot:[`head-end`]>
+    <button class="more">المزيد</button>
+</template>
 <template v-slot="{}">
-    <CourseCard 
-    
-    />
+    <CourseCard />
 </template>
 </d-filter-list>
 </template>
 
 <script>
 import plusCircleOutline from '@/components/icon-svg/plus-circle-outline.vue';
-import CourseCard  from './card.vue'
+import CourseCard from './card'
 export default {
   name:'filter-list',
   components:{
