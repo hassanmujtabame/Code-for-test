@@ -21,6 +21,9 @@
                             <div v-if="is_offer_sent">
                                 <h1>لقد ارسلت عرضك</h1>
                             </div>
+                            <div v-if="itemPage.user_offer">
+                                <h1>لقد تم قبول عرض اخر</h1>
+                            </div>
                             <div v-else>
                             <ValidationObserver tag="div" class="position-relative" ref="form">
                                 <d-overlays-simple v-if="sending" />
