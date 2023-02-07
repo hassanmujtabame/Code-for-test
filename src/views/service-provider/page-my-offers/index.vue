@@ -56,7 +56,7 @@ export default {
             status:null,
             actions:[
                 {label:'كل عروضك',status:null},
-                {label:'عروض تم اختيارك بها',status:"selected"},
+                {label:'عروض تم اختيارك بها',status:"underway"},
                 {label:'لم تتم الموافقة بعد',status:"waiting"},
                 {label:'تم استبعادك',status:"excluded"},
             ],

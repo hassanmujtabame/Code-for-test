@@ -125,7 +125,7 @@ export default {
     },
     statusName(){
         switch (this.status) {
-            case 'selected': return "مختارة";
+            case 'underway': return "مختارة";
             case 'waiting': return "قيد الانتظار";
             case 'excluded': return"مستبعدة";
                 
@@ -150,7 +150,7 @@ export default {
 .status-request-waiting{
     background-color: #FFBC00;
 }
-.status-request-selected{
+.status-request-underway{
     background-color: #1FB9B3;
 }
 .status-request-excluded{
