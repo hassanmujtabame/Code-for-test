@@ -40,7 +40,9 @@
               //console.log(data)
               if(data.success){
                   this.items =data.data
-              }
+              }else{
+              window.SwalError(data.message)
+            }
           } catch (error) {
                console.log('error',error)
           }

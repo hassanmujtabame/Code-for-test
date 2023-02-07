@@ -98,7 +98,9 @@ export default {
       if(data.success){
         this.openSuccessDialog()
         this.closeEvent()
-      }
+      }else{
+              window.SwalError(data.message)
+            }
     } catch (error) {
         console.log('error',error)
     }

@@ -65,6 +65,8 @@ export default {
             if(data.success){
               this.$emit('success',this.itemDialog)
                 this.closeEvent()
+            }else{
+              window.SwalError(data.message)
             }
         } catch (error) {
             console.log('error',error)

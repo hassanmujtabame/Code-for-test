@@ -61,7 +61,9 @@ methods:{
             window.store.commit('auth/SET_TOKEN',token) ;
             window.store.commit('auth/SET_USER',user);
             window.store.commit('auth/SET_IS_PROVIDER',window.store.getters['auth/isProvider']);
-         }
+         }else{
+            window.SwalError(data.message)
+          }
       } catch (error) {
          console.log('error',error)
          console.log('error response',error.response)

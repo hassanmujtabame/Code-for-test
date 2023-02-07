@@ -55,6 +55,8 @@ import ServiceProviderAPIs from '@/services/api/service-provider/provider/ready-
                 this.is_suspend = 0
                 this.$emit('suspend',0)
                 this.closeEvent()
+            }else{
+              window.SwalError(data.message)
             }
         } catch (error) {
             console.log('error',error)
