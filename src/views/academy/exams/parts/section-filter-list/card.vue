@@ -6,7 +6,7 @@
     <p class="box-exam__note">ملاحظة : سيقوم المدرب بفحص مشروعك بنفسه وتقيمك</p>
     </div>
 <div class="flex-shrink-0">
-    <button class="btn btn-custmer"> إذهب الى الاختبار</button>
+    <button @click="router_push('academy-exams-do-exam',{id:1})" class="btn btn-custmer"> إذهب الى الاختبار</button>
 </div>
    </div>
 </template>
