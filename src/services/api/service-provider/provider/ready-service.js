@@ -71,8 +71,8 @@ class readyServicesApi extends BaseApi{
     finisheRequestsForPurchaseService(id){
         return window.axios.get(`service-provider/provider/request-purchase-services-finished/${id}`);
     }
-    changePriceRequestsForPurchaseService(id,data){
-        return window.axios.get(`service-provider/provider/request-purchase-services-finished/${id}`,data);
+    changePriceRequestsForPurchaseService(data){
+        return window.axios.post(`service-provider/provider/modify-transaction-value-service`,data);
     }
    /** for galleries a ready service */
    getGalleriesAll(service_id,params){

@@ -50,8 +50,11 @@ export default {
  }),
  methods:{
     async delBlog(){
+      let formData = new FormData();
+      formData.append('price',this.amount);
+      formData.append('service_id',this.itemDialog.id);
         try {
-            let {data} = await readyServiceAPI.changePriceRequestsForPurchaseService(this.itemDialog.id)
+            let {data} = await readyServiceAPI.changePriceRequestsForPurchaseService(formData)
             if(data.success){
                 this.router_push('service-provider-request-purchase-services')
                 this.closeEvent()
