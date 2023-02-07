@@ -8,38 +8,24 @@
             <h1 class="do-exam__title">اختبار 1 : دورة الازياء</h1>
         </div>
             <div class="do-exam__header-end">
-                <div class="do-exam__progress">
-                    <div class="dot dot-active">
-                        <div class="dot__wrapper">
-                        </div> 
-                    </div>
-                    <div class="dot dot-active">
-                        <div class="dot__wrapper">
-                        </div>
-                    </div>
-                    <div class="dot dot-active">
-                        <div class="dot__wrapper">
-                        </div>
-                    </div>
-                    <div class="dot">
-                        <div class="dot__wrapper">
-                        </div>
-                    </div>
-                    <div class="dot">
-                        <div class="dot__wrapper">
-                        </div>
-                    </div>
-                    <div class="dot">
-                        <div class="dot__wrapper">
-                        </div>
-                    </div>
-                
-                </div>
+                <dotsProgress :dots="questions.length" :value="step" />
             </div>
         </div>
-        <div class="do-exam__body"></div>
+        <div class="do-exam__body">
+            <div v-for="(q,i) in questions" :key="i">
+                <showQuestion @update="updateResponse" 
+        :item="q"
+        v-if="(i+1)==step"
+        
+        />
+            </div>
+            <div v-if="env.NODE_ENV=='development'">
+        {{ responses.map(x=>x.value) }}
+    </div>
+        </div>
         <div class="do-exam__footer">
-            <button class="btn btn-custmer">التالى</button>
+            <button :disabled="step<=1" @click="prevStep" class="btn btn-custmer btn-small">السابق</button>
+            <button :disabled="step>=questions.length" @click="nextStep" class="btn btn-custmer btn-small">التالى</button>
         </div>
     </div>
 </div>
@@ -49,8 +35,53 @@
 </template>
 
 <script>
+import dotsProgress from './dots-progress.vue';
+import showQuestion from './show-question.vue';
 export default {
- name:'do-exam-page'
+ name:'do-exam-page',
+ components:{
+    dotsProgress,
+    showQuestion
+ },
+ data:()=>{
+    return  {
+        env:process.env,
+        step:1,
+        responses:[],
+        questions:[
+            {id:1,title:'مانوع  ماكينة الخياطة ؟',type:'radio',opts:[
+            {id:1,title:'الخيار الاول'},
+            {id:2,title:'الخيار الثاني'},
+            {id:3,title:'الخيار الثالث'},
+            {id:4,title:'الخيار الرابع'},
+            {id:5,title:'الخيار الخامس'},
+        ]},
+        {id:1,title:'مانوع التصاميم ؟',type:'checkbox',opts:[
+            {id:1,title:'الخيار الاول'},
+            {id:2,title:'الخيار الثاني'},
+            {id:3,title:'الخيار الثالث'},
+            {id:4,title:'الخيار الرابع'},
+            {id:5,title:'الخيار الخامس'},
+        ]}
+        ]
+    }
+ },
+ methods:{
+    updateResponse(data){
+            let stepResponse = this.responses.findIndex(x=>x.step==this.step)
+            if(stepResponse<0){
+                this.responses.push({step:this.step,value:null})
+                stepResponse = this.responses.length -1;
+            }
+            this.responses[stepResponse].value = data
+    },
+    prevStep(){
+        this.step-=1;
+    },
+    nextStep(){
+        this.step+=1;
+    }
+ }
 }
 </script>
 
@@ -60,7 +91,11 @@ export default {
     padding: 5px;
     border-radius: 8px;
 }
+.do-exam__body{
+    padding:40px;
+}
 .do-exam__title{
+    
     margin: 1px;
     padding: 0 5px;
     font-style: normal;
@@ -85,10 +120,6 @@ color: #414042;
 .do-exam__header-end{
     flex-shrink: 0;
 }
-.do-exam__progress{
-    display: flex;
-    justify-content: space-evenly;
-}
 .do-exam__body{
     min-height: 300px;
 }
@@ -96,17 +127,7 @@ color: #414042;
     padding: 5px;
     border-top: 1px solid #c6c6c6;
 }
-.dot{
-    padding: 2px;
-}
-.dot> .dot__wrapper{
-    display:inline-block;
-    border-radius: 50%;
-width: 16px;
-height: 16px;  
- background: #D9D9D9;
-}
-.dot.dot-active>.dot__wrapper{
-    background: var(--m-color);
+.do-exam__footer>button{
+    min-width: 200px;
 }
 </style>

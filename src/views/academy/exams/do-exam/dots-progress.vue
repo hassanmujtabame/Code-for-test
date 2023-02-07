@@ -20,6 +20,11 @@ export default {
         type:Number,
         default:0
     }
+  },
+  watch:{
+    value(){
+        
+    }
   }
 }
 </script>
