@@ -6,9 +6,10 @@
                     تهانينا
                 </h3>
                 <p class="congrats">
-                    بمجرد أنشائك حساب في مقدمي خدمة رياديات فأنت أصبحت مشترك  في<span class="m-c"> اكاديمية رياديات </span>
+                    أنت الان عضو في اكاديمية  رياديات (اشتراك شهري)
+يمكنك الاستفادة من خدماتنا الفريدة و المتنوعة
                 </p>
-                <p class="text2">
+                <p class="text2 t-c">
                     يمكنك دائماً تبديل بين خدمات رياديات المختلفة  
                 </p>
                 <ul class="nav nav-pills mb-3 d-flex gap-2 flex-wrap "  role="tablist">
@@ -54,7 +55,7 @@ methods:{
   openConfirmDialog(dept,evt){
     if(evt)
     evt.preventDefault();
-    
+    if(dept.active) return;
 
     this.fireOpenDialog('go-to-pther-section',dept)
   }
