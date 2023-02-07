@@ -34,7 +34,7 @@ export default {
       items:[
         /**provider */
         {route:'academy-courses', text:vm.$t('academy-courses'),intructor:true},
-        {route:'academy-meetings', text:vm.$t('academy-meetings'),intructor:true},
+        {route:'academy-learning-meetings', text:vm.$t('academy-meetings'),intructor:true},
         {route:'academy-your-courses', text:vm.$t('your-courses'),intructor:true},
         {route:'contact-us',text:vm.$t('contact-us'),intructor:true},
         ]
