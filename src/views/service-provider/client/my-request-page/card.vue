@@ -16,7 +16,7 @@
         <div class="t-c" v-html="item.note">
         </div>
         <div class="mt-2">
-            <button :disabled="laoding" class="btn btn-custmer" @click="acceptConfirm">
+            <button :disabled="loading || item.status=='accept'" class="btn btn-custmer" @click="acceptConfirm">
                 <i v-if="laoding" class="fas fa-spinner fa-spin"></i>
                 اقبل العرض
             </button>
