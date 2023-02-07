@@ -18,6 +18,10 @@
                                 </div>
 
                             </div>
+                            <div v-if="is_offer_sent">
+                                <h1>لقد ارسلت عرضك</h1>
+                            </div>
+                            <div v-else>
                             <ValidationObserver tag="div" class="position-relative" ref="form">
                                 <d-overlays-simple v-if="sending" />
                                 <h3 class="m-c p-2">
@@ -93,6 +97,7 @@
                                 </div>
                             </ValidationObserver>
                             <SuccessSendOffer />
+                            </div>
                         </div>
 </template>
 
@@ -104,9 +109,10 @@ name:'section-user-info',
  components:{
     SuccessSendOffer
  },
- data:()=>{
+ data:(vm)=>{
     return{
         sending:false,
+        is_offer_sent:vm.itemPage.is_offer_sent,
         itemForm:{
                 note:'',
                 file:null,
@@ -170,6 +176,9 @@ name:'section-user-info',
                 this.itemForm.note = '';
                 this.itemForm.file = null;
                 this.$refs.form.reset();
+                this.is_offer_sent = true;
+                this.sending = false;
+                this.itempPage.is_offer_sent = true
             }
         } catch (error) {
             console.log('error',error)
