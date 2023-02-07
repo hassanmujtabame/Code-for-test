@@ -103,7 +103,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await myRequestsClientAPI.getOffersAll(this.itemPage.id,params)
+                return await myRequestsClientAPI.getOffersAll(this.$route.params.id,params)
 
             } catch (error) {
                 console.log('error', error)
