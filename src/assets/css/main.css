@@ -1826,6 +1826,7 @@ select.show-arrow{
 
 .bg-body-page{
     background-color: #F6F8F9 !important;
+    padding: 5px;
 }
 .filter-list{
     background-color: white;
