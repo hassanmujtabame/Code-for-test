@@ -1,6 +1,6 @@
 <template>
   <MyBlog title="شهاداتك" :value="0" color="#1FB9B3" 
-  url="/"
+  :url="getRouteLocale('academy-your-certificates')"
   />
 </template>
 
