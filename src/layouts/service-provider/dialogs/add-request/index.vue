@@ -137,7 +137,7 @@
     </ValidationObserver>
       </template>
       <template v-slot:actions>
-          <button @click="save" style="height: 40px;" class="btn btn-main"> ارسل الوظيفة</button>
+          <button @click="save" style="height: 40px;" class="btn btn-main">أضف الطلب</button>
       </template>
     </d-dialog-large>
   </template>
