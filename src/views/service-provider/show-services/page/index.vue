@@ -5,7 +5,7 @@
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
         <template v-else >
-            <progressPage v-if="itemPage.user_offer && itemPage.is_offer_sent"
+            <progressPage v-if="itemPage.user_offer && (itemPage.is_offer_sent || itemPage.user_info.id==user.id)"
             :item-page="itemPage" 
             />
             <showPage v-else :item-page="itemPage" />
