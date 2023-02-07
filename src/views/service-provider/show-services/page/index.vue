@@ -1,11 +1,11 @@
 <template>
-    <div style="margin-top:85px">
+    <div :id="`service-${serviceId}`" style="margin-top:85px">
         <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
         <template v-else >
-            <progressPage v-if="itemPage.user_offer && (itemPage.is_offer_sent || itemPage.user_info.id==user.id)"
+            <progressPage v-if="(itemPage.is_offer_sent && itemPage.user_offer && itemPage.user_offer.status=='underway') || (itemPage.user_info.id==user.id && itemPage.status=='underway')"
             :item-page="itemPage" 
             />
             <showPage v-else :item-page="itemPage" />
@@ -24,6 +24,11 @@ export default {
     components:{
         showPage,
         progressPage
+    },
+    computed:{
+        serviceId(){
+            return this.$route.params.id
+        }
     },
     data:()=>({
         loading:true,
