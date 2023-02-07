@@ -17,7 +17,7 @@
         </div>
         <div class="mt-2">
             <button :disabled="loading || item.status=='accept'" class="btn btn-custmer" @click="acceptConfirm">
-                <i v-if="laoding" class="fas fa-spinner fa-spin"></i>
+                <i v-if="loading" class="fas fa-spinner fa-spin"></i>
                 اقبل العرض
             </button>
         </div>
