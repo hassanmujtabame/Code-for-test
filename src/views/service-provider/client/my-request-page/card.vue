@@ -56,7 +56,7 @@ export default {
  },
  data:()=>{
     return {
-        laoding:false,
+        loading:false,
     }
  },
  methods:{
