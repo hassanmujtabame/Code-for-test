@@ -36,7 +36,7 @@ import SectionBestIntructors from './parts/section-best-intructors/index.vue'
 import SectionRecentCoursesOnline from './parts/section-recent-courses-online/index.vue'
 import SectionRecentCoursesOffline from './parts/section-recent-courses-offline/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
-import SectionContinueLearning from './parts/section-continue-learning/index.vue'
+import SectionContinueLearning from '@/views/academy/common-components/section-continue-learning/index.vue'
 import SectionHear from '@/views/academy/common-components/section-hear/index.vue'
 
 export default {

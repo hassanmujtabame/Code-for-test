@@ -35,7 +35,7 @@
             </label>
         </slot>
             </div>
-            <div :class="classColOrder" class="position-relative">
+            <div v-if="!hideOrder" :class="classColOrder" class="position-relative">
                     <slot name="order">
                     <select @change="updateFilter" v-model="filter.order" class="form-select mb-3 py-3 m-c" aria-label=".form-select-lg example">
                         <option v-for="(opt,i) in orderOpts"  :key="i" :value="opt.id"> {{opt.name}} </option>
@@ -305,6 +305,10 @@ export default {
             default:'col-12 col-md-6'
         },
         hideTotal:{
+            type:Boolean,
+            default:false,
+        },
+        hideOrder:{
             type:Boolean,
             default:false,
         },

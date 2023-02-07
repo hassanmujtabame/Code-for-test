@@ -64,7 +64,7 @@ import SectionTen from './parts/section-10/index.vue'
 import SectionRecentCourses from './parts/section-recent-courses/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionAcademyNumbers from './parts/section-academy-numbers/index.vue'
-import SectionContinueLearning from './parts/section-continue-learning/index.vue'
+import SectionContinueLearning from '@/views/academy/common-components/section-continue-learning/index.vue'
 import SectionHear from '@/views/academy/common-components/section-hear/index.vue'
 export default {
 name:"academy-home",
