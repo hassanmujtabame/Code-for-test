@@ -5,18 +5,18 @@
         <!-- provider info -->
         <div class="d-flex align-items-center">
             <div class="box-provider-offer__image">
-               <imgAvatar :img="item.user_info.image" :size="58" />
+               <imgAvatar :img="item_.user_info.image" :size="58" />
             </div>
             <div class="box-provider-offer__info mx-3 ">
-                <h2 class="box-provider-offer__info-name">{{item.user_info.name}}</h2>
-                <h4 class="box-provider-offer__info-job">{{ item.user_info.job }}</h4>
+                <h2 class="box-provider-offer__info-name">{{ item_.user_info.name}}</h2>
+                <h4 class="box-provider-offer__info-job">{{ item_.user_info.job }}</h4>
             </div>
         </div>
         <!-- provider text-->
-        <div class="t-c" v-html="item.note">
+        <div class="t-c" v-html="item_.note">
         </div>
         <div class="mt-2">
-            <button :disabled="loading || item.status=='accept'" class="btn btn-custmer" @click="acceptConfirm">
+            <button :disabled="loading || item_.status!=='waiting'" class="btn btn-custmer" @click="acceptConfirm">
                 <i v-if="loading" class="fas fa-spinner fa-spin"></i>
                 اقبل العرض
             </button>
@@ -51,11 +51,12 @@ export default {
  },
  computed:{
     dateText(){
-        return this.item.created_at?this.item.created_at.split('T')[0]:''
+        return this.item_.created_at?this.item_.created_at.split('T')[0]:''
     }
  },
- data:()=>{
+ data:(vm)=>{
     return {
+        item_:vm.item,
         loading:false,
     }
  },
@@ -63,9 +64,9 @@ export default {
         async sendAcception(){
             try {
                 this.loading =  true;
-                let { data } = await myRequestsClientAPI.acceptOffer(this.item.id) 
+                let { data } = await myRequestsClientAPI.acceptOffer(this.item_.id) 
                 if(data.success){
-                    //
+                    this.item_.status = 'underway'
                 }else{
                     window.SwalError(data.message)
                 }
