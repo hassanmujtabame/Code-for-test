@@ -10,7 +10,7 @@
         >
               <template v-slot="{item}">
                 
-                  <router-link class="router-link" :to="getRouteLocale('network-learning-meeting-show',{id:item.id})">
+                  <router-link class="router-link" :to="getRouteLocale('academy-learning-meeting-show',{id:item.id})">
                     <meetingCard 
                      :img="item.image"
                      :title="item.title"

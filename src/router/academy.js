@@ -64,7 +64,7 @@ const routers =[
         path: 'academy/learning-meetings/:id',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-learning-meeting-show',
-        component: () => import(/* webpackChunkName: "academy-learning-meeting-show" */ '../views/academy/meeting-page/index.vue') 
+        component: () => import(/* webpackChunkName: "academy-learning-meeting-show" */ '../views/academy/learning-meetings/page/index.vue') 
     },
     {
         path: 'academy/subscribe',
