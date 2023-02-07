@@ -112,7 +112,17 @@ textarea {
 .btn:hover {
     background-color: #FFBC00;
 }
-
+.btn-danger{
+    background: white !important;
+    border: 1px solid #f5390a !important;
+    color: #f5390a !important;
+}
+.btn-small{
+    padding: 5px 20px !important;
+}
+.align-self-stretch{
+    align-self:stretch !important;
+}
 .more {
     background: transparent;
     padding: 13px 39px;
