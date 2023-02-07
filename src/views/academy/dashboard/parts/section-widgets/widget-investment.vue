@@ -1,6 +1,6 @@
 <template>
   <MyBlog title="لقائات اشتركت بها" :value="0" color="#FFBC00"
-  url="/"
+  :url="getRouteLocale('academy-your-learning-meetings')"
   />
 </template>
 

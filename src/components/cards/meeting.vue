@@ -2,7 +2,7 @@
     <div class="box  ">
 
 <div class="main-img position-relative">
-    <img style="filter: brightness(0.7);" class=" rounded-2" :src="img" :alt="title" width="368" height="192">
+    <img style="filter: brightness(0.7);" class=" rounded-2" :src="img" :alt="title" width="100%" height="192">
 
     <div class="position-absolute top-50 px-2 text-start">
         <h6 style="width: fit-content;"  class="bg-yal p-1 px-2 rounded-2 text-white ">
