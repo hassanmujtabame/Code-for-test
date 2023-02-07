@@ -21,7 +21,7 @@
                             <div v-if="is_offer_sent">
                                 <h1>لقد ارسلت عرضك</h1>
                             </div>
-                            <div v-if="itemPage.user_offer">
+                            <div v-else-if="itemPage.user_offer && itemPage.user_offer.status!='waiting'">
                                 <h1>لقد تم قبول عرض اخر</h1>
                             </div>
                             <div v-else>
