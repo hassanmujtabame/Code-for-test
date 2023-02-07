@@ -31,10 +31,16 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-exams" */ '../views/academy/exams/index.vue') 
     },
     {
-        path: 'academy/exams/:id/do-exam',
+        path: 'academy/your-exams',
         meta:{layout:LayoutDefault,auth:true},
-        name: 'academy-exams-do-exam',
-        component: () => import(/* webpackChunkName: "academy-exams-do-exam" */ '../views/academy/exams/do-exam/index.vue') 
+        name: 'academy-your-exams',
+        component: () => import(/* webpackChunkName: "academy-your-exams" */ '../views/academy/your-exams/index.vue') 
+    },
+    {
+        path: 'academy/your-exams/:id/do-exam',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-your-exams-do-exam',
+        component: () => import(/* webpackChunkName: "academy-your-exams-do-exam" */ '../views/academy/your-exams/do-exam/index.vue') 
     },
     {
         path: 'academy/your-courses',
