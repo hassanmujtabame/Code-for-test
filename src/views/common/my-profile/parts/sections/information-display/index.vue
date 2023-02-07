@@ -14,9 +14,8 @@
                                     rules="image"
                                     v-slot="{validate,errors}"
                                     >
-                            <d-error-input :errors="errors" v-if="errors.length"></d-error-input>
 
-                            <div class="main-img">
+                            <div class="main-img" style="height: 170px;">
                                 <div class="col-md-12">
                                     <label for="imginput" class="form-label file-label first w-100">
                              
@@ -43,6 +42,8 @@
                                         
                                 </p>
                             </div>
+                            <d-error-input :errors="errors" v-if="errors.length"></d-error-input>
+
                                     </ValidationProvider>
                         </div>
                         <div class="col-md-8 border ">
