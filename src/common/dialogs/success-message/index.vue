@@ -26,8 +26,8 @@
               </div>
             </div>
               <div v-else class="mt-3">
-            <button @click="closeEvent" :disabled="btn.loading" style="height: 40px;" class="btn btn-custmer"> 
-              <i v-if="btn.loading"  class="fa fa-spinner fa-spin"  aria-hidden="true"></i>
+            <button @click="closeEvent"  style="height: 40px;" class="btn btn-custmer"> 
+              <i class="fa fa-spinner fa-spin"  aria-hidden="true"></i>
               {{$t('Home')}}</button>
           </div>
           
