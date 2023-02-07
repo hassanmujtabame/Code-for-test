@@ -48,6 +48,8 @@ export default {
             if(data.success){
                 this.router_push('service-provider-request-purchase-services')
                 this.closeEvent()
+            }else{
+              window.SwalError(data.message)
             }
         } catch (error) {
             console.log('error',error)
