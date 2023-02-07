@@ -36,49 +36,51 @@
  
          </div>
       <successSubscribeDialog />
-      <checkoutPackageDiag/>
+      <checkoutPackageDiag />
      </div>
  </template>
  
  <script>
  import SubscribeCard from '@/components/cards/subscribe-card.vue';
- import academyAPI from '@/services/api/academy.js'
+ import academyAPI from '@/services/api/academy/index.js'
  import successSubscribeDialog from './success-subscribe-dialog.vue';
  import checkoutPackageDiag from './check-out/index.vue';
+ 
+ 
  export default {
- name:'network-subscribe',
+ name:'academy-subscribe',
  components:{
      SubscribeCard,
-     successSubscribeDialog,
-     checkoutPackageDiag
+     checkoutPackageDiag,
+     successSubscribeDialog
  },
    data:()=>({
      show:false,
      packages:[]
    }),
    methods:{
-    getTypePackage(data){
-        switch (data.type) {
-            case 'free': return this.$t('free');
-            case 'month': return this.$t('monthly');
-            case 'year': return this.$t('annually');
-            default:
-                return 'N/A';
-        }
-    },
-    openCheckoutDialog(data){
-        this.fireOpenDialog('checkout-subscribe-academy',{item:{amount:data.price,title:this.$t('Riadiat-academy'),type:this.getTypePackage(data)},data:data})
-    },
-    openSuccessSubscribed(data){
-        this.fireOpenDialog('success-academy-subscribed', data)
-    },
-    choose(pack){
-        if(pack.type=='free')
-        this.openSuccessSubscribed( pack)
-        else{
-            this.openCheckoutDialog(pack)
-        }
-    },
+     getTypePackage(data){
+         switch (data.type) {
+             case 'free': return this.$t('free');
+             case 'month': return this.$t('monthly');
+             case 'year': return this.$t('annually');
+             default:
+                 return 'N/A';
+         }
+     },
+     openCheckoutDialog(data){
+         this.fireOpenDialog('checkout-subscribe-academy',{item:{amount:data.price,title:this.$t('Riadiat-academy'),type:this.getTypePackage(data)},data:data})
+     },
+     openSuccessSubscribed(data){
+         this.fireOpenDialog('success-academy-subscribed', data)
+     },
+     choose(pack){
+         if(pack.type=='free')
+         this.openSuccessSubscribed( pack)
+         else{
+             this.openCheckoutDialog(pack)
+         }
+     },
     
      async loadPackages(){
          try {

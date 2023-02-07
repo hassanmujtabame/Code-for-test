@@ -475,5 +475,9 @@
   "switch-to-provider": "switch to provider",
   "my-requests": "My requests",
   "project": "Project",
-  "delivery_place": "مكان التنفيذ او التسليم"
+  "delivery_place": "مكان التنفيذ او التسليم",
+  "academy-courses": "Academy courses",
+  "academy-meetings": "Academy meetings",
+  "your-courses": "Your courses",
+  "riadiat-academy": "Riadiat academy"
 }

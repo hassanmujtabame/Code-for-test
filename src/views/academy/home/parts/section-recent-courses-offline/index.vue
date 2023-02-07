@@ -4,7 +4,7 @@
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-              <h1> أحدث الدورات المسجلة    </h1>
+              <h1> أحدث دورتنا المسجلة    </h1>
                 <div>
                     <button class="more">
                       <a href="" class="text-dark">
@@ -39,7 +39,7 @@
 
 <script>
 import CardVue from '@/components/cards/course.vue'
-import coursesApI from '@/services/api/courses.js'
+import coursesApI from '@/services/api/academy/courses.js'
 export default {
     name:'section-recent-courses',
     components:{

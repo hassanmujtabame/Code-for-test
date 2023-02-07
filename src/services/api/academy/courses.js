@@ -1,5 +1,5 @@
 
-import BaseApi from "./base-service";
+import BaseApi from "../base-service";
 class CoursesApi extends BaseApi{
     //Get all Courses
     getAll(params={}){

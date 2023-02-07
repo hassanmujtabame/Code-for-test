@@ -38,7 +38,7 @@
 
 <script>
 import CardVue from '@/components/cards/course.vue'
-import coursesApI from '@/services/api/courses.js'
+import coursesApI from '@/services/api/academy/courses.js'
 export default {
     name:'section-recent-courses',
     components:{
