@@ -1869,3 +1869,13 @@ select.show-arrow{
     border-color:var(--m-color) !important ;
     color: white !important;
 }
+.menu-subscribe__title{
+    font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 40px;
+/* identical to box height, or 125% */
+text-transform: capitalize;
+
+color: #414042;
+}

@@ -107,6 +107,11 @@ const mixin = {
           setErrorsForm(form,response){
             form.setErrors(response.data.errors)
           },
+          dateReverse(date){
+            if(!date) return '';
+            let parts = date.split('-');
+            return `${parts[2]}-${parts[1]}-${parts[0]}`
+          },
             dateTextMonth(dateT){
               if(!dateT) return 'N/A';
   
