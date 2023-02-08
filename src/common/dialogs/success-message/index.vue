@@ -27,7 +27,6 @@
             </div>
               <div v-else class="mt-3">
             <button @click="closeEvent"  style="height: 40px;" class="btn btn-custmer"> 
-              <i class="fa fa-spinner fa-spin"  aria-hidden="true"></i>
               {{$t('Home')}}</button>
           </div>
           
