@@ -6,7 +6,7 @@ classSearchOrder="col-12 col-md-4"
 classColSearch="col-12"
 >
 <template v-slot:total="{}">
-    <button class="btn bg-main text-white" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+    <button class="btn bg-main text-white" @click="addCourseFirst" role="button">
            <plusCircleOutline :size="24" color="currentColor"/>
             أضافة دورة جديدة
           </button>
@@ -39,6 +39,11 @@ export default {
         {},
         {},
       ]
+    }
+  },
+  methods:{
+    addCourseFirst(){
+      this.fireOpenDialog('add-course-first')
     }
   }
 }
