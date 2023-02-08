@@ -29,35 +29,9 @@
                                 
                         </p>
                     </div>
-                    <div class="box border  mt-3">
-                        <div>
-                            <h3 class=" border-bottom p-2">
-                                تقيم الخدمه 
-                            </h3>
-                        </div>
-                        <div v-for="(item,i) in items" :key="i" class="box border-bottom">
-
-                            <div class="d-flex align-items-center justify-content-between  m-0 p-2">
-                                    <div class="d-flex align-items-center ">
-                                        <div>
-                                            <img class="rounded-circle" :src="item.image" :alt="item.from_user" width="48 " height="48">
-                                        </div>
-                                        <p class="m-c fw-bold px-1 fs-6 p-0 m-0">
-                                           {{item.from_user}}
-                                        </p>
-                                    </div>
-                                    <div class="flex-shrink-0">
-                                        <d-rate-stars :size="16" :value="item.rate"/>
-    
-                                    </div>
-    
-                            </div>
-                            <div>
-                                <p class="t-c px-2">
-                                    {{ item.comment }}
-                                </p>
-                            </div>
-                        </div>
+                    <div class="rates-service-provider  mt-3">
+                       
+                      <RateProviderBox v-if="items.length!==0" :items="items" />
                         
                     </div>
                 </div>
@@ -65,9 +39,12 @@
 
 <script>
 import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
-
+import RateProviderBox from './rate-provider/index'
 export default {
  name:'section-user',
+ components:{
+    RateProviderBox
+ },
  data:()=>({
     loading:true,
     items:[],
@@ -120,5 +97,18 @@ export default {
 .img-person{
     min-height:140px;
     min-width:140px;
+}
+.rates-service-provider__title{
+    font-family: 'Changa';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 40px;
+/* identical to box height, or 167% */
+text-transform: capitalize;
+
+/* 414042 */
+
+color: #414042;
 }
 </style>
