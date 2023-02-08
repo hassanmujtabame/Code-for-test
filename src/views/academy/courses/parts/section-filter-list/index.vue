@@ -5,7 +5,9 @@ pluralName="قائمة  الدورات"
 singleName="دورة"
 >
 <template v-slot="{}">
+  <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:1})">
     <CourseCard />
+  </router-link>
 </template>
 <template v-slot:side>
   <sidebarBox :filterItem="filterSide" @change="changeFilter"/>
