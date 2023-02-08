@@ -50,7 +50,7 @@ export default {
 
 <style scoped>
 .course-attachment-item{
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 .course-attachment-item__wrapper{
 padding: 5px;

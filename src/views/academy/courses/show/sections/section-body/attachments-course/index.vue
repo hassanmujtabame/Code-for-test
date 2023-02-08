@@ -1,10 +1,9 @@
 <template>
     <div class="attachments-course">
-        <div class="box bg-white   rounded-4 mt-5 p-2 border">
-            <div class="p-3">
-
+        <div class="attachments-course__wrapper">
+            <div class="">
                 <div class="d-flex justify-content-between border-bottom">
-                    <h4 class="rates-course-title">
+                    <h4 class="attachments-course__title">
                         المرفقات : </h4>
 
 
@@ -39,7 +38,7 @@ let ratesTest=[
         ]
 import rateCard from './card.vue';
 export default {
-    name: 'section-rate-course',
+    name: 'section-attachments-course',
     components:{
         rateCard
     },
@@ -56,12 +55,19 @@ export default {
 </script>
 
 <style scoped>
-.attachments-title{
+.attachments-course__wrapper{
+    background: white;
+    border:1px solid #f1f1f1;
+    border-radius: 8px;
+}
+.attachments-course__title{
 font-weight: 400;
 font-size: 24px;
 line-height: 40px;
 text-align: center;
 text-transform: capitalize;
 color: #414042;
+padding: 10px;
+margin: 0;
 }
 </style>

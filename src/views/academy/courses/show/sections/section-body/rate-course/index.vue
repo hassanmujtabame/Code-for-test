@@ -1,7 +1,7 @@
 <template>
     <div class="rates-course">
-        <div class="box bg-white   rounded-4 mt-5 p-2 border">
-            <div class="p-3">
+        <div class="rates-course__wrapper">
+            <div class="">
 
                 <div class="d-flex justify-content-between border-bottom">
                     <h4 class="rates-course-title">
@@ -56,7 +56,12 @@ export default {
 </script>
 
 <style scoped>
-.rates-cours-title{
+.rates-course__wrapper{
+    background: white;
+    border:1px solid #f1f1f1;
+    border-radius: 8px;
+}
+.rates-course-title{
     font-weight: 400;
 font-size: 24px;
 line-height: 40px;
@@ -64,7 +69,8 @@ line-height: 40px;
 
 text-align: center;
 text-transform: capitalize;
-
+padding: 10px;
+margin: 0;
 /* 414042 */
 
 color: #414042;
