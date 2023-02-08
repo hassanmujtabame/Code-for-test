@@ -36,9 +36,9 @@
                       قائمة الاوامر
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item"  @click="openChangePriceDialog">تعديل قيمة الصفقة</a></li>
-                    <li><a class="dropdown-item" @click="openChangeDateDeliveryDialog">تعديل موعد التسليم</a></li>
-                    <li><a class="dropdown-item" @click="openConfirmFinishDialog"> حذف و أنهاء المشروع</a></li>
+                    <li><a class="dropdown-item clickable"  @click="openChangePriceDialog">تعديل قيمة الصفقة</a></li>
+                    <li><a class="dropdown-item clickable" @click="openChangeDateDeliveryDialog">تعديل موعد التسليم</a></li>
+                    <li><a class="dropdown-item clickable" @click="openConfirmFinishDialog"> حذف و أنهاء المشروع</a></li>
                   </ul>
                 </div>
           </div>
