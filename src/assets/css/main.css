@@ -1883,3 +1883,16 @@ color: #414042;
     outline-color: var(--m-color);
     border-color: var(--m-color);
 }
+
+.status-request-underway{
+    background-color: #F2631C;
+}
+.status-request-waiting{
+    background-color: #FFBC00;
+}
+.status-request-finished{
+    background-color: #1FB9B3;
+}
+.status-request-cancel{
+    background-color: red;
+}

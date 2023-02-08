@@ -33,11 +33,11 @@
                                             vid="message"
                                             v-slot="{errors}"
                                             >
-                                            <input v-model="message" class="w-100 border rounded-3 h-25 p-3" type="text" placeholder="أكتب رسالة جديدة">
+                                            <input v-model="message" :disabled="itemPage.status!='underway'" class="w-100 border rounded-3 h-25 p-3" type="text" placeholder="أكتب رسالة جديدة">
                                         <d-error-input :errors="errors" v-if="errors.length" />
                                         </ValidationProvider>
                                             <div class="m-2">
-                                                <button :disabled="!message || loading" @click="sendMessage" class="bg-main border rounded-2 p-2 text-white">
+                                                <button :disabled="itemPage.status!='underway'||!message || loading" @click="sendMessage" class="btn btn-custmer border rounded-2 p-2">
                                                     <i v-if="loading" class="fa fa-spinner  fa-spin" aria-hidden="true"></i>
                                                     ارسل رساله 
                                                 </button>
@@ -67,13 +67,13 @@ export default {
         loading:false,
         message:'',
         conversations:[
-            {id:1,date:date_only,time:time_only,datetime:date,content:'اهلا وسهلا متحمسة للعمل سويا',time_human:'منذ 17 يوما و 24 دقيقة',isMe:true},
+            /*{id:1,date:date_only,time:time_only,datetime:date,content:'اهلا وسهلا متحمسة للعمل سويا',time_human:'منذ 17 يوما و 24 دقيقة',isMe:true},
             {id:2,date:date_only,time:time_only,datetime:date,content:'مرحبا ريم كيف حالك ؟',time_human:'منذ 17 يوما و 24 دقيقة',isMe:false},
             {id:3,date:date_only,time:time_only,datetime:date,content:'مرحبا ريم وانا أيضاا سأطلعك على التفاصيل التي ارغب بها ، أخبريني عن ماهي المعلومات التي تحتاجينها فقط',time_human:'منذ 17 يوما و 24 دقيقة',isMe:false},
             {id:4,date:date_only,time:time_only,datetime:date,content:'اهلا وسهلا متحمسة للعمل سويا',time_human:'منذ 17 يوما و 24 دقيقة',isMe:true},
             {id:5,date:date_only,time:time_only,datetime:date,content:'مرحبا ريم كيف حالك ؟',time_human:'منذ 17 يوما و 24 دقيقة',isMe:false},
             {id:6,date:date_only,time:time_only,datetime:date,content:'مرحبا ريم وانا أيضاا سأطلعك على التفاصيل التي ارغب بها ، أخبريني عن ماهي المعلومات التي تحتاجينها فقط',time_human:'منذ 17 يوما و 24 دقيقة',isMe:false},
-        ]
+    */]
     }
  },
  methods:{

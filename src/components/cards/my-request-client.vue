@@ -215,16 +215,4 @@
   .box-title{
       cursor: pointer;
   }
-  .status-request-underway{
-      background-color: #F2631C;
-  }
-  .status-request-waiting{
-      background-color: #FFBC00;
-  }
-  .status-request-finished{
-      background-color: #1FB9B3;
-  }
-  .status-request-cancel{
-      background-color: red;
-  }
   </style>    

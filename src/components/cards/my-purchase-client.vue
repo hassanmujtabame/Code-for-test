@@ -192,7 +192,7 @@ export default {
  },
  computed:{
     statusClass(){
-        return `status-request-${this.status}`
+        return `status-request-purchase-${this.status}`
     },
     statusName(){
         switch (this.status) {
@@ -217,16 +217,16 @@ export default {
 .box-title{
     cursor: pointer;
 }
-.status-request-underway{
+.status-request-purchase-underway{
     background-color: #F2631C;
 }
-.status-request-waiting{
+.status-request-purchase-waiting{
     background-color: #FFBC00;
 }
-.status-request-finished{
+.status-request-purchase-finished{
     background-color: #1FB9B3;
 }
-.status-request-cancel{
+.status-request-purchase-cancel{
     background-color: red;
 }
 </style>    
