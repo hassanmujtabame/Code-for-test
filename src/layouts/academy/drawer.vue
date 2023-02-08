@@ -12,10 +12,14 @@
             </router-link>
         </div>
        
-       
+        <div class="box  mx-2 mt-3 ">
+                    <cupIcon />
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-projects')" class="mx-2 m-c ">
+                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('students-projects') }}</button> 
+                    </router-link>
+                </div>
 
         <div class="box  mx-2 mt-3 ">
-                    <!-- lamp-->
                     <invoiceIcon />
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-financial-transactions')" class="mx-2 m-c ">
                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('My-financial-transactions') }}</button> 
@@ -51,6 +55,7 @@ import userRectIcon from '@/components/icon-svg/user-rect-icon.vue'
 import invoiceIcon from '@/components/icon-svg/invoice-icon.vue'
 import eyeOpenIcon from '@/components/icon-svg/eye-open.vue'
 import lockPassIcon from '@/components/icon-svg/lock-pass.vue'
+import cupIcon from '@/components/icon-svg/cup-icon.vue'
 export default {
     name: 'drawer-profil',
     props: {
@@ -64,7 +69,8 @@ export default {
         invoiceIcon,
         userRectIcon,
         eyeOpenIcon,
-        lockPassIcon
+        lockPassIcon,
+        cupIcon
     },
     methods: {
         clickLink(navigate, evnt) {

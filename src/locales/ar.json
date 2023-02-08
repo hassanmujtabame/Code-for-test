@@ -480,5 +480,6 @@
   "search-by-course-or-intructor": "البحث باسم الدورة التدريبية أو باسم المدرب",
   "send_request_modify": "إرسال طلب التعديل",
   "switch-to-intructor": "تغيير الى مدرب",
-  "switch-to-student": "تغيير الى طالب"
+  "switch-to-student": "تغيير الى طالب",
+  "students-projects": "مشاريع الطلاب"
 }

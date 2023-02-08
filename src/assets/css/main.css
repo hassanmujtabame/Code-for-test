@@ -1879,3 +1879,7 @@ text-transform: capitalize;
 
 color: #414042;
 }
+.form-check>.form-check-input{
+    outline-color: var(--m-color);
+    border-color: var(--m-color);
+}
