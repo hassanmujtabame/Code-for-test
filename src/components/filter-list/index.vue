@@ -18,7 +18,7 @@
             </slot>
             </div>
             <div class="col-12 mt-3 row" :class="classSearchOrder">
-            <div :class="classColSearch">
+            <div v-if="!hideSearch" :class="classColSearch">
             <slot name="search">
             <label for="" class="position-relative w-100">
                 <input class="form-control py-3 px-5" type="text" v-model="filter.search" @change="updateFilter" :placeholder="searchPlaceholder" />
@@ -309,6 +309,10 @@ export default {
             default:false,
         },
         hideOrder:{
+            type:Boolean,
+            default:false,
+        },
+        hideSearch:{
             type:Boolean,
             default:false,
         },

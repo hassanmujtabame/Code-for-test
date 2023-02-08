@@ -17,6 +17,10 @@
                 <h1 class="text-bold">  {{ $t('physical_investment_projects') }}</h1>
             </template>
              
+                <template v-slot:search>
+                    <!-- for hide search and stay its place-->
+                    <div></div>
+                    </template>
                 <template v-slot:head-end>
 
                     <router-link :to="getRouteLocale('network-investment-project-request-add')" class="btn bg-main text-white p-2">
