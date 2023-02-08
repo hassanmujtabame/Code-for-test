@@ -54,7 +54,7 @@ export default {
       formData.append('price',this.amount);
       formData.append('service_id',this.itemDialog.id);
         try {
-            let {data} = await readyServiceAPI.changePriceRequestsForPurchaseService(formData)
+            let {data} = await readyServiceAPI.changePriceOfferForRequestService(formData)
             if(data.success){
                 this.router_push('service-provider-request-purchase-services')
                 this.closeEvent()
