@@ -43,7 +43,7 @@ class ServiceProviderApi extends BaseApi{
     }
     acceptOffer(id){
         /** id of Offer for this request */
-        return window.axios.get(`service-provider/user/my-order/${id}`);
+        return window.axios.post(`service-provider/user/my-order/accept/${id}`);
 
     }
     rateProvider(data){
