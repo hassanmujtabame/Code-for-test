@@ -1855,3 +1855,6 @@ select.show-arrow{
     max-width: 100%;
     word-break: break-all;
 }
+.w-60{
+    width: 60%;
+}
