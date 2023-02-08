@@ -1,5 +1,5 @@
 <template>
-<div class="tab-pane fade" id="pills-students-pass-exams" role="tabpanel" aria-labelledby="pills-students-pass-exams-tab" tabindex="0">
+<div class="tab-pane fade" id="pills-project-need-revision" role="tabpanel" aria-labelledby="pills-project-need-revision-tab" tabindex="0">
                             <div class="text-end">
                                 <button style="background-color: #F2631C;" class="btn text-white"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">
                                     رسالة للجميع
@@ -141,7 +141,7 @@
 
 <script>
 export default {
- name:'students-pass-exams'
+ name:'project-need-revision'
 }
 </script>
 

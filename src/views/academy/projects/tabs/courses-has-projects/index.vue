@@ -1,5 +1,5 @@
 <template>
-<div class="tab-pane fade" id="pills-courses-has-exams" role="tabpanel" aria-labelledby="pills-courses-has-exams-tab" tabindex="0">
+<div class="tab-pane fade" id="pills-courses-has-projects" role="tabpanel" aria-labelledby="pills-courses-has-projects-tab" tabindex="0">
                         <div class="box">
 
                             <div class="d-flex align-items-center justify-content-between">
