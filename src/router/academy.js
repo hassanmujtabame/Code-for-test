@@ -34,7 +34,7 @@ const routers =[
         path: 'academy/my-projects',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-my-projects',
-        component: () => import(/* webpackChunkName: "academy-my-projects" */ '../views/academy/instructor/projects/mine/index.vue') 
+        component: () => import(/* webpackChunkName: "academy-my-projects" */ '../views/academy/instructor/projects/index.vue') 
     },
     {
         path: 'academy/exams',
@@ -64,13 +64,13 @@ const routers =[
         path: 'academy/intructor/your-courses',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-intructor-your-courses',
-        component: () => import(/* webpackChunkName: "academy-intructor-your-courses" */ '../views/academy/intructor/your-courses/index.vue') 
+        component: () => import(/* webpackChunkName: "academy-intructor-your-courses" */ '../views/academy/instructor/your-courses/index.vue') 
     },
     {
         path: 'academy/intructor/exams',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-intructor-exams',
-        component: () => import(/* webpackChunkName: "academy-intructor-exams" */ '../views/academy/intructor/exams/index.vue') 
+        component: () => import(/* webpackChunkName: "academy-intructor-exams" */ '../views/academy/instructor/exams/index.vue') 
     },
     {
         path: 'academy/my-blogs',
