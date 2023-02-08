@@ -1850,3 +1850,8 @@ select.show-arrow{
 .z-index-1{
     z-index: 1;
 }
+
+.content-word-break>* {
+    max-width: 100%;
+    word-break: break-all;
+}

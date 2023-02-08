@@ -75,6 +75,7 @@ export default {
  },
  methods:{
     audioEvent(data){
+        console.mylog('audioTag',this.audioTag)
         switch (data.action) {
            case 'play': this.audioTag.play(); break; 
            case 'pause': this.audioTag.pause(); break; 
@@ -112,22 +113,22 @@ export default {
         return str;
     },
     onplay(event) {
-        console.log('onplay',event)
+        console.mylog('onplay',event)
         this.$emit('play',true)
      },
      onended(event) {
-        console.log('onended',event)
+        console.mylog('onended',event)
         this.$emit('ended',true)
      },
      onpause(event) {
-        console.log('onpause',event)
+        console.mylog('onpause',event)
         this.$emit('pause',true)
      },
      onloadeddata(event){
-        console.log('loadeddata',event)
+        console.mylog('loadeddata',event)
      },
      onloadedmetadata(event){
-        console.log('onloadedmetadata',event)
+        console.mylog('onloadedmetadata',event)
         this.audioTag = event.target;
         let { h, m, s} = this.timeToParts(event.target.duration)
         var formattedTime =  this.timeFormat(h,m,s);

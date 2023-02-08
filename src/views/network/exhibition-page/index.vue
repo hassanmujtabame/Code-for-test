@@ -49,7 +49,7 @@
                     <p class="t-c p-0 m-0">
                         تاريخ نشر: {{ itemPage.date_publish }}
                     </p>
-                    <p class="pargrapg" v-html="itemPage.content">
+                    <p class="pargrapg content-word-break" v-html="itemPage.content">
                         
                     </p>
                     <div class="rounded-3 border mt-4 p-4">
