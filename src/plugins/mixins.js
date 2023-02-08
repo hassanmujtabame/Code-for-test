@@ -249,8 +249,20 @@ const mixin = {
               window.location =r.href
                },
                switchRoleProvider(){
-                this.$store.commit('auth/SET_IS_PROVIDER',!this.userIsProvider)
-                this.refreshPage()
+                if(!this.userIsProvider && !this.userSubProvider){
+
+                  let dateEvt ={
+                    title:'لا يمكنك تغير كمقدم خدمة لانك غير مشترك بها ',
+                    btns:[
+                      {title:'إشترك الأن',action:()=>this.router_push('service-provider-subscribe')}
+                    ]
+                  }
+                  this.showConfirmMsg(dateEvt)
+                }else{
+                  this.$store.commit('auth/SET_IS_PROVIDER',!this.userIsProvider)
+                  this.refreshPage()
+                }
+                
               },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");
