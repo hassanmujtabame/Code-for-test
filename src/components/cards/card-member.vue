@@ -1,17 +1,20 @@
 <template>
-  <div class="box ">
-                        <div class="">
+  <div class="provider-card ">
+  <div class="provider-card__wrapper">
+                        <div class="provider-card__image">
                             <img  :src="img" alt="" width="259" height="192">
                         </div>
-                        <div class="text-center bg-white box-deatils" :class="{'p-3':!description}">
-                            <h6 class="network-member-name">{{name}}</h6>
-                            <p v-if="description" class="m-c network-member-description">{{description}}</p>
+                        <div class="provider-card__content"
+                         :class="{'p-3':!description}"
+                         >
+                            <h6 class="provider-card__name">{{name}}</h6>
+                            <p v-if="description" class="provider-card__description">{{description}}</p>
                             <div v-if="showRate">
                             <RateStars  :value="rate" :size="16"  />
                         </div>
                     </div>
-                        </div>
-                        
+</div>
+</div>               
 </template>
 
 <script>
@@ -44,18 +47,71 @@ export default {
 </script>
 
 <style scoped>
-.box{
-    width: 259px;
+.provider-card{
+    --raduis-provider:11px;
+    padding:5px
 }
-.box-deatils{
-    max-width: 100%;
+.provider-card__wrapper{
+    margin: 0 0 20px 0;
+    width: 250px;
+    max-width: 250px;
+    height: 340px;
+    border-radius:11px 11px 0 0;
+    border:0.5px solid #f2f2f2
 }
-.network-member-name{
-    font-size: 24px;
-    color:var(--b-color)
+
+.provider-card__image,.provider-card__image>img{
+    border-radius:11px 11px 0 0;
+ width: 100%;
+ height: 192px;
 }
-.network-member-description{
-    font-size: 24px;
-    color:#1FB9B3
+.provider-card__content{
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 24px 16px;
+gap: 8px;
+background: #FFFFFF;
+border: 1px solid #CDD7D8;
+box-shadow: 0px 0px 78.2699px rgba(187, 188, 189, 0.3);
+border-radius: 0px 0px var(--raduis-provider) var(--raduis-provider);
+}
+.provider-card__name{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 40px;
+/* identical to box height, or 167% */
+
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+text-transform: capitalize;
+
+color: #737373;
+    /*color:var(--b-color)*/
+}
+.provider-card__description{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+/* identical to box height, or 120% */
+
+display: flex;
+align-items: center;
+text-align: center;
+justify-content: center;
+text-transform: capitalize;
+    color:var(--m-color)
 }
 </style>
