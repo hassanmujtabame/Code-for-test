@@ -113,6 +113,7 @@
   </div>
   <ConfirmFinishRequest />
     <ChangePriceRequest />
+    <ChangeDateRequest />
 </div>
 </template>
 
@@ -123,12 +124,13 @@ import myRequestsAPIs from '@/services/api/service-provider/user/my-requests-cli
   import SectionDetails from './parts/section-details/index.vue'
   import ConfirmFinishRequest from './dialogs/confirm-finish-request.vue'
 import ChangePriceRequest from './dialogs/change-value-amount.vue'
+import ChangeDateRequest from './dialogs/change-value-date.vue'
   export default {
     name:'request-progress-page',
  props:['itemPage'],
    components:{
 
-    
+        ChangeDateRequest,
       SectionDesc,
       SectionDetails,
       SectionConversation,
@@ -275,7 +277,7 @@ import ChangePriceRequest from './dialogs/change-value-amount.vue'
       openChangeDateDeliveryDialog(evt){
           if(evt) evt.preventDefault();
           
-          this.fireOpenDialog('change-value-amount',this.itemPage)
+          this.fireOpenDialog('change-value-date',this.itemPage)
       },
       openChangePriceDialog(evt){
           if(evt) evt.preventDefault();

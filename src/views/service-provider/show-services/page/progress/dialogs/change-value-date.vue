@@ -14,13 +14,13 @@
     <path d="M80.0005 144.292C75.8688 144.292 71.6754 143.243 67.9754 141.085L31.3454 119.933C23.9454 115.617 19.3203 107.662 19.3203 99.09V56.9102C19.3203 48.3386 23.9454 40.3835 31.3454 36.0669L67.9754 14.9152C75.3754 10.5986 84.5639 10.5986 92.0256 14.9152L128.656 36.0669C136.056 40.3835 140.681 48.3386 140.681 56.9102V99.09C140.681 107.662 136.056 115.617 128.656 119.933L92.0256 141.085C88.3256 143.243 84.1321 144.292 80.0005 144.292ZM80.0005 20.9584C77.4721 20.9584 74.8821 21.6368 72.6004 22.9318L35.9704 44.0834C31.4071 46.7351 28.5703 51.6069 28.5703 56.9102V99.09C28.5703 104.332 31.4071 109.265 35.9704 111.917L72.6004 133.068C77.1637 135.72 82.8372 135.72 87.3388 133.068L123.969 111.917C128.532 109.265 131.369 104.393 131.369 99.09V56.9102C131.369 51.6686 128.532 46.7351 123.969 44.0834L87.3388 22.9318C85.1188 21.6368 82.5288 20.9584 80.0005 20.9584Z" fill="white"/>
  </svg>
  <p class="mt-1">
-  أدخل القيمة الجديدة للخدمة
+  أدخل موعد الاستلام الجديد للخدمة
  </p>
  <p class="t-c m-0">
-  لن يتم تعديل قيمة الخدمة الا بعد موافقة العميل
+  لن يتم تعديل موعد الاستلام الخدمة الا بعد موافقة العميل
  </p>
  <div>
-  <emptyWalletIcon /> <span> سعر الخدمة </span><span class="inline-input-wrapper"><input class="form-control" type="numeric" v-model="amount" /></span><span>{{ $t('riyals') }}</span>
+  <timeIcon /> <span> موعد الاستلام </span><span class="inline-input-wrapper"><input class="form-control" type="date" v-model="amount" /></span><span>{{ $t('riyals') }}</span>
  </div>
 </div>
     </template>
@@ -32,16 +32,16 @@
 
 <script>
 import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
-import emptyWalletIcon from '@/components/icon-svg/empty-wallet.vue'
+import timeIcon from '@/components/icon-svg/time.vue'
 export default {
  props:{
     group:{
         type:String,
-        default:'change-value-amount'
+        default:'change-value-date'
     }
  },
  components:{
-  emptyWalletIcon
+  timeIcon
  },
  data:()=>({
     itemDialog:{id:null},
