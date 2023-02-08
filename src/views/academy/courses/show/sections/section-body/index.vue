@@ -24,9 +24,13 @@
           </div>
           <div class="col-12 col-md-4"></div>
     </div>
-    <div class="row">
+    <div class="row justify-content-between p-5">
       <div class="col-12 col-md-6">
         <RateCourse :item="{}" />
+        </div>
+  
+        <div class="col-12 col-md-4">
+          <attachmentsCourse :item="{}"/>
         </div>
     </div>
   </div>
@@ -36,12 +40,14 @@
 import LecturesList from './sidebar-lectures.vue'
 import previewLecture from './display-lecture.vue'
 import RateCourse from './rate-course/index'
+import attachmentsCourse from './attachments-course/index'
 export default {
  name:'section-header',
  components:{
   LecturesList,
   previewLecture,
-  RateCourse
+  RateCourse,
+  attachmentsCourse
  }
 }
 </script>
