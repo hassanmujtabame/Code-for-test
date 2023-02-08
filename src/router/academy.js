@@ -55,6 +55,36 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-your-courses" */ '../views/academy/your-courses/index.vue') 
     },
     {
+        path: 'academy/intructor/your-courses',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-intructor-your-courses',
+        component: () => import(/* webpackChunkName: "academy-intructor-your-courses" */ '../views/academy/intructor/your-courses/index.vue') 
+    },
+    {
+        path: 'academy/intructor/exams',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-intructor-exams',
+        component: () => import(/* webpackChunkName: "academy-intructor-exams" */ '../views/academy/intructor/exams/index.vue') 
+    },
+    {
+        path: 'academy/my-blogs',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-my-blogs',
+        component: () => import(/* webpackChunkName: "academy-my-blogs" */ '../views/academy/blogs/mine/index.vue') 
+    },
+    {
+        path: 'academy/blogs',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-blogs',
+        component: () => import(/* webpackChunkName: "academy-blogs" */ '../views/academy/blogs/list/index.vue') 
+    },
+    {
+        path: 'academy/blogs/:id',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-blog-show',
+        component: () => import(/* webpackChunkName: "academy-blog-show" */ '../views/academy/blogs/page/index.vue') 
+    },
+    {
         path: 'academy/your-certificates',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-your-certificates',
@@ -71,6 +101,12 @@ const routers =[
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-your-learning-meetings',
         component: () => import(/* webpackChunkName: "academy-your-learning-meetings" */ '../views/academy/your-learning-meetings/index.vue') 
+    },
+    {
+        path: 'academy/my-meetings',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-my-meetings',
+        component: () => import(/* webpackChunkName: "academy-my-meetings" */ '../views/academy/learning-meetings/mine/index.vue') 
     },
     {
         path: 'academy/learning-meetings',

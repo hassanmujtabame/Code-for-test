@@ -34,7 +34,7 @@ export default {
         default:'#F2631C'
     },
     url:{
-        type:String,
+        type:[String,Object],
         
     }
  }

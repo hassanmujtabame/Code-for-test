@@ -34,8 +34,8 @@ export default {
 
       items:[
                 /**instructor */
-        {route:'academy-courses', text:vm.$t('courses'),role:'instructor'},
-        {route:'academy-learning-meetings', text:vm.$t('academy-blog'),role:'instructor'},
+        {route:'academy-intructor-your-courses', text:vm.$t('courses'),role:'instructor'},
+        {route:'academy-blogs', text:vm.$t('academy-blog'),role:'instructor'},
         {route:'contact-us',text:vm.$t('contact-us'),intructor:'stuinstructordent'},
         /**student */
         {route:'academy-courses', text:vm.$t('academy-courses'),role:'student'},
