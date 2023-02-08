@@ -66,9 +66,9 @@
                                         <rslider-input
                                          :min.sync="filter.min_discount" 
                                          :max.sync="filter.max_discount"
-                                         :step="100"
+                                         :step="10"
                                          :lmin="0"
-                                         :lmax="30000"
+                                         :lmax="1000"
                                          />
                                     </div>
                                 </div>
