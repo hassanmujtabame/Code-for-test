@@ -53,6 +53,8 @@ export default {
       let formData = new FormData();
       formData.append('receiving_date',this.amount);
       formData.append('service_id',this.itemDialog.id);
+      if(this.itemDialog.user_offer)
+      formData.append('offer_id',this.itemDialog.user_offer.id);
         try {
             let {data} = await readyServiceAPI.changeDateOfferForRequestService(formData)
             if(data.success){
