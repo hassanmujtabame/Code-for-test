@@ -10,7 +10,7 @@
                             <h6 class="provider-card__name">{{name}}</h6>
                             <p v-if="description" class="provider-card__description">{{description}}</p>
                             <div v-if="showRate">
-                            <RateStars  :value="rate" :size="16"  />
+                            <RateStars  :value="rate" :size="12"  />
                         </div>
                     </div>
 </div>
