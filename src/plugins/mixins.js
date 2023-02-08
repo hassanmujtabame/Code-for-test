@@ -253,7 +253,11 @@ const mixin = {
               }else
               window.location =r.href
                },
-               switchRoleProvider(){
+               switchRoleAcademy(newRole){
+                this.$store.commit('auth/SET_ACADEMY_ROLE',newRole)
+                this.refreshPage()
+               },
+                switchRoleProvider(){
                 if(!this.userIsProvider && !this.userSubProvider){
 
                   let dateEvt ={
@@ -296,6 +300,7 @@ const mixin = {
                     user: 'auth/user',
                     userPartner: 'auth/partner',
                     userIsProvider: 'auth/isProvider',
+                    userAcademyRole: 'auth/academyRole',
                     userSubNetwork: 'auth/subscribeNetwork',
                     userSubProvider: 'auth/subscribeProvider',
                     token: 'auth/token',

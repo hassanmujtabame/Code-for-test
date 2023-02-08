@@ -14,7 +14,8 @@
             </li>
            
           
-                  <button v-if="false" @click="switchRole" class="btn m-c">{{userIsProvider?$t('switch-to-buyer') : $t('switch-to-provider') }}</button>
+                  <button v-if="userAcademyRole=='student'" @click="switchRole('instructor')" class="btn m-c">{{ $t('switch-to-intructor') }}</button>
+                  <button v-if="userAcademyRole=='instructor'" @click="switchRole('instructor')" class="btn m-c">{{$t('switch-to-student') }}</button>
                   </template>
     </TemplateHeader>
 </template>
@@ -41,8 +42,8 @@ export default {
     }
   },
    methods:{
-    switchRole(){
-     this.switchRoleAcademy()
+    switchRole(newRole){
+     this.switchRoleAcademy(newRole)
     },
    }
 }

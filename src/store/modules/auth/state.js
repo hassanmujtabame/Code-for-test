@@ -5,4 +5,5 @@ export default () => ({
     subscribeNetwork:null,
     subscribeProvider:null,
     isProvider:false,
+    academyRole:null,
  })

@@ -10,6 +10,9 @@ export default {
     partner (state) { 
         return state.partner;
     },
+    academyRole(state){
+       return state.academyRole || localStorage.getItem('user_academy_role')
+    },
     isProvider (state,getters) { 
         let data = localStorage.getItem('user_provider')=='Y';
         console.mylog('load pr',data,getters)
