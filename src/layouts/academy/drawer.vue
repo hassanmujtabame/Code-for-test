@@ -14,7 +14,7 @@
        
         <div class="box  mx-2 mt-3 ">
                     <cupIcon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-projects')" class="mx-2 m-c ">
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-projects')" class="mx-2 m-c ">
                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('students-projects') }}</button> 
                     </router-link>
                 </div>
