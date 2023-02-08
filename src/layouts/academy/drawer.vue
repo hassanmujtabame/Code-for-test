@@ -4,7 +4,7 @@
         <div class="box  mx-2 mt-3 ">
             <!--control icon -->
             <userRectIcon />
-            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-my-profile')"
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-profile')"
                 class="mx-2 m-c ">
                 <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer"> {{
                     $t('personal_page')
@@ -15,16 +15,12 @@
        
 
         <div class="box  mx-2 mt-3 ">
-            <emptyWalletIcon :size="32" color="var(--m-color)" />
-
-
-            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-menu-subscribe')"
-                class="mx-2 m-c ">
-                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{
-                    $t('subscribes')
-                }}</button>
-            </router-link>
-        </div>
+                    <!-- lamp-->
+                    <invoiceIcon />
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-financial-transactions')" class="mx-2 m-c ">
+                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('My-financial-transactions') }}</button> 
+                    </router-link>
+                </div>
        
         <div class="box  mx-2 mt-3 ">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,11 +68,8 @@
 
 <script>
 import TemplateDrawer from '@/layouts/tamplate/drawer/index.vue'
-import lampIcon from '@/components/icon-svg/lamp-icon'
-import closedWalletIcon from '@/components/icon-svg/closed-wallet.vue'
 import userRectIcon from '@/components/icon-svg/user-rect-icon.vue'
-import schoolWalletIcon from '@/components/icon-svg/school-wallet.vue'
-import emptyWalletIcon from '@/components/icon-svg/empty-wallet.vue'
+import invoiceIcon from '@/components/icon-svg/invoice-icon.vue'
 export default {
     name: 'drawer-profil',
     props: {
@@ -87,11 +80,8 @@ export default {
     },
     components: {
         TemplateDrawer,
-        lampIcon,
-        closedWalletIcon,
+        invoiceIcon,
         userRectIcon,
-        schoolWalletIcon,
-        emptyWalletIcon
     },
     methods: {
         clickLink(navigate, evnt) {

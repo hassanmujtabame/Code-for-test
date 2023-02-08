@@ -85,6 +85,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-learning-meeting-show" */ '../views/academy/learning-meetings/page/index.vue') 
     },
     {
+        path: 'academy/my-financial-transactions',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-my-financial-transactions',
+        component: () => import(/* webpackChunkName: "academy-my-financial-transactions" */ '../views/academy/my-financial-transactions/index.vue')
+    },
+    {
         path: 'academy/subscribe',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-subscribe',
