@@ -484,5 +484,7 @@
   "send_request_modify": "send request modify",
   "switch-to-intructor": "Switch as Intructor",
   "switch-to-student": "switch as student",
-  "students-projects": "Students projects"
+  "students-projects": "Students projects",
+  "academy-blog": "Blog",
+  "courses": "courses"
 }

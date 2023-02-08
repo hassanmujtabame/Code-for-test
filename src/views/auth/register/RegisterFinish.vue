@@ -106,6 +106,8 @@ export default {
                     let {token,...user} = data.data
                     window.store.commit('auth/SET_TOKEN',token) ;
                   window.store.commit('auth/SET_USER',user);
+                  window.store.commit('auth/SET_IS_PROVIDER',false);
+                  window.store.commit('auth/ACADEMY_ROLE','student');
                   this.router_push('network-subscribe')
                 }else{
                     this.message = data.message;

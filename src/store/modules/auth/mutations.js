@@ -57,8 +57,6 @@ export default{
         state.subscribeNetwork = subscribers&&subscribers.network?subscribers.network.subscribe:null
         state.subscribeProvider = subscribers&&subscribers.service_provider?!!subscribers.service_provider.subscribe:null
         localStorage.setItem("auth_user", JSON.stringify(user));
-        localStorage.setItem("user_academy_role","student");
-        state.academyRole = "student"
     },
     SET_PARTNER(state,payload){
         state.partner=payload;

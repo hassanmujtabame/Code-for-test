@@ -162,6 +162,7 @@ export default {
                     window.store.commit('auth/SET_TOKEN',token) ;
                   window.store.commit('auth/SET_USER',user);
                   window.store.commit('auth/SET_IS_PROVIDER',false);
+                  window.store.commit('auth/ACADEMY_ROLE','student');
                   //this.$router.push('/')
                   window.location.reload()
                 }else{
