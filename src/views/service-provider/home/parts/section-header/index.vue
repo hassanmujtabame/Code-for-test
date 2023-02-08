@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="fs-1 text-white">
-                            مقدمين الخدمات
+                          {{ $t('service-providers') }}
                                                                         </h1>
                         <p class="text-white">
                             منصة تجمع أهم وألمع  رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد
