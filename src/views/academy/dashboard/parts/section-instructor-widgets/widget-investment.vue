@@ -1,6 +1,6 @@
 <template>
   <MyBlog title="قائمة المشاريع" :value="0" color="#FFBC00"
-  :url="getRouteLocale('academy-your-learning-meetings')"
+  :url="getRouteLocale('academy-my-projects')"
   />
 </template>
 

@@ -31,6 +31,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-projects" */ '../views/academy/projects/index.vue') 
     },
     {
+        path: 'academy/my-projects',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-my-projects',
+        component: () => import(/* webpackChunkName: "academy-my-projects" */ '../views/academy/instructor/projects/mine/index.vue') 
+    },
+    {
         path: 'academy/exams',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-exams',
