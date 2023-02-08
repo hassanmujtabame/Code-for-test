@@ -9,13 +9,13 @@
               > -->
               <router-link :to="getRouteLocale('academy-home')"  class="nav-link">{{ $t('Home-page') }}</router-link>
             </li>
-            <li :key="i" v-for="(item,i) in items" class="nav-item px-2">
+            <li :key="i" v-for="(item,i) in items.filter(x=>x.role == userAcademyRole)" class="nav-item px-2">
               <router-link :to="getRouteLocale(item.route)"  class="nav-link">{{ item.text }}</router-link>
             </li>
            
           
                   <button v-if="userAcademyRole=='student'" @click="switchRole('instructor')" class="btn m-c">{{ $t('switch-to-intructor') }}</button>
-                  <button v-if="userAcademyRole=='instructor'" @click="switchRole('instructor')" class="btn m-c">{{$t('switch-to-student') }}</button>
+                  <button v-if="userAcademyRole=='instructor'" @click="switchRole('student')" class="btn m-c">{{$t('switch-to-student') }}</button>
                   </template>
     </TemplateHeader>
 </template>
@@ -33,11 +33,15 @@ export default {
       return {
 
       items:[
-        /**provider */
-        {route:'academy-courses', text:vm.$t('academy-courses'),intructor:true},
-        {route:'academy-learning-meetings', text:vm.$t('academy-meetings'),intructor:true},
-        {route:'academy-your-courses', text:vm.$t('your-courses'),intructor:true},
-        {route:'contact-us',text:vm.$t('contact-us'),intructor:true},
+                /**instructor */
+        {route:'academy-courses', text:vm.$t('courses'),role:'instructor'},
+        {route:'academy-learning-meetings', text:vm.$t('academy-blog'),role:'instructor'},
+        {route:'contact-us',text:vm.$t('contact-us'),intructor:'stuinstructordent'},
+        /**student */
+        {route:'academy-courses', text:vm.$t('academy-courses'),role:'student'},
+        {route:'academy-learning-meetings', text:vm.$t('academy-meetings'),role:'student'},
+        {route:'academy-your-courses', text:vm.$t('your-courses'),role:'student'},
+        {route:'contact-us',text:vm.$t('contact-us'),intructor:'student'},
         ]
     }
   },
