@@ -70,13 +70,19 @@
                                  rules="required"
                                     v-slot="{errors}">
                             <div class="col-md-4 w-100 row mb-2">
-                                <div class="cols-12 position-relatibe">
-                                <input id="password-field"  type="password" class="form-control  "
+                                <div class="cols-12 position-relative">
+                                <input id="password-field" 
+                                :type="show?'text':'password'"
+                                 class="form-control  "
                                 v-model="form.password"    
                                 :placeholder="$t('Password')" required>
-                                    <span
-                                    style="top: 12px;left: 15px;color: #CDD7D8;font-size: 23px;" 
-                                    class="fa-regular fa-eye toggle-password position-absolute">
+                                <span    
+                                    
+                                     @click="show=!show"
+                                     
+                                    class="icon-input-end fa-regular position-absolute"
+                                    :class="{'fa-eye': !show, 'fa-eye-slash':show }"
+                                    >
                                 </span>
                             </div>
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
@@ -91,12 +97,19 @@
                                     v-slot="{errors}">
                             <div class="col-md-4 w-100 row mb-2">
                                 <div class="cols-12 position-relative">
-                                <input id="password-field2"  type="password" class="form-control  "
+                                <input id="password-field2" 
+                                :type="showC?'text':'password'"
+                                  class="form-control  "
                                 v-model="form.passwordConfirm"
                                 :placeholder="$t('Password-confirm')" required>
-                                    <span
-                                    style="top: 12px;left: 15px;color: #CDD7D8;font-size: 23px;" toggle="#password-field2"
-                                    class="fa-regular fa-eye toggle-password position-absolute">
+                                <span 
+
+                                    
+                                     @click="showC=!showC"
+                                     
+                                    class="icon-input-end fa-regular position-absolute"
+                                    :class="{'fa-eye': !showC, 'fa-eye-slash':showC }"
+                                    >
                                 </span>
                             </div>
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
@@ -134,6 +147,7 @@
 export default {
     data:()=>({
         show:false,
+        showC:false,
         form:{
             email:process.env.EMAIL||'',
             password:process.env.PASSWORD||'',
@@ -185,7 +199,14 @@ export default {
  }
 }
 </script>
-
-<style>
-
+<style scoped>
+.icon-input-end{
+    color: #CDD7D8;
+    font-size: 23px;
+    left: 15px;
+}
+html[lang="en"] .icon-input-end{
+    left: auto;
+    right:15px
+}
 </style>

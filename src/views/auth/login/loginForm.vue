@@ -55,11 +55,11 @@
                                 v-model="form.password"
                                  class="form-control " 
                                     :placeholder="$t('Password')" required>
-                                    <span    style="color: #CDD7D8;font-size: 23px;"
-                                     toggle="#password-field"
+                                    <span    
+                                    
                                      @click="show=!show"
                                      
-                                    class="icon-input-end fa-regular toggle-password position-absolute"
+                                    class="icon-input-end fa-regular position-absolute"
                                     :class="{'fa-eye': !show, 'fa-eye-slash':show }"
                                     >
                                 </span>
@@ -197,3 +197,12 @@ export default {
     }
 }
 </script>
+<style scoped>
+.icon-input-end{
+    color: #CDD7D8;font-size: 23px;
+}
+html[lang="en"] .icon-input-end{
+    left: auto;
+    right:15px
+}
+</style>
