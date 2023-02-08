@@ -52,8 +52,8 @@
             <slot name="head-end"></slot>
             </div>
         </div>
-        <div v-if="$slots['before-body']" class="row">
-            <slot name="before-body"></slot>
+        <div v-if="$slots['before-body']" class="row filter-list__before-body">
+            <slot  name="before-body"></slot>
             </div>
         <div class="row">
             <div v-if="!hideSide" class="col-md-3 mt-2">

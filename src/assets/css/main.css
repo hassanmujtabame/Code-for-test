@@ -1858,3 +1858,14 @@ select.show-arrow{
 .w-60{
     width: 60%;
 }
+
+.filter-list__before-body .nav-pills .nav-link{
+    border: 1px solid #979797 !important;
+    border-radius: 4px !important;
+    color: #979797 !important;
+}
+.filter-list__before-body .nav-pills .nav-link.active {
+    background-color: var(--m-color) !important;
+    border-color:var(--m-color) !important ;
+    color: white !important;
+}
