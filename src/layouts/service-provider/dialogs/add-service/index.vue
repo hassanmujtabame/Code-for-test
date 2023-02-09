@@ -361,6 +361,7 @@ let valid = await this.$refs.form.validate();
  formData.append('file',this.attachment);
  formData.append('keywords',this.itemForm.keywords);
  formData.append('category_id',this.itemForm.category_id);
+ formData.append('delivery_place',this.itemForm.delivery_place)
  //formData.append('field_id',this.itemForm.field_id);
  formData.append('images[]', this.imageFile); // main image as first in gallary
  for (var i = 0; i < this.gallaries.length; i++) {
@@ -368,7 +369,7 @@ let valid = await this.$refs.form.validate();
 }
 
 for ( i = 0; i < this.itemForm.field_id.length; i++) {
-        formData.append('field_id[]', this.itemForm.field_id[i].id);
+        formData.append('field_id[]', this.itemForm.field_id[i]);
 }
     try {
         let { data } = await ServiceProviderAPIs.add(formData)

@@ -141,7 +141,7 @@
                                             مكان التنفيذ أو التسليم :
                                         </span>
                                         <span class="m-c">
-                                         {{itemPage.delivery_place??'N/A'}}
+                                         {{  delivery_placeToText(itemPage.delivery_place)??'N/A'}}
                                         </span>
 
                                     </div>
@@ -259,6 +259,10 @@ export default {
     }
 },
     methods:{
+        delivery_placeToText(div){
+            let item = readyServiceAPIs.getDeliveryPlaces().data.find(x=>div==x.id);
+          return  item?item.name:div
+        },
         suspend(val){
                 if(val){
                     this.fireOpenDialog('success-suspend-service',this.itemPage)

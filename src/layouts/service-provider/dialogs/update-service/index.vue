@@ -349,6 +349,7 @@ let valid = await this.$refs.form.validate();
  formData.append('title',this.itemForm.title);
  formData.append('desc',this.itemForm.desc);
  formData.append('price',this.itemForm.price);
+ formData.append('delivery_place',this.itemForm.delivery_place)
  formData.append('execution_period',this.itemForm.execution_period)
  if(this.city && this.itemForm.state=='offline')
  formData.append('city_id',this.city.id)
@@ -364,7 +365,7 @@ let valid = await this.$refs.form.validate();
         formData.append('images[]', this.gallaries[i]);
 }*/
 for ( let i = 0; i < this.itemForm.field_id.length; i++) {
-        formData.append('field_id[]', this.itemForm.field_id[i].id);
+        formData.append('field_id[]', this.itemForm.field_id[i]);
 }
     try {
         let { data } = await readyServiceAPIs.update(this.itemForm.id,formData)
