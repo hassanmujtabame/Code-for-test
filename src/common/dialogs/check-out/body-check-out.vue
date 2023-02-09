@@ -310,12 +310,16 @@ export default {
                 let v_amount= await this.$refs.amount.validate()
                 if(!v_amount) return;
             }
+            let  expiryMonth=this.expiry_date.split('/')[0];
+      let  expiryYear=`20${this.expiry_date.split('/')[1]}`;
                 let data = {
                     cardInfo: {
                         card_number: this.card_number,
                         card_holder: this.card_holder,
                         card_cvv: this.card_cvv,
                         expiry_date: this.expiry_date,
+                        expiryMonth,
+                        expiryYear,
                         paymentBrand: this.stateNumber.cardtype,
                         saveCard: this.saveCard
                     },

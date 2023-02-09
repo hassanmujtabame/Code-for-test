@@ -1912,3 +1912,7 @@ color: #414042;
     border: none;
 }
 */
+.modal-fullscreen .modal-body {
+
+    background: #fff;
+}
