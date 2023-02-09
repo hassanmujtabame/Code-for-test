@@ -171,24 +171,17 @@
                      <div class="mb-3">
                         <ValidationProvider
                         tag="div"
-                        class="form-group"
                                 :name="$t('specialite')"
                              vid="field_id"
                              rules="required"
                                 v-slot="{errors}">
-                        <label class="form-label">{{ $t('select-specialite') }} </label>
-                        <multi-select v-model="itemForm.field_id" 
-                            :selectLabel="$t('selectLabel')"
-                            :selectedLabel="$t('selectedLabel')" 
-                            :deselectLabel="$t('deselectLabel')"
-                            :options="fields" 
-                            :multiple="true"  
-                            :group-select="false" 
-                            placeholder="" 
-                         
-                            track-by="id" label="name">
-                                <span slot="noResult">{{ $t('no-result-search') }}</span>
-                            </multi-select>
+                                <d-drown-list :label="$t('select-specialite')" :opts="fields" 
+                                track-id="id" label-name="name"
+                                v-model="itemForm.field_id"
+                                multi-select
+                                opened
+                                fixed
+                                />
                         <d-error-input :errors="errors" v-if="errors.length" />
                     </ValidationProvider>
                   </div>
