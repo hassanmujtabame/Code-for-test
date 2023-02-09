@@ -12,7 +12,11 @@ import lovelyIcon from '@/components/icon-svg/lovely-icon.vue'
 import starIcon from '@/components/icon-svg/star-icon.vue'
 import routingIcon from '@/components/icon-svg/routing.vue'
 import thunderIcon from '@/components/icon-svg/thunder.vue'
+import userRectIcon from '@/components/icon-svg/user-rect-icon.vue'
+import heartIcon from '@/components/icon-svg/heart.vue'
 
+Vue.component('d-heart-icon', heartIcon)
+Vue.component('d-user-rect-icon', userRectIcon)
 Vue.component('d-routing-icon', routingIcon)
 Vue.component('d-school-wallet-icon', schoolWalletIcon)
 Vue.component('d-tree-view-icon', treeViewIcon)

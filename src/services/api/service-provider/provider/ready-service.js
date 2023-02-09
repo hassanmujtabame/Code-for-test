@@ -97,6 +97,15 @@ checkoutService (data){
     return window.axios.post(`service-provider/user/purchase-service-checkout`,data);
 
 }
+getDeliveryPlaces(params={}){
+    return {
+        success:true,
+        data:[
+            {id:'client_choosen',name:'ما يفضله العميل'},
+            {id:'delivery_home',name:'التوصيل حتى المنزل'},
+        ]
+    }
+}
 getMyReadyService(params={}){
     let s=this.generateQueryUrl(params)
     /**

@@ -491,5 +491,7 @@
   "delivery-place": "delivery place",
   "no-options": "no options",
   "account-profil": "Account profil",
-  "the_message": "Message"
+  "the_message": "Message",
+  "delivery_from_platform": "delivery from plateform",
+  "delivery_to_home": "delivery to home"
 }

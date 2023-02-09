@@ -488,5 +488,7 @@
   "delivery-place": "مكان التسليم",
   "no-options": "لا يوجد خيارات",
   "account-profil": "صفحتك الشخصية",
-  "the_message": "الرسالة"
+  "the_message": "الرسالة",
+  "delivery_from_platform": "من خلال المنصة",
+  "delivery_to_home": "التوصيل حتى المنزل"
 }

@@ -23,6 +23,7 @@
             <d-request-purchase-card
                             :item="item"
                             :itemId="item.id"
+                            :state="item.state"
                             :status="item.status"
                             :service="item.title"
                             :name="item.from_user"
@@ -30,7 +31,7 @@
                             :place="item.city"
                             :during="item.implementation_period"
                             :requests="item.count_requests"
-                            :description="item.description"
+                            :description="item.note"
                             :homeDelivery="item.home_delivery"
                             :delivery="item.delivery_product_available"
                             >
