@@ -34,9 +34,7 @@
                                     v-slot="{validate,errors}">
                                 <input @change="uploadImage($event,validate) || validate($event)" class="form-control d-none" type="file"
                                     id="imginput">
-                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                                    <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                             </div>
                             <div class="col-md-12 ">
@@ -78,9 +76,7 @@
                                         <input name="uploadDocument" @change="uploadGallary($event,validate) || validate($event)" type="file" id="choose-file"
                                             accept=".jpg,.jpeg,.png"
                                             style="display: none;" />
-                                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                                            <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
     
                                     </div>
@@ -103,9 +99,7 @@
                                     v-slot="{errors}">
                                     <label class="form-label">{{ $t('service-title') }}</label>
                             <input type="text" v-model="itemForm.title" class="form-control" :placeholder="$t('service-title')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                         </div>
                            <!--price-->
@@ -117,9 +111,7 @@
                                     v-slot="{errors}">
                                     <label class="form-label">{{ $t('service-price') }}</label>
                             <input type="text" v-model="itemForm.price" class="form-control" :placeholder="$t('service-price')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                         </div>
                         <!-- execution during-->
@@ -131,9 +123,7 @@
                                     v-slot="{errors}">
                                     <label class="form-label">{{ $t('execution-during') }} ({{ $t('days') }})</label>
                             <input type="text" v-model="itemForm.execution_period" class="form-control" :placeholder="$t('execution-during')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                         </div>
                       <!-- تصنيف الخدمة--> 
@@ -205,11 +195,11 @@
                         <label class="form-label">أكتب التفاصيل الخاصة بالخدمة بدقة</label>
                             <d-ckeditor-classic v-model="itemForm.description" class="form-control" rows="10"
                             placeholder="أكتب التفاصيل الخاصة بالخدمة بدقة"></d-ckeditor-classic>
-                                <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                                <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                         </div>
+                         <!-- if ready service offline-->
+                         <template v-if="itemForm.state=='offline'">
                          <!-- address-service-->
                          <div class="mb-3">
                             <ValidationProvider
@@ -242,12 +232,13 @@
                                  rules="required"
                                     v-slot="{errors}">
                                     <label class="form-label">{{ $t('delivery-place') }}</label>
-                            <input type="text" v-model="itemForm.delivery_place" class="form-control" :placeholder="$t('delivery-place')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                                    <select class="form-select" v-model="itemForm.delivery_place" >
+                        <option v-for="(place,i) in delivery_places" :key="i" :value="place.id"> {{ place.name }}</option>
+                        </select>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                         </div> 
+                        </template>
                            <!--keywords-->
                         <div class="mb-3">
                         <ValidationProvider
@@ -260,9 +251,7 @@
                               >
     
                             </d-multi-select-tag>
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                       
                         </div>
@@ -333,6 +322,10 @@ return{
         states:[
             {id:'online',name:'اونلاين'},
             {id:'offline',name:'اوفلاين'},
+        ],
+        delivery_places:[
+            {id:'client_choosen',name:'ما يفضله العميل'},
+            {id:'delivery_home',name:'تسليم الى المنزل'},
         ],
         categories:[],
         fields:[],
