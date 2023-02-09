@@ -325,7 +325,6 @@ return{
         ],
         delivery_places:[
             {id:'client_choosen',name:'ما يفضله العميل'},
-            {id:'delivery_home',name:'تسليم الى المنزل'},
         ],
         categories:[],
         fields:[],
@@ -498,7 +497,7 @@ openDialog(){
     field_id:null,
     description:'',
     execution_place:'',
-    delivery_place:'',
+    delivery_place:'client_choosen',
     keywords:'',
 })
 this.city=null,

@@ -317,8 +317,7 @@ return{
             {id:'offline',name:'اوفلاين'},
         ],
         delivery_places:[
-            {id:'client_choosen',name:'ما يفضله العميل'},
-            {id:'delivery_home',name:'تسليم الى المنزل'},
+            {id:'client_choosen',name:'ما يفضله العميل'}
         ],
         gallery_loading : false,
         gallery_deleting : false,
@@ -523,7 +522,7 @@ openDialog(dataEvent){
     field_id:null,
     description:'',
     execution_place:'',
-    delivery_place:'',
+    delivery_place:'client_choosen',
     keywords:'',
 })
 if(dataEvent){
