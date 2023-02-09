@@ -36,7 +36,7 @@ class ServiceProviderApi extends BaseApi{
         return window.axios.get(`service-provider/provider/view-balance?${s}`);
     }
     rechargeBalance(data){
-        return window.axios.post(`service-provider/user/recharge-balance`,data);
+        return window.axios.post(`service-provider/recharge-balance`,data);
 
     }
     checkoutPackage(data){
