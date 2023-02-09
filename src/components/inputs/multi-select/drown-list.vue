@@ -8,7 +8,10 @@
       
       <div class="my-form-input__body" v-show="show">
         <div class="row">
-        <div v-for="(item,i) in opts" :key="i" class="col-12 col-md-6">
+          <div v-if="!opts || opts.length==0" class="col-12 my-form-select__empty">
+            <span>{{ $t('no-options') }}</span>
+          </div>
+        <div v-else v-for="(item,i) in opts" :key="i" class="col-12 col-md-6">
           <div class="form-check">
     <input class="form-check-input" v-model="value_" :value="getTrackOpt(item)" :type="multiSelect?'checkbox':'radio'" >
     <label class="my-form-select_item-label" for="defaultCheck1">
@@ -143,5 +146,11 @@ align-items: center;
 text-align: right;
 
 color: #979797;
+  }
+  .my-form-select__empty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
   }
   </style>

@@ -488,5 +488,6 @@
   "academy-blog": "Blog",
   "courses": "courses",
   "address-service": "Service address",
-  "delivery-place": "delivery place"
+  "delivery-place": "delivery place",
+  "no-options": "no options"
 }
