@@ -189,11 +189,11 @@
                     <div class="mb-3">
                             <ValidationProvider
                                     :name="$t('service-description')"
-                                 vid="description"
+                                 vid="desc"
                                  rules="required"
                                     v-slot="{errors}">
                         <label class="form-label">أكتب التفاصيل الخاصة بالخدمة بدقة</label>
-                            <d-ckeditor-classic v-model="itemForm.description" class="form-control" rows="10"
+                            <d-ckeditor-classic v-model="itemForm.desc" class="form-control" rows="10"
                             placeholder="أكتب التفاصيل الخاصة بالخدمة بدقة"></d-ckeditor-classic>
                                 <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
@@ -355,7 +355,7 @@ let valid = await this.$refs.form.validate();
     
  let formData = new FormData();
  formData.append('title',this.itemForm.title);
- formData.append('desc',this.itemForm.description);
+ formData.append('desc',this.itemForm.desc);
  formData.append('price',this.itemForm.price);
  formData.append('execution_period',this.itemForm.execution_period)
  formData.append('execution_place',this.city.id)
@@ -529,7 +529,7 @@ openDialog(dataEvent){
     state:'',
     category_id:null,
     field_id:[],
-    description:'',
+    desc:'',
     execution_place:'',
     delivery_place:'client_choosen',
     keywords:'',
@@ -545,7 +545,7 @@ if(dataEvent){
         execution_period,
         execution_place,
         delivery_place,
-        description
+        desc
     } = dataEvent
     let field_id = dataEvent.fields?dataEvent.fields.map(f=>f.id):[]
         this.itemForm = {...this.itemForm,id,
@@ -557,7 +557,7 @@ if(dataEvent){
         execution_period,
         execution_place,
         delivery_place,
-        description,
+        desc,
         keywords}
         this.loadFields(category_id,false)
        let city = this.cities.find(x=>x.id==execution_place)
