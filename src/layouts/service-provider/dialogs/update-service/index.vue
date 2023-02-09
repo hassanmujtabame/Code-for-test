@@ -350,6 +350,7 @@ let valid = await this.$refs.form.validate();
  formData.append('desc',this.itemForm.desc);
  formData.append('price',this.itemForm.price);
  formData.append('execution_period',this.itemForm.execution_period)
+ if(this.city && this.itemForm.state=='offline')
  formData.append('city_id',this.city.id)
  //formData.append('execution_place',this.itemForm.execution_place)
  formData.append('state',this.itemForm.state);
