@@ -9,6 +9,13 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            showSendMsgProvider(userInfo){
+              let dataEvent={
+                formData:{user_id:userInfo.id},
+                opts:{user:userInfo}
+            }
+          this.fireOpenDialog('send-message-to-provider',dataEvent)
+            },
             numberToDay(mth){
               if(!mth && mth!==0) return 'N/A';
               let label = this.$t('day_s')
