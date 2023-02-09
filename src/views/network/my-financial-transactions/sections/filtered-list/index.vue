@@ -116,7 +116,7 @@ export default {
         },
         changeFilter(val){
             this.filterItem = {...this.filterItem,...val}
-           // this.fireEvent('d-filter-list5-refresh')
+            this.fireEvent('d-filter-list5-refresh')
         },
         async loadList(metaInfo) {
             console.log('loadList')
