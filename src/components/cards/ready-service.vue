@@ -17,7 +17,7 @@
             <div class="ready-service-card__footer-item">
             <d-empty-wallet-icon :size="16" color="#979797"/>
             <span>{{ price??'N/A' }}</span>
-            <span>{{ $t('riyals') }}</span>
+            <span> {{ $t('riyals') }}</span>
             </div>
             <div class="ready-service-card__footer-item">
             <d-localisation-icon :size="16" color="#979797"/>
