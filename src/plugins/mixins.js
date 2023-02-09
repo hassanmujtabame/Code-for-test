@@ -9,6 +9,15 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            numberToDay(mth){
+              if(!mth && mth!==0) return 'N/A';
+              let label = this.$t('day_s')
+              if(mth>2 && mth<=10 && this.$i18n.locale=='ar') label= "أيام";
+              if(mth==2 && this.$i18n.locale=='ar') return " "+"يومين";
+              if(mth==1 && this.$i18n.locale=='ar') return label;
+              if(mth==1 && this.$i18n.locale=='en') return "a day"+" ";
+              return `${mth} ${label}`
+            },
             timeAgoToHuman(date)
             {
               // Calculate the difference in milliseconds

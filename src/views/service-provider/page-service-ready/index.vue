@@ -109,7 +109,7 @@
                                             مدة التنفيذ :
                                         </span>
                                         <span class="m-c">
-                                            {{itemPage.execution_period??'N/A'}}ايام
+                                            {{numberToDay(itemPage.execution_period)}}
                                         </span>
 
                                     </div>
