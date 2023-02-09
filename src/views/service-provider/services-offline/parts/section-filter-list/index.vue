@@ -21,6 +21,9 @@
                     :image="item.image"
                    :title="item.title"
                    :description="item.desc"
+                   :price="item.price"
+                   :place="item.city"
+                   :name="item.user_info.name"
                    :department="item.category_name"
                    :status="item.state"
                    
