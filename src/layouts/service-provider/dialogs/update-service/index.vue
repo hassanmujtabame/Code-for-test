@@ -204,7 +204,7 @@
                 <div class="mb-3">
                             <ValidationProvider
                                     :name="$t('address-service')"
-                                 vid="execution_place"
+                                 vid="city_id"
                                  rules="required"
                                     v-slot="{errors}">
                                     <label class="form-label">{{ $t('address-service') }}</label>
@@ -358,7 +358,7 @@ let valid = await this.$refs.form.validate();
  formData.append('desc',this.itemForm.desc);
  formData.append('price',this.itemForm.price);
  formData.append('execution_period',this.itemForm.execution_period)
- formData.append('execution_place',this.city.id)
+ formData.append('city_id',this.city.id)
  //formData.append('execution_place',this.itemForm.execution_place)
  formData.append('state',this.itemForm.state);
  formData.append('image',this.imageFile);
@@ -530,7 +530,7 @@ openDialog(dataEvent){
     category_id:null,
     field_id:[],
     desc:'',
-    execution_place:'',
+    city_id:'',
     delivery_place:'client_choosen',
     keywords:'',
 })
@@ -543,7 +543,7 @@ if(dataEvent){
         state,
         keywords,
         execution_period,
-        execution_place,
+        city_id,
         delivery_place,
         desc
     } = dataEvent
@@ -555,12 +555,12 @@ if(dataEvent){
         state,
         price,
         execution_period,
-        execution_place,
+        city_id,
         delivery_place,
         desc,
         keywords}
         this.loadFields(category_id,false)
-       let city = this.cities.find(x=>x.id==execution_place)
+       let city = this.cities.find(x=>x.id==city_id)
        this.city = city?{...city}:null
     }
 this.gallaries = [];
