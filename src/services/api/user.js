@@ -115,7 +115,7 @@ class UserApi extends BaseApi {
         /**
          * paginate = x for change default count per page = 10
          */
-        return window.axios.get(`service-provider/user/my-services?${s}`);
+        return window.axios.get(`service-provider/provider/my-ready-services?${s}`);
     }
     getMyWorkGallaries(params={}){
         let s=this.generateQueryUrl(params)

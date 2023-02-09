@@ -97,6 +97,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-my-offers" */ '../views/service-provider/page-my-offers/index.vue') 
     },
     {
+        path: 'service-provider/my-ready-services',
+        meta:{layout:LayoutService},
+        name: 'service-provider-my-ready-services',
+        component: () => import(/* webpackChunkName: "service-provider-my-ready-services" */ '../views/service-provider/ready-services/mine/index.vue') 
+    },
+    {
         path: 'service-provider/ready-services',
         meta:{layout:LayoutService},
         name: 'service-provider-ready-services',

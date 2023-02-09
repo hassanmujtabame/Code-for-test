@@ -377,7 +377,7 @@ for ( i = 0; i < this.itemForm.field_id.length; i++) {
                 title:'لقد تم أضافة خدمة جديدة لك',
                 description:'سيتم مراجعة الخدمة من خلالنا  خلال يوم  و سنخبرك عندما تكون جاهزة ',
                 btns:[
-                    {title:'قائمة خدماتي',action:()=>this.router_push('service-provider-ready-services'),class:'btn btn-custmer'}
+                    {title:'قائمة خدماتي',action:()=>this.router_push('service-provider-my-ready-services'),class:'btn btn-custmer'}
                 ]
             }
             this.showSuccessMsg(dataEvt)

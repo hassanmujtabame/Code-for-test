@@ -36,7 +36,7 @@ export default {
       items:[
         /**provider */
         {route:'service-provider-show-services', text:vm.$t('show-your-services'),provider:true},
-        {route:'service-provider-ready-services', text:vm.$t('your-ready-services'),provider:true},
+        {route:'service-provider-my-ready-services', text:vm.$t('your-ready-services'),provider:true},
         {route:'contact-us',text:vm.$t('contact-us'),provider:true},
         /** client */
         {route:'service-provider-ready-services', text:vm.$t('service'),provider:false},

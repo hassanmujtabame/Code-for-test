@@ -19,7 +19,7 @@
                     <MyServiceCard 
                      :image="item.image"
                      :title="item.title"
-                     :description="item.description"
+                     :description="item.desc"
                      :place="item.city"
                      :department="item.category_name"
                      :price="item.price"

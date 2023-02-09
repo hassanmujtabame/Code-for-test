@@ -17,14 +17,14 @@
             <div v-for="(item,k) in items" :key="k" class="col-md-4 mt-2">
                 <router-link class="router-link" :to="getRouteLocale('service-provider-ready-service',{id:item.id})">
                     <MyServiceCard 
-                     :image="item.image"
-                     :title="item.title"
-                     :description="item.description"
-                     :place="item.city"
-                     :department="item.categories.length==0?'N/A': item.categories[0]"
-                     :price="item.price"
-                     :name="item.user_name"
-                     :status="item.state"
+                    :image="item.image"
+                   :title="item.title"
+                   :description="item.desc"
+                   :price="item.price"
+                   :place="item.city"
+                   :name="item.user_info.name"
+                   :department="item.category_name"
+                   :status="item.state"
                     />
                 </router-link>
             </div>

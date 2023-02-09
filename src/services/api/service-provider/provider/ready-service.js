@@ -97,6 +97,13 @@ checkoutService (data){
     return window.axios.post(`service-provider/user/purchase-service-checkout`,data);
 
 }
+getMyReadyService(params={}){
+    let s=this.generateQueryUrl(params)
+    /**
+     * paginate = x for change default count per page = 10
+     */
+    return window.axios.get(`service-provider/provider/my-ready-services?${s}`);
+}
 }
 
 export default new readyServicesApi();
