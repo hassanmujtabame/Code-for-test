@@ -17,8 +17,9 @@
                                 </svg>
 
                                 <span
+                                v-if="count"
                                     class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">
-                                    4+
+                                   {{count}}
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </div>
@@ -27,10 +28,8 @@
 
 <script>
 export default {
-
+    data() {
+       return{ count:0} 
+    },
 }
 </script>
-
-<style>
-
-</style>
