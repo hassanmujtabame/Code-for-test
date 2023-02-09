@@ -42,18 +42,47 @@ export default {
   },
   data:()=>({
     showDialog:false,
-
+    pay_info:{},
+    user_info:{},
   }),
   methods:{
+    redirecttoProvider(){
+      this.closeEvent();
+      this.router_push('service-provider-show-profile',{id:this.user_info.id})
+    },
+    async makePayment(){
+      console.mylog('sending',this.pay_info)
+      try {
+        let { data } = await readyserviceAPI.checkoutService(this.pay_info)
+        if(data.success){
+          
+          console.mylog('success',data)
+          let dataEvent ={
+            title:'تهانينا تم شراء  الخدمة بنجاح',
+            description:'',
+            btns:[
+              {title:'تواصل مع مقدم الخدمة',action:()=>{this.redirecttoProvider()},class:'btn btn-custmer'},
+              {title:'الرئيسية',action:()=>{this.closeEvent()},class:'btn btn-custmer-w'},
+            ]
+          }
+          this.showSuccessMsg(dataEvent)
+          this.closeEvent()
+         
+        }else{
+          window.SwalError(data.message)
+        }
+      } catch (error) {
+      console.log('error',error)
+      }
+    },
     async payment(evt){
-      console.log('payment',evt)
       let {item,cardInfo,otherData} = evt;
-      let pay_info = {};
+      this.pay_info = {};
       if(item.payment_type == 'new')
        {
        // let  expiryMonth=cardInfo.expiry_date.split('/')[0];
       //let  expiryYear=cardInfo.expiry_date.split('/')[1];
-       pay_info = {
+      this.pay_info = {
         type:0,
         paymentBrand:cardInfo.paymentBrand,
         card_number:cardInfo.card_number,
@@ -65,42 +94,26 @@ export default {
         service_id:otherData.id
        }
        }else{
-        pay_info = {
+        this.pay_info = {
           type:1,
           payment_id:item.payment_type,
           service_id:otherData.id
         }
        }
-    
-       console.mylog('sending',pay_info)
-      try {
-        let { data } = await readyserviceAPI.checkoutService(pay_info)
-        if(data.success){
-          
-          console.mylog('success',data)
-          this.closeEvent()
-          let dataEvent ={
-            title:'تهانينا تم شراء  الخدمة بنجاح',
-            description:'',
+       this.user_info = otherData.user_info
+       let dataEvent ={
+            title:'',
+            description:`أنت الان على وشك اتمام عملية الدفع
+لشراء خدمة تصميم هوية بصرية`,
             btns:[
-              {title:'تواصل مع مقدم الخدمة',action:()=>{},class:'btn btn-custmer'},
-              {title:'الرئيسية',action:()=>{},class:'btn btn-custmer-w'},
+              {title:'تأكيد العملية ',action:()=>{this.makePayment()},class:'btn btn-custmer'},
             ]
           }
-          this.showSuccessMessage(dataEvent)
-        }else{
-          window.SwalError(data.message)
-        }
-      } catch (error) {
-      console.log('error',error)
-      }
+          this.showConfirmMsg(dataEvent)
     },
     closeEvent(){
       this.fireCloseDialog(this.group)
-    },
-    openSuccessSubscribed(data){
-        this.fireOpenDialog('success-network-subscribed', data)
-    },
+    }
   }
 }
 
