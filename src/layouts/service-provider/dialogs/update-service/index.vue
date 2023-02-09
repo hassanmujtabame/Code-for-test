@@ -169,9 +169,18 @@
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('select-specialite') }} </label>
-                        <select class="form-select" v-model="itemForm.field_id" >
-                        <option v-for="(field,i) in fields" :key="i" :value="field.id"> {{ field.name }}</option>
-                        </select>
+                        <multi-select v-model="itemForm.field_id" 
+                            :selectLabel="$t('selectLabel')"
+                            :selectedLabel="$t('selectedLabel')" 
+                            :deselectLabel="$t('deselectLabel')"
+                            :options="fields" 
+                            :multiple="true"  
+                            :group-select="false" 
+                            placeholder="" 
+                         
+                            track-by="id" label="name">
+                                <span slot="noResult">{{ $t('no-result-search') }}</span>
+                            </multi-select>
                     
                         <d-error-input :errors="errors" v-if="errors.length" />
                     </ValidationProvider>
@@ -355,15 +364,15 @@ let valid = await this.$refs.form.validate();
  formData.append('image',this.imageFile);
  //formData.append('file',this.attachment);
  formData.append('category_id',this.itemForm.category_id);
- formData.append('field_id',this.itemForm.field_id);
+ //formData.append('field_id',this.itemForm.field_id);
  formData.append('keywords',this.itemForm.keywords);
  //formData.append('images[]', this.imageFile); // main image as first in gallary
  /*for (var i = 0; i < this.gallaries.length; i++) {
         formData.append('images[]', this.gallaries[i]);
 }*/
-/*for ( let i = 0; i < this.itemForm.category_id.length; i++) {
-        formData.append('categories[]', this.itemForm.category_id[i].id);
-}*/
+for ( let i = 0; i < this.itemForm.field_id.length; i++) {
+        formData.append('field_id[]', this.itemForm.field_id[i].id);
+}
     try {
         let { data } = await readyServiceAPIs.update(this.itemForm.id,formData)
         if(data.success){
@@ -519,7 +528,7 @@ openDialog(dataEvent){
     execution_period:'',
     state:'',
     category_id:null,
-    field_id:null,
+    field_id:[],
     description:'',
     execution_place:'',
     delivery_place:'client_choosen',
@@ -529,7 +538,7 @@ if(dataEvent){
         let { id,
             title,
             price,
-        field_id,
+       
         category_id,
         state,
         keywords,
@@ -538,10 +547,11 @@ if(dataEvent){
         delivery_place,
         description
     } = dataEvent
+    let field_id = dataEvent.fields?dataEvent.fields.map(f=>f.id):[]
         this.itemForm = {...this.itemForm,id,
             title,
-        field_id,
         category_id,
+        field_id,
         state,
         price,
         execution_period,

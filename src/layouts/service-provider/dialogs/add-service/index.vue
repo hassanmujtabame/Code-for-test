@@ -177,10 +177,18 @@
                              rules="required"
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('select-specialite') }} </label>
-                        <select class="form-select" v-model="itemForm.field_id" >
-                        <option v-for="(field,i) in fields" :key="i" :value="field.id"> {{ field.name }}</option>
-                        </select>
-                    
+                        <multi-select v-model="itemForm.field_id" 
+                            :selectLabel="$t('selectLabel')"
+                            :selectedLabel="$t('selectedLabel')" 
+                            :deselectLabel="$t('deselectLabel')"
+                            :options="fields" 
+                            :multiple="true"  
+                            :group-select="false" 
+                            placeholder="" 
+                         
+                            track-by="id" label="name">
+                                <span slot="noResult">{{ $t('no-result-search') }}</span>
+                            </multi-select>
                         <d-error-input :errors="errors" v-if="errors.length" />
                     </ValidationProvider>
                   </div>
@@ -328,6 +336,7 @@ return{
         ],
         categories:[],
         fields:[],
+
         cities:[],
         showImage:false,
         idImage: `image-selected-${vm.generateRandomString(8)}`,
@@ -358,15 +367,15 @@ let valid = await this.$refs.form.validate();
  formData.append('file',this.attachment);
  formData.append('keywords',this.itemForm.keywords);
  formData.append('category_id',this.itemForm.category_id);
- formData.append('field_id',this.itemForm.field_id);
+ //formData.append('field_id',this.itemForm.field_id);
  formData.append('images[]', this.imageFile); // main image as first in gallary
  for (var i = 0; i < this.gallaries.length; i++) {
         formData.append('images[]', this.gallaries[i]);
 }
-/*
-for ( i = 0; i < this.itemForm.category_id.length; i++) {
-        formData.append('categories[]', this.itemForm.category_id[i].id);
-}*/
+
+for ( i = 0; i < this.itemForm.field_id.length; i++) {
+        formData.append('field_id[]', this.field_id[i].id);
+}
     try {
         let { data } = await ServiceProviderAPIs.add(formData)
         if(data.success){
@@ -494,7 +503,7 @@ openDialog(){
     execution_period:'',
     state:'',
     category_id:null,
-    field_id:null,
+    field_id:[],
     description:'',
     execution_place:'',
     delivery_place:'client_choosen',
