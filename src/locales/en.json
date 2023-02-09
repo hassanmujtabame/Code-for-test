@@ -489,5 +489,7 @@
   "courses": "courses",
   "address-service": "Service address",
   "delivery-place": "delivery place",
-  "no-options": "no options"
+  "no-options": "no options",
+  "account-profil": "Account profil",
+  "the_message": "Message"
 }

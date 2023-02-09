@@ -7,10 +7,10 @@
         <div class="col-md-6  ">
 
             <h5 class="m-c">{{ member.name }}</h5>
-            <p>{{ member.job }}</p>
+            <p>{{ member.job??member.job_title }}</p>
             <router-link custom :to="getRouteLocale('my-profile')" v-slot="{navigate}">
             <button @click="navigate" role="link" class="border px-3 py-2 rounded-2 bg-transparent">
-                صفحتك الشخصية
+                {{ $t('account-profil') }}
             </button>
             </router-link>
             

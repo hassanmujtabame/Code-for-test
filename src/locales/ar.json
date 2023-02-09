@@ -148,7 +148,7 @@
   "full-name": "الاسم الكامل",
   "subject": "الموضوع",
   "title_message": "عنوان الرسالة",
-  "message": "الرسالة",
+  "message": "رسالة",
   "more": "المزيد",
   "title_demande": "العنوان المطلوب",
   "title_request": "عنوان الطلب",
@@ -486,5 +486,7 @@
   "courses": "دورات",
   "address-service": "عنوان تقديم الخدمة",
   "delivery-place": "مكان التسليم",
-  "no-options": "لا يوجد خيارات"
+  "no-options": "لا يوجد خيارات",
+  "account-profil": "صفحتك الشخصية",
+  "the_message": "الرسالة"
 }
