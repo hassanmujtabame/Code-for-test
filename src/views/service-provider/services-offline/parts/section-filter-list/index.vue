@@ -20,8 +20,8 @@
                     <readyServiceCard 
                     :image="item.image"
                    :title="item.title"
-                   :description="item.description"
-                   :department="item.department"
+                   :description="item.desc"
+                   :department="item.category_name"
                    :status="item.state"
                    
                    />
