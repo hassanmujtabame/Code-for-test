@@ -470,7 +470,7 @@ async loadCategories(){
 async loadFields(val,ch=true){
     console.mylog('cc',val)
     if(ch)
-    this.itemForm.field_id = null;
+    this.itemForm.field_id = [];
    
     if(!this.itemForm.category_id) {
         this.fields = [];
