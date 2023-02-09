@@ -83,16 +83,16 @@ export default {
       let pay_info = {};
       if(item.payment_type == 'new')
        {
-        let  expiryMonth=cardInfo.expiry_date.split('/')[0];
-      let  expiryYear=cardInfo.expiry_date.split('/')[1];
+        //let  expiryMonth=cardInfo.expiry_date.split('/')[0];
+      //let  expiryYear=cardInfo.expiry_date.split('/')[1];
        pay_info = {
         type:0,
         paymentBrand:cardInfo.paymentBrand,
         card_number:cardInfo.card_number,
         card_holder:cardInfo.card_holder,
         cvv:cardInfo.card_cvv,
-        expiryMonth:expiryMonth,
-        expiryYear:expiryYear,
+        expiryMonth:cardInfo.expiryMonth,
+        expiryYear:cardInfo.expiryYear,
         save:cardInfo.saveCard,
         package_id:otherData.id
        }
