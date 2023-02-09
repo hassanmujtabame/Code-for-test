@@ -1,8 +1,6 @@
 <template>
-    <div class="container my-5">
-  
     <div class="my-form-input">
-      <div @click="show=!show" class="my-form-select clickable">
+      <div @click="toggleList" class="my-form-select " :class="{'clickable':!fixed}">
         <label class="my-form-input__label">{{label}}</label>
       </div>
       
@@ -21,10 +19,6 @@
         </div>
     </div>
       </div>
-    </div>
-   
-    
-  
     </div>
   </template>
   
@@ -52,6 +46,14 @@
                 type:[Boolean],
                 default:false,
         },
+        opened:{
+                type:[Boolean],
+                default:false,
+        },
+        fixed:{
+                type:[Boolean],
+                default:false,
+        },
         opts:{
             type:[Array,Object],
             default:()=>[]
@@ -62,13 +64,17 @@
         if(vm.multiSelect) v=v??[]
         return{
         value_:v,
-      show:false
+      show:vm.opened
     }},
     watch:{
         value_(){
             this.$emit('input',this.value_)
         },
-
+        opts:{
+          deep:true,
+          immediate:true,
+          handler(){}
+        },
         value:{
             deep:true,
             immediate:true,
@@ -80,6 +86,10 @@
         }
     },
     methods:{
+      toggleList(){
+        if(!this.fixed)
+        this.show=!this.show
+      },
         getLabelOpt(item){
             if(this.labelName)
             {
@@ -151,6 +161,6 @@ color: #979797;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 150px;
+    min-height: 50px;
   }
   </style>
