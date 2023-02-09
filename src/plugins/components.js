@@ -15,6 +15,7 @@ import DCarouselSlide from '@/components/carousel/slide.vue'
 import DFilterList from '@/components/filter-list/index.vue'
 import DMultiSelecetTagInput from '@/components/inputs/multi-select/tags.vue'
 import RSliderInput from '@/components/inputs/r-slider/index.vue'
+import drowListInput from '@/components/inputs/multi-select/drown-list.vue'
 import DatePickerInput from '@/components/inputs/date-picker/index.vue'
 import DatePickerRange from '@/components/inputs/date-picker/range.vue'
 import DCkeditorClassicInput from '@/components/inputs/d-ckeditor/classic.vue'
@@ -52,13 +53,14 @@ import DRateStars from '@/components/rate-stars/index.vue'
     },
     stopProp(event) {event.stopPropagation() }
   })*/
-
+  
 Vue.component('d-rate-dialog', DRateDialog)
 Vue.component('d-success-message', DSuccessMessage)
 Vue.component('d-confirm-message', DConfirmMessage)
 Vue.component('d-credit-card', CreditCardImage)
 Vue.component('d-rate-stars', DRateStars)
 Vue.component('d-error-input', ErrorInput)
+Vue.component('d-drown-list', drowListInput)
 Vue.component('d-multi-select-tag', DMultiSelecetTagInput)
 Vue.component('date-picker-input', DatePickerInput)
 Vue.component('date-picker-range', DatePickerRange)
