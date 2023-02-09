@@ -9,7 +9,7 @@
                 <h4 class="fw-bold">
                   {{member.name}}
                 </h4>
-                <p>{{ member.description??member.job }}</p>
+                <p>{{ member.description??member.job_title }}</p>
                 <div class="message-service">
                     <button class="text-white border-0 p-2 px-3"
                        @click="sendMessage" >

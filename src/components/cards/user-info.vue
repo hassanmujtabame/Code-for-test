@@ -8,7 +8,7 @@
                                {{member.name}} 
                             </h5>
                             <p>
-                             {{member.job}}
+                             {{member.job??member.job_title}}
                             </p>
                             <p class="t-c">{{member.bio}}
                             </p>

@@ -124,6 +124,7 @@
                                         </span>
 
                                     </div>
+                                    <template v-if="itemPage.state=='offline'">
                                     <div class="col-6 p-2">
                                         <localisationIcon :size="24" color="#979797"/>
                                         <span>
@@ -144,6 +145,7 @@
                                         </span>
 
                                     </div>
+                                </template>
                                 </div>
                             </div>
                             <div class="mt-4">
