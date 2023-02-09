@@ -4,6 +4,7 @@ import './plugins/vee-validate'
 import './plugins/ckeditor'
 import  './plugins/portal-vue';
 import  './plugins/vue-multi-select';
+import  './plugins/icons-svg.js';
 import  './plugins/components';
 import  './plugins/v-calendar.js';
 import './plugins/axios'
