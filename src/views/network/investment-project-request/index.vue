@@ -253,7 +253,7 @@
                                         </select>
                                         
                                     </div>
-                                    <d-error-input :errors="errors" v-if="errors.length>0" />>
+                                    <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                             </div>
                         </div>

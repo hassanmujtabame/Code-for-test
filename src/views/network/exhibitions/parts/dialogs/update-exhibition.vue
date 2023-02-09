@@ -58,7 +58,7 @@
                                         type="file" id="choose-file"
                                 
                                         accept=".jpg,.jpeg,.pdf,doc,docx,application/msword,.png" style="opacity: 0;" />
-                                    <d-error-input :errors="errors" v-if="errors.length>0" />>
+                                    <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
 
 
@@ -70,14 +70,17 @@
                     <div class="col-md-10">
                         <ValidationProvider 
                                 :name="$t('details-enter-exhibition')" 
+                                tag="div"
+                                class="form-group"
                                 vid="details"  rules=""
                                     v-slot="{  errors }">
+                                    <label class="form-label">أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )</label>
                         <d-ckeditor-classic 
                         v-model="itemForm.details"
                         :editorConfig='configEnter'
                         class="w-100 border t-c " 
                          rows="10"></d-ckeditor-classic>
-                                 <d-error-input :errors="errors" v-if="errors.length>0" />>
+                                 <d-error-input :errors="errors" v-if="errors.length>0" />
                         </ValidationProvider>
 
                     </div>
@@ -105,7 +108,7 @@
                                             {{ $t('no') }}
                                         </label>
                                     </div>
-                                    <d-error-input :errors="errors" v-if="errors.length>0" />>
+                                    <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                             
                         </div>
@@ -117,6 +120,8 @@
                     <div class="mb-3">
                         <ValidationProvider 
                         :name="$t('exhibition_title')" 
+                        tag="div"
+                                class="form-group"
                         vid="title" 
                         rules="required" 
                         v-slot="{ errors }"
@@ -131,6 +136,8 @@
                     <div class="mb-3">
                         <ValidationProvider 
                         :name="$t('entry_price')" 
+                        tag="div"
+                        class="form-group"
                         vid="price" 
                         rules="required|numeric" 
                         v-slot="{ errors }">
@@ -187,8 +194,11 @@
 
                     <div class="mb-3">
                         <ValidationProvider :name="$t('the_city')" 
+                        tag="div"
+                        class="form-group"
                         vid="region_id" 
-                        rules="required" v-slot="{ errors }"
+                        rules="required" 
+                        v-slot="{ errors }"
                         >
                         <label class="form-label">{{ $t('the_city') }}</label>
                         <multi-select v-model="region" 
@@ -227,10 +237,13 @@
                     <div class="mb-3">
                         <ValidationProvider 
                         :name="$t('content')" 
+                        tag="div"
+                        class="form-group"
                         vid="content" 
                         rules="required"
                          v-slot="{ errors }"
                          >
+                         <label class="form-label">أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )</label>
                         <d-ckeditor-classic 
                             class="form-control" 
                             rows="10"
@@ -274,7 +287,8 @@
                             <div  class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('booth_name')" 
-                                tag='div'
+                                tag="div"
+                                class="form-group"
                                 :vid="`booth_name.${i}`" 
                                 rules="required"
                                 v-slot="{ errors }"
@@ -290,7 +304,8 @@
                         <div>
                                 <ValidationProvider 
                                 :name="$t('rent_price')" 
-                                tag='div'
+                                tag="div"
+                                class="form-group"
                                 :vid="`rental_price.${i}`" 
                                 rules="required|numeric"
                                 v-slot="{ errors }"
@@ -312,7 +327,8 @@
                         <div>
                                 <ValidationProvider 
                                 :name="$t('insurance_price')" 
-                                tag='div'
+                                tag="div"
+                                class="form-group"
                                 :vid="`insurance_price.${i}`" 
                                 rules="required|numeric"
                                 v-slot="{ errors }"
@@ -346,7 +362,8 @@
                     <div>
                         <ValidationProvider 
                                 :name="$t('observation_for_participant')" 
-                                tag='div'
+                                tag="div"
+                                class="form-group"
                                 vid="notice_peoples" 
                                 rules="required"
                                 v-slot="{ errors }"
@@ -394,9 +411,11 @@ components:{
         file: null,
         mapFile: null,
         configContent:{minHeight:"150px",
-                            placeholder:"أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )"
+                           // placeholder:"أكتب التفاصيل الخاصة بالمعرض ( عن المعرض و اهميته و المنتجات المعروضة به )"
                     },
-        configEnter:{minHeight:"150px",placeholder:"أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )"},
+        configEnter:{minHeight:"150px",
+        //placeholder:"أكتب تفاصيل الدخول الى المعرض والتعليمات العامة التي يجب مراعتها ان وجدت مثل ( لا يوجد ةغرف تغير ملابس ) (لا يوجد دفع غير كاش ) (يمنع اصطحاب الاطفال )"
+    },
         region:null,
         is_share:0,
         itemForm: {
