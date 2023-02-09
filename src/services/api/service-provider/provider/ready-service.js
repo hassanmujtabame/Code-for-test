@@ -18,7 +18,11 @@ class readyServicesApi extends BaseApi{
     }
     getCategories(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/provider/project-categories?${s}`);
+        return window.axios.get(`service-provider/user/service-categories?${s}`);
+    }
+    getFields(id,params={}){
+        let s=this.generateQueryUrl({...params,service_category_id:id})
+        return window.axios.get(`service-provider/user/service-fields?${s}`);
     }
     add(data){
         return window.axios.post(`service-provider/provider/ready-services`,data);  

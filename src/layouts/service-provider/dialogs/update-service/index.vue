@@ -129,21 +129,7 @@
                                 </div>
                                 </ValidationProvider>
                         </div>
-                        <!-- execution place-->
-                        <div class="mb-3">
-                            <ValidationProvider
-                                    :name="$t('execution-place')"
-                                 vid="execution_place"
-                                 rules="required"
-                                    v-slot="{errors}">
-                                    <label class="form-label">{{ $t('execution-place') }}</label>
-                            <input type="text" v-model="itemForm.execution_place" class="form-control" :placeholder="$t('execution-place')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
-                                </ValidationProvider>
-                        </div> 
-                          
+                       <!--تصنيف الخدمة-->
                         <div class="mb-3">
                         <ValidationProvider 
                         :name="$t('state-service')" 
@@ -164,29 +150,42 @@
                         <d-error-input :errors="errors" v-if="errors.length>0" />
                     </ValidationProvider>
                     </div>
-                    <div class="mb-3">
+                      <!-- category -->
+          <div class="mb-3">
                         <ValidationProvider
-                                    :name="$t('service-category')"
-                                 vid="categories"
-                                 rules="required"
-                                    v-slot="{errors}">
-                            <label class="form-label">{{$t('service-category')}}</label>
-                            <multi-select v-model="itemForm.category_id" 
-                            :selectLabel="$t('selectLabel')"
-                            :selectedLabel="$t('selectedLabel')" 
-                            :deselectLabel="$t('deselectLabel')"
-                            :options="categories" 
-                            :multiple="true"  
-                            :group-select="false" 
-                            placeholder="" 
-                            track-by="id" label="name">
-                                <span slot="noResult">{{ $t('no-result-search') }}</span>
-                            </multi-select>
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
-                                </ValidationProvider>
-                      </div>
+                        tag="div"
+                        class="form-group"
+                                :name="$t('request-domain')"
+                             vid="category_id"
+                             rules="required"
+                                v-slot="{errors}">
+                        <label class="form-label">{{ $t('request-domain') }} </label>
+                        <select class="form-select" v-model="itemForm.category_id" 
+                        @change="loadFields($event)"
+                        >
+                        <option v-for="(cat,i) in categories" :key="i" :value="cat.id"> {{ cat.name }}</option>
+                        </select>
+                    
+                        <d-error-input :errors="errors" v-if="errors.length" />
+                    </ValidationProvider>
+                  </div>
+                     <!--field-->
+                     <div class="mb-3">
+                        <ValidationProvider
+                        tag="div"
+                        class="form-group"
+                                :name="$t('specialite')"
+                             vid="field_id"
+                             rules="required"
+                                v-slot="{errors}">
+                        <label class="form-label">{{ $t('select-specialite') }} </label>
+                        <select class="form-select" v-model="itemForm.field_id" >
+                        <option v-for="(field,i) in fields" :key="i" :value="field.id"> {{ field.name }}</option>
+                        </select>
+                    
+                        <d-error-input :errors="errors" v-if="errors.length" />
+                    </ValidationProvider>
+                  </div>
                     
                     <div class="mb-3">
                             <ValidationProvider
@@ -202,7 +201,44 @@
                                 </div>
                                 </ValidationProvider>
                         </div>
-    
+     <!-- address-service-->
+                <div class="mb-3">
+                            <ValidationProvider
+                                    :name="$t('address-service')"
+                                 vid="execution_place"
+                                 rules="required"
+                                    v-slot="{errors}">
+                                    <label class="form-label">{{ $t('address-service') }}</label>
+                                    <multi-select v-model="city" 
+                            :selectLabel="$t('selectLabel')"
+                            :selectedLabel="$t('selectedLabel')" 
+                            :deselectLabel="$t('deselectLabel')"
+                            :options="cities" 
+                            :multiple="false"  
+                            :group-select="false" 
+                            placeholder="" 
+                            :custom-label="(it)=>`${it.name}-${it.region.name}`"
+                            track-by="id" label="name">
+                                <span slot="noResult">{{ $t('no-result-search') }}</span>
+                            </multi-select>
+                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                            </ValidationProvider>
+                        </div> 
+                        <!-- delivery place-->
+                        <div class="mb-3">
+                            <ValidationProvider
+                                    :name="$t('delivery-place')"
+                                 vid="delivery_place"
+                                 rules="required"
+                                    v-slot="{errors}">
+                                    <label class="form-label">{{ $t('delivery-place') }}</label>
+                            <input type="text" v-model="itemForm.delivery_place" class="form-control" :placeholder="$t('delivery-place')">
+                            <div v-if="errors.length!==0" class="col-12 text-input-error">
+                                {{errors[0]}}
+                                </div>
+                                </ValidationProvider>
+                        </div> 
+                           <!--keywords-->
                            
                         <div class="mb-3">
                         <ValidationProvider
@@ -271,6 +307,7 @@
 import PlusCircleOutlineIcon from '@/components/icon-svg/plus-circle-outline.vue'
 import TrashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
+import commonAPIs from '@/services/api/common.js'
 import galleryImage  from '../add-service/gallery-image.vue'
 
 export default {
@@ -292,6 +329,9 @@ return{
         gallery_loading : false,
         gallery_deleting : false,
         categories:[],
+        fields:[],
+        cities:[],
+        city:{},
         showImage:false,
         idImage: `image-selected-${vm.generateRandomString(8)}`,
         url:'/assets/svg/empty-image.svg',
@@ -316,18 +356,21 @@ let valid = await this.$refs.form.validate();
  formData.append('desc',this.itemForm.description);
  formData.append('price',this.itemForm.price);
  formData.append('execution_period',this.itemForm.execution_period)
- formData.append('execution_place',this.itemForm.execution_place)
+ formData.append('execution_place',this.city.id)
+ //formData.append('execution_place',this.itemForm.execution_place)
  formData.append('state',this.itemForm.state);
  formData.append('image',this.imageFile);
  //formData.append('file',this.attachment);
+ formData.append('category_id',this.itemForm.category_id);
+ formData.append('field_id',this.itemForm.field_id);
  formData.append('keywords',this.itemForm.keywords);
  //formData.append('images[]', this.imageFile); // main image as first in gallary
  /*for (var i = 0; i < this.gallaries.length; i++) {
         formData.append('images[]', this.gallaries[i]);
 }*/
-for ( let i = 0; i < this.itemForm.category_id.length; i++) {
+/*for ( let i = 0; i < this.itemForm.category_id.length; i++) {
         formData.append('categories[]', this.itemForm.category_id[i].id);
-}
+}*/
     try {
         let { data } = await readyServiceAPIs.update(this.itemForm.id,formData)
         if(data.success){
@@ -447,23 +490,80 @@ async loadCategories(){
          console.log('error',error)
     }
 },
-openDialog(dataItem){
+async loadFields(val,ch=true){
+    console.mylog('cc',val)
+    if(ch)
+    this.itemForm.field_id = null;
+   
+    if(!this.itemForm.category_id) {
+        this.fields = [];
+        return;
+    }
+    try {
+        let {data} =  await readyServiceAPIs.getFields(this.itemForm.category_id)
+        if(data.success){
+            this.fields = data.data
+        }
+    } catch (error) {
+         console.log('error',error)
+    }
+},
+async loadCities(){
+    try {
+        let { data } =  await commonAPIs.cities()
+        if(data.success){
+            this.cities = data.data
+        }
+    } catch (error) {
+         console.mylog('error',error)
+    }
+},
+openDialog(dataEvent){
     this.itemForm =Object.assign({
-    id:dataItem.id,
-    title:dataItem.title,
-    price:dataItem.price,
-    execution_period:dataItem.execution_period,
-    execution_place:dataItem.execution_place,
-    keywords:dataItem.keywords,
-    category_id:dataItem.categories?dataItem.categories:[],
-    state:dataItem.state,
-    description:dataItem.description
+        id:null,
+        title:null,
+    price:'',
+    execution_period:'',
+    execution_place:'',
+    keywords:'',
+    category_id:null,
+    state:'',
+    description:'',
+    delivery_place:''
 })
+if(dataEvent){
+        let { id,
+            title,
+            price,
+        field_id,
+        category_id,
+        state,
+        keywords,
+        execution_period,
+        execution_place,
+        delivery_place,
+        description
+    } = dataEvent
+        this.itemForm = {...this.itemForm,id,
+            title,
+        field_id,
+        category_id,
+        state,
+        price,
+        execution_period,
+        execution_place,
+        delivery_place,
+        description,
+        keywords}
+        this.loadFields(category_id,false)
+       let city = this.cities.find(x=>x.id==execution_place)
+       this.city = city?{...city}:null
+    }
 this.gallaries = [];
-this.gallariesUrl = dataItem.medias
+this.gallariesUrl = dataEvent.medias
     this.imageFile = null;
     this.attachment = null;
-    this.showImage = dataItem.image
+    this.showImage = dataEvent.image
     this.showDialog = true;
     return true;
 },
@@ -478,6 +578,7 @@ closeEvent(){
 },
 mounted(){
     this.loadCategories()
+    this.loadCities()
 }
 }
 </script>

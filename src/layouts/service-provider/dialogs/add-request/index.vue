@@ -264,7 +264,7 @@ let valid = await this.$refs.form.validate();
          this.fireEvent(this.group+'-close-dialog')
       },
       async loadFields(val,ch=true){
-    console.log('cc',val)
+    console.mylog('cc',val)
     if(ch)
     this.itemForm.field_id = null;
    
