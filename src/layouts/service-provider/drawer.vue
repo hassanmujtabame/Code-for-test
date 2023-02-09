@@ -36,7 +36,7 @@
                 </div>
                 <div class="box  mx-2 mt-3 ">
                   <closedWalletIcon :size="32" color="var(--m-color)" />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-client-my-requests')" class="mx-2 m-c ">
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-client-my-purchases')" class="mx-2 m-c ">
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('my-purchases') }}</button>
                     </router-link>
                     
