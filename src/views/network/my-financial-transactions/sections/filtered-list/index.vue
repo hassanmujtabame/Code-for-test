@@ -69,18 +69,18 @@ export default {
     data: () => ({
 
     filterSide:{
-        type_balance:'dues',
+        type_balance:null,
         time_period:null,
         min_balance:0,
-        max_balance:1000
+        max_balance:3000
     },
         filterItem:{
             search:null,
             created_at:'asc',
-            type_balance:'dues',
+            type_balance:null,
             time_period:null,
             min_balance:0,
-        max_balance:1000
+        max_balance:3000
         }
     }),
     methods: {

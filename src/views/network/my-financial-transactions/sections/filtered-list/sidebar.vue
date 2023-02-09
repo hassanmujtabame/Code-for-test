@@ -17,8 +17,8 @@
                     <div class="accordion-body">
                         <div>
                             <div v-for="(state,i) in states" :key="i" class="form-check">
-                                <input class="form-check-input" type="radio" :value="state.id" v-model="filter.is_share" 
-                                :selected="state.id===filter.is_share"
+                                <input class="form-check-input" type="radio" :value="state.id" v-model="filter.type_balance" 
+                                :selected="state.id===filter.type_balance"
                                 name="stateRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
@@ -68,7 +68,7 @@
                                          :max.sync="filter.max_balance"
                                          :step="10"
                                          :lmin="0"
-                                         :lmax="1000"
+                                         :lmax="3000"
                                          />
                                     </div>
                                 </div>
@@ -97,6 +97,7 @@ export default {
     return{
         states:[
 
+            {id:null,name:'الكل'},
             {id:'dues',name:'مستحقاتك'},
             {id:'recharge_balance',name:'شحن رصيدك'},
             {id:'fees',name:'رسوم'},

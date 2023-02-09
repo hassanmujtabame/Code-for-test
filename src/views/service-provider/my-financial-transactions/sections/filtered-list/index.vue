@@ -58,17 +58,15 @@
 <script>
 import exhibitionAPI from '@/services/api/exhibitions.js'
 import sidebarBox from './sidebar.vue';
-import exhibitionCard from '@/components/cards/exhibition.vue';
 export default {
     name: 'filter-exhibitions',
     components: {
-        exhibitionCard,
         sidebarBox
     },
     data: () => ({
 
     filterSide:{
-      type:'1',
+        type_balance:null,
       category_id:[],
       min_discount:0,
         max_discount:1000,
@@ -76,7 +74,7 @@ export default {
         filterItem:{
             search:null,
             created_at:'asc',
-            type:'1',
+            type_balance:null,
             category_id:[],
             min_discount:0,
             max_discount:1000,
