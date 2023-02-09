@@ -496,15 +496,17 @@ async loadCities(){
 },
 openDialog(){
     this.itemForm =Object.assign({},{
-    title:'',
+    id:null,
+    title:null,
     price:'',
     execution_period:'',
-    execution_place:'',
-    keywords:'',
-    category_id:null,
     state:'',
+    category_id:null,
+    field_id:null,
+    description:'',
+    execution_place:'',
     delivery_place:'',
-    description:''
+    keywords:'',
 })
 this.city=null,
 this.gallaries = [];

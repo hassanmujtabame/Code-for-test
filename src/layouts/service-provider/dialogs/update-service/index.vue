@@ -524,12 +524,13 @@ openDialog(dataEvent){
         title:null,
     price:'',
     execution_period:'',
-    execution_place:'',
-    keywords:'',
-    category_id:null,
     state:'',
+    category_id:null,
+    field_id:null,
     description:'',
-    delivery_place:''
+    execution_place:'',
+    delivery_place:'',
+    keywords:'',
 })
 if(dataEvent){
         let { id,
