@@ -212,7 +212,7 @@
                          <div class="mb-3">
                             <ValidationProvider
                                     :name="$t('address-service')"
-                                 vid="region_id"
+                                 vid="city_id"
                                  rules="required"
                                     v-slot="{errors}">
                                     <label class="form-label">{{ $t('address-service') }}</label>
@@ -362,7 +362,7 @@ let valid = await this.$refs.form.validate();
  formData.append('price',this.itemForm.price);
  formData.append('state',this.itemForm.state);
  formData.append('execution_period',this.itemForm.execution_period)
- formData.append('region_id',this.city.id)
+ formData.append('city_id',this.city.id)
  //formData.append('execution_place',this.itemForm.execution_place)
  formData.append('file',this.attachment);
  formData.append('keywords',this.itemForm.keywords);
@@ -505,7 +505,7 @@ openDialog(){
     category_id:null,
     field_id:[],
     desc:'',
-    region_id:'',
+    city_id:'',
     delivery_place:'client_choosen',
     keywords:'',
 })
