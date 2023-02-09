@@ -16,7 +16,7 @@
                        
                     </slot>
                     </h1>
-                    <button type="button" class="btn-close" @click="closeDialogLocal($event,true)" aria-label="Close"></button>
+                    <button type="button" class="btn-close" @click="closeDialogLocal($event,true)" :style="{'padding':fullscreen?'0 30px':null}" aria-label="Close"></button>
                 </div>
                 <div class="position-relative">
                 <d-overlays-simple v-if="loading" />
