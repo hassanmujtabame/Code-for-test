@@ -11,7 +11,7 @@ import signPostIcon from '@/components/icon-svg/sign-post-icon.vue'
 import lovelyIcon from '@/components/icon-svg/lovely-icon.vue'
 import starIcon from '@/components/icon-svg/star-icon.vue'
 import routingIcon from '@/components/icon-svg/routing.vue'
-import thunderIcon from '@/components/icon-svg/thunder-icon.vue'
+import thunderIcon from '@/components/icon-svg/thunder.vue'
 
 Vue.component('d-routing-icon', routingIcon)
 Vue.component('d-school-wallet-icon', schoolWalletIcon)
