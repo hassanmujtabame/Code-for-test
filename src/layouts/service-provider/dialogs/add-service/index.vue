@@ -373,8 +373,14 @@ for ( i = 0; i < this.itemForm.field_id.length; i++) {
     try {
         let { data } = await ServiceProviderAPIs.add(formData)
         if(data.success){
-            //console.log('success',data)
-            //this.fireEvent('list-blogs-update')
+            let dataEvt = {
+                title:'لقد تم أضافة خدمة جديدة لك',
+                description:'سيتم مراجعة الخدمة من خلالنا  خلال يوم  و سنخبرك عندما تكون جاهزة ',
+                btns:[
+                    {title:'قائمة خدماتي',action:()=>this.router_push('service-provider-ready-services'),class:'btn btn-custmer'}
+                ]
+            }
+            this.showSuccessMsg(dataEvt)
             this.closeEvent()
         }
     } catch (error) {
