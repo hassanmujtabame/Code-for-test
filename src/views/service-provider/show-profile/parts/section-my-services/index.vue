@@ -32,7 +32,10 @@
         </div>
         <div class="row">
         <div class="col-12">
-            <button v-if="isThereMore" :disabled="!isThereMore" :class="{'btn-more-loading-disabled':!isThereMore}" class="btn-more-loading"><plusRectRoundIcon /> {{ $t('more_services') }} </button>
+            <button v-if="isThereMore" @click="nextList()" :disabled="!isThereMore" :class="{'btn-more-loading-disabled':!isThereMore}" class="btn-more-loading"><plusRectRoundIcon /> {{ $t('more_services') }} </button>
+            <div v-else class="btn-more-loading btn-more-loading-disabled text-center w-100">
+                لا يوجد المزيد
+            </div>
         </div>
         </div>
     </div>
@@ -67,16 +70,22 @@ export default {
   }
  },
  methods:{
-    async loadList(){
+    nextList(){
+        let page = this.metaInfo.current_page+1;
+        this.loadList({page})
+    },  
+    async loadList(dataP){
         this.loading =  true;
         try {
             let params = {
                 paginate:6,
-                user_id:this.userPage.id
+                user_id:this.userPage.id,
+                ...dataP
             }
             let { data } =  await readyReadyAPI.getAll(params)
                 if(data.success){
-                    this.items = data.data;
+                    this.items.push(... data.data);
+                    this.metaInfo.current_page = data.meta.current_page
                     this.metaInfo.to = data.meta.to
                     this.metaInfo.total = data.meta.total;
                     this.metaInfo.total_page = data.meta.last_page;
