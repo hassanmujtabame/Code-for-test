@@ -368,7 +368,7 @@ let valid = await this.$refs.form.validate();
 }
 
 for ( i = 0; i < this.itemForm.field_id.length; i++) {
-        formData.append('field_id[]', this.field_id[i].id);
+        formData.append('field_id[]', this.itemForm.field_id[i].id);
 }
     try {
         let { data } = await ServiceProviderAPIs.add(formData)
