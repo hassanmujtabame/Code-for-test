@@ -44,7 +44,7 @@
 <script>
 import MyServiceCard from '@/components/cards/ready-service.vue';
 import plusRectRoundIcon from '@/components/icon-svg/plus-rect-round.vue';
-import UserApi from '@/services/api/user.js';
+//import UserApi from '@/services/api/user.js';
 import readyReadyAPI from '@/services/api/service-provider/provider/ready-service.js';
 export default {
  name:'section-my-services',
