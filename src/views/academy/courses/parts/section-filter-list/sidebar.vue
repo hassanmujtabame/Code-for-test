@@ -54,7 +54,7 @@
          
         </div>
         <div class="mt-3 text-center">
-            <button @click="updateFilter" class="btn-main">
+            <button @click="updateFilter" class="btn-custmer">
                 {{$t('save')}}
             </button>
         </div>
