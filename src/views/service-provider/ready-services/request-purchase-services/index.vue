@@ -34,6 +34,7 @@
                             :description="item.note"
                             :homeDelivery="item.home_delivery"
                             :delivery="item.delivery_product_available"
+                            :route-full="redirectToReadyService"
                             >
                         </d-request-purchase-card>
         </template>
@@ -67,6 +68,9 @@ export default {
         
     },
     methods:{
+        redirectToReadyService(item){
+            this.router_push('service-provider-ready-service',{id:item.id})
+        },
         changeStatus(status){
             this.status =  status
             this.filterItem.status=status;

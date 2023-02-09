@@ -7,7 +7,7 @@
              :class="statusClass">
            {{ statusName }}
         </div>
-        <h4 class="request-purchase-service__title " @click="router_push('service-provider-request-purchase-service-show',{id:itemId})">
+        <h4 class="request-purchase-service__title clickable" @click="routeFull(item)">
             طلب شراء خدمة :
             <span class="request-purchase-service__title-name">
                 {{ service }}
@@ -102,6 +102,9 @@ export default {
     },
     place:{
         type:String,
+    },
+    routeFull:{
+        type:Function
     },
     price:{
         type:[String,Number],
