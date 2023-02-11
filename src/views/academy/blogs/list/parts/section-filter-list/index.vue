@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import BlogsAPI from '@/services/api/blogs.js'
+import BlogsAPI from '@/services/api/academy/blogs.js'
 import BlogInfoCard from './blog-item.vue';
 export default {
     name: 'section-filter-list',
@@ -41,24 +41,12 @@ export default {
         BlogInfoCard
     },
     data: () => ({
-        categories: [{ id: null, name: 'الكل' }],
-        category_id: null,
         filterItem:{
             created_at:'asc',
             search:null
         }
     }),
-    computed:{
-        categoryName(){
-            let category = this.categories.find(cat=>cat.id==this.category_id)
-            return category.name
-        }
-    },
     methods: {
-        changeCategories(cat){
-            this.category_id=cat;
-            this.fireEvent('d-filter-list-refresh')
-        },
         changeFilter(val){
             this.filterItem = {...this.filterItem,...val}
             this.fireEvent('d-filter-list-refresh')
@@ -70,24 +58,10 @@ export default {
                 ...this.filterItem
             }
             return await BlogsAPI.getAll(params)
-        },
-        async getCategories() {
-            try {
-                let { data } = await BlogsAPI.getCategories()
-                if (data.success) {
-
-                    let categories = data.data;
-                    categories.unshift({ id: null, name: 'الكل' })
-                    this.categories=categories
-                }
-            } catch (error) {
-                console.log('error', error)
-                console.log('error response', error.response)
-            }
         }
+       
     },
     mounted() {
-        this.getCategories();
     }
 }
 </script>
