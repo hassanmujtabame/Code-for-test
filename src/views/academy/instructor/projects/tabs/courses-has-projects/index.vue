@@ -13,26 +13,26 @@
     
                                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                                     <p class="t-c w-75 m-0">
-                                        أختبار 1                                </p>
+                                        مشروع 1                                </p>
                                        <div class="d-flex  gap-1 flex-wrap"> 
                                         <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
                                             عرض
                                         </button>
                                         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   " data-bs-toggle="modal" href="#staticBackdrop2">
-                                            حذف الاختبار
+                                            حذف المشروع
                                         </button>
                                     </div>
                                 </div>
                               
                                 <div class="d-flex flex-wrap align-items-center justify-content-between mt-3">
                                     <p class="t-c w-75 m-0">
-                                        أختبار 1                                </p>
+                                        مشروع 1                                </p>
                                        <div class="d-flex  gap-1 flex-wrap"> 
                                         <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
                                             عرض
                                         </button>
                                         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent " data-bs-toggle="modal" href="#staticBackdrop2">
-                                             حذف الاختبار
+                                             حذف المشروع
                                         </button>
                                     </div>
                                 </div>
@@ -51,26 +51,26 @@
     
                                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                                     <p class="t-c w-75 m-0">
-                                        أختبار 1                                </p>
+                                        مشروع 1                                </p>
                                        <div class="d-flex  gap-1 flex-wrap"> 
                                         <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
                                             عرض
                                         </button>
                                         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   " data-bs-toggle="modal" href="#staticBackdrop2">
-                                            حذف الاختبار
+                                            حذف المشروع
                                         </button>
                                     </div>
                                 </div>
                               
                                 <div class="d-flex flex-wrap align-items-center justify-content-between mt-3">
                                     <p class="t-c w-75 m-0">
-                                        أختبار 1                                </p>
+                                        مشروع 1                                </p>
                                        <div class="d-flex  gap-1 flex-wrap"> 
                                         <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
                                             عرض
                                         </button>
                                         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   " data-bs-toggle="modal" href="#staticBackdrop2">
-                                            حذف الاختبار
+                                            حذف المشروع
                                         </button>
                                     </div>
                                 </div>
@@ -89,26 +89,26 @@
     
                                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                                     <p class="t-c w-75 m-0">
-                                        أختبار 1                                </p>
+                                        مشروع 1                                </p>
                                        <div class="d-flex  gap-1 flex-wrap"> 
                                         <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
                                             عرض
                                         </button>
                                         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   " >
-                                            حذف الاختبار
+                                            حذف المشروع
                                         </button>
                                     </div>
                                 </div>
                               
                                 <div class="d-flex flex-wrap align-items-center justify-content-between mt-3">
                                     <p class="t-c w-75 m-0">
-                                        أختبار 1                                </p>
+                                        مشروع 1                                </p>
                                        <div class="d-flex  gap-1 flex-wrap"> 
                                         <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
                                             عرض
                                         </button>
                                         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   " >
-                                            حذف الاختبار
+                                            حذف المشروع
                                         </button>
                                     </div>
                                 </div>
@@ -127,26 +127,26 @@
     
                                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                                     <p class="t-c w-75 m-0">
-                                        أختبار 1                                </p>
+                                        مشروع 1                                </p>
                                        <div class="d-flex  gap-1 flex-wrap"> 
                                         <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
                                             عرض
                                         </button>
                                         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   " >
-                                            حذف الاختبار
+                                            حذف المشروع
                                         </button>
                                     </div>
                                 </div>
                               
                                 <div class="d-flex flex-wrap align-items-center justify-content-between mt-3">
                                     <p class="t-c w-75 m-0">
-                                        أختبار 1                                </p>
+                                        مشروع 1                                </p>
                                        <div class="d-flex  gap-1 flex-wrap"> 
                                         <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
                                             عرض
                                         </button>
                                         <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   " >
-                                            حذف الاختبار
+                                            حذف المشروع
                                         </button>
                                     </div>
                                 </div>
