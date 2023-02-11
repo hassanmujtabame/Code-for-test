@@ -6,7 +6,7 @@
 <h1>إسم الدوة : <span>دورة ازياء</span></h1>
   </div>
   <div class="academy-blog-item__subtitle">
-<h6>المشاريع تحتاج الى مراجعتة : 40 مشروع</h6>
+<h6>المشاريع تحتاج الى مراجعة : 40 مشروع</h6>
   </div>
   <div class="academy-blog-item__description">
     <p>
