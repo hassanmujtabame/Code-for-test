@@ -35,6 +35,7 @@
                             :homeDelivery="item.home_delivery"
                             :delivery="item.delivery_product_available"
                             :route-full="redirectToReadyService"
+                            @cancel-success="cancelledOrder"
                             >
                         </d-request-purchase-card>
         </template>
@@ -43,7 +44,7 @@
     </div>
 </template>
 <script>
-import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
+import requestPurchasesAPI from '@/services/api/service-provider/provider/request-purchases.js'
 import confirmRequestPurchase from './dialogs/confirm-request-puchase.vue'
 export default {
     name: 'request-purchase-services',
@@ -58,6 +59,7 @@ export default {
                 {label:'طلبات بأنتظار الموافقة',status:"waiting"},
                 {label:'طلبات تعمل عليها',status:"underway"},
                 {label:'طلبات تم الانتهاء منها',status:"finished"},
+                //{label:'طلبات تم إلغاؤها',status:"excluded"},
             ],
             filterItem:{
                 search:null,
@@ -68,8 +70,15 @@ export default {
         
     },
     methods:{
+        cancelledOrder(/*item*/){
+            this.fireEvent('d-filter-list-refresh')
+        },
         redirectToReadyService(item){
-            this.router_push('service-provider-ready-service',{id:item.id})
+      
+            if(item.status=='waiting' || item.service.state=='online')
+            this.router_push('service-provider-ready-service',{id:item.service.id})
+            else
+            this.router_push('service-provider-request-purchase-service-show',{id:item.id})
         },
         changeStatus(status){
             this.status =  status
@@ -86,7 +95,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await readyServiceAPI.getRequestsForPurchaseService(params)
+                return await requestPurchasesAPI.getAll(params)
 
             } catch (error) {
                 console.log('error', error)

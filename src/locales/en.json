@@ -475,7 +475,7 @@
   "switch-to-provider": "switch to provider",
   "my-requests": "My requests",
   "project": "Project",
-  "delivery_place": "مكان التنفيذ او التسليم",
+  "delivery_place": "delivery place",
   "academy-courses": "Academy courses",
   "academy-meetings": "Academy meetings",
   "your-courses": "Your courses",
@@ -493,5 +493,7 @@
   "account-profil": "Account profil",
   "the_message": "Message",
   "delivery_from_platform": "delivery from plateform",
-  "delivery_to_home": "delivery to home"
+  "delivery_to_home": "delivery to home",
+  "delivery_home": "Delivery to home",
+  "client_choosen": "Client choosen"
 }

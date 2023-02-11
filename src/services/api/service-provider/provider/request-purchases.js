@@ -1,39 +1,34 @@
 
 import BaseApi from "../../base-service";
-class ServiceProviderApi extends BaseApi{
+class RequestPurchasesApi extends BaseApi{
     //Get all project-categories
-
     getAll(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/my-services?${s}`);
+        /**
+         * status :  underway waiting  cancel finished
+         */
+        return window.axios.get(`service-provider/provider/request-purchase-services?${s}`);
     }
     getItem(id,params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/my-services/${id}?${s}`);
+        return window.axios.get(`service-provider/provider/request-purchase-services/${id}?${s}`);
     }
     addItem(data){
-        return window.axios.post(`service-provider/user/my-services`,data);
+        return window.axios.post(`service-provider/provider/request-purchase-services`,data);
     }
     updateItem(id,data){
         data.append('_method','PUT')
-        return window.axios.post(`service-provider/user/my-services/${id}`,data);
+        return window.axios.post(`service-provider/provider/request-purchase-services/${id}`,data);
     }
     deleteItem(id){
       
-        return window.axios.delete(`service-provider/user/my-services/${id}`);
+        return window.axios.delete(`service-provider/provider/request-purchase-services/${id}`);
     }
     getRecent(params={},paginate=6){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/orders?paginate=${paginate}${s?'&'+s:''}`);
+        return window.axios.get(`service-provider/provider/request-purchase-services?paginate=${paginate}${s?'&'+s:''}`);
     } 
-    getCategories(params={}){
-        let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/service-categories?${s}`);
-    }
-    getFields(id,params){
-        let s=this.generateQueryUrl({...params,service_category_id:id})
-        return window.axios.get(`service-provider/user/service-fields?${s}`); 
-    }
+   
     confirmDelivery(id){
         return window.axios.get(`service-provider/provider/ready-services/project-delivery/${id}`); 
     }
@@ -48,7 +43,12 @@ class ServiceProviderApi extends BaseApi{
     cancelRequestPurchase(purchase_id){
         return window.axios.post(`service-provider/provider/request-purchase-service/cancel/${purchase_id}`); 
     }
-
+    rateProvider(data){
+        return window.axios.post(`service-provider/user/rate`,data);
+    }
+    rateService(data){
+        return window.axios.post(`service-provider/user/rate/ready-service`,data);
+    }
 }
 
-export default new ServiceProviderApi();
+export default new RequestPurchasesApi();

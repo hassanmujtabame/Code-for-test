@@ -490,5 +490,8 @@
   "account-profil": "صفحتك الشخصية",
   "the_message": "الرسالة",
   "delivery_from_platform": "من خلال المنصة",
-  "delivery_to_home": "التوصيل حتى المنزل"
+  "delivery_to_home": "التوصيل حتى المنزل",
+  "delivery_home": "التوصيل حتى المنزل",
+  "delivery_place": "مكان التنفيذ او التسليم",
+  "client_choosen": "ما يفضله العميل"
 }

@@ -7,7 +7,9 @@
   :mode="mode" :is24hr="is24hr"  :masks="masks"
   :maxDate="maxDate"
   :minDate="minDate"
-  :modelConfig="modelConfig" 
+  :disabled="disabled"
+  :modelConfig="modelConfig"
+
   >
     <template v-slot="{ inputValue, inputEvents }">
     <input
@@ -29,6 +31,10 @@ export default {
             type:String
         },
         hideDate:{
+          type:Boolean,
+          default:false
+        },
+        disabled:{
           type:Boolean,
           default:false
         },

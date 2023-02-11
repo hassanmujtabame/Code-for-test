@@ -10,14 +10,14 @@
         <h4 class="request-purchase-service__title clickable" @click="routeFull(item)">
             طلب شراء خدمة :
             <span class="request-purchase-service__title-name">
-                {{ service }}
+                {{ item.service.title }}
             </span>
         </h4>
     </div>
     <div class="request-purchase-service__wrapper-date">
         <p class="request-purchase-service__date">
             <d-time-icon :size="24" color="currentColor" />
-            تاريخ بداية الطلب : {{ dateRequest }}
+            تاريخ بداية الطلب : {{ dateReverse(item.created_at) }}
         </p>
     </div>
 
@@ -26,43 +26,46 @@
 <div class="d-flex gap-2 flex-wrap">
     <p class="request-purchase-service__info">
         <d-user-rect-icon :size="16" color="currentColor" />
-        {{ name }}
+        {{ item.user_info.name }}
     </p>
     <p class="request-purchase-service__info">
         <d-localisation-icon :size="16" color="currentColor" />
-        {{ state=='online'?$t('online'):place }}
+        {{ item.service.state=='online'?$t('online'):item.service.city }}
     </p>
     <p class="request-purchase-service__info">
         <d-empty-wallet-icon :size="16" color="currentColor" />
-        {{ price }} {{ $t('riyals') }}</p>
+        {{ item.service.price }} {{ $t('riyals') }}</p>
     <p class="request-purchase-service__info">
         <d-timer-icon :size="16" color="currentColor" />
-        مدة التنفيذ: {{ during }} 
+        مدة التنفيذ: {{ numberToDay(item.service.execution_period) }} 
     </p>
-    <p v-if="homeDelivery" class="request-purchase-service__info">
+    <p v-if="item.service.state!=='online'" class="request-purchase-service__info">
         <d-truck-icon :size="16" color="currentColor" />
-        {{ state=='online'?$t('delivery_from_platform'):$t('delivery_to_home') }}
+        {{ $t(item.execution_place)}}
     </p>
-    <p v-if="delivery&& state!=='online'" class="request-purchase-service__info">
+    <p v-if="item.service.state!=='online'" class="request-purchase-service__info">
         <d-thunder-icon :size="16" color="currentColor" />
-        التسيلم عند توفر المنتج
+        {{ periodToText(item.execution_period) }}
+       
     </p>
     <p class="request-purchase-service__info">
         <d-heart-icon :size="16" color="currentColor" />
-        عدد الطلبات {{ requests }}
+        عدد الطلبات {{ item.count_requests }}
     </p>
 </div>
 <div class="d-flex flex-wrap align-items-center justify-content-between">
-    <p class="request-purchase-service__description w-75 m-0" v-html="description">
+    <p class="request-purchase-service__description w-75 m-0" v-html="item.note">
     </p>
-    <div v-if="state=='offline' && ['waiting','underway'].includes(status)"  class="d-flex  gap-1 flex-wrap">
-        <button v-if="status=='underway'" @click="askDeliveryPurchase" style="height: 40px; width: 100px;" class="btn-main px-2 ">
+    <div v-if="item.service.state=='offline' && ['waiting','underway'].includes(item.status)"  class="d-flex  gap-1 flex-wrap">
+        <button v-if="item.status=='underway'" @click="askDeliveryPurchase" style="height: 40px; width: 100px;" class="btn-main px-2 ">
             طلب تسليم
         </button>
-        <button v-if="status=='waiting'" @click="confirmRequestPurchase" style="height: 40px; width: 100px;" class="btn-main px-2 ">
+        <button v-if="item.status=='waiting'" @click="confirmRequestPurchase" style="height: 40px; width: 100px;" class="btn-main px-2 ">
             تاكيد الطلب
         </button>
-        <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent   ">
+        <button class="btn rounded-2 border-danger text-danger px-2 bg-transparent"
+        @click="confirmCancelRequestPurchase"
+        >
             إلغاء الطلب
         </button>
     </div>
@@ -71,6 +74,7 @@
 </template>
 
 <script>
+import requestPurchaseService from '@/services/api/service-provider/provider/my-requests.js'
 export default {
     name:'request-card',
  props:{
@@ -133,8 +137,9 @@ export default {
             case 'finish': return "مكتمل";
             case 'waiting': return "قيد الانتظار";
             case 'underway': return "قيد التنفيذ";
-            case 'cancel': return"ملغاة";
-                
+            case 'cancel': return "ملغاة";
+            case 'excluded': return "ملغاة";
+            
         
             default:
                 return this.status
@@ -142,12 +147,48 @@ export default {
     }
  },
  methods:{
+    periodToText(period){
+        switch (period) {
+            case 'time_available_product': return ' التسيلم عند توفر المنتج';
+            case 'specific_date': return `التسيلم يوم ${this.dateReverse(this.item.specific_date)}`;
+            default:
+                return 'N/A'
+        }
+    },
     confirmRequestPurchase(){
         this.fireOpenDialog('confirm-request-purchase',this.item)
     },
     askDeliveryPurchase(){
         this.router_push('service-provider-request-purchase-service-progress',{id:this.itemId})
     },
+    confirmCancelRequestPurchase(){
+        let dataEvent = {
+                title:'هل انت متاكد من الغاء طلب شراء الخدمة؟',
+                description:'',
+                btns:[
+                    {title:'تأكيد إلغاء الطلب',action:this.cancelRequestPurchase,class:'btn btn-custmer'}
+                ]
+        }
+        this.showConfirmMsg(dataEvent)
+        this.$emit('cancel-success',this.item)
+    },
+    cancelRequestPurchase(){
+        try {
+            let { data } = requestPurchaseService.cancelRequestPurchase(this.item.id)
+            if(data.success){
+                let dataEvent = {
+                title:'هل انت متاكد من الغاء طلب شراء الخدمة؟',
+                description:'',
+                btns:[
+                    {title:'حسنا',action:()=>{},class:'btn btn-custmer'}
+                ]
+        }
+        this.showSuccessMsg(dataEvent) 
+            }
+        } catch (error) {
+            //
+        }
+    }
  }
 }
 </script>
@@ -239,7 +280,7 @@ color: #737373;
 .status-request-finished,.status-request-finish{
     background-color: #1FB9B3;
 }
-.status-request-cancel{
+.status-request-excluded,.status-request-cancel{
     background-color: red;
 }
 </style>    

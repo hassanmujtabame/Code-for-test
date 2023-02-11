@@ -148,7 +148,7 @@ const routers =[
         path: 'service-provider/request-purchase-services/:id',
         meta:{layout:LayoutService,auth:true},
         name: 'service-provider-request-purchase-service-show',
-        component: () => import(/* webpackChunkName: "service-provider-request-purchase-show" */ '../views/service-provider/ready-services/request-purchase-services/show/index.vue') 
+        component: () => import(/* webpackChunkName: "service-provider-request-purchase-show" */ '../views/service-provider/ready-services/request-purchase-services/show-request.vue') 
     },
     /*{
         path: 'service-provider/show-services/:id',

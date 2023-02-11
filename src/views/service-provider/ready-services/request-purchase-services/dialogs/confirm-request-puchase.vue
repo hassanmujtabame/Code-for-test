@@ -6,31 +6,31 @@
     >
 
       <template v-slot>
-        <div class="">
+        <div v-if="showed" class="">
             <div class="d-flex w-100">
-                <h3 class="flex-grow-1">{{ itemDialog.title }}</h3>
+                <h3 class="flex-grow-1">{{ itemDialog.service.title }}</h3>
                 <div class="flex-shrink-0">
                     <timeIcon :size="16" />
                     <span>تاريخ  بداية الطلب : </span>
-                    <span>{{ itemDialog.created_at }}</span>
+                    <span>{{ dateReverse(itemDialog.created_at) }}</span>
                 </div>
             </div>
             <div class="d-flex t-c">
                 <div class="mx-1">
                     <userRectIcon :size="16" color="currentColor"/>
-                    خالد
+                    {{itemDialog.user_info.name}}
                 </div>
                 <div class="mx-1">
                     <localisationIcon :size="16" color="currentColor"/>
-                    دمام
+                    {{itemDialog.service.city}}
                 </div>
                 <div class="mx-1">
                     <emptyWalletIcon :size="16" color="currentColor"/>
-                    20 ريال 
+                    {{itemDialog.service.price}} {{$t('riyals')}} 
                 </div>
                 <div class="mx-1">
                     <timerIcon :size="16" color="currentColor"/>
-                مدة التنفيذ : 7 أيام
+                مدة التنفيذ : {{ numberToDay(itemDialog.service.execution_period) }}  
                 </div>
             </div>
         </div>
@@ -40,12 +40,12 @@
                         class="mb-3"
                         :name="$t('execution_period')"
                         vid="execution_period"
-                        rules="required"
+                        rules=""
                         v-slot="{errors}"
                         >
                         <label class="form-label"> وقت تنفيذ او استلام الخدمة</label>
                         <div class="">
-                        <select v-model="itemForm.execution_period" class="form-select ">
+                        <select disabled v-model="itemForm.execution_period" class="form-select ">
                             <option value="" class="t-c" selected> وقت تنفيذ او استلام الخدمة</option>
                             <option value="specific_date">تحديد موعد التنفيذ</option>
                             <option value="time_available_product">الاستلام  وقت توفر المنتج</option>
@@ -63,13 +63,14 @@
                         class="mb-3"
                         :name="$t('specific_date')"
                         vid="specific_date"
-                        rules="required"
+                        rules=""
                         v-slot="{errors}"
                         >
-                        <date-picker-input
+                        <input type="date"
                         class="form-control"  
-                            v-model="itemForm.specific_date" 
-                            mode="date" 
+                           :value="itemForm.specific_date" 
+                            mode="date"
+                            disabled 
                         />
                         <d-error-input :errors="errors" v-if="errors.length" />
                         </ValidationProvider>
@@ -80,10 +81,10 @@
                         <ValidationProvider
                                 :name="$t('delivery_place')"
                                 vid="delivery_place"
-                                rules="required"
+                                rules=""
                                 v-slot="{errors}">
                         <label class="form-label">{{ $t('delivery_place') }} </label>
-                                <input type="text" v-model="itemForm.delivery_place" class="form-control" :placeholder="$t('execution_period')">
+                                <input disabled type="text" v-model="itemForm.delivery_place" class="form-control" :placeholder="$t('execution_period')">
                                 <d-error-input :errors="errors" v-if="errors.length" />
                         </ValidationProvider>
                     </div>
@@ -93,7 +94,7 @@
                             <div class="t-c">يمكنك طلب الخدمة لك عدة مرات او لاكثر من شخص </div>
                         </div>
                         <div class="flex-shrink-0">
-                            <input disabled type="numeric" class="form-control" style="width:50px"/>
+                            <input disabled type="numeric" :value="itemForm.count_requests" class="form-control" style="width:50px"/>
                         </div>
                     </div>
         </ValidationObserver>
@@ -106,7 +107,8 @@
   </template>
 
   <script>
-  import readyServiceRequestAPI from '@/services/api/service-provider/provider/my-requests';
+  import requestPurchasesAPI from '@/services/api/service-provider/provider/request-purchases.js'
+
   import emptyWalletIcon from '@/components/icon-svg/empty-wallet.vue';
   import localisationIcon from '@/components/icon-svg/localisation.vue';
   import timeIcon from '@/components/icon-svg/time.vue';
@@ -151,7 +153,7 @@
       
         
         try {
-            let { data } = await readyServiceRequestAPI.acceptRequestPurchase(this.itemDialog.id)
+            let { data } = await requestPurchasesAPI.acceptRequestPurchase(this.itemDialog.id)
             if(data.success){
                 let dataEvent = {
                     title:'تم قبول الخدمة بنجاح',
@@ -171,7 +173,11 @@
         
     },
       openDialog(data){
-        this.itemDialog=Object.assign({},data);
+        
+        let {service,...rest} = data;
+        this.itemDialog={...data};
+        this.itemForm = rest;
+       
         this.showed=true
         return true;
       },
