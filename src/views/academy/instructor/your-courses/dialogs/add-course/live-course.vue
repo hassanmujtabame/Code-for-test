@@ -10,7 +10,14 @@
                     <input type="text" class="form-control" name="" id="" placeholder="عدد ايام الدورة ">
                 </div>
                 <div class="mt-3">
-                    <input type="text" class="form-control" name="" id="" placeholder="ايام الدورة ( حددي ايام الاسبوع )">
+                    <d-drown-list label="ايام الدورة ( حددي ايام الاسبوع )" :opts="daysOfWeek" 
+                                track-id="id" label-name="name"
+                                v-model="itemForm.days"
+                                multi-select
+                                placeholder="ايام الدورة ( حددي ايام الاسبوع )"
+                                />
+
+                 
                 </div>
                 <div class="mt-3">
                     <input type="text" class="form-control" id="input_from" placeholder="موعد بداية الدورة  ">
@@ -70,6 +77,7 @@
     </template>
     
     <script>
+    import commonAPI from '@/services/api/common'
     export default {
         name:'add-course-dialog-live',
       props:{
@@ -79,10 +87,14 @@
         }
       },
       data:()=>{
+        let daysOfWeek = commonAPI.getDaysOfWeek()
         return{
+            daysOfWeek:daysOfWeek,
             step:1,
             showDialog:false,
-            itemForm:{}
+            itemForm:{
+                days:[]
+            }
         }
       },
       methods:{

@@ -493,5 +493,12 @@
   "delivery_to_home": "التوصيل حتى المنزل",
   "delivery_home": "التوصيل حتى المنزل",
   "delivery_place": "مكان التنفيذ او التسليم",
-  "client_choosen": "ما يفضله العميل"
+  "client_choosen": "ما يفضله العميل",
+  "tuesday": "الثلاثاء",
+  "wednesday": "الأربعاء",
+  "thursday": "الخميس",
+  "friday": "جمعة",
+  "saturday": "السبت",
+  "sunday": "الأحد",
+  "monday": "الاثنين"
 }

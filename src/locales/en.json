@@ -495,5 +495,12 @@
   "delivery_from_platform": "delivery from plateform",
   "delivery_to_home": "delivery to home",
   "delivery_home": "Delivery to home",
-  "client_choosen": "Client choosen"
+  "client_choosen": "Client choosen",
+  "tuesday": "tuesday",
+  "wednesday": "wednesday",
+  "thursday": "thursday",
+  "friday": "friday",
+  "saturday": "saturday",
+  "sunday": "sunday",
+  "monday": "monday"
 }

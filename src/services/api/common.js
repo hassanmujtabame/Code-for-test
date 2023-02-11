@@ -1,5 +1,6 @@
 
 import BaseApi from "./base-service";
+import _i18n from "@/plugins/i18n";
 class CommonApi extends BaseApi {
 
     ContactUsSend(data){
@@ -34,6 +35,17 @@ class CommonApi extends BaseApi {
     let s=this.generateQueryUrl(params)
     return window.axios.get(`user/countries?${s}`);
 }
+  getDaysOfWeek(){
+    return [
+      {id:'sunday',name:_i18n.t('sunday')},
+      {id:'monday',name:_i18n.t('monday')},
+      {id:'tuesday',name:_i18n.t('tuesday')},
+      {id:'wednesday',name:_i18n.t('wednesday')},
+      {id:'thursday',name:_i18n.t('thursday')},
+      {id:'friday',name:_i18n.t('friday')},
+      {id:'saturday',name:_i18n.t('saturday')},
+    ]
+  }
 }
 
 export default new CommonApi();
