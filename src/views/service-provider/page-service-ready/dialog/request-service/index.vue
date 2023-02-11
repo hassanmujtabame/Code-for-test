@@ -232,6 +232,7 @@ export default {
            
             let formData = new FormData();
             Object.keys(this.itemForm).forEach(key=>{
+                if(this.itemForm[key]!==null)
                 formData.append(key,this.itemForm[key])
             })
             try {
