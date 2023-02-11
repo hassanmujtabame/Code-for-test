@@ -1,118 +1,13 @@
 <template>
 <div class="tab-pane fade" id="pills-project-need-revision" role="tabpanel" aria-labelledby="pills-project-need-revision-tab" tabindex="0">
-                            <div class="text-end">
-                                <button style="background-color: #F2631C;" class="btn text-white"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">
-                                    رسالة للجميع
-                                </button>
-                            </div>
-                            <div class="box">
-    
                            
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                        <div class="d-flex gap-2">
-                                            <div>
-                                                <img class="rounded-circle" :src="user.image" alt="" width="48" height="48">
-                                            </div>
-                                            <div>
-                                                <h6 class="m-c p-0 m-0">
-                                                    {{user.name}}
-                                                </h6>
-                                                <p  class="t-c p-0 m-0">
-                                                    10/10  - دورة الازياء 
-                                                </p>
-                                            </div>
-                                        </div>
-                                       <div class="d-flex  gap-1 flex-wrap"> 
-                                        <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
-                                            ارسل رسالة
-                                        
-                                        </button>
-                     
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="box">
-    
-                           
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                        <div class="d-flex gap-2">
-                                            <div>
-                                                <img class="rounded-circle" :src="user.image" alt="" width="48" height="48">
-                                            </div>
-                                            <div>
-                                                <h6 class="m-c p-0 m-0">
-                                                    {{user.name}}
-                                                </h6>
-                                                <p  class="t-c p-0 m-0">
-                                                    10/10  - دورة الازياء 
-                                                </p>
-                                            </div>
-                                        </div>
-                                       <div class="d-flex  gap-1 flex-wrap"> 
-                                        <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
-                                            ارسل رسالة
-                                        
-                                        </button>
-                     
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="box">
-    
-                           
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                        <div class="d-flex gap-2">
-                                            <div>
-                                                <img class="rounded-circle" :src="user.image" alt="" width="48" height="48">
-                                            </div>
-                                            <div>
-                                                <h6 class="m-c p-0 m-0">
-                                                    {{user.name}}
-                                                </h6>
-                                                <p  class="t-c p-0 m-0">
-                                                    10/10  - دورة الازياء 
-                                                </p>
-                                            </div>
-                                        </div>
-                                       <div class="d-flex  gap-1 flex-wrap"> 
-                                        <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
-                                            ارسل رسالة
-                                        
-                                        </button>
-                     
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="box">
-    
-                           
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                        <div class="d-flex gap-2">
-                                            <div>
-                                                <img class="rounded-circle" :src="user.image" alt="" width="48" height="48">
-                                            </div>
-                                            <div>
-                                                <h6 class="m-c p-0 m-0">
-                                                    {{user.name}}
-                                                </h6>
-                                                <p  class="t-c p-0 m-0">
-                                                    10/10  - دورة الازياء 
-                                                </p>
-                                            </div>
-                                        </div>
-                                       <div class="d-flex  gap-1 flex-wrap"> 
-                                        <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
-                                            ارسل رسالة
-                                        
-                                        </button>
-                     
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
+                            <CardItem v-for="item in 4" :key="item">        
+  
+                                
+                                </CardItem>
+                              
+
+
                             
                             <div class=" mt-5">
     
@@ -140,8 +35,12 @@
 </template>
 
 <script>
+import CardItem from './card-item.vue'
 export default {
- name:'project-need-revision'
+ name:'project-need-revision',
+ components:{
+    CardItem
+ }
 }
 </script>
 
