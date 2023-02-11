@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import exhibitionAPI from '@/services/api/exhibitions.js'
+import serviceProviderAPI from '@/services/api/service-provider.js'
 import sidebarBox from './sidebar.vue';
 export default {
     name: 'filter-exhibitions',
@@ -122,7 +122,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-               return await exhibitionAPI.getAll(params)
+               return await serviceProviderAPI.getMyTransaction(params)
 
             } catch (error) {
                 console.log('error', error)
