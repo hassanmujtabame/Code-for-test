@@ -204,7 +204,10 @@
             </div>
             <div :class="{'col-md-9':!hideSide,'col-md-12':hideSide}">
                 <div class="row">
-                <div class="col-12 row order">
+                    <div v-if="items.length==0">
+                        <h1 class="t-c text-center">لا يوجد عناصر</h1>
+                    </div>
+                <div v-else class="col-12 row order">
                     <div v-for="(item,i) in items" :key="i" :class="classColCard">
                        
                          <slot :item="item"></slot>
@@ -217,7 +220,7 @@
                 </div>
             </div>
             <div class=" mt-5">
-                <nav aria-label="Page navigation example">
+                <nav v-if="metaInfo.total_page>1" aria-label="Page navigation example">
                     <ul class="pagination justify-content-center"
                     :style="{'flex-direction': $i18n.locale=='ar'?'row-reverse':'row'}"
                     >
