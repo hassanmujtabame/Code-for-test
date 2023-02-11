@@ -9,7 +9,9 @@
 <h6>عدد المنضمين : 557878 شخص</h6>
   </div>
   <div class="academy-blog-item__description">
-    <p>وهناك الكثيرون غيرهم ممن طبقوا مبادئ ريادة الاعمال، وقدموا للعالم حلولاً مبتكرةً في كافة المجالات، استفادت، ولازالت تستفيد منها البشرية حتى اليوم.</p>
+    <p>
+        يبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعمال يبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات .............    
+    </p>
     </div>
   </div>
   <div class="academy-blog-item__actions">
@@ -19,8 +21,8 @@
         <span>2010-10-10</span>
     </div>
     <div class="academy-blog-item__btns">
-        <button class="btn btn-custmer btn-small">صفحة التدوينة</button>
-        <button class="btn btn-custmer btn-danger btn-small mx-1">خذف التدوينة</button>
+        <button class="btn btn-custmer btn-small">رسالة للمنضمين</button>
+        <button class="btn btn-custmer btn-danger btn-small mx-1">خذف اللقاء</button>
     </div>
 </div>
   </div>
