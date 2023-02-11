@@ -2,8 +2,8 @@
   <div>
         <!-- section 1-->
         <SectionAuthHeader />
-        <!-- section best intructors-->
-        <SectionBestIntructors />
+        <!-- section best instructors-->
+        <SectionBestInstructors />
         <!-- section section-academy-schedule-->
         <section-academy-schedule />
         <!-- section recent courses online-->
@@ -32,7 +32,7 @@ import SectionBlog from './parts/section-blog/index.vue'
 import SectionEducationalMeeting from './parts/section-educational-meeting/index.vue'
 import SectionAuthHeader from './parts/section-auth-header/index.vue'
 import SectionAcademySchedule from './parts/section-academy-schedule/index.vue'
-import SectionBestIntructors from './parts/section-best-intructors/index.vue'
+import SectionBestInstructors from './parts/section-best-instructors/index.vue'
 import SectionRecentCoursesOnline from './parts/section-recent-courses-online/index.vue'
 import SectionRecentCoursesOffline from './parts/section-recent-courses-offline/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
@@ -46,7 +46,7 @@ components:{
   SectionEducationalMeeting,
   SectionBlog,
   SectionAcademySchedule,
-  SectionBestIntructors,
+  SectionBestInstructors,
   SectionRecentCoursesOnline,
   SectionRecentCoursesOffline,
   SectionOurPartners,

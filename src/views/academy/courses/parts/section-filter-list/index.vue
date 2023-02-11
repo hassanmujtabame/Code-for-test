@@ -1,6 +1,6 @@
 <template>
 <d-filter-list :fake-items="items"
-:searchPlaceholder="$t('search-by-course-or-intructor')"
+:searchPlaceholder="$t('search-by-course-or-instructor')"
 pluralName="قائمة  الدورات"
 singleName="دورة"
 >

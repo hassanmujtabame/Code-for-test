@@ -61,16 +61,16 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-your-courses" */ '../views/academy/your-courses/index.vue') 
     },
     {
-        path: 'academy/intructor/your-courses',
+        path: 'academy/instructor/your-courses',
         meta:{layout:LayoutDefault,auth:true},
-        name: 'academy-intructor-your-courses',
-        component: () => import(/* webpackChunkName: "academy-intructor-your-courses" */ '../views/academy/instructor/your-courses/index.vue') 
+        name: 'academy-instructor-your-courses',
+        component: () => import(/* webpackChunkName: "academy-instructor-your-courses" */ '../views/academy/instructor/your-courses/index.vue') 
     },
     {
-        path: 'academy/intructor/exams',
+        path: 'academy/instructor/exams',
         meta:{layout:LayoutDefault,auth:true},
-        name: 'academy-intructor-exams',
-        component: () => import(/* webpackChunkName: "academy-intructor-exams" */ '../views/academy/instructor/exams/index.vue') 
+        name: 'academy-instructor-exams',
+        component: () => import(/* webpackChunkName: "academy-instructor-exams" */ '../views/academy/instructor/exams/index.vue') 
     },
     {
         path: 'academy/my-blogs',

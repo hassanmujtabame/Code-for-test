@@ -38,7 +38,7 @@
 import CardMember from '@/components/cards/card-member.vue'
 
 export default {
-    name:'section-best-intructors',
+    name:'section-best-instructors',
     components:{
         CardMember
     },

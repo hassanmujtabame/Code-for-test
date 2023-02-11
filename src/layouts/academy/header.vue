@@ -14,7 +14,7 @@
             </li>
            
           
-                  <button v-if="userAcademyRole=='student'" @click="switchRole('instructor')" class="btn m-c">{{ $t('switch-to-intructor') }}</button>
+                  <button v-if="userAcademyRole=='student'" @click="switchRole('instructor')" class="btn m-c">{{ $t('switch-to-instructor') }}</button>
                   <button v-if="userAcademyRole=='instructor'" @click="switchRole('student')" class="btn m-c">{{$t('switch-to-student') }}</button>
                   </template>
     </TemplateHeader>
@@ -34,14 +34,14 @@ export default {
 
       items:[
                 /**instructor */
-        {route:'academy-intructor-your-courses', text:vm.$t('courses'),role:'instructor'},
+        {route:'academy-instructor-your-courses', text:vm.$t('courses'),role:'instructor'},
         {route:'academy-blogs', text:vm.$t('academy-blog'),role:'instructor'},
-        {route:'contact-us',text:vm.$t('contact-us'),intructor:'stuinstructordent'},
+        {route:'contact-us',text:vm.$t('contact-us'),instructor:'stuinstructordent'},
         /**student */
         {route:'academy-courses', text:vm.$t('academy-courses'),role:'student'},
         {route:'academy-learning-meetings', text:vm.$t('academy-meetings'),role:'student'},
         {route:'academy-your-courses', text:vm.$t('your-courses'),role:'student'},
-        {route:'contact-us',text:vm.$t('contact-us'),intructor:'student'},
+        {route:'contact-us',text:vm.$t('contact-us'),instructor:'student'},
         ]
     }
   },

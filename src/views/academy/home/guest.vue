@@ -25,7 +25,7 @@
          <section-academy-schedule />
         <!--#section section-academy-schedule--> 
          <!-- section 9-->
-         <SectionBestIntructors />
+         <SectionBestInstructors />
         <!--#section 9-->   
         <!-- section 10-->
         <SectionTen />
@@ -59,7 +59,7 @@ import SectionTrainingFields from './parts/section-training-fields/index.vue'
 import SectionExploringEntrepreneurship from './parts/section-exploring-entrepreneurship/index.vue'
 import SectionExploringSpecializedEntrepreneurship from './parts/section-exploring-specialized-entrepreneurship/index.vue'
 import SectionAcademySchedule from './parts/section-academy-schedule/index.vue'
-import SectionBestIntructors from './parts/section-best-intructors/index.vue'
+import SectionBestInstructors from './parts/section-best-instructors/index.vue'
 import SectionTen from './parts/section-10/index.vue'
 import SectionRecentCourses from './parts/section-recent-courses/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
@@ -77,7 +77,7 @@ components:{
   SectionExploringEntrepreneurship,
   SectionExploringSpecializedEntrepreneurship,
   SectionAcademySchedule,
-  SectionBestIntructors,
+  SectionBestInstructors,
   SectionTen,
   SectionRecentCourses,
   SectionOurPartners,

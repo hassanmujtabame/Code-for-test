@@ -1,6 +1,6 @@
 <template>
   <MyBlog title="قائمة الإختبارات" :value="0" color="#1FB9B3" 
-  :url="getRouteLocale('academy-intructor-exams')"
+  :url="getRouteLocale('academy-instructor-exams')"
   />
 </template>
 
