@@ -1,7 +1,7 @@
 <template>
   <div style="margin-top: 85px" class="consult max-width-100-hidden bg-body-page">
 
-        <div class="container mt-5">
+        <div class="container">
             <!-- filter list-->
             <SectionFilterList />
 
