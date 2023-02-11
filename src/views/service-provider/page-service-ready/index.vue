@@ -165,7 +165,7 @@
                                     {{ $t('publish-date') }}:
                                 </span>
                                 <span class="m-c fw-bolder">
-                                    {{itemPage.start_date??'N/A'}}
+                                    {{itemPage.created_at??'N/A'}}
                                 </span>
                             </div>
                         </div>
