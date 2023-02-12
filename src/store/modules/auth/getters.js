@@ -10,6 +10,9 @@ export default {
     partner (state) { 
         return state.partner;
     },
+    isInstructor (state) { 
+        return state.isInstructor;
+    },
     academyRole(state){
        return state.academyRole || localStorage.getItem('user_academy_role')
     },

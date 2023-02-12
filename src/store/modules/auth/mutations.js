@@ -51,16 +51,19 @@ export default{
         localStorage.setItem("user_provider", data?'Y':'N');
     },
     SET_USER(state,payload){
-        let {partner,subscribers,...user} = payload;
+        let {partner,subscribers,is_instructor,...user} = payload;
         state.user=user;
         state.partner = partner?? null; // if undefined makes it null
+        state.isInstructor = is_instructor?? false; // if undefined makes it null
         state.subscribeNetwork = subscribers&&subscribers.network?subscribers.network.subscribe:null
         state.subscribeProvider = subscribers&&subscribers.service_provider?!!subscribers.service_provider.subscribe:null
         localStorage.setItem("auth_user", JSON.stringify(user));
     },
     SET_PARTNER(state,payload){
         state.partner=payload;
-        
+    },
+    SET_INSTRUCTOR(state,payload){
+        state.isInstructor=payload;
     },
     SET_SUBSCRIBE_NETWORK(state,payload){
         state.subscribeNetwork=payload;

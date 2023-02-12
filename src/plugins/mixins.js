@@ -286,7 +286,7 @@ const mixin = {
                       description:'لتسجيل كمدرب انقر على الزر "تسجيل الأن"',
                       btns:[
                         {title:'تسجيل الأن',action:()=>this.router_push('academy-instructor-register')},
-                        {title:'إلغاء',action:()=>{},class:"btn btn-danger"}
+                        {title:'إلغاء',action:()=>{},class:"btn btn-custmer btn-danger"}
                       ]
                     }
                     this.showConfirmMsg(dateEvt)
@@ -338,6 +338,7 @@ const mixin = {
                     user: 'auth/user',
                     userPartner: 'auth/partner',
                     userIsProvider: 'auth/isProvider',
+                    userIsInstructor:'auth/isInstructor',
                     userAcademyRole: 'auth/academyRole',
                     userSubNetwork: 'auth/subscribeNetwork',
                     userSubProvider: 'auth/subscribeProvider',
