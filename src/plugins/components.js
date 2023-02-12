@@ -17,6 +17,7 @@ import DMultiSelecetTagInput from '@/components/inputs/multi-select/tags.vue'
 import RSliderInput from '@/components/inputs/r-slider/index.vue'
 import drowListInput from '@/components/inputs/multi-select/drown-list.vue'
 import DatePickerInput from '@/components/inputs/date-picker/index.vue'
+import DDatePickerInput from '@/components/inputs/date-picker/d-datepicker.vue'
 import DatePickerRange from '@/components/inputs/date-picker/range.vue'
 import DCkeditorClassicInput from '@/components/inputs/d-ckeditor/classic.vue'
 import DUserInfo from '@/components/cards/user-info.vue'
@@ -63,6 +64,7 @@ Vue.component('d-error-input', ErrorInput)
 Vue.component('d-drown-list', drowListInput)
 Vue.component('d-multi-select-tag', DMultiSelecetTagInput)
 Vue.component('date-picker-input', DatePickerInput)
+Vue.component('d-datepicker-input', DDatePickerInput)// just for date only
 Vue.component('date-picker-range', DatePickerRange)
 Vue.component('d-ckeditor-classic', DCkeditorClassicInput)
 Vue.component('section-continue-learning', SectionContinueLearning)
