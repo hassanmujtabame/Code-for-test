@@ -16,6 +16,8 @@ import DFilterList from '@/components/filter-list/index.vue'
 import DMultiSelecetTagInput from '@/components/inputs/multi-select/tags.vue'
 import RSliderInput from '@/components/inputs/r-slider/index.vue'
 import drowListInput from '@/components/inputs/multi-select/drown-list.vue'
+import DMultiSelecetInput from '@/components/inputs/multi-select/d-multiselect.vue'
+import DSelectInput from '@/components/inputs/multi-select/d-select.vue'
 import DTextInput from '@/components/inputs/text-input/inline.vue'
 import DatePickerInput from '@/components/inputs/date-picker/index.vue'
 import DDatePickerInput from '@/components/inputs/date-picker/d-datepicker.vue'
@@ -36,25 +38,9 @@ import MyRequestCard from '@/components/cards/my-request-client.vue'
 import ErrorInput from '@/components/error-input/index.vue'
 import CreditCardImage from '@/components/credit-card/credit-card-img.vue'
 import DRateStars from '@/components/rate-stars/index.vue'
-/*Vue.directive('click-outside', {
-    priority: 700,
-    bind () {
-      let self  = this
-      this.event = function (event) { 
-          console.log('emitting event')
-          self.vm.$emit(self.expression,event) 
-         }
-      this.el.addEventListener('click', this.stopProp)
-      document.body.addEventListener('click',this.event)
-    },
-    
-    unbind() {
-        console.log('unbind')
-      this.el.removeEventListener('click', this.stopProp)
-      document.body.removeEventListener('click',this.event)
-    },
-    stopProp(event) {event.stopPropagation() }
-  })*/
+import clickOutside from './click-outside'
+
+Vue.directive('click-outside',clickOutside)
   
 Vue.component('d-rate-dialog', DRateDialog)
 Vue.component('d-success-message', DSuccessMessage)
@@ -63,9 +49,11 @@ Vue.component('d-credit-card', CreditCardImage)
 Vue.component('d-rate-stars', DRateStars)
 Vue.component('d-error-input', ErrorInput)
 Vue.component('d-drown-list', drowListInput)
+Vue.component('d-multiselect-input', DMultiSelecetInput)//improve d-drown-list
 Vue.component('d-multi-select-tag', DMultiSelecetTagInput)
 Vue.component('date-picker-input', DatePickerInput)
 Vue.component('d-text-input', DTextInput)
+Vue.component('d-select-input', DSelectInput)
 Vue.component('d-datepicker-input', DDatePickerInput)// just for date only
 Vue.component('date-picker-range', DatePickerRange)
 Vue.component('d-ckeditor-classic', DCkeditorClassicInput)

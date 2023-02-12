@@ -144,6 +144,9 @@
       background-size: 16px 12px;
   
   }
+  html[lang=en] .my-form-select{
+    background-position: right 0.65rem;
+  }
   .my-form-select_item-label{
     font-style: normal;
 font-weight: 400;

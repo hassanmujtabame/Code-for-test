@@ -3,11 +3,11 @@
         <vc-date-picker v-model="date_value" mode="date" is24hr 
         :modelConfig="modelConfig">
             <template v-slot="{ /*inputValue,*/ togglePopover, inputEvents }">
-                <input readonly type="text" 
+                <d-text-input readonly type="text" 
                 :value="date_value" 
                 v-on="disabledEvents?{}:inputEvents" 
                 class="form-control px-3"
-                v-bind="$attrs">
+                v-bind="$attrs" />
                 <div class="icon-append-input">
                     <slot :togglePopover="togglePopover"></slot>
                 </div>

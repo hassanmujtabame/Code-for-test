@@ -1,8 +1,8 @@
 <template>
-  <div class="form-group">
+  <div class="form-group" :class="{focused:focused}" v-click-outside="outSide">
     <label v-if="label" class="form-label">{{ label }}</label>
     <div class="form-input">
-        <input v-on="$listeners" @input="inputEvent" class="form-control" v-bind="$attrs" />
+        <input v-on="$listeners" @focus="focused=true" @input="inputEvent" class="form-control" v-bind="$attrs" />
     </div>
   </div>
 </template>
@@ -19,13 +19,17 @@ export default {
   },
     data: () => {
         return {
-           
+           focused:false,
         }
     },
     watch: {
        
     },
     methods:{
+        outSide(vn){
+            let att=vn.target.attributes[0];
+            this.focused=(this.$el.attributes[0]==att)
+        },
         inputEvent(evt){
             this.$emit('updateValue',evt.target.value)
         }
@@ -47,7 +51,7 @@ export default {
     flex-direction: column;
 }
 .form-group .form-label{
-  
+    margin-bottom: 0;
     flex-shrink: 0;
     font-style: normal;
 font-weight: 400;
@@ -64,9 +68,17 @@ color: #979797;
 .form-group .form-control{
     color: #667D80;
     font-weight: 400;
+    padding: 4px 1px;
     font-size: 16px;
     line-height: 17px;
     border: none;
-    flex:1
+    flex:1;
+   /* box-shadow: 0 0 0 0.1rem rgb(13 110 253 / 25%);*/
+   box-shadow:none;
 }
+.focused{
+    box-shadow: 0 0 0 0.1rem #1fb9b359;
+    border-color: #1fb9b359;
+}
+
 </style>

@@ -98,6 +98,7 @@
       this.fireOpenDialog(this.group)
     },
         openDialog(){
+            this.step = 1;
             this.showDialog = true;
             return true;
         },

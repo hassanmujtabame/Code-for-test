@@ -11,19 +11,17 @@
                 </p>
                 <form action="">
                  
-                    <div class="form-group">
-                      <label  class="form-label">
-                  نوع الدورة
-                      </label>
-                      <select v-model="type" class="form-select w-100">
+                    
+                      <d-select-input label="نوع الدورة" v-model="type" class=" w-100">
                         <option value="live" >لايف</option>
                         <option value="on-site"  >دورة  في المقر </option>
                         <option value="recorded">دورة مسجلة </option>
-                      </select>
-                    </div>
-                    <div class="mt-3">
-                        <input type="text" class="form-control" name="" id="" placeholder="قم بعمل منشن لمدربين معك في هذا الدورة ">
-                    </div>
+                      </d-select-input>
+                
+                    <div class="mt-3"> 
+                        <d-text-input type="text"  v-model="itemForm.instructors" label="قم بعمل منشن لمدربين معك في هذا الدورة " />
+                    
+                      </div>
 
                 </form>
               </template>
@@ -46,7 +44,9 @@ export default {
     return{
       type:'live',
         showDialog:false,
-        itemForm:{}
+        itemForm:{
+          instructors:''
+        }
     }
   },
   methods:{
