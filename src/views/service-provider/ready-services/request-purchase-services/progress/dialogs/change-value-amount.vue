@@ -53,8 +53,7 @@ export default {
         try {
           let formData = new FormData();
       formData.append('price',this.amount);
-      if(this.itemDialog.service)
-      formData.append('service_id',this.itemDialog.service.id);
+      formData.append('service_id',this.itemDialog.service_id);
       formData.append('offer_id',this.itemDialog.id);
      
             let {data} = await requestPurchasesAPI.changePriceForRequest(formData)
