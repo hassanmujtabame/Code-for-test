@@ -377,9 +377,9 @@
                 </ValidationObserver>
             </div>
             <div class="col-md-6">
-                <div class="box">
-                    <div class="position-relative">
-                        <img style="width: 100%;height: 82rem;" src="/assets/img/Group 289271.png" alt="">
+                <div class="box h-100">
+                    <div class="h-100 position-relative">
+                        <img style="width: 100%;height: 82rem;" class="h-100" src="/assets/img/Group 289271.png" alt="">
                     </div>
 
                 </div>
@@ -425,13 +425,7 @@ export default {
         };
     },
     methods:{
-        async save(){
-            this.laoding = true;
-            let valid = await this.$refs.form.validate();
-            if(!valid){
-                console.mylog('invalid')
-                //return;
-            }
+        successRegister(){
             let dataEvt = {
                         icon:true,
                         descriptionClass:'m-c',
@@ -443,21 +437,28 @@ export default {
                         ]
                     }
                     this.showSuccessMsg(dataEvt)
-                    let ok=false
-                if(ok)
+        },
+        async save(){
+            this.laoding = true;
+            let valid = await this.$refs.form.validate();
+            if(!valid){
+                console.mylog('invalid')
+                return;
+            }
+
             try {
                let formData =  this.loadObjectToForm(formData,this.itemForm)
                 let { data } = await instructorAPI.register(formData)
                 if(data.success){
-                    let dataEvt = {
-                        icon:true,
-                        title:'',
-                        description:'',
-                    }
-                    this.showSuccessMsg(dataEvt)
+                   this.successRegister()
                 }
             } catch (error) {
-                //
+                if(error.response){
+                    let response = error.response
+                    if (response.status == 422) {
+                        this.setErrorsForm(this.$refs.form,response)
+                    }
+                }
             }
             this.loading = false;
         },
