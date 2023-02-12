@@ -9,6 +9,10 @@ class InstructorsApi extends BaseApi{
     getItem(id){
         return window.axios.get(`academy/instructors/${id}`);
     }
+
+    register(data){
+        return window.axios.post(`academy/instructors/register`,data);
+    }
 }
 
 export default new InstructorsApi();
