@@ -9,6 +9,15 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           methods:{
+            loadObjectToForm(obj){
+              let formData =  new FormData();
+              Object.keys(obj).forEach(key=>{
+                if(obj[key]!==null && obj[key]!==undefined){
+                  formData.append(key,obj[key])
+                }
+              })
+              return formData;
+            },
             showSendMsgProvider(userInfo){
               let dataEvent={
                 formData:{user_id:userInfo.id},
