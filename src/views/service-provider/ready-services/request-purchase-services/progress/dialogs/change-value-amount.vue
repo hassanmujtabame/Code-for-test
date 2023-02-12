@@ -25,7 +25,7 @@
 </div>
     </template>
     <template v-slot:actions>
-        <button @click="delBlog" style="height: 40px;" class="btn btn-main"> {{$t('confirm_finish')}}</button>
+      <button @click="delBlog" style="height: 40px;line-height: 20px;" class="btn btn-custmer"> {{$t('send_request_modify')}}</button>
     </template>
   </d-dialog-large>
 </template>

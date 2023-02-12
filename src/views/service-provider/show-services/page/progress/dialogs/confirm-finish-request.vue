@@ -23,7 +23,7 @@
 </div>
     </template>
     <template v-slot:actions>
-        <button @click="delBlog" style="height: 40px;" class="btn btn-main"> {{$t('confirm_finish')}}</button>
+      <button @click="delBlog" style="height: 40px;" class="btn btn-main"> تعديل الصفقة</button>
     </template>
   </d-dialog-large>
 </template>
