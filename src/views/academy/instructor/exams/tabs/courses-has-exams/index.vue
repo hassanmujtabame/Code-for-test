@@ -32,9 +32,9 @@ export default {
 
         try {
             let params ={
-                ...metaInfo
+                page: metaInfo.current_page,
             }
-            return await CoursesAPI.getCoursesHasExam(params)
+            return await CoursesAPI.getCoursesHasExams(params)
         } catch (error) {
             //
         }

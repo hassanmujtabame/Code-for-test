@@ -9,9 +9,13 @@ class CoursesApi extends BaseApi{
     getItem(id){
         return window.axios.get(`academy/courses/${id}`);
     }
-    getCoursesHasExam(params={}){
+    getCoursesHasExams(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructor/course-exams?${s}`);
+    }
+    getCoursesHasProjects(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/instructor/course-projects?${s}`);
     }
 }
 
