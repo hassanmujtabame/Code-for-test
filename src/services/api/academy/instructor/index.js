@@ -11,7 +11,7 @@ class InstructorsApi extends BaseApi{
     }
 
     register(data){
-        return window.axios.post(`academy/instructors/register`,data);
+        return window.axios.post(`academy/instructors`,data);
     }
 }
 

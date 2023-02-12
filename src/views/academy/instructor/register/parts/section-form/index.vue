@@ -11,6 +11,7 @@
                     أدخل البيانات التالية بدقة لتكون شريك معنا
                 </p>
                 <ValidationObserver ref="form" tag="div" class="row g-3 needs-validation"  >
+                    <template v-if="!user">
                     <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
@@ -52,7 +53,7 @@
                         tag="div"
                         class="w-100"
                         :name="$t('phone-number')"
-                        rules="required"
+                        rules="required|numeric"
                         vid="phone"
                         v-slot="{errors}"
                         >
@@ -116,7 +117,7 @@
                         tag="div"
                         class="w-100"
                         :name="$t('identity-id')"
-                        rules="required"
+                        rules="required|numeric"
                         vid="identity_id"
                         v-slot="{errors}"
                         >
@@ -166,8 +167,7 @@
                                 mode="date" is24hr
                                 :modelConfig="modelConfig"
                                 >
-  <template v-slot="{ inputValue,togglePopover,inputEvents }"
-  >
+                            <template v-slot="{ inputValue,togglePopover,inputEvents }">
                             <input readonly type="text"  :value="inputValue" v-on="inputEvents"  class="form-control px-3" >
                             <svg @click="togglePopover" style="top: 6px;left: 6px;" class="position-absolute clickable" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 5.75C7.59 5.75 7.25 5.41 7.25 5V2C7.25 1.59 7.59 1.25 8 1.25C8.41 1.25 8.75 1.59 8.75 2V5C8.75 5.41 8.41 5.75 8 5.75Z" fill="#CDD7D8"/>
@@ -202,9 +202,7 @@
                             <label class="form-label">{{ $t('Country') }}</label>
                         <select v-model="itemForm.country_id" class="form-select  px-3" >
                           <option selected disabled  >الدولة</option>
-                          <option>مصر </option>
-                          <option>السعودية</option>
-                          <option>سوريا</option>
+                          <option v-for="(country,i) in countries" :key="i" :value="country.id">{{ country.name }}</option>
                         </select>
                     </div>
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
@@ -219,35 +217,31 @@
                         vid="city_id"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('city') }}</label>
-                        <select v-model="itemForm.city_id" class="form-select  px-3"  >
-                          <option selected disabled  >المدينة</option>
-                          <option>المنصورة </option>
-                          <option>القاهرة</option>
-                          <option>الاسكندرية</option>
-
-                        </select>
-                    </div>
+                            <div class="form-group">
+                                <label class="form-label">{{ $t('city') }}</label>
+                                <select v-model="itemForm.city_id" class="form-select  px-3"  >
+                                <option selected disabled  >المدينة</option>
+                                <option v-for="(city,i) in cities" :key="i" :value="city.id">{{ city.name }}</option>
+                                </select>
+                            </div>
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
+                </template>
                     <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
                         :name="$t('Specialization')"
                         rules="required"
-                        vid="field_id"
+                        vid="department_id"
                         v-slot="{errors}"
                         >
                         <div class="form-group">
                             <label class="form-label">{{ $t('Specialization') }}</label>
-                        <select v-model="itemForm.field_id" class="form-select  px-3" id="validationCustom04"  required>
+                        <select v-model="itemForm.department_id" class="form-select  px-3" >
                           <option selected disabled  >مجال التخصص</option>
-                          <option>فرونت اند  </option>
-                          <option>باك اند </option>
-                          <option>مفيش حاجه تانيه </option>
+                          <option v-for="(department,i) in departments" :key="i" :value="department.id">{{ department.name }}</option>
 
                         </select>
                     </div>
@@ -260,16 +254,14 @@
                         class="w-100"
                         :name="$t('education-degree')"
                         rules="required"
-                        vid="education_degree"
+                        vid="scientific_degree"
                         v-slot="{errors}"
                         >
                         <div class="form-group">
                             <label class="form-label">{{ $t('education-degree') }}</label>
-                        <select v-model="itemForm.education_degree" class="form-select  px-3">
+                        <select v-model="itemForm.scientific_degree" class="form-select  px-3">
                           <option selected disabled  > الدرجة العلمية</option>
-                          <option> بكالرويوس  </option>
-                          <option> متوسط </option>
-                          <option>  حضانه </option>
+                          <option v-for="(degree,i) in degrees" :key="i" :value="degree.id">{{ degree.name }}</option>
 
                         </select>
                     </div>
@@ -282,12 +274,12 @@
                         class="w-100"
                         :name="$t('job-position')"
                         rules="required"
-                        vid="job_position"
+                        vid="job_title"
                         v-slot="{errors}"
                         >
                         <div class="form-group">
                             <label class="form-label">{{ $t('job-position') }}</label>
-                        <input v-model="itemForm.job_position" type="text" class="form-control" >
+                        <input v-model="itemForm.job_title" type="text" class="form-control" >
                         
                         </div>
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
@@ -320,8 +312,10 @@
                         >
                         <div class="form-group">
                             <label class="form-label">{{ $t('about-you') }}</label>
-                     <textarea v-model="itemForm.bio" class="form-control" name="" id="" cols="" rows="5" placeholder="نبذة عنك"></textarea>
-                    </div>
+                            <textarea v-model="itemForm.bio" class="form-control" 
+                            rows="5" placeholder="نبذة عنك"
+                            ></textarea>
+                        </div>
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>               
@@ -344,9 +338,8 @@
                                 <path d="M12 15.2598C11.59 15.2598 11.25 14.9198 11.25 14.5098V6.50977C11.25 6.09977 11.59 5.75977 12 5.75977C12.41 5.75977 12.75 6.09977 12.75 6.50977V14.5098C12.75 14.9298 12.41 15.2598 12 15.2598Z" fill="#CDD7D8"/>
                                 <path d="M12 18.2302C9.88995 18.2302 7.76995 17.8902 5.75995 17.2202C5.36995 17.0902 5.15995 16.6602 5.28995 16.2702C5.41995 15.8802 5.84996 15.6602 6.23996 15.8002C9.95996 17.0402 14.05 17.0402 17.77 15.8002C18.16 15.6702 18.59 15.8802 18.72 16.2702C18.85 16.6602 18.64 17.0902 18.25 17.2202C16.23 17.9002 14.11 18.2302 12 18.2302Z" fill="#CDD7D8"/>
                             </svg>
-                            <p  style="    top: 6px;right: 13px; color: #979797;" class="position-absolute px-2" >
-                        السيرة الذاتية  (بحد أقصى 10 ميجا)
-
+                            <p  style="top: 6px;right: 13px; color: #979797;" class="position-absolute px-2" >
+                                السيرة الذاتية  (بحد أقصى 10 ميجا)
                             </p>
                           </label>
                         </div>
@@ -360,13 +353,14 @@
                         tag="div"
                         class="w-100"
                         :name="$t('terms_use')"
-                        rules=""
+                        rules="required"
                         vid="terms_use"
                         v-slot="{errors}"
                         >
                         <div class="form-group">
                            
-                            <input v-model="itemForm.terms_use" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <input :value="itemForm.terms_use"
+                                @input="event => itemForm.terms_use = event.target.checked===true?true:null"   class="form-check-input" type="checkbox"  id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">
                                 أؤكد على اني أوافق على 
                                 <a href="" class="m-c">
@@ -379,7 +373,9 @@
                           </div>
                     </div>
                     <div class="col-12 my-4">
-                        <button class="btn btn-main" @click="save" role="button">سجل الان  </button>
+                        <button class="btn btn-main" :disabled="loading" @click="save" role="button">
+                            <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                            سجل الان  </button>
                     </div>
                   
                 
@@ -404,30 +400,42 @@
 
 <script>
 import instructorAPI from '@/services/api/academy/instructor';
+import academyAPI from '@/services/api/academy';
+import commonAPI from '@/services/api/common';
 export default {
     name: "section-form",
     components: {  },
     data: () => {
         return {
-            laoding:false,
+            loading:false,
+            departments:[],
+            countries:[],
+            cities:[],
+            degrees: [
+                { id: 'high-school', name: 'ثانوي' },
+                { id: 'diploma', name: 'دبلوم' },
+                { id: "bachelor", name: 'بكالوريوس' },
+                { id: "master", name: 'ماجستير' },
+                { id: 'phd', name: 'دكتوراة ' },
+            ],
             itemForm:{
-                name:'',
-                email:'',
-                phone:'',
-                password:'',
-                password_confirmation:'',
-                identity_id:'',
-                gender:'',
-                birthday:'',
-                country_id:'',
-                city_id:'',
-                field_id:'',
-                education_degree:'',
-                job_position:'',
+                name:null,
+                email:null,
+                phone:null,
+                password:null,
+                password_confirmation:null,
+                identity_id:null,
+                gender:null,
+                birthday:null,
+                country_id:null,
+                city_id:null,
+                department_id:'',
+                scientific_degree:'',
+                job_title:'',
                 years_experience:'',
                 bio:'',
                 cv:null,
-                terms_use:false,
+                terms_use:null,
             },
             show: false,
             showC: false,
@@ -452,20 +460,28 @@ export default {
                     this.showSuccessMsg(dataEvt)
         },
         async save(){
-            this.laoding = true;
+            this.loading = true;
             let valid = await this.$refs.form.validate();
             if(!valid){
                 console.mylog('invalid')
+                this.loading = false;
                 return;
             }
 
             try {
-               let formData =  this.loadObjectToForm(formData,this.itemForm)
+                let form = {};
+                if(!this.user) form = {...this.itemForm}
+                else{
+                    let {department_id,scientific_degree,job_title,years_experience,bio,cv,terms_use} = this.itemForm
+                    form = {department_id,scientific_degree,job_title,years_experience,bio,cv,terms_use};
+                }
+               let formData =  this.loadObjectToForm(form)
                 let { data } = await instructorAPI.register(formData)
                 if(data.success){
                    this.successRegister()
                 }
             } catch (error) {
+                console.mylog('error',error)
                 if(error.response){
                     let response = error.response
                     if (response.status == 422) {
@@ -474,8 +490,8 @@ export default {
                 }
             }
             this.loading = false;
-        },
-        async uploadFile(evt,validate){
+    },
+    async uploadFile(evt,validate){
        let resValid = await validate(evt)
        if(!resValid.valid){
         this.itemForm.cv =  null;
@@ -484,11 +500,36 @@ export default {
         if (!evt.target.files && !evt.target.files[0]) {
             this.itemForm.cv =  null;
                 return;
-            }
+        }
         this.itemForm.cv = evt.target.files[0];
-   
-       
-},
+    },
+    async loadDepartments(){
+        try {
+            let { data } = await academyAPI.getDepartments();
+            if(data.success){
+                this.departments = data.data;
+            }
+        } catch (error) {
+            //
+        }
+    },
+    async loadCountries(){
+        try {
+            let { data } = await commonAPI.getCountries();
+            if(data.success){
+                this.countries = data.data;
+            }
+        } catch (error) {
+            //
+        }
+    }
+    },
+    mounted(){
+        if(!this.user){
+            this.loadCountries()
+             
+        }
+        this.loadDepartments()
     }
 }
 </script>
