@@ -5,7 +5,7 @@
             <template v-slot="{ /*inputValue,*/ togglePopover, inputEvents }">
                 <input readonly type="text" 
                 :value="date_value" 
-                v-on="inputEvents" 
+                v-on="disabledEvents?{}:inputEvents" 
                 class="form-control px-3"
                 v-bind="$attrs">
                 <div class="icon-append-input">
@@ -24,6 +24,10 @@ export default {
         mask: {
             type: String,
             default: 'YYYY-MM-DD'
+        },
+        disabledEvents:{
+            type: Boolean,
+            default:false 
         }
     },
     data: (vm) => {
