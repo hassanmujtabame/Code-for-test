@@ -49,6 +49,12 @@ class RequestPurchasesApi extends BaseApi{
     rateService(data){
         return window.axios.post(`service-provider/user/rate/ready-service`,data);
     }
+    changePriceForRequest(data){
+        return window.axios.post(`service-provider/provider/ready-services/modify-transaction-value`,data);
+    }
+    changeDateForRequest(data){
+        return window.axios.post(`service-provider/provider/ready-services/modify-date-receipt-service`,data);
+    }
 }
 
 export default new RequestPurchasesApi();

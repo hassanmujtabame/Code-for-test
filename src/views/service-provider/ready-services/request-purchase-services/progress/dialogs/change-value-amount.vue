@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
+import requestPurchasesAPI from '@/services/api/service-provider/provider/request-purchases'
 import emptyWalletIcon from '@/components/icon-svg/empty-wallet.vue'
 export default {
  props:{
@@ -51,7 +51,13 @@ export default {
  methods:{
     async delBlog(){
         try {
-            let {data} = await readyServiceAPI.changePriceRequestsForPurchaseService(this.itemDialog.id)
+          let formData = new FormData();
+      formData.append('price',this.amount);
+      if(this.itemDialog.service)
+      formData.append('service_id',this.itemDialog.service.id);
+      formData.append('offer_id',this.itemDialog.id);
+     
+            let {data} = await requestPurchasesAPI.changePriceForRequest(formData)
             if(data.success){
                 this.router_push('service-provider-request-purchase-services')
                 this.closeEvent()

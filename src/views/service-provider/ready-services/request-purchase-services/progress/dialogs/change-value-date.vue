@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
+import requestPurchasesAPI from '@/services/api/service-provider/provider/request-purchases'
 import timeIcon from '@/components/icon-svg/time.vue'
 export default {
  props:{
@@ -52,11 +52,11 @@ export default {
     async delBlog(){
       let formData = new FormData();
       formData.append('receiving_date',this.amount);
-      formData.append('service_id',this.itemDialog.id);
-      if(this.itemDialog.user_offer)
-      formData.append('offer_id',this.itemDialog.user_offer.id);
+      if(this.itemDialog.service)
+      formData.append('service_id',this.itemDialog.service.id);
+      formData.append('offer_id',this.itemDialog.id);
         try {
-            let {data} = await readyServiceAPI.changeDateOfferForRequestService(formData)
+            let {data} = await requestPurchasesAPI.changeDateForRequest(formData)
             if(data.success){
                 this.router_push('service-provider-request-purchase-services')
                 this.closeEvent()
