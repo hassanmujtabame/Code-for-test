@@ -6,17 +6,20 @@
     >
       <template v-slot>
           <div class="text-center" v-if="showed">
-            <div>
+            <div v-if="!itemDialog.icon">
             <img :src="itemDialog.image" alt="">
           </div>
             <div>
-                <h4 >
+                <h4 :class="[itemDialog.titleClass??'']" >
                  {{itemDialog.title}}
                 </h4>
-                <p class="t-c fs-r-16-24">
+                <p class="t-c fs-r-16-24" :class="[itemDialog.descriptionClass??'']">
                     {{ itemDialog.description }}
                 </p>
               </div>
+              <div v-if="itemDialog.icon">
+            <img :src="itemDialog.iconUrl" alt="">
+          </div>
               <div v-if="itemDialog.btns" :class="[itemDialog.groupBtns??'']" >
               <div  v-for="(btn,i) in itemDialog.btns"
                 :key="i" class="mt-3">
@@ -68,6 +71,7 @@
        
         
         if(!data.image) this.itemDialog.image = '/assets/img/cuate-2.png'
+        if(!data.iconUrl) this.itemDialog.iconUrl = '/assets/svg/tick-square.svg'
         this.showed=true
         return true;
       },
