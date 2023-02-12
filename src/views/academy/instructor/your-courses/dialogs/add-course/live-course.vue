@@ -29,7 +29,7 @@
                 </div>
                 </div>
                 <div class="form-step" id="form-step-2" v-show="step==2">
-                <div class="mt-3">
+                <div class="mb-3">
                     <input type="text" class="form-control" name="" id="" placeholder="عنوان الدورة ">
                 </div>
                 <div class="mb-3 position-relative">

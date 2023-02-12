@@ -11,7 +11,7 @@
                     أدخل البيانات التالية بدقة لتكون شريك معنا
                 </p>
                 <ValidationObserver ref="form" tag="div" class="row g-3 needs-validation"  >
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -29,7 +29,7 @@
                         </ValidationProvider>
                     </div>
 
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -47,7 +47,7 @@
                         </ValidationProvider>
                     </div>
 
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -64,7 +64,7 @@
                         </ValidationProvider>
                         
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -88,7 +88,7 @@
                         </ValidationProvider>
                         
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                             tag="div"
                             class="w-100"
@@ -111,7 +111,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -128,7 +128,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -148,7 +148,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -161,8 +161,15 @@
                            
                         <label  class="form-label">{{ $t('birthday') }} </label>
                             <div class="w-100 position-relative">
-                            <input type="text" v-model="itemForm.birthday" class="form-control datepicker px-3" >
-                            <svg style="top: 6px;left: 6px;" class="position-absolute" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <vc-date-picker 
+                                v-model="itemForm.birthday"  
+                                mode="date" is24hr
+                                :modelConfig="modelConfig"
+                                >
+  <template v-slot="{ inputValue,togglePopover,inputEvents }"
+  >
+                            <input readonly type="text"  :value="inputValue" v-on="inputEvents"  class="form-control px-3" >
+                            <svg @click="togglePopover" style="top: 6px;left: 6px;" class="position-absolute clickable" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 5.75C7.59 5.75 7.25 5.41 7.25 5V2C7.25 1.59 7.59 1.25 8 1.25C8.41 1.25 8.75 1.59 8.75 2V5C8.75 5.41 8.41 5.75 8 5.75Z" fill="#CDD7D8"/>
                                 <path d="M16 5.75C15.59 5.75 15.25 5.41 15.25 5V2C15.25 1.59 15.59 1.25 16 1.25C16.41 1.25 16.75 1.59 16.75 2V5C16.75 5.41 16.41 5.75 16 5.75Z" fill="#CDD7D8"/>
                                 <path d="M8.5 14.4998C8.37 14.4998 8.24 14.4698 8.12 14.4198C7.99 14.3698 7.89 14.2998 7.79 14.2098C7.61 14.0198 7.5 13.7698 7.5 13.4998C7.5 13.3698 7.53 13.2398 7.58 13.1198C7.63 12.9998 7.7 12.8898 7.79 12.7898C7.89 12.6998 7.99 12.6298 8.12 12.5798C8.48 12.4298 8.93 12.5098 9.21 12.7898C9.39 12.9798 9.5 13.2398 9.5 13.4998C9.5 13.5598 9.49 13.6298 9.48 13.6998C9.47 13.7598 9.45 13.8198 9.42 13.8798C9.4 13.9398 9.37 13.9998 9.33 14.0598C9.3 14.1098 9.25 14.1598 9.21 14.2098C9.02 14.3898 8.76 14.4998 8.5 14.4998Z" fill="#CDD7D8"/>
@@ -174,13 +181,15 @@
                                 <path d="M20.5 9.83984H3.5C3.09 9.83984 2.75 9.49984 2.75 9.08984C2.75 8.67984 3.09 8.33984 3.5 8.33984H20.5C20.91 8.33984 21.25 8.67984 21.25 9.08984C21.25 9.49984 20.91 9.83984 20.5 9.83984Z" fill="#CDD7D8"/>
                                 <path d="M16 22.75H8C4.35 22.75 2.25 20.65 2.25 17V8.5C2.25 4.85 4.35 2.75 8 2.75H16C19.65 2.75 21.75 4.85 21.75 8.5V17C21.75 20.65 19.65 22.75 16 22.75ZM8 4.25C5.14 4.25 3.75 5.64 3.75 8.5V17C3.75 19.86 5.14 21.25 8 21.25H16C18.86 21.25 20.25 19.86 20.25 17V8.5C20.25 5.64 18.86 4.25 16 4.25H8Z" fill="#CDD7D8"/>
                                 </svg>
+                                </template>
+                                </vc-date-picker>
                             </div>
                           
                         </div>
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                         </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -201,7 +210,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -223,7 +232,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -245,7 +254,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -267,7 +276,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -284,7 +293,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -300,7 +309,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -316,7 +325,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>               
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -344,7 +353,7 @@
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-4">
+                    <div class="col-md-4 w-100 mt-2">
 
                         <div class="form-check ">
                             <ValidationProvider 
@@ -422,6 +431,10 @@ export default {
             },
             show: false,
             showC: false,
+            modelConfig: {
+                type: 'string',
+        mask: 'YYYY-MM-DD', // Uses 'iso' if missing
+    },
         };
     },
     methods:{
@@ -485,6 +498,7 @@ export default {
     color: #CDD7D8;
     font-size: 23px;
     left: 15px;
+    top: 9px;
 }
 html[lang="en"] .icon-input-end{
     left: auto;
