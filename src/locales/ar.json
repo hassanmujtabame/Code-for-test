@@ -500,5 +500,20 @@
   "friday": "جمعة",
   "saturday": "السبت",
   "sunday": "الأحد",
-  "monday": "الاثنين"
+  "monday": "الاثنين",
+  "name": "اسم",
+  "identity-id": "رقم الهوية",
+  "password-confirmation": "تأكيد كلمة المرور",
+  "phone": "هاتف",
+  "password": "كلمة المرور",
+  "email": "بريد إلكتروني",
+  "phone-number": "رقم الجوال",
+  "Male": "ذكر",
+  "Female": "أنثى",
+  "Specialization": "مجال التخصص",
+  "education-degree": "الدرجة العلمية",
+  "Degree": "درجة",
+  "job-position": "المسمي الوظيفي",
+  "about-you": "نبذة عنك",
+  "terms_use": "شروط الاستخدام"
 }

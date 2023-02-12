@@ -502,5 +502,20 @@
   "friday": "friday",
   "saturday": "saturday",
   "sunday": "sunday",
-  "monday": "monday"
+  "monday": "monday",
+  "name": "Name",
+  "identity-id": "identity id",
+  "password-confirmation": "password confirmation",
+  "phone": "phone",
+  "password": "password",
+  "email": "email",
+  "phone-number": "phone number",
+  "Male": "Male",
+  "Female": "Female",
+  "Specialization": "Specialization",
+  "education-degree": "education degree",
+  "Degree": "Degree",
+  "job-position": "job position",
+  "about-you": "Bio",
+  "terms_use": "terms of use"
 }
