@@ -52,8 +52,7 @@ export default {
     async delBlog(){
       let formData = new FormData();
       formData.append('receiving_date',this.amount);
-      if(this.itemDialog.service)
-      formData.append('service_id',this.itemDialog.service.id);
+      formData.append('service_id',this.itemDialog.service_id);
       formData.append('offer_id',this.itemDialog.id);
         try {
             let {data} = await requestPurchasesAPI.changeDateForRequest(formData)
