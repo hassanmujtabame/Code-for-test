@@ -50,7 +50,7 @@ class ServiceProviderApi extends BaseApi{
         return window.axios.post(`service-provider/user/rate`,data);
     }
     rateService(data){
-        return window.axios.post(`service-provider/user/rate/ready-service`,data);
+        return window.axios.post(`service-provider/user/rate/request-service`,data);
     }
 }
 

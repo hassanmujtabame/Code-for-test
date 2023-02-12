@@ -53,7 +53,7 @@ class RequestPurchasesApi extends BaseApi{
         return window.axios.post(`service-provider/provider/ready-services/modify-transaction-value`,data);
     }
     changeDateForRequest(data){
-        return window.axios.post(`service-provider/provider/ready-services/modify-date-receipt-service`,data);
+        return window.axios.post(`service-provider/provider/ready-services/modify-date-receipt`,data);
     }
 }
 
