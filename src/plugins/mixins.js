@@ -279,6 +279,19 @@ const mixin = {
               window.location =r.href
                },
                switchRoleAcademy(newRole){
+                if(newRole =='instructor' && !this.userIsInstructor){
+                 
+                    let dateEvt ={
+                      title:'انت غير مسجل كمدرب',
+                      description:'لتسجيل كمدرب انقر على الزر "تسجيل الأن"',
+                      btns:[
+                        {title:'تسجيل الأن',action:()=>this.router_push('academy-instructor-register')},
+                        {title:'إلغاء',action:()=>{},class:"btn btn-danger"}
+                      ]
+                    }
+                    this.showConfirmMsg(dateEvt)
+                  return;
+                }
                 this.$store.commit('auth/SET_ACADEMY_ROLE',newRole)
                 this.refreshPage()
                },
