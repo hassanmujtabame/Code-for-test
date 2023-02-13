@@ -8,6 +8,7 @@
         <ValidationObserver ref="form" tag="div">
         <div class="form-step" id="form-step-1" v-show="step==1">
                 <div class="mt-3">
+                    <keep-alive>
                     <ValidationProvider :name="$t('num_days')"
                     vid="num_days"
                     rules="required|numeric"
@@ -16,8 +17,10 @@
                     >
                     <d-text-input type="text" :errors="errors"  v-model="itemForm.num_days" label="عدد ايام الدورة " />
                 </ValidationProvider>
+            </keep-alive>
                 </div>
                 <div class="mt-3">
+                    <keep-alive>
                     <ValidationProvider :name="$t('days_week')"
                     vid="days_week"
                     rules="required"
@@ -31,9 +34,10 @@
                                 placeholder="ايام الدورة ( حددي ايام الاسبوع )"
                                 />
                 </ValidationProvider>
-                    
+            </keep-alive>
                 </div>
                 <div class="mt-3">
+                    <keep-alive>
                     <ValidationProvider :name="$t('start_date_course')"
                     vid="days_week"
                     rules="required"
@@ -44,8 +48,10 @@
                 <d-error-input :errors="errors" v-if="errors && errors.length>0" />
                 
                 </ValidationProvider>
+            </keep-alive>
                 </div>
                 <div class="mt-3">
+                    <keep-alive>
                     <ValidationProvider :name="$t('type_certificate_for_student')"
                     vid="type_certificate"
                     rules="required"
@@ -54,10 +60,12 @@
                     >
                     <d-text-input type="text" :errors="errors"  v-model="itemForm.type_certificate"  label="نوع الشهادة التي تمنح للطلاب" />
                 </ValidationProvider>
+            </keep-alive>
                 </div>
         </div>
         <div class="form-step" id="form-step-2" v-show="step==2">
             <div class="mb-3">
+                <keep-alive>
                 <ValidationProvider :name="$t('course-title')"
                     vid="title"
                     rules="required"
@@ -66,9 +74,10 @@
                     >
                 <d-text-input type="text" :errors="errors"  v-model="itemForm.title"  label="عنوان الدورة " />
             </ValidationProvider>
-
+        </keep-alive>
             </div>
             <div class="mb-3 position-relative">
+                <keep-alive>
                 <ValidationProvider :name="$t('course-domain')"
                     vid="domain_id"
                     rules="required"
@@ -80,8 +89,10 @@
                   
                 </d-select-input>
             </ValidationProvider>
+        </keep-alive>
             </div>
             <div class="mb-3">
+                <keep-alive>
                 <ValidationProvider :name="$t('course-meeting-url')"
                     vid="meeting_url"
                     rules="required"
@@ -90,9 +101,10 @@
                     >
                     <d-text-input type="text" :errors="errors"  v-model="itemForm.meeting_url"  label="رابط الدورة على زوم او جوجل ميت " />
                 </ValidationProvider>
-
+            </keep-alive>
                     </div>
             <div class="mb-3 position-relative">
+                <keep-alive>
                 <ValidationProvider :name="$t('course-add-exam')"
                     vid="has_exam"
                     rules="required"
@@ -105,10 +117,11 @@
                     <option :value="false">لا</option>
                 </d-select-input>
             </ValidationProvider>
-
+        </keep-alive>
             </div>
             <div class="mb-3">
                 <div class="d-flex upload-request-file form-control align-items-center border-0  mb-3">
+                    <keep-alive>
                     <ValidationProvider :name="$t('course-add-exam')"
                     vid="has_exam"
                     rules="required|image"
@@ -129,6 +142,7 @@
                 <d-error-input :errors="errors" v-if="errors && errors.length>0" />
 
                 </ValidationProvider>
+            </keep-alive>
                 </div>
             </div>
     
@@ -136,7 +150,7 @@
     </ValidationObserver>
             </template>
             <template v-slot:actions>
-                <button :disabled="step==1" @click="prevStep" class="btn bg-main text-white px-3" >أستمر</button>
+                <button :disabled="step==1"  @click="prevStep" class="btn bg-main btn-danger text-white px-3" >رجوع</button>
               <button @click="save" class="btn bg-main text-white px-3" >أستمر</button>
                 </template>
     </d-dialog-large>
