@@ -5,6 +5,7 @@
         <div class="form-input">
           <input  class="form-control" readonly  :value="localValue" />
       </div>
+      <d-error-input :errors="errors" v-if="errors && errors.length>0" />
     </div>
         <div class="form-input__body" v-show="show">
         <div class="row">
@@ -56,7 +57,10 @@
         opts:{
             type:[Array,Object],
             default:()=>[]
-        }
+        },
+    errors:{
+        type:[Array,Object],
+    }
     },
     data:(vm)=>{
         let v=vm.value;
@@ -68,6 +72,11 @@
       show:vm.opened
     }},
     watch:{
+      errors:{
+        immediate:true,
+        deep:true,
+        handler(){}
+      } ,
         value_(){
           if(!this.value_) this.localValue = '';
           else{

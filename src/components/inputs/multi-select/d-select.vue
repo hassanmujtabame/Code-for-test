@@ -6,6 +6,7 @@
         <slot></slot>
         </select>
       </div>
+      <d-error-input :errors="errors" v-if="errors && errors.length>0" />
     </div>
   </template>
   
@@ -13,7 +14,10 @@
   export default {
    name:'d-select-input',
    props:{
-      label:{}
+      label:{},
+    errors:{
+        type:[Array,Object],
+    }
    },
    model: {
         prop: 'value',
@@ -25,7 +29,11 @@
           }
       },
       watch: {
-         
+        errors:{
+        immediate:true,
+        deep:true,
+        handler(){}
+      } 
       },
       methods:{
         outSide(vn){
@@ -37,7 +45,7 @@
           }
       },
       mounted(){
-          console.mylog('lis',this.$listeners)
+          //console.mylog('lis',this.$listeners)
       }
   }
   </script>

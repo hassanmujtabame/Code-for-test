@@ -517,5 +517,14 @@
   "Degree": "Degree",
   "job-position": "job position",
   "about-you": "Bio",
-  "terms_use": "terms of use"
+  "terms_use": "terms of use",
+  "num_days": "Number days",
+  "days_week": "days of week",
+  "start_date_course": "Start date",
+  "type_certificate_for_student": "type certificate for student",
+  "course-title": "Course title",
+  "course-category": "course domain",
+  "course-domain": "course domain",
+  "course-meeting-url": "Course meeting url",
+  "course-add-exam": "Add exam"
 }

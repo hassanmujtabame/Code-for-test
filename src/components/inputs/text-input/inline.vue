@@ -4,6 +4,7 @@
     <div class="form-input">
         <input v-on="$listeners" @focus="focused=true" @input="inputEvent" class="form-control" v-bind="$attrs" />
     </div>
+    <d-error-input :errors="errors" v-if="errors && errors.length>0" />
   </div>
 </template>
 
@@ -11,7 +12,10 @@
 export default {
  name:'d-text-input',
  props:{
-    label:{}
+    label:{},
+    errors:{
+        type:[Array,Object],
+    }
  },
  model: {
       prop: 'value',
@@ -23,7 +27,11 @@ export default {
         }
     },
     watch: {
-       
+      errors:{
+        immediate:true,
+        deep:true,
+        handler(){}
+      } 
     },
     methods:{
         outSide(vn){
@@ -35,7 +43,7 @@ export default {
         }
     },
     mounted(){
-        console.mylog('lis',this.$listeners)
+        //console.mylog('lis',this.$listeners)
     }
 }
 </script>

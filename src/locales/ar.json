@@ -515,5 +515,13 @@
   "Degree": "درجة",
   "job-position": "المسمي الوظيفي",
   "about-you": "نبذة عنك",
-  "terms_use": "شروط الاستخدام"
+  "terms_use": "شروط الاستخدام",
+  "num_days": "عدد الأيام",
+  "start_date_course": "موعد بداية الدورة",
+  "type_certificate_for_student": "نوع الشهادة التي تمنح للطلاب",
+  "course-title": "عنوان الدورة",
+  "course-domain": "مجال الدورة",
+  "course-meeting-url": "رابط الدورة",
+  "course-add-exam": "أضف اختبار",
+  "days_week": "ايام الاسبوع"
 }
