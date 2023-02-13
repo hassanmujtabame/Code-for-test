@@ -1,10 +1,12 @@
 <template>
     <div class="form-group select-arrow" :class="{focused:focused}" v-click-outside="outSide">
       <label v-if="label" class="form-label" >{{ label }}</label>
-      <div class="form-input">
+      <div class="input-group">
+        <slot name="prend-icon"></slot>
           <select v-on="$listeners"  @focus="focused=true" @input="inputEvent" class="form-control"  v-bind="$attrs" >
         <slot></slot>
         </select>
+        <slot name="append-icon"></slot>
       </div>
       <d-error-input :errors="errors" v-if="errors && errors.length>0" />
     </div>

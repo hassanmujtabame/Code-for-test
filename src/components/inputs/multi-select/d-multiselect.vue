@@ -2,9 +2,11 @@
     <div class="form-group " :class="{focused:focused}" v-click-outside="outSide">
       <div class="select-arrow clickable" @click="toggleList">
         <label @click="toggleList" class="form-label " :class="{'clickable':!fixed}">{{label}}</label>
-        <div class="form-input">
+        <div class="input-group">
+          <slot name="prend-icon"></slot>
           <input  class="form-control" readonly  :value="localValue" />
-      </div>
+          <slot name="append-icon"></slot>
+        </div>
       <d-error-input :errors="errors" v-if="errors && errors.length>0" />
     </div>
         <div class="form-input__body" v-show="show">

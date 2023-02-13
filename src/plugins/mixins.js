@@ -339,6 +339,9 @@ const mixin = {
             }
           },
             computed: {
+              isDevelopment(){
+                return process.env.NODE_ENV=='development'
+              },
                 ...mapGetters({
                     isMobile: 'core/isMobile',
                     user: 'auth/user',

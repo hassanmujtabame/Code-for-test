@@ -1,8 +1,10 @@
 <template>
-  <div class="form-group" :class="{focused:focused}" v-click-outside="outSide">
+  <div class="form-group" :class="{focused:focused,'inline':inline}" v-click-outside="outSide">
     <label v-if="label" class="form-label">{{ label }}</label>
-    <div class="form-input">
+    <div class="input-group">
+        <slot name="prend-icon"></slot>
         <input v-on="$listeners" @focus="focused=true" @input="inputEvent" class="form-control" v-bind="$attrs" />
+    <slot name="append-icon"></slot>
     </div>
     <d-error-input :errors="errors" v-if="errors && errors.length>0" />
   </div>
@@ -13,6 +15,10 @@ export default {
  name:'d-text-input',
  props:{
     label:{},
+    inline:{
+        type:Boolean,
+        default:false,
+    },
     errors:{
         type:[Array,Object],
     }
@@ -57,6 +63,9 @@ export default {
     padding: 5px 5px;
     display: flex;
     flex-direction: column;
+}
+.form-group.inline{
+    flex-direction: row; 
 }
 .form-group .form-label{
     margin-bottom: 0;

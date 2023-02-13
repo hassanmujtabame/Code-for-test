@@ -8,160 +8,22 @@
                     </h3>
                 </div>
                 <div class="w-25">
-                    <input type="text" class="form-control border " placeholder="أضافة اختبارات">
-                </div>
-            </div>
-            <div class="text-end mt-3">
-                <button class="btn bg-main rounded-2 px-4 text-white">
-                    اضافة سوال
+                    <d-text-input type="text" class="form-control border " label="عنوان الاختبار" />
+                <div class="text-end mt-3">
+                <button @click="addQuestion" class="btn bg-main rounded-2 px-4 text-white">
+                    اضافة سؤال
                 </button>
             </div>
+                </div>
+            </div>
+           
             <form action="">
                 <div class="row">
-                    <div class="col-md-6 mt-4">
-                        <div class="border p-3 rounded-3">
-                            <div class="box">
-                                <div class="mt-3">
-                                    <input type="text" class="border w-100 p-2 rounded-2" placeholder="السؤال الاول :">
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault1"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault2"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault3">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault3"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6 mt-4">
-                        <div class="border p-3 rounded-3">
-
-
-                            <div class="box">
-                                <div class="mt-3">
-                                    <input type="text" class="border w-100 p-2 rounded-2" placeholder="السؤال الاول :">
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault1"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault2"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault3">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault3"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6 mt-4">
-                        <div class="border p-3 rounded-3">
-
-
-                            <div class="box">
-                                <div class="mt-3">
-                                    <input type="text" class="border w-100 p-2 rounded-2" placeholder="السؤال الاول :">
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault1"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault2"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault3">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault3"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6 mt-4">
-                        <div class="border p-3 rounded-3">
-
-
-                            <div class="box">
-                                <div class="mt-3">
-                                    <input type="text" class="border w-100 p-2 rounded-2" placeholder="السؤال الاول :">
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault1"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault2"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input mt-2" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault3">
-                                    <label class="form-check-label border p-2 w-100 rounded-2" for="flexRadioDefault3"
-                                        aria-placeholder="الخيار الاول  :">
-                                        الغسالة
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div v-for="(q,i) in questions" :key="i" class="col-md-6 mt-4">
+                           <AddQuestion @update="updateQuestion" :item="q"  />
                     </div>
                     <div class="mt-3 text-center">
-                        <a class="btn bg-main text-white px-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+                        <a class="btn bg-main text-white px-3"
                             role="button">
                             أرفعي الاختبار
                         </a>
@@ -170,12 +32,42 @@
                 </div>
             </form>
         </div>
+        <pre v-if="isDevelopment">
+            {{ questions }}
+        </pre>
     </div>
 </template>
 
 <script>
+import AddQuestion from './parts/add-question.vue'
 export default {
-    name: 'add-exam-page'
+    name: 'add-exam-page',
+    components:{
+        AddQuestion
+    },
+    data:()=>{
+        return {
+            questions:[],
+        }
+    },
+    methods:{
+        addQuestion(){
+            this.questions.push({
+                title:`سؤال ${this.questions.length+1}`,
+                uuid:this.generateRandomString(8),
+                options:[]
+            })
+        },
+        updateQuestion(item){
+            let index =this.questions.findIndex(q=>q.uuid==item.uuid)
+            if(index>-1){
+                this.questions[index] = Object.assign(this.questions[index],item)
+            }
+        }
+    },
+    mounted(){
+       
+    }
 }
 </script>
 
