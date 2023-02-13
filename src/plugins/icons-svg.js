@@ -14,8 +14,16 @@ import routingIcon from '@/components/icon-svg/routing.vue'
 import thunderIcon from '@/components/icon-svg/thunder.vue'
 import userRectIcon from '@/components/icon-svg/user-rect-icon.vue'
 import heartIcon from '@/components/icon-svg/heart.vue'
+import sendIcon from '@/components/icon-svg/send-icon.vue'
+import rectEditIcon from '@/components/icon-svg/rect-edit.vue'
+import pencilEditIcon from '@/components/icon-svg/pencil-edit.vue'
+import trashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
 
+Vue.component('d-trash-outline-icon',trashOutlineIcon)
+Vue.component('d-rect-edit-icon', rectEditIcon)
 Vue.component('d-heart-icon', heartIcon)
+Vue.component('d-edit-icon', pencilEditIcon)
+Vue.component('d-send-icon', sendIcon)
 Vue.component('d-user-rect-icon', userRectIcon)
 Vue.component('d-routing-icon', routingIcon)
 Vue.component('d-school-wallet-icon', schoolWalletIcon)

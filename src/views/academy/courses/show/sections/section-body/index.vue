@@ -1,6 +1,6 @@
 <template>
   <div class="course-show-page__body">
-    <div class="row">
+    <div class="row course-show-page__body-top">
       
        <!--display-->
        <div class="col-12 col-md-8">
@@ -53,6 +53,14 @@ export default {
 </script>
 
 <style scoped>
+.course-show-page__body-top {
+    border: 1px solid #f1f1f1;
+    border-radius: 8px;
+    padding: 0px 15px 0px 0;
+}
+html[lang=en] .course-show-page__body-top{
+  padding: 0px 0px 0px 15px;
+}
 .course-show-page__details-title{
   font-style: normal;
 font-weight: 400;

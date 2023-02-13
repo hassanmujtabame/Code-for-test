@@ -59,6 +59,7 @@ export default {
   max-height: 100%;
   height: 100%;
   padding-top: 20px;
+  margin: 0 12px;
 }
 .course-show-page__lectures-header{
   margin:20px 0;

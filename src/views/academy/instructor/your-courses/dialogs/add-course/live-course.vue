@@ -5,31 +5,31 @@
     :close-dialog="closeDialog"
     >
     <template v-slot:default>
-        <ValidationObserver ref="form" tag="div">
+        <ValidationObserver v-if="showDialog" ref="form" tag="div">
         <div class="form-step" id="form-step-1" v-show="step==1">
                 <div class="mt-3">
                     <keep-alive>
                     <ValidationProvider :name="$t('num_days')"
-                    vid="num_days"
+                    vid="number_day"
                     rules="required|numeric"
                     v-slot="{errors}"
                     v-if="step==1"
                     >
-                    <d-text-input type="text" :errors="errors"  v-model="itemForm.num_days" label="عدد ايام الدورة " />
+                    <d-text-input type="text" :errors="errors"  v-model="itemForm.number_day" label="عدد ايام الدورة " />
                 </ValidationProvider>
             </keep-alive>
                 </div>
                 <div class="mt-3">
                     <keep-alive>
                     <ValidationProvider :name="$t('days_week')"
-                    vid="days_week"
+                    vid="course_days"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==1"
                     >
                     <d-multiselect-input :errors="errors" label="ايام الدورة ( حددي ايام الاسبوع )" :opts="daysOfWeek" 
                                 track-id="id" label-name="name"
-                                v-model="itemForm.days_week"
+                                v-model="itemForm.course_days"
                                 multi-select
                                 placeholder="ايام الدورة ( حددي ايام الاسبوع )"
                                 />
@@ -39,7 +39,7 @@
                 <div class="mt-3">
                     <keep-alive>
                     <ValidationProvider :name="$t('start_date_course')"
-                    vid="days_week"
+                    vid="start_date"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==1"
@@ -79,13 +79,14 @@
             <div class="mb-3 position-relative">
                 <keep-alive>
                 <ValidationProvider :name="$t('course-domain')"
-                    vid="domain_id"
+                    vid="department_id"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==2"
                     >
-                <d-select-input :errors="errors" v-model="itemForm.domain_id" label="حدد مجال الدورة " >
+                <d-select-input :errors="errors" v-model="itemForm.department_id" label="حدد مجال الدورة " >
                     <option value="" class="t-c" selected disabled>حدد مجال الدورة  </option>
+                    <option  class="t-c" v-for="(dept,i) in departments" :key="i" :value="dept.id"> {{ dept.name }}</option>
                   
                 </d-select-input>
             </ValidationProvider>
@@ -113,8 +114,8 @@
                     >
                 <d-select-input :errors="errors"  v-model="itemForm.has_exam" label="إضافة اختبار" >
                     <option value="" class="t-c" selected disabled>إضافة اختبار</option>
-                    <option :value="true">نعم</option>
-                    <option :value="false">لا</option>
+                    <option :value="1">نعم</option>
+                    <option :value="0">لا</option>
                 </d-select-input>
             </ValidationProvider>
         </keep-alive>
@@ -122,8 +123,8 @@
             <div class="mb-3">
                 <div class="d-flex upload-request-file form-control align-items-center border-0  mb-3">
                     <keep-alive>
-                    <ValidationProvider :name="$t('course-add-exam')"
-                    vid="has_exam"
+                    <ValidationProvider :name="$t('add-display-image')"
+                    vid="image"
                     rules="required|image"
                     v-slot="{errors,validate}"
                     v-if="step==2"
@@ -151,13 +152,17 @@
             </template>
             <template v-slot:actions>
                 <button :disabled="step==1"  @click="prevStep" class="btn bg-main btn-danger text-white px-3" >رجوع</button>
-              <button @click="save" class="btn bg-main text-white px-3" >أستمر</button>
+              <button @click="save" class="btn bg-main text-white px-3" >
+                <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i> 
+                أستمر
+            </button>
                 </template>
     </d-dialog-large>
     </template>
     
     <script>
     import commonAPI from '@/services/api/common'
+    import academyAPI from '@/services/api/academy';
     export default {
         name:'add-course-dialog-live',
       props:{
@@ -172,18 +177,19 @@
             daysOfWeek:daysOfWeek,
             step:1,
             showDialog:false,
+            departments:[],
+            loading:false,
             itemForm:{
-                
-                days_week:null,
-                num_days:null,
+                type:'live',
+                course_days:null,
+                number_day:null,
                 start_date:null,
                 type_certificate:'',
                 title:'',
-                domain_id:'',
+                department_id:'',
                 meeting_url:'',
-                has_exam:false,
+                has_exam:0,
                 image:null,
-               
             }
         }
       },
@@ -204,28 +210,64 @@
         this.itemForm.image = evt.target.files[0];
         },
         async saveStep1(){
-            let valid = await this.$refs.form.validate(['num_days']);
+            let valid = await this.$refs.form.validate(['number_day']);
             if(!valid){
                 console.mylog('invalid step 1');
-                return;
+                return false;
             }
-            this.step+=1
+            this.step+=1;
+            return true;
         },
         async saveStep2(){
             let valid = await this.$refs.form.validate();
             if(!valid){
                 console.mylog('invalid step 2');
-                return;
+                return false;
             }
+            let formData = this.this.loadObjectToForm(this.itemForm)
+           
+            try {
+             let {data } = await academyAPI.coursesApi.addItem(formData)
+             if(data.success){
+                if(this.itemForm.has_exam){
+                    //redirect to add exam page
+                    this.router_push('academy-course-add-exam',{id:data.data.id})
+                }else{
+                    //redirect to course page
+                    this.router_push('academy-course-show',{id:data.data.id})
+                }
+                this.closeEvent()
+             }
+           } catch (error) {
+            console.log('error',error)
+            if(error.response){
+                    let response = error.response
+                    if (response.status == 422) {
+                        this.setErrorsForm(this.$refs.form,response)
+                    }
+                }
+           }
           
         },
         async save(){
            if(this.step==1){
-           this.saveStep1()
+            await this.saveStep1()
             return;
            }
-           this.saveStep2()
+           this.loading = true;
+           await this.saveStep2();
+           this.loading = false;
         },
+        async loadDepartments(){
+        try {
+            let { data } = await academyAPI.getDepartments();
+            if(data.success){
+                this.departments = data.data;
+            }
+        } catch (error) {
+            //
+        }
+    },
         changeInput(evt){
             console.mylog('dds',evt)
         },
@@ -235,6 +277,18 @@
     },
         openDialog(){
             this.step = 1;
+            this.itemForm={
+                type:'live',
+                course_days:null,
+                number_day:null,
+                start_date:null,
+                type_certificate:'',
+                title:'',
+                department_id:'',
+                meeting_url:'',
+                has_exam:0,
+                image:null,
+            }
             this.showDialog = true;
             return true;
         },
@@ -242,6 +296,9 @@
             this.showDialog = false;
             return true;
         }
+      },
+      mounted(){
+        this.loadDepartments()
       }
     }
     </script>

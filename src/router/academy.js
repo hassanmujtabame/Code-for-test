@@ -25,6 +25,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-course-show" */ '../views/academy/courses/show/index.vue') 
     },
     {
+        path: 'academy/courses/:id/add-exam',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-course-add-exam',
+        component: () => import( '../views/academy/instructor/add-exam/index.vue') 
+    },
+    {
         path: 'academy/projects',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-projects',

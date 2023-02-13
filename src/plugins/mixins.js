@@ -13,6 +13,12 @@ const mixin = {
               let formData =  new FormData();
               Object.keys(obj).forEach(key=>{
                 if(obj[key]!==null && obj[key]!==undefined){
+                  if(Array.isArray(obj[key])){
+                    let array = obj[key]
+                    for (let i = 0; i < array.length; i++) {
+                      formData.append(`${key}[]`,array[i])
+                    }
+                  }else
                   formData.append(key,obj[key])
                 }
               })

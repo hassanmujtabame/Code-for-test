@@ -1,8 +1,9 @@
 <template>
- <div style="margin-top: 85px " class="consult bg-body-page ">
-    <div class="container">
+ <div style="margin-top: 85px " class="consult">
+    <div class="container mt-5">
         <div class="course-show-page">
-    <SectionHeader />
+    <SectionHeaderOwner v-if="isOwner"/>
+    <SectionHeader v-else />
     <SectionBody />
 </div>
 </div>
@@ -11,12 +12,22 @@
 
 <script>
 import SectionHeader from './sections/section-header/index.vue'
+import SectionHeaderOwner from './sections/section-header-owner/index.vue'
 import SectionBody from './sections/section-body/index.vue'
 export default {
  name:'course-show',
  components:{
     SectionHeader,
-    SectionBody
+    SectionBody,
+    SectionHeaderOwner
+ },
+ data:()=>{
+    return {
+        isOwner:true,
+        loading:false,
+        hasError:false,
+        itemPage:{}
+    }
  }
 }
 </script>
