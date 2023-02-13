@@ -30,9 +30,7 @@
   export default {
     name: 'd-multiselect',
     props:{
-        value:{
-
-        },
+        value:{},
         label:{},
         trackId:{
                 type:[String],
@@ -78,11 +76,7 @@
         handler(){}
       } ,
         value_(){
-          if(!this.value_) this.localValue = '';
-          else{
-            if(typeof this.value_ =='string')this.localValue = this.value_;
-            if(Array.isArray(this.value_))this.localValue = this.value_.map(item=>this.getLabelOpt( this.opts.find(o=>this.getTrackOpt(o)==item))).join(',');
-          }
+         this.fillInput()
             this.$emit('input',this.value_)
         },
         opts:{
@@ -97,10 +91,18 @@
                 let v=this.value;
                 if(this.multiSelect) v=v??[]
                 this.value_=v
+                this.fillInput()
             }
         }
     },
     methods:{
+      fillInput(){
+        if(!this.value_) this.localValue = '';
+          else{
+            if(typeof this.value_ =='string')this.localValue = this.value_;
+            if(Array.isArray(this.value_))this.localValue = this.value_.map(item=>this.getLabelOpt( this.opts.find(o=>this.getTrackOpt(o)==item))).join(',');
+          }
+      },
       outSide(vn){
         let att=vn.target.attributes[0];
             this.focused=(this.$el.attributes[0]==att)

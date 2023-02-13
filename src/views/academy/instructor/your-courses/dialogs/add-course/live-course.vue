@@ -5,10 +5,10 @@
     :close-dialog="closeDialog"
     >
     <template v-slot:default>
-        <ValidationObserver v-if="showDialog" ref="form" tag="div">
-        <div class="form-step" id="form-step-1" v-show="step==1">
+        <div v-if="showDialog" ref="form" tag="div">
+        <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
                 <div class="mt-3">
-                    <keep-alive>
+                    <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('num_days')"
                     vid="number_day"
                     rules="required|numeric"
@@ -17,10 +17,10 @@
                     >
                     <d-text-input type="text" :errors="errors"  v-model="itemForm.number_day" label="عدد ايام الدورة " />
                 </ValidationProvider>
-            </keep-alive>
+            <!-- </keep-alive> -->
                 </div>
                 <div class="mt-3">
-                    <keep-alive>
+                    <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('days_week')"
                     vid="course_days"
                     rules="required"
@@ -34,10 +34,10 @@
                                 placeholder="ايام الدورة ( حددي ايام الاسبوع )"
                                 />
                 </ValidationProvider>
-            </keep-alive>
+            <!-- </keep-alive> -->
                 </div>
                 <div class="mt-3">
-                    <keep-alive>
+                    <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('start_date_course')"
                     vid="start_date"
                     rules="required"
@@ -48,10 +48,10 @@
                 <d-error-input :errors="errors" v-if="errors && errors.length>0" />
                 
                 </ValidationProvider>
-            </keep-alive>
+            <!-- </keep-alive> -->
                 </div>
                 <div class="mt-3">
-                    <keep-alive>
+                    <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('type_certificate_for_student')"
                     vid="type_certificate"
                     rules="required"
@@ -60,12 +60,12 @@
                     >
                     <d-text-input type="text" :errors="errors"  v-model="itemForm.type_certificate"  label="نوع الشهادة التي تمنح للطلاب" />
                 </ValidationProvider>
-            </keep-alive>
+            <!-- </keep-alive> -->
                 </div>
-        </div>
-        <div class="form-step" id="form-step-2" v-show="step==2">
+        </ValidationObserver>
+        <ValidationObserver class="form-step" ref="form2" id="form-step-2" v-show="step==2">
             <div class="mb-3">
-                <keep-alive>
+                <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-title')"
                     vid="title"
                     rules="required"
@@ -74,10 +74,10 @@
                     >
                 <d-text-input type="text" :errors="errors"  v-model="itemForm.title"  label="عنوان الدورة " />
             </ValidationProvider>
-        </keep-alive>
+        <!-- </keep-alive> -->
             </div>
             <div class="mb-3 position-relative">
-                <keep-alive>
+                <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-domain')"
                     vid="department_id"
                     rules="required"
@@ -90,10 +90,10 @@
                   
                 </d-select-input>
             </ValidationProvider>
-        </keep-alive>
+        <!-- </keep-alive> -->
             </div>
             <div class="mb-3">
-                <keep-alive>
+                <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-meeting-url')"
                     vid="meeting_url"
                     rules="required"
@@ -102,10 +102,10 @@
                     >
                     <d-text-input type="text" :errors="errors"  v-model="itemForm.meeting_url"  label="رابط الدورة على زوم او جوجل ميت " />
                 </ValidationProvider>
-            </keep-alive>
+            <!-- </keep-alive> -->
                     </div>
             <div class="mb-3 position-relative">
-                <keep-alive>
+                <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-add-exam')"
                     vid="has_exam"
                     rules="required"
@@ -118,11 +118,25 @@
                     <option :value="0">لا</option>
                 </d-select-input>
             </ValidationProvider>
-        </keep-alive>
+        <!-- </keep-alive> -->
             </div>
             <div class="mb-3">
+                <!-- <keep-alive> -->
+                <ValidationProvider :name="$t('course-description')"
+                    vid="description"
+                    rules="required"
+                    v-slot="{errors}"
+                    v-if="step==2"
+                    >
+                    <d-textarea-input type="text" :errors="errors" 
+                    rows="10" 
+                    v-model="itemForm.description"  label="عن الدورة" />
+                </ValidationProvider>
+            <!-- </keep-alive> -->
+                    </div>
+            <div class="mb-3">
                 <div class="d-flex upload-request-file form-control align-items-center border-0  mb-3">
-                    <keep-alive>
+                    <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('add-display-image')"
                     vid="image"
                     rules="required|image"
@@ -136,19 +150,19 @@
                             <path d="M15.3538 6.60141C15.1638 6.60141 14.9738 6.53141 14.8238 6.38141L12.0038 3.56141L9.18375 6.38141C8.89375 6.67141 8.41375 6.67141 8.12375 6.38141C7.83375 6.09141 7.83375 5.61141 8.12375 5.32141L11.4738 1.97141C11.7638 1.68141 12.2438 1.68141 12.5338 1.97141L15.8838 5.32141C16.1738 5.61141 16.1738 6.09141 15.8838 6.38141C15.7438 6.53141 15.5438 6.60141 15.3538 6.60141Z" fill="#1FB9B3"/>
                             </svg>
                     </label>
-                    <input style="z-index: 99;" @change="uploadFile($event,validate) || validate($event)" class="form-control opacity-0 position-absolute  " type="file" id="fileinput1">
+                    <input style="z-index: 99;" @change="uploadImage($event,validate) || validate($event)" class="form-control opacity-0 position-absolute  " type="file" id="fileinput1">
                     <span id="selected_filename" class="mx-3 px-4 gray font-13 border-0  position-absolute m-c">
                         أضف صورة للعرض
                     </span>
                 <d-error-input :errors="errors" v-if="errors && errors.length>0" />
-
+                        <img id="add-course-image" class="mt-3" height="100" width="100" />
                 </ValidationProvider>
-            </keep-alive>
+            <!-- </keep-alive> -->
                 </div>
             </div>
     
-        </div>
-    </ValidationObserver>
+        </ValidationObserver>
+    </div>
             </template>
             <template v-slot:actions>
                 <button :disabled="step==1"  @click="prevStep" class="btn bg-main btn-danger text-white px-3" >رجوع</button>
@@ -179,38 +193,43 @@
             showDialog:false,
             departments:[],
             loading:false,
-            itemForm:{
-                type:'live',
-                course_days:null,
-                number_day:null,
-                start_date:null,
-                type_certificate:'',
-                title:'',
-                department_id:'',
-                meeting_url:'',
-                has_exam:0,
-                image:null,
-            }
+            itemForm:{}
         }
       },
       methods:{
         prevStep(){
             this.step-=1
         },
-        async uploadFile(evt,validate){
+        emptyImage(){
+            window.$('#add-course-image')
+                    .attr('src','none')
+                    .css('display', 'none');
+        },
+        async uploadImage(evt,validate){
        let resValid = await validate(evt)
        if(!resValid.valid){
         this.itemForm.image =  null;
+        this.emptyImage()
                 return;
        }
         if (!evt.target.files && !evt.target.files[0]) {
             this.itemForm.image =  null;
+            this.emptyImage()
                 return;
             }
         this.itemForm.image = evt.target.files[0];
+        var reader = new FileReader();
+            reader.onload =  (e) =>{
+                //console.log('result',e,this.idImage)
+                window.$('#add-course-image')
+                    .attr('src', e.target.result)
+                    .css('display', 'block');
+
+            };
+            reader.readAsDataURL(this.itemForm.image);
         },
         async saveStep1(){
-            let valid = await this.$refs.form.validate(['number_day']);
+            let valid = await this.$refs.form1.validate(['number_day']);
             if(!valid){
                 console.mylog('invalid step 1');
                 return false;
@@ -219,12 +238,12 @@
             return true;
         },
         async saveStep2(){
-            let valid = await this.$refs.form.validate();
+            let valid = await this.$refs.form2.validate();
             if(!valid){
                 console.mylog('invalid step 2');
                 return false;
             }
-            let formData = this.this.loadObjectToForm(this.itemForm)
+            let formData = this.loadObjectToForm(this.itemForm)
            
             try {
              let {data } = await academyAPI.coursesApi.addItem(formData)
@@ -277,17 +296,20 @@
     },
         openDialog(){
             this.step = 1;
+            this.emptyImage()
             this.itemForm={
                 type:'live',
                 course_days:null,
                 number_day:null,
-                start_date:null,
+                start_date:'',
                 type_certificate:'',
                 title:'',
                 department_id:'',
                 meeting_url:'',
                 has_exam:0,
+                description:'',
                 image:null,
+                price:0,
             }
             this.showDialog = true;
             return true;
@@ -303,6 +325,8 @@
     }
     </script>
     
-    <style>
-    
+    <style scoped>
+    #add-course-image{
+        display: none;
+    }
     </style>

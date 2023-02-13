@@ -20,7 +20,7 @@
 <script>
 export default {
     props: {
-        value: {},
+        value:{},
         mask: {
             type: String,
             default: 'YYYY-MM-DD'
@@ -30,9 +30,13 @@ export default {
             default:false 
         }
     },
+    model: {
+        prop: 'value',
+        event: 'updateValue'
+    },
     data: (vm) => {
         return {
-            date_value: null,
+            date_value:null,
             modelConfig: {
                 type: 'string',
                 mask: vm.mask, // Uses 'iso' if missing
@@ -41,10 +45,16 @@ export default {
     },
     watch: {
         date_value() {
-            this.$emit('input', this.date_value)
+            this.$emit('updateValue', this.date_value)
         },
-        value() {
-            this.date_value = this.value
+        value: {
+            immediate:true,
+            handler(){
+                if(this.value===undefined) this.date_value = null;
+                else
+                this.date_value = this.value
+            }
+           
         },
         mask() {
             this.modelConfig.mask = this.mask

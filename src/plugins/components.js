@@ -19,6 +19,7 @@ import drowListInput from '@/components/inputs/multi-select/drown-list.vue'
 import DMultiSelecetInput from '@/components/inputs/multi-select/d-multiselect.vue'
 import DSelectInput from '@/components/inputs/multi-select/d-select.vue'
 import DTextInput from '@/components/inputs/text-input/inline.vue'
+import DTextareaInput from '@/components/inputs/text-input/text-area.vue'
 import DatePickerInput from '@/components/inputs/date-picker/index.vue'
 import DDatePickerInput from '@/components/inputs/date-picker/d-datepicker.vue'
 import DatePickerRange from '@/components/inputs/date-picker/range.vue'
@@ -53,6 +54,7 @@ Vue.component('d-multiselect-input', DMultiSelecetInput)//improve d-drown-list
 Vue.component('d-multi-select-tag', DMultiSelecetTagInput)
 Vue.component('date-picker-input', DatePickerInput)
 Vue.component('d-text-input', DTextInput)
+Vue.component('d-textarea-input', DTextareaInput)
 Vue.component('d-select-input', DSelectInput)
 Vue.component('d-datepicker-input', DDatePickerInput)// just for date only
 Vue.component('date-picker-range', DatePickerRange)
