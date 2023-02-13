@@ -262,8 +262,13 @@
                     this.router_push('academy-course-add-exam',{id:data.data.id})
                 }else{
                     //redirect to course page
-                    //let dataE
-                    this.router_push('academy-course-show',{id:data.data.id})
+                    let dataEvt={
+                        title:'تم أضافة دورتك  بنجاح ',
+                        btns:[
+                            {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.id}),class:'btn btn-custmer'}
+                        ]
+                    }
+                    this.showSuccessMsg(dataEvt)
                 }
                 this.closeEvent()
              }
