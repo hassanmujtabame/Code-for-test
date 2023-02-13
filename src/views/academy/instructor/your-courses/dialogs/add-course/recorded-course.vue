@@ -212,8 +212,14 @@
             try {
              let {data } = await academyAPI.coursesApi.addItem(formData)
              if(data.success){
-                    //redirect to course page
-                    this.router_push('academy-course-show',{id:data.data.id})
+                   //redirect to course page
+                let dataEvt={
+                        title:' خطوتك الاولى تمت بنجاح عليك الان برفع الدروس و المرفقات',
+                        btns:[
+                            {title:'إرفع الدروس',action:()=>this.router_push('academy-course-show',{id:data.data.id}),class:'btn btn-custmer'}
+                        ]
+                    }    
+                    this.showSuccessMsg(dataEvt)
                 this.closeEvent()
              }
            } catch (error) {

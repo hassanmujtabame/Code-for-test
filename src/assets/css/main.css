@@ -1497,7 +1497,9 @@ position: relative;
 }
 
 .text-input-error{
-    color:#ec7979
+    color:#ec7979;
+    font-size: 12px;
+    line-height: 17px;
 }
 .icon-input-end{
     left: 10px;
