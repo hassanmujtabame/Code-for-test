@@ -525,5 +525,8 @@
   "course-add-exam": "أضف اختبار",
   "days_week": "ايام الاسبوع",
   "course-description": "عن الدورة",
-  "course-code": "كود الدورة"
+  "course-code": "كود الدورة",
+  "end_date_course_booking": "نهاية الحجز",
+  "course-place": "مكان اقامة الدورة",
+  "course-observation": "ملاحظات الحضور"
 }

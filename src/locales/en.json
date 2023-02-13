@@ -528,5 +528,9 @@
   "course-meeting-url": "Course meeting url",
   "course-add-exam": "Add exam",
   "course-description": "About course",
-  "course-code": "Course code"
+  "course-code": "Course code",
+  "end_date_course_booking": "Due date",
+  "number_students": "Number students",
+  "course-place": "Course address",
+  "course-observation": "Present observation"
 }

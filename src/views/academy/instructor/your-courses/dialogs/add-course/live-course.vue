@@ -262,6 +262,7 @@
                     this.router_push('academy-course-add-exam',{id:data.data.id})
                 }else{
                     //redirect to course page
+                    //let dataE
                     this.router_push('academy-course-show',{id:data.data.id})
                 }
                 this.closeEvent()
