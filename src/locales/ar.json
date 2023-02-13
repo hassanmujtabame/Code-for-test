@@ -524,5 +524,6 @@
   "course-meeting-url": "رابط الدورة",
   "course-add-exam": "أضف اختبار",
   "days_week": "ايام الاسبوع",
-  "course-description": "عن الدورة"
+  "course-description": "عن الدورة",
+  "course-code": "كود الدورة"
 }

@@ -32,6 +32,10 @@
     props:{
         value:{},
         label:{},
+        seperate:{
+                type:[String],
+                default:',',
+        },
         trackId:{
                 type:[String],
                 default:null,
@@ -100,7 +104,7 @@
         if(!this.value_) this.localValue = '';
           else{
             if(typeof this.value_ =='string')this.localValue = this.value_;
-            if(Array.isArray(this.value_))this.localValue = this.value_.map(item=>this.getLabelOpt( this.opts.find(o=>this.getTrackOpt(o)==item))).join(',');
+            if(Array.isArray(this.value_))this.localValue = this.value_.map(item=>this.getLabelOpt( this.opts.find(o=>this.getTrackOpt(o)==item))).join(this.seperate);
           }
       },
       outSide(vn){

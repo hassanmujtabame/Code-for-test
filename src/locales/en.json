@@ -527,5 +527,6 @@
   "course-domain": "course domain",
   "course-meeting-url": "Course meeting url",
   "course-add-exam": "Add exam",
-  "course-description": "About course"
+  "course-description": "About course",
+  "course-code": "Course code"
 }

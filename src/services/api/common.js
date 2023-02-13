@@ -35,6 +35,13 @@ class CommonApi extends BaseApi {
     let s=this.generateQueryUrl(params)
     return window.axios.get(`user/countries?${s}`);
 }
+getTypeCertificates(){
+  return [
+    {id:'presence',name:"حضور"},
+    {id:'projects',name:'مشاريع'},
+    {id:'after_pass_exams',name:'بعد إجتياز اختبارات'},
+]
+}
   getDaysOfWeek(){
     return [
       {id:'sunday',name:_i18n.t('sunday')},

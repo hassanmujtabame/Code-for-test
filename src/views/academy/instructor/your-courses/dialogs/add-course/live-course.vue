@@ -50,6 +50,7 @@
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
+                <!--type_certificate -->
                 <div class="mt-3">
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('type_certificate_for_student')"
@@ -58,7 +59,13 @@
                     v-slot="{errors}"
                     v-if="step==1"
                     >
-                    <d-text-input type="text" :errors="errors"  v-model="itemForm.type_certificate"  label="نوع الشهادة التي تمنح للطلاب" />
+                
+                <d-multiselect-input :errors="errors" label="نوع الشهادة التي تمنح للطلاب" :opts="type_certificates" 
+                                track-id="id" label-name="name"
+                                v-model="itemForm.type_certificate"
+                                multi-select
+                                seperate=" - "
+                                />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
@@ -187,9 +194,11 @@
       },
       data:()=>{
         let daysOfWeek = commonAPI.getDaysOfWeek()
+        let types = commonAPI.getTypeCertificates()
         return{
             daysOfWeek:daysOfWeek,
             step:1,
+            type_certificates:types,
             showDialog:false,
             departments:[],
             loading:false,
@@ -302,7 +311,7 @@
                 course_days:null,
                 number_day:null,
                 start_date:'',
-                type_certificate:'',
+                type_certificate:null,
                 title:'',
                 department_id:'',
                 meeting_url:'',
