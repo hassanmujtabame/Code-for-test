@@ -7,21 +7,19 @@ hideSide
    <h1 class="fw-bolder">دوراتي التدريبة</h1>
 </template>
 
-<template v-slot="{}">
+<template v-slot="{item}">
     <CourseCard 
-    
+    :item="item"
     />
 </template>
 </d-filter-list>
 </template>
 
 <script>
-import plusCircleOutline from '@/components/icon-svg/plus-circle-outline.vue';
 import CourseCard  from './card.vue'
 export default {
   name:'filter-list',
   components:{
-    plusCircleOutline,
     CourseCard
   },
   data:()=>{

@@ -4,6 +4,7 @@
 :call-list="loadList"
 hideSide
 hideOrder
+classColCard="col-12 col-md-4"
 classSearchOrder="col-12 col-md-4"
 classColSearch="col-12"
 >
@@ -17,7 +18,9 @@ classColSearch="col-12"
     <button class="more">المزيد</button>
 </template>
 <template v-slot="{item}">
+  <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})">
     <CourseCard  :item="item"/>
+  </router-link>
 </template>
 </d-filter-list>
 </template>
@@ -51,6 +54,7 @@ export default {
         try {
             let params ={
                 page: metaInfo.current_page,
+                paginate:this.isMobile?2:12
             }
             return await instructorAPI.getCourses(params)
         } catch (error) {
