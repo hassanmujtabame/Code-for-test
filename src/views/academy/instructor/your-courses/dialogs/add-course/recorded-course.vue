@@ -212,6 +212,7 @@
             try {
              let {data } = await academyAPI.coursesApi.addItem(formData)
              if(data.success){
+                this.closeEvent()
                    //redirect to course page
                 let dataEvt={
                         title:' خطوتك الاولى تمت بنجاح عليك الان برفع الدروس و المرفقات',
@@ -220,7 +221,7 @@
                         ]
                     }    
                     this.showSuccessMsg(dataEvt)
-                this.closeEvent()
+                
              }
            } catch (error) {
             console.log('error',error)
@@ -271,7 +272,7 @@
                 course_code:'',
                 desc:'',
                 image:null,
-                price:0,
+               //price:0,
             }
             this.showDialog = true;
             return true;

@@ -257,6 +257,7 @@
             try {
              let {data } = await academyAPI.coursesApi.addItem(formData)
              if(data.success){
+                this.closeEvent()
                 if(this.itemForm.has_exam){
                     //redirect to add exam page
                     this.router_push('academy-course-add-exam',{id:data.data.course_id})
@@ -265,12 +266,12 @@
                     let dataEvt={
                         title:'تم أضافة دورتك  بنجاح ',
                         btns:[
-                            {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.id}),class:'btn btn-custmer'}
+                            {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
                         ]
                     }
                     this.showSuccessMsg(dataEvt)
                 }
-                this.closeEvent()
+                
              }
            } catch (error) {
             console.log('error',error)

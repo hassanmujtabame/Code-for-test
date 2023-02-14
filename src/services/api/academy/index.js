@@ -11,6 +11,10 @@ class academyApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/departments?${s}`);
     }
+    getPlaces(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/places?${s}`);
+    }
     checkoutPackage(data){
         /*
           type if 0

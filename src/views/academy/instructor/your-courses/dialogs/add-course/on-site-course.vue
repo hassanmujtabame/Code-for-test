@@ -112,16 +112,37 @@
             </ValidationProvider>
         <!-- </keep-alive> -->
             </div>
-            <!-- place -->
-            <div class="mb-3">
+            <div class="mb-3 position-relative">
                 <!-- <keep-alive> -->
-                <ValidationProvider :name="$t('course-place')"
-                    vid="place"
+                <ValidationProvider :name="$t('course-domain')"
+                    vid="department_id"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==2"
                     >
-                    <d-text-input type="text" :errors="errors"  v-model="itemForm.place"  label="مكان اقامة الدورة بالتفاصيل " />
+                <d-select-input :errors="errors" v-model="itemForm.department_id" label="حدد مجال الدورة " >
+                    <option value="" class="t-c" selected disabled>حدد مجال الدورة  </option>
+                    <option  class="t-c" v-for="(dept,i) in departments" :key="i" :value="dept.id"> {{ dept.name }}</option>
+                  
+                </d-select-input>
+            </ValidationProvider>
+        <!-- </keep-alive> -->
+            </div>
+            <!-- place_id -->
+            <div class="mb-3">
+                <!-- <keep-alive> -->
+                <ValidationProvider :name="$t('course-place')"
+                    vid="place_id"
+                    rules="required"
+                    v-slot="{errors}"
+                    v-if="step==2"
+                    >
+                    <d-select-input :errors="errors" v-model="itemForm.place_id" label="مكان اقامة الدورة بالتفاصيل " >
+                    <option value="" class="t-c" selected disabled>حدد مكان اقامة الدورة  </option>
+                    <option  class="t-c" v-for="(pl,i) in places" :key="i" :value="pl.id"> {{ pl.name }}</option>
+                  
+                </d-select-input>
+                   
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
@@ -129,14 +150,14 @@
             <div class="mb-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-observation')"
-                    vid="observation"
+                    vid="notes"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==2"
                     >
                     <d-textarea-input type="text" :errors="errors" 
                     rows="10" 
-                    v-model="itemForm.observation"  label="ملاحظات الحضور" />
+                    v-model="itemForm.notes"  label="ملاحظات الحضور" />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
@@ -214,6 +235,7 @@
             step:1,
             type_certificates:types,
             showDialog:false,
+            places:[],
             departments:[],
             loading:false,
             itemForm:{}
@@ -271,20 +293,18 @@
             try {
              let {data } = await academyAPI.coursesApi.addItem(formData)
              if(data.success){
-                if(this.itemForm.has_exam){
-                    //redirect to add exam page
-                    this.router_push('academy-course-add-exam',{id:data.data.course_id})
-                }else{
+                this.closeEvent()
+               
                     //redirect to course page
                     let dataEvt={
                         title:'تم أضافة دورتك  بنجاح ',
                         btns:[
-                            {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.id}),class:'btn btn-custmer'}
+                            {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
                         ]
                     }
                     this.showSuccessMsg(dataEvt)
-                }
-                this.closeEvent()
+                
+                
              }
            } catch (error) {
             console.log('error',error)
@@ -316,6 +336,16 @@
             //
         }
     },
+    async loadPlaces(){
+        try {
+            let { data } = await academyAPI.getPlaces();
+            if(data.success){
+                this.places = data.data;
+            }
+        } catch (error) {
+            //
+        }
+    },
         changeInput(evt){
             console.mylog('dds',evt)
         },
@@ -336,11 +366,11 @@
                 number_students:null,
                 title:'',
                 department_id:'',
-                place:'',
-                observation:'',
+                place_id:'',
+                notes:'',
                 desc:'',
                 image:null,
-                price:0,
+                //price:0,
             }
             this.showDialog = true;
             return true;
@@ -352,6 +382,7 @@
       },
       mounted(){
         this.loadDepartments()
+        this.loadPlaces()
       }
     }
     </script>
