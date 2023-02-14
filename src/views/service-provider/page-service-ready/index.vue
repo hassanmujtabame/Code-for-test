@@ -185,7 +185,7 @@
         </div>
 
   <SectionContinueLearning />
-
+<SectionHear />
   <DialogBooking  />
   <DialogRequestService />
   <DialogDeleteService />
@@ -199,6 +199,8 @@
 <script>
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import SectionContinueLearning from '@/views/service-provider/common-components/section-continue-learning/index.vue'
+import SectionHear from '@/views/service-provider/common-components/section-hear/index.vue'
+ 
 import SectionGallary from './section-gallary/index.vue'
 import SectionRateService from './section-rate-service/index.vue'
 import SectionShareService from './section-share-service/index.vue'
@@ -233,6 +235,7 @@ export default {
         ActionCrud,
         ActionForVisiter,
         SectionContinueLearning,
+        SectionHear,
         SectionGallary,
         SectionRateService,
         SectionShareService,
