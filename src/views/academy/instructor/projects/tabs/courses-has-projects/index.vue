@@ -23,11 +23,12 @@
      },
      data:()=>{
         return {
+            loading:false,
         }
      },
      methods:{
         async loadList(metaInfo){
-    
+            this.loading = true;
             try {
                 let params ={
                     page: metaInfo.current_page,
@@ -36,6 +37,7 @@
             } catch (error) {
                 //
             }
+            this.loading = false
         }
      }
     }

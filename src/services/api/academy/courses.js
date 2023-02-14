@@ -20,6 +20,10 @@ class CoursesApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructor/course-projects?${s}`);
     }
+     getProjectsNeedRevision(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/instructor/course-projects-review?${s}`);
+    }
 }
 
 export default new CoursesApi();
