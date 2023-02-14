@@ -125,7 +125,7 @@
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
-                     <!--description-->
+                     <!--desc-->
             <div class="mb-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-observation')"
@@ -140,18 +140,18 @@
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
-                    <!--description-->
+                    <!--desc-->
             <div class="mb-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-description')"
-                    vid="description"
+                    vid="desc"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==2"
                     >
                     <d-textarea-input type="text" :errors="errors" 
                     rows="10" 
-                    v-model="itemForm.description"  label="عن الدورة" />
+                    v-model="itemForm.desc"  label="عن الدورة" />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
@@ -338,7 +338,7 @@
                 department_id:'',
                 place:'',
                 observation:'',
-                description:'',
+                desc:'',
                 image:null,
                 price:0,
             }
