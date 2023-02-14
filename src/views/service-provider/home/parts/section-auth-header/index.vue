@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <div class="over-lay">
-            <div :style="{height:isMobile?'400px':'600px'}" class="d-flex flex-column justify-content-center align-items-center py-5">
+            <div :style="{height:isMobile?'400px':'600px'}" class="container d-flex flex-column justify-content-center align-items-center py-5">
 
                 <h1  class="service-provider-header_title" :class="{'mobile':isMobile}">
                     أهلاً و مرحباً بك في مقدمي الخدمات
@@ -9,7 +9,7 @@
                 <h6 class="service-provider-header_subtitle" :class="{'mobile':isMobile}">
                     منصة تجمع أهم وألمع رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد
                 </h6>
-                <div class="row" :class="{'mx-5':!isMobile,'mx-1':isMobile}">
+                <div class="row w-75" :class="{'mx-5':!isMobile,'mx-1':isMobile}">
                     <div class="col-12 col-md-9">
                     <input class=" p-3 w-100 rounded-2 border-0 bg-white" type="text"
                         placeholder="ابحث عن خدمات او طلبات من هنا">
