@@ -141,7 +141,9 @@ const mixin = {
           dateReverse(date){
             if(!date) return '';
             let parts = date.split('-');
-            return `${parts[2]}-${parts[1]}-${parts[0]}`
+            let d = parts[0].padStart(2,'0')
+            let m = parts[1].padStart(2,'0')
+            return `${parts[2]}-${m}-${d}`
           },
             dateTextMonth(dateT){
               if(!dateT) return 'N/A';
