@@ -15,11 +15,7 @@
 
           
 
-          <!-- section need-service-->
-          <SectionNeedService />
           
-
-           
 
            <!-- section continue-learning-->
            <SectionContinueLearning />
@@ -35,7 +31,7 @@
   import SectionSeekJob from './parts/section-seek-job/index.vue'
   import SectionBestProvider from './parts/section-best-provider/index.vue'
   import SectionRecentRequests from './parts/section-recent-requests/index.vue'
-  import SectionNeedService from './parts/section-need-service/index.vue'
+  //import SectionNeedService from './parts/section-need-service/index.vue'
   import SectionExploreServices from './parts/section-explore-services/index.vue'
   import SectionRecentServices from './parts/section-recent-services/index.vue'
   import SectionContinueLearning from '@/views/service-provider/common-components/section-continue-learning/index.vue'
@@ -47,7 +43,7 @@
     SectionSeekJob,
     SectionBestProvider,
     SectionRecentRequests,
-    SectionNeedService,
+    //SectionNeedService,
     SectionExploreServices,
     SectionRecentServices,
     SectionContinueLearning,
