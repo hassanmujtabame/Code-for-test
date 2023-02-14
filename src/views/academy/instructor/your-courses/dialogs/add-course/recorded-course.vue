@@ -258,7 +258,7 @@
         },
     
         closeEvent(){
-      this.fireOpenDialog(this.group)
+            this.fireCloseDialog(this.group)
     },
         openDialog(){
             this.step = 1;
