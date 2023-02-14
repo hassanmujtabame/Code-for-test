@@ -55,12 +55,12 @@
                  <div class="mt-3">
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('end_date_course_booking')"
-                    vid="end_date_booking"
+                    vid="reservation_closing_date"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==1"
                     >
-                    <d-datepicker-input  v-model="itemForm.end_date_booking" label="موعد غلق الحجز للدورة" />
+                    <d-datepicker-input  v-model="itemForm.reservation_closing_date" label="موعد غلق الحجز للدورة" />
                 <d-error-input :errors="errors" v-if="errors && errors.length>0" />
                 </ValidationProvider>
             <!-- </keep-alive> -->
@@ -331,7 +331,7 @@
                 course_days:null,
                 number_day:null,
                 start_date:'',
-                end_date_booking:'',
+                reservation_closing_date:'',
                 type_certificate:null,
                 number_students:null,
                 title:'',
