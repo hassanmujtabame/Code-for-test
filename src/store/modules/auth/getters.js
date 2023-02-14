@@ -14,7 +14,7 @@ export default {
         return state.isInstructor;
     },
     academyRole(state){
-       return state.academyRole || localStorage.getItem('user_academy_role')
+       return state.academyRole || localStorage.getItem('user_academy_role') || 'student'
     },
     isProvider (state,getters) { 
         let data = localStorage.getItem('user_provider')=='Y';

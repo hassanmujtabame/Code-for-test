@@ -5,6 +5,6 @@ export default () => ({
     subscribeNetwork:null,
     subscribeProvider:null,
     isProvider:false,
-    academyRole:'student',
+    academyRole:null,
     isInstructor:false,
  })
