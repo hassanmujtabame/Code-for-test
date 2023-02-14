@@ -28,15 +28,22 @@
         </div>
       <!--filter list-->
       <SectionFilterList />
+      <SectionContinueLearning />
+      <SectionHear />
     </div>
 </template>
 
 <script>
 import SectionFilterList from './parts/section-filter/index.vue'
+import SectionContinueLearning from '@/views/service-provider/common-components/section-continue-learning/index.vue'
+  import SectionHear from '@/views/service-provider/common-components/section-hear/index.vue'
+ 
 export default {
  name:'show-services',
  components:{
-    SectionFilterList
+    SectionFilterList,
+    SectionContinueLearning,
+    SectionHear
  }
 }
 </script>
