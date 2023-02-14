@@ -532,5 +532,9 @@
   "end_date_course_booking": "Due date",
   "number_students": "Number students",
   "course-place": "Course address",
-  "course-observation": "Present observation"
+  "course-observation": "Present observation",
+  "add-lecture": "Add lecture",
+  "add-exam": "Add exam",
+  "add-project": "Add project",
+  "new-item": "New item"
 }

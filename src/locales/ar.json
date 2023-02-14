@@ -528,5 +528,9 @@
   "course-code": "كود الدورة",
   "end_date_course_booking": "نهاية الحجز",
   "course-place": "مكان اقامة الدورة",
-  "course-observation": "ملاحظات الحضور"
+  "course-observation": "ملاحظات الحضور",
+  "add-project": "أضف المشروع",
+  "add-exam": "أضف إختبار",
+  "add-lecture": "أضف درس",
+  "new-item": "عنصر جديد"
 }
