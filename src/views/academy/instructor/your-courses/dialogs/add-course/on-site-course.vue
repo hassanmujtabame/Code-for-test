@@ -273,7 +273,7 @@
              if(data.success){
                 if(this.itemForm.has_exam){
                     //redirect to add exam page
-                    this.router_push('academy-course-add-exam',{id:data.data.id})
+                    this.router_push('academy-course-add-exam',{id:data.data.course_id})
                 }else{
                     //redirect to course page
                     let dataEvt={

@@ -216,7 +216,7 @@
                 let dataEvt={
                         title:' خطوتك الاولى تمت بنجاح عليك الان برفع الدروس و المرفقات',
                         btns:[
-                            {title:'إرفع الدروس',action:()=>this.router_push('academy-course-show',{id:data.data.id}),class:'btn btn-custmer'}
+                            {title:'إرفع الدروس',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
                         ]
                     }    
                     this.showSuccessMsg(dataEvt)

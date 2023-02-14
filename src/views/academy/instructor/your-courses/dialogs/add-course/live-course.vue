@@ -259,7 +259,7 @@
              if(data.success){
                 if(this.itemForm.has_exam){
                     //redirect to add exam page
-                    this.router_push('academy-course-add-exam',{id:data.data.id})
+                    this.router_push('academy-course-add-exam',{id:data.data.course_id})
                 }else{
                     //redirect to course page
                     let dataEvt={
@@ -324,7 +324,7 @@
                 has_exam:0,
                 description:'',
                 image:null,
-                price:0,
+                //price:0,
             }
             this.showDialog = true;
             return true;
