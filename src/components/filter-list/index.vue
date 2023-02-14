@@ -207,7 +207,7 @@
                     <div v-if="items.length==0">
                         <h1 class="t-c text-center">لا يوجد عناصر</h1>
                     </div>
-                <div v-else class="col-12 row order">
+                <div v-else class="col-12 row order filter-list-items">
                     <div v-for="(item,i) in items" :key="i" :class="classColCard">
                        
                          <slot :item="item"></slot>

@@ -16,6 +16,14 @@ class CoursesApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructor/course-exams?${s}`);
     }
+    getStudentsPassExam(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/instructor/students-pass-exam?${s}`);
+    }
+    getStudentsNotPassExam(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/instructor/students-notpass-exam?${s}`);
+    }
     getCoursesHasProjects(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructor/course-projects?${s}`);
