@@ -4,17 +4,16 @@
             <img class="w-100" src="/assets/img/Rectangle qqq.png" alt="" height="184">
         </div>
         <div class="text p-1 d-flex justify-content-between align-items-center">
-            <h5 class="p-0 m-0">تصميم مجوهرات</h5>
+            <h5 class="p-0 m-0">{{item.title}}</h5>
 
             <p class="m-c p-0 m-0">
-                لقاء مباشر
+               {{typeText}}
             </p>
 
         </div>
         <div class="">
 
-            <p class="t-c">
-                دورة متخصصة في رسم الخواتم الذهبية و الفصية
+            <p class="t-c">{{ item.desc }}
 
             </p>
 
@@ -26,6 +25,21 @@
 <script>
 export default {
     name: 'course-card',
+    props:{
+        item:{}
+    },
+    computed:{
+        typeText(){
+            switch (this.item.type) {
+                case 'live': return 'لقاء مباشر';
+                case 'recorded': return 'مسجلة';
+                case 'on-site': return 'في مقر';
+
+                default:
+                return this.item.type
+            }
+        }
+    }
 }
 </script>
 
