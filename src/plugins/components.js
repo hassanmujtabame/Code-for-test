@@ -28,6 +28,7 @@ import DUserInfo from '@/components/cards/user-info.vue'
 import DUserInfoLi from '@/components/cards/user-info-left-img.vue'
 import DStoryCard from '@/components/cards/story.vue'
 import DJobCard from '@/components/cards/job.vue'
+import DCoursePanel from '@/components/panels/course-panel/index'
 import DBlogInfoCard from '@/components/cards/blog-info.vue'
 import DDialogLarge from '@/components/modals/large.vue'
 import DDialogSimple from '@/components/modals/simple.vue'
@@ -69,6 +70,7 @@ Vue.component('d-story-card', DStoryCard)
 Vue.component('d-overlays-simple', DOverlaySimple)
 Vue.component('d-dialog-large', DDialogLarge)
 Vue.component('d-dialog-simple', DDialogSimple)
+Vue.component('d-course-panel', DCoursePanel)
 Vue.component('d-swiper', DSwiper)
 Vue.component('d-swiper-2', DSwiper2)
 Vue.component('d-swiper-slide', DSwiperSlide)
