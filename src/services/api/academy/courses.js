@@ -7,7 +7,7 @@ class CoursesApi extends BaseApi{
         return window.axios.get(`academy/courses?${s}`);
     }
     getItem(id){
-        return window.axios.get(`academy/courses/${id}`);
+        return window.axios.get(`academy/instructor/courses/${id}`);
     }
     addItem(data){
         return window.axios.post(`academy/instructor/courses`,data);
