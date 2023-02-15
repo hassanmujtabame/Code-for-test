@@ -7,6 +7,7 @@
     <slot name="append-icon"></slot>
     </div>
     <d-error-input :errors="errors" v-if="errors && errors.length>0" />
+    <slot name="after-error"></slot>
   </div>
 </template>
 
