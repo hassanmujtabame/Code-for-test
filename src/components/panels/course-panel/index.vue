@@ -1,10 +1,10 @@
 <template>
   <div class="course-panel">
     <div class="course-panel__wrapper">
-        <div class="course-panel__header">
+        <div class="course-panel__header" :class="classHeader">
             <slot name="header"></slot>
         </div>
-        <div class="course-panel__body">
+        <div class="course-panel__body" :class="classBody">
             <slot></slot>
         </div>
     </div>
@@ -13,7 +13,18 @@
 
 <script>
 export default {
- name:'course-panel'
+ name:'course-panel',
+ props:{
+    classHeader:{
+        type:[String,Object,Array],
+        default:''
+    },
+    classBody:{
+        type:[String,Object,Array],
+        default:''
+    }
+ }
+
 }
 </script>
 
