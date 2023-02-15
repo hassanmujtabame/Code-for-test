@@ -17,7 +17,7 @@
 
 <script>
 let itemTest={
-            note:'دكتور مميز لقد أستفدت منه الكثير',
+    comment:'دكتور مميز لقد أستفدت منه الكثير',
             rate:3,
             user_info:{
                 id:148,

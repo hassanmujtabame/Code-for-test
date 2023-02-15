@@ -14,7 +14,7 @@
     <div class="d-flex flex-grow-1">
         <div class="flex-grow-1 d-flex flex-column px-3">
             <h1 class="rate-item__name">{{ item.user_info.name??'N/A' }}</h1>
-            <div class="rate-item__comment">{{ item.note}}</div>
+            <div class="rate-item__comment">{{ item.comment}}</div>
         </div>
         <p class="m-0 flex-shrink-0">
                 <span>
