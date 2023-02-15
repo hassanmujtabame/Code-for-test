@@ -281,5 +281,7 @@ export default {
 .add-lecture-video{
   background: #1fb9b32e;
 }
-
+.file-label{
+  margin-bottom:0
+}
 </style>
