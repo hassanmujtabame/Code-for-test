@@ -98,5 +98,11 @@ color: #979797;
     box-shadow: 0 0 0 0.1rem #1fb9b359;
     border-color: #1fb9b359;
 }
-
+.form-group[disabled] {
+    background: #f7f7f7a1;
+}
+.form-control:disabled {
+    background-color: #f6f9fb00;
+    opacity: 1;
+}
 </style>

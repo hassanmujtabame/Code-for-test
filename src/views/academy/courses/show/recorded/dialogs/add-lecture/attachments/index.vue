@@ -29,7 +29,7 @@
                             
                             >
                             <label  class="btn position-relative">
-                            <i class="m-c fa fa-paperclip"></i>
+                            <i class="fa fa-paperclip" :class="[lectureId?'m-c':'t-c']"></i>
                             <input type="file" :disabled="!lectureId" @change="uploadFile($event,validate) || validate($event)" class="position-absolute top-0 left-0 w-100 h-100" style="opacity: 0;">
                             </label>
                             <d-error-input :errors="errors" v-if="errors && errors.length>0" />
