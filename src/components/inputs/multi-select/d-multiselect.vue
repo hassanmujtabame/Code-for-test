@@ -158,7 +158,7 @@
     background-repeat: no-repeat;
     background-position: left 0.375rem center;
     background-size: 16px 12px;
-    padding: 5px 5px;
+    padding: 0px 5px;
     padding-left:20px;
  
   }

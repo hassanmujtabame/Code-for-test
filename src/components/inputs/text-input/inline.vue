@@ -60,7 +60,7 @@ export default {
     background: #FFFFFF;
     border: 0.5px solid #D1D1D1;
     border-radius: 4px;
-    padding: 5px 5px;
+    padding: 0px 5px;
     display: flex;
     flex-direction: column;
 }
