@@ -15,6 +15,9 @@ class LecturesApi extends BaseApi{
     updateItem(lession_id,data){
         return window.axios.post(`academy/instructor/courses/lessons/${lession_id}`,data);
     }
+    deleteItem(lession_id){
+        return window.axios.delete(`academy/instructor/courses/lessons/${lession_id}`);
+    }
     addVideo(lesson_id,data,config={}){
         return window.axios.post(`academy/instructor/courses/lessons/${lesson_id}/video`,data,config);
     }

@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import academyAPi from '@/services/api/academy'
+import academyAPI from '@/services/api/academy'
 import AddLectureBtn from './add-lecture-btn'
 export default {
   props:{
@@ -88,11 +88,30 @@ export default {
         }
         this.showConfirmMsg(dataEvent)
     },
-    deleteItem(lect){
-      let index  = this.lectures.findIndex(l=>l.id===lect.id)
-      if(index>-1){
-        this.lectures.splice(index,1)
-      }
+    async deleteItem(lect){
+        console.mylog('deleting ...',lect)
+        try {
+
+                        let {data} =  await academyAPI.lecturesAPI.deleteItem(lect.id)
+                        if(data.success){
+                           
+                            let index  = this.lectures.findIndex(l=>l.id===lect.id)
+                              if(index>-1){
+                                this.lectures.splice(index,1)
+                              }
+                        }else{
+                            window.SwalError(data.message)
+                        }
+                    } catch (error) {
+                        if(error.response){
+                            let response = error.response
+                            if (response.status == 422) {
+                                this.setErrorsForm(this.$refs.form,response)
+                            }
+                        }
+                    }
+                
+      
     },
     updateLectures({item,type}){
       if(type=='update'){
@@ -116,7 +135,7 @@ export default {
      async initializing(){
       this.loading = true;
       try {
-        let {data} = await academyAPi.lecturesAPI.getAll(this.itemPage.id)
+        let {data} = await academyAPI.lecturesAPI.getAll(this.itemPage.id)
         if(data.success){
           this.lectures = data.data
         }
