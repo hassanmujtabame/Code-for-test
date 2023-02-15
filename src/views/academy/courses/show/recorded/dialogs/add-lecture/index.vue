@@ -49,7 +49,7 @@
                                 <div class="add-lecture-video position-relative" :class="{'video-disabled':!lectureId}">
                                     <d-overlays-simple v-if="videoing" />
                                    
-                                  <label for="imginput" class="form-label file-label first w-100">
+                                  <label for="imginput" class="form-label file-label first w-100" :class="{'label-disabled':!lectureId}">
                                         <div class="text-center p-5">
                                           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M63.5698 66.0663C62.9365 66.0663 62.3031 65.8329 61.8031 65.3329C60.8365 64.3662 60.8365 62.7663 61.8031 61.7996C73.8365 49.7663 73.8365 30.1997 61.8031 18.1997C60.8365 17.2331 60.8365 15.6331 61.8031 14.6664C62.7698 13.6997 64.3698 13.6997 65.3365 14.6664C79.3031 28.6331 79.3031 51.3662 65.3365 65.3329C64.8365 65.8329 64.2031 66.0663 63.5698 66.0663Z" fill="#1FB9B3"/>
@@ -67,7 +67,7 @@
                                         <div class="w-100 h-100 top-0 left-0 position-absolute">
                                           <video id="video-add-lecture-player" src="none" ></video>
                                         </div>
-                                        <input @change="uploadVideo($event,validate) || validate($event)" class="form-control hidden-file-input" type="file"
+                                        <input v-show="lectureId" @change="uploadVideo($event,validate) || validate($event)" class="form-control hidden-file-input" type="file"
                                         id="video-add-lecture">
                                     </label>
                                    
@@ -282,6 +282,16 @@ export default {
   background: #1fb9b32e;
 }
 .file-label{
-  margin-bottom:0
+  margin-bottom:0;
+}
+.label-disabled{
+  background:#f1f1f1
+}
+.label-disabled svg>path{
+  fill:gray
+}
+.label-disabled .m-c{
+  color:var(--b-color) !important;
+  border-color: var(--b-color);
 }
 </style>
