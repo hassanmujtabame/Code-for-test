@@ -1,6 +1,6 @@
 <template>
      <d-course-panel
-     class-header="d-flex justify-content-between"
+     :class-header="`d-flex justify-content-between ${isMobile?'flex-column':''}`"
      >
               <template v-slot:header>
                 <h1 class="flex-grown-1">المرفقات : </h1>

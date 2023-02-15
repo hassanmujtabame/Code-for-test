@@ -23,6 +23,10 @@ export default {
         type:[String,Object,Array],
         default:''
     }
+ },
+ watch:{
+    classHeader(){},
+    classBody(){},
  }
 
 }
