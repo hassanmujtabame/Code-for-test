@@ -533,5 +533,7 @@
   "add-exam": "أضف إختبار",
   "add-lecture": "أضف درس",
   "new-item": "عنصر جديد",
-  "lecture-title": "عنوان الدرس"
+  "lecture-title": "عنوان الدرس",
+  "new-lecture": "درس جديد",
+  "lecture-modification": "تعديل الدرس"
 }

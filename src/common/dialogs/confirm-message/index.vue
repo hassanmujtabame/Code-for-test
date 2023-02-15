@@ -17,17 +17,17 @@
                     {{ itemDialog.description }}
                 </p>
               </div>
-              <template v-if="itemDialog.btns" >
+              <div v-if="itemDialog.btns" :class="[itemDialog.groupBtns??'']" >
               <div  v-for="(btn,i) in itemDialog.btns"
                 :key="i" class="mt-3">
                 <button
-                @click="callAction(btn)" :disabled="btn.loading" style="height: 40px;" :class="[btn.class??'btn btn-custmer']">
+                @click="callAction(btn)" :disabled="btn.loading" style="height: 40px;min-width:165px" :class="[btn.class??'btn btn-custmer']">
                 <i v-if="btn.loading"  class="fa fa-spinner fa-spin"  aria-hidden="true"></i>
                 {{btn.title}}
               </button>
 
               </div>
-            </template>
+            </div>
               <div v-else class="mt-3">
             <button @click="closeEvent" style="height: 40px;" class="btn btn-custmer"> {{$t('Home')}}</button>
           </div>

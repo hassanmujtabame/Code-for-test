@@ -6,6 +6,9 @@
         :openDialog="openDialog"
   >
 
+    <template v-slot:header>
+      <span v-html="titleDialog"></span>
+      </template>
     <template v-slot:default>
         <div v-if="showDialog" class="row">
                             <div class="col-md-6">
@@ -62,18 +65,25 @@ export default {
   components:{
     attachmentsList
   },
+  computed:{
+    titleDialog(){
+     return this.itemForm.id?`${this.$t('lecture-modification')}: <span class="m-c">${this.itemDialog.title}</span>`: this.$t('new-lecture')
+    }
+  },
   data:()=>({
     loading :  false,
     showDialog : true,
     itemDialog:{},
     itemPage:{},
-    itemForm:{},
+    itemForm:{id:null},
     lectureId:null,
   }),
   methods:{
     openDialog(dataItem){
         this.itemPage ={... dataItem.page}
         this.itemDialog ={... dataItem.item}
+        let {id,title,video} = dataItem.item;
+        this.itemForm = Object.assign(this.itemForm,{id,title,video})
         this.loading =  false;
         this.showDialog = true;
         return true;

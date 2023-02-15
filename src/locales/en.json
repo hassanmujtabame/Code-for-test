@@ -537,5 +537,7 @@
   "add-exam": "Add exam",
   "add-project": "Add project",
   "new-item": "New item",
-  "lecture-title": "Lecture title"
+  "lecture-title": "Lecture title",
+  "new-lecture": "New lecture",
+  "lecture-modification": "lecture modification"
 }

@@ -11,8 +11,8 @@
       <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':i===selectedLecture,'chapiter':lect.group}" v-for="(lect,i) in lectures" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ lect.title }}</span>
         <span v-if="isOwner" class="course-show-page__actions">
-          <button class="btn "><i class="fa fa-pen" style="color:blue"></i></button>
-          <button  class="btn "><i class="fa-solid fa-trash" style="color:red"></i></button>
+          <button class="btn " @click="showEditDialog(lect)"><i class="fa fa-pen" style="color:blue"></i></button>
+          <button  class="btn " @click="showConfirmDeleteItem(lect)"><i class="fa-solid fa-trash"  style="color:red"></i></button>
         </span>
         <span v-if="!lect.group" class="course-show-page__time">{{ lect.during }}</span>
       </li>
@@ -41,21 +41,21 @@ export default {
       {id:1,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
       {id:2,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
       {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'علم الماليات',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'طريقة العمل',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'ما العمل؟',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'دراسة الجدوى',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:true,title:'مشروعك الأول',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة العمل ودراسة الجدوى المالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:1,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:2,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'علم الماليات',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'طريقة العمل',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'ما العمل؟',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'دراسة الجدوى',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:true,title:'مشروعك الأول',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة العمل ودراسة الجدوى المالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:4,during:'02.53',date:'2010-12-11T09:00',group:false,title:'علم الماليات',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:5,during:'02.53',date:'2010-12-11T09:00',group:false,title:'طريقة العمل',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:6,during:'02.53',date:'2010-12-11T09:00',group:false,title:'ما العمل؟',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:7,during:'02.53',date:'2010-12-11T09:00',group:false,title:'دراسة الجدوى',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:8,during:'02.53',date:'2010-12-11T09:00',group:true,title:'مشروعك الأول',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:9,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة العمل ودراسة الجدوى المالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:10,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:11,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:12,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:13,during:'02.53',date:'2010-12-11T09:00',group:false,title:'علم الماليات',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:14,during:'02.53',date:'2010-12-11T09:00',group:false,title:'طريقة العمل',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:15,during:'02.53',date:'2010-12-11T09:00',group:false,title:'ما العمل؟',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:16,during:'02.53',date:'2010-12-11T09:00',group:false,title:'دراسة الجدوى',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:17,during:'02.53',date:'2010-12-11T09:00',group:true,title:'مشروعك الأول',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
+      {id:18,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة العمل ودراسة الجدوى المالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
 
       ]
     }
@@ -65,6 +65,27 @@ export default {
       /**type:lecture | exam | project */
       if(type=='lecture'){
         this.fireOpenDialog('add-lecture-dialog',{page:this.itemPage,item:{id:null,title:null,video:null}})
+      }
+    },
+    showEditDialog(lect){
+      this.fireOpenDialog('add-lecture-dialog',{page:this.itemPage,item:{...lect}})
+    },
+    showConfirmDeleteItem(lect){
+        let dataEvent={
+          title:'هل حقا تريد حذف هذا الدرس؟',
+          description:lect.title,
+          groupBtns:'d-flex justify-content-evenly',
+          btns:[
+            {title:'تراجع',class:"btn btn-custmer btn-danger"},
+            {title:this.$t('confirm_delete'),action:()=>this.deleteItem(lect),class:"btn btn-custmer"},
+          ]
+        }
+        this.showConfirmMsg(dataEvent)
+    },
+    deleteItem(lect){
+      let index  = this.lectures.findIndex(l=>l.id===lect.id)
+      if(index){
+        this.lectures.splice(index,1)
       }
     },
     selected(lect,i){
