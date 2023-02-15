@@ -532,5 +532,6 @@
   "add-project": "أضف المشروع",
   "add-exam": "أضف إختبار",
   "add-lecture": "أضف درس",
-  "new-item": "عنصر جديد"
+  "new-item": "عنصر جديد",
+  "lecture-title": "عنوان الدرس"
 }
