@@ -7,6 +7,7 @@
      <SectionBody  :itemPage="itemPage" :isOwner="isOwner"/>
  </div>
  </div>
+  <AddLectureDialog/>
    </div>
  </template>
  
@@ -14,6 +15,7 @@
  import SectionHeader from './sections/section-header/index.vue'
  import SectionHeaderOwner from './sections/section-header-owner/index.vue'
  import SectionBody from './sections/section-body/index.vue'
+ import AddLectureDialog from './dialogs/add-lecture/index.vue'
  //import coursesAPI from '@/services/api/academy/courses'
  export default {
   name:'course-show-recorded',
@@ -27,7 +29,8 @@
   components:{
      SectionHeader,
      SectionBody,
-     SectionHeaderOwner
+     SectionHeaderOwner,
+     AddLectureDialog
   },
   data:()=>{
      return {

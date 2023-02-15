@@ -2,10 +2,18 @@
   <div class="course-show-page__lectures">
     <div class="course-show-page__lectures-header">
       <h1>محتويات الدورة :</h1>
+      <div v-if="isOwner" class="course-show-page__lectures-header_btns">
+       <AddLectureBtn @add="showAddDialog" />
+        
+      </div>
     </div>
     <ol class="course-show-page__lectures-content">
       <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':i===selectedLecture,'chapiter':lect.group}" v-for="(lect,i) in lectures" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ lect.title }}</span>
+        <span v-if="isOwner" class="course-show-page__actions">
+          <button class="btn "><i class="fa fa-pen" style="color:blue"></i></button>
+          <button  class="btn "><i class="fa-solid fa-trash" style="color:red"></i></button>
+        </span>
         <span v-if="!lect.group" class="course-show-page__time">{{ lect.during }}</span>
       </li>
     </ol>
@@ -13,6 +21,7 @@
 </template>
 
 <script>
+import AddLectureBtn from './add-lecture-btn'
 export default {
   props:{
     itemPage:{},
@@ -20,6 +29,9 @@ export default {
       type:Boolean,
       default:false,
     }
+  },
+  components:{
+    AddLectureBtn
   },
   data:()=>{
     return {
@@ -49,10 +61,19 @@ export default {
     }
   },
   methods:{
+    showAddDialog(type){
+      /**type:lecture | exam | project */
+      if(type=='lecture'){
+        this.fireOpenDialog('add-lecture-dialog',{page:this.itemPage,item:{id:null,title:null,video:null}})
+      }
+    },
     selected(lect,i){
       if(lect.group) return;
       this.selectedLecture = i
     }
+  },
+  mounted(){
+    window.$('.dropdown-toggle').dropdown()
   }
 }
 </script>
@@ -69,8 +90,13 @@ export default {
 }
 .course-show-page__lectures-header{
   margin:20px 0;
+  display: flex;
+}
+.course-show-page__lectures-header_btns{
+  flex-shrink: 0;
 }
 .course-show-page__lectures-header>h1{
+  flex: 1;
   /* 24 */
   padding-right: 1.3rem;
   margin: 0;
@@ -98,6 +124,7 @@ color: #414042;
   justify-content: space-between;
   height: 40px;
   align-items: center;
+  position: relative;
 
 }
 .course-show-page__lecture.chapiter>.course-show-page__title{
@@ -115,8 +142,17 @@ color: #414042;
 .course-show-page__title{
   flex: 1;
 }
-.course-show-page__time{
+.course-show-page__time,.course-show-page__actions{
   flex-shrink: 0;
+}
+.course-show-page__actions {
+    position: absolute;
+    right: -28px;
+    top: calc(50% - 10px);
+}
+.course-show-page__actions>button{
+  font-size: 10px;
+    padding: 2px;
 }
 .course-show-page__lecture.selected{
   background: rgba(31, 185, 179, 0.2);
