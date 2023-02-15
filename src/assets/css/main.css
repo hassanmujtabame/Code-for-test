@@ -1571,6 +1571,12 @@ position: relative;
 .multiselect__tag>span{
  color:white
 }
+.position-absolute{
+    position: absolute !important;
+}
+.input-group .btn {
+    padding: 0 5px
+}
 .hidden-file-input{
     position: absolute;
     top: 0;

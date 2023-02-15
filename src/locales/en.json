@@ -539,5 +539,13 @@
   "new-item": "New item",
   "lecture-title": "Lecture title",
   "new-lecture": "New lecture",
-  "lecture-modification": "lecture modification"
+  "lecture-modification": "lecture modification",
+  "lecture-video": "Video",
+  "upload-video": "upload video",
+  "clear-video": "Clear video",
+  "Bytes": "Bytes",
+  "KB": "KB",
+  "MB": "MB",
+  "GB": "GB",
+  "TB": "TB"
 }

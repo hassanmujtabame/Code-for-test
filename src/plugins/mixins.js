@@ -138,6 +138,18 @@ const mixin = {
           setErrorsForm(form,response){
             form.setErrors(response.data.errors)
           },
+          formatBytes(bytes, decimals = 2) {
+            
+            if (!+bytes) return `0 ${this.$t('Bytes')}`
+        
+            const k = 1024
+            const dm = decimals < 0 ? 0 : decimals
+            const sizes = [this.$t('Bytes'), this.$t('KB'), this.$t('MB'), this.$t('GB'), this.$t('TB')]
+        
+            const i = Math.floor(Math.log(bytes) / Math.log(k))
+        
+            return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
+        },
           dateReverse(date){
             if(!date) return '';
             let parts = date.split('-');

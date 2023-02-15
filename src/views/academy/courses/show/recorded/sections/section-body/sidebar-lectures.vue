@@ -7,20 +7,24 @@
         
       </div>
     </div>
-    <ol class="course-show-page__lectures-content">
+    <div v-if="loading" class="course-show-page__lectures-content position-relative">
+      <d-overlays-simple  />
+    </div>
+    <ol v-else class="course-show-page__lectures-content">
       <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':i===selectedLecture,'chapiter':lect.group}" v-for="(lect,i) in lectures" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ lect.title }}</span>
         <span v-if="isOwner" class="course-show-page__actions">
           <button class="btn " @click="showEditDialog(lect)"><i class="fa fa-pen" style="color:blue"></i></button>
           <button  class="btn " @click="showConfirmDeleteItem(lect)"><i class="fa-solid fa-trash"  style="color:red"></i></button>
         </span>
-        <span v-if="!lect.group" class="course-show-page__time">{{ lect.during }}</span>
+        <span v-if="!lect.group" class="course-show-page__time">{{ lect.time }}</span>
       </li>
     </ol>
   </div>
 </template>
 
 <script>
+import academyAPi from '@/services/api/academy'
 import AddLectureBtn from './add-lecture-btn'
 export default {
   props:{
@@ -35,9 +39,11 @@ export default {
   },
   data:()=>{
     return {
+      loading:false,
       selectedLecture:0,
       lecture:{id:1,during:'02.53',title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      lectures:[
+      lectures:[],
+      lecturesOld:[
       {id:1,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
       {id:2,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
       {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
@@ -84,18 +90,55 @@ export default {
     },
     deleteItem(lect){
       let index  = this.lectures.findIndex(l=>l.id===lect.id)
-      if(index){
+      if(index>-1){
         this.lectures.splice(index,1)
+      }
+    },
+    updateLectures({item,type}){
+      if(type=='update'){
+        let index  = this.lectures.findIndex(l=>l.id===item.id)
+      if(index){
+        this.lectures[index] = Object.assign(this.lectures[index],item)
+      }
+      return;
+      }
+      if(type=='add'){
+        this.lectures.push(item)
+      }
+      if(type=='all'){
+        this.initializing()
       }
     },
     selected(lect,i){
       if(lect.group) return;
       this.selectedLecture = i
+    },
+     async initializing(){
+      this.loading = true;
+      try {
+        let {data} = await academyAPi.lecturesAPI.getAll(this.itemPage.id)
+        if(data.success){
+          this.lectures = data.data
+        }
+      } catch (error) {
+        console.mylog('error',error)
+      }
+      this.loading = false;
+
     }
   },
   mounted(){
-    window.$('.dropdown-toggle').dropdown()
-  }
+    window.$('.dropdown-toggle').dropdown();
+    this.initializing()
+  },
+  created(){
+    window.EventBus.listen('update-lectures',this.updateLectures)
+   
+  },
+  beforeDestroy(){
+    window.EventBus.off('update-lectures',this.updateLectures)
+   
+  },
 }
 </script>
 

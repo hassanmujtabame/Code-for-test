@@ -535,5 +535,13 @@
   "new-item": "عنصر جديد",
   "lecture-title": "عنوان الدرس",
   "new-lecture": "درس جديد",
-  "lecture-modification": "تعديل الدرس"
+  "lecture-modification": "تعديل الدرس",
+  "lecture-video": "فيديو",
+  "upload-video": "رفع فيديو",
+  "clear-video": "مسح الفيديو",
+  "Bytes": "بايت",
+  "KB": "كيلو بايت",
+  "MB": "ميغا",
+  "GB": "جيغا",
+  "TB": "تيرابايت"
 }

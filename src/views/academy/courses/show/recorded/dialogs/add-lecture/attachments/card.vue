@@ -2,17 +2,21 @@
   <div class="course-attachment-item">
     <div class="course-attachment-item__wrapper">
 <div class="d-flex  align-items-center ">
+    <div class="course-attachment-item__actions">
+        <button  class="btn " @click="doDelete(item)"><i class="fa-solid fa-trash"  style="color:red"></i></button>
+    </div>
         <div class="flex-shrink-0 p-1">
             <metroAttachmentIcon />
         </div>
 
     <div class="flex-grow-1 d-flex">
+    
         <div class="d-flex flex-column">
             <div class="course-attachment-item__title">{{ item.title??'N/A' }}</div>
-            <div class="course-attachment-item__subtitle">{{ item.size??'N/A' }} ميجا</div>
+            <div class="course-attachment-item__subtitle">{{ item.size!==null?formatBytes(item.size):'N/A' }}</div>
         </div>
        <div class="flex-shrink-0">
-        <div class="course-attachment-item__extension">PDF</div>
+        <div class="course-attachment-item__extension">{{item.extension}}</div>
        </div>
     </div>
    <div class="flex-shrink-0">
@@ -44,7 +48,12 @@ export default {
  },
  data:()=>({
     starts:[5,4,3,2,1]
- })
+ }),
+ methods:{
+    doDelete(item){
+        this.$emit('delete',item)
+    }
+ }
 }
 </script>
 
