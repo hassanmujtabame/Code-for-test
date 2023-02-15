@@ -3,29 +3,36 @@
     <div class="course-show-page__lectures-header">
       <h1>محتويات الدورة :</h1>
       <div v-if="isOwner" class="course-show-page__lectures-header_btns">
-       <AddLectureBtn @add="showAddDialog" />
-        
+        <button @click="activeDraggable=!activeDraggable"  class="btn" :class="{'c-save':activeDraggable}">
+        <i class="fa fa-align-justify" ></i>
+        </button>
+        <AddLectureBtn @add="showAddDialog" />
       </div>
     </div>
-    <div v-if="loading" class="course-show-page__lectures-content position-relative">
-      <d-overlays-simple  />
-    </div>
-    <ol v-else class="course-show-page__lectures-content">
+ <div class="position-relative">
+  <d-overlays-simple v-if="loading" />
+    <draggable :move="onMove" @end="onEnd"  tag="ol" group="people" class="course-show-page__lectures-content" v-model="lectures"  ghost-class="ghost" handle=".handle">
+   
+      <transition-group >
       <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':i===selectedLecture,'chapiter':lect.group}" v-for="(lect,i) in lectures" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ lect.title }}</span>
         <span v-if="isOwner" class="course-show-page__actions">
-          <button class="btn " @click="showEditDialog(lect)"><i class="fa fa-pen" style="color:blue"></i></button>
-          <button  class="btn " @click="showConfirmDeleteItem(lect)"><i class="fa-solid fa-trash"  style="color:red"></i></button>
+          <i v-if="isDraggable" class="fa fa-align-justify handle"></i>
+          <button v-if="!isDraggable" class="btn " @click="showEditDialog(lect)"><i class="fa fa-pen" style="color:blue"></i></button>
+          <button v-if="!isDraggable" class="btn " @click="showConfirmDeleteItem(lect)"><i class="fa-solid fa-trash"  style="color:red"></i></button>
         </span>
         <span v-if="!lect.group" class="course-show-page__time">{{ lect.time }}</span>
       </li>
-    </ol>
+    </transition-group>
+      </draggable>
+    </div>
   </div>
 </template>
 
 <script>
 import academyAPI from '@/services/api/academy'
 import AddLectureBtn from './add-lecture-btn'
+import draggable from 'vuedraggable'
 export default {
   props:{
     itemPage:{},
@@ -35,35 +42,28 @@ export default {
     }
   },
   components:{
-    AddLectureBtn
+    AddLectureBtn,
+    draggable
+  },
+  watch: {
+    shouldDisableDragging(newValue) {
+      this.isDraggable = !newValue;
+    }
+  },
+  computed: {
+    shouldDisableDragging() {
+      // Check some condition to determine if sorting should be disabled
+      return !this.activeDraggable;
+    }
   },
   data:()=>{
     return {
+      isDraggable: false,
+      activeDraggable:false,
       loading:false,
       selectedLecture:0,
       lecture:{id:1,during:'02.53',title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
       lectures:[],
-      lecturesOld:[
-      {id:1,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:2,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:3,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:4,during:'02.53',date:'2010-12-11T09:00',group:false,title:'علم الماليات',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:5,during:'02.53',date:'2010-12-11T09:00',group:false,title:'طريقة العمل',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:6,during:'02.53',date:'2010-12-11T09:00',group:false,title:'ما العمل؟',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:7,during:'02.53',date:'2010-12-11T09:00',group:false,title:'دراسة الجدوى',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:8,during:'02.53',date:'2010-12-11T09:00',group:true,title:'مشروعك الأول',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:9,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة العمل ودراسة الجدوى المالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:10,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:11,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:12,during:'02.53',date:'2010-12-11T09:00',group:false,title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:13,during:'02.53',date:'2010-12-11T09:00',group:false,title:'علم الماليات',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:14,during:'02.53',date:'2010-12-11T09:00',group:false,title:'طريقة العمل',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:15,during:'02.53',date:'2010-12-11T09:00',group:false,title:'ما العمل؟',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:16,during:'02.53',date:'2010-12-11T09:00',group:false,title:'دراسة الجدوى',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:17,during:'02.53',date:'2010-12-11T09:00',group:true,title:'مشروعك الأول',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-      {id:18,during:'02.53',date:'2010-12-11T09:00',group:false,title:'خطة العمل ودراسة الجدوى المالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
-
-      ]
     }
   },
   methods:{
@@ -128,6 +128,27 @@ export default {
         this.initializing()
       }
     },
+    async onEnd(evt){
+      console.mylog('onEnd evt',evt)
+      let ob= {...this.lectures[evt.newIndex]}
+      console.mylog('onEnd ob',ob);
+      console.mylog('old level',ob.level);
+      console.mylog('new level',evt.newIndex+1);
+      this.loading = true
+      try{
+        await academyAPI.lecturesAPI.orderItem(ob.id,{level:evt.newIndex+1})
+
+      }catch(error){
+        //
+      }
+      this.loading =false;
+      return true;
+    },
+    onMove(/*evt, originalEvent*/){
+      //console.mylog('evt',evt)
+      //console.mylog('originalEvent',originalEvent);
+      return true;
+    },
     selected(lect,i){
       if(lect.group) return;
       this.selectedLecture = i
@@ -177,6 +198,7 @@ export default {
 }
 .course-show-page__lectures-header_btns{
   flex-shrink: 0;
+  display: flex;
 }
 .course-show-page__lectures-header>h1{
   flex: 1;
@@ -239,5 +261,9 @@ color: #414042;
 }
 .course-show-page__lecture.selected{
   background: rgba(31, 185, 179, 0.2);
+}.ghost{
+  border:2px dashed red;
 }
+
+
 </style>
