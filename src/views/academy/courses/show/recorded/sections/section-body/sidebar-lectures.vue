@@ -14,14 +14,14 @@
     <draggable :move="onMove" @end="onEnd"  tag="ol" group="people" class="course-show-page__lectures-content" v-model="lectures"  ghost-class="ghost" handle=".handle">
    
       <transition-group >
-      <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':i===selectedLecture,'chapiter':lect.group}" v-for="(lect,i) in lectures" :key="i">
+      <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':i===selectedLecture,'lecture-project':['project','projects'].includes(lect.type)}" v-for="(lect,i) in lectures" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ lect.title }}</span>
         <span v-if="isOwner" class="course-show-page__actions">
           <i v-if="isDraggable" class="fa fa-align-justify handle"></i>
           <button v-if="!isDraggable" class="btn " @click="showEditDialog(lect)"><i class="fa fa-pen" style="color:blue"></i></button>
           <button v-if="!isDraggable" class="btn " @click="showConfirmDeleteItem(lect)"><i class="fa-solid fa-trash"  style="color:red"></i></button>
         </span>
-        <span v-if="!lect.group" class="course-show-page__time">{{ lect.time }}</span>
+        <span v-if="['lecture'].includes(lect.type) || !lect.type" class="course-show-page__time">{{ lect.time }}</span>
       </li>
     </transition-group>
       </draggable>
@@ -238,7 +238,7 @@ color: #414042;
   position: relative;
 
 }
-.course-show-page__lecture.chapiter>.course-show-page__title{
+.course-show-page__lecture.lecture-project>.course-show-page__title{
   color:var(--m-color)
 }
 .course-show-page__lecture>span{

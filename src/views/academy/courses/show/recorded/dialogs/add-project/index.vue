@@ -25,7 +25,7 @@
                     <div >
                         <div class="row">
                             <div class="col-md-6">
-                                <ValidationObserver tag="div" ref="form">
+                                <ValidationObserver tag="div" ref="form" v-slot="{invalid}">
                                   <ValidationProvider
                                   :name="$t('project-title')"
                                   tag="div"
@@ -33,7 +33,7 @@
                                   rules="required"
                                   v-slot="{errors}"
                                   >
-                                    <d-text-input v-model="itemForm.title" :errors="errors"  :label="$t('project-title')"/>
+                                    <d-text-input :disabled="saving" v-model="itemForm.title" :errors="errors"  :label="$t('project-title')"/>
                                   </ValidationProvider>
                                     <div class="mt-3">
                                       <ValidationProvider
@@ -43,7 +43,7 @@
                                         rules="required"
                                         v-slot="{errors}"
                                         >
-                                        <d-select-input :errors="errors" v-model="itemForm.state" label="مكان المشروع"  >
+                                        <d-select-input :disabled="saving" :errors="errors" v-model="itemForm.state" label="مكان المشروع"  >
                                             <option value="" class="t-c" selected>حدد مكان المشروع</option>
                                             <option value="online">{{ $t('online') }}</option>
                                             <option value="offline">{{ $t('offline') }}</option>
@@ -60,12 +60,19 @@
                                         rules="required"
                                         v-slot="{errors}"
                                         >
-                                    <d-textarea-input  v-model="itemForm.desc" :errors="errors" rows="10" label="أضف تعليمات للطلاب تظهر لهم في صفحة المشروع">                           </d-textarea-input>
+                                    <d-textarea-input :disabled="saving"  v-model="itemForm.desc" :errors="errors" rows="10" label="أضف تعليمات للطلاب تظهر لهم في صفحة المشروع">                           </d-textarea-input>
                                   </ValidationProvider>
                                   </div>
                                 </div>
                                     </div>
-                                 
+                                    <div class="mt-2">
+                        <button  class="btn bg-custmer" :disabled="invalid || saving"  @click="save" role="button">
+                          <i v-if="saving" class="fa fa-spinner fa-spin"></i>
+                       
+                          <i v-else class="fa fa-floppy-disk"></i>
+                          {{ $t('save') }}
+                        </button>
+                    </div>
                                 </ValidationObserver>
                             </div>
                             <div class="col-md-6">
@@ -75,11 +82,7 @@
                             </div>
                         </div>
                       </div>
-                    <div class="mt-2">
-                        <button  class="btn bg-main text-white  "  @click="save" role="button">
-                         حفظ
-                        </button>
-                    </div>
+                    
                 </div>
         </div>
       </template>
@@ -164,7 +167,13 @@
           this.itemPage ={... dataItem.page}
           this.itemDialog = {... dataItem.item}
           if(dataItem){
-          //fill object
+           let {id,title,state,desc} = dataItem.item;
+           this.itemForm.id = id;
+           this.itemForm.title = title;
+           if(state!=undefined)
+           this.itemForm.state = state;
+           if(desc!=undefined)
+           this.itemForm.desc = desc;
           }
          
           this.loading =  false;
