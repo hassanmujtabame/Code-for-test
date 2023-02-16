@@ -16,7 +16,7 @@
  import SectionHeaderOwner from './sections/section-header-owner/index.vue'
  import SectionBody from './sections/section-body/index.vue'
  import AddExamDialog from '../recorded/dialogs/add-exam/index'
- import academyAPI from '@/services/api/academy'
+ //import academyAPI from '@/services/api/academy'
  //import coursesAPI from '@/services/api/academy/courses'
  export default {
   name:'course-show-live',
