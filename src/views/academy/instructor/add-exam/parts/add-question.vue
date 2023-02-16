@@ -1,6 +1,9 @@
 <template>
-    <div class="border p-3 rounded-3 h-100 d-flex flex-column">
- <div class="box flex-grow-1">
+    <div class="add-question-item border p-3 rounded-3 h-100 d-flex flex-column">
+ <div class="add-question-item__wrapper box flex-grow-1">
+    <div class="add-question-item__close">
+        <button class="btn" @click="deleteItem" ><i class="fa fa-trash"></i></button>
+    </div>
     <div class="mt-3 d-flex">
         <d-text-input inline type="text" v-model="opt.title" class="border w-100 p-2 rounded-2" label="اضف الاختيار" >
             <!--append-icon-->
@@ -32,8 +35,8 @@
         <d-text-input type="text" v-model="itemLocal.title" class="border w-100 p-2 rounded-2" label="السؤال" > 
         </d-text-input>
     </div>
-    <div v-if="itemLocal.options.length===0" class="add-quetion__body" >
-        <h1  class="questions-empty">لا يوجد اختيارات</h1>
+    <div v-if="itemLocal.options.length===0" class="add-quetion-item__content" >
+        <h1  class="add-question-item__empty">لا يوجد اختيارات</h1>
     </div>
     <template v-else >
     <div v-for="(o,i) in itemLocal.options" :key="i" class="form-check mt-3">
@@ -45,7 +48,7 @@
     </template>
     
 </div>
-<div class="add-quetion__footer mt-3 text-end flex-shrink-0">
+<div class="add-question-item__footer mt-3 text-end flex-shrink-0">
                         <a  class="btn bg-main text-white px-3"
                             role="button">
                             حفظ السؤال
@@ -55,6 +58,7 @@
 </template>
 
 <script>
+import academyAPI from '@/services/api/academy';
 export default {
     props:{
         label:{},
@@ -101,6 +105,9 @@ methods:{
         this.itemLocal.options[this.selectedIndex] = Object.assign(this.itemLocal.options[this.selectedIndex] ,this.opt)
         this.clearOpt()
     },
+    deleteItem(){
+        this.$emit('delete',this.itemLocal)
+    },
     addOption(){
         this.itemLocal.options.push({...this.opt});
        this.clearOpt()
@@ -115,17 +122,35 @@ methods:{
 </script>
 
 <style scoped>
-.add-quetion__body{
+.add-question-item__wrapper{
+    position: relative;
+}
+.add-question-item__close{
+    width: 100%;
+    text-align: end;
+    position: absolute;
+    top: -10px;
+    
+}
+.add-question-item__close>button{
+    color: red;
+    padding: 1px 5px;
+}
+.add-question-item__close>button:hover{
+    background: rgb(243 20 20 / 8%);
+    padding: 2px 5px;
+}
+.add-question-item__content{
     min-height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.add-quetion__footer{
+.add-question-item__footer{
  border-top: 1px solid #f1f1f1;
  padding-top: 5px;
 }
-.questions-empty{
+.add-question-item__empty{
     color:var(--b-color);
     font-size: 24px;
     line-height: 30px;

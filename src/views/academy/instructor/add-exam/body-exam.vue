@@ -38,7 +38,7 @@
             <div action="">
                 <div class="row justify-content-stretch" style="min-height: 200px;">
                     <div v-for="(q,i) in questions" :key="i" class="col-md-6 mt-4">
-                           <AddQuestion @update="updateQuestion" :item="q"  />
+                           <AddQuestion @delete="showConfirmDeleteItem" @update="updateQuestion" :item="q"  />
                     </div>
                     <div class="mt-3 text-center">
                         <a v-if="false" class="btn bg-main text-white px-3"
@@ -80,6 +80,52 @@ export default {
         }
     },
     methods:{
+        showConfirmDeleteItem(question){
+            console.mylog('showConfirmDeleteItem',question)
+        let dataEvent={
+          title:'هل حقا تريد حذف هذا السؤال؟',
+          description:question.title,
+          groupBtns:'d-flex justify-content-evenly',
+          btns:[
+            {title:'تراجع',class:"btn btn-custmer btn-danger"},
+            {title:this.$t('confirm_delete'),action:()=>this.deleteItem(question),class:"btn btn-custmer"},
+          ]
+        }
+        this.showConfirmMsg(dataEvent)
+    },
+    async deleteItem(question){
+        console.mylog('deleting ...',question)
+        if(!question.id){
+            let index  = this.questions.findIndex(l=>l.uuid===question.uuid)
+                              if(index>-1){
+                                this.questions.splice(index,1)
+                              }
+        return;
+        }
+       
+        try {
+
+                        let {data} =  await academyAPI.examsAPI.deleteQuestion(question.id)
+                        if(data.success){
+                           
+                            let index  = this.questions.findIndex(l=>l.id===question.id)
+                              if(index>-1){
+                                this.lectures.splice(index,1)
+                              }
+                        }else{
+                            window.SwalError(data.message)
+                        }
+                    } catch (error) {
+                        if(error.response){
+                            let response = error.response
+                            if (response.status == 422) {
+                                this.setErrorsForm(this.$refs.form,response)
+                            }
+                        }
+                    }
+                
+      
+    },
         async saveTitle(){
           this.saving = true;
           let valid = await this.$refs['form-title'].validate();
@@ -90,6 +136,7 @@ export default {
           }
           let formData = new FormData();
             formData.append('title', this.itemForm.title)
+            formData.append('type', 'exam')
              
               try {
                let {data } = this.itemForm.id?  await academyAPI.lecturesAPI.updateItem(this.itemForm.id,formData) :await academyAPI.lecturesAPI.addItem(this.itemPage.id,formData)

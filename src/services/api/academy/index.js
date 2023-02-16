@@ -2,9 +2,11 @@
 import BaseApi from "../base-service";
 import coursesApi from "./courses";
 import lecturesAPI from "./lectures";
+import examsAPI from "./exams";
 class academyApi extends BaseApi{
     coursesApi = coursesApi;
     lecturesAPI = lecturesAPI;
+    examsAPI = examsAPI;
     getPackages(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/packages?${s}`);

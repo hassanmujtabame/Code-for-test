@@ -132,7 +132,7 @@ export default {
         }
         let formData = new FormData();
           formData.append('title', this.itemForm.title)
-           
+          formData.append('type', 'lecture')
             try {
              let {data } = this.itemForm.id?  await academyAPI.lecturesAPI.updateItem(this.itemForm.id,formData) :await academyAPI.lecturesAPI.addItem(this.itemPage.id,formData)
              if(data.success){
