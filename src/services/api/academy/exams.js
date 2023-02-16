@@ -1,6 +1,9 @@
 import BaseApi from "../base-service";
 class ExamsApi extends BaseApi{
     //Get all Exams
+    getItem(id){
+        return window.axios.get(`academy/instructor/course-exams/${id}`);
+    }
     deleteQuestion(id){
         return window.axios.get(`academy/instructor/exams/questions/${id}`);
     }

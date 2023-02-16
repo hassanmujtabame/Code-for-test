@@ -11,7 +11,7 @@
         <span v-html="titleDialog"></span>
         </template>
       <template v-slot:default>
-          <bodyExam v-if="showDialog" :courseId="itemPage.id" :itemSelected="itemDialog"></bodyExam>
+          <bodyExam v-if="showDialog" @add="$emit('add',$event)" :courseId="itemPage.id" :itemSelected="itemDialog"></bodyExam>
       </template>
     </d-dialog-large>
   </template>
