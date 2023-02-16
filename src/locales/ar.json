@@ -548,5 +548,8 @@
   "new-exam": "إختبار جديد",
   "exam-title": "عنوان الاختبار",
   "project-modification": "تعديل المشروع",
-  "new-project": "مشروع جديد"
+  "new-project": "مشروع جديد",
+  "project-title": "عنوان المشروع",
+  "project-place": "مكان المشروع",
+  "project-description": "وصف المشروع"
 }

@@ -8,8 +8,8 @@ class ProjectsApi extends BaseApi{
     getItem(id){
         return window.axios.get(`academy/courses/${id}`);
     }
-    addProject(course_id,data){
-        return window.axios.post(`academy/instructor/courses/${course_id}/projects`,data);
+    addProject(data){
+        return window.axios.post(`academy/instructor/course-projects`,data);
     }
     updateProject(id,data){
         //data.append('_method','PUT')

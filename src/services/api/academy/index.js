@@ -8,7 +8,7 @@ class academyApi extends BaseApi{
     coursesApi = coursesApi;
     lecturesAPI = lecturesAPI;
     examsAPI = examsAPI;
-    projectsApi = projectsApi;
+    projectsAPI = projectsApi;
     getPackages(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/packages?${s}`);

@@ -22,32 +22,51 @@
           </div>
          <!-- form-->
          <div class="accordion-body">
-                    <ValidationObserver ref="form" >
+                    <div >
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="m">
-                                    <d-text-input v-model="itemForm.title"  label="عنوان المشروع "/>
+                                <ValidationObserver tag="div" ref="form">
+                                  <ValidationProvider
+                                  :name="$t('project-title')"
+                                  tag="div"
+                                  vid="title"
+                                  rules="required"
+                                  v-slot="{errors}"
+                                  >
+                                    <d-text-input v-model="itemForm.title" :errors="errors"  :label="$t('project-title')"/>
+                                  </ValidationProvider>
                                     <div class="mt-3">
-                                        <d-select-input  v-model="itemForm.state" label="مكان المشروع"  >
+                                      <ValidationProvider
+                                        :name="$t('project-place')"
+                                        tag="div"
+                                        vid="state"
+                                        rules="required"
+                                        v-slot="{errors}"
+                                        >
+                                        <d-select-input :errors="errors" v-model="itemForm.state" label="مكان المشروع"  >
                                             <option value="" class="t-c" selected>حدد مكان المشروع</option>
                                             <option value="online">{{ $t('online') }}</option>
                                             <option value="offline">{{ $t('offline') }}</option>
                                         </d-select-input>
+                                        </ValidationProvider>
                                     </div>
                                     <div class="mt-3">
                                       <div  class="">
                                   <div>
-                                    <textarea name="" id="" class="border w-100 p-3" rows="10" placeholder="أضف تعليمات للطلاب تظهر لهم في صفحة المشروع">
-                                        كيف حالكم طلابي !
-اتمنى ان يكون الدروس السابقة قد استفدتم منها والان حان دور المشروع - قموا برفع مشروع بصيغة ال PDF يحتوى على كذا وكذ وكذا وكذا 
- لقد قمت بارفاق ملفات تساعدكم في اتمام مشروعكم 
-بالتوفيق 
-                                    </textarea>
+                                    <ValidationProvider
+                                        :name="$t('project-description')"
+                                        tag="div"
+                                        vid="desc"
+                                        rules="required"
+                                        v-slot="{errors}"
+                                        >
+                                    <d-textarea-input  v-model="itemForm.desc" :errors="errors" rows="10" label="أضف تعليمات للطلاب تظهر لهم في صفحة المشروع">                           </d-textarea-input>
+                                  </ValidationProvider>
                                   </div>
                                 </div>
                                     </div>
                                  
-                                </div>
+                                </ValidationObserver>
                             </div>
                             <div class="col-md-6">
                                 
@@ -55,9 +74,9 @@
 
                             </div>
                         </div>
-                    </ValidationObserver>
+                      </div>
                     <div class="mt-2">
-                        <button  class="btn bg-main text-white  "  data-bs-toggle="modal" href="#staticBackdrop2" role="button">
+                        <button  class="btn bg-main text-white  "  @click="save" role="button">
                          حفظ
                         </button>
                     </div>
@@ -107,8 +126,9 @@
           return;
         }
         let formData = this.loadObjectToForm(this.itemForm)
+            formData.append('course_id',this.itemPage.id)
             try {
-             let {data } = this.itemForm.id?  await academyAPI.projectsAPI.updateProject(this.itemForm.id,formData) :await academyAPI.projectsAPI.addProject(this.itemPage.id,formData)
+             let {data } = this.itemForm.id?  await academyAPI.projectsAPI.updateProject(this.itemForm.id,formData) :await academyAPI.projectsAPI.addProject(formData)
              if(data.success){
               if(this.itemForm.id){
                 this.$emit('update',{...this.itemForm})
