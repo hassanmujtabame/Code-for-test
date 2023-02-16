@@ -114,7 +114,7 @@ export default {
         console.mylog('deleting ...',item)
         try {
 
-                        let {data} =  await academyAPI.projectsApi.deleteAttachment(item.id)
+                        let {data} =  await academyAPI.projectsAPI.deleteAttachment(item.id)
                         if(data.success){
                             let index  = this.attachments.findIndex(l=>l.id===item.id)
                             console.mylog('deleting index',index)
@@ -125,6 +125,7 @@ export default {
                             window.SwalError(data.message)
                             }
                     } catch (error) {
+                        console.mylog('error',error)
                         if(error.response){
                             let response = error.response
                             if (response.status == 422) {
@@ -155,7 +156,7 @@ export default {
           }
                     try {
                         let formData = this.loadObjectToForm(this.itemForm)
-                        let {data} =  await academyAPI.projectsApi.addAttachment(this.lectureId,formData,config)
+                        let {data} =  await academyAPI.projectsAPI.addAttachment(this.lectureId,formData,config)
                         if(data.success){
                             this.attachments.push(data.data)
                             this.itemForm.title = '';
@@ -165,6 +166,7 @@ export default {
                             window.SwalError(data.message)
                             }
                     } catch (error) {
+                        console.mylog('error',error)
                         if(error.response){
                             let response = error.response
                             if (response.status == 422) {

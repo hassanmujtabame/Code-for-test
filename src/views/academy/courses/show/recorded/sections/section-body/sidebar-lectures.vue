@@ -72,7 +72,15 @@ export default {
         this.fireOpenDialog(`add-${type}-course-dialog`,{page:this.itemPage,item:{id:null,title:null,video:null}})
     },
     showEditDialog(lect){
-      this.fireOpenDialog('add-lecture-dialog',{page:this.itemPage,item:{...lect}})
+      console.mylog('lect',lect)
+      let dialog  =null;
+      if(lect.type===null || lect.type=='lecture')
+      dialog = 'add-lecture-course-dialog'
+      if(lect.type=='projects' || lect.type=='project')
+      dialog = 'add-project-course-dialog';
+      console.mylog('lect',dialog)
+      if(dialog)
+      this.fireOpenDialog(dialog,{page:this.itemPage,item:{...lect}})
     },
     showConfirmDeleteItem(lect){
         let dataEvent={

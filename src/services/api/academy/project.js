@@ -13,13 +13,13 @@ class ProjectsApi extends BaseApi{
     }
     updateProject(id,data){
         //data.append('_method','PUT')
-        return window.axios.post(`academy/instructor/courses/projects/${id}`,data);
+        return window.axios.post(`academy/instructor/course-projects/${id}`,data);
     }
     addAttachment(project_id,data,config={}){
-        return window.axios.post(`academy/instructor/courses/projects/${project_id}/attachments`,data,config);
+        return window.axios.post(`academy/instructor/course-projects/${project_id}/attachments`,data,config);
     }
     deleteAttachment(id){
-        return window.axios.delete(`academy/instructor/courses/projects/attachments/${id}`);
+        return window.axios.delete(`academy/instructor/course-projects/attachments/${id}`);
     }
 }
 
