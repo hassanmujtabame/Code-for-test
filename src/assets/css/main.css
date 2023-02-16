@@ -19,9 +19,7 @@
     font-family: change;
 
 }
-body{
-    /*background: #d1d1d159;*/
-}
+
 a {
     text-decoration: none;
 }
@@ -791,10 +789,7 @@ line-height: 0.8;
     position: relative;
     border-radius: 25px;
     transform: rotate(45deg);
-    z-index: 9;
-}
-.box.even svg{
-
+    z-index: 9
 }
  .sh{
     content: "";
@@ -986,9 +981,9 @@ color: #979797;
 .box-subscribe::-webkit-scrollbar {
     width: 0.5px;
 }
-.box-subscribe::-webkit-scrollbar-track {
+/*.box-subscribe::-webkit-scrollbar-track {*/
     /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
-  }
+ /* }*/
   .box-subscribe::-webkit-scrollbar-thumb {
     background-color: rgb(138, 3, 3);
     outline: 1px solid slategrey;
@@ -1121,10 +1116,7 @@ padding: 10px;
     object-fit: cover;
   }
   .redy-services  .swiper-wrapper{
-    margin: 0 !important;
-  }
-  .redy-services .swiper-button-next, .swiper-button-prev{
-    /* display: none; */
+    margin: 0 !important
   }
   .message-service button{
     background: #414042;
@@ -1153,11 +1145,7 @@ z-index: 999999999;
     top: 0;
     left: 0;
     height: 232px;
-    width: 329px;
-    /* background: white; */
-}
-.add-img-selected img{
-    /* background-color: white; */
+    width: 329px
 }
 
 .date-service-provider .calendar {
