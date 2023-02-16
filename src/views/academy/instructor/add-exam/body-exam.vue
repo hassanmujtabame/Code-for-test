@@ -36,7 +36,7 @@
             </div>
            
             <div action="">
-                <div class="row" style="min-height: 200px;">
+                <div class="row justify-content-stretch" style="min-height: 200px;">
                     <div v-for="(q,i) in questions" :key="i" class="col-md-6 mt-4">
                            <AddQuestion @update="updateQuestion" :item="q"  />
                     </div>
