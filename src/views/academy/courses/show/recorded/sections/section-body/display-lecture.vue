@@ -14,7 +14,7 @@
                     class="rounded-3 w-100 h-100"
                     :src="lectureSelected.video" 
                   ></video> 
-        <div v-else-if="lectureSelected.type=='project'" 
+        <div v-else-if="['project','projects'].includes(lectureSelected.type)" 
                     class="rounded-3 w-100 h-100"> 
         </div>
         <div v-else-if="lectureSelected.type=='exam'" 
