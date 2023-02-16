@@ -9,6 +9,7 @@
  </div>
   <AddLectureDialog/>
   <AddExamDialog />
+  <AddProjectDialog />
    </div>
  </template>
  
@@ -18,6 +19,7 @@
  import SectionBody from './sections/section-body/index.vue'
  import AddLectureDialog from './dialogs/add-lecture/index.vue'
  import AddExamDialog from './dialogs/add-exam/index.vue'
+ import AddProjectDialog from './dialogs/add-project/index.vue'
  //import coursesAPI from '@/services/api/academy/courses'
  export default {
   name:'course-show-recorded',
@@ -33,7 +35,8 @@
      SectionBody,
      SectionHeaderOwner,
      AddLectureDialog,
-     AddExamDialog
+     AddExamDialog,
+     AddProjectDialog
   },
   data:()=>{
      return {

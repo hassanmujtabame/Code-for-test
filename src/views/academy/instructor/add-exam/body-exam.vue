@@ -139,13 +139,13 @@ export default {
             formData.append('type', 'exam')
              
               try {
-               let {data } = this.itemForm.id?  await academyAPI.lecturesAPI.updateItem(this.itemForm.id,formData) :await academyAPI.lecturesAPI.addItem(this.itemPage.id,formData)
+               let {data } = this.itemForm.id?  await academyAPI.examsAPI.updateExam(this.itemForm.id,formData) :await academyAPI.examsAPI.addExam(this.courseId,formData)
                if(data.success){
                 if(this.itemForm.id){
                   this.$emit('update',{...this.itemForm})
                   this.fireEvent('update-lectures',{title:this.itemForm.title})
                 }else{
-                  this.itemForm.id= data.data.lesson_id
+                  this.itemForm.id= data.data.exam_id
                   this.$emit('add',{...this.itemForm})
                   this.fireEvent('update-lectures',{...this.itemForm})
                 this.lectureId = this.itemForm.id;

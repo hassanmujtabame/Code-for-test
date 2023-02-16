@@ -546,5 +546,7 @@
   "TB": "تيرابايت",
   "exam-modification": "تعديل الاختبار",
   "new-exam": "إختبار جديد",
-  "exam-title": "عنوان الاختبار"
+  "exam-title": "عنوان الاختبار",
+  "project-modification": "تعديل المشروع",
+  "new-project": "مشروع جديد"
 }

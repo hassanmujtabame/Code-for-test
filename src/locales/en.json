@@ -550,5 +550,7 @@
   "TB": "TB",
   "exam-modification": "exam modification",
   "new-exam": "New exam",
-  "exam-title": "Exam title"
+  "exam-title": "Exam title",
+  "project-modification": "project modification",
+  "new-project": "New project"
 }
