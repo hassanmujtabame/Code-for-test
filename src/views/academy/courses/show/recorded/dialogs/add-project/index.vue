@@ -127,6 +127,7 @@
         }
         let formData = this.loadObjectToForm(this.itemForm)
             formData.append('course_id',this.itemPage.id)
+            formData.append('type','project')
             try {
              let {data } = this.itemForm.id?  await academyAPI.projectsAPI.updateProject(this.itemForm.id,formData) :await academyAPI.projectsAPI.addProject(formData)
              if(data.success){
