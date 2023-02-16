@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group" :class="{focused:focused,'inline':inline}" v-click-outside="outSide">
+  <div class="form-group" :class="{focused:focused,'inline':inline,'solo':solo}" v-click-outside="outSide">
     <label v-if="label" class="form-label">{{ label }}</label>
     <div class="input-group">
         <slot name="prend-icon"></slot>
@@ -17,6 +17,10 @@ export default {
  props:{
     label:{},
     inline:{
+        type:Boolean,
+        default:false,
+    },
+    solo:{
         type:Boolean,
         default:false,
     },
@@ -68,6 +72,7 @@ export default {
 .form-group.inline{
     flex-direction: row; 
 }
+
 .form-group .form-label{
     margin-bottom: 0;
     flex-shrink: 0;
@@ -93,6 +98,17 @@ color: #979797;
     flex:1;
    /* box-shadow: 0 0 0 0.1rem rgb(13 110 253 / 25%);*/
    box-shadow:none;
+}
+.form-group.solo{
+    position: relative;
+}
+.solo label.form-label {
+    position: absolute;
+    right: 6px;
+    top: -10px;
+    z-index: 2;
+    background: white;
+    padding: 1px 5px;
 }
 .focused{
     box-shadow: 0 0 0 0.1rem #1fb9b359;

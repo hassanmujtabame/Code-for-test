@@ -4,11 +4,11 @@
     <div class="add-question-item__close">
         <button class="btn" @click="deleteItem" ><i class="fa fa-trash"></i></button>
     </div>
-    <div class="mt-3 d-flex">
+    <div class="mt-3 d-flex border-botton-thin">
         <div  class="row">
             <div class="col-12 row">
-            <div class="col-12 col-md-6">
-        <d-text-input inline type="text" v-model="opt.title" class=" border w-100 p-2 rounded-2" label="اضف الاختيار" >
+            <div class="col-12 col-md-5">
+        <d-text-input solo type="text" v-model="opt.title" class=" border w-100 p-2 rounded-2" label="اضف الاختيار" >
             <!--append-icon-->
             <template v-slot:append-icon>
                             <div class="">
@@ -20,8 +20,8 @@
                                 </template>
         </d-text-input>
         </div>
-        <div class="col-12 col-md-6">
-        <d-text-input inline type="text" v-model="opt.id" class="col-12 col-md-6 border w-100 p-2 rounded-2 mx-2" label="قيمة الاختيار" >
+        <div class="col-12 col-md-5">
+        <d-text-input solo type="text" v-model="opt.id" class="col-12 col-md-6 border w-100 p-2 rounded-2 mx-2" label="قيمة الاختيار" >
         </d-text-input>
     </div>
     </div>
@@ -46,7 +46,7 @@
             </template>
             </div>     
     <div class="mt-3">
-        <d-text-input type="text" v-model="itemLocal.title" class="border w-100 p-2 rounded-2" label="السؤال" > 
+        <d-text-input type="text" v-model="itemLocal.title" class="border w-100 rounded-2" label="السؤال" > 
         </d-text-input>
     </div>
     <div v-if="itemLocal.options.length===0" class="add-quetion-item__content" >
@@ -167,6 +167,9 @@ methods:{
     justify-content: center;
     align-items: center;
 }
+.border-botton-thin{
+    border-bottom: 1px solid #f1f1f1;
+}
 .add-question-item__footer{
  border-top: 1px solid #f1f1f1;
  padding-top: 5px;
@@ -180,14 +183,17 @@ methods:{
 .form-check-option{
     border-radius: 8px;
     padding: 10px 10px;
+
+}
+.form-check{
     align-items: center;
     display: flex;
 }
-.form-check-option>input{
+.form-check>input{
     margin: 0;
     flex-shrink: 0;
 }
-.form-check-option>label{
+.form-check>label{
     margin-right: .5rem;
     margin-left: .5rem;
     flex:1
