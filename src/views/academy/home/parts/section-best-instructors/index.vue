@@ -4,7 +4,7 @@
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-                <h1> أبرز مدربتنا في الاكاديمية</h1>
+                <h1> أبرز مدربتنا في اكاديمية رياديات</h1>
                 <div>
                     <button class="more">
                       <a href="" class="text-dark">
