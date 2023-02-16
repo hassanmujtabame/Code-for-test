@@ -5,7 +5,10 @@
         <button class="btn" @click="deleteItem" ><i class="fa fa-trash"></i></button>
     </div>
     <div class="mt-3 d-flex">
-        <d-text-input inline type="text" v-model="opt.title" class="border w-100 p-2 rounded-2" label="اضف الاختيار" >
+        <div  class="row">
+            <div class="col-12 row">
+            <div class="col-12 col-md-6">
+        <d-text-input inline type="text" v-model="opt.title" class=" border w-100 p-2 rounded-2" label="اضف الاختيار" >
             <!--append-icon-->
             <template v-slot:append-icon>
                             <div class="">
@@ -16,9 +19,20 @@
                             </div>
                                 </template>
         </d-text-input>
-        <d-text-input inline type="text" v-model="opt.id" class="border w-100 p-2 rounded-2 mx-2" label="قيمة الاختيار" >
+        </div>
+        <div class="col-12 col-md-6">
+        <d-text-input inline type="text" v-model="opt.id" class="col-12 col-md-6 border w-100 p-2 rounded-2 mx-2" label="قيمة الاختيار" >
         </d-text-input>
-            
+    </div>
+    </div>
+        <!--correct-->
+        <div  class="col-12 form-check mt-3">
+                <input  class="form-check-input" v-model="isCorrect" type="checkbox" :name="`correctRadios-${item.uuid}`"  :value="1">
+                <label class="form-check-label clickable fs-r-12-17" style="color:var(--label-color)" :for="`correctRadios-${item.uuid}`">
+              هذا جواب صحيح
+    </label>
+    </div>
+</div>
                 <button v-if="selectedIndex===false" @click="addOption" class="btn h-100"><i    class="m-c fa  fa-circle-plus clickable"></i></button>
                 <template v-else>
                 <button  @click="updateOption" class="btn h-100">
@@ -38,14 +52,14 @@
     <div v-if="itemLocal.options.length===0" class="add-quetion-item__content" >
         <h1  class="add-question-item__empty">لا يوجد اختيارات</h1>
     </div>
-    <template v-else >
-    <div v-for="(o,i) in itemLocal.options" :key="i" class="form-check mt-3">
+    <div v-else class="add-quetion-item__content mt-3">
+    <div v-for="(o,i) in itemLocal.options" :key="i" class="form-check form-check-option mt-1" :class="{'correct-answer':o.is_correct}">
                 <input  class="form-check-input" v-model="value_" type="radio" :name="`exampleRadios-${item.uuid}`" :id="`exampleRadios-${o.id}`" :value="o.id">
                 <label @dblclick="editOption(o,i)" class="form-check-label clickable" :for="`exampleRadios-${item.uuid}`">
                   {{o.title}} <i>[{{o.id}}]</i>
     </label>
     </div>
-    </template>
+    </div>
     
 </div>
 <div class="add-question-item__footer mt-3 text-end flex-shrink-0">
@@ -58,7 +72,6 @@
 </template>
 
 <script>
-import academyAPI from '@/services/api/academy';
 export default {
     props:{
         label:{},
@@ -68,10 +81,12 @@ data:(vm)=>{
     return{
         itemUUID:vm.generateRandomString(8),
         value_:null,
+        isCorrect:false,
         loading:false,
         itemLocal:{...vm.item},
         opt:{
-            title:'',id:''
+            title:'',id:'',
+            is_correct:0,
         },
         selectedIndex:false,
         opts:[
@@ -84,6 +99,9 @@ data:(vm)=>{
     }
 },
 watch:{
+    isCorrect(){
+        this.opt.is_correct = this.isCorrect?1:0
+    },
     itemLocal:{
         deep:true,
         handler(){
@@ -95,6 +113,7 @@ methods:{
     editOption(newOpt,index){
         console.mylog('ssset',newOpt,index)
         this.opt = Object.assign(this.opt,newOpt)
+        this.isCorrect = this.opt.is_correct === 1
         this.selectedIndex = index;
 
     },
@@ -115,6 +134,8 @@ methods:{
     clearOpt(){
         this.opt.title = '';
         this.opt.id = '';
+        this.opt.is_correct=0,
+        this.isCorrect=false,
         this.selectedIndex = false;
     }
 }
@@ -155,5 +176,24 @@ methods:{
     font-size: 24px;
     line-height: 30px;
     text-align: center;
+}
+.form-check-option{
+    border-radius: 8px;
+    padding: 10px 10px;
+    align-items: center;
+    display: flex;
+}
+.form-check-option>input{
+    margin: 0;
+    flex-shrink: 0;
+}
+.form-check-option>label{
+    margin-right: .5rem;
+    margin-left: .5rem;
+    flex:1
+}
+.correct-answer{
+    background: #659f0c73;
+    
 }
 </style>
