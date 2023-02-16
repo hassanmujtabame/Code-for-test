@@ -95,11 +95,11 @@
 import attachmentsList from './attachments/index'
 import academyAPI from '@/services/api/academy';
 export default {
-  name:'add-lecture-dialog',
+  name:'add-lecture-course-dialog',
   props:{
     group:{
         type:String,
-        default:'add-lecture-dialog'
+        default:'add-lecture-course-dialog'
     }
   },
   components:{

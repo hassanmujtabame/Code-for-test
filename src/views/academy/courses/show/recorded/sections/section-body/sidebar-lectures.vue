@@ -69,9 +69,7 @@ export default {
   methods:{
     showAddDialog(type){
       /**type:lecture | exam | project */
-      if(type=='lecture'){
-        this.fireOpenDialog('add-lecture-dialog',{page:this.itemPage,item:{id:null,title:null,video:null}})
-      }
+        this.fireOpenDialog(`add-${type}-course-dialog`,{page:this.itemPage,item:{id:null,title:null,video:null}})
     },
     showEditDialog(lect){
       this.fireOpenDialog('add-lecture-dialog',{page:this.itemPage,item:{...lect}})

@@ -8,6 +8,7 @@
  </div>
  </div>
   <AddLectureDialog/>
+  <AddExamDialog />
    </div>
  </template>
  
@@ -16,6 +17,7 @@
  import SectionHeaderOwner from './sections/section-header-owner/index.vue'
  import SectionBody from './sections/section-body/index.vue'
  import AddLectureDialog from './dialogs/add-lecture/index.vue'
+ import AddExamDialog from './dialogs/add-exam/index.vue'
  //import coursesAPI from '@/services/api/academy/courses'
  export default {
   name:'course-show-recorded',
@@ -30,7 +32,8 @@
      SectionHeader,
      SectionBody,
      SectionHeaderOwner,
-     AddLectureDialog
+     AddLectureDialog,
+     AddExamDialog
   },
   data:()=>{
      return {

@@ -1,0 +1,148 @@
+<template>
+   <div class="container shadow p-4 rounded-2">
+            <div class="d-flex justify-content-between">
+                <div class="">
+                    <h3>
+                        أضافة اختبارات
+                    </h3>
+                </div>
+                <div class="w-25">
+                    <ValidationObserver tag="div" ref="form-title" v-slot="{invalid}">
+                                <ValidationProvider tag="div" 
+                                :name="$t('exam-title')"
+                                vid="title"
+                                rules="required"
+                                v-slot="{errors}"
+                                >
+                                    <d-text-input type="text" v-model="itemForm.title" :errors="errors"  :label="$t('exam-title')">
+                                      <!--append-icon-->
+                        <template v-slot:append-icon>
+                            <div class="">
+                                <button @click="saveTitle" :disabled="invalid || saving" class="btn no-border" :class="{'c-save':!invalid,'t-c':invalid}" >
+                                    <i v-if="!saving" class="fa fa-floppy-disk"></i>
+                                    <i v-else class="fa fa-spinner fa-spin"></i>
+                                </button>
+                            </div>
+                                </template>
+                                      </d-text-input>
+                                  </ValidationProvider>
+                                  </ValidationObserver>
+                <div class="text-end mt-3">
+                <button @click="addQuestion" class="btn bg-main rounded-2 px-4 text-white">
+                    اضافة سؤال
+                </button>
+            </div>
+                </div>
+            </div>
+           
+            <div action="">
+                <div class="row" style="min-height: 200px;">
+                    <div v-for="(q,i) in questions" :key="i" class="col-md-6 mt-4">
+                           <AddQuestion @update="updateQuestion" :item="q"  />
+                    </div>
+                    <div class="mt-3 text-center">
+                        <a v-if="false" class="btn bg-main text-white px-3"
+                            role="button">
+                            أرفعي الاختبار
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</template>
+
+<script>
+import AddQuestion from './parts/add-question.vue'
+import academyAPI from '@/services/api/academy';
+export default {
+    name: 'add-exam-body',
+    props:{
+        courseId:{},
+        itemSelected:{
+            type:[Array,Object],
+            default:()=>{return {id:null,title:null}}
+        }
+    },
+    components:{
+        AddQuestion
+    },
+    data:(vm)=>{
+        return {
+            saving: false,
+            itemForm:{
+                id:vm.itemSelected.id??null,
+                title:vm.itemSelected.title??null,
+            },
+            questions:[],
+            lectureId:vm.itemSelected.id??null,
+            itemDialog:{...vm.itemSelected}
+        }
+    },
+    methods:{
+        async saveTitle(){
+          this.saving = true;
+          let valid = await this.$refs['form-title'].validate();
+          if(!valid) {
+            this.saving = false;
+            console.mylog('invalid title')
+            return;
+          }
+          let formData = new FormData();
+            formData.append('title', this.itemForm.title)
+             
+              try {
+               let {data } = this.itemForm.id?  await academyAPI.lecturesAPI.updateItem(this.itemForm.id,formData) :await academyAPI.lecturesAPI.addItem(this.itemPage.id,formData)
+               if(data.success){
+                if(this.itemForm.id){
+                  this.$emit('update',{...this.itemForm})
+                  this.fireEvent('update-lectures',{title:this.itemForm.title})
+                }else{
+                  this.itemForm.id= data.data.lesson_id
+                  this.$emit('add',{...this.itemForm})
+                  this.fireEvent('update-lectures',{...this.itemForm})
+                this.lectureId = this.itemForm.id;
+                this.itemDialog.id = this.itemForm.id
+                }
+                
+                this.itemDialog.title = this.itemForm.title
+               }else{
+                window.SwalError(data.message)
+               }
+            
+          } catch (error) {
+            console.mylog('error',error)
+                  if(error.response){
+                      let response = error.response
+                      if (response.status == 422) {
+                          this.setErrorsForm(this.$refs.form,response)
+                      }
+                  }
+          }
+          this.saving = false;
+      },
+        addQuestion(){
+            this.questions.push({
+                title:`سؤال ${this.questions.length+1}`,
+                uuid:this.generateRandomString(8),
+                options:[]
+            })
+        },
+        updateQuestion(item){
+            let index =this.questions.findIndex(q=>q.uuid==item.uuid)
+            if(index>-1){
+                this.questions[index] = Object.assign(this.questions[index],item)
+            }
+
+            this.$emit('update',this.questions)
+        }
+    },
+    mounted(){
+       
+    }
+}
+</script>
+
+<style>
+
+</style>

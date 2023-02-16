@@ -547,5 +547,8 @@
   "KB": "KB",
   "MB": "MB",
   "GB": "GB",
-  "TB": "TB"
+  "TB": "TB",
+  "exam-modification": "exam modification",
+  "new-exam": "New exam",
+  "exam-title": "Exam title"
 }
