@@ -19,6 +19,17 @@ export default {
     onResizeBrowser () {
       this.$store.dispatch('core/setIsMobile',window.innerWidth < 600)
     },
+    tagManager(){
+      let noscript = document.createElement('noscript');
+      let iframe = document.createElement('iframe');
+      iframe.setAttribute('src',"https://www.googletagmanager.com/ns.html?id=GTM-NGQ5C76");
+      iframe.style.display='none';
+      iframe.style.visibility='hidden';
+      /*noscript.innerHTML=`<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGQ5C76"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
+    noscript.appendChild(iframe)
+      document.body.appendChild(noscript)
+    },
     loadJS(src,async=true,defer=false){
           const plugin = document.createElement("script");
           plugin.setAttribute(
@@ -41,6 +52,7 @@ export default {
     window.addEventListener('resize', this.onResizeBrowser, { passive: true })
   },
   created() {
+    this.tagManager()
    // this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",true)
     //this.loadJS("/js/jquery.simple-calendar.min.js",true)
     if(this.$i18n.locale=='ar')
