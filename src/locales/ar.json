@@ -551,5 +551,8 @@
   "new-project": "مشروع جديد",
   "project-title": "عنوان المشروع",
   "project-place": "مكان المشروع",
-  "project-description": "وصف المشروع"
+  "project-description": "وصف المشروع",
+  "question-title": "عنوان السؤال",
+  "new-question": " أضف السؤال",
+  "question-modification": "تعديل السؤال"
 }

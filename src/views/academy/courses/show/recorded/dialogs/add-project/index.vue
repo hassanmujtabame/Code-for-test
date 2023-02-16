@@ -136,11 +136,13 @@
              if(data.success){
               if(this.itemForm.id){
                 this.$emit('update',{...this.itemForm})
-                this.fireEvent('update-lectures',{title:this.itemForm.title})
+                this.eventUpdateLectures({...this.itemForm,type:'project'},'update')
+
               }else{
                 this.itemForm.id= data.data.project_id
                 this.$emit('add',{...this.itemForm})
-                this.fireEvent('update-lectures',{...this.itemForm})
+                this.eventUpdateLectures({...this.itemForm,type:'project'},'add')
+               
               this.lectureId = this.itemForm.id;
               this.itemDialog.id = this.itemForm.id
               }
@@ -160,6 +162,9 @@
                 }
         }
         this.saving = false;
+    },
+    eventUpdateLectures(item,type){
+      this.fireEvent('update-lectures',{item,type})
     },
       openDialog(dataItem){
 
@@ -184,7 +189,7 @@
       },
       closeDialog(){
           this.showDialog = false
-          this.fireEvent('update-lectures',{item:{},type:'all'})
+          this.eventUpdateLectures({},'all')
           return true;
       },
       closeEvent(){

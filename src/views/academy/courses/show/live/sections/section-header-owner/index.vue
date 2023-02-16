@@ -7,8 +7,8 @@
             </div>
             <div class="text-end">
                 <div class=" d-flex gap-2 justify-content-end my-3">
-                    <div v-if=" exams.length>0">
-                    <button style="height: 40px; background-color:#FF1616 ;" class="btn-main px-3 w-100 border-0 rounded-2"   data-bs-toggle="modal" href="#staticBackdrop2" role="button">
+                    <div v-if=" itemPage.exams.length>0">
+                    <button @click="showConfirmDeleteItem(itemPage.exams[0])" style="height: 40px; background-color:#FF1616 ;" class="btn-main px-3 w-100 border-0 rounded-2"    role="button">
                         <d-trash-outline-icon :size="32" color="white"/>
                         حذف الاختبار
                     </button>
@@ -16,7 +16,7 @@
                     <div> 
                         <button @click="addExam" style="height: 40px;" class="btn btn-primary px-3 w-100 border-0 rounded-2"  role="button">
                           <i class="fa fa-plus"></i>
-                           {{ exams.length>0? $t('exam-modification'): $t('add-exam')}}
+                           {{ itemPage.exams.length>0? $t('exam-modification'): $t('add-exam')}}
                         </button>
                     </div>
                     <div> 
@@ -44,8 +44,9 @@
 
 <script>
 import widgetInfo from './widget-info.vue'
+import academyAPI from '@/services/api/academy'
 export default {
- name:'section-owner',
+ name:'section-header-owner',
  props:{
     itemPage:{}
  },
@@ -67,20 +68,51 @@ watch:{
     itemPage:{
         deep:true,
         immediate:true,
-        handler(){
-           this.exams= this.itemPage.exams.filter(true)
-        }
+        handler(){}
     }
 },
 methods:{
     addExam(){
         let item = {id:null,title:null}
-        if(this.exams.length>0){
-            item= this.exams[0]
+        if(this.itemPage.exams.length>0){
+            item= this.itemPage.exams[0]
         }
         this.fireOpenDialog(`add-exam-course-dialog`,{page:this.itemPage,item:item})
         
-    }
+    },
+    showConfirmDeleteItem(lect){
+        let dataEvent={
+          title:'هل حقا تريد حذف هذا الاختبار؟',
+          description:lect.title,
+          groupBtns:'d-flex justify-content-evenly',
+          btns:[
+            {title:'تراجع',class:"btn btn-custmer btn-danger"},
+            {title:this.$t('confirm_delete'),action:()=>this.deleteItem(lect),class:"btn btn-custmer"},
+          ]
+        }
+        this.showConfirmMsg(dataEvent)
+    },
+    async deleteItem(lect){
+        console.mylog('deleting ...',lect)
+        try {
+
+                        let {data} =  await academyAPI.examsAPI.deleteExam(lect.id)
+                        if(data.success){
+                           this.$emit('delete',lect)
+                        }else{
+                            window.SwalError(data.message)
+                        }
+                    } catch (error) {
+                        if(error.response){
+                            let response = error.response
+                            if (response.status == 422) {
+                                this.setErrorsForm(this.$refs.form,response)
+                            }
+                        }
+                    }
+                
+      
+    },
 }
 }
 </script>

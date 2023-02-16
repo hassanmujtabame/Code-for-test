@@ -192,10 +192,12 @@ export default {
               if(this.itemForm.id){
                 this.$emit('update',{...this.itemForm})
                 this.fireEvent('update-lectures',{title:this.itemForm.title})
+                this.eventUpdateLectures({video:this.itemForm.video,type:'lecture'},'update')
               }else{
                 this.itemForm.id= data.data.lesson_id
                 this.$emit('add',{...this.itemForm})
                 this.fireEvent('update-lectures',{...this.itemForm})
+                this.eventUpdateLectures({...this.itemForm,type:'lecture'},'add')
               }
                 
              }else{
@@ -212,6 +214,9 @@ export default {
                 }
         }
         this.videoing = false;
+    },
+    eventUpdateLectures(item,type){
+      this.fireEvent('update-lectures',{item,type})
     },
     emptyVideo(){
       console.mylog('emptyVideo',this.itemDialog.video)
@@ -261,7 +266,7 @@ export default {
     },
     closeDialog(){
         this.showDialog = false
-        this.fireEvent('update-lectures',{item:{},type:'all'})
+        this.eventUpdateLectures({},'all')
         return true;
     },
     closeEvent(){

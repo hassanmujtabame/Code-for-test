@@ -11,7 +11,7 @@
         <span v-html="titleDialog"></span>
         </template>
       <template v-slot:default>
-          <bodyExam v-if="showDialog" @add="$emit('add',$event)" :courseId="itemPage.id" :itemSelected="itemDialog"></bodyExam>
+          <bodyExam v-if="showDialog" @add="addItem"  @update="updateItem" :courseId="itemPage.id" :itemSelected="itemDialog"></bodyExam>
       </template>
     </d-dialog-large>
   </template>
@@ -45,7 +45,17 @@
       lectureId:null,
     }),
     methods:{
-    
+    addItem(data){
+      this.$emit('add',data);
+      this.eventUpdateLectures({...data},'add')
+    },
+    updateItem(data){
+      this.$emit('update',data);
+      this.eventUpdateLectures({...data},'update')
+    },
+    eventUpdateLectures(item,type){
+      this.fireEvent('update-lectures',{item,type})
+    },
       openDialog(dataItem){
           this.itemPage ={... dataItem.page}
           this.itemDialog = {... dataItem.item}
@@ -57,8 +67,8 @@
           return true;
       },
       closeDialog(){
-          this.showDialog = false
-          this.fireEvent('update-lectures',{item:{},type:'all'})
+          this.showDialog = false;
+          this.eventUpdateLectures({},'all')
           return true;
       },
       closeEvent(){

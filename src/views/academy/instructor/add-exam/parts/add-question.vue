@@ -44,10 +44,19 @@
                    <i  style="color:red"  class=" fa  fa-circle-xmark clickable"></i>
                </button>
             </template>
-            </div>     
+            </div>   
+            <!-- question  -->  
+            <ValidationObserver ref="form" tag="div">
     <div class="mt-3">
-        <d-text-input type="text" v-model="itemLocal.title" class="border w-100 rounded-2" label="السؤال" > 
+        <validationProvider 
+            :name="$t('question-title')"
+            vid="title"
+            rules="required"
+            v-slot="{errors}"
+        >
+        <d-text-input :errors="errors" v-model="itemLocal.title" class="border w-100 rounded-2" label="السؤال" > 
         </d-text-input>
+    </validationProvider>
     </div>
     <div v-if="itemLocal.options.length===0" class="add-quetion-item__content" >
         <h1  class="add-question-item__empty">لا يوجد اختيارات</h1>
@@ -60,18 +69,20 @@
     </label>
     </div>
     </div>
-    
+</ValidationObserver>
 </div>
 <div class="add-question-item__footer mt-3 text-end flex-shrink-0">
-                        <a  class="btn bg-main text-white px-3"
+                        <button @click="save" :disabled="adding" class="btn bg-main text-white px-3"
                             role="button">
-                            حفظ السؤال
-                        </a>
+                            <i class="fa fa-spinner fa-spin" v-if="adding"></i>
+                           {{ this.itemLocal.id?$t('question-modification') :$t('new-question') }}
+                        </button>
 </div>
 </div>
 </template>
 
 <script>
+import academyAPI from '@/services/api/academy'
 export default {
     props:{
         label:{},
@@ -83,6 +94,7 @@ data:(vm)=>{
         value_:null,
         isCorrect:false,
         loading:false,
+        adding:false,
         itemLocal:{...vm.item},
         opt:{
             title:'',id:'',
@@ -110,6 +122,39 @@ watch:{
     }
 },
 methods:{
+    async save(){
+        this.adding = true;
+        let valid = await this.$refs.form.validate();
+        if(!valid){
+        this.adding = false;
+
+            return;
+        }
+            if(this.itemLocal.options.length<=1){
+                let message = "على اقل اختيارين لكل سؤال";
+                window.SwalError(message);
+                this.adding = false;
+            }
+            let form= {
+                title:this.itemLocal.title,
+                options:this.itemLocal.options.map(o=>o.title),
+                question_values:this.itemLocal.options.map(o=>o.id),
+                corrects:this.itemLocal.options.map(o=>o.is_correct),
+            }
+
+            let formData = this.loadObjectToForm(form); 
+        try {
+            let {data} =  await academyAPI.examsAPI.addQuestion(this.item.exam_id,formData)
+            if(data.success){
+                this.itemLocal.id= data.data.question_id
+            }else{
+                window.SwalError(data.message)
+            }
+        } catch (error) {
+            console.mylog('error',error)
+        }
+        this.adding = false;
+    },
     editOption(newOpt,index){
         console.mylog('ssset',newOpt,index)
         this.opt = Object.assign(this.opt,newOpt)

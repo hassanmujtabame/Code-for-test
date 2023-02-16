@@ -5,17 +5,25 @@
         <h6>03 <bdi>يونيو</bdi> | 09:00 ص</h6>
     </div>
     <div class="course-show-page__preview-content">
-      <img v-if="lectureSelected===null" :src="itemPage.image_path"  height="415"
-                    class="rounded-3 w-100 "/> 
-        <iframe 
-        v-else
-                    height="415"
-                    class="rounded-3 w-100 "
-                    src="https://www.youtube.com/embed/dGG9pWXS3ZQ" 
-                    title="مقطع تعريفي عن شركة رياديات" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe> 
+    <div class="course-show-page__preview-content-wrapper">
+      <img v-if="lectureSelected===null" :src="itemPage.image_path" 
+                    class="rounded-3 w-100 h-100"/> 
+        <video 
+        v-else-if="lectureSelected.type=='lecture' || lectureSelected.type===null"
+                   
+                    class="rounded-3 w-100 h-100"
+                    :src="lectureSelected.video" 
+                  ></video> 
+        <div v-else-if="lectureSelected.type=='project'" 
+                    class="rounded-3 w-100 h-100"> 
+        </div>
+        <div v-else-if="lectureSelected.type=='exam'" 
+                    class="rounded-3 w-100 h-100"> 
+        </div>
+        <div v-else  class="rounded-3 w-100 h-100 text-center"> 
+          <h1>غير معروف</h1>
+        </div>
+        </div>
     </div>
   </div>
 </template>
@@ -33,10 +41,28 @@ export default {
     return {
       lectureSelected:null,
     }
-  }
+  },
+  methods:{
+    updateLecture(item){
+      console.mylog('updateLecture',item)
+      this.lectureSelected = item
+    }
+  },
+  created(){
+    window.EventBus.listen('course-lecture-selected',this.updateLecture)
+   
+  },
+  beforeDestroy(){
+    window.EventBus.off('course-lecture-selected',this.updateLecture)
+   
+  },
 }
 </script>
 
-<style>
-
+<style scoped>
+.course-show-page__preview-content-wrapper{
+  height:350px;
+  border: 1px solid;
+    border-radius: 10px;
+}
 </style>

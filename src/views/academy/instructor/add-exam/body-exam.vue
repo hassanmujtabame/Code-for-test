@@ -28,7 +28,7 @@
                                   </ValidationProvider>
                                   </ValidationObserver>
                 <div class="text-end mt-3">
-                <button @click="addQuestion" class="btn bg-main rounded-2 px-4 text-white">
+                <button @click="addQuestion" :disabled="!lectureId" class="btn btn-custmer rounded-2 px-4 text-white">
                     اضافة سؤال
                 </button>
             </div>
@@ -38,7 +38,7 @@
             <div action="">
                 <div class="row justify-content-stretch" style="min-height: 200px;">
                     <div v-for="(q,i) in questions" :key="i" class="col-md-6 mt-4">
-                           <AddQuestion @delete="showConfirmDeleteItem" @update="updateQuestion" :item="q"  />
+                           <AddQuestion @delete="showConfirmDeleteItem" @update="updateQuestion"  :item="q"  />
                     </div>
                     <div class="mt-3 text-center">
                         <a v-if="false" class="btn bg-main text-white px-3"
@@ -142,12 +142,11 @@ export default {
                let {data } = this.itemForm.id?  await academyAPI.examsAPI.updateExam(this.itemForm.id,formData) :await academyAPI.examsAPI.addExam(this.courseId,formData)
                if(data.success){
                 if(this.itemForm.id){
-                  this.$emit('update',{...this.itemForm})
-                  this.fireEvent('update-lectures',{title:this.itemForm.title})
+                  this.$emit('update',{...this.itemForm,type:'exam'})
                 }else{
                   this.itemForm.id= data.data.exam_id
-                  this.$emit('add',{...this.itemForm})
-                  this.fireEvent('update-lectures',{...this.itemForm})
+                  this.$emit('add',{...this.itemForm,type:'exam'})
+                 
                 this.lectureId = this.itemForm.id;
                 this.itemDialog.id = this.itemForm.id
                 }
@@ -172,6 +171,7 @@ export default {
             this.questions.push({
                 title:`سؤال ${this.questions.length+1}`,
                 uuid:this.generateRandomString(8),
+                exam_id:this.lectureId,
                 options:[]
             })
         },

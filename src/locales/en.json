@@ -555,5 +555,8 @@
   "new-project": "New project",
   "project-title": "Project title",
   "project-place": "Project  place",
-  "project-description": "Description"
+  "project-description": "Description",
+  "question-title": "question title",
+  "new-question": "New Question",
+  "question-modification": "question modification"
 }

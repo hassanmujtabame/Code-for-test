@@ -41,6 +41,12 @@
      }
   },
   methods:{
+    deleteExam(dataEvnt){
+      let index  = this.course.exams.findIndex(l=>l.id===dataEvnt.id)
+                              if(index>-1){
+                                this.course.exams.splice(index,1)
+                              }
+    },
    addExam(dataEvt){
     this.course.exams.push(dataEvt)
     /*try {

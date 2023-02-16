@@ -9,9 +9,11 @@
         <AddLectureBtn @add="showAddDialog" />
       </div>
     </div>
- <div class="position-relative">
+ <div class="course-show-page__lectures-content"  >
+
   <d-overlays-simple v-if="loading" />
-    <draggable :move="onMove" @end="onEnd"  tag="ol" group="people" class="course-show-page__lectures-content" v-model="lectures"  ghost-class="ghost" handle=".handle">
+  <div class="course-show-page__lectures-content-wrapper"  >
+    <draggable :move="onMove" @end="onEnd"  tag="ol" group="people" v-model="lectures"  ghost-class="ghost" handle=".handle">
    
       <transition-group >
       <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':i===selectedLecture,'lecture-project':['project','projects'].includes(lect.type)}" v-for="(lect,i) in lectures" :key="i">
@@ -25,7 +27,22 @@
       </li>
     </transition-group>
       </draggable>
+      <div v-if="course.exams.length>0">
+      <h1 class="course-show-page__lecture-section">الاختبارات</h1>
+      <ol>
+        <li class="course-show-page__lecture lecture-project"   :class="{'selected':i===selectedLecture}" v-for="(exam,i) in course.exams" :key="i">
+        <span class="course-show-page__title">{{(i+1)}}. {{ exam.title }}</span>
+        <span v-if="isOwner" class="course-show-page__actions">
+          <button class="btn " @click="showEditDialog({...exam,type:'exam'})"><i class="fa fa-pen" style="color:blue"></i></button>
+          <button  class="btn " @click="showConfirmDeleteItem({...exam,type:'exam'})"><i class="fa-solid fa-trash"  style="color:red"></i></button>
+        </span>
+
+      </li>
+      </ol>
     </div>
+    </div>
+    </div>
+   
   </div>
 </template>
 
@@ -56,8 +73,9 @@ export default {
       return !this.activeDraggable;
     }
   },
-  data:()=>{
+  data:(vm)=>{
     return {
+      course:{...vm.itemPage},
       isDraggable: false,
       activeDraggable:false,
       loading:false,
@@ -72,13 +90,14 @@ export default {
         this.fireOpenDialog(`add-${type}-course-dialog`,{page:this.itemPage,item:{id:null,title:null,video:null}})
     },
     showEditDialog(lect){
-      console.mylog('lect',lect)
+
       let dialog  =null;
       if(lect.type===null || lect.type=='lecture')
       dialog = 'add-lecture-course-dialog'
       if(lect.type=='projects' || lect.type=='project')
       dialog = 'add-project-course-dialog';
-      console.mylog('lect',dialog)
+      if(lect.type=='exam' )
+      dialog = 'add-exam-course-dialog';
       if(dialog)
       this.fireOpenDialog(dialog,{page:this.itemPage,item:{...lect}})
     },
@@ -94,7 +113,35 @@ export default {
         }
         this.showConfirmMsg(dataEvent)
     },
-    async deleteItem(lect){
+    async deleteExam(exam){
+      try {
+
+      let {data} =  await academyAPI.examsAPI.deleteExam(exam.id)
+      if(data.success){
+          let index  = this.course.exams.findIndex(l=>l.id===exam.id)
+            if(index>-1){
+              this.course.exams.splice(index,1)
+            }
+      }else{
+          window.SwalError(data.message)
+      }
+      } catch (error) {
+      if(error.response){
+          let response = error.response
+          if (response.status == 422) {
+              this.setErrorsForm(this.$refs.form,response)
+          }
+      }
+      }
+    },
+
+    async deleteItem(item){
+      if(item.type=='exam')
+      await this.deleteExam(item)
+      else
+      await this.deleteLecture(item)
+    },
+    async deleteLecture(lect){
         console.mylog('deleting ...',lect)
         try {
 
@@ -121,13 +168,23 @@ export default {
     },
     updateLectures({item,type}){
       if(type=='update'){
+        if(item.type=='exam'){
+        let index  = this.course.exams.findIndex(l=>l.id===item.id)
+      if(index){
+        this.course.exams[index] = Object.assign(this.course.exams[index],item)
+      }
+      }else{
         let index  = this.lectures.findIndex(l=>l.id===item.id)
       if(index){
         this.lectures[index] = Object.assign(this.lectures[index],item)
       }
+      }
       return;
       }
       if(type=='add'){
+        if(item.type=='exam')
+        this.course.exams.push(item)
+        else
         this.lectures.push(item)
       }
       if(type=='all'){
@@ -158,6 +215,7 @@ export default {
     selected(lect,i){
       if(lect.group) return;
       this.selectedLecture = i
+      this.fireEvent('course-lecture-selected',lect)
     },
      async initializing(){
       this.loading = true;
@@ -222,12 +280,16 @@ text-transform: capitalize;
 color: #414042;
 }
 .course-show-page__lectures-content{
-  padding-right: 2rem;
-  cursor: pointer;
+  position: relative;
+
   /*height: calc(100% - 76px);*/
   height: 400px;
   overflow-y:auto ;
  
+}
+.course-show-page__lectures-content-wrapper{
+  padding-right: 2rem;
+
 }
 .course-show-page__lecture{
   padding: 5px 10px;
@@ -236,6 +298,7 @@ color: #414042;
   height: 40px;
   align-items: center;
   position: relative;
+  cursor: pointer;
 
 }
 .course-show-page__lecture.lecture-project>.course-show-page__title{
@@ -270,6 +333,12 @@ color: #414042;
 }.ghost{
   border:2px dashed red;
 }
-
+.course-show-page__lecture-section{
+  font-size: 20px;
+    color: #959090;
+    border-bottom: 1px solid #d7d7d7;
+    margin-right: -2rem;
+    padding: 0 2rem;
+}
 
 </style>
