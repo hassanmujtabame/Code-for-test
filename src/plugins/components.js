@@ -40,6 +40,7 @@ import MyRequestCard from '@/components/cards/my-request-client.vue'
 import ErrorInput from '@/components/error-input/index.vue'
 import CreditCardImage from '@/components/credit-card/credit-card-img.vue'
 import DRateStars from '@/components/rate-stars/index.vue'
+import DDotsProgress from '@/components/dots-progress/index'
 import clickOutside from './click-outside'
 
 Vue.directive('click-outside',clickOutside)
@@ -68,6 +69,7 @@ Vue.component('d-my-purchase-card', MyPurchaseCard)
 Vue.component('d-my-request-card', MyRequestCard)
 Vue.component('d-story-card', DStoryCard)
 Vue.component('d-overlays-simple', DOverlaySimple)
+Vue.component('d-dots-progress', DDotsProgress)
 Vue.component('d-dialog-large', DDialogLarge)
 Vue.component('d-dialog-simple', DDialogSimple)
 Vue.component('d-course-panel', DCoursePanel)
