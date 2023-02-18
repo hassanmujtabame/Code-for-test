@@ -270,7 +270,7 @@
                             {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
                         ]
                     }
-                    if(!this.itemForm.id){
+                    if(this.itemForm.id){
                         dataEvt={
                         title:'تم تعديل دورتك  بنجاح ',
                         btns:[
