@@ -8,7 +8,7 @@
             <h1 class="do-exam__title">اختبار 1 : دورة الازياء</h1>
         </div>
             <div class="do-exam__header-end">
-                <dotsProgress :dots="questions.length" :value="step" />
+                <d-dots-progress :dots="questions.length" :value="step" />
             </div>
         </div>
         <div class="do-exam__body">
@@ -35,12 +35,12 @@
 </template>
 
 <script>
-import dotsProgress from './dots-progress.vue';
+//import dotsProgress from './dots-progress.vue';
 import showQuestion from './show-question.vue';
 export default {
  name:'do-exam-page',
  components:{
-    dotsProgress,
+  
     showQuestion
  },
  data:()=>{
