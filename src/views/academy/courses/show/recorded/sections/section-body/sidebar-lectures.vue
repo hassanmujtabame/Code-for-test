@@ -13,7 +13,7 @@
 
   <d-overlays-simple v-if="loading" />
   <div class="course-show-page__lectures-content-wrapper"  >
-    <draggable :move="onMove" @end="onEnd"  tag="ol" group="people" v-model="lectures"  ghost-class="ghost" handle=".handle">
+    <draggable :move="onMove" @end="onEnd"  tag="ol" group="lectures" v-model="lectures"  ghost-class="ghost" handle=".handle">
    
       <transition-group >
       <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':i===selectedLecture,'lecture-project':['project','projects'].includes(lect.type)}" v-for="(lect,i) in lectures" :key="i">
@@ -29,16 +29,19 @@
       </draggable>
       <div v-if="course.exams.length>0">
       <h1 class="course-show-page__lecture-section">الاختبارات</h1>
-      <ol>
+      <draggable  @end="onEndExam"  tag="ol" group="exams" v-model="lectures"  ghost-class="ghost" handle=".handle">
         <li class="course-show-page__lecture lecture-project"   :class="{'selected':i===selectedLecture}" v-for="(exam,i) in course.exams" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ exam.title }}</span>
         <span v-if="isOwner" class="course-show-page__actions">
+          <i v-if="isDraggable" class="fa fa-align-justify handle"></i>
+          <template v-else>
           <button class="btn " @click="showEditDialog({...exam,type:'exam'})"><i class="fa fa-pen" style="color:blue"></i></button>
           <button  class="btn " @click="showConfirmDeleteItem({...exam,type:'exam'})"><i class="fa-solid fa-trash"  style="color:red"></i></button>
+        </template>
         </span>
 
       </li>
-      </ol>
+      </draggable>
     </div>
     </div>
     </div>
@@ -200,6 +203,22 @@ export default {
       this.loading = true
       try{
         await academyAPI.lecturesAPI.orderItem(ob.id,{level:evt.newIndex+1})
+
+      }catch(error){
+        //
+      }
+      this.loading =false;
+      return true;
+    },
+    async onEndExam(evt){
+      console.mylog('onEnd evt',evt)
+      let ob= {...this.course.exams[evt.newIndex]}
+      console.mylog('onEnd ob',ob);
+      console.mylog('old level',ob.level);
+      console.mylog('new level',evt.newIndex+1);
+      this.loading = true
+      try{
+        await academyAPI.examsAPI.orderItem(ob.id,{level:evt.newIndex+1})
 
       }catch(error){
         //
