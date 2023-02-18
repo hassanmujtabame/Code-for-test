@@ -174,6 +174,9 @@
           if(dataItem){
            let {id,title,state,desc} = dataItem.item;
            this.itemForm.id = id;
+           if(this.itemForm.id===null){
+            this.itemForm.uuid = this.generateRandomString(16)
+          }
            this.itemForm.title = title;
            if(state!=undefined)
            this.itemForm.state = state;

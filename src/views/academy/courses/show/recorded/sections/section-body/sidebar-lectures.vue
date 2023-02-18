@@ -16,7 +16,7 @@
     <draggable :move="onMove" @end="onEnd"  tag="ol" group="lectures" v-model="lectures"  ghost-class="ghost" handle=".handle">
    
       <transition-group >
-      <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':i===selectedLecture,'lecture-project':['project','projects'].includes(lect.type)}" v-for="(lect,i) in lectures" :key="i">
+      <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':lect.uuid===selectedLecture,'lecture-project':['project','projects'].includes(lect.type)}" v-for="(lect,i) in lectures" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ lect.title }}</span>
         <span v-if="isOwner" class="course-show-page__actions">
           <i v-if="isDraggable" class="fa fa-align-justify handle"></i>
@@ -30,7 +30,7 @@
       <div v-if="course.exams.length>0">
       <h1 class="course-show-page__lecture-section">الاختبارات</h1>
       <draggable  @end="onEndExam"  tag="ol" group="exams" v-model="lectures"  ghost-class="ghost" handle=".handle">
-        <li class="course-show-page__lecture lecture-project"   :class="{'selected':i===selectedLecture}" v-for="(exam,i) in course.exams" :key="i">
+        <li @click="selected(exam,i)" class="course-show-page__lecture lecture-project"   :class="{'selected':exam.uuid===selectedLecture}" v-for="(exam,i) in course.exams" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ exam.title }}</span>
         <span v-if="isOwner" class="course-show-page__actions">
           <i v-if="isDraggable" class="fa fa-align-justify handle"></i>
@@ -78,11 +78,13 @@ export default {
   },
   data:(vm)=>{
     return {
-      course:{...vm.itemPage},
+      course:{...vm.itemPage,exams:vm.itemPage.exams.map(l=>{
+            return {...l,type:'exam',uuid:vm.generateRandomString(16)}
+          })},
       isDraggable: false,
       activeDraggable:false,
       loading:false,
-      selectedLecture:0,
+      selectedLecture:null,
       lecture:{id:1,during:'02.53',title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
       lectures:[],
     }
@@ -232,9 +234,9 @@ export default {
       //console.mylog('originalEvent',originalEvent);
       return true;
     },
-    selected(lect,i){
+    selected(lect){
       if(lect.group) return;
-      this.selectedLecture = i
+      this.selectedLecture = lect.uuid
       this.fireEvent('course-lecture-selected',lect)
     },
      async initializing(){
@@ -242,7 +244,10 @@ export default {
       try {
         let {data} = await academyAPI.lecturesAPI.getAll(this.itemPage.id)
         if(data.success){
-          this.lectures = data.data
+          this.lectures = data.data.map(l=>{
+            return {...l,uuid:this.generateRandomString(16)}
+            
+          })
         }
       } catch (error) {
         console.mylog('error',error)

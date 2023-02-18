@@ -65,6 +65,9 @@
           this.loading =  false;
           this.lectureId = this.itemDialog.id??null;
           this.itemForm.id = this.itemDialog.id??null;
+          if(this.itemForm.id===null){
+            this.itemForm.uuid = this.generateRandomString(16)
+          }
           this.itemForm.title = this.itemDialog.title??null;
           
           this.showDialog = true;

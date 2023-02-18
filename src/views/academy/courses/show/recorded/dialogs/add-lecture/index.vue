@@ -253,6 +253,9 @@ export default {
         this.itemDialog = {... dataItem.item}
         let {id,title,video} = dataItem.item;
         this.itemForm.id = id
+        if(this.itemForm.id===null){
+            this.itemForm.uuid = this.generateRandomString(16)
+          }
         this.itemForm.title = title
         this.itemForm.video = video
         this.loading =  false;

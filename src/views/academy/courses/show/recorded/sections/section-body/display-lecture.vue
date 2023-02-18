@@ -19,6 +19,7 @@
         </div>
         <div v-else-if="lectureSelected.type=='exam'" 
                     class="rounded-3 w-100 h-100"> 
+                    <ExamDisplay :exam="lectureSelected" />
         </div>
         <div v-else  class="rounded-3 w-100 h-100 text-center"> 
           <h1>غير معروف</h1>
@@ -29,6 +30,7 @@
 </template>
 
 <script>
+import ExamDisplay from './exam-display/index'
 export default {
   props:{
     itemPage:{},
@@ -36,6 +38,9 @@ export default {
       type:Boolean,
       default:false,
     }
+  },
+  components:{
+    ExamDisplay
   },
   data:()=>{
     return {
@@ -63,6 +68,7 @@ export default {
 .course-show-page__preview-content-wrapper{
   height:350px;
   border: 1px solid;
-    border-radius: 10px;
+  border-radius: 10px;
+  overflow: auto;
 }
 </style>
