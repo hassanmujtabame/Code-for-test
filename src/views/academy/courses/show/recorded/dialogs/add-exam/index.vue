@@ -46,7 +46,9 @@
     }),
     methods:{
     addItem(data){
+      console.mylog('adding..',data)
       this.$emit('add',data);
+      this.itemForm = Object.assign(this.itemForm,{...data})
       this.eventUpdateLectures({...data},'add')
     },
     updateItem(data){
@@ -70,7 +72,7 @@
       },
       closeDialog(){
           this.showDialog = false;
-          this.eventUpdateLectures({},'all')
+          //this.eventUpdateLectures({type:'exam'},'all')
           return true;
       },
       closeEvent(){

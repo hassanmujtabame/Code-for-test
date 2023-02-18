@@ -72,7 +72,7 @@
 </ValidationObserver>
 </div>
 <div class="add-question-item__footer mt-3 text-end flex-shrink-0">
-                        <button @click="save" :disabled="adding" class="btn bg-main text-white px-3"
+                        <button @click="save" :disabled="adding" class="btn btn-custmer px-3"
                             role="button">
                             <i class="fa fa-spinner fa-spin" v-if="adding"></i>
                            {{ this.itemLocal.id?$t('question-modification') :$t('new-question') }}
@@ -114,6 +114,13 @@ watch:{
     isCorrect(){
         this.opt.is_correct = this.isCorrect?1:0
     },
+    item:{
+        deep:true,
+        immediate:true,
+        handler(){
+        this.itemLocal = {...this.item}
+        }
+    },
     itemLocal:{
         deep:true,
         handler(){
@@ -144,9 +151,13 @@ methods:{
 
             let formData = this.loadObjectToForm(form); 
         try {
-            let {data} =  await academyAPI.examsAPI.addQuestion(this.item.exam_id,formData)
+            let {data} =  this.itemLocal.id?await academyAPI.examsAPI.updateQuestion(this.itemLocal.id,formData): await academyAPI.examsAPI.addQuestion(this.itemLocal.exam_id,formData)
             if(data.success){
-                this.itemLocal.id= data.data.question_id
+                if(!this.itemLocal.id){
+                    this.itemLocal.id= data.data.question_id
+                    
+                }
+                this.$emit('saved',this.itemLocal)
             }else{
                 window.SwalError(data.message)
             }

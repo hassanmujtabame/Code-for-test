@@ -56,7 +56,7 @@ export default {
     return{
   widgets:[
     {title:'المشاهدات',content:`${vm.itemPage.views} شخص`,link:null},
-    {title:'حصلو على شهادة',content:`${vm.itemPage.number_course_graduates} شخص`,link:null},
+    {title:'حصلو على شهادة',content:`${vm.itemPage.persons_obtain_certification} شخص`,link:null},
     {title:'معدل درجات الاختبارات',content:'20/40',link:'/'},
     {title:'المشاريع المرسلة ',content:'20 مشروع',link:'/'},
   ]

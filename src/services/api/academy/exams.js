@@ -4,11 +4,17 @@ class ExamsApi extends BaseApi{
     getItem(id){
         return window.axios.get(`academy/instructor/course-exams/${id}`);
     }
+    getQuestions(exam_id){
+        return window.axios.get(`academy/instructor/courses/exams/${exam_id}/questions`);    
+    }
     deleteQuestion(id){
-        return window.axios.delete(`academy/instructor/exams/questions/${id}`);
+        return window.axios.delete(`academy/instructor/courses/exams/questions/${id}`);
     }
     addQuestion(exam_id,data){
         return window.axios.post(`academy/instructor/courses/exams/${exam_id}/questions`,data);
+    }
+    updateQuestion(question_id,data){
+        return window.axios.post(`academy/instructor/courses/exams/questions/${question_id}`,data);
     }
     addExam(course_id,data){
         return window.axios.post(`academy/instructor/courses/${course_id}/exams`,data);

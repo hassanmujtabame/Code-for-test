@@ -28,17 +28,18 @@
                                   </ValidationProvider>
                                   </ValidationObserver>
                 <div class="text-end mt-3">
-                <button @click="addQuestion" :disabled="!lectureId" class="btn btn-custmer rounded-2 px-4 text-white">
+                <button @click="addQuestion" :disabled="!lectureId" class="btn btn-custmer rounded-2 px-4">
                     اضافة سؤال
                 </button>
             </div>
                 </div>
             </div>
            
-            <div action="">
+            <div class="position-relative">
+                <d-overlays-simple v-if="loading" />
                 <div class="row justify-content-stretch" style="min-height: 200px;">
                     <div v-for="(q,i) in questions" :key="i" class="col-md-6 mt-4">
-                           <AddQuestion @delete="showConfirmDeleteItem" @update="updateQuestion"  :item="q"  />
+                           <AddQuestion @delete="showConfirmDeleteItem" @saved="savedQuestion" @update="updateQuestion"  :item="q"  />
                     </div>
                     <div class="mt-3 text-center">
                         <a v-if="false" class="btn bg-main text-white px-3"
@@ -70,6 +71,7 @@ export default {
     data:(vm)=>{
         return {
             saving: false,
+            loading:false,
             itemForm:{
                 id:vm.itemSelected.id??null,
                 title:vm.itemSelected.title??null,
@@ -110,7 +112,11 @@ export default {
                            
                             let index  = this.questions.findIndex(l=>l.id===question.id)
                               if(index>-1){
-                                this.lectures.splice(index,1)
+                                console.mylog('deleted',index,this.questions[index],question)
+                                //let questions = this.questions.filter(x=>x)
+                                this.questions.splice(index,1)
+                                //this.questions = [];
+                                //this.questions = questions.filter(x=>x);
                               }
                         }else{
                             window.SwalError(data.message)
@@ -125,6 +131,12 @@ export default {
                     }
                 
       
+    },
+    savedQuestion(question){
+        let index  = this.questions.findIndex(l=>l.uuid===question.uuid)
+                              if(index>-1){
+                                this.questions[index] = Object.assign(this.questions[index],question)
+                              }
     },
         async saveTitle(){
           this.saving = true;
@@ -182,10 +194,39 @@ export default {
             }
 
             this.$emit('update',this.questions)
+        },
+        async loadQuestions(){
+            this.loading = true;
+            try {
+                let {data} =  await academyAPI.examsAPI.getQuestions(this.itemForm.id)
+                if(data.success){
+                
+                    let questions = []
+                    data.data.forEach(question=>{
+                        console.mylog('question',question)
+                            questions.push({
+                                title:question.title,
+                                id:question.id,
+                                uuid:this.generateRandomString(8),
+                                exam_id:this.lectureId,
+                                    options:question.options.map((x,i)=>{
+                                        return {id:question.question_values[i],title:x,is_correct: parseInt(question.corrects[i])}
+                                    })
+                            })
+                    })
+                    console.mylog('questions',questions)
+                    this.questions = questions
+                    
+                }
+            } catch (error) {
+                console.mylog('error',error)
+              //  
+            }
+            this.loading = false;
         }
     },
     mounted(){
-       
+       this.loadQuestions()
     }
 }
 </script>

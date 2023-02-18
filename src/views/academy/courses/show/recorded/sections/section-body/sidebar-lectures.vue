@@ -173,14 +173,15 @@ export default {
       if(type=='update'){
         if(item.type=='exam'){
         let index  = this.course.exams.findIndex(l=>l.id===item.id)
-      if(index){
-        this.course.exams[index] = Object.assign(this.course.exams[index],item)
-      }
+        console.mylog('updating ..',index,item,this.course.exams[index])
+          if(index>-1){
+            this.course.exams[index] = Object.assign(this.course.exams[index],item)
+          }
       }else{
         let index  = this.lectures.findIndex(l=>l.id===item.id)
-      if(index){
-        this.lectures[index] = Object.assign(this.lectures[index],item)
-      }
+        if(index>-1){
+          this.lectures[index] = Object.assign(this.lectures[index],item)
+        }
       }
       return;
       }
@@ -307,7 +308,7 @@ color: #414042;
  
 }
 .course-show-page__lectures-content-wrapper{
-  padding-right: 2rem;
+  padding-right: 0rem;
 
 }
 .course-show-page__lecture{
