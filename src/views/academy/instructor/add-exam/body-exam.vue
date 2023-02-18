@@ -3,7 +3,7 @@
             <div class="d-flex justify-content-between">
                 <div class="">
                     <h3>
-                        أضافة اختبارات
+                    {{ this.lectureId?$t('exam-modification'):$t('new-exam') }}
                     </h3>
                 </div>
                 <div class="w-25">

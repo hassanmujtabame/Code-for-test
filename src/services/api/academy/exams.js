@@ -17,8 +17,8 @@ class ExamsApi extends BaseApi{
         return window.axios.delete(`https://test.riadiat.sa/api/v1/academy/instructor/courses/exam/${id}`);
     }
     updateExam(id,data){
-        //data.append('_method','PUT')
-        return window.axios.post(`academy/instructor/courses/exams/${id}`,data);
+        data.append('_method','PUT')
+        return window.axios.post(`academy/instructor/course-exams/${id}`,data);
     }
 }
 

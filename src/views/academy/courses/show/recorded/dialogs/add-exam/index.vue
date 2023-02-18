@@ -61,7 +61,9 @@
           this.itemDialog = {... dataItem.item}
          
           this.loading =  false;
-          this.lectureId = this.itemForm.id??null;
+          this.lectureId = this.itemDialog.id??null;
+          this.itemForm.id = this.itemDialog.id??null;
+          this.itemForm.title = this.itemDialog.title??null;
           
           this.showDialog = true;
           return true;
