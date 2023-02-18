@@ -274,7 +274,7 @@
                         dataEvt={
                         title:'تم تعديل دورتك  بنجاح ',
                         btns:[
-                            {title:'حسنا',class:'btn btn-custmer'}
+                            {title:'حسنا',action:()=>this.refreshPage(),class:'btn btn-custmer'}
                         ]
                     } 
                     }
