@@ -258,7 +258,7 @@
              let {data } = await academyAPI.coursesApi.addItem(formData)
              if(data.success){
                 this.closeEvent()
-                if(this.itemForm.has_exam){
+                if(this.itemForm.has_exam222){
                     //redirect to add exam page
                     this.router_push('academy-course-add-exam',{id:data.data.course_id})
                 }else{
