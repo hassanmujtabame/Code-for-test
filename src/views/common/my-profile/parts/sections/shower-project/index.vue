@@ -30,7 +30,7 @@
                         <template v-slot="{item}">
                             <div class="my-work-box">
                                 <span @click="delItem(item.id)" class="my-work-box__close"><i class="fa fa-times" aria-hidden="true"></i></span>
-                            <img :src="item.image_path" alt="">
+                            <img :src="item.image" alt="">
                             </div>
                         </template>
                     </d-swiper>
@@ -114,9 +114,9 @@ export default {
 .my-work-box{
     border: 0.5px solid #d1d1d1;
     border-radius: 4px;
-    width: 100%;
-    height: 100%;
-    padding:5px;
+    width: 180px;
+    height: 150px;
+    padding: 5px;
     position: relative;
 }
 .my-work-box>img{
