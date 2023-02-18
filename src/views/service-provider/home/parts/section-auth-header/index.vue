@@ -14,7 +14,7 @@
                     <input class=" p-3 w-100 rounded-2 border-0 bg-white" type="text"
                         placeholder="ابحث عن خدمات او طلبات من هنا">
                     </div>
-                    <div class="col-12 col-md-3" :class="{'mt-2 mb-3':isMobile}">
+                    <div class="col-12 col-md-3 d-flex align-items-center" :class="{'mt-2 mb-3':isMobile}">
                     <button style="height: 51px;" class="btn-main" :class="{'w-100':isMobile}">
                         ابحث
                     </button>
