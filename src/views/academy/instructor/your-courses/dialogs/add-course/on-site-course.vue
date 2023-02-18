@@ -7,16 +7,16 @@
     <template v-slot:default>
         <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
-            <!--number_days -->    
+            <!--number_day -->    
             <div class="mt-3">
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('num_days')"
-                    vid="number_days"
+                    vid="number_day"
                     rules="required|numeric"
                     v-slot="{errors}"
                     v-if="step==1"
                     >
-                    <d-text-input type="text" :errors="errors"  v-model="itemForm.number_days" label="عدد ايام الدورة " />
+                    <d-text-input type="text" :errors="errors"  v-model="itemForm.number_day" label="عدد ايام الدورة " />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
@@ -274,7 +274,7 @@
             reader.readAsDataURL(this.itemForm.image);
         },
         async saveStep1(){
-            let valid = await this.$refs.form1.validate(['number_days']);
+            let valid = await this.$refs.form1.validate(['number_day']);
             if(!valid){
                 console.mylog('invalid step 1');
                 return false;
@@ -367,7 +367,7 @@
             this.itemForm={
                 type:'on-site',
                 course_days:null,
-                number_days:null,
+                number_day:null,
                 start_date:'',
                 reservation_closing_date:'',
                 type_certificate:null,
@@ -382,7 +382,7 @@
             }
             if(dataEvt){
                 let {id,course_days,
-                    number_days,
+                    number_day,
                 start_date,
                 reservation_closing_date,
                 type_certificate,
@@ -396,7 +396,7 @@
                 this.itemForm = Object.assign(this.itemForm,{
                     id,
                 course_days,
-                number_days,
+                number_day,
                 start_date,
                 reservation_closing_date,
                 type_certificate,
