@@ -6,15 +6,17 @@
             <SectionFilterList />
 
         </div>
-        
+        <SendToAllParticipants />
     </div>
 </template>
 <script>
 import SectionFilterList from './parts/section-filter-list/index.vue'
+import SendToAllParticipants from '../dialogs/message-participants/index'
 export default {
 name:'my-meetings',
 components:{
     SectionFilterList,
+    SendToAllParticipants
 }
 }
 </script>

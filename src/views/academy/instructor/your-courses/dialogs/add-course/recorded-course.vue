@@ -101,7 +101,7 @@
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('add-display-image')"
                     vid="image"
-                    rules="required|image"
+                    :rules="itemForm.id?'image':'required|image'"
                     v-slot="{errors,validate}"
                     v-if="step==2"
                     >
@@ -210,16 +210,24 @@
             let formData = this.loadObjectToForm(this.itemForm)
            
             try {
-             let {data } = await academyAPI.coursesApi.addItem(formData)
+                let {data } = this.itemForm.id?await academyAPI.coursesApi.updateItem(this.itemForm.id,formData): await academyAPI.coursesApi.addItem(formData)
              if(data.success){
                 this.closeEvent()
                    //redirect to course page
                 let dataEvt={
                         title:' خطوتك الاولى تمت بنجاح عليك الان برفع الدروس و المرفقات',
                         btns:[
-                            {title:'إرفع الدروس',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
+                            {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
                         ]
-                    }    
+                    }
+                    if(!this.itemForm.id){
+                        dataEvt={
+                        title:'تم تعديل دورتك  بنجاح ',
+                        btns:[
+                            {title:'حسنا',class:'btn btn-custmer'}
+                        ]
+                    } 
+                    }
                     this.showSuccessMsg(dataEvt)
                 
              }
@@ -275,7 +283,8 @@
                //price:0,
             }
             if(dataEvt){
-                let { 
+                let {
+                    id, 
                 start_date,
                 type_certificate,
                 title,
@@ -285,6 +294,7 @@
                 image} = dataEvt;
                 
                 this.itemForm = Object.assign(this.itemForm,{ 
+                    id,
                 start_date,
                 type_certificate,
                 title,

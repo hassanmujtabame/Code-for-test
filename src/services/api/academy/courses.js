@@ -12,6 +12,10 @@ class CoursesApi extends BaseApi{
     addItem(data){
         return window.axios.post(`academy/instructor/courses`,data);
     }
+    updateItem(id,data){
+        data.append('_method','PUT')
+        return window.axios.post(`academy/instructor/courses/${id}`,data);
+    }
     getCoursesHasExams(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructor/course-exams?${s}`);

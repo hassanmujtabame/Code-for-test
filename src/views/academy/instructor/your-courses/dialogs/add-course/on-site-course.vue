@@ -7,16 +7,16 @@
     <template v-slot:default>
         <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
-            <!--number_day -->    
+            <!--number_days -->    
             <div class="mt-3">
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('num_days')"
-                    vid="number_day"
+                    vid="number_days"
                     rules="required|numeric"
                     v-slot="{errors}"
                     v-if="step==1"
                     >
-                    <d-text-input type="text" :errors="errors"  v-model="itemForm.number_day" label="عدد ايام الدورة " />
+                    <d-text-input type="text" :errors="errors"  v-model="itemForm.number_days" label="عدد ايام الدورة " />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
@@ -181,7 +181,7 @@
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('add-display-image')"
                     vid="image"
-                    rules="required|image"
+                    :rules="itemForm.id?'image':'required|image'"
                     v-slot="{errors,validate}"
                     v-if="step==2"
                     >
@@ -274,7 +274,7 @@
             reader.readAsDataURL(this.itemForm.image);
         },
         async saveStep1(){
-            let valid = await this.$refs.form1.validate(['number_day']);
+            let valid = await this.$refs.form1.validate(['number_days']);
             if(!valid){
                 console.mylog('invalid step 1');
                 return false;
@@ -291,7 +291,7 @@
             let formData = this.loadObjectToForm(this.itemForm)
            
             try {
-             let {data } = await academyAPI.coursesApi.addItem(formData)
+             let {data } = this.itemForm.id?await academyAPI.coursesApi.updateItem(this.itemForm.id,formData): await academyAPI.coursesApi.addItem(formData)
              if(data.success){
                 this.closeEvent()
                
@@ -301,6 +301,14 @@
                         btns:[
                             {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
                         ]
+                    }
+                    if(!this.itemForm.id){
+                        dataEvt={
+                        title:'تم تعديل دورتك  بنجاح ',
+                        btns:[
+                            {title:'حسنا',class:'btn btn-custmer'}
+                        ]
+                    } 
                     }
                     this.showSuccessMsg(dataEvt)
                 
@@ -359,7 +367,7 @@
             this.itemForm={
                 type:'on-site',
                 course_days:null,
-                number_day:null,
+                number_days:null,
                 start_date:'',
                 reservation_closing_date:'',
                 type_certificate:null,
@@ -373,7 +381,7 @@
                 //price:0,
             }
             if(dataEvt){
-                let {course_days,
+                let {id,course_days,
                     number_days,
                 start_date,
                 reservation_closing_date,
@@ -386,6 +394,7 @@
                 desc,
                 image} = dataEvt;
                 this.itemForm = Object.assign(this.itemForm,{
+                    id,
                 course_days,
                 number_days,
                 start_date,

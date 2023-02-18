@@ -1,28 +1,27 @@
 <template>
-  <div class="academy-blog-item">
-  <div class="academy-blog-item__wrapper">
-  <div class="academy-blog-item__body">
-  <div class="academy-blog-item__title">
-<h1>خطة العمل ودراسة الجدوى المالية</h1>
+  <div class="academy-meeting-item">
+  <div class="academy-meeting-item__wrapper">
+  <div class="academy-meeting-item__body">
+  <div class="academy-meeting-item__title">
+
+<h1 @click="router_push('academy-meeting-show', { id: item.id })" class="clickable">{{ item.title }}</h1>
   </div>
-  <div class="academy-blog-item__subtitle">
-<h6>عدد المنضمين : 557878 شخص</h6>
+  <div class="academy-meeting-item__subtitle">
+<h6>عدد المنضمين : {{ item.number_participants }} شخص</h6>
   </div>
-  <div class="academy-blog-item__description">
-    <p>
-        يبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعمال يبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات .............    
-    </p>
+  <div class="academy-meeting-item__description">
+    <p v-html="item.content"></p>
     </div>
   </div>
-  <div class="academy-blog-item__actions">
-    <div class="academy-blog-item__date">
+  <div class="academy-meeting-item__actions">
+    <div class="academy-meeting-item__date">
         <i class="fa-regular fa-clock"></i>
         <span class="px-2">تاريخ النشر :</span>
-        <span>2010-10-10</span>
+        <span>{{ dateReverse(item.date) }}</span>
     </div>
-    <div class="academy-blog-item__btns">
-        <button class="btn btn-custmer btn-small">رسالة للمنضمين</button>
-        <button class="btn btn-custmer btn-danger btn-small mx-1">خذف اللقاء</button>
+    <div class="academy-meeting-item__btns">
+        <button @click="sendToParticipants" class="btn btn-custmer btn-small">رسالة للمنضمين</button>
+        <button @click="deleteItem" class="btn btn-custmer btn-danger btn-small mx-1">خذف اللقاء</button>
     </div>
 </div>
   </div>
@@ -31,33 +30,46 @@
 
 <script>
 export default {
-
+ props:{
+    item:{}
+ },
+ methods:{
+    sendToParticipants(){
+        this.fireOpenDialog('send-all-participants',this.item)
+    },
+    deleteItem(){
+        this.$emit('delete',this.item)
+    }
+ }
 }
 </script>
 
 <style scoped>
-.academy-blog-item{
+.academy-meeting-item{
     width: 100%;
 }
-.academy-blog-item__wrapper{
+.academy-meeting-item__wrapper{
     display: flex;
     padding: 10px;
     border-bottom: 1px solid #CDD7D8;
 }
-.academy-blog-item__actions{
+.academy-meeting-item__body{
+    flex:1
+}
+.academy-meeting-item__actions{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-shrink: 0;
 }
-.academy-blog-item__btns{
+.academy-meeting-item__btns{
     display: flex;
     flex-direction: row; 
 }
 span {
     color:inherit
 }
-.academy-blog-item__title>h1{
+.academy-meeting-item__title>h1{
     margin: 0;
     font-style: normal;
 font-weight: 400;
@@ -71,7 +83,7 @@ text-transform: capitalize;
 
 color: #1FB9B3;
 }
-.academy-blog-item__description{
+.academy-meeting-item__description{
     margin:10px 0;
     font-style: normal;
 font-weight: 400;
@@ -81,7 +93,7 @@ line-height: 24px;
 
 color: #737373;
 }
-.academy-blog-item__subtitle>h6{
+.academy-meeting-item__subtitle>h6{
     margin:10px 0;
     font-style: normal;
 font-weight: 400;
@@ -92,7 +104,7 @@ line-height: 24px;
 
 color: #F2631C;
 }
-.academy-blog-item__date{
+.academy-meeting-item__date{
     color:#737373
 }
 </style>

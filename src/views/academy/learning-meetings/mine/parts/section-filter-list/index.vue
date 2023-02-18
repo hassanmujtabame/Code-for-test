@@ -16,14 +16,10 @@
             </template>
 
             <template v-slot="{ item }">
-                <router-link  class="router-link" :to="getRouteLocale('academy-blog-show', { id: item.id })">
                     <BlogInfoCard 
-                    :categories="item.categories"
-                    :img="item.image" 
-                    :title="item.title" 
-                    :description="item.short_description??item.description"
-                        :date="item.created_at" />
-                </router-link>
+                        :item="item"
+                        @delete="confirmDeleteItem"
+                    />
             </template>
         </d-filter-list>
     </div>
@@ -59,6 +55,32 @@ export default {
         changeFilter(val){
             this.filterItem = {...this.filterItem,...val}
             this.fireEvent('d-filter-list-refresh')
+        },
+        confirmDeleteItem(item){
+            let dataEvt = {
+                title:'هل انت متأكد من حذف اللقاء؟',
+                description:`${item.title}`,
+                groupBtns:'d-flex justify-content-evenly',
+                btns:[
+                    {title:'تراجع',class:'btn btn-custmer btn-danger'},
+                    {title:this.$t('confirm_delete'),action:()=>this.deleteItem(item),class:'btn btn-custmer'},
+                ]
+
+            }
+            this.showConfirmMsg(dataEvt)
+        },
+       async deleteItem(item){
+            console.mylog('deleting....',item)
+            try {
+                let { data } = await instructorMeetingsAPI.deleteItem(item.id)
+                if(data.success){
+                    this.fireEvent('d-filter-list-refresh')
+                }else{
+                    window.SwalError(data.message)
+                }
+            } catch (error) {
+                console.mylog('error',error)
+            }
         },
         async loadList(metaInfo) {
             let params = {

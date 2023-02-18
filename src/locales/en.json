@@ -558,5 +558,6 @@
   "project-description": "Description",
   "question-title": "question title",
   "new-question": "New Question",
-  "question-modification": "question modification"
+  "question-modification": "question modification",
+  "message-content": "Message content"
 }

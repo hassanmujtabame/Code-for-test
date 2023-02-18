@@ -419,7 +419,7 @@
   "delete": "حذف",
   "your-offer": "عرضك",
   "message-title": "عنوان الرسالة",
-  "send": "إرسال",
+  "send": "أرسال",
   "execution_period": "مدة تنفيذ",
   "execution_place": "مكان التنفيذ",
   "specific_date": "تاريخ محدد",
@@ -554,5 +554,6 @@
   "project-description": "وصف المشروع",
   "question-title": "عنوان السؤال",
   "new-question": " أضف السؤال",
-  "question-modification": "تعديل السؤال"
+  "question-modification": "تعديل السؤال",
+  "message-content": "محتوى الرسالة"
 }
