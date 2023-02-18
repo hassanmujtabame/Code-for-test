@@ -259,14 +259,14 @@ const mixin = {
                 let r= this.$router.resolve(this.getRouteLocale(name,params,query));
                 return r?r.href:'#'
                },
-               refreshPage(){
+               refreshPage(data={}){
                 
                 //if(process.env.NODE_ENV=='development')
                 //return;
                 let r=this.$router.resolve({
-                  name: this.$route.name, // put your route information in
-                  params: this.$route.params, // put your route information in
-                  query: this.$route.query // put your route information in
+                  name:data.name??this.$route.name, // put your route information in
+                  params:data.params?? this.$route.params, // put your route information in
+                  query: data.query??this.$route.query // put your route information in
                 });
                 if(this.$router.mode=='hash'){
                   window.location.assign(r.href)

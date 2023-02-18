@@ -40,7 +40,15 @@ export default {
         return true;
     },
     closeDialog(){
-        this.showDialog = false
+        this.showDialog = false;
+        let data={
+            name:'service-provider-home',
+            params:{
+                lang:this.$i18n.locale
+            },
+            query:{}
+        }
+        this.refreshPage(data)
         return true;
     },
   }
