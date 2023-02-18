@@ -9,12 +9,12 @@
             <div>
             <img :src="itemDialog.image" alt="">
           </div>
-            <div>
+            <div class="mt-2">
                 <h4 >
                  {{itemDialog.title}}
                 </h4>
-                <p class="t-c fs-r-16-24">
-                    {{ itemDialog.description }}
+                <p v-if="itemDialog.description" class="t-c fs-r-16-24" v-html="itemDialog.description">
+                  
                 </p>
               </div>
               <div v-if="itemDialog.btns" :class="[itemDialog.groupBtns??'']" >

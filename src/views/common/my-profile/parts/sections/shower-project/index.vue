@@ -29,7 +29,7 @@
                         class="p-2">
                         <template v-slot="{item}">
                             <div class="my-work-box">
-                                <span @click="delItem(item.id)" class="my-work-box__close"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                <span @click="confirmDeleteItem(item)" class="my-work-box__close"><i class="fa fa-times" aria-hidden="true"></i></span>
                             <img :src="item.image" alt="">
                             </div>
                         </template>
@@ -75,6 +75,18 @@ export default {
  methods:{
     openAddImage(){
         this.fireOpenDialog('add-item-image-project')
+    },
+    confirmDeleteItem(item){
+            let dataEvt={
+                title:'هل متاكد حقا من حذف هذه الصورة؟',
+                description:`<img src="${item.image}" class="border"  height="150" width="150" />`,
+                groupBtns:'d-flex justify-content-evenly',
+                btns:[
+                    {title:'تراجع',class:'btn btn-custmer btn-danger'},
+                    {title:'تاكيد الحذف',action:()=> this.delItem(item.id),class:'btn btn-custmer'},
+                ]
+            }
+            this.showConfirmMsg(dataEvt)
     },
    async delItem(id){
 
@@ -138,5 +150,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #c3c3c3;
 }
 </style>
