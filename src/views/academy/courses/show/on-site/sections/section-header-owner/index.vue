@@ -12,7 +12,7 @@
 
                 <div class=" d-flex gap-2 justify-content-end my-3">
                     <div> 
-                        <button style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"  role="button">
+                        <button @click="updateCourse" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"  role="button">
                             <d-rect-edit-icon />
                                 
                         تعديل
@@ -61,6 +61,11 @@ export default {
     {title:'موعد المجموعه الثانية',content:vm.dateReverse(vm.itemPage.next_course_date),link:'/'},
   ]
  }
+},
+methods:{
+    updateCourse(){
+        this.fireOpenDialog('update-course',this.itemPage)
+    }
 }
 }
 </script>

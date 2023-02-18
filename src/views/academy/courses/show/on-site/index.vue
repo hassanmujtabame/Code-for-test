@@ -5,6 +5,7 @@
           <SectionHeaderOwner  :itemPage="itemPage" v-if="isOwner"/>
      <SectionHeader  :itemPage="itemPage" v-else />
      <SectionBody  :itemPage="itemPage" :isOwner="isOwner"/>
+     <updateCourseDialog group="update-course" :isOwner="isOwner" />
  </div>
  </div>
    </div>
@@ -14,6 +15,8 @@
  import SectionHeader from './sections/section-header/index.vue'
  import SectionHeaderOwner from './sections/section-header-owner/index.vue'
  import SectionBody from './sections/section-body/index.vue'
+ import updateCourseDialog from '@/views/academy/instructor/your-courses/dialogs/add-course/on-site-course'
+
  //import coursesAPI from '@/services/api/academy/courses'
  export default {
   name:'course-show-on-site',
@@ -27,7 +30,8 @@
   components:{
      SectionHeader,
      SectionBody,
-     SectionHeaderOwner
+     SectionHeaderOwner,
+     updateCourseDialog
   },
   data:()=>{
      return {

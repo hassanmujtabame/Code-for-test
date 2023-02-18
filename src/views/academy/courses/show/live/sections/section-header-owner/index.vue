@@ -20,7 +20,7 @@
                         </button>
                     </div>
                     <div> 
-                    <button style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"  role="button">
+                    <button @click="updateCourse" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"  role="button">
                         <d-rect-edit-icon />
                             تعديل
                     </button>
@@ -72,6 +72,9 @@ watch:{
     }
 },
 methods:{
+    updateCourse(){
+        this.fireOpenDialog('update-course',this.itemPage)
+    },
     addExam(){
         let item = {id:null,title:null}
         if(this.itemPage.exams.length>0){

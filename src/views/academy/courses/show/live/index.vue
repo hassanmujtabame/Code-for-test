@@ -8,6 +8,7 @@
  </div>
  </div>
  <AddExamDialog v-if="isOwner" @add="addExam"  />
+ <updateCourseDialog group="update-course" :isOwner="isOwner" />
    </div>
  </template>
  
@@ -16,6 +17,8 @@
  import SectionHeaderOwner from './sections/section-header-owner/index.vue'
  import SectionBody from './sections/section-body/index.vue'
  import AddExamDialog from '../recorded/dialogs/add-exam/index'
+ import updateCourseDialog from '@/views/academy/instructor/your-courses/dialogs/add-course/live-course'
+
  //import academyAPI from '@/services/api/academy'
  //import coursesAPI from '@/services/api/academy/courses'
  export default {
@@ -32,6 +35,7 @@
      SectionBody,
      SectionHeaderOwner,
      AddExamDialog,
+     updateCourseDialog
   },
   data:(vm)=>{
      return {

@@ -353,7 +353,7 @@
         closeEvent(){
             this.fireCloseDialog(this.group)
     },
-        openDialog(){
+        openDialog(dataEvt){
             this.step = 1;
             this.emptyImage()
             this.itemForm={
@@ -371,6 +371,33 @@
                 desc:'',
                 image:null,
                 //price:0,
+            }
+            if(dataEvt){
+                let {course_days,
+                    number_days,
+                start_date,
+                reservation_closing_date,
+                type_certificate,
+                number_students,
+                title,
+                department_id,
+                place_id,
+                notes,
+                desc,
+                image} = dataEvt;
+                this.itemForm = Object.assign(this.itemForm,{
+                course_days,
+                number_days,
+                start_date,
+                reservation_closing_date,
+                type_certificate,
+                number_students,
+                title,
+                department_id,
+                place_id,
+                notes,
+                desc,
+                image})
             }
             this.showDialog = true;
             return true;

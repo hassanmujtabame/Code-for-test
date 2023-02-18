@@ -10,6 +10,7 @@
   <AddLectureDialog/>
   <AddExamDialog />
   <AddProjectDialog />
+  <updateCourseDialog group="update-course" :isOwner="isOwner" />
    </div>
  </template>
  
@@ -20,6 +21,7 @@
  import AddLectureDialog from './dialogs/add-lecture/index.vue'
  import AddExamDialog from './dialogs/add-exam/index.vue'
  import AddProjectDialog from './dialogs/add-project/index.vue'
+ import updateCourseDialog from '@/views/academy/instructor/your-courses/dialogs/add-course/recorded-course'
  //import coursesAPI from '@/services/api/academy/courses'
  export default {
   name:'course-show-recorded',
@@ -36,7 +38,8 @@
      SectionHeaderOwner,
      AddLectureDialog,
      AddExamDialog,
-     AddProjectDialog
+     AddProjectDialog,
+     updateCourseDialog
   },
   data:()=>{
      return {
