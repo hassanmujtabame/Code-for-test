@@ -69,6 +69,6 @@ export default {
   height:350px;
   border: 1px solid;
   border-radius: 10px;
-  overflow: auto;
+  /*overflow: auto;*/
 }
 </style>

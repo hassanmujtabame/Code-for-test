@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <showExamInstructor />
+  <div class="course-exam-content">
+    <showExamInstructor  :exam="exam"/>
   </div>
 </template>
 
@@ -24,6 +24,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.course-exam-content{
+  height:100%;
+  width:100%;
+  overflow: auto;
+}
 </style>

@@ -58,14 +58,14 @@ export default {
         step:1,
         responses:[],
         questions:[
-            {id:1,title:'مانوع  ماكينة الخياطة ؟',type:'radio',opts:[
+            {id:1,title:'مانوع  ماكينة الخياطة ؟',type:'radio',options:[
             {id:1,title:'الخيار الاول'},
             {id:2,title:'الخيار الثاني'},
             {id:3,title:'الخيار الثالث'},
             {id:4,title:'الخيار الرابع'},
             {id:5,title:'الخيار الخامس'},
         ]},
-        {id:1,title:'مانوع التصاميم ؟',type:'checkbox',opts:[
+        {id:1,title:'مانوع التصاميم ؟',type:'checkbox',options:[
             {id:1,title:'الخيار الاول'},
             {id:2,title:'الخيار الثاني'},
             {id:3,title:'الخيار الثالث'},
@@ -119,6 +119,9 @@ export default {
             }
             this.loading = false;
         }
+ },
+ mounted(){
+    this.loadQuestions()
  }
 }
 </script>

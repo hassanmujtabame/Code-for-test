@@ -2,7 +2,7 @@
 <div class="do-exam__body__question">
             <div class="do-exam__body_question-title">{{ item.title }}</div>
             <div class="do-exam__body_question-options">
-            <div class="do-exam__body_question-option" v-for="(o,i) in item.opts" :key="i">
+            <div class="do-exam__body_question-option" v-for="(o,i) in item.options" :key="i">
                 <div class="form-check">
                 <input class="form-check-input" v-model="value_" :type="item.type" name="exampleRadios" :id="`exampleRadios-${o.id}`" :value="o.id">
                 <label class="form-check-label" :for="`exampleRadios-${o.id}`">
