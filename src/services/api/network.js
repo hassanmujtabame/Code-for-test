@@ -19,6 +19,20 @@ class NetworkApi extends BaseApi {
         return window.axios.get(`network/recharge-balance?${s}`);
 
     }
+    async getBalance(){
+        try {
+            let res = await window.axios.post(`user/me`)
+            if(res.data.success){
+               let {total_balance,outstanding_balance,available_balance} = res.data.data;
+               return {data:{success:true,data:{total_balance,outstanding_balance,available_balance}}}
+            }else{
+                return res;
+            }
+         } catch (error) {
+            console.mylog('error',error)
+            return {success:false,message:'error general'}
+         }
+    }
     checkoutPackage(data){
         /*
           type if 0
