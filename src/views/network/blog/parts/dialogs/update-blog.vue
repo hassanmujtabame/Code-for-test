@@ -76,7 +76,7 @@
                         <div class="mb-3">
                             <ValidationProvider
                                     :name="$t('description_blog')"
-                                 vid="tag"
+                                 vid="description"
                                  rules="required"
                                     v-slot="{errors}">
                         <label class="form-label">{{ $t('description_blog') }}</label>
@@ -110,7 +110,6 @@ export default {
     group:'update-blog',
     showDialog:false,
     categories:[],
-    tags:[],
     idImage: `image-selected-${vm.generateRandomString(8)}`,
     url:'/assets/svg/empty-image.svg',
     imageUrl:'none',
@@ -141,9 +140,6 @@ export default {
      formData.append('ar[short_description]',this.blog.short_description);
      formData.append('image',this.file);
      formData.append('user_id',this.user.id);
-    // for (var i = 0; i < this.blog.tag.length; i++) {
-           // formData.append('tags', this.blog.tag.id);
-    //}
     //for ( i = 0; i < this.blog.category.length; i++) {
             formData.append('categories', this.blog.category.id);
    // }
@@ -196,16 +192,7 @@ export default {
             };
             reader.readAsDataURL(this.file);
     },
-    async loadBlogTags(){
-        try {
-            let {data} =  await BlogsAPI.getTags()
-            if(data.success){
-                this.tags = data.data
-            }
-        } catch (error) {
-             console.log('error',error)
-        }
-    },
+  
     async loadBlogCategories(){
         try {
             let {data} =  await BlogsAPI.getCategories()
@@ -221,7 +208,6 @@ export default {
         this.imageUrl = data.image
         this.blog.id=data.id
         this.blog.category=data.categories[0]
-        //this.blog.tag=data.tags[0]
         this.blog.description=data.description
         this.blog.short_description=data.short_description
         this.blog.title=data.title
@@ -240,16 +226,7 @@ export default {
        this.fireEvent(this.group+'-close-dialog')
     }
   },
-  created(){
-    //window.EventBus.listen(this.group+'-open-dialog',this.openDialog)
-    //window.EventBus.listen(this.group+'-close-dialog',this.closeDialog)
-  },
-  beforeDestroy(){
-    //window.EventBus.off(this.group+'-open-dialog',this.openDialog)
-    //window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
-  },
   mounted(){
-    this.loadBlogTags()
     this.loadBlogCategories()
   }
 }

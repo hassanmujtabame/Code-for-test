@@ -111,7 +111,6 @@ export default {
     group:'add-dialog',
     showDialog:false,
     categories:[],
-    tags:[],
     idImage: `image-selected-${vm.generateRandomString(8)}`,
     url:'/assets/svg/empty-image.svg',
     file:null,
@@ -139,9 +138,6 @@ export default {
      formData.append('ar[short_description]',this.blog.short_description);
      formData.append('image',this.file);
      formData.append('user_id',this.user.id);
-    // for (var i = 0; i < this.blog.tag.length; i++) {
-            //formData.append('tags', this.blog.tag.id);
-    //}
     //for ( i = 0; i < this.blog.category.length; i++) {
             formData.append('categories', this.blog.category.id);
    // }
@@ -192,16 +188,7 @@ export default {
             };
             reader.readAsDataURL(this.file);
     },
-    async loadBlogTags(){
-        try {
-            let {data} =  await BlogsAPI.getTags()
-            if(data.success){
-                this.tags = data.data
-            }
-        } catch (error) {
-             console.log('error',error)
-        }
-    },
+    
     async loadBlogCategories(){
         try {
             let {data} =  await BlogsAPI.getCategories()
@@ -230,7 +217,6 @@ export default {
     }
   },
   mounted(){
-    this.loadBlogTags()
     this.loadBlogCategories()
   }
 }
