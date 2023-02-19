@@ -43,7 +43,7 @@ export default {
  methods:{
     async delBlog(){
         try {
-            let {data} = await BlogsAPI.deleteBlog(this.blog.id)
+            let {data} = await BlogsAPI.deleteItem(this.blog.id)
             if(data.success){
                 //console.log('success',data)
                 //this.fireEvent('list-blogs-update')

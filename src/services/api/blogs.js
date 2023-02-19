@@ -22,14 +22,14 @@ class BlogsApi extends BaseApi {
     getTags(){
         return window.axios.get(`network/blogs-tags`);
     }
-    addBlog(data){
+    addItem(data){
         return window.axios.post(`network/blogs`,data);  
     }
-    updateBlog(id,data){
+    updateIem(id,data){
         data.append('_method','PUT')
         return window.axios.put(`network/blogs/${id}`,data);  
     }
-    deleteBlog(id){
+    deleteItem(id){
         return window.axios.delete(`network/blogs/${id}`);  
     }
 }

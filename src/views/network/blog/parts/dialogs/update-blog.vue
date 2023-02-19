@@ -142,7 +142,7 @@ let valid = await this.$refs.form.validate();
     this.blog.category_id.forEach(cat=> formData.append('categories[]',cat))
  }
     try {
-        let { data } = await BlogsAPI.updateBlog(this.blog.id,formData)
+        let { data } = await BlogsAPI.updateItem(this.blog.id,formData)
         if(data.success){
             //console.log('success',data)
             //this.fireEvent('list-blogs-update')
