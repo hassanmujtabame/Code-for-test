@@ -7,22 +7,19 @@
 
         </div>
         
-        <AddBlogDialog  />
-        <SuccessAddBlogDialog />
-        
+        <AddBlogDialog  />       
     </div>
 </template>
 <script>
 import SectionFilterList from './parts/section-filter-list/index.vue'
-import AddBlogDialog from './parts/dialogs/add-blog.vue'
-import SuccessAddBlogDialog from './parts/dialogs/success-add-blog.vue'
+import AddBlogDialog from '../dialogs/add-blog.vue'
 export default {
 name:'network-blogs',
 components:{
     SectionFilterList,
 
-    AddBlogDialog,
-    SuccessAddBlogDialog
+    AddBlogDialog
+    
 },
 data:()=>({
   blogs:[

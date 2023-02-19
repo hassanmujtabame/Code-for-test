@@ -11,7 +11,7 @@
             <template v-slot:total>
 
                 <h3 class="page-title">
-                    تدويناتك
+                    تدويناتك <button @click="addBlog"  class="btn m-c"><i class="fa fa-square-plus"></i></button>
                 </h3>
             </template>
 
@@ -47,7 +47,9 @@ export default {
         }
     }),
     methods: {
-   
+        addBlog(){
+            this.fireOpenDialog('add-blog')
+        },
         changeFilter(val){
             this.filterItem = {...this.filterItem,...val}
             this.fireEvent('d-filter-list-refresh')

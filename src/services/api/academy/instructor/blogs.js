@@ -20,6 +20,9 @@ class InstructorBlogsApi extends BaseApi {
     deleteItem(id){
         return window.axios.delete(`academy/instructor/blogs/${id}`);  
     }
+    getCategories(){
+        return window.axios.get(`network/blogs-categories`);
+    }
 }
 
 export default new InstructorBlogsApi();

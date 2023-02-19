@@ -165,8 +165,8 @@
 
 <script>
 import BlogsAPI from '@/services/api/blogs.js'
-import UpdateBlogDialog from '../list/parts/dialogs/update-blog.vue'
-import deleteBlogDialog from '../list/parts/dialogs/del-blog.vue'
+import UpdateBlogDialog from '../dialogs/update-blog.vue'
+import deleteBlogDialog from '../dialogs/del-blog.vue'
 export default {
   name: 'blog-page',
   components:{
