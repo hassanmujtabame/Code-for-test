@@ -2,14 +2,14 @@
     <ckeditor :id="id" :editor="editor" v-model="editorData" 
     :config="editorConfig" 
     @ready="ckEditorReady"
-    @blur="hideToolbar()"
-    @focus="showToolbar()"
+    @blur="onBlur"
+    @focus="onFocus"
     ></ckeditor>
 </template>
 
 <script>
+import _i18n from '@/plugins/i18n';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
 export default {
     name: 'd-ckeditor-classic',
     props: {
@@ -18,10 +18,10 @@ export default {
         },
         editorConfig: {
             type: [Object, Array],
-
             default: () => {
                 return {
                     // The configuration of the editor.
+                    language:_i18n.locale
                 }
             }
         }
@@ -46,6 +46,12 @@ export default {
         }
     },
     methods: {
+        onBlur(){
+            //this.hideToolbar()
+        },
+        onFocus(){
+            //this.showToolbar()
+        },
         diplayToolbar(value){
             if(!this.elementEditor) return;
 
@@ -59,8 +65,9 @@ export default {
                 this.diplayToolbar('block');
             },
         ckEditorReady(editor) {
-            this.elementEditor = editor.ui.view.element;
-            this.hideToolbar()
+        console.mylog('ckEditorReady',editor)
+        this.elementEditor = editor.ui.view.element;
+            //this.hideToolbar()
             if (this.editorConfig.minHeight)
                 editor.ui.view.editable.element.style.minHeight = this.editorConfig.minHeight
         }
