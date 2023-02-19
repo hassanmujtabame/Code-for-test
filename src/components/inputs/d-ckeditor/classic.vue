@@ -1,6 +1,6 @@
 <template>
     <ckeditor :id="id" :editor="editor" v-model="editorData" 
-    :config="editorConfig" 
+    :config="configLocale" 
     @ready="ckEditorReady"
     @blur="onBlur"
     @focus="onFocus"
@@ -24,6 +24,11 @@ export default {
                     language:_i18n.locale
                 }
             }
+        }
+    },
+    computed:{
+        configLocale(){
+            return {language:this.$i18n.locale,...this.editorConfig}
         }
     },
     data(vm) {
