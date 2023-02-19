@@ -91,7 +91,8 @@
         </ValidationObserver>
   
     <template v-slot:actions>
-        <button @click="save" type="button" class="btn btn-main">
+        <button @click="save" :disabled="loading" type="button" class="btn btn-custmer">
+            <i v-if="loading" class="fa fa-spinner fa-spin"></i>
             {{ $t('save_modifications') }}
         </button>
     </template>
