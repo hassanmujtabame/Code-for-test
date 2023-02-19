@@ -10,12 +10,14 @@
           <SectionMembership />
         <!--#section membership-->
         <!--section coupons-->
+        <div class="mt-5">
         <SectionCoupons />
+        </div>
         <!--#section coupons--> 
     
         <addOfferDialog />
   
-        </div>
+  </div>
 </template>
 
 <script>

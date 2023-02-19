@@ -1,5 +1,6 @@
 <template>
     <div style="margin-top: 96px;">
+        <div class="container">
       <d-filter-list
       :call-list="loadList"
       hideSide
@@ -40,6 +41,7 @@
                         </d-request-purchase-card>
         </template>
       </d-filter-list>
+    </div>
       <confirmRequestPurchase />
     </div>
 </template>

@@ -1,7 +1,9 @@
 <template>
    <div style="margin-top: 85px" class="consult max-width-100-hidden">
      <SectionHeader />
+     <div class="mt-5">
       <SectionList />
+      </div>
     </div>
 </template>
 

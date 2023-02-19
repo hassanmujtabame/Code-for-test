@@ -9,18 +9,20 @@
         <SectionKnowMore />
         <!--جولات تنتهي هذا الاسبوع -->
       <SectionNearExpired/>
-      </div>
+      
       
 
       <div class="mt-5">
 
     <!-- مشاريع الاستثمار مادي-->
         <section-invest-project-1 />
+        </div>
+        <div class="mt-5">
 <!-- مشاريع الاستثمار معنوي-->
 <section-invest-project-2 />
       </div>
 
-  
+    </div>
     </div>
 </template>
 

@@ -5,9 +5,10 @@
       <div class="container mt-5">
         <!--best stories-->
         <SectionBestStories />
-            
+        <div class="mt-5">
           <!-- filter list-->
           <SectionFilterList />
+          </div>
        
     </div>
     <AddStoryDialog />

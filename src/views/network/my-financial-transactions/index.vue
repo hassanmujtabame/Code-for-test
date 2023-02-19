@@ -1,5 +1,5 @@
 <template>
-    <main style="margin-top: 94px;">
+    <div style="margin-top: 94px;">
         <div class="container">
 
             <div class="row justify-content-between align-items-center">
@@ -30,10 +30,12 @@
             </div>
           <SectionBalance />
             <!--filtered list-->
+            <div class="mt-5">
             <FilteredList />
+            </div>
         </div>
 
-    </main>
+    </div>
 </template>
 
 <script>

@@ -21,6 +21,10 @@ class academyApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/places?${s}`);
     }
+    getBalance(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/view-balance?${s}`);
+    }
     checkoutPackage(data){
         /*
           type if 0

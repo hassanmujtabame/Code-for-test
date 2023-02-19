@@ -1,5 +1,6 @@
 <template>
     <div style="margin-top: 96px;">
+        <div class="container mt-5">
       <d-filter-list
       :call-list="loadList"
       hideSide
@@ -39,6 +40,7 @@
                     </router-link>
         </template>
       </d-filter-list>
+    </div>
     </div>
 </template>
 <script>

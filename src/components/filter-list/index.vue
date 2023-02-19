@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5 filter-list">
+    <div class="filter-list">
         <div class="text-end">
             <slot name="top-end"></slot>
         </div>

@@ -38,9 +38,10 @@
             <!-- recent podcasts-->
             <SectionRecentItems/>
             <!-- #recent podcasts-->
-            
+            <div class="mt-5">
             <!-- filter list-->
             <SectionFilterList />
+            </div>
 
         </div>
         

@@ -1,5 +1,4 @@
 <template>
-    <div class="container mt-5">
         <d-filter-list 
        
         :call-list="loadList" 
@@ -35,8 +34,6 @@
                 <sidebarBox :filterItem="filterSide" @change="changeFilter"/>
             </template>
         </d-filter-list>
-
-    </div>
 </template>
 
 <script>

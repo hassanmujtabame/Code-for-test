@@ -3,7 +3,9 @@
         <!-- section top-->
         <SectionTop />
         <!-- section filter list-->
+        <div class="container mt-5">
         <SectionFilterList />
+      </div>
         <SectionGraduateRiadiat />
         <SectionContinueLearning />
         <SectionHear />

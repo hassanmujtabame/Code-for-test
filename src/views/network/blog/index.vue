@@ -48,10 +48,8 @@
             <!-- recent blogs-->
             <SectionRecentBlog/>
             <!-- #recent blogs-->
-            
             <!-- filter list-->
             <SectionFilterList />
-
         </div>
         
         <AddBlogDialog  />

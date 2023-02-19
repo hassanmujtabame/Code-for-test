@@ -1,7 +1,9 @@
 <template>
     <div class="mt-5 max-width-100-hidden">
       <SectionTop />
+      <div class="container mt-5">
       <SectionFilterList />
+      </div>
     </div>
 </template>
 

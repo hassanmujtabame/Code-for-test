@@ -4,7 +4,9 @@
        <SectionHeader/>
         <!-- section recent models-->
         <SectionRecentModel />
+        <div class="mt-5">
         <SectionFilterList />
+        </div>
     </div>
 </template>
 

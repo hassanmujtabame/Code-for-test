@@ -66,7 +66,7 @@ export default {
  }),
  methods:{
     async initializing(){
-        console.log('ss')
+        console.mylog('ss')
         this.loading =  true;
         try {
            let { data } = await   serviceProviderAPI.getBalance() 

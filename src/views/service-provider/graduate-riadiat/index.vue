@@ -1,7 +1,9 @@
 <template>
   <div style="margin-top: 85px" class="consult">
     <SectionHeader />
+    <div class="mt-5">
     <SectionFilterList />
+    </div>
     <SectionContinueLearning />
     <SectionHear />
   </div>

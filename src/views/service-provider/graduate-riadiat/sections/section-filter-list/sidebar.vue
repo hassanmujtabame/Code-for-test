@@ -90,7 +90,7 @@
                                          :max.sync="filter.expected_salary_to"
                                          :step="50"
                                          :lmin="0"
-                                         :lmax="30000"
+                                         :lmax="3000"
                                          />
                                     </div>
                                 </div>

@@ -2,10 +2,11 @@
   <div style="margin-top: 85px " class="consult">
     <!--header -->
     <SectionHeader />
+    <div class="container mt-5">
 
     <SectionFilterList />
 
-
+    </div>
 
 
   <SectionContinueLearning/>

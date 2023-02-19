@@ -15,6 +15,7 @@
             <li v-if="categories.length>(i+1)" :key="'d'+i"> | </li>
         </template>
         </ul>
+        <div class="container mt-5">
         <d-filter-list :call-list="loadList" 
         hideSide
         orderName="created_at"
@@ -40,6 +41,7 @@
 
 
         </d-filter-list>
+        </div>
     </div>
     </div>
 </template>

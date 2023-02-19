@@ -27,7 +27,9 @@
 
         </div>
       <!--filter list-->
+      <div class="container mt-5">
       <SectionFilterList />
+    </div>
       <SectionContinueLearning />
       <SectionHear />
     </div>

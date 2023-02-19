@@ -1,5 +1,6 @@
 <template>
     <div style="margin-top: 96px;">
+        <div class="container mt-5">
       <d-filter-list
       :call-list="loadList"
       hideSide
@@ -37,6 +38,7 @@
                         </d-my-purchase-card>
         </template>
       </d-filter-list>
+    </div>
     </div>
 </template>
 <script>

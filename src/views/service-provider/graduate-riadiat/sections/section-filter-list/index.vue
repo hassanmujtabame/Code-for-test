@@ -53,7 +53,7 @@ export default {
       year_experience_from:0,
       year_experience_to:40,
       expected_salary_from:0,
-      expected_salary_to:30000,
+      expected_salary_to:3000,
     },
         filterItem:{
             search:null,
@@ -63,7 +63,7 @@ export default {
             year_experience_from:0,
          year_experience_to:40,
          expected_salary_from:0,
-      expected_salary_to:30000,
+      expected_salary_to:3000,
         }
     }),
     methods: {
