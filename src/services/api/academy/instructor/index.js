@@ -1,6 +1,8 @@
 
 import BaseApi from "../../base-service";
+import meetingsAPI from "./meetings";
 class InstructorsApi extends BaseApi{
+    meetingsAPI = meetingsAPI;
     //Get all instructors
     getAll(params={}){
         let s=this.generateQueryUrl(params)

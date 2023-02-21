@@ -20,10 +20,10 @@
                 <ValidationProvider
                 :name="$t('message-content')"
                 tag="div"
-                vid="message"
+                vid="note"
                 v-slot="{errors}"
                 >
-                    <d-textarea-input rows="10" v-model="itemForm.message" :errors="errors" label="ضع رسالتك هنا"></d-textarea-input>
+                    <d-textarea-input rows="10" v-model="itemForm.note" :errors="errors" label="ضع رسالتك هنا"></d-textarea-input>
                 </ValidationProvider>
             </div>
             <div class="mb-3 text-center">
@@ -40,7 +40,7 @@
 
 
 <script>
-
+import instructorAPI from '@/services/api/academy/instructor/index.js';
 export default {
     name: "message-participants",
     props: {
@@ -56,7 +56,7 @@ export default {
             showDialog: false,
             itemForm:{
                 title:'',
-                message:''
+                note:''
             }
         };
     },
@@ -72,9 +72,25 @@ export default {
             let formData = this.loadObjectToForm(this.itemForm)
             formData.append('meeting_id', this.itemDialog.id)
             try {
-                //
+               let { data } = await instructorAPI.meetingsAPI.sendGroupMessage(formData)
+               if(data.success){
+                let dataEvt={
+                    title:'لقد تم إرسال الرسالة بنجاح',
+                    btns:[
+                        {title:'حسنا'}
+                    ]
+                }
+                this.showSuccessMsg(dataEvt)
+               }else{
+                window.SwalError(data.message)
+               }
             } catch (error) {
-             //   
+                if(error.response){
+                            let response = error.response
+                            if (response.status == 422) {
+                                this.setErrorsForm(this.$refs.form,response)
+                            }
+                        }
             }
             this.loading = false;
         },

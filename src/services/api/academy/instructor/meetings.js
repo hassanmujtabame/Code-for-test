@@ -11,6 +11,11 @@ class InstructorMeetingsApi extends BaseApi{
     deleteItem(id){
         return window.axios.delete(`academy/instructor/meetings/${id}`);
     }
+    sendGroupMessage(data){
+        //https://test.riadiat.sa/api/v1/academy/instructor/meetings/send-group-message
+        return window.axios.post(`academy/instructor/meetings/send-group-message`,data);
+    
+    }
 }
 
 export default new InstructorMeetingsApi();
