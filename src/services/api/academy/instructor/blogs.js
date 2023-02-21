@@ -8,17 +8,17 @@ class InstructorBlogsApi extends BaseApi {
     }
   
     getItem(id){
-        return window.axios.get(`academy/instructor/blogs/${id}`);
+        return window.axios.get(`network/blogs/${id}`);
     }
     addItem(data){
-        return window.axios.post(`academy/instructor/blogs`,data);  
+        return window.axios.post(`network/blogs`,data);  
     }
-    updateItem(id,data){
+    updateIem(id,data){
         data.append('_method','PUT')
-        return window.axios.put(`academy/instructor/blogs/${id}`,data);  
+        return window.axios.put(`network/blogs/${id}`,data);  
     }
     deleteItem(id){
-        return window.axios.delete(`academy/instructor/blogs/${id}`);  
+        return window.axios.delete(`network/blogs/${id}`);  
     }
     getCategories(){
         return window.axios.get(`network/blogs-categories`);
