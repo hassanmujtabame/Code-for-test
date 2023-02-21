@@ -105,8 +105,16 @@
       fillInput(){
         if(!this.value_) this.localValue = '';
           else{
-            if(typeof this.value_ =='string')this.localValue = this.value_;
             if(Array.isArray(this.value_))this.localValue = this.value_.map(item=>this.getLabelOpt( this.opts.find(o=>this.getTrackOpt(o)==item))).join(this.seperate);
+            else{
+              let item = this.opts.find(o=>this.getTrackOpt(o)==this.value_)
+              if(item){
+                this.localValue = this.getLabelOpt(item);
+              }
+              
+            }
+            //if(typeof this.value_ =='string')
+            
           }
       },
       outSide(vn){
