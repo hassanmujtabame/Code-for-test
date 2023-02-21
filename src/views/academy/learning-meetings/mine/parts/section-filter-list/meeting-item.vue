@@ -4,7 +4,7 @@
   <div class="academy-meeting-item__body">
   <div class="academy-meeting-item__title">
 
-<h1 @click="router_push('academy-meeting-show', { id: item.id })" class="clickable">{{ item.title }}</h1>
+<h1 @click="router_push('academy-learning-meeting-show', { id: item.id })" class="clickable">{{ item.title }}</h1>
   </div>
   <div class="academy-meeting-item__subtitle">
 <h6>عدد المنضمين : {{ item.number_participants }} شخص</h6>
