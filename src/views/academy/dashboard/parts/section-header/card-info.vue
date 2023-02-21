@@ -12,7 +12,7 @@
             <p>
               {{member.job}}
             </p>
-            <button @click="$router.push(link)" class="border px-3 py-2 rounded-2 bg-transparent">
+            <button @click="$router.push(link??getRouteLocale('academy-my-profile'))" class="border px-3 py-2 rounded-2 bg-transparent">
                 صفحتك الشخصية
             </button>
         </div>
@@ -28,9 +28,7 @@ export default {
     },
     link:{
         type:String,
-        default:()=>{
-            return this.getRouteLocale('service-provider-my-profile')
-        }
+        default:null
     }
  }
 }

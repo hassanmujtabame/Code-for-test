@@ -23,7 +23,7 @@
             <!-- first time logined-->
             <firstTimeView v-if="isFirst" />
             <!-- card info -->
-            <cardInfo v-else />
+            <cardInfo v-else :member="user"/>
         </div>
         <ConfirmChangeDeprtment />
     </div>
@@ -42,7 +42,7 @@ components:{
 },
 data:(vm)=>{
   return {
-    isFirst:true,// will related to backend value
+    isFirst:false,// will related to backend value
     btns:[
       {id:'network',title:'شبكة رياديات',route:vm.getRouteLocale('network-home'),active:false},
       {id:'incubator',title:'مقدمي الخدمة',route:vm.getRouteLocale('service-provider-home'),active:false},
