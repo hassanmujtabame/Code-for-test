@@ -2,6 +2,7 @@
 <d-filter-list 
 :fake-items="items"
 hideSide
+classColCard="col-12 col-md-4 mt-3"
 >
 <template v-slot:total="{}">
   <h1>شهاداتك</h1>

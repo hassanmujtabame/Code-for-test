@@ -46,7 +46,7 @@ const routers =[
         path: 'academy/my-projects',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-my-projects',
-        component: () => import(/* webpackChunkName: "academy-my-projects" */ '../views/academy/instructor/projects/index.vue') 
+        component: () => import(/* webpackChunkName: "academy-my-projects" */ '../views/academy/projects/mine/index.vue') 
     },
     {
         path: 'academy/exams',
@@ -72,6 +72,7 @@ const routers =[
         name: 'academy-your-courses',
         component: () => import(/* webpackChunkName: "academy-your-courses" */ '../views/academy/your-courses/index.vue') 
     },
+
     {
         path: 'academy/instructor/your-courses',
         meta:{layout:LayoutDefault,auth:true},
