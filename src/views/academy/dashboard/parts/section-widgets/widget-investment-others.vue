@@ -1,7 +1,7 @@
 <template>
   <MyBlog title="مشاريع دوراتك التدريبة"
    :value="0" color="#F2631C" 
-   url="/"
+   :url="getRouteLocale('academy-my-projects')"
    />
 </template>
 
