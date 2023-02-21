@@ -18,11 +18,9 @@
             <template v-slot="{ item }">
                 <router-link  class="router-link" :to="getRouteLocale('academy-blog-show', { id: item.id })">
                     <BlogInfoCard 
-                    :categories="item.categories"
-                    :img="item.image" 
-                    :title="item.title" 
-                    :description="item.short_description??item.description"
-                        :date="item.created_at" />
+                   :item="item" 
+                   @delete="confirmDeleteItem"
+                   />
                 </router-link>
             </template>
 
@@ -49,6 +47,30 @@ export default {
     methods: {
         addBlog(){
             this.fireOpenDialog('add-blog')
+        },
+        confirmDeleteItem(item){
+            let dataEvt={
+                title:'هل حقا تريد حذف هذه التدوينة؟',
+                description:`${item.title}`,
+                groupBtns:'d-flex flex-justify-evenly',
+                btns:[
+                    {title:'تراجع',class:'btn btn-custmer btn-danger'},
+                    {title:this.$t('confirm_delete'),action:()=>this.deleteItem(item),class:'btn btn-custmer'},
+                ]
+            }
+            this.showConfirmMsg(dataEvt)
+        },
+       async deleteItem(item){
+            try {
+                let {data} =  await instructorBlogsAPI.deleteItem(item.id)
+                if(data.success){
+                    this.fireEvent('d-filter-list-refresh')
+                }else{
+                    window.SwalError(data.message)
+                }
+            } catch (error) {
+                //
+            }
         },
         changeFilter(val){
             this.filterItem = {...this.filterItem,...val}

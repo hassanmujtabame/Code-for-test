@@ -3,22 +3,22 @@
   <div class="academy-blog-item__wrapper">
   <div class="academy-blog-item__body">
   <div class="academy-blog-item__title">
-<h1>عنوان التدوينة</h1>
+<h1 >{{ item.title }}</h1>
 
   </div>
   <div class="academy-blog-item__description">
-    <p>وهناك الكثيرون غيرهم ممن طبقوا مبادئ ريادة الاعمال، وقدموا للعالم حلولاً مبتكرةً في كافة المجالات، استفادت، ولازالت تستفيد منها البشرية حتى اليوم.</p>
+    <p  v-html="item.desc"></p>
     </div>
   </div>
   <div class="academy-blog-item__actions">
     <div class="academy-blog-item__date">
         <i class="fa-regular fa-clock"></i>
         <span class="px-2">تاريخ النشر :</span>
-        <span>2010-10-10</span>
+        <span>{{ item.created_at }}</span>
     </div>
     <div class="academy-blog-item__btns">
-        <button class="btn btn-custmer btn-small">صفحة التدوينة</button>
-        <button class="btn btn-custmer btn-danger btn-small mx-1">خذف التدوينة</button>
+        <button @click="router_push('academy-blog-show',{id:item.id})" class="btn btn-custmer btn-small">صفحة التدوينة</button>
+        <button @click="deleteItem" class="btn btn-custmer btn-danger btn-small mx-1">خذف التدوينة</button>
     </div>
 </div>
   </div>
@@ -27,7 +27,14 @@
 
 <script>
 export default {
-
+ props:{
+    item:{}
+ },
+ methods:{
+    deleteItem(){
+        this.$emit('delete',this.item)
+    }
+ }
 }
 </script>
 
