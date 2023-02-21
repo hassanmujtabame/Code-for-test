@@ -24,16 +24,16 @@
                   <div class="mt-3">
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('meeting-field')"
-                    vid="department_id"
+                    vid="category_id"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==1"
                     >
                     <d-multiselect-input :errors="errors" 
                     label="تخصص اللقاء" 
-                    :opts="departments" 
+                    :opts="categories" 
                                 track-id="id" label-name="name"
-                                v-model="itemForm.department_id"
+                                v-model="itemForm.category_id"
                                
                                 seperate=" - "
                                 />
@@ -43,14 +43,14 @@
                 <div class="mt-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('about-meeting')"
-                    vid="desc"
+                    vid="content"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==1"
                     >
                     <d-textarea-input type="text" :errors="errors" 
                     rows="10" 
-                    v-model="itemForm.desc"  label="عن اللقاء" />
+                    v-model="itemForm.content"  label="عن اللقاء" />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
@@ -99,8 +99,8 @@
     </div>
             </template>
             <template v-slot:actions>
-                <button :disabled="step==1"  @click="prevStep" class="btn bg-main btn-danger text-white px-3" >رجوع</button>
-              <button @click="save" class="btn bg-main text-white px-3" >
+                <button :disabled="step==1 || loading"  @click="prevStep" class="btn bg-main btn-danger text-white px-3" >رجوع</button>
+              <button @click="save" :disabled="loading" class="btn bg-main text-white px-3" >
                 <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i> 
                 أستمر
             </button>
@@ -122,7 +122,7 @@
         return{
             step:1,
             showDialog:false,
-            departments:[],
+            categories:[],
             loading:false,
             itemForm:{},
             itemDialog:{}
@@ -180,22 +180,16 @@
             let formData = this.loadObjectToForm(this.itemForm)
            
             try {
-                let {data } = this.itemForm.id?await academyAPI.coursesApi.updateItem(this.itemForm.id,formData): await academyAPI.coursesApi.addItem(formData)
+                let {data } = this.itemForm.id?await academyAPI.instructor.meetingsAPI.updateItem(this.itemForm.id,formData): await academyAPI.instructor.meetingsAPI.addItem(formData)
              if(data.success){
                 this.closeEvent()
                    //redirect to course page
                 let dataEvt={
-                        title:' خطوتك الاولى تمت بنجاح عليك الان برفع الدروس و المرفقات',
-                        btns:[
-                            {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
-                        ]
+                        title:'تم رفع اللقاء الخاص بك سيتم مراجعة اللقاء و نشره على الفور',
                     }
                     if(this.itemForm.id){
                         dataEvt={
-                        title:'تم تعديل دورتك  بنجاح ',
-                        btns:[
-                            {title:'حسنا',action:()=>this.refreshPage(),class:'btn btn-custmer'}
-                        ]
+                        title:'تم تعديل اللقاء  بنجاح ',
                     } 
                     }
                     this.showSuccessMsg(dataEvt)
@@ -221,11 +215,11 @@
            await this.saveStep2();
            this.loading = false;
         },
-        async loadDepartments(){
+        async loadCategories(){
         try {
-            let { data } = await academyAPI.getDepartments();
+            let { data } = await academyAPI.meetingsAPI.getCategories();
             if(data.success){
-                this.departments = data.data;
+                this.categories = data.data;
             }
         } catch (error) {
             //
@@ -243,23 +237,23 @@
             this.step = 1;
             this.itemForm={
                 title:'',
-                department_id:'',
-                desc:'',
+                category_id:'',
+                content:'',
                 video:null,
             }
             if(dataEvt){
                 let {
                     id, 
                 title,
-                department_id,
-                desc,
+                category_id,
+                content,
                 video} = dataEvt;
                 
                 this.itemForm = Object.assign(this.itemForm,{ 
                     id, 
                 title,
-                department_id,
-                desc,
+                category_id,
+                content,
                 video})
             }
             this.showDialog = true;
@@ -274,7 +268,7 @@
         }
       },
       mounted(){
-        this.loadDepartments()
+        this.loadCategories()
       }
     }
     </script>
@@ -282,5 +276,9 @@
     <style scoped>
     #add-course-image{
         display: none;
+    }
+    #video-add-lecture-player{
+        max-width: 100%;
+    max-height: 100%;
     }
     </style>
