@@ -555,5 +555,8 @@
   "question-title": "عنوان السؤال",
   "new-question": " أضف السؤال",
   "question-modification": "تعديل السؤال",
-  "message-content": "محتوى الرسالة"
+  "message-content": "محتوى الرسالة",
+  "meeting-title": "عنوان اللقاء",
+  "meeting-field": "تخصص اللقاء",
+  "about-meeting": "عن اللقاء"
 }

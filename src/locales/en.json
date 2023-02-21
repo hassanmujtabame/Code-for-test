@@ -559,5 +559,8 @@
   "question-title": "question title",
   "new-question": "New Question",
   "question-modification": "question modification",
-  "message-content": "Message content"
+  "message-content": "Message content",
+  "meeting-title": "Meeting title",
+  "meeting-field": "Meeting field",
+  "about-meeting": "About meeting"
 }
