@@ -7,16 +7,19 @@
 
         </div>
         <SendToAllParticipants />
+        <AddMeetingDialog />
     </div>
 </template>
 <script>
 import SectionFilterList from './parts/section-filter-list/index.vue'
 import SendToAllParticipants from '../dialogs/message-participants/index'
+import AddMeetingDialog from '../dialogs/add-meeting/index.vue'
 export default {
 name:'my-meetings',
 components:{
     SectionFilterList,
-    SendToAllParticipants
+    SendToAllParticipants,
+    AddMeetingDialog
 }
 }
 </script>

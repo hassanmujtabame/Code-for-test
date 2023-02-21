@@ -11,7 +11,7 @@
             <template v-slot:total>
 
                 <h3 class="page-title">
-                    قائمة لقائتك
+                    قائمة لقائتك <button @click="addItem"  class="btn m-c"><i class="fa fa-square-plus"></i></button>
                 </h3>
             </template>
 
@@ -48,6 +48,9 @@ export default {
         }
     },
     methods: {
+        addItem(){
+            this.fireOpenDialog('add-meeting',{id:null,title:null,video:null})
+        },
         changeCategories(cat){
             this.category_id=cat;
             this.fireEvent('d-filter-list-refresh')
