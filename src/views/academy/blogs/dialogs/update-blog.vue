@@ -200,16 +200,6 @@ export default {
             };
             reader.readAsDataURL(this.file);
     },
-    async loadBlogTags(){
-        try {
-            let {data} =  await BlogsAPI.getTags()
-            if(data.success){
-                this.tags = data.data
-            }
-        } catch (error) {
-             console.log('error',error)
-        }
-    },
     async loadBlogCategories(){
         try {
             let {data} =  await BlogsAPI.getCategories()
@@ -245,16 +235,7 @@ export default {
        this.fireEvent(this.group+'-close-dialog')
     }
   },
-  created(){
-    //window.EventBus.listen(this.group+'-open-dialog',this.openDialog)
-    //window.EventBus.listen(this.group+'-close-dialog',this.closeDialog)
-  },
-  beforeDestroy(){
-    //window.EventBus.off(this.group+'-open-dialog',this.openDialog)
-    //window.EventBus.off(this.group+'-close-dialog',this.closeDialog)
-  },
   mounted(){
-    this.loadBlogTags()
     this.loadBlogCategories()
   }
 }
