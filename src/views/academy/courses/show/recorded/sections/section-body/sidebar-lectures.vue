@@ -255,7 +255,15 @@ export default {
     try {
       let {data} = await academyAPI.coursesApi.joinCourse(this.itemPage);
       if(data.success){
-        //
+        let dataEvt ={
+            title:'تم الانضمام الى هذه الدورة بنجاح',
+            description:'',
+            btns:[
+              {title:this.$t('meeting-page')},
+              {title:this.$t('undo-joining'),action:()=>this.confirmCancelJoin()},
+            ]
+    }
+    this.showSuccessMsg(dataEvt)
       }else{
         window.SwalError(data.message)
       }
@@ -263,6 +271,16 @@ export default {
       window.DHelper.catchException.call(this,error)
     }
   },
+  async confirmCancelJoin(){
+        try {
+            let {data} = await academyAPI.coursesApi.cancelJoinCourse(this.itemPage.id)
+            if(data.success){
+              //
+            }
+        } catch (error) {
+          window.DHelper.catchException.call(this,error)
+        }
+    },
      async initializing(){
       this.loading = true;
       try {

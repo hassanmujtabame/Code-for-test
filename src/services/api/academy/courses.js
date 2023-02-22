@@ -40,6 +40,10 @@ class CoursesApi extends BaseApi{
         return window.axios.post(`academy/student/join-course/${id}`);
 
     }
+    cancelJoinCourse(id){
+        return window.axios.post(`academy/student/cancel-join-course/${id}`);
+
+    }
 }
 
 export default new CoursesApi();

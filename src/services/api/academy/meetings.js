@@ -19,6 +19,12 @@ class InstructorMeetingsApi extends BaseApi{
         return window.axios.post(`academy/instructor/meetings/send-group-message`,data);
     
     }
+    postJoinMeeting(id){
+        return window.axios.post(`network/meeting-join/`,{meeting_id:id});
+    }
+    postCancelJoinMeeting(id){
+        return window.axios.post(`network/user-cancel-meeting/`,{meeting_id:id});
+    }
 }
 
 export default new InstructorMeetingsApi();
