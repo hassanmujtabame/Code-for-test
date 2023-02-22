@@ -53,6 +53,13 @@ getTypeCertificates(){
       {id:'saturday',name:_i18n.t('saturday')},
     ]
   }
+  getMeetingTypes(){
+    return [
+          {id:'board',name:_i18n.t('board')},
+          {id:'business_to_business',name:_i18n.t('B2B')},
+          {id:'web_discussion',name:_i18n.t('Webinar')},
+    ]
+  }
 }
 
 export default new CommonApi();

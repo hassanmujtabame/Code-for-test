@@ -558,5 +558,7 @@
   "message-content": "محتوى الرسالة",
   "meeting-title": "عنوان اللقاء",
   "meeting-field": "تخصص اللقاء",
-  "about-meeting": "عن اللقاء"
+  "about-meeting": "عن اللقاء",
+  "board": "مجلس",
+  "meeting-type": "تصنيف"
 }

@@ -562,5 +562,7 @@
   "message-content": "Message content",
   "meeting-title": "Meeting title",
   "meeting-field": "Meeting field",
-  "about-meeting": "About meeting"
+  "about-meeting": "About meeting",
+  "board": "Board",
+  "meeting-type": "Meeting type"
 }

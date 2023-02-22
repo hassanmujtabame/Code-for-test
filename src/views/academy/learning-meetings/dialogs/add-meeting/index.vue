@@ -7,22 +7,34 @@
     <template v-slot:default>
         <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
-                <div class="mt-3">
-                    <!-- <keep-alive> -->
+                <!--title-->
+            <div class="mt-3">
                         <ValidationProvider :name="$t('meeting-title')"
                             vid="title"
-                            rules=""
+                            rules="required"
                             v-slot="{errors}"
                             v-if="step==1"
                         >
                     <d-text-input :errors="errors" v-model="itemForm.title" label="عنوان اللقاء التدريبي" />
-               
                 </ValidationProvider>
-            <!-- </keep-alive> -->
+                </div>
+                <!--type-->
+                <div class="mt-3">
+                        <ValidationProvider :name="$t('meeting-type')"
+                            vid="type"
+                            rules="required"
+                            v-slot="{errors}"
+                            v-if="step==1"
+                        >
+                    <d-select-input :errors="errors" v-model="itemForm.type" label="تصنيف اللقاء" >
+                    <option  selected disabled>حدد التصنيف</option>
+                    <option v-for="(t,i) in types" :key="i" :value="t.id">{{ t.name }}</option>
+                    </d-select-input>
+                </ValidationProvider>
                 </div>
                   <!--specialite -->
                   <div class="mt-3">
-                    <!-- <keep-alive> -->
+                    
                     <ValidationProvider :name="$t('meeting-field')"
                     vid="category_id"
                     rules="required"
@@ -38,10 +50,10 @@
                                 seperate=" - "
                                 />
                 </ValidationProvider>
-            <!-- </keep-alive> -->
+            
                 </div>
                 <div class="mt-3">
-                <!-- <keep-alive> -->
+                
                 <ValidationProvider :name="$t('about-meeting')"
                     vid="content"
                     rules="required"
@@ -52,15 +64,41 @@
                     rows="10" 
                     v-model="itemForm.content"  label="عن اللقاء" />
                 </ValidationProvider>
-            <!-- </keep-alive> -->
+            
                     </div>
         </ValidationObserver>
         <!--form 2-->
         <ValidationObserver class="form-step" ref="form2" id="form-step-2" v-show="step==2">
+            <ValidationProvider
+                                :name="$t('Image')"
+                             vid="image"
+                             rules="required|image"
+                             v-if="step==2"
+                                v-slot="{validate,errors}">
+            <div class="   m-auto">
+                    <div class="col-md-12 text-center">
+                        <label for="imginput" class="img-zone form-label file-label first w-100">
+                            <div class="text-center p-5">
+                              <img src="/assets/svg/empty-image.svg"  height="96" width="96"/>
+                                  
+                                <p class="m-c">{{ $t('add-display-image') }} </p>
+                            </div>
+                            <div class="add-img-selected w-100">
+
+                                <img class="image-selected-dialog" src="none" id="meeting-image" width="100%" height="100%" />
+                            </div>
+                        </label>
+                        <input @change="uploadImage($event,validate) || validate($event)" class="form-control opacity-0 " type="file"
+                            id="imginput">
+                            <d-error-input :errors="errors" v-if="errors.length!==0" />
+                    </div>
+                </div>
+            </ValidationProvider>
             <ValidationProvider tag="div" 
                                 :name="$t('lecture-video')"
                                 vid="video"
                                 rules="required|ext:mp4"
+                                v-if="step==2"
                                 v-slot="{errors,validate}"
                                 >
                                 <div class="add-lecture-video position-relative" >
@@ -110,6 +148,7 @@
     
     <script>
     import academyAPI from '@/services/api/academy';
+    import commonAPI from '@/services/api/common'
     export default {
         name:'add-meeting',
       props:{
@@ -119,7 +158,9 @@
         }
       },
       data:()=>{
+        let types = commonAPI.getMeetingTypes();
         return{
+            types:types,
             step:1,
             showDialog:false,
             categories:[],
@@ -132,24 +173,53 @@
         prevStep(){
             this.step-=1
         },
-        emptyVideo(){
-      console.mylog('emptyVideo',this.itemDialog.video)
+        makeImageEmpty(){
+            this.itemForm.image = null;
+                window.$('#meeting-image')
+                    .attr('src',this.itemDialog.image??'none')
+                    .css('display',this.itemDialog.image?'block':'none')
+                    .css('opacity',this.itemDialog.image?'1':'0');
+    },
+async uploadImage(evt,validate){
+   let resValid = await validate(evt)
+   if(!resValid.valid){
+            this.makeImageEmpty();
+            return;
+   }
+    if (!evt.target.files && !evt.target.files[0]) {
+        this.makeImageEmpty();
+            return;
+        }
+        this.itemForm.image = evt.target.files[0];
+        var reader = new FileReader();
+        reader.onload =  (e) =>{
+            console.log('result',e,'meeting-image')
+            window.$('#meeting-image')
+                .attr('src', e.target.result)
+                .css('display','block')
+                .css('opacity','1');
+
+        };
+        reader.readAsDataURL(this.itemForm.image);
+},
+        makeVideoEmpty(){
+      console.mylog('makeVideoEmpty',this.itemDialog.video)
       window.$('#video-add-lecture-player')
                     .attr('src',this.itemDialog.video??'none')
                     .css('display',this.itemDialog.video?'block':'none');
                     this.itemForm.video = null;
     },
     async uploadVideo(evt,validate){
-      this.emptyVideo();
+      this.makeVideoEmpty();
             if(validate){
                 let valid = await validate(evt)
                 if(!valid){
-                    this.emptyVideo();
+                    this.makeVideoEmpty();
                     return;
                 }
             }
             if(!evt.target.files && !evt.target.files[0]){
-                this.emptyVideo();
+                this.makeVideoEmpty();
                     return;
             }
             this.itemForm.video = evt.target.files[0];
@@ -240,25 +310,32 @@
                 category_id:'',
                 content:'',
                 video:null,
+                image:null,
+                type:''
             }
             if(dataEvt){
                 let {
                     id, 
                 title,
+                type,
                 category_id,
                 content,
+                image,
                 video} = dataEvt;
                 
                 this.itemForm = Object.assign(this.itemForm,{ 
                     id, 
                 title,
+                type,
                 category_id,
                 content,
+                image,
                 video})
             }
             this.showDialog = true;
             this.$nextTick(()=>{
-          this.emptyVideo()
+          this.makeVideoEmpty(),
+          this.makeImageEmpty()
         })
             return true;
         },
@@ -276,6 +353,9 @@
     <style scoped>
     #add-course-image{
         display: none;
+    }
+    #meeting-image{
+        display: none; 
     }
     #video-add-lecture-player{
         max-width: 100%;

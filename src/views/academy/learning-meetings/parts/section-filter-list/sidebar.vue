@@ -62,7 +62,7 @@
 
 <script>
 import meetingsAPIs from '@/services/api/learning-meetings.js'
-
+import commonAPI from '@/services/api/common'
 export default {
 name:'sidebar-box',
 props:{
@@ -72,14 +72,10 @@ props:{
   }
 },
 data:(vm)=>{
+    let types = commonAPI.getMeetingTypes();
+    types.unshift({id:null,name:vm.$t('all')})
   return{
-      states:[
-          {id:null,name:vm.$t('all')},
-          {id:'board',name:'مجلس'},
-          {id:'business_to_business',name:vm.$t('B2B')},
-          {id:'web_discussion',name:vm.$t('Webinar')},
-
-      ],
+      states:types,
       categories:[],
   filter:vm.filterItem
 }},

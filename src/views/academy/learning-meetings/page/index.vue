@@ -5,9 +5,30 @@
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
     <div v-else class="container">
-     
+      <div v-if="isOwner" class="text-end">
+                <div class=" d-flex gap-2 justify-content-end my-3">
+            <div>
+        <button @click="openEditDialog" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"  role="button">
+                        <d-rect-edit-icon />
+                            تعديل
+                    </button>
+                    </div>
+                    <div>
+                        <button style="height: 40px; background-color:#FFBC00 ;" class="btn-main px-3 w-100 border-0 rounded-2" role="button">
+                            <d-send-icon />
+                                شارك
+                        </button>
+                    </div>
+                    <div>
+                    <button @click="openDeleteDialog" style="height: 40px; background-color:#FF1616 ;" class="btn-main px-3 w-100 border-0 rounded-2"   role="button">
+                        <d-trash-outline-icon :size="32" color="white"/>
+                        حذف
+                    </button>  
+                    </div>
+          </div>
+</div>
     <div :id="`meeting-${meetingId}`" class="box shadow p-3">
-
+ 
         <div class="row">
             <div class="col-md-6">
                 <div >
@@ -59,6 +80,7 @@
 <confirmJoinMeetingDialog @success="successJoined" />
 <successJoinMeetingDialog @cancel="successCanceled" />
 <confirmCancelJoinMeetingDialog @success="successCanceled" />
+<UpdateItemDialog />
 </div>
 </template>
 
@@ -68,13 +90,15 @@ import confirmJoinMeetingDialog from './dialogs/confirm-join-meeting.vue';
 import confirmCancelJoinMeetingDialog from './dialogs/confirm-cancel-join-meeting.vue';
 import successJoinMeetingDialog from './dialogs/success-join-meeting.vue';
  import SectionOtherMeetings from './parts/other-meetings/index.vue'   
-export default {
+import UpdateItemDialog from '../dialogs/add-meeting/index'
+ export default {
  name:'meeting-page',
  components:{
   SectionOtherMeetings,
   confirmCancelJoinMeetingDialog,
     confirmJoinMeetingDialog,
-    successJoinMeetingDialog
+    successJoinMeetingDialog,
+    UpdateItemDialog
  },
  computed:{
   meetingId(){
@@ -121,6 +145,11 @@ export default {
   openConfirmCancelMeeting(){
     this.fireOpenDialog('confirm-cancel-join-meeting',this.itemPage)
   },
+  openEditDialog(){
+    this.fireOpenDialog('add-meeting',this.itemPage)
+
+  },
+  openDeleteDialog(){},
   async initializing() {
       this.loading = true;
       this.hasError = false;
