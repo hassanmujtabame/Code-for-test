@@ -72,8 +72,8 @@
             <ValidationProvider
                                 :name="$t('Image')"
                              vid="image"
-                             rules="required|image"
-                             v-if="step==2"
+                             :rules="imageRules"
+                           
                                 v-slot="{validate,errors}">
             <div class="   m-auto">
                     <div class="col-md-12 text-center">
@@ -97,8 +97,7 @@
             <ValidationProvider tag="div" 
                                 :name="$t('lecture-video')"
                                 vid="video"
-                                rules="required|ext:mp4"
-                                v-if="step==2"
+                                :rules="videoRules"
                                 v-slot="{errors,validate}"
                                 >
                                 <div class="add-lecture-video position-relative" >
@@ -169,12 +168,27 @@
             itemDialog:{}
         }
       },
+      computed:{
+        videoRules(){
+            if(this.itemForm.id){
+                return  this.step==2?'ext:mp4':''
+            }
+            return this.step==2?'required|ext:mp4':''
+        },
+        imageRules(){
+            if(this.itemForm.id){
+                return  this.step==2?'image':''
+            }
+            return this.step==2?'required|image':''
+        }
+      },
       methods:{
         prevStep(){
             this.step-=1
         },
         makeImageEmpty(){
             this.itemForm.image = null;
+            console.mylog('makeImageEmpty', this.itemDialog)
                 window.$('#meeting-image')
                     .attr('src',this.itemDialog.image??'none')
                     .css('display',this.itemDialog.image?'block':'none')

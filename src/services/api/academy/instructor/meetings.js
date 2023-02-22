@@ -11,7 +11,7 @@ class InstructorMeetingsApi extends BaseApi{
     addItem(data){
         return window.axios.post(`academy/instructor/meetings`,data);  
     }
-    updateIem(id,data){
+    updateItem(id,data){
         data.append('_method','PUT')
         return window.axios.put(`academy/instructor/meetings/${id}`,data);  
     }
