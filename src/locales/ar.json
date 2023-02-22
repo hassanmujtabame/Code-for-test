@@ -562,5 +562,6 @@
   "board": "مجلس",
   "meeting-type": "تصنيف",
   "meeting-modification": "تعديل اللقاء",
-  "add-meeting": "إضافة لقاء"
+  "add-meeting": "إضافة لقاء",
+  "join_confirmation": "تأكيد الانضمام"
 }

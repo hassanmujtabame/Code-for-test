@@ -566,5 +566,6 @@
   "board": "Board",
   "meeting-type": "Meeting type",
   "meeting-modification": "meeting-modification",
-  "add-meeting": "Add meeting"
+  "add-meeting": "Add meeting",
+  "join_confirmation": "Join confirmation"
 }
