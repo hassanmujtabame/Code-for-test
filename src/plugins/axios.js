@@ -18,17 +18,24 @@ const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
   function(config) {
+    console.mylog('axios config',config)
     if (window.store == undefined) {
       console.log('store is not defined')
   } else
   if (config.baseURL === baseApiAddress && !config.headers.Authorization) {
       config.headers['x-localization'] = Cookies.get('i18n_lang')
       config.headers['Accept'] = 'application/json'
+      let url = baseApiAddress+'/academy';
+      if(config.url.startsWith(url) || config.url.startsWith('academy')){
+        //console.mylog('is url ',config.url)
+        const role = window.store.getters['auth/academyRole'];
+        //console.mylog('is role ',role)
+        config.headers['academy-role'] = role
+      }
       const token = window.store.getters['auth/token'];
 
       if (token) {
           config.headers.Authorization = `Bearer ${token}`;
-          
       }
   }
     return config;
