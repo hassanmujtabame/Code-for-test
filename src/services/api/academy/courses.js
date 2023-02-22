@@ -36,6 +36,10 @@ class CoursesApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructor/course-projects-review?${s}`);
     }
+    joinCourse(id){
+        return window.axios.post(`academy/student/join-course/${id}`);
+
+    }
 }
 
 export default new CoursesApi();
