@@ -13,6 +13,8 @@ import './plugins/i18n'
 import './plugins/sweetalert2'
 import userAPI from './services/api/user';
 import EventBus from './helper/EventBus';
+import Dhelper from './helper/d-helper';
+window.DHelper =  Dhelper;
 console.mylog = (...args) =>{
    if(process.env.NODE_ENV=='development')
    console.log(...args)
