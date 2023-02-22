@@ -7,9 +7,7 @@
 
         </div>
         
-        <AddBlogDialog  />
-        <SuccessAddBlogDialog />
-        
+        <AddBlogDialog  />        
     </div>
 </template>
 <script>
