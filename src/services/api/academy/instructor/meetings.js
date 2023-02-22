@@ -13,7 +13,7 @@ class InstructorMeetingsApi extends BaseApi{
     }
     updateItem(id,data){
         data.append('_method','PUT')
-        return window.axios.put(`academy/instructor/meetings/${id}`,data);  
+        return window.axios.post(`academy/instructor/meetings/${id}`,data);  
     }
     deleteItem(id){
         return window.axios.delete(`academy/instructor/meetings/${id}`);
