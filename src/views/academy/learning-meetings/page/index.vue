@@ -91,6 +91,7 @@ import confirmCancelJoinMeetingDialog from './dialogs/confirm-cancel-join-meetin
 import successJoinMeetingDialog from './dialogs/success-join-meeting.vue';
  import SectionOtherMeetings from './parts/other-meetings/index.vue'   
 import UpdateItemDialog from '../dialogs/add-meeting/index'
+import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js'
  export default {
  name:'meeting-page',
  components:{
@@ -149,7 +150,36 @@ import UpdateItemDialog from '../dialogs/add-meeting/index'
     this.fireOpenDialog('add-meeting',this.itemPage)
 
   },
-  openDeleteDialog(){},
+  openDeleteDialog(){
+    let item = this.itemPage;
+    let dataEvt = {
+                title:'هل انت متأكد من حذف اللقاء؟',
+                description:`${item.title}`,
+                groupBtns:'d-flex justify-content-evenly',
+                btns:[
+                    {title:'تراجع',class:'btn btn-custmer btn-danger'},
+                    {title:this.$t('confirm_delete'),action:()=>this.deleteItem(item),class:'btn btn-custmer'},
+                ]
+
+            }
+            this.showConfirmMsg(dataEvt)
+  },
+       async deleteItem(item){
+            console.mylog('deleting....',item)
+            try {
+                let { data } = await instructorMeetingsAPI.deleteItem(item.id)
+                if(data.success){
+                  this.route_push('academy-my-meetings')
+                }else{
+                    window.SwalError(data.message)
+                }
+            } catch (error) {
+               
+               window.DHelper.catchExeception.call(this,error)
+                
+        
+            }
+        },
   async initializing() {
       this.loading = true;
       this.hasError = false;
