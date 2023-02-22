@@ -18,9 +18,15 @@ import sendIcon from '@/components/icon-svg/send-icon.vue'
 import rectEditIcon from '@/components/icon-svg/rect-edit.vue'
 import pencilEditIcon from '@/components/icon-svg/pencil-edit.vue'
 import trashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
+import invoiceIcon from '@/components/icon-svg/invoice-icon.vue'
+import lockPassIcon from '@/components/icon-svg/lock-pass.vue'
+import cupIcon from '@/components/icon-svg/cup-icon.vue'
 
+Vue.component('d-cup-icon',cupIcon)
+Vue.component('d-lock-pass-icon',lockPassIcon)
 Vue.component('d-trash-outline-icon',trashOutlineIcon)
 Vue.component('d-rect-edit-icon', rectEditIcon)
+Vue.component('d-invoice-icon', invoiceIcon)
 Vue.component('d-heart-icon', heartIcon)
 Vue.component('d-edit-icon', pencilEditIcon)
 Vue.component('d-send-icon', sendIcon)

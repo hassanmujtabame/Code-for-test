@@ -2,7 +2,8 @@
     <div>
         <template v-if="user">
             <localHeader />
-            <MyDrawer :dashboard="'academy-dashboard'"/>
+            <MyDrawerInstructor v-if="userAcademyRole=='instructor'" :dashboard="'academy-dashboard'"/>
+            <MyDrawerStudent v-else :dashboard="'academy-dashboard'"/>
         </template>
       <DefaultHeader v-else/>
 
@@ -30,7 +31,8 @@
   import RateYourExperienceBtn from '../common/rate-experience.vue'
   import RateYourExperience from '../common/dialogs/rate-experience/index.vue'
   import RateSuccessExperience from '../common/dialogs/rate-experience/success-rate.vue'
-  import MyDrawer from './drawer.vue'
+  import MyDrawerInstructor from './drawer-instructor.vue'
+  import MyDrawerStudent from './drawer-student.vue'
   import DefaultFooter from '@/layouts/common/footer.vue'
   import DefaultHeader from '../default/header.vue'
   import localHeader from './header.vue'
@@ -46,7 +48,10 @@
           SectSubscribe,
 
           RateSuccessExperience,
-          MyDrawer  }
+          MyDrawerInstructor,
+          MyDrawerStudent
+        
+        }
   }
   </script>
   
