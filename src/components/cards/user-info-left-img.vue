@@ -7,9 +7,9 @@
             </div>
             <div class="col-md-8 t-c">
                 <h4 class="fw-bold">
-                  {{member.name}}
+                  {{member.name??'N/A'}}
                 </h4>
-                <p>{{ member.description??member.job_title }}</p>
+                <p>{{ member.description??member.job_title??'N/A' }}</p>
                 <div class="message-service">
                     <button class="text-white border-0 p-2 px-3"
                        @click="sendMessage" >
