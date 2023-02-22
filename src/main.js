@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import Cookies from 'js-cookie'
+console.mylog = (...args) =>{
+   if(process.env.NODE_ENV=='development')
+   console.log(...args)
+} 
 import './plugins/vee-validate'
 import './plugins/ckeditor'
 import  './plugins/portal-vue';
@@ -15,10 +19,7 @@ import userAPI from './services/api/user';
 import EventBus from './helper/EventBus';
 import Dhelper from './helper/d-helper';
 window.DHelper =  Dhelper;
-console.mylog = (...args) =>{
-   if(process.env.NODE_ENV=='development')
-   console.log(...args)
-} 
+
 window.EventBus =  new EventBus();
 const jquery = require('jquery');
 import $ from 'jquery';
