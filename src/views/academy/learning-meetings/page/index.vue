@@ -175,7 +175,7 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
                 }
             } catch (error) {
                
-               window.DHelper.catchExeception.call(this,error)
+               window.DHelper.catchException.call(this,error)
                 
         
             }

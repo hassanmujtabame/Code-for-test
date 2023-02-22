@@ -1,6 +1,6 @@
 class Dhelper{
 
- catchExeception(error,form){
+ catchException(error,form){
     console.mylog('error',error)
     console.mylog('error response',error.response)
     if(error.response){
