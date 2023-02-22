@@ -564,5 +564,7 @@
   "meeting-field": "Meeting field",
   "about-meeting": "About meeting",
   "board": "Board",
-  "meeting-type": "Meeting type"
+  "meeting-type": "Meeting type",
+  "meeting-modification": "meeting-modification",
+  "add-meeting": "Add meeting"
 }

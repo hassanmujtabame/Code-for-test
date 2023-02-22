@@ -560,5 +560,7 @@
   "meeting-field": "تخصص اللقاء",
   "about-meeting": "عن اللقاء",
   "board": "مجلس",
-  "meeting-type": "تصنيف"
+  "meeting-type": "تصنيف",
+  "meeting-modification": "تعديل اللقاء",
+  "add-meeting": "إضافة لقاء"
 }
