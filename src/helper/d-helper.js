@@ -8,7 +8,7 @@ class Dhelper{
         if(response.status==422){
             this.setErrorsForm(form,response)
         }
-        if(response.status==500){
+        if(response.status==500 || response.status==405 ){
             window.SwalError(response.data.message)
         }
     }
