@@ -236,9 +236,33 @@ export default {
     },
     selected(lect){
       if(lect.group) return;
+      /** if student and is joinin this course */
+      if(this.userAcademyRole=='student' && !this.itemPage.joined){
+        let DataEvt = {
+          title:'أنت غير مشترك في الدورة !',
+          description:`لا يمكنك مشاهدة الدروس ولا تحميل المرفقات الا بعد اشتركاك في الدورة `,
+          btns:[
+            {title:this.$t('join_confirmation'),action:()=>this.joinCourse()}
+          ]
+        }
+        this.showConfirmMsg(DataEvt);
+        return;
+      }
       this.selectedLecture = lect.uuid
       this.fireEvent('course-lecture-selected',lect)
     },
+  async joinCourse(){
+    try {
+      let {data} = await academyAPI.coursesApi.joinCourse(this.itemPage);
+      if(data.success){
+        //
+      }else{
+        window.SwalError(data.message)
+      }
+    } catch (error) {
+      window.DHelper.catchException.call(this,error)
+    }
+  },
      async initializing(){
       this.loading = true;
       try {
