@@ -20,7 +20,7 @@
             </button>
           </div>
           <div class="mt-3">
-          <button @click="confirmCancelJoin" style="height: 40px;" class="btn btn-custmer-danger">تراجع عن الانضمام</button>
+          <button @click="confirmCancelJoin" style="height: 40px;" class="btn btn-custmer-danger">{{$t('undo-joining')}}</button>
           </div>
   </div>
       </template>

@@ -563,5 +563,6 @@
   "meeting-type": "تصنيف",
   "meeting-modification": "تعديل اللقاء",
   "add-meeting": "إضافة لقاء",
-  "join_confirmation": "تأكيد الانضمام"
+  "join_confirmation": "تأكيد الانضمام",
+  "undo-joining": "تراجع عن الانضمام"
 }
