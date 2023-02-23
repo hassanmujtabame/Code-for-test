@@ -13,7 +13,7 @@
 import SectionFilterList from './parts/section-filter-list/index';
 
 export default {
-  name: 'your-certifcates-page',
+  name: 'your-exams-page',
   components:{
 
     SectionFilterList,
