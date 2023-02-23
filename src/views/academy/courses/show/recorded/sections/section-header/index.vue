@@ -3,7 +3,8 @@
     <div class="text-end">
 
     <div class=" d-flex gap-2 justify-content-end my-3">
-        <button @click="inscription" class="btn btn-custmer">أشترك في الدورة</button>
+        <button v-if="!itemPage.user_is_join_course" @click="inscription" class="btn btn-custmer">أشترك في الدورة</button>
+        <button v-else @click="inscription" class="btn btn-danger">{{ $t('undo-joining') }}</button>
     </div>
     </div>
   </div>
@@ -32,13 +33,13 @@ export default {
   },
   async joinCourse(){
     try {
-      let {data} = await academyAPI.coursesApi.joinCourse(this.itemPage);
+      let {data} = await academyAPI.coursesApi.joinCourse(this.itemPage.id);
       if(data.success){
         let dataEvt ={
             title:'تم الانضمام الى هذه الدورة بنجاح',
             description:'',
             btns:[
-              {title:this.$t('meeting-page')},
+              {title:this.$t('course-page'),action:()=>this.refresh()},
               {title:this.$t('undo-joining'),action:()=>this.confirmCancelJoin()},
             ]
     }
