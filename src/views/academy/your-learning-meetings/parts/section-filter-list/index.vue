@@ -1,6 +1,6 @@
 <template>
 <d-filter-list 
-:fake-items="items"
+:call-list="loadList"
 classColCard="col-12 col-md-4"
 searchPlaceholder="أبحث  في قائمة القاءت"
 hideSide
@@ -8,13 +8,14 @@ hideSide
 <template v-slot:total="{}">
   <h1>لقاءاتك التعليمية</h1>
   </template>
-<template v-slot="{}">
+<template v-slot="{item}">
   <div class="box mt-3 mx-2">
     <meetingCard
-    :img="itemTest.image"
-                     :title="itemTest.title"
-                     :owner="itemTest.userName"
-                     :date="itemTest.date"
+    :item="item"
+    :img="item.image"
+    :title="item.title"
+    :type="item.type"
+    :date="item.date"
     />
   </div>
 </template>
@@ -24,7 +25,7 @@ hideSide
 
 <script>
 import meetingCard from '@/components/cards/meeting.vue'
-import CoursesAPI from '@/services/api/academy/courses.js'
+import academyAPI from '@/services/api/academy/index.js'
 export default {
   name:'filter-list',
   components:{
@@ -65,7 +66,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await CoursesAPI.getAll(params)
+                return await academyAPI.student.getMyMeetings(params)
 
             } catch (error) {
                 console.log('error', error)
