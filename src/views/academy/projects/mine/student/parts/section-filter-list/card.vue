@@ -7,7 +7,7 @@
     </div>
 <div class="flex-shrink-0 d-flex">
     <button  class="btn btn-custmer rounded-2 mt-2">
-     عرض
+     تعديل المشروع
     </button>
     <button class="btn rounded-2 border-danger text-danger bg-transparent mt-2 mx-2 " >
         حذف المشروع
