@@ -9,9 +9,11 @@ hideSide
 </template>
 
 <template v-slot="{item}">
+  <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})">
     <CourseCard 
     :item="item"
     />
+    </router-link>
 </template>
 </d-filter-list>
 </template>
