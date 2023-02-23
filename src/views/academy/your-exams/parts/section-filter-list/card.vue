@@ -1,19 +1,22 @@
 <template>
    <div class="box-exam d-flex align-items-center">
     <div class="flex-grow-1">
-        <h1 class="box-exam__course"><span class="m-c">إسم الدورة :</span> الازياء</h1>
-    <h3 style="color:#F2631C" class="box-exam__name">اختبار 1</h3>
+        <h1 class="box-exam__course"><span class="m-c">إسم الدورة :</span> {{ item.course_name }}</h1>
+    <h3 style="color:#F2631C" class="box-exam__name">{{ item.title }}</h3>
     <p class="box-exam__note">ملاحظة : سيقوم المدرب بفحص مشروعك بنفسه وتقيمك</p>
     </div>
 <div class="flex-shrink-0">
-    <button @click="router_push('academy-your-exams-do-exam',{id:1})" class="btn btn-custmer"> إذهب الى الاختبار</button>
+    <button @click="router_push('academy-your-exams-do-exam',{id:item.id})" class="btn btn-custmer"> إذهب الى الاختبار</button>
 </div>
    </div>
 </template>
 
 <script>
 export default {
-    name: 'course-card',
+    name: 'exam-card',
+    props:{
+        item:{}
+    }
 }
 </script>
 

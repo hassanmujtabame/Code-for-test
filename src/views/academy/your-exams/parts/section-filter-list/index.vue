@@ -1,6 +1,7 @@
 <template>
 <d-filter-list 
-:fake-items="items"
+:fake-1items="items"
+:call-list="loadList"
 classColCard="col-12"
 hideSide
 >
@@ -17,8 +18,8 @@ hideSide
                     </li>
                 </ul>
         </template>
-<template v-slot="{}">
-    <CourseCard />
+<template v-slot="{item}">
+    <CourseCard  :item="item"/>
 </template>
 
 </d-filter-list>
@@ -26,7 +27,7 @@ hideSide
 
 <script>
 import CourseCard from './card'
-import CoursesAPI from '@/services/api/academy/courses.js'
+import academyAPI from '@/services/api/academy/index.js'
 export default {
   name:'filter-list',
   components:{
@@ -83,7 +84,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await CoursesAPI.getAll(params)
+                return await academyAPI.student.getMyExams(params)
 
             } catch (error) {
                 console.log('error', error)
