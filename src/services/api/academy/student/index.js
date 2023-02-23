@@ -6,6 +6,15 @@ class StudentsApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/user/courses/exams?${s}`);
     }
+    getMyExam(id){
+        return window.axios.get(`academy/user/courses/exams/${id}`);
+    }
+    getMyQuestionExam(exam_id,level){
+        return window.axios.get(`academy/user/courses/exams/${exam_id}/question/${level}`);
+    }
+    setMyResponseQuestionExam(exam_id,level,data){
+        return window.axios.post(`academy/user/courses/exams/${exam_id}/question/${level}`,data);
+    }
     getMyCourses(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/user/courses?${s}`);

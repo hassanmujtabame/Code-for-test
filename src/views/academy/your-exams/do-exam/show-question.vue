@@ -30,12 +30,17 @@ export default {
     }
  },
  watch:{
+    item:{
+        deep:true,
+        immediate:true,
+        handler(){}
+    },
     value_:{
         deep:true,
         handler(){
             this.$emit('update',{
                 question_id:this.item.id,
-                response:this.value_
+                answer:this.value_
             })
         }
     }

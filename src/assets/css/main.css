@@ -82,7 +82,9 @@ textarea {
 .c-save{
    color:#0066ff
 }
-
+.m-r {
+    color: #fe0d00 !important;
+}
 .btn-main {
     background-color: #1FB9B3;
     border: 1px solid #1FB9B3;

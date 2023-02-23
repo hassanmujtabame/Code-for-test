@@ -355,7 +355,7 @@
   "Riadiat-academy": "أكاديمية رياديات",
   "new_card": "بطاقة جديدة",
   "close": "إغلاق",
-  "open": "يفتح",
+  "open": "إفتح",
   "opened": "مفتوح",
   "closed": "مغلق",
   "insurance_price": "سعر التأمين",
@@ -565,5 +565,6 @@
   "add-meeting": "إضافة لقاء",
   "join_confirmation": "تأكيد الانضمام",
   "undo-joining": "تراجع عن الانضمام",
-  "course-page": "صفحة الدورة"
+  "course-page": "صفحة الدورة",
+  "fail": "لم تنجح"
 }

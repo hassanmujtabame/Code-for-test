@@ -1,18 +1,21 @@
 <template>
   <div class="course-exam-content">
-    <showExamInstructor  :exam="exam"/>
+    <showExamInstructor v-if="userAcademyRole=='instructor'"  :exam="exam"/>
+    <showExamStudent v-else :exam="exam"/>
   </div>
 </template>
 
 <script>
 import showExamInstructor from './instructor/index'
+import showExamStudent from './student-show.vue'
 export default {
  name:'exam-show',
  props:{
   exam:{}
  },
  components:{
-  showExamInstructor
+  showExamInstructor,
+  showExamStudent
  },
  watch:{
   exam:{
