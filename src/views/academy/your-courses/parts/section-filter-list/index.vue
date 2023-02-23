@@ -1,5 +1,6 @@
 <template>
-<d-filter-list :fake-items="items"
+<d-filter-list 
+:call-list="loadList"
 classColCard="col-12 col-md-4 mt-3"
 hideSide
 >
@@ -16,7 +17,9 @@ hideSide
 </template>
 
 <script>
+import academyAPI from '@/services/api/academy'
 import CourseCard  from './card.vue'
+
 export default {
   name:'filter-list',
   components:{
@@ -33,6 +36,30 @@ export default {
         {},
       ]
     }
+  },
+  methods:{
+    changeStatus(status){
+            this.status =  status
+            this.filterItem.status=status;
+            this.fireEvent('d-filter-list-refresh')
+        },
+    changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
+        },
+        async loadList(metaInfo) {
+            try {
+                let params = {
+                    page: metaInfo.current_page,
+                    ...this.filterItem
+                }
+                return await academyAPI.student.getMyCourses(params)
+
+            } catch (error) {
+                console.log('error', error)
+                console.log('response', error.response)
+            }
+        }
   }
 }
 </script>
