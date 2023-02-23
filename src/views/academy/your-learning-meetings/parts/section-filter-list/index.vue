@@ -2,6 +2,7 @@
 <d-filter-list 
 :fake-items="items"
 classColCard="col-12 col-md-4"
+searchPlaceholder="أبحث  في قائمة القاءت"
 hideSide
 >
 <template v-slot:total="{}">
