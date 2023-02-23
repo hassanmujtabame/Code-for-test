@@ -18,7 +18,7 @@ const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
   function(config) {
-    console.mylog('axios config',config)
+    //console.mylog('axios config',config)
     if (window.store == undefined) {
       console.log('store is not defined')
   } else
