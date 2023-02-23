@@ -1,7 +1,7 @@
 <template>
   <div class="course-attachment-item">
     <div class="course-attachment-item__wrapper">
-<div class="d-flex  align-items-center ">
+    <div class="d-flex  align-items-center ">
     
         <div class="flex-shrink-0 p-1">
             <metroAttachmentIcon />

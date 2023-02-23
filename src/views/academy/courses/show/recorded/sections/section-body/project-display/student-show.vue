@@ -17,14 +17,17 @@
                 :showBorder="(lectureSelected.attachments.length-1)>i"
                 />
     </div>
-
-            <ValidationObserver ref="form" tag="div" v-if="userAcademyRole=='student'" class="my-3">
+<div v-if="userAcademyRole=='student'" class="my-3">
+    <div v-if="loaded">
+        
+    </div>
+    <ValidationObserver v-else ref="form" tag="div"  >
             <ValidationProvider
             :name="$t('project')"
             vid="file"
             v-slot="{errors,validate}"
             >
-                <label :disabled="uploading"  class="btn btn-custmer">
+                <label :class="{disabled:uploading}"  class="btn btn-custmer">
                     <i v-if="uploading" class="fa fa-spinner fa-spin"></i>
                 <span v-if="percentProject">{{ percentProject }} %</span>
                     إرفع مشروعك الان
@@ -33,6 +36,8 @@
             <d-error-input :errors="errors" v-if="errors.length" />
         </ValidationProvider>
         </ValidationObserver>
+</div>
+        
 </div>
  
 </template>
@@ -105,6 +110,7 @@ export default {
                 }
                 this.showSuccessMsg(dataEvent)
             }else{
+                this.percentProject = 0;
                 window.SwalError(data.message)
             }
         } catch (error) {
