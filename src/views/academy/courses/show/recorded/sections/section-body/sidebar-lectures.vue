@@ -237,7 +237,7 @@ export default {
     selected(lect){
       if(lect.group) return;
       /** if student and is joinin this course */
-      if(this.userAcademyRole=='student' && !this.itemPage.joined){
+      if(this.userAcademyRole=='student' && !this.itemPage.user_is_join_course){
         let DataEvt = {
           title:'أنت غير مشترك في الدورة !',
           description:`لا يمكنك مشاهدة الدروس ولا تحميل المرفقات الا بعد اشتركاك في الدورة `,
