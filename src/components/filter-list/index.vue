@@ -17,7 +17,7 @@
               <h3 v-if="title" class="t-c fw-bolder">{{ title }}</h3>
             </slot>
             </div>
-            <div class="col-12 mt-3 row" :class="classSearchOrder">
+            <div class="col-12 mt-3 row mb-3" :class="classSearchOrder">
             <div v-if="!hideSearch" :class="classColSearch">
             <slot name="search">
             <label for="" class="position-relative w-100">
@@ -37,7 +37,7 @@
             </div>
             <div v-if="!hideOrder" :class="classColOrder" class="position-relative">
                     <slot name="order">
-                    <select @change="updateFilter" v-model="filter.order" class="form-select mb-3 py-3 m-c" aria-label=".form-select-lg example">
+                    <select @change="updateFilter" v-model="filter.order" class="form-select py-3 m-c fs-r-12" aria-label=".form-select-lg example">
                         <option v-for="(opt,i) in orderOpts"  :key="i" :value="opt.id"> {{opt.name}} </option>
                     </select>
                     <p style="top: -13px; right: 24px; background: white" class="position-absolute">

@@ -58,9 +58,9 @@ export default {
             actions:[
             
                 {status:null,label:'كل الاختبارت'},
-                {status:"exams_need_do",label:'اختبارات تحتاج لدائها'},
-                {status:"exams_passed",label:'اختبارات نجحت بها'},
-                {status:"exams_fails",label:'اختبارت لم تنجح فيها'},
+                {status:"todo",label:'اختبارات تحتاج لدائها'},
+                {status:"pass",label:'اختبارات نجحت بها'},
+                {status:"fail",label:'اختبارت لم تنجح فيها'},
         
          
            
