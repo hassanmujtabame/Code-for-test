@@ -16,9 +16,8 @@
                     </p>
                 </div>
                 <div class="exam-student-item__actions"> 
-            <button  class="btn-main px-2 ">
+            <button @click="router_push('academy-instructor-your-student-show',{id:item.id})" class="btn-main px-2 ">
                 ارسل رسالة
-            
             </button>
         </div>
             </div>

@@ -37,11 +37,10 @@ class CoursesApi extends BaseApi{
         return window.axios.get(`academy/instructor/course-projects-review?${s}`);
     }
     joinCourse(id){
-        return window.axios.post(`academy/student/join-course/${id}`);
-
+        return window.axios.post(`academy/user/courses/${id}/join`);
     }
     cancelJoinCourse(id){
-        return window.axios.post(`academy/student/cancel-join-course/${id}`);
+        return window.axios.post(`academy/user/courses/${id}/undo-join`);
 
     }
 }

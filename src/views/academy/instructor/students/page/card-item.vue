@@ -5,22 +5,17 @@
     <div class="exam-student-item__wrapper">
             <div class="exam-student-item__body">
                 <div class="exam-student-item__image">
-                    <img class="rounded-circle" :src="item.image" alt="" width="48" height="48">
+                    <img class="rounded-circle" :src="item.image??user.image" alt="" width="48" height="48">
                 </div>
                 <div class="exam-student-item__info">
                     <h6 class="exam-student-item__title m-c p-0 m-0">
                         {{item.name}}
                     </h6>
                     <p  class="exam-student-item__subtitle t-c p-0 m-0">
-                        {{item.course_note??'N/A'}}  - {{item.course_name}}
+                        الطالب طبعا عضو في الشبكة وكمان الاكاديمية لو ضايف كابشن عن نفسه بيتضاف هنا 
                     </p>
                 </div>
-                <div class="exam-student-item__actions"> 
-            <button  @click="router_push('academy-instructor-your-student-show',{id:item.id})" class="btn-main px-2 ">
-                ارسل رسالة
-            
-            </button>
-        </div>
+               
             </div>
           
     </div>
@@ -31,7 +26,14 @@
 export default {
  name:'card-item',
  props:{
-    item:{}
+    item:{
+        default:()=>{
+            return {
+             name:'N/A',
+             id:1,
+            }
+        }
+    }
  }
 }
 </script>
