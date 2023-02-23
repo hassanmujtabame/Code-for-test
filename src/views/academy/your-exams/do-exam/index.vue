@@ -62,27 +62,3 @@ export default {
   }
 }
 </script>
-
-
-
-<style scoped>
-.course-exam-display__title{
-    margin: 0;
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 32px;
-text-transform: capitalize;
-color: #414042;
-margin: 15px 0;
-}
-.course-exam-display__subtitle{
-    font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 17px;
-  color: #414042;
-  margin-bottom: 15px;
-}
-
-</style>

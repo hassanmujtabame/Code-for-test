@@ -359,7 +359,7 @@
   "open": "Open",
   "close": "Close",
   "opened": "Opened",
-  "closed": "Opened",
+  "closed": "Closed",
   "insurance_price": "insurance price",
   "send_request": "Send request",
   "add": "Add",
@@ -571,5 +571,7 @@
   "meeting-page": "Meeting page",
   "undo-joining": "Undo joining",
   "course-page": "Course page",
-  "fail": "Fail"
+  "fail": "Fail",
+  "pass":"pass",
+  "todo":"todo"
 }
