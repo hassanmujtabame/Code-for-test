@@ -30,7 +30,7 @@ _axios.interceptors.request.use(
         //console.mylog('is url ',config.url)
         const role = window.store.getters['auth/academyRole'];
         //console.mylog('is role ',role)
-        config.headers['academy-role'] = role
+        config.headers['Academy-Role'] = role
       }
       const token = window.store.getters['auth/token'];
 
