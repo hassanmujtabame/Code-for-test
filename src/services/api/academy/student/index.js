@@ -8,7 +8,7 @@ class StudentsApi extends BaseApi{
     }
     getMyCourses(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`academy/user-courses?${s}`);
+        return window.axios.get(`academy/user/courses?${s}`);
     }
     getMyProjects(params={}){
         let s=this.generateQueryUrl(params)
