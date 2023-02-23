@@ -1951,3 +1951,9 @@ color: #414042;
 
     background: #fff;
 }
+.academy-player-box{
+    height:350px;
+  border: 1px solid;
+  border-radius: 10px;
+  /*overflow: auto;*/
+}

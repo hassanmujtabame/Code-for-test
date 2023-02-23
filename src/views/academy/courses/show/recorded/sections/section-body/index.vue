@@ -36,7 +36,7 @@
 
 <script>
 import LecturesList from './sidebar-lectures.vue'
-import previewLecture from './display-lecture.vue'
+import previewLecture from './preview.vue'
 import RateCourse from '../../../common/rate-course/index'
 import attachmentsCourse from '../../../common/attachments-course/index'
 export default {

@@ -18,7 +18,7 @@
       <transition-group >
       <li @click="selected(lect,i)" class="course-show-page__lecture"   :class="{'selected':lect.uuid===selectedLecture,'lecture-project':['project','projects'].includes(lect.type)}" v-for="(lect,i) in lectures" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ lect.title }}</span>
-        <span v-if="isOwner" class="course-show-page__actions">
+        <span v-if="canEdit" class="course-show-page__actions">
           <i v-if="isDraggable" class="fa fa-align-justify handle"></i>
           <button v-if="!isDraggable" class="btn " @click="showEditDialog(lect)"><i class="fa fa-pen" style="color:blue"></i></button>
           <button v-if="!isDraggable" class="btn " @click="showConfirmDeleteItem(lect)"><i class="fa-solid fa-trash"  style="color:red"></i></button>
@@ -32,7 +32,7 @@
       <draggable  @end="onEndExam"  tag="ol" group="exams" v-model="lectures"  ghost-class="ghost" handle=".handle">
         <li @click="selected(exam,i)" class="course-show-page__lecture lecture-project"   :class="{'selected':exam.uuid===selectedLecture}" v-for="(exam,i) in course.exams" :key="i">
         <span class="course-show-page__title">{{(i+1)}}. {{ exam.title }}</span>
-        <span v-if="isOwner" class="course-show-page__actions">
+        <span v-if="canEdit" class="course-show-page__actions">
           <i v-if="isDraggable" class="fa fa-align-justify handle"></i>
           <template v-else>
           <button class="btn " @click="showEditDialog({...exam,type:'exam'})"><i class="fa fa-pen" style="color:blue"></i></button>
@@ -71,6 +71,9 @@ export default {
     }
   },
   computed: {
+    canEdit(){
+      return this.isOwner && this.userAcademyRole == 'instructor'
+    },
     shouldDisableDragging() {
       // Check some condition to determine if sorting should be disabled
       return !this.activeDraggable;

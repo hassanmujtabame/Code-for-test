@@ -6,17 +6,16 @@
     </div>
     <div class="course-show-page__preview-content">
     <div class="course-show-page__preview-content-wrapper">
-      <img v-if="lectureSelected===null" :src="itemPage.image_path" 
-                    class="rounded-3 w-100 h-100"/> 
-        <video 
+      <welcomeShow v-if="lectureSelected===null" :itemPage="itemPage"/> 
+        <LectureShow 
         v-else-if="lectureSelected.type=='lecture' || lectureSelected.type===null"
-                   
-                    class="rounded-3 w-100 h-100"
-                    :src="lectureSelected.video" 
-                  ></video> 
-        <div v-else-if="['project','projects'].includes(lectureSelected.type)" 
-                    class="rounded-3 w-100 h-100"> 
-        </div>
+        :itemPage="itemPage"
+        :lectureSelected="lectureSelected" /> 
+
+        <ProjectShow v-else-if="['project','projects'].includes(lectureSelected.type)" 
+        :itemPage="itemPage"
+        :lectureSelected="lectureSelected"            
+        /> 
         <div v-else-if="lectureSelected.type=='exam'" 
                     class="rounded-3 w-100 h-100"> 
                     <ExamDisplay :exam="lectureSelected" />
@@ -30,8 +29,12 @@
 </template>
 
 <script>
+import welcomeShow from './welcome-show/index.vue' 
+import LectureShow from './lecture-display/index'
 import ExamDisplay from './exam-display/index'
+import ProjectShow from './project-display/index'
 export default {
+  name:'preview-zone',
   props:{
     itemPage:{},
     isOwner:{
@@ -40,7 +43,10 @@ export default {
     }
   },
   components:{
-    ExamDisplay
+    ExamDisplay,
+    welcomeShow,
+    LectureShow,
+    ProjectShow
   },
   data:()=>{
     return {
@@ -65,10 +71,11 @@ export default {
 </script>
 
 <style scoped>
+
 .course-show-page__preview-content-wrapper{
-  height:350px;
-  border: 1px solid;
+  height: calc(500px - 88px);
+  /*border: 1px solid;*/
   border-radius: 10px;
-  /*overflow: auto;*/
+  overflow: auto;
 }
 </style>
