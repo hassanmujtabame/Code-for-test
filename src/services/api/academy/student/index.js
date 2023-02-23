@@ -15,6 +15,9 @@ class StudentsApi extends BaseApi{
     setMyResponseQuestionExam(exam_id,level,data){
         return window.axios.post(`academy/user/courses/exams/${exam_id}/question/${level}`,data);
     }
+    uploadProjectFile(data,config={}){
+        return window.axios.post(`academy/user/courses/projects`,data,config);
+    }
     getMyCourses(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/user/courses?${s}`);
