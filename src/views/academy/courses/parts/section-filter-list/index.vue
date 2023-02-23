@@ -1,12 +1,13 @@
 <template>
-<d-filter-list :fake-items="items"
+<d-filter-list 
+:call-list="loadList"
 :searchPlaceholder="$t('search-by-course-or-instructor')"
 pluralName="قائمة  الدورات"
 singleName="دورة"
 >
-<template v-slot="{}">
+<template v-slot="{item}">
   <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:1})">
-    <CourseCard />
+    <CourseCard :item="item"/>
   </router-link>
 </template>
 <template v-slot:side>
@@ -16,7 +17,7 @@ singleName="دورة"
 </template>
 
 <script>
-import CourseCard from './card'
+import CourseCard  from '@/components/cards/academy-course.vue'
 import sidebarBox from './sidebar.vue';
 import CoursesAPI from '@/services/api/academy/courses.js'
 export default {
@@ -38,14 +39,7 @@ export default {
             is_share:null,
             category_id:[],
         },
-      items:[
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-      ]
+      items:[]
     }
   },
   methods:{

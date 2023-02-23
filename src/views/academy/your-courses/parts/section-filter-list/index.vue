@@ -18,7 +18,7 @@ hideSide
 
 <script>
 import academyAPI from '@/services/api/academy'
-import CourseCard  from './card.vue'
+import CourseCard  from '@/components/cards/academy-course.vue'
 
 export default {
   name:'filter-list',
