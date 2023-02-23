@@ -13,8 +13,13 @@
                     <template v-slot="{ item }">
                         <router-link class="router-link"
                             :to="getRouteLocale('academy-learning-meeting-show', { id: item.id })">
-                            <meetingCard :img="item.image" :title="item.title" :owner="item.owner" :date="item.date"
-                                :time="item.time" />
+                            <meetingCard 
+                            :item="item"
+                            :img="item.image" 
+                            :title="item.title" 
+                            :type="item.type" 
+                            :date="item.date"
+                            :time="item.time" />
                         </router-link>
                     </template>
                 </d-swiper>

@@ -12,9 +12,10 @@
                 
                   <router-link class="router-link" :to="getRouteLocale('academy-learning-meeting-show',{id:item.id})">
                     <meetingCard 
+                      :item="item"
                      :img="item.image"
                      :title="item.title"
-                     :owner="item.userName"
+                     :type="item.type"
                      :date="item.date"
                     />
         

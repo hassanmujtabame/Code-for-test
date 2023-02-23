@@ -6,7 +6,7 @@
 
     <div class="position-absolute top-50 px-2 text-start">
         <h6 style="width: fit-content;"  class="bg-yal p-1 px-2 rounded-2 text-white ">
-            {{owner}}
+            {{typeText}}
         </h6>
         <p class="text-white m-0 p-0">{{title}}
         </p>
@@ -19,6 +19,8 @@
 </div>
 </template>
 <script>
+import commonAPI from '@/services/api/common';
+
 export default {
     name:'meeting-card',
  props:{
@@ -28,7 +30,7 @@ export default {
     title:{
         type:String,
     },
-    owner:{
+    type:{
         type:String,
     },
     date:{
@@ -39,6 +41,10 @@ export default {
     }
  },
  computed:{
+    typeText(){
+        let r= commonAPI.getMeetingTypes().find(x=>x.id==this.type)
+        return r?r.name:this.type
+    },
     dateText(){
         if(!this.date) return 'N/A';
         let parts = this.date.trim().split('-');

@@ -21,9 +21,10 @@
                 <template  v-slot:default="{item}" >
               <router-link :to="getRouteLocale('academy-learning-meeting-show',{id:item.id})">
                 <meetingCard 
+                :item="item"
                      :img="item.img"
                      :title="item.title"
-                     :owner="item.owner"
+                     :type="item.type"
                      :date="item.date"
                     />
               </router-link>
