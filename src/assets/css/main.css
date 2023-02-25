@@ -1959,3 +1959,29 @@ color: #414042;
   border-radius: 10px;
   /*overflow: auto;*/
 }
+.btn-secondary {
+  color : var(--bs-btn-color);
+  background-color: var(--bs-btn-bg);
+  border-color: var( --bs-btn-border-color);
+
+  }
+  .btn-secondary:hover{
+    color : var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var( --bs-btn-hover-border-color);
+  }
+  .btn-secondary:focus{
+    box-shadow: var(--bs-btn-focus-shadow-rgb);
+
+  }
+  .btn-secondary:active{
+    color : var(--bs-btn-active-color);
+    background-color: var(--bs-btn-active-bg);
+    border-color: var( --bs-btn-active-border-color);
+    box-shadow: var(--bs-btn-active-shadow);
+  }
+  .btn-secondary[disabled]{
+    color : var(--bs-btn-disabled-color);
+    background-color: var(--bs-btn-disabled-bg);
+    border-color: var( --bs-btn-disabled-border-color);
+  }
