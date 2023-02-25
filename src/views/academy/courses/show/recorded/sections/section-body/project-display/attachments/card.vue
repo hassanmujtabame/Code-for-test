@@ -20,7 +20,7 @@
        </div>
     </div>
    <div  class="flex-shrink-0">
-   <a v-if="canDownload" :href="item.file" download> <importIcon /></a>
+   <a v-if="canDownload" target="_blank" :href="item.file" download> <importIcon /></a>
    </div>
     </div>
 </div>

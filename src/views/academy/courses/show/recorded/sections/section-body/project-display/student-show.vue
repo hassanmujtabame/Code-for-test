@@ -9,13 +9,15 @@
       
     <h3 class="course-project-display__subtitle"> المرفقات المدرب:</h3>
     
-    <div>
+    <div class="row">
+    <div class="col-12 col-md-6">
         <attachmentCard 
         v-for="(attachment,i) in lectureSelected.attachments" 
         :key="i"
                 :item="attachment"            
                 :showBorder="(lectureSelected.attachments.length-1)>i"
                 />
+    </div>
     </div>
 <div v-if="userAcademyRole=='student'" class="my-3">
     <div v-if="loaded">
@@ -36,15 +38,18 @@
             <d-error-input :errors="errors" v-if="errors.length" />
         </ValidationProvider>
     </ValidationObserver>
-    <div class="position-relative">
+    <div class="row">
+    <div class="col-12 col-md-6 position-relative">
         <d-overlays-simple v-if="deleting" />
     <attachmentCard 
         v-if="student_project.id"
                 :item="student_project"            
                 :showBorder="false"
+                @delete="showConfirmDeleteProjectFile"
                 canDelete
                 />
             </div>
+        </div>
 </div>
         
 </div>
@@ -168,6 +173,9 @@ export default {
 </script>
 
 <style scoped>
+.course-project-display{
+    padding:0 15px
+}
 .course-project-display__title{
     font-style: normal;
     font-weight: 400;

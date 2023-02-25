@@ -1694,8 +1694,13 @@ position: relative;
 }
 ::-webkit-scrollbar {
     width: 10px;
+    
   }
-  
+  *{
+    /** firefox scrollbar **/
+    scrollbar-color: #f1f1f1 var(--m-color);
+    scrollbar-width: thin;
+  }
   /* Track */
   ::-webkit-scrollbar-track {
     background: #f1f1f1; 
