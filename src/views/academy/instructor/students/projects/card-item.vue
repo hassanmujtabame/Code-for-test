@@ -19,6 +19,9 @@
             <button @click="previewProject(item)" class="btn-main px-2 ">
                 عرض المشروع
             </button>
+            <button @click="rateProject(item)" class="btn-main btn-secondary px-2 ">
+                تقييم المشروع
+            </button>
         </div>
             </div>
           
@@ -35,6 +38,9 @@ export default {
  methods:{
     previewProject(item){
         console.mylog(item)
+    },
+    rateProject(item){
+        this.fireOpenDialog('project-rate-dialog',{...item})
     }
  }
 }

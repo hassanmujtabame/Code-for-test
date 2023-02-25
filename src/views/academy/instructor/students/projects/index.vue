@@ -20,16 +20,19 @@
         </d-filter-list>
         </div>
         </div>
+        <projectNoteDialog />
         </div>
 </template>
 
 <script>
 import cardItem from './card-item.vue';
 import academyAPI from '@/services/api/academy';
+import projectNoteDialog from './dialogs/project-note.vue';
 export default {
  name:'student-projects',
  components:{
-    cardItem
+    cardItem,
+    projectNoteDialog
  },
   data:()=>{
         return {
