@@ -11,19 +11,21 @@
     <ValidationObserver v-if="showDialog" ref="form" tag="div">
         <ValidationProvider
         :name="$t('rate-project')"
-        vid="rate"
+        vid="note"
         tag="div"
+        rules="required|numeric|between:0,100"
         class="mb-3"
         v-slot="{errors}"
         >
-            <d-select-input :errors="errors" label="تقييم الطالب" v-model="itemForm.note">
-            <option disabled>حدد قيمة المشروع</option>
-            </d-select-input>
+            <d-text-input :errors="errors" label="تقييم الطالب" v-model="itemForm.note">
+            
+            </d-text-input>
         </ValidationProvider>
         <ValidationProvider
         :name="$t('rate-project')"
         vid="rate"
         tag="div"
+        rules=""
         class="mb-3"
         v-slot="{errors}"
         >
@@ -53,7 +55,7 @@ export default {
  data:()=>({
     showDialog : false,
     loading:false,
-    itemForm:{rate:null,desc:''},
+    itemForm:{note:null,desc:''},
     itemDialog :{},
 
  }),
