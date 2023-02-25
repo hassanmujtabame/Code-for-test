@@ -6,7 +6,10 @@
     </div>
     <div class="course-show-page__preview-content">
     <div class="course-show-page__preview-content-wrapper">
-      <welcomeShow v-if="lectureSelected===null" :itemPage="itemPage"/> 
+      <template  v-if="lectureSelected===null">
+        <finishedShow v-if="itemPage.is_completed && userAcademyRole=='student'"  :itemPage="itemPage"/>
+      <welcomeShow v-else :itemPage="itemPage"/> 
+      </template>
         <LectureShow 
         v-else-if="lectureSelected.type=='lecture' || lectureSelected.type===null"
         :itemPage="itemPage"
@@ -30,6 +33,7 @@
 
 <script>
 import welcomeShow from './welcome-show/index.vue' 
+import finishedShow from './finished-display/index.vue' 
 import LectureShow from './lecture-display/index'
 import ExamDisplay from './exam-display/index'
 import ProjectShow from './project-display/index'
@@ -45,6 +49,7 @@ export default {
   components:{
     ExamDisplay,
     welcomeShow,
+    finishedShow,
     LectureShow,
     ProjectShow
   },
