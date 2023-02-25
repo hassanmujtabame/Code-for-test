@@ -19,7 +19,7 @@ class InstructorsApi extends BaseApi{
         return window.axios.post(`academy/instructors`,data);
     }
     getListStudentProject(project_id){
-        return window.axios.get(`academy/instructor/projects/${project_id}/students`);
+        return window.axios.get(`academy/instructor/courses/request-projects/${project_id}`);
     }
     rateProject(project_id,data){
         data.append('project_id',project_id)
