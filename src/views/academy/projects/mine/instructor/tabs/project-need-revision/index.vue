@@ -35,7 +35,7 @@ name:'project-need-revision',
             }
             return await CoursesAPI.getProjectsNeedRevision(params)
         } catch (error) {
-            //
+           console.mylog('error',error)
         }
         this.loading = false
     }

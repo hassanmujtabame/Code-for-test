@@ -6,7 +6,7 @@ class ProjectsApi extends BaseApi{
         return window.axios.get(`academy/courses?${s}`);
     }
     getItem(id){
-        return window.axios.get(`academy/courses/${id}`);
+        return window.axios.get(`academy/courses/projects/${id}`);
     }
     addProject(data){
         return window.axios.post(`academy/instructor/course-projects`,data);

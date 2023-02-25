@@ -572,6 +572,7 @@
   "undo-joining": "Undo joining",
   "course-page": "Course page",
   "fail": "Fail",
-  "pass":"pass",
-  "todo":"todo"
+  "pass": "pass",
+  "todo": "todo",
+  "rate-project": "Rate project"
 }
