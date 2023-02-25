@@ -23,6 +23,7 @@
           <button v-if="!isDraggable" class="btn " @click="showEditDialog(lect)"><i class="fa fa-pen" style="color:blue"></i></button>
           <button v-if="!isDraggable" class="btn " @click="showConfirmDeleteItem(lect)"><i class="fa-solid fa-trash"  style="color:red"></i></button>
         </span>
+        <span ><i v-if="lect.is_completed" style="color:green" class="fa fa-circle-check px-1"></i></span>
         <span v-if="['lecture'].includes(lect.type) || !lect.type" class="course-show-page__time">{{ lect.time }}</span>
       </li>
     </transition-group>
@@ -175,6 +176,13 @@ export default {
       
     },
     updateLectures({item,type}){
+      if(type=="completed"){
+        let index  = this.lectures.findIndex(l=>l.id===item.id)
+        if(index>-1){
+          this.lectures[index].is_completed = true;
+        }
+        return;
+      }
       if(type=='update'){
         if(item.type=='exam'){
         let index  = this.course.exams.findIndex(l=>l.id===item.id)
@@ -290,7 +298,7 @@ export default {
         let {data} = await academyAPI.lecturesAPI.getAll(this.itemPage.id)
         if(data.success){
           this.lectures = data.data.map(l=>{
-            return {...l,uuid:this.generateRandomString(16)}
+            return {is_completed:false,...l,uuid:this.generateRandomString(16)}
             
           })
         }
@@ -311,7 +319,7 @@ export default {
   },
   beforeDestroy(){
     window.EventBus.off('update-lectures',this.updateLectures)
-   
+
   },
 }
 </script>

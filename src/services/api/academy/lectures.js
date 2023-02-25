@@ -9,6 +9,9 @@ class LecturesApi extends BaseApi{
     getItem(course_id,id){
         return window.axios.get(`academy/instructor/courses/${course_id}/lessons/${id}`);
     }
+    postAsEnded(course_id,id){
+        return window.axios.post(`academy/instructor/courses/${course_id}/lessons/${id}/completed`);
+    }
     addItem(course_id,data){
         return window.axios.post(`academy/instructor/courses/${course_id}/lessons`,data);
     }
