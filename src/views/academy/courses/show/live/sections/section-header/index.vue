@@ -40,7 +40,7 @@ export default {
             description:'',
             btns:[
               {title:this.$t('course-page'),action:()=>this.refreshPage()},
-              {title:this.$t('undo-joining'),action:()=>this.cancelJoin()},
+              {title:this.$t('undo-joining'),action:()=>this.cancelJoin(),class:"btn btn-danger"},
             ]
     }
     this.showSuccessMsg(dataEvt)
