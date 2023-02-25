@@ -12,7 +12,8 @@
         hideSide
         >
         <template v-slot:total>
-            <h4 class="fw-bold">مشاريع دورة : <span class="m-c">الازياء</span> </h4>
+            <h4 class="fw-bold">مشاريع دورة : <span class="m-c">{{itemPage.course}}</span> </h4>
+            <h6 class="t-c">مشروع :{{ itemPage.title??'N/A' }}</h6>
             </template>
         <template v-slot="{item}">
         <cardItem :item="item"/>
