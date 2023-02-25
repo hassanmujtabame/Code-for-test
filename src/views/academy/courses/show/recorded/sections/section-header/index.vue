@@ -39,7 +39,7 @@ export default {
             title:'تم الانضمام الى هذه الدورة بنجاح',
             description:'',
             btns:[
-              {title:this.$t('course-page'),action:()=>this.refresh()},
+              {title:this.$t('course-page'),action:()=>this.refreshPage()},
               {title:this.$t('undo-joining'),action:()=>this.cancelJoin()},
             ]
     }
@@ -64,7 +64,7 @@ export default {
         try {
             let {data} = await academyAPI.coursesApi.cancelJoinCourse(this.itemPage.id)
             if(data.success){
-              this.refresh()
+              this.refreshPage()
             }else{
               window.SwalError(data.message)
             }
