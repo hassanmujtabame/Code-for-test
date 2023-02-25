@@ -1698,7 +1698,7 @@ position: relative;
   }
   *{
     /** firefox scrollbar **/
-    scrollbar-color: #f1f1f1 var(--m-color);
+    scrollbar-color: var(--m-color)  #f1f1f1;
     scrollbar-width: thin;
   }
   /* Track */
