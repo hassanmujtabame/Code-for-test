@@ -35,7 +35,16 @@
             </label>
             <d-error-input :errors="errors" v-if="errors.length" />
         </ValidationProvider>
-        </ValidationObserver>
+    </ValidationObserver>
+    <div class="position-relative">
+        <d-overlays-simple v-if="deleting" />
+    <attachmentCard 
+        v-if="student_project.id"
+                :item="student_project"            
+                :showBorder="false"
+                canDelete
+                />
+            </div>
 </div>
         
 </div>
@@ -53,6 +62,8 @@ export default {
 },
  data:(vm)=>{
     return {
+        deleting:false,
+        student_project:{title:'مشروعك',id:null,...vm.lectureSelected.student_project}??{title:'مشروعك',id:null},
         uploading:false,
         loaded:false,
         percentProject:0,
@@ -109,15 +120,49 @@ export default {
                     description:''
                 }
                 this.showSuccessMsg(dataEvent)
+                
+                this.student_project = Object.assign(this.student_project,data.data)
+                this.fireEvent('update-lectures',{item:{...this.lectureSelected,student_project:{...this.student_project}},type:'update'})
+
             }else{
                 this.percentProject = 0;
                 window.SwalError(data.message)
             }
         } catch (error) {
-            window.DHelper.catchExcption.call(this,error)
+            window.DHelper.catchException.call(this,error)
         }
         this.uploading = false;
-    }
+    },
+    showConfirmDeleteProjectFile(item){
+        let dataEvent={
+          title:'هل حقا تريد حذف مشروعك؟',
+          groupBtns:'d-flex justify-content-evenly',
+          btns:[
+            {title:'تراجع',class:"btn btn-custmer btn-danger"},
+            {title:this.$t('confirm_delete'),action:()=>this.deleteProjectFile(item),class:"btn btn-custmer"},
+          ]
+        }
+        this.showConfirmMsg(dataEvent)
+    },
+    async deleteProjectFile(item){
+        console.mylog('deleting ...',item)
+        this.deleting = true;
+        try {
+
+                        let {data} =  await academyAPI.student.deleteProjectFile(item.id)
+                        if(data.success){
+                           this.student_project=Object.assign(this.student_project,{title:'مشروعك',id:null,file:null,size:null,extension:null})
+                            this.fireEvent('update-lectures',{item:{...this.lectureSelected,student_project:{...this.student_project}},type:'update'})
+                        }else{
+                            window.SwalError(data.message)
+                            }
+                    } catch (error) {
+                        console.mylog('error',error)
+                        window.DHelper.catchException.call(this,error)
+                    }
+                
+                    this.deleting = false;
+    },
  }
 }
 </script>

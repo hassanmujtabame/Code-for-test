@@ -18,6 +18,9 @@ class StudentsApi extends BaseApi{
     uploadProjectFile(data,config={}){
         return window.axios.post(`academy/user/courses/projects`,data,config);
     }
+    deleteProjectFile(project_id){
+        return window.axios.delete(`academy/user/courses/projects-student/${project_id}`);
+    }
     getMyCourses(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/user/courses?${s}`);

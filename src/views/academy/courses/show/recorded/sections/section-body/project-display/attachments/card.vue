@@ -2,7 +2,9 @@
   <div class="course-attachment-item">
     <div class="course-attachment-item__wrapper">
     <div class="d-flex  align-items-center ">
-    
+        <div class="course-attachment-item__actions">
+        <button  v-if="canDelete" class="btn " @click="doDelete(item)"><i class="fa-solid fa-trash"  style="color:red"></i></button>
+    </div>
         <div class="flex-shrink-0 p-1">
             <metroAttachmentIcon />
         </div>
@@ -17,8 +19,8 @@
         <div class="course-attachment-item__extension">{{item.extension}}</div>
        </div>
     </div>
-   <div class="flex-shrink-0">
-   <a :href="item.file" download> <importIcon /></a>
+   <div  class="flex-shrink-0">
+   <a v-if="canDownload" :href="item.file" download> <importIcon /></a>
    </div>
     </div>
 </div>
@@ -35,6 +37,14 @@ export default {
     metroAttachmentIcon
  },
  props:{
+        canDelete:{
+        type:Boolean,
+        default:false,
+    },
+    canDownload:{
+        type:Boolean,
+        default:true,
+    },
     item:{
         type:[Object,Array],
         require:true
