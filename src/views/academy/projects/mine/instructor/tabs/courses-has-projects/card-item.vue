@@ -7,16 +7,16 @@
   
     </div>
     <div class="academy-course-exams-item__description">
-        <div v-for="(project,i) in item.projects" :key="i" class="academy-course-exam-item">
+        <div v-for="(project,i) in item.projects_review" :key="i" class="academy-course-exam-item">
                                     <p class="academy-course-exam-item__title">
                                       {{project.title}}
                                     </p>
                                        <div class="academy-course-exam-item__actions "> 
                                        
-                                        <button  class="btn btn-custmer  btn-small ">
-                                            عرض
+                                        <button  class="btn btn-custmer btn-small">
+                                            تعديل المشروع
                                         </button>
-                                        <button class="btn rounded-2 border-danger text-danger bg-transparent btn-small mt-2  " data-bs-toggle="modal" href="#staticBackdrop2">
+                                        <button class="btn rounded-2 border-danger text-danger bg-transparent btn-small mx-2 " >
                                             حذف المشروع
                                         </button>
                                     
@@ -79,12 +79,22 @@
     display: flex;
   }
   .academy-course-exam-item__title{
-    color: #737373;
-    flex:1
+    flex:1;
+    margin: 0;
+    font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* or 120% */
+display: flex;
+align-items: center;
+text-transform: capitalize;
+
+color: #737373;
   }
   .academy-course-exam-item__actions{
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
       flex-shrink: 0;
   }

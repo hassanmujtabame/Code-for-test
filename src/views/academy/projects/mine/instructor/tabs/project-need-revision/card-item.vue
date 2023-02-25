@@ -10,7 +10,7 @@
     <div class="academy-project-item__date">
         <i class="fa-regular fa-clock"></i>
         <span class="px-2">تاريخ النشر :</span>
-        <span>2010-10-10</span>
+        <span> <bdi>{{ item.created_at }}</bdi></span>
     </div>
 </div>
     </div>

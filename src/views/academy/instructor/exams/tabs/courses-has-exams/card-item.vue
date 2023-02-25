@@ -16,7 +16,7 @@
                                         <button  class="btn btn-custmer  btn-small ">
                                             عرض
                                         </button>
-                                        <button class="btn rounded-2 border-danger text-danger bg-transparent btn-small mt-2  " data-bs-toggle="modal" href="#staticBackdrop2">
+                                        <button class="btn rounded-2 border-danger text-danger bg-transparent btn-small mx-2  " data-bs-toggle="modal" href="#staticBackdrop2">
                                             حذف الاختبار
                                         </button>
                                     
@@ -79,12 +79,22 @@
     display: flex;
   }
   .academy-course-exam-item__title{
-    color: #737373;
-    flex:1
+    flex:1;
+    margin: 0;
+    font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* or 120% */
+display: flex;
+align-items: center;
+text-transform: capitalize;
+
+color: #737373;
   }
   .academy-course-exam-item__actions{
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
       flex-shrink: 0;
   }
