@@ -35,7 +35,7 @@
     <div class="academy-project-item__actions">
     
     <div class="academy-project-item__btns">
-        <button @click="router_push('academy-my-project-show',{id:item.id})" class="btn btn-custmer btn-small">معاينة المشاريع</button>
+        <button @click="router_push('academy-my-project-show',{id:item.id})" class="btn btn-custmer">معاينة المشاريع</button>
         <button v-if="false" class="btn btn-custmer btn-danger btn-small mx-1">خذف المشروع</button>
     </div>
     </div>
