@@ -3,8 +3,8 @@ export default {
     token (state) {
     return state.token || localStorage.getItem('auth_token')
     },
-    user (state,a,b,c) {
-        console.mylog('dd',a,b,c)
+    user (state/*,a,b,c*/) {
+        //console.mylog('dd',a,b,c)
         return state.user || JSON.parse(localStorage.getItem('auth_user'));
     },
     partner (state) { 
@@ -18,7 +18,7 @@ export default {
     },
     isProvider (state,getters) { 
         let data = localStorage.getItem('user_provider')=='Y';
-        console.mylog('load pr',data,getters)
+        //console.mylog('load pr',data,getters)
         if(data)
         data = data && !!getters.subscribeProvider
         return data;

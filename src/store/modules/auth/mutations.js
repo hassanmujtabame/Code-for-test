@@ -44,7 +44,7 @@ export default{
     },
     SET_IS_PROVIDER(state,payload){
         let data =payload;
-       console.mylog('SET_IS_PROVIDER',state,!!data,state.subscribeProvider)
+       //console.mylog('SET_IS_PROVIDER',state,!!data,state.subscribeProvider)
         if(data)
         data= (!!data && !!state.subscribeProvider)
         //console.mylog('SET_IS_PROVIDER',data)
