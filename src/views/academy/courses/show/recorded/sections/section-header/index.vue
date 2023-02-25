@@ -4,7 +4,7 @@
 
     <div class=" d-flex gap-2 justify-content-end my-3">
         <button v-if="!itemPage.user_is_join_course" @click="inscription" class="btn btn-custmer">أشترك في الدورة</button>
-        <button v-else @click="inscription" class="btn btn-danger">{{ $t('undo-joining') }}</button>
+        <button v-else @click="confirmCancelJoin" class="btn btn-danger">{{ $t('undo-joining') }}</button>
     </div>
     </div>
   </div>
@@ -40,7 +40,7 @@ export default {
             description:'',
             btns:[
               {title:this.$t('course-page'),action:()=>this.refresh()},
-              {title:this.$t('undo-joining'),action:()=>this.confirmCancelJoin()},
+              {title:this.$t('undo-joining'),action:()=>this.cancelJoin()},
             ]
     }
     this.showSuccessMsg(dataEvt)
@@ -51,11 +51,22 @@ export default {
       window.DHelper.catchException.call(this,error)
     }
   },
-  async confirmCancelJoin(){
+  confirmCancelJoin(){
+    let dataEvt ={
+      title:'هل أنت متأكد من ترجع من الإنضمام من هذه الدورة ؟',
+      btns:[
+        {title:this.$t('undo-joining'),action:()=>this.cancelJoin(),class:'btn btn-danger'}
+      ]
+    }
+    this.showConfirmMsg(dataEvt)
+  },
+  async cancelJoin(){
         try {
             let {data} = await academyAPI.coursesApi.cancelJoinCourse(this.itemPage.id)
             if(data.success){
-              //
+              this.refresh()
+            }else{
+              window.SwalError(data.message)
             }
         } catch (error) {
             window.DHelper.catchException.call(this,error)
