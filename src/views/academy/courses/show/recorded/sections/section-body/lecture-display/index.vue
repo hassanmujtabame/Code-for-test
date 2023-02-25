@@ -78,12 +78,12 @@ export default {
             this.playing = false;
             this.pause = false;
             this.play = false;
-            if(this.userAcademyRole !== 'student' || ! this.this.loadedVideo) return;
+            if(this.userAcademyRole !== 'student' || ! this.loadedVideo) return;
             this.fireEvent('update-lectures',{item:{...this.lectureSelected},type:'completed'
         })
 
             try {
-                await academyAPI.lecturesAPI.postAsEnded(this.itemPage.id,this.lectureSelected.id)
+                await academyAPI.lecturesAPI.postAsEnded(this.lectureSelected.id)
 
             } catch (error) {
                 window.DHelper.catchException.call(this,error)
