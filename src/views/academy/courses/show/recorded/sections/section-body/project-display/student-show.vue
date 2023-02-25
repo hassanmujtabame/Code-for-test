@@ -27,7 +27,7 @@
             vid="file"
             v-slot="{errors,validate}"
             >
-                <label :class="{disabled:uploading}"  class="btn btn-custmer">
+                <label :class="{disabled:uploading}"  class="btn btn-custmer position-relative">
                     <i v-if="uploading" class="fa fa-spinner fa-spin"></i>
                 <span v-if="percentProject">{{ percentProject }} %</span>
                     إرفع مشروعك الان
