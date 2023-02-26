@@ -6,6 +6,10 @@ class CoursesApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/courses?${s}`);
     }
+    getRecentCourses(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/courses?${s}`);
+    }
     getItem(id){
         return window.axios.get(`academy/instructor/courses/${id}`);
     }
