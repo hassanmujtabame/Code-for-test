@@ -1,25 +1,25 @@
 <template>
-  <div class="exam-student-item">
+  <div class="exam-student-item" :class="{mobile:isMobile}">
     
                            
     <div class="exam-student-item__wrapper">
             <div class="exam-student-item__body">
                 <div class="exam-student-item__image">
-                    <img class="rounded-circle" :src="item.image" alt="" width="48" height="48">
+                    <img class="rounded-circle" :src="item.user_info.image" alt="" width="48" height="48">
                 </div>
                 <div class="exam-student-item__info">
                     <h6 class="exam-student-item__title m-c p-0 m-0">
-                        {{item.name}}
+                        {{item.user_info.name}}
                     </h6>
                     <p  class="exam-student-item__subtitle t-c p-0 m-0">
                        <!--empty-->
                     </p>
                 </div>
                 <div class="exam-student-item__actions"> 
-            <button @click="previewProject(item)" class="btn-main px-2 ">
+            <a target="_blank" :href="item.file" class="btn btn-custmer px-2 ">
                 عرض المشروع
-            </button>
-            <button @click="rateProject(item)" class="btn-main btn-secondary px-2 ">
+            </a>
+            <button @click="rateProject(item)" class="btn btn-custmer btn-secondary px-2 mx-2">
                 تقييم المشروع
             </button>
         </div>
@@ -63,6 +63,10 @@ export default {
     height: 48px;
     width: 48px;
 }
+.mobile .exam-student-item__image{
+    height: 40px;
+    width: 40px;
+}
 .exam-student-item__image>img{
     width:100%;
     height:100%;
@@ -83,6 +87,10 @@ text-transform: capitalize;
 
 color: #1FB9B3;
 }
+.mobile .exam-student-item__title{
+    font-size: 0.8rem;
+    line-height: 0.9rem;
+}
 .exam-student-item__subtitle{
     font-style: normal;
 font-weight: 400;
@@ -91,15 +99,17 @@ line-height: 17px;
 /* identical to box height, or 106% */
 color: #737373;
 }
+.mobile .exam-student-item__subtitle{
+    font-size: 0.7rem;
+    line-height: 0.75rem;
+}
 .exam-student-item__actions{
     flex-shrink: 0;  
+    display: flex;
 }
-.exam-student-item__actions>button{
-    height: 40px; 
+.exam-student-item__actions>button,.exam-student-item__actions>a{
     min-width: 100px;
     font-weight: 400;
-font-size: 16px;
-line-height: 17px;
 /* or 106% */
 text-align: center;
 display: flex;

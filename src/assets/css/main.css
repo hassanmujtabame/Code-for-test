@@ -1860,7 +1860,9 @@ select.show-arrow{
         }
 
 .btn{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    line-height: 0.75rem;
+    height: 30px;
 }
 .btn-main {
     height: 36px;
