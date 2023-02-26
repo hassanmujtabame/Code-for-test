@@ -1,5 +1,5 @@
 <template>
-    <div class="student-course box">
+    <div class="student-course box border">
                                     <div class="student-course__image">
                                         <img class="w-100 rounded-top" :src="item.image_path" :alt="item.title"
                                             height="100%">
