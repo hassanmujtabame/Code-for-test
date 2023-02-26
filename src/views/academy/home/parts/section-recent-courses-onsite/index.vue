@@ -15,13 +15,15 @@
               </div>
               <div class="row">
               <div
-             class="col-12 col-sm-6 col-md-4"
+             class="col-12 col-sm-6 col-md-4 mt-2"
                 v-for="(item,i) in items"
                 :key="i"
               >
+              <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item})" >
                 <CardVue 
                 :item="item"
                 />
+                </router-link>
               </div>
             </div>
             </div>
