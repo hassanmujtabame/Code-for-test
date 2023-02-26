@@ -27,11 +27,14 @@ export default {
     sidebarBox,
     CourseCard
   },
-  data:()=>{
+  data:(vm)=>{
+    let type = vm.$route.query.type
+    if(!type || !['live','on-site','recorded'].includes(type))
+    type=null;
     return {
       filterSide:{
       type_training:null,
-      type:null,
+      type:type,
       department_id:[],
       min_price:0,
       max_price:1000
@@ -40,7 +43,7 @@ export default {
             search:null,
             price:'asc',
             type_training:null,
-            type:null,
+            type:type,
             department_id:[],
             min_price:0,
         max_price:1000

@@ -109,8 +109,8 @@ const mixin = {
           else
            return result+" "+ago;
             },
-            router_push(link,data={}){
-              this.$router.push(this.getRouteLocale(link,data))
+            router_push(link,params={},query={}){
+              this.$router.push(this.getRouteLocale(link,params,query))
             },
             getTitleSubscribe(type){
               switch (type) {
@@ -244,8 +244,8 @@ const mixin = {
             fireCloseDialog(group,data={}){
               this.fireEvent(group+'-close-dialog',data)
           },
-            getRouteLocale(name,params={}){
-            return {name,params:{lang:this.$i18n.locale,...params}}
+            getRouteLocale(name,params={},query={}){
+            return {name,params:{lang:this.$i18n.locale,...params},query:{...query}}
             },
             generatetoUrl(name,params={}){
               let r=   this.$router.resolve({
