@@ -35,7 +35,7 @@
 import CardVue from '@/components/cards/academy-course.vue'
 import coursesApI from '@/services/api/academy/courses.js'
 export default {
-    name:'section-recent-courses-online',
+    name:'section-recent-courses-recorded',
     components:{
         CardVue
     },

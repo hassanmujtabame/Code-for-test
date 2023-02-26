@@ -9,8 +9,8 @@
         <section-academy-schedule />
         <!-- section recent courses online-->
         <SectionRecentCoursesOnline />
-        <!-- section recent courses offline-->
-        <SectionRecentCoursesOffline />
+        <!-- section recent courses Recored-->
+        <SectionRecentCoursesRecored />
         <!-- educational meetings-->
       <SectionEducationalMeeting />
         <!-- section our partner-->
@@ -36,7 +36,7 @@ import SectionAuthHeader from './parts/section-auth-header/index.vue'
 import SectionAcademySchedule from './parts/section-academy-schedule/index.vue'
 import SectionBestInstructors from './parts/section-best-instructors/index.vue'
 import SectionRecentCoursesOnline from './parts/section-recent-courses-online/index.vue'
-import SectionRecentCoursesOffline from './parts/section-recent-courses-offline/index.vue'
+import SectionRecentCoursesRecored from './parts/section-recent-courses-recorded/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionContinueLearning from '@/views/academy/common-components/section-continue-learning/index.vue'
 import SectionHear from '@/views/academy/common-components/section-hear/index.vue'
@@ -50,7 +50,7 @@ components:{
   SectionAcademySchedule,
   SectionBestInstructors,
   SectionRecentCoursesOnline,
-  SectionRecentCoursesOffline,
+  SectionRecentCoursesRecored,
   SectionOurPartners,
   SectionContinueLearning,
   SectionHear
