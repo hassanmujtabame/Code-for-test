@@ -1,15 +1,11 @@
 <template>
  <div class="course-show-page__header">
     <div class="row">
-                <div v-for="(widget,i) in widgets" :key="i" class="col-md-3">
+                <div v-for="(widget,i) in widgets" :key="i" class="col-6 col-md-3">
                     <widgetInfo v-bind="widget" />
                 </div>
-            
-          
-
             </div>
             <div class="text-end">
-
                 <div class=" d-flex gap-2 justify-content-end my-3">
                     <div> 
                         <button @click="updateCourse" class="btn-main btn-action-page px-3 w-100 border-0 rounded-2"  role="button">

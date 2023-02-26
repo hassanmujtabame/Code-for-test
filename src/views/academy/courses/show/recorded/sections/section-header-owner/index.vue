@@ -1,7 +1,7 @@
 <template>
  <div class="course-show-page__header">
     <div class="row">
-                <div v-for="(widget,i) in widgets" :key="i" class="col-md-3">
+                <div v-for="(widget,i) in widgets" :key="i" class="col-6 col-md-3">
                     <widgetInfo v-bind="widget" />
                 </div>
             
