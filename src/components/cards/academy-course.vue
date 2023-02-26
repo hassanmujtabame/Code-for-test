@@ -16,12 +16,12 @@
                                         <p class="student-course__description text-two-lines">{{ item.desc }}</p>
                                         <div v-if="showInfo" class="d-flex gap-2">
 
-                                                <p class="student-course__item-info">
+                                                <p class="student-course__item-info flex-shrink-0 ">
                                                     <d-empty-wallet-icon :size="24" color="currentColor"/>
                                                         {{item.price??'N/A'}} {{ $t('riyals') }}
                                                 </p>
 
-                                                <p class="student-course__item-info">
+                                                <p class="student-course__item-info flex-shrink-0 ">
                                                     <d-localisation-icon :size="24"  color="currentColor"/>
                                                         {{$t(item.type)}}
                                                 </p>
@@ -90,8 +90,18 @@ height:34px;
 text-align: start;
 }
 .student-course__item-info{
-    color: #979797;
+
     min-width: 50px;
     margin: 0;
+    font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 17px;
+/* identical to box height, or 106% */
+
+display: flex;
+align-items: center;
+
+color: #979797;
 }
 </style>
