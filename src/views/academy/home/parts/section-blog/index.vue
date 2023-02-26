@@ -10,12 +10,15 @@
           </div>
             <div class="row">
                 <div v-for="(item,i) in items" :key="i" class="col-md-4 mt-2" >
-           <BlogInfoCard 
-           :img="item.image"
-            :title="item.title"
-            :description="item.short_description??item.description"
-             :date="item.created_at"
-           />
+                  <router-link class="router-link" :to="getRouteLocale('academy-blog-show',{id:item.id})">
+           
+                    <BlogInfoCard 
+                    :img="item.image"
+                    :title="item.title"
+                    :description="item.short_description??item.description"
+                    :date="item.created_at"
+                    />
+                  </router-link>
           </div>
               
             </div>
