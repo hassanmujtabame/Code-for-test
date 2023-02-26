@@ -128,6 +128,37 @@
             </ValidationProvider>
         <!-- </keep-alive> -->
             </div>
+              <!--price-->
+              <div class="mb-3">
+                <!-- <keep-alive> -->
+                <ValidationProvider :name="$t('course-price')"
+                    vid="price"
+                    rules="required|numeric"
+                    v-slot="{errors}"
+                    v-if="step==2"
+                    >
+                <d-text-input type="text" :errors="errors"  v-model="itemForm.price" :label="$t('course-price')" />
+            </ValidationProvider>
+        <!-- </keep-alive> -->
+            </div>
+            <!--type_training-->
+            <div class="mb-3 position-relative">
+                <!-- <keep-alive> -->
+                <ValidationProvider :name="$t('type-training')"
+                    vid="type_training"
+                    rules="required"
+                    v-slot="{errors}"
+                    v-if="step==2"
+                    >
+                <d-select-input :errors="errors" v-model="itemForm.type_training" label="حدد نوع التريب" >
+                    <option value="" class="t-c" selected disabled>حدد نوع التريب</option>
+                    <option  class="t-c"  value="prive"> {{ $t('prive') }}</option>
+                    <option  class="t-c"  value="public"> {{ $t('public') }}</option>
+                  
+                </d-select-input>
+            </ValidationProvider>
+        <!-- </keep-alive> -->
+            </div>
             <!-- place_id -->
             <div class="mb-3">
                 <!-- <keep-alive> -->
@@ -378,7 +409,8 @@
                 notes:'',
                 desc:'',
                 image:null,
-                //price:0,
+                price:0,
+                type_training:null,
             }
             if(dataEvt){
                 let {id,course_days,
@@ -392,7 +424,10 @@
                 place_id,
                 notes,
                 desc,
-                image} = dataEvt;
+                image,
+                price,
+                type_training
+            } = dataEvt;
                 this.itemForm = Object.assign(this.itemForm,{
                     id,
                 course_days,
@@ -406,7 +441,10 @@
                 place_id,
                 notes,
                 desc,
-                image})
+                image,
+                price,
+                type_training
+            })
             }
             this.showDialog = true;
             return true;

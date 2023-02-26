@@ -579,5 +579,9 @@
   "live": "Live",
   "recored": "recored",
   "on-sites": "On site",
-  "note": "Note"
+  "note": "Note",
+  "course-price": "Price",
+  "type-training": "type training",
+  "prive": "Private",
+  "public": "Public"
 }

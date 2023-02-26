@@ -574,5 +574,9 @@
   "live": "لايف",
   "recored": "مسجلة",
   "on-sites": "في مقرات",
-  "note": "العلامة"
+  "note": "العلامة",
+  "course-price": "سعر الدورة",
+  "type-training": "نوع التدريب",
+  "prive": "خاص",
+  "public": "عام"
 }

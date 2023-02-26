@@ -7,7 +7,8 @@
     <template v-slot:default>
         <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
-                <div class="mt-3">
+            <!--number_day-->
+            <div class="mt-3">
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('num_days')"
                     vid="number_day"
@@ -19,6 +20,7 @@
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
+                <!--course_days-->
                 <div class="mt-3">
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('days_week')"
@@ -36,6 +38,7 @@
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
+                <!--start_date-->
                 <div class="mt-3">
                     <!-- <keep-alive> -->
                     <ValidationProvider :name="$t('start_date_course')"
@@ -71,6 +74,7 @@
                 </div>
         </ValidationObserver>
         <ValidationObserver class="form-step" ref="form2" id="form-step-2" v-show="step==2">
+            <!--title-->
             <div class="mb-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-title')"
@@ -83,6 +87,7 @@
             </ValidationProvider>
         <!-- </keep-alive> -->
             </div>
+            <!--department_id-->
             <div class="mb-3 position-relative">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-domain')"
@@ -99,6 +104,38 @@
             </ValidationProvider>
         <!-- </keep-alive> -->
             </div>
+             <!--price-->
+             <div class="mb-3">
+                <!-- <keep-alive> -->
+                <ValidationProvider :name="$t('course-price')"
+                    vid="price"
+                    rules="required|numeric"
+                    v-slot="{errors}"
+                    v-if="step==2"
+                    >
+                <d-text-input type="text" :errors="errors"  v-model="itemForm.price"  :label="$t('course-price')" />
+            </ValidationProvider>
+        <!-- </keep-alive> -->
+            </div>
+            <!--type_training-->
+            <div class="mb-3 position-relative">
+                <!-- <keep-alive> -->
+                <ValidationProvider :name="$t('type-training')"
+                    vid="type_training"
+                    rules="required"
+                    v-slot="{errors}"
+                    v-if="step==2"
+                    >
+                <d-select-input :errors="errors" v-model="itemForm.type_training" label="حدد نوع التريب" >
+                    <option value="" class="t-c" selected disabled>حدد نوع التريب</option>
+                    <option  class="t-c"  value="prive"> {{ $t('prive') }}</option>
+                    <option  class="t-c"  value="public"> {{ $t('public') }}</option>
+                  
+                </d-select-input>
+            </ValidationProvider>
+        <!-- </keep-alive> -->
+            </div>
+            <!--meeting_url-->
             <div class="mb-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-meeting-url')"
@@ -334,7 +371,8 @@
                 has_exam:0,
                 desc:'',
                 image:null,
-                //price:0,
+                price:null,
+                type_training:null,
             }
             if(dataEvt){
                 let { id,course_days,
@@ -346,7 +384,10 @@
                 meeting_url,
                 has_exam,
                 desc,
-                image} = dataEvt
+                image,
+                price,
+                type_training
+            } = dataEvt
                 this.itemForm = Object.assign(this.itemForm,{ id,course_days,
                 number_day,
                 start_date,
@@ -356,7 +397,10 @@
                 meeting_url,
                 has_exam,
                 desc,
-                image})
+                image,
+                price,
+                type_training
+            })
             }
             this.showDialog = true;
             return true;
