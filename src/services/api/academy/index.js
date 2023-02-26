@@ -7,7 +7,7 @@ import examsAPI from "./exams";
 import meetings from "./instructor/meetings";
 import instructor from "./instructor";
 import student from "./student";
-
+import blogs from "../blogs";
 class academyApi extends BaseApi{
     coursesApi = coursesApi;
     lecturesAPI = lecturesAPI;
@@ -15,6 +15,7 @@ class academyApi extends BaseApi{
     projectsAPI = projectsApi;
     meetingsAPI = meetings;
     instructor = instructor;
+    blogs = blogs;
     student = student;
     getPackages(params={}){
         let s=this.generateQueryUrl(params)
