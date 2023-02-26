@@ -60,7 +60,8 @@ data: () => ({
         try {
           let params = {
             page:metaInfo.current_page,
-            ...this.filterItem
+            ...this.filterItem,
+            paginate: this.isMobile?3:undefined
           }
             return await learningMeetingsAPI.getAll(params)
 
