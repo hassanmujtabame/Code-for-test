@@ -32,14 +32,18 @@ export default {
       filterSide:{
       type_training:null,
       type:null,
-      category_id:[],
+      department_id:[],
+      min_price:0,
+      max_price:1000
     },
         filterItem:{
             search:null,
             price:'asc',
             type_training:null,
             type:null,
-            category_id:[],
+            department_id:[],
+            min_price:0,
+        max_price:1000
         },
       items:[]
     }

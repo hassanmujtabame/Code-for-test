@@ -43,7 +43,7 @@
                     aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body show">
                         <div v-for="(cat,i) in categories" :key="i" class="form-check">
-                            <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="checkbox">
+                            <input v-model="filter.department_id" :value="cat.id" class="form-check-input" type="checkbox">
                             <label class="form-check-label" for="defaultCheck1">
                                 {{cat.name}}
                             </label>
@@ -78,6 +78,30 @@
                     </div>
                 </div>
             </div>
+            <!--سعر الدورة-->
+            <div class="accordion-item show">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseFour">
+                                    سعر الدورة
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
+                                aria-labelledby="panelsStayOpen-headingFour">
+                                <div style="margin: 20px 0px 0 0" class="a">
+                                    <div class="slider-container">
+                                       
+                                        <rslider-input
+                                         :min.sync="filter.min_price" 
+                                         :max.sync="filter.max_price"
+                                         :lmin="0"
+                                         :lmax="1000"
+                                         />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
         </div>
         <div class="mt-3 text-center">
             <button @click="updateFilter" class="btn-custmer">
@@ -88,7 +112,7 @@
 </template>
 
 <script>
-import exhibitionsAPIs from '@/services/api/exhibitions.js'
+import academyAPI from '@/services/api/academy'
 
 export default {
  name:'sidebar-box',
@@ -129,7 +153,7 @@ export default {
  },
  async getCategories() {
             try {
-                let { data } = await exhibitionsAPIs.getCategories()
+                let { data } = await academyAPI.getDepartments();
                 if (data.success) {
 
                     let categories = data.data;
