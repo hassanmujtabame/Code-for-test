@@ -1,11 +1,11 @@
 <template>
-  <div class="sec-five mt-5 p-3">
+  <div class="sec-five">
             <div class="">
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-                <h1> أبرز مدربتنا في اكاديمية رياديات</h1>
-                <div>
+                <h1 class="home-section-title"> أبرز مدربتنا في اكاديمية رياديات</h1>
+                <div v-if="false">
                     <button class="more">
                       <a href="" class="text-dark">
                           {{ $t('more') }}
@@ -14,11 +14,10 @@
                   </div>
               </div>
               <d-swiper
-              style="overflow-x: hidden"
-            :slides-per-view="5"
-            is-auto
-            :space-between="10"
-              :items="items"
+                :slides-per-view="4"
+                is-auto
+                :space-between="10"
+                :items="items"
             >
        
             <template  v-slot:default="{item}" >

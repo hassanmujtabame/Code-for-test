@@ -3,13 +3,10 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-6">
-                    <h1 class="fs-1 text-white">
+                    <h1 class="header-title-page">
                         اكاديمية رياديات </h1>
-                    <p class="text-white">
+                    <p class="header-desc-page">
                         طوري مهاراتك و أنطلقي في عالم ريادة الاعمال والعمل الحر , أكاديمية رياديات ستكون معكِ خطوة بخطوة
-
-                        ويمكن من خلالها الحصول على المساعدة والتشجيع للدخول في مجال ريادة الأعمال من خلال مجموعة من
-                        الخدمات والمزايا
                     </p>
                 </div>
                 <div class="col-md-6">

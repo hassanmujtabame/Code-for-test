@@ -2,6 +2,7 @@
   <div>
         <!-- section 1-->
         <SectionAuthHeader />
+        <div class="container">
         <!-- section best instructors-->
         <SectionBestInstructors />
         <!-- section section-academy-schedule-->
@@ -16,6 +17,7 @@
         <SectionOurPartners/>
         <!-- section blog-->
         <SectionBlog/>
+      </div>
         <!-- section Continue learning-->
       <SectionContinueLearning />
 

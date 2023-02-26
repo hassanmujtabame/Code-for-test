@@ -1,6 +1,6 @@
 <template>
     <div class="network-subscribe p-3">
-        <h2 class="text-center">
+        <h2 class="home-section-title text-center">
               شركائنا في أكاديمية رياديات 
             </h2>
               <div class=" ">

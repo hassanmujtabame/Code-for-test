@@ -5,7 +5,7 @@
   <div
     class="d-flex justify-content-between align-items-center container"
   >
-    <h1> لقاءات تعليمية      </h1>
+    <h1 class="home-section-title"> لقاءات تعليمية</h1>
     <div>
       <router-link custom :to="getRouteLocale('academy-learning-meetings')" v-slot="{navigate}">
       <button @click="navigate" role="link" class="more">{{ $t('more') }}</button>

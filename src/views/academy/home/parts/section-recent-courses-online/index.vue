@@ -4,7 +4,7 @@
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-              <h1> أحدث الدورات الاونلاين    </h1>
+              <h1 class="home-section-title"> أحدث الدورات الاونلاين  </h1>
                 <div>
                     <button class="more">
                       <a href="" class="text-dark">
@@ -14,21 +14,16 @@
                   </div>
               </div>
               <d-swiper
-            :slides-per-view="slidesperview"
-            :space-between="10"
-            is-auto
-              :items="items"
+              v-if="!loading"
+              :slides-per-view="slidesperview"
+              :space-between="10"
+              is-auto
+                :items="items"
             >
        
             <template  v-slot:default="{item}" >
                 <CardVue 
-                :category="item.departmentName"
-                :title="item.title" 
-                :img="item.path"
-                :price="item.price"
-                :place="item.placeNAME"
-                :description="item.description"
-                :name="item.instructorName"
+                :item="item"
                 />
                 </template>
               </d-swiper>
@@ -37,19 +32,21 @@
 </template>
 
 <script>
-import CardVue from '@/components/cards/course.vue'
+import CardVue from '@/components/cards/academy-course.vue'
 import coursesApI from '@/services/api/academy/courses.js'
 export default {
-    name:'section-recent-courses',
+    name:'section-recent-courses-online',
     components:{
         CardVue
     },
     data:()=>({
         items:[],
+        loading:true,
         slidesperview:4
     }),
     methods:{
      async loadList(){
+      this.loading =  true;
         try {
           let {data} = await coursesApI.getAll()
           if(data.success){
@@ -59,6 +56,7 @@ export default {
         } catch (error) {
           console.log('error',error)
         }
+        this.loading =  false;
       }
     },
     mounted(){

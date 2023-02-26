@@ -3,7 +3,7 @@
             <div
             class="d-flex justify-content-between align-items-center container"
           >
-            <h1>المدونة    </h1>
+            <h1 class="home-section-title">المدونة</h1>
             <div>
               <button class="more">{{ $t('more') }}</button>
             </div>
