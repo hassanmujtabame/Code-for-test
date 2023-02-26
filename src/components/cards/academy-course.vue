@@ -65,5 +65,6 @@ line-height: 17px;
 color: #737373;
 margin: 0;
 height:34px;
+text-align: start;
 }
 </style>
