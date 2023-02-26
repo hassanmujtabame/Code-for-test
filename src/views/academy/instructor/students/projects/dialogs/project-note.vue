@@ -37,7 +37,10 @@
   </template>
   <template v-slot:actions>
     <div class="text-center">
-        <button @click="save" :disabled="loading" class="btn btn custmer">أرسل التقييم</button>
+        <button @click="save" :disabled="loading" class="btn btn-custmer">
+            <i v-if="loading" class="fa fa-spinner fa-spin"></i>
+            أرسل التقييم
+        </button>
     </div>
   </template>
   </d-dialog-large>
@@ -79,7 +82,11 @@ export default {
     },
     openDialog(evt){
         this.itemDialog = evt;
-        this.itemForm={rate:null,desc:''}
+        this.itemForm={note:null,desc:''}
+        if(evt.rate){
+            this.itemForm.note = evt.rate.note
+            this.itemForm.desc = evt.rate.desc
+        }
         this.showDialog = true;
         return true;
     },

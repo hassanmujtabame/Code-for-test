@@ -11,8 +11,14 @@
                     <h6 class="exam-student-item__title m-c p-0 m-0">
                         {{item.user_info.name}}
                     </h6>
-                    <p  class="exam-student-item__subtitle t-c p-0 m-0">
+                    <p  class="exam-student-item__subtitle t-c p-0 m-0 position-relative">
                        <!--empty-->
+                       <template v-if="item.rate">
+                        <span>{{ item.rate.note }} /100 </span> 
+                        <d-hover tooltip >
+                        <span class="t-c clickable" v-if="item.rate.desc" data-bs-toggle="tooltip" data-bs-placement="top" :title="item.rate.desc">- ملاحظة</span>
+                        </d-hover>
+                    </template>
                     </p>
                 </div>
                 <div class="exam-student-item__actions"> 
