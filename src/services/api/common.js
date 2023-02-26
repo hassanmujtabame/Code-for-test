@@ -55,10 +55,10 @@ getTypeCertificates(){
   }
   getCourseTypes(){
     return [
-      {id:'on-site',name:_i18n.t('on-site')},
+      {id:'on-site',name:_i18n.t('on-sites')},
       {id:'live',name:_i18n.t('live')},
       {id:'recored',name:_i18n.t('recored')},
-]
+    ]
   }
 
     getMeetingTypes(){

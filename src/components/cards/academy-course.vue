@@ -14,6 +14,24 @@
                                             </p>
                                         </div>
                                         <p class="student-course__description text-two-lines">{{ item.desc }}</p>
+                                        <div v-if="showInfo" class="d-flex gap-2">
+
+                                                <p class="student-course__item-info">
+                                                    <d-empty-wallet-icon :size="24" color="currentColor"/>
+                                                        {{item.price??'N/A'}} {{ $t('riyals') }}
+                                                </p>
+
+                                                <p class="student-course__item-info">
+                                                    <d-localisation-icon :size="24"  color="currentColor"/>
+                                                        {{$t(item.type)}}
+                                                </p>
+                                                
+                                                <p class="student-course__item-info">
+                                                    <d-school-wallet-icon :size="24"  color="currentColor"/>
+                                                    {{item.user_info?item.user_info.name:'N/A'}}
+                                                </p>
+
+</div>
                                     </div>
                                 </div>
 </template>
@@ -22,7 +40,11 @@
 export default {
     name: 'academy-course-card',
     props:{
-        item:{}
+        item:{},
+        showInfo:{
+            type:Boolean,
+            default:true
+        }
     }
 }
 </script>
@@ -66,5 +88,10 @@ color: #737373;
 margin: 0;
 height:34px;
 text-align: start;
+}
+.student-course__item-info{
+    color: #979797;
+    min-width: 50px;
+    margin: 0;
 }
 </style>
