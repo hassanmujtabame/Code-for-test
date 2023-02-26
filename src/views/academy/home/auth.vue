@@ -11,6 +11,7 @@
         <SectionRecentCoursesOnline />
         <!-- section recent courses Recored-->
         <SectionRecentCoursesRecored />
+        <SectionRecentCoursesOnSite />
         <!-- educational meetings-->
       <SectionEducationalMeeting />
         <!-- section our partner-->
@@ -37,6 +38,7 @@ import SectionAcademySchedule from './parts/section-academy-schedule/index.vue'
 import SectionBestInstructors from './parts/section-best-instructors/index.vue'
 import SectionRecentCoursesOnline from './parts/section-recent-courses-online/index.vue'
 import SectionRecentCoursesRecored from './parts/section-recent-courses-recorded/index.vue'
+import SectionRecentCoursesOnSite from './parts/section-recent-courses-onsite/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionContinueLearning from '@/views/academy/common-components/section-continue-learning/index.vue'
 import SectionHear from '@/views/academy/common-components/section-hear/index.vue'
@@ -51,6 +53,7 @@ components:{
   SectionBestInstructors,
   SectionRecentCoursesOnline,
   SectionRecentCoursesRecored,
+  SectionRecentCoursesOnSite,
   SectionOurPartners,
   SectionContinueLearning,
   SectionHear
