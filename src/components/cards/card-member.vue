@@ -52,10 +52,10 @@ export default {
     padding:5px
 }
 .provider-card__wrapper{
-    margin: 0 0 20px 0;
+    margin: 0 0 0px 0;
     width: 250px;
     max-width: 250px;
-    height: 340px;
+    /*height: 340px;*/
     border-radius:11px 11px 0 0;
     border:0.5px solid #f2f2f2
 }

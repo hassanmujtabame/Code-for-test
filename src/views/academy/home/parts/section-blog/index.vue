@@ -43,7 +43,7 @@ components:{
     async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await academyAPI.blogs.getAll();
+          let { data } =  await academyAPI.blogs.getRecent({paginate:3});
           if(data.success){
             this.items = data.data
             this.total = data.meta.total

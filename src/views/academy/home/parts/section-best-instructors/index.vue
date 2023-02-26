@@ -1,5 +1,5 @@
 <template>
-  <div class="sec-five">
+  <div class="sec-five py-3">
             <div class="">
               <div
                 class="d-flex justify-content-between align-items-center container"
