@@ -2009,3 +2009,31 @@ color: #414042;
     height: 16px;
 }
   }
+
+.header-title-page{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 72px;
+    /* identical to box height, or 129% */
+    color: #FFFFFF;
+  }
+  .header-desc-page{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    /* or 133% */
+    color: #FFFFFF;
+  }
+  .home-section-title{
+    font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 72px;
+/* identical to box height, or 180% */
+text-transform: capitalize;
+/* 414042 */
+    color: #414042;
+    margin: 0;
+  }
