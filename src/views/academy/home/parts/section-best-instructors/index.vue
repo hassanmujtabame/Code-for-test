@@ -14,6 +14,7 @@
                   </div>
               </div>
               <d-swiper
+              v-if="!loading"
                 :slides-per-view="4"
                 is-auto
                 :space-between="10"
@@ -24,7 +25,7 @@
                 <CardMember 
                 :name="item.name" 
                 :description="item.description" 
-                :img="item.img"/>
+                :img="item.image"/>
                 </template>
               </d-swiper>
  </div>
@@ -35,25 +36,35 @@
 <script>
 
 import CardMember from '@/components/cards/card-member.vue'
-
+import academyAPI from '@/services/api/academy';
 export default {
     name:'section-best-instructors',
     components:{
         CardMember
     },
     data:()=>({
-        items:[
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'التصوير',img:'/assets/img/Rectangle 1775qa.png'},
-        ]
-    })
+    loading:true,
+  total:0,
+    items:[]
+ }),
+ methods:{
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await academyAPI.instructor.getBest({paginate:1});
+          if(data.success){
+            this.items = data.data
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  },
+  mounted(){
+    this.initlizing()
+
+ }
 }
 </script>
 
