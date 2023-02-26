@@ -1,61 +1,27 @@
 <template>
     <div class="network-subscribe p-3">
         <h2 class="home-section-title text-center">
-              شركائنا في أكاديمية رياديات 
+            شركائنا في أكاديمية رياديات 
             </h2>
               <div class=" ">
                  <DTabs group="pills" :current.sync="currentTab">
-                  <TabHead :current.sync="currentTab" group="pills"  reference="organizers">
-                      منظمات الحفلات
+                  <TabHead
+                  v-for="(item,i) in categories"
+                  :key="i"
+                  :current.sync="currentTab" group="pills"  :reference="`cat-${item.id}`">
+                  {{ item.name }}
                   </TabHead>
-                  <TabHead :current.sync="currentTab" group="pills"  reference="designer">
-                      مصممات الديكور
-                  </TabHead>
-                  <TabHead :current.sync="currentTab" group="pills"  reference="design">
-                      التصميم
-              </TabHead>
-              <TabHead :current.sync="currentTab" group="pills"  reference="flowers">
-                  الزهور
-              </TabHead>
-              <TabHead :current.sync="currentTab" group="pills"  reference="parfum">
-                  العطور
-              </TabHead>
-              <TabHead :current.sync="currentTab" group="pills"  reference="fashion">
-                  الازياء
-              </TabHead>
-              <TabHead :current.sync="currentTab" group="pills"  reference="beauty">
-                  التجميل
-              </TabHead>
-              <TabHead :current.sync="currentTab" group="pills"  reference="jewelry">
-                  المجوهرات
-              </TabHead>
+                
               <div class="container">
   
   <div class="tab-content" id="pills-tabContent">
-      <TabItem :current.sync="currentTab" group="pills" reference="organizers" v-slot="{selected}">
-          <TabOrg :selected="selected"/>
+      <TabItem
+      v-for="(item,i) in categories"
+                  :key="i"
+      :current.sync="currentTab" group="pills" :reference="`cat-${item.id}`" v-slot="{selected}">
+          <TabContentItem :categoryId="item.id" :selected="selected"/>
       </TabItem>
-      <TabItem :current.sync="currentTab" group="pills" reference="designer" v-slot="{selected}">
-          <TabDesigner :selected="selected"/>
-      </TabItem>
-      <TabItem :current.sync="currentTab" group="pills" reference="design" v-slot="{selected}">
-          <TabDesign :selected="selected"/>
-      </TabItem>
-      <TabItem :current.sync="currentTab" group="pills" reference="flowers" v-slot="{selected}">
-          <TabFlowers :selected="selected"/>
-      </TabItem>
-      <TabItem :current.sync="currentTab" group="pills" reference="parfum" v-slot="{selected}">
-          <TabParfum :selected="selected"/>
-      </TabItem>
-      <TabItem :current.sync="currentTab" group="pills" reference="fashion" v-slot="{selected}">
-          <TabFashion :selected="selected"/>
-      </TabItem>
-      <TabItem :current.sync="currentTab" group="pills" reference="beauty" v-slot="{selected}">
-          <TabBeauty :selected="selected"/>
-      </TabItem>
-      <TabItem :current.sync="currentTab" group="pills" reference="jewelry" v-slot="{selected}">
-          <TabJewelry :selected="selected"/>
-      </TabItem>
+      
       </div>
       </div>
   
@@ -72,35 +38,39 @@
   import TabHead from '@/components/tabs/TabHead.vue'
   import DTabs from '@/components/tabs/DTabs.vue'
   
-  import TabOrg from './tab-content/organizers.vue'
-  import TabDesigner from './tab-content/designer.vue'
-  import TabDesign from './tab-content/design.vue'
-  import TabBeauty from './tab-content/beauty.vue'
-  import TabFashion from './tab-content/fashion.vue'
-  import TabFlowers from './tab-content/flowers.vue'
-  import TabJewelry from './tab-content/jewelry.vue'
-  import TabParfum from './tab-content/parfum.vue'
+  import TabContentItem from './tab-content/index.vue'
+  import partnersAPI from '@/services/api/partners.js'
   export default {
-  name:'section-our-partners',
+  name:'section-partners',
   components:{
       DTabs,
       TabItem,
       TabHead,
-      TabOrg,
-      TabDesigner,
-      TabDesign,
-      TabBeauty,
-      TabFashion,
-      TabFlowers,
-      TabJewelry,
-      TabParfum,
+     TabContentItem,
   },
   data:()=>({
-      currentTab:''
+      currentTab:'',
+      loading:true,
+      categories:[],
   }),
-  mounted(){
-    window.AOS.init({})
-      this.currentTab='organizers';
+  methods:{
+
+  async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await partnersAPI.getCategories();
+          if(data.success){
+            this.categories = data.data
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  },
+  async mounted(){
+    await this.initlizing()
+      this.currentTab=`cat-${this.categories[0].id}`
     }
   }
   </script>

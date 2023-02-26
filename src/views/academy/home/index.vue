@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 85px " class="consult">
+  <div style="margin-top: 0px " class="consult">
     <auth-page v-if="token" />
     <GuestPage v-else />
     </div>
