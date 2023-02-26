@@ -41,7 +41,7 @@ export default {
     },
         filterItem:{
             search:null,
-            price:'asc',
+            created_at:'asc',
             type_training:null,
             type:type,
             department_id:[],
