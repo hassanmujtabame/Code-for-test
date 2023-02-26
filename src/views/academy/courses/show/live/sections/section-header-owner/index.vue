@@ -20,19 +20,19 @@
                         </button>
                     </div>
                     <div> 
-                    <button @click="updateCourse" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"  role="button">
+                    <button @click="updateCourse" style="height: 40px;" class="btn-main btn-action-page px-3 w-100 border-0 rounded-2"  role="button">
                         <d-rect-edit-icon />
                             تعديل
                     </button>
                     </div>
                     <div>
-                        <button style="height: 40px; background-color:#FFBC00 ;" class="btn-main px-3 w-100 border-0 rounded-2"  data-bs-toggle="modal" href="#exampleModalToggle-stop" role="button">
+                        <button style="height: 40px; background-color:#FFBC00 ;" class="btn-main btn-action-page px-3 w-100 border-0 rounded-2"  data-bs-toggle="modal" href="#exampleModalToggle-stop" role="button">
                             <d-send-icon />
                                 شارك
                         </button>
                     </div>
                     <div>
-                    <button style="height: 40px; background-color:#FF1616 ;" class="btn-main px-3 w-100 border-0 rounded-2"   data-bs-toggle="modal" href="#staticBackdrop2" role="button">
+                    <button style="height: 40px; background-color:#FF1616 ;" class="btn-main btn-action-page px-3 w-100 border-0 rounded-2"     role="button">
                         <d-trash-outline-icon :size="32" color="white"/>
                         حذف
                     </button>

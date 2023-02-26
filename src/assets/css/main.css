@@ -1990,3 +1990,22 @@ color: #414042;
     background-color: var(--bs-btn-disabled-bg);
     border-color: var( --bs-btn-disabled-border-color);
   }
+  .btn-action-page{
+    height: 40px;
+  }
+  .btn-delete{
+    background-color:#FF1616
+  }
+  .btn-wraning{
+    background-color:#FFBC00
+  }
+  @media screen and (max-width:362px){
+.btn-action-page{
+    font-size: .8rem;
+    height: 30px;
+}
+.btn-action-page>svg{
+    width: 16px;
+    height: 16px;
+}
+  }
