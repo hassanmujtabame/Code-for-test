@@ -7,9 +7,9 @@
               <h1 class="home-section-title">دورات في المقرات</h1>
                 <div>
                     <button class="more">
-                      <a href="" class="text-dark">
+                      <router-link :to="getRouteLocale('academy-courses',{},{type:'on-site'})" class="text-dark">
                           {{ $t('more') }}
-                      </a>
+                      </router-link>
                     </button>
                   </div>
               </div>

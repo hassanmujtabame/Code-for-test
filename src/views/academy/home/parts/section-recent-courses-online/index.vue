@@ -7,9 +7,9 @@
               <h1 class="home-section-title"> أحدث الدورات الاونلاين  </h1>
                 <div>
                     <button class="more">
-                      <a href="" class="text-dark">
+                      <router-link :to="getRouteLocale('academy-courses',{},{type:'live'})" class="text-dark">
                           {{ $t('more') }}
-                      </a>
+                      </router-link>
                     </button>
                   </div>
               </div>
