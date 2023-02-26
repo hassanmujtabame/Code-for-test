@@ -1,8 +1,15 @@
 <template>
   <div class="course-show-page__preview">
-    <div class="course-show-page__preview-header">
+    <div class="course-show-page__preview-header d-flex">
+      <div class="d-flex flex-column flex-grow-1">
         <h1>{{itemPage.title}}</h1>
         <h6>03 <bdi>يونيو</bdi> | 09:00 ص</h6>
+      </div>
+        <div v-if="isTablet || isMobile" class="justify-self-end align-self-center">
+          <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#course-menu-drawer" aria-controls="course-menu-drawer">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
     </div>
     <div class="course-show-page__preview-content">
     <div class="course-show-page__preview-content-wrapper">

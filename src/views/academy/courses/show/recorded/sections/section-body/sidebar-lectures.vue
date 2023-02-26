@@ -1,5 +1,8 @@
 <template>
-  <div class="course-show-page__lectures">
+  <div class="course-show-page__lectures" :class="{'offcanvas offcanvas-end':isTablet || isMobile}" tabindex="-1" :id="drawerId" aria-labelledby="course-menu-drawerLabel">
+  <div class="course-show-page__lectures-close" :class="{'show':isTablet || isMobile}">
+    <button :id="drawerId+'-close'" data-bs-dismiss="offcanvas" aria-label="Close" class="btn btn-danger"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+    </div>
     <div class="course-show-page__lectures-header">
       <h1>محتويات الدورة :</h1>
       <div v-if="isOwner" class="course-show-page__lectures-header_btns">
@@ -91,9 +94,15 @@ export default {
       selectedLecture:null,
       lecture:{id:1,during:'02.53',title:'مقدمة مالية',video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'},
       lectures:[],
+      drawerId:'course-menu-drawer'
     }
   },
   methods:{
+    closeDrawer(){
+     
+      var myOffcanvas = document.getElementById(this.drawerId+'-close')
+      window.$(myOffcanvas).click()
+    },
     showAddDialog(type){
       /**type:lecture | exam | project */
         this.fireOpenDialog(`add-${type}-course-dialog`,{page:this.itemPage,item:{id:null,title:null,video:null}})
@@ -247,6 +256,7 @@ export default {
     },
     selected(lect){
       if(lect.group) return;
+      this.closeDrawer()
       /** if student and is joinin this course */
       if(this.userAcademyRole=='student' && !this.itemPage.user_is_join_course){
         let DataEvt = {
@@ -417,6 +427,32 @@ color: #414042;
     border-bottom: 1px solid #d7d7d7;
     margin-right: -2rem;
     padding: 0 2rem;
+}
+.course-show-page__lectures-close{
+  position: absolute;
+  top: 0;
+  right:0;
+  left:auto;
+  padding:5px;
+  display: none;
+  color:red;
+}
+html[lang=en] .course-show-page__lectures-close{
+  left:0;
+  right:auto;
+}
+
+  .course-show-page__lectures.offcanvas{
+    margin: 0;
+    /*position:absolute;*/
+
+  }
+  html[lang=en] .course-show-page__lectures.offcanvas{
+    right:0;
+    left:auto;
+}
+.course-show-page__lectures-close.show{
+  display: block !important;
 }
 
 </style>
