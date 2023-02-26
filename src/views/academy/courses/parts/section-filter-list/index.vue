@@ -30,14 +30,14 @@ export default {
   data:()=>{
     return {
       filterSide:{
-      is_share:null,
+      type_training:null,
       type:null,
       category_id:[],
     },
         filterItem:{
             search:null,
             price:'asc',
-            is_share:null,
+            type_training:null,
             type:null,
             category_id:[],
         },

@@ -17,8 +17,8 @@
                     <div class="accordion-body">
                         <div>
                             <div v-for="(state,i) in states" :key="i" class="form-check">
-                                <input class="form-check-input" type="radio" :value="state.id" v-model="filter.is_share" 
-                                :selected="state.id===filter.is_share"
+                                <input class="form-check-input" type="radio" :value="state.id" v-model="filter.type_training" 
+                                :selected="state.id===filter.type_training"
                                 name="stateRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
@@ -103,8 +103,8 @@ export default {
     return{
         states:[
             {id:null,name:'الكل'},
-            {id:'global',name:'عام'},
-            {id:'specialite',name:'متخصص'},
+            {id:'public',name:'عام'},
+            {id:'prive',name:'متخصص'},
         ],
         types:[
             {id:null,name:'الكل'},
