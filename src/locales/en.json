@@ -574,5 +574,8 @@
   "fail": "Fail",
   "pass": "pass",
   "todo": "todo",
-  "rate-project": "Rate project"
+  "rate-project": "Rate project",
+  "on-site": "on-site",
+  "live": "Live",
+  "recored": "recored"
 }

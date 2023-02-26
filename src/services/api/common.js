@@ -53,7 +53,15 @@ getTypeCertificates(){
       {id:'saturday',name:_i18n.t('saturday')},
     ]
   }
-  getMeetingTypes(){
+  getCourseTypes(){
+    return [
+      {id:'on-site',name:_i18n.t('on-site')},
+      {id:'live',name:_i18n.t('live')},
+      {id:'recored',name:_i18n.t('recored')},
+]
+  }
+
+    getMeetingTypes(){
     return [
           {id:'board',name:_i18n.t('board')},
           {id:'business_to_business',name:_i18n.t('B2B')},

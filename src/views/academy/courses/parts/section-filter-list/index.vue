@@ -31,12 +31,14 @@ export default {
     return {
       filterSide:{
       is_share:null,
+      type:null,
       category_id:[],
     },
         filterItem:{
             search:null,
             price:'asc',
             is_share:null,
+            type:null,
             category_id:[],
         },
       items:[]
