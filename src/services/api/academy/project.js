@@ -21,6 +21,12 @@ class ProjectsApi extends BaseApi{
     deleteAttachment(id){
         return window.axios.delete(`academy/instructor/course-projects/attachments/${id}`);
     }
+    loadSettings(){
+        return window.axios.get(`academy/instructor/course-projects/setting`);
+    }
+    saveSettings(data){
+        return window.axios.post(`academy/instructor/course-projects/setting`,data);
+    }
 }
 
 export default new ProjectsApi();

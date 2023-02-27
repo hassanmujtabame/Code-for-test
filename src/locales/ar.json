@@ -578,5 +578,6 @@
   "course-price": "سعر الدورة",
   "type-training": "نوع التدريب",
   "prive": "متخصص",
-  "public": "عام"
+  "public": "عام",
+  "number_upload_project": "عدد مرات تسليم المشروع"
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="col-12 form-check mt-3">
-        <input class="form-check-input" v-model="value_" type="checkbox" :name="`correctRadios-${uuid}`"  v-on="$listeners">
+        <input class="form-check-input" v-model="value_" type="radio" :name="name"  v-on="$listeners" :value="value">
         <label class="form-check-label clickable fs-r-12-17">
             <slot>
             {{ label }}
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'd-check-input',
+    name: 'd-radio-input',
     props: {
         trueValue: {
             default: true
@@ -22,12 +22,13 @@ export default {
         name: {},
         label: {},
         value: {},
+        valuem: {},
         errors: {
             type: [Array, Object],
         }
     },
     model: {
-        prop: 'value',
+        prop: 'valuem',
         event: 'updateValue'
     },
     data: (vm) => {
@@ -42,26 +43,21 @@ export default {
             deep: true,
             handler() { }
         },
-        value: {
+        valuem: {
             deep: true,
             immediate: true,
             handler() {
-                if (Array.isArray(this.value)) {
-                    this.value_ = (this.value.includes(this.trueValue))
-                } else {
-                    this.value_ = this.value === this.trueValue ? true : false
-                }
+               
+                    this.value_ = this.valuem
+                
             }
         },
         value_: {
             deep: true,
+            immediate: true,
             handler(val) {
-                if (Array.isArray(val)) {
-                    this.$emit('updateValue', val)
-                } else {
-                    this.$emit('updateValue', this.value_ === true ? this.trueValue : this.falseValue)
-                }
-
+               this.$emit('updateValue',val)
+                
             }
         }
 

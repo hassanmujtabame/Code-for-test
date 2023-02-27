@@ -583,5 +583,6 @@
   "course-price": "Price",
   "type-training": "type training",
   "prive": "Private",
-  "public": "Public"
+  "public": "Public",
+  "number_upload_project": "number upload project"
 }
