@@ -23,67 +23,7 @@
                 </div>
 
             </div>
-            <div class="mt-5">
-                <h2 class="text-center">
-                    مزايا أكاديمية رياديات
-                                                </h2>
-                <div class="row min-riadiat network">
-                    <div class="col-md-3 mt-2 ">
-                        <div class="box border d-flex gap-4 align-items-center rounded-2">
-
-                            <div>
-                                <img src="/assets/img/Group-academy.png" alt="">
-                            </div>
-                            <div>
-                                دورت و معسكرات
-                                تدريبة مميـــــــــزة
-                            
-                            
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-3 mt-2 ">
-                        <div class="box border d-flex align-items-center  gap-4  rounded-2">
-
-                            <div>
-                                <img src="/assets/img/Group-academy-2.png" alt="">
-                            </div>
-                            <div>
-                                جلسة ارشاديــــــــة جماعية عن بعـــــــد
-                            
-                            
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-3 mt-2 ">
-                        <div class="box border d-flex align-items-center gap-4 rounded-2">
-
-                            <div>
-                                <img src="/assets/img/Group-aca-3.png" alt="">
-                            </div>
-                            <div>
-                                برامج التــــــــــــدريب يقدمها نخبة مــــــن رائدات الاعمــــــــــال 
-                                                                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-3 mt-2 ">
-                        <div class="box border d-flex align-items-center gap-4 rounded-2">
-
-                            <div>
-                                <img src="/assets/img/Group-aca-4.png" alt="">
-                            </div>
-                            <div>
-                                الانضمام لمجموعات  متخصصة فــي مجال اهتمامـــــــــــــــــــك
-                                                                   </div>
-                            
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+           
     
         </div>
 </template>

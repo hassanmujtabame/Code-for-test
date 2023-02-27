@@ -7,7 +7,7 @@
        <SectionTwo/>
         <!--#section 2-->
         <!-- section 3-->
-        <SectionThree />
+        <SectionFeatures />
         <!--#section 3-->
        <!-- section top instructor-->
        <sectionTopInstructor />
@@ -54,6 +54,7 @@
 import SectionGuestHeader from './parts/section-guest-header/index.vue'
 import SectionTwo from './parts/section-2/index.vue'
 import SectionThree from './parts/section-3/index.vue'
+import SectionFeatures from './parts/section-features/index.vue'
 import sectionTopInstructor from './parts/section-top-instructor/index.vue'
 import SectionTrainingFields from './parts/section-training-fields/index.vue'
 import SectionExploringEntrepreneurship from './parts/section-exploring-entrepreneurship/index.vue'
@@ -72,6 +73,7 @@ components:{
   SectionGuestHeader,
   SectionTwo,
   SectionThree,
+  SectionFeatures,
   sectionTopInstructor,
   SectionTrainingFields,
   SectionExploringEntrepreneurship,
