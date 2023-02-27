@@ -64,7 +64,7 @@ const routers =[
         path: 'academy/my-exams',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-your-exams',
-        component: () => import(/* webpackChunkName: "academy-your-exams" */ '../views/academy/your-exams/index.vue') 
+        component: () => import(/* webpackChunkName: "academy-your-exams" */ '../views/academy/exams/mine/index.vue') 
     },
     {
         path: 'academy/my-exams/:id/do-exam',
