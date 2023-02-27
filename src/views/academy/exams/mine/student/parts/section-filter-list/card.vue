@@ -3,7 +3,17 @@
     <div class="flex-grow-1">
         <h1 class="box-exam__course"><span class="m-c">إسم الدورة :</span> {{ item.course_name }}</h1>
     <h3 style="color:#F2631C" class="box-exam__name">{{ item.title }}</h3>
-    <p class="box-exam__note">ملاحظة : سيقوم المدرب بفحص مشروعك بنفسه وتقيمك</p>
+    <p class="box-exam__note">
+       <template v-if="item.status=='todo'">
+            ملاحظة:  تحتاج الى أداء هذا الاختبار
+       </template>
+       <template v-if="item.status=='pass'">
+        <span class="m-c">مبروك!</span><span>، لقد نجحت في الاختبار</span>
+        </template>
+        <template v-if="item.status=='fail'">
+        <span class="m-r">للأسف لم تجتزالاختبار بنجاح</span>
+        </template>
+    </p>
     </div>
 <div class="flex-shrink-0">
     <button @click="router_push('academy-your-exams-do-exam',{id:item.id})" class="btn btn-custmer"> إذهب الى الاختبار</button>
