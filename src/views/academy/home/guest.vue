@@ -9,6 +9,7 @@
         <!-- section 3-->
         <SectionFeatures />
         <SectionHelpsYou />
+        <SectionSubscribeNow />
         <!--#section 3-->
        <!-- section top instructor-->
        <sectionTopInstructor />
@@ -57,6 +58,7 @@ import SectionTwo from './parts/section-2/index.vue'
 import SectionThree from './parts/section-3/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
 import SectionHelpsYou from './parts/section-helps-you/index.vue'
+import SectionSubscribeNow from './parts/section-subscribe-now/index.vue'
 import sectionTopInstructor from './parts/section-top-instructor/index.vue'
 import SectionTrainingFields from './parts/section-training-fields/index.vue'
 import SectionExploringEntrepreneurship from './parts/section-exploring-entrepreneurship/index.vue'
@@ -77,6 +79,7 @@ components:{
   SectionThree,
   SectionHelpsYou,
   SectionFeatures,
+  SectionSubscribeNow,
   sectionTopInstructor,
   SectionTrainingFields,
   SectionExploringEntrepreneurship,

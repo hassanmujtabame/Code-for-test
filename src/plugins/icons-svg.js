@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import treeViewIcon from '@/components/icon-svg/tree-view.vue'
+import FlowerIcon from '@/components/icon-svg/flower-icon.vue'
 import truckIcon from '@/components/icon-svg/truck.vue'
 import localisationIcon from '@/components/icon-svg/localisation.vue'
 import timerIcon from '@/components/icon-svg/timer.vue'
@@ -43,4 +44,5 @@ Vue.component('d-eye-open-icon', eyeOpenIcon)
 Vue.component('d-empty-wallet-icon', emptyWalletIcon)
 Vue.component('d-time-icon', timeIcon)
 Vue.component('d-timer-icon', timerIcon)
+Vue.component('d-flower-icon', FlowerIcon)
 Vue.component('d-localisation-icon', localisationIcon)
