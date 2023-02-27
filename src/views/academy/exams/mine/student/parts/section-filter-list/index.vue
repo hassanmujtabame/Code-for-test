@@ -1,6 +1,5 @@
 <template>
 <d-filter-list 
-:fake-1items="items"
 :call-list="loadList"
 classColCard="col-12"
 hideSide
@@ -46,14 +45,6 @@ export default {
             is_share:null,
             category_id:[],
         },
-      items:[
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-      ],
       status:null,
             actions:[
             
