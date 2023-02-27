@@ -3,9 +3,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="fs-1 text-white">اكاديمية رياديات</h1>
-                        <p class="text-white">
-                            طوري مهاراتك و أنطلقي في عالم ريادة الاعمال والعمل الحر , أكاديمية رياديات ستكون معكِ خطوة بخطوة                                                </p>
+                        <h1 class="header-title-page">اكاديمية رياديات</h1>
+                        <p class="header-desc-page">
+                            طوري مهاراتك و أنطلقي في عالم ريادة الاعمال والعمل الحر , أكاديمية رياديات ستكون معكِ خطوة بخطوة   
+                        </p>
                             <div class="btn-main-style">
                               <router-link :to="getRouteLocale('academy-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
                               <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
