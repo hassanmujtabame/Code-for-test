@@ -4,7 +4,7 @@ import coursesApi from "./courses";
 import lecturesAPI from "./lectures";
 import projectsApi from "./project";
 import examsAPI from "./exams";
-import meetings from "./instructor/meetings";
+import meetings from "./meetings";
 import instructor from "./instructor";
 import student from "./student";
 import blogs from "../blogs";

@@ -13,16 +13,17 @@
     </div>
   </div>
   <d-swiper
+  v-if="!loading"
   :slides-per-view="3"
   :space-between="5"
   is-auto
     :items="items"
               >
                 <template  v-slot:default="{item}" >
-              <router-link :to="getRouteLocale('academy-learning-meeting-show',{id:item.id})">
+              <router-link class="router-link" :to="getRouteLocale('academy-learning-meeting-show',{id:item.id})">
                 <meetingCard 
                 :item="item"
-                     :img="item.img"
+                     :img="item.image"
                      :title="item.title"
                      :type="item.type"
                      :date="item.date"
@@ -36,26 +37,35 @@
 
 <script>
 import meetingCard from '@/components/cards/meeting.vue'
+import academyAPI from '@/services/api/academy';
 export default {
  name:'section-eductional-meeting',
  components:{
     meetingCard
  },
- data:()=>({
-    items:[
-    {id:1,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:2,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:3,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:4,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:5,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:6,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:7,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:8,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:9,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:10,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
+    data:()=>({
+    loading:true,
+  total:0,
+    items:[]
+ }),
+ methods:{
+    async initlizing(){
+      this.loading = true;
+        try {
+          let { data } =  await academyAPI.meetingsAPI.getAll({paginate:6});
+          if(data.success){
+            this.items = data.data
+          }
+        } catch (error) {
+          console.log('error',error)
+        }
+      this.loading = false;
+    }
+  },
+  mounted(){
+    this.initlizing()
 
-    ]
- })
+ }
 }
 </script>
 
