@@ -2039,3 +2039,13 @@ text-transform: capitalize;
     color: #414042;
     margin: 0;
   }
+  .home-section-text{
+    font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 40px;
+/* or 167% */
+text-transform: capitalize;
+
+color: #979797;
+  }
