@@ -7,16 +7,16 @@
   
     </div>
     <div class="academy-course-exams-item__description">
-        <div v-for="(project,i) in item.projects_review" :key="i" class="academy-course-exam-item">
+        <div v-for="(project,i) in projects" :key="i" class="academy-course-exam-item">
                                     <p class="academy-course-exam-item__title">
                                       {{project.title}}
                                     </p>
                                        <div class="academy-course-exam-item__actions "> 
                                        
-                                        <button  class="btn btn-custmer btn-small">
+                                        <button @click="editProject(project)"  class="btn btn-custmer btn-small">
                                             تعديل المشروع
                                         </button>
-                                        <button class="btn rounded-2 border-danger text-danger bg-transparent btn-small mx-2 " >
+                                        <button @click="showConfirmDeleteItem(project)" class="btn rounded-2 border-danger text-danger bg-transparent btn-small mx-2 " >
                                             حذف المشروع
                                         </button>
                                     
@@ -30,8 +30,58 @@
   </template>
   
   <script>
+  import academyAPI from '@/services/api/academy'
   export default {
-    props:['item']
+    props:['item'],
+    data:(vm)=>{
+        return {
+            projects:vm.item.projects_review
+        }
+    },
+    methods:{
+        editProject(pro){
+            let {student,projects_review,...course}= this.item
+            console.mylog('editProject',student,projects_review)
+            this.fireOpenDialog('add-project-course-dialog',{page:course,item:{...pro}})
+        },
+        showConfirmDeleteItem(lect){
+        let dataEvent={
+          title:'هل حقا تريد حذف هذا المشروع؟',
+          description:lect.title,
+          groupBtns:'d-flex justify-content-evenly',
+          btns:[
+            {title:'تراجع',class:"btn btn-custmer btn-danger"},
+            {title:this.$t('confirm_delete'),action:()=>this.deleteLecture(lect),class:"btn btn-custmer"},
+          ]
+        }
+        this.showConfirmMsg(dataEvent)
+    },
+    async deleteLecture(lect){
+        console.mylog('deleting ...',lect)
+        try {
+
+                        let {data} =  await academyAPI.lecturesAPI.deleteItem(lect.id)
+                        if(data.success){
+                           
+                            let index  = this.projects.findIndex(l=>l.id===lect.id)
+                              if(index>-1){
+                                this.projects.splice(index,1)
+                              }
+                        }else{
+                            window.SwalError(data.message)
+                        }
+                    } catch (error) {
+                        if(error.response){
+                            let response = error.response
+                            if (response.status == 422) {
+                                this.setErrorsForm(this.$refs.form,response)
+                            }
+                        }
+                    }
+                
+      
+    },
+    }
   }
   </script>
   

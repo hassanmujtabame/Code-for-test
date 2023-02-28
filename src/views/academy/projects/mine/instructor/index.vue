@@ -66,6 +66,7 @@
                     <studentsFailsExams />
                     </div>
                   </div>
+                  <UpdateProjectDialog />
   </div>
 </template>
 
@@ -74,6 +75,7 @@ import SettingsExams from './tabs/settings-projects/index.vue'
 import coursesHasExams from './tabs/courses-has-projects/index.vue'
 import studentsPassExams from './tabs/project-need-revision/index.vue'
 import studentsFailsExams from './tabs/students-list/index.vue'
+import UpdateProjectDialog from '@/views/academy/courses/show/recorded/dialogs/add-project/index'
 export default {
   name: 'your-certifcates-page',
   components:{
@@ -81,6 +83,7 @@ export default {
     coursesHasExams,
     studentsPassExams,
     studentsFailsExams,
+    UpdateProjectDialog
   }
 }
 </script>
