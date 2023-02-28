@@ -579,5 +579,7 @@
   "type-training": "نوع التدريب",
   "prive": "متخصص",
   "public": "عام",
-  "number_upload_project": "عدد مرات تسليم المشروع"
+  "number_upload_project": "عدد مرات تسليم المشروع",
+  "show_correct_answer": "تظهر الإجابة الصحيحة",
+  "number_retakes_exam": "عدد مرات اداء الاختبار"
 }

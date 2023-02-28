@@ -121,8 +121,8 @@ export default {
         loading:false,
         itemForm: {
             send_notice: 0,
-            degree_success: null,//number 50 | 80
-            number_send_project: null,///twice | infinite
+            degree_success: 50,//number 50 | 80
+            number_send_project: 'infinite',///twice | infinite
         }
     }),
     methods:{

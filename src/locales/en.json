@@ -584,5 +584,7 @@
   "type-training": "type training",
   "prive": "Private",
   "public": "Public",
-  "number_upload_project": "number upload project"
+  "number_upload_project": "number upload project",
+  "show_correct_answer": "show correct answer",
+  "number_retakes_exam": "number retakes exam"
 }

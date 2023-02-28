@@ -26,6 +26,12 @@ class ExamsApi extends BaseApi{
         data.append('_method','PUT')
         return window.axios.post(`academy/instructor/course-exams/${id}`,data);
     }
+    loadSettings(){
+        return window.axios.get(`academy/instructor/exam-settings`);
+    }
+    saveSettings(data){
+        return window.axios.post(`academy/instructor/exam-settings`,data);
+    }
 }
 
 export default new ExamsApi();
