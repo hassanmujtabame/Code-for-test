@@ -44,14 +44,14 @@
                 <div class="col-md-6">
                     <div class="form-check">
                         <d-radio-input v-model="itemForm.degree_success" :value="50">
-                            يجتاز الطالب الاختبار عند حصوله على نسبة 50%
+                            يجتاز الطالب المشروع عند حصوله على نسبة 50%
                         </d-radio-input>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-check">
                         <d-radio-input v-model="itemForm.degree_success" :value="80">
-                            يجتاز الطالب الاختبار عند حصوله على نسبة 80 %
+                            يجتاز الطالب المشروع عند حصوله على نسبة 80 %
                         </d-radio-input>
                     </div>
                 </div>
