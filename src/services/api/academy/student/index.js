@@ -9,6 +9,10 @@ class StudentsApi extends BaseApi{
     getMyExam(id){
         return window.axios.get(`academy/user/courses/exams/${id}`);
     }
+    getMyCertificates(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/user/courses/certificates?${s}`);
+    }
     getMyQuestionExam(exam_id,level){
         return window.axios.get(`academy/user/courses/exams/${exam_id}/question/${level}`);
     }
