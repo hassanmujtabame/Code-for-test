@@ -7,13 +7,13 @@
   
     </div>
     <div class="academy-course-exams-item__description">
-        <div v-for="(exam,i) in item.exams" :key="i" class="academy-course-exam-item">
+        <div v-for="(exam,i) in exams" :key="i" class="academy-course-exam-item">
                                     <p class="academy-course-exam-item__title">
                                       {{exam.title}}
                                     </p>
                                        <div class="academy-course-exam-item__actions "> 
                                        
-                                        <button  class="btn btn-custmer  btn-small ">
+                                        <button @click="showItem(exam)" class="btn btn-custmer  btn-small ">
                                             عرض
                                         </button>
                                         <button class="btn rounded-2 border-danger text-danger bg-transparent btn-small mx-2  " data-bs-toggle="modal" href="#staticBackdrop2">
@@ -30,8 +30,57 @@
   </template>
   
   <script>
+    import academyAPI from '@/services/api/academy'
   export default {
-    props:['item']
+    props:['item'],
+    data:(vm)=>{
+        return {
+            exams:vm.item.exams
+        }
+    },
+    methods:{
+        editItem(pro){
+            let {student,projects_review,...course}= this.item
+            console.mylog('editItem exam',student,projects_review)
+            this.fireOpenDialog('add-exam-course-dialog',{page:course,item:{...pro}})
+        },
+        showItem(item){
+            this.fireOpenDialog('display-exam-dialog',item)
+        },
+        showConfirmDeleteItem(lect){
+        let dataEvent={
+          title:'هل حقا تريد حذف هذا الاختبار؟',
+          description:lect.title,
+          groupBtns:'d-flex justify-content-evenly',
+          btns:[
+            {title:'تراجع',class:"btn btn-custmer btn-danger"},
+            {title:this.$t('confirm_delete'),action:()=>this.deleteExam(lect),class:"btn btn-custmer"},
+          ]
+        }
+        this.showConfirmMsg(dataEvent)
+    },
+    async deleteExam(exam){
+      try {
+
+      let {data} =  await academyAPI.examsAPI.deleteExam(exam.id)
+      if(data.success){
+          let index  = this.exams.findIndex(l=>l.id===exam.id)
+            if(index>-1){
+              this.exams.splice(index,1)
+            }
+      }else{
+          window.SwalError(data.message)
+      }
+      } catch (error) {
+      if(error.response){
+          let response = error.response
+          if (response.status == 422) {
+              this.setErrorsForm(this.$refs.form,response)
+          }
+      }
+      }
+    },
+    }
   }
   </script>
   
