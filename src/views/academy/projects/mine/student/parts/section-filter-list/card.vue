@@ -3,15 +3,27 @@
     <div class="flex-grow-1">
         <h1 class="box-exam__course"><span class="m-c">إسم الدورة :</span> {{ item.course_name }}</h1>
     <h3 style="color:#F2631C" class="box-exam__name">{{ item.project_title }}</h3>
-    <p class="box-exam__note">ملاحظة : سيقوم المدرب بفحص مشروعك بنفسه وتقيمك</p>
+    <p class="box-exam__note">
+        <template v-if="item.status=='under_correction'">
+        ملاحظة : سيقوم المدرب بفحص مشروعك بنفسه وتقيمك
+        </template>
+        <template v-else-if="item.status=='replaying'">
+          <span class="m-r">  علامتك هي: {{ item.note }}, لذا يجب إعادت رفع المشروع</span>
+        </template>
+        <template v-else-if="item.status=='finished'">
+            <span class="m-c">مبروك، لقد نجحت في المشروع، علامتك هي:{{ item.note }}</span>
+        </template>
+    </p>
     </div>
 <div class="flex-shrink-0 d-flex">
+    <template v-if="item.status!=finished">
     <button  class="btn btn-custmer rounded-2 mt-2">
      تعديل المشروع
     </button>
     <button class="btn rounded-2 border-danger text-danger bg-transparent mt-2 mx-2 " >
         حذف المشروع
     </button>
+</template>
 </div>
    </div>
 </template>
