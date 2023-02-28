@@ -22,10 +22,10 @@ class ProjectsApi extends BaseApi{
         return window.axios.delete(`academy/instructor/course-projects/attachments/${id}`);
     }
     loadSettings(){
-        return window.axios.get(`academy/instructor/course-projects/setting`);
+        return window.axios.get(`academy/instructor/project-settings`);
     }
     saveSettings(data){
-        return window.axios.post(`academy/instructor/course-projects/setting`,data);
+        return window.axios.post(`academy/instructor/project-settings`,data);
     }
 }
 
