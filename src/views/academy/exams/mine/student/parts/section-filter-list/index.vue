@@ -40,10 +40,10 @@ export default {
     },
         filterItem:{
             search:null,
-            price:'asc',
-            status:'settings_exam',
-            is_share:null,
-            category_id:[],
+            created_at:'asc',
+            status:null,
+            //is_share:null,
+            //category_id:[],
         },
       status:null,
             actions:[
