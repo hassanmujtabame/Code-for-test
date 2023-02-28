@@ -2,7 +2,7 @@
   <div style="margin-top: 85px " class="consult">
     <SectionHeader />
   <div class="container mt-5 text-end">
-    <button @click="addItem" class="btn btn-custmer"><i class="fa fa-circle-plus"></i> إضافة لقاء تعليمي</button>
+    <button @click="addItem" v-if="userAcademyRole!='student'" class="btn btn-custmer"><i class="fa fa-circle-plus"></i> إضافة لقاء تعليمي</button>
     </div>
   <div class="container mt-5">
     <SectionFilterList />
