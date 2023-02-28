@@ -7,7 +7,7 @@
         orderName="created_at"
         searchPlaceholder="أبحث  في قائمة تدويناتك"
         @change="changeFilter"
-        classColCard="col-md-12">
+        classColCard="col-12 col-md-4 mt-2">
             <template v-slot:total>
 
                 <h3 class="page-title">
@@ -34,7 +34,7 @@
 
 <script>
 import BlogsAPI from '@/services/api/academy/blogs.js'
-import BlogInfoCard from './blog-item.vue';
+import BlogInfoCard from '@/components/cards/blog-info.vue';
 export default {
     name: 'section-filter-list',
     components:{
