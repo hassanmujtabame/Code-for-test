@@ -193,30 +193,20 @@
                                 <d-error-input :errors="errors" v-if="errors.length>0" />
                                 </ValidationProvider>
                         </div>
-                         <!-- if ready service offline-->
-                         <template v-if="itemForm.state=='offline'">
-                         <!-- address-service-->
-                         <div class="mb-3">
+                        <!-- if ready service offline-->
+                        <template v-if="itemForm.state=='offline'">
+                        <!-- address-service-->
+                        <div class="mb-3">
                             <ValidationProvider
                                     :name="$t('address-service')"
                                  vid="city_id"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{ $t('address-service') }}</label>
-                                    <multi-select v-model="city" 
-                            :selectLabel="$t('selectLabel')"
-                            :selectedLabel="$t('selectedLabel')" 
-                            :deselectLabel="$t('deselectLabel')"
-                            :options="cities" 
-                            :multiple="false"  
-                            :group-select="false" 
-                            placeholder="" 
-                            :custom-label="(it)=>`${it.name}-${it.region.name}`"
-                            track-by="id" label="name">
-                                <span slot="noResult">{{ $t('no-result-search') }}</span>
-                            </multi-select>
-
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                                    <d-select-input  :errors="errors" v-model="itemForm.city_id" 
+                                    :label="$t('address-service')"
+                        >
+                        <option v-for="(it,i) in cities" :key="i" :value="it.id"> {{ `${it.name}-${it.region.name}` }}</option>
+                        </d-select-input>
                             </ValidationProvider>
                         </div> 
                         <!-- delivery place-->
@@ -226,14 +216,13 @@
                                  vid="delivery_place"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{ $t('delivery-place') }}</label>
-                                    <select class="form-select" v-model="itemForm.delivery_place" >
+                                   
+                            <d-select-input :errors="errors" v-model="itemForm.delivery_place" :label="$t('delivery-place')" >
                         <option v-for="(place,i) in delivery_places" :key="i" :value="place.id"> {{ place.name }}</option>
-                        </select>
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                        </d-select-input>
                                 </ValidationProvider>
                         </div> 
-                        </template>
+                    </template>
                            <!--keywords-->
                         <div class="mb-3">
                         <ValidationProvider
@@ -349,8 +338,8 @@ let valid = await this.$refs.form.validate();
  formData.append('price',this.itemForm.price);
  formData.append('state',this.itemForm.state);
  formData.append('execution_period',this.itemForm.execution_period)
- if(this.city && this.itemForm.state=='offline')
- formData.append('city_id',this.city.id)
+ if(this.itemForm.state=='offline')
+ formData.append('city_id',this.itemForm.city_id)
  //formData.append('execution_place',this.itemForm.execution_place)
  formData.append('file',this.attachment);
  formData.append('keywords',this.itemForm.keywords);
@@ -500,7 +489,7 @@ openDialog(){
     category_id:null,
     field_id:[],
     desc:'',
-    city_id:'',
+    city_id:null,
     delivery_place:'client_choosen',
     keywords:'',
 })
