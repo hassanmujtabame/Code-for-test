@@ -3,7 +3,7 @@
         <div class="consulting-category-card__img">
             <img class="" :src="item.image" :alt="item.title" width="259" height="192">
         </div>
-        <div class="consulting-category-card__content text-box bg-white w-100 p-4 text-center rounded-3">
+        <div class="consulting-category-card__content">
            <h6 class="consulting-category-card__title">{{ item.title }}</h6>
         </div>
     </div>
@@ -54,13 +54,12 @@ justify-content: center;
 align-items: center;
 padding: 24px 16px;
 gap: 8px;
-
+width: 100%;
 height: 88px;
-
-
+text-align: center;
 background: #FFFFFF;
 border: 1px solid #CDD7D8;
 box-shadow: 0px 0px 78.2699px rgba(187, 188, 189, 0.3);
-border-radius: 0px 0px 11px 11px;
+border-radius: 0px 0px 8px 8px;
 }
 </style>
