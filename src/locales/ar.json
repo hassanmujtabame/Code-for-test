@@ -583,5 +583,9 @@
   "show_correct_answer": "تظهر الإجابة الصحيحة",
   "number_retakes_exam": "عدد مرات اداء الاختبار",
   "consulting-fields": "مجالات الإستشارة",
-  "field": "مجال"
+  "field": "مجال",
+  "consultant": "مستشار",
+  "Consultant": "مستشار",
+  "consultants": "مستشارين",
+  "Consultants": "مستشارين"
 }

@@ -588,5 +588,9 @@
   "show_correct_answer": "show correct answer",
   "number_retakes_exam": "number retakes exam",
   "consulting-fields": "consulting fields",
-  "field": "Field"
+  "field": "Field",
+  "consultant": "Consultant",
+  "Consultant": "Consultant",
+  "consultants": "consultants",
+  "Consultants": "Consultants"
 }
