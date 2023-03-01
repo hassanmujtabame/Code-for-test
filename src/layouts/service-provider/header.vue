@@ -9,22 +9,22 @@
               > -->
               <router-link :to="getRouteLocale('service-provider-home')"  class="nav-link">{{ $t('Home-page') }}</router-link>
             </li>
-            <li :key="i" v-for="(item,i) in items.filter(x=>x.provider === userIsProvider)" class="nav-item px-2">
+            <li :key="i" v-for="(item,i) in items.filter(x=>x.provider === userIsRoleProvider)" class="nav-item px-2">
               <router-link :to="getRouteLocale(item.route)"  class="nav-link">{{ item.text }}</router-link>
             </li>
             <button @click="openAddService($event,closeNavList)" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center text-white">
-              {{userIsProvider?$t('add-new-service'):$t('add-new-request') }}
+              {{userIsRoleProvider?$t('add-new-service'):$t('add-new-request') }}
             </button>
           
-                  <button @click="switchRole" class="btn m-c">{{userIsProvider?$t('switch-to-buyer') : $t('switch-to-provider') }}</button>
+                  <button @click="switchRole" class="btn m-c">{{userIsRoleProvider?$t('switch-to-buyer') : $t('switch-to-provider') }}</button>
                   </template>
     </TemplateHeader>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 import TemplateHeader from '../tamplate/header/index.vue'
-
 export default {
     name:'default-header',
     components:{
@@ -47,6 +47,9 @@ export default {
     }
   },
     computed:{
+      ...mapGetters({
+        userIsRoleProvider:'auth/isProvider'
+      }),
       isRequestPage(){
        return this.$route.name.startsWith('service-provider-show-service')
       }
@@ -58,7 +61,7 @@ export default {
     openAddService(evt,closeNavList){
         evt.preventDefault();
         closeNavList()
-        if(!this.userIsProvider)
+        if(!this.userIsRoleProvider)
         this.fireOpenDialog('add-request-sp')
         else
         this.fireOpenDialog('add-ready-service-dialog')

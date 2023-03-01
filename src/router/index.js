@@ -154,11 +154,17 @@ const router = new VueRouter({
   linkExactActiveClass: "active",
 })
 router.beforeEach((to,from,next)=>{
+  console.mylog('wib',window.store)
+  window.store.dispatch('core/setLoading',true)
   //window.scrollTo(0, 0)
  if(to.params.lang && ["ar","en"].includes(to.params.lang)){
   Cookies.set('i18n_lang',to.params.lang)
  }
   middlewiare_auth(to,from,next)
+})
+router.afterEach(()=>{
+  console.mylog('afterEach',window.store)
+  window.store.dispatch('core/setLoading',false)
 })
 window.router = router;
 export default router

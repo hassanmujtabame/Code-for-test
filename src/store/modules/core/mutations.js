@@ -7,6 +7,9 @@ export default{
     },
     SET_IS_DESKTOP(state,payload){
         state.isDesktop = payload
-    }
+    },
+    SET_LOADING(state,payload){
+        state.loading = payload
+    },
 
 }

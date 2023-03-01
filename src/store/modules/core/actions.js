@@ -7,5 +7,8 @@ export default {
    },
    setIsDesktop ({commit}, payload) { 
       commit('SET_IS_DESKTOP',payload)
+   },
+   setLoading ({commit}, payload) { 
+      commit('SET_LOADING',payload)
    }
   }

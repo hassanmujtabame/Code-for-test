@@ -8,5 +8,8 @@ export default {
     },
     isDesktop (state) {
         return state.isTablet
-    }  
+    },
+    isLoading (state) {
+      return state.loading
+  }   
   }

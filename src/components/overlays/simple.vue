@@ -1,7 +1,9 @@
 <template>
-  <div class="overlay">
+  <div class="overlay" v-bind="$attrs">
+    <slot>
     <i class="fas fa-spinner fa-fw fa-2x fa-spin" style="color:white"></i>
-  </div>
+  </slot>
+ </div>
 </template>
 
 <script>
