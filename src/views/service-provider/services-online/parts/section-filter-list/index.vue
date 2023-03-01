@@ -23,6 +23,7 @@
                    :description="item.desc"
                    :department="item.category_name"
                    :price="item.price"
+                   :state="item.state"
                    :place="item.city"
                    :name="item.user_info.name"
                    :status="item.state"

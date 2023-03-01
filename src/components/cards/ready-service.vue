@@ -21,7 +21,7 @@
             </div>
             <div class="ready-service-card__footer-item">
             <d-localisation-icon :size="16" color="#979797"/>
-            <span>{{ place??'N/A' }}</span>
+            <span>{{ $t(state) }}</span>
             </div>
             <div class="ready-service-card__footer-item">
             <d-school-wallet-icon :size="16" color="#979797"/>
@@ -52,6 +52,9 @@ export default {
     },
     place:{
         type:String,
+    },
+    state:{
+        type:String,//online |offline
     },
     price:{
         type:[String,Number],
