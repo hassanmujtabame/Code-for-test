@@ -24,7 +24,7 @@
                 <CardMember 
                 :name="item.name" 
                 :description="item.description" 
-                :img="item.img"/>
+                :img="item.image"/>
                 </template>
             </DSwiper>
             </div>
@@ -34,8 +34,9 @@
 <script>
 import DSwiper from '@/components/swiper/index.vue'
 import CardMember from '@/components/cards/card-member.vue'
+import consultingAPI from '@/services/api/consulting'
 export default {
- name:'section-best-consultors',
+ name:'section-best-consultants',
  components:{
   DSwiper,
     CardMember
@@ -52,7 +53,23 @@ export default {
         {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
 
     ]
-  })
+  }),
+  methods:{
+    async initializing(){
+
+        try {
+          let {data}= await consultingAPI.getAll({paginate:4})
+          if(data.success){
+            this.items = data.data
+          }
+        } catch (error) {
+           // 
+        }
+    }
+  },
+  mounted(){
+    this.initializing()
+  }
 }
 </script>
 
