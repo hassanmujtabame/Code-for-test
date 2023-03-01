@@ -11,10 +11,9 @@
               </div>
             
               <DSwiper
-             
-            :slides-per-view="4"
-            :space-between="10"
-            
+              v-if="!loading"
+              :slides-per-view="4"
+              :space-between="10"
               :pagination="false"
               :navigation="true"
               :items="items"
@@ -42,11 +41,12 @@ export default {
     CardMember
   },
   data:()=>({
+    loading:true,
     items:[]
   }),
   methods:{
     async initializing(){
-
+        this.loading = true;
         try {
           let {data}= await consultingAPI.getAll({paginate:4})
           if(data.success){
@@ -55,6 +55,7 @@ export default {
         } catch (error) {
            // 
         }
+        this.loading = false;
     }
   },
   mounted(){
