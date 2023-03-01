@@ -581,5 +581,6 @@
   "public": "عام",
   "number_upload_project": "عدد مرات تسليم المشروع",
   "show_correct_answer": "تظهر الإجابة الصحيحة",
-  "number_retakes_exam": "عدد مرات اداء الاختبار"
+  "number_retakes_exam": "عدد مرات اداء الاختبار",
+  "consulting-categories": "مجالات الإستشارة"
 }
