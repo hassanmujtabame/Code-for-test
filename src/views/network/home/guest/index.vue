@@ -1,5 +1,5 @@
 <template>
-   <div style="margin-top: 85px " class="consult">
+   <div style="" class="consult">
         <!-- section 1 -->
         <SectionOne/>
         <!-- #section 1 -->

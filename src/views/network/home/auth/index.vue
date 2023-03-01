@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 85px " class="consult">
+  <div style="" class="consult">
         <!--section header-->
         <SectionHeader/>
         <!-- members of network-->
