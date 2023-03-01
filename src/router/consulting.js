@@ -1,4 +1,4 @@
-import LayoutDefault from '@/layouts/default/index.vue'
+import LayoutDefault from '@/layouts/network/index.vue'
 const routers =[
     {
         path: 'consulting/home',
