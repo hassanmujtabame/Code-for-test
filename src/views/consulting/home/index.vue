@@ -6,12 +6,15 @@
          <!-- section help to start-->
          <SectionHelpToStart/>
           <!--#section 2-->
-
+          <div class="container mt-5">
          <!-- section 4-->
          <SectionConsultingCategories />
+        </div>
           <!--#section 4-->
           <!-- section 5-->
+          <div class="container mt-5">
           <SectionBestConsultors/>
+        </div>
           <!--#section 5-->
   
   

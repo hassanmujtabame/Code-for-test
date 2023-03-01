@@ -1,23 +1,21 @@
 <template>
-<div class="sec-five mt-5 p-3">
+<div class="sec-five p-3">
             <div class="">
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-                <h1>أبرز مستشارينا</h1>
+                <h1 class="home-section-title">أبرز مستشارينا</h1>
                 <div>
                   <button class="more">{{ $t('more') }}</button>
                 </div>
               </div>
-              <p class="container">
-                تقدم رياديات دورات تعليمية وتثقفية على اعلى مستوى
-              </p>
+            
               <DSwiper
-              style="overflow-x: hidden"
-            :slides-per-view="5"
+             
+            :slides-per-view="4"
             :space-between="10"
-              :loop="true"
-              :pagination="true"
+            
+              :pagination="false"
               :navigation="true"
               :items="items"
             >

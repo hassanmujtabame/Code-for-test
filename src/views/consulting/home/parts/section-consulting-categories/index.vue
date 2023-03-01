@@ -1,10 +1,10 @@
 <template>
-<div class="container">
+<div>
 
 <div
 class="d-flex justify-content-between align-items-center container my-2"
 >
-<h1> أبرز مجالات الاستشارة      </h1>
+<h1  class="home-section-title"> أبرز مجالات الاستشارة      </h1>
 <div>
   <button class="more">{{ $t('more') }}</button>
 </div>
