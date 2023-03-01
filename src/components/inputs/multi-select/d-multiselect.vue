@@ -88,7 +88,9 @@
         opts:{
           deep:true,
           immediate:true,
-          handler(){}
+          handler(){
+            this.fillInput()
+          }
         },
         value:{
             deep:true,
@@ -132,6 +134,8 @@
                 if(typeof this.labelName == "function"){
                     return this.labelName(item)
                 }
+                //console.mylog('ee',item,this.labelName)
+                if(!item) return null;
                 return item[this.labelName]
             }
             
