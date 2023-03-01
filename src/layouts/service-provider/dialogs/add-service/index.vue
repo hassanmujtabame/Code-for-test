@@ -169,14 +169,13 @@
                              vid="field_id"
                              rules="required"
                                 v-slot="{errors}">
-                                <d-drown-list :label="$t('select-specialite')" :opts="fields" 
+                                <d-multiselect-input :errors="errors" :label="$t('select-specialite')" :opts="fields" 
                                 track-id="id" label-name="name"
                                 v-model="itemForm.field_id"
                                 multi-select
                                 opened
-                                fixed
                                 />
-                        <d-error-input :errors="errors" v-if="errors.length" />
+                   
                     </ValidationProvider>
                   </div>
                      
