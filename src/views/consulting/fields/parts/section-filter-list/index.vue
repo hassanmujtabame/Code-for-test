@@ -5,6 +5,7 @@
   :pluralName="$t('consulting-fields')"
   :singleName="$t('field')"
   searchPlaceholder="أبحث عن مجالات الاستشارة"
+  @change="changeFilter"
   >
   <template v-slot="{item}">
     <consultingFieldCard :item="item" />
@@ -21,12 +22,25 @@ export default {
         consultingFieldCard
     },
  data:()=>({
-    items:[]
+    items:[],
+    filterItem:{
+            created_at:'asc',
+            search:null
+        }
  }),
  methods:{
-    async loadList(){
+   changeFilter(val){
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
+        },
+    async loadList(metaInfo){
+      let params = {
+                page: metaInfo.current_page,
+                field_id: this.$route.params.id,
+                ...this.filterItem
+            }
         try {
-          return await consultingAPI.fields.getAll()
+          return await consultingAPI.fields.getAll(params)
         } catch (error) {
            // 
         }
