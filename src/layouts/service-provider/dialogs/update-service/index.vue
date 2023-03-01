@@ -160,7 +160,6 @@
                                 v-model="itemForm.field_id"
                                 multi-select
                                 opened
-                                fixed
                                 />
                     </ValidationProvider>
                   </div>
