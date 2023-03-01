@@ -97,9 +97,9 @@
                                  vid="title"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{ $t('service-title') }}</label>
-                            <input type="text" v-model="itemForm.title" class="form-control" :placeholder="$t('service-title')">
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                                  
+                            <d-text-input :errors="errors" type="text" v-model="itemForm.title" class="form-control" :label="$t('service-title')"/>
+                           
                                 </ValidationProvider>
                         </div>
                            <!--price-->
@@ -109,9 +109,8 @@
                                  vid="price"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{ $t('service-price') }}</label>
-                            <input type="text" v-model="itemForm.price" class="form-control" :placeholder="$t('service-price')">
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                            <d-text-input :errors="errors" type="text" v-model="itemForm.price" class="form-control" :label="$t('service-price')"/>
+                        
                                 </ValidationProvider>
                         </div>
                         <!-- execution during-->
@@ -121,9 +120,8 @@
                                  vid="execution_period"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{ $t('execution-during') }} ({{ $t('days') }})</label>
-                            <input type="text" v-model="itemForm.execution_period" class="form-control" :placeholder="$t('execution-during')">
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                            <d-text-input :errors="errors" type="text" v-model="itemForm.execution_period" class="form-control" :label="$t('execution-during')" />
+
                                 </ValidationProvider>
                         </div>
                       <!-- تصنيف الخدمة--> 
@@ -134,18 +132,15 @@
                         rules="required"
                          v-slot="{ errors }"
                          >
-                         <div class="form-group">
-                            <label class="form-label">{{ $t('state-service') }}</label>
-                        <select v-model="itemForm.state"  class="form-select">
+                         
+                        
+                        <d-select-input :errors="errors" v-model="itemForm.state" :label="$t('state-service')" class="form-select">
                             <option disabled value="" class="t-c"> {{$t('state-service')}} </option>
                             <option :key="i" v-for="(option,i) in states" :value="option.id">
                                 {{ option.name }}
                             </option>
 
-                        </select>
-                       
-                    </div>
-                        <d-error-input :errors="errors" v-if="errors.length>0" />
+                        </d-select-input>
                     </ValidationProvider>
                     </div>
                       <!-- category -->
@@ -157,14 +152,13 @@
                              vid="category_id"
                              rules="required"
                                 v-slot="{errors}">
-                        <label class="form-label">{{ $t('request-domain') }} </label>
-                        <select class="form-select" v-model="itemForm.category_id" 
+
+                        <d-select-input :errors="errors" v-model="itemForm.category_id" 
                         @change="loadFields($event)"
+                        :label="$t('request-domain')"
                         >
                         <option v-for="(cat,i) in categories" :key="i" :value="cat.id"> {{ cat.name }}</option>
-                        </select>
-                    
-                        <d-error-input :errors="errors" v-if="errors.length" />
+                        </d-select-input>
                     </ValidationProvider>
                   </div>
                      <!--field-->
@@ -193,7 +187,7 @@
                                  vid="desc"
                                  rules="required"
                                     v-slot="{errors}">
-                        <label class="form-label">أكتب التفاصيل الخاصة بالخدمة بدقة</label>
+                            <label class="form-label">أكتب التفاصيل الخاصة بالخدمة بدقة</label>
                             <d-ckeditor-classic v-model="itemForm.desc" class="form-control" rows="10"
                             placeholder="أكتب التفاصيل الخاصة بالخدمة بدقة"></d-ckeditor-classic>
                                 <d-error-input :errors="errors" v-if="errors.length>0" />
