@@ -17,7 +17,7 @@
           <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6">
-                    <div class=" box">
+                    <div @click="router_push('network-exhibitions')" class=" box clickable">
                         <img class="w-100 shadow-hover" src="/assets/img/Component 40.png" alt="" height="295">
 
                     </div>
@@ -33,7 +33,7 @@
                                 <p  class="text-dark">
                                     لانك عضو في شبكة رياديات يمكنك طلب استشارات  من مستشارينا المميزين في اغلب المجالات بكل سهولة     
                                 </p>
-                                <button  class="border  border-white rounded-2  text-white bg-main p-2">
+                                <button @click="router_push('consulting-home')" class="border  border-white rounded-2  text-white bg-main p-2">
                                     {{ $t('know_more') }} 
                                 </button>
                             </div>
