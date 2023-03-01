@@ -3,14 +3,14 @@
             <div class="netwok-home-header">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-md-6">
-                        <h1 class="semi-bold fs-r-56 text-white">
+                        <h1 class="header-title-page">
                             {{ $t('Riadiat-network') }}                                                                     </h1>
-                        <p class="fs-r-24 text-white">
+                        <p class="header-desc-page">
                             {{ $t('riadiat-network-home-text-1') }}
-                            <br/>
+                  </p><p class="header-desc-page">
                             {{ $t('riadiat-network-home-text-2') }}
                             </p>
-                            <p class="fs-r-24 text-white">
+                            <p class="header-desc-page">
                                 {{ $t('riadiat-network-home-text-3') }}
                         </p>     
                         <div class="btn-main-style mt-5">

@@ -3,9 +3,9 @@
             <div class="netwok-home-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="semi-bold fs-r-56 text-white">شبكة رياديات </h1>
-                        <p class="fs-r-24 text-white">طموحة و تسعين لتحقيق حلمك و شغفك ؟</p>
-                        <p class="fs-r-24 text-white">    
+                        <h1 class="header-title-page">شبكة رياديات </h1>
+                        <p class="header-desc-page">طموحة و تسعين لتحقيق حلمك و شغفك ؟</p>
+                        <p class="header-desc-page">    
                             شبكة رياديات بتساعدك في مشروعك من الالف الى الياء
                          </p>
                          <div class="btn-main-style mt-5">
