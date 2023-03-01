@@ -24,7 +24,7 @@
                      :department="item.category_name"
                      :price="item.price"
                      :name="item.user_name"
-                     :status="item.state"
+                     :status="item.status"
                     />
                 </router-link>
             </div>

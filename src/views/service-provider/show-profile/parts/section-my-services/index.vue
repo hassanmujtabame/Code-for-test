@@ -25,7 +25,7 @@
                      :price="item.price"
                      :state="item.state"
                      :name="item.user_name"
-                     :status="item.state"
+                     :status="item.status"
                     />
                 </router-link>
             </div>

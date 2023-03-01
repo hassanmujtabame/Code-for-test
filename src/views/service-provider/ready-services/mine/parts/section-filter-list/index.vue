@@ -26,7 +26,7 @@
                    :name="item.user_info.name"
                    :description="item.desc"
                    :department="item.category_name??'N/A'"
-                   :status="item.state"
+                   :status="item.status"
                    
                    />
                 </router-link>

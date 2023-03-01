@@ -24,7 +24,7 @@
                    :place="item.city"
                    :name="item.user_info.name"
                    :department="item.category_name"
-                   :status="item.state"
+                   :status="item.status"
                     />
                 </router-link>
             </div>

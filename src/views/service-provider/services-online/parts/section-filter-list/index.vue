@@ -26,7 +26,7 @@
                    :state="item.state"
                    :place="item.city"
                    :name="item.user_info.name"
-                   :status="item.state"
+                   :status="item.status"
                    
                    />
                 </router-link>
