@@ -6,24 +6,14 @@
          <!-- section help to start-->
          <SectionHelpToStart/>
           <!--#section 2-->
-          <!-- section 3-->
-          <SectionThree />
-          <!--#section 3-->
+
          <!-- section 4-->
          <SectionFour />
           <!--#section 4-->
           <!-- section 5-->
           <SectionFive/>
           <!--#section 5-->
-          <!-- section 6-->
-          <SectionSix />
-          <!--#section 6-->
-          <!-- section 7-->
-          <SectionSeven />
-          <!--#section 7-->
-           <!-- section 8-->
-           <SectionEight />
-          <!--#section 8--> 
+  
   
       </div>
   </template>
