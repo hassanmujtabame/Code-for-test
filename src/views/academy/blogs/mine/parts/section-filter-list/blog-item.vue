@@ -6,8 +6,8 @@
 <h1 >{{ item.title }}</h1>
 
   </div>
-  <div class="academy-blog-item__description">
-    <p  v-html="item.desc"></p>
+  <div class="academy-blog-item__description"  v-html="item.description">
+
     </div>
   </div>
   <div class="academy-blog-item__actions">
@@ -47,6 +47,9 @@ export default {
     padding: 10px;
     border-bottom: 1px solid #CDD7D8;
 }
+.academy-blog-item__body{
+    flex:1
+}
 .academy-blog-item__actions{
     display: flex;
     flex-direction: column;
@@ -63,17 +66,17 @@ span {
 .academy-blog-item__title>h1{
     margin: 0;
     font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 24px;
-/* or 120% */
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 120% */
 
-display: flex;
-align-items: center;
-text-transform: capitalize;
-
-color: #1FB9B3;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: #1FB9B3;
 }
+
 .academy-blog-item__description{
     margin:10px 0;
     font-style: normal;
@@ -83,6 +86,9 @@ line-height: 24px;
 /* or 150% */
 
 color: #737373;
+}
+.academy-blog-item__description>p{
+    margin: 0;
 }
 .academy-blog-item__date{
     color:#737373
