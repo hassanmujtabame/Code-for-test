@@ -3,8 +3,8 @@
           <!-- section header-->
           <SectionHeader />
           <!--#section 1-->
-         <!-- section 2-->
-         <SectionTwo/>
+         <!-- section help to start-->
+         <SectionHelpToStart/>
           <!--#section 2-->
           <!-- section 3-->
           <SectionThree />
@@ -30,7 +30,7 @@
   
   <script>
   import SectionHeader from './parts/section-header/index.vue'
-  import SectionTwo from './parts/section-2/index.vue'
+  import SectionHelpToStart from './parts/section-help-tostart/index.vue'
   import SectionThree from './parts/section-3/index.vue'
   import SectionFour from './parts/section-4/index.vue'
   import SectionFive from './parts/section-5/index.vue'
@@ -41,7 +41,7 @@
   name:"consulting-home",
   components:{
     SectionHeader,
-    SectionTwo,
+    SectionHelpToStart,
     SectionThree,
     SectionFour,
     SectionFive,
