@@ -2,15 +2,13 @@
   <d-filter-list 
   hideSide
   :call-list="loadList"
-  :pluralName="$t('consulting-fields')"
-  :singleName="$t('field')"
-  searchPlaceholder="أبحث عن مجالات الاستشارة"
+  :pluralName="$t('consultants')"
+  :singleName="$t('consultant')"
+  searchPlaceholder="أبحث عن مستشار"
   @change="changeFilter"
   >
   <template v-slot="{item}">
-    <router-link class="router-link" :to="getRouteLocale('consulting-field-consultants',{id:item.id})">
     <consultingFieldCard :item="item" />
-  </router-link>
     </template>
   </d-filter-list>
 </template>
