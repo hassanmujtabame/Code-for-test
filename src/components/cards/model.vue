@@ -44,6 +44,6 @@ props:{
 
 <style scoped>
 .box-title{
-    height:40px;
+    /*height:40px;*/
 }
 </style>
