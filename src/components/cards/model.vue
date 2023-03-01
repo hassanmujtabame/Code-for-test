@@ -4,8 +4,8 @@
                           <div class="rounded-top">
                               <img class="w-100 rounded-top"  :src="img" :alt="title"  height="186">
                           </div>
-                          <div class="box-title text-start bg-white text-two-lines p-2">
-                              <h6>{{title}}</h6>
+                          <div class="text-start bg-white  p-2">
+                              <h6 class="box-title text-two-lines">{{title}}</h6>
                               <div>
                                 <small class="m-c">
                                     عدد التنزيلات
@@ -44,6 +44,6 @@ props:{
 
 <style scoped>
 .box-title{
-    /*height:40px;*/
+    height:40px;
 }
 </style>
