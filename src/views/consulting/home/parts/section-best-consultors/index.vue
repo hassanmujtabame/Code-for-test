@@ -37,7 +37,7 @@
 import DSwiper from '@/components/swiper/index.vue'
 import CardMember from '@/components/cards/card-member.vue'
 export default {
- name:'section-5',
+ name:'section-best-consultors',
  components:{
   DSwiper,
     CardMember

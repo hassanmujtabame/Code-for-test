@@ -11,7 +11,7 @@
          <SectionConsultingCategories />
           <!--#section 4-->
           <!-- section 5-->
-          <SectionFive/>
+          <SectionBestConsultors/>
           <!--#section 5-->
   
   
@@ -22,7 +22,7 @@
   import SectionHeader from './parts/section-header/index.vue'
   import SectionHelpToStart from './parts/section-help-tostart/index.vue'
   import SectionConsultingCategories from './parts/section-consulting-categories/index.vue'
-  import SectionFive from './parts/section-5/index.vue'
+  import SectionBestConsultors from './parts/section-best-consultors/index.vue'
 
   export default {
   name:"consulting-home",
@@ -30,7 +30,7 @@
     SectionHeader,
     SectionHelpToStart,
     SectionConsultingCategories,
-    SectionFive,
+    SectionBestConsultors,
 
   }
   }
