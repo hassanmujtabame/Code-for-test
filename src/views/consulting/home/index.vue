@@ -1,7 +1,7 @@
 <template>
     <div style="margin-top: 85px " class="consult">
-          <!-- section 1-->
-          <SectionOne />
+          <!-- section header-->
+          <SectionHeader />
           <!--#section 1-->
          <!-- section 2-->
          <SectionTwo/>
@@ -29,7 +29,7 @@
   </template>
   
   <script>
-  import SectionOne from './parts/section-1/index.vue'
+  import SectionHeader from './parts/section-header/index.vue'
   import SectionTwo from './parts/section-2/index.vue'
   import SectionThree from './parts/section-3/index.vue'
   import SectionFour from './parts/section-4/index.vue'
@@ -40,7 +40,7 @@
   export default {
   name:"consulting-home",
   components:{
-    SectionOne,
+    SectionHeader,
     SectionTwo,
     SectionThree,
     SectionFour,
