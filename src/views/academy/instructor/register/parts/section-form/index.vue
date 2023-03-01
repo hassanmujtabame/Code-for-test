@@ -446,6 +446,10 @@ export default {
         };
     },
     methods:{
+        gotoHome(){
+            this.$store.commit('auth/SET_ACADEMY_ROLE','instructor')
+            this.refreshPage({name:'academy-home'})
+        },
         successRegister(){
             let dataEvt = {
                         icon:true,
@@ -453,8 +457,9 @@ export default {
                         title:'نشكرك على تسجيلك معنا',
                         description:`سنتواصل معك خلال الايام القليلة القادمة لتأكيد
 بيانتك و تأكيد الاشتراك  `,
+                    onClose:this.gotoHome,
                         btns:[
-                            {title:this.$t('Home'),action:()=>this.router_push('academy-home')}
+                            {title:this.$t('Home'),action:()=>this.gotoHome()}
                         ]
                     }
                     this.showSuccessMsg(dataEvt)
