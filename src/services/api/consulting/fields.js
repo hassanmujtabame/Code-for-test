@@ -7,6 +7,9 @@ class ConsultingFieldsApi extends BaseApi{
     let s=this.generateQueryUrl(params)
     return window.axios.get(`consulting/fields?${s}`);
 }
+getItem(id){
+    return window.axios.get(`consulting/fields/${id}`);
+}
 getBest(){
     return {data:{
         success:true,
