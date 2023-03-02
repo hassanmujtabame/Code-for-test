@@ -31,7 +31,7 @@ export default {
  methods:{
     async initializing(){
         try {
-            let { data } = await consultingAPI.fields.getBest()
+            let { data } = await consultingAPI.fields.getBest({paginate:4})
             if(data.success){
                 this.items = data.data
             }

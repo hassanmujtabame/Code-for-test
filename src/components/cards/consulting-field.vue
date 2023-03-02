@@ -1,7 +1,7 @@
 <template>
   <div class="consulting-category-card box text-center shadow border">
         <div class="consulting-category-card__img">
-            <img class="" :src="item.image" :alt="item.title" width="259" height="192">
+            <img class="" :src="item.image_path" :alt="item.title" width="259" height="192">
         </div>
         <div class="consulting-category-card__content">
            <h6 class="consulting-category-card__title">{{ item.title }}</h6>
