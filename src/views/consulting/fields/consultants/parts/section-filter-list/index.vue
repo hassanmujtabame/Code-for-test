@@ -7,7 +7,9 @@
   @change="changeFilter"
   >
   <template v-slot="{item}">
+    <router-link class="router-link" :to="getRouteLocale('consultant-page',{id:item.id})">
     <consultantCard :item="item" class="mx-auto" />
+    </router-link>
     </template>
     <template v-slot:side>
                 <sidebarBox  :filterItem="filterSide" @change="changeFilter"/>

@@ -587,5 +587,7 @@
   "consultant": "مستشار",
   "Consultant": "مستشار",
   "consultants": "مستشارين",
-  "Consultants": "مستشارين"
+  "Consultants": "مستشارين",
+  "booking-date": "يوم الحجز",
+  "booking-desc": "وصف"
 }

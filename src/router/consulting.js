@@ -7,6 +7,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "consulting-home" */ '../views/consulting/home/index.vue') 
     },
     {
+        path: 'consultants/:id',
+        meta:{layout:LayoutDefault},
+        name: 'consultant-page',
+        component: () => import(/* webpackChunkName: "consultant-page" */ '../views/consulting/consultant/index.vue') 
+    },
+    {
         path: 'consulting/consulting-page',
         meta:{layout:LayoutDefault},
         name: 'consulting-page',

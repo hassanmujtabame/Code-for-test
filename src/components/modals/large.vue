@@ -11,7 +11,7 @@
         >
             <div class="modal-content">
                 <div v-if="!hideHeader" class="modal-header">
-                    <h1 class="modal-title fs-5" :id="`modal-large-${modalId}`">
+                    <h1 class="modal-title" :id="`modal-large-${modalId}`">
                     <slot name="header">
                        
                     </slot>
@@ -133,5 +133,19 @@ created(){
 </script>
 
 <style>
+.modal-title{
+    font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 32px;
+/* identical to box height, or 133% */
 
+display: flex;
+align-items: center;
+
+text-transform: capitalize;
+
+color: #414042;
+margin: 0;
+}
 </style>

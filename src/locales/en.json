@@ -592,5 +592,7 @@
   "consultant": "Consultant",
   "Consultant": "Consultant",
   "consultants": "consultants",
-  "Consultants": "Consultants"
+  "Consultants": "Consultants",
+  "booking-date": "Booking date",
+  "booking-desc": "Description"
 }

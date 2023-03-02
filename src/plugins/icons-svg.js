@@ -5,6 +5,7 @@ import truckIcon from '@/components/icon-svg/truck.vue'
 import localisationIcon from '@/components/icon-svg/localisation.vue'
 import timerIcon from '@/components/icon-svg/timer.vue'
 import timeIcon from '@/components/icon-svg/time.vue'
+import chattingIcon from '@/components/icon-svg/chatting-icon.vue'
 import emptyWalletIcon from '@/components/icon-svg/empty-wallet.vue'
 import schoolWalletIcon from '@/components/icon-svg/school-wallet.vue'
 import eyeOpenIcon from '@/components/icon-svg/eye-open.vue'
@@ -23,6 +24,7 @@ import invoiceIcon from '@/components/icon-svg/invoice-icon.vue'
 import lockPassIcon from '@/components/icon-svg/lock-pass.vue'
 import cupIcon from '@/components/icon-svg/cup-icon.vue'
 
+Vue.component('d-chatting-icon',chattingIcon)
 Vue.component('d-cup-icon',cupIcon)
 Vue.component('d-lock-pass-icon',lockPassIcon)
 Vue.component('d-trash-outline-icon',trashOutlineIcon)
