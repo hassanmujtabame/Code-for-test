@@ -48,7 +48,7 @@ export default {
     async loadList(metaInfo){
       let params = {
                 page: metaInfo.current_page,
-                field_id: this.$route.params.id,
+                department_id: this.$route.params.id,
                 paginate:this.isMobile?2:6,
                 ...this.filterItem
             }

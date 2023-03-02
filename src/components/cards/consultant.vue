@@ -4,14 +4,15 @@
     <div class="card-body">
         <div class="d-flex">
     <h5 class="card-title flex-grow-1">{{ item.name }}</h5>
-    <h6 class="card-field flex-shrink-0">إدارة اعمال</h6>
+    <h6 class="card-field flex-shrink-0">{{ item.department_name }}</h6>
     </div>
     <p class="card-text consultant-bio text-two-lines">حاصل على درجة الدكتوراة في ادارة الاعمال كما حصت على شهادة الجامعة الامريكية في هذا المجال</p>
 <div class="d-flex justify-content-between">
-    <div class="d-flex align-items-center"><span  class="consultant-price">(4125)</span><d-rate-stars :size="16" :value="4" /></div>
+    <div class="d-flex align-items-center"><span  class="consultant-price">(4125)</span><d-rate-stars :size="16" :value="item.rate" /></div>
     <div>
         <span class="consultant-price">
-        <d-empty-wallet-icon :size="16" /> 150 {{ $t('riyals') }}
+        <d-empty-wallet-icon :size="16" /> {{item.consultation_price
+}} {{ $t('riyals') }}
     </span>
     </div>
 </div>    
