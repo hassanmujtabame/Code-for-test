@@ -32,6 +32,7 @@ export default {
  },
  methods:{
     async initializing(){
+      this.loading = true;
         try {
           let {data} = await consultingAPI.fields.getItem(this.$route.params.id)
           if(data.success){
@@ -44,6 +45,7 @@ export default {
           this.hasError = true;
            // 
         }
+        this.loading = false;
     }
  },
  mounted(){

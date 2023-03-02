@@ -11,7 +11,9 @@ class="d-flex justify-content-between align-items-center container my-2"
 </div>
 <div class="row">
 <div v-for="(item,i) in items" :key="i" class=" col-12 mt-3 m-auto col-md-3">
+   <router-link class="router-link" :to="getRouteLocale('consulting-field-consultants',{id:item.id})">
    <consultingFieldCard :item="item"/>
+   </router-link>
 </div>
 </div>
 </div>
