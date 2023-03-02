@@ -92,7 +92,7 @@ const routers =[
     },
     {
         path: 'academy/instructor/register',
-        meta:{layout:LayoutDefault},
+        meta:{layout:LayoutDefault,auth:true},
         name: 'academy-instructor-register',
         component: () => import(/* webpackChunkName: "academy-instructor-register" */ '../views/academy/instructor/register/index.vue') 
     },
