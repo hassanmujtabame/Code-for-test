@@ -6,8 +6,16 @@
     <h5 class="card-title flex-grow-1">{{ item.name }}</h5>
     <h6 class="card-field flex-shrink-0">إدارة اعمال</h6>
     </div>
-    <p class="card-text">حاصل على درجة الدكتوراة في ادارة الاعمال كما حصت على شهادة الجامعة الامريكية في هذا المجال</p>
+    <p class="card-text consultant-bio text-two-lines">حاصل على درجة الدكتوراة في ادارة الاعمال كما حصت على شهادة الجامعة الامريكية في هذا المجال</p>
+<div class="d-flex justify-content-between">
+    <div class="d-flex align-items-center"><span  class="consultant-price">(4125)</span><d-rate-stars :size="16" :value="4" /></div>
+    <div>
+        <span class="consultant-price">
+        <d-empty-wallet-icon :size="16" /> 150 {{ $t('riyals') }}
+    </span>
     </div>
+</div>    
+</div>
   </div>
 </template>
 
@@ -38,6 +46,9 @@ text-transform: capitalize;
 
 color: #414042;
 }
+.consultant-bio{
+    height:32px
+}
 .card-text{
     font-style: normal;
 font-weight: 400;
@@ -53,5 +64,14 @@ color: #737373;
     line-height: 17px;
     /* identical to box height, or 142% */
     color: #1FB9B3;
+}
+.consultant-price{
+    font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 25px;
+/* identical to box height, or 106% */
+
+color: #979797;
 }
 </style>
