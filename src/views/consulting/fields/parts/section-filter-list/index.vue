@@ -6,6 +6,7 @@
   :singleName="$t('field')"
   searchPlaceholder="أبحث عن مجالات الاستشارة"
   @change="changeFilter"
+  classColCard="col-12 col-sm-6 col-md-3 mt-2"
   >
   <template v-slot="{item}">
     <router-link class="router-link" :to="getRouteLocale('consulting-field-consultants',{id:item.id})">

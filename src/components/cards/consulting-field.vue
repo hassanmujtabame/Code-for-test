@@ -1,10 +1,10 @@
 <template>
-  <div class="consulting-category-card box text-center shadow border">
+  <div class="consulting-category-card box">
         <div class="consulting-category-card__img">
-            <img class="" :src="item.image_path" :alt="item.title" width="259" height="192">
+            <img  :src="item.image_path" :alt="item.name"  class="w-100 h-100" >
         </div>
         <div class="consulting-category-card__content">
-           <h6 class="consulting-category-card__title">{{ item.title }}</h6>
+           <h6 class="consulting-category-card__title">{{ item.name }}</h6>
         </div>
     </div>
 </template>
@@ -30,6 +30,9 @@ export default {
     border-radius: 8px 8px 8px 8px;
 }
 .consulting-category-card__img{
+    height:192px
+}
+.consulting-category-card__img,.consulting-category-card__img>img{
     border-radius: 8px 8px 0px 0px;
 }
 .consulting-category-card__title{
@@ -59,7 +62,7 @@ height: 88px;
 text-align: center;
 background: #FFFFFF;
 border: 1px solid #CDD7D8;
-box-shadow: 0px 0px 78.2699px rgba(187, 188, 189, 0.3);
+/*box-shadow: 0px 0px 78.2699px rgba(187, 188, 189, 0.3);*/
 border-radius: 0px 0px 8px 8px;
 }
 </style>
