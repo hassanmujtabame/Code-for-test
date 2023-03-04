@@ -7,8 +7,8 @@
   >
     <h1 class="home-section-title">{{ $t('Riadiat-podcats') }}</h1>
     <div>
-      <router-link custom :to="getRouteLocale('network-podcasts')" v-slot="{navigate}">
-      <button @click="navigate" class="more">{{ $t('more') }}</button>
+      <router-link class="more" :to="getRouteLocale('network-podcasts')"
+      >{{ $t('more') }}
       </router-link>
     </div>
   </div>

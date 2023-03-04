@@ -10,12 +10,9 @@
       <div class="d-flex justify-content-between align-items-center">
         <h1 class="home-section-title">{{ $t('network-members') }}</h1>
         <div>
-          <router-link class="router-link" custom 
+          <router-link class="more" 
                 :to="getRouteLocale('network-member-network')"
-                v-slot="{navigate}"
-                >
-              <button @click="navigate" class="more">{{ $t('more') }}</button>
-            </router-link>
+                >{{ $t('more') }}</router-link>
         </div>
       </div>
       <d-swiper v-if="!loading" is-auto :slides-per-view="4" :space-between="10" :items="items">

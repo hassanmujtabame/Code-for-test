@@ -5,7 +5,9 @@
             <div class="d-flex justify-content-between align-items-center container my-2">
                 <h1 class="home-section-title">{{ $t('riadiat-blogger') }} </h1>
                 <div>
-                    <button class="more">{{ $t('more') }}</button>
+                  <router-link  class="more" :to="getRouteLocale('network-blogs')" >
+                {{ $t('more') }}
+              </router-link>
                 </div>
             </div>
             <div class="row">

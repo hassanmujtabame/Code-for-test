@@ -6,12 +6,9 @@
               >
                 <h1 class="home-section-title"> {{ $t('riadiat-models') }} </h1>
                 <div>
-                <router-link class="router-link" custom 
+                <router-link class="more" custom 
                 :to="getRouteLocale('network-models')"
-                v-slot="{navigate}"
-                >
-                  <button @click="navigate" class="more"> {{ $t('more') }}</button>
-                </router-link>
+                >{{ $t('more') }}</router-link>
                 </div>
               </div>
               <d-swiper  
