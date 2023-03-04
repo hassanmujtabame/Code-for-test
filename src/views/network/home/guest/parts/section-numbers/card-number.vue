@@ -51,4 +51,24 @@ export default {
 .box-wrapper .box-title,.box-wrapper .box-value{
     flex: 1;
 }
+.box-value{
+    font-family: 'Poppins';
+    font-style: normal;
+font-weight: 500;
+font-size: 40px;
+line-height: 40px;
+/* identical to box height, or 100% */
+text-transform: capitalize;
+color: #1FB9B3;
+}
+.box-title{
+    font-family: 'Changa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 40px;
+    /* identical to box height, or 167% */
+    text-transform: capitalize;
+    color: #737373;
+}
 </style>

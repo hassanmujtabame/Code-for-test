@@ -33,7 +33,7 @@ data:()=>({
     loading:true,
     categories : [
         {name:'لقاءات تعليمية',id:"count_meetings"},
-        {name:'نماذخ',id:"count_models"},
+        {name:'نماذج',id:"count_models"},
         {name:'مدونات',id:"count_blogs"},
         {name:'عروض',id:"count_offers"},
         {name:'قصص نجاح',id:"count_stories"},
