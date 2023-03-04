@@ -5,7 +5,7 @@
   <div
     class="d-flex justify-content-between align-items-center"
   >
-    <h1>{{ $t('Riadiat-podcats') }}</h1>
+    <h1 class="home-section-title">{{ $t('Riadiat-podcats') }}</h1>
     <div>
       <router-link custom :to="getRouteLocale('network-podcasts')" v-slot="{navigate}">
       <button @click="navigate" class="more">{{ $t('more') }}</button>

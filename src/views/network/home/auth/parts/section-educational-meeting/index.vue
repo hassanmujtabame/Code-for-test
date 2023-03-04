@@ -5,7 +5,7 @@
   <div
     class="d-flex justify-content-between align-items-center"
   >
-    <h1>{{ $t('learning-meetings') }}</h1>
+    <h1 class="home-section-title">{{ $t('learning-meetings') }}</h1>
     <div>
       <router-link custom :to="getRouteLocale('network-learning-meetings')" v-slot="{navigate}">
       <button @click="navigate" class="more">{{ $t('more') }}</button>

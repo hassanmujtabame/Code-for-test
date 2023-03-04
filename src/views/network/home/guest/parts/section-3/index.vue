@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-5">
-            <h2 class="text-center text-bold">
+            <h2 class="home-section-title text-center">
                 من هم أعضاء الشبكة
             </h2>
             <div class="row">

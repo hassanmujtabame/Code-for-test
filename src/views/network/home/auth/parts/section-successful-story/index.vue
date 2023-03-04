@@ -3,7 +3,7 @@
             <div
             class="d-flex justify-content-between align-items-center container"
           >
-            <h1>  {{ $t('success-stories') }}      </h1>
+            <h1 class="home-section-title">  {{ $t('success-stories') }}      </h1>
             <div>
                 <router-link class="router-link" custom 
                 :to="getRouteLocale('network-success-stories')"

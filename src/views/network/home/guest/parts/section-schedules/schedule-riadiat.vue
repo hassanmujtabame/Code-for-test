@@ -1,7 +1,7 @@
 <template>
   <div class=" table-network ">
-    <h2>{{ $t('riadiat-network-schedule') }}</h2>
-                <p>{{ $t('riadiat-network-schedule-text') }}</p>
+    <h2 class="home-section-title">{{ $t('riadiat-network-schedule') }}</h2>
+                <p class="home-section-text">{{ $t('riadiat-network-schedule-text') }}</p>
                 
                 <div style="background-color: #F6F8F9;;min-height: 200px;">
                     <div class="row p-2">

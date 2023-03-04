@@ -2,7 +2,7 @@
    <div class="container">
           <div class="mt-5">
             <div class="">
-                <h2 class="text-center">الشبكة  في ارقام  </h2>
+                <h2 class="home-section-title text-center">الشبكة  في ارقام  </h2>
                 <d-swiper  v-if="!loading" 
                 :items="categories"
                 is-auto

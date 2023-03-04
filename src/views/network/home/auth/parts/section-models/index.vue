@@ -4,7 +4,7 @@
               <div
                 class="d-flex justify-content-between align-items-center "
               >
-                <h1> {{ $t('riadiat-models') }} </h1>
+                <h1 class="home-section-title"> {{ $t('riadiat-models') }} </h1>
                 <div>
                 <router-link class="router-link" custom 
                 :to="getRouteLocale('network-models')"

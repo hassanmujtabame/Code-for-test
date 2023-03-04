@@ -1,6 +1,6 @@
 <template>
     <div class="mt-5 p-4" style="    background: #80808012;">
-        <h2 class="text-center text-bold"> أهداف شبكة رياديات</h2>
+        <h2 class="home-section-title text-center"> أهداف شبكة رياديات</h2>
         <div class="row min-riadiat network">
             <div class="col-md-3 mt-2 ">
                 <div class="network-goal-item box border d-flex align-items-center rounded-2">

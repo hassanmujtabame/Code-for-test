@@ -1,11 +1,11 @@
 <template>
    <div class="container">
             <div class=" table-network ">
-                <h2>
+                <h2 class="home-section-title">
                    {{ $t('riadiat-network-schedule') }}
     
                 </h2>
-                <p>
+                <p class="home-section-text">
                     {{ $t('riadiat-network-schedule-text') }}
                     
                 </p>

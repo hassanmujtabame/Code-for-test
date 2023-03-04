@@ -3,7 +3,7 @@
             
                <div class="row align-items-center p-5 m-auto">
                 <div class="col-12 col-md-8 mt-3">
-                  <h2 class="text-white">
+                  <h2 class="home-section-title text-white">
                     تشاركينا ؟
                   </h2>
                   

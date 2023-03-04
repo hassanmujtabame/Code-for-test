@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-md-6">
                     <div>
-                        <h3 class="text-bold">
+                        <h3 class="home-section-title">
                             أنضم اليهم الان
                         </h3>
                         <div class="mt-4" style="color: #979797;">
