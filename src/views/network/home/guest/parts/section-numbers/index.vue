@@ -7,7 +7,7 @@
                 :items="categories"
                 is-auto
                 classColCard="col-6 col-md-auto mt-3"
-                :slides-per-view="7"
+                :slides-per-view="5"
                 >
                     <template v-slot="{item}" >
                         <cardNumber
