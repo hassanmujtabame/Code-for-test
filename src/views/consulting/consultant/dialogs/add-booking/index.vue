@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import consultingAPI from '@/services/api/consulting';
 export default {
     name: "add-booking-consultant",
     props: {
@@ -73,11 +74,23 @@ export default {
         showDialog: false,
         itemDailog: {},
         itemForm: {date:null,desc:'',time:''},
-        times:['17:30','18:00','18:30','19:00']
+        times:['17:30','18:00','18:30','19:00'],
+        availableDates:[],
     }),
     methods: {
+        async loadAvailableDates(){
+            try {
+                let {data} = await consultingAPI.consultants.getAvailableDates(this.itemDailog.id)
+                if(data.success){
+                    this.availableDates = data.data
+                }
+            } catch (error) {
+                //
+            }
+        },
         openDialog(dataEvt) {
             this.itemDailog = dataEvt;
+            this.loadAvailableDates()
             this.showDialog = true;
             return true;
         },

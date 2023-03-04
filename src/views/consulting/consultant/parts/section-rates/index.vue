@@ -16,142 +16,46 @@
                             </p>
                         </div>
                         <div>
-                            <div class="comment px-4 py-2 border-bottom ">
-                                <div class="d-flex justify-content-between align-items-center">
-
-                                    <h6 class="m-0">
-                                        ليلى احمد
-                                    </h6>
-                                    <p class="m-0">
-                                        <span class="s-c">
-                                            (4.5)
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star "></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-
-
-                                        </span>
-                                    </p>
-
-                                </div>
-                                <small class="s-c ">
-                                    دكتور مميز لقد أستفدت منه الكثير
-                                </small>
-                            </div>
-                            <div class="comment px-4 py-2 border-bottom ">
-                                <div class="d-flex justify-content-between align-items-center">
-
-                                    <h6 class="m-0">
-                                        ليلى احمد
-                                    </h6>
-                                    <p class="m-0">
-                                        <span class="s-c">
-                                            (4.5)
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star "></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-
-
-                                        </span>
-                                    </p>
-
-                                </div>
-                                <small class="s-c ">
-                                    دكتور مميز لقد أستفدت منه الكثير
-                                </small>
-                            </div>
-                            <div class="comment px-4 py-2 border-bottom ">
-                                <div class="d-flex justify-content-between align-items-center">
-
-                                    <h6 class="m-0">
-                                        ليلى احمد
-                                    </h6>
-                                    <p class="m-0">
-                                        <span class="s-c">
-                                            (4.5)
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star "></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-
-
-                                        </span>
-                                    </p>
-
-                                </div>
-                                <small class="s-c ">
-                                    دكتور مميز لقد أستفدت منه الكثير
-                                </small>
-                            </div>
-                            <div class="comment px-4 py-2 border-bottom ">
-                                <div class="d-flex justify-content-between align-items-center">
-
-                                    <h6 class="m-0">
-                                        ليلى احمد
-                                    </h6>
-                                    <p class="m-0">
-                                        <span class="s-c">
-                                            (4.5)
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star "></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-
-
-                                        </span>
-                                    </p>
-
-                                </div>
-                                <small class="s-c ">
-                                    دكتور مميز لقد أستفدت منه الكثير
-                                </small>
-                            </div>
-                            <div class="comment px-4 py-2 border-bottom ">
-                                <div class="d-flex justify-content-between align-items-center">
-
-                                    <h6 class="m-0">
-                                        ليلى احمد
-                                    </h6>
-                                    <p class="m-0">
-                                        <span class="s-c">
-                                            (4.5)
-                                        </span>
-                                        <span>
-                                            <i class="fa-solid fa-star "></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                            <i class="fa-solid fa-star active"></i>
-                                        </span>
-                                    </p>
-                                </div>
-                                <small class="s-c ">
-                                    دكتور مميز لقد أستفدت منه الكثير
-                                </small>
-                            </div>
+                            <rateItem v-for="(item,i) in items" :key="i" :item="item" />
                         </div>
                     </div>
 </template>
 
 <script>
+import consultingAPI from '@/services/api/consulting'
+import rateItem from './rate-item.vue'
 export default {
  name:'section-rates',
  props:{
     itemPage:{}
+ },
+ components:{
+    rateItem
+ },
+ data:()=>({
+    loading:false,
+    items:[
+        {name:'ليلى احمد',rate:4,comment:' دكتور مميز لقد أستفدت منه الكثير'},
+        {name:'ليلى احمد',rate:4,comment:' دكتور مميز لقد أستفدت منه الكثير'},
+        {name:'ليلى احمد',rate:4,comment:' دكتور مميز لقد أستفدت منه الكثير'},
+    ]
+ }),
+ methods:{
+    async initializing(){
+        this.loading = true;
+            try {
+                let {data} = await consultingAPI.consultants.getRates(this.itemPage.id)
+                if(data.success){
+                    this.items = data.data
+                }
+            } catch (error) {
+                //
+            }
+            this.loading = false;
+        },
+ },
+ mounted(){
+    this.initializing()
  }
 }
 </script>

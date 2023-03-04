@@ -3,33 +3,46 @@
     <h4 class="consultant-title">
         الدورات التدريبة
     </h4>
-    <ol type="1">
-        <li class="consultant-text">
-            عنوان الدورة
-
+    <ol v-if="items.length>0"  type="1">
+        <li v-for="(item,i) in items" :key="i" class="consultant-text">
+            {{ item.title }}
         </li>
-        <li class="consultant-text">
-            عنوان الدورة
-
-        </li>
-        <li class="consultant-text">
-            عنوان الدورة
-
-        </li>
-        <li class="consultant-text">
-            عنوان الدورة
-
-        </li>
+    
     </ol>
+    <div v-else>
+        <h1  class="consultant-text empty-list">لا توجد دورات</h1>
+    </div>
 </div>
 </template>
 
 <script>
+import consultingAPI from '@/services/api/consulting'
 export default {
   name:'section-courses',
     props:{
         itemPage:{}
-    }
+    },
+ data:()=>({
+    loading:false,
+    items:[]
+ }),
+ methods:{
+    async initializing(){
+        this.loading = true;
+            try {
+                let {data} = await consultingAPI.consultants.getCourses(this.itemPage.id)
+                if(data.success){
+                    this.items = data.data
+                }
+            } catch (error) {
+                //
+            }
+            this.loading = false;
+        },
+ },
+ mounted(){
+    this.initializing()
+ }
 }
 </script>
 
