@@ -4,7 +4,14 @@
         <SectionOne/>
         <!-- #section 1 -->
         <!-- section 2-->
-        <SectionTwo/>
+        <div class="container mt-5">
+    <!-- شبكة رياديات: وسع دائرة معارفك-->
+            <SectionGrowYourNetwork />
+            <!--section network's goals-->
+            <SectionNetworkGoals />
+            <!--معسكر ريادة الاعمال-->
+            <SectionCampLeadership />
+        </div>
         <!-- #section 2-->
          <!-- section 3-->
          <SectionThree/>
@@ -37,7 +44,6 @@
 </template>
 <script>
 import SectionOne from './parts/section-1/index.vue';
-import SectionTwo from './parts/section-2/index.vue';
 import SectionThree from './parts/section-3/index.vue';
 import SectionSchedules from './parts/section-schedules/index.vue';
 import SectionTopMember from './parts/section-top-members/index.vue';
@@ -47,11 +53,14 @@ import SectionNumbers from './parts/section-numbers/index.vue';
 import SectioninFluenceurs from './parts/section-influenceurs/index.vue';
 import SectionContinueLearning from './parts/section-continue-learning/index.vue';
 import SectionHear from './parts/section-hear/index.vue';
+import SectionNetworkGoals from './parts/section-network-goals/index.vue'
+import SectionCampLeadership from './parts/cam-leadership/index.vue'
+import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
 export default {
 name:'IndexPageGuest',
 components:{
     SectionOne,
-    SectionTwo,
+
     SectionThree,
     SectionSchedules,
     SectionTopMember,
@@ -60,7 +69,10 @@ components:{
     SectionNumbers,
     SectioninFluenceurs,
     SectionContinueLearning,
-    SectionHear
+    SectionHear,
+    SectionGrowYourNetwork,
+  SectionNetworkGoals,
+  SectionCampLeadership
 },
 methods:{
         loadJS(src,async=true,defer=false){
