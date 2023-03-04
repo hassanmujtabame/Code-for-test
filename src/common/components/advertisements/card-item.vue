@@ -31,6 +31,9 @@ export default {
     width: 100%;
     height: 288px;
 }
+.ads-card__wrapper{
+  padding: 0px 5px;
+}
  .ads-card__wrapper,.ads-card__wrapper>div{
   border-radius: var(--bs-border-radius-xl)!important;
 }

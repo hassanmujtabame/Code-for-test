@@ -33,12 +33,7 @@
    }},
    computed:{
     sliders(){
-        return this.items.length>0?this.items:[
-            {type:"html",content:`<div id="scdf" class="w-100 h-100 text-white p-4">
-                <p class="xxcfd">نضع أهم </p>
-                <p class="xxcfd">اعلانات كل قسم هنا</p>
-                </div>`,
-                style:`
+        let style=`
                 #scdf{
                     background: linear-gradient(275.37deg, #BBD2C5 7.87%, #1FB9B3 101.4%);
                 }
@@ -51,6 +46,18 @@
                             color: #F6F8F9;
                             text-shadow: 0px 11.1275px 11.1275px rgba(0, 0, 0, 0.25);
                         }`
+        return this.items.length>0?this.items:[
+            {type:"html",content:`<div id="scdf" class="w-100 h-100 text-white p-4">
+                <p class="xxcfd">نضع أهم </p>
+                <p class="xxcfd">اعلانات كل قسم هنا</p>
+                </div>`,
+                style:style
+                    },
+                    {type:"html",content:`<div id="scdf" class="w-100 h-100 text-white p-4">
+                <p class="xxcfd">نضع أهم </p>
+                <p class="xxcfd">اعلانات كل قسم هنا</p>
+                </div>`,
+                style:style
                     }
         ]
     }
@@ -58,26 +65,32 @@
    watch:{
     sliders:{
         deep:true,
-        immediate:true,
         handler(){
             let style = document.getElementById(this.compId)
+            if(style)style.remove()
             if(!style){
-                let style  = document.createElement('style')
+                style  = document.createElement('style')
                 style.setAttribute('id',this.compId)
-                let head = document.head || document.getElementsByTagName('head')[0]
-                head.appendChild(style);
-                style.type = 'text/css';
+                //style.type = 'text/css';
             } 
             let css = ''
                 this.sliders.forEach(el=>{
                     css+=`\n ${el.style}`
                 })
+                //console.mylog('style',style)
+               
                 if (style.styleSheet){
+                    console.mylog('style.styleSheet',style.styleSheet)
                 // This is required for IE8 and below.
                 style.styleSheet.cssText = css;
                 } else {
                 style.appendChild(document.createTextNode(css));
                 }
+                
+                    let head = document.head || document.getElementsByTagName('head')[0]
+                head.appendChild(style);
+                
+                
         }
     }
    },
