@@ -24,16 +24,63 @@
       ItemSlide
    },
    data:(vm)=>{
+        let id=vm.generateRandomString(8);
       return {
-      carouselId:`carousel-ads-${vm.generateRandomString(8)}`,
+      carouselId:`carousel-ads-${id}`,
+      compId:id,
       loading:true,
       items:[]
    }},
    computed:{
     sliders(){
         return this.items.length>0?this.items:[
-            {type:"html",content:'<div class="w-100 h-100" style="background:green"></div>'}
+            {type:"html",content:`<div class="w-100 h-100 text-white p-4" style="background:green">
+                <p class="xxcfd">نضع أهم </p>
+                <p class="xxcfd">اعلانات كل قسم هنا</p>
+                </div>`,
+                style:`.xxcfd{
+                    font-style: normal;
+                            font-weight: 700;
+                            font-size: 58.2011px;
+                            line-height: 108px;
+                            text-align: right;
+                            color: #F6F8F9;
+                            text-shadow: 0px 11.1275px 11.1275px rgba(0, 0, 0, 0.25);
+                        }`
+                    }
         ]
+    }
+   },
+   watch:{
+    sliders:{
+        deep:true,
+        immediate:true,
+        handler(){
+            let style = document.getElementById(this.compId)
+            if(!style){
+                let style  = document.createElement('style')
+                style.setAttribute('id',this.compId)
+                let head = document.head || document.getElementsByTagName('head')[0]
+                head.appendChild(style);
+                style.type = 'text/css';
+            } 
+            let css = ''
+                this.sliders.forEach(el=>{
+                    css+=`\n ${el.style}`
+                })
+                if (style.styleSheet){
+                // This is required for IE8 and below.
+                style.styleSheet.cssText = css;
+                } else {
+                style.appendChild(document.createTextNode(css));
+                }
+        }
+    }
+   },
+   beforeDestroy(){
+    let style = document.getElementById(this.compId)
+    if(style){
+        style.remove()
     }
    },
    methods:{

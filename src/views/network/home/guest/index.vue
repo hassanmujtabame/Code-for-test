@@ -12,6 +12,7 @@
             <!--معسكر ريادة الاعمال-->
             <SectionCampLeadership />
         </div>
+        <SectionAds department="network"  />
         <!-- #section 2-->
          <!-- section 3-->
          <SectionThree/>
@@ -53,6 +54,7 @@ import SectionNumbers from './parts/section-numbers/index.vue';
 import SectioninFluenceurs from './parts/section-influenceurs/index.vue';
 import SectionContinueLearning from './parts/section-continue-learning/index.vue';
 import SectionHear from './parts/section-hear/index.vue';
+import SectionAds from '@/common/components/advertisements/index'
 import SectionNetworkGoals from './parts/section-network-goals/index.vue'
 import SectionCampLeadership from './parts/cam-leadership/index.vue'
 import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
@@ -70,6 +72,7 @@ components:{
     SectioninFluenceurs,
     SectionContinueLearning,
     SectionHear,
+    SectionAds,
     SectionGrowYourNetwork,
   SectionNetworkGoals,
   SectionCampLeadership
