@@ -1,6 +1,6 @@
 <template>
   <div class="mt-5">
-                <h2 class="text-center">
+                <h2 class="home-section-title text-center">
                     المزايا المُقدّمة من رياديات إلى مقدمي الخدمات
                 </h2>
                 <div class="row why-riadiat order">

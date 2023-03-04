@@ -1,6 +1,6 @@
 <template>
    <div class="container  mt-5 p-5">
-            <h2 class="text-center"> 
+            <h2 class="home-section-title text-center"> 
                 كيف تقدم خدماتك في المنصة
             </h2>
             <div class=" mt-5">

@@ -9,7 +9,7 @@
 
             </div>
             <div class="col-md-6  mt-4">
-                <h2 class="text-white fs-1">
+                <h2 class="home-section-title text-white">
                     أكملي دوراتك، مراسلاتك وشاركي فـــــــي الشبكة والحاضنة من خلال تطبيق رياديــــــات
 
 

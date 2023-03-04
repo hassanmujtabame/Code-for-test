@@ -4,7 +4,7 @@
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-                <h1 class="w-100 text-center">
+                <h1 class="home-section-title w-100 text-center">
                   أفضل مقدمي الخدمات هذا الشهر
                   </h1>
             

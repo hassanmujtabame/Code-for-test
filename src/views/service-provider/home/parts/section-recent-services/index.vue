@@ -1,7 +1,7 @@
 <template>
 <div class="container mt-5">
             <div class="d-flex justify-content-between align-items-center container">
-            <h1> أحدث الخدمات المضافة </h1>
+            <h1 class="home-section-title"> أحدث الخدمات المضافة </h1>
             <div>
                 <router-link class="router-link" custom :to="getRouteLocale('service-provider-ready-services')" v-slot="{navigate}">
                     <button @click="navigate" class="more">{{ $t('more') }}</button>

@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-5">
         <div>
-            <h2 class="text-center">
+            <h2 class="home-section-title text-center">
                 تصفح الخدمات حسب التصنيف
             </h2>
             <div class="row search-service mt-4">
