@@ -35,10 +35,10 @@ export default {
  data:()=>({
     loading:false,
     items:[
+        /*{name:'ليلى احمد',rate:4,comment:' دكتور مميز لقد أستفدت منه الكثير'},
         {name:'ليلى احمد',rate:4,comment:' دكتور مميز لقد أستفدت منه الكثير'},
         {name:'ليلى احمد',rate:4,comment:' دكتور مميز لقد أستفدت منه الكثير'},
-        {name:'ليلى احمد',rate:4,comment:' دكتور مميز لقد أستفدت منه الكثير'},
-    ]
+ */]
  }),
  methods:{
     async initializing(){
