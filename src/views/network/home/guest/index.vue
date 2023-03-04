@@ -11,8 +11,11 @@
             <SectionNetworkGoals />
             <!--معسكر ريادة الاعمال-->
             <SectionCampLeadership v-if="false"/>
-        </div>
+            </div>
+            <div class=" mt-5">
         <SectionAds department="network"  />
+        </div>
+        
         <!-- #section 2-->
          <!-- section 3-->
          <SectionThree/>
