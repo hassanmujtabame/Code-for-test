@@ -1,19 +1,19 @@
 <template>
-    <div class="box border rounded-3">
+    <div class="user-story-card box border rounded-3">
         <div class="box-img">
             <img class="w-100 rounded-top" :src="image" :alt="name"
                 height="260">
         </div>
         <div class="text-center p-2">
-            <h5 style="height:48px">{{ title }}</h5>
-            <div>
-                <small class="m-c">{{ name??'N/A' }}
-                </small>
+            <h5 class="user-story-card_title" >{{ title }}</h5>
+            <div class="user-story-card__text">
+                <span class="user-story-card__name">{{ name??'N/A' }}
+                </span>
                 <span>
                     |
                 </span>
-                <small class="t-c">{{ description??'N/A' }}
-                </small>
+                <span class="user-story-card__job">{{ description??'N/A' }}
+                </span>
             </div>
         </div>
     </div>
@@ -42,5 +42,33 @@ export default {
 <style scoped>
 .box-img>img{
     min-height: 259px;
+}
+.user-story-card_title{
+    height: 48px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+    text-transform: capitalize;
+    color: #414042;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-story-card__text>*{
+    font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 17px;
+/* identical to box height, or 142% */
+color: #979797;
+}
+.user-story-card__job{
+color: #979797;
+}
+.user-story-card__name{
+    color: #1FB9B3;
 }
 </style>
