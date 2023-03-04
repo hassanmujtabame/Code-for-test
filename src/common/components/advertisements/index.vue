@@ -34,11 +34,15 @@
    computed:{
     sliders(){
         return this.items.length>0?this.items:[
-            {type:"html",content:`<div class="w-100 h-100 text-white p-4" style="background:green">
+            {type:"html",content:`<div id="scdf" class="w-100 h-100 text-white p-4">
                 <p class="xxcfd">نضع أهم </p>
                 <p class="xxcfd">اعلانات كل قسم هنا</p>
                 </div>`,
-                style:`.xxcfd{
+                style:`
+                #scdf{
+                    background: linear-gradient(275.37deg, #BBD2C5 7.87%, #1FB9B3 101.4%);
+                }
+                .xxcfd{
                     font-style: normal;
                             font-weight: 700;
                             font-size: 58.2011px;

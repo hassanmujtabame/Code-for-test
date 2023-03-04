@@ -10,7 +10,7 @@
             <!--section network's goals-->
             <SectionNetworkGoals />
             <!--معسكر ريادة الاعمال-->
-            <SectionCampLeadership />
+            <SectionCampLeadership v-if="false"/>
         </div>
         <SectionAds department="network"  />
         <!-- #section 2-->
