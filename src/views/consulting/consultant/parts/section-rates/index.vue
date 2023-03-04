@@ -7,20 +7,12 @@
                                     التقيمات
                                 </h4>
                                 <h4 class="s-c">
-                                    4.9
+                                    {{itemPage.rate}}
                                 </h4>
 
                             </div>
                             <p class="text-end">
-                                <span>
-                                    <i class="fa-solid fa-star "></i>
-                                    <i class="fa-solid fa-star active"></i>
-                                    <i class="fa-solid fa-star active"></i>
-                                    <i class="fa-solid fa-star active"></i>
-                                    <i class="fa-solid fa-star active"></i>
-
-
-                                </span>
+                                <d-rate-font-stars :value="itemPage.rate" readonly/>
                             </p>
                         </div>
                         <div>

@@ -1,8 +1,10 @@
 
 import BaseApi from "../base-service";
 import fields from "./fields";
+import consultants from "./consultants";
 class ConsultingApi extends BaseApi{
     fields = fields
+    consultants = consultants;
             //Get all Consulting
         getAll(params={}){
             let s=this.generateQueryUrl(params)

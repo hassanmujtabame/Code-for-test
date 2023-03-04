@@ -1,23 +1,27 @@
 <template>
     <div style="margin-top: 80px;background-color: #F6F8F9;">
-        <div class="container ">
+        <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+      هناك خطأ غير معروف يرجي تحديث الصفحة
+    </div>
+    <div v-else class="container ">
             <div class="row  py-4">
 
                 <div class="col-md-7 bg-white p-3 rounded-4 border mt-5">
                     <div class="box ">
                         <div class="d-flex align-items-center gap-3">
                             <div>
-                                <img class="rounded-3" src="/assets/img/man.png" alt="" width="200" height="200">
+                                <img class="rounded-3" :src="itemPage.image" :alt="itemPage.name" width="200" height="200">
                             </div>
                             <div>
                                 <h2 class="consultant-name">
-                                    أحمد محمد خالد
+                                    {{itemPage.name}}
                                 </h2>
                                 <p class="consultant-text">
-                                    دكتوراة في ريادة الاعمال
+                                    {{itemPage.job_title}}
                                 </p>
                                 <button style="background-color:#FFBC00 ; " class="text-white border-0 p-1">
-                                    ريادة الاعمال
+                                    {{itemPage.department_name}}
                                 </button>
                             </div>
                         </div>
@@ -26,8 +30,7 @@
                                 نبذه عن المستشار
                             </h4>
                             <p class="consultant-text">
-                                حاصل على درجة الدكتوراة في ادارة الاعمال كما حصت على شهادة الجامعة الامريكية في هذا
-                                المجال
+                                {{itemPage.bio}}
                             </p>
                             <!--courses-->
                             <SectionCourses :itemPage="itemPage"/>
@@ -46,11 +49,11 @@
                                 <p>
                                     <d-empty-wallet-icon :size="24" />
 
-                                    150 ريال
+                                    {{itemPage.consultation_price??'N/A'}} ريال
                                 </p>
                                 <p>
                                     <d-timer-icon :size="24" />
-                                    60 دقيقة
+                                    {{itemPage.during??'N/A'}} دقيقة
                                 </p>
                                 <p>
                                     <d-chatting-icon :size="24" />
@@ -80,6 +83,7 @@ import SectionCourses from './parts/section-courses'
 import SectionProjects from './parts/section-projects'
 import SectionRates from './parts/section-rates'
 import AddBookingConsultant from './dialogs/add-booking/index.vue'
+import consultingAPI from '@/services/api/consulting'
 export default {
     name: 'consultant-page',
     components:{
@@ -89,12 +93,34 @@ export default {
         AddBookingConsultant
     },
     data:()=>({
-        itemPage:{}
+        itemPage:{},
+        hasError:false,
+        loading:true,
     }),
     methods:{
         openAddBooking(){
             this.fireOpenDialog('add-booking-consultant',this.itemPage)
+        },
+        async initializing(){
+        this.loading = true;
+        this.hasError = false;
+        try {
+          let {data}= await consultingAPI.consultants.getItem(this.$route.params.id)
+          if(data.success){
+            this.itemPage = data.data
+          }else{
+            window.SwalError(data.message)
+            this.hasError = true;
+          }
+        } catch (error) {
+           // 
+           this.hasError = true;
         }
+        this.loading = false;
+    }
+    },
+    mounted(){
+        this.initializing()
     }
 }
 </script>

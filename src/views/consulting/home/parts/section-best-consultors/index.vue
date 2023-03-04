@@ -50,7 +50,7 @@ export default {
     async initializing(){
         this.loading = true;
         try {
-          let {data}= await consultingAPI.getAll({paginate:4})
+          let {data}= await consultingAPI.consultants.getBest({paginate:4})
           if(data.success){
             this.items = data.data
           }

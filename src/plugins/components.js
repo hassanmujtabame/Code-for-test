@@ -42,6 +42,7 @@ import MyRequestCard from '@/components/cards/my-request-client.vue'
 import ErrorInput from '@/components/error-input/index.vue'
 import CreditCardImage from '@/components/credit-card/credit-card-img.vue'
 import DRateStars from '@/components/rate-stars/index.vue'
+import DRateFontStars from '@/components/rate-stars/show-rate.vue'
 import DDotsProgress from '@/components/dots-progress/index'
 import clickOutside from './click-outside'
 
@@ -52,6 +53,8 @@ Vue.component('d-success-message', DSuccessMessage)
 Vue.component('d-confirm-message', DConfirmMessage)
 Vue.component('d-credit-card', CreditCardImage)
 Vue.component('d-rate-stars', DRateStars)
+Vue.component('d-rate-font-stars', DRateFontStars)
+
 Vue.component('d-error-input', ErrorInput)
 Vue.component('d-drown-list', drowListInput)
 Vue.component('d-multiselect-input', DMultiSelecetInput)//improve d-drown-list

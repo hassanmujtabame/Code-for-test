@@ -2,7 +2,7 @@
 import BaseApi from "../base-service";
 
 class ConsultingFieldsApi extends BaseApi{
-  //Get all Consulting
+  //Get all Consulting fields
   getAll(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`consulting/fields?${s}`);
