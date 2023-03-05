@@ -62,7 +62,7 @@ watch:{
     openDeleteDialog(){
         let dataEvt={
             title:this.$t('confirm_delete_ready_service_message'),
-            description:'1عند تأكيد الحذف لن تستطيع استعادة الخدمة مرة اخرى  يمكنك تعليق الخدمة لفترة زمنية معينة  بدلا من حذفها',
+            description:'عند تأكيد الحذف لن تستطيع استعادة الخدمة مرة اخرى  يمكنك تعليق الخدمة لفترة زمنية معينة  بدلا من حذفها',
             btns:[
                 {title:this.$t('confirm_delete'),action:()=>this.delelteItem()}
             ]
