@@ -1,6 +1,10 @@
 <template>
    <div class="box border rounded-top">
                     <div class="position-relative">
+                        <div v-if="userInfo && false" class="exibition-item__avatar">
+                            <img :src="userInfo.image" width="48" height="48" />
+                            <h6>{{ userInfo.name }}</h6>
+                        </div>
                         <img class="w-100 rounded-top" :src="img" :alt="title"
                             height="167">
                             <button v-if="isShared" class="btn-shared-exibition"><tickCircleIcon />{{ $t('shared') }}</button>
@@ -71,6 +75,9 @@ export default {
     price:{
         type:[String,Number],
         default:'N/A'
+    },
+    userInfo:{
+        type:[Object,Array]
     }
 }
 }
@@ -122,5 +129,26 @@ html[dir=ltr] .btn-shared-exibition{
 html[dir=ltr] .btn-shared-exibition svg{
     margin-left: 0;
     margin-right: 5px;
+}
+.exibition-item__avatar{
+    position: absolute;
+    bottom: -10px;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.exibition-item__avatar>img{
+
+    border-radius: 50%;
+    min-height: 48px;
+    min-width: 48px;
+    background-color: #fdf9f9a8;
+}
+.exibition-item__avatar>h6{
+    background: orange;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 0;
 }
 </style>

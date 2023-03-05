@@ -58,11 +58,10 @@
 <script>
 import exhibitionAPI from '@/services/api/exhibitions.js'
 import sidebarBox from './sidebar.vue';
-import exhibitionCard from '@/components/cards/exhibition.vue';
 export default {
     name: 'filter-exhibitions',
     components: {
-        exhibitionCard,
+   
         sidebarBox
     },
     data: () => ({

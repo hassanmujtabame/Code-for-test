@@ -21,6 +21,7 @@
                 :description="item.content"
                 :isShared="item.is_share"
                 :userName="item.user_info.name"
+                :userInfo="item.user_info"
                 />
               </router-link>
                 </div>

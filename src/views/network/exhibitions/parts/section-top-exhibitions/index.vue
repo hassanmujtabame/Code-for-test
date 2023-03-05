@@ -35,6 +35,7 @@
                 :title="item.title"
                 :isShared="item.is_share"
                 :description="item.content"
+                :userInfo="item.user_info"
                 />
             </router-link>
             </template>
