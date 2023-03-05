@@ -48,7 +48,7 @@ export default {
             if(data.success){
                 //console.log('success',data)
                 this.closeEvent()
-                this.$router.push(this.getRouteLocale('service-provider-ready-services'))
+                this.$router.push(this.getRouteLocale('service-provider-my-ready-services'))
             }else{
               window.SwalError(data.message)
             }

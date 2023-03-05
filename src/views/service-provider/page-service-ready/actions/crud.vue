@@ -1,8 +1,7 @@
 <template>
    <div class="col-md-6 d-flex gap-2 justify-content-end">
                     <div>
-                        <button @click="openEditDialog" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"
-                             href="#addModal" >
+                        <button @click="openEditDialog" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2">
                             <img src="/assets/svg/update.svg" />
 
                             {{$t('modification')}}
@@ -61,7 +60,28 @@ watch:{
       this.fireOpenDialog('update-ready-service',this.itemPage)
     },
     openDeleteDialog(){
-      this.fireOpenDialog('delete-ready-service',this.itemPage)
+        let dataEvt={
+            title:this.$t('confirm_delete_ready_service_message'),
+            description:'1عند تأكيد الحذف لن تستطيع استعادة الخدمة مرة اخرى  يمكنك تعليق الخدمة لفترة زمنية معينة  بدلا من حذفها',
+            btns:[
+                {title:this.$t('confirm_delete'),action:()=>this.delelteItem()}
+            ]
+        }
+        this.showConfirmMsg(dataEvt)
+        //this.fireOpenDialog('delete-ready-service',this.itemPage)
+    },
+    async delelteItem(){
+        try {
+            let {data} = await ServiceProviderAPIs.delete(this.itemPage.id)
+            if(data.success){
+                this.$router.push(this.getRouteLocale('service-provider-my-ready-services'))
+            }else{
+              window.SwalError(data.message)
+            }
+        } catch (error) {
+            console.log('error',error)
+            console.log('error response',error.response)
+        }
     },
         async suspendItem(){
             this.loading = true;
