@@ -36,7 +36,7 @@
 
 <script>
 import projectsAPI from '@/services/api/projects.js'
-import investmentProject from '@/components/cards/investment-project.vue';
+import investmentProject from '@/components/cards/projects/physical/large.vue';
 export default {
  name:'investment-projects',
  components:{
