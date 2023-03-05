@@ -1,5 +1,5 @@
 <template>
-   <div class="box border rounded-top">
+   <div class="box border rounded-top" v-bind="$attrs">
                     <div class="position-relative">
                         <div v-if="userInfo && false" class="exibition-item__avatar">
                             <img :src="userInfo.image" width="48" height="48" />

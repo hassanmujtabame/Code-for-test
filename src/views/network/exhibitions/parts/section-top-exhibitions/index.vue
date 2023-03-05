@@ -26,8 +26,9 @@
             is-auto
               :items="items" >
               <template  v-slot:default="{item}" >
-                <router-link class="router-link" :to="getRouteLocale('network-exhibition-show',{id:item.id})">
+                <router-link class="router-link h-100" :to="getRouteLocale('network-exhibition-show',{id:item.id})">
                 <exhibitionCard 
+                class="h-100"
                 :img="item.image"
                 :userName="item.user_info.name"
                 :place="item.city"
