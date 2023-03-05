@@ -6,7 +6,8 @@
                     <p class="">
                         <slot></slot>
                     </p>
-                    <BtnSimple :selected="true">
+                    <BtnSimple :selected="true" @click="router_push(routeName
+                    )">
                      <OpenLinkSVG/>
                      {{ $t('know-more') }}
                     </BtnSimple>
@@ -24,6 +25,10 @@ export default {
     selected:{
         type:Boolean,
 
+    },
+    routeName:{
+      type:[String],
+      default:'index'
     }
   },
   watch:{

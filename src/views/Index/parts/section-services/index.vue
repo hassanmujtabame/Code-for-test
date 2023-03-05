@@ -48,7 +48,7 @@
                       alt=""
                     />
                   </div>
-                <ServiceCard :selected="selected" :title="$t('network')">
+                <ServiceCard :selected="selected" :title="$t('network')" routeName="network-home">
                     {{ $t('home-riadiat-srv-f-y-network') }}
                   </ServiceCard>
                 
@@ -62,7 +62,7 @@
                       alt=""
                     />
                   </div>
-                  <ServiceCard :title="$t('incubator')" :selected="selected">
+                  <ServiceCard :title="$t('incubator')" :selected="selected" routeName="incubator-home">
                     {{ $t('home-riadiat-srv-f-y-network') }}
                   </ServiceCard>
                 
@@ -80,7 +80,7 @@
                       alt=""
                     />
                   </div>
-                  <ServiceCard :title="$t('academy')" :selected="selected">
+                  <ServiceCard :title="$t('academy')" :selected="selected" routeName="academy-home">
                     {{ $t('home-riadiat-srv-f-y-network') }}
                   </ServiceCard>
                   
@@ -98,7 +98,7 @@
                       alt=""
                     />
                   </div>
-                  <ServiceCard :title="$t('service-providers')" :selected="selected">
+                  <ServiceCard :title="$t('service-providers')" :selected="selected" routeName="service-provider-home">
                     {{ $t('home-riadiat-srv-f-y-network') }}
                   </ServiceCard>
                 </TabItem>

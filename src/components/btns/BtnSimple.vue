@@ -2,7 +2,7 @@
   <button      class="btn-custmer-w"
   :class="{'active':selected}"
                   type="button"
-                 @click="clicked"
+                 v-on="$listeners"
         
                 >
                 <slot>
