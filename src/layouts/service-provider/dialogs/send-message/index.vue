@@ -15,7 +15,7 @@
                 </div>
                 <div class="user-info flex-grow-1 p-2">
                     <h3 class="m-c">{{ opts.user.name }}</h3>
-                    <h5 >{{ opts.user.job }}</h5>
+                    <h5 >{{ opts.user.job_title }}</h5>
                 </div>
             </div>
             <!-- form inputs-->
