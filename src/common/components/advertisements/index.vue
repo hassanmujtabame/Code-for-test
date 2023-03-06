@@ -18,6 +18,9 @@
    props:{
     department:{
         type:String,
+    },
+    url:{
+        type:String,
     }
    },
    components:{
@@ -104,7 +107,7 @@
       async initializing(){
           this.loading = true;
           try {
-              let {data} =  await commonAPI.getAds({department_name:this.department})
+              let {data} =  await commonAPI.getAds(this.url,{department_name:this.department})
               console.log(data)
               if(data.success){
                   this.items =data.data

@@ -1,7 +1,7 @@
 <template>
   <div class="ads-card">
-        <div  v-if="item.type=='html'" class="ads-card__wrapper w-100 h-100" v-html="item.content"></div>
-        <div  v-else-if="item.type=='image'" class="ads-card__wrapper w-100 h-100">
+        <div  v-if="item.banner_type=='html'" class="ads-card__wrapper w-100 h-100" v-html="item.content"></div>
+        <div  v-else-if="item.banner_type=='image'" class="ads-card__wrapper w-100 h-100">
         <a :href="item.link??'#'" class="w-100 h-100">
             <img :src="item.image" >
         </a>

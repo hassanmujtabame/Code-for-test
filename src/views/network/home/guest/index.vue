@@ -13,7 +13,7 @@
             <SectionCampLeadership v-if="false"/>
             </div>
             <div class=" mt-5">
-        <SectionAds department="network"  />
+        <SectionAds department="network" url="network/home-banners" />
         </div>
         
         <!-- #section 2-->

@@ -11,10 +11,10 @@ class CommonApi extends BaseApi {
         let s=this.generateQueryUrl(params)
         return window.axios.get(`user/what-do-subscribers-say?${s}`);  
     }
-    getAds(params={department_name:'riadiat'}){
+    getAds(url,params={}){
         /* advertisements*/
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`user/what-do-subscribers-say?${s}`);  
+        return window.axios.get(`${url}?${s}`);  
     }
    getCoursesHome(params = {}){
      /*نقدم دورتنا بكل شغف*/
