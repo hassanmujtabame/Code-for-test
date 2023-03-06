@@ -2061,3 +2061,8 @@ text-transform: capitalize;
 
 color: #979797;
   }
+
+  @keyframes recording {
+    from {color: red;}
+    to {color: #979797;}
+  }
