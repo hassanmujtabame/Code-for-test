@@ -27,7 +27,7 @@
         <RateCourse :itemPage="itemPage" />
         </div>
         <div class="col-12 col-md-4">
-          <attachmentsCourse :itemPage="itemPage"/>
+          <attachmentsCourse :itemPage="itemPage" :isOwner="isOwner"/>
         </div>
     </div>
   </div>

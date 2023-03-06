@@ -111,7 +111,7 @@ const routes = [
   },
   {
     path: 'change-password',
-    meta:{layout:LayoutDefault},
+    meta:{layout:LayoutDefault,auth:true},
     name: 'change-password',
     component: () => import(/* webpackChunkName: "change-password" */ '../views/auth/change-password/index.vue')
   },
