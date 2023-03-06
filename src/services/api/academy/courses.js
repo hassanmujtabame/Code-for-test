@@ -47,6 +47,12 @@ class CoursesApi extends BaseApi{
         return window.axios.post(`academy/user/courses/${id}/cancel-join`);
 
     }
+    addAttachment(course_id,data,config={}){
+        return window.axios.post(`academy/instructor/courses/${course_id}/attachments`,data,config);
+    }
+    deleteAttachment(id){
+        return window.axios.delete(`academy/instructor/courses/attachments/${id}`);
+    }
 }
 
 export default new CoursesApi();
