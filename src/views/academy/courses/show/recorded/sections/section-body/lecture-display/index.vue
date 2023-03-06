@@ -38,34 +38,6 @@ export default {
            this.videoTag.play();
             
         },
-        timeFormat(h,m,s){
-        let formattedTime="";
-        if(h)
-        formattedTime +=h.toString().padStart(2, '0')+ ':'
-        //if(m)
-        formattedTime += m.toString().padStart(2, '0')+ ':'
-        formattedTime += s.toString().padStart(2, '0');
-        return formattedTime
-    },
-    timeToParts(duration){
-        var h = Math.floor(duration/ (60*60));
-            var m =  Math.floor(duration / 60);
-            var s =  Math.floor(duration% 60);
-            return {h,m,s}
-    },
-    timeHuman(h,m,s){
-        let str="";
-        if(h){
-            str+=`${h} ${this.$t('hour_s')}`
-            if(m) str+=`${this.$t('and')}`
-        } 
-        if(m){
-            str+=`${m} ${this.$t('minute_s')}`
-            if(s) str+=`${this.$t('and')}`
-        } 
-        if(s) str+=`${s} ${this.$t('second_s')}`
-        return str;
-    },
         onTimeupdate(evt){
             this.progress = evt.target.currentTime*100/ evt.target.duration
             let { h, m, s} = this.timeToParts(evt.target.currentTime)
