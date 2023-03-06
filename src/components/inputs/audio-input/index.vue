@@ -185,6 +185,7 @@ export default {
     this.device = navigator.mediaDevices.getUserMedia({ audio: true });
   },
     beforeDestroy(){
+        this.this.clearAudio()
     if(this.$refs['audioInput']){
         this.$refs.audioInput.removeEventListener('play',this.audioListener);
         this.$refs.audioInput.removeEventListener('loadeddata',this.audioListener);
