@@ -27,7 +27,7 @@ export default {
  methods:{
     afterSuccessForm(/*evt*/){
         //this.dataCheck=evt
-        this.status='new';
+        this.status='finish';
     },
     afterSuccessNew(/*evt*/){
         this.status='finish';

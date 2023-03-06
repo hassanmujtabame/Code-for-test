@@ -19,20 +19,73 @@
                                  vid="password"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <div class="position-relative">
-                                    <input v-model="itemForm.old_password" :type="show?'text':'password'" class="form-control"   placeholder="كلمة المرور القديمة" >
-
+                                    <d-text-input :errors="errors" v-model="itemForm.old_password" :type="show?'text':'password'" class="form-control"   label="كلمة المرور القديمة" >
+                                        <template v-slot:append-icon>
                                         <span    style="color: #CDD7D8;font-size: 23px;"
-                                     toggle="#password-field"
-                                     @click="show=!show"
+                                            
+                                                @click="show=!show"
+                                                
+                                                class="fa-regular mx-1"
+                                                :class="{'fa-eye': !show, 'fa-eye-slash':show }"
+                                                >
+                                            </span>
+                                        </template>
+                                    </d-text-input>
+
+                                </ValidationProvider>
+                                <div class="col-md-12  mt-3">
+                                    <ValidationProvider
+                                 tag="div"
+                                    :name="$t('Password')"
+                                 vid="new_password"
+                                 rules="required"
+                                    v-slot="{errors}">
+                                    <d-text-input :errors="errors" :type="showN?'text':'password'" 
+                                    v-model="itemForm.new_password"
+                                    class="form-control"   :label="$t('new-password')" >
+                                    <template v-slot:append-icon>
+                                    <span    style="color: #CDD7D8;font-size: 23px;"
+                                     @click="showN=!showN"
                                      
-                                    class="icon-input-end fa-regular toggle-password position-absolute"
-                                    :class="{'fa-eye': !show, 'fa-eye-slash':show }"
+                                    class="fa-regular mx-1"
+                                    :class="{'fa-eye': !showN, 'fa-eye-slash':showN }"
                                     >
                                 </span>
-                                    </div>
-                                    <d-error-input :errors="errors" v-if="errors.length" />
+                            </template>    
+                                    </d-text-input>
                                 </ValidationProvider>
+                        
+                                    
+                                    
+                                </div>
+    
+                                <div class="col-md-12 mt-3">
+                                    <ValidationProvider
+                                 tag="div"
+                                    :name="$t('Password-confirm')"
+                                 vid="new_password_confirmation"
+                                 rules="required|confirmed:new_password"
+                                    v-slot="{errors}">
+                                  
+                                    <d-text-input :errors="errors" :type="showNc?'text':'password'"
+                                    v-model="itemForm.new_password_confirmation"
+                                    class="form-control"   :label="$t('Password-confirm')" >
+                                    <template v-slot:append-icon>
+                                        <span    style="color: #CDD7D8;font-size: 23px;"
+                                     @click="showNc=!showNc"
+                                     
+                                    class="fa-regular mx-1"
+                                    :class="{'fa-eye': !showNc, 'fa-eye-slash':showNc }"
+                                    >
+                                </span>
+                                </template>
+                                    </d-text-input>
+                                  
+                                </ValidationProvider>
+                    
+                                    
+                                    
+                                </div>
                             <p > نسيت كلمة السر ؟</p>
                                     
                                     
@@ -66,9 +119,13 @@
 export default {
     data:()=>({
         show:false,
+        showN:false,
+        showNc:false,
         itemForm:{
            // email:process.env.EMAIL||'',
-           old_password:process.env.PASSWORD||''
+            old_password:process.env.PASSWORD||'',
+            new_password:'',
+            new_password_confirmation:''
         },
         hasError:false,
         message:'',
