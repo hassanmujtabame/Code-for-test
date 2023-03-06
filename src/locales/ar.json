@@ -590,5 +590,8 @@
   "Consultants": "مستشارين",
   "booking-date": "يوم الحجز",
   "booking-desc": "وصف",
-  "booking-time": "وقت الحجز"
+  "booking-time": "وقت الحجز",
+  "audio": "صوت",
+  "record-audio": "تسجيل صوتي",
+  "add-audio-message": "أضف رسالة صوتية"
 }
