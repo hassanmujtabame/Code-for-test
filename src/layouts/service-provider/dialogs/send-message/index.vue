@@ -39,6 +39,16 @@
                     </d-textarea-input>     
                 </ValidationProvider>
                 </div>
+                <!--audio-->
+                <div class="mb-3">
+                    <ValidationProvider :name="$t('record-audio')" 
+                    vid="audio"
+                    rules="required" 
+                    v-slot="{errors}"
+                    >
+                    <d-audio-input v-model="itemForm.audio" :errors="errors"   :label="$t('add-audio-message')" />     
+                </ValidationProvider>
+                </div>
             </div>
             <div class="text-center">
                 <button :disabled="sending" @click="sendMessage" class="btn btn-custmer">{{ $t('send') }}</button>
@@ -68,7 +78,8 @@ export default {
         },
         itemForm:{
             title:'',
-            message:''
+            message:'',
+            audio:null
         }
     }
  },
@@ -110,6 +121,7 @@ export default {
     openDialog(dataEvent){
         this.itemForm.title = ''
         this.itemForm.message = '';
+        this.itemForm.audio = null;
         if(dataEvent.formData)
         this.itemForm = {...this.itemForm,...dataEvent.formData}
         if(dataEvent.opts)

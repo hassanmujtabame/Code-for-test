@@ -19,6 +19,7 @@ import drowListInput from '@/components/inputs/multi-select/drown-list.vue'
 import DMultiSelecetInput from '@/components/inputs/multi-select/d-multiselect.vue'
 import DSelectInput from '@/components/inputs/multi-select/d-select.vue'
 import DTextInput from '@/components/inputs/text-input/inline.vue'
+import DAudioInput from '@/components/inputs/audio-input/index.vue'
 import DCheckboxInput from '@/components/inputs/check-input/index.vue'
 import DRadioInput from '@/components/inputs/radio-input/index.vue'
 import DTextareaInput from '@/components/inputs/text-input/text-area.vue'
@@ -61,6 +62,7 @@ Vue.component('d-multiselect-input', DMultiSelecetInput)//improve d-drown-list
 Vue.component('d-multi-select-tag', DMultiSelecetTagInput)
 Vue.component('date-picker-input', DatePickerInput)
 Vue.component('d-text-input', DTextInput)
+Vue.component('d-audio-input', DAudioInput)
 Vue.component('d-check-input', DCheckboxInput)
 Vue.component('d-radio-input', DRadioInput)
 Vue.component('d-textarea-input', DTextareaInput)
