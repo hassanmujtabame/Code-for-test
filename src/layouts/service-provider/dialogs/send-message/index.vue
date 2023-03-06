@@ -21,26 +21,22 @@
             <!-- form inputs-->
             <div class="d-flex flex-column mt-5">
                 <!-- title-->
-                <div class="form-group mb-3">
+                <div class=" mb-3">
                 <ValidationProvider :name="$t('message-title')" vid="title"
                     rules="required" 
                     v-slot="{errors}"
                     >
-                    <label class="form-label fs-8">{{ $t('message-title') }}</label>
-                    <input v-model="itemForm.title" type="text" class="form-control" placeholder="لدي استفسار حول .." />
-                    <d-error-input :errors="errors" v-if="errors.length" />        
+                    <d-text-input v-model="itemForm.title" :errors="errors" type="text" class="form-control" :label="$t('message-title')" />     
                 </ValidationProvider>
                 </div>
                 <!-- message-->
-                <div class="form-group mb-3">
+                <div class="mb-3">
                 <ValidationProvider :name="$t('message')" vid="message"
                     rules="required" 
                     v-slot="{errors}"
                     >
-                    <label class="form-label fs-8">{{ $t('message') }}</label>
-                    <textarea v-model="itemForm.message" rows="5" class="form-control" placeholder="أكتب رسالة لمقدم الخدمة" >
-                    </textarea>
-                    <d-error-input :errors="errors" v-if="errors.length" />        
+                    <d-textarea-input :errors="errors" v-model="itemForm.message" rows="5" class="form-control" label="أكتب رسالة لمقدم الخدمة" >
+                    </d-textarea-input>     
                 </ValidationProvider>
                 </div>
             </div>

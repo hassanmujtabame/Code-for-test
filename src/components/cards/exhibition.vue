@@ -108,6 +108,10 @@ line-height: 24px;
 text-align: start;
 color: #A6A6A6;
 }
+.exhibition-card-text>p{
+    font-size: 20px;
+line-height: 24px;
+}
 .btn-shared-exibition{
     font-size: 12px;
     border-radius: 4px;
