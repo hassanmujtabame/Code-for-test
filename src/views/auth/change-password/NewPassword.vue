@@ -16,12 +16,12 @@
                                     <ValidationProvider
                                  tag="div"
                                     :name="$t('Password')"
-                                 vid="password"
+                                 vid="new_password"
                                  rules="required"
                                     v-slot="{errors}">
                                     <div class="position-relative">
                                     <input :type="show?'text':'password'" 
-                                    v-model="form.password"
+                                    v-model="itemForm.new_password"
                                     class="form-control"   :placeholder="$t('new-password')" >
 
                                         <span    style="color: #CDD7D8;font-size: 23px;"
@@ -44,12 +44,12 @@
                                     <ValidationProvider
                                  tag="div"
                                     :name="$t('Password-confirm')"
-                                 vid="password_confirm"
-                                 rules="required"
+                                 vid="new_password_confirmation"
+                                 rules="required|confirmed:new_password"
                                     v-slot="{errors}">
                                     <div class="position-relative">
                                     <input :type="showc?'text':'password'"
-                                    v-model="form.password_confirm"
+                                    v-model="itemForm.password_confirmation"
                                     class="form-control"   :placeholder="$t('Password-confirm')" >
 
                                         <span    style="color: #CDD7D8;font-size: 23px;"
@@ -97,17 +97,17 @@ export default {
         showc:false,
         form:{
             
-            password:'',
-            password_confirm:''
+            new_password:'',
+            new_password_confirmation:''
         },
         hasError:false,
         message:'',
     }),
      methods:{
-    async resetPassword(){
+    async resetPasswordOld(){
         this.$emit('success',{})
     },
-    async resetPasswordOld(e){
+    async resetPassword(e){
             e.preventDefault();
             this.hasError=false;
             this.message='';
@@ -117,11 +117,11 @@ export default {
             return ;
         }
             try {
-                let {data} = await this.$axios.post('user/auth/reset-password-check',this.form);
+                let {data} = await this.$axios.post('user/auth/new-password',this.itemForm);
                 if(data.success){
                     let info ={
                             data:data,
-                            form:this.form
+                            form:this.itemForm
                     }
                     this.$emit('success',info)
                 }else{

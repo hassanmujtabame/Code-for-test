@@ -14,7 +14,7 @@
                                                
                                 
                                 <div class="col-12 text-center ">
-                                    <button class="btn btn-main  " type="submit"   role="button">    الصفحة الرئيسية </button>
+                                    <button class="btn btn-main  "  @click="redirectToHome"   role="button">    الصفحة الرئيسية </button>
                                 </div>
                
                         </div>
@@ -46,45 +46,8 @@ export default {
         message:'',
     }),
      methods:{
-        async resetPassword(){
-        this.$emit('success',{})
-    },
-    async resetPasswordold(e){
-            e.preventDefault();
-            this.hasError=false;
-            this.message='';
-            let valid = await this.$refs.form.validate();
-        if(!valid){
-            console.log('form invalid');
-            return ;
-        }
-            try {
-                let {data} = await this.$axios.post('user/auth/reset-password',this.form);
-                if(data.success){
-                    let info ={
-                            data:data,
-                            form:this.form
-                    }
-                    this.$emit('success',info)
-                }else{
-                    this.message = data.message;
-                    this.hasError=true;
-                }
-                
-            } catch (error) {
-                this.message='خطا غير معروف'
-                if(error.response){
-                    let response =error.response
-                    if(response.status==422){
-                        this.message = response.data.message;
-                        if(Object.hasOwnProperty.call(response.data,'errors')){
-                            this.$refs.form.setErrors(response.data.errors)
-                        }
-                    }
-                }
-
-                this.hasError=true;
-            }
+        redirectToHome(){
+            this.router_push('index')
         }
  }
 }

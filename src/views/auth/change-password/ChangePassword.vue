@@ -20,7 +20,7 @@
                                  rules="required"
                                     v-slot="{errors}">
                                     <div class="position-relative">
-                                    <input :type="show?'text':'password'" class="form-control"   placeholder="كلمة المرور القديمة" >
+                                    <input v-model="itemForm.old_password" :type="show?'text':'password'" class="form-control"   placeholder="كلمة المرور القديمة" >
 
                                         <span    style="color: #CDD7D8;font-size: 23px;"
                                      toggle="#password-field"
@@ -66,18 +66,18 @@
 export default {
     data:()=>({
         show:false,
-        form:{
-            email:process.env.EMAIL||'',
-            password:process.env.PASSWORD||''
+        itemForm:{
+           // email:process.env.EMAIL||'',
+           old_password:process.env.PASSWORD||''
         },
         hasError:false,
         message:'',
     }),
      methods:{
-        async resetPassword(){
+        async resetPasswordOld(){
         this.$emit('success',{})
     },
-    async resetPasswordold(e){
+    async resetPassword(e){
             e.preventDefault();
             this.hasError=false;
             this.message='';
@@ -87,14 +87,15 @@ export default {
             return ;
         }
             try {
-                let {data} = await this.$axios.post('user/auth/reset-password',this.form);
+                let {data} = await this.$axios.post('user/auth/change-password',this.itemForm);
                 if(data.success){
                     let info ={
                             data:data,
-                            form:this.form
+                            form:this.itemForm
                     }
                     this.$emit('success',info)
                 }else{
+                    window.SwalError(data.message)
                     this.message = data.message;
                     this.hasError=true;
                 }
