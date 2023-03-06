@@ -12,6 +12,8 @@
             <av-media 
             type="frequ" 
             :media="media" 
+            :canv-height="20"
+            canv-class="cn-audio"
             line-color="darkorange"
             v-if="media && recording"
         ></av-media>
