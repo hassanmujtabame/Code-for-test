@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import './audio-visual'
 import DRateDialog from '@/common/dialogs/rate-dialog/index.vue'
 import DSuccessMessage from '@/common/dialogs/success-message/index.vue'
 import DConfirmMessage from '@/common/dialogs/confirm-message/index.vue'

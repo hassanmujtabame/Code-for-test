@@ -1,23 +1,45 @@
 <template>
-  <div class="form-group inline">
+  <div class="form-group inline d-audio-input">
     <audio ref="audioInput" class="audio-input-hidden" >
+    </audio>
+    <audio ref="audioInput2" class="audio-input-hidden" >
         </audio>
     <div class="d-flex p-2 w-100">
         <div class="flex-shrink-0 mx-2" >
             <i @click="recordAudio" class="fa fa-microphone" :class="{recording:recording,'clickable':!recording}"></i>
         </div>
-        <label class="form-label flex-grow-1">{{ label }}</label>
+        <div v-if="value_ || media" class="flex-grow-1">
+            <av-media 
+            type="frequ" 
+            :media="media" 
+            line-color="darkorange"
+            v-if="media && recording"
+        ></av-media>
+        <av-waveform
+        class="w-100"
+            v-else-if="audioLoaded"
+            :canv-width="200" 
+            :canv-height="20"
+            canv-class="cn-audio"
+            audio-class="audio-input-hidden"
+            audio-sink-device-id="sdsfsdfsd"
+            ref-link="audioInput"
+            :playtime="false"
+        ></av-waveform>
+        </div>
+        <label v-else class="form-label flex-grow-1">{{ label }}</label>
         <div v-if="recording" class="flex-shrink-0 mx-2" >
             <i @click="stop" class="far fa-circle-stop" :class="{recording:recording,'clickable':recording}"></i>
         </div>
         <div v-else-if="value_"  class="flex-shrink-0 mx-2"> 
             <i @click="playAudio" style="color:green" class="far  clickable" :class="{'fa-circle-play':!playing,'fa-circle-pause':playing}" ></i>
-            <i @click="deleteAudio" style="color:red" class="far fa-circle-trash clickable" ></i>
+            <i @click="deleteAudio"  class="fa fa-trash clickable mx-1" ></i>
 
         </div>
     </div>
   </div>
 </template>
+
 <script>
 export default {
  name:'d-audio-input',
@@ -40,6 +62,8 @@ export default {
       device: null,
       blobObj: null,
       value_:null,
+      media:null,
+      audioLoaded:false,
       audioNode:null,
       progress:0,
       currentTime:'N/A'
@@ -72,7 +96,9 @@ export default {
             }
             
         },
-        deleteAudio(){},
+        deleteAudio(){
+            this.clearAudio()
+        },
         onPause(){
             this.playing = false;
         },
@@ -87,14 +113,18 @@ export default {
             let { h, m, s} = this.timeToParts(evt.target.currentTime)
             this.currentTime =  this.timeFormat(h,m,s);
         },
-        onLoadedmetadata(event){
-        console.mylog('onLoadedmetadata',event)
-        this.audioNode = event.target;
+        onLoadedmetadata(){
+        //console.mylog('onLoadedmetadata',event)
+        this.audioLoaded = true;
         },
         recordAudio() {
             if(this.recording) return;
+            this.recording = true;
+            
       this.device.then((stream) => {
+        this.media = stream
         this.recorder = new MediaRecorder(stream);
+        
         this.recorder.ondataavailable = (e) => {
           this.chunks.push(e.data);
           if (this.recorder.state === "inactive") {
@@ -111,17 +141,29 @@ export default {
             };
             reader.readAsDataURL(this.value_);
             this.blobObj = null;
+            this.media = null
           }
         };
         // start
         this.recorder.start();
-        this.value_=null;
-        this.recording = true;
+        this.clearAudio()
+        
       });
+    },
+    clearAudio(){
+        if(this.audioNode){
+            try {
+                this.audioNode.pause();
+            } catch (error) {
+                //
+            }
+        } 
+        this.value_=null;
+        this.playing = false;
+        this.audioLoaded = false; 
     },
     stop() {
         if(!this.recording) return;
-      // stop
       this.recorder.stop();
       this.recording = false;
     },
@@ -132,9 +174,9 @@ export default {
            if(this[funcName] && typeof this[funcName] == "function"){
             this[funcName](evt)
            }else{
-            console.mylog('not found function',funcName)
+            //console.mylog('not found function',funcName)
            }
-           console.mylog('audio listener',type,evt,evt.type,this)
+           //console.mylog('audio listener',type,evt,evt.type,this)
         }
     },
     created() {
@@ -155,6 +197,7 @@ export default {
  },
     mounted(){
         this.$nextTick(()=>{
+            this.audioNode = this.$refs.audioInput;
         if(this.$refs['audioInput']){
             this.$refs.audioInput.addEventListener('play',this.audioListener);
             this.$refs.audioInput.addEventListener('loadeddata',this.audioListener);
@@ -213,5 +256,11 @@ color: #979797;
     animation-name: recording;
   animation-duration: 4s;
   animation-iteration-count: infinite;
+}
+
+</style>
+<style>
+.cn-audio{
+    width: 100% !important;
 }
 </style>
