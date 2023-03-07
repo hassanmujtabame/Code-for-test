@@ -1,6 +1,6 @@
 <template>
-  <div style="margin-top: 96px;">
-       <div class="container network-profile">
+ <div style="margin-top: 75px;" class="bg-body-page">
+       <div class="container mt-5">
 
            <div class="row">
                <div class="col-md-4  mt-3">

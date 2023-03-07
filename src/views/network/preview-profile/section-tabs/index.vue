@@ -1,5 +1,5 @@
 <template>
-   <div class="border">
+   <div class="border bg-white">
 
                         
 <ul class="nav nav-pills mb-3 gap-3 border-bottom pb-3 py-3 px-2" id="pills-tab" role="tablist">
