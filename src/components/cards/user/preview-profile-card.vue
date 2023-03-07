@@ -72,6 +72,7 @@ export default {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    padding: 0 10px;
 }
 .user-preview-profile__name{
     font-style: normal;
