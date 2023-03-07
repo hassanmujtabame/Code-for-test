@@ -6,16 +6,7 @@
    </div>
    <div v-else >
    <ItemCard v-for="(item,i) in items" :key="i"
-   :itemId="item.id"
-   :title="item.meeting.title"
-   :name="item.meeting.user_info.name"
-   :price="item.meeting.price"
-   :image="item.image"
-   :date="item.date"
-   
- 
- 
-   />
+   :item="item" />
  
   </div>
   </div>
