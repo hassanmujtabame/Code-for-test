@@ -256,8 +256,22 @@ export default {
         }
     },
     methods:{
+        redirectoHome(){
+            this.refreshPage({name:'network-home'})
+        },
         openSuccessRegister(){
-            this.fireOpenDialog('success-register-as-partner')
+            //this.fireOpenDialog('success-register-as-partner')
+            let dataEvt={
+            title:'نشكرك على تسجيلك معنا',
+            descriptionClass:'m-c',
+            description:`سنتواصل معك خلال الايام القليلة القادمة لتأكيد بيانتك و تأكيد الاشتراك`,
+            btns:[
+                {title:this.$t('Home'),action:()=>this.redirectoHome()}
+            ],
+            onClose:this.redirectoHome,
+            icon:true,
+        }
+        this.showSuccessMsg(dataEvt)
         },
 async save(evt){
     if(evt) evt.preventDefault();
