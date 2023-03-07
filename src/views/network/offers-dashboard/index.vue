@@ -1,12 +1,13 @@
 <template>
     <div style="margin-top: 85px" class="consult max-width-100-hidden">
-        <div class="container">
+        <d-overlays-simple v-if="loading"/>
+        <div  v-else class="container">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <button class="btn btn-custmer btn-local"><i class="fa fa-pencil"></i>  تعديل بيانات الشركة</button>
+                    <button @click="updatePartner" class="btn btn-custmer btn-local"><i class="fa fa-pencil mx-2"></i>  تعديل بيانات الشركة</button>
                 </div>
                 <div class="col-12 col-md-6">
-                    <button class="btn btn-custmer-w btn-local"><i class="fa fa-pencil"></i>  تعديل بيانات الشركة</button>
+                    <a class="btn btn-custmer-w btn-local" :href="itemPage.filePath" download  target="_blank"><i class="fa fa-download mx-2"></i>  تحميل عقد الشركة</a>
 
 
                 </div>
@@ -15,15 +16,33 @@
                 <SectionFilterList />
             </div>
         </div>
+        <updatePartnerDialog />
     </div>
 </template>
 
 <script>
+import updatePartnerDialog from './dialogs/update-partner/index'
 import SectionFilterList from './parts/section-filter-list'
 export default {
  name:'ads-dashboard',
  components:{
-    SectionFilterList
+    SectionFilterList,
+    updatePartnerDialog
+ },
+ data:()=>({
+    loading:true,
+    itemPage:{}
+ }),
+ methods:{
+    updatePartner(){
+        this.fireOpenDialog('update-partner-dialog', this.itemPage)
+    }
+ },
+ mounted(){
+   
+    this.itemPage = Object.assign(this.itemPage,this.userPartner)
+    console.mylog('rabie',this.userPartner,this.itemPage)
+    this.loading = false;
  }
 }
 </script>
@@ -39,5 +58,8 @@ export default {
     color: #FFFFFF;
     height: 128px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>
