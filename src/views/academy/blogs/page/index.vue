@@ -24,7 +24,6 @@
         <div class="col-12 col-md-4">
           <div v-if="isOwner" class="box  rounded-3 p-2">
           <div class="text-end">
-                  
                         <button @click="openEditDialog" class="btn bg-main border-0 text-white p-2 mx-1"   >
                            <img src="/assets/svg/update.svg" />   
                            تعديل 
@@ -33,12 +32,9 @@
                             <img src="/assets/svg/trash-outline.svg" />
                            حذف 
                         </button>
-
-                        
-                  
           </div>
           </div>
-          <d-user-info-li v-else sizeImage="100" :member="itemPage.user_info" />
+          <d-user-info-li v-else sizeImage="100" :member="itemPage.user_info" routeName="academy-show-profile" />
           <div class="box border rounded-3 p-2 mt-3">
             <h3>
               تدوينات أخرى

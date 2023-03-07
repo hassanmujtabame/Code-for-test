@@ -38,7 +38,7 @@
                   
           </div>
           </div>
-          <d-user-info-li v-else sizeImage="100" :member="itemPage.user_info" />
+          <d-user-info-li v-else sizeImage="100" :member="itemPage.user_info" routeName="network-show-profile"/>
           <div class="box border rounded-3 p-2 mt-3">
             <h3>
               تدوينات أخرى
