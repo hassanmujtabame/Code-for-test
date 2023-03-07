@@ -1,8 +1,10 @@
 
 import BaseApi from "./base-service";
 import ads from "./ads";
+import offers from "./offers";
 class NetworkApi extends BaseApi {
     ads = ads
+    offers = offers
     getSubscribes(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/user-subscriptions?${s}`);

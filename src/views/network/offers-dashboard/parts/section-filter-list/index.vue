@@ -86,7 +86,7 @@ export default {
           page: metaInfo.current_page,
           ...this.filterItem
         }
-        return await networkAPI.ads.getAll(params)
+        return await networkAPI.offers.getMyOffers(params)
 
       } catch (error) {
         console.log('error', error)

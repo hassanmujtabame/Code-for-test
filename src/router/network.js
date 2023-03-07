@@ -26,10 +26,10 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-show-profile" */ '../views/network/show-profile/index.vue')
     },
     {
-        path: 'network/ads-dashboard',
+        path: 'network/offers/dashboard',
         meta:{auth:true,layout:LayoutNetwork},
-        name: 'network-ads-dashboard',
-        component: () => import(/* webpackChunkName: "network-ads-dashboard" */ '../views/network/ads-dashboard/index.vue') 
+        name: 'network-offers-dashboard',
+        component: () => import(/* webpackChunkName: "network-offers-dashboard" */ '../views/network/offers-dashboard/index.vue') 
     },
     {
         path: 'network/menu-subscribe',

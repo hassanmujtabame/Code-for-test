@@ -6,6 +6,10 @@ class OffersApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/offers?${s}`);
     }
+    getMyOffers(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/my-adds?${s}`);
+    }
     getItem(id){
         return window.axios.get(`network/offers/${id}`);
     }
