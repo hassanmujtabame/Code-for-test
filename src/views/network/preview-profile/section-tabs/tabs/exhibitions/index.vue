@@ -4,8 +4,9 @@
     <div v-else-if="hasError">
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
-    <div v-else >
-
+    <div v-else  class="container">
+      <div class="row">
+      <div class="col-12 col-md-6">
     <ItemCard v-for="(item,i) in items" :key="i"
     :itemId="item.id"
     :title="item.title"
@@ -16,7 +17,8 @@
     :status="item.status"
 
     />
- 
+   </div>
+   </div>
    </div>
    </div>
    </template>

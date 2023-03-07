@@ -4,9 +4,9 @@
     <div v-else-if="hasError">
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
-    <div v-else >
+    <div v-else class="container">
         <div class="row">
-            <div v-for="(item,i) in items" :key="i" class="col-md-6 mt-2">
+            <div v-for="(item,i) in items" :key="i" class="col-md-12 mt-2">
                 <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
              <projectCard 
              :title="item.title"

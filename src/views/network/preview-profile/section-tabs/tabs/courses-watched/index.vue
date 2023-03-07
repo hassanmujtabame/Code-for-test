@@ -4,7 +4,7 @@
    <div v-else-if="hasError">
      هناك خطأ غير معروف يرجي تحديث الصفحة
    </div>
-   <div v-else >
+   <div v-else class="container">
    <ItemCard v-for="(item,i) in items" :key="i"
    :item="item"
    />
