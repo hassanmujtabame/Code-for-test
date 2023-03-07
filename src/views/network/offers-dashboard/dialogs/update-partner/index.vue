@@ -173,15 +173,16 @@ export default {
         }
         let formData = this.loadObjectToForm(this.itemForm)
         try {
-           let {data} = await  PartnersAPI.updateItem(this.itemDialog.id,formData)
+           let {data} = await  PartnersAPI.updateItem(formData)
            if(data.success){
-            this.emit('success');
+            this.$emit('success');
             this.fireCloseDialog(this.group)
+            this.refreshPage()
            }else{
             window.SwalError(data.message)
            }
         } catch (error) {
-            window.DHelper.catchException.call(this.error,this.$refs.form)
+            window.DHelper.catchException.call(error,this.$refs.form)
         }    
     },
     async uploadFile(evt,validate){

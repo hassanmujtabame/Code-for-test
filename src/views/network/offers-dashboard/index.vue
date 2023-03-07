@@ -21,8 +21,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import updatePartnerDialog from './dialogs/update-partner/index'
 import SectionFilterList from './parts/section-filter-list'
+
 export default {
  name:'ads-dashboard',
  components:{
@@ -31,18 +33,28 @@ export default {
  },
  data:()=>({
     loading:true,
-    itemPage:{}
+    itemPage:{filePath:null}
  }),
- methods:{
-    updatePartner(){
-        this.fireOpenDialog('update-partner-dialog', this.itemPage)
+ computed:{
+...mapGetters({
+   companyInfo: 'auth/partner'
+})
+ },
+ watch:{
+    companyInfo:{
+        deep:true,
+        immediate:true,
+        handler(){
+            this.itemPage = Object.assign(this.itemPage,this.companyInfo)
+            this.loading = false;
+        }
     }
  },
- mounted(){
-   
-    this.itemPage = Object.assign(this.itemPage,this.userPartner)
-    console.mylog('rabie',this.userPartner,this.itemPage)
-    this.loading = false;
+ methods:{
+    updatePartner(){
+       
+        this.fireOpenDialog('update-partner-dialog', this.itemPage)
+    }
  }
 }
 </script>
