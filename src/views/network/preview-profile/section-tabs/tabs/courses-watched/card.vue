@@ -34,25 +34,32 @@
  export default {
   name:'card-vue',
    props:{
-     title:{
-         type:String
-     },
-     name:{
-         type:String
-     },
-     date:{
-         type:String
-     },
-   
-     image:{
-         type:String
-     },
-     price:{
-         type:[String,Number]
-     },
-     itemId:{
-         type:[String,Number]
-     },
+    item:{},
+  },
+  computed:{
+    title(){
+            return this.getPropsMeeting('title')
+    },
+    price(){
+            return this.getPropsMeeting('price')
+    },
+    image(){
+            return this.item.image
+    },
+    dateItem(){
+            return this.item.date
+    },
+    name(){
+            return this.getPropsUser('user')
+    }
+  },
+  methods:{
+  getPropsMeeting(name,def='N/A'){
+    return this.item.meeting?this.item.meeting[name]:def
+  },
+  getPropsUser(name,def='N/A'){
+    return this.item.meeting && this.item.meeting.user_info?this.item.meeting.user_info[name]:def
+  }
   }
  }
  </script>
