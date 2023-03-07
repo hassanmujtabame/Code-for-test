@@ -1,10 +1,14 @@
 <template>
  <div style="margin-top: 75px;" class="bg-body-page">
-       <div class="container mt-5">
+        <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+      هناك خطأ غير معروف يرجي تحديث الصفحة
+    </div>
+    <div v-else  class="container mt-5">
 
            <div class="row">
                <div class="col-md-4  mt-3">
-                   <userInfoCard />
+                   <userInfoCard  :member="userPage"/>
                </div>
                <div class="col-md-8 mt-3 ">
                    <div v-if="false" class="row border px-2">
@@ -40,6 +44,7 @@
 </template>
 
 <script>
+  import userAPI from '@/services/api/user.js'
 import userInfoCard from '@/components/cards/user-info.vue';
 import sectionTabs from './section-tabs/index.vue'
 export default {
@@ -47,7 +52,36 @@ name:'show-profile',
 components:{
    userInfoCard,
    sectionTabs
-}
+},
+   data:()=>{
+    return {
+        loading:true,
+        hasError:false,
+        userPage:{}
+    }
+   },
+   methods:{
+    async initializing(){
+        this.loading =  true;
+        this.hasError =  false;
+        try {
+
+           let { data } = await   userAPI.profile(this.$route.params.id) 
+           if(data.success){
+            this.userPage =  data.data
+           }else{
+            this.hasError =  true;
+           }
+        } catch (error) {
+            console.log('error',error)
+            this.hasError =  true;
+        }
+        this.loading =  false;
+    },
+   },
+   mounted(){
+    this.initializing()
+   }
 }
 </script>
 

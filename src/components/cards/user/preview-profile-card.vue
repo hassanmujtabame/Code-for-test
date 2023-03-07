@@ -12,7 +12,7 @@
     </div>
     <!--user bio-->
     <p class="user-preview-profile__bio">
-        {{ member.bio }}
+        {{ member.bio??member.description }}
     </p>
     <!--user footer-->
     <div class="user-preview-profile__footer">
