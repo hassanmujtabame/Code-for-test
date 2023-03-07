@@ -20,7 +20,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-preview-profile" */ '../views/network/preview-profile/index.vue')
     },
     {
-        path: 'network/show-profile/:id',
+        path: 'network/:id/show-profile',
         name: 'network-show-profile',
         meta:{layout:LayoutNetwork},
         component: () => import(/* webpackChunkName: "network-show-profile" */ '../views/network/show-profile/index.vue')
