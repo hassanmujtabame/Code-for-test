@@ -4,7 +4,7 @@
         <div  v-else class="container">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <button @click="updatePartner" class="btn btn-custmer btn-local"><i class="fa fa-pencil mx-2"></i>  تعديل بيانات الشركة</button>
+                    <button @click="updatePartner" class="btn btn-custmer btn-local"><i class="fa fa-pen-to-square mx-2"></i>  تعديل بيانات الشركة</button>
                 </div>
                 <div class="col-12 col-md-6">
                     <a class="btn btn-custmer-w btn-local" :href="itemPage.filePath" download  target="_blank"><i class="fa fa-download mx-2"></i>  تحميل عقد الشركة</a>

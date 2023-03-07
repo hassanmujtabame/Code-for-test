@@ -47,10 +47,11 @@ export default {
   }),
   methods:{
     addOffer() {
-      if(!this.userPartner)
+      this.router_push('network-offers-dashboard')
+      /*if(!this.userPartner)
       this.fireOpenDialog('join-as-partner',this.getRouteLocale('register-networking'))
       else
-      this.fireOpenDialog('add-dialog')
+      this.fireOpenDialog('add-dialog')*/
     },
     async getRecents() {
       this.loading = true;

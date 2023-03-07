@@ -15,8 +15,8 @@
     </div>
     </div>
     <div class="offer-item__actions">
-        <button class="btn btn-custmer "><i class="fa fa-pencil"></i> تعديل الاعلان</button>
-        <button v-if="item.status=='finished'" class="btn btn-custmer-w"><i class="fa fa-pencil"></i> إعادة النشر</button>
+        <button class="btn btn-custmer "><i class="fa fa-pen-to-square"></i> تعديل الاعلان</button>
+        <button v-if="item.status=='finished'" class="btn btn-custmer-w"><i class="fa fa-arrow-rotate-right"></i> إعادة النشر</button>
         <button v-if="item.status=='valid'" class="btn btn-custmer-w btn-danger"><i class="fa fa-trash"></i> حذف الاعلان</button>
     </div>
    </div>
