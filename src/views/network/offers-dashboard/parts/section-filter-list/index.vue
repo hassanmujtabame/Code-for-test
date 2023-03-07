@@ -66,7 +66,7 @@ export default {
       actions: [
 
         { status: null, label: 'كل الاعلانات' },
-        { status: 'active', label: 'الإعلانات السارية ' },
+        { status: 'valid', label: 'الإعلانات السارية ' },
         { status: 'finished', label: 'الإعلانات المنتهية' },
       ],
     }
