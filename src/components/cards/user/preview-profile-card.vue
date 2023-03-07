@@ -5,6 +5,7 @@
     <div class="user-preview-profile__user-info">
         <img class="user-preview-profile__avatar" :src="member.image" :alt="member.name"/>
         <div class="user-preview-profile__info">
+            <div class="user-preview-profile__tags"><span class="user-preview-profile__tag-item" v-for="(tag,i) in tags" :key="i">{{ tag }}</span></div>
             <h1 class="user-preview-profile__name">{{ member.name }}</h1>
             <h2 class="user-preview-profile__job">{{ member.job_title }}</h2>
         </div>
@@ -36,6 +37,10 @@ export default {
  props:{
     member:{
         require:true
+    },
+    tags:{
+        type:[Array,Object],
+        default:()=>['مدربة']
     }
  }
 }
@@ -106,5 +111,20 @@ display: flex;
 }
 .user-preview-profile__social-media>i{
     font-size: 24px;
+}
+.user-preview-profile__tag{
+display: flex;
+}
+.user-preview-profile__tag-item{
+    padding: 3px 5px;
+background: linear-gradient(180deg, #1FB9B3 0%, #0BE8C2 100%);
+border-radius: 4px;
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height, or 117% */
+
+color: #F5F7F7;
 }
 </style>
