@@ -38,11 +38,8 @@
                                  vid="ar.name_company"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{$t('name_company_ar')}}</label>
-                            <input type="text" v-model="offer.title" class="form-control" :placeholder="$t('name_company_ar')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                            <d-text-input :errors="errors" type="text" v-model="offer.title" class="form-control" :label="$t('name_company_ar')">
+                           </d-text-input>
                                 </ValidationProvider>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
@@ -51,11 +48,9 @@
                                  vid="en.name_company"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{$t('name_company_en')}}</label>
-                            <input type="text" v-model="offer.title_en" class="form-control" :placeholder="$t('name_company_en')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                                   
+                                <d-text-input :errors="errors" type="text" v-model="offer.title_en" class="form-control" :label="$t('name_company_en')">
+                                </d-text-input>
                                 </ValidationProvider>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
@@ -64,11 +59,9 @@
                                  vid="start_date"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{$t('start_date')}}</label>
-                            <input type="text" v-model="offer.start_date" class="form-control" :placeholder="$t('start_date')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                                   
+                            <d-text-input :errors="errors" type="text" v-model="offer.start_date" class="form-control" :label="$t('start_date')">
+                            </d-text-input>
                                 </ValidationProvider>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
@@ -77,11 +70,9 @@
                                  vid="day"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{$t('during_day')}}</label>
-                            <input type="text" v-model="offer.day" class="form-control" :placeholder="$t('during_day')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                                   
+                            <d-text-input :errors="errors" type="text" v-model="offer.day" class="form-control" :label="$t('during_day')">
+                           </d-text-input>
                                 </ValidationProvider>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
@@ -90,11 +81,8 @@
                                  vid="link"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{$t('link')}}</label>
-                            <input type="text" v-model="offer.link" class="form-control" :placeholder="$t('link')">
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                                    <d-text-input :errors="errors" type="text" v-model="offer.link" class="form-control" :label="$t('link')">
+                                    </d-text-input>
                                 </ValidationProvider>
                         </div>
                         <div class="col-12 mb-3">
@@ -103,18 +91,14 @@
                                  vid="category_id"
                                  rules="required"
                                     v-slot="{errors}">
-                            <label class="form-label">{{$t('Category')}}</label>
-                            <multi-select v-model="offer.category_id" 
-                            :selectLabel="$t('selectLabel')"
-                            :selectedLabel="$t('selectedLabel')" 
-                            :deselectLabel="$t('deselectLabel')"
-                            :options="categories" 
-                            :multiple="false"  
-                            :group-select="false" 
-                            placeholder="" 
-                            track-by="id" label="name">
-                                <span slot="noResult">{{ $t('no-result-search') }}</span>
-                            </multi-select>
+                            
+                            <d-select-input v-model="offer.category_id"
+                       
+                            :label="$t('Category')" 
+                           >
+                                <option selected disabled>{{$t('Category')}}</option>
+                                <option v-for="(cat,i) in categories" :key="i" :value="cat.id">{{cat.name}}</option>
+                        </d-select-input>
                             <div v-if="errors.length!==0" class="col-12 text-input-error">
                                 {{errors[0]}}
                                 </div>
@@ -127,12 +111,10 @@
                                  vid="ar.short_description"
                                  rules=""
                                     v-slot="{errors}">
-                        <label class="form-label">{{$t('short_description_ar')}}</label>
-                            <textarea v-model="offer.short_description" class="form-control" rows="5"
-                                :placeholder="$t('short_description_ar')"></textarea>
-                                <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                      
+                            <d-textarea-input :errors="errors" v-model="offer.short_description" class="form-control" rows="5"
+                                :label="$t('short_description_ar')"></d-textarea-input>
+                               
                                 </ValidationProvider>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
@@ -141,12 +123,9 @@
                                  vid="en.short_description"
                                  rules=""
                                     v-slot="{errors}">
-                        <label class="form-label">{{$t('short_description_en')}}</label>
-                            <textarea v-model="offer.short_description_en" class="form-control" rows="5"
-                                :placeholder="$t('short_description_en')"></textarea>
-                                <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                            <d-textarea-input :errors="errors" v-model="offer.short_description_en" class="form-control" rows="5"
+                                :label="$t('short_description_en')"></d-textarea-input>
+                               
                                 </ValidationProvider>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
@@ -155,12 +134,9 @@
                                  vid="ar.description"
                                  rules="required"
                                     v-slot="{errors}">
-                        <label class="form-label">{{$t('description_ar')}}</label>
-                            <textarea v-model="offer.description" class="form-control" rows="10"
-                                placeholder=""></textarea>
-                                <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                        
+                            <d-textarea-input :errors="errors" v-model="offer.description" class="form-control" rows="10"
+                                :label="$t('description_ar')"></d-textarea-input>
                                 </ValidationProvider>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
@@ -169,12 +145,8 @@
                                  vid="en.description"
                                  rules="required"
                                     v-slot="{errors}">
-                        <label class="form-label">{{$t('description_en')}}</label>
-                            <textarea v-model="offer.description_en" class="form-control" rows="10"
-                                placeholder=""></textarea>
-                                <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                {{errors[0]}}
-                                </div>
+                            <d-textarea-input :errors="errors" v-model="offer.description_en" class="form-control" rows="10"
+                                :label="$t('description_en')"></d-textarea-input>
                                 </ValidationProvider>
                         </div>
                     </div>
@@ -239,7 +211,7 @@ export default {
      formData.append('file',this.file);
 
     //for ( i = 0; i < this.offer.category.length; i++) {
-            formData.append('category_id', this.offer.category_id.id);
+            formData.append('category_id', this.offer.category_id);
    // }
         try {
             let { data } = await offersAPI.addOffer(formData)
