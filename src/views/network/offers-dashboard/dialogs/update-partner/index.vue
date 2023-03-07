@@ -65,6 +65,7 @@
                                 rules="required"
                                 v-slot="{errors}"
                                 >
+                                <label class="form-label">{{$t('provided-services')}}</label>
                                 <d-multi-select-tag v-model="itemForm.services"
                                 :placeholder="$t('add_service')" 
                               >

@@ -593,5 +593,7 @@
   "booking-time": "وقت الحجز",
   "audio": "صوت",
   "record-audio": "تسجيل صوتي",
-  "add-audio-message": "أضف رسالة صوتية"
+  "add-audio-message": "أضف رسالة صوتية",
+  "offer-valid": "إعلان ساري",
+  "offer-finished": "إعلان منتهي"
 }

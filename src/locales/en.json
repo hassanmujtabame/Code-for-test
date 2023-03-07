@@ -598,5 +598,7 @@
   "booking-time": "Booking time",
   "audio": "Audio",
   "record-audio": "record audio",
-  "add-audio-message": "add audio message"
+  "add-audio-message": "add audio message",
+  "offer-valid": "Valid offer",
+  "offer-finished": "Finished offer"
 }

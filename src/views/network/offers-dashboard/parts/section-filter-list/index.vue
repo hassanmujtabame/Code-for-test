@@ -29,8 +29,8 @@
               </li>
             </ul>
           </template>
-          <template v-slot="{}">
-            <CourseCard />
+          <template v-slot="{item}">
+            <offerItem :item="item" />
           </template>
 
         </d-filter-list>
@@ -40,12 +40,12 @@
 </template>
 
 <script>
-import CourseCard from './card'
+import offerItem from './card'
 import networkAPI from '@/services/api/network.js'
 export default {
   name: 'filter-list',
   components: {
-    CourseCard
+    offerItem
   },
   data: () => {
     return {
