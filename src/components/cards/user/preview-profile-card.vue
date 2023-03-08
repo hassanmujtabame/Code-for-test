@@ -1,5 +1,5 @@
 <template>
-  <div class="user-preview-profile">
+  <div class="user-preview-profile bg-card" v-bind="$attrs">
     <div class="user-preview-profile__wrapper">
         <!--user _inf-->
     <div class="user-preview-profile__user-info">
@@ -48,7 +48,6 @@ export default {
 
 <style scoped>
 .user-preview-profile{
-    background: white;
     border-radius: 12px;
 }
 .user-preview-profile__wrapper{

@@ -2004,6 +2004,9 @@ text-transform: capitalize;
 color: #979797;
   }
 
+  .bg-card{
+    background-color: white;
+  }
   @keyframes recording {
     from {color: red;}
     to {color: #979797;}

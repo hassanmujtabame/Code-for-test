@@ -8,7 +8,7 @@
 
            <div class="row">
                <div class="col-md-4  mt-3">
-                <d-user-preview-profile :member="userPage" />
+                <d-user-preview-profile :member="userPage" class="border" />
                </div>
                <div class="col-md-8 mt-3 ">
                    <div v-if="false" class="row border px-2">

@@ -11,8 +11,8 @@
                    <userInfoCard  :member="userPage"/>
                </div>
                <div class="col-md-8 mt-3 ">
-                   <div v-if="false" class="row border px-2">
-                       <div  class="p-2 col-12 col-md-6">
+                   <div v-if="false" class="row border px-2  bg-card">
+                       <div  class="px-2 col-12 col-md-6">
                            <h5>
                                متاح لتقديم الخدمات 
                            </h5>

@@ -1,5 +1,5 @@
 <template>
-    <div class="box border rounded-3 p-4">
+    <div class="box border rounded-3 p-4 bg-card" v-bind="$attrs">
         <div class="row justify-content-center">
             <div class="col-md-4 img-service text-center">
                 <img class="rounded-circle img-person clickable" @click="showProfile" :src="member.image" :alt="member.name"
