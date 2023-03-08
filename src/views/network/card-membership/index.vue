@@ -11,19 +11,21 @@
                     </div>
                     <div class="col-md-6">
                         <div>
-                            <h3>
+                            <h3 class="home-section-title">
                                 بطاقة العضوية
                             </h3>
-                            <div style="color: #979797;">
+                            <p class="page-text">
                                 نبذه عن بطاقة العضوية واهميتها و ازاي هنستخدمها يعني نكتب تفاصيل عنها بطريقة توضح
                                 اهميتها و بتجدد كل قد ايه - كل التفاصيل عنها بمعنى اصح بس بطريقة تشد الانتباه
-
+                            </p>
+                            <p class="page-text">
                                 نبذه عن بطاقة العضوية واهميتها و ازاي هنستخدمها يعني نكتب تفاصيل عنها بطريقة توضح
                                 اهميتها و بتجدد كل قد ايه - كل التفاصيل عنها بمعنى اصح بس بطريقة تشد الانتباه
-
+                            </p>
+                            <p class="page-text">
                                 نبذه عن بطاقة العضوية واهميتها و ازاي هنستخدمها يعني نكتب تفاصيل عنها بطريقة توضح
                                 اهميتها و بتجدد كل قد ايه - كل التفاصيل عنها بمعنى اصح بس بطريقة تشد الانتباه
-                            </div>
+                            </p>
                             <button class="btn-main mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalToggle3">
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -47,10 +49,10 @@
                 </div>
             </div>
             <div class=" p-3 mt-5 ">
-                <h3 class="text-center">
+                <h3 class="home-section-title text-center fs-r-32-40">
                     يمكنك ابراز بطاقتك لكاشير العلامات التجارية التالية
                 </h3>
-                <div class=" ">
+                <div class="mt-3">
                     <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                         <li class="nav-item m-2" role="presentation">
                             <button class="nav-link active border w-auto h-auto t-c fw-bolder " id="pills-home-tab"
@@ -340,6 +342,43 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.page-text{
+    font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
 
+text-align: right;
+
+color: #979797;
+}
+.nav-item{
+mix-blend-mode: normal;
+border: 1px solid #fff;
+border-radius: 4px;
+
+}
+.nav-item>button{
+    border-radius: 4px;
+    font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 17px;
+text-align: center;
+color: #d0d0d0;
+}
+.nav-item.active{
+    background: #1fb9b433;
+    border: 1px solid #1fb9b433;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #1fb9b433 !important;
+    border: 1px solid #1fb9b433;
+    color: #1FB9B3 !important;
+}
+.nav-item.active>button{
+    color: #1FB9B3;
+}
 </style>

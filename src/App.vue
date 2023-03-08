@@ -103,6 +103,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
   @import "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css";
   @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css";
   @import "@/assets/css/main.css";
+  @import "@/assets/css/font-size.css";
   @import "@/assets/css/responsive.css";
   @import "@/assets/css/calender.css";
   @import "@/assets/css/mobile.css";

@@ -1,0 +1,56 @@
+  /** font size */
+
+  .fs-r-56{
+    font-size: 56px;
+  }
+  .fs-r-56-72{
+    font-size: 56px;
+    line-height: 72px;
+  }
+  .fs-r-40{
+    font-size: 40px;
+  }
+  .fs-r-40-72{
+    font-size: 40px;
+    line-height: 72px;
+  }
+  .fs-r-32-40{
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .fs-r-24{
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .fs-r-24-32{
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .fs-r-24-40{
+    font-size: 24px;
+    line-height: 40px;
+  }
+  .fs-r-20-24{
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .fs-r-16-24{
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .fs-r-16-17{
+    font-size: 16px;
+    line-height: 17px;
+  }
+  .fs-r-12{
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .fs-r-12-17{
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .fs-r-10-17{
+    font-size: 10px;
+    line-height: 17px;
+  }
