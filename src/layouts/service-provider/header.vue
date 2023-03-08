@@ -22,17 +22,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
 import TemplateHeader from '../tamplate/header/index.vue'
 export default {
-    name:'default-header',
+    name:'default-header-provider',
     components:{
       TemplateHeader,
     },
     data:(vm)=>{
       return {
-
+        userIsRoleProvider:false,
       items:[
         /**provider */
         {route:'service-provider-show-services', text:vm.$t('show-your-services'),provider:true},
@@ -46,17 +45,24 @@ export default {
       ]
     }
   },
+  watch:{
+    userIsProvider:{
+      deep:true,
+      immediate:true,
+      handler(val){
+        this.userIsRoleProvider = val;
+        console.mylog('userIsProvider changed',val)
+      }
+    }
+  },
     computed:{
-      ...mapGetters({
-        userIsRoleProvider:'auth/isProvider'
-      }),
       isRequestPage(){
        return this.$route.name.startsWith('service-provider-show-service')
       }
     },
    methods:{
     switchRole(){
-     this.switchRoleProvider()
+     this.switchRoleProvider(!this.userIsRoleProvider)
     },
     openAddService(evt,closeNavList){
         evt.preventDefault();

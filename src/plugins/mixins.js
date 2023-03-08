@@ -343,8 +343,8 @@ const mixin = {
                 this.$store.commit('auth/SET_ACADEMY_ROLE',newRole)
                 this.refreshPage()
                },
-                switchRoleProvider(){
-                if(!this.userIsProvider && !this.userSubProvider){
+                switchRoleProvider(val){
+                if(val &&  !this.userSubProvider){
 
                   let dateEvt ={
                     title:'لا يمكنك تغير كمقدم خدمة لانك غير مشترك بها ',
@@ -354,7 +354,8 @@ const mixin = {
                   }
                   this.showConfirmMsg(dateEvt)
                 }else{
-                  this.$store.commit('auth/SET_IS_PROVIDER',!this.userIsProvider)
+                  console.mylog('switching role provider to',val)
+                  this.$store.commit('auth/SET_IS_PROVIDER',val)
                   this.refreshPage()
                 }
                 

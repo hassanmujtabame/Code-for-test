@@ -48,6 +48,7 @@ export default{
         if(data)
         data= (!!data && !!state.subscribeProvider)
         //console.mylog('SET_IS_PROVIDER',data)
+        state.isProvider = data
         localStorage.setItem("user_provider", data?'Y':'N');
     },
     SET_USER(state,payload){

@@ -16,12 +16,14 @@ export default {
     academyRole(state){
        return state.academyRole || localStorage.getItem('user_academy_role') || 'student'
     },
-    isProvider (state,getters) { 
+    isProvider (state,getters,...args) { 
+        console.mylog('sqsd',args)
         let data = localStorage.getItem('user_provider')=='Y';
         //console.mylog('load pr',data,getters)
         if(data)
         data = data && !!getters.subscribeProvider
-        return data;
+        state.isProvider = data
+        return state.isProvider;
     },
     subscribeNetwork (state) { 
         return state.subscribeNetwork;
