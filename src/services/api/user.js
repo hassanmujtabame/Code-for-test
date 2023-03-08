@@ -6,7 +6,7 @@ class UserApi extends BaseApi {
         return window.axios.post(`user/me`);
     }
     profile(id){
-        return window.axios.get(`user/profile/${id}`);
+        return window.axios.post(`user/profile/${id}`);
     }
     getUserById(id){
         return window.axios.get(`service-provider/user/provider/${id}`);
