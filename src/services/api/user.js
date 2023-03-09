@@ -151,6 +151,12 @@ class UserApi extends BaseApi {
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/jobs-applied?${s}`);
     }
+    sendMessageChat(data){
+        /**
+         * body{to_user_id,message}
+         */
+        return window.axios.post(`user/send-message`,data);
+    }
    
 }
 
