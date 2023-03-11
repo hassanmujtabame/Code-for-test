@@ -98,7 +98,7 @@
    },
    mounted(){
     console.mylog(process.env)
-    if(process.env.VUE_APP_DIALOG_SEND_RECRUITMENT)
+    if(process.env.VUE_APP_DIALOG_SEND_RECRUITMENT===true)
     this.fireOpenDialog(this.group,{id:148})
    }
   }
