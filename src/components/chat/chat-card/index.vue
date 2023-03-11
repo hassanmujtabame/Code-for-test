@@ -22,15 +22,18 @@
     </div>
     <div class="card-footer text-muted d-flex justify-content-start align-items-center">
 
-      <input v-model="itemForm.message" @keypress.enter="sendMessage" class="form-control form-control-sm"  :placeholder="$t('type-message')">
+      <textarea rows="1" v-model="itemForm.message" @keypress.enter="sendMessage" class="form-control form-control-sm"  :placeholder="$t('type-message')">
+        </textarea>
       <a :disabled="true" v-if="false"  class="ms-1 text-muted" href="#!"><i class="fas fa-paperclip"></i></a>
       <a :disabled="true" v-if="false" class="ms-3 text-muted" href="#!"><i class="fas fa-smile"></i></a>
       <a @click="sendMessage" :disabled="loading" class="ms-3 link-info" href="#!"><i class="fas fa-paper-plane"></i></a>
     </div>
+    <audio ref="myaudio" style="display:none" src="/assets/sound/new-msg-chat.m4r" />
   </div>
 </template>
 
 <script>
+import userAPI from '@/services/api/user';
 import showMsg from './group-msg'
 export default {
   name: 'd-chat-card',
@@ -60,9 +63,9 @@ export default {
       
       this.loading = true;
       let formData=  this.loadObjectToForm(this.itemForm)
-      formData.append('from_user_id',this.user.id)
+      //formData.append('from_user_id',this.user.id)
       try {
-        let { data} = await this.$axios.post('https://laravel8.test:8443/api/v1/user/send-message',formData)
+        let { data} = await userAPI.sendMessageChat(formData)
         if(data.success){
           this.addMsg({...data.data,user_id:this.user.id,user_image:this.user.image})
           this.itemForm.message = '';
@@ -80,13 +83,16 @@ export default {
       return datep.toLocaleString("en-GB")
     },
     addMsg(msg) {
+      console.mylog("adding message",msg)
+      let time = msg.created_at.split('T')[1]
+      time = time.substring(0, 5)
       if (this.messages.length == 0) {
         let m = {
           id: msg.id,
           user_id: msg.user_id,
           user_image: msg.user_image,
           user_name: msg.user_name,
-          list: [{ ...msg }]
+          list: [{ ...msg,time }]
         }
         this.messages.push(m)
       } else {
@@ -99,14 +105,15 @@ export default {
             user_id: msg.user_id,
             user_image: msg.user_image,
           user_name: msg.user_name,
-            list: [{ ...msg }]
+            list: [{ ...msg ,time}]
           }
           this.messages.push(m)
         }
 
       }
-     
-    this.audio.play()
+      //console.mylog('sdqs aud',this.audio)
+     if(msg.sender_id != this.user.id)
+      this.$refs.myaudio.play()
 
     },
     initializing() {
@@ -114,28 +121,28 @@ export default {
       yestarday.setDate(yestarday.getDate() - 1)
       let today = new Date();
 
-      this.addMsg({ id: 1,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: 'hi', datetime: this.setTimeDate(yestarday, '23:58'), time: '23:58' })
-      this.addMsg({ id: 2,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: 'How are you ...???', datetime: this.setTimeDate(yestarday, '23:58'), time: '23:58' })
-      this.addMsg({ id: 3,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: 'What are you doing tomorrow? Can we come up a bar?', datetime: this.setTimeDate(yestarday, '23:58'), time: '23:58' })
+      this.addMsg({ id: 1,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: 'hi', created_at: this.setTimeDate(yestarday, '23:58'), time: '23:58' })
+      this.addMsg({ id: 2,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: 'How are you ...???', created_at: this.setTimeDate(yestarday, '23:58'), time: '23:58' })
+      this.addMsg({ id: 3,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: 'What are you doing tomorrow? Can we come up a bar?', created_at: this.setTimeDate(yestarday, '23:58'), time: '23:58' })
 
-      this.addMsg({ id: 4,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Hiii, I'm good.", datetime: this.setTimeDate(today, '00:06'), time: '00:06' })
-      this.addMsg({ id: 5,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "How are you doing?", datetime: this.setTimeDate(today, '00:06'), time: '00:06' })
-      this.addMsg({ id: 6,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Long time no see! Tomorrow office. will be free on sunday.", datetime: this.setTimeDate(today, '00:06'), time: '00:06' })
+      this.addMsg({ id: 4,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Hiii, I'm good.", created_at: this.setTimeDate(today, '00:06'), time: '00:06' })
+      this.addMsg({ id: 5,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "How are you doing?", created_at: this.setTimeDate(today, '00:06'), time: '00:06' })
+      this.addMsg({ id: 6,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Long time no see! Tomorrow office. will be free on sunday.", created_at: this.setTimeDate(today, '00:06'), time: '00:06' })
 
-      this.addMsg({ id: 7,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Okay", datetime: this.setTimeDate(today, '00:07'), time: '00:07' })
-      this.addMsg({ id: 8,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "We will go on Sunday?", datetime: this.setTimeDate(today, '00:07'), time: '00:07' })
+      this.addMsg({ id: 7,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Okay", created_at: this.setTimeDate(today, '00:07'), time: '00:07' })
+      this.addMsg({ id: 8,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "We will go on Sunday?", created_at: this.setTimeDate(today, '00:07'), time: '00:07' })
 
-      this.addMsg({ id: 9,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "That's awesome!", datetime: this.setTimeDate(today, '00:09'), time: '00:09' })
-      this.addMsg({ id: 10,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "I will meet you Sandon Square sharp at 10 AM", datetime: this.setTimeDate(today, '00:09'), time: '00:09' })
-      this.addMsg({ id: 11,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Is that okay?", datetime: this.setTimeDate(today, '00:09'), time: '00:09' })
+      this.addMsg({ id: 9,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "That's awesome!", created_at: this.setTimeDate(today, '00:09'), time: '00:09' })
+      this.addMsg({ id: 10,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "I will meet you Sandon Square sharp at 10 AM", created_at: this.setTimeDate(today, '00:09'), time: '00:09' })
+      this.addMsg({ id: 11,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Is that okay?", created_at: this.setTimeDate(today, '00:09'), time: '00:09' })
 
-      this.addMsg({ id: 12,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Okay i will meet you on Sandon Square", datetime: this.setTimeDate(today, '00:011'), time: '00:11' })
+      this.addMsg({ id: 12,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Okay i will meet you on Sandon Square", created_at: this.setTimeDate(today, '00:011'), time: '00:11' })
 
-      this.addMsg({ id: 13,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Do you have pictures of Matley Marriage?", datetime: this.setTimeDate(today, '00:011'), time: '00:11' })
+      this.addMsg({ id: 13,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Do you have pictures of Matley Marriage?", created_at: this.setTimeDate(today, '00:011'), time: '00:11' })
 
-      this.addMsg({ id: 14,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Sorry I don't have. i changed my phone.", datetime: this.setTimeDate(today, '00:013'), time: '00:13' })
+      this.addMsg({ id: 14,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Sorry I don't have. i changed my phone.", created_at: this.setTimeDate(today, '00:013'), time: '00:13' })
 
-      this.addMsg({ id: 15,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Okay then see you on sunday!!", datetime: this.setTimeDate(today, '00:015'), time: '00:15' })
+      this.addMsg({ id: 15,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Okay then see you on sunday!!", created_at: this.setTimeDate(today, '00:015'), time: '00:15' })
     }
   },
   created(){
@@ -146,7 +153,7 @@ export default {
 
   },
   mounted() {
-    this.audio = new Audio('/assets/sound/new-msg-chat.m4r')
+    //this.audio = new Audio()
     if (process.env.NODE_ENV == 'development') {
       //this.initializing()
     }

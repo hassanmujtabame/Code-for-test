@@ -5,7 +5,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
-
+    https:true,
     port: 8050,
   },
   configureWebpack: {

@@ -41,14 +41,17 @@ export default {
                  return;
             } 
             //const token = this.$store.getters['auth/token'];
+            let wshost=null;//'laravel8.test'  //process.env.VUE_APP_WS_HOST
+            let wsport=null;//8443//process.env.VUE_APP_WS_PORT
+            let auth_endpoint =null;//'https://laravel8.test:8443/laravel-websockets/auth'  //process.env.VUE_APP_AUTH_ENDPOINT
                 this.pusher =  new window.Pusher(process.env.VUE_APP_PUSHER_APP_KEY, {
                     cluster:process.env.VUE_APP_PUSHER_APP_CLUSTER,
-                    wsHost: process.env.VUE_APP_WS_HOST??'test.riadiat.sa',
-                    wsPort:process.env.VUE_APP_WS_PORT??443,
-                    wssPort:process.env.VUE_APP_WS_PORT??443,
+                    wsHost: wshost??'test.riadiat.sa',
+                    wsPort:wsport??443,
+                    wssPort:wsport??443,
                     wsPath:'',
                     disableStats: false,
-                    authEndpoint: process.env.VUE_APP_AUTH_ENDPOINT??'https://test.riadiat.sa/laravel-websockets/auth',
+                    authEndpoint: auth_endpoint??'https://test.riadiat.sa/laravel-websockets/auth',
                     auth: {
                         headers: {
                             'Authorization' : `Bearer ${this.myToken}`,

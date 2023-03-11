@@ -36,6 +36,7 @@ export default {
   listenToChannel(){
     window.Echo.private(`chat.${this.user.id}`)
     .listen('.send.message.chat', (e) => {
+        console.mylog('send.message.chat',e)
         let {sender_id,user_image,user_name,...msg} = e;
         let item ={id:sender_id,image:user_image,name:user_name}
         let messageData ={user_id:sender_id,user_image,user_name,...msg}
@@ -81,6 +82,7 @@ created(){
     window.EventBus.listen(this.group,this.openLocal)
   },
   beforeDestroy(){
+    window.Echo.leaveChannel(`chat.${this.user.id}`);
     window.EventBus.off(this.group,this.openLocal)
 
   },
