@@ -185,7 +185,7 @@ export default {
     if(this.linkAudio)
     this.$nextTick(()=>{
         if(this.$refs['myaudio']){
-            console.log('sd')
+            console.mylog('sd')
             this.$refs.myaudio.addEventListener('play',this.onplay);
             this.$refs.myaudio.addEventListener('loadeddata',this.onloadeddata);
             this.$refs.myaudio.addEventListener('loadedmetadata',this.onloadedmetadata);

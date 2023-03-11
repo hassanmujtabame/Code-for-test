@@ -28,7 +28,7 @@
       <a :disabled="true" v-if="false" class="ms-3 text-muted" href="#!"><i class="fas fa-smile"></i></a>
       <a @click="sendMessage" :disabled="loading" class="ms-3 link-info" href="#!"><i class="fas fa-paper-plane"></i></a>
     </div>
-    <audio ref="myaudio" style="display:none" src="/assets/sound/new-msg-chat.m4r" />
+    <audio muted  ref="myaudio" style="display:none" src="/assets/sound/new-msg-chat.m4r" />
   </div>
 </template>
 
@@ -113,8 +113,12 @@ export default {
       }
       //console.mylog('sdqs aud',this.audio)
      if(msg.sender_id != this.user.id)
-      this.$refs.myaudio.play()
+     if(this.audio)
+      this.audio.play()
 
+    },
+    onloadedmetadata(event){
+        this.audio = event.target;
     },
     initializing() {
       let yestarday = new Date();
@@ -149,11 +153,17 @@ export default {
     window.EventBus.listen(this.group,this.addMsg)
   },
   beforeDestroy(){
+    if(this.$refs['myaudio']){
+        this.$refs.myaudio.removeEventListener('loadedmetadata',this.onloadedmetadata);
+    }
     window.EventBus.off(this.group,this.addMsg)
 
   },
   mounted() {
     //this.audio = new Audio()
+    if(this.$refs['myaudio']){
+            this.$refs.myaudio.addEventListener('loadedmetadata',this.onloadedmetadata);
+    }
     if (process.env.NODE_ENV == 'development') {
       //this.initializing()
     }
