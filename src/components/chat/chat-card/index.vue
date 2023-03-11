@@ -40,6 +40,7 @@ export default {
   },
   data: (vm) => {
   return {
+     audio : null,
     group:`chat-card-${vm.item.id}`,
     loading:false,
     itemForm:{
@@ -104,6 +105,8 @@ export default {
         }
 
       }
+     
+    this.audio.play()
 
     },
     initializing() {
@@ -143,6 +146,7 @@ export default {
 
   },
   mounted() {
+    this.audio = new Audio('/assets/sound/new-msg-chat.m4r')
     if (process.env.NODE_ENV == 'development') {
       //this.initializing()
     }

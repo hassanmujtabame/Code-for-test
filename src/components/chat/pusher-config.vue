@@ -4,15 +4,8 @@ import Echo from 'laravel-echo';
 export default {
     data:()=>({
         pusher:null,
-    app_key:'anysecret',
-    app_id:'anysecret',
-    app_cluster:'mt1',
-    app_port:8080,
-    wss_port:8443,
-    app_url:'laravel8.test',
-    app_protocol:'http',
-    connected:false,
-    logs:[]
+        connected:false,
+        logs:[]
     }),
     computed:{
         ...mapGetters({
@@ -48,26 +41,26 @@ export default {
                  return;
             } 
             //const token = this.$store.getters['auth/token'];
-                this.pusher =  new window.Pusher(this.app_key, {
-                    cluster: this.app_cluster,
-                    wsHost: `${this.app_url}`,
-                    wsPort:this.wss_port,
-                    wssPort:this.wss_port,
+                this.pusher =  new window.Pusher(process.env.VUE_APP_PUSHER_APP_KEY, {
+                    cluster:process.env.VUE_APP_PUSHER_APP_CLUSTER,
+                    wsHost: process.env.VUE_APP_WS_HOST??'test.riadiat.sa',
+                    wsPort:process.env.VUE_APP_WS_PORT??443,
+                    wssPort:process.env.VUE_APP_WS_PORT??443,
                     wsPath:'',
                     disableStats: false,
-                    authEndpoint: `${this.app_protocol}://${this.app_url}:${this.app_port}/laravel-websockets/auth`,
+                    authEndpoint: process.env.VUE_APP_AUTH_ENDPOINT??'https://test.riadiat.sa/laravel-websockets/auth',
                     auth: {
                         headers: {
                             'Authorization' : `Bearer ${this.myToken}`,
                             //'X-CSRF-Token': "{{ csrf_token() }}",
-                            'X-App-ID': this.app_id
+                            'X-App-ID': process.env.VUE_APP_PUSHER_APP_ID
                         }
                     },
                     enabledTransports: ['ws', 'flash'],
                 });
                 window.Echo = new Echo({
                     broadcaster: 'pusher',
-                    key: this.app_key,
+                    key: process.env.VUE_APP_PUSHER_APP_KEY,
                     client: this.pusher 
                 });
                 this.pusher.connection.bind('state_change', (/*states*/) => {
