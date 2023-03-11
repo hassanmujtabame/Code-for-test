@@ -98,7 +98,7 @@ export default {
       } else {
         let last = this.messages[this.messages.length - 1]
         if (last.user_id == msg.user_id && last.list[last.list.length - 1].date == msg.date) {
-          last.list.push(msg)
+          last.list.push({...msg,time})
         } else {
           let m = {
             id: msg.id,
