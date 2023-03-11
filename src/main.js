@@ -19,7 +19,7 @@ import userAPI from './services/api/user';
 import EventBus from './helper/EventBus';
 import Dhelper from './helper/d-helper';
 window.DHelper =  Dhelper;
-
+window.Pusher = require('pusher-js');
 window.EventBus =  new EventBus();
 const jquery = require('jquery');
 import $ from 'jquery';

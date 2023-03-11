@@ -595,5 +595,7 @@
   "record-audio": "تسجيل صوتي",
   "add-audio-message": "أضف رسالة صوتية",
   "offer-valid": "إعلان ساري",
-  "offer-finished": "إعلان منتهي"
+  "offer-finished": "إعلان منتهي",
+  "chat": "محادثة",
+  "type-message": "اكتب رسالة"
 }

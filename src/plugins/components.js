@@ -46,11 +46,15 @@ import DRateStars from '@/components/rate-stars/index.vue'
 import DRateFontStars from '@/components/rate-stars/show-rate.vue'
 import DDotsProgress from '@/components/dots-progress/index'
 import clickOutside from './click-outside'
+import dChatCard from '@/components/chat/chat-card/index'
+import dChatCircle from '@/components/chat/circle'
 import UserPreviewProfileCard from '@/components/cards/user/preview-profile-card.vue'
 
-
 Vue.directive('click-outside',clickOutside)
-  
+
+
+Vue.component(dChatCircle.name,dChatCircle)
+Vue.component(dChatCard.name,dChatCard)
 Vue.component(UserPreviewProfileCard.name, UserPreviewProfileCard)
 Vue.component('d-rate-dialog', DRateDialog)
 Vue.component('d-success-message', DSuccessMessage)

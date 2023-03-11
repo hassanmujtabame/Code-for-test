@@ -13,15 +13,18 @@
       <portal-target name="body">
       </portal-target>
       <JoinASPartnerDialog />
+    <dChatBar />
   </div>
 </template>
 <script>
 
 import JoinASPartnerDialog from '@/common/dialogs/join-as-partner.vue'
+import dChatBar from '@/components/chat/bar.vue'
 import { mapGetters } from 'vuex'
 export default {
   components:{
-    JoinASPartnerDialog
+    JoinASPartnerDialog,
+    dChatBar
   },
   computed:{
       ...mapGetters({
@@ -118,4 +121,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
   0% { transform: rotate(0deg); } 100% { transform: rotate(45deg); }
 }
 svg.gear { animation: circle .5s infinite linear; }
+
 </style>

@@ -600,5 +600,7 @@
   "record-audio": "record audio",
   "add-audio-message": "add audio message",
   "offer-valid": "Valid offer",
-  "offer-finished": "Finished offer"
+  "offer-finished": "Finished offer",
+  "chat": "chat",
+  "type-message": "Type message"
 }

@@ -23,6 +23,7 @@
                         </svg>
                         {{ $t('message') }}
                     </button>
+                    <button @click="openChat" class="text-white border-0 p-2 px-3 mx-2"><i  class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
                 </div>
             </div>
 
@@ -74,6 +75,9 @@ export default {
         if(!this.groupDialog) return;
         if(!this.member.id) return;
         this.fireOpenDialog(this.groupDialog,this.dataEvent)
+    },
+    openChat(){
+        this.fireEvent('chat-bar',{user:this.member})
     }
  }
 }
