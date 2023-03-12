@@ -60,9 +60,9 @@ export default {
     otherMsgText
  },
  data:(vm)=>{
-    let date = new Date('2022-12-10 10:00');
-            let date_only = vm.dateToString(date);
-            let time_only = vm.dateToString(date);
+   // let date = new Date('2022-12-10 10:00');
+           // let date_only = vm.dateToString(date);
+           // let time_only = vm.dateToString(date);
     return {
         loading:false,
         message:'',
@@ -77,15 +77,24 @@ export default {
     }
  },
  methods:{
-    pushMessage(){
-        let date = new Date();
+    listenToChannel(){
+        if(this.itemPage.status!='underway') return;
+    window.Echo.private(`chat-offer.${this.itemPage.id}`)
+    .listen('.send.message.offer', (e) => {
+        this.pushMessage(e)
+        console.mylog('send.message.offer',e)
+        console.mylog('private-offer',e);
+    });
+  },
+    pushMessage(msg){
+        let date = new Date(msg.created_at);
             let date_only = this.dateToString(date);
-            let time_only = this.dateToString(date);
+            let time_only = this.timeToString(date);
         this.conversations.push(
-            {id:6,
-                content:this.message,
+            {id:msg.id,
+                content:msg.message,
                 date:date_only,time:time_only,datetime:date,
-                isMe:true}
+                isMe:msg.sender_id==this.user.id}
                 
         )
         this.message =  ''
@@ -102,12 +111,12 @@ export default {
             }
             let formData = new FormData();
             formData.append('message',this.message)
-            formData.append('user_id',this.itemPage.user_info.id)
-            formData.append('service_id',this.itemPage.id)
+            formData.append('offer_id',this.itemPage.id)
             try {
-                let { data } = await window.axios.post('service-provider/user/send-message-to-provider',formData)
+                let { data } = await window.axios.post('service-provider/user/send-message',formData)
+                //let { data } = await window.axios.post('service-provider/user/send-message-to-provider',formData)
                  if(data.success){
-                    this.pushMessage()
+                    //this.pushMessage()
                  }
             } catch (error) {
                 //
@@ -115,7 +124,17 @@ export default {
             this.loading =  false;
             
     }
- }
+ },created(){
+    //window.EventBus.listen(this.group,this.openLocal)
+  },
+  beforeDestroy(){
+    window.Echo.leaveChannel(`chat-offer.${this.itemPage.id}`);
+    //window.EventBus.off(this.group,this.openLocal)
+
+  },
+  mounted(){
+    this.listenToChannel()
+  }
 }
 </script>
 
