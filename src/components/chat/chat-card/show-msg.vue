@@ -1,5 +1,5 @@
 <template>
-<p class="small p-2 mb-1 rounded-3 " v-bind="$attrs">
+<p class="small p-3 mb-1 rounded-3 " v-bind="$attrs">
 <slot></slot>
 </p>
 </template>

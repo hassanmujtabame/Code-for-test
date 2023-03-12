@@ -2,13 +2,14 @@
   <div  class="d-flex"
         :class="[user.id == chatter.user_id ? 'justify-content-start' : 'flex-row-reverse justify-content-end mb-4 pt-1']">
         <img :src="chatter.user_image" :alt="chatter.user_name" class="chatter-avatar" style="width: 45px; height: 100%;">
-        <div class="flex-grow-1" :class="[user.id !== chatter.user_id ? 'text-end':''] ">
+        <div class="chat-message-group" :class="[user.id !== chatter.user_id ? 'align-items-end':''] ">
+        
           <showMsg v-for="(msg, j) in chatter.list" :key="`msg-${chatter.id}-${j}`"
             :class="[user.id == chatter.user_id ? 'ms-3 bg-my-msg' : 'me-3 bg-your-msg']">{{ msg.message }}</showMsg>
-
-          <showTime :time="chatter.list[chatter.list.length-1].time" class="d-flex "
-            :class="[user.id == chatter.user_id ? 'justify-content-end' : ' justify-content-start']"></showTime>
-        </div>
+            <showTime :time="chatter.list[chatter.list.length-1].time" class="d-flex "
+            :class="[user.id == chatter.user_id ? 'justify-content-start' : ' justify-content-start']"></showTime>
+        
+          </div>
       </div>
 </template>
 
@@ -46,4 +47,10 @@ export default {
   width: fit-content;
   color:#636f8a;
 }
+.chat-message-group{
+  flex-grow:1;
+  display:flex;
+  flex-direction: column;
+}
+
 </style>

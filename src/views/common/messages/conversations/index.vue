@@ -1,15 +1,17 @@
 <template>
- <div style="margin-top: 85px" >
+ <div style="margin-top: 75px" class="bg-body-page" >
+ <div class="container bg-white mt-5 rounded-2">
  <div class="row">
-    <div class="col-3">
+    <div class="col-3 border-left">
       <sectionUsers />
     </div>
-    <div class="col-6">
+    <div class="col-6 border-left border-right p-0">
       <sectionChat />
     </div>
-    <div class="col-3">
+    <div class="col-3 border-right">
       <sectionAbout />
     </div>
+ </div>
  </div>
  </div>
 </template>
@@ -30,5 +32,16 @@ export default {
 </script>
 
 <style>
-
+.border-left{
+  border-left: 1px solid #eaeaea;
+}
+.border-right{
+  border-right: 1px solid #eaeaea;
+}
+.border-top{
+  border-top: 1px solid #eaeaea;
+}
+.border-bottom{
+  border-bottom: 1px solid #eaeaea;
+}
 </style>
