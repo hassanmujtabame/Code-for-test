@@ -1,5 +1,7 @@
 <template>
-  <TemplateHeader>
+  <TemplateHeader
+  prefixRoute='network-'
+  >
             <li class="nav-item px-2">
               <!-- <a class="nav-link active" aria-current="page" href="../index.html"
                 >الرئيسية</a

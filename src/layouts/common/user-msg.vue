@@ -1,6 +1,6 @@
 <template>
   <div class="mx-3 mt-3">
-                            <div type="" class=" position-relative">
+                            <router-link :to="getRouteLocale(`${prefixRoute}conversations`)"  class="display-block position-relative">
                                 <svg width="25" height="25" viewBox="0 0 22 22" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_1979_95671)">
@@ -22,14 +22,23 @@
                                    {{count}}
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
-                            </div>
+                            </router-link>
                         </div>
 </template>
 
 <script>
 export default {
+    props:{
+        prefixRoute:{}
+    },
     data() {
        return{ count:0} 
     },
 }
 </script>
+<style scoped>
+.display-block{
+    display: block;
+    color:#000
+}
+</style>

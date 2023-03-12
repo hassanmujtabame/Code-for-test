@@ -32,6 +32,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-offers-dashboard" */ '../views/network/offers-dashboard/index.vue') 
     },
     {
+        path: 'network/conversations',
+        meta:{auth:true,layout:LayoutNetwork},
+        name: 'network-conversations',
+        component: () => import(/* webpackChunkName: "network-conversations" */ '../views/common/messages/conversations/index.vue') 
+    },
+    {
         path: 'network/menu-subscribe',
         meta:{auth:true,layout:LayoutNetwork},
         name: 'network-menu-subscribe',

@@ -37,9 +37,9 @@
                 <!-- search input -->
                 <SearchInput v-if="!hideSearch"/>
                 <template v-if="token">
-                  <UserMsg />
-                  <UserNotif />
-                  <UserNav />
+                  <UserMsg :prefixRoute="prefixRoute" />
+                  <UserNotif :prefixRoute="prefixRoute" />
+                  <UserNav :prefixRoute="prefixRoute" />
                  </template>
                 <div v-else style="    line-height: 3.5;"  class="btn-main btn-nav text-center">
                  
@@ -78,6 +78,10 @@
   export default {
       name:'default-header',
       props:{
+        prefixRoute:{
+          type:String,
+          default:''
+        },
         hideSearch:{
           type:Boolean,
           default:false

@@ -1,6 +1,7 @@
 <template>
   <TemplateHeader 
   hideSearch
+  prefixRoute='academy-'
   >
     <template v-slot="{/*closeNavList*/}" >
             <li class="nav-item px-2">
