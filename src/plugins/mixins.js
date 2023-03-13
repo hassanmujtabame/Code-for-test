@@ -356,7 +356,7 @@ const mixin = {
                 }else{
                   console.mylog('switching role provider to',val)
                   this.$store.commit('auth/SET_IS_PROVIDER',val)
-                  this.refreshPage()
+                  //this.refreshPage()
                 }
                 
               },
