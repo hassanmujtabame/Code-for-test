@@ -1,7 +1,9 @@
 <template>
   <div  class="d-flex"
         :class="[user.id == chatter.user_id ? 'justify-content-start' : 'flex-row-reverse justify-content-end mb-4 pt-1']">
-        <img :src="chatter.user_image" :alt="chatter.user_name" class="chatter-avatar" style="width: 45px; height: 100%;">
+        <div class="d-flex align-items-end">
+        <img :src="chatter.user_image" :alt="chatter.user_name" class="chatter-avatar" />
+        </div>
         <div class="chat-message-group" :class="[user.id !== chatter.user_id ? 'align-items-end':''] ">
         
           <showMsg v-for="(msg, j) in chatter.list" :key="`msg-${chatter.id}-${j}`"
@@ -37,15 +39,15 @@ export default {
     width: 45px;
 }
 .bg-my-msg {
-  background-color: #5c60f4;
   width: fit-content;
-  color:#fff
+  background: #2787f5;
+  color: #fff;
 }
 
 .bg-your-msg {
-  background-color: #f5f6f7;
   width: fit-content;
-  color:#636f8a;
+  color: #95aac9;
+  background: #f6f9fb;
 }
 .chat-message-group{
   flex-grow:1;

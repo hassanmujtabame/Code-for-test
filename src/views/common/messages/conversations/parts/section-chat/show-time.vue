@@ -1,5 +1,5 @@
 <template>
-  <p class="small ms-3 rounded-3 text-muted" v-bind="$attrs">{{ time }}</p>
+  <p class="message-time ms-3 rounded-3" v-bind="$attrs">{{ time }}</p>
 </template>
 
 <script>
@@ -13,5 +13,9 @@ export default {
 </script>
 
 <style>
-
+.message-time{
+  color: #bfccdf!important;
+  font-size: .665em;
+  margin: 0;
+}
 </style>

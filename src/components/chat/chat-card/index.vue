@@ -120,33 +120,22 @@ export default {
     onloadedmetadata(event){
         this.audio = event.target;
     },
-    initializing() {
-      let yestarday = new Date();
-      yestarday.setDate(yestarday.getDate() - 1)
-      let today = new Date();
+    async initializing(message_id) {
+      let formData = new FormData();
+      formData.append('to_user_id',this.item.id)
+      if(message_id)
+      formData.append('message_id',message_id)
 
-      this.addMsg({ id: 1,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: 'hi', created_at: this.setTimeDate(yestarday, '23:58'), time: '23:58' })
-      this.addMsg({ id: 2,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: 'How are you ...???', created_at: this.setTimeDate(yestarday, '23:58'), time: '23:58' })
-      this.addMsg({ id: 3,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: 'What are you doing tomorrow? Can we come up a bar?', created_at: this.setTimeDate(yestarday, '23:58'), time: '23:58' })
+     try {
+      let { data } = await userAPI.loadMessageChat(formData);
+        if(data.success){
+          console.mylog('success',data)
+        }
+     } catch (error) {
+      //
+      console.mylog('error',error)
+     }
 
-      this.addMsg({ id: 4,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Hiii, I'm good.", created_at: this.setTimeDate(today, '00:06'), time: '00:06' })
-      this.addMsg({ id: 5,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "How are you doing?", created_at: this.setTimeDate(today, '00:06'), time: '00:06' })
-      this.addMsg({ id: 6,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Long time no see! Tomorrow office. will be free on sunday.", created_at: this.setTimeDate(today, '00:06'), time: '00:06' })
-
-      this.addMsg({ id: 7,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Okay", created_at: this.setTimeDate(today, '00:07'), time: '00:07' })
-      this.addMsg({ id: 8,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "We will go on Sunday?", created_at: this.setTimeDate(today, '00:07'), time: '00:07' })
-
-      this.addMsg({ id: 9,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "That's awesome!", created_at: this.setTimeDate(today, '00:09'), time: '00:09' })
-      this.addMsg({ id: 10,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "I will meet you Sandon Square sharp at 10 AM", created_at: this.setTimeDate(today, '00:09'), time: '00:09' })
-      this.addMsg({ id: 11,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Is that okay?", created_at: this.setTimeDate(today, '00:09'), time: '00:09' })
-
-      this.addMsg({ id: 12,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Okay i will meet you on Sandon Square", created_at: this.setTimeDate(today, '00:011'), time: '00:11' })
-
-      this.addMsg({ id: 13,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Do you have pictures of Matley Marriage?", created_at: this.setTimeDate(today, '00:011'), time: '00:11' })
-
-      this.addMsg({ id: 14,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Sorry I don't have. i changed my phone.", created_at: this.setTimeDate(today, '00:013'), time: '00:13' })
-
-      this.addMsg({ id: 15,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Okay then see you on sunday!!", created_at: this.setTimeDate(today, '00:015'), time: '00:15' })
     }
   },
   created(){
@@ -164,9 +153,10 @@ export default {
     if(this.$refs['myaudio']){
             this.$refs.myaudio.addEventListener('loadedmetadata',this.onloadedmetadata);
     }
-    if (process.env.NODE_ENV == 'development') {
-      //this.initializing()
-    }
+    console.mylog('mounted')
+    //if (process.env.NODE_ENV == 'development') {
+      this.initializing()
+    //}
   }
 }
 </script>

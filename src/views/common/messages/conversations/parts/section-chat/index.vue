@@ -37,7 +37,7 @@ export default {
  props:{
   item:{
     default:()=>{
-      return {id:1,title:'Robert Fox',subtitle:'hi, I am robet, i am waiting you on big house',time:'11:00 AM',image:'https://i.pravatar.cc/150?img=3'}
+      return {id:197,title:'Robert Fox',subtitle:'hi, I am robet, i am waiting you on big house',time:'11:00 AM',image:'https://i.pravatar.cc/150?img=3'}
     }
   }
  },

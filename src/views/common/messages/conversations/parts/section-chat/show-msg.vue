@@ -5,10 +5,11 @@
 </template>
 <style >
 .chat-message-text{
-margin-bottom: .25rem !important;
- border-radius: 0.5rem;
- font-size: .875em;
- padding: 5px 10px;
+  margin-bottom: .25rem !important;
+  border-radius: 0.5rem;
+  font-size: .875em;
+  border-radius: 0.6rem;
+  padding: 1rem 1.25rem;
 }
 .chat-message-text.bg-your-msg:first-of-type{
   border-top-left-radius: 0% !important;
