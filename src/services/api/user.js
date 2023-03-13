@@ -157,6 +157,9 @@ class UserApi extends BaseApi {
          */
         return window.axios.post(`user/send-message`,data);
     }
+    loadMessageChat(data){
+        return window.axios.post(`user/load-messages`,data);
+    }
    
 }
 
