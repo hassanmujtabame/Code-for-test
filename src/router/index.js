@@ -44,6 +44,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "preview-profile" */ '../views/common/preview-profile/index.vue')
   },
   {
+    path: 'conversations',
+    meta:{auth:true,layout:LayoutDefault},
+    name: 'default-conversations',
+    component: () => import(/* webpackChunkName: "default-conversations" */ '../views/common/messages/conversations/index.vue') 
+},
+  {
     path: 'balance-charge',
     name: 'balance-charge',
     meta:{layout:LayoutDefault,auth:true},
