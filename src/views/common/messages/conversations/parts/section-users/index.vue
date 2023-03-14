@@ -9,7 +9,9 @@
   <input type="text" class="form-control search-input" :placeholder="$t('search')" >
 </div>
     </div>
-    <listItemVue v-for="(n,i) in 5" :key="i" :item="item" />
+    <div class="chat-users__body">
+    <listItemVue v-for="(n,i) in 10" :key="i" :item="item" />
+  </div>
   </div>
 </template>
 
@@ -22,8 +24,24 @@ export default {
   listItemVue
  },
  data:()=>({
-  item:{title:'Robert Fox',subtitle:'hi, I am robet, i am waiting you on big house',time:'11:00 AM',image:'https://i.pravatar.cc/150?img=3'}
- })
+  item:{title:'Robert Fox',subtitle:'hi, I am robet, i am waiting you on big house',time:'11:00 AM',image:'https://i.pravatar.cc/150?img=3'},
+  items:[]
+ }),
+ methods:{
+  async initializing(){
+    try {
+      let { data } = await this.$axios.post('user/list-of-people')
+      if(data.success){
+        console.mylog('success',data.data)
+      }
+    } catch (error) {
+      //
+    }
+  }
+ },
+ mounted(){
+  this.initializing()
+ }
 }
 </script>
 
@@ -65,5 +83,10 @@ html[lang=en] .search-input-icon{
  .chat-users>.chat-users__item:last-child{
  padding: 10px 0;
  border-bottom: none;
+}
+.chat-users__body{
+  height: calc(100vh - 240px);
+    overflow-y: auto;
+    margin-left: -10px;
 }
 </style>

@@ -2,14 +2,11 @@
  <div style="margin-top: 75px" class="bg-body-page" >
  <div class="container bg-white mt-5 rounded-2">
  <div class="row">
-    <div class="col-3 border-left">
+    <div class="col-4 border-left  p-0">
       <sectionUsers />
     </div>
-    <div class="col-6 border-left border-right p-0">
+    <div class="col-8 border-left border-right p-0">
       <sectionChat />
-    </div>
-    <div class="col-3 border-right">
-      <sectionAbout />
     </div>
  </div>
  </div>
