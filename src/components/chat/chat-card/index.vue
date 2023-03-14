@@ -140,7 +140,11 @@ export default {
         if(data.success){
           data.data.forEach((element)=>{
             //console.mylog('element',element)
-            this.addMsg({...element,user_id:this.user.id,user_image:this.user.image})
+            if(element.sender_id==this.user.id)
+            this.addMsg({...element,user_id:this.user.id,user_image:this.user.image},true)
+            else
+            this.addMsg({...element,user_id:element.sender_id},true)
+
           })
           console.mylog('success',data)
         }
