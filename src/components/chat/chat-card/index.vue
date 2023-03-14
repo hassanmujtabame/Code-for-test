@@ -82,7 +82,7 @@ export default {
       datep.setSeconds(0);
       return datep.toLocaleString("en-GB")
     },
-    addMsg(msg) {
+    addMsg(msg,load=false) {
       console.mylog("adding message",msg)
       let time = msg.created_at.split('T')[1]
       time = time.substring(0, 5)
@@ -94,10 +94,16 @@ export default {
           user_name: msg.user_name,
           list: [{ ...msg,time }]
         }
+        if(load)
+        this.messages.unshift(m)
+        else
         this.messages.push(m)
       } else {
         let last = this.messages[this.messages.length - 1]
         if (last.user_id == msg.user_id && last.list[last.list.length - 1].date == msg.date) {
+          if(load)
+          last.list.unshift({...msg,time})
+        else
           last.list.push({...msg,time})
         } else {
           let m = {
@@ -107,13 +113,16 @@ export default {
           user_name: msg.user_name,
             list: [{ ...msg ,time}]
           }
+          if(load)
+        this.messages.unshift(m)
+        else
           this.messages.push(m)
         }
 
       }
       //console.mylog('sdqs aud',this.audio)
      if(msg.sender_id != this.user.id)
-     if(this.audio)
+     if(this.audio && !load)
       this.audio.play()
 
     },
@@ -129,6 +138,10 @@ export default {
      try {
       let { data } = await userAPI.loadMessageChat(formData);
         if(data.success){
+          data.data.forEach((element)=>{
+            //console.mylog('element',element)
+            this.addMsg({...element,user_id:this.user.id,user_image:this.user.image})
+          })
           console.mylog('success',data)
         }
      } catch (error) {
