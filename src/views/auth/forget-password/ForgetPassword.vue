@@ -16,23 +16,19 @@
                                 لا تقلق سنساعدك على أستعادتها 
 
                             </p>
-                            <form class="row g-3 needs-validation " novalidate>
+                            <ValidationObserver ref="form" tag="div" class="row g-3 needs-validation " novalidate>
                         
     
                                 <div class="col-md-4 w-100">
-                                    <input type="email" class="form-control" id="validationCustom03"
-                                        placeholder=" البريد الالكتروني" required>
+                                    <d-text-input type="email" v-model="itemForm.email" class="form-control" id="validationCustom03"
+                                        label="البريد الالكتروني" >
                                     
-                                    
-                                </div>
-    
-                         
-                                
+                                    </d-text-input>
+                                </div>                         
                                 <div class="col-12 text-center ">
-                                    <button class="btn btn-main  " type="submit"   role="button">  أستمر  </button>
-                                </div>
-                                
-                            </form>
+                                    <button @click="doNext" class="btn btn-main  " type="submit"   role="button">  أستمر  </button>
+                                </div>                     
+                            </ValidationObserver>
                         </div>
 
                     </div>
@@ -48,3 +44,32 @@
 
         </div>
 </template>
+<script>
+export default{
+    name:'forget-password',
+    data:()=>({
+        itemForm:{
+            email:''
+        }
+    }),
+    methods:{
+        async doNext(){
+           try {
+            let { data } = await this.$axios.post('user/auth/forget-password', this.itemForm)
+            if(data.success){
+                
+                let info ={
+                            data:data.data,
+                            form:this.itemForm
+                    }
+                    this.$emit('success',info)
+            }else{
+                window.SwalError(data.message)
+            }
+           } catch (error) {
+            window.DHelper.catchException.call(this,error)
+           }
+        }
+    }
+}
+</script>

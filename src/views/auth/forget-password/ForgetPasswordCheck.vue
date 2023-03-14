@@ -14,36 +14,42 @@
                                                                                                                                         </h1>
                             <p>
                                 تلقيت رمز الاستعادة على البريد التالي  
-                                                                <span>
-                                    xxxxxxx@gmail.com
+                                <span>
+                                    {{dataInfo.form.email}}
                                 </span>
                             </p>
+                            <p v-if="code" style="color:red">
+                            للتجريب فقط :رقم التاكيد هو <i>{{code}}</i>
+                            </p>
+                          
                             <p>
                                 لم يصلك الرمز؟
-                                <a href="" class="m-c">
+                                <a href="#" @click="resendCode" class="m-c">
                                     أعد الارسال
                                 </a>
                             </p>
-                            <form class="row g-3 needs-validation " novalidate>
-                        
-    
+                            <ValidationObserver class="row g-3 needs-validation " ref="form">
+                    
+                            <ValidationProvider
+                                tag="div"
+                                :name="$t('confirm-code')"
+                                class="col-md-4 w-100"
+                                vid="pin_code"
+                                rules="required"
+                                v-slot="{errors}"
+                            >
                                 <div class="col-md-4 w-100">
-                                    <input type="text" class="form-control" id="validationCustom01"
-                                        placeholder="   رمز استعادة كلمة السر" required>
-                                    
-                                    
+                                    <d-text-input :errors="errors" type="text" v-model="pin_code" class="form-control" id="validationCustom01"
+                                        label="   رمز استعادة كلمة السر" >
+                                    </d-text-input>
                                 </div>
-    
-                         
-                                
+                         </ValidationProvider>
                                 <div class="col-12 text-center ">
-                                    <button class="btn btn-main" type="submit"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">  
-                                        <router-link :to="getRouteLocale('register-finish')" class="text-white">
-                                            أستمر
-                                        </router-link>  </button>
-                                </div>
-                                
-                            </form>
+                                    <button @click="verifyCode" class="btn btn-main" >  
+                                                أستمر
+                                          </button>
+                                </div>         
+                            </ValidationObserver>
                         </div>
 
                     </div>
@@ -59,7 +65,72 @@
 
 <script>
 export default {
+ name:'forget-password-check',
+ props:{
+    dataInfo:{}
+ },
+    data:(vm)=>{
+        return {
+            code:vm.dataInfo.data.pin_code,
+            pin_code:'',
+        }
+    },
+    methods: {
 
+        async resendCode(e){
+            if(e)
+            e.preventDefault();
+         
+                let {email} = this.dataInfo.form
+            try {
+                let {data} = await this.$axios.post('user/auth/resend-code',{email});
+                if(data.success){
+                   this.code = data.data.pin_code
+                }else{
+                    window.SwalError(data.message)
+                }
+                
+            } catch (error) {
+                window.SwalError('خطا غير معروف')
+                if(error.response){
+                    let response =error.response
+                    if(response.status==422){
+                        this.message = response.data.message;
+                        if(Object.hasOwnProperty.call(response.data,'errors')){
+                            this.$refs.form.setErrors(response.data.errors)
+                        }
+                    }
+                }
+            }
+        },
+        async verifyCode(e){
+            if(e)
+            e.preventDefault();
+         
+                let {email} = this.dataInfo.form
+                let pin_code = this.pin_code
+            try {
+                let {data} = await this.$axios.post('user/auth/verify-code',{email,pin_code});
+                if(data.success){
+                    this.$emit('success',this.dataInfo)
+                }else{
+                    window.SwalError(data.message)
+                }
+                
+            } catch (error) {
+                window.SwalError('خطا غير معروف')
+                if(error.response){
+                    let response =error.response
+                    if(response.status==422){
+                        this.message = response.data.message;
+                        if(Object.hasOwnProperty.call(response.data,'errors')){
+                            this.$refs.form.setErrors(response.data.errors)
+                        }
+                    }
+                }
+            }
+        }
+    },
 }
 </script>
 

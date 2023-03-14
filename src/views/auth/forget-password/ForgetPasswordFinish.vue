@@ -9,24 +9,17 @@
                         </div>
                         <div class=" text-center">
 
-                            <h1 class="fw-bolder  ">
-                                تم تغير كلمة السر بنجاح                                                                                                            </h1>
-                                               
-                                
+                            <h1 class="fw-bolder  "> تم تغير كلمة السر بنجاح </h1>
                                 <div class="col-12 text-center ">
-                                    <button class="btn btn-main  " type="submit"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">    تغير كلمة السر  </button>
+                                    <router-link :to="getRouteLocale('login')" class="btn btn-main  " > تسجيل الدخول</router-link>
                                 </div>
                
                         </div>
-
                     </div>
                     <div class=" col-12 col-md-6">
                         <div class="box">
                             <img src="/assets/svg/riadiat-green-card.svg"/>
-                                
-
                         </div>
-
                     </div>
                 </div>
             </div>

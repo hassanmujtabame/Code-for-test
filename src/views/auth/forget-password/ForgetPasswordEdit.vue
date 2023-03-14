@@ -16,30 +16,53 @@
                             <form class="row g-3 needs-validation " novalidate>
                         
                                 <div class="col-md-4 w-100 position-relative">
-                                    <input id="password-field"  type="password" class="form-control  " 
-                                        placeholder="   كلمة السر" required>
-                                        <span
-                                        style="    top: 12px;
-                                        left: 15px;
-                                        color: #CDD7D8;
-                                        font-size: 23px;
-                                    " toggle="#password-field"
-                                        class="fa-regular fa-eye toggle-password position-absolute">
-                                    </span>
+                                    <ValidationProvider
+                                 tag="div"
+                                    :name="$t('Password')"
+                                 vid="password"
+                                 rules="required"
+                                    v-slot="{errors}">
+                                    <d-text-input :errors="errors" v-model="itemForm.password" :type="show?'text':'password'" class="form-control"   label="كلمة المرور" >
+                                        <template v-slot:append-icon>
+                                        <span    style="color: #CDD7D8;font-size: 23px;"
+                                            
+                                                @click="show=!show"
+                                                
+                                                class="fa-regular mx-1"
+                                                :class="{'fa-eye': !show, 'fa-eye-slash':show }"
+                                                >
+                                            </span>
+                                        </template>
+                                    </d-text-input>
+
+                                </ValidationProvider>
                                 </div>
-                                <div class="col-md-4 w-100 position-relative">
-                                    <input id="password-field2"  type="password" class="form-control  " 
-                                        placeholder="    تاكيد كلمة السر" required>
-                                        <span
-                                        style="top: 12px;left: 15px;color: #CDD7D8;font-size: 23px;" toggle="#password-field2"
-                                        class="fa-regular fa-eye toggle-password position-absolute">
-                                    </span>
+                                <div class="col-md-4 w-100">
+                                    <ValidationProvider
+                                 tag="div"
+                                    :name="$t('password-confirmation')"
+                                 vid="password_confirmation"
+                                 rules="required|confirmed:password"
+                                    v-slot="{errors}">
+                                    <d-text-input :errors="errors" v-model="itemForm.password_confirmation" :type="showC?'text':'password'" class="form-control"   label="تاكيد كلمة السر" >
+                                        <template v-slot:append-icon>
+                                        <span    style="color: #CDD7D8;font-size: 23px;"
+                                            
+                                                @click="showC=!showC"
+                                                
+                                                class="fa-regular mx-1"
+                                                :class="{'fa-eye': !showC, 'fa-eye-slash':showC }"
+                                                >
+                                            </span>
+                                        </template>
+                                    </d-text-input>
+
+                                </ValidationProvider>
                                 </div>
                                 <div class="col-12 text-center ">
-                                    <button class="btn btn-main  " type="submit"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">  
-                                        <router-link :to="getRouteLocale('forget-password-finish')" class="text-white">
+                                    <button @click="resetPassword" :disabled="loading" class="btn btn-main  " >  
                                             تغير كلمة السر
-                                        </router-link>  </button>
+                                        </button>
                                 </div>
                                 
                             </form>
@@ -58,7 +81,62 @@
 
 <script>
 export default {
+    data:()=>({
+        show:false,
 
+        showC:false,
+        loading:false,
+        itemForm:{
+            password:'',
+            password_confirmation:''
+        },
+        hasError:false,
+        message:'',
+    }),
+     methods:{
+
+    async resetPassword(e){
+            e.preventDefault();
+            this.hasError=false;
+            this.loading =  true
+            this.message='';
+            let valid = await this.$refs.form.validate();
+        if(!valid){
+            this.loading = false
+            console.log('form invalid');
+            return ;
+        }
+            try {
+                let {data} = await this.$axios.post('user/auth/change-password',this.itemForm);
+                if(data.success){
+                    let info ={
+                            data:data,
+                            form:this.itemForm
+                    }
+                    this.$emit('success',info)
+                }else{
+                    window.SwalError(data.message)
+                    this.message = data.message;
+                    this.hasError=true;
+                }
+                
+            } catch (error) {
+                this.message='خطا غير معروف'
+                if(error.response){
+                    let response =error.response
+                    if(response.status==422){
+                        this.message = response.data.message;
+                        if(Object.hasOwnProperty.call(response.data,'errors')){
+                            this.$refs.form.setErrors(response.data.errors)
+                        }
+                    }
+                }
+
+                this.hasError=true;
+            }
+            this.loading = false
+        }
+ }
 }
 </script>
 
