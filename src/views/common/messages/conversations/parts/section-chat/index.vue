@@ -86,45 +86,10 @@ export default {
       let t = this.timeToString(datep)
       return `${d}T${t}`
     },
-    addMsg(msg) {
-      console.mylog("adding message",msg)
-      let time = msg.created_at.split('T')[1]
-      time = time.substring(0, 5)
-      if (this.messages.length == 0) {
-        let m = {
-          id: msg.id,
-          user_id: msg.user_id,
-          user_image: msg.user_image,
-          user_name: msg.user_name,
-          list: [{ ...msg,time }]
-        }
-        this.messages.push(m)
-      } else {
-        let last = this.messages[this.messages.length - 1]
-        if (last.user_id == msg.user_id && last.list[last.list.length - 1].date == msg.date) {
-          last.list.push({...msg,time})
-        } else {
-          let m = {
-            id: msg.id,
-            user_id: msg.user_id,
-            user_image: msg.user_image,
-          user_name: msg.user_name,
-            list: [{ ...msg ,time}]
-          }
-          this.messages.push(m)
-        }
-
-      }
-      //console.mylog('sdqs aud',this.audio)
-     if(msg.sender_id != this.user.id)
-     if(this.audio)
-      this.audio.play()
-
-    },
     onloadedmetadata(event){
         this.audio = event.target;
     },
-    initializing() {
+    initializing2() {
       let yestarday = new Date();
       yestarday.setDate(yestarday.getDate() - 1)
       let today = new Date();
@@ -151,6 +116,109 @@ export default {
       this.addMsg({ id: 14,user_id: this.user.id,user_name: this.user.name, user_image: this.user.image, message: "Sorry I don't have. i changed my phone.", created_at: this.setTimeDate(today, '00:013'), time: '00:13' })
 
       this.addMsg({ id: 15,user_id: this.item.id,user_name: this.item.name, user_image: this.item.image, message: "Okay then see you on sunday!!", created_at: this.setTimeDate(today, '00:015'), time: '00:15' })
+    },
+    addMsgLoad(msg){
+       //if(this.msg.some(m=>m.list.some(l=>l.id==msg.id))) return;
+       console.mylog("adding message",msg)
+      let time = msg.created_at.split('T')[1]
+      time = time.substring(0, 5)
+      if (this.messages.length == 0) {
+        let m = {
+          id: msg.id,
+          user_id: msg.user_id,
+          user_image: msg.user_image,
+          user_name: msg.user_name,
+          list: [{ ...msg,time }]
+        }
+        this.messages.unshift(m)
+      } else {
+
+        let first = this.messages[0]
+        //console.mylog('first',first,msg)
+        if (first.user_id == msg.user_id && first.list[0].datetime == msg.datetime){
+          
+          first.list.unshift({...msg,time})
+      
+        } else {
+          //console.mylog('new',msg)
+          let m = {
+            id: msg.id,
+            user_id: msg.user_id,
+            user_image: msg.user_image,
+          user_name: msg.user_name,
+            list: [{ ...msg ,time}]
+          }
+       
+        this.messages.unshift(m)
+       
+
+      }
+     
+    }
+    },
+    addMsg(msg) {
+      //if(this.msg.some(m=>m.list.some(l=>l.id==msg.id))) return;
+      console.mylog("adding message ss",msg)
+      let time = msg.created_at.split('T')[1]
+      time = time.substring(0, 5)
+      if (this.messages.length == 0) {
+        let m = {
+          id: msg.id,
+          user_id: msg.user_id,
+          user_image: msg.user_image,
+          user_name: msg.user_name,
+          list: [{ ...msg,time }]
+        }
+        this.messages.push(m)
+      } else {
+
+        let last = this.messages[this.messages.length - 1]
+        if (last.user_id == msg.user_id && last.list[last.list.length - 1].datetime == msg.datetime) {
+        last.list.push({...msg,time})
+
+        } else {
+          let m = {
+            id: msg.id,
+            user_id: msg.user_id,
+            user_image: msg.user_image,
+          user_name: msg.user_name,
+            list: [{ ...msg ,time}]
+          }
+          this.messages.push(m)
+        }
+
+      }
+      //console.mylog('sdqs aud',this.audio)
+     if(msg.sender_id != this.user.id)
+     if(this.audio)
+      this.audio.play()
+
+    },
+    async initializing(message_id) {
+      let formData = new FormData();
+      formData.append('to_user_id',this.item.id)
+      if(message_id)
+      formData.append('message_id',message_id)
+
+     try {
+      let { data } = await userAPI.loadMessageChat(formData);
+        if(data.success){
+          data.data.forEach((element)=>{
+            //console.mylog('element',element)
+            let datetime = element.created_at.substring(0,16)
+            if(element.sender_id==this.user.id)
+            this.addMsgLoad({...element,datetime,user_id:this.user.id,user_image:this.user.image})
+            else
+            this.addMsgLoad({...element,datetime,user_id:element.sender_id})
+
+          })
+          console.mylog('success',data)
+        }
+     } catch (error) {
+      //
+      console.mylog('error',error)
+     }
+
     }
   },
   created(){

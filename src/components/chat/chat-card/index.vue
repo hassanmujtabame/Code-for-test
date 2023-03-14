@@ -67,13 +67,17 @@ export default {
       try {
         let { data} = await userAPI.sendMessageChat(formData)
         if(data.success){
-          this.addMsg({...data.data,user_id:this.user.id,user_image:this.user.image})
+          let datetime = data.data.created_at.substring(0,16)
+          this.addMsg({...data.data,datetime,user_id:this.user.id,user_image:this.user.image})
           this.itemForm.message = '';
         }
       } catch (error) {
         console.mylog('errr',error)
       }
       this.loading = false;
+    },
+    onloadedmetadata(event){
+        this.audio = event.target;
     },
     setTimeDate(datep, time) {
       let [hour, minute] = time.split(':')
@@ -82,7 +86,47 @@ export default {
       datep.setSeconds(0);
       return datep.toLocaleString("en-GB")
     },
-    addMsg(msg,load=false) {
+    addMsgLoad(msg){
+       //if(this.msg.some(m=>m.list.some(l=>l.id==msg.id))) return;
+       console.mylog("adding message",msg)
+      let time = msg.created_at.split('T')[1]
+      time = time.substring(0, 5)
+      if (this.messages.length == 0) {
+        let m = {
+          id: msg.id,
+          user_id: msg.user_id,
+          user_image: msg.user_image,
+          user_name: msg.user_name,
+          list: [{ ...msg,time }]
+        }
+        this.messages.unshift(m)
+      } else {
+
+        let first = this.messages[0]
+        //console.mylog('first',first,msg)
+        if (first.user_id == msg.user_id && first.list[0].datetime == msg.datetime){
+          
+          first.list.unshift({...msg,time})
+      
+        } else {
+          //console.mylog('new',msg)
+          let m = {
+            id: msg.id,
+            user_id: msg.user_id,
+            user_image: msg.user_image,
+          user_name: msg.user_name,
+            list: [{ ...msg ,time}]
+          }
+       
+        this.messages.unshift(m)
+       
+
+      }
+     
+    }
+    },
+    addMsg(msg) {
+      //if(this.msg.some(m=>m.list.some(l=>l.id==msg.id))) return;
       console.mylog("adding message",msg)
       let time = msg.created_at.split('T')[1]
       time = time.substring(0, 5)
@@ -94,17 +138,13 @@ export default {
           user_name: msg.user_name,
           list: [{ ...msg,time }]
         }
-        if(load)
-        this.messages.unshift(m)
-        else
         this.messages.push(m)
       } else {
+
         let last = this.messages[this.messages.length - 1]
-        if (last.user_id == msg.user_id && last.list[last.list.length - 1].date == msg.date) {
-          if(load)
-          last.list.unshift({...msg,time})
-        else
-          last.list.push({...msg,time})
+        if (last.user_id == msg.user_id && last.list[last.list.length - 1].datetime == msg.datetime) {
+        last.list.push({...msg,time})
+
         } else {
           let m = {
             id: msg.id,
@@ -113,21 +153,15 @@ export default {
           user_name: msg.user_name,
             list: [{ ...msg ,time}]
           }
-          if(load)
-        this.messages.unshift(m)
-        else
           this.messages.push(m)
         }
 
       }
       //console.mylog('sdqs aud',this.audio)
      if(msg.sender_id != this.user.id)
-     if(this.audio && !load)
+     if(this.audio)
       this.audio.play()
 
-    },
-    onloadedmetadata(event){
-        this.audio = event.target;
     },
     async initializing(message_id) {
       let formData = new FormData();
@@ -140,10 +174,11 @@ export default {
         if(data.success){
           data.data.forEach((element)=>{
             //console.mylog('element',element)
+            let datetime = element.created_at.substring(0,16)
             if(element.sender_id==this.user.id)
-            this.addMsg({...element,user_id:this.user.id,user_image:this.user.image},true)
+            this.addMsgLoad({...element,datetime,user_id:this.user.id,user_image:this.user.image})
             else
-            this.addMsg({...element,user_id:element.sender_id},true)
+            this.addMsgLoad({...element,datetime,user_id:element.sender_id})
 
           })
           console.mylog('success',data)

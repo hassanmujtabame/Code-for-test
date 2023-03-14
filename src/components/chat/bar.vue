@@ -1,10 +1,10 @@
 <template>
 <div class="chat-bar">
     <div class="chat-bar__wrapper">
-        <div class="chat-bar-circles">
+        <div class="chat-bar-circles" v-if="showCards">
             <d-chat-circle v-for="(c,i) in chats.filter(x=>x.status=='minimized')" :key="i" :item="c" @open="onOpen" @close="onClose"/>
         </div>
-        <div class="chat-bar-cards">
+        <div class="chat-bar-cards" v-if="showCards">
             <d-chat-card v-for="(c,i) in chats.filter(x=>x.status=='opened')" :key="i" :item="c"  @minimized="onMinimized" @close="onClose"/>
         </div>
 
@@ -23,6 +23,11 @@ export default {
     group:'chat-bar',
     chats:[]
  }),
+ computed:{
+    showCards(){
+        return !this.$route.name.endsWith('-conversations');
+    }
+ },
  watch:{
     connected(){
         if(this.connected){
@@ -39,7 +44,8 @@ export default {
         console.mylog('send.message.chat',e)
         let {sender_id,user_image,user_name,...msg} = e;
         let item ={id:sender_id,image:user_image,name:user_name}
-        let messageData ={user_id:sender_id,user_image,user_name,...msg}
+        let datetime = msg.created_at.substring(0,16)
+        let messageData ={user_id:sender_id,user_image,user_name,datetime,...msg}
                 this.openLocal({user:item,message:messageData})
                 
         console.mylog('private-chat',e);
@@ -64,15 +70,21 @@ export default {
         /**
          * item :{user,message:null|object}
          */
+        let canAdd = true;
         let index = this.chats.findIndex(x=>x.id==item.user.id)
         if(index>-1){
-            if(this.chats[index].status!='opened')
-            this.chats[index].status='opened'
+            if(this.chats[index].status!='opened'){
+                this.chats[index].status='opened'
+                if(this.showCards)
+                canAdd=false
+            }
         }else{
+            if(this.showCards)
+            canAdd=false
             let {id,name,image}=item.user
             this.chats.push({id,name,image,status:'opened'})
         }
-        if(item.message)
+        if(item.message && canAdd)
         this.$nextTick(()=>{
             this.fireEvent(`chat-card-${item.message.user_id}`,{...item.message})
         })
