@@ -26,8 +26,8 @@
   <div class="chat-conversation__footer">
     <div class="chat-conversation__footer-wrapper">
       <div class="chat-conversation__footer-message">
-        <input type="text" class="form-control" :placeholder="$t('type-message')"/>
-        <button class="btn-send">
+        <input :disabled="loading" type="text" v-model="itemForm.message" class="form-control" :placeholder="$t('type-message')"/>
+        <button :disabled="loading" @click="sendMessage" class="btn-send">
           <i class="fa fa-paper-plane"></i>
         </button>
       </div>
