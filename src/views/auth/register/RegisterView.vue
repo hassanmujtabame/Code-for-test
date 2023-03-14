@@ -71,11 +71,11 @@
                                     v-slot="{errors}">
                             <div class="col-md-4 w-100 row mb-2">
                                 <div class="cols-12 position-relative">
-                                <input id="password-field" 
+                                <input id="password-register" 
                                 :type="show?'text':'password'"
                                  class="form-control  "
                                 v-model="form.password"    
-                                :placeholder="$t('Password')" required>
+                                :placeholder="$t('Password')" autocomplete="new-password">
                                 <span    
                                     
                                      @click="show=!show"
@@ -97,11 +97,11 @@
                                     v-slot="{errors}">
                             <div class="col-md-4 w-100 row mb-2">
                                 <div class="cols-12 position-relative">
-                                <input id="password-field2" 
+                                <input id="password-register-confirm" 
                                 :type="showC?'text':'password'"
                                   class="form-control  "
                                 v-model="form.passwordConfirm"
-                                :placeholder="$t('Password-confirm')" required>
+                                :placeholder="$t('Password-confirm')">
                                 <span 
 
                                     

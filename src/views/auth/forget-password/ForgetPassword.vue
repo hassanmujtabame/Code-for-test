@@ -20,7 +20,8 @@
                         
     
                                 <div class="col-md-4 w-100">
-                                    <d-text-input type="email" v-model="itemForm.email" class="form-control" id="validationCustom03"
+                                    <d-text-input type="email" v-model="itemForm.email" class="form-control"
+                                    autocomplete="new-password"
                                         label="البريد الالكتروني" >
                                     
                                     </d-text-input>

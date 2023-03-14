@@ -12,17 +12,17 @@
                                 أعادة تعين كلمة السر                                                                                                                                        </h1>
                             <p>أختر كلمة سر قوية وسهلة الحفظ   
                             </p>
-             
-                            <form class="row g-3 needs-validation " novalidate>
-                        
+                                <ValidationObserver ref="form" tag="div" class="row g-3 needs-validation">
                                 <div class="col-md-4 w-100 position-relative">
                                     <ValidationProvider
                                  tag="div"
                                     :name="$t('Password')"
-                                 vid="password"
+                                 vid="new_password"
                                  rules="required"
                                     v-slot="{errors}">
-                                    <d-text-input :errors="errors" v-model="itemForm.password" :type="show?'text':'password'" class="form-control"   label="كلمة المرور" >
+                                    <d-text-input :errors="errors" v-model="itemForm.new_password" :type="show?'text':'password'" class="form-control"   label="كلمة المرور" 
+                                    autocomplete="new-password"
+                                    >
                                         <template v-slot:append-icon>
                                         <span    style="color: #CDD7D8;font-size: 23px;"
                                             
@@ -41,10 +41,10 @@
                                     <ValidationProvider
                                  tag="div"
                                     :name="$t('password-confirmation')"
-                                 vid="password_confirmation"
-                                 rules="required|confirmed:password"
+                                 vid="new_password_confirmation"
+                                 rules="required|confirmed:new_password"
                                     v-slot="{errors}">
-                                    <d-text-input :errors="errors" v-model="itemForm.password_confirmation" :type="showC?'text':'password'" class="form-control"   label="تاكيد كلمة السر" >
+                                    <d-text-input :errors="errors" v-model="itemForm.new_password_confirmation" :type="showC?'text':'password'" class="form-control"   label="تاكيد كلمة السر" >
                                         <template v-slot:append-icon>
                                         <span    style="color: #CDD7D8;font-size: 23px;"
                                             
@@ -65,7 +65,7 @@
                                         </button>
                                 </div>
                                 
-                            </form>
+                            </ValidationObserver>
                         </div>
 
                     </div>
@@ -81,14 +81,17 @@
 
 <script>
 export default {
+    props:{
+    dataInfo:{}
+ },
     data:()=>({
         show:false,
 
         showC:false,
         loading:false,
         itemForm:{
-            password:'',
-            password_confirmation:''
+            new_password:'',
+            new_password_confirmation:''
         },
         hasError:false,
         message:'',
@@ -106,8 +109,10 @@ export default {
             console.log('form invalid');
             return ;
         }
+        let formData = this.loadObjectToForm(this.itemForm)
+        formData.append('email', this.dataInfo.form.email)
             try {
-                let {data} = await this.$axios.post('user/auth/change-password',this.itemForm);
+                let {data} = await this.$axios.post('user/auth/new-password',formData);
                 if(data.success){
                     let info ={
                             data:data,
