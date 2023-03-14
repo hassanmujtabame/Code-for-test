@@ -89,25 +89,25 @@ const routes = [
     path: 'forget-password',
     meta:{layout:LayoutDefault},
     name: 'forget-password',
-    component: () => import(/* webpackChunkName: "forget-password" */ '../views/auth/ForgetPassword.vue')
+    component: () => import(/* webpackChunkName: "forget-password" */ '../views/auth/forget-password/ForgetPassword.vue')
   },
   {
     path: 'forget-password-finish',
     meta:{layout:LayoutDefault},
     name: 'forget-password-finish',
-    component: () => import(/* webpackChunkName: "forget-password-finish" */ '../views/auth/ForgetPasswordFinish.vue')
+    component: () => import(/* webpackChunkName: "forget-password-finish" */ '../views/auth/forget-password/ForgetPasswordFinish.vue')
   },
   {
     path: 'forget-password-edit',
     meta:{layout:LayoutDefault},
     name: 'forget-edit',
-    component: () => import(/* webpackChunkName: "forget-password-edit" */ '../views/auth/ForgetPasswordEdit.vue')
+    component: () => import(/* webpackChunkName: "forget-password-edit" */ '../views/auth/forget-password/ForgetPasswordEdit.vue')
   },
   {
     path: 'forget-password-check',
     meta:{layout:LayoutDefault},
     name: 'forget-check',
-    component: () => import(/* webpackChunkName: "forget-password-check" */ '../views/auth/ForgetPasswordCheck.vue')
+    component: () => import(/* webpackChunkName: "forget-password-check" */ '../views/auth/forget-password/ForgetPasswordCheck.vue')
   },
   {
     path: 'change-password',
