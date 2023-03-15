@@ -224,9 +224,10 @@ const mixin = {
             logout(evt) {
               if(evt)
               evt.preventDefault();
-  
+
               window.store.commit('auth/CLEAR_TOKEN');
               window.store.commit('auth/CLEAR_USER');
+              window.store.commit('chat/SET_MESSAGES',[]);
               if(this.$router.mode=='history')
               this.$router.push({ name: 'login', params: { lang: this.$i18n.locale } })
                   if(this.$router.mode=='hash')
