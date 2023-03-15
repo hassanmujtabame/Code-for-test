@@ -1,12 +1,12 @@
 <template>
-  <div class="chat-users__item">
+  <div @click="selectItem" class="chat-users__item">
   <div class="chat-users__item-wrapper">
     <div class="chat-users__item-avatar">
-        <img  :src="item.image"/>
+        <img  :src="item.user_image"/>
     </div>
     <div  class="chat-users__item-info">
-    <div  class="chat-users__item-title">{{ item.title }}</div>
-    <div  class="chat-users__item-subtitle">{{ item.subtitle }}</div>
+    <div  class="chat-users__item-title">{{ item.user_name }}</div>
+    <div  class="chat-users__item-subtitle">{{ item.message }}</div>
     </div>
     <div  class="chat-users__item-time">{{ item.time }}</div>
   </div>
@@ -17,6 +17,11 @@
 export default {
  props:{
     item:{}
+ },
+ methods:{
+    selectItem(){
+        this.fireEvent('section-chat-select-person',this.item)
+    }
  }
 }
 </script>
@@ -26,6 +31,7 @@ export default {
  padding: 10px 0;
  border-bottom: 1px solid #d6d6d6;
  width:100%;
+ cursor: pointer;
 }
 .chat-users__item-wrapper{
     display: flex;

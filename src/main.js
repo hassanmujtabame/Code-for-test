@@ -62,8 +62,13 @@ methods:{
          let { data } = await  userAPI.me()
          if(data.success){
             let {token,...user} = data.data;
+            if(token != this.token)
+            window.store.commit('chat/SET_MESSAGES',[]);
+            
             window.store.commit('auth/SET_TOKEN',token) ;
             window.store.commit('auth/SET_USER',user);
+
+            
             window.store.commit('auth/SET_IS_PROVIDER',window.store.getters['auth/isProvider']);
          }else{
             window.SwalError(data.message)

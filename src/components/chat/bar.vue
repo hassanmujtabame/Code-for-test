@@ -9,21 +9,25 @@
         </div>
 
     </div>
-    
+    <audio muted  ref="myaudio" style="display:none" src="/assets/sound/new-msg-chat.m4r" >
+  </audio>
 </div>
 </template>
 
 <script>
 import pusherConfig from './pusher-config.vue'
-
+import { mapGetters } from 'vuex'
 export default {
     mixins:[pusherConfig],
  name:'d-chat-bar',
  data:()=>({
     group:'chat-bar',
-    chats:[]
+    //chats:[]
  }),
  computed:{
+    ...mapGetters({
+        chats:'chat/chats'
+    }),
     showCards(){
         return !this.$route.name || !this.$route.name.endsWith('-conversations');
     }
@@ -38,6 +42,7 @@ export default {
     }
  },
  methods:{
+    
   listenToChannel(){
     window.Echo.private(`chat.${this.user.id}`)
     .listen('.send.message.chat', (e) => {
@@ -45,26 +50,35 @@ export default {
         let {sender_id,user_image,user_name,...msg} = e;
         let item ={id:sender_id,image:user_image,name:user_name}
         let datetime = msg.created_at.substring(0,16)
-        let messageData ={user_id:sender_id,user_image,user_name,datetime,...msg}
+        let time = datetime.split('T')[1]
+            let date =  datetime.split('T')[0]
+        let messageData ={user_id:sender_id,sender_id,user_image,user_name,time,date,datetime,...msg}
                 this.openLocal({user:item,message:messageData})
                 
         console.mylog('private-chat',e);
     });
   },
     onMinimized(item){
+        this.$store.commit('chat/MIN_CHAT',item.id)
+        /*
         let index = this.chats.findIndex(x=>x.id==item.id)
         if(index>-1)
         this.chats[index].status='minimized'
+        */
     },
     onOpen(item){
+        this.$store.commit('chat/OPEN_CHAT',item.id)
+        /*
         let index = this.chats.findIndex(x=>x.id==item.id)
         if(index>-1)
         this.chats[index].status='opened'
+        */
     },
     onClose(item){
-        let index = this.chats.findIndex(x=>x.id==item.id)
+        this.$store.commit('chat/CLOSE_CHAT',item.id)
+       /* let index = this.chats.findIndex(x=>x.id==item.id)
         if(index>-1)
-        this.chats.splice(index,1)
+        this.chats.splice(index,1)*/
     },
     openLocal(item){
         /**
@@ -74,7 +88,8 @@ export default {
         let index = this.chats.findIndex(x=>x.id==item.user.id)
         if(index>-1){
             if(this.chats[index].status!='opened'){
-                this.chats[index].status='opened'
+                this.$store.commit('chat/OPEN_CHAT',item.user.id)
+                //this.chats[index].status='opened'
                 if(this.showCards)
                 canAdd=false
             }
@@ -82,13 +97,25 @@ export default {
             if(this.showCards)
             canAdd=false
             let {id,name,image}=item.user
-            this.chats.push({id,name,image,status:'opened'})
+            this.$store.commit('chat/ADD_CHAT',{id,name,image,status:'opened'})
+            //this.chats.push({id,name,image,status:'opened'})
         }
         if(item.message && canAdd)
         this.$nextTick(()=>{
-            this.fireEvent(`chat-card-${item.message.user_id}`,{...item.message})
+            let datetime = item.message.created_at.substring(0,16)
+            let time = datetime.split('T')[1]
+            let date =  datetime.split('T')[0]
+            let new_msg = {...item.message,datetime,time,date}
+            this.addMsg(new_msg);
+            this.fireEvent(`chat-card-${item.message.user_id}`,new_msg)
         })
-    }
+    },
+    addMsg(msg) {
+     this.$store.commit('chat/ADD_MESSAGE',msg)
+     if(msg.sender_id != this.user.id)
+     if(this.audio)
+      this.audio.play()
+    },
  },
 created(){
     window.EventBus.listen(this.group,this.openLocal)
