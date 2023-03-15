@@ -52,7 +52,7 @@ export default {
  }),
  methods:{
     addBlog(){
-    this.fireOpenDialog('add-dialog')
+    this.fireOpenDialog('add-blog')
   },
     async getRecents() {
         this.loading = true;

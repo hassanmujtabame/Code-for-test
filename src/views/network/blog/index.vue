@@ -83,7 +83,7 @@ data:()=>({
 }),
 methods:{
   addBlog(){
-       this.fireOpenDialog('add-dialog')
+       this.fireOpenDialog('add-blog')
   }
 }
 }
