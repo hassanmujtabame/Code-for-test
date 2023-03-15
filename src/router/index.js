@@ -12,7 +12,8 @@ Vue.use(VueRouter)
 let lang= Cookies.get('i18n_lang') || 'ar';
 const routes = [
   {
-    path:'/',redirect:`${lang}`
+    path:'/',redirect:`${lang}`,
+    name:'main-router'
   },
   {
     path:'/:lang',
