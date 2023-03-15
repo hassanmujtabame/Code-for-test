@@ -51,7 +51,8 @@ export default{
         state.isProvider = data
         localStorage.setItem("user_provider", data?'Y':'N');
     },
-    SET_USER(state,payload){
+    SET_USER(state,payload,...rest){
+        console.log('rest',rest)
         let {partner,subscribers,is_instructor,...user} = payload;
         state.user=user;
         state.partner = partner?? null; // if undefined makes it null
