@@ -25,7 +25,7 @@ export default {
  }),
  computed:{
     showCards(){
-        return !this.$route.name.endsWith('-conversations');
+        return !this.$route.name || !this.$route.name.endsWith('-conversations');
     }
  },
  watch:{
