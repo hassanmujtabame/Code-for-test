@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card chat-conversation">
     <div class="card-header" data-mdb-perfect-scrollbar="true">
       <img :src="item.image" class="chat-avatar" />
       <h5 class="chat-title mb-0">{{ item.name }}</h5>
@@ -10,7 +10,7 @@
         <i @click="$emit('close', item)" class="chat-action fas fa-times text-muted fa-xs"></i>
       </div>
     </div>
-    <div class="card-body" :id="group" ref="chat-view">
+    <div class="card-body chat-view" :id="group" ref="chat-view">
 
       <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
        

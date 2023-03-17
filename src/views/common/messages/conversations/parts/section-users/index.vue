@@ -86,11 +86,14 @@ export default {
 .chat-users{
   width: 100%;
   padding: 0 10px;
+  background: #f8f9faa3;
+  padding-top:5px
 }
 .chat-users__header-title{
   font-size: 20px;
   line-height: 1.7;
   color:#5b5b5b;
+  margin-top: 0;
 }
 .search-input-group{
   position: relative;

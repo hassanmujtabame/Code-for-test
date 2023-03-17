@@ -28,10 +28,11 @@ export default {
 
 <style >
 .chat-users__item{
- padding: 10px 0;
- border-bottom: 1px solid #d6d6d6;
- width:100%;
- cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #f6f8f9;
+    width: 100%;
+    cursor: pointer;
+    background: white;
 }
 .chat-users__item-wrapper{
     display: flex;

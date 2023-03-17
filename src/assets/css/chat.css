@@ -1,0 +1,38 @@
+.message-group{
+    display: flex;
+    margin-bottom: 5px;
+  }
+  .message-group-avatar{
+    --r-avatar:24px;
+      border-radius: 50%;
+      min-height: var(--r-avatar);
+      min-width: var(--r-avatar);
+      height: var(--r-avatar);
+      width: var(--r-avatar);
+      border: 1px solid #f1f1f1;
+      box-shadow: inset 0 1 2;
+  }
+  .bg-my-msg {
+    width: fit-content;
+    background: #2787f5;
+    color: #fff;
+  }
+  
+  .bg-your-msg {
+    width: fit-content;
+    color: #95aac9;
+    background:#e9ecef;
+  }
+  .message-group-chat{
+    flex-grow:1;
+    display:flex;
+    flex-direction: column;
+  }
+  .message-group-time{
+    color: #bfccdf!important;
+    font-size: .665em;
+    margin: 0 1rem;
+  }
+  .chat-view{
+    background-color:#f8f9fa
+  }

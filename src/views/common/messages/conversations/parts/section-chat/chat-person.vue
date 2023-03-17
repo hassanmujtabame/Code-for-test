@@ -18,7 +18,7 @@
 
   </div>
   </div>
-  <div class="chat-conversation__body" id="chat-view">
+  <div class="chat-conversation__body chat-view" id="chat-view">
     <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
        
       </showMsg>
