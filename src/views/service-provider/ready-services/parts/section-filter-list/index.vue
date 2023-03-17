@@ -104,7 +104,7 @@ export default {
         }
     },
     mounted() {
-        this.getCategories();
+        //this.getCategories();
     }
 }
 </script>
