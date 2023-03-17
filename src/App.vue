@@ -75,7 +75,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
     window.addEventListener('resize', this.onResizeBrowser, { passive: true })
   },
   created() {
-    this.tagManager()
+    //this.tagManager()
    // this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",true)
     //this.loadJS("/js/jquery.simple-calendar.min.js",true)
     if(this.$i18n.locale=='ar')

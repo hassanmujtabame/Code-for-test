@@ -6,21 +6,21 @@
                   <a href="/"
                       class="d-flex header-logo align-items-center justify-content-center mb-2 mb-lg-0 text-dark text-decoration-none">
                       <div>
-                          <img src="/assets/img/logo-footer.png" >
+                          <img src="/assets/svg/logo-footer.svg" >
                       </div>
                   </a>
                   <div class="social mt-3">
-                      <a href="#">
-                          <img src="/assets/img/Twitter.png" alt="">
+                      <a href="#" class="t-c">
+                        <i class="fa-brands fa-twitter"></i>
                       </a>
-                      <a href="#">
-                          <img src="/assets/img/Instagram.png" alt="">
+                      <a href="#" class="t-c">
+                        <i class="fa-brands fa-instagram"></i>
                       </a>
-                      <a href="">
-                      <img src="/assets/img/Linkedin.png" alt="">
+                      <a href="" class="t-c">
+                        <i class="fa-brands fa-linkedin-in"></i>
                       </a>
-                      <a href="">
-                          <img src="/assets/img/Facebook.png" alt="">
+                      <a href="" class="t-c">
+                        <i class="fa-brands fa-facebook"></i>
                       </a>
                   </div>
                   <div class="policy-links">
@@ -63,13 +63,13 @@
 
           <div>
             <a href="">
-              <img src="/assets/img/google-paly.png">
+              <img src="/assets/svg/google-play.svg">
 
             </a>
           </div>
           <div>
             <a href="">
-              <img src="/assets/img/app-store.png" alt="">
+              <img src="/assets/svg/app-store.svg" alt="">
 
             </a>
           </div>

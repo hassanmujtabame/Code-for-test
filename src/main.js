@@ -12,12 +12,13 @@ import  './plugins/icons-svg.js';
 import  './plugins/components';
 import  './plugins/v-calendar.js';
 import './plugins/axios'
-
+//import './plugins/vue-lazy-image'
 import './plugins/i18n'
 import './plugins/sweetalert2'
 import userAPI from './services/api/user';
 import EventBus from './helper/EventBus';
 import Dhelper from './helper/d-helper';
+
 window.DHelper =  Dhelper;
 window.Pusher = require('pusher-js');
 window.EventBus =  new EventBus();
