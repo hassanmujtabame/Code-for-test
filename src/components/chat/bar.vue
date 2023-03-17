@@ -106,10 +106,11 @@ export default {
             let time = datetime.split('T')[1]
             let date =  datetime.split('T')[0]
             let new_msg = {...item.message,datetime,time,date}
+            if(canAdd){
+                this.addMsg(new_msg);
+                this.fireEvent(`chat-card-${item.message.user_id}`,new_msg)
+            }
             
-            this.addMsg(new_msg);
-            if(canAdd)
-            this.fireEvent(`chat-card-${item.message.user_id}`,new_msg)
             //event there is a message from sender
             this.fireEvent(`chat-message-user`,new_msg)
         })
