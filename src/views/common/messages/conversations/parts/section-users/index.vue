@@ -10,16 +10,12 @@
 </div>
     </div>
     <div class="chat-users__body">
-    <listItemVue v-for="(it,i) in items" :key="i" :item="it" />
+    <listItemVue v-for="(it,i) in items" :key="i" @selected="selectPerson" :item="it" />
   </div>
   </div>
 </template>
 
 <script>
-let usersTest=[
-    {"id":85,"message":"وعليكم السلام","user_name":"test1009","receiver_id":197,"sender_id":1,"user_image":"https://test.riadiat.sa/uploads/default.jpeg","created_at":"2023-03-14 21:09:51"},
-    {"id":84,"message":"كيف حالكم","user_name":"Gate For Learner","receiver_id":1,"sender_id":197,"user_image":"https://test.riadiat.sa/uploads/users/tmQ9useZpYQqwB6C66ovZUlPBAjESKNBdtkZ5xGZ.png","created_at":"2023-03-14 21:09:35"}
-  ]
 import listItemVue from './list-item.vue'
 export default {
  name:'chat-users-section',
@@ -27,21 +23,59 @@ export default {
   listItemVue
  },
  data:()=>({
+  seletedItem:null,
   //item:{title:'Robert Fox',subtitle:'hi, I am robet, i am waiting you on big house',time:'11:00 AM',image:'https://i.pravatar.cc/150?img=3'},
-  items:process.env.NODE_ENV=='development'?usersTest:[]
+  items:[]//process.env.NODE_ENV=='development'?usersTest:[]
  }),
  methods:{
+  selectPerson(person){
+    this.seletedItem = person
+    this.fireEvent('section-chat-select-person',person)
+  },
+  msgFormat(m){
+    let datetime = m.created_at.substring(0,16)
+            let time = datetime.split('T')[1]
+            let date =  datetime.split('T')[0]
+    let user_id = m.receiver_id == this.user.id?m.sender_id:m.receiver_id
+          return {...m,user_id,time,date,datetime}
+  },
+   array_move(arr, old_index, new_index) {
+    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+    return arr; // for testing
+},
   async initializing(){
     try {
       let { data } = await this.$axios.post('user/last-messages')
       if(data.success){
+        this.items = data.data.map(m=>this.msgFormat(m))
         console.mylog('success',data.data)
       }
     } catch (error) {
       //
     }
+  },
+  handlerMsg(new_msg){
+   let m = this.msgFormat(new_msg);
+   let fromIndex = this.items.findIndex(x=>x.user_id == m.user_id);
+   let toIndex = 0;
+   if(fromIndex>-1){
+    if(fromIndex>0){
+      this.items[fromIndex] = Object.assign(this.items[fromIndex],new_msg)
+      this.array_move(this.items,fromIndex,toIndex)
+    }
+    else
+    this.items[fromIndex] = Object.assign(this.items[fromIndex],m)
+   }else{
+    this.items.unshift(m)
+   }
   }
  },
+  created(){
+    window.EventBus.listen('chat-message-user',this.handlerMsg)
+  },
+  beforeDestroy(){
+    window.EventBus.off('chat-message-user',this.handlerMsg)
+  },
  mounted(){
   this.initializing()
  }

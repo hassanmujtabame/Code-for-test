@@ -35,9 +35,7 @@ export default {
     window.EventBus.listen(this.group,this.handlerPerson)
   },
   beforeDestroy(){
-
     window.EventBus.off(this.group,this.handlerPerson)
-
   },
 }
 </script>

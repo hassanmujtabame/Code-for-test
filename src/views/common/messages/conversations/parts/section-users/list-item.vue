@@ -20,7 +20,7 @@ export default {
  },
  methods:{
     selectItem(){
-        this.fireEvent('section-chat-select-person',this.item)
+        this.$emit('selected',this.item)
     }
  }
 }

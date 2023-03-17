@@ -92,7 +92,9 @@ computed:{
     loadMsgsFromStore(){
       this.messages = []
       this.$store.getters['chat/messages'].filter(c=>(c.receiver_id == this.item.user_id && c.sender_id == this.user.id)||(c.sender_id == this.item.user_id && c.receiver_id == this.user.id)).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
+      this.$nextTick(()=>{
       window.$('#chat-view').animate({scrollTop: document.getElementById('chat-view').scrollHeight},"fast");
+      })
     },
     async sendMessage(evt){
       if(evt) evt.preventDefault();
@@ -129,14 +131,12 @@ computed:{
         this.audio = event.target;
     },
     addMsgLoad(msg){
-     
-      
       if (this.messages.length == 0) {
         let m = {
           id: msg.id,
           user_id: msg.user_id,
-          user_image: msg.user_image,
-          user_name: msg.user_name,
+          user_image:msg.sender_id==this.user.id?this.user.image: this.item.user_image,
+          user_name:msg.sender_id==this.user.id?this.user.name:this.item.user_name,
           list: [{ ...msg }]
         }
         this.messages.unshift(m)
@@ -152,8 +152,8 @@ computed:{
           let m = {
             id: msg.id,
             user_id: msg.user_id,
-            user_image: msg.user_image,
-          user_name: msg.user_name,
+            user_image:msg.sender_id==this.user.id?this.user.image: this.item.user_image,
+          user_name:msg.sender_id==this.user.id?this.user.name:this.item.user_name,
             list: [{ ...msg}]
           }
        
@@ -169,8 +169,8 @@ computed:{
         let m = {
           id: msg.id,
           user_id: msg.user_id,
-          user_image: msg.user_image,
-          user_name: msg.user_name,
+          user_image:msg.sender_id==this.user_id?this.user.image: this.item.user_image,
+          user_name:msg.sender_id==this.user_id?this.user.name:this.item.user_name,
           list: [{ ...msg}]
         }
         this.messages.push(m)
@@ -184,8 +184,8 @@ computed:{
           let m = {
             id: msg.id,
             user_id: msg.user_id,
-            user_image: msg.user_image,
-          user_name: msg.user_name,
+            user_image:msg.sender_id==this.user_id?this.user.image: this.item.user_image,
+            user_name:msg.sender_id==this.user_id?this.user.name:this.item.user_name,
             list: [{ ...msg}]
           }
           this.messages.push(m)

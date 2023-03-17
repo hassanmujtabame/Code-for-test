@@ -120,8 +120,8 @@ watch:{
        let m = {
          id: msg.id,
          user_id: msg.user_id,
-         user_image: msg.user_image,
-         user_name: msg.user_name,
+         user_image:msg.sender_id==this.user.id?this.user.image: this.item.image,
+          user_name:msg.sender_id==this.user.id?this.user.name:this.item.name,
          list: [{ ...msg }]
        }
        this.messages.unshift(m)
@@ -137,8 +137,8 @@ watch:{
          let m = {
            id: msg.id,
            user_id: msg.user_id,
-           user_image: msg.user_image,
-         user_name: msg.user_name,
+           user_image:msg.sender_id==this.user.id?this.user.image: this.item.image,
+          user_name:msg.sender_id==this.user.id?this.user.name:this.item.name,
            list: [{ ...msg}]
          }
       
@@ -155,8 +155,8 @@ watch:{
         let m = {
           id: msg.id,
           user_id: msg.user_id,
-          user_image: msg.user_image,
-          user_name: msg.user_name,
+          user_image:msg.sender_id==this.user.id?this.user.image: this.item.image,
+          user_name:msg.sender_id==this.user.id?this.user.name:this.item.name,
           list: [{ ...msg }]
         }
         this.messages.push(m)
@@ -170,8 +170,8 @@ watch:{
           let m = {
             id: msg.id,
             user_id: msg.user_id,
-            user_image: msg.user_image,
-          user_name: msg.user_name,
+            user_image:msg.sender_id==this.user.id?this.user.image: this.item.image,
+            user_name:msg.sender_id==this.user.id?this.user.name:this.item.name,
             list: [{ ...msg}]
           }
           this.messages.push(m)

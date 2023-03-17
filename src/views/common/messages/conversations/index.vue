@@ -15,13 +15,13 @@
 
 <script>
 import sectionUsers from './parts/section-users/index.vue'
-import sectionAbout from './parts/section-about/index.vue'
+//import sectionAbout from './parts/section-about/index.vue'
 import sectionChat from './parts/section-chat/index.vue'
 export default {
  name:'conversations-page',
  components:{
    sectionUsers,
-   sectionAbout,
+  /* sectionAbout,*/
    sectionChat
  },
  data:()=>({})

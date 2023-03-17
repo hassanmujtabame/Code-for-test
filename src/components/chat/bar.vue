@@ -84,7 +84,7 @@ export default {
         /**
          * item :{user,message:null|object}
          */
-        let canAdd = true;
+        let canAdd = true; // can message yo chat box(card)
         let index = this.chats.findIndex(x=>x.id==item.user.id)
         if(index>-1){
             if(this.chats[index].status!='opened'){
@@ -100,14 +100,18 @@ export default {
             this.$store.commit('chat/ADD_CHAT',{id,name,image,status:'opened'})
             //this.chats.push({id,name,image,status:'opened'})
         }
-        if(item.message && canAdd)
+        if(item.message)
         this.$nextTick(()=>{
             let datetime = item.message.created_at.substring(0,16)
             let time = datetime.split('T')[1]
             let date =  datetime.split('T')[0]
             let new_msg = {...item.message,datetime,time,date}
+            
             this.addMsg(new_msg);
+            if(canAdd)
             this.fireEvent(`chat-card-${item.message.user_id}`,new_msg)
+            //event there is a message from sender
+            this.fireEvent(`chat-message-user`,new_msg)
         })
     },
     addMsg(msg) {
