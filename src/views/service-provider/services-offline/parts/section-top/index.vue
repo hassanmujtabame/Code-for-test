@@ -5,7 +5,7 @@
           انها ميزة فريدة في مقدمي خدمات رياديات فالان يمكنك طلب خدمة حرفية اوفلاين بكل سهولة 
 </p>
         <div class="position-absolute top-0" :class="{'rotateY-180':$i18n.locale!='ar','right-0':$i18n.locale!='ar','left-0':$i18n.locale=='ar'}">
-          <img src="/assets/img/anim-hwo-ar-you.png" alt="" />
+          <img src="/assets/svg/wave-top.svg" alt="" />
         </div>
         <div class="star position-absolute">
           <img class="landing" src="/assets/img/start.png" alt="" />

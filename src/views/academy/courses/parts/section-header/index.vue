@@ -3,7 +3,7 @@
             <h1 class="text-white p-5 fs-1"> أستكشف الدورات </h1>
 
             <div class="position-absolute anim-hwo-ar-you">
-                <img src="/assets/img/anim-hwo-ar-you.png" alt="" />
+                <img src="/assets/svg/wave-top.svg" alt="" />
             </div>
             <div class="star position-absolute">
                 <img class="landing" src="/assets/img/start.png" alt="" />
