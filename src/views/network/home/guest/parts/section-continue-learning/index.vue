@@ -4,7 +4,7 @@
             <div class="col-md-6 mt-2">
                 <div class="img-screen">
 
-                    <img class="img-fluid" src="/assets/img/mobile-screen 1.png" alt="">
+                    <img class="img-fluid" src="/assets/svg/mobile-screen-1.svg" alt="">
                 </div>
 
             </div>
@@ -16,10 +16,10 @@
                 </h2>
                 <div class="mt-4">
                     <a href="">
-                        <img :class="{'h-40px':isMobile}" src="/assets/img/34-349265_app-store-google-play-svg 3.png" alt="">
+                        <img :class="{'h-40px':isMobile}" src="/assets/svg/app-store-dark.svg" alt="">
                     </a>
                     <a href="">
-                        <img :class="{'h-40px':isMobile}" src="/assets/img/34-349265_app-store-google-play-svg 1.png" alt="">
+                        <img :class="{'h-40px':isMobile}" src="/assets/svg/google-play-dark.svg" alt="">
                     </a>
                 </div>
 

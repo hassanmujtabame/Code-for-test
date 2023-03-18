@@ -6,7 +6,7 @@
                 <h6 class="opinion-name">{{ name }}
                 </h6>
                 <div class="position-absolute dote">
-                    <img src="/assets/img/dot.png" alt="">
+                    <img src="/assets/svg/double-quoted.svg" alt="">
                 </div>
             </div>
             <div class="col-md-4">
