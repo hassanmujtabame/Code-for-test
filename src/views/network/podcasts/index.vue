@@ -27,7 +27,7 @@
                     <img src="/assets/img/starsss.png" alt="" />
                 </div>
                 <div class="star-podcast position-absolute" >
-                <img  class="landing"  src="/assets/img/start.png" alt="">
+                <img  class="landing"  src="/assets/svg/start.svg" alt="">
             </div>
             </template>
         
