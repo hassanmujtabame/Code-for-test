@@ -105,6 +105,7 @@ export default {
             title:'',
             description:`أنت الان على وشك اتمام عملية الدفع
 لشراء خدمة تصميم هوية بصرية`,
+            type:'warning',
             btns:[
               {title:'تأكيد العملية ',action:()=>{this.makePayment()},class:'btn btn-custmer'},
             ]
