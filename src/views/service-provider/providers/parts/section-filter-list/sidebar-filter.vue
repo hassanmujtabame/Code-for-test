@@ -52,21 +52,22 @@
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
                                     aria-controls="panelsStayOpen-collapseThree">
-                                    المدة
+                                    مقدمو الخدمة
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseThree" class="accordion-collapse  collapse show"
                                 aria-labelledby="panelsStayOpen-headingThree">
-                                <div style="margin: 20px 0px 0 0" class="a">
-                                    <div class="slider-container">
-                                        <rslider-input
-                                         :min.sync="filter.min_period" 
-                                         :max.sync="filter.max_period"
-                                         :lmin="0"
-                                         :lmax="100"
-                                         />
+                                <div>
+                                        <div v-for="(prd,i) in providers" :key="i" class="form-check">
+                                <input class="form-check-input" type="radio" :value="prd.id" v-model="filter.prd" 
+                                :selected="prd.id===filter.prd"
+                                name="stateRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                   {{prd.name}}
+                                </label>
+                            </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
                         <div class="accordion-item show">
@@ -74,21 +75,13 @@
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
                                     aria-controls="panelsStayOpen-collapseFour">
-                                    التكلفة
+                                    التقييم
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
                                 aria-labelledby="panelsStayOpen-headingFour">
                                 <div style="margin: 20px 0px 0 0" class="a">
-                                    <div class="slider-container">
-                                       
-                                        <rslider-input
-                                         :min.sync="filter.min_price" 
-                                         :max.sync="filter.max_price"
-                                         :lmin="0"
-                                         :lmax="1000"
-                                         />
-                                    </div>
+                                    <d-rate-stars v-model="filter.rate_value" />
                                 </div>
                             </div>
                         </div>
@@ -114,10 +107,17 @@ export default {
  data:(vm)=>{
 
     return{
+        providers:
+        [
+            {id:null,name:'الكل'},
+            {id:'worked',name:'وظفتهم سابقا'},
+            {id:'offered',name:'أضافوا عروضا على طلباتك'},
+        ],
         states:[
             {id:null,name:'الكل'},
-            {id:'online',name:vm.$t('online')},
-            {id:'offline',name:vm.$t('offline')},
+            {id:'online',name:vm.$t('online-services')},
+            {id:'offline',name:vm.$t('offline-services')},
+            {id:'ready-services',name:vm.$t('ready-services')},
         ],
         categories:[],
     filter:vm.filterItem

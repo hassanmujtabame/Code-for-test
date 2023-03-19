@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit" class="m-auto text-end">
-                            <img class="img-fluid" src="/assets/img/Frameass.png" alt="" />
+                            <img class="img-fluid" src="/assets/svg/frame-52-2.svg" alt="service-provider-header" />
                         </div>
                     </div>
                 </div>
@@ -46,5 +46,26 @@ export default {
             background: transparent;
             padding: 10px 25px;
             color: white;
+}
+</style>
+<style>
+.star-cons-blog {
+    position: absolute;
+    right: 7.15%;
+    left: 81.19%;
+    top: 9.72%;
+    bottom: 71.67%;
+}
+.star-cons-blog.stars {
+    right: 30.56%;
+    left: 60.06%;
+    top: 14.17%;
+    bottom: 80.28%;
+}
+.star-blog {
+    right: 27.29%;
+    left: 69.44%;
+    top: 44.59%;
+    bottom: 37.92%;
 }
 </style>

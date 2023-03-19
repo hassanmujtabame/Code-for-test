@@ -2,14 +2,17 @@
     <div class="mt-5 blog">
         <d-filter-list :call-list="loadList" 
         @change="changeFilter"
-        :searchPlaceholder="$t('search_by_service')"
-        orderName="price"
+        singleName=""
+        classColCard="col-12 col-md-6 mt-3"
+        pluralName="مقدمو الخدمة"
+        :searchPlaceholder="$t('search_by_service_provider')"
+        orderName="rate"
+        
         :orderOpts="
              [
-                {id:'asc',name:'الأقل سعرا'},
-                {id:'desc',name:'الأغلى سعرا',}
-            ]"
-        classColCard="col-md-4 mt-3">
+                {id:'asc',name:'الأقل تقييما'},
+                {id:'desc',name:'الأعلى تقييما',}
+            ]">
             <template v-slot:side>
                 <sidebarFilter   @change="changeFilter" :filter-item="fitlterSide" />
                 </template>
@@ -17,18 +20,7 @@
 
             <template v-slot="{ item }">
                 <router-link  class="router-link" :to="getRouteLocale('service-provider-ready-service', { id: item.id })">
-                    <readyServiceCard 
-                    :image="item.image"
-                   :title="item.title"
-                   :price="item.price"
-                   :place="item.city"
-                   :name="item.user_info.name"
-                   :description="item.desc"
-                   :state="item.state"
-                   :department="item.category_name??'N/A'"
-                   :status="item.status"
-                   
-                   />
+                    <cardInfoVue />
                 </router-link>
             </template>
 
@@ -39,32 +31,29 @@
 
 <script>
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
-import readyServiceCard from '@/components/cards/ready-service.vue';
+//import readyServiceCard from '@/components/cards/ready-service.vue';
 import sidebarFilter from './sidebar-filter.vue'
+import cardInfoVue from './card-item'
 export default {
     name: 'section-filter-list',
     components:{
-        readyServiceCard,
+        cardInfoVue,
         sidebarFilter
     },
     data: () => ({
         fitlterSide:{
             state:null,
             category_id:[],
-            max_period:100,
-            min_period:0,
-            max_price:1000,
-            min_price:0,
+            prd:null,
+            rate_value:null,
         },
         filterItem:{
             search:null,
-            price:'asc',
+            rate:'asc',
             state:null,
             category_id:[],
-            max_period:100,
-            min_period:0,
-            max_price:1000,
-            min_price:0,
+            prd:null,
+           rate_value:null,
         }
     }),
     methods: {
