@@ -20,6 +20,10 @@
                 <i v-if="loading" class="fas fa-spinner fa-spin"></i>
                 اقبل العرض
             </button>
+            <button :disabled="loading || item_.status!=='waiting'" class="btn btn-custmer btn-danger" @click="refuseConfirm">
+                <i v-if="loading" class="fas fa-spinner fa-spin"></i>
+              رفض العرض
+            </button>
         </div>
     </div>
     <div class="box-provider-offer_end">
@@ -61,6 +65,32 @@ export default {
     }
  },
  methods:{
+    refuseConfirm(){
+        let dataEvent ={
+            title:'هل أنت متأكد  من رفضك العرض',
+            description:'',
+            btns:[
+                {title:'تأكيد الرفض',action:()=> this.sendRefusion(),class:'btn btn-custmer'}
+            ]
+        }
+        this.showConfirmMsg(dataEvent);
+    },
+    async sendRefusion(){
+        try {
+                this.loading =  true;
+                let { data } = await myRequestsClientAPI.RefuseOffer(this.item_.id) 
+                if(data.success){
+                    this.item_.status = 'underway'
+                }else{
+                    window.SwalError(data.message)
+                }
+
+            } catch (error) {
+                console.log('error', error)
+                console.log('response', error.response)
+            }
+            this.loading =  false;
+    },
         async sendAcception(){
             try {
                 this.loading =  true;

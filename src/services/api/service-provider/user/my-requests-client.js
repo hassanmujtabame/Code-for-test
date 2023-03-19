@@ -46,6 +46,11 @@ class ServiceProviderApi extends BaseApi{
         return window.axios.post(`service-provider/user/my-order/accept/${id}`);
 
     }
+    refuseOffer(id){
+        /** id of Offer for this request */
+        return window.axios.post(`service-provider/user/my-order/refuse/${id}`);
+
+    }
     rateProvider(data){
         return window.axios.post(`service-provider/user/rate`,data);
     }
