@@ -72,8 +72,8 @@
         this.itemDialog=Object.assign({},data);
         if(!data.btns)  this.itemDialog.btns= null
         
-        if(!data.image) this.itemDialog.image = '/assets/img/tick-square-2.png'
-        else
+        if(!data.image) //this.itemDialog.image = '/assets/img/tick-square-2.png'
+        //else
         switch (this.itemDialog.type) {
           case 'warning':
           this.itemDialog.image = '/assets/svg/warning-dialog.svg'
