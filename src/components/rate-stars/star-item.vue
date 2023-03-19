@@ -16,6 +16,10 @@ export default {
         type:[String,Number],
         require:true,
     },
+    nullable:{
+        type:Boolean,
+        default:false
+    },
     size:{
         type:[String,Number],
         default:24,

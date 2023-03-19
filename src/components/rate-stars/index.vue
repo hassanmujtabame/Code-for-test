@@ -2,6 +2,7 @@
   <div class="d-star-rate">
         <startItem v-for="id in starsList" :key="id" 
         :itemId="id" :isSelected="value_>=id"
+        :nullable="nullable"
        v-model="value_" 
         :size="size"
         />
@@ -19,6 +20,10 @@ export default {
     value:{
         type:Number,
         default:0
+    },
+    nullable:{
+        type:Boolean,
+        default:false
     },
     size:{
         type:[String,Number],
