@@ -48,7 +48,11 @@
       }
    },
    data:()=>({
-    itemDialog:{title:null,description:null,btns:null,image:'/assets/img/tick-square-2.png'},
+    itemDialog:{title:null
+      ,description:null
+      ,btns:null
+      ,type:'error'
+      ,image:'/assets/img/tick-square-2.png'},
       showed:false,
    }),
 
@@ -69,6 +73,15 @@
         if(!data.btns)  this.itemDialog.btns= null
         
         if(!data.image) this.itemDialog.image = '/assets/img/tick-square-2.png'
+        else
+        switch (this.itemDialog.type) {
+          case 'warning':
+          this.itemDialog.image = '/assets/svg/warning-dialog.svg'
+            break;
+          default:
+          this.itemDialog.image = '/assets/img/tick-square-2.png'
+            break;
+        }
         this.showed=true
         return true;
       },
