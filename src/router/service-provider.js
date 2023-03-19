@@ -7,6 +7,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-home" */ '../views/service-provider/home/index.vue') 
     },
     {
+        path: 'service-provider/providers',
+        meta:{layout:LayoutService},
+        name: 'service-provider-providers',
+        component: () => import(/* webpackChunkName: "service-provider-providers" */ '../views/service-provider/providers/index.vue') 
+    },
+    {
         path: 'service-provider/conversations',
         meta:{auth:true,layout:LayoutService},
         name: 'service-provider-conversations',
