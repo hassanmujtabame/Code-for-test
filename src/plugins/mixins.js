@@ -380,7 +380,21 @@ const mixin = {
             );
             plugin.setAttribute('rel',"stylesheet")
             document.head.prepend(plugin);
-            }
+            },
+            async uploadFileStandard(evt,validate,handlerFile,emptyFile){
+              if(validate){
+                  let valid = await validate(evt)
+                  if(!valid){
+                    emptyFile()
+                      return;
+                  }
+              }
+              if(!evt.target.files && !evt.target.files[0]){
+                emptyFile()
+                      return;
+              }
+              handlerFile(evt.target.files[0])
+          }
           },
             computed: {
               isDevelopment(){
