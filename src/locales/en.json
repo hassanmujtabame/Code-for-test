@@ -605,5 +605,7 @@
   "type-message": "Type message",
   "Chats": "Chats",
   "Full-name": "Full name",
-  "my-services": "my services"
+  "my-services": "my services",
+  "select-your-gender": "select your gender",
+  "freelance_document": "Freelance document"
 }
