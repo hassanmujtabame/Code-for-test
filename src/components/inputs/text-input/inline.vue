@@ -92,8 +92,8 @@ color: #979797;
     color: #667D80;
     font-weight: 400;
     padding: 4px 1px;
-    font-size: 16px;
-    line-height: 17px;
+    font-size: 0.9rem;
+    line-height: 1;
     border: none;
     flex:1;
    /* box-shadow: 0 0 0 0.1rem rgb(13 110 253 / 25%);*/

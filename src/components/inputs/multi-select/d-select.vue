@@ -83,10 +83,10 @@
   color: #979797;
   }
   .form-group .form-control{
-      padding: 4px 1px;
+      padding: 10px 1px;
       font-weight: 400;
-      font-size: 16px;
-      line-height: 17px;
+      font-size: 0.9rem;
+    line-height: 1;
       border: none;
       flex:1;
       font-style: normal;
