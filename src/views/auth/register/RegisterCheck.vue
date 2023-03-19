@@ -37,10 +37,9 @@
                                 rules="required"
                                 v-slot="{errors}"
                                 >
-                                    <input type="text" v-model="pin_code" class="form-control" 
-                                        placeholder="  رمز التاكيد" >
-                                    
-                                    <d-error-input :errors="errors" v-if="errors" />
+                                    <d-text-input :errors="errors" type="text" v-model="pin_code" class="form-control" 
+                                        label="  رمز التاكيد" >
+                                    </d-text-input>
                                 </ValidationProvider>
     
                          
