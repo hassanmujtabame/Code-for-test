@@ -58,9 +58,18 @@ methods:{
   openConfirmDialog(dept,evt){
     if(evt)
     evt.preventDefault();
-    
-
-    this.fireOpenDialog('go-to-pther-section',dept)
+    let dataEvt = {
+        title:'',
+        description:`الأن انت على وشك الانتقال الى حسابك في <span class="m-c">
+            ${dept.title}
+            </span>`,
+                type:'warning',
+                btns:[
+                    {title:this.$t('confirm_redirect'),action:()=> this.$router.push(this.dept.route)}
+                ]
+        }
+        this.showConfirmMsg(dataEvt)
+    //this.fireOpenDialog('go-to-pther-section',dept)
   }
 }
 }
