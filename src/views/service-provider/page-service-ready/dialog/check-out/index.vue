@@ -58,11 +58,11 @@ export default {
           
           console.mylog('success',data)
           let dataEvent ={
-            title:'تهانينا تم شراء  الخدمة بنجاح',
-            description:'',
+            title:'تهانينا تم شراءالخدمة بنجاح',
+            description:'يمكنك الأن تحميل الخدمة بحد أقصى 3 مرات',
             btns:[
-              {title:'تواصل مع مقدم الخدمة',action:()=>{this.redirecttoProvider()},class:'btn btn-custmer'},
-              {title:'الرئيسية',action:()=>{this.closeEvent()},class:'btn btn-custmer-w'},
+              //{title:'تواصل مع مقدم الخدمة',action:()=>{this.redirecttoProvider()},class:'btn btn-custmer'},
+              {title:'تحميل',action:()=>{this.closeEvent()},class:'btn btn-custmer-w'},
             ]
           }
           this.showSuccessMsg(dataEvent)
@@ -104,7 +104,7 @@ export default {
        let dataEvent ={
             title:'',
             description:`أنت الان على وشك اتمام عملية الدفع
-لشراء خدمة تصميم هوية بصرية`,
+لشراء خدمة ${otherData.title}`,
             type:'warning',
             btns:[
               {title:'تأكيد العملية ',action:()=>{this.makePayment()},class:'btn btn-custmer'},

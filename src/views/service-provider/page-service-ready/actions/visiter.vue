@@ -3,8 +3,7 @@
         <div>
             <button @click="openBooking" style="height: 40px;" class="btn-main"  
                 role="button">
-
-                أطلب الخدمة
+                إشتري الخدمة
             </button>
         </div>
         <div>
@@ -31,13 +30,24 @@ export default {
  methods:{
     openBooking(){
         if(this.itemPage.state=='online'){
-
-        this.fireOpenDialog('checkout-ready-service-online',{item:{amount:this.itemPage.price,title:this.itemPage.title},data:this.itemPage})
+            let dataEvt = {
+        title:'انت على وشك شراء الخدمة',
+        description:`بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
+                type:'warning',
+                btns:[
+                    {title:this.$t('buy_service'),action:()=> this.openCheckout()}
+                ]
+        }
+        this.showConfirmMsg(dataEvt)
+        
 
         }
        
         else
         this.fireOpenDialog('booking-service',this.itemPage)
+    },
+    openCheckout(){
+        this.fireOpenDialog('checkout-ready-service-online',{item:{amount:this.itemPage.price,title:this.itemPage.title},data:this.itemPage})
     }
  }
 }

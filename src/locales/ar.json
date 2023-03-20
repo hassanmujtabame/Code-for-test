@@ -603,5 +603,6 @@
   "my-services": "خدماتي",
   "select-your-gender": "حدد جنسك",
   "freelance_document": "وثيقة العمل الحر",
-  "search_by_service_provider": "البحث عن مقدم خدمة"
+  "search_by_service_provider": "البحث عن مقدم خدمة",
+  "buy_service": "شراء الخدمة"
 }
