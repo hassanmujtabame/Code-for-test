@@ -2,7 +2,7 @@
    <div class="col-md-6 d-flex gap-2 justify-content-end">
                     <div>
                         <button @click="openEditDialog" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2">
-                            <img src="/assets/svg/update.svg" />
+                            <i class="fa-regular fa-pen-to-square"></i>
 
                             {{$t('modification')}}
                         </button>
@@ -22,14 +22,12 @@
                         </button>
                     </div>
                     <div>
-                        <button @click="openDeleteDialog"  style="height: 40px;"
+                        <button  @click="openDeleteDialog" style="height: 40px;"
                             class="btn-main btn-danger px-3 w-100 border-0 rounded-2" 
-                            href="#exampleModalToggle7" role="button">
-                           <img src="/assets/svg/trash-outline.svg" />
-
+                           role="button">
+                           <i class="fa-solid fa-trash-can"></i>
                             {{$t('delete')}}
                         </button>
-
                     </div>
 
 
