@@ -17,7 +17,15 @@
     </div>
     <div class="page-rate-service__item-actions">
         <div class="page-rate-service__item-btns">
-            <button class="btn" @click="$emit('send-abuse')"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <d-dropdown btnClass="btn remove-after">
+        <template v-slot:btn-content>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </template>
+        <template v-slot>
+        <a class="dropdown-item" @click="sendAbuse" href="#">بلاغ </a>
+   
+    </template>
+      </d-dropdown>
             
         </div>
         <div class="page-rate-service__item-date">
@@ -65,6 +73,13 @@ export default {
             }
         }
     }
+  },
+  methods:{
+    sendAbuse(evt){
+        if(evt) evt.preventDefault();
+        
+        this.$emit('send-abuse');
+      }
   }
 }
 </script>
