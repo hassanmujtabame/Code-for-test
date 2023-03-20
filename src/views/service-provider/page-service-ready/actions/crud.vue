@@ -22,8 +22,8 @@
                         </button>
                     </div>
                     <div>
-                        <button @click="openDeleteDialog" style="height: 40px; background-color:#FF1616 ;"
-                            class="btn-main px-3 w-100 border-0 rounded-2" 
+                        <button @click="openDeleteDialog"  style="height: 40px;"
+                            class="btn-main btn-danger px-3 w-100 border-0 rounded-2" 
                             href="#exampleModalToggle7" role="button">
                            <img src="/assets/svg/trash-outline.svg" />
 
