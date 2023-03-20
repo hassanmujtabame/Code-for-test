@@ -44,6 +44,7 @@ export default {
     showDialog:false,
     pay_info:{},
     user_info:{},
+    itemDialog:{}
   }),
   methods:{
     redirecttoProvider(){
@@ -57,15 +58,11 @@ export default {
         if(data.success){
           
           console.mylog('success',data)
-          let dataEvent ={
-            title:'تهانينا تم شراءالخدمة بنجاح',
-            description:'يمكنك الأن تحميل الخدمة بحد أقصى 3 مرات',
-            btns:[
-              //{title:'تواصل مع مقدم الخدمة',action:()=>{this.redirecttoProvider()},class:'btn btn-custmer'},
-              {title:'تحميل',action:()=>{this.closeEvent()},class:'btn btn-custmer-w'},
-            ]
+          if(this.itemDialog.status=='service'){
+            this.showSuccessService()
+          }else{
+            this.showSuccessOnline()
           }
-          this.showSuccessMsg(dataEvent)
           this.closeEvent()
          
         }else{
@@ -77,6 +74,7 @@ export default {
     },
     async payment(evt){
       let {item,cardInfo,otherData} = evt;
+      this.itemDialog = otherData;
       this.pay_info = {};
       if(item.payment_type == 'new')
        {
@@ -111,6 +109,28 @@ export default {
             ]
           }
           this.showConfirmMsg(dataEvent)
+    },
+    showSuccessOnline(){
+      let dataEvent ={
+            title:'تهانينا تم شراء  الخدمة بنجاح',
+            description:'',
+            btns:[
+              {title:'تواصل مع مقدم الخدمة',action:()=>{this.redirecttoProvider()},class:'btn btn-custmer'},
+              {title:'الرئيسية',action:()=>{this.closeEvent()},class:'btn btn-custmer-w'},
+            ]
+          }
+          this.showSuccessMsg(dataEvent)
+    },
+    showSuccessService(){
+      let dataEvent ={
+            title:'تهانينا تم شراءالخدمة بنجاح',
+            description:'يمكنك الأن تحميل الخدمة بحد أقصى 3 مرات',
+            btns:[
+              //{title:'تواصل مع مقدم الخدمة',action:()=>{this.redirecttoProvider()},class:'btn btn-custmer'},
+              {title:'تحميل',action:()=>{this.closeEvent()},class:'btn btn-custmer-w'},
+            ]
+          }
+          this.showSuccessMsg(dataEvent)
     },
     closeEvent(){
       this.fireCloseDialog(this.group)

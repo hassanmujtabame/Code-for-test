@@ -303,8 +303,9 @@ return{
         group:'add-ready-service-dialog',
         showDialog:false,
         states:[
-            {id:'online',name:'اونلاين'},
-            {id:'offline',name:'اوفلاين'},
+        {id:'online',name:vm.$t('online')},
+            {id:'offline',name:vm.$t('offline')},
+            {id:'service',name:vm.$t('ready-service')},
         ],
         delivery_places:[
             {id:'client_choosen',name:'ما يفضله العميل'},

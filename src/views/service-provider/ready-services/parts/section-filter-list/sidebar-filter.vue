@@ -118,6 +118,8 @@ export default {
             {id:null,name:'الكل'},
             {id:'online',name:vm.$t('online')},
             {id:'offline',name:vm.$t('offline')},
+            {id:'service',name:vm.$t('ready-service')},
+            
         ],
         categories:[],
     filter:vm.filterItem
