@@ -2,7 +2,7 @@
   <div style="margin-top: 85px " class="consult">
      <div class="container mt-5">
          <div class="course-show-page">
-          <SectionHeaderOwner  :itemPage="itemPage" v-if="isOwner"/>
+          <SectionHeaderOwner  :itemPage="itemPage" v-if="isOwner && userAcademyRole == 'instructor'"/>
      <SectionHeader  :itemPage="itemPage" v-else />
      <SectionBody  :itemPage="itemPage" :isOwner="isOwner"/>
      <updateCourseDialog group="update-course" :isOwner="isOwner" />

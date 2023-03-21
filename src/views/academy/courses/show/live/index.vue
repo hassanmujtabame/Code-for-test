@@ -2,7 +2,7 @@
   <div style="margin-top: 85px " class="consult">
      <div class="container mt-5">
          <div class="course-show-page">
-          <SectionHeaderOwner  :itemPage="course" v-if="isOwner" @delete="deleteExam"/>
+          <SectionHeaderOwner  :itemPage="course" v-if="isOwner && userAcademyRole == 'instructor'" @delete="deleteExam"/>
      <SectionHeader  :itemPage="course" v-else />
      <SectionBody  :itemPage="course" :isOwner="isOwner"/>
  </div>

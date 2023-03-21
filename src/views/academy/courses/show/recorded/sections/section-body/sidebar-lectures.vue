@@ -5,7 +5,7 @@
     </div>
     <div class="course-show-page__lectures-header">
       <h1>محتويات الدورة :</h1>
-      <div v-if="isOwner" class="course-show-page__lectures-header_btns">
+      <div v-if="canEdit" class="course-show-page__lectures-header_btns">
         <button @click="activeDraggable=!activeDraggable"  class="btn" :class="{'c-save':activeDraggable}">
         <i class="fa fa-align-justify" ></i>
         </button>
