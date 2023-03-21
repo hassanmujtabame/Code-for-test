@@ -11,15 +11,17 @@
         
               </div>
               <d-swiper
-              style="overflow-x: hidden"
-            :slides-per-view="7"
-            is-auto
-            :space-between="10"
-              :items="items"
+                :slides-per-view="7"
+                is-auto
+                :space-between="10"
+                :items="items"
+                class="academy-departments"
             >
        
             <template  v-slot:default="{item}" >
+              <router-link class="router-link" :to="getRouteLocale('academy-department-show',{id:item.id})">
                 <CardVue :title="item.title" :img="item.img"/>
+              </router-link>
                 </template>
               </d-swiper>
             </div>
@@ -35,15 +37,15 @@ export default {
     },
     data:()=>({
         items:[
-            {title:'المجوهرات',img:'/assets/svg/jewelry.svg'},
-            {title:'الازيــــــاء',img:'/assets/svg/fashion.svg'},
-            {title:'التقنية',img:'/assets/svg/techinic.svg'},
-            {title:'الزهــــور والهدايا',img:'/assets/svg/flowers-gifts.svg'},
-            {title:'التجـــــــارة الالكترونية',img:'/assets/svg/ecommerce.svg'},
-            {title:'السباحة',img:'/assets/svg/swimming.svg'},
-            {title:'التجميل',img:'/assets/svg/beauty.svg'},
-            {title:'التجميل',img:'/assets/svg/beauty.svg'},
-            {title:'التجميل',img:'/assets/svg/beauty.svg'},
+            {id:1,title:'المجوهرات',img:'/assets/svg/jewelry.svg'},
+            {id:1,title:'الازيــــــاء',img:'/assets/svg/fashion.svg'},
+            {id:1,title:'التقنية',img:'/assets/svg/techinic.svg'},
+            {id:1,title:'الزهــــور والهدايا',img:'/assets/svg/flowers-gifts.svg'},
+            {id:1,title:'التجـــــــارة الالكترونية',img:'/assets/svg/ecommerce.svg'},
+            {id:1,title:'السباحة',img:'/assets/svg/swimming.svg'},
+            {id:1,title:'التجميل',img:'/assets/svg/beauty.svg'},
+            {id:1,title:'التجميل',img:'/assets/svg/beauty.svg'},
+            {id:1,title:'التجميل',img:'/assets/svg/beauty.svg'},
           
         ]
     })

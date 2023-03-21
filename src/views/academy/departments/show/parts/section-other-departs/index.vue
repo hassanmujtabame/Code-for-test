@@ -4,12 +4,7 @@
               <div
                 class="d-flex justify-content-center align-items-center container"
               >
-                <h1> أستكشف مجالات ريادة الاعمال 
-                    
-                <a style="color: #2C98B3;" href="">
-                    العامة
-                </a>
-                </h1>
+                <h1 class="home-section-title text-center"> مجالات أخرى  في الأكاديمية</h1>
         
               </div>
               <d-swiper
@@ -36,6 +31,9 @@ import CardVue from './card.vue'
 
 export default {
     name:'section-exploring-entrepreneurship',
+    props:{
+        itemPage:{}
+    },
     components:{
         CardVue
     },

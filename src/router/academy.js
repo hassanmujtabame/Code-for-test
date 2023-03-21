@@ -13,6 +13,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-dashboard" */ '../views/academy/dashboard/index.vue') 
     },
     {
+        path: 'academy/departments/:id',
+        meta:{layout:LayoutDefault},
+        name: 'academy-department-show',
+        component: () => import(/* webpackChunkName: "academy-department-show" */ '../views/academy/departments/show/index.vue') 
+    },
+    {
         path: 'academy/conversations',
         meta:{auth:true,layout:LayoutDefault},
         name: 'academy-conversations',
