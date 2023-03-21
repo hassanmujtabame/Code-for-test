@@ -20,6 +20,9 @@ class CoursesApi extends BaseApi{
         data.append('_method','PUT')
         return window.axios.post(`academy/instructor/courses/${id}`,data);
     }
+    deleteItem(id){
+        return window.axios.delete(`academy/instructor/courses/${id}`);
+    }
     getCoursesHasExams(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructor/course-exams?${s}`);

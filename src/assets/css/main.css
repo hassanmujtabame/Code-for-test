@@ -1950,10 +1950,10 @@ color: #414042;
     height: 40px;
   }
   .btn-delete{
-    background-color:#FF1616
+    background-color:#eb0000
   }
   .btn-wraning{
-    background-color:#FFBC00
+    background-color:#ebae05
   }
   @media screen and (max-width:362px){
 .btn-action-page{

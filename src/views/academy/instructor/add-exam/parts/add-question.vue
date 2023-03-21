@@ -67,6 +67,10 @@
                 <label @dblclick="editOption(o,i)" class="form-check-label clickable" :for="`exampleRadios-${item.uuid}`">
                   {{o.title}} <i>[{{o.id}}]</i>
     </label>
+    <div class="add-quetion-item__actions">
+        <i class="fa fa-trash"></i>
+        <i class="fa fa-pen-to-square"></i>
+    </div>
     </div>
     </div>
 </ValidationObserver>

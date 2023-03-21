@@ -6,32 +6,13 @@
                 </div>
             </div>
             <div class="text-end">
-                <div class=" d-flex gap-2 justify-content-end my-3">
-                    <div> 
-                        <button @click="updateCourse" class="btn-main btn-action-page px-3 w-100 border-0 rounded-2"  role="button">
-                            <d-rect-edit-icon />
-                        تعديل
-                        </button>
-                    </div>
-                    <div>
-                        <button class="btn-main btn-action-page btn-wraning px-3 w-100 border-0 rounded-2"  data-bs-toggle="modal" href="#exampleModalToggle-stop" role="button">
-                            <d-send-icon />
-                                شارك
-                        </button>
-                    </div>
-                    <div>
-                        <button  class="btn-main btn-action-page btn-delete px-3 w-100 border-0 rounded-2"  role="button">
-                            <d-trash-outline-icon :size="32" color="white"/>
-                         حذف
-                        </button>
-
-                    </div>
-                </div>
+                <actionsPage :item-page="itemPage" />
             </div>
   </div>
 </template>
 
 <script>
+import actionsPage from './actions-page.vue'
 import widgetInfo from './widget-info.vue'
 export default {
  name:'section-owner',
@@ -39,7 +20,8 @@ export default {
     itemPage:{}
  },
  components:{
-  widgetInfo
+  widgetInfo,
+  actionsPage
  },
  data:(vm)=>{
     return{
@@ -50,11 +32,6 @@ export default {
     {title:'موعد المجموعه الثانية',content:vm.dateReverse(vm.itemPage.next_course_date),link:'/'},
   ]
  }
-},
-methods:{
-    updateCourse(){
-        this.fireOpenDialog('update-course',this.itemPage)
-    }
 }
 }
 </script>
