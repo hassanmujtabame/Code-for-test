@@ -9,11 +9,12 @@ export const routeOption = (route, key, value) => {
 }
 
 export default function(to, from, next) {
-let isAuth = window.store.getters['auth/user'];
+let isAuth = window.store.getters['auth/token'];
 let page_auth = routeOption(to, 'auth', true);
-let page_guest = window.store.getters['auth/user'] && routeOption(to, 'auth', false);
+let page_guest = window.store.getters['auth/token'] && routeOption(to, 'auth', false);
 
 if (isAuth) {
+    //console.log('isAuth',isAuth)
    if(page_guest){
         next({ path: '/' })
 }else{
