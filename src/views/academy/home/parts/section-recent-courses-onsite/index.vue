@@ -19,7 +19,7 @@
                 v-for="(item,i) in items"
                 :key="i"
               >
-              <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item})" >
+              <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})" >
                 <CardVue 
                 :item="item"
                 />
