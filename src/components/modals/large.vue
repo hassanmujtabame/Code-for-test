@@ -81,7 +81,10 @@ data:(vm)=>{
     dialog:false,
 }},
 watch:{
-    loading(){}
+    loading(){},
+    xl(){},
+    fullscreen(){},
+    mlg(){},
 },
 computed:{
  styleObj(){

@@ -3,12 +3,12 @@
      :class-header="`d-flex justify-content-between ${isMobile?'flex-column':''}`"
      >
               <template v-slot:header>
-                <h1 class="flex-grown-1">المرفقات : </h1>
+                <h1 class="flex-grown-1">{{ $t('attachments') }} : </h1>
                 <ValidationObserver ref="form" class="flex-shrink-0" tag="div" v-slot="{invalid }">
                 <div class="d-flex align-items-center">
                    
                     <ValidationProvider tag="div" 
-                                :name="$t('lecture-title')"
+                                :name="$t('attachment-title')"
                                 vid="title"
                                 rules="required"
                                 v-slot="{errors}"

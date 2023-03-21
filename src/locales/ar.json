@@ -605,5 +605,7 @@
   "freelance_document": "وثيقة العمل الحر",
   "search_by_service_provider": "البحث عن مقدم خدمة",
   "buy_service": "شراء الخدمة",
-  "ready-service": "خدمة جاهزة"
+  "ready-service": "خدمة جاهزة",
+  "attachment-title": "عنوان المرفق",
+  "attachments": "المرفقات"
 }

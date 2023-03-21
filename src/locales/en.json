@@ -610,5 +610,7 @@
   "freelance_document": "Freelance document",
   "search_by_service_provider": "search by service provider",
   "buy_service": "buy service",
-  "ready-service": "ready service"
+  "ready-service": "ready service",
+  "attachment-title": "Attachment title",
+  "attachments": "attachments"
 }

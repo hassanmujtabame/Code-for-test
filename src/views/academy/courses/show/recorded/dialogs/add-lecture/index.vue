@@ -4,6 +4,7 @@
         :loading="loading"
         :closeDialog="closeDialog"
         :openDialog="openDialog"
+        :xl="lectureId"
   >
 
     <template v-slot:header>
@@ -11,7 +12,7 @@
       </template>
     <template v-slot:default>
         <div v-if="showDialog" class="row">
-                            <div class="col-md-6">
+                            <div  :class="[lectureId?'col-md-6':'col-12']">
                               <div>
                                 <ValidationObserver tag="div" ref="form-title" v-slot="{invalid}">
                                 <ValidationProvider tag="div" 
@@ -33,12 +34,12 @@
                                       </d-text-input>
                                   </ValidationProvider>
                                   </ValidationObserver>
-                                 <div class="mt-3">
+                                 <div class="mt-3"  v-if="lectureId">
                                     <attachmentsList  :itemPage="itemDialog" :lectureId="lectureId"/>
                                  </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" v-if="lectureId">
                               <ValidationObserver tag="div" ref="form-video" v-slot="{invalid}">
                                 <ValidationProvider tag="div" 
                                 :name="$t('lecture-video')"
