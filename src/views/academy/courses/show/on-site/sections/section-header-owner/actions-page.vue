@@ -7,7 +7,7 @@
                         </button>
                     </div>
                     <div>
-                        <button  class="btn-main btn-action-page btn-wraning px-3 w-100 border-0 rounded-2" role="button">
+                        <button  class="btn-main btn-action-page btn-warning  px-3 w-100 border-0 rounded-2" role="button">
                             <i class="fa-solid fa-share-nodes"></i>
                                 شارك
                         </button>

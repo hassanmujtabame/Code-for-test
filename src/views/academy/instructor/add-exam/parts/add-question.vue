@@ -61,15 +61,15 @@
     <div v-if="itemLocal.options.length===0" class="add-quetion-item__content" >
         <h1  class="add-question-item__empty">لا يوجد اختيارات</h1>
     </div>
-    <div v-else class="add-quetion-item__content mt-3">
+    <div v-else class="add-question-item__content mt-3">
     <div v-for="(o,i) in itemLocal.options" :key="i" class="form-check form-check-option mt-1" :class="{'correct-answer':o.is_correct}">
                 <input  class="form-check-input" v-model="value_" type="radio" :name="`exampleRadios-${item.uuid}`" :id="`exampleRadios-${o.id}`" :value="o.id">
-                <label @dblclick="editOption(o,i)" class="form-check-label clickable" :for="`exampleRadios-${item.uuid}`">
+                <label class="form-check-label clickable" :for="`exampleRadios-${item.uuid}`">
                   {{o.title}} <i>[{{o.id}}]</i>
     </label>
-    <div class="add-quetion-item__actions">
-        <i class="fa fa-trash"></i>
-        <i class="fa fa-pen-to-square"></i>
+    <div class="add-question-item__actions">
+        <i @click="confirmDeleteOption(o,i)" :disabled="i===selectedIndex" class="fa fa-trash c-danger"></i>
+        <i @click="editOption(o,i)" :disabled="i===selectedIndex" class="fa fa-pen-to-square c-info"></i>
     </div>
     </div>
     </div>
@@ -170,12 +170,40 @@ methods:{
         }
         this.adding = false;
     },
+    addOption(){
+        this.itemLocal.options.push({...this.opt});
+       this.clearOpt()
+    },
     editOption(newOpt,index){
         console.mylog('ssset',newOpt,index)
         this.opt = Object.assign(this.opt,newOpt)
         this.isCorrect = this.opt.is_correct === 1
         this.selectedIndex = index;
+    },
+    confirmDeleteOption(newOpt,index){
 
+        let dataEvent={
+          title:'هل حقا تريد حذف هذا الاختيار؟',
+          description:newOpt.name,
+          groupBtns:'d-flex justify-content-evenly',
+          type:'warning',
+          btns:[
+            {title:'تراجع',class:"btn btn-custmer btn-danger"},
+            {title:this.$t('confirm_delete'),action:()=>this.deleteOption(newOpt,index),class:"btn btn-custmer"},
+          ]
+        }
+        this.showConfirmMsg(dataEvent)
+    },
+    deleteOption(newOpt,index){
+        
+           // let indexItem  = this.itemLocal.options.findIndex(l=>l.uuid===newOpt.uuid)
+                              if(index>-1){
+                                this.itemLocal.options.splice(index,1)
+                              }
+                                if(this.selectedIndex===index){
+                                    this.clearOpt()
+                                }
+        
     },
     cancelUpdateOption(){
         this.clearOpt()
@@ -187,10 +215,7 @@ methods:{
     deleteItem(){
         this.$emit('delete',this.itemLocal)
     },
-    addOption(){
-        this.itemLocal.options.push({...this.opt});
-       this.clearOpt()
-    },
+   
     clearOpt(){
         this.opt.title = '';
         this.opt.id = '';
@@ -224,8 +249,14 @@ methods:{
 .add-question-item__content{
     min-height: 80px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.add-question-item__actions>i.fa{
+    font-size: .66rem;
+    padding: 5px;
+    cursor: pointer;
 }
 .border-botton-thin{
     border-bottom: 1px solid #f1f1f1;
@@ -243,6 +274,7 @@ methods:{
 .form-check-option{
     border-radius: 8px;
     padding: 10px 10px;
+    width:100%;
 
 }
 .form-check{
