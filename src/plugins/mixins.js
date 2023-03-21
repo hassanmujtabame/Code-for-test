@@ -345,7 +345,7 @@ const mixin = {
                   return;
                 }
                 this.$store.commit('auth/SET_ACADEMY_ROLE',newRole)
-                this.refreshPage()
+                //this.refreshPage()
                },
                 switchRoleProvider(val){
                 if(val &&  !this.userSubProvider){
