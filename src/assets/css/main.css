@@ -116,7 +116,15 @@ textarea {
     font-size: 16px;
     line-height: 17px;
 }
-
+.btn-default{
+    background: white;
+    border: 1px solid #979797;
+    border-radius: 8px;
+    padding: 10px 40px;
+    font-size: 16px;
+    line-height: 17px;
+    color: #979797;
+}
 .sec-color {
     background-color: #F6F8F9;
 }

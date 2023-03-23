@@ -7,7 +7,19 @@ hideSide
 <template v-slot:total="{}">
    <h1 class="fw-bolder">دوراتي التدريبة</h1>
 </template>
+<template v-slot:before-body>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <button class="btn w-100" :class="[status=='incomplete'?'btn-custmer':'btn-default']">الدورات الحالية</button>
+    </div>
+    <div class="col-12 col-md-6">
+      <button class="btn  w-100" :class="[status=='complete'?'btn-custmer':'btn-default']">الدورات المنجزة</button>
+    </div>
+  </div>
+  <div>
 
+  </div>
+</template>
 <template v-slot="{item}">
   <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})">
     <CourseCard 
@@ -29,14 +41,8 @@ export default {
   },
   data:()=>{
     return {
-      items:[
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-      ]
+      status:'incomplete',
+      items:[]
     }
   },
   methods:{
