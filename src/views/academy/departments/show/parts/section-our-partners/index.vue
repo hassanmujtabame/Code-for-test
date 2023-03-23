@@ -46,7 +46,6 @@ import partnersAPI from '@/services/api/partners.js'
   },
   async mounted(){
     await this.initlizing()
-      this.currentTab=`cat-${this.categories[0].id}`
     }
   }
   </script>

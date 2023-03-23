@@ -25,6 +25,9 @@ class academyApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/departments?${s}`);
     }
+    getDepartment(id){
+        return window.axios.get(`academy/departments/${id}`);
+    }
     getPlaces(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/places?${s}`);

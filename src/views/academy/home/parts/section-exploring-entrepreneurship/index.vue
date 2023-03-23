@@ -22,7 +22,7 @@
        
             <template  v-slot:default="{item}" >
               <router-link class="router-link" :to="getRouteLocale('academy-department-show',{id:item.id})">
-                <CardVue :title="item.title" :img="item.img"/>
+                <CardVue :title="item.title" :img="item.image_path"/>
               </router-link>
                 </template>
               </d-swiper>
@@ -33,15 +33,16 @@
 
 <script>
 import CardVue from './card.vue'
-
+import academyAPI from '@/services/api/academy/index.js'
 export default {
     name:'section-exploring-entrepreneurship',
     components:{
         CardVue
     },
     data:()=>({
+      loading : false,
         items:[
-            {id:1,title:'ريــــــــادة الاعمال',img:'/assets/svg/business.svg'},
+            /*{id:1,title:'ريــــــــادة الاعمال',img:'/assets/svg/business.svg'},
             {id:1,title:'المحاسبة والمالية',img:'/assets/svg/account.svg'},
             {id:1,title:'التسويق',img:'/assets/svg/shopping.svg'},
             {id:1,title:'القانون',img:'/assets/svg/law.svg'},
@@ -51,9 +52,29 @@ export default {
             {id:1,title:'الاستراتيجية والقيادة',img:'/assets/svg/stratigy-leadership.svg'},
             {id:1,title:'الاستراتيجية والقيادة',img:'/assets/svg/stratigy-leadership.svg'},
             {id:1,title:'الاستراتيجية والقيادة',img:'/assets/svg/stratigy-leadership.svg'},
-          
+          */
         ]
-    })
+    }),
+    methods:{
+      async initializing(){
+        this.loading= true;
+        try{
+          let {data } = await academyAPI.getDepartments({belongs_to:'public_academy'})
+          if(data.success){
+            this.items = data.data
+          }else{
+            //window.SwalError(data.message)
+          }
+        }catch(error){
+          //
+
+        }
+        this.loading = false;
+      }
+    },
+    mounted(){
+      this.initializing()
+    }
 }
 </script>
 

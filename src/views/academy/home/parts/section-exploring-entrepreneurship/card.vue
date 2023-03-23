@@ -4,7 +4,7 @@
 height: 160px;" class="box bg-white rounded-circle p-3">
  <div style="display: flex; align-items: center;   justify-content: center;">
 
-   <img :src="img" />
+   <img :src="img" class="w-100 h-100 rounded-circle" />
  </div>
  <p class="s-c">{{title}}</p>
    

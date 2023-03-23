@@ -32,6 +32,7 @@ import sectionOtherDeparts from './parts/section-other-departs/index'
 import SectionHear from './parts/section-hear/index.vue'
 import SectionTop from './parts/section-top/index.vue'
 import SectionLearning from'./parts/section-continue-learning/index.vue'
+import academyAPI from '@/services/api/academy'
 export default {
  name:'academy-departments',
  components:{
@@ -55,9 +56,19 @@ export default {
     }
  }},
  methods:{
-    initializing(){
+   async initializing(){
         this.loading = true;
-        
+        this.hasError = false;
+        try {
+            let { data } = await academyAPI.getDepartment(this.$route.params.id)
+                if(data.success){
+                    this.itemPage = {...data.data,title:data.data.name};
+                }else{
+                    this.hasError = true;
+                }
+        } catch (error) {
+            this.hasError = true;
+        }
         this.loading = false;
     }
  },
