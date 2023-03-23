@@ -20,7 +20,8 @@
          </div>
       </div>
      <div class="flex-shrink-0">
-     <a :href="item.file" download> <importIcon /></a>
+
+     <a :href="isJoined?item.file:'#'" @click="showDialog" download> <importIcon /></a>
      </div>
       </div>
   </div>
@@ -28,6 +29,7 @@
   </template>
   
   <script>
+  import academyAPI from '@/services/api/academy'
   import importIcon from '@/components/icon-svg/import-icon.vue'
   import metroAttachmentIcon from '@/components/icon-svg/metro-attachment.vue'
   export default {
@@ -48,15 +50,74 @@
       isOwner:{
         type:Boolean,
           default:false
-      }
+      },
+      itemPage:{}
    },
-   data:()=>({
-      starts:[5,4,3,2,1]
-   }),
+   data:(vm)=>{
+    return{
+      starts:[5,4,3,2,1],
+      isJoined:vm.isOwner || vm.itemPage.user_is_join_course
+   }
+},
+    watch:{
+        itemPage:{
+            deep:true,
+            immediate:true,
+            handler(){
+
+                this.isJoined = this.isOwner || this.itemPage.user_is_join_course
+            }
+        }
+    },
    methods:{
       doDelete(item){
           this.$emit('delete',item)
+      },
+      showDialog(evt){
+        if(!this.isJoined){
+            evt.preventDefault();
+            let DataEvt = {
+          title:'أنت غير مشترك في الدورة !',
+          description:`لا يمكنك مشاهدة الدروس ولا تحميل المرفقات الا بعد اشتركاك في الدورة `,
+          btns:[
+            {title:this.$t('join_confirmation'),action:()=>this.joinCourse()}
+          ]
+        }
+        this.showConfirmMsg(DataEvt);
+        return;
+        }
+       
+      }, 
+      async joinCourse(){
+    try {
+      let {data} = await academyAPI.coursesApi.joinCourse(this.itemPage);
+      if(data.success){
+        let dataEvt ={
+            title:'تم الانضمام الى هذه الدورة بنجاح',
+            description:'',
+            btns:[
+              {title:this.$t('course-page')},
+              {title:this.$t('undo-joining'),action:()=>this.confirmCancelJoin()},
+            ]
+    }
+    this.showSuccessMsg(dataEvt)
+      }else{
+        window.SwalError(data.message)
       }
+    } catch (error) {
+      window.DHelper.catchException.call(this,error)
+    }
+  },
+  async confirmCancelJoin(){
+        try {
+            let {data} = await academyAPI.coursesApi.cancelJoinCourse(this.itemPage.id)
+            if(data.success){
+              //
+            }
+        } catch (error) {
+          window.DHelper.catchException.call(this,error)
+        }
+    },
    }
   }
   </script>

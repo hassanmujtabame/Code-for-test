@@ -55,6 +55,7 @@
                 <rateCard v-for="(rateItem,i) in attachments" :key="i"
                 :item="rateItem" 
                 :isOwner="isOwner"
+                :itemPage="itemPage"
                 @delete="showConfirmDeleteItem"
                 :showBorder="(attachments.length-1)>i"
                 />
@@ -91,6 +92,13 @@ export default {
             title:null,
         }
     }),
+    watch:{
+        itemPage:{
+            deep:true,
+            immediate:true,
+            handler(){}
+        }
+    },
     methods:{
         showConfirmDeleteItem(item){
         let dataEvent={
