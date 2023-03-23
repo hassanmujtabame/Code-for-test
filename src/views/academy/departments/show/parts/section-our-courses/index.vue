@@ -52,7 +52,7 @@ export default {
         filterItem:{
             search:null,
             price:'asc',
-            department_id:[vm.itemPage.id]
+            department_id:vm.itemPage.id
           
         },
       items:[]
