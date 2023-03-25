@@ -50,11 +50,13 @@ import clickOutside from './click-outside'
 import dChatCard from '@/components/chat/chat-card/index'
 import dChatCircle from '@/components/chat/circle'
 import dDropdown from '@/components/dropdown/index'
+import dProgressBar from '@/components/progress-bar/index'
 import UserPreviewProfileCard from '@/components/cards/user/preview-profile-card.vue'
 
 Vue.directive('click-outside',clickOutside)
 
 
+Vue.component(dProgressBar.name,dProgressBar)
 Vue.component(dChatCircle.name,dChatCircle)
 Vue.component(dChatCard.name,dChatCard)
 Vue.component(dDropdown.name,dDropdown)
