@@ -75,6 +75,10 @@
          this.fireOpenDialog('success-academy-subscribed', data)
      },
      choose(pack){
+        if(!this.userSubNetwork){
+           this.showMessageForSubscribeNetwork()
+            return;
+        }
          if(pack.type=='free')
          this.openSuccessSubscribed( pack)
          else{

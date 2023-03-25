@@ -330,6 +330,22 @@ const mixin = {
               }else
               window.location =r.href
                },
+               showMessageForSubscribeNetwork(){
+                let dataEvt ={
+                  hideImage:true,
+                  title:'',
+                  description:`<p class="p-sub-network">حتى تتمكن من الانضمام الى باقي خدمتنا
+                      (<a class="link-sub-network" href="${this.routeToUrl('academy-home')}">الاكاديمية</a> أو <a class="link-sub-network" href="${this.routeToUrl('incubator-home')}">الحاضنة</a> أو <a class="link-sub-network" href="${this.routeToUrl('service-provider-home')}">مقدمي الخدمة</a>)
+                      يجب ان تكون عضو في شبكة رياديات  أولا</p>
+                      <p class="p-sub-network">زر الصفحة التعريفية <a class="link-sub-network" href="${this.routeToUrl('network-home')}">لشبكة رياديات</a></p>
+                      `,
+                      btns:[
+                          {title:this.$t('subscribe-network'),action:()=>this.router_push('network-subscribe')},
+                          {title:this.$t('undo'),class:"btn btn-danger"},
+                      ]
+              }
+              this.showConfirmMsg(dataEvt)
+               },
                switchRoleAcademy(newRole){
                 if(newRole =='instructor' && !this.userIsInstructor){
                  

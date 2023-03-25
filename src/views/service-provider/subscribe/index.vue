@@ -73,6 +73,10 @@
         this.fireOpenDialog('success-provider-subscribed', data)
     },
     choose(pack){
+        if(!this.userSubNetwork){
+           this.showMessageForSubscribeNetwork()
+            return;
+        }
         if(pack.type=='free')
         this.openSuccessSubscribed( pack)
         else{
@@ -98,5 +102,26 @@
  </script>
  
  <style>
- 
+  .p-sub-network{
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 40px;
+/* or 167% */
+
+text-align: center;
+text-transform: capitalize;
+
+color: #737373;
+  }
+ .link-sub-network{
+    font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 32px;
+/* identical to box height, or 133% */
+text-transform: capitalize;
+
+color: #1FB9B3;
+ }
  </style>

@@ -73,6 +73,10 @@
         this.fireOpenDialog('success-incubator-subscribed', data)
     },
     choose(pack){
+        if(!this.userSubNetwork){
+           this.showMessageForSubscribeNetwork()
+            return;
+        }
         if(pack.type=='free')
         this.openSuccessSubscribed( pack)
         else{
