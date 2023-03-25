@@ -24,6 +24,8 @@ hideSide
   <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})">
     <CourseCard 
     :item="item"
+    :showProgress="true"
+    :showInfo="false"
     />
     </router-link>
 </template>

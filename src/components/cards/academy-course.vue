@@ -31,7 +31,11 @@
                                                     {{item.user_info?item.user_info.name:'N/A'}}
                                                 </p>
 
-</div>
+                                        </div>
+                                        <div v-if="showProgress">
+                                        <d-progress-bar :height="6" :progress="25"/>
+                                        <span class="student-course__item-percent-label">{{ 25 }}% مكتمل </span>
+                                        </div>
                                     </div>
                                 </div>
 </template>
@@ -44,6 +48,10 @@ export default {
         showInfo:{
             type:Boolean,
             default:true
+        },
+        showProgress:{
+            type:Boolean,
+            default:false
         }
     }
 }
@@ -103,5 +111,16 @@ display: flex;
 align-items: center;
 
 color: #979797;
+}
+.student-course__item-percent-label{
+    font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+text-transform: capitalize;
+
+/* Medium gray */
+
+color: #737373;
 }
 </style>
