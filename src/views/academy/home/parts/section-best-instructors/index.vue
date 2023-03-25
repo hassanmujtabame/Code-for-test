@@ -53,7 +53,7 @@ export default {
     async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await academyAPI.instructor.getBest({paginate:1});
+          let { data } =  await academyAPI.instructor.getBest({paginate:8});
           if(data.success){
             this.items = data.data
           }
