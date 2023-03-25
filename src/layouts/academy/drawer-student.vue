@@ -3,12 +3,16 @@
 
                 <div class="box  mx-2 mt-3 ">
                     <d-user-rect-icon class="m-c" color="currentColor"/>
-
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-profile')" class="mx-2 m-c ">
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('personal_page') }}</button>
                     </router-link>
                 </div>
-
+                <div class="box  mx-2 mt-3 ">
+                    <d-user-rect-icon class="m-c" color="currentColor"/>
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-your-courses')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('my-training-courses') }}</button>
+                    </router-link>
+                </div>
                 <div class="box  mx-2 mt-3 ">
                     <d-empty-wallet-icon class="m-c" color="currentColor" />
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-menu-subscribe')" class="mx-2 m-c ">
