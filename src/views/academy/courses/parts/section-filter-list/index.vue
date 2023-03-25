@@ -4,6 +4,10 @@
 :searchPlaceholder="$t('search-by-course-or-instructor')"
 pluralName="الدورات"
 singleName="دورة"
+hideTitle
+classSearchOrder="col-md-8"
+classColOrder="col-12 col-md-4"
+classColSearch="col-12 col-md-8"
 >
 <template v-slot="{item}">
   <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})">
