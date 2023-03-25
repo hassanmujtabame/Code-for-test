@@ -282,7 +282,7 @@ const mixin = {
             generatetoUrl(name,params={}){
               let r=   this.$router.resolve({
                          name: name, // put your route information in
-                         params:params, // put your route information in
+                         params:{lang:this.$i18n.locale,...params}, // put your route information in
                          query: this.$route.query // put your route information in
                        });
                        return r.route.path;
