@@ -201,10 +201,7 @@ import ChangeDateRequest from './dialogs/change-value-date.vue'
                 console.mylog('invalid')
                 return false;
             }
-            let formData = new FormData()
-            Object.keys(dataE).forEach(key=>{
-                formData.append(key,dataE[key])
-            })
+            let formData = this.loadObjectToForm(dataE)
             formData.append('user_id', this.itemPage.user_info.id)
             try{
                 let {data} = await myRequestsAPIs.rateProvider(formData)
@@ -229,10 +226,7 @@ import ChangeDateRequest from './dialogs/change-value-date.vue'
                 console.mylog('invalid')
                 return false;
             }
-            let formData = new FormData()
-            Object.keys(dataE).forEach(key=>{
-                formData.append(key,dataE[key])
-            })
+            let formData = this.loadObjectToForm(dataE)
             formData.append('user_id', this.itemPage.user_info.id)
             try{
                 let {data} = await myRequestsAPIs.rateService(formData)
@@ -254,6 +248,7 @@ import ChangeDateRequest from './dialogs/change-value-date.vue'
             let dataEvent = {
             title:'قيم الخدمة',
             description:'هل نالت الخدمة رضاك ؟ هل كانت بشكل المطلوب ؟',
+            withImage:true,
             btns:[
             {title:'تقييم',action:(evt,form)=>this.rateService(evt,form),class:'btn btn-custmer'},
             ]

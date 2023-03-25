@@ -46,6 +46,21 @@
           <d-error-input v-if="errors.length>0" :errors="errors" />
         </ValidationProvider>
       </div>
+      <ValidationProvider
+      v-if="itemDialog.withImage"
+      tag="div"
+      class="mt-1"
+                      :name="$t('Image')"
+                      vid="image"
+                      rules="required|image"
+                        v-slot="{errors}">
+                        <d-file-input class="rate-image" 
+                                                        prendIcon="far fa-square-plus"
+                                                        :validate="validate" 
+                                                        :errors="errors" 
+                                                        v-model="file" 
+                                                        placeholder="ارفق صورة" />
+        </ValidationProvider>
     </ValidationObserver>
     </div>
     </template>
@@ -90,7 +105,8 @@ export default {
     stars:[5,4,3,2,1],
     itemForm:{
       rate:null,
-      comment:''
+      comment:'',
+      image:null
     },
     itemDialog:{},
     showDialog:false,
@@ -114,6 +130,7 @@ export default {
         if(!data.btns)  this.itemDialog.btns= null
       this.itemForm.rate = null;
       this.itemForm.comment = '';
+      this.itemForm.image = null;
     this.showDialog = true;
     return true;
 },
@@ -137,5 +154,13 @@ openSuccessDialog(){
 .starts-rate{
   display: flex;
   justify-content: center;
+}
+.rate-image .input-file__wrapper{
+  border-style: solid !important;
+  border-color: var(--m-color) !important;
+  color: var(--m-color) !important;
+}
+.rate-image .input-file__label{
+  color: var(--m-color) !important;
 }
 </style>

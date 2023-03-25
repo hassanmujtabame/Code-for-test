@@ -187,6 +187,7 @@
               title:'قيم  مقدم الخدمة',
               description:'هل كان متعاون ؟ هل كان متفاعل معك وسريع الرد ؟',
               onClose:this.showConfirmRateService(),
+              
               btns:[
               {title:'تقييم',action:(evt,form)=>this.rateProvider(evt,form),class:'btn btn-custmer'},
               ]
@@ -200,10 +201,7 @@
                   console.mylog('invalid')
                   return false;
               }
-              let formData = new FormData()
-              Object.keys(dataE).forEach(key=>{
-                  formData.append(key,dataE[key])
-              })
+              let formData = this.loadObjectToForm(dataE)
               formData.append('user_id', this.itemPage.user_info.id)
               try{
                   let {data} = await requestPurchasesAPIs.rateProvider(formData)
@@ -228,10 +226,7 @@
                   console.mylog('invalid')
                   return false;
               }
-              let formData = new FormData()
-              Object.keys(dataE).forEach(key=>{
-                  formData.append(key,dataE[key])
-              })
+              let formData = this.loadObjectToForm(dataE)
               formData.append('user_id', this.itemPage.user_info.id)
               try{
                   let {data} = await requestPurchasesAPIs.rateService(formData)
@@ -253,6 +248,7 @@
               let dataEvent = {
               title:'قيم الخدمة',
               description:'هل نالت الخدمة رضاك ؟ هل كانت بشكل المطلوب ؟',
+              withImage:true,
               btns:[
               {title:'تقييم',action:(evt,form)=>this.rateService(evt,form),class:'btn btn-custmer'},
               ]
