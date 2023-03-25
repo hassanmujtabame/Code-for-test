@@ -51,11 +51,15 @@ import dChatCard from '@/components/chat/chat-card/index'
 import dChatCircle from '@/components/chat/circle'
 import dDropdown from '@/components/dropdown/index'
 import dProgressBar from '@/components/progress-bar/index'
+import dLoadingCircleFill from '@/components/loading/circle-fill/index'
+import dLoadingTailSpin from '@/components/loading/tail-spin/index'
 import UserPreviewProfileCard from '@/components/cards/user/preview-profile-card.vue'
 
 Vue.directive('click-outside',clickOutside)
 
 
+Vue.component(dLoadingCircleFill.name,dLoadingCircleFill)
+Vue.component(dLoadingTailSpin.name,dLoadingTailSpin)
 Vue.component(dProgressBar.name,dProgressBar)
 Vue.component(dChatCircle.name,dChatCircle)
 Vue.component(dChatCard.name,dChatCard)
