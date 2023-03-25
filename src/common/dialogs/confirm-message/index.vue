@@ -5,8 +5,8 @@
     :closeDialog="closeDialog"
     >
       <template v-slot>
-          <div class="text-center" v-if="showed">
-            <div>
+          <div class="text-center" v-if="showDialog">
+            <div v-if="!hideImage">
             <img :src="itemDialog.image" alt="">
           </div>
             <div class="mt-2">
@@ -48,12 +48,13 @@
       }
    },
    data:()=>({
+    hideImage:false,
     itemDialog:{title:null
       ,description:null
       ,btns:null
       ,type:'error'
       ,image:'/assets/img/tick-square-2.png'},
-      showed:false,
+      showDialog:false,
    }),
 
    methods:{
@@ -82,11 +83,12 @@
           this.itemDialog.image = '/assets/img/tick-square-2.png'
             break;
         }
-        this.showed=true
+        this.hideImage = data.hideImage===true
+        this.showDialog=true
         return true;
       },
       closeDialog(){
-        this.showed=false
+        this.showDialog=false
         return true;
       },
       closeEvent(){
