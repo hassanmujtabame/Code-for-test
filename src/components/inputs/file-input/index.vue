@@ -1,13 +1,13 @@
 <template>
-  <div class="form-group">
+  <div class="form-group" v-bind="$attrs">
 <div class="input-group input-file">
     
 <input  type="file" @change="uploadFileStandard($event,validate,handlerFile,emptyFile) || validate($event)" class="hidden-file-input">
-<div class="input-file__wrapper" :class="[classWrapper??'']">
+<div class="input-file__wrapper" >
     <slot name="prend-icon">
-        <i class="fa fa-paperclip px-2"></i>
+        <i class="input-file__prend-icon px-2" :class="prendIcon"></i>
     </slot>
-<span>{{ placeholder }}</span>
+<span class="input-file__label">{{ placeholder }}</span>
 <slot name="append-icon"></slot>
 </div>    
 
@@ -26,6 +26,10 @@ export default {
     validate:{
         type:Function,
         default:null,
+    },
+    prendIcon:{
+        type:String,
+        default:'fa fa-paperclip'
     },
     errors:{
         type:[Array,Object],
