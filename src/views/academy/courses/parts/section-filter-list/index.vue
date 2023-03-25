@@ -2,7 +2,7 @@
 <d-filter-list 
 :call-list="loadList"
 :searchPlaceholder="$t('search-by-course-or-instructor')"
-pluralName="قائمة  الدورات"
+pluralName="الدورات"
 singleName="دورة"
 >
 <template v-slot="{item}">
