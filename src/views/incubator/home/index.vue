@@ -10,6 +10,7 @@
 
        <!-- section ads-->
        <SectionAds department="incubator" url="network/home-banners" />
+       <sectionJourneyLaunch />
         <SectionIncubationProgram />
         <!-- section 6-->
         <SectionDepartments />
@@ -35,7 +36,7 @@ import SectionTop from './parts/section-top/index.vue'
 import SectionDefinition from './parts/section-definition/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
 import SectionAds from '@/common/components/advertisements/index'
-//import SectionFour from './parts/section-4/index.vue'
+import sectionJourneyLaunch from './parts/section-journey-launch/index.vue'
 import SectionIncubationProgram from './parts/section-incubation-program/index.vue'
 import SectionDepartments from './parts/section-departments/index.vue'
 import SectionProgramsProjects from './parts/section-programs-projects/index.vue'
@@ -51,6 +52,7 @@ components:{
   SectionDefinition,
   SectionFeatures,
   SectionAds,
+  sectionJourneyLaunch,
   SectionIncubationProgram,
   SectionDepartments,
   SectionProgramsProjects,
