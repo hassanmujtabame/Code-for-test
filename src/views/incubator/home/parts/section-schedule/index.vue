@@ -100,7 +100,7 @@
 
 <script>
 export default {
- name:'section-10'
+ name:'section-schedule'
 }
 </script>
 

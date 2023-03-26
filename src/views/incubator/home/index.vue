@@ -22,7 +22,7 @@
          <!-- section 9-->
          <SectionIncubationProjects /> 
         <!-- section 10-->
-        <SectionTen />
+        <SectionSchedule />
         <!-- section 11-->
         <SectionEleven />
         <!-- section 12-->
@@ -41,7 +41,7 @@ import SectionDepartments from './parts/section-departments/index.vue'
 import SectionProgramsProjects from './parts/section-programs-projects/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionIncubationProjects from './parts/section-incubation-projects/index.vue'
-import SectionTen from './parts/section-10/index.vue'
+import SectionSchedule from './parts/section-schedule/index.vue'
 import SectionEleven from './parts/section-11/index.vue'
 import SectionTwelve from './parts/section-12/index.vue'
 export default {
@@ -56,7 +56,7 @@ components:{
   SectionProgramsProjects,
   SectionOurPartners,
   SectionIncubationProjects,
-  SectionTen,
+  SectionSchedule,
   SectionEleven,
   SectionTwelve
 }
