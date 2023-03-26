@@ -4,7 +4,7 @@ class IncubatorApi extends BaseApi{
  
     getPackages(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/packages?${s}`);
+        return window.axios.get(`incubator/packages?${s}`);
     }
     
 }
