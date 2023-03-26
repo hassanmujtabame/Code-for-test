@@ -161,7 +161,7 @@
 
 <script>
 export default {
- name:'section-7'
+ name:'section-programs-projects'
 }
 </script>
 
