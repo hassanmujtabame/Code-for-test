@@ -24,7 +24,7 @@
         <!-- section 10-->
         <SectionSchedule />
         <!-- section 11-->
-        <SectionEleven />
+        <SectionContinueLearning />
         <!-- section 12-->
         <SectionTwelve/>
     </div>
@@ -42,7 +42,7 @@ import SectionProgramsProjects from './parts/section-programs-projects/index.vue
 import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionIncubationProjects from './parts/section-incubation-projects/index.vue'
 import SectionSchedule from './parts/section-schedule/index.vue'
-import SectionEleven from './parts/section-11/index.vue'
+import SectionContinueLearning from './parts/section-continue-learning/index.vue'
 import SectionTwelve from './parts/section-12/index.vue'
 export default {
 name:"incubator-home",
@@ -57,7 +57,7 @@ components:{
   SectionOurPartners,
   SectionIncubationProjects,
   SectionSchedule,
-  SectionEleven,
+  SectionContinueLearning,
   SectionTwelve
 }
 }
