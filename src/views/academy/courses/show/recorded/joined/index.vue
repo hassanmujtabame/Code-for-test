@@ -1,12 +1,11 @@
 <template>
-  <div style="margin-top: 85px " class="consult">
      <div class="container mt-5">
          <div class="course-show-page">
      <SectionHeaderOwner  :itemPage="itemPage" v-if="isOwner && userAcademyRole=='instructor'"/>
      <SectionHeader  :itemPage="itemPage" v-else />
      <SectionBody  :itemPage="itemPage" :isOwner="isOwner"/>
  </div>
- </div>
+ 
   <AddLectureDialog/>
   <AddExamDialog />
   <AddProjectDialog />
@@ -18,9 +17,9 @@
  import SectionHeader from './sections/section-header/index.vue'
  import SectionHeaderOwner from './sections/section-header-owner/index.vue'
  import SectionBody from './sections/section-body/index.vue'
- import AddLectureDialog from './dialogs/add-lecture/index.vue'
- import AddExamDialog from './dialogs/add-exam/index.vue'
- import AddProjectDialog from './dialogs/add-project/index.vue'
+ import AddLectureDialog from '../dialogs/add-lecture/index.vue'
+ import AddExamDialog from '../dialogs/add-exam/index.vue'
+ import AddProjectDialog from '../dialogs/add-project/index.vue'
  import updateCourseDialog from '@/views/academy/instructor/your-courses/dialogs/add-course/recorded-course'
  //import coursesAPI from '@/services/api/academy/courses'
  export default {

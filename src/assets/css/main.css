@@ -504,9 +504,11 @@ img.landing {
 /* --------------------------------------------------------------------------------------------------------------------------------- */
 /* who are we */
 .main-top {
+    background: linear-gradient(275.37deg,#1FB9B3 7.87%, #BBD2C5 101.4%);
+}
+html[lang=en] .main-top {
     background: linear-gradient(275.37deg, #BBD2C5 7.87%, #1FB9B3 101.4%);
 }
-
 .anim-hwo-ar-you {
     top: 0;
     left: 0;

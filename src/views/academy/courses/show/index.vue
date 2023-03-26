@@ -7,22 +7,26 @@
     </div>
     <template v-else>
  <PageOnSite :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='on-site'" />
- <PageRecorded :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded'"/>
  <PageLive :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='live'"/>
+ <PageRecordedGuest :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded' && userAcademyRole=='student' && !itemPage.user_is_join_course"/>
+ <PageRecordedJoined :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded'&& (itemPage.user_is_join_course || userAcademyRole=='instructor')"/>
+
 </template>
  </div>
  </template>
  
  <script>
  import PageOnSite from './on-site/index.vue'
- import PageRecorded from './recorded/index.vue'
+ import PageRecordedGuest from './recorded/guest/index.vue'
+ import PageRecordedJoined from './recorded/joined/index.vue'
  import PageLive from './live/index.vue'
  import coursesAPI from '@/services/api/academy/courses'
  export default {
   name:'course-show',
   components:{
    PageOnSite,
-   PageRecorded,
+   PageRecordedGuest,
+   PageRecordedJoined,
    PageLive
   },
   data:()=>{
