@@ -2,11 +2,11 @@
   <div style="margin-top: 85px " class="consult">
         <!-- section top-->
         <SectionTop />
-       <!-- section 2-->
+       <!-- section definition-->
        <SectionDefinition/>
 
-        <!-- section 3-->
-        <SectionThree />
+        <!-- section features-->
+        <SectionFeatures />
 
        <!-- section 4-->
        <SectionFour />
@@ -36,7 +36,7 @@
 <script>
 import SectionTop from './parts/section-top/index.vue'
 import SectionDefinition from './parts/section-definition/index.vue'
-import SectionThree from './parts/section-3/index.vue'
+import SectionFeatures from './parts/section-features/index.vue'
 import SectionFour from './parts/section-4/index.vue'
 import SectionFive from './parts/section-5/index.vue'
 import SectionSix from './parts/section-6/index.vue'
@@ -51,7 +51,7 @@ name:"incubator-home",
 components:{
   SectionTop,
   SectionDefinition,
-  SectionThree,
+  SectionFeatures,
   SectionFour,
   SectionFive,
   SectionSix,

@@ -1,9 +1,7 @@
 <template>
   <div style="background-color:#F6F8F9 ;" class="mt-5 p-5">
             <h2 class="text-center">
-                المزايا المُقدّمة من رياديات إلى المحتضنات     
-            
-            
+                المزايا المُقدّمة من رياديات إلى المحتضنات
             </h2>
             <div class="container">
 
@@ -66,7 +64,7 @@
 
 <script>
 export default {
-    name:'section-3'
+    name:'section-features'
 }
 </script>
 
