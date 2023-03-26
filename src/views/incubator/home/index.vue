@@ -2,49 +2,40 @@
   <div style="margin-top: 85px " class="consult">
         <!-- section top-->
         <SectionTop />
-        <!--#section 1-->
        <!-- section 2-->
-       <SectionTwo/>
-        <!--#section 2-->
+       <SectionDefinition/>
+
         <!-- section 3-->
         <SectionThree />
-        <!--#section 3-->
+
        <!-- section 4-->
        <SectionFour />
-        <!--#section 4-->
         <!-- section 5-->
         <SectionFive/>
-        <!--#section 5-->
+  
         <!-- section 6-->
         <SectionSix />
-        <!--#section 6-->
+
         <!-- section 7-->
         <SectionSeven />
-        <!--#section 7-->
+
          <!-- section 8-->
          <SectionEight />
-        <!--#section 8--> 
+
          <!-- section 9-->
-         <SectionNine />
-        <!--#section 9-->   
+         <SectionNine /> 
         <!-- section 10-->
         <SectionTen />
-        <!--#section 10-->  
         <!-- section 11-->
         <SectionEleven />
-        <!--#section 11--> 
         <!-- section 12-->
         <SectionTwelve/>
-        <!--#section 12--> 
-
-    
-
     </div>
 </template>
 
 <script>
 import SectionTop from './parts/section-top/index.vue'
-import SectionTwo from './parts/section-2/index.vue'
+import SectionDefinition from './parts/section-definition/index.vue'
 import SectionThree from './parts/section-3/index.vue'
 import SectionFour from './parts/section-4/index.vue'
 import SectionFive from './parts/section-5/index.vue'
@@ -59,7 +50,7 @@ export default {
 name:"incubator-home",
 components:{
   SectionTop,
-  SectionTwo,
+  SectionDefinition,
   SectionThree,
   SectionFour,
   SectionFive,
