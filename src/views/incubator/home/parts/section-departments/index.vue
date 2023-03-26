@@ -13,7 +13,6 @@
             :slides-per-view="7"
             :space-between="10"
               :loop="true"
-              :pagination="true"
               :navigation="true"
               :items="items"
             >

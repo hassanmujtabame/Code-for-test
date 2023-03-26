@@ -12,7 +12,7 @@
        <SectionAds department="incubator" url="network/home-banners" />
         <SectionIncubationProgram />
         <!-- section 6-->
-        <SectionSix />
+        <SectionDepartments />
 
         <!-- section 7-->
         <SectionSeven />
@@ -38,7 +38,7 @@ import SectionFeatures from './parts/section-features/index.vue'
 import SectionAds from '@/common/components/advertisements/index'
 //import SectionFour from './parts/section-4/index.vue'
 import SectionIncubationProgram from './parts/section-incubation-program/index.vue'
-import SectionSix from './parts/section-6/index.vue'
+import SectionDepartments from './parts/section-departments/index.vue'
 import SectionSeven from './parts/section-7/index.vue'
 import SectionEight from './parts/section-8/index.vue'
 import SectionNine from './parts/section-9/index.vue'
@@ -53,7 +53,7 @@ components:{
   SectionFeatures,
   SectionAds,
   SectionIncubationProgram,
-  SectionSix,
+  SectionDepartments,
   SectionSeven,
   SectionEight,
   SectionNine,
