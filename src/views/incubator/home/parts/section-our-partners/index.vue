@@ -16,7 +16,7 @@
 <script>
 import ImgAvatar from '@/components/avatars/img-avatar.vue';
 export default {
- name:'section-8',
+ name:'section-our-partners',
  components:{
     ImgAvatar
 }

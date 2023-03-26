@@ -18,7 +18,7 @@
         <SectionProgramsProjects />
 
          <!-- section 8-->
-         <SectionEight />
+         <SectionOurPartners />
 
          <!-- section 9-->
          <SectionNine /> 
@@ -40,7 +40,7 @@ import SectionAds from '@/common/components/advertisements/index'
 import SectionIncubationProgram from './parts/section-incubation-program/index.vue'
 import SectionDepartments from './parts/section-departments/index.vue'
 import SectionProgramsProjects from './parts/section-programs-projects/index.vue'
-import SectionEight from './parts/section-8/index.vue'
+import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionNine from './parts/section-9/index.vue'
 import SectionTen from './parts/section-10/index.vue'
 import SectionEleven from './parts/section-11/index.vue'
@@ -55,7 +55,7 @@ components:{
   SectionIncubationProgram,
   SectionDepartments,
   SectionProgramsProjects,
-  SectionEight,
+  SectionOurPartners,
   SectionNine,
   SectionTen,
   SectionEleven,
