@@ -4,13 +4,12 @@
               <div
                 class="d-flex justify-content-center align-items-center container"
               >
-                <h1>
+                <h1 class="home-section-title">
                     تعرفي على مجالات الحاضنة           
                 </h1>
         
               </div>
               <DSwiper
-              style="overflow-x: hidden"
             :slides-per-view="7"
             :space-between="10"
               :loop="true"

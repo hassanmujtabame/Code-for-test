@@ -1,11 +1,11 @@
 <template>
   <div class="container">
             <div class=" table-network ">
-                <h2>
+                <h2 class="home-section-title">
                     جدول الاكاديمية
 
                 </h2>
-                <p>
+                <p class="home-section-text">
                     هنا تجدين كل المواعيد  المهمة الخاصة بأكاديمية رياديات
                                 </p>
                 

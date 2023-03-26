@@ -1,6 +1,6 @@
 <template>
    <div class="container p-4">
-            <h2 class="text-center">
+            <h2 class="home-section-title text-center">
                 شركائنا في مجال الازياء
             </h2>
             <div class="row">

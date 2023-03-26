@@ -4,7 +4,7 @@
                   <div
                     class="d-flex justify-content-between align-items-center container"
                   >
-                    <h1>
+                    <h1 class="home-section-title">
                         المشاريع المحتضنة
                     </h1>
                     <div>
@@ -12,7 +12,6 @@
                     </div>
                   </div>
                   <DSwiper
-              style="overflow-x: hidden"
             :slides-per-view="5"
             :space-between="10"
               :loop="true"

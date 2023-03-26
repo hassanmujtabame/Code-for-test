@@ -2,7 +2,7 @@
   <div style="background-color:#F6F8F9 ;" class="mt-5 p-5">
 
 <div  class="container">
-  <h2 class="text-center">
+  <h2 class="home-section-title text-center">
       برامج  و مشروعات الحاضنة
 
   </h2>

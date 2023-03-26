@@ -1,6 +1,6 @@
 <template>
   <div style="background-color:#F6F8F9 ;" class="mt-5 p-5">
-            <h2 class="text-center">
+            <h2 class="home-section-title text-center">
                 المزايا المُقدّمة من رياديات إلى المحتضنات
             </h2>
             <div class="container">
