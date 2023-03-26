@@ -1,4 +1,4 @@
-import LayoutDefault from '@/layouts/default/index.vue'
+import LayoutDefault from '@/layouts/incubator/index.vue'
 const routers =[
     {
         path: 'incubator/home',

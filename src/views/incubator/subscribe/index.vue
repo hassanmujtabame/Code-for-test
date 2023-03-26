@@ -73,6 +73,7 @@
         this.fireOpenDialog('success-incubator-subscribed', data)
     },
     choose(pack){
+        console.mylog('choose',pack)
         if(!this.userSubNetwork){
            this.showMessageForSubscribeNetwork()
             return;
