@@ -12,14 +12,12 @@
                     </div>
                   </div>
                   <DSwiper
-            :slides-per-view="5"
-            :space-between="10"
+              :slides-per-view="5"
+              :space-between="10"
               :loop="true"
-              :pagination="true"
               :navigation="true"
               :items="items"
             >
-       
             <template  v-slot:default="{item}" >
                 <CardVue :title="item.title" :img="item.img"/>
                 </template>
@@ -33,7 +31,7 @@ import DSwiper from '@/components/swiper/index.vue'
 import CardVue from './card.vue'
 
 export default {
-    name:'section-6',
+    name:'section-incubation-projects',
     components:{
         DSwiper,
         CardVue

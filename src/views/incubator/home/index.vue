@@ -19,9 +19,8 @@
 
          <!-- section 8-->
          <SectionOurPartners />
-
          <!-- section 9-->
-         <SectionNine /> 
+         <SectionIncubationProjects /> 
         <!-- section 10-->
         <SectionTen />
         <!-- section 11-->
@@ -41,7 +40,7 @@ import SectionIncubationProgram from './parts/section-incubation-program/index.v
 import SectionDepartments from './parts/section-departments/index.vue'
 import SectionProgramsProjects from './parts/section-programs-projects/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
-import SectionNine from './parts/section-9/index.vue'
+import SectionIncubationProjects from './parts/section-incubation-projects/index.vue'
 import SectionTen from './parts/section-10/index.vue'
 import SectionEleven from './parts/section-11/index.vue'
 import SectionTwelve from './parts/section-12/index.vue'
@@ -56,7 +55,7 @@ components:{
   SectionDepartments,
   SectionProgramsProjects,
   SectionOurPartners,
-  SectionNine,
+  SectionIncubationProjects,
   SectionTen,
   SectionEleven,
   SectionTwelve
