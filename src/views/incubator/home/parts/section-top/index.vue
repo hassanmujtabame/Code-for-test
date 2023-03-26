@@ -3,16 +3,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1 class="fs-1 text-white">
+                        <h1 class="header-title-page">
                             حاضنة رياديات </h1>
-                        <p class="text-white">
-                            فكـــرة مشروعـــــك راح تـــصـــبـــح واقـــــــــــــع
-                            أول خطوة لتحقيقه أشتراكك في حاضنة رياديات 
-                        </p>                           
-                            <div class="btn-main-style">
-                              <a href="subscribe.html" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
-                              <a class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }} </a>
-                          </div>
+                        <p class="header-desc-page">فكـــرة مشروعـــــك راح تـــصـــبـــح واقـــــــــــــع
+ أول خطوة لتحقيقه أشتراكك في حاضنة رياديات</p>      
+                    <div class="btn-main-style">
+                              <router-link :to="getRouteLocale('incubator-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
+                              <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
+                             </div>                     
                     </div>
                     <div class="col-md-6 m-auto">
                         <div style="overflow: inherit;" class="img-cons m-auto ">
@@ -36,7 +34,7 @@
 
 <script>
 export default {
- name:'section-1'
+ name:'section-top'
 }
 </script>
 

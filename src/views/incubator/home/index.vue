@@ -1,7 +1,7 @@
   <template>
   <div style="margin-top: 85px " class="consult">
-        <!-- section 1-->
-        <SectionOne />
+        <!-- section top-->
+        <SectionTop />
         <!--#section 1-->
        <!-- section 2-->
        <SectionTwo/>
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import SectionOne from './parts/section-1/index.vue'
+import SectionTop from './parts/section-top/index.vue'
 import SectionTwo from './parts/section-2/index.vue'
 import SectionThree from './parts/section-3/index.vue'
 import SectionFour from './parts/section-4/index.vue'
@@ -58,7 +58,7 @@ import SectionTwelve from './parts/section-12/index.vue'
 export default {
 name:"incubator-home",
 components:{
-  SectionOne,
+  SectionTop,
   SectionTwo,
   SectionThree,
   SectionFour,
