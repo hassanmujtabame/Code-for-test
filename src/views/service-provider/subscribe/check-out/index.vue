@@ -111,6 +111,7 @@ export default {
           
           console.mylog('success',data)
           this.closeEvent()
+          this.loadCurrentUser()
           this.openSuccessSubscribed(otherData)
         }else{
           window.SwalError(data.message)
