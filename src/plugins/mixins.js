@@ -3,7 +3,7 @@ import Vue from 'vue';
 import Cookies from 'js-cookie';
 import {  mapGetters } from 'vuex';
 import { localize } from 'vee-validate';
-import userAPI from './services/api/user';
+import userAPI from '../services/api/user';
 
 const mixin = {
     install(Vue) {
