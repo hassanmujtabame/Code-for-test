@@ -3,6 +3,7 @@
        <SectionHeader  :itemPage="itemPage" />
        <SectionDesc  :itemPage="itemPage" />
        <SectionLectures  :itemPage="itemPage" />
+       <SectionInstructors  :itemPage="itemPage" />
        <watchVideoLecture />
      </div>
    </template>
@@ -11,6 +12,8 @@
    import SectionHeader from './sections/section-header/index.vue'
    import SectionDesc from './sections/section-desc/index.vue'
    import SectionLectures from './sections/section-lectures/index.vue'
+   import SectionInstructors from './sections/section-instructors/index.vue'
+   
    import watchVideoLecture from './dialogs/watch-video/index'
     //import coursesAPI from '@/services/api/academy/courses'
    export default {
@@ -26,7 +29,8 @@
        SectionHeader,
        SectionDesc,
        SectionLectures,
-       watchVideoLecture
+       watchVideoLecture,
+       SectionInstructors
     },
     data:()=>{
        return {
