@@ -4,7 +4,7 @@
         :loading="loading"
         :closeDialog="closeDialog"
         :openDialog="openDialog"
-        :xl="lectureId"
+        :xl="!!lectureId"
   >
 
     <template v-slot:header>
