@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name:'d-expanded-panel',
  props:{
     title:{
         type:String,

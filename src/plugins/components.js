@@ -32,6 +32,8 @@ import DUserInfo from '@/components/cards/user-info.vue'
 import DUserInfoLi from '@/components/cards/user-info-left-img.vue'
 import DStoryCard from '@/components/cards/story.vue'
 import DJobCard from '@/components/cards/job.vue'
+import DExpandedPanel from '@/components/expanded-panel/ExpandedPanel'
+import DExpandedPanelItem from '@/components/expanded-panel/ExpandedPanelItem'
 import DCoursePanel from '@/components/panels/course-panel/index'
 import DBlogInfoCard from '@/components/cards/blog-info.vue'
 import DDialogLarge from '@/components/modals/large.vue'
@@ -57,7 +59,8 @@ import UserPreviewProfileCard from '@/components/cards/user/preview-profile-card
 
 Vue.directive('click-outside',clickOutside)
 
-
+Vue.component(DExpandedPanel.name,DExpandedPanel)
+Vue.component(DExpandedPanelItem.name,DExpandedPanelItem)
 Vue.component(dLoadingCircleFill.name,dLoadingCircleFill)
 Vue.component(dLoadingTailSpin.name,dLoadingTailSpin)
 Vue.component(dProgressBar.name,dProgressBar)
