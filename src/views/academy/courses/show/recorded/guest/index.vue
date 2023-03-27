@@ -2,12 +2,16 @@
        <div class="mt-5">
        <SectionHeader  :itemPage="itemPage" />
        <SectionDesc  :itemPage="itemPage" />
+       <SectionLectures  :itemPage="itemPage" />
+       <watchVideoLecture />
      </div>
    </template>
 
    <script>
    import SectionHeader from './sections/section-header/index.vue'
    import SectionDesc from './sections/section-desc/index.vue'
+   import SectionLectures from './sections/section-lectures/index.vue'
+   import watchVideoLecture from './dialogs/watch-video/index'
     //import coursesAPI from '@/services/api/academy/courses'
    export default {
     name:'course-show-recorded',
@@ -20,7 +24,9 @@
     },
     components:{
        SectionHeader,
-       SectionDesc
+       SectionDesc,
+       SectionLectures,
+       watchVideoLecture
     },
     data:()=>{
        return {
