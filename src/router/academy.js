@@ -44,13 +44,13 @@ const routers =[
     },
     {
         path: 'academy/courses',
-        meta:{layout:LayoutDefault,auth:true},
+        meta:{layout:LayoutDefault},
         name: 'academy-courses',
         component: () => import(/* webpackChunkName: "academy-courses" */ '../views/academy/courses/index.vue') 
     },
     {
         path: 'academy/courses/:id',
-        meta:{layout:LayoutDefault,auth:true},
+        meta:{layout:LayoutDefault},
         name: 'academy-course-show',
         component: () => import(/* webpackChunkName: "academy-course-show" */ '../views/academy/courses/show/index.vue') 
     },
