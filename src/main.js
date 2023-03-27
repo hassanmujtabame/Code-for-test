@@ -15,7 +15,6 @@ import './plugins/axios'
 //import './plugins/vue-lazy-image'
 import './plugins/i18n'
 import './plugins/sweetalert2'
-import userAPI from './services/api/user';
 import EventBus from './helper/EventBus';
 import Dhelper from './helper/d-helper';
 
@@ -58,34 +57,7 @@ i18n,
  render: h => h(App),
  store,
 methods:{
-  async loadCurrentUser(){
-      try {
-         let { data } = await  userAPI.me()
-         if(data.success){
-            let {token,...user} = data.data;
-            if(token != this.token)
-            window.store.commit('chat/SET_MESSAGES',[]);
-            
-            window.store.commit('auth/SET_TOKEN',token) ;
-            window.store.commit('auth/SET_USER',user);
-
-            
-            window.store.commit('auth/SET_IS_PROVIDER',window.store.getters['auth/isProvider']);
-         }else{
-            window.SwalError(data.message)
-          }
-      } catch (error) {
-         console.log('error',error)
-         console.log('error response',error.response)
-         if(error.response){
-            let response =error.response
-            if(response.status==401){
-               this.logout()
-           }
-         }
-         
-      }
-   }
+ 
 },
  mounted() {
   let lng=Cookies.get('i18n_lang')??'ar';

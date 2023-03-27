@@ -3,7 +3,7 @@ import Vue from 'vue';
 import Cookies from 'js-cookie';
 import {  mapGetters } from 'vuex';
 import { localize } from 'vee-validate';
-
+import userAPI from './services/api/user';
 
 const mixin = {
     install(Vue) {
@@ -149,6 +149,34 @@ const mixin = {
       
               }
           },
+          async loadCurrentUser(){
+            try {
+               let { data } = await  userAPI.me()
+               if(data.success){
+                  let {token,...user} = data.data;
+                  if(token != this.token)
+                  window.store.commit('chat/SET_MESSAGES',[]);
+                  
+                  window.store.commit('auth/SET_TOKEN',token) ;
+                  window.store.commit('auth/SET_USER',user);
+      
+                  
+                  window.store.commit('auth/SET_IS_PROVIDER',window.store.getters['auth/isProvider']);
+               }else{
+                  window.SwalError(data.message)
+                }
+            } catch (error) {
+               console.log('error',error)
+               console.log('error response',error.response)
+               if(error.response){
+                  let response =error.response
+                  if(response.status==401){
+                     this.logout()
+                 }
+               }
+               
+            }
+         },
           scollToElement(id,evt){
             if(evt) evt.preventDefault();
              
