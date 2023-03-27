@@ -154,7 +154,7 @@ const mixin = {
              
              let targetElm= document.getElementById(id)
              if(targetElm)
-             targetElm.scrollIntoView()
+             targetElm.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
          },
           showSuccessMsgProvider(dataEvent){
            
