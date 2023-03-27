@@ -1,5 +1,5 @@
 <template>
-  <div id="course-contents" class="mt-3 px-5">
+  <div id="course-contents" class="mt-5 px-5">
     <div>
     <h1  class="course-guest-section__title">{{ $t('course-contents') }}</h1>
     <d-expanded-panel 
