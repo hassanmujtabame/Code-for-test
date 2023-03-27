@@ -1,5 +1,6 @@
 <template>
-<div class="main-top py-5 position-relative">
+<div class="">
+   <div class="main-top py-5 position-relative">
    <div class="px-5 mb-3">
       <span class="course-department-name mx-5 p-2">{{ itemPage.department_name }}</span>
    </div>
@@ -7,6 +8,7 @@
         <p class="text-white fs-r-24 position-relative z-index-1" :class="{'px-5':!isMobile,'px-1':isMobile}" style="max-width:702px">
         هنا نبذة عن الدورة
         </p>
+      </div>
         <div class="course-menu-top px-5">
          <ul class="course-menu-top__wrapper">
             <li @click="scollToElement('course-desc',$event)">الوصف</li>
