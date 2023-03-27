@@ -33,16 +33,7 @@
 
 <script>
 export default {
- name:'section-header',
- methods:{
-    scollToElement(id,evt){
-       if(evt) evt.preventDefault();
-        
-        let targetElm= document.getElementById(id)
-        if(targetElm)
-        targetElm.scrollIntoView()
-    }
- }
+ name:'section-header'
 }
 </script>
 <style scoped>

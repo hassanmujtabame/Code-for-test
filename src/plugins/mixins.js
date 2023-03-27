@@ -149,6 +149,13 @@ const mixin = {
       
               }
           },
+          scollToElement(id,evt){
+            if(evt) evt.preventDefault();
+             
+             let targetElm= document.getElementById(id)
+             if(targetElm)
+             targetElm.scrollIntoView()
+         },
           showSuccessMsgProvider(dataEvent){
            
          this.fireOpenDialog('standard-success-message',dataEvent)
