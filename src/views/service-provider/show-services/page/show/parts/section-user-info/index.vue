@@ -135,7 +135,7 @@ name:'section-user-info',
         this.itemForm.file = evt.target.files[0];
     },
     async sendOffer(){
-        if(!this.userIsProvider && this.userSubProvider){
+        if(!this.userIsProvider && this.userIsSubProvider){
             let dataEvent ={
                 image:'/assets/img/Group 1171275670.png',
                 title:'لا يمكنك تقديم عرض تقديم الخدمة',
@@ -147,7 +147,7 @@ name:'section-user-info',
             this.showSuccessMsg(dataEvent)
             return;
         }
-        if(!this.userSubProvider){
+        if(!this.userIsSubProvider){
             let dataEvent ={
                 image:'/assets/img/Group 1171275670.png',
                 title:'لا يمكنك تقديم عرض تقديم الخدمة',

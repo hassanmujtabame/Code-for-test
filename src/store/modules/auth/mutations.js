@@ -7,6 +7,8 @@ export default{
         state.academyRole = null;
         state.subscribeNetwork=null;
         state.subscribeProvider=null;
+        state.isSubscribeNetwork=null;
+        state.isSubscribeProvider=null;
         localStorage.removeItem("auth_token");
         localStorage.removeItem("user_provider");
         localStorage.removeItem("user_academy_role");
@@ -26,6 +28,12 @@ export default{
         state.partner = null;
         state.subscribeNetwork=null;
         state.subscribeProvider=null;
+        state.subscribeAcademy=null;
+        state.subscribeIncubator=null;
+        state.isSubscribeNetwork=false;
+        state.isSubscribeProvider=false;
+        state.isSubscribeAcademy =false;
+        state.isSubscribeIncubator = false;
         state.academyRole = null;
         localStorage.removeItem("auth_user");
         localStorage.removeItem("user_provider");
@@ -51,14 +59,19 @@ export default{
         state.isProvider = data
         localStorage.setItem("user_provider", data?'Y':'N');
     },
-    SET_USER(state,payload,...rest){
-        console.log('rest',rest)
+    SET_USER(state,payload){
         let {partner,subscribers,is_instructor,...user} = payload;
         state.user=user;
         state.partner = partner?? null; // if undefined makes it null
-        state.isInstructor = is_instructor?? false; // if undefined makes it null
-        state.subscribeNetwork = subscribers&&subscribers.network?subscribers.network.subscribe:null
-        state.subscribeProvider = subscribers&&subscribers.service_provider?!!subscribers.service_provider.subscribe:null
+        state.isInstructor         = is_instructor?? false; // if undefined makes it null
+        state.subscribeNetwork     = subscribers.network??null;
+        state.subscribeProvider    = subscribers.service_provider??null;
+        state.subscribeAcademy     = subscribers.academy??null;
+        state.subscribeIncubator   = subscribers.incubator??null;
+        state.isSubscribeNetwork   = subscribers && subscribers.network? subscribers.network.subscribe:null
+        state.isSubscribeProvider  = subscribers && subscribers.service_provider? !!subscribers.service_provider.subscribe:null
+        state.isSubscribeAcademy   = subscribers && subscribers.academy? subscribers.academy.subscribe:null
+        state.isSubscribeIncubator = subscribers && subscribers.incubator? !!subscribers.incubator.subscribe:null
         localStorage.setItem("auth_user", JSON.stringify(user));
     },
     SET_PARTNER(state,payload){
@@ -69,11 +82,21 @@ export default{
     },
     SET_SUBSCRIBE_NETWORK(state,payload){
         state.subscribeNetwork=payload;
-        
     },
     SET_SUBSCRIBE_PROVIDER(state,payload){
         state.subscribeProvider=payload;
-        
+    },
+    SET_IS_SUBSCRIBE_NETWORK(state,payload){
+        state.isSubscribeNetwork=payload;
+    },
+    SET_IS_SUBSCRIBE_PROVIDER(state,payload){
+        state.isSubscribeProvider=payload;
+    },
+    SET_IS_SUBSCRIBE_ACADEMY(state,payload){
+        state.isSubscribeAcademy=payload;
+    },
+    SET_IS_SUBSCRIBE_INCUBATOR(state,payload){
+        state.isSubscribeIncubator=payload;
     }
 
 }

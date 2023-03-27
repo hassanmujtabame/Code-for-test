@@ -73,7 +73,7 @@
         this.fireOpenDialog('success-provider-subscribed', data)
     },
     choose(pack){
-        if(!this.userSubNetwork){
+        if(!this.userIsSubNetwork){
            this.showMessageForSubscribeNetwork()
             return;
         }

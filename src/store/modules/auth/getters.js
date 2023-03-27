@@ -31,6 +31,24 @@ export default {
     subscribeProvider (state) { 
         return state.subscribeProvider;
     },
+    subscribeAcademy (state) { 
+        return state.subscribeAcademy;
+    },
+    subscribeIncubator (state) { 
+        return state.subscribeIncubator;
+    },
+    isSubscribeNetwork (state) { 
+        return state.isSubscribeNetwork;
+    },
+    isSubscribeProvider (state) { 
+        return state.isSubscribeProvider;
+    },
+    isSubscribeAcademy (state) { 
+        return state.isSubscribeAcademy;
+    },
+    isSubscribeIncubator (state) { 
+        return state.isSubscribeIncubator;
+    },
     authenticated(state){
         return !!state.user || !!localStorage.getItem('auth_user')
     }

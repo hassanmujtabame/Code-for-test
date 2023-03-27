@@ -75,7 +75,7 @@
          this.fireOpenDialog('success-academy-subscribed', data)
      },
      choose(pack){
-        if(!this.userSubNetwork){
+        if(!this.userIsSubNetwork){
            this.showMessageForSubscribeNetwork()
             return;
         }

@@ -399,7 +399,7 @@ const mixin = {
                 //this.refreshPage()
                },
                 switchRoleProvider(val){
-                if(val &&  !this.userSubProvider){
+                if(val &&  !this.userIsSubProvider){
 
                   let dateEvt ={
                     title:'لا يمكنك تغير كمقدم خدمة لانك غير مشترك بها ',
@@ -464,6 +464,12 @@ const mixin = {
                     userAcademyRole: 'auth/academyRole',
                     userSubNetwork: 'auth/subscribeNetwork',
                     userSubProvider: 'auth/subscribeProvider',
+                    userSubAcademy: 'auth/subscribeAcademy',
+                    userSubIncubator: 'auth/subscribeIncubator',
+                    userIsSubNetwork: 'auth/isSubscribeNetwork',
+                    userIsSubProvider: 'auth/isSubscribeProvider',
+                    userIsSubAcademy: 'auth/isSubscribeAcademy',
+                    userIsSubIncubator: 'auth/isSubscribeIncubator',
                     token: 'auth/token',
                     authenticated: 'auth/authenticated',
                    
