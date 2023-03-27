@@ -87,7 +87,7 @@
         //let  expiryYear=cardInfo.expiry_date.split('/')[1];
          pay_info = {
           type:0,
-          paymentBrand:cardInfo.paymentBrand,
+          paymentBrand:cardInfo.paymentBrand.toUpperCase(),
           card_number:cardInfo.card_number,
           card_holder:cardInfo.card_holder,
           cvv:cardInfo.card_cvv,
