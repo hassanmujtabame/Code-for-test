@@ -618,5 +618,7 @@
   "subscribe-network": "Subscribe network",
   "undo": "Undo",
   "description": "description",
-  "what-will-you-learn": "what will you learn?"
+  "what-will-you-learn": "what will you learn?",
+  "course-contents": "course contents",
+  "lectures": "lectures"
 }

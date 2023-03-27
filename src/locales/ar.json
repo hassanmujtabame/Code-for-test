@@ -613,5 +613,7 @@
   "subscribe-network": "إشترك في الشبكة",
   "undo": "تراجع",
   "description": "الوصف",
-  "what-will-you-learn": "ماذا ستتعلم؟"
+  "what-will-you-learn": "ماذا ستتعلم؟",
+  "course-contents": "محتويات الدورة",
+  "lectures": "دروس"
 }
