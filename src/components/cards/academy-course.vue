@@ -63,6 +63,7 @@ export default {
 }
 .student-course__image{
     height:173px;
+    min-height: 173px;
     border:1px solid #efefef;
     border-top-left-radius: var(--bs-border-radius)!important;
     border-top-right-radius: var(--bs-border-radius)!important;

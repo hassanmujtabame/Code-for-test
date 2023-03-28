@@ -41,7 +41,7 @@ export default {
      async loadList(){
       this.loading =  true;
         try {
-          let {data} = await coursesApI.getRecentCourses({paginate:6,type:'live'})
+          let {data} = await coursesApI.getSimilars(this.itemPage.id)
           if(data.success){
             this.items = data.data
             if(this.items.length<=4) this.slidesperview=3

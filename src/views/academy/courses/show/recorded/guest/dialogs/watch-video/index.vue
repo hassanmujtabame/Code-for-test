@@ -6,10 +6,6 @@
         :openDialog="openDialog"
         :xl="false"
   >
-
-    <template v-slot:header>
-      <span v-html="titleDialog"></span>
-      </template>
     <template v-slot:default>
         <div v-if="showDialog" class="row">
                    <div class="col-12">

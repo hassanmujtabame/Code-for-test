@@ -56,6 +56,9 @@ class CoursesApi extends BaseApi{
     deleteAttachment(id){
         return window.axios.delete(`academy/instructor/courses/attachments/${id}`);
     }
+    getSimilars(id){
+        return window.axios.get(`academy/instructor/similar-courses/${id}`);
+    }
 }
 
 export default new CoursesApi();
