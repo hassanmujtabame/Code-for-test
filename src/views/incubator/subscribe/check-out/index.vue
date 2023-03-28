@@ -124,7 +124,7 @@ export default {
         this.fireCloseDialog(this.group)
       },
       openSuccessSubscribed(data){
-          this.fireOpenDialog('success-academy-subscribed', data)
+          this.fireOpenDialog('success-incubator-subscribed', data)
       },
     }
 }
