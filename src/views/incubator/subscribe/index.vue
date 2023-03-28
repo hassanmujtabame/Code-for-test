@@ -42,7 +42,7 @@
  
  <script>
  import SubscribeCard from '@/components/cards/subscribe-card.vue';
- import incubatorAPI from '@/services/api/incubator.js'
+ import incubatorAPI from '@/services/api/incubator'
  import successSubscribeDialog from './success-subscribe-dialog.vue';
  import checkoutPackageDiag from './check-out/index.vue';
  export default {
