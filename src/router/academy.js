@@ -31,6 +31,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-my-profile" */ '../views/common/my-profile/index.vue')
     },
     {
+        path: 'academy/my-schedules',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'academy-my-schedules',
+        component: () => import(/* webpackChunkName: "academy-my-schedules" */ '../views/academy/my-schedules/index.vue') 
+    },
+    {
         path: 'academy/preview-profile',
         name: 'academy-preview-profile',
         meta:{layout:LayoutDefault,auth:true},
