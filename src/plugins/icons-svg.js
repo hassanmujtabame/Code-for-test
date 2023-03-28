@@ -23,7 +23,15 @@ import trashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
 import invoiceIcon from '@/components/icon-svg/invoice-icon.vue'
 import lockPassIcon from '@/components/icon-svg/lock-pass.vue'
 import cupIcon from '@/components/icon-svg/cup-icon.vue'
+import dUnlock from '@/components/icon-svg/unlock.vue'
+import dDocText from '@/components/icon-svg/document-text.vue'
+import dMedalStar from '@/components/icon-svg/medal-star.vue'
+import dMoney from '@/components/icon-svg/money.vue'
 
+Vue.component(dDocText.name,dDocText)
+Vue.component(dMedalStar.name,dMedalStar)
+Vue.component(dMoney.name,dMoney)
+Vue.component(dUnlock.name,dUnlock)
 Vue.component('d-chatting-icon',chattingIcon)
 Vue.component('d-cup-icon',cupIcon)
 Vue.component('d-lock-pass-icon',lockPassIcon)
