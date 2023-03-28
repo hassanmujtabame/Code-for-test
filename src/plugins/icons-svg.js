@@ -27,7 +27,9 @@ import dUnlock from '@/components/icon-svg/unlock.vue'
 import dDocText from '@/components/icon-svg/document-text.vue'
 import dMedalStar from '@/components/icon-svg/medal-star.vue'
 import dMoney from '@/components/icon-svg/money.vue'
+import dCalendar from '@/components/icon-svg/calendar-icon.vue'
 
+Vue.component(dCalendar.name,dCalendar)
 Vue.component(dDocText.name,dDocText)
 Vue.component(dMedalStar.name,dMedalStar)
 Vue.component(dMoney.name,dMoney)
