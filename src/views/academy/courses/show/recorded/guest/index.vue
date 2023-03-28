@@ -11,6 +11,7 @@
       </div>
       <SectionSimilarCourses :itemPage="itemPage" />
       </div>
+      <cardFixed :itemPage="itemPage"/>
        <watchVideoLecture />
 
      </div>
@@ -25,6 +26,7 @@
    import SectionSimilarCourses from './sections/section-similar-courses/index.vue'
    
    import watchVideoLecture from './dialogs/watch-video/index'
+   import cardFixed from './card-fixed.vue'
     //import coursesAPI from '@/services/api/academy/courses'
    export default {
     name:'course-show-recorded',
@@ -39,10 +41,11 @@
        SectionHeader,
        SectionDesc,
        SectionLectures,
-       watchVideoLecture,
        SectionInstructors,
        SectionRates,
-       SectionSimilarCourses
+       SectionSimilarCourses,
+       watchVideoLecture,
+       cardFixed,
     },
     data:()=>{
        return {
