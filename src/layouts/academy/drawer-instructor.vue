@@ -18,7 +18,13 @@
                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('students-projects') }}</button> 
                     </router-link>
                 </div>
-
+                <div class="box  mx-2 mt-3 ">
+                   <d-calendar-icon color="var(--m-color)"/>
+                    
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-schedules')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('my-schedules') }}</button>
+                    </router-link>
+                </div>
         <div class="box  mx-2 mt-3 ">
             <d-invoice-icon class="m-c" color="currentColor"/>
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-financial-transactions')" class="mx-2 m-c ">
