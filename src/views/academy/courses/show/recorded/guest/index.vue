@@ -11,7 +11,7 @@
       </div>
       <SectionSimilarCourses :itemPage="itemPage" />
       </div>
-      <cardFixed :itemPage="itemPage"/>
+      <cardFixed :itemPage="itemPage" :isOwner="isOwner"/>
        <watchVideoLecture />
 
      </div>

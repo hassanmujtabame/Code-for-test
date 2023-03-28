@@ -33,13 +33,14 @@ export default {
  components:{
   rateCard
  },
- data:()=>({
-  rates:[
+ data:(vm)=>{
+  let ratesTest=[itemTest,
     itemTest,
-    itemTest,
-    itemTest,
-    ]
- })
+    itemTest,]
+  return {
+  rates:process.env.NODE_ENV=='development'?ratesTest:vm.itemPage.rates
+ }
+}
 }
 </script>
 

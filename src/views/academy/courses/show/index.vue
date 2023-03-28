@@ -8,8 +8,8 @@
     <template v-else>
  <PageOnSite :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='on-site'" />
  <PageLive :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='live'"/>
- <PageRecordedGuest :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded' && userAcademyRole=='student' && !itemPage.user_is_join_course"/>
- <PageRecordedJoined :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded'&& (itemPage.user_is_join_course || userAcademyRole=='instructor')"/>
+ <PageRecordedGuest :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded'"/>
+
 
 </template>
  </div>
@@ -18,7 +18,7 @@
  <script>
  import PageOnSite from './on-site/index.vue'
  import PageRecordedGuest from './recorded/guest/index.vue'
- import PageRecordedJoined from './recorded/joined/index.vue'
+ //import PageRecordedJoined from './recorded/joined/index.vue'
  import PageLive from './live/index.vue'
  import coursesAPI from '@/services/api/academy/courses'
  export default {
@@ -26,7 +26,7 @@
   components:{
    PageOnSite,
    PageRecordedGuest,
-   PageRecordedJoined,
+   //PageRecordedJoined,
    PageLive
   },
   data:()=>{
