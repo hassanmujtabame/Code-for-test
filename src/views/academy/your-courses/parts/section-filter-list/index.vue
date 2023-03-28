@@ -21,7 +21,7 @@ hideSide
   </div>
 </template>
 <template v-slot="{item}">
-  <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})">
+  <router-link class="router-link" :to="getUrlCourse(item)">
     <CourseCard 
     :item="item"
     :showProgress="true"
@@ -48,6 +48,16 @@ export default {
     }
   },
   methods:{
+    getUrlCourse(item){
+      switch (item.type) {
+        case 'recorded':
+        return this.getRouteLocale('academy-course-recorded-show',{id:item.id})
+
+      
+        default:
+          return this.getRouteLocale('academy-course-show',{id:item.id})
+      }
+    },
     changeStatus(status){
             this.status =  status
             this.filterItem.status=status;
