@@ -12,6 +12,7 @@
                     </div>
                   </div>
                   <DSwiper
+                  v-if="!loading"
               :slides-per-view="5"
               :space-between="10"
               :loop="true"
@@ -19,7 +20,7 @@
               :items="items"
             >
             <template  v-slot:default="{item}" >
-                <CardVue :title="item.title" :img="item.img"/>
+                <CardVue :title="item.title" :img="item.image"/>
                 </template>
                 </DSwiper>
                 </div>
@@ -29,7 +30,7 @@
 <script>
 import DSwiper from '@/components/swiper/index.vue'
 import CardVue from './card.vue'
-
+import incubatorAPI from '@/services/api/incubator';
 export default {
     name:'section-incubation-projects',
     components:{
@@ -37,16 +38,35 @@ export default {
         CardVue
     },
     data:()=>({
+      loading: false,
         items:[
-        {title:'مركز باكورة الأهلية',img:'/assets/img/Group 14502.png'},
-        {title:'مركز باكورة الأهلية',img:'/assets/img/Group 17753.png'},
-        {title:'مركز باكورة الأهلية',img:'/assets/img/Group 145029.png'},
-        {title:'مركز باكورة الأهلية',img:'/assets/img/Group 1450232.png'},
-        {title:'مركز باكورة الأهلية',img:'/assets/img/Group 1450232.png'},
-        {title:'مركز باكورة الأهلية',img:'/assets/img/Group 1450232.png'},
-        {title:'مركز باكورة الأهلية',img:'/assets/img/Group 1450232.png'},
-    ]
-    })
+        /*{title:'مركز باكورة الأهلية',image:'/assets/img/Group 14502.png'},
+        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 17753.png'},
+        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 145029.png'},
+        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 1450232.png'},
+        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 1450232.png'},
+        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 1450232.png'},
+        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 1450232.png'},
+    */]
+    }),
+    methods:{
+    async initializing(){
+      this.loading  = true;
+      try {
+        let { data } = await incubatorAPI.getProjects({paginate:10})
+        if(data.success){
+          this.items = data.data
+        }
+      } catch (error) {
+        console.mylog('error',error)
+        //
+      }
+      this.loading  = false;
+    }
+    },
+    mounted(){
+      this.initializing()
+    }
 
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
    <div class="box ">
                             <div class="">
-                                <img  :src="img" alt="" width="259" height="192">
+                                <img  :src="img" :alt="title" width="259" height="192">
                             </div>
                             <div class="text bg-white ">
                                 <h6 class="border p-3 rounded-bottom s-c">{{title}}</h6>
