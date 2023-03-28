@@ -14,19 +14,19 @@
                                             </p>
                                         </div>
                                         <p class="student-course__description text-two-lines">{{ item.desc }}</p>
-                                        <div v-if="showInfo" class="d-flex gap-2">
+                                        <div v-if="showInfo" class="row">
 
-                                                <p class="student-course__item-info flex-shrink-0 ">
+                                                <p class="student-course__item-info col-6">
                                                     <d-empty-wallet-icon :size="24" color="currentColor"/>
                                                         {{item.price??'N/A'}} {{ $t('riyals') }}
                                                 </p>
 
-                                                <p class="student-course__item-info flex-shrink-0 ">
+                                                <p class="student-course__item-info col-6">
                                                     <d-localisation-icon :size="24"  color="currentColor"/>
                                                         {{$t(item.type)}}
                                                 </p>
                                                 
-                                                <p class="student-course__item-info">
+                                                <p class="student-course__item-info  col-12 mt-1">
                                                     <d-school-wallet-icon :size="24"  color="currentColor"/>
                                                     {{item.user_info?item.user_info.name:'N/A'}}
                                                 </p>
