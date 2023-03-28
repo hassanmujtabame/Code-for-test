@@ -37,9 +37,9 @@ export default {
 .rate-experience{
     cursor: pointer;
     position: fixed;
-    left: auto;
-    right:0;
-    border-radius:  8px 0 0 8px ;
+    right: auto;
+    left:0;
+    border-radius:  0px 8px 8px 0px ;
     width:56px;
     height: 112px;
     background: #CDD7D8;
@@ -47,9 +47,9 @@ export default {
     z-index: 999999;
 }
 html[dir=ltr] .rate-experience{
-    left: 0;
-    right:auto;
-    border-radius: 0 8px 8px 0px;
+    right: 0;
+    left:auto;
+    border-radius: 8px 0px 0px 8px;
 }
 .rate-experience-wrapper{
     padding:10px;
