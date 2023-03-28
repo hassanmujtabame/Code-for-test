@@ -9,6 +9,7 @@
        <div class="mt-5">
        <SectionRates :itemPage="itemPage"/>
       </div>
+      <SectionSimilarCourses :itemPage="itemPage" />
       </div>
        <watchVideoLecture />
 
@@ -21,6 +22,7 @@
    import SectionLectures from './sections/section-lectures/index.vue'
    import SectionInstructors from './sections/section-instructors/index.vue'
    import SectionRates from './sections/section-rates/index.vue'
+   import SectionSimilarCourses from './sections/section-similar-courses/index.vue'
    
    import watchVideoLecture from './dialogs/watch-video/index'
     //import coursesAPI from '@/services/api/academy/courses'
@@ -39,7 +41,8 @@
        SectionLectures,
        watchVideoLecture,
        SectionInstructors,
-       SectionRates
+       SectionRates,
+       SectionSimilarCourses
     },
     data:()=>{
        return {
