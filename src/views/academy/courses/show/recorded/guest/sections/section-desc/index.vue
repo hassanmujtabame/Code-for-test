@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3 px-5">
+  <div class="mt-3">
     <div id="course-desc">
     <h1  class="course-guest-section__title">{{ $t('description') }}</h1>
     <div  v-html="itemPage.desc">

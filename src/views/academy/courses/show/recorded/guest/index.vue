@@ -1,10 +1,17 @@
 <template>
        <div class="mt-5">
+        
        <SectionHeader  :itemPage="itemPage" />
+       <div  style="max-width:628px" class="px-5">
        <SectionDesc  :itemPage="itemPage" />
        <SectionLectures  :itemPage="itemPage" />
        <SectionInstructors  :itemPage="itemPage" />
+       <div class="mt-5">
+       <SectionRates :itemPage="itemPage"/>
+      </div>
+      </div>
        <watchVideoLecture />
+
      </div>
    </template>
 
@@ -13,6 +20,7 @@
    import SectionDesc from './sections/section-desc/index.vue'
    import SectionLectures from './sections/section-lectures/index.vue'
    import SectionInstructors from './sections/section-instructors/index.vue'
+   import SectionRates from './sections/section-rates/index.vue'
    
    import watchVideoLecture from './dialogs/watch-video/index'
     //import coursesAPI from '@/services/api/academy/courses'
@@ -30,7 +38,8 @@
        SectionDesc,
        SectionLectures,
        watchVideoLecture,
-       SectionInstructors
+       SectionInstructors,
+       SectionRates
     },
     data:()=>{
        return {

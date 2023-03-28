@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 px-5">
+  <div class="mt-5">
     <div id="course-instructors">
     <h1  class="course-guest-section__title">{{ $t('course-instructors') }}</h1>
     <div class="mt-5" >
