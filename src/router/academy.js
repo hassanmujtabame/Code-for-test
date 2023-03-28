@@ -58,13 +58,13 @@ const routers =[
         path: 'academy/courses/:id',
         meta:{layout:LayoutDefault},
         name: 'academy-course-show',
-        component: () => import(/* webpackChunkName: "academy-course-show" */ '../views/academy/courses/show/index.vue') 
+        component: () => import(/* webpackChunkName: "academy-course-show" */ '../views/academy/courses/show/guest/index.vue') 
     },
     {
-        path: 'academy/courses/:id/recorded',
+        path: 'academy/courses/:id/preview',
         meta:{layout:LayoutDefault},
-        name: 'academy-course-recorded-show',
-        component: () => import(/* webpackChunkName: "academy-course-show" */ '../views/academy/courses/show/recorded/joined') 
+        name: 'academy-course-preview-show',
+        component: () => import(/* webpackChunkName: "academy-course-show" */ '../views/academy/courses/show/index.vue') 
     },
     {
         path: 'academy/courses/:id/add-exam',

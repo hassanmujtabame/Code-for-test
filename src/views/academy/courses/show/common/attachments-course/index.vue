@@ -1,5 +1,6 @@
 <template>
  <d-course-panel
+ hideHeader
      :class-header="`d-flex flex-column justify-content-between`"
      >
               <template v-slot:header>
@@ -51,7 +52,7 @@
                 </ValidationObserver>
                 </template>
                 <template v-slot:default>
-            <div>
+            <div v-if="attachments.length">
                 <rateCard v-for="(rateItem,i) in attachments" :key="i"
                 :item="rateItem" 
                 :isOwner="isOwner"
@@ -59,6 +60,9 @@
                 @delete="showConfirmDeleteItem"
                 :showBorder="(attachments.length-1)>i"
                 />
+            </div>
+            <div v-else class="d-flex align-items-center justify-content-center">
+                <h3 class="t-c">لا توجد مرفقات</h3>
             </div>
             </template>
 
@@ -81,6 +85,10 @@ export default {
             isOwner:{
                 type:Boolean,
                 default:false,
+            },
+            hideHeader:{
+                type:Boolean,
+                default:false
             }
     },
     data:(vm)=>({

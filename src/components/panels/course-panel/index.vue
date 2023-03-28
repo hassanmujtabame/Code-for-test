@@ -1,7 +1,7 @@
 <template>
   <div class="course-panel">
     <div class="course-panel__wrapper">
-        <div class="course-panel__header" :class="classHeader">
+        <div v-if="!hideHeader" class="course-panel__header" :class="classHeader">
             <slot name="header"></slot>
         </div>
         <div class="course-panel__body" :class="classBody">
@@ -22,6 +22,10 @@ export default {
     classBody:{
         type:[String,Object,Array],
         default:''
+    },
+    hideHeader:{
+                type:Boolean,
+                default:false
     }
  },
  watch:{

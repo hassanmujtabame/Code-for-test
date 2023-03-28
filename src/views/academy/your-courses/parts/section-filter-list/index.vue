@@ -51,7 +51,7 @@ export default {
     getUrlCourse(item){
       switch (item.type) {
         case 'recorded':
-        return this.getRouteLocale('academy-course-recorded-show',{id:item.id})
+        return this.getRouteLocale('academy-course-preview-show',{id:item.id})
 
       
         default:

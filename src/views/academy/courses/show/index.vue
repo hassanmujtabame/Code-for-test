@@ -8,7 +8,7 @@
     <template v-else>
  <PageOnSite :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='on-site'" />
  <PageLive :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='live'"/>
- <PageRecordedGuest :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded'"/>
+ <PageRecorded :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded'"/>
 
 
 </template>
@@ -17,16 +17,16 @@
  
  <script>
  import PageOnSite from './on-site/index.vue'
- import PageRecordedGuest from './recorded/guest/index.vue'
- //import PageRecordedJoined from './recorded/joined/index.vue'
+ //import PageRecordedGuest from './recorded/guest/index.vue'
+ import PageRecorded from './recorded/joined/index.vue'
  import PageLive from './live/index.vue'
  import coursesAPI from '@/services/api/academy/courses'
  export default {
   name:'course-show',
   components:{
    PageOnSite,
-   PageRecordedGuest,
-   //PageRecordedJoined,
+   //PageRecordedGuest,
+   PageRecorded,
    PageLive
   },
   data:()=>{
@@ -46,7 +46,10 @@
                  if (data.success) {
                     this.itemPage = data.data;
                     this.isOwner = this.itemPage.user_info.id==this.user.id
-                 }else{
+                    if((!this.isOwner && !this.itemPage.user_is_join_course)){
+                      this.router_push('academy-course-show',{id:this.itemPage.id})
+                    }
+                  }else{
                    this.hasError = true;
                  }
              } catch (error) {

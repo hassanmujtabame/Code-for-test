@@ -19,8 +19,8 @@
     <span class="px-2">{{itemPage.price}} {{ $t('riyals') }}</span>
    </div>
    <div class="mt-3">
-    <button v-if="!isOwner && (!token || !itemPage.user_is_join_course)" @click="inscription" class="btn btn-custmer w-100">أشترك في الدورة</button>
-    <button v-else @click="showCourse" class="btn btn-custmer w-100">الذهاب الى الدورة التدريبة</button>
+    <button v-if="!isOwner && (!token || !itemPage.user_is_join_course)" @click="inscription" class="btn btn-custmer w-100">إشترك في الدورة</button>
+    <button v-else @click="showCourse" class="btn btn-custmer w-100">{{ btnTitleSub() }}</button>
    
 
 </div>
@@ -43,9 +43,19 @@ export default {
     data:()=>({
         resetCourse:3,
     }),
+    computed:{
+    
+    },
     methods:{
-        showCourse(){
-            this.router_push('academy-course-recorded-show')
+      btnTitleSub(){
+        switch (this.itemPage.type) {
+          case 'on-site':return 'عرض جدول الدورة'
+          default:
+          return 'الذهاب الى الدورة التدريبة'
+        }
+      },
+              showCourse(){
+            this.router_push('academy-course-preview-show')
         },
         inscription(){
             if(!this.token){
@@ -80,7 +90,7 @@ export default {
             title:'تم الانضمام الى هذه الدورة بنجاح',
             description:'',
             btns:[
-              {title:this.$t('course-page'),action:()=>this.router_push('academy-course-recorded-show',{id:this.itemPage.id})},
+              {title:this.$t('course-page'),action:()=>this.router_push('academy-course-preview-show',{id:this.itemPage.id})},
               {title:this.$t('undo-joining'),action:()=>this.cancelJoin(),class:"btn btn-danger"},
             ]
     }
@@ -126,6 +136,9 @@ top: 171px;
 left: 100px;
 right: auto;
 z-index: 10;
+}
+.card-img-top{
+  min-height: 245px;
 }
 .tablet{
     width: 300px;
