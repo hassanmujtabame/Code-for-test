@@ -97,7 +97,7 @@ checkoutService (data){
     return window.axios.post(`service-provider/user/purchase-service-checkout`,data);
 
 }
-getDeliveryPlaces(params={}){
+getDeliveryPlaces(/*params={}*/){
     return {
         success:true,
         data:[

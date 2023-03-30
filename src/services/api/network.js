@@ -36,6 +36,9 @@ class NetworkApi extends BaseApi {
             return {success:false,message:'error general'}
          }
     }
+    checkoutPackageFree(data){
+        return window.axios.post(`network/user-checkout-package-free`,data);
+    }
     checkoutPackage(data){
         /*
           type if 0

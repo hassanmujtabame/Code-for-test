@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
+import serviceProviderAPIs from '@/services/api/service-provider/provider/index'
 //import readyServiceCard from '@/components/cards/ready-service.vue';
 import sidebarFilter from './sidebar-filter.vue'
 import cardInfoVue from './card-item'
@@ -75,11 +75,11 @@ export default {
         
                 ...this.filterItem
             }
-            return await readyServiceAPIs.getAll(params)
+            return await serviceProviderAPIs.getAll(params)
         },
         async getCategories() {
             try {
-                let { data } = await readyServiceAPIs.getCategories()
+                let { data } = await serviceProviderAPIs.readyService.getCategories()
                 if (data.success) {
 
                     let categories = data.data;

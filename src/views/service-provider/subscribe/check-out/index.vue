@@ -60,7 +60,7 @@ hideAmount
 </template>
 <script>
 import CheckOutDialog from '@/common/dialogs/check-out/index'
-import providerAPI from '@/services/api/service-provider.js'
+import providerAPI from '@/services/api/service-provider/index'
 export default {
   name:"checkout-subscribe-service-provider",
   props:{

@@ -6,6 +6,9 @@ class IncubatorApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`incubator/packages?${s}`);
     }
+    checkoutPackageFree(data){
+        return window.axios.post(`incubator/user-checkout-package-free`,data);
+    }
     checkoutPackage(data){
         return window.axios.post(`incubator/user-checkout`,data);
     }
