@@ -9,10 +9,10 @@
     <template v-slot:default>
         <div v-if="showDialog" class="row">
                    <div class="col-12">
-                    <div class="add-lecture-video position-relative" :class="{'video-disabled':!lectureId}">
-                                    <d-overlays-simple v-if="videoing" />
+                    <div  class="add-lecture-video position-relative">
+                                    
                                    
-                                  <label for="imginput" class="form-label file-label first w-100" :class="{'label-disabled':!lectureId}">
+                                  <label for="imginput" class="form-label file-label first w-100">
                                         <div class="text-center p-5">
                                           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M63.5698 66.0663C62.9365 66.0663 62.3031 65.8329 61.8031 65.3329C60.8365 64.3662 60.8365 62.7663 61.8031 61.7996C73.8365 49.7663 73.8365 30.1997 61.8031 18.1997C60.8365 17.2331 60.8365 15.6331 61.8031 14.6664C62.7698 13.6997 64.3698 13.6997 65.3365 14.6664C79.3031 28.6331 79.3031 51.3662 65.3365 65.3329C64.8365 65.8329 64.2031 66.0663 63.5698 66.0663Z" fill="#1FB9B3"/>
@@ -23,7 +23,7 @@
                                             </svg>
                                         </div>
                                         <div class="w-100 h-100 top-0 left-0 position-absolute">
-                                          <video id="video-add-lecture-player" :src="itemDialog.video" ></video>
+                                          <video id="video-add-lecture-player" :src="video"  controls></video>
                                         </div>
                                         
                                     </label>
@@ -49,7 +49,7 @@ export default {
 
   data:()=>({
     loading :  false,
-  
+  video:null,
     showDialog : false,
     itemDialog:{video:null},
     itemPage:{},
@@ -63,7 +63,7 @@ export default {
         this.itemDialog = {... dataItem.item}
         let {id,title,video} = dataItem.item;
         this.itemForm.id = id
-        
+        this.video = video;
         this.itemForm.title = title
         this.itemForm.video = video
         this.loading =  false;
@@ -87,7 +87,7 @@ export default {
 <style scoped>
 #video-add-lecture-player{
   position: absolute;
-  display: none;
+  /*display: none;*/
   width:100%;
   height:100%
 }
