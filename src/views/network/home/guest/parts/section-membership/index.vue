@@ -1,16 +1,15 @@
 <template>
   <div class="container mt-5">   
-            <PartSchedule />
+            <PartMembership/>
         </div>
 </template>
 
 <script>
-import PartSchedule from './schedule-riadiat.vue'
+import PartMembership from './join-membership.vue'
 export default {
-name:"section-schedule",
+name:"section-membership",
 components:{
-
-    PartSchedule
+    PartMembership,
 },
 
 created(){

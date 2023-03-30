@@ -8,7 +8,7 @@
                         <div class="col-md-8">
                             <div class="row">
                                 <div v-for="(item,i) in items.filter((x,i)=>i<3)" :key="i" class="col-6  col-lg-3">
-                                   <router-link class="router-link" :to="getRouteLocale('network-learning-meeting-show',{id:item.i})">
+                                   <router-link class="router-link" :to="getRouteLocale('network-learning-meeting-show',{id:item.id})">
                                     <scheduleItem 
                                    :image="item.image"
                                    :title="item.title"

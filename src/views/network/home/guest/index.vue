@@ -21,6 +21,7 @@
          <SectionThree/>
         <!-- #section 3-->
         <!-- section 4-->
+        <SectionMembership />
         <SectionSchedules />
         <!-- #section 4-->
         <!-- section 5-->
@@ -49,6 +50,7 @@
 <script>
 import SectionOne from './parts/section-1/index.vue';
 import SectionThree from './parts/section-3/index.vue';
+import SectionMembership from './parts/section-membership/index.vue';
 import SectionSchedules from './parts/section-schedules/index.vue';
 import SectionTopMember from './parts/section-top-members/index.vue';
 import SectionPartners from '../auth/parts/section-partners/index.vue';
@@ -67,6 +69,7 @@ components:{
     SectionOne,
 
     SectionThree,
+    SectionMembership,
     SectionSchedules,
     SectionTopMember,
     SectionPartners,
