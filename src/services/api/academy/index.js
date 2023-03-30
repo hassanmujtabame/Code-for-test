@@ -36,6 +36,10 @@ class academyApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/view-balance?${s}`);
     }
+    getHomeSchedules(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/network-schedule?${s}`);
+    }
     checkoutPackageFree(data){
         return window.axios.post(`academy/user-checkout-package-free`,data);
     }

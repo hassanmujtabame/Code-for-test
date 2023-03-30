@@ -9,6 +9,10 @@ class NetworkApi extends BaseApi {
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/user-subscriptions?${s}`);
     }
+    getHomeSchedules(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/network-schedule?${s}`);
+    }
     getPackages(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/packages?${s}`);
