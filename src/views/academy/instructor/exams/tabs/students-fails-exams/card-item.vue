@@ -5,7 +5,9 @@
     <div class="exam-student-item__wrapper">
             <div class="exam-student-item__body">
                 <div class="exam-student-item__image">
+                    <router-link :to="getRouteLocale('network-show-profile',{id:item.id})">
                     <img class="rounded-circle" :src="item.image" alt="" width="48" height="48">
+                </router-link>
                 </div>
                 <div class="exam-student-item__info">
                     <h6 class="exam-student-item__title m-c p-0 m-0">
