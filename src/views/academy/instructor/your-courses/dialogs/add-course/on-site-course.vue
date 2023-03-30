@@ -5,7 +5,7 @@
     :close-dialog="closeDialog"
     >
     <template v-slot:default>
-        <div v-if="showDialog" ref="form" tag="div">
+        <div v-if="showDialog" ref="form" class="form-onsite" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
             <!--number_day -->    
             <div class="mt-3">
@@ -51,6 +51,22 @@
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
+                <div class="col-23 col-md-12">
+                            <div class="form-group position-relative">
+                                <label class="form-label">{{ $t('start-time-course') }} - {{ $t('end-time-course') }}</label>
+                                <date-picker-range 
+                                :valueStart.sync="itemForm.start_time"
+                                :valueEnd.sync="itemForm.end_time"
+                                :names="{start:$t('Start-time'),end:$t('End-time')}"
+                                :vids="{start:'start_time',end:'end_time'}"
+                                :rules="{start:'required',end:'required'}"
+                                mode="time"
+                                mask="HH:mm"
+                                class="form-control time-input"
+                                >
+                                </date-picker-range>
+                            </div>
+                    </div>
                  <!--end date booking -->
                  <div class="mt-3">
                     <!-- <keep-alive> -->
@@ -228,7 +244,7 @@
                         أضف صورة للعرض
                     </span>
                 <d-error-input :errors="errors" v-if="errors && errors.length>0" />
-                        <img id="add-course-image" class="mt-3" height="100" width="100" />
+                        <img id="add-course-onsite-image" class="mt-3" height="100" width="100" />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
@@ -277,7 +293,7 @@
             this.step-=1
         },
         emptyImage(){
-            window.$('#add-course-image')
+            window.$('#add-course-onsite-image')
                     .attr('src','none')
                     .css('display', 'none');
         },
@@ -297,7 +313,7 @@
         var reader = new FileReader();
             reader.onload =  (e) =>{
                 //console.log('result',e,this.idImage)
-                window.$('#add-course-image')
+                window.$('#add-course-onsite-image')
                     .attr('src', e.target.result)
                     .css('display', 'block');
 
@@ -400,6 +416,8 @@
                 course_days:null,
                 number_day:null,
                 start_date:'',
+                start_time:'',
+                end_time:'',
                 reservation_closing_date:'',
                 type_certificate:null,
                 number_students:null,
@@ -416,6 +434,8 @@
                 let {id,course_days,
                     number_day,
                 start_date,
+                start_time,
+                end_time,
                 reservation_closing_date,
                 type_certificate,
                 number_students,
@@ -433,6 +453,8 @@
                 course_days,
                 number_day,
                 start_date,
+                start_time,
+                end_time,
                 reservation_closing_date,
                 type_certificate,
                 number_students,
@@ -461,8 +483,15 @@
     }
     </script>
     
-    <style scoped>
-    #add-course-image{
+    <style>
+    .time-input input{
+        max-width:100px;
+    }
+    #add-course-onsite-image{
         display: none;
     }
+    .form-onsite .vc-time-picker .vc-date-time .vc-date{
+    display: none !important;
+
+}
     </style>

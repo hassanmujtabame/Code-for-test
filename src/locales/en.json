@@ -624,5 +624,7 @@
   "course-instructors": "course instructors",
   "rates": "rates",
   "my-schedules": "my schedules",
-  "recorded": "recorded"
+  "recorded": "recorded",
+  "start-time-course": "start time",
+  "end-time-course": "end time"
 }
