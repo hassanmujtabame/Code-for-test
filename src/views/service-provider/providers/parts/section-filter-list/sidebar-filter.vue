@@ -95,7 +95,7 @@
 </template>
 
 <script>
-import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
+import serviceProviderAPIs from '@/services/api/service-provider/provider/index'
 export default {
  name:'sidebar-box',
  props:{
@@ -136,7 +136,7 @@ export default {
  },
  async getCategories() {
             try {
-                let { data } = await readyServiceAPIs.getCategories()
+                let { data } = await serviceProviderAPIs.readyService.getCategories()
                 if (data.success) {
 
                     let categories = data.data;
@@ -150,7 +150,8 @@ export default {
         }
     },
     mounted() {
-        //this.getCategories();
+        //
+        this.getCategories();
     }
 }
 </script>

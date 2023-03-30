@@ -8,7 +8,7 @@
   <div class="provider-card__user-info">
     <div class="provider-card__name">{{ name }}</div>
     <div class="provider-card__job">{{ job }}</div>
-    <div class="provider-card__bio">{{ bio }}</div>
+    <div class="provider-card__bio text-two-lines">{{ bio }}</div>
   </div>
 <div class="provider-card__actions">
     <button @click="openChat" ><i  class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
@@ -106,7 +106,8 @@ color: #FFBC00;
     line-height: 29px;
     color: #667D80;
     max-width: 320px;
-margin-top: 15px;
+    margin-top: 15px;
+    height: 58px;
 }
 .provider-card__actions{
     margin-top: 20px;

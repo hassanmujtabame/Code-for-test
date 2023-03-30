@@ -20,7 +20,13 @@
 
             <template v-slot="{ item }">
                 <router-link  class="router-link" :to="getRouteLocale('service-provider-ready-service', { id: item.id })">
-                    <cardInfoVue />
+                    <cardInfoVue 
+                    :name="item.name"
+                    :bio="item.bio"
+                    :job="item.job"
+                    :image="item.image"
+                    :rate="item.rate"
+                    />
                 </router-link>
             </template>
 
@@ -76,24 +82,9 @@ export default {
                 ...this.filterItem
             }
             return await serviceProviderAPIs.getAll(params)
-        },
-        async getCategories() {
-            try {
-                let { data } = await serviceProviderAPIs.readyService.getCategories()
-                if (data.success) {
-
-                    let categories = data.data;
-                    categories.unshift({ id: null, name: 'الكل' })
-                    this.categories=categories
-                }
-            } catch (error) {
-                console.log('error', error)
-                console.log('error response', error.response)
-            }
         }
     },
     mounted() {
-        //this.getCategories();
     }
 }
 </script>
