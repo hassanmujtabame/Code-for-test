@@ -9,7 +9,7 @@
         <SectionFeatures />
 
        <!-- section ads-->
-       <SectionAds department="incubator" url="network/home-banners" />
+       <SectionAds department="incubator"  />
        <sectionJourneyLaunch />
         <SectionIncubationProgram />
         <!-- section 6-->

@@ -11,7 +11,8 @@
   </template>
   
   <script>
-  import commonAPI from '@/services/api/common'
+  //import commonAPI from '@/services/api/common'
+  import adsAPI from '@/services/api/ads'
   import ItemSlide from './card-item'
   export default {
    name:'section-ads',
@@ -107,7 +108,7 @@
       async initializing(){
           this.loading = true;
           try {
-              let {data} =  await commonAPI.getAds(this.url,{department_name:this.department})
+              let {data} =  await adsAPI.getAll({position:this.department})
               console.log(data)
               if(data.success){
                   this.items =data.data
