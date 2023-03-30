@@ -81,6 +81,7 @@
         try {
             let { data } = await providerAPI.checkoutPackageFree({package_id:pack.id});
             if(data.success){
+                this.loadCurrentUser()
                 this.openSuccessSubscribed(pack)
             }else{
                 window.SwalError(data.message)
