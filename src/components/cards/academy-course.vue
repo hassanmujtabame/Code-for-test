@@ -33,8 +33,8 @@
 
                                         </div>
                                         <div v-if="showProgress">
-                                        <d-progress-bar :height="6" :progress="25"/>
-                                        <span class="student-course__item-percent-label">{{ 25 }}% مكتمل </span>
+                                        <d-progress-bar :height="6" :progress="item.progress_ratio"/>
+                                        <span class="student-course__item-percent-label">{{ item.progress_ratio }}% مكتمل </span>
                                         </div>
                                     </div>
                                 </div>
