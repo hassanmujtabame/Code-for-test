@@ -74,10 +74,20 @@ components:{
     openSuccessSubscribed(data){
         this.fireOpenDialog('success-network-subscribed', data)
     },
-    choose(pack){
-        if(pack.type=='free')
-        this.openSuccessSubscribed( pack)
-        else{
+    async choose(pack){
+        if(pack.type=='free'){
+                try {
+                    let { data } = await networkAPI.checkoutPackageFree({package_id:pack.id});
+                    if(data.success){
+                        this.openSuccessSubscribed(pack)
+                    }else{
+                        window.SwalError(data.message)
+                    }
+                } catch (error) {
+                    console.log('error',error)
+                }
+            
+        }else{
             this.openCheckoutDialog(pack)
         }
     },

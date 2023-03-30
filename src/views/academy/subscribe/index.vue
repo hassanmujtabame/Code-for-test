@@ -74,13 +74,23 @@
      openSuccessSubscribed(data){
          this.fireOpenDialog('success-academy-subscribed', data)
      },
-     choose(pack){
+     async choose(pack){
         if(!this.userIsSubNetwork){
            this.showMessageForSubscribeNetwork()
             return;
         }
-         if(pack.type=='free')
-         this.openSuccessSubscribed( pack)
+         if(pack.type=='free'){
+            try {
+                let { data } = await academyAPI.checkoutPackageFree({package_id:pack.id});
+                if(data.success){
+                    this.openSuccessSubscribed(pack)
+                }else{
+                    window.SwalError(data.message)
+                }
+            } catch (error) {
+                console.log('error',error)
+            }
+         }
          else{
              this.openCheckoutDialog(pack)
          }
