@@ -9,7 +9,7 @@
   </template>
   
   <script>
-import providerAPI from '@/services/api/service-provider.js'
+import providerAPI from '@/services/api/service-provider/index'
   
   import BodyFormCheckout from '@/common/dialogs/check-out/body-check-out.vue'
   export default {

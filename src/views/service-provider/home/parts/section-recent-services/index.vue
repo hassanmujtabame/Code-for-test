@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import serviceProviderAPIs from '@/services/api/service-provider';
+import serviceProviderAPIs from '@/services/api/service-provider/index';
 import CardService from './card.vue'
 export default {
  name:'section-recent-services',

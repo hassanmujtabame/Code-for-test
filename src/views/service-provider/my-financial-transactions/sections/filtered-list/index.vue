@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import serviceProviderAPI from '@/services/api/service-provider.js'
+import serviceProviderAPI from '@/services/api/service-provider/index'
 import sidebarBox from './sidebar.vue';
 export default {
     name: 'filter-exhibitions',

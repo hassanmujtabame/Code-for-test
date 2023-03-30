@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import serviceProviderAPI from '@/services/api/service-provider.js'
+import serviceProviderAPI from '@/services/api/service-provider/index'
 export default {
  name:'section-balance',
  data:()=>({

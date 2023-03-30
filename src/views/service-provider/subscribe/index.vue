@@ -42,7 +42,7 @@
  
  <script>
  import SubscribeCard from '@/components/cards/subscribe-card.vue';
- import providerAPI from '@/services/api/service-provider.js'
+ import providerAPI from '@/services/api/service-provider/index'
  import successSubscribeDialog from './success-subscribe-dialog.vue';
  import checkoutPackageDiag from './check-out/index.vue';
  export default {

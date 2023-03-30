@@ -37,7 +37,7 @@
 <script>
 
 import CardMember from '@/components/cards/card-member.vue'
-import serviceProviderAPIs from '@/services/api/service-provider';
+import serviceProviderAPIs from '@/services/api/service-provider/index';
 export default {
     name:'section-best-provider',
     components:{
