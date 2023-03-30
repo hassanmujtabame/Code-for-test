@@ -46,7 +46,7 @@ export default {
 
 <style>
 .shedule-network-card__image{
-    widows: 100%;
+    width: 100%;
     height:166px
 }
 </style>

@@ -8,11 +8,14 @@
                         <div class="col-md-8">
                             <div class="row">
                                 <div v-for="(item,i) in items.filter((x,i)=>i<3)" :key="i" class="col-6  col-lg-3">
-                                   <scheduleNetworkCard 
+                                   <router-link class="router-link" :to="getRouteLocale('network-learning-meeting-show',{id:item.i})">
+                                    <scheduleItem 
                                    :image="item.image"
-                                   :title="item.categoryName"
+                                   :title="item.title"
                                    :time="item.time"
+                                   :date="item.date"
                                    />
+                                   </router-link>
                                 </div>
                             </div>
     
@@ -49,12 +52,12 @@
 </template>
 
 <script>
-import schedulesAPI from '@/services/api/schedules';
-import scheduleNetworkCard from '@/components/cards/card-schedule.vue'
+import networkAPI from '@/services/api/network';
+import scheduleItem from '@/components/cards/schedule-riadiat.vue'
 export default {
  name:'schedule-network',
  components:{
-    scheduleNetworkCard
+    scheduleItem
  },
  data:()=>{
     return {
@@ -86,7 +89,7 @@ export default {
     async loadList(){
         this.loading = true;
         try {
-         let { data } = await schedulesAPI.getHomeNetwork() 
+         let { data } = await networkAPI.getHomeSchedules() 
          if(data.success){
             this.items = data.data
             if(process.env.NODE_ENV !== 'production')
