@@ -128,6 +128,22 @@
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
+                     <!-- place_suggest -->
+                     <div class="mb-3">
+                        <!-- <keep-alive> -->
+                        <ValidationProvider
+                         :name="$t('suggest-course-place')" 
+                         vid="place_suggest" rules="" v-slot="{ errors }"
+                            v-if="step == 2">
+                            <d-text-input :errors="errors"
+                             v-model="itemForm.place_suggest"
+                                :label="$t('suggest-course-place')">
+                               
+                            </d-text-input>
+
+                        </ValidationProvider>
+                        <!-- </keep-alive> -->
+                    </div>
                     <!--price-->
                     <div class="mb-3">
                         <!-- <keep-alive> -->
