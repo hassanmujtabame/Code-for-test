@@ -76,20 +76,20 @@
         
                 <div class="col-12 row mt-5 gap-4">
                     <div class="col-md-5 border p-3">
-                        <widget-rate-service />
+                        <widget-investment />
 
                     </div>
                     <div class="col-md-5 border  p-3">
                        
-                        <widget-investment />
+                        <widget-investment-others />
+
                 </div>
                 </div>
         
         
                 <div class="col-12 row  mt-3 gap-4">
                     <div class="col-md-5 border p-3">
-                           
-                        <widget-investment-others />
+                        <widget-rate-service />                           
                     </div>
                     <div class="col-md-5 border p-3">
                         <widget-blog />

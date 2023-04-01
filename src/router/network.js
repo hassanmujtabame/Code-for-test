@@ -176,6 +176,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-models" */ '../views/network/models/index.vue') 
     },
     {
+        path: 'network/models/mine',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-models/mine',
+        component: () => import(/* webpackChunkName: "network-mine" */ '../views/network/models/mine/index.vue') 
+    },
+    {
         path: 'network/models/:id',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-model-show',
