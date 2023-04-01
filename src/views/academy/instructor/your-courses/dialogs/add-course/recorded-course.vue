@@ -4,6 +4,9 @@
     :open-dialog="openDialog"
     :close-dialog="closeDialog"
     >
+    <template v-slot:header>
+            {{ this.itemForm.id?$t('modification-course'):$t('add-your-new-course') }}
+        </template>
     <template v-slot:default>
         <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
