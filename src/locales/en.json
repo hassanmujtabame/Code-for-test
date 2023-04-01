@@ -628,5 +628,7 @@
   "start-time-course": "start time",
   "end-time-course": "end time",
   "what-you-will-learn": "what you will learn",
-  "suggest-course-place": "suggest course place"
+  "suggest-course-place": "suggest course place",
+  "add-your-new-course": "add your new course",
+  "modification-course": "modification course"
 }

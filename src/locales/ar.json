@@ -623,5 +623,7 @@
   "start-time-course": "تبدا الساعة",
   "end-time-course": "تنتهي الساعة",
   "what-you-will-learn": "ماذا ستتعلم",
-  "suggest-course-place": "ترشيح مكان اقامة الدورة بالتفاصيل"
+  "suggest-course-place": "ترشيح مكان اقامة الدورة بالتفاصيل",
+  "modification-course": "تعديل الدورة",
+  "add-your-new-course": "أضف دورتك الجديدة"
 }
