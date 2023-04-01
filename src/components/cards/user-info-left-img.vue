@@ -1,9 +1,10 @@
 <template>
     <div class="box border rounded-3 p-4 bg-card" v-bind="$attrs">
         <div class="row justify-content-center">
-            <div class="col-md-4 img-service text-center">
-                <img class="rounded-circle img-person clickable" @click="showProfile" :src="member.image" :alt="member.name"
-                    :width="sizeImage" :height="sizeImage" :style="{'min-height':`${sizeImage}px`,'min-width':`${sizeImage}px`}">
+            <div class="col-md-4 img-service text-center avatar-user-card clickable"
+            @click="showProfile"
+            :style="{'background-image':`url(${member.image})`,'background-size': `${parseInt(sizeImage)+2}px ${parseInt(sizeImage)+2}px`,'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
+            >
             </div>
             <div class="col-md-8 t-c">
                 <h4 class="fw-bold">
@@ -12,6 +13,7 @@
                 <p>{{ member.job??member.job_title??'N/A' }}</p>
                 <div class="message-service">
                     <button class="text-white border-0 p-2 px-3"
+                    v-if="showBtnMsg"
                        @click="sendMessage" >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -23,7 +25,7 @@
                         </svg>
                         {{ $t('message') }}
                     </button>
-                    <button @click="openChat" class="text-white border-0 p-2 px-3 mx-2"><i  class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
+                    <button v-if="showBtnChat" @click="openChat" class="text-white border-0 p-2 px-3 mx-2"><i  class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
                 </div>
             </div>
 
@@ -45,6 +47,14 @@ export default {
     },
     routeName:{
         type:String,
+    },
+    showBtnMsg:{
+        type:Boolean,
+        default:false,
+    },
+    showBtnChat:{
+        type:Boolean,
+        default:true,
     },
     dataEvent:{
         default:()=>{return {
