@@ -118,18 +118,18 @@
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
-    <!--bio course-->
+    <!--short_description course-->
     <div class="mb-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-bio')"
-                    vid="bio"
+                    vid="short_description"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==2"
                     >
                     <d-textarea-input type="text" :errors="errors" 
                     rows="3" 
-                    v-model="itemForm.bio"  :label="$t('course-bio')" />
+                    v-model="itemForm.short_description"  :label="$t('course-bio')" />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
@@ -381,7 +381,7 @@
                 department_id:'',
                 course_code:'',
                 desc:'',
-                bio:'',
+                short_description:'',
                 image:null,
                price:null,
                type_training:null,
@@ -396,7 +396,7 @@
                 department_id,
                 course_code,
                 desc,
-                bio,
+                short_description,
                 image,
                 price,
                 type_training,
@@ -411,7 +411,7 @@
                 department_id,
                 course_code,
                 desc,
-                bio,
+                short_description,
                 image,
                 price,
                 type_training,
