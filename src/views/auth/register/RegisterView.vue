@@ -34,7 +34,7 @@
                     </ValidationProvider>
                     <ValidationProvider :name="$t('Phone')" 
                     vid="phone" 
-                    rules="required|numeric|length:10" 
+                    rules="required|numeric|min:8" 
                     v-slot="{ errors }"
                     >
                         <div class="col-md-4 w-100 row mb-2">
