@@ -11,6 +11,16 @@
     --color-danger:#eb0000;
     --color-warning:#ebae05;
     --color-info:#2879f4;
+    --color-primary:#1FB9B3;
+    --color-secondary:#FFBC00;
+    --color-secondary-rgb:255,188,0;
+    --color-accent:#F2631C;
+    --color-negative:#E91C2B;
+    --color-warning:#FFDE2F;
+    --color-warning-message:#DC831D;
+    --color-positive:#00A94D;
+    --color-grey-6:#F2F2F2;
+    --bg-opacity:0.5
 }
 
 * {
@@ -2053,4 +2063,15 @@ color: #979797;
 }
 .text-underline{
     text-decoration: underline;
+}
+
+.text-warning-message{
+    color:var(--color-warning-message);
+
+}
+.text-secondary{
+    color:var(--color-secondary);
+}
+.bgc-secondary{
+    background-color:rgba(var( --color-secondary-rgb),0.5);
 }

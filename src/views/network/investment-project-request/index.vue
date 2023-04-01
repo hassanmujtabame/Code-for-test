@@ -1,9 +1,9 @@
 <template>
     <div style="margin-top: 96px;" class="">
         <div class="container">
-            <div style="    background: #ff000014;" class="row align-items-center rounded-4 p-2">
+            <div class="row rounded-4 p-2 bgc-secondary">
                 <div class="col-md-8">
-                    <h3 class="text-danger fw-bolder">
+                    <h3 class="text-warning-message title-page-in-proj-re">
                         تنبيه مهم لطلب استثمار مادي
                     </h3>
                     <p>
@@ -18,7 +18,7 @@
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img class="img-fluid" src="/assets/img/danger@2x.png" alt="">
+                    <img class="img-fluid" src="/assets/svg/warning-triangle.svg" alt="">
                 </div>
 
             </div>
@@ -716,5 +716,13 @@ export default {
     
     position: absolute;
     opacity: 0;
+}
+.title-page-in-proj-re{
+    font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 72px;
+/* identical to box height, or 180% */
+text-transform: capitalize;
 }
 </style>
