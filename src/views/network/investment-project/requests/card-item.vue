@@ -53,6 +53,7 @@
   </template>
   
   <script>
+import networkAPI from '@/services/api/network';
   export default {
       name:'my-request-client-card',
    props:{
@@ -87,6 +88,9 @@
       },
   
    },
+   data:()=>({
+    loading:false,
+   }),
    computed:{
       typeName(){
           return this.type == 'moral'? "طلب استثمار معنوي":  "طلب استثمار مادي";
@@ -94,15 +98,27 @@
       
    },
    methods:{
-    acceptRequest(){
-        let dataEvt={
-            title:'تم قبول طلب الاستثمار بنجاح',
-            description:'يمكنك التواصل الان مع العميل لمعرفة باقي التفاصيل',
-            btns:[
-                {title:'تواصل الان'}
-            ]
+    async acceptRequest(){
+        this.loading = true;
+        try {
+            let { data } = await networkAPI.projects.approveInvestProjectRequest(this.itemId);
+            if(data.success){
+                let dataEvt={
+                    title:'تم قبول طلب الاستثمار بنجاح',
+                    description:'يمكنك التواصل الان مع العميل لمعرفة باقي التفاصيل',
+                    btns:[
+                        {title:'تواصل الان'}
+                    ]
+                }
+                this.showSuccessMsg(dataEvt);
+                this.$emit('accepted')
+            }else{
+                window.SwalError(data.message)
+            }
+        } catch (error) {
+            //
         }
-        this.showSuccessMsg(dataEvt)
+        this.loading =false;
     }
    }
   }

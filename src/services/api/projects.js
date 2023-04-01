@@ -6,6 +6,14 @@ class ProjectsApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/projects?${s}`);
     }
+    getInvestProjectRequests(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/project-offers?${s}`);
+    }
+    
+    approveInvestProjectRequest(id){
+        return window.axios.get(`network/project-offers/${id}/approve`);
+    }
     getEndWeek(params={}){
         /** project which end this week */
         let s=this.generateQueryUrl(params)

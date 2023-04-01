@@ -43,7 +43,7 @@
     </div>
 </template>
 <script>
-import myRequestClientAPI from '@/services/api/service-provider/user/my-requests-client.js'
+import networkAPI from '@/services/api/network'
 import InvestProjectRequest from './card-item.vue'
 export default {
     name: 'request-invet-projects',
@@ -52,11 +52,12 @@ export default {
     },
     data:()=>{
         return {
+            //status=approve|disaprove|waiting
             status:null,
             actions:[
                 {status:null,label:'كل طلبات'},
                 {status:'waiting',label:'طلبات بانتظار موافقتك'},
-                {status:'finished',label:'طلبات تم الموافقة عليها'},
+                {status:'approve',label:'طلبات تم الموافقة عليها'},
             ],
             filterItem:{
                 search:null,
@@ -83,7 +84,7 @@ export default {
                     paginate:6,
                     ...this.filterItem
                 }
-                return await myRequestClientAPI.getAll(params)
+                return await networkAPI.projects.getInvestProjectRequests(params)
 
             } catch (error) {
                 console.log('error', error)
