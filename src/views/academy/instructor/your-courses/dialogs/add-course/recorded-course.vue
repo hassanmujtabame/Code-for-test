@@ -5,7 +5,7 @@
     :close-dialog="closeDialog"
     >
     <template v-slot:header>
-            {{ this.itemForm.id?$t('modification-course'):$t('add-your-new-course') }}
+            {{ itemForm.id?$t('modification-course'):$t('add-your-new-course') }}
         </template>
     <template v-slot:default>
         <div v-if="showDialog" ref="form" tag="div">
@@ -41,9 +41,23 @@
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
+                    <!--price-->
+            <div class="mb-3">
+                <!-- <keep-alive> -->
+                <ValidationProvider :name="$t('course-price')"
+                    vid="price"
+                    rules="required|numeric"
+                    v-slot="{errors}"
+                    v-if="step==1"
+                    >
+                <d-text-input type="text" :errors="errors"  v-model="itemForm.price"  :label="$t('course-price')" />
+            </ValidationProvider>
+        <!-- </keep-alive> -->
+            </div>
         </ValidationObserver>
         <!--form 2-->
         <ValidationObserver class="form-step" ref="form2" id="form-step-2" v-show="step==2">
+            <!--title-->
             <div class="mb-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-title')"
@@ -56,6 +70,7 @@
             </ValidationProvider>
         <!-- </keep-alive> -->
             </div>
+            <!--deparment course-->
             <div class="mb-3 position-relative">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-domain')"
@@ -69,19 +84,6 @@
                     <option  class="t-c" v-for="(dept,i) in departments" :key="i" :value="dept.id"> {{ dept.name }}</option>
                   
                 </d-select-input>
-            </ValidationProvider>
-        <!-- </keep-alive> -->
-            </div>
-            <!--price-->
-            <div class="mb-3">
-                <!-- <keep-alive> -->
-                <ValidationProvider :name="$t('course-price')"
-                    vid="price"
-                    rules="required|numeric"
-                    v-slot="{errors}"
-                    v-if="step==2"
-                    >
-                <d-text-input type="text" :errors="errors"  v-model="itemForm.price"  :label="$t('course-price')" />
             </ValidationProvider>
         <!-- </keep-alive> -->
             </div>
@@ -103,6 +105,7 @@
             </ValidationProvider>
         <!-- </keep-alive> -->
             </div>
+            <!--code-->
             <div class="mb-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-code')"
@@ -115,21 +118,22 @@
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
-          
-            <div class="mb-3">
+    <!--bio course-->
+    <div class="mb-3">
                 <!-- <keep-alive> -->
-                <ValidationProvider :name="$t('course-description')"
-                    vid="desc"
+                <ValidationProvider :name="$t('course-bio')"
+                    vid="bio"
                     rules="required"
                     v-slot="{errors}"
                     v-if="step==2"
                     >
                     <d-textarea-input type="text" :errors="errors" 
-                    rows="10" 
-                    v-model="itemForm.desc"  label="عن الدورة" />
+                    rows="3" 
+                    v-model="itemForm.bio"  :label="$t('course-bio')" />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                     </div>
+            
             <div class="mb-3">
                 <div class="d-flex upload-request-file form-control align-items-center border-0  mb-3">
                     <!-- <keep-alive> -->
@@ -157,6 +161,50 @@
                 </div>
             </div>
     
+        </ValidationObserver>
+        <ValidationObserver class="form-step" ref="form3" id="form-step-3" v-show="step == 3">
+             <!--desc course-->
+             <div class="mb-3">
+                <!-- <keep-alive> -->
+                <ValidationProvider :name="$t('course-description')"
+                    vid="desc"
+                    rules="required"
+                    v-slot="{errors}"
+                    v-if="step==3"
+                    >
+                    <d-textarea-input type="text" :errors="errors" 
+                    rows="5" 
+                    v-model="itemForm.desc"  :label="$t('course-description')" />
+                </ValidationProvider>
+            <!-- </keep-alive> -->
+                    </div>
+                    <!-- what you will learn -->
+                    <div class="mb-3" v-if="itemForm.learn.length < 2">
+                        <ValidationProvider :name="$t('what-you-will-learn')" :vid="`learn`" :rules="step == 3 ? 'required' : ''"
+                            v-slot="{ errors }">
+                            <d-text-input type="text" :errors="errors" v-model="itemForm.learn[0]"
+                                :label="$t('what-you-will-learn')" />
+                        </ValidationProvider>
+                    </div>
+                    <template v-else>
+                        <div class="mb-3" v-for="l in itemForm.learn.length" :key="l">
+                            <ValidationProvider :name="$t('what-you-will-learn')" :vid="`learn-${l}`"
+                                :rules="step == 3 ? 'required' : ''" v-slot="{ errors }">
+                                <d-text-input type="text" :errors="errors" v-model="itemForm.learn[l-1]"
+                                    :label="$t('what-you-will-learn')" >
+                                    <template v-slot:append-icon>
+                                        <i class="fa fa-trash-can c-danger clickable" @click="deleteLearn(l-1)"></i>
+                                    </template>
+                                    </d-text-input>
+                            </ValidationProvider>
+                        </div>
+                    </template>
+                    <!-- </keep-alive> -->
+                    <div class="mb-3">
+                <a class="text-underline m-c" href="#" @click="addLearnItem">
+                    أضف نقطة اخرى
+                </a>
+            </div>
         </ValidationObserver>
     </div>
             </template>
@@ -195,6 +243,13 @@
         }
       },
       methods:{
+        deleteLearn(index){
+            this.itemForm.learn.splice(index,1)
+        },
+        addLearnItem(evt) {
+            evt.preventDefault();
+            this.itemForm.learn.push('')
+        },
         prevStep(){
             this.step-=1
         },
@@ -236,9 +291,18 @@
             return true;
         },
         async saveStep2(){
-            let valid = await this.$refs.form2.validate();
+            let valid = await this.$refs.form2.validate(['number_day']);
             if(!valid){
                 console.mylog('invalid step 2');
+                return false;
+            }
+            this.step+=1;
+            return true;
+        },
+        async saveStep3(){
+            let valid = await this.$refs.form3.validate();
+            if(!valid){
+                console.mylog('invalid step 3');
                 return false;
             }
             let formData = this.loadObjectToForm(this.itemForm)
@@ -281,8 +345,12 @@
             await this.saveStep1()
             return;
            }
+           if(this.step==2){
+            await this.saveStep2()
+            return;
+           }
            this.loading = true;
-           await this.saveStep2();
+           await this.saveStep3();
            this.loading = false;
         },
         async loadDepartments(){
@@ -313,9 +381,11 @@
                 department_id:'',
                 course_code:'',
                 desc:'',
+                bio:'',
                 image:null,
                price:null,
-               type_training:null
+               type_training:null,
+               learn:['']
             }
             if(dataEvt){
                 let {
@@ -328,7 +398,8 @@
                 desc,
                 image,
                 price,
-                type_training
+                type_training,
+                learn
             } = dataEvt;
                 
                 this.itemForm = Object.assign(this.itemForm,{ 
@@ -339,9 +410,11 @@
                 department_id,
                 course_code,
                 desc,
+                bio,
                 image,
                 price,
-                type_training
+                type_training,
+                learn:learn??['']
             })
             }
             this.showDialog = true;

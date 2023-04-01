@@ -1,7 +1,7 @@
 <template>
     <d-dialog-large :xl="false" :group="group" :open-dialog="openDialog" :close-dialog="closeDialog">
         <template v-slot:header>
-            {{ this.itemForm.id?$t('modification-course'):$t('add-your-new-course') }}
+            {{ itemForm.id?$t('modification-course'):$t('add-your-new-course') }}
         </template>
         <template v-slot:default>
             <div v-if="showDialog" ref="form" class="form-onsite" tag="div">
@@ -36,6 +36,7 @@
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
+                    <!-- time -->
                     <div class="col-23 col-md-12">
                         <div class="form-group position-relative">
                             <label class="form-label">{{ $t('start-time-course') }} - {{ $t('end-time-course') }}</label>
@@ -207,9 +208,10 @@
                         <ValidationProvider :name="$t('course-description')" vid="desc" rules="required" v-slot="{ errors }"
                             v-if="step == 3">
                             <d-textarea-input type="text" :errors="errors" rows="10" v-model="itemForm.desc"
-                                label="وصف الدورة" />
+                                :label="$t('course-description')" />
                         </ValidationProvider>
                     </div>
+                    <!-- what you will learn -->
                     <div class="mb-3" v-if="itemForm.learn.length < 2">
                         <ValidationProvider :name="$t('what-you-will-learn')" :vid="`learn`" :rules="step == 3 ? 'required' : ''"
                             v-slot="{ errors }">
@@ -416,7 +418,7 @@ export default {
             this.fireCloseDialog(this.group)
         },
         openDialog(dataEvt) {
-            this.step = 3;
+            this.step = 1;
             this.emptyImage()
             this.itemForm = {
                 type: 'on-site',

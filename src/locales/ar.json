@@ -524,7 +524,7 @@
   "course-meeting-url": "رابط الدورة",
   "course-add-exam": "أضف اختبار",
   "days_week": "ايام الاسبوع",
-  "course-description": "عن الدورة",
+  "course-description": "وصف الدورة",
   "course-code": "كود الدورة",
   "end_date_course_booking": "نهاية الحجز",
   "course-place": "مكان اقامة الدورة",
@@ -625,5 +625,6 @@
   "what-you-will-learn": "ماذا ستتعلم",
   "suggest-course-place": "ترشيح مكان اقامة الدورة بالتفاصيل",
   "modification-course": "تعديل الدورة",
-  "add-your-new-course": "أضف دورتك الجديدة"
+  "add-your-new-course": "أضف دورتك الجديدة",
+  "course-bio": "نبذة عن الدورة"
 }

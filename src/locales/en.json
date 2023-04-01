@@ -527,7 +527,7 @@
   "course-domain": "course domain",
   "course-meeting-url": "Course meeting url",
   "course-add-exam": "Add exam",
-  "course-description": "About course",
+  "course-description": "course description",
   "course-code": "Course code",
   "end_date_course_booking": "Due date",
   "number_students": "Number students",
@@ -630,5 +630,6 @@
   "what-you-will-learn": "what you will learn",
   "suggest-course-place": "suggest course place",
   "add-your-new-course": "add your new course",
-  "modification-course": "modification course"
+  "modification-course": "modification course",
+  "course-bio": "Bio"
 }
