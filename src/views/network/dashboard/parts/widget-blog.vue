@@ -1,6 +1,6 @@
 <template>
   <MyBlog title="تدويناتك" :value="0"  color="#1FB9B3"
-  :url="generatetoUrl('network-blogs',{lang:$i18n.locale})"
+  :url="generatetoUrl('network-blogs-mine',{lang:$i18n.locale})"
   />
 </template>
 

@@ -4,7 +4,7 @@
                 <img class="w-100" :src="img" :alt="title" height="184">
               </div>
               <div class="text p-3 text-start">
-                <h6 style="height:40px">{{title}}</h6>
+                <h6 class="blog-info__title" >{{title}}</h6>
                 <p style="height:80px" class="description-blog" v-html="description"></p>
               </div>
               <div class="d-flex">
@@ -15,10 +15,10 @@
           </p>
         </div>
               </div>
-              <div class="blog-info-date date text-end mx-1 flex-shrink-0">
-                <p>
+              <div class="blog-info-date date d-flex align-items-center text-end mx-1 flex-shrink-0">
+                <p class="d-flex m-0">
                  
-                <bdi style="padding: 0 5px;">{{dateText}}</bdi>
+                <bdi class="blog-info__date text-two-lines" style="padding: 0 5px;">{{dateText}}</bdi>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
                     </svg>
@@ -55,7 +55,7 @@ export default {
     }
   },
   data:()=>({
-    colors:['#F2631C','#FFBC00','#2C98B3']
+    colors:['#1FB9B3','#FFBC00','#F2631C','#2C98B3']
   }),
  computed:{
     dateText(){
@@ -84,5 +84,34 @@ export default {
    -webkit-line-clamp: 2; /* number of lines to show */
            line-clamp: 2; 
    -webkit-box-orient: vertical;
+   font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 17px;
+/* or 142% */
+color: #737373;
+}
+.blog-info__title{
+  font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 40px;
+/* identical to box height, or 167% */
+text-transform: capitalize;
+
+color: #414042;
+height:80px;
+}
+.blog-info__date{
+  font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+
+color: #979797;
 }
 </style>
