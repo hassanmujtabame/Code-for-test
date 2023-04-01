@@ -638,5 +638,6 @@
   "reject": "reject",
   "show-all": "show all",
   "session-confirmation": "Session confirmation",
-  "session-link": "session link"
+  "session-link": "session link",
+  "curreny-rs": "R.S"
 }

@@ -22,7 +22,7 @@
                                    {{ $t('free-enter') }}
                                 </template>
                                 <template v-else>
-                            {{ $t('ticket') }}   {{ price??'N/A'}} {{ $t('riyals') }}
+                            {{ $t('ticket') }}   {{ price??'N/A'}} {{ $t('curreny-rs') }}
                             </template>
                             </p>
                             <p class="exhibition-card-text">
