@@ -396,6 +396,7 @@
                 department_id,
                 course_code,
                 desc,
+                bio,
                 image,
                 price,
                 type_training,
