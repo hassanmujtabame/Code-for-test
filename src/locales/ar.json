@@ -630,5 +630,8 @@
   "riadiat-incubator-schedule": "جدول الحاضنة",
   "meter": "متر",
   "accept": "قبول",
-  "reject": "رفض"
+  "reject": "رفض",
+  "show-all": "عرض الكل",
+  "session-confirmation": "تأكيد الجلسة",
+  "session-link": "رابط الجلسة"
 }

@@ -7,7 +7,7 @@
    <SectionBalance/>
    <!--#section balance-->
     <div class="row mt-5">
-        <div class="col-md-6 network">
+        <div class="col-md-5 network">
             <div  class="box bg-main p-3 rounded-2">
                 <div class="d-flex">
                     <div class="w-75">
@@ -33,7 +33,7 @@
 
             </div>
         </div>
-        <div class="col-md-6 network">
+        <div class="col-md-5 network">
             <div  class="box border  p-4 rounded-2">
                 <div class="d-flex ">
                     <div class="w-75">
@@ -58,34 +58,44 @@
         </div>
 
     </div>
-    <div class="row justify-content-between mt-5 ">
-        <div class="col-md-5">
-            <div class="box  ">
-                <div class="row flex-column mt-3 gap-4">
-                    <div class="col-md-12 border p-3">
+    <div class="row justify-content-between ">
+       
+                <div class="col-12 row  mt-3 gap-4">
+                    <div class="col-md-5 border p-3">
                             
-                        <widget-rate-service />
+                        <widget-consulting-requests />
                     </div>
-                    <div class="col-md-12 border mt-3 p-3">
+
+                    <div class="col-md-5 border  p-3">
+                        <widget-consulting-rates />
+
+                </div>
+                </div>
+            
+        
+        
+                <div class="col-12 row mt-5 gap-4">
+                    <div class="col-md-5 border p-3">
+                        <widget-rate-service />
+
+                    </div>
+                    <div class="col-md-5 border  p-3">
                        
                         <widget-investment />
                 </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="box  ">
-                <div class="row flex-column mt-3 gap-4">
-                    <div class="col-md-12 border p-3">
+        
+        
+                <div class="col-12 row  mt-3 gap-4">
+                    <div class="col-md-5 border p-3">
                            
                         <widget-investment-others />
                     </div>
-                    <div class="col-md-12 border mt-3 p-3">
+                    <div class="col-md-5 border p-3">
                         <widget-blog />
                    </div>
                 </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 </div>
@@ -94,6 +104,8 @@
 <script>
 import SectionHeader from './parts/section-header/index.vue'
 import SectionBalance from './parts/section-balance/index.vue'
+import WidgetConsultingRequests from './parts/widget-consulting-requests.vue';
+import WidgetConsultingRates from './parts/widget-consulting-rates';
 import WidgetBlog from './parts/widget-blog.vue';
 import WidgetInvestmentOthers from './parts/widget-investment-others.vue';
 import WidgetInvestment from './parts/widget-investment.vue';
@@ -103,6 +115,8 @@ name:'network-dashboard',
 components:{
     SectionHeader,
     SectionBalance,
+    WidgetConsultingRequests,
+    WidgetConsultingRates,
     WidgetBlog,
     WidgetInvestmentOthers,
     WidgetInvestment,

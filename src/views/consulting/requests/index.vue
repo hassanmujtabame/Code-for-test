@@ -8,7 +8,7 @@
       @change="changeFilter"
       >
         <template v-slot:total>
-            <h4 class="fw-bold">طلبات استثمار مشاريعك</h4>
+            <h4 class="fw-bold">طلبات إستشارة</h4>
         </template>
         <template v-slot:before-body>
             <ul class="nav nav-pills  mb-3">
@@ -40,15 +40,18 @@
         </template>
       </d-filter-list>
     </div>
+    <showConfirmSessionDialog />
     </div>
 </template>
 <script>
 import myRequestClientAPI from '@/services/api/service-provider/user/my-requests-client.js'
 import InvestProjectRequest from './card-item.vue'
+import showConfirmSessionDialog from './confirm-accept/index'
 export default {
     name: 'request-invet-projects',
     components:{
-        InvestProjectRequest
+        InvestProjectRequest,
+        showConfirmSessionDialog
     },
     data:()=>{
         return {
@@ -56,7 +59,8 @@ export default {
             actions:[
                 {status:null,label:'كل طلبات'},
                 {status:'waiting',label:'طلبات بانتظار موافقتك'},
-                {status:'finished',label:'طلبات تم الموافقة عليها'},
+                {status:'underway',label:'طلبات تم الموافقة عليها'},
+                {status:'finished',label:'طلبات تم الانتهاء منهت'},
             ],
             filterItem:{
                 search:null,
@@ -80,7 +84,7 @@ export default {
             try {
                 let params = {
                     page: metaInfo.current_page,
-                    paginate:6,
+                    paginate:4,
                     ...this.filterItem
                 }
                 return await myRequestClientAPI.getAll(params)

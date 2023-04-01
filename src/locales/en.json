@@ -635,5 +635,8 @@
   "riadiat-incubator-schedule": "incubator schedule",
   "meter": "meter",
   "accept": "accept",
-  "reject": "reject"
+  "reject": "reject",
+  "show-all": "show all",
+  "session-confirmation": "Session confirmation",
+  "session-link": "session link"
 }
