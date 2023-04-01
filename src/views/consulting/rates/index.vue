@@ -12,7 +12,7 @@
             <template v-slot:total>
                 
                 <h4 class="fw-bold">
-                    تقييم خدماتي
+                    تقييم استشاراتي
                         </h4>
                 </template>
             <template v-slot="{item}">
