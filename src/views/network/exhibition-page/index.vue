@@ -169,7 +169,16 @@ export default {
    return time.substring(0,5)
     },
     openShareDialog(){
-      this.fireOpenDialog('share-exhibition',this.itemPage)
+        let dataEvt = {
+            title:'',
+            description:`هل لديك منتجات تخص هذا المعرض وتود حجز بوث لك يمكنك من خلاله عرض منتجاتك ؟ فقط كل ما عليك فعله هو ملئ استمارة المشاركة وسنقوم بأرسالها الى صاحب المعرض ليختار المشاركين المناسبين له , نأمل انت تكون منهم بكل تأكيد !`,
+            image:'/assets/img/Group 1171275567.png',
+            btns:[
+                {title:this.$t('fill-form')}
+            ]
+        }
+        this.showConfirmMsg(dataEvt)
+      //this.fireOpenDialog('share-exhibition',this.itemPage)
     },
     openEditDialog(){
       this.fireOpenDialog('update-dialog',this.itemPage)

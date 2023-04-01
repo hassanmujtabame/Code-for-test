@@ -3,7 +3,7 @@
     :group="group" 
     :openDialog="openDialog" 
     :close-dialog="closeDialog"
-    :mlg="true"
+    :xl="false"
     :loading="loading"
     >
     <div v-if="showDialog" class="text-center">

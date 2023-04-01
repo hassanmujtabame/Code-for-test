@@ -7,7 +7,7 @@
       <template v-slot>
           <div class="text-center" v-if="showDialog">
             <div v-if="!hideImage">
-            <img :src="itemDialog.image" alt="">
+            <img :src="itemDialog.image" class="confirm-msg__image" alt="">
           </div>
             <div class="mt-2">
                 <h4 >
@@ -99,5 +99,8 @@
   </script>
   
   <style>
-  
+  .confirm-msg__image{
+  max-width:90%;
+  max-height:377px;
+  }
   </style>
