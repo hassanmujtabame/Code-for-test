@@ -1,0 +1,27 @@
+.bgc-warning{
+    background-color:var(--color-warning);
+}
+    .bgc-warning.c-opacity-0{
+        background-color:var(--color-warning) !important;
+    }
+    .bgc-warning.c-opacity-10{
+        background-color:rgba(var(--color-warning-rgb),10%) !important;
+    }
+    .bgc-warning.c-opacity-25{
+        background-color:rgba(var(--color-warning-rgb),25%) !important;
+    }
+    .bgc-warning.c-opacity-33{
+        background-color:rgba(var(--color-warning-rgb),33%) !important;
+    }
+    .bgc-warning.c-opacity-50{
+        background-color:rgba(var(--color-warning-rgb),50%) !important;
+    }
+    .bgc-warning.c-opacity-66{
+        background-color:rgba(var(--color-warning-rgb),66%) !important;
+    }
+    .bgc-warning.c-opacity-75{
+        background-color:rgba(var(--color-warning-rgb),75%) !important;
+    }
+    .bgc-warning.c-opacity-100{
+        background-color:rgba(var(--color-warning-rgb),100%) !important;
+    }
