@@ -631,5 +631,9 @@
   "suggest-course-place": "suggest course place",
   "add-your-new-course": "add your new course",
   "modification-course": "modification course",
-  "course-bio": "Bio"
+  "course-bio": "Bio",
+  "riadiat-incubator-schedule": "incubator schedule",
+  "meter": "meter",
+  "accept": "accept",
+  "reject": "reject"
 }

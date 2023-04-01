@@ -1,6 +1,6 @@
 <template>
   <MyBlog title="طلبات استثمار مشاريعك" :value="0" color="#F2631C"
-  url="/"
+  :url="generatetoUrl('network-investment-project-requests',{lang:$i18n.locale})"
   />
 </template>
 

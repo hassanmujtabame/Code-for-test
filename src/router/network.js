@@ -62,19 +62,25 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-my-story" */ '../views/network/success-story/my-story.vue') 
     },
     {
-        path: 'network/investment-project',
+        path: 'network/investment-projects',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-investment-project',
         component: () => import(/* webpackChunkName: "network-investment-project" */ '../views/network/investment-project/index.vue') 
     },
     {
-        path: 'network/investment-project/request-add',
+        path: 'network/investment-projects/requests',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-investment-project-requests',
+        component: () => import(/* webpackChunkName: "network-investment-project-requests" */ '../views/network/investment-project/requests/index.vue') 
+    },
+    {
+        path: 'network/investment-projects/request-add',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-investment-project-request-add',
         component: () => import(/* webpackChunkName: "network-investment-project-request-add" */ '../views/network/investment-project-request/index.vue') 
     },
     {
-        path: 'network/investment-project/:id',
+        path: 'network/investment-projects/:id',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-investment-project-show',
         component: () => import(/* webpackChunkName: "network-investment-project-show" */ '../views/network/investment-project-page/index.vue') 

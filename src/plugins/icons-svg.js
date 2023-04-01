@@ -28,7 +28,9 @@ import dDocText from '@/components/icon-svg/document-text.vue'
 import dMedalStar from '@/components/icon-svg/medal-star.vue'
 import dMoney from '@/components/icon-svg/money.vue'
 import dCalendar from '@/components/icon-svg/calendar-icon.vue'
+import dDistance from '@/components/icon-svg/distance-icon.vue'
 
+Vue.component(dDistance.name,dDistance)
 Vue.component(dCalendar.name,dCalendar)
 Vue.component(dDocText.name,dDocText)
 Vue.component(dMedalStar.name,dMedalStar)

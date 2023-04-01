@@ -8,7 +8,7 @@ class BlogsApi extends BaseApi {
     }
     getMine(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`network/blogs?${s}`);
+        return window.axios.get(`network/my-blogs?${s}`);
     }
     getHomeNetwork(params={}){
         let s=this.generateQueryUrl(params)
