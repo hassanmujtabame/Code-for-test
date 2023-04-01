@@ -11,7 +11,7 @@
                         </div>
                         <div class="box d-flex align-items-center justify-content-between ">
                             <router-link :to="url" class="btn border rounded-2 bg-transparent">
-                                عرض الكل 
+                                {{ btnTitle??$t('show-all') }} 
                             </router-link>
           
                         </div>
@@ -30,6 +30,7 @@ export default {
     value:{
         default:''
     },
+    btnTitle:{type:String},
     color:{
         default:'#F2631C'
     },
