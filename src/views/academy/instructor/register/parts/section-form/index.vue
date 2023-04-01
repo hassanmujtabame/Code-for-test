@@ -484,6 +484,8 @@ export default {
                 let { data } = await instructorAPI.register(formData)
                 if(data.success){
                    this.successRegister()
+                }else{
+                    window.SwalError(data.message)
                 }
             } catch (error) {
                 console.mylog('error',error)
