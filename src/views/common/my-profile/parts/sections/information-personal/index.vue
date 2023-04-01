@@ -137,7 +137,7 @@
 <script>
 import userAPI from '@/services/api/user.js'
 export default {
- name:'list-item',
+ name:'section-information-personal',
  props:['currentUser'],
  data:(vm)=>{
     return {
