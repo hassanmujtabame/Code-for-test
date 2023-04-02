@@ -140,6 +140,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-exhibition-show" */ '../views/network/exhibition-page/index.vue') 
     },
     {
+        path: 'network/exhibitions/:id/requests',
+        meta:{layout:LayoutNetwork,auth:true},
+        name: 'network-exhibition-requests',
+        component: () => import(/* webpackChunkName: "network-exhibitions-requests" */ '../views/network/exhibitions/requests/index.vue') 
+    },
+    {
         path: 'network/exhibitions/:id/share',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-exhibition-share',

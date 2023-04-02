@@ -25,6 +25,9 @@
                         <h3 class="m-c">
                         {{ itemPage.title??'معرض' }}
                         </h3>
+                        <p v-if="!isOwner" class="t-c p-0 m-0">
+                        تاريخ نشر: {{ itemPage.date_publish }}
+                    </p>
                     </div>
                     <div class="col-md-6  text-end">
                         <template v-if="isOwner">
@@ -46,12 +49,13 @@
                 </div>
                 <div class=" col-12 col-md-8">
 
-                    <p class="t-c p-0 m-0">
-                        تاريخ نشر: {{ itemPage.date_publish }}
-                    </p>
-                    <p class="pargrapg content-word-break" v-html="itemPage.content">
+                    
+                    <p class="pargrapg content-word-break  mt-3" v-html="itemPage.content">
                         
                     </p>
+                    <div >
+                        <button v-if="isOwner" @click="router_push('network-exhibition-requests',{id:itemPage.id})" class="btn btn-show-exhibition-req">قائمة طلبات المشاركة في المعرض</button>
+                    </div>
                     <div class="rounded-3 border mt-4 p-4">
                         <h4 class="border-bottom">
                             شارك المعرض
@@ -203,8 +207,8 @@ export default {
                   this.hasError = true;
                 }
             } catch (error) {
-                console.log('error', error)
-                console.log('error response', error.response)
+                console.mylog('error', error)
+                console.mylog('error response', error.response)
                 this.hasError = true;
               }
 
@@ -218,5 +222,28 @@ export default {
 </script>
 
 <style>
+.btn-show-exhibition-req{
+    width: 617px;
+height: 108px;
+background: rgba(31, 185, 179, 0.1);
+/* CDD7D8 */
 
+border: 0.5px solid #CDD7D8;
+/* box */
+
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12);
+border-radius: 8px;
+/** text */
+font-weight: 400;
+font-size: 24px;
+line-height: 40px;
+/* identical to box height, or 167% */
+
+text-align: center;
+text-transform: capitalize;
+
+/* Dark gray */
+
+color: #414042;
+}
 </style>

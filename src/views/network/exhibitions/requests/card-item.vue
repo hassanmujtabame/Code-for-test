@@ -1,20 +1,20 @@
 <template>
-    <div class="consulting-request">
+    <div class="exhibitions-request">
   
   <div class="d-flex align-items-center justify-content-between">
       <div >
         <div class="d-flex"> 
      
-          <h4 class="consulting-request__title">
-                  {{ userName??'N/A' }}
+          <h4 class="exhibitions-request__title">
+                  {{ title??'N/A' }}
           </h4>
           </div>
           <div class="d-flex gap-2 flex-wrap">
-      <p class="consulting-request__info-label">
+      <p class="exhibitions-request__info-label">
           <d-calendar-icon :size="16" color="currentColor" />
           {{ dateRequest }}
       </p>
-      <p class="consulting-request__info-label">
+      <p class="exhibitions-request__info-label">
           <d-time-icon :size="16" color="currentColor" />
           {{ dateRequest }}
       </p>
@@ -49,11 +49,13 @@
           type:String,
       },
       userName:{
-          type:String
+          type:String,
+    
       },
       place:{
           type:String,
       },
+      
       description:{
           type:String,
       },
@@ -65,7 +67,9 @@
       },
   
    },
-
+    data:()=>({
+        colors:['#F2631C','#FFBC00','#2C98B3']
+    }),
    methods:{
     acceptRequest(){
        this.fireOpenDialog('show-session-confirmation',{
@@ -79,12 +83,12 @@
   </script>
   
   <style scoped>
-  .consulting-request{
+  .exhibitions-request{
       padding: 10px;
     border-bottom: 1px solid rgba(205, 215, 216, 1);
 ;
   }
-  .consulting-request__title{
+  .exhibitions-request__title{
     font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -97,7 +101,7 @@ text-transform: capitalize;
 
 color: #414042;
   }
-  .consulting-request__type{
+  .exhibitions-request__type{
     font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -109,7 +113,7 @@ align-items: center;
 text-transform: capitalize;
 color: #F2631C;
   }
-  .consulting-request__info-label{
+  .exhibitions-request__info-label{
     font-style: normal;
 font-weight: 400;
 font-size: 12px;
