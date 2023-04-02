@@ -60,7 +60,7 @@
     </div>
     <div class="row justify-content-between ">
        
-                <div class="col-12 row  mt-3 gap-4">
+                <div v-if="userIsConsultant" class="col-12 row  mt-3 gap-4">
                     <div class="col-md-5 border p-3">
                             
                         <widget-consulting-requests />
