@@ -10,8 +10,8 @@
                 <p>
                     أدخل البيانات التالية بدقة لتكون شريك معنا
                 </p>
-                <ValidationObserver ref="form" tag="div" class="row g-3 needs-validation"  >
-                    <template v-if="!user">
+                <ValidationObserver ref="form" tag="div" class="row g-3 needs-validation">
+                            <template v-if="!user">
                     <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
@@ -21,12 +21,11 @@
                         vid="name"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('name') }}</label>
-                        <input type="text" v-model="itemForm.name" class="form-control" id="validationCustom03"
-                            placeholder="" >
-                        </div>
-                        <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        
+                            
+                        <d-text-input type="text" :errors="errors" v-model="itemForm.name" class="form-control" id="validationCustom03"
+                            :label="$t('name')" />
+                      
                         </ValidationProvider>
                     </div>
 
@@ -39,12 +38,10 @@
                         vid="email"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('email') }}</label>
-                        <input type="email" v-model="itemForm.email" class="form-control" >
-                        
-                            </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        <d-text-input :errors="errors" type="email" v-model="itemForm.email" 
+                        class="form-control" :label="$t('email')" >
+                        </d-text-input>
+                         
                         </ValidationProvider>
                     </div>
 
@@ -57,11 +54,11 @@
                         vid="phone"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('phone-number') }}</label>
-                        <input type="number" v-model="itemForm.phone" class="form-control" >
-                        </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        <d-text-input :errors="errors" type="number" v-model="itemForm.phone" class="form-control"
+                        :label="$t('phone-number')"
+                        >
+                            </d-text-input>
+                            
                         </ValidationProvider>
                         
                     </div>
@@ -74,18 +71,15 @@
                         vid="password"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('password') }}</label>
-                            <div class="w-100 position-relative">
-                            <input id="password-field" v-model="itemForm.password"  :type="show?'text':'password'" class="form-control">
-                            <span  @click="show=!show"
-                                   class="icon-input-end fa-regular position-absolute"
-                                   :class="{'fa-eye': !show, 'fa-eye-slash':show }"
-                                   >
-                               </span>
-                               </div>
-                            </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        <d-text-input :errors="errors" id="password-register" :type="show ? 'text' : 'password'"
+                                    class="form-control  " v-model="form.password" :label="$t('Password')"
+                                    autocomplete="new-password">
+                                    <template v-slot:append-icon>
+                                        <span style="color: #CDD7D8;font-size: 23px;" @click="show = !show"
+                                            class="fa-regular mx-1" :class="{ 'fa-eye': !show, 'fa-eye-slash': show }">
+                                        </span>
+                                    </template>
+                                </d-text-input>
                         </ValidationProvider>
                         
                     </div>
@@ -98,18 +92,15 @@
                             vid="password_confirmation"
                             v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('password-confirmation') }}</label>
-                        <div class="w-100 position-relative">
-                            <input  v-model="itemForm.password_confirmation" :type="showC?'text':'password'" class="form-control  ">
-                            <span  @click="showC=!showC"
-                                   class="icon-input-end fa-regular position-absolute"
-                                   :class="{'fa-eye': !showC, 'fa-eye-slash':showC }"
-                                   >
-                               </span>
-                            </div>
-                            </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        <d-text-input :errors="errors" id="password-register-confirm"
+                                    :type="showC ? 'text' : 'password'" class="form-control  " v-model="form.passwordConfirm"
+                                    :label="$t('Password-confirm')">
+                                    <template v-slot:append-icon>
+                                        <span style="color: #CDD7D8;font-size: 23px;" @click="show = !show"
+                                            class="fa-regular mx-1" :class="{ 'fa-eye': !show, 'fa-eye-slash': show }">
+                                        </span>
+                                    </template>
+                                </d-text-input>
                         </ValidationProvider>
                     </div>
                     <div class="col-md-4 w-100 mt-2">
@@ -121,15 +112,12 @@
                         vid="identity_id"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{$t('identity-id')}}</label>
-                        <input type="text" v-model="itemForm.identity_id" class="form-control" >
-                        
-                        </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+
+                        <d-text-input :errors="errors" type="text" :label="$t('identity-id')" v-model="itemForm.identity_id" class="form-control" >
+                            </d-text-input>
                         </ValidationProvider>
                     </div>
-                    <div class="col-md-4 w-100 mt-2">
+                  <div class="col-md-4 w-100 mt-2">
                         <ValidationProvider 
                         tag="div"
                         class="w-100"
@@ -139,14 +127,14 @@
                         v-slot="{errors}"
                         >
                         <div class="form-group">
-                            <label class="form-label">{{ $t('gender') }}</label>
-                        <select v-model="itemForm.gender" class="form-select  px-3" >
+                            
+                        <d-select-input :errors="errors" v-model="itemForm.gender" :label="$t('gender')">
                           <option selected disabled  >الجنس</option>
                           <option value="male">{{$t('Male')}}</option>
                           <option value="female">{{ $t('Female') }}</option>
-                        </select>
+                        </d-select-input>
                     </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                          
                         </ValidationProvider>
                     </div>
                     <div class="col-md-4 w-100 mt-2">
@@ -198,14 +186,11 @@
                         vid="country_id"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('Country') }}</label>
-                        <select v-model="itemForm.country_id" class="form-select  px-3" >
+                        
+                        <d-select-input :errors="errors" v-model="itemForm.country_id" :label="$t('Country')" >
                           <option selected disabled  >الدولة</option>
                           <option v-for="(country,i) in countries" :key="i" :value="country.id">{{ country.name }}</option>
-                        </select>
-                    </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        </d-select-input>
                         </ValidationProvider>
                     </div>
                     <div class="col-md-4 w-100 mt-2">
@@ -216,15 +201,11 @@
                         rules="required"
                         vid="city_id"
                         v-slot="{errors}"
-                        >
-                            <div class="form-group">
-                                <label class="form-label">{{ $t('city') }}</label>
-                                <select v-model="itemForm.city_id" class="form-select  px-3"  >
+                        ><label class="form-label">{{  }}</label>
+                                <select :errors="errors" v-model="itemForm.city_id" :label="$t('city')"  >
                                 <option selected disabled  >المدينة</option>
                                 <option v-for="(city,i) in cities" :key="i" :value="city.id">{{ city.name }}</option>
                                 </select>
-                            </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
                         </ValidationProvider>
                     </div>
                 </template>
@@ -237,15 +218,13 @@
                         vid="department_id"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('Specialization') }}</label>
-                        <select v-model="itemForm.department_id" class="form-select  px-3" >
+                        
+                        <d-select-input :errors="errors" v-model="itemForm.department_id" :label="$t('Specialization')">
                           <option selected disabled  >مجال التخصص</option>
                           <option v-for="(department,i) in departments" :key="i" :value="department.id">{{ department.name }}</option>
 
-                        </select>
-                    </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        </d-select-input>
+                    
                         </ValidationProvider>
                     </div>
                     <div class="col-md-4 w-100 mt-2">
@@ -257,15 +236,12 @@
                         vid="scientific_degree"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('education-degree') }}</label>
-                        <select v-model="itemForm.scientific_degree" class="form-select  px-3">
+                                               
+                        <d-select-input :errors="errors" v-model="itemForm.scientific_degree" :label="$t('education-degree')">
                           <option selected disabled  > الدرجة العلمية</option>
                           <option v-for="(degree,i) in degrees" :key="i" :value="degree.id">{{ degree.name }}</option>
 
-                        </select>
-                    </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        </d-select-input>
                         </ValidationProvider>
                     </div>
                     <div class="col-md-4 w-100 mt-2">
@@ -277,12 +253,11 @@
                         vid="job_title"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('job-position') }}</label>
-                        <input v-model="itemForm.job_title" type="text" class="form-control" >
                         
-                        </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        <d-text-input :errors="errors" v-model="itemForm.job_title" type="text" :label="$t('job-position')" class="form-control" >
+                            </d-text-input>
+                        
+                        
                         </ValidationProvider>
                     </div>
                     <div class="col-md-4 w-100 mt-2">
@@ -294,11 +269,8 @@
                         vid="years_experience"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('years_experience') }}</label>
-                        <input v-model="itemForm.years_experience" type="text" class="form-control" >
-                        </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        <d-text-input :errors="errors" v-model="itemForm.years_experience" type="text" :label="$t('years_experience')" class="form-control" >
+                            </d-text-input>
                         </ValidationProvider>
                     </div>
                     <div class="col-md-4 w-100 mt-2">
@@ -310,13 +282,11 @@
                         vid="bio"
                         v-slot="{errors}"
                         >
-                        <div class="form-group">
-                            <label class="form-label">{{ $t('about-you') }}</label>
-                            <textarea v-model="itemForm.bio" class="form-control" 
-                            rows="5" placeholder="نبذة عنك"
-                            ></textarea>
-                        </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0"/>
+                        
+                            <d-textarea-input :errors="errors" v-model="itemForm.bio" class="form-control" 
+                            rows="5" :label="$t('about-you')"
+                            ></d-textarea-input>
+                        
                         </ValidationProvider>
                     </div>               
                     <div class="col-md-4 w-100 mt-2">
@@ -377,9 +347,9 @@
                             <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
                             سجل الان  </button>
                     </div>
-                  
-                
-                </ValidationObserver>
+                           
+                        </ValidationObserver>
+               
             </div>
             <div class="col-md-6">
                 <div class="box h-100">
