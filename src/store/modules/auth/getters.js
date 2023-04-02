@@ -13,6 +13,9 @@ export default {
     isInstructor (state) { 
         return state.isInstructor;
     },
+    isConsultant (state) { 
+        return state.isConsultant;
+    },
     academyRole(state){
        return state.academyRole || localStorage.getItem('user_academy_role') || 'student'
     },

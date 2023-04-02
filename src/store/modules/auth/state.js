@@ -13,4 +13,5 @@ export default () => ({
     isProvider:false,
     academyRole:null,
     isInstructor:false,
+    isConsultant:false,
  })

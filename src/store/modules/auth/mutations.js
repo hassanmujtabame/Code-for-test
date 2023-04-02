@@ -60,10 +60,11 @@ export default{
         localStorage.setItem("user_provider", data?'Y':'N');
     },
     SET_USER(state,payload){
-        let {partner,subscribers,is_instructor,...user} = payload;
+        let {partner,subscribers,is_instructor,is_consultant,...user} = payload;
         state.user=user;
         state.partner = partner?? null; // if undefined makes it null
         state.isInstructor         = is_instructor?? false; // if undefined makes it null
+        state.isConsultant         = is_consultant?? false; // if undefined makes it null
         state.subscribeNetwork     = subscribers.network??null;
         state.subscribeProvider    = subscribers.service_provider??null;
         state.subscribeAcademy     = subscribers.academy??null;
@@ -79,6 +80,9 @@ export default{
     },
     SET_INSTRUCTOR(state,payload){
         state.isInstructor=payload;
+    },
+    SET_CONSULTANT(state,payload){
+        state.isConsultant=payload;
     },
     SET_SUBSCRIBE_NETWORK(state,payload){
         state.subscribeNetwork=payload;
