@@ -46,12 +46,12 @@ export default {
             let auth_endpoint =null;//'https://laravel8.test:8443/laravel-websockets/auth'  //process.env.VUE_APP_AUTH_ENDPOINT
                 this.pusher =  new window.Pusher(process.env.VUE_APP_PUSHER_APP_KEY, {
                     cluster:process.env.VUE_APP_PUSHER_APP_CLUSTER,
-                    wsHost: wshost??'test.riadiat.sa',
+                    wsHost: wshost??'test1.riadiat.sa',
                     wsPort:wsport??443,
                     wssPort:wsport??443,
                     wsPath:'',
                     disableStats: false,
-                    authEndpoint: auth_endpoint??'https://test.riadiat.sa/laravel-websockets/auth',
+                    authEndpoint: auth_endpoint??'https://test1.riadiat.sa/laravel-websockets/auth',
                     auth: {
                         headers: {
                             'Authorization' : `Bearer ${this.myToken}`,

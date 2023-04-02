@@ -60,7 +60,7 @@ export default {
   itemExample:{
     id: 6,
             title: "تصميم الازياء",
-            image_path: "https://test.riadiat.sa/storage/117/courses-1768.png",
+            image_path: "https://test1.riadiat.sa/storage/117/courses-1768.png",
             description: "تصميم الازياء",
             "price": 1500
           },

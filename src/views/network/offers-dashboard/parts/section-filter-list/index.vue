@@ -6,7 +6,7 @@
           <h1 class="sect-title">قائمة إعلاناتي</h1>
         </div>
         <div class="col-12 col-md-4">
-          <button class="btn btn-custmer w-100"><i class="far fa-square-plus"></i> أضف إعلان جديد</button>
+          <button @click="addNewOffer" class="btn btn-custmer w-100"><i class="far fa-square-plus"></i> أضف إعلان جديد</button>
         </div>
       </div>
       <div class="col-12">
@@ -72,6 +72,9 @@ export default {
     }
   },
   methods: {
+    addNewOffer(){
+      this.fireOpenDialog('add-new-offer')
+    },
     changeStatus(status) {
       this.filterItem.status = status;
       this.fireEvent('d-filter-list-refresh')

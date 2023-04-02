@@ -11,7 +11,7 @@
         >
             <div class="modal-content">
                 <div v-if="!hideHeader" class="modal-header">
-                    <h1 class="modal-title" :id="`modal-large-${modalId}`">
+                    <h1 class="modal-title" :class="customHeaderClass" :id="`modal-large-${modalId}`">
                     <slot name="header">
                        
                     </slot>
@@ -53,6 +53,9 @@ props:{
     loading:{
         type:Boolean,
         default:false,
+    },
+    customHeaderClass:{
+        default:''
     },
     centered:{
         type:Boolean,

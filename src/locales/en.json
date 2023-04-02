@@ -650,5 +650,12 @@
   "reschedule": "reshedule",
   "finished": "finish",
   "session-date": "Session date",
-  "schedule-confirmation": "schedule confirmation"
+  "schedule-confirmation": "schedule confirmation",
+  "company-type": "company type",
+  "website": "website",
+  "discount-code": "discount code",
+  "offer-during": "duration of offer",
+  "offer-department": "offer department",
+  "add-offer": "add offer",
+  "add-ads": "add ads"
 }

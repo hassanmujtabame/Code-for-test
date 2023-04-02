@@ -645,5 +645,12 @@
   "reschedule": "إعادة جدولة",
   "finished": "تم الانتهاء",
   "session-date": "تاريخ الجلسة",
-  "schedule-confirmation": "تأكيد الموعد"
+  "schedule-confirmation": "تأكيد الموعد",
+  "company-type": "نوع الشركة",
+  "website": "موقع إلكتروني",
+  "discount-code": "كود للخصم",
+  "offer-during": "مدة العرض",
+  "offer-department": "مجال العرض",
+  "add-offer": "أضف العرض",
+  "add-ads": "إضافة إعلان"
 }

@@ -15,7 +15,6 @@ class InstructorMeetingsApi extends BaseApi{
         return window.axios.get(`network/categories`);
     }
     sendGroupMessage(data){
-        //https://test.riadiat.sa/api/v1/academy/instructor/meetings/send-group-message
         return window.axios.post(`academy/instructor/meetings/send-group-message`,data);
     
     }

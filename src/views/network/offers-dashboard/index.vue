@@ -17,19 +17,22 @@
             </div>
         </div>
         <updatePartnerDialog />
+        <addOfferDialog />
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import updatePartnerDialog from './dialogs/update-partner/index'
+import addOfferDialog from './dialogs/add-offer/index'
 import SectionFilterList from './parts/section-filter-list'
 
 export default {
  name:'ads-dashboard',
  components:{
     SectionFilterList,
-    updatePartnerDialog
+    updatePartnerDialog,
+    addOfferDialog
  },
  data:()=>({
     loading:true,
