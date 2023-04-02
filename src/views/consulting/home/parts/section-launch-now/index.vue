@@ -48,9 +48,9 @@
                                     </svg>
                                     مجالات متنوعة و فريدة                                
                             </p>
-                            <a href="regester-consulting.html" class="btn-main p-3 mt-3 text-white"> 
+                            <router-link :to="getRouteLocale('consulting-register')" class="btn-main p-3 mt-3 text-white"> 
                                 سجل كمسشار 
-                            </a>
+                            </router-link>
                         </div>
     
                     </div>
@@ -67,7 +67,7 @@
 
 <script>
 export default {
- name:'section-3'
+ name:'section-launch-now'
 }
 </script>
 

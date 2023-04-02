@@ -5,7 +5,9 @@
           <!--#section 1-->
          <!-- section help to start-->
          <SectionHelpToStart/>
-          <!--#section 2-->
+         <SectionGoals />
+        <SectionLaunchNow />
+         <!--#section 2-->
           <div class="container mt-5">
          <!-- section 4-->
          <SectionConsultingCategories />
@@ -23,6 +25,8 @@
   
   <script>
   import SectionHeader from './parts/section-header/index.vue'
+  import SectionGoals from './parts/section-goals/index.vue'
+  import SectionLaunchNow from './parts/section-launch-now/index.vue'
   import SectionHelpToStart from './parts/section-help-tostart/index.vue'
   import SectionConsultingCategories from './parts/section-consulting-categories/index.vue'
   import SectionBestConsultors from './parts/section-best-consultors/index.vue'
@@ -34,6 +38,8 @@
     SectionHelpToStart,
     SectionConsultingCategories,
     SectionBestConsultors,
+    SectionGoals,
+    SectionLaunchNow
 
   }
   }
