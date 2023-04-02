@@ -1,11 +1,9 @@
 <template>
 <div class=" my-profile box info border p-3 bg-card" v-bind="$attrs" >
-                        <div class="main-img text-center m-auto ">
-                            <img class="rounded-circle img-person clickable" @click="showProfile" :src="member.image" :alt="member.name" width="140" height="140">
-                        </div>
+                        
                         <div class="main-img text-center m-auto avatar-user-card clickable"
             @click="showProfile"
-            :style="{'background-image':`url(${member.image})`,'background-size': `${parseInt(sizeImage)+2}px ${parseInt(sizeImage)+2}px`,'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
+            :style="{'background-image':`url(${member.image})`,'background-size': `${parseInt(sizeImage)+7}px ${parseInt(sizeImage)+7}px`,'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
             >
             </div>
                         <div class=" text-center">
