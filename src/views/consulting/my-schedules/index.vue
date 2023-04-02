@@ -10,7 +10,7 @@
           <h3>
             جدول خدمة
             <a href="" style="color: #F2631C;">
-              {{category_schedule.title}}
+             
             </a>
           </h3>
 
@@ -31,7 +31,7 @@
             تعديل
 
           </button>
-          <button @click="deleteCategory" style="height: 40px;" class="bg-danger text-white border-0 rounded-2 px-3">
+          <button  style="height: 40px;" class="bg-danger text-white border-0 rounded-2 px-3">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M28 8.97363C27.9733 8.97363 27.9333 8.97363 27.8933 8.97363C20.84 8.26696 13.8 8.00029 6.82668 8.70696L4.10668 8.97363C3.54668 9.02696 3.05334 8.62696 3.00001 8.06696C2.94668 7.50696 3.34668 7.02696 3.89334 6.97363L6.61334 6.70696C13.7067 5.98696 20.8933 6.26696 28.0933 6.97363C28.64 7.02696 29.04 7.52029 28.9867 8.06696C28.9467 8.58696 28.5067 8.97363 28 8.97363Z"
@@ -112,38 +112,36 @@
                           <button class="btn" @click="deleteEvent"  href="#">حذف</button>
                           
     </div>
-    <delCatItemDialog />
-    <DialogNewCategorySchedule @success="successUpdate"/>
-    <delItemDialog @success="deleteEventSuccess" />
+  
     <DialogNewSchedule @success="updateEventSuccess"/>
   </div>
 </template>
 
 <script>
 import schedulesAPI from '@/services/api/service-provider/schedules';
-import categoriesScheduleAPI from '@/services/api/service-provider/categories-schedule'
-import delCatItemDialog from '../dialogs/category-schedule/del-item.vue';
-import delItemDialog from '../dialogs/new-schedule/del-item.vue';
-import DialogNewCategorySchedule from '../dialogs/category-schedule/index.vue'
-import DialogNewSchedule from '../dialogs/new-schedule/index.vue'
+//import categoriesScheduleAPI from '@/services/api/service-provider/categories-schedule'
+//import delCatItemDialog from '../dialogs/category-schedule/del-item.vue';
+//import delItemDialog from '../dialogs/new-schedule/del-item.vue';
+//import DialogNewCategorySchedule from '../dialogs/category-schedule/index.vue'
+import DialogNewSchedule from './dialogs/new-schedule/index.vue'
 
 export default {
-  name: 'page-schedule',
+  name: 'page-schedule-consulting',
   components:{
-    delCatItemDialog,
-    delItemDialog,
     DialogNewSchedule,
-    DialogNewCategorySchedule
   },
   data: () => {
     return {
       styleObject:{
         display:'none'
       },
-      loading: true,
+      loading: false,
       eventSelected:null,
       hasError:false,
-      category_schedule:null,
+      category_schedule:{
+        title:'j^vdf',
+        color:'red'
+      },
       items: [],
       attributes:[],
       masks: {
@@ -154,7 +152,7 @@ export default {
  
   methods: {
     updateEvent(){
-      this.fireOpenDialog('new-schedule',this.eventSelected)
+      this.fireOpenDialog('new-schedule-consulting',this.eventSelected)
       this.hideMenu()
     },
     deleteEvent(){
@@ -198,15 +196,11 @@ export default {
       this.styleObject['z-index'] = 9999;
     },
     dayclick(day) {
-      if (process.env.NODE_ENV !== 'production')
-        console.log('day', day)
-    },
-     deleteCategory(){
-      this.fireOpenDialog('delete-category-schedule',this.category_schedule)
+        console.mylog('day', day)
     },
     async initializing() {
       this.loading = true;
-      this.hasError = false;
+      /*this.hasError = false;
       try {
         let { data } = await categoriesScheduleAPI.getItem(this.$route.params.id)
         if (data.success) {
@@ -217,7 +211,7 @@ export default {
       } catch (error) {
         console.log('error', error)
         this.hasError = true;
-      }
+      }*/
       this.loading = false;
     },
     updateAttributes(){

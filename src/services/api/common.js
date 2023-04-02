@@ -47,6 +47,12 @@ getTypeCertificates(){
     {id:'after_pass_exams',name:'بعد إجتياز اختبارات'},
 ]
 }
+getTypeConsultations(){
+  return [
+    {id:'call',name:"مكالمة"},
+  
+]
+}
   getDaysOfWeek(){
     return [
       {id:'sunday',name:_i18n.t('sunday')},

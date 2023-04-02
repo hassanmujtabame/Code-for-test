@@ -640,5 +640,11 @@
   "session-confirmation": "Session confirmation",
   "session-link": "session link",
   "curreny-rs": "R.S",
-  "fill-form": "fill out form"
+  "fill-form": "fill out form",
+  "consulting-type": "Consulting type",
+  "consulting-during": "duration of consultation",
+  "consulting-period": "consultant period",
+  "minute": "minute",
+  "scheduling-duration": "scheduling duration",
+  "start_date_consulting": "start date"
 }

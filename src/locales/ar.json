@@ -635,5 +635,11 @@
   "session-confirmation": "تأكيد الجلسة",
   "session-link": "رابط الجلسة",
   "curreny-rs": "ر.س",
-  "fill-form": "املئ الاستمارة"
+  "fill-form": "املئ الاستمارة",
+  "consulting-type": "نوع الاستشارة",
+  "consulting-during": "مدة الاستشارة",
+  "consulting-period": "فترة استشاري",
+  "minute": "دقيقة",
+  "scheduling-duration": "مدة الجدولة",
+  "start_date_consulting": "بداية الموعد"
 }
