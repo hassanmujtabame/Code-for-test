@@ -521,8 +521,8 @@ export default {
                 let form = {};
                 if(!this.user) form = {...this.itemForm}
                 else{
-                    let {department_id,scientific_degree,job_title,years_experience,bio,cv,terms_use} = this.itemForm
-                    form = {department_id,scientific_degree,job_title,years_experience,bio,cv,terms_use};
+                    let {department_id,job_title,bio,cv} = this.itemForm
+                    form = {department_id,job_title,bio,cv};
                 }
                let formData =  this.loadObjectToForm(form)
                 let { data } = await instructorAPI.register(formData)
