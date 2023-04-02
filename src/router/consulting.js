@@ -20,6 +20,13 @@ const routers =[
         
     },
     {
+        path: 'consulting/my-schedules',
+        meta:{auth:true,layout:LayoutDefault},
+        name: 'consulting-my-schedules',
+        component: () => import(/* webpackChunkName: "consulting-my-schedules" */ '../views/consulting/my-schedules/index.vue') 
+        
+    },
+    {
         path: 'consulting/rates',
         meta:{auth:true,layout:LayoutDefault},
         name: 'consulting-rates',
