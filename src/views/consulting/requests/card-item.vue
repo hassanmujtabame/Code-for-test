@@ -16,7 +16,7 @@
       </p>
       <p class="consulting-request__info-label">
           <d-time-icon :size="16" color="currentColor" />
-          {{ dateRequest }}
+          {{ timeFormatAMPM(timeRequest,true) }}
       </p>
       
      
@@ -27,9 +27,13 @@
 
       <div class="d-flex flex-column flex-shrink-0 justify-content-end">
           
-          <div class="d-flex">
+          <div class="d-flex" v-if="status=='waiting'">
             <button class="btn btn-custmer" @click="acceptRequest">{{ $t('accept') }}</button>
             <button class="btn btn-custmer btn-danger mx-2">{{ $t('reject') }}</button>
+          </div>
+          <div class="d-flex" v-if="status=='approve'">
+            <button class="btn btn-custmer" @click="rescheduleRequest">{{ $t('reschedule') }}</button>
+            <button class="btn btn-custmer-w  mx-2"  @click="finishRequest">{{ $t('finished') }}</button>
           </div>
       </div>
   
@@ -60,6 +64,9 @@
       dateRequest:{
           type:String,
       },
+      timeRequest:{
+          type:String,
+      },
       status:{
           type:String,
       },
@@ -67,6 +74,10 @@
    },
 
    methods:{
+    rescheduleRequest(){
+        this.fireOpenDialog('reschedule-session',{id:this.itemId,session_date:this.dateRequest,session_time:'09:00'})
+    },
+    finishRequest(){},
     acceptRequest(){
        this.fireOpenDialog('show-session-confirmation',{
         id:this.itemId,

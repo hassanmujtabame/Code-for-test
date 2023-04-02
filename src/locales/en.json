@@ -646,5 +646,9 @@
   "consulting-period": "consultant period",
   "minute": "minute",
   "scheduling-duration": "scheduling duration",
-  "start_date_consulting": "start date"
+  "start_date_consulting": "start date",
+  "reschedule": "reshedule",
+  "finished": "finish",
+  "session-date": "Session date",
+  "schedule-confirmation": "schedule confirmation"
 }

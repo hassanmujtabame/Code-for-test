@@ -40,8 +40,7 @@
   </template>
 
   <script>
-import { ValidationObserver, ValidationProvider } from 'vee-validate';
-
+import consultingAPI from '@/services/api/consulting/index'
  export default {
     name: "show-session-confirmation",
     props: {
@@ -64,6 +63,17 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate';
             this.loading = false;
             return;
           }
+          try {
+            let {data} = await consultingAPI.requests.approveIt(this.itemDialog.id,this.itemForm)
+            if(data.success){
+              this.closeEvent()
+            }else{
+              window.SwalError(data.message)
+            }
+          } catch (error) {
+            //
+            window.DHelp.catchException.call(this,error,this.$refs.form)
+          }
             this.closeEvent();
             this.loading = false;
         },
@@ -79,8 +89,7 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate';
         closeEvent() {
             this.fireEvent(this.group + "-close-dialog");
         }
-    },
-    components: { ValidationObserver, ValidationProvider }
+    }
 }
   </script>
   

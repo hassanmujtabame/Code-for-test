@@ -10,6 +10,10 @@ class ConsultantsApi extends BaseApi{
 getItem(id){
     return window.axios.get(`consulting/consultants/${id}`);
 }
+register(data){
+    return window.axios.get(`consulting/consultants`,data);
+    
+}
 getBest(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`consulting/consultants?${s}`);

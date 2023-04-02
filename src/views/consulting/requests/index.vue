@@ -27,11 +27,12 @@
                             :status="item.status"
                             :title="item.title"
                             :userName="item.user_info.name"
-                            :dateRequest="item.created_at"
+                            :dateRequest="item.start_date"
+                            :timeRequest="item.start_time"
                             :place="item.city"
                             :price="item.price"
                             
-                            :description="item.description"
+                            :description="item.desc"
                             
                             
                             >
@@ -41,26 +42,29 @@
       </d-filter-list>
     </div>
     <showConfirmSessionDialog />
+    <showRescheduleDialog />
     </div>
 </template>
 <script>
-import myRequestClientAPI from '@/services/api/service-provider/user/my-requests-client.js'
 import InvestProjectRequest from './card-item.vue'
-import showConfirmSessionDialog from './confirm-accept/index'
+import showConfirmSessionDialog from './dialogs/confirm-accept/index'
+import showRescheduleDialog from './dialogs/reschedule/index'
+import consultingAPI from '@/services/api/consulting/index'
 export default {
     name: 'request-invet-projects',
     components:{
         InvestProjectRequest,
-        showConfirmSessionDialog
+        showConfirmSessionDialog,
+        showRescheduleDialog
     },
     data:()=>{
         return {
-            status:null,
+            status:null,//status=approve|disapprove|waiting|finished
             actions:[
                 {status:null,label:'كل طلبات'},
                 {status:'waiting',label:'طلبات بانتظار موافقتك'},
-                {status:'underway',label:'طلبات تم الموافقة عليها'},
-                {status:'finished',label:'طلبات تم الانتهاء منهت'},
+                {status:'approve',label:'طلبات تم الموافقة عليها'},
+                {status:'finished',label:'طلبات تم الانتهاء منها'},
             ],
             filterItem:{
                 search:null,
@@ -87,7 +91,7 @@ export default {
                     paginate:4,
                     ...this.filterItem
                 }
-                return await myRequestClientAPI.getAll(params)
+                return await consultingAPI.requests.getAll(params)
 
             } catch (error) {
                 console.log('error', error)

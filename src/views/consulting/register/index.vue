@@ -444,9 +444,11 @@
 </template>
 
 <script>
-import instructorAPI from '@/services/api/academy/instructor';
+
+
 import academyAPI from '@/services/api/academy';
 import commonAPI from '@/services/api/common';
+import consultingAPI from '@/services/api/consulting';
 export default {
  name:'register-consultant-page',
  data: () => {
@@ -525,7 +527,7 @@ export default {
                     form = {department_id,job_title,bio,cv};
                 }
                let formData =  this.loadObjectToForm(form)
-                let { data } = await instructorAPI.register(formData)
+                let { data } = await consultingAPI.consultants.register(formData)
                 if(data.success){
                    this.successRegister()
                 }else{

@@ -641,5 +641,9 @@
   "consulting-period": "فترة استشاري",
   "minute": "دقيقة",
   "scheduling-duration": "مدة الجدولة",
-  "start_date_consulting": "بداية الموعد"
+  "start_date_consulting": "بداية الموعد",
+  "reschedule": "إعادة جدولة",
+  "finished": "تم الانتهاء",
+  "session-date": "تاريخ الجلسة",
+  "schedule-confirmation": "تأكيد الموعد"
 }
