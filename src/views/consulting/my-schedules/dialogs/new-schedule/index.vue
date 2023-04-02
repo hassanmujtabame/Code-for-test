@@ -78,7 +78,7 @@
         </ValidationProvider>
         <h3 class="consulting-schedule-dialog_title2">الوقت المتاح</h3>
         <div class="d-flexd-flex flex-wrap gap-2">
-            <div class="consulting-time-available-item" v-for="(it,i) in itemForm.times" :key="i">{{ it }}</div>
+            <div class="consulting-time-available-item" v-for="(it,i) in itemForm.times" :key="i">{{ timeFormatAMPM(it,true) }}</div>
         </div>
         <div>
             <button @click="addTime" class="btn-text m-c"><i class="fa fa-plus-circle"></i> إضافة وقت اخر</button>
@@ -190,5 +190,6 @@ margin-bottom:10px ;
     /* identical to box height, or 100% */
     text-align: center;
     color: #CDD7D8;
+    width: fit-content;
 }
 </style>
