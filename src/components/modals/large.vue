@@ -24,7 +24,7 @@
                 <div class="modal-body">
                     <slot :close="closeDialogLocal" :dialog="dialog"></slot>
                 </div>
-                <div class="modal-footer justify-content-center">
+                <div v-if="!hideFooter && $slots.actions" class="modal-footer justify-content-center">
                     <slot name="actions" :close="closeDialogLocal" :dialog="dialog">
                     </slot>
                 </div>
@@ -59,6 +59,10 @@ props:{
         default:true
     },
     hideHeader:{
+        type:Boolean,
+        default:false
+    },
+    hideFooter:{
         type:Boolean,
         default:false
     },
