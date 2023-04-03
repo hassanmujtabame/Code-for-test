@@ -36,7 +36,7 @@
 
                                         </div>
                                         <div v-if="showProgress">
-                                            <div v-if="false">
+                                            <div v-if="item.progress_ratio">
                                         <d-progress-bar :height="6" :progress="item.progress_ratio"/>
                                         <span class="student-course__item-percent-label">{{ item.progress_ratio }}% مكتمل </span>
                                         </div>
