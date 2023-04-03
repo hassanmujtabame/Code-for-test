@@ -10,6 +10,7 @@
        <div  style="max-width:628px" class="px-5">
        <SectionDesc  :itemPage="itemPage" />
        <SectionWhatLearn :itemPage="itemPage" />
+       <SectionNotes v-if="['on-site'].includes(itemPage.type)" :itemPage="itemPage" />
        <div class="mt-4">
        <SectionAttachments hideHeader v-if="['live'].includes(itemPage.type)" :itemPage="itemPage" />
       </div>
@@ -31,6 +32,7 @@
    import SectionHeader from './sections/section-header/index.vue'
    import SectionDesc from './sections/section-desc/index.vue'
    import SectionWhatLearn from './sections/section-what-learn/index.vue'
+   import SectionNotes from './sections/section-notes/index.vue'
    import SectionLectures from './sections/section-lectures/index.vue'
    import SectionInstructors from './sections/section-instructors/index.vue'
    import SectionRates from './sections/section-rates/index.vue'
@@ -45,6 +47,7 @@
        SectionHeader,
        SectionDesc,
        SectionWhatLearn,
+       SectionNotes,
        SectionLectures,
        SectionInstructors,
        SectionRates,

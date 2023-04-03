@@ -6,7 +6,7 @@
    </div>
         <h1 class="text-white px-5 fs-1 position-relative z-index-1"> {{ itemPage.title }} </h1>
         <p class="text-white fs-r-24 position-relative z-index-1" :class="{'px-5':!isMobile,'px-1':isMobile}" style="max-width:702px">
-        هنا نبذة عن الدورة
+       {{ itemPage.short_description }}
         </p>
       </div>
         <div class="course-menu-top px-5">
