@@ -23,7 +23,7 @@
       </div>
       <cardFixed :itemPage="itemPage" :isOwner="isOwner"/>
        <watchVideoLecture />
-
+<checkoutCourseDiag />
      </div>
      </div>
    </template>
@@ -40,10 +40,12 @@
    import SectionAttachments from './sections/section-attachments'
    import watchVideoLecture from './dialogs/watch-video/index'
    import cardFixed from './card-fixed.vue'
+   import checkoutCourseDiag from './dialogs/check-out-course/index.vue';
     import academyAPI from '@/services/api/academy'
    export default {
     name:'course-show-recorded',
     components:{
+      checkoutCourseDiag,
        SectionHeader,
        SectionDesc,
        SectionWhatLearn,

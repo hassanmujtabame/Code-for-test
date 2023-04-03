@@ -18,7 +18,7 @@
     <d-money-icon color="var(--m-color)" />
     <span class="px-2">{{itemPage.price}} {{ $t('riyals') }}</span>
    </div>
-   <div v-if="token" class="mt-3">
+   <div v-if="token && (userIsSubAcademy ||itemPage.user_is_join_course) " class="mt-3">
     <button v-if="!isOwner && (!token || !itemPage.user_is_join_course)" @click="inscription" class="btn btn-custmer w-100">إشترك في الدورة</button>
     <button v-else @click="showCourse" class="btn btn-custmer w-100">{{ btnTitleSub() }}</button>
   </div>
@@ -27,13 +27,13 @@
       <div class="flex-shrink-0 text-center" id="subscribe-action">
         <p class="price-text m-0">تبدأ من</p>
         <h3 class="price-title m-0">150/شهر</h3>
-        <button class="btn btn-custmer">{{ $t('subscribe') }}</button>
+        <button class="btn btn-custmer" @click="gotToSubscribe">{{ $t('subscribe') }}</button>
         <p id="remark-sub">افتح هذه الدورة و 4 آخرين</p>
       </div>
       <div  class="flex-shrink-0 text-center px-2">
         <p class="price-text m-0">إشتري هذي الدورة</p>
-        <h3  class="price-title m-0">{{ itemPage.price }} {{ $t('curreny-rs') }}</h3>
-        <button class="btn btn-custmer">{{ $t('buying') }}</button>
+        <h3  class="price-title m-0"  >{{ itemPage.price }} {{ $t('curreny-rs') }}</h3>
+        <button class="btn btn-custmer"  @click="buyCourse">{{ $t('buying') }}</button>
         </div>
     </div>
   </div>
@@ -136,6 +136,15 @@ export default {
             window.DHelper.catchException.call(this,error)
         }
     },
+    buyCourse(){
+      if(this.shouldLoginMsg()) return;
+      this.fireOpenDialog('checkout-course-academy',{item:{amount:this.itemPage.price,title:`${this.$t('the-course')}:${this.itemPage.title}`},data:this.itemPage})
+
+    },
+    gotToSubscribe(){
+      if(this.shouldLoginMsg()) return;
+      this.router_push('academy-subscribe')
+    }
     }
 
 }
@@ -239,4 +248,5 @@ html[lang=en] #subscribe-action{
   border-right: 1px solid var(--color-border);
     padding-right: 10px;
 }
+
 </style>

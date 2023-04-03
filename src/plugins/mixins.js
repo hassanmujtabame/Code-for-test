@@ -415,6 +415,20 @@ const mixin = {
                 }
                 
               },
+              shouldLoginMsg(){
+                if(!this.token){
+                let dataEvt = {
+                  title:'يجب عليك تسجيل الدخول',
+                  type:'warning',
+                  btns:[
+                    {title:this.$t('login'),action:()=>this.router_push('login')}
+                  ]
+                }
+                this.showConfirmMsg(dataEvt)
+              return true;
+              }
+              return false;
+              },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");
               plugin.setAttribute(

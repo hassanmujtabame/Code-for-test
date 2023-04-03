@@ -38,12 +38,16 @@ class academyApi extends BaseApi{
     }
     getHomeSchedules(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`network/network-schedule?${s}`);
+        return window.axios.get(`academy/schedule?${s}`);
     }
     checkoutPackageFree(data){
         return window.axios.post(`academy/user-checkout-package-free`,data);
     }
-    checkoutPackage(data){
+    checkoutCourse(data){
+        return window.axios.post(`academy/user/courses/purchase-requests`,data);
+
+    }
+        checkoutPackage(data){
         /*
           type if 0
             paymentBrand
