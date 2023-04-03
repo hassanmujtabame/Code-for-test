@@ -2,19 +2,19 @@
   <div class="card card-info" :class="{'tablet':isTablet}">
   <img class="card-img-top" :src="itemPage.image_path" :alt="itemPage.title">
   <div class="card-body">
-   <div class="mb-3">
+   <div class="course-card-fixed__item mb-3">
     <d-unlock-icon color="var(--m-color)" />
     <span class="px-2">محتوي متاح دائما</span>
    </div>
-   <div class="mb-3">
+   <div class="course-card-fixed__item mb-3">
     <d-doc-text-icon color="var(--m-color)" />
         <span class="px-2">تقييم نهائي</span>
    </div>
-   <div class="mb-3">
+   <div class="course-card-fixed__item mb-3">
     <d-medal-star-icon color="var(--m-color)" />
             <span class="px-2">شهادة اتمام دورة</span>
    </div>
-   <div class="mb-3">
+   <div class="course-card-fixed__item mb-3">
     <d-money-icon color="var(--m-color)" />
     <span class="px-2">{{itemPage.price}} {{ $t('riyals') }}</span>
    </div>
@@ -137,6 +137,16 @@ left: 100px;
 right: auto;
 z-index: 10;
 }
+html[lang=en] .card-info{
+  right: 100px;
+left: auto;
+}
+.course-card-fixed__item{
+  display: flex;
+    justify-content: end;
+    direction: initial;
+    flex-direction: row-reverse;
+}
 .card-img-top{
   min-height: 245px;
 }
@@ -148,4 +158,13 @@ z-index: 10;
     width: 200px;
     left: 10px;
 }
+html[lang=en] .tablet{
+  right: 50px;
+left: auto;
+}
+html[lang=en] .mobile{
+  right: 10px;
+left: auto;
+}
+
 </style>
