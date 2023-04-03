@@ -38,7 +38,7 @@ export default {
     itemTest,
     itemTest,]
   return {
-  rates:process.env.NODE_ENV=='development'?ratesTest:vm.itemPage.rates
+  rates:process.env.NODE_ENV=='development' && vm.itemPage.rates.length==0?ratesTest:vm.itemPage.rates
  }
 }
 }

@@ -57,10 +57,21 @@ padding:10px
 .course-rate-item__info{
     flex:1;
 }
+.course-rate-item__avatar{
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .course-rate-item__avatar>img{
     width: 48px;
     height: 48px;
-    border-radius: 50px;
+    border-radius: 50%;
+    min-width: 48px;
+    min-height: 48px;
+    background-color: gray;
 }
 .course-rate-item__name{
     font-style: normal;
