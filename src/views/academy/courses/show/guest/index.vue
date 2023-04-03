@@ -66,6 +66,14 @@
       isOwner:false
        }
     },
+    watch:{
+  '$route':{
+    deep:true,
+    handler(){
+    this.initializing()
+    }
+  }
+},
   methods:{
      async initializing() {
        this.loading = true;
@@ -75,7 +83,7 @@
                  if (data.success) {
                     this.itemPage = data.data;
                     
-                    this.isOwner = this.user && this.itemPage.user_info.id==this.user.id
+                    this.isOwner = this.user && this.itemPage.user_info&& this.itemPage.user_info.id==this.user.id
                    
                   }else{
                    this.hasError = true;

@@ -37,6 +37,14 @@
          itemPage:{}
      }
   },
+   watch:{
+  '$route':{
+    deep:true,
+    handler(){
+    this.initializing()
+    }
+  }
+},
   methods:{
      async initializing() {
        this.loading = true;
