@@ -21,7 +21,8 @@
     --color-warning-message:#DC831D;
     --color-positive:#00A94D;
     --color-grey-6:#F2F2F2;
-    --bg-opacity:0.5
+    --bg-opacity:0.5;
+    --color-border:#D1D1D1;
 }
 
 * {
