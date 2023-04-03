@@ -6,6 +6,10 @@ class CoursesApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/courses?${s}`);
     }
+    rateItem(id,data){
+        //data.append('_method','PUT')
+        return window.axios.post(`academy/instructor/courses/${id}/rate`,data);
+    }
     getRecentCourses(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/courses?${s}`);

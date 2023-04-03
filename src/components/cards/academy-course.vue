@@ -41,8 +41,8 @@
                                         <span class="student-course__item-percent-label">{{ item.progress_ratio }}% مكتمل </span>
                                         </div>
                                         <div v-else class="d-flex">
-                                            <button class="btn btn-custmer">حمّل شهادة تخرجك</button>
-                                            <button class="btn btn-custmer btn-secondary mx-2">قيّم الدورة</button>
+                                            <button class="btn btn-custmer flex-shrink-0 px-2">حمّل شهادة تخرجك</button>
+                                            <button class="btn btn-custmer-w mx-2  flex-shrink-0" @click="rateCourseDialog"> قيّم الدورة </button>
                                         </div>
                                         </div>
                                     </div>
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import academyAPI from '@/services/api/academy';
 export default {
     name: 'academy-course-card',
     props:{
@@ -67,6 +68,37 @@ export default {
         }
     },
     methods:{
+        async rateCourse(dataR,form){
+            let valid = await form.validate();
+            if(!valid) return;
+            try{
+                let { data } = await academyAPI.coursesApi.rateItem(this.item.id,dataR)
+                if(data.success){
+                   /* let dataEvt ={
+                        title:'',
+                        description:``
+                    }
+                    this.showSuccessMsg(dataEvt);
+                    */
+                    return true;
+                }else{
+                    window.SwalError(data.message)
+                    return false;
+                }
+            }catch(error){
+                window.catchException.call(this,error,form)
+                return false;
+            }
+        },
+        rateCourseDialog(){
+            this.fireOpenDialog('standard-rate-dialog',{
+                title:this.$t('rate-training-course'),
+                btns:[
+                    {title:this.$t('send-rate'),action:this.rateCourse}
+                ]
+            
+            })
+        },
         goToCourse(navigate,evt){
             //if(evt) evt.preventDefault();
             if(this.url)
