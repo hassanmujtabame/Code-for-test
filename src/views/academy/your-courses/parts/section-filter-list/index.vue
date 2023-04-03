@@ -21,13 +21,13 @@ hideSide
   </div>
 </template>
 <template v-slot="{item}">
-  <router-link class="router-link" :to="getUrlCourse(item)">
+  
     <CourseCard 
     :item="item"
     :showProgress="true"
     :showInfo="false"
+    :url="getUrlCourse(item)"
     />
-    </router-link>
 </template>
 </d-filter-list>
 </template>

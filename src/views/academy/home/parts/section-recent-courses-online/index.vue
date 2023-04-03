@@ -22,11 +22,12 @@
             >
        
             <template  v-slot:default="{item}" >
-              <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})" >
+              
                 <CardVue 
                 :item="item"
+                :url="getRouteLocale('academy-course-show',{id:item.id})"
                 />
-                </router-link>
+          
                 </template>
               </d-swiper>
             </div>

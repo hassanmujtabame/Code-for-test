@@ -21,9 +21,10 @@
             ]"
 >
 <template v-slot="{item}">
-  <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})">
-    <CourseCard :item="item"/>
-  </router-link>
+  
+    <CourseCard :item="item"
+    :url="getRouteLocale('academy-course-show',{id:item.id})"
+    />
 </template>
 
 </d-filter-list>

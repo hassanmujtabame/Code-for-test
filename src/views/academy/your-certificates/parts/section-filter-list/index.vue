@@ -9,7 +9,8 @@ classColCard="col-12 col-md-4 mt-3"
   </template>
 <template v-slot="{item}">
   <a class="router-link" target="_blank" :href="item.certificate_url">
-    <CourseCard :showInfo="false" :item="item.course" />
+    <CourseCard :showInfo="false" :item="item.course"
+    />
     </a>
 </template>
 

@@ -1,9 +1,12 @@
 <template>
     <div class="student-course box border">
                                     <div class="student-course__image">
-                                        <img class="w-100 rounded-top" :src="item.image_path" :alt="item.title"
+                                        <router-link custom v-slot="{ navigate }" :to="url??{}">
+                                     
+                                        <img @click="goToCourse(navigate,$event)" class="w-100 rounded-top" :class="{clickable:url}" :src="item.image_path" :alt="item.title"
                                             height="100%">
-                                    </div>
+                                        </router-link>
+                                           </div>
                                     <div class="p-3 ">
                                         <div class="d-flex justify-content-between ">
                                             <h6 class="student-course__title">
@@ -33,8 +36,14 @@
 
                                         </div>
                                         <div v-if="showProgress">
+                                            <div v-if="false">
                                         <d-progress-bar :height="6" :progress="item.progress_ratio"/>
                                         <span class="student-course__item-percent-label">{{ item.progress_ratio }}% مكتمل </span>
+                                        </div>
+                                        <div v-else class="d-flex">
+                                            <button class="btn btn-custmer">حمّل شهادة تخرجك</button>
+                                            <button class="btn btn-custmer btn-secondary mx-2">قيّم الدورة</button>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -49,10 +58,24 @@ export default {
             type:Boolean,
             default:true
         },
+        url:{
+           
+        },
         showProgress:{
             type:Boolean,
             default:false
         }
+    },
+    methods:{
+        goToCourse(navigate,evt){
+            //if(evt) evt.preventDefault();
+            if(this.url)
+            navigate(evt)
+            else{
+                console.mylog('not url')
+            }
+        }
+
     }
 }
 </script>
