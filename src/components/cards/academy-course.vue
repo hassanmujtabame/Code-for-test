@@ -36,12 +36,13 @@
 
                                         </div>
                                         <div v-if="showProgress">
-                                            <div v-if="item.progress_ratio">
+                                            <div v-if="item.progress_ratio<100">
                                         <d-progress-bar :height="6" :progress="item.progress_ratio"/>
                                         <span class="student-course__item-percent-label">{{ item.progress_ratio }}% مكتمل </span>
                                         </div>
                                         <div v-else class="d-flex">
-                                            <button class="btn btn-custmer flex-shrink-0 px-2">حمّل شهادة تخرجك</button>
+                                            <a class="btn btn-custmer flex-shrink-0 px-2" target="_blank" :href="item.certificate_url">حمّل شهادة تخرجك</a>
+                
                                             <button class="btn btn-custmer-w mx-2  flex-shrink-0" @click="rateCourseDialog"> قيّم الدورة </button>
                                         </div>
                                         </div>
