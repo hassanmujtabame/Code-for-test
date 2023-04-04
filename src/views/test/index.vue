@@ -1,21 +1,13 @@
 <template>
-  <Mentionable
-    :keys="[]"
-    :items="items"
-    offset="6"
-  >
-    <textarea v-model="text">
-      </textarea>
-  </Mentionable>
+  <div>
+    <component :is="getComponent()"></component>
+  </div>
 </template>
 <script>
-import { Mentionable } from 'vue-mention'
-
+import pagesList from './pages';
 export default {
 name:'ss-ss',
-  components: {
-    Mentionable,
-  },
+  components: {},
 
   data () {
     return {
@@ -32,6 +24,14 @@ name:'ss-ss',
       ],
     }
   },
+  methods:{
+    getComponent(){
+      if(this.$route.params.page && pagesList[this.$route.params.page]){
+        return pagesList[this.$route.params.page]
+      }
+      return 'div'
+    }
+  }
 }
 </script>
 <style>

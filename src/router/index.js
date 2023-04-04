@@ -69,8 +69,20 @@ const routes = [
     component: () => import(/* webpackChunkName: "test" */ '../views/test/index.vue')
   },
   {
+    path: 'test/:page',
+    name: 'test-page',
+    meta:{layout:LayoutDefault},
+    component: () => import(/* webpackChunkName: "test" */ '../views/test/index.vue')
+  },
+  {
     path: 'test2',
     name: 'test2',
+    meta:{},
+    component: () => import(/* webpackChunkName: "test2" */ '../views/test/index2.vue')
+  },
+  {
+    path: 'test2/:page',
+    name: 'test2-page',
     meta:{},
     component: () => import(/* webpackChunkName: "test2" */ '../views/test/index2.vue')
   },
