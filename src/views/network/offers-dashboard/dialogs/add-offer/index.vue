@@ -16,8 +16,8 @@
                         </div>
                     </div>
                     <div class="col-8 p-0">
-                        <ValidationProvider vid="company_name" :name="$t('company-name')" v-slot="errors">
-                            <d-text-input :errors="errors" v-model="itemForm.company_name">
+                        <ValidationProvider vid="name_company" :name="$t('company-name')" v-slot="errors">
+                            <d-text-input :errors="errors" v-model="itemForm.name_company">
                             </d-text-input>
                         </ValidationProvider>
 
@@ -30,8 +30,8 @@
                         </div>
                     </div>
                     <div class="col-8 p-0">
-                        <ValidationProvider vid="company_type" :name="$t('company-type')" v-slot="errors">
-                            <d-text-input :errors="errors" v-model="itemForm.company_type">
+                        <ValidationProvider vid="type_company" :name="$t('company-type')" v-slot="errors">
+                            <d-text-input :errors="errors" v-model="itemForm.type_company">
                             </d-text-input>
                         </ValidationProvider>
 
@@ -44,8 +44,8 @@
                         </div>
                     </div>
                     <div class="col-8 p-0">
-                        <ValidationProvider vid="desc" :name="$t('details')" v-slot="errors">
-                            <d-text-input :errors="errors" v-model="itemForm.desc">
+                        <ValidationProvider vid="description" :name="$t('details')" v-slot="errors">
+                            <d-text-input :errors="errors" v-model="itemForm.description">
                             </d-text-input>
                         </ValidationProvider>
 
@@ -72,8 +72,8 @@
                         </div>
                     </div>
                     <div class="col-8 p-0">
-                        <ValidationProvider vid="discount_code" :name="$t('discount-code')" v-slot="errors">
-                            <d-text-input :errors="errors" v-model="itemForm.discount_code">
+                        <ValidationProvider vid="code" :name="$t('discount-code')" v-slot="errors">
+                            <d-text-input :errors="errors" v-model="itemForm.code">
                             </d-text-input>
                         </ValidationProvider>
 
@@ -100,8 +100,8 @@
                         </div>
                     </div>
                     <div class="col-8 p-0">
-                        <ValidationProvider vid="department_id" :name="$t('offer-department')" v-slot="errors">
-                            <d-select-input :errors="errors" v-model="itemForm.department_id">
+                        <ValidationProvider vid="category_id" :name="$t('offer-department')" v-slot="errors">
+                            <d-select-input :errors="errors" v-model="itemForm.category_id">
                             <option></option>
                             <option v-for="(dept,i) in categories" :key="i" :value="dept.id">{{ dept.title }}</option>
                             </d-select-input>
@@ -149,6 +149,19 @@ export default {
                 this.loading = false;
                 return;
             }
+            let formData = this.loadObjectToForm(this.itemForm)
+                      
+            try {
+            let { data } = await offersAPI.addOffer(formData)
+            if(data.success){
+                console.log('success',data)
+                //window.EventBus.fire('list-coupon-update')
+                this.fireEvent('d-filter-list-refresh')
+                this.closeDialog()
+            }
+        } catch (error) {
+            window.catchException.call(this,error,this.$refs.form)
+        }
             this.loading = false;
         },
         async loadCategories() {
@@ -163,7 +176,16 @@ export default {
         },
         openDialog(dataEvt) {
             this.itemDialog = { ...dataEvt }
-            this.itemForm = { file: null }
+            this.itemForm = { file: null,
+            name_company:'',
+            type_company:'',
+            during:null,
+            category_id:null,
+            code:'',
+            website:'',
+            description:'',
+        
+        }
             this.showDialog = true;
             return true;
         },
