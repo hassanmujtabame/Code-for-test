@@ -14,10 +14,10 @@
     <div class="input-group">
         <slot name="prend-icon"></slot>
         <div class="d-flex flex-wrap">
-            <div :key="i" class="flex-shrink-0 d-flex" v-for="(sel,i) in selected">
-                <d-chip  :item="sel" @close="unselected(i)" />
+            <div :key="i" class="flex-shrink-0 flex-grow-1 d-flex" v-for="(sel,i) in selected">
+                <d-chip class="w-100" :item="sel" @close="unselected(i)" />
             </div>
-        <input  v-on="$listeners" @focus="focused=true" @input="inputEvent" class="form-control flex-shink-0" v-bind="{...$attrs,value:undefined}" v-model="value" />
+        <input style="min-with:50px" ref="inputMention" v-on="$listeners" @focus="focused=true" @input="inputEvent" class="form-control flex-shink-0" v-bind="{...$attrs,value:undefined}" v-model="value" />
         </div>
         <slot name="append-icon"></slot>
     </div>
@@ -132,6 +132,7 @@ export default {
             }
             if(index>-1)
             this.selected.splice(index,1)
+            this.$refs['inputMention'].focus()
         },
         onChooseMention(item,/*key,replacedWith*/){
             if(!this.selected.find(i=>i.id==item.id)){
@@ -139,6 +140,7 @@ export default {
                 this.$emit('updateValue',this.selected)
                 this.value=''
             }
+            this.$refs['inputMention'].focus()
         },
         loadItems(search=null){
             this.$emit('load-items',search)
