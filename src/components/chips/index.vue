@@ -1,12 +1,13 @@
 <template>
   <div class="d-chip" :class="$attrs.class??''">
   <div class="d-chip__wrapper">
-                    <div class="d-chip__close" @click="closeItem">
-                        <button><i class="fa fa-times"></i></button>
+    <div v-if="item.image" class="d-chip__avatar">
+                        <img :src="item.image" />
                     </div>
                     <div class="d-chip__content">{{ item.name }}</div>
-                    <div v-if="item.image" class="d-chip__avatar">
-                        <img :src="item.image" />
+                    
+                    <div class="d-chip__close" @click="closeItem">
+                        <button><i class="fa fa-times"></i></button>
                     </div>
 </div>
                 </div>
