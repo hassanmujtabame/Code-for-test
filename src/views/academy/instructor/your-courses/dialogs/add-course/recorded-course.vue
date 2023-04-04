@@ -418,7 +418,7 @@
                 price,
                 type_training,
                 learn:learn??[''],
-                instructors:instructors??[]
+                instructors:instructors?instructors.map(x=>x.id):[]
             })
             }
             this.showDialog = true;
