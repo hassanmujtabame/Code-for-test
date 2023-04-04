@@ -4,6 +4,7 @@ console.mylog = (...args) =>{
    if(process.env.NODE_ENV=='development')
    console.log(...args)
 } 
+import './plugins/v-tooltip'
 import './plugins/vee-validate'
 import './plugins/ckeditor'
 import  './plugins/portal-vue';

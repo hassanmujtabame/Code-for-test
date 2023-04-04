@@ -15,11 +15,13 @@ import DCarousel from '@/components/carousel/index.vue'
 import DCarouselSlide from '@/components/carousel/slide.vue'
 import DFilterList from '@/components/filter-list/index.vue'
 import DMultiSelecetTagInput from '@/components/inputs/multi-select/tags.vue'
+import DChip from '@/components/chips/index.vue'
 import RSliderInput from '@/components/inputs/r-slider/index.vue'
 import drowListInput from '@/components/inputs/multi-select/drown-list.vue'
 import DMultiSelecetInput from '@/components/inputs/multi-select/d-multiselect.vue'
 import DSelectInput from '@/components/inputs/multi-select/d-select.vue'
 import DTextInput from '@/components/inputs/text-input/inline.vue'
+import DMentionInput from '@/components/inputs/text-input/mention'
 import DFileInput from '@/components/inputs/file-input/index.vue'
 import DAudioInput from '@/components/inputs/audio-input/index.vue'
 import DCheckboxInput from '@/components/inputs/check-input/index.vue'
@@ -60,6 +62,7 @@ import UserPreviewProfileCard from '@/components/cards/user/preview-profile-card
 
 Vue.directive('click-outside',clickOutside)
 
+Vue.component(DChip.name,DChip)
 Vue.component(DExpandedPanel.name,DExpandedPanel)
 Vue.component(DExpandedPanelItem.name,DExpandedPanelItem)
 Vue.component(dLoadingCircleFill.name,dLoadingCircleFill)
@@ -82,6 +85,7 @@ Vue.component('d-multiselect-input', DMultiSelecetInput)//improve d-drown-list
 Vue.component('d-multi-select-tag', DMultiSelecetTagInput)
 Vue.component('date-picker-input', DatePickerInput)
 Vue.component(DTextInput.name, DTextInput)
+Vue.component(DMentionInput.name, DMentionInput)
 Vue.component(DFileInput.name, DFileInput)
 Vue.component('d-audio-input', DAudioInput)
 Vue.component('d-check-input', DCheckboxInput)
