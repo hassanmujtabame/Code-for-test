@@ -19,8 +19,16 @@
                       </d-select-input>
                 
                     <div class="mt-3"> 
-                        <d-text-input type="text"  v-model="itemForm.instructors" label="قم بعمل منشن لمدربين معك في هذا الدورة " />
-                    
+                        <d-mention-input
+    v-model="instructors"
+      label="قم بعمل منشن لمدربين معك في هذا الدورة " 
+    :items="items"
+    :tooltipEvents="events"
+  >
+  <template #[`item-@`]="{ item }">
+          <DListItem :title="item.name" :sub-title="item.job" :image="item.image" avatar />
+        </template>
+  </d-mention-input>
                       </div>
 
                 </form>
@@ -32,6 +40,38 @@
 </template>
 
 <script>
+import academyAPI from '@/services/api/academy'
+const users = [
+  {  id:1,
+    image:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+    job: 'akryum',
+    name: 'Guillaume',
+  },
+  {
+    id:2,
+    image:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+    job: 'posva',
+    name: 'Eduardo',
+  },
+  {
+    id:3,
+    image:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+    job: 'atinux',
+    name: 'Sébastien',
+  },
+  {
+    id:4,
+    image:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+    job: 'atinux',
+    name: 'Sébastien sqd qsdqs',
+  },
+  {
+    id:5,
+    image:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+    job: 'atinux',
+    name: 'qs sdfd Sébastien',
+  },
+]
 export default {
     name:'add-course-dialog-first',
   props:{
@@ -40,23 +80,60 @@ export default {
         default:'add-course-first'
     }
   },
+  computed:{
+  events(){
+    return {
+    open:(key)=>this.loadInstructors(null,key),
+      //apply:this.onApply,
+    search:(search)=>this.loadInstructors(search,null)
+    }
+  }
+},
   data:()=>{
     return{
+      items:users,
       type:'live',
         showDialog:false,
+        instructors:[],
+        keyChoose:null,
         itemForm:{
-          instructors:''
+          instructors:[]
         }
     }
   },
+  watch:{
+    instructors:{
+      deep:true,
+      handler(){
+        this.itemForm.instructors = this.instructors.map(x=>x.id)
+      }
+    }
+  },
   methods:{
+    async loadInstructors (search = null,key = null) {
+      /* key: when click on @ or # in open event
+      */
+     if(key) this.keyChoose =  key ;//just future when want to change list type  ex: @ for instructors ,# for students
+      let {data} = await academyAPI.instructor.getAll({search:search})
+      this.items = data.data
+    }
+  ,
+    async onOpen (key,...rest) {
+      console.mylog('key',key,rest)
+      await this.loadIssues ()
+      //this.items = key === '@' ? users : issues
+    },
+
+    onApply (item, key, replacedWith) {
+      console.log(item,key, `has been replaced with ${replacedWith}`)
+    },
     clickItem(evt,type){
       evt.preventDefault();
       
       this.type = type
     },
     nextDialogCourse(){
-      this.fireOpenDialog('add-course-'+this.type)
+      this.fireOpenDialog('add-course-'+this.type,{instructors:this.itemForm.instructors})
       this.  closeEvent()
     },
     closeEvent(){

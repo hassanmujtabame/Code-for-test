@@ -81,11 +81,14 @@
   }
   
   .tooltip.popover .popover-inner {
-    background: #f9f9f9;
+    background: white;
     color: black;
-    padding: 24px;
+    padding: 5px;
     border-radius: 5px;
     box-shadow: 0 5px 30px rgba(black, .1);
+    border: thin solid #d1d1d1;
+    padding: 0;
+    border-radius: 8px;
   }
   
   .tooltip.popover .popover-arrow {
@@ -103,3 +106,20 @@
     opacity: 1;
     transition: opacity .15s;
   }
+  .tooltip{
+    padding: 0 !important;
+    overflow: hidden;
+  }
+  .tooltip .tooltip-inner .mention-item{
+   cursor: pointer;
+    border-bottom: thin solid #d1d1d1;
+    padding: 5px 0;
+  }
+  .tooltip .tooltip-inner .mention-item>.d-list-item{
+   
+    border:none !important;
+    border-radius: 0 !important;
+  }
+  .tooltip .tooltip-inner .mention-item.mention-selected {
+    background: #8efbb1;
+}

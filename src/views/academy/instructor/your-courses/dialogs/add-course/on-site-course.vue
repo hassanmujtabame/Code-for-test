@@ -439,6 +439,7 @@ export default {
                 image: null,
                 price: 0,
                 type_training: null,
+                instructors:dataEvt.instructors??[]
             }
             if (dataEvt) {
                 let { id, course_days,
@@ -457,8 +458,10 @@ export default {
                     desc,
                     image,
                     price,
-                    type_training
+                    type_training,
+                    instructors
                 } = dataEvt;
+                if(id)
                 this.itemForm = Object.assign(this.itemForm, {
                     id,
                     course_days,
@@ -477,7 +480,8 @@ export default {
                     desc,
                     image,
                     price,
-                    type_training
+                    type_training,
+                    instructors:instructors??[]
                 })
             }
             this.showDialog = true;

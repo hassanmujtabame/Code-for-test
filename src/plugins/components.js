@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import './directives'
 import './audio-visual'
+import DListItem from '@/components/list/d-list-item.vue'
 import DRateDialog from '@/common/dialogs/rate-dialog/index.vue'
 import DSuccessMessage from '@/common/dialogs/success-message/index.vue'
 import DConfirmMessage from '@/common/dialogs/confirm-message/index.vue'
@@ -62,6 +63,7 @@ import UserPreviewProfileCard from '@/components/cards/user/preview-profile-card
 
 Vue.directive('click-outside',clickOutside)
 
+Vue.component(DListItem.name,DListItem)
 Vue.component(DChip.name,DChip)
 Vue.component(DExpandedPanel.name,DExpandedPanel)
 Vue.component(DExpandedPanelItem.name,DExpandedPanelItem)

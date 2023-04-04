@@ -43,10 +43,12 @@ methods:{
     flex-shrink: 0;
 }
 .d-chip__content{
-    flex:1
+    flex:1;
+    font-size: 0.75rem;
 }
 .d-chip__close>button{
     all:unset;
+    cursor: pointer;
     padding: 2px;
     border-radius: 50%;
     width:15px;

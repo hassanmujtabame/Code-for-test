@@ -459,7 +459,8 @@
                 image:null,
                 price:null,
                 type_training:null,
-                learn:['']
+                learn:[''],
+                instructors:dataEvt.instructors??[]
             }
             if(dataEvt){
                 let { id,course_days,
@@ -477,8 +478,10 @@
                 image,
                 price,
                 type_training,
-                learn
+                learn,
+               instructors
             } = dataEvt
+            if(id)
                 this.itemForm = Object.assign(this.itemForm,{ id,course_days,
                 number_day,
                 start_date,
@@ -494,7 +497,8 @@
                 image,
                 price,
                 type_training,
-                learn:learn??['']
+                learn:learn??[''],
+                instructors:instructors??[]
             })
             }
             this.showDialog = true;
