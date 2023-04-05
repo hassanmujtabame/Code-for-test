@@ -3,6 +3,9 @@
     <div v-for="(im,i) in items" :key="i" class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
                     <ImgAvatar :img="im.image_path" :alt="im.name??''"  size=180 />
                 </div>
+                <div v-if="items.length==0" style="min-height:180px" class="col-12  d-flex align-items-center">
+                  <h3 class="t-c">{{ $t('no-items') }}</h3>
+                </div>
             </div>
 </template>
 
