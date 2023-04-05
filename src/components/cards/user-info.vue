@@ -3,8 +3,9 @@
                         
                         <div class="main-img text-center m-auto avatar-user-card clickable"
             @click="showProfile"
-            :style="{'background-image':`url(${member.image})`,'background-size': `${parseInt(sizeImage)+7}px ${parseInt(sizeImage)+7}px`,'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
+            :style="{'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
             >
+            <img :src="member.image"/>
             </div>
                         <div class=" text-center">
                             <h5 class="m-c mt-2">
@@ -82,6 +83,9 @@ export default {
             formData:{user_id:this.member.id},
             opts:{}
         })
+    },
+    openChat(){
+        this.fireEvent('chat-bar',{user:this.member})
     }
  }
 }

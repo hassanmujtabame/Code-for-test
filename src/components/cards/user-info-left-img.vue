@@ -3,8 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-4 img-service text-center avatar-user-card clickable"
             @click="showProfile"
-            :style="{'background-image':`url(${member.image})`,'background-size': `${parseInt(sizeImage)+7}px ${parseInt(sizeImage)+7}px`,'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
+            :style="{'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
             >
+            <img :src="member.image"/>
+
             </div>
             <div class="col-md-8 t-c">
                 <h4 class="fw-bold">
