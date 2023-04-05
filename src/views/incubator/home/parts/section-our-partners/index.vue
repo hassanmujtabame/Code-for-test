@@ -6,7 +6,7 @@
             <div class="row">
 
                 <div v-for="(partner,i) in partners" :key="i" class="col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="1000">
-                    <ImgAvatar :img="partner.img" :alt="partner.name" size=180 />
+                    <ImgAvatar class="filter-shadow-partner" :img="partner.img" :alt="partner.name" size=180 />
                 </div>
             </div>
         </div>

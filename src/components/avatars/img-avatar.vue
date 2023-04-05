@@ -1,9 +1,11 @@
 <template>
-    <img class="d-image-avatar" 
-    :src="img"
+    <div class="d-image-avatar" 
+    :class="$attrs.class??''"
     :style="{height:`${size}px`,width:`${size}px`}"
-    v-bind="$attrs"
-    />
+    
+    >
+    <img :src="img" v-bind="{...$attrs,class:undefined}" />
+    </div>
 </template>
 
 <script>
@@ -28,5 +30,11 @@ export default {
     /*background-size: cover;
     background-repeat: no-repeat;
     background-position: center;*/
+}
+.d-image-avatar>img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+    border-radius: 50%!important;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
 <div class="row justify-content-center">
     <div v-for="(partner,i) in partners" :key="i" class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
-                    <ImgAvatar :img="partner.img" :alt="partner.name" size=180 />
+                    <ImgAvatar class="filter-shadow-partner" :img="partner.img" :alt="partner.name" size=180 />
                 </div>
             </div>
 </template>
