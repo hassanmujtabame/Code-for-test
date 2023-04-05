@@ -60,10 +60,15 @@ export default {
     border:0.5px solid #f2f2f2
 }
 
-.provider-card__image,.provider-card__image>img{
+.provider-card__image{
     border-radius:11px 11px 0 0;
  width: 100%;
  height: 192px;
+}
+.provider-card__image>img{
+    object-fit: fill;
+    width: 100%;
+ height: 100%;
 }
 .provider-card__content{
 box-sizing: border-box;

@@ -124,6 +124,11 @@ export default {
     border-top-left-radius: var(--bs-border-radius)!important;
     border-top-right-radius: var(--bs-border-radius)!important;
 }
+.student-course__image img{
+    object-fit: fill;
+    width: 100%;
+ height: 100%;
+}
 .student-course__title{
 font-style: normal;
 font-weight: 400;

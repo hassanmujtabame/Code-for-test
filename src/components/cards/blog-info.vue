@@ -4,7 +4,7 @@
                 <img class="w-100" :src="img" :alt="title" height="184">
               </div>
               <div class="text p-3 text-start">
-                <h6 class="blog-info__title" >{{title}}</h6>
+                <h6 class="blog-info__title text-two-lines" >{{title}}</h6>
                 <p style="height:80px" class="description-blog" v-html="description"></p>
               </div>
               <div class="d-flex">
@@ -76,6 +76,11 @@ export default {
 <style scoped>
 .image{
   height:184px
+}
+.image>img{
+  object-fit: fill;
+    width: 100%;
+ height: 100%;
 }
 .description-blog{
   overflow: hidden;
