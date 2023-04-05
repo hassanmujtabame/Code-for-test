@@ -1,3 +1,8 @@
+function page(path){
+ if(process.env.NOD_ENV=='development')
+ return import(path)
+ return`<div>hi</div>`
+}
 export default {
- 'test-mention': ()=> import('./test-mention.vue')
+ 'test-mention': ()=> page('./test-mention.vue')
 }
