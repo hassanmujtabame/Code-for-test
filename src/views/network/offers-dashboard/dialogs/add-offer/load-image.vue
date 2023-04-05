@@ -91,6 +91,7 @@ export default {
 .load-image__image-empty {
     position: absolute;
     text-align: center;
+    width:100%
 }
 
 .add-img-selected {
