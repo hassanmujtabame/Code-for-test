@@ -10,11 +10,11 @@
               <p class="header-desc-page">
 
               </p>
-              <div class="">
-                <router-link custom :to="getRouteLocale('register')" v-slot="{navigate}">
-                <button class="btn-custmer"  @click="joinUs(navigate,$event)">انضمي الان</button>
-                </router-link>
-                <router-link  v-if="!token" custom :to="getRouteLocale('login')" v-slot="{navigate}">
+              <div class="" v-if="!token">
+       
+                <button class="btn-custmer"  @click="router_push('register')">انضمي الان</button>
+
+                <router-link   custom :to="getRouteLocale('login')" v-slot="{navigate}">
                 <button class="btn-custmer-w" @click="navigate">سجلي دخولك</button>
                 </router-link>
               </div>
@@ -33,9 +33,10 @@
 export default {
 
   methods:{
-    joinUs(navigate,evt){
+    joinUs(evt){
       if(!this.shouldLoginMsg()){
-        navigate(evt)
+        //navigate(evt)
+        this.router_push('register')
       }
     }
   }
