@@ -16,7 +16,7 @@
     </p>
     <!--user footer-->
     <div class="user-preview-profile__footer">
-        <button class="btn btn-custmer">أرسل رسالة</button>
+        <button @click="openChat" class="btn btn-custmer">أرسل رسالة</button>
         <div class="user-preview-profile__social-media">
             
             
@@ -42,6 +42,11 @@ export default {
         type:[Array,Object],
         default:()=>['مدربة']
     }
+ },
+ methods:{
+    openChat(){
+        this.fireEvent('chat-bar',{user:this.member})
+    }
  }
 }
 </script>
@@ -66,6 +71,7 @@ export default {
     background-color: #fcfcfc;
     border-radius: 50%;
     border: 1px solid #dadada;
+    object-fit: fill;
 }
 .user-preview-profile__info{
     display: flex;
