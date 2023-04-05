@@ -657,5 +657,11 @@
   "subscribe": "إشترك",
   "buying": "شراء",
   "the-course": "الدورة",
-  "rate-training-course": "تقييم دورة تدريبية"
+  "rate-training-course": "تقييم دورة تدريبية",
+  "recently": "حديثاً",
+  "more-recently": "الاحدث",
+  "oldest": "الاقدم",
+  "newly": "الاحدث",
+  "training-course": "دورة تدريبية",
+  "educational-meeting": "لقاء تعليمي"
 }

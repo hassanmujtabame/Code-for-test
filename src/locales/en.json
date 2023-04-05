@@ -662,5 +662,11 @@
   "subscribe": "subscribe",
   "buying": "buy",
   "the-course": "Course",
-  "rate-training-course": "rate training course"
+  "rate-training-course": "rate training course",
+  "recently": "recently",
+  "more-recently": "more recently",
+  "oldest": "oldest",
+  "newly": "newly",
+  "training-course": "training course",
+  "educational-meeting": "Educational meeting"
 }

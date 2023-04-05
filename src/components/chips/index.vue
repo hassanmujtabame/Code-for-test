@@ -67,6 +67,13 @@ methods:{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
+    /*
+    background-image: url(https://test1.riadiat.sa/uploads/default.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    */
 }
 .d-chip__avatar>img{
     width:15px;

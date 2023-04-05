@@ -36,6 +36,10 @@ class academyApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/view-balance?${s}`);
     }
+    getMyAppointments(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/instructor/courses/my-appointments?${s}`);
+    }
     getHomeSchedules(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/schedule?${s}`);
