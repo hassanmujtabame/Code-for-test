@@ -5,7 +5,10 @@
             أضف اعلان
         </template>
         <template v-slot>
-            <ValidationObserver tag="div" class="px-2" ref="form" v-if="showDialog">
+            <ValidationObserver tag="div" class="px-2" 
+            style="height: 400px;
+            overflow-y: auto;"
+            ref="form" v-if="showDialog">
                 <div class="mx-auto">
                     <loadImageInput v-model="itemForm.file" />
                 </div>
@@ -103,7 +106,7 @@
                         <ValidationProvider vid="category_id" :name="$t('offer-department')" v-slot="errors">
                             <d-select-input :errors="errors" v-model="itemForm.category_id">
                             <option></option>
-                            <option v-for="(dept,i) in categories" :key="i" :value="dept.id">{{ dept.title }}</option>
+                            <option v-for="(dept,i) in categories" :key="i" :value="dept.id">{{ dept.name }}</option>
                             </d-select-input>
                         </ValidationProvider>
 
