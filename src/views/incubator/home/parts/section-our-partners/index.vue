@@ -1,14 +1,13 @@
 <template>
-   <div class="container p-4">
+   <div v-if="partners.length>0" class="container p-4">
             <h2 class="home-section-title text-center">
-                شركائنا في مجال الازياء
+                شركائنا في حاضنة رياديات
             </h2>
             <div class="row">
 
                 <div v-for="(partner,i) in partners" :key="i" class="col-12 col-md-3 text-center mt-2" data-aos="fade-up" data-aos-duration="1000">
                     <ImgAvatar :img="partner.img" :alt="partner.name" size=180 />
                 </div>
-            
             </div>
         </div>
 </template>
