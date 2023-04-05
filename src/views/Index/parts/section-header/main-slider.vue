@@ -6,15 +6,15 @@
         <div class="container" style="position:relative">
           <div class="row align-items-center pt-5 pb-5">
             <div class="col-md-7 text ">
-              <h1 class="fs-1 text-js"> </h1>
-              <p class="fs-4 text-p">
-               
+              <h1 class="fs-1 text-js">                المنصة الأولى لريادة الأعمال نقدم من خلالها مجموعة متكاملة من الخدمات ومنها الاحتضان والاستشارات والإرشاد، والتدريب والتعليم والتسويق</h1>
+              <p class="header-desc-page">
+
               </p>
-              <div v-if="!token" class="">
+              <div class="">
                 <router-link custom :to="getRouteLocale('register')" v-slot="{navigate}">
-                <button class="btn-custmer"  @click="navigate">انضمي الان</button>
+                <button class="btn-custmer"  @click="joinUs(navigate,$event)">انضمي الان</button>
                 </router-link>
-                <router-link custom :to="getRouteLocale('login')" v-slot="{navigate}">
+                <router-link  v-if="!token" custom :to="getRouteLocale('login')" v-slot="{navigate}">
                 <button class="btn-custmer-w" @click="navigate">سجلي دخولك</button>
                 </router-link>
               </div>
@@ -32,9 +32,18 @@
 <script>
 export default {
 
+  methods:{
+    joinUs(navigate,evt){
+      if(!this.shouldLoginMsg()){
+        navigate(evt)
+      }
+    }
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
+.header-desc-page{
+color:black;
+}
 </style>

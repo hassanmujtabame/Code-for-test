@@ -125,7 +125,7 @@ var swiper = new Swiper(".mySwiper", {
     },
 
   });
-  var swiper = new Swiper(".mySwiper-2", {
+  var swiper1 = new Swiper(".mySwiper-2", {
     // slidesPerView: 1,
     centeredSlides: true,
     slidesPerView: "auto",
@@ -154,7 +154,7 @@ var swiper = new Swiper(".mySwiper", {
     },
 
   });
-  var swiper = new Swiper(".mySwiper-templete", {
+  var swiper2 = new Swiper(".mySwiper-templete", {
     // slidesPerView: 1,
     centeredSlides: true,
     slidesPerView: "auto",
@@ -183,7 +183,7 @@ var swiper = new Swiper(".mySwiper", {
     },
 
   });
-  var swiper = new Swiper(".mySwiper-courses", {
+  var swiper3 = new Swiper(".mySwiper-courses", {
     // slidesPerView: 1,
     centeredSlides: true,
     slidesPerView: "auto",
@@ -212,7 +212,7 @@ var swiper = new Swiper(".mySwiper", {
     },
 
   });
-  var swiper = new Swiper(".mySwiper.work", {
+  var swiper4 = new Swiper(".mySwiper.work", {
     // slidesPerView: 1,
     centeredSlides: true,
     slidesPerView: "auto",
@@ -248,11 +248,12 @@ var swiper = new Swiper(".mySwiper", {
 
 
 let container = document.querySelector('.text-js'),
-    str = 'جملة تشويقية عن رياديات',
+    str = container.innerHTML,
     strArray = str.split('');
 
 
 function writeText() {
+  container.innerHTML=''
   if(strArray.length > 0) {
     container.innerHTML += strArray.shift();
   } else {
