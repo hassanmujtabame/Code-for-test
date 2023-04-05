@@ -1,5 +1,5 @@
 <template>
-  <div class="course-card rounded-5">
+  <div class="course-card box rounded-5">
                   <div class="img-courses">
                     <img
                       :src="img"

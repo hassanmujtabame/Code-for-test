@@ -22,12 +22,14 @@
               :items="items"
             >
               <template v-slot="{item}" >
+                <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:item.id})">
                <TrainingCourseCard 
                :img="item.image_path"
                :title="item.title"
                :price="item.price"
                :currency="item.currency"
                />
+              </router-link>
               </template>        
           </d-swiper>
         </div>
