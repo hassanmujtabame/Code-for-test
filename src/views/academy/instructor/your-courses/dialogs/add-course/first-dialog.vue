@@ -91,7 +91,7 @@ export default {
 },
   data:()=>{
     return{
-      items:users,
+      items:process.env.NODE_ENV=='development'?users:[],
       type:'live',
         showDialog:false,
         instructors:[],
@@ -125,7 +125,7 @@ export default {
     },
 
     onApply (item, key, replacedWith) {
-      console.log(item,key, `has been replaced with ${replacedWith}`)
+      console.mylog(item,key, `has been replaced with ${replacedWith}`)
     },
     clickItem(evt,type){
       evt.preventDefault();
