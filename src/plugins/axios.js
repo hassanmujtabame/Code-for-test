@@ -25,12 +25,19 @@ _axios.interceptors.request.use(
   if (config.baseURL === baseApiAddress && !config.headers.Authorization) {
       config.headers['x-localization'] = Cookies.get('i18n_lang')
       config.headers['Accept'] = 'application/json'
-      let url = baseApiAddress+'/academy';
-      if(config.url.startsWith(url) || config.url.startsWith('academy')){
+      let urlAcademy = baseApiAddress+'/academy';
+      if(config.url.startsWith(urlAcademy) || config.url.startsWith('academy')){
         //console.mylog('is url ',config.url)
         const role = window.store.getters['auth/academyRole'];
         //console.mylog('is role ',role)
         config.headers['Academy-Role'] = role
+      }
+      let urlProvider = baseApiAddress+'/service-provider';
+      if(config.url.startsWith(urlProvider) || config.url.startsWith('service-provider')){
+        //console.mylog('is url ',config.url)
+        const role = window.store.getters['auth/isProvider'];
+        //console.mylog('is role ',role)
+        config.headers['Provider-Role'] = role===true?'provider':'client'
       }
       const token = window.store.getters['auth/token'];
 
