@@ -31,15 +31,7 @@
 
 <script>
 export default {
-
-  methods:{
-    joinUs(evt){
-      if(!this.shouldLoginMsg()){
-        //navigate(evt)
-        this.router_push('register')
-      }
-    }
-  }
+ name:'section-header'
 }
 </script>
 
