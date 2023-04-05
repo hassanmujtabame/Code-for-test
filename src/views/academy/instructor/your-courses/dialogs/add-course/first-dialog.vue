@@ -26,7 +26,7 @@
     :tooltipEvents="events"
   >
   <template #[`item-@`]="{ item }">
-          <DListItem :title="item.name" :sub-title="item.job" :image="item.image" avatar />
+          <d-list-item :title="item.name" :sub-title="item.job" :image="item.image" avatar />
         </template>
   </d-mention-input>
                       </div>
