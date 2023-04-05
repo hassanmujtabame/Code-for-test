@@ -6,8 +6,7 @@
         </template>
         <template v-slot>
             <ValidationObserver tag="div" class="px-2" 
-            style="height: 400px;
-            overflow-y: auto;"
+            style="height: 400px;overflow-y: auto;"
             ref="form" v-if="showDialog">
                 <div class="mx-auto">
                     <loadImageInput v-model="itemForm.file" />
@@ -115,7 +114,7 @@
             </ValidationObserver>
         </template>
         <template v-slot:actions>
-            <button @click="save" class="btn btn-custmer">{{ $t('add-ads') }}</button>
+            <button @click="save" :disabled="loading" class="btn btn-custmer">{{ $t('add-ads') }}</button>
         </template>
     </d-dialog-large>
 </template>
@@ -157,10 +156,12 @@ export default {
             try {
             let { data } = await offersAPI.addOffer(formData)
             if(data.success){
-                console.log('success',data)
+                console.mylog('success',data)
                 //window.EventBus.fire('list-coupon-update')
                 this.fireEvent('d-filter-list-refresh')
-                this.closeDialog()
+                this.closeEvent()
+            }else{
+                window.SwalError(data.message)
             }
         } catch (error) {
             window.catchException.call(this,error,this.$refs.form)
