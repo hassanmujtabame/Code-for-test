@@ -22,8 +22,8 @@ export default {
 
 <style scoped>
 .d-image-avatar {
-
-    /*border: 1px solid #80808021;*/
+    object-fit: fill;
+    border: 1px solid #d1d1d1;
     border-radius: 50%!important;
     /*background-size: cover;
     background-repeat: no-repeat;
