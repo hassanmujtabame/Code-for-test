@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row align-items-center  p-4">
                 <div class="col-md-6" data-aos="fade-up">
-                    <img class="langing rounded-cirle img-res" src="/assets/img/Group 14516.png" alt="" width="380" height="380">
+                    <img class="rounded-cirle img-res" src="/assets/img/Group 14516.png" alt="" width="380" height="380">
                 </div>
                 <div class="col-md-6 position-relative" >
                     <h2 class="text-white">{{ $t('know-more-about-riadiat') }}</h2>
