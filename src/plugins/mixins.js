@@ -387,6 +387,7 @@ const mixin = {
                     let dateEvt ={
                       title:'انت غير مسجل كمدرب',
                       description:'لتسجيل كمدرب انقر على الزر "تسجيل الأن"',
+                      type:'warning',
                       btns:[
                         {title:'تسجيل الأن',action:()=>this.router_push('academy-instructor-register')},
                         {title:'إلغاء',action:()=>{},class:"btn btn-custmer btn-danger"}
