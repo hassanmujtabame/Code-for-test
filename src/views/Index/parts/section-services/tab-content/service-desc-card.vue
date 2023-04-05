@@ -6,17 +6,18 @@
                     <p class="">
                         <slot></slot>
                     </p>
-                    <BtnSimple :selected="true" @click="router_push(routeName
-                    )">
+                    <button @click="router_push(routeName)" class="btn btn-custmer pt-3 my-2">
+                  
                      <OpenLinkSVG/>
                      {{ $t('know-more') }}
-                    </BtnSimple>
+                  
+                  </button>
                   </div>
 </template>
 
 <script>
 import OpenLinkSVG from '@/components/icon-svg/open-link.vue'
-import BtnSimple from '@/components/btns/BtnSimple.vue'
+//import BtnSimple from '@/components/btns/BtnSimple.vue'
 export default {
   props:{
     title:{
@@ -51,7 +52,7 @@ export default {
   },
   components:{
     OpenLinkSVG,
-    BtnSimple
+  //  BtnSimple
   }
 }
 </script>

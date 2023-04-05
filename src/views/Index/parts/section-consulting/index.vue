@@ -10,7 +10,7 @@
                 </a>
               </p>
               <div class="w-100 text-end">
-              <button class="btn-custmer pt-3 my-2">
+              <button class="btn btn-custmer pt-3 my-2">
                 <svg
                   width="24"
                   height="24"
