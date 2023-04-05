@@ -129,14 +129,12 @@
                           :spaceBetween=10
                               :slidesPerView=4
                 class="swiper-container mySwiper main-swiper">
-                    
-                        <template v-slot>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <MemberCard />
-                            </a>
-
-                        </template>
-                        
+                <CardMember 
+                :name="item.name" 
+                :description="item.description" 
+                :img="item.image"
+                :to="getRouteLocale('academy-show-profile',{id:item.id})"
+                />    
                         
                        
                         
@@ -152,11 +150,11 @@
 </template>
 
 <script>
-import MemberCard from './card-member.vue'
+import CardMember from '@/components/cards/card-member.vue'
 export default {
     name: 'counseling-page',
     components:{
-        MemberCard
+        CardMember
     },
     data:()=>{
         return {

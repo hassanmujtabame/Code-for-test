@@ -18,6 +18,7 @@
               >
                 <template  v-slot:default="{item}" >
                     <CardMember 
+                    :to="getRouteLocale('network-show-profile',{id:item.id})"
                     :name="item.name" 
                     :description="item.description" 
                     :img="item.img"/>

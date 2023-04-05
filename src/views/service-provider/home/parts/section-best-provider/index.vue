@@ -18,15 +18,14 @@
             >
        
             <template  v-slot:default="{item}" >
-              <router-link class="router-link" :to="getRouteLocale('service-provider-show-profile',{id:item.id})">
-                <CardMember 
+              <CardMember 
                 :name="item.name" 
                 :description="item.job" 
                 :img="item.image"
                 :rate="item.rate"
                 showRate
+                :to="getRouteLocale('service-provider-show-profile',{id:item.id})"
                 />
-              </router-link>
                 </template>
             </d-swiper>
  </div>

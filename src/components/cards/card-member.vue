@@ -2,7 +2,9 @@
   <div class="provider-card ">
   <div class="provider-card__wrapper">
                         <div class="provider-card__image">
+                            <router-link :to="to">
                             <img  :src="img" alt="" width="259" height="192">
+                        </router-link>
                         </div>
                         <div class="provider-card__content"
                          :class="{'p-3':!description}"
@@ -35,6 +37,10 @@ export default {
     name:{
         type:String
     },
+    to:{
+        type:[Object,Array],
+        default:()=>{return {}}
+    },
     description:{
         type:String
     },
@@ -65,7 +71,7 @@ export default {
  width: 100%;
  height: 192px;
 }
-.provider-card__image>img{
+.provider-card__image img{
     object-fit: fill;
     width: 100%;
  height: 100%;

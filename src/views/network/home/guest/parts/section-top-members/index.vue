@@ -20,7 +20,9 @@
                 <template  v-slot:default="{item}" >
                     <CardMember 
                     :name="item.name" 
-                    :img="item.image"/>
+                    :img="item.image"
+                    :to="getRouteLocale('network-show-profile',{id:item.id})"
+                    />
                 </template>
             </d-swiper>
             </div>

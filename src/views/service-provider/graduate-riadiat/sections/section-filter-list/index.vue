@@ -19,13 +19,13 @@
   
         >
             <template v-slot:default="{ item }">
-                <router-link class="router-link" :to="getRouteLocale('network-exhibition-show', { id: item.id })">
+                
                     <exhibitionCard 
+                    :to="getRouteLocale('network-exhibition-show', { id: item.id })"
                     :img="item.image" 
                     :name="item.name" 
                     :description="item.job" 
                     />
-                </router-link>
             </template>
             <template v-slot:side>
                 <sidebarBox :filterItem="filterSide" @change="changeFilter"/>

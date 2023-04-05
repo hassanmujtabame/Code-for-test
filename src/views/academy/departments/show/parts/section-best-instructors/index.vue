@@ -22,12 +22,14 @@
             >
        
             <template  v-slot:default="{item}" >
-              <router-link class="router-link" :to="getRouteLocale('academy-show-profile',{id:item.id})">
+              
                 <CardMember 
                 :name="item.name" 
                 :description="item.description" 
-                :img="item.image"/>
-              </router-link>
+                :img="item.image"
+                :to="getRouteLocale('academy-show-profile',{id:item.id})"
+                />
+              
                 </template>
               </d-swiper>
  </div>

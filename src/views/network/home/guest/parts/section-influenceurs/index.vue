@@ -20,6 +20,7 @@
                     <CardMember 
                     :name="item.name" 
                     :description="item.description" 
+                    :to="getRouteLocale('network-show-profile',{id:item.id})"
                     :img="item.image"/>
                 </template>
             </d-swiper>

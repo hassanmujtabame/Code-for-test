@@ -9,7 +9,7 @@
       
               </div>
               <DSwiper
-              style="overflow-x: hidden"
+            v-if="!loading"
             :slides-per-view="5"
             :space-between="10"
               :loop="true"
@@ -21,7 +21,7 @@
             <template  v-slot:default="{item}" >
                 <CardMember 
                 :name="item.name" 
-              
+                :to="getRouteLocale('incubator-show-profile',{id:item.id})"
                 :img="item.img"/>
                 </template>
             </DSwiper>
@@ -40,6 +40,7 @@ export default {
         CardMember
     },
     data:()=>({
+      loading:false,
         items:[
             {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
             {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},

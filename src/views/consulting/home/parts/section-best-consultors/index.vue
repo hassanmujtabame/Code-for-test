@@ -20,12 +20,11 @@
             >
        
             <template  v-slot:default="{item}" >
-            <router-link class="router-link" :to="getRouteLocale('consultant-page',{id:item.id})">
                 <CardMember 
+                :to="getRouteLocale('consultant-page',{id:item.id})"
                 :name="item.name" 
                 :description="item.job_title" 
                 :img="item.image"/>
-                </router-link>
                 </template>
             </DSwiper>
             </div>

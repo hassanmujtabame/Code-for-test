@@ -7,14 +7,13 @@
     classColCard="col-12 col-md-4 mt-4">
       <template v-slot="{ item }">
 
-        <router-link class="router-link" :to="getRouteLocale('network-member-show',{id:item.id})">
+        
           <ItemCard 
+          :to="getRouteLocale('network-show-profile',{id:item.id})"
           :name="item.name" 
           :description="item.description" 
           :img="item.image" 
           />
-
-        </router-link>
 
       </template>
 
