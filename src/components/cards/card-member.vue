@@ -62,8 +62,12 @@ export default {
     width: 250px;
     max-width: 250px;
     /*height: 340px;*/
-    border-radius:11px 11px 0 0;
-    border:0.5px solid #f2f2f2
+    border-radius:11px;
+    /*border:0.5px solid #f2f2f2;*/
+    border: 1px solid #CDD7D8;
+}
+.provider-card__wrapper:hover{
+    box-shadow: 0px 1px 8px
 }
 
 .provider-card__image{
