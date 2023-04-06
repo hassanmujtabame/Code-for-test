@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import myRequestsAPIs from '@/services/api/service-provider/provider/my-requests.js'
+import myRequestsAPIs from '@/services/api/service-provider/user/proposals.js'
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import showPage from './show/index.vue'
 import progressPage from './progress/index.vue'

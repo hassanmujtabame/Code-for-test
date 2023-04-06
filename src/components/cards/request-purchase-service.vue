@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import requestPurchaseService from '@/services/api/service-provider/provider/my-requests.js'
+import requestPurchaseService from '@/services/api/service-provider/user/proposals.js'
 export default {
     name:'request-card',
  props:{

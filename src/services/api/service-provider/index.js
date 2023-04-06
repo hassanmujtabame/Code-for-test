@@ -1,7 +1,9 @@
 
 import BaseApi from "../base-service";
+import proposals from "./user/proposals";
 class ServiceProviderApi extends BaseApi {
- //Get all project-categories
+ proposals = proposals
+    //Get all project-categories
  getAll(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`service-provider/provider/projects?${s}`);

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import myRequestsAPIs from '@/services/api/service-provider/provider/my-requests.js'
+import myRequestsAPIs from '@/services/api/service-provider/user/proposals.js'
 //import CardService from './card.vue'
 import showRequest from '@/components/cards/show-service.vue'
 export default {

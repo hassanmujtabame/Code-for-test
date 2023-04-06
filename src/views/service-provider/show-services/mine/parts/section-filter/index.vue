@@ -89,7 +89,7 @@ export default {
                 page: metaInfo.current_page,
                 ...this.filterItem
             }
-            return await proposalsAPIs.getAll(params)
+            return await proposalsAPIs.getMine(params)
         }
       
     }

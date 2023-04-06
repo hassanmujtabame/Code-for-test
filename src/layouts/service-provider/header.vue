@@ -40,6 +40,7 @@ export default {
         {route:'contact-us',text:vm.$t('contact-us'),provider:true},
         /** client */
         {route:'service-provider-ready-services', text:vm.$t('service'),provider:false},
+        {route:'service-provider-my-proposals', text:vm.$t('my-proposals'),provider:false},
         {route:'service-provider-providers', text:vm.$t('service-providers'),provider:false},
         //{route:'service-provider-client-my-purchases', text:vm.$t('my-purchases'),provider:false},
         {route:'contact-us',text:vm.$t('contact-us'),provider:false}

@@ -143,7 +143,7 @@
   </template>
   
   <script>
-import myRequestsSPAPIs from '@/services/api/service-provider/provider/my-requests'
+import proposalsAPIs from '@/services/api/service-provider/user/proposals.js'
 
   export default {
     name:'add-request-sp',
@@ -183,7 +183,7 @@ let valid = await this.$refs.form.validate();
 
 
     try {
-        let { data } = this.itemForm.id?await myRequestsSPAPIs.updateItem(this.itemForm.id,formData):await myRequestsSPAPIs.addItem(formData)
+        let { data } = this.itemForm.id?await proposalsAPIs.updateItem(this.itemForm.id,formData):await proposalsAPIs.addItem(formData)
 
         if(data.success){
             let dataEvent;
@@ -273,7 +273,7 @@ let valid = await this.$refs.form.validate();
         return;
     }
     try {
-        let {data} =  await myRequestsSPAPIs.getFields(this.itemForm.category_id)
+        let {data} =  await proposalsAPIs.getFields(this.itemForm.category_id)
         if(data.success){
             this.fields = data.data
         }
@@ -283,7 +283,7 @@ let valid = await this.$refs.form.validate();
 },
 async loadCategories(){
     try {
-        let {data} =  await myRequestsSPAPIs.getCategories()
+        let {data} =  await proposalsAPIs.getCategories()
         if(data.success){
             this.categories = data.data
         }

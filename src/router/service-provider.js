@@ -127,6 +127,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-page-service-ready" */ '../views/service-provider/page-service-ready/index.vue') 
     },
     {
+        path: 'service-provider/my-proposals',
+        meta:{layout:LayoutService},
+        name: 'service-provider-my-proposals',
+        component: () => import(/* webpackChunkName: "service-provider-my-proposals" */ '../views/service-provider/show-services/mine/index.vue') 
+    },
+    {
         path: 'service-provider/show-services',
         meta:{layout:LayoutService},
         name: 'service-provider-show-services',
