@@ -1,8 +1,10 @@
 function page(path){
- if(process.env.NOD_ENV=='development')
- return import(path)
- return`<div>hi</div>`
+ if(process.env.NODE_ENV=='development')
+ return import(`${path}`)
+ else
+ return import('./standard.vue')
 }
 export default {
- 'test-mention': ()=> page('./test-mention.vue')
+ 'test-mention': ()=> page('./test-mention.vue'),
+ 'payment': ()=> page('./checkout-payment.vue'),
 }

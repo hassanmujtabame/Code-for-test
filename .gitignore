@@ -2,7 +2,7 @@
 node_modules
 /dist
 /src/views/test
-/src/views/test/pages.js
+payments.txt
 comments.txt
 # local env files
 .env.local

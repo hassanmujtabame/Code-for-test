@@ -58,7 +58,12 @@ i18n,
  render: h => h(App),
  store,
 methods:{
- 
+   addScriptJs(text){
+       let script = document.createElement('script');
+       let scr = document.createTextNode(text);
+       script.appendChild(scr)
+     document.body.appendChild(script)
+   },
 },
  mounted() {
   let lng=Cookies.get('i18n_lang')??'ar';
@@ -73,5 +78,9 @@ methods:{
     //this.loadJS("https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js",false)
    //this.loadJS("https://unpkg.com/aos@2.3.1/dist/aos.js",false)
     this.loadJS("/js/main.js",true,true);
+    this.addScriptJs(`var wpwlOptions = {
+      paymentTarget:"_top",
+      locale: "${this.$i18n.locale}"}
+      `)
  }
 }).$mount('#app')
