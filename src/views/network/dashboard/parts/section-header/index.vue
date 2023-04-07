@@ -65,7 +65,7 @@ methods:{
             </span>`,
                 type:'warning',
                 btns:[
-                    {title:this.$t('confirm_redirect'),action:()=> this.$router.push(this.dept.route)}
+                    {title:this.$t('confirm_redirect'),action:()=> this.$router.push(dept.route)}
                 ]
         }
         this.showConfirmMsg(dataEvt)
