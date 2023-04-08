@@ -9,7 +9,7 @@
         </router-link>
       </div>
     </div>
-    <div class="row order">
+    <div class="mt-3 row order">
       <div v-for="(item, i) in items" :key="i" class="col-12 col-md-6 mt-2">
         <router-link class="router-link" :to="getRouteLocale('service-provider-show-service-page', { id: item.id })">
           <showRequest 
