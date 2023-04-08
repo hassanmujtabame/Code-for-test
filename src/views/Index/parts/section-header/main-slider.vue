@@ -6,7 +6,7 @@
         <div class="container" style="position:relative">
           <div class="row align-items-center pt-5 pb-5">
             <div class="col-md-7 text ">
-              <h1 class="fs-1 text-js">{{ $t('page-home-title') }}</h1>
+              <h1 class="header-title-page">{{ $t('page-home-title') }}</h1>
               <p class="header-desc-page">
                 {{ $t('page-home-desc') }}
               </p>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.header-desc-page{
+.header-title-page,.header-desc-page{
 color:black;
 }
 </style>
