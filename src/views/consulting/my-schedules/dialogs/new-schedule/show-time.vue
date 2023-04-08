@@ -51,7 +51,7 @@ props:{
     z-index: 3;
     /* width: var(--size-close-time); */
     /* height: var(--size-close-time); */
-    right: -6px;
+    left: -6px;
     display: flex;
     top: -8px;
     background: #FFFFFF;
@@ -60,5 +60,9 @@ props:{
     justify-content: center;
     border-radius: 50%;
     font-size: var(--size-close-time);
+}
+html[lang="en"] .show-available-time__close{
+    right: -6;
+    left: auto;
 }
 </style>
