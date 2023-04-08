@@ -1011,7 +1011,7 @@ span{
 color: #979797;
 }
 .box-subscribe{
-    height: 627px;
+    min-height: 627px;
     overflow: auto;
     overflow-x: hidden;
     transform: translateY(-60px);
