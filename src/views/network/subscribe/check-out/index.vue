@@ -123,6 +123,16 @@ export default {
       console.log('error',error)
       }
     },
+    beforeDestroy() {
+      if(this.checkoutInfo.id)
+      window.$('script').each(function() {
+
+        if (this.src === `https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.checkoutInfo.id}`) {
+
+          this.parentNode.removeChild( this );
+        }
+        });
+    },
     closeEvent(){
       this.fireCloseDialog(this.group)
     },
