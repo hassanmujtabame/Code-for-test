@@ -50,7 +50,8 @@ async downloadFile(item,evt){
         console.mylog(res)
 
     } catch (error) {
-        window.catchException.call(this,error)
+        console.mylog('error',error)
+        //window.catchException.call(this,error)
     }
 },
     changeFilter(val){
