@@ -45,6 +45,11 @@ import SectHearAboutUs from './parts/section-hear-about-us/index.vue'
 import SectBlog from './parts/section-blog/index.vue'
 export default {
   name: 'IndexView',
+  metaInfo: {
+      
+      title: 'ريادات- Riadiat',
+      titleTemplate:null
+    },
   components: {
     SectMainSlider,
     SectServices,

@@ -8,7 +8,13 @@ import incubatorRoute from './incubator'
 import serviceRoute from './service-provider'
 import consultingRoute from './consulting'
 import Cookies from 'js-cookie'
+import VueMeta from 'vue-meta'
+
 Vue.use(VueRouter)
+Vue.use(VueMeta,{
+  keyName: 'metaInfo',
+})
+
 let lang= Cookies.get('i18n_lang') || 'ar';
 const routes = [
   {

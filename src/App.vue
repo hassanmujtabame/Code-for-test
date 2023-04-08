@@ -19,6 +19,12 @@ import JoinASPartnerDialog from '@/common/dialogs/join-as-partner.vue'
 import dChatBar from '@/components/chat/bar.vue'
 import { mapGetters } from 'vuex'
 export default {
+  metaInfo: {
+      // if no subcomponents specify a metaInfo.title, this title will be used
+      title: 'ريادات- Riadiat',
+      // all titles will be injected into this template
+      titleTemplate: '%s | ريادات- Riadiat'
+    },
   components:{
     JoinASPartnerDialog,
     dChatBar
