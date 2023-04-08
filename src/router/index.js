@@ -24,7 +24,7 @@ const routes = [
     path: '/',
     name: 'index',
     meta:{layout:LayoutDefault},
-    component: () => import(/* webpackChunkName: "Index" */ '../views/Index/Index.vue')
+    component: () => import(/* webpackChunkName: "Index" */ '../views/main/home/index.vue')
   },
   {
     path: 'my-profile',
@@ -90,50 +90,50 @@ const routes = [
     path: 'contact-us',
     meta:{layout:LayoutDefault},
     name: 'contact-us',
-    component: () => import(/* webpackChunkName: "ContactUs" */ '../views/contact-us/index.vue')
+    component: () => import(/* webpackChunkName: "ContactUs" */ '../views/main/contact-us/index.vue')
   },
   {
     path: 'login',
     meta:{layout:LayoutDefault,auth:false},
     name: 'login',
-    component: () => import(/* webpackChunkName: "Login" */ '../views/auth/login/index.vue')
+    component: () => import(/* webpackChunkName: "Login" */ '../views/main/auth/login/index.vue')
   },
   {
     path: 'register',
     meta:{layout:LayoutDefault,auth:false},
     name: 'register',
-    component: () => import(/* webpackChunkName: "Register" */ '../views/auth/register/index.vue')
+    component: () => import(/* webpackChunkName: "Register" */ '../views/main/auth/register/index.vue')
   },
   {
     path: 'forget-password',
     meta:{layout:LayoutDefault,auth:false},
     name: 'forget-password',
-    component: () => import(/* webpackChunkName: "forget-password" */ '../views/auth/forget-password/index.vue')
+    component: () => import(/* webpackChunkName: "forget-password" */ '../views/main/auth/forget-password/index.vue')
   },
   {
     path: 'change-password',
     meta:{layout:LayoutDefault,auth:true},
     name: 'change-password',
-    component: () => import(/* webpackChunkName: "change-password" */ '../views/auth/change-password/index.vue')
+    component: () => import(/* webpackChunkName: "change-password" */ '../views/main/auth/change-password/index.vue')
   },
   {
     path: 'terms-and-conditions',
     meta:{layout:LayoutDefault},
     name: 'Terms-and-Conditions',
-    component: () => import(/* webpackChunkName: "Terms-and-Conditions" */ '../views/policy/Terms-and-Conditions.vue')
+    component: () => import(/* webpackChunkName: "Terms-and-Conditions" */ '../views/main/policy/Terms-and-Conditions.vue')
   }
   ,
   {
     path: 'who-are-we',
     meta:{layout:LayoutDefault},
     name: 'who-are-we',
-    component: () => import(/* webpackChunkName: "who-are-we" */ '../views/WhoAreWe.vue')
+    component: () => import(/* webpackChunkName: "who-are-we" */ '../views/main/WhoAreWe.vue')
   },
   {
     path: 'common-questions',
     meta:{layout:LayoutDefault},
     name: 'common-questions',
-    component: () => import(/* webpackChunkName: "common-questions" */ '../views/CommonQuestions.vue')
+    component: () => import(/* webpackChunkName: "common-questions" */ '../views/main/CommonQuestions.vue')
   },
   ...networkRoute,
   ...academyRoute,
