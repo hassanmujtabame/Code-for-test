@@ -14,6 +14,10 @@ register(data){
     return window.axios.get(`consulting/consultants`,data);
     
 }
+mySchedules(params={}){
+    let s=this.generateQueryUrl(params)
+    return window.axios.get(`consulting/consultants-my-schedules?${s}`);
+}
 getBest(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`consulting/consultants?${s}`);

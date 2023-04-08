@@ -7,31 +7,19 @@
     <div v-else class="container">
       <div class="row justify-content-between align-items-center ">
         <div class="col-md-6">
-          <h3>
-            جدول خدمة
-            <a href="" style="color: #F2631C;">
-             
-            </a>
-          </h3>
+          <h3 class="home-section-title">
+            جدول مواعيدي
+            </h3>
+          <p class="home-section-text">قم بإضافة مواعيدك المتاحة ليتمكن أعضاء الشبكة من حجز الموعد المناسب لهم</p>
 
         </div>
         <div class="col-md-6 text-end">
           <button  style="height: 40px;" class="bg-main text-white border-0 rounded-2 px-3" @click="openDialogNewCatSchedule">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M21.3333 17H10.6666C10.12 17 9.66663 16.5467 9.66663 16C9.66663 15.4533 10.12 15 10.6666 15H21.3333C21.88 15 22.3333 15.4533 22.3333 16C22.3333 16.5467 21.88 17 21.3333 17Z"
-                fill="white" />
-              <path
-                d="M16 22.3337C15.4533 22.3337 15 21.8803 15 21.3337V10.667C15 10.1203 15.4533 9.66699 16 9.66699C16.5467 9.66699 17 10.1203 17 10.667V21.3337C17 21.8803 16.5467 22.3337 16 22.3337Z"
-                fill="white" />
-              <path
-                d="M20 30.3337H12C4.75996 30.3337 1.66663 27.2403 1.66663 20.0003V12.0003C1.66663 4.76033 4.75996 1.66699 12 1.66699H20C27.24 1.66699 30.3333 4.76033 30.3333 12.0003V20.0003C30.3333 27.2403 27.24 30.3337 20 30.3337ZM12 3.66699C5.85329 3.66699 3.66663 5.85366 3.66663 12.0003V20.0003C3.66663 26.147 5.85329 28.3337 12 28.3337H20C26.1466 28.3337 28.3333 26.147 28.3333 20.0003V12.0003C28.3333 5.85366 26.1466 3.66699 20 3.66699H12Z"
-                fill="white" />
-            </svg>
+            <i class="fa fa-pen-to-square"></i>
             تعديل
 
           </button>
-          <button  style="height: 40px;" class="bg-danger text-white border-0 rounded-2 px-3">
+          <button v-if="false" style="height: 40px;" class="bg-danger text-white border-0 rounded-2 px-3">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M28 8.97363C27.9733 8.97363 27.9333 8.97363 27.8933 8.97363C20.84 8.26696 13.8 8.00029 6.82668 8.70696L4.10668 8.97363C3.54668 9.02696 3.05334 8.62696 3.00001 8.06696C2.94668 7.50696 3.34668 7.02696 3.89334 6.97363L6.61334 6.70696C13.7067 5.98696 20.8933 6.26696 28.0933 6.97363C28.64 7.02696 29.04 7.52029 28.9867 8.06696C28.9467 8.58696 28.5067 8.97363 28 8.97363Z"
@@ -118,12 +106,12 @@
 </template>
 
 <script>
-import schedulesAPI from '@/services/api/service-provider/schedules';
 //import categoriesScheduleAPI from '@/services/api/service-provider/categories-schedule'
 //import delCatItemDialog from '../dialogs/category-schedule/del-item.vue';
 //import delItemDialog from '../dialogs/new-schedule/del-item.vue';
 //import DialogNewCategorySchedule from '../dialogs/category-schedule/index.vue'
 import DialogNewSchedule from './dialogs/new-schedule/index.vue'
+import consultingAPI from '@/services/api/consulting';
 
 export default {
   name: 'page-schedule-consulting',
@@ -226,7 +214,7 @@ export default {
     async loadList() {
       this.loading = true;
       try {
-        let { data } = await schedulesAPI.getAll({category_id:this.$route.params.id})
+        let { data } = await consultingAPI.consultants.mySchedules()
         if (data.success) {
           this.items = data.data.map(e=>{
             let {category,...b} = e
