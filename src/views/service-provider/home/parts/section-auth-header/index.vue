@@ -9,12 +9,12 @@
                 <h6 class="service-provider-header_subtitle" :class="{'mobile':isMobile}">
                     منصة تجمع أهم وألمع رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد
                 </h6>
-                <div class="row w-75" :class="{'mx-5':!isMobile,'mx-1':isMobile}">
-                    <div class="col-12 col-md-9">
+                <div class="px-5 d-flex justify-content-ceneter w-75" :class="{'mx-5':!isMobile,'mx-1':isMobile}">
+                    <div class="px-3"   style="flex: 1 0 75%;">
                     <input class=" p-3 w-100 rounded-2 border-0 bg-white" type="text"
                         placeholder="ابحث عن خدمات او طلبات من هنا">
                     </div>
-                    <div class="col-12 col-md-3 d-flex align-items-center" :class="{'mt-2 mb-3':isMobile}">
+                    <div class="d-flex align-items-center" style="flex: 1 0 151px;" :class="{'mt-2 mb-3':isMobile}">
                     <button style="height: 51px;" class="btn-main" :class="{'w-100':isMobile}">
                         ابحث
                     </button>
