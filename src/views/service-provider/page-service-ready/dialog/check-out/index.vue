@@ -3,7 +3,7 @@
 :group="group"
 title="تفاصيل الدفع"
 hideAmount
-@payment="payment"
+:do-payment="payment"
 >
 <template v-slot:default="{ item,dialog }">
   <div v-if="dialog" class="d-flex flex-wrap gap-2">
@@ -27,7 +27,7 @@ hideAmount
 </CheckOutDialog>
 </template>
 <script>
-import CheckOutDialog from '@/common/dialogs/check-out/index'
+import CheckOutDialog from '@/common/dialogs/check-out-test/index'
 import readyserviceAPI from '@/services/api/service-provider/provider/ready-service.js'
 export default {
   name:"checkout-ready-service-online",
@@ -42,9 +42,10 @@ export default {
   },
   data:()=>({
     showDialog:false,
+    checkoutInfo:{},
     pay_info:{},
     user_info:{},
-    itemDialog:{}
+    itemDialog:{},
   }),
   methods:{
     redirecttoProvider(){
@@ -56,15 +57,17 @@ export default {
       try {
         let { data } = await readyserviceAPI.checkoutService(this.pay_info)
         if(data.success){
+          this.checkoutInfo = data.data;
+            this.loadJS(`https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.checkoutInfo.id}`,true,true);
           
           console.mylog('success',data)
-          if(this.itemDialog.status=='service'){
+         /* if(this.itemDialog.status=='service'){
             this.showSuccessService()
           }else{
             this.showSuccessOnline()
           }
           this.closeEvent()
-         
+         */
         }else{
           window.SwalError(data.message)
         }
@@ -131,6 +134,16 @@ export default {
             ]
           }
           this.showSuccessMsg(dataEvent)
+    },
+    beforeDestroy() {
+      if(this.checkoutInfo.id)
+      window.$('script').each(function() {
+
+        if (this.src === `https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.checkoutInfo.id}`) {
+
+          this.parentNode.removeChild( this );
+        }
+        });
     },
     closeEvent(){
       this.fireCloseDialog(this.group)
