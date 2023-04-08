@@ -163,7 +163,7 @@ export default {
             this.updateAttributes()
     },
     openDialogNewCatSchedule(){
-    this.fireOpenDialog('new-category-schedule',this.category_schedule)
+    this.fireOpenDialog('new-schedule-consulting',this.category_schedule)
   },
   hideMenu(){
     if(!this.eventSelected) return;
@@ -216,10 +216,10 @@ export default {
       try {
         let { data } = await consultingAPI.consultants.mySchedules()
         if (data.success) {
-          this.items = data.data.map(e=>{
+          /*this.items = data.data.map(e=>{
             let {category,...b} = e
             return {...b,category_id:category.id}
-          })
+          })*/
           if (process.env.NODE_ENV !== 'production')
             this.items.push(
               {

@@ -12,62 +12,62 @@
     
     <ValidationObserver v-if="showDialog" ref="form" tag="div">
         <h3 class="consulting-schedule-dialog_title">معلومات عن الاستشارة</h3>
-        <!--consulting_type-->
+        <!--type-->
         <ValidationProvider 
         tag="div"
         class="mb-3"
-        vid="consulting_type"
+        vid="type"
         :name="$t('consulting-type')"
         rules="required"
         v-slot="{errors}"
         >
-            <d-select-input :errors="errors" v-model="itemForm.consulting_type" :label="$t('consulting-type')">
+            <d-select-input :errors="errors" v-model="itemForm.type" :label="$t('consulting-type')">
             <option></option>
             <option v-for="(it,i) in consulting_types" :key="i" :value="it.id">{{ it.name }}</option>
             </d-select-input>
         </ValidationProvider>
-        <!--consulting_during-->
+        <!--duration_time-->
         <ValidationProvider 
         tag="div"
         class="mb-3"
-        vid="consulting_during"
+        vid="duration_time"
         :name="$t('consulting-during')"
         rules="required|numeric"
         v-slot="{errors}"
         >
-            <d-text-input :errors="errors" v-model="itemForm.consulting_during" :label="$t('consulting-during')">
+            <d-text-input :errors="errors" v-model="itemForm.duration_time" :label="$t('consulting-during')">
             <template v-slot:append-icon>
                 <span>{{$t('minute')}}</span>
             </template>
             </d-text-input>
         </ValidationProvider>
         <h3 class="consulting-schedule-dialog_title">مواعيد</h3>
-  <!--scheduling_duration-->
+  <!--duration_days-->
   <ValidationProvider 
         tag="div"
         class="mb-3"
-        vid="scheduling_duration"
+        vid="duration_days"
         :name="$t('scheduling-duration')"
         rules="required|numeric"
         v-slot="{errors}"
         >
-            <d-text-input :errors="errors" v-model="itemForm.scheduling_duration" :label="$t('scheduling-duration')">
+            <d-text-input :errors="errors" v-model="itemForm.duration_days" :label="$t('scheduling-duration')">
             <template v-slot:append-icon>
                 <span>{{$t('day')}}</span>
             </template>
             </d-text-input>
         </ValidationProvider>
-        <!--consulting_days-->
+        <!--days-->
         <ValidationProvider 
         tag="div"
         class="mb-3"
         :name="$t('days_week')" 
-        vid="consulting_days" 
+        vid="days" 
         rules="required" 
         v-slot="{ errors }"
         >
         <d-multiselect-input :errors="errors" label="ايام الاستشارة ( حددي ايام الاسبوع )"
-            :opts="daysOfWeek" track-id="id" label-name="name" v-model="itemForm.consulting_days"
+            :opts="daysOfWeek" track-id="id" label-name="name" v-model="itemForm.days"
             multi-select placeholder="ايام الاستشارة ( حددي ايام الاسبوع )" />
         </ValidationProvider>
         <!-- start date-->
@@ -77,11 +77,14 @@
         <d-error-input :errors="errors" v-if="errors && errors.length > 0" />
         </ValidationProvider>
         <h3 class="consulting-schedule-dialog_title2">الوقت المتاح</h3>
-        <div class="d-flexd-flex flex-wrap gap-2">
-            <div class="consulting-time-available-item" v-for="(it,i) in itemForm.times" :key="i">{{ timeFormatAMPM(it,true) }}</div>
+        <div class="d-flex flex-wrap gap-2">
+            <showAvailabeTime v-for="(it,i) in itemForm.available_times" :key="i"
+            :time="it" @delete="deleteTime"
+            />
         </div>
         <div>
-            <button @click="addTime" class="btn-text m-c"><i class="fa fa-plus-circle"></i> إضافة وقت اخر</button>
+            <addTimeBtn :times="itemForm.available_times" @store="addTime"/>
+            
         </div>
     </ValidationObserver>
 </div>
@@ -95,6 +98,8 @@
 
 <script>
 import commonAPI from '@/services/api/common'
+import addTimeBtn from './add-time.vue'
+import showAvailabeTime from './show-time.vue'
 export default {
     name: "new-schedule",
     props: {
@@ -103,20 +108,30 @@ export default {
             default: "new-schedule-consulting"
         }
     },
+    components:{
+        addTimeBtn,
+        showAvailabeTime
+    },
     data: () => {
+        
         let daysOfWeek = commonAPI.getDaysOfWeek()
         let type_consulations = commonAPI.getTypeConsultations()
         return {
+            msg:'',
             daysOfWeek: daysOfWeek,
             consulting_types:type_consulations,
             loading:false,
         itemDialog: {},
-        itemForm:{},
+        itemForm:{available_times:[]},
         showDialog: false,
     }},
     methods: {
-        addTime(){
-            this.itemForm.times.push('10:00')
+        deleteTime(time){
+      this.itemForm.available_times = this.itemForm.available_times.filter(x=>x!=time)
+
+        },
+        addTime(time){
+            this.itemForm.available_times.push(time)
         },
         async save(){
             this.loading = true;
@@ -130,12 +145,12 @@ export default {
         openDialog(dataEvt) {
             this.itemDialog = { ...dataEvt };
             this.itemForm={
-                consulting_type:'',
-                consulting_days:null,
-                consulting_during:null,
-                scheduling_duration:null,
+                type:'',
+                days:null,
+                duration_time:null,
+                duration_days:null,
                 start_date:'',
-                times:['09:00']
+                available_times:[]
             }
             this.showDialog = true;
             return true;
@@ -174,22 +189,5 @@ line-height: 29px;
 color: #979797;
 margin-bottom:10px ;
 }
-.consulting-time-available-item{
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #FFFFFF;
-    border: 0.5px solid #CDD7D8;
-    border-radius: 4px;
-/** text */
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-    /* identical to box height, or 100% */
-    text-align: center;
-    color: #CDD7D8;
-    width: fit-content;
-}
+
 </style>

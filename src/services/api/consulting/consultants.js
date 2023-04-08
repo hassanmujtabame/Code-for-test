@@ -18,6 +18,10 @@ mySchedules(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`consulting/consultants-my-schedules?${s}`);
 }
+updateMyAvailabilty(data){
+    data.append('_method','PUT')
+    return window.axios.post(`consulting/consultants-my-schedules`,data)
+}
 getBest(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`consulting/consultants?${s}`);

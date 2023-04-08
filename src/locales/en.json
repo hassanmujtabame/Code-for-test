@@ -672,5 +672,7 @@
   "page-home-title": "home",
   "page-home-desc": "desc",
   "no-items": "no items",
-  "my-proposals": "my proposals"
+  "my-proposals": "my proposals",
+  "available-time": "available time",
+  "time": "time"
 }

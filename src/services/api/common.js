@@ -50,7 +50,7 @@ getTypeCertificates(){
 getTypeConsultations(){
   return [
     {id:'call',name:"مكالمة"},
-  
+    {id:'video',name:"مقابلة بالفيديو"},
 ]
 }
   getDaysOfWeek(){
