@@ -31,7 +31,8 @@ computed:{
                 case 'academy-subscribe': return this.$t('desc-not-subscribed-academy-failure');
                 case 'incubator-subscribe': return this.$t('desc-not-subscribed-incubator-failure');
                 case 'service-provider-subscribe': return this.$t('desc-not-subscribed-service-provider-failure');
-            
+                case 'course-buy' : return 'هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هنك تغيير في اموالك';
+                case 'ready-service-buy' : return 'هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هنك تغيير في اموالك';
                 default:
                 return 'N/A'
             }
@@ -42,7 +43,9 @@ computed:{
                 case 'academy-subscribe': return this.$t('you-have-not-subscribed-in-academy-failure');
                 case 'incubator-subscribe': return this.$t('you-have-not-subscribed-incubator-failure');
                 case 'service-provider-subscribe': return this.$t('you-have-not-subscribed-service-provider-failure');
-            
+                case 'course-buy': return this.$t('you-have-not-bought-course-failure');
+                case 'ready-service-buy': return this.$t('you-have-not-bought-ready-service-failure');
+                
                 default:
                 return 'N/A'
             }

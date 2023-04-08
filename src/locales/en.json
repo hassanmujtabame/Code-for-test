@@ -693,5 +693,11 @@
   "desc-not-subscribed-network-failure": "Unfortunately, something went wrong, so  subscription process in network failed",
   "desc-not-subscribed-academy-failure": "Unfortunately, something went wrong, so subscription process in academy failed",
   "desc-not-subscribed-incubator-failure": "Unfortunately, something went wrong, so  subscription process in incubator failed",
-  "desc-not-subscribed-service-provider-failure": "Unfortunately, something went wrong, so  subscription process in service providers failed"
+  "desc-not-subscribed-service-provider-failure": "Unfortunately, something went wrong, so  subscription process in service providers failed",
+  "you-have-bought-course-successful": "The course has been successfully purchased",
+  "you-have-bought-ready-service-successful": "Congratulations, the service has been successfully purchased",
+  "desc-bought-course-successful": "welcome, I have just purchased the course. To view the course, click the button below",
+  "desc-bought-ready-service-successful": "welcome, I have just purchased the ready service. To view the ready service, click the button below",
+  "you-have-not-bought-course-failure": "Course purchase failed",
+  "you-have-not-bought-ready-service-failure": "ready service purchase failed"
 }

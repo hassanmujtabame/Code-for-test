@@ -688,5 +688,11 @@
   "desc-not-subscribed-academy-failure": "للأسف، هناك خطب ما، لذا عملية الاشتراك في الاكاديمية فشلت",
   "desc-not-subscribed-network-failure": "للأسف، هناك خطب ما، لذا عملية الاشتراك في الشبكة فشلت",
   "desc-not-subscribed-incubator-failure": "للأسف، هناك خطب ما، لذا عملية الاشتراك في الحاضنة فشلت",
-  "desc-not-subscribed-service-provider-failure": "للأسف، هناك خطب ما، لذا عملية الاشتراك في مقدمي الخدمة فشلت"
+  "desc-not-subscribed-service-provider-failure": "للأسف، هناك خطب ما، لذا عملية الاشتراك في مقدمي الخدمة فشلت",
+  "you-have-bought-course-successful": "لقد تم شراء الدورة بنجاح",
+  "you-have-bought-ready-service-successful": "تهانينا تم شراء الخدمة بنجاح",
+  "desc-bought-course-successful": "مرحبا بك، لقد قمت للتو بشراء الدورة لمشاهدة الدورة اضغط على الزر في الاسفل",
+  "desc-bought-ready-service-successful": "مرحبًا ، لقد اشتريت للتو الخدمة الجاهزة. \nلعرض الخدمة الجاهزة ، انقر فوق الزر أدناه",
+  "you-have-not-bought-ready-service-failure": "فشل عملية شراء الخدمة",
+  "you-have-not-bought-course-failure": "فشل عملية شراء الدورة"
 }

@@ -115,7 +115,7 @@ export default {
     },
     showSuccessOnline(){
       let dataEvent ={
-            title:'تهانينا تم شراء  الخدمة بنجاح',
+            title:'تهانينا تم شراء الخدمة بنجاح',
             description:'',
             btns:[
               {title:'تواصل مع مقدم الخدمة',action:()=>{this.redirecttoProvider()},class:'btn btn-custmer'},

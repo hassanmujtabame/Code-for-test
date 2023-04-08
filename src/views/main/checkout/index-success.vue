@@ -20,6 +20,8 @@ computed:{
                 case 'academy-subscribe': return this.getRouteLocale('academy-home');
                 case 'incubator-subscribe': return this.getRouteLocale('incubator-home');
                 case 'service-provider-subscribe': return this.getRouteLocale('service-provider-home');
+                case 'course-buy': return this.getRouteLocale('academy-course-preview-show',{id:this.$route.query.course});
+                case 'ready-service-buy': return this.getRouteLocale('service-provider-home');
             
                 default:
                 return this.getRouteLocale('index')
@@ -31,9 +33,11 @@ computed:{
                 case 'academy-subscribe': return this.$t('desc-subscribed-academy-successful');
                 case 'incubator-subscribe': return this.$t('desc-subscribed-incubator-successful');
                 case 'service-provider-subscribe': return this.$t('desc-subscribed-service-provider-successful');
+                case 'course-buy': return this.$t('desc-bought-course-successful');
+                case 'ready-service-buy': return this.$t('desc-bought-ready-service-successful');
             
                 default:
-                return 'N/A'
+                return ''
             }
     },
     title_page(){
@@ -42,14 +46,16 @@ computed:{
                 case 'academy-subscribe': return this.$t('you-have-subscribed-in-academy-successful');
                 case 'incubator-subscribe': return this.$t('you-have-subscribed-incubator-successful');
                 case 'service-provider-subscribe': return this.$t('you-have-subscribed-service-provider-successful');
-            
+                case 'course-buy': return this.$t('you-have-bought-course-successful');
+                case 'ready-service-buy': return this.$t('you-have-bought-ready-service-successful');
+        
                 default:
                 return 'N/A'
             }
     }
 },
 created(){
-    if(!this.$route.query.type || !['course-buy','network-subscribe','academy-subscribe','service-provider-subscribe','incubator-subscribe'].includes(this.$route.query.type)){
+    if(!this.$route.query.type || !['ready-service-buy','course-buy','network-subscribe','academy-subscribe','service-provider-subscribe','incubator-subscribe'].includes(this.$route.query.type)){
         this.router_push('index')
     }
 },
