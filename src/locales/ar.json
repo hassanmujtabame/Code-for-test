@@ -697,5 +697,6 @@
   "you-have-not-bought-course-failure": "فشل عملية شراء الدورة",
   "view-course": "عرض الدورة",
   "desc-not-bought-course-failure": "هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هناك تغيير في اموالك",
-  "desc-not-bought-ready-service-failure": "هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هناك تغيير في اموالك"
+  "desc-not-bought-ready-service-failure": "هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هناك تغيير في اموالك",
+  "view-ready-service": "صفحة خدمة جاهزة"
 }

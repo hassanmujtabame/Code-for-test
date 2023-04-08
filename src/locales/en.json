@@ -702,5 +702,6 @@
   "you-have-not-bought-ready-service-failure": "ready service purchase failed",
   "view-course": "view course",
   "desc-not-bought-course-failure": "There was an error in the purchase process, contact us so note that there has been a change in your funds",
-  "desc-not-bought-ready-service-failure": "There was an error in the purchase process, contact us so note that there has been a change in your funds"
+  "desc-not-bought-ready-service-failure": "There was an error in the purchase process, contact us so note that there has been a change in your funds",
+  "view-ready-service": "ready service page"
 }

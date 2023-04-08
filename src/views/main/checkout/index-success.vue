@@ -4,7 +4,7 @@
         <div class="d-alert d-alert-success mx-auto">
         <h1 >{{ title_page }}</h1>
         <p>{{ desc_page }}</p>
-        <router-link :to="route_page" class="btn btn-custmer-w" >صفحة الرئيسية</router-link>
+        <router-link :to="route_page" class="btn btn-custmer-w">{{ btn_label }}</router-link>
         
     </div>
     </div>
@@ -14,6 +14,18 @@
 <script>
 export default {
 computed:{
+    btn_label(){
+        switch (this.$route.query.type) {
+                case 'network-subscribe': return this.$t('Home');
+                case 'academy-subscribe': return this.$t('Home');
+                case 'incubator-subscribe': return this.$t('Home');
+                case 'service-provider-subscribe': return this.$t('Home');
+                case 'course-buy' : return this.$t('view-course');
+                case 'ready-service-buy' : return this.$t('view-ready-service');
+                default:
+                return 'N/A'
+            }
+    },
     route_page(){
         switch (this.$route.query.type) {
                 case 'network-subscribe': return this.getRouteLocale('network-home');
@@ -21,7 +33,7 @@ computed:{
                 case 'incubator-subscribe': return this.getRouteLocale('incubator-home');
                 case 'service-provider-subscribe': return this.getRouteLocale('service-provider-home');
                 case 'course-buy': return this.getRouteLocale('academy-course-preview-show',{id:this.$route.query.course});
-                case 'ready-service-buy': return this.getRouteLocale('service-provider-home');
+                case 'ready-service-buy': return this.getRouteLocale('service-provider-ready-service',{id:this.$route.query.service});
             
                 default:
                 return this.getRouteLocale('index')

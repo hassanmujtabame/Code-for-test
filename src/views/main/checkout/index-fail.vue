@@ -20,7 +20,7 @@ computed:{
                 case 'academy-subscribe': return this.$t('Home');
                 case 'incubator-subscribe': return this.$t('Home');
                 case 'service-provider-subscribe': return this.$t('Home');
-                case 'course-buy' : return this.$t('view-course');
+                case 'course-buy' : return this.$t('Home');
                 case 'ready-service-buy' : return this.$t('Home');
                 default:
                 return 'N/A'
@@ -32,6 +32,8 @@ computed:{
                 case 'academy-subscribe': return this.getRouteLocale('academy-home');
                 case 'incubator-subscribe': return this.getRouteLocale('incubator-home');
                 case 'service-provider-subscribe': return this.getRouteLocale('service-provider-home');
+                case 'course-buy': return this.getRouteLocale('academy-courses');
+                case 'ready-service-buy': return this.getRouteLocale('service-provider-ready-services');
             
                 default:
                 return this.getRouteLocale('index')
