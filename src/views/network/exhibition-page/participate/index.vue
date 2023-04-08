@@ -103,7 +103,9 @@
                                 <div class="mb-3">
                                     <select v-model="booking_type" class="form-select ">
                                         <option value="" class="t-c" disabled selected>   اختر البوث الذي تريد حجزه من البوثات المتاحة  </option>
+                                        <template v-if="itemPage.post_member">
                                         <option v-for="(booth,i) in itemPage.post_member.booth_name" :key="i" :value="(i+1)">{{ booth }}</option>
+                                    </template>
                                     </select>
                                   
                                 </div>
