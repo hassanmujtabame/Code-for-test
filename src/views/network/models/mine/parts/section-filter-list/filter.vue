@@ -13,13 +13,13 @@
             </template>
 
             <template v-slot="{ item }">
-                              <router-link class="router-link" :to="getRouteLocale('network-model-show',{id:item.id})" > 
+                              <a class="router-link" href="#" @click="downloadFile(item,$event)"> 
                               <ModelCard
                                :title="item.title" :img="item.image" 
                                 :value="item.count_download"
                                 hideCounter
                                />  
-                               </router-link>    
+                              </a>    
                               </template>
                     
                 </d-filter-list>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import ModelsAPI from '@/services/api/models.js';
+import netwrokAPI from '@/services/api/network';
 import ModelCard from '@/components/cards/model.vue'
 export default {
  name:'section-filter',
@@ -42,6 +42,17 @@ export default {
     },
  }),
  methods:{
+async downloadFile(item,evt){
+    if(evt) evt.preventDefault();
+    
+    try {
+        let res = await netwrokAPI.models.download(item.id)
+        console.mylog(res)
+
+    } catch (error) {
+        window.catchException.call(this,error)
+    }
+},
     changeFilter(val){
             this.filterItem = {...this.filterItem,...val}
             this.fireEvent('d-filter-list-refresh')
@@ -52,12 +63,12 @@ export default {
             page:metaInfo.current_page,
             ...this.filterItem
           }
-           return await ModelsAPI.getMine(params)
+           return await netwrokAPI.models.getMine(params)
 
            
         } catch (error) {
-            console.log('error',error)
-            console.log('response',error.response)
+            console.mylog('error',error)
+            console.mylog('response',error.response)
         }
     }
 }
