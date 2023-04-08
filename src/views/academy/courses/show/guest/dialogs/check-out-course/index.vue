@@ -3,7 +3,7 @@
     :group="group"
     title="تفاصيل الدفع"
     hideAmount
-    @payment="payment"
+    :do-payment="payment"
     >
     <template v-slot:default="{ item,dialog }">
       <div v-if="dialog" class="d-flex flex-wrap gap-2">
@@ -59,7 +59,7 @@
     </CheckOutDialog>
     </template>
     <script>
-    import CheckOutDialog from '@/common/dialogs/check-out/index'
+    import CheckOutDialog from '@/common/dialogs/check-out-test/index'
     import academyAPI from '@/services/api/academy/index.js'
     export default {
       name:"checkout-course-academy",
@@ -74,6 +74,7 @@
       },
       data:()=>({
         showDialog:false,
+        checkoutInfo:{}
     
       }),
       methods:{
@@ -92,7 +93,7 @@
             card_holder:cardInfo.card_holder,
             cvv:cardInfo.card_cvv,
             expiryMonth:cardInfo.expiryMonth,
-          expiryYear:cardInfo.expiryYear,
+            expiryYear:cardInfo.expiryYear,
             save:cardInfo.saveCard,
             course_id:otherData.id
            }
@@ -108,11 +109,13 @@
           try {
             let { data } = await academyAPI.checkoutCourse(pay_info)
             if(data.success){
-              
+              this.checkoutInfo = data.data;
+            this.loadJS(`https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.checkoutInfo.id}`,true,true);
+          
               console.mylog('success',data)
-              this.closeEvent()
-              this.loadCurrentUser()
-              this.openSuccessSubscribed(otherData)
+            //  this.closeEvent()
+              //this.loadCurrentUser()
+              //this.openSuccessSubscribed(otherData)
             }else{
               window.SwalError(data.message)
             }
@@ -133,6 +136,16 @@
             this.showSuccessMsg(dataEvt)
             //this.fireOpenDialog('success-academy-subscribed', data)
         },
+        beforeDestroy() {
+      if(this.checkoutInfo.id)
+      window.$('script').each(function() {
+
+        if (this.src === `https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.checkoutInfo.id}`) {
+
+          this.parentNode.removeChild( this );
+        }
+        });
+    },
         goToCourse(data){
             this.router_push('academy-course-preview-show',{id:data.id})
         }
