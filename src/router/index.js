@@ -33,6 +33,18 @@ const routes = [
     component: () => import(/* webpackChunkName: "my-profile" */ '../views/common/my-profile/index.vue')
   },
   {
+    path: 'checkout-success',
+    name: 'checkout-success',
+    meta:{layout:LayoutDefault,auth:true},
+    component: () => import(/* webpackChunkName: "checkout-success" */ '../views/main/checkout/index-success.vue')
+  },
+  {
+    path: 'checkout-fail',
+    name: 'checkout-fail',
+    meta:{layout:LayoutDefault,auth:true},
+    component: () => import(/* webpackChunkName: "checkout-fail" */ '../views/main/checkout/index-fail.vue')
+  },
+  {
     path: 'show-profile/:id',
     name: 'show-profile',
     meta:{layout:LayoutDefault},

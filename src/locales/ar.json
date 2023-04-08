@@ -672,5 +672,21 @@
   "time": "وقت",
   "search-for-proposal": "بحث عن طلب خدمة",
   "proposals": "طلبات خدمة",
-  "proposal": "طلب خدمة"
+  "proposal": "طلب خدمة",
+  "you-have-subscribed-in-network-successful": "لقد قمت بالاشتراك في شبكة رياديات بنجاح",
+  "desc-subscribed-network-successful": "مرحبا بك كعضو مشترك في شبكة رياديات",
+  "desc-subscribed-academy-successful": "مرحبا بك كعضو مشترك في اكاديمية رياديات",
+  "desc-subscribed-incubator-successful": "مرحبا بك كعضو مشترك في حاضنة رياديات",
+  "desc-subscribed-service-provider-successful": "مرحبا بك كعضو مشترك في مقدمي الخدمة",
+  "you-have-subscribed-in-academy-successful": "لقد قمت بالاشتراك في اكاديمية رياديات بنجاح",
+  "you-have-subscribed-incubator-successful": "لقد قمت بالاشتراك في حاضنة رياديات بنجاح",
+  "you-have-subscribed-service-provider-successful": "لقد قمت بالاشتراك في مقدمي الخدمة بنجاح",
+  "you-have-not-subscribed-in-network-failure": "فشلت عملية الاشتراك في الشبكة",
+  "you-have-not-subscribed-in-academy-failure": "فشلت عملية الاشتراك في الأكاديمية",
+  "you-have-not-subscribed-incubator-failure": "فشلت عملية الاشتراك في الحاضنة",
+  "you-have-not-subscribed-service-provider-failure": "فشلت عملية الاشتراك في مقدمي الخدمة",
+  "desc-not-subscribed-academy-failure": "للأسف، هناك خطب ما، لذا عملية الاشتراك في الاكاديمية فشلت",
+  "desc-not-subscribed-network-failure": "للأسف، هناك خطب ما، لذا عملية الاشتراك في الشبكة فشلت",
+  "desc-not-subscribed-incubator-failure": "للأسف، هناك خطب ما، لذا عملية الاشتراك في الحاضنة فشلت",
+  "desc-not-subscribed-service-provider-failure": "للأسف، هناك خطب ما، لذا عملية الاشتراك في مقدمي الخدمة فشلت"
 }

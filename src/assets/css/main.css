@@ -2125,3 +2125,21 @@ color: #979797;
 input[name="card.number"]{
     direction: ltr !important;
 }
+
+.height-body-page-without-nav {
+    height: calc(100vh - 83px);
+}
+.d-alert{
+    border-radius: 8px;
+    padding:10%;
+}
+.d-alert-success{
+    border:1px solid seagreen;
+    background-color: rgba(46, 139, 87,25%);
+    color:seagreen
+}
+.d-alert-danger{
+    border:1px solid salmon;
+    background-color: rgba(250, 128, 114,25%);
+    color:salmon;
+}

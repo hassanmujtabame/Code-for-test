@@ -677,5 +677,21 @@
   "time": "time",
   "search-for-proposal": "search for proposal",
   "proposals": "proposals",
-  "proposal": "proposal"
+  "proposal": "proposal",
+  "you-have-subscribed-in-network-successful": "you have subscribed in network successful",
+  "desc-subscribed-network-successful": "you are welcome ad member in riadiat network",
+  "desc-subscribed-academy-successful": "you are welcome ad member in riadiat academy",
+  "desc-subscribed-incubator-successful": "you are welcome ad member in riadiat incubator",
+  "desc-subscribed-service-provider-successful": "you are welcome ad member in riadiat service provider",
+  "you-have-subscribed-in-academy-successful": "you have subscribed in academy successful",
+  "you-have-subscribed-incubator-successful": "you have subscribed in incubator successful",
+  "you-have-subscribed-service-provider-successful": "you have subscribed in service provider successful",
+  "you-have-not-subscribed-in-network-failure": "Subscribing operation  in network is failed",
+  "you-have-not-subscribed-in-academy-failure": "Subscribing operation  in academy  is failed",
+  "you-have-not-subscribed-incubator-failure": "Subscribing operation  in incubator is failed",
+  "you-have-not-subscribed-service-provider-failure": "Subscribing operation  in service provider is failed",
+  "desc-not-subscribed-network-failure": "Unfortunately, something went wrong, so  subscription process in network failed",
+  "desc-not-subscribed-academy-failure": "Unfortunately, something went wrong, so subscription process in academy failed",
+  "desc-not-subscribed-incubator-failure": "Unfortunately, something went wrong, so  subscription process in incubator failed",
+  "desc-not-subscribed-service-provider-failure": "Unfortunately, something went wrong, so  subscription process in service providers failed"
 }
