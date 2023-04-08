@@ -8,7 +8,7 @@ class ModelsApi extends BaseApi{
     }
     getMine(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`network/models?${s}`);
+        return window.axios.get(`network/my-download-models?${s}`);
     }
     getHomeNetwork(params={}){
         let s=this.generateQueryUrl(params)
