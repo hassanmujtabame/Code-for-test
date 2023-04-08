@@ -1,7 +1,7 @@
 <template>
     <div class="box border rounded-3 p-4 bg-card" v-bind="$attrs">
         <div class="row justify-content-center">
-            <div class="col-md-4 img-service text-center avatar-user-card clickable"
+            <div class="col-md-4  text-center avatar-user-card clickable"
             @click="showProfile"
             :style="{'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
             >
