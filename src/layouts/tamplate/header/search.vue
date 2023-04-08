@@ -1,13 +1,17 @@
 <template>
-  <form class="d-flex position-relative form-nav" role="search">
-                  <input
-                    class="form-control me-2 serach-navbar"
+  <form class="d-flex align-items form-nav" role="search">
+                  <d-text-input
+                    
                     type="search"
                     :placeholder="$t('What_are_you_looking_for')"
                     aria-label="Search"
-                    height="56"
-                  />
-                  <div class="position-absolute icon-search px-2">
+                    height="40"
+                  >
+                  <template v-slot:prend-icon>
+                    <i class="fa fa-magnifying-glass"></i>
+                  </template>
+                  </d-text-input>
+                  <div v-if="false" class="position-absolute icon-search px-2">
                     <svg
                       width="24"
                       height="24"
@@ -33,27 +37,11 @@ export default {
  name:'search-input'
 }
 </script>
-
-<style scoped>
-@media screen and (max-width:600px) {
-  input{
-    font-size: 12px !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-}
-html[dir=rtl] input{
-  padding-right: 24px !important
-}
-html[dir=ltr] input{
-  padding-left: 24px !important
-}
-  svg{
-    height: 16px;
-    width: 16px;
+<style>
+  .form-nav .input-group{
+    height:100%
   }
-  .icon-search{
-    top: calc(50% - 8px)
+  .form-nav input[type="search"]{
+  font-size: .75rem;
   }
-}
-
 </style>

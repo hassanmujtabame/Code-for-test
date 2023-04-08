@@ -2,7 +2,9 @@
   <div class="form-group" :class="{focused:focused,'inline':inline,'solo':solo}" v-click-outside="outSide">
     <label v-if="label" class="form-label">{{ label }}</label>
     <div class="input-group">
+        <div class="d-flex justify-content-center align-items-center p-1">
         <slot name="prend-icon"></slot>
+    </div>
         <input v-on="$listeners" @focus="focused=true" @input="inputEvent" class="form-control" v-bind="$attrs" />
     <slot name="append-icon"></slot>
     </div>
