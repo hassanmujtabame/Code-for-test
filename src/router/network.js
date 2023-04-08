@@ -149,7 +149,7 @@ const routers =[
         path: 'network/exhibitions/:id/demand-participate',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-exhibition-demand-participate',
-        component: () => import(/* webpackChunkName: "network-exhibition-demand-participate" */ '../views/network/exhibition-page/share/index.vue') 
+        component: () => import(/* webpackChunkName: "network-exhibition-demand-participate" */ '../views/network/exhibition-page/participate/index.vue') 
     },
     {
         path: 'network/offers',
