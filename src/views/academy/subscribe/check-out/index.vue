@@ -59,7 +59,7 @@
   </CheckOutDialog>
   </template>
   <script>
-  import CheckOutDialog from '@/common/dialogs/check-out/index'
+  import CheckOutDialog from '@/common/dialogs/check-out-test/index'
   import academyAPI from '@/services/api/academy/index.js'
   export default {
     name:"checkout-subscribe-academy",
