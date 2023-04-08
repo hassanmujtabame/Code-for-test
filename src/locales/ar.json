@@ -234,7 +234,7 @@
   "blog-content": "محتوي التدوينة",
   "blog-title": "عنوان التدوينة",
   "publish-blog": "انشري التدوينة",
-  "Home": "الرئيسية",
+  "Home": "الصفحة الرئيسية",
   "blog": "المدونة",
   "publish-exhibition": "أنشر المعرض",
   "team": "فريق",
@@ -694,5 +694,8 @@
   "desc-bought-course-successful": "مرحبا بك، لقد قمت للتو بشراء الدورة لمشاهدة الدورة اضغط على الزر في الاسفل",
   "desc-bought-ready-service-successful": "مرحبًا ، لقد اشتريت للتو الخدمة الجاهزة. \nلعرض الخدمة الجاهزة ، انقر فوق الزر أدناه",
   "you-have-not-bought-ready-service-failure": "فشل عملية شراء الخدمة",
-  "you-have-not-bought-course-failure": "فشل عملية شراء الدورة"
+  "you-have-not-bought-course-failure": "فشل عملية شراء الدورة",
+  "view-course": "عرض الدورة",
+  "desc-not-bought-course-failure": "هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هناك تغيير في اموالك",
+  "desc-not-bought-ready-service-failure": "هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هناك تغيير في اموالك"
 }

@@ -699,5 +699,8 @@
   "desc-bought-course-successful": "welcome, I have just purchased the course. To view the course, click the button below",
   "desc-bought-ready-service-successful": "welcome, I have just purchased the ready service. To view the ready service, click the button below",
   "you-have-not-bought-course-failure": "Course purchase failed",
-  "you-have-not-bought-ready-service-failure": "ready service purchase failed"
+  "you-have-not-bought-ready-service-failure": "ready service purchase failed",
+  "view-course": "view course",
+  "desc-not-bought-course-failure": "There was an error in the purchase process, contact us so note that there has been a change in your funds",
+  "desc-not-bought-ready-service-failure": "There was an error in the purchase process, contact us so note that there has been a change in your funds"
 }

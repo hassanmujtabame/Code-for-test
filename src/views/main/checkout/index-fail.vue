@@ -14,6 +14,18 @@
 <script>
 export default {
 computed:{
+    btn_label(){
+        switch (this.$route.query.type) {
+                case 'network-subscribe': return this.$t('Home');
+                case 'academy-subscribe': return this.$t('Home');
+                case 'incubator-subscribe': return this.$t('Home');
+                case 'service-provider-subscribe': return this.$t('Home');
+                case 'course-buy' : return this.$t('view-course');
+                case 'ready-service-buy' : return this.$t('Home');
+                default:
+                return 'N/A'
+            }
+    },
     route_page(){
         switch (this.$route.query.type) {
                 case 'network-subscribe': return this.getRouteLocale('network-home');
@@ -31,10 +43,10 @@ computed:{
                 case 'academy-subscribe': return this.$t('desc-not-subscribed-academy-failure');
                 case 'incubator-subscribe': return this.$t('desc-not-subscribed-incubator-failure');
                 case 'service-provider-subscribe': return this.$t('desc-not-subscribed-service-provider-failure');
-                case 'course-buy' : return 'هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هنك تغيير في اموالك';
-                case 'ready-service-buy' : return 'هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هنك تغيير في اموالك';
+                case 'course-buy' : return this.$t('desc-not-bought-course-failure');
+                case 'ready-service-buy' : return this.$t('desc-not-bought-ready-service-failure');
                 default:
-                return 'N/A'
+                return ''
             }
     },
     title_page(){
