@@ -3,7 +3,7 @@
   :group="group"
   title="تفاصيل الدفع"
   hideAmount
-  @payment="payment"
+  :do-payment="payment"
   >
   <template v-slot:default="{ item,dialog }">
     <div v-if="dialog" class="d-flex flex-wrap gap-2">
@@ -74,7 +74,7 @@
     },
     data:()=>({
       showDialog:false,
-  
+      checkoutInfo:{}
     }),
     methods:{
       async payment(evt){
@@ -108,11 +108,13 @@
         try {
           let { data } = await academyAPI.checkoutPackage(pay_info)
           if(data.success){
-            
+            this.checkoutInfo = data.data;
+            this.loadJS(`https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.checkoutInfo.id}`,true,true);
+          
             console.mylog('success',data)
-            this.closeEvent()
-            this.loadCurrentUser()
-            this.openSuccessSubscribed(otherData)
+            //this.closeEvent()
+            //this.loadCurrentUser()
+            //this.openSuccessSubscribed(otherData)
           }else{
             window.SwalError(data.message)
           }
@@ -120,6 +122,16 @@
         console.log('error',error)
         }
       },
+      beforeDestroy() {
+      if(this.checkoutInfo.id)
+      window.$('script').each(function() {
+
+        if (this.src === `https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.checkoutInfo.id}`) {
+
+          this.parentNode.removeChild( this );
+        }
+        });
+    },
       closeEvent(){
         this.fireCloseDialog(this.group)
       },
