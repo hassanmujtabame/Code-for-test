@@ -146,10 +146,10 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-exhibitions-requests" */ '../views/network/exhibitions/requests/index.vue') 
     },
     {
-        path: 'network/exhibitions/:id/share',
+        path: 'network/exhibitions/:id/demand-participate',
         meta:{layout:LayoutNetwork,auth:true},
-        name: 'network-exhibition-share',
-        component: () => import(/* webpackChunkName: "network-exhibition-share" */ '../views/network/exhibition-page/share/index.vue') 
+        name: 'network-exhibition-demand-participate',
+        component: () => import(/* webpackChunkName: "network-exhibition-demand-participate" */ '../views/network/exhibition-page/share/index.vue') 
     },
     {
         path: 'network/offers',

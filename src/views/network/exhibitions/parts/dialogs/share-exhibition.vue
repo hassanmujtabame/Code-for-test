@@ -20,7 +20,7 @@
                   </div>
     </div>
               <template v-slot:actions>
-            <button @click="openSharePage" type="button" class="btn btn-main">
+            <button @click="openDemandParticipatePage" type="button" class="btn btn-main">
              {{$t("fill-out-form")}}
             </button>
         </template>
@@ -43,8 +43,8 @@ export default {
         }
     },
     methods:{
-        openSharePage(){
-            this.$router.push(this.getRouteLocale('network-exhibition-share',{id:this.itemPage.id}))
+        openDemandParticipatePage(){
+            this.$router.push(this.getRouteLocale('network-exhibition-demand-participate',{id:this.itemPage.id}))
         },
         closeDialog(){
             this.showDialog = false;

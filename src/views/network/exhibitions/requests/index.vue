@@ -48,7 +48,6 @@
     </div>
 </template>
 <script>
-import myRequestClientAPI from '@/services/api/service-provider/user/my-requests-client.js'
 import InvestProjectRequest from './card-item.vue'
 import exhibitionsAPI from '@/services/api/exhibitions';
 //import showConfirmSessionDialog from './confirm-accept/index'
@@ -96,7 +95,7 @@ export default {
                     paginate:4,
                     ...this.filterItem
                 }
-                return await myRequestClientAPI.getAll(params)
+                return await exhibitionsAPI.getParticipateRequests(params)
 
             } catch (error) {
                 console.log('error', error)
@@ -117,7 +116,7 @@ export default {
                    this.itemPage.start_time = this.convertTime(this.itemPage.start_time)
                    this.itemPage.end_time = this.convertTime(this.itemPage.end_time)
                    this.isOwner = this.itemPage.user_info.id==this.user.id
-                   if(!this.isOwner){
+                   if(!this.isOwner && process.env.NODE_ENV!='development'){
                     this.router_push('network-exhibition-show',{id:this.itemPage.id})
                    }
                 }else{

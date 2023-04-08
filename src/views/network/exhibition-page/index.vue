@@ -42,7 +42,7 @@
 
                         
                     </template>
-                        <button @click="openShareDialog" v-else class="btn-main" >
+                        <button @click="openDemandParticipateDialog" v-else class="btn-main" >
                             شارك في المعرض
                         </button>
                     </div>
@@ -172,16 +172,16 @@ export default {
         if(!time) return time;
    return time.substring(0,5)
     },
-    openSharePage(){
-            this.$router.push(this.getRouteLocale('network-exhibition-share',{id:this.itemPage.id}))
+    openDemandParticipatePage(){
+            this.$router.push(this.getRouteLocale('network-exhibition-demand-participate',{id:this.itemPage.id}))
         },
-    openShareDialog(){
+    openDemandParticipateDialog(){
         let dataEvt = {
             title:'',
             description:`هل لديك منتجات تخص هذا المعرض وتود حجز بوث لك يمكنك من خلاله عرض منتجاتك ؟ فقط كل ما عليك فعله هو ملئ استمارة المشاركة وسنقوم بأرسالها الى صاحب المعرض ليختار المشاركين المناسبين له , نأمل انت تكون منهم بكل تأكيد !`,
             image:'/assets/img/Group 1171275567.png',
             btns:[
-                {title:this.$t('fill-form'),action:this.openSharePage}
+                {title:this.$t('fill-form'),action:this.openDemandParticipatePage}
             ]
         }
         this.showConfirmMsg(dataEvt)
