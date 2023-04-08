@@ -669,5 +669,8 @@
   "no-items": "لا توجد عناصر",
   "my-proposals": "عروضي",
   "available-time": "الوقت المتاح",
-  "time": "وقت"
+  "time": "وقت",
+  "search-for-proposal": "بحث عن طلب خدمة",
+  "proposals": "طلبات خدمة",
+  "proposal": "طلب خدمة"
 }

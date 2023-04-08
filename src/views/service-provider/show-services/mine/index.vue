@@ -6,7 +6,8 @@
                     <div class="col-md-6">
                         <h1 class="fs-1 text-white">عروضي</h1>
                         <p class="text-white fs-r-24">
-                            يمكنك عرض خدماتك ومهارتك على أصحاب المشاريع  و تحديد قيمة الصفقة المناسبة لكلاً منكم </p>         
+                            يمكنك عرض طلبات خدمة على مقدمي الخدمة للتتلقي العروض المناسبة لطلباتك
+                        </p>         
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit;" class=" m-auto text-end">

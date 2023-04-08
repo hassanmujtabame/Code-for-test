@@ -1,7 +1,9 @@
 <template>
   <d-filter-list :call-list="loadList"
   @change="changeFilter"
-  :searchPlaceholder="$t('search-for-project')"
+  :searchPlaceholder="$t('search-for-proposal')"
+  :pluralName="$t('proposals')"
+  :singleName="$t('proposal')"
   orderName="price"
   :orderOpts="
         [

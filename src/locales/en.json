@@ -674,5 +674,8 @@
   "no-items": "no items",
   "my-proposals": "my proposals",
   "available-time": "available time",
-  "time": "time"
+  "time": "time",
+  "search-for-proposal": "search for proposal",
+  "proposals": "proposals",
+  "proposal": "proposal"
 }
