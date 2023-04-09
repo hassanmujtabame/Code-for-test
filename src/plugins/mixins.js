@@ -401,7 +401,7 @@ const mixin = {
                },
                 switchRoleProvider(val){
                 if(val &&  !this.userIsSubProvider){
-
+                  if(this.shouldSubNetworkMsg('يجب عليك الاشتراك في الشبكة حتى يمكنك الاشتراك في مقدمي الخدمات')) return;
                   let dateEvt ={
                     title:'لا يمكنك تغير كمقدم خدمة لانك غير مشترك بها ',
                     btns:[
@@ -416,7 +416,22 @@ const mixin = {
                 }
                 
               },
-              shouldLoginMsg(){
+              shouldSubNetworkMsg(title,evt){
+                if(evt) evt.preventDefault()
+                if(!this.userIsSubNetwork){
+                let dataEvt = {
+                  title,
+                  type:'warning',
+                  btns:[
+                    {title:this.$t('subscribe-network'),action:()=>this.router_push('network-subscribe')}
+                  ]
+                }
+                this.showConfirmMsg(dataEvt)
+              return true;
+              }
+            },
+              shouldLoginMsg(evt){
+                if(evt) evt.preventDefault()
                 if(!this.token){
                 let dataEvt = {
                   title:'يجب عليك تسجيل الدخول',

@@ -8,7 +8,9 @@
                         <p class="header-desc-page">فكـــرة مشروعـــــك راح تـــصـــبـــح واقـــــــــــــع
  أول خطوة لتحقيقه أشتراكك في حاضنة رياديات</p>      
                     <div class="btn-main-style">
-                              <router-link :to="getRouteLocale('incubator-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
+                        <a v-if="!token" @click="shouldLoginMsg" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
+                              <router-link v-else-if="userIsSubIncubator" :to="getRouteLocale('incubator-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
+                              <a v-else @click="shouldSubNetworkMsg(subNetworkTitle,$event)"  class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
                               <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
                              </div>                     
                     </div>
@@ -34,7 +36,12 @@
 
 <script>
 export default {
- name:'section-top'
+ name:'section-top',
+ data:()=>{
+    return{
+        subNetworkTitle:'يجب عليك الاشتراك في الشبكة حتى يمكنك الاشتراك في حاضنة رياديات'
+    }
+ }
 }
 </script>
 

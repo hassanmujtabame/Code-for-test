@@ -11,6 +11,9 @@ import LoginForm from './loginForm.vue'
 
 export default {
  name:'login-page',
+ metaInfo(){
+      return {title:this.$t('login')}
+ },
  components:{
    LoginForm,
    ResendCodeView
