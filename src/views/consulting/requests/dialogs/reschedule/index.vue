@@ -13,16 +13,16 @@
       
             <ValidationObserver ref="form">
              <!-- start date-->
-        <ValidationProvider :name="$t('session-date')" vid="session_date" rules="required"
+        <ValidationProvider :name="$t('session-date')" vid="start_date" rules="required"
         v-slot="{ errors }" >
-        <d-datepicker-input v-model="itemForm.session_date" label="تاريخ الجلسة" />
+        <d-datepicker-input v-model="itemForm.start_date" label="تاريخ الجلسة" />
         <d-error-input :errors="errors" v-if="errors && errors.length > 0" />
         </ValidationProvider>
         <label class="label-text">الوقت المتاح</label>
         <div class="d-flex flex-wrap gap-2">
-            <availableTimeVue v-for="(it,i) in times" :key="i" 
-            :time="it" @click="itemForm.time=$event"
-            :isSelected="itemForm.time==it"
+            <availableTimeVue v-for="(it,i) in available_times" :key="i" 
+            :time="it" @click="itemForm.available_time=$event"
+            :isSelected="itemForm.available_time==it"
             />
         </div>
             </ValidationObserver>
@@ -54,11 +54,11 @@ import availableTimeVue from '@/components/available-time/index'
     },
     data: () => ({
         itemDialog: { title: null, description: null, btns: null, image: "/assets/img/cuate-2.png" },
-        itemForm:{url:null,time:null},
+        itemForm:{url:null,time:null,start_date:null},
         loading: false,
         showDialog: false,
         myAvailability:{},
-        times:[]
+        available_times:[]
     }),
     methods: {
       async initializing(){
@@ -67,10 +67,10 @@ import availableTimeVue from '@/components/available-time/index'
                 if(data.success){
                     console.mylog('success',data.data[0])
                     this.myAvailability = data.data[0]
-                    this.times = this.myAvailability.available_times
-                    if(this.itemForm.time.length==5 && !this.times.includes(this.itemForm.time))
-                    this.times.push(this.itemForm.time)
-                    this.times.sort((a,b)=>a>b?1:-1);
+                    this.available_times = this.myAvailability.available_times
+                    if(this.itemForm.available_time.length==5 && !this.available_times.includes(this.itemForm.available_time))
+                    this.available_times.push(this.itemForm.available_time)
+                    this.available_times.sort((a,b)=>a>b?1:-1);
                 }
             }catch(error){
                 //
@@ -103,8 +103,8 @@ import availableTimeVue from '@/components/available-time/index'
         openDialog(data) {
             this.itemDialog = Object.assign({}, data);
             this.initializing()
-            this.itemForm.time=this.itemDialog.session_time;
-            this.itemForm.date=this.itemDialog.session_date;
+            this.itemForm.available_time=this.itemDialog.session_time;
+            this.itemForm.start_date=this.itemDialog.session_date;
 
             this.showDialog = true;
             return true;
