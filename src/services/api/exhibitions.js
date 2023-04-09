@@ -8,7 +8,13 @@ class ExhibitionsApi extends BaseApi{
     }
     getParticipateRequests(id,params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`network/exhibition-shares/${id}/approve?${s}`);
+        return window.axios.get(`network/exhibitions/${id}/participate-requests?${s}`);
+    }
+    participateRequestApproveId(id){
+        return window.axios.post(`network/exhibitions/participate-requests/${id}/approve`);
+    }
+    participateRequestDisapproveId(id){
+        return window.axios.post(`network/exhibitions/participate-requests/${id}/disapprove`);
     }
     getHomeNetwork(params={}){
         let s=this.generateQueryUrl(params)
