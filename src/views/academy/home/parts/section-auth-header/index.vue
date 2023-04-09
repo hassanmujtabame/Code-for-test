@@ -2,7 +2,7 @@
     <div class="consulting ">
         <div class="container">
             <div class="row align-items-center justify-content-between">
-                <div class="col-md-6">
+                <div class="col-md-6  mb-5">
                     <h1 class="header-title-page">
                         اكاديمية رياديات </h1>
                     <p class="header-desc-page">
