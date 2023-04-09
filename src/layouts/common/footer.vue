@@ -66,13 +66,13 @@
                   <h6>  {{ $t('download-application') }}</h6>
         <div class="newsletter">
 
-          <div>
+          <div  class="mt-3">
             <a href="">
               <img src="/assets/svg/google-play-with-text.svg">
 
             </a>
           </div>
-          <div>
+          <div class="mt-3">
             <a href="">
               <img src="/assets/svg/app-store-with-text.svg" alt="">
 
