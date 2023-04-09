@@ -25,9 +25,9 @@ getMyAvailability(params={}){
 updateMyAvailability(data){
     return window.axios.post(`consulting/consultants-my-availability`,data)
 }
-mySchedules(params={}){
+myAppointments(params={}){
     let s=this.generateQueryUrl(params)
-    return window.axios.get(`consulting/consultants-my-schedules?${s}`);
+    return window.axios.get(`consulting/consultants-my-appointments?${s}`);
 }
 updateMyAvailabiltyOld(data){
     //data.append('_method','PUT')

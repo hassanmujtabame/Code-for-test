@@ -40,6 +40,7 @@
 <script>
 import cardRate from './card-rate.vue';
 import sendAbuseDialog from './abuse-comment.vue'
+import consultingAPI from '@/services/api/consulting';
 import readyServiceAPI from '@/services/api/service-provider/provider/ready-service.js'
 export default {
     name: 'request-purchase-services',
@@ -74,7 +75,7 @@ export default {
                     page: metaInfo.current_page,
                     ...this.filterItem
                 }
-                return await readyServiceAPI.getListRates(params)
+                return await consultingAPI.consultants.getRates(params)
 
             } catch (error) {
                 console.log('error', error)
