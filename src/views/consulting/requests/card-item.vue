@@ -29,11 +29,11 @@
           
           <div class="d-flex" v-if="status=='waiting'">
             <button class="btn btn-custmer" @click="acceptRequest">{{ $t('accept') }}</button>
-            <button class="btn btn-custmer btn-danger mx-2">{{ $t('reject') }}</button>
+            <button class="btn btn-custmer btn-danger mx-2" @click="confirmDisapproveRequest">{{ $t('reject') }}</button>
           </div>
           <div class="d-flex" v-if="status=='approve'">
             <button class="btn btn-custmer" @click="rescheduleRequest">{{ $t('reschedule') }}</button>
-            <button class="btn btn-custmer-w  mx-2"  @click="finishRequest">{{ $t('finished') }}</button>
+            <button class="btn btn-custmer-w  mx-2"  @click="confirmFinishRequest">{{ $t('finished') }}</button>
           </div>
       </div>
   
@@ -43,6 +43,7 @@
   </template>
   
   <script>
+  import consultingAPI from '@/services/api/consulting';
   export default {
       name:'my-request-client-card',
    props:{
@@ -79,14 +80,67 @@
             ,session_date:this.dateRequest
             ,session_time:'09:00'})
     },
-    finishRequest(){},
+    async finishSession(){
+         
+          try {
+            let {data} = await consultingAPI.requests.finishedIt(this.itemDialog.id)
+            if(data.success){
+              this.$emit('update-list')
+            }else{
+              window.SwalError(data.message)
+            }
+          } catch (error) {
+            //
+            window.DHelp.catchException.call(this,error,this.$refs.form)
+          }
+            
+            
+        },
+    confirmFinishRequest(){
+        let dataEvt={
+            title:'انت على وشك انهاء الجلسة',
+            description:'',
+            type:'warning',
+            btns:[
+                {title:this.$t('confirm-finishing-session'),action:this.finishSession}
+            ]
+        }
+        this.showConfirmMsg(dataEvt);
+    },
     acceptRequest(){
        this.fireOpenDialog('show-session-confirmation',{
         id:this.itemId,
         title:this.userName,
         description:this.description
        })
-    }
+    },
+    async disapproveSession(){
+         
+         try {
+           let {data} = await consultingAPI.requests.disapproveIt(this.itemDialog.id)
+           if(data.success){
+             this.$emit('update-list')
+           }else{
+             window.SwalError(data.message)
+           }
+         } catch (error) {
+           //
+           window.DHelp.catchException.call(this,error,this.$refs.form)
+         }
+           
+           
+       },
+       confirmDisapproveRequest(){
+        let dataEvt={
+            title:'انت على وشك رفض الطلب',
+            description:'',
+            type:'warning',
+            btns:[
+                {title:this.$t('confirm-rejection'),action:this.disapproveSession}
+            ]
+        }
+        this.showConfirmMsg(dataEvt);
+    },
    }
   }
   </script>

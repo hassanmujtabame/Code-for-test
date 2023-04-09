@@ -32,7 +32,7 @@
                             :place="item.city"
                             :desc="item.description"
                             :price="item.price"
-                            
+                            @update-list="updateList"
                             :description="item.desc"
                             
                             
@@ -76,6 +76,9 @@ export default {
         
     },
     methods:{
+        updateList(){
+            this.fireEvent('d-filter-list-change-page',1)
+        },
         changeStatus(status){
             this.status =  status
             this.filterItem.status=status;

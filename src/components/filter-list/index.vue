@@ -399,6 +399,12 @@ export default {
                 this.loadList()
             }
         },
+        refreshList(evt){
+            if(evt && evt.page){
+                this.changePage(evt.page)
+            }else
+            this.loadList()
+        },
         async loadList() {
             if (this.fakeItems){
                 this.items = this.fakeItems
@@ -427,11 +433,13 @@ export default {
         this.loadList()
     },
     created(){
-    window.EventBus.listen(this.group+'-refresh',this.loadList)
+        window.EventBus.listen(this.group+'-change-page',this.changePage)
+    window.EventBus.listen(this.group+'-refresh',this.refreshList)
 
   },
   beforeDestroy(){
-    window.EventBus.off(this.group+'-refresh',this.loadList)
+    window.EventBus.off(this.group+'-change-page',this.changePage)
+    window.EventBus.off(this.group+'-refresh',this.refreshList)
   },
 }
 </script>
