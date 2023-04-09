@@ -188,9 +188,8 @@ export default {
                     console.mylog('success',data.data[0])
                     
                 const { duration_days,duration_time,available_times,start_date,type,days} = data.data[0];
-                this.itemForm = Object.assign(this.itemForm,{ duration_days:parseInt(duration_days),duration_time:parseInt(duration_time),start_date,type,days})
-                this.itemForm.available_times=[]
-                this.itemForm.available_times.push(...available_times)
+                this.itemForm = Object.assign(this.itemForm,{ available_times,duration_days:parseInt(duration_days),duration_time:parseInt(duration_time),start_date,type,days})
+          
                 }
             }catch(error){
                 //
