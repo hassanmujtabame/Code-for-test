@@ -214,7 +214,7 @@ export default {
     async loadList() {
       this.loading = true;
       try {
-        let { data } = await consultingAPI.consultants.mySchedules()
+        let { data } = await consultingAPI.requests.getAll({status:'approve'})
         if (data.success) {
           /*this.items = data.data.map(e=>{
             let {category,...b} = e
