@@ -21,9 +21,19 @@ import { mapGetters } from 'vuex'
 export default {
   metaInfo: {
       // if no subcomponents specify a metaInfo.title, this title will be used
-      title: 'ريادات- Riadiat',
+      title: '',
       // all titles will be injected into this template
-      titleTemplate: '%s | ريادات- Riadiat'
+      titleTemplate: '%s | ريادات- Riadiat',
+      style: [{
+    vmid: 'page-load-overlay',
+    innerHTML: `
+      body div.loading {
+        z-index: 999;
+        background-color: #0f0f0f;
+        opacity: 0.9;
+      }
+    `,
+  }]
     },
   components:{
     JoinASPartnerDialog,

@@ -98,7 +98,7 @@
                                             التصنيف:
                                         </span>
                                         <span class="m-c">
-                                            {{itemPage.state=='offline'?'اوفلاين':'اونلان'}}
+                                            {{service_type}}
                                         </span>
 
                                     </div>
@@ -224,6 +224,16 @@ import lovelyIcon from '@/components/icon-svg/lovely-icon.vue'
 import starIcon from '@/components/icon-svg/star-icon.vue'
 export default {
     name:'page-service-ready',
+    metaInfo() {
+  
+  return { ...this.metaInfo_ }
+},
+    metaInfo2: {
+      // if no subcomponents specify a metaInfo.title, this title will be used
+      title: 'ريادات- Riadiat',
+      // all titles will be injected into this template
+      titleTemplate: '%s | ريادات- Riadiat'
+    },
     components:{
         CheckOutDialog,
         DialogBooking,
@@ -249,8 +259,24 @@ export default {
         lovelyIcon,
         starIcon
     },
+    computed:{
+        service_type(){
+        
+            switch (this.itemPage.state) {
+                case 'online':
+                case 'offline': return this.$t(this.itemPage.state);
+                case 'service': return this.$t('ready-service');
+            
+                default:
+                    return 'N/A'
+                    
+            }
+        }
+    },
     data:()=>{
+        
         return {
+            metaInfo_:{},
             dataEventMessage:{
                 formData:{user_id:null},
                 opts:{}
@@ -284,7 +310,7 @@ export default {
                    this.itemPage = data.data;
                    this.dataEventMessage.formData.user_id = data.data.user_id
                    this.dataEventMessage.opts.user = data.data.user_info
-
+                    this.metaInfo_ ={title:this.itemPage.title}
                    this.isOwner = this.itemPage.user_id==this.user.id
                    try {
                   await readyServiceAPIs.setAsView(this.$route.params.id)
@@ -304,7 +330,7 @@ export default {
             this.loading = false;
         }
   },
-  mounted(){
+  async mounted(){
     this.initializing()
   }
 }
