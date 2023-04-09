@@ -1,13 +1,22 @@
 <template>
     <div class="d-datepicker">
-        <vc-date-picker v-model="date_value" mode="date" is24hr 
+        <vc-date-picker v-model="date_value" mode="date"
+        is24hr 
+        :popover="popover"
         :modelConfig="modelConfig">
             <template v-slot="{ /*inputValue,*/ togglePopover, inputEvents }">
                 <d-text-input readonly type="text" 
                 :value="date_value" 
-                v-on="disabledEvents?{}:inputEvents" 
+                v-on="disabledEvents||!popover?{}:inputEvents" 
                 class="form-control px-3"
-                v-bind="$attrs" />
+                v-bind="$attrs" >
+                <template v-slot:[`prend-icon`]>
+                    <slot name="prend-icon" :togglePopover="togglePopover"></slot>
+                </template>
+                <template v-slot:[`append-icon`]>
+                    <slot name="append-icon" :togglePopover="togglePopover"></slot>
+                </template>
+                </d-text-input>
                 <div class="icon-append-input">
                     <slot :togglePopover="togglePopover"></slot>
                 </div>
@@ -21,6 +30,10 @@
 export default {
     props: {
         value:{},
+        popover:{
+            type:[Object,Array],
+            default:()=>{return{}}
+        },
         mask: {
             type: String,
             default: 'YYYY-MM-DD'

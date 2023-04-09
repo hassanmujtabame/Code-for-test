@@ -73,7 +73,11 @@
         <!-- start date-->
         <ValidationProvider :name="$t('start_date_consulting')" vid="start_date" rules="required"
         v-slot="{ errors }" >
-        <d-datepicker-input v-model="itemForm.start_date" label="موعد بداية الجدولة" />
+        <d-datepicker-input disabledEvents v-model="itemForm.start_date" label="موعد بداية الجدولة" >
+        <template v-slot:[`append-icon`]="{togglePopover}">
+            <button class="btn" @click="togglePopover"><i class="fa fa-calendar"></i></button>
+        </template>    
+        </d-datepicker-input>
         <d-error-input :errors="errors" v-if="errors && errors.length > 0" />
         </ValidationProvider>
         <h3 class="consulting-schedule-dialog_title2">الوقت المتاح</h3>
@@ -100,6 +104,7 @@
 import commonAPI from '@/services/api/common'
 import addTimeBtn from './add-time.vue'
 import showAvailabeTime from './show-time.vue'
+import consultingAPI from '@/services/api/consulting'
 export default {
     name: "new-schedule",
     props: {
@@ -140,6 +145,18 @@ export default {
                 this.loading = false;
                 return;
             }
+            let formData = this.loadObjectToForm(this.itemForm);
+            try {
+               let {data} = await  consultingAPI.consultants.updateMyAvailability(formData)
+               if(data.success){
+                 this.closeEvent();
+               }else{
+                window.SwalError(data.message)
+               }
+            } catch (error) {
+                window.catchException.call(this,error,this.$refs.form)
+            }
+
             this.loading = false;
         },
         openDialog(dataEvt) {
