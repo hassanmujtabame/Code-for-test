@@ -25,6 +25,7 @@ export default {
     let dataEvt ={
       title:'هل أنت متأكد من أنضمامك لهذه الدورة ؟',
       description:`بأنضمامك الى هذا الدورة  سيتبقى لك <span style="color:#F2631C">${this.resetCourse} دورات</span> هذا الشهر`,
+      type:'warning',
       btns:[
         {title:this.$t('join_confirmation'),action:()=>this.joinCourse()}
       ]
