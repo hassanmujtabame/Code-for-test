@@ -50,10 +50,10 @@
      <div class="form-group mt-3">
     <ValidationProvider
     :name="$t('booking-desc')"
-    vid="desc"
+    vid="description"
     v-slot="{errors}"
     >
-        <d-textarea-input :errors="errors" v-model="itemForm.desc" label="اكتبي ملخص ما تريدين التحدث عنه"  />
+        <d-textarea-input :errors="errors" v-model="itemForm.description" label="اكتبي ملخص ما تريدين التحدث عنه"  />
         
     </ValidationProvider>
     </div>
@@ -84,7 +84,7 @@ export default {
         loading:false,
         showDialog: false,
         itemDailog: {},
-        itemForm: {date:null,desc:'',available_time:''},
+        itemForm: {date:null,description:'',available_time:''},
         times:[],
         availability:{},
         attributes_date:[
@@ -160,7 +160,7 @@ export default {
             this.itemForm ={
                 day:null,
                 consultant_id:this.itemDailog.id,
-                desc:'',
+                description:'',
                 available_time:null
             }
             this.showDialog = true;
