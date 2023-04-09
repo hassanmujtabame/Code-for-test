@@ -32,7 +32,7 @@ export default {
 
 <style>
 .course-teaching__list>li{
-  list-style-image: url('@/assets/svg/arrow-left-long.svg');
+  list-style-image: url('@/assets/svg/small-riadiat-log.svg');
   font-style: normal;
 font-weight: 400;
 font-size: 18px;
@@ -45,8 +45,5 @@ text-align: justify;
 
 color: #737373;
 padding: 10px;
-}
-html[lang=en] .course-teaching__list>li{
-  list-style-image: url('@/assets/svg/arrow-right-long.svg');
 }
 </style>
