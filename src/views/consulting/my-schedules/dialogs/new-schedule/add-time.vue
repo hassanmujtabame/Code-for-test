@@ -36,7 +36,7 @@ export default {
         }
     },
 data:()=>({
-    time:''
+    time:'08:00'
 }),
 methods:{
     async addTime(){

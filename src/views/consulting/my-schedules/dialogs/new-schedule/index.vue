@@ -127,7 +127,7 @@ export default {
             consulting_types:type_consulations,
             loading:false,
         itemDialog: {},
-        itemForm:{available_times:[]},
+        itemForm:{},
         showDialog: false,
     }},
     methods: {
@@ -142,6 +142,7 @@ export default {
             this.loading = true;
             let valid = await this.$refs.form.validate();
             if(!valid){
+                console.mylog('invalid',this.itemForm)
                 this.loading = false;
                 return;
             }
@@ -159,7 +160,8 @@ export default {
 
             this.loading = false;
         },
-        openDialog(dataEvt) {
+         openDialog(dataEvt) {
+             this.initializing()
             this.itemDialog = { ...dataEvt };
             this.itemForm={
                 type:'',
@@ -169,7 +171,7 @@ export default {
                 start_date:'',
                 available_times:[]
             }
-            this.showDialog = true;
+            this.showDialog = false;
             return true;
         },
         closeDialog() {
@@ -178,6 +180,24 @@ export default {
         },
         closeEvent() {
             this.fireCloseDialog(this.group);
+        },
+        async initializing(){
+            try{
+                let { data } = await consultingAPI.consultants.getMyAvailability();
+                if(data.success){
+                    console.mylog('success',data.data[0])
+                    
+                const { duration_days,duration_time,available_times,start_date,type,days} = data.data[0];
+                this.itemForm = Object.assign(this.itemForm,{ duration_days:parseInt(duration_days),duration_time:parseInt(duration_time),start_date,type,days})
+                this.itemForm.available_times=[]
+                this.itemForm.available_times.push(...available_times)
+                }
+            }catch(error){
+                //
+            }
+            this.showDialog = true;
+
+            return null;
         }
     }
 }
