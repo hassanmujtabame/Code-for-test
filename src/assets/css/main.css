@@ -426,7 +426,7 @@ footer {
 }
 
 footer .social a {
-    margin-left: 8px;
+    margin: 0 10px;
     width: 32px;
     height: 32px;
 }
@@ -463,7 +463,7 @@ footer .policy-links a::before {
 footer h6 {
     color: #414042;
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 500;
     margin-bottom: 9px;
 }
 

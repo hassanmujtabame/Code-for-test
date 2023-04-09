@@ -74,6 +74,7 @@ export default {
     border-radius:11px 11px 0 0;
  width: 100%;
  height: 192px;
+ overflow: hidden;
 }
 .provider-card__image img{
     object-fit: fill;

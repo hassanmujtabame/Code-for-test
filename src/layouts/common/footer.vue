@@ -37,14 +37,19 @@
                       <div class="col-3 col-md-3">
                           <h6>{{ $t('Riadiat') }}</h6>
                           <router-link :to="getRouteLocale('who-are-we')" class="d-block">{{ $t('who-are-we') }}</router-link>
-                          <a href="#" class="d-block">{{ $t('comparation-services') }}</a>
+                      
+                          <a href="#" class="d-block">تمبليت</a>
+                          <a href="#" class="d-block">اماكن للعمل</a>
+                         
                       </div>
                       <div class="col-3 col-md-3">
                           <h6>{{ $t('riadiat-channel') }}</h6>
                           <router-link  :to="getRouteLocale('network-blogs')" class="d-block">{{ $t('Blogs') }}</router-link>
                           <router-link  :to="getRouteLocale('network-podcasts')" class="d-block">{{ $t('podcast') }}</router-link>
                           <router-link :to="getRouteLocale('network-success-stories')" class="d-block">{{ $t('success-story') }}</router-link>
-                      </div>
+                          <a href="#" class="d-block">قناة رياديات</a>
+                     
+                        </div>
                       <div class="col-3 col-md-3">
                           <h6>{{ $t('join-us') }}</h6>
                           <router-link :to="getRouteLocale('service-provider-jobs')" class="d-block">{{ $t('recruitment') }}</router-link>
@@ -63,13 +68,13 @@
 
           <div>
             <a href="">
-              <img src="/assets/svg/google-play.svg">
+              <img src="/assets/svg/google-play-with-text.svg">
 
             </a>
           </div>
           <div>
             <a href="">
-              <img src="/assets/svg/app-store.svg" alt="">
+              <img src="/assets/svg/app-store-with-text.svg" alt="">
 
             </a>
           </div>
