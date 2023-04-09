@@ -22,7 +22,7 @@
         </template>
         <template v-slot:default="{item}">
             
-            <InvestProjectRequest
+            <ConsultingRequest
                             :itemId="item.id"
                             :status="item.status"
                             :title="item.title"
@@ -36,7 +36,7 @@
                             
                             
                             >
-                        </InvestProjectRequest>
+                        </ConsultingRequest>
             
         </template>
       </d-filter-list>
@@ -46,14 +46,14 @@
     </div>
 </template>
 <script>
-import InvestProjectRequest from './card-item.vue'
+import ConsultingRequest from './card-item.vue'
 import showConfirmSessionDialog from './dialogs/confirm-accept/index'
 import showRescheduleDialog from './dialogs/reschedule/index'
 import consultingAPI from '@/services/api/consulting/index'
 export default {
     name: 'request-invet-projects',
     components:{
-        InvestProjectRequest,
+        ConsultingRequest,
         showConfirmSessionDialog,
         showRescheduleDialog
     },

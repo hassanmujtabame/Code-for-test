@@ -46,8 +46,13 @@ async downloadFile(item,evt){
     if(evt) evt.preventDefault();
     
     try {
-        let res = await netwrokAPI.models.download(item.id)
-        console.mylog(res)
+        let {data} = await netwrokAPI.models.download(item.id)
+        if(data.success){
+            this.downloadFileFormUrl(data.data.file,'_blank')
+        }else{
+            window.SwalError(data.message)
+        }
+        
 
     } catch (error) {
         console.mylog('error',error)

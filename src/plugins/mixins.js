@@ -404,6 +404,30 @@ const mixin = {
                 result.setDate(result.getDate() + days);
                 return result;
               },
+              downloadFileFormBlon(blob){
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                // the filename you want
+                a.download = 'todo-1.json';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                a.remove()
+              },
+              downloadFileFormUrl(url,target=null,download=false){
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                if(target)
+                a.target = target;
+                // the filename you want
+               window.$(a).attr('download',download)
+                document.body.appendChild(a);
+                a.click();
+                a.remove()
+              },
                 switchRoleProvider(val){
                 if(val &&  !this.userIsSubProvider){
                   if(this.shouldSubNetworkMsg('يجب عليك الاشتراك في الشبكة حتى يمكنك الاشتراك في مقدمي الخدمات')) return;
