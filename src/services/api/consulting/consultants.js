@@ -14,12 +14,23 @@ register(data){
     return window.axios.get(`consulting/consultants`,data);
     
 }
+getAvailability(id,params={}){
+    let s=this.generateQueryUrl(params)
+    return window.axios.get(`consulting/consultants/${id}/availability?${s}`);
+}
+getMyAvailability(params={}){
+    let s=this.generateQueryUrl(params)
+    return window.axios.get(`consulting/consultants-my-availability?${s}`);
+}
+updateMyAvailability(data){
+    return window.axios.post(`consulting/consultants-my-availability`,data)
+}
 mySchedules(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`consulting/consultants-my-schedules?${s}`);
 }
-updateMyAvailabilty(data){
-    data.append('_method','PUT')
+updateMyAvailabiltyOld(data){
+    //data.append('_method','PUT')
     return window.axios.post(`consulting/consultants-my-schedules`,data)
 }
 getBest(params={}){
