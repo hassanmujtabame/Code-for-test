@@ -8,6 +8,18 @@
         <p class="text-white fs-r-24 position-relative z-index-1" :class="{'px-5':!isMobile,'px-1':isMobile}" style="max-width:702px">
        {{ itemPage.short_description }}
         </p>
+        <div class="star position-absolute">
+          <img class="landing" src="/assets/svg/start.svg" alt="" />
+        </div>
+        <div class="square position-absolute">
+          <img class="landing" src="/assets/svg/square.svg" alt="" />
+        </div>
+        <div class="star-two position-absolute">
+          <img class="landing" src="/assets/svg/start.svg" alt="" />
+        </div>
+        <div class="star-big position-absolute">
+          <img class="landing" src="/assets/svg/star-big.svg" alt="" />
+        </div>
       </div>
         <div class="course-menu-top px-5">
          <ul class="course-menu-top__wrapper">
