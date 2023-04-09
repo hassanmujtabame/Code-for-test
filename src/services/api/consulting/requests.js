@@ -19,7 +19,10 @@ finishedIt(id){
 disapproveIt(id){
     return window.axios.post(`consulting/consultants/consultations/${id}/disapprove`);
 }
-
+rescheduleIt(id,data){
+    data.append('_method','PUT')
+    return window.axios.post(`consulting/consultants/consultations/requests/${id}`,data);
+}
 }
 
 export default new ConsultingRequestsApi()

@@ -28,7 +28,7 @@
             </ValidationObserver>
              
               <div  class="mt-3">
-            <button :disabled="loading" @click="confirmAccept"  style="height: 40px;" class="btn btn-custmer"> 
+            <button :disabled="loading" @click="save"  style="height: 40px;" class="btn btn-custmer"> 
               {{$t('schedule-confirmation')}}</button>
           </div>
           
@@ -79,7 +79,7 @@ import availableTimeVue from '@/components/available-time/index'
 
             return null;
         },
-        async confirmAccept() {
+        async save() {
           this.loading = true;
           let valid = await this.$refs.form.validate();
           if(!valid){
@@ -87,8 +87,9 @@ import availableTimeVue from '@/components/available-time/index'
             return;
           }
           try {
-            let {data} = await consultingAPI.requests.approveIt(this.itemDialog.id,this.itemForm)
+            let {data} = await consultingAPI.requests.rescheduleIt(this.itemDialog.id,this.itemForm)
             if(data.success){
+              this.$emit('update-list')
               this.closeEvent()
             }else{
               window.SwalError(data.message)
