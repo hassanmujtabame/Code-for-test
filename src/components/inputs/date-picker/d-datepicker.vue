@@ -2,6 +2,8 @@
     <div class="d-datepicker">
         <vc-date-picker v-model="date_value" mode="date"
         is24hr 
+        :min-date="minDate"
+        :max-date="maxDate"
         :popover="popover"
         :modelConfig="modelConfig">
             <template v-slot="{ /*inputValue,*/ togglePopover, inputEvents }">
@@ -30,6 +32,8 @@
 export default {
     props: {
         value:{},
+        minDate:{},
+        maxDate:{},
         popover:{
             type:[Object,Array],
             default:()=>{return{}}

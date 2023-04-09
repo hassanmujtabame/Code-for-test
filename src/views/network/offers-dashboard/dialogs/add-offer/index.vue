@@ -164,7 +164,7 @@ export default {
                 window.SwalError(data.message)
             }
         } catch (error) {
-            window.catchException.call(this,error,this.$refs.form)
+            window.DHelper.catchException.call(this,error,this.$refs.form)
         }
             this.loading = false;
         },

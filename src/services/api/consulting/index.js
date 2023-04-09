@@ -12,6 +12,9 @@ class ConsultingApi extends BaseApi{
             let s=this.generateQueryUrl(params)
             return window.axios.get(`consulting/consultants?${s}`);
         }
+        bookingConsultant(data){
+            return window.axios.post(`consulting/user/booking-consultants`,data);
+        }
 }
 
 export default new ConsultingApi()

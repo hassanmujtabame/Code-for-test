@@ -399,6 +399,11 @@ const mixin = {
                 this.$store.commit('auth/SET_ACADEMY_ROLE',newRole)
                 //this.refreshPage()
                },
+              addDays(date, days) {
+                var result = new Date(date);
+                result.setDate(result.getDate() + days);
+                return result;
+              },
                 switchRoleProvider(val){
                 if(val &&  !this.userIsSubProvider){
                   if(this.shouldSubNetworkMsg('يجب عليك الاشتراك في الشبكة حتى يمكنك الاشتراك في مقدمي الخدمات')) return;

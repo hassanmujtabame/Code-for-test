@@ -87,7 +87,7 @@ export default {
                     return false;
                 }
             }catch(error){
-                window.catchException.call(this,error,form)
+                window.DHelper.catchException.call(this,error,form)
                 return false;
             }
         },
