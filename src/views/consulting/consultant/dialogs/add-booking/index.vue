@@ -15,11 +15,11 @@
     <ValidationProvider
     :name="$t('booking-date')"
     tag="div"
-    vid="date"
+    vid="start_date"
     v-slot="{errors}"
     >
         <label>حددي يوم الحجز</label>
-        <d-datepicker-input v-model="itemForm.date" 
+        <d-datepicker-input v-model="itemForm.start_date" 
         :minDate="minDate" 
         :maxDate="maxDate" 
         />
@@ -84,7 +84,7 @@ export default {
         loading:false,
         showDialog: false,
         itemDailog: {},
-        itemForm: {date:null,description:'',available_time:''},
+        itemForm: {start_date:null,description:'',available_time:''},
         times:[],
         availability:{},
         attributes_date:[
@@ -158,7 +158,7 @@ export default {
             this.itemDailog = dataEvt;
             this.loadAvailableDates()
             this.itemForm ={
-                day:null,
+                start_date:null,
                 consultant_id:this.itemDailog.id,
                 description:'',
                 available_time:null

@@ -21,8 +21,8 @@
         <label class="label-text">الوقت المتاح</label>
         <div class="d-flex flex-wrap gap-2">
             <availableTimeVue v-for="(it,i) in available_times" :key="i" 
-            :time="it" @click="itemForm.available_time=$event"
-            :isSelected="itemForm.available_time==it"
+            :time="it" @click="available_time=$event"
+            :isSelected="available_time==it"
             />
         </div>
             </ValidationObserver>
@@ -58,8 +58,14 @@ import availableTimeVue from '@/components/available-time/index'
         loading: false,
         showDialog: false,
         myAvailability:{},
+        available_time:null,
         available_times:[]
     }),
+    watch:{
+      available_time(){
+        this.itemForm.available_time = this.available_time
+      }
+    },
     methods: {
       async initializing(){
             try{
@@ -86,8 +92,9 @@ import availableTimeVue from '@/components/available-time/index'
             this.loading = false;
             return;
           }
+          const formData = this.loadObjectToForm(this.itemForm);
           try {
-            let {data} = await consultingAPI.requests.rescheduleIt(this.itemDialog.id,this.itemForm)
+            let {data} = await consultingAPI.requests.rescheduleIt(this.itemDialog.id,formData)
             if(data.success){
               this.$emit('update-list')
               this.closeEvent()
@@ -96,7 +103,7 @@ import availableTimeVue from '@/components/available-time/index'
             }
           } catch (error) {
             //
-            window.DHelp.catchException.call(this,error,this.$refs.form)
+            window.DHelper.catchException.call(this,error,this.$refs.form)
           }
             this.closeEvent();
             this.loading = false;
@@ -104,7 +111,7 @@ import availableTimeVue from '@/components/available-time/index'
         openDialog(data) {
             this.itemDialog = Object.assign({}, data);
             this.initializing()
-            this.itemForm.available_time=this.itemDialog.session_time;
+            this.available_time=this.itemDialog.session_time;
             this.itemForm.start_date=this.itemDialog.session_date;
 
             this.showDialog = true;

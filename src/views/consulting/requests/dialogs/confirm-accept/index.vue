@@ -72,7 +72,7 @@ import consultingAPI from '@/services/api/consulting/index'
             }
           } catch (error) {
             //
-            window.DHelp.catchException.call(this,error,this.$refs.form)
+            window.DHelper.catchException.call(this,error,this.$refs.form)
           }
             this.closeEvent();
             this.loading = false;

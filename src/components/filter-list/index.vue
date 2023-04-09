@@ -396,8 +396,10 @@ export default {
         changePage(page) {
             if (this.metaInfo.current_page !== page) {
                 this.metaInfo.current_page = page;
-                this.loadList()
+               
             }
+            this.loadList()
+            
         },
         refreshList(evt){
             if(evt && evt.page){

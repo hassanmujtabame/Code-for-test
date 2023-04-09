@@ -43,7 +43,7 @@
       </d-filter-list>
     </div>
     <showConfirmSessionDialog />
-    <showRescheduleDialog />
+    <showRescheduleDialog @update-list="updateList" />
     </div>
 </template>
 <script>
@@ -82,7 +82,7 @@ export default {
         changeStatus(status){
             this.status =  status
             this.filterItem.status=status;
-            this.fireEvent('d-filter-list-refresh')
+            this.fireEvent('d-filter-list-change-page',1)
         },
         changeFilter(val){
             this.filterItem = {...this.filterItem,...val}

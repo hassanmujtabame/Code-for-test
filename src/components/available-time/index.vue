@@ -1,5 +1,5 @@
 <template>
-            <div class="show-available-time" :class="{selected:isSelected}" @click="$emit('click',time)">
+            <div class="show-available-time" :class="{selected:selected}" @click="$emit('click',time)">
                 <div v-if="closeable" class="show-available-time__close"><i @click="$emit('delete',time)" class="fa fa-circle-xmark clickable c-r"></i></div>
             <div class="show-available-time__wrapper" >
                 <span class="show-available-time__text">
@@ -28,8 +28,17 @@ props:{
         default:false,
     }
 },
+data:()=>({
+    selected:false
+}),
 watch:{
-    isSelected(){}
+    isSelected:{
+        deep:true,
+        immediate:true,
+        handler(){
+            this.selected = this.isSelected
+        }
+    }
 }
 }
 </script>

@@ -83,7 +83,7 @@
     async finishSession(){
          
           try {
-            let {data} = await consultingAPI.requests.finishedIt(this.itemDialog.id)
+            let {data} = await consultingAPI.requests.finishedIt(this.itemId)
             if(data.success){
               this.$emit('update-list')
             }else{
@@ -91,7 +91,7 @@
             }
           } catch (error) {
             //
-            window.DHelp.catchException.call(this,error,this.$refs.form)
+            window.DHelper.catchException.call(this,error,this.$refs.form)
           }
             
             
@@ -117,7 +117,7 @@
     async disapproveSession(){
          
          try {
-           let {data} = await consultingAPI.requests.disapproveIt(this.itemDialog.id)
+           let {data} = await consultingAPI.requests.disapproveIt(this.itemId)
            if(data.success){
              this.$emit('update-list')
            }else{
