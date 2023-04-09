@@ -21,7 +21,7 @@
       
      
   </div>
-          <p class="t-c w-75 m-0" v-html="description">
+          <p class="t-c w-75 m-0" v-html="desc">
       </p>
       </div>
 
@@ -58,7 +58,7 @@
       place:{
           type:String,
       },
-      description:{
+      desc:{
           type:String,
       },
       dateRequest:{
@@ -75,7 +75,9 @@
 
    methods:{
     rescheduleRequest(){
-        this.fireOpenDialog('reschedule-session',{id:this.itemId,session_date:this.dateRequest,session_time:'09:00'})
+        this.fireOpenDialog('reschedule-session',{id:this.itemId
+            ,session_date:this.dateRequest
+            ,session_time:'09:00'})
     },
     finishRequest(){},
     acceptRequest(){

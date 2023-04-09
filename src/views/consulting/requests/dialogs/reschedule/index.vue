@@ -19,8 +19,11 @@
         <d-error-input :errors="errors" v-if="errors && errors.length > 0" />
         </ValidationProvider>
         <label class="label-text">الوقت المتاح</label>
-        <div class="d-flexd-flex flex-wrap gap-2">
-            <div class="time-available-item" v-for="(it,i) in itemForm.times" :key="i">{{ timeFormatAMPM(it,true) }}</div>
+        <div class="d-flex flex-wrap gap-2">
+            <availableTimeVue v-for="(it,i) in times" :key="i" 
+            :time="it" @click="itemForm.time=$event"
+            :isSelected="itemForm.time==it"
+            />
         </div>
             </ValidationObserver>
              
@@ -37,6 +40,7 @@
 
   <script>
 import consultingAPI from '@/services/api/consulting/index'
+import availableTimeVue from '@/components/available-time/index'
  export default {
     name: "reschedule-session",
     props: {
@@ -45,13 +49,36 @@ import consultingAPI from '@/services/api/consulting/index'
             default: "reschedule-session"
         }
     },
+    components:{
+      availableTimeVue
+    },
     data: () => ({
         itemDialog: { title: null, description: null, btns: null, image: "/assets/img/cuate-2.png" },
-        itemForm:{url:null},
+        itemForm:{url:null,time:null},
         loading: false,
         showDialog: false,
+        myAvailability:{},
+        times:[]
     }),
     methods: {
+      async initializing(){
+            try{
+                let { data } = await consultingAPI.consultants.getMyAvailability();
+                if(data.success){
+                    console.mylog('success',data.data[0])
+                    this.myAvailability = data.data[0]
+                    this.times = this.myAvailability.available_times
+                    if(this.itemForm.time.length==5 && !this.times.includes(this.itemForm.time))
+                    this.times.push(this.itemForm.time)
+                    this.times.sort((a,b)=>a>b?1:-1);
+                }
+            }catch(error){
+                //
+            }
+            this.showDialog = true;
+
+            return null;
+        },
         async confirmAccept() {
           this.loading = true;
           let valid = await this.$refs.form.validate();
@@ -75,6 +102,10 @@ import consultingAPI from '@/services/api/consulting/index'
         },
         openDialog(data) {
             this.itemDialog = Object.assign({}, data);
+            this.initializing()
+            this.itemForm.time=this.itemDialog.session_time;
+            this.itemForm.date=this.itemDialog.session_date;
+
             this.showDialog = true;
             return true;
         },
@@ -90,24 +121,7 @@ import consultingAPI from '@/services/api/consulting/index'
   </script>
   
   <style scoped>
-  .time-available-item{
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #FFFFFF;
-    border: 0.5px solid #CDD7D8;
-    border-radius: 4px;
-/** text */
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-    /* identical to box height, or 100% */
-    text-align: center;
-    color: #CDD7D8;
-    width: fit-content;
-}
+  
 .label-text{
   margin-bottom: 0;
     flex-shrink: 0;

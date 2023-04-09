@@ -28,8 +28,9 @@
                             :title="item.title"
                             :userName="item.user_info.name"
                             :dateRequest="item.start_date"
-                            :timeRequest="item.start_time"
+                            :timeRequest="item.available_time"
                             :place="item.city"
+                            :desc="item.description"
                             :price="item.price"
                             
                             :description="item.desc"
