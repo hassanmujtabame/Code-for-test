@@ -51,10 +51,10 @@ export default {
         return {
             status:null,
             actions:[
-                {status:null,label:'كل مشاريعك'},
+                {status:null,label:'كل طلباتك'},
                 {status:'waiting',label:'في انتظار موافقتك'},
-                {status:'underway',label:'مشاريع قيد التنفيذ'},
-                {status:'finished',label:'مشاريع مكتملة'},
+                {status:'underway',label:'طلبات قيد التنفيذ'},
+                {status:'finished',label:'طلبات مكتملة'},
             ],
             filterItem:{
                 search:null,
