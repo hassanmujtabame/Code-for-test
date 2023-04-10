@@ -5,7 +5,7 @@
                                 <h4 class="border-bottom">
                                     تفاصيل خاصة بك
                                 </h4>
-                                <p v-html="itemPage.note">
+                                <p v-html="itemPage.description">
                                    </p>
                                 
                                 <div class="border-top d-flex gap-2 flex-wrap">
