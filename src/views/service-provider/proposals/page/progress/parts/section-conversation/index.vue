@@ -20,12 +20,11 @@
                                     </div>
 
                                 </div>
-                                <div class="p-2">
-                                    
-                                   <template v-for="(conv,i) in conversations" >
-                                <meMsgText :item="conv" v-if="conv.isMe" :key="i"/>
-                                <otherMsgText :item="conv" v-else :key="'jj'+i" />
-                                </template>
+                                <div :id="`chat-offer-${this.itemPage.user_offer.id}`" class="p-2">
+                                    <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
+       
+    </showMsg>
+                                   
                                     <div>
                                         <ValidationObserver tag="form" @submit="sendMessage" ref="form">
                                             <ValidationProvider
@@ -50,14 +49,14 @@
 </template>
 
 <script>
-import meMsgText from './me-msg.vue';
-import otherMsgText from './other-msg.vue';
+import { mapGetters } from 'vuex';
+import showMsg from '@/components/chat/chat-card/group-msg'
 export default {
  name:'section-conversation',
  props:['itemPage'],
  components:{
-   meMsgText,
-    otherMsgText
+    showMsg
+
  },
  data:(/*vm*/)=>{
     //let date = new Date('2022-12-10 10:00');
@@ -66,7 +65,7 @@ export default {
     return {
         loading:false,
         message:'',
-        conversations:[
+        messages:[
             /*{id:1,date:date_only,time:time_only,datetime:date,content:'اهلا وسهلا متحمسة للعمل سويا',time_human:'منذ 17 يوما و 24 دقيقة',isMe:true},
             {id:2,date:date_only,time:time_only,datetime:date,content:'مرحبا ريم كيف حالك ؟',time_human:'منذ 17 يوما و 24 دقيقة',isMe:false},
             {id:3,date:date_only,time:time_only,datetime:date,content:'مرحبا ريم وانا أيضاا سأطلعك على التفاصيل التي ارغب بها ، أخبريني عن ماهي المعلومات التي تحتاجينها فقط',time_human:'منذ 17 يوما و 24 دقيقة',isMe:false},
@@ -76,12 +75,74 @@ export default {
     */]
     }
  },
+ computed:{
+  ...mapGetters({
+      mymessages:'chat/offerMessages'
+  })
+},
+ watch:{
+  mymessages:{
+      deep:true,
+      immediate:true,
+      handler(){
+        this.loadMsgsFromStore()
+      }
+    },
+},
  methods:{
+    loadMsgsFromStore(){
+      this.messages = []
+      let other_user_name = this.itemPage.user_offer.user_info.name;
+      let other_user_image = this.itemPage.user_offer.user_info.image;
+      this.$store.getters['chat/offerMessages'].filter(c=>c.offer_id==this.itemPage.user_offer.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg,other_user_name,other_user_image))
+      
+      this.$nextTick(()=>{
+        let id= `chat-offer-${this.itemPage.user_offer.id}`
+        window.$("#"+id).animate({scrollTop: document.getElementById(id).scrollHeight},"fast");
+
+      })
+    },
+    addMsgLoad(msg,other_user_name,other_user_image){
+     
+      
+     if (this.messages.length == 0) {
+       let m = {
+         id: msg.id,
+         user_id: msg.user_id,
+         user_image:msg.sender_id==this.user.id?this.user.image: other_user_image,
+          user_name:msg.sender_id==this.user.id?this.user.name:other_user_name,
+         list: [{ ...msg }]
+       }
+       this.messages.unshift(m)
+     } else {
+       let first = this.messages[0]
+       //console.mylog('first',first,msg)
+       if (first.user_id == msg.user_id && first.list[0].datetime == msg.datetime){
+         
+         first.list.unshift({...msg})
+     
+       } else {
+         //console.mylog('new',msg)
+         let m = {
+           id: msg.id,
+           user_id: msg.user_id,
+           user_image:msg.sender_id==this.user.id?this.user.image: other_user_image,
+          user_name:msg.sender_id==this.user.id?this.user.name:other_user_name,
+           list: [{ ...msg}]
+         }
+      
+       this.messages.unshift(m)
+      
+
+     }
+    
+   }
+   },
     pushMessage(){
         let date = new Date();
             let date_only = this.dateToString(date);
             let time_only = this.dateToString(date);
-        this.conversations.push(
+        this.messages.push(
             {id:6,
                 content:this.message,
                 date:date_only,time:time_only,datetime:date,
@@ -102,20 +163,58 @@ export default {
             }
             let formData = new FormData();
             formData.append('message',this.message)
-            formData.append('user_id',this.itemPage.user_info.id)
+            formData.append('sender_id',this.user.id)
             formData.append('service_id',this.itemPage.id)
+            formData.append('offer_id',this.itemPage.user_offer.id)
             try {
-                let { data } = await window.axios.post('service-provider/user/send-message-to-provider',formData)
+                let { data } = await window.axios.post('service-provider/user/send-message-offer',formData)
                  if(data.success){
-                    this.pushMessage()
+                    let datetime = data.data.created_at.substring(0,16)
+                    let time = datetime.split('T')[1]
+                    let date =  datetime.split('T')[0]
+                    let new_message = {...data.data,datetime,date,time,user_id:this.user.id,user_image:this.user.image}
+                    this.$store.commit('chat/ADD_MESSAGE_OFFER',new_message)
+                // this.addMsg({...data.data,time,date,datetime,user_id:this.user.id,user_image:this.user.image})
+                this.itemForm.message = '';
                  }
             } catch (error) {
                 //
             }
             this.loading =  false;
             
-    }
- }
+    },
+    listenToChannel(){
+    window.Echo.private(`chat-offer.${this.itemPage.user_offer.id}`)
+    .listen('.send.message.offer', (e) => {
+        console.mylog('send.message.offer',e)
+        let messageData = this.convertToMsg(e)  
+                //this.openLocal({user:item,message:messageData})
+              this.addMsg(messageData)  
+        console.mylog('private-chat-offer',e);
+    });
+  },
+  convertToMsg(e){
+    let {sender_id,user_image,user_name,...msg} = e;
+        //let item ={id:sender_id,image:user_image,name:user_name}
+        let datetime = msg.created_at.substring(0,16)
+        let time = datetime.split('T')[1]
+            let date =  datetime.split('T')[0]
+        return {user_id:sender_id,sender_id,user_image,user_name,time,date,datetime,...msg}
+  },
+    addMsg(msg) {
+     this.$store.commit('chat/ADD_MESSAGE_OFFER',msg)
+     if(msg.sender_id != this.user.id)
+     if(this.audio)
+      this.audio.play()
+    },
+ },
+
+  beforeDestroy(){
+    window.Echo.leaveChannel(`chat-offer.${this.user.id}`);
+  },
+   mounted(){
+    this.listenToChannel()
+  }
 }
 </script>
 
