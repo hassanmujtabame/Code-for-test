@@ -241,7 +241,7 @@ export default {
       this.fireOpenDialog('abuse-comment',this.itemPage);
     },
     openEditDialog(){
-      this.fireOpenDialog('update-item',this.itemPage)
+      this.fireOpenDialog('add-proposal',this.itemPage)
     },
     openDeleteDialog(){
       this.fireOpenDialog('delete-item',this.itemPage)

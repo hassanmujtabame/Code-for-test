@@ -6,7 +6,7 @@
     :loading="loading"
     >
       <template v-slot>
-      <ValidationObserver ref="form" >
+      <ValidationObserver ref="form" v-if="showDialog">
          <!--Title-->
          <div class="mb-3">
                         <ValidationProvider
