@@ -1,6 +1,6 @@
 <template>
     <div class="w-100">
-      <div class="container">
+      <div class="container pt-5">
             <div class="row justify-content-between">
                 <div class="col-md-6">
                     <h3>
@@ -20,9 +20,25 @@
 
                     </h3>
                 </div>
-                <div class="col-md-6 d-flex gap-2 justify-content-end">
+                <div  class="col-md-6 d-flex gap-2 justify-content-end">
+                    <template v-if="isOwner">
+                        <div>
+                        <button @click="openEditDialog" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2">
+                            <i class="fa-regular fa-pen-to-square"></i>
 
+                            {{$t('modification')}}
+                        </button>
+                    </div>
                     <div>
+                        <button  @click="openDeleteDialog" style="height: 40px;"
+                            class="btn-main btn-danger px-3 w-100 border-0 rounded-2" 
+                           role="button">
+                           <i class="fa-solid fa-trash-can"></i>
+                            {{$t('delete')}}
+                        </button>
+                    </div>
+                </template>
+                    <div v-else>
                         <button @click="openSendAbuse" class="border-0 px-3 py-1 rounded-3">
 
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
@@ -43,13 +59,13 @@
                 </div>
                 <div class="row redy-services mt-3">
                     <div class="col-md-6">
-                        <div class="box border p-3 rounded-2">
-                            <h2 class="border-bottom p-2">
+                        <div class="box border p-3 rounded-2 h-100 d-flex flex-column">
+                            <h2 class="border-bottom p-2 flex-shrink-0">
                                 وصف المشروع
                             </h2>
-                            <p class="p-3" v-html="itemPage.description">
+                            <p class="p-3 flex-grow-1" v-html="itemPage.description">
                             </p>
-                            <div class="d-flex gap-3 flex-wrap">
+                            <div class="d-flex gap-3 flex-wrap flex-shrink-0">
                                 <a style="text-decoration: revert;" class="t-c" href="">
                                     Image 1
                                 </a>
@@ -69,7 +85,17 @@
 
                             </div>
                         </div>
-                        <div class="box border p-3 rounded-2 mt-5">
+                        </div>
+                       
+
+
+                    <div v-if="!isOwner" class="col-md-6">
+                       <!-- user info-->
+                        <SectionUserInfo :itemPage="itemPage" />
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box border p-3 rounded-2" :class="{'mt-5':!isOwner}">
                             <h2 class="border-bottom p-2">
                                 تفاصيل عن المشروع
                             </h2>
@@ -159,13 +185,6 @@
 
 
                     </div>
-
-
-                    <div class="col-md-6">
-                       <!-- user info-->
-                        <SectionUserInfo :itemPage="itemPage" />
-
-                    </div>
                 </div>
 
 
@@ -194,7 +213,10 @@ import thunderIcon from '@/components/icon-svg/thunder.vue'
 import truckIcon from '@/components/icon-svg/truck.vue'
 export default {
     name: 'request-show-page',
-    props:['itemPage'],
+    props:{
+        itemPage:{},
+        isOwner:{},
+    },
     components:{
         SectionHear,
         abuseCommentDialog,
@@ -211,7 +233,7 @@ export default {
     data:()=>({
         loading:true,
         hasError:false,
-        isOwner:false,
+        
         colors:['#2C98B3', '#1FB9B3' ,'#F2631C', '#FFBC00']
     }),
     methods:{

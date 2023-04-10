@@ -5,10 +5,10 @@
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
         <template v-else >
-            <progressPage v-if="(itemPage.is_offer_sent && itemPage.user_offer && ['underway','finished'].includes(itemPage.user_offer.status)) || (itemPage.user_info.id==user.id && ['underway','finished'].includes(itemPage.status))"
+            <progressPage v-if="(itemPage.is_offer_sent && itemPage.user_offer && ['underway','finished'].includes(itemPage.user_offer.status)) || (isOwner && ['underway','finished'].includes(itemPage.status))"
             :item-page="itemPage" 
             />
-            <showPage v-else :item-page="itemPage" />
+            <showPage v-else :item-page="itemPage" :isOwner="isOwner"/>
         </template>
         
     </div>
@@ -53,8 +53,9 @@ export default {
             try {
                 let { data } = await myRequestsAPIs.getItem(this.$route.params.id)
                 if (data.success) {
+                  console.mylog('prop',this.user.id)
                    this.itemPage = data.data;
-                   this.isOwner = this.itemPage.user_id==this.user.id
+                   this.isOwner = this.itemPage.user_info.id==this.user.id
                    try {
                   await readyServiceAPIs.setAsView(this.$route.params.id)
                 } catch (error) {
