@@ -159,7 +159,8 @@
                                          النشر :
                                     </span>
                                     <span class="m-c">
-                                        {{itemPage.start_date}}
+                                        {{itemPage.created_at?timeAgoToHuman(itemPage.created_at):'N/A'}}
+                                       
                                     </span>
 
                                 </div>

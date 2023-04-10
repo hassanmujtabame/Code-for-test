@@ -29,5 +29,14 @@ export default{
         if(index>-1)
         state.chats.splice(index,1)
     },
-
+    /** chat offer */
+    ADD_MESSAGE_OFFER(state,payload){
+        state.offer_messages.push(payload) 
+    },
+    ADD_MESSAGES_OFFER(state,payload){
+        state.offer_messages.push(...payload) 
+    },
+   SET_MESSAGES_OFFER(state,payload=[]){
+        state.offer_messages = payload
+    }
 }

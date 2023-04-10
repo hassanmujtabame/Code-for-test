@@ -164,7 +164,7 @@
                                     تاريخ النشر:
                                 </span>
                                 <span class="m-c fw-bolder">
-                                    {{itemPage.created_at}}
+                                    {{itemPage.created_at?timeAgoToHuman(itemPage.created_at):'N/A'}}
                                 </span>
                             </div>
                         </div>
