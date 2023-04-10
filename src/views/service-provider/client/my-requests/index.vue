@@ -8,7 +8,7 @@
       @change="changeFilter"
       >
         <template v-slot:total>
-            <h4 class="fw-bold">مشاريع</h4>
+            <h4 class="fw-bold">طلباتي للخدمة</h4>
         </template>
         <template v-slot:before-body>
             <ul class="nav nav-pills  mb-3">
@@ -32,7 +32,7 @@
                             :price="item.price"
                             :during="item.execution_period"
                             :requests="item.count_requests"
-                            :description="item.description"
+                            :description="item.desc"
                             :homeDelivery="item.home_delivery"
                             :delivery="item.delivery_product_available"
                             >
