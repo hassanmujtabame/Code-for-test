@@ -5,7 +5,7 @@
                                 <h4 class="border-bottom">
                                     وصف  الخدمة الخاصة  بمقدم الخدمة
                                 </h4>
-                                <p v-html="itemPage.note">
+                                <p v-if="itemPage.user_offer" v-html="itemPage.user_offer.note">
                                    </p>
                             </div>
                             <div>
