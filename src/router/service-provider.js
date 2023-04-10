@@ -134,13 +134,13 @@ const routers =[
     },
     {
         path: 'service-provider/proposals',
-        meta:{layout:LayoutService},
+        meta:{layout:LayoutService,role:'provider'},
         name: 'service-provider-proposals',
         component: () => import(/* webpackChunkName: "service-provider-proposals" */ '../views/service-provider/proposals/index.vue') 
     },
     {
         path: 'service-provider/proposals/:id',
-        meta:{layout:LayoutService,auth:true},
+        meta:{layout:LayoutService,auth:true,role:'provider'},
         name: 'service-provider-proposal-page',
         component: () => import(/* webpackChunkName: "service-provider-show-service-page" */ '../views/service-provider/proposals/page/index.vue') 
     },

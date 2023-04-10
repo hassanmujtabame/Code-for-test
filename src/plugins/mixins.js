@@ -445,6 +445,22 @@ const mixin = {
                 }
                 
               },
+              shouldBeProviderMsg(evt){
+                if(evt) evt.preventDefault()
+                if(!this.userIsProvider){
+                  let dataEvt = {
+                    title:'يجب ان تكون من مقدمي الخدمة',
+                    description:'الان انت تتصفح كعميل، يمكنك تغيير الوضع في الاعلى و النقر علي "تحويل الى مقدم خدمة"',
+                    type:'warning',
+                    btns:[
+                      {title:this.$t('Ok')}
+                    ]
+                  }
+                  this.showConfirmMsg(dataEvt)
+                  return true;
+                }
+                return false;
+              },
               shouldSubNetworkMsg(title,evt){
                 if(evt) evt.preventDefault()
                 if(!this.userIsSubNetwork){

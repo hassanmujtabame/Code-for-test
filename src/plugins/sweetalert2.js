@@ -15,8 +15,8 @@ window.SwalStatus = (message,icon,state)=>{
 window.SwalSuccess = (message)=>{
     window.SwalStatus(message,'success',window.i18n.t('Success'))
 }
-window.SwalWarning = (message)=>{
-    window.SwalStatus(message,'warning',window.i18n.t('Warning'))
+window.SwalWarning = (message,title)=>{
+    window.SwalStatus(message,'warning',title??window.i18n.t('Warning'))
 }
 window.SwalInfo = (message)=>{
     window.SwalStatus(message,'info',window.i18n.t('Info'))
