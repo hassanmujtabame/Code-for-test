@@ -57,7 +57,7 @@
                 d="M8.11999 15.1733C7.13332 15.1733 6.13999 14.7999 5.36666 14.0599C3.39999 12.1666 1.22666 9.14659 2.04666 5.55325C2.78666 2.29325 5.63332 0.833252 8.11999 0.833252C8.11999 0.833252 8.11999 0.833252 8.12666 0.833252C10.6133 0.833252 13.46 2.29325 14.2 5.55992C15.0133 9.15325 12.84 12.1666 10.8733 14.0599C10.1 14.7999 9.10666 15.1733 8.11999 15.1733ZM8.11999 1.83325C6.17999 1.83325 3.68666 2.86659 3.02666 5.77325C2.30666 8.91325 4.27999 11.6199 6.06666 13.3333C7.21999 14.4466 9.02666 14.4466 10.18 13.3333C11.96 11.6199 13.9333 8.91325 13.2267 5.77325C12.56 2.86659 10.06 1.83325 8.11999 1.83325Z"
                 fill="#737373" />
         </svg>
-        {{ place }}
+        {{ placeItem }}
     </p>
     <p class="t-c">
         <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
@@ -162,6 +162,9 @@ export default {
         type:String,
         default:'waiting'
     },
+    state:{
+        type:String
+    },
     homeDelivery:{
         type:Boolean,
         default:true
@@ -191,6 +194,15 @@ export default {
 
  },
  computed:{
+    placeItem(){
+            switch (this.state) {
+                case 'online': return this.$t('online');
+                case 'service': return this.$t('ready-service');
+                case 'offline': return this.place;
+                default:
+                    return 'N/A';
+            }
+        },
     statusClass(){
         return `status-request-purchase-${this.status}`
     },

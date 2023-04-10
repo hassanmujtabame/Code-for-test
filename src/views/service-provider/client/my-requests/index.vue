@@ -28,7 +28,7 @@
                             :service="item.title"
                             :name="item.user_info.name"
                             :dateRequest="item.created_at"
-                            :place="getPlaceItem(item)"
+                            :place="item.city"
                             :price="item.price"
                             :during="item.execution_period"
                             :requests="item.count_requests"

@@ -22,19 +22,21 @@
         </template>
         <template v-slot:default="{item}">
             <d-my-purchase-card
-                            :itemId="item.id"
-                            :status="item.status"
-                            :service="item.service"
-                            :name="item.user_info.name"
-                            :price="item.price"
-                            :dateRequest="item.created_at"
-                            :place="item.city"
-                            :during="item.execution_period"
-                            :requests="item.count_requests"
-                            :description="item.description"
-                            :homeDelivery="item.home_delivery"
-                            :delivery="item.delivery_product_available"
-                            >
+                :itemId="item.id"
+                :status="item.status"
+                :service="item.service.title"
+                :state="item.service.state"
+                :name="item.user_info.name"
+                :price="item.service.price"
+                :dateRequest="item.created_at"
+                :place="item.city"
+                :during="item.execution_period"
+                :executionPlace="item.execution_place"
+                :requests="item.count_requests"
+                :description="item.description"
+                :homeDelivery="item.home_delivery"
+                :delivery="item.delivery_product_available"
+                >
                         </d-my-purchase-card>
         </template>
       </d-filter-list>
