@@ -69,6 +69,7 @@ export default {
         let dataEvent ={
             title:'هل أنت متأكد  من رفضك العرض',
             description:'',
+            type:'warning',
             btns:[
                 {title:'تأكيد الرفض',action:()=> this.sendRefusion(),class:'btn btn-custmer'}
             ]
@@ -111,6 +112,7 @@ export default {
         let dataEvent ={
             title:'هل أنت متأكد  من قبولك العرض',
             description:'عند تأكيد قبول الطلب ستخصم منك قيمة العرض و ستضاف الى حساب رياديات لحين انتهاء المشروع و تسليم المستحقات لمقدم الخدمة',
+            type:'warning',
             btns:[
                 {title:'تأكيد الطلب',action:()=> this.sendAcception(),class:'btn btn-custmer'}
             ]
