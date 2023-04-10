@@ -27,7 +27,7 @@ class ProposalsApi extends BaseApi{
     }
     getRecent(params={},paginate=6){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/orders?paginate=${paginate}${s?'&'+s:''}`);
+        return window.axios.get(`service-provider/user/proposals?paginate=${paginate}${s?'&'+s:''}`);
     } 
     getCategories(params={}){
         let s=this.generateQueryUrl(params)
