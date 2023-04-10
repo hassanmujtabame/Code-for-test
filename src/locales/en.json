@@ -705,5 +705,7 @@
   "desc-not-bought-ready-service-failure": "There was an error in the purchase process, contact us so note that there has been a change in your funds",
   "view-ready-service": "ready service page",
   "confirm-finishing-session": "Confirm session termination",
-  "confirm-rejection": "confirm rejection"
+  "confirm-rejection": "confirm rejection",
+  "add-proposal": "add proposal",
+  "update-proposal": "update proposal"
 }

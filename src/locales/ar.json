@@ -700,5 +700,7 @@
   "desc-not-bought-ready-service-failure": "هناك خطأ في عملية الشراء، تواصل معنا لذا لاحظ هناك تغيير في اموالك",
   "view-ready-service": "صفحة خدمة جاهزة",
   "confirm-finishing-session": "تأكيد انهاء الجلسة",
-  "confirm-rejection": "تأكيد الرفض"
+  "confirm-rejection": "تأكيد الرفض",
+  "add-proposal": "أضف الطلب",
+  "update-proposal": "حفظ"
 }

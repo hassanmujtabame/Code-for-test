@@ -211,6 +211,8 @@ import localisationIcon from '@/components/icon-svg/localisation.vue'
 import heartIcon from '@/components/icon-svg/heart.vue'
 import thunderIcon from '@/components/icon-svg/thunder.vue'
 import truckIcon from '@/components/icon-svg/truck.vue'
+import proposalsAPIs from '@/services/api/service-provider/user/proposals.js'
+
 export default {
     name: 'request-show-page',
     props:{
@@ -244,7 +246,30 @@ export default {
       this.fireOpenDialog('add-proposal',this.itemPage)
     },
     openDeleteDialog(){
-      this.fireOpenDialog('delete-item',this.itemPage)
+        let dataEvt={
+            title:'انت على وشك حذف طلبك',
+            description:'',
+            type:'warning',
+            btns:[
+                {title:this.$t('confirm_delete'),action:this.deleteItem}
+            ]
+        }
+        this.showConfirmMsg(dataEvt);
+      //this.fireOpenDialog('delete-item',this.itemPage)
+    },
+   async deleteItem(){
+        this.loading = true;
+        try {
+            let { data } = await proposalsAPIs.deleteItem(this.itemPage)
+            if(data.success){
+                this.router_push('service-provider-my-proposals')
+            }else{
+                window.SwalError(data.message)
+            }
+        } catch (error) {
+            //
+        }
+        this.loading = false;
     }
 
   }

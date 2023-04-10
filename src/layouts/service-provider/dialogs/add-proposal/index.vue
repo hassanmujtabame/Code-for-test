@@ -133,7 +133,9 @@
     </ValidationObserver>
       </template>
       <template v-slot:actions>
-          <button @click="save" style="height: 40px;" class="btn btn-main">أضف الطلب</button>
+          <button @click="save" style="height: 40px;" class="btn btn-main">
+            {{ itemDialog.id?$t('update-proposal'):$t('add-proposal') }}
+        </button>
       </template>
     </d-dialog-large>
   </template>
@@ -245,7 +247,7 @@ let valid = await this.$refs.form.validate();
         state,
         price,
         execution_period,
-        description,
+        desc:description,
     skills}
         this.loadFields(category_id,false)
     }
