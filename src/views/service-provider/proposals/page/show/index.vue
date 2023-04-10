@@ -251,7 +251,7 @@ export default {
             description:'',
             type:'warning',
             btns:[
-                {title:this.$t('confirm_delete'),action:this.deleteItem}
+                {title:this.$t('confirm_delete'),action:this.deleteItem,class:'btn btn-danger'}
             ]
         }
         this.showConfirmMsg(dataEvt);
