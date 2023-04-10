@@ -130,25 +130,25 @@ const routers =[
         path: 'service-provider/my-proposals',
         meta:{layout:LayoutService},
         name: 'service-provider-my-proposals',
-        component: () => import(/* webpackChunkName: "service-provider-my-proposals" */ '../views/service-provider/show-services/mine/index.vue') 
+        component: () => import(/* webpackChunkName: "service-provider-my-proposals" */ '../views/service-provider/proposals/mine/index.vue') 
     },
     {
-        path: 'service-provider/show-services',
+        path: 'service-provider/proposals',
         meta:{layout:LayoutService},
         name: 'service-provider-show-services',
-        component: () => import(/* webpackChunkName: "service-provider-show-services" */ '../views/service-provider/show-services/index.vue') 
+        component: () => import(/* webpackChunkName: "service-provider-proposals" */ '../views/service-provider/proposals/index.vue') 
     },
     {
-        path: 'service-provider/show-services/:id',
+        path: 'service-provider/proposals/:id',
         meta:{layout:LayoutService,auth:true},
         name: 'service-provider-show-service-page',
-        component: () => import(/* webpackChunkName: "service-provider-show-service-page" */ '../views/service-provider/show-services/page/index.vue') 
+        component: () => import(/* webpackChunkName: "service-provider-show-service-page" */ '../views/service-provider/proposals/page/index.vue') 
     },
     {
-        path: 'service-provider/show-services/:id/progress',
+        path: 'service-provider/proposals/:id/progress',
         meta:{layout:LayoutService,auth:true},
         name: 'service-provider-show-service-in-process',
-        component: () => import(/* webpackChunkName: "service-provider-show-service-page-progress" */ '../views/service-provider/show-services/request-page-in-progress/index.vue') 
+        component: () => import(/* webpackChunkName: "service-provider-show-service-page-progress" */ '../views/service-provider/proposals/request-page-in-progress/index.vue') 
     },
     {
         path: 'service-provider/request-purchase-services',
@@ -169,7 +169,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-request-purchase-show" */ '../views/service-provider/ready-services/request-purchase-services/show-request.vue') 
     },
     /*{
-        path: 'service-provider/show-services/:id',
+        path: 'service-provider/proposals/:id',
         meta:{layout:LayoutService},
         name: 'service-provider-page-service',
         component: () => import( '../views/service-provider/page-service/index.vue') 
