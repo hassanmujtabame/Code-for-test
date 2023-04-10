@@ -77,7 +77,7 @@
   </div>
   <div class="d-flex gap-2 ">
       <p class="t-c opacity-50 fs-r-12 mt-2 mb-0">
-       {{ $t('publish-date') }} : {{ datePublish??'N/A' }}
+       {{ $t('publish-date') }} : {{ datePublish?timeAgoToHuman(datePublish):'N/A' }}
       </p>
   </div>
   </div>
