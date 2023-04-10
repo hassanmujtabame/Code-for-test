@@ -174,15 +174,6 @@ const router = new VueRouter({
 })
 router.beforeEach((to,from,next)=>{
   //console.mylog('from',from)
-  let isProvider = window.store.getters['auth/isProvider']
-  if(to.meta.role=='provider' && !isProvider){
-    let title ='يجب ان تكون من مقدمي الخدمة';
-    let message ='الان انت تتصفح كعميل، يمكنك تغيير الوضع في الاعلى و النقر علي "تحويل الى مقدم خدمة"'
-    window.SwalWarning(message,title)
-    if(from.name==null)
-    window.router.push({name:'service-provider-home',params:{lang:window.i18n.locale}})
-    return false;
-  }
   window.store.dispatch('core/setLoading',true)
   //window.scrollTo(0, 0)
  if(to.params.lang && ["ar","en"].includes(to.params.lang)){

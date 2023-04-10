@@ -162,6 +162,15 @@ const mixin = {
       
                   
                   window.store.commit('auth/SET_IS_PROVIDER',window.store.getters['auth/isProvider']);
+                  //let isProvider = window.store.getters['auth/isProvider']
+ /* if(this.$route.meta.role=='provider' && !isProvider){
+    let title ='يجب ان تكون من مقدمي الخدمة';
+    let message ='الان انت تتصفح كعميل، يمكنك تغيير الوضع في الاعلى و النقر علي "تحويل الى مقدم خدمة"'
+    window.SwalWarning(message,title)
+    //if(from.name==null)
+    window.router.push({name:'service-provider-home',params:{lang:window.i18n.locale}})
+    //return false;
+  }*/
                }else{
                   window.SwalError(data.message)
                 }
