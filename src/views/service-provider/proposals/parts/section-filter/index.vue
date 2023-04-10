@@ -12,7 +12,7 @@
 
   <template v-slot="{item}">
   <router-link class="router-link" :to="getRouteLocale('service-provider-proposal-page',{id:item.id})">
-    <showService 
+    <showProposal 
         :title="item.title"
         :description="item.description"
         :department="item.category_name"
@@ -35,11 +35,11 @@
 <script>
 import proposalsAPIs from '@/services/api/service-provider/user/proposals.js'
 import SidebarBox from './sidebar.vue'
-import showService from '@/components/cards/show-service.vue'
+import showProposal from '@/components/cards/proposal.vue'
 export default {
  name:'section-filter',
   components:{
-    showService,
+    showProposal,
     SidebarBox
   },
   data:(vm)=>{

@@ -12,7 +12,7 @@
     <div class="mt-3 row order">
       <div v-for="(item, i) in items" :key="i" class="col-12 col-md-6 mt-2">
         <router-link class="router-link" :to="getRouteLocale('service-provider-proposal-page', { id: item.id })">
-          <showRequest 
+          <showProposal 
           :title="item.title"
         :description="item.description"
         :category="item.field_name"
@@ -35,12 +35,12 @@
 <script>
 import myRequestsAPIs from '@/services/api/service-provider/user/proposals.js'
 //import CardService from './card.vue'
-import showRequest from '@/components/cards/show-service.vue'
+import showProposal from '@/components/cards/proposal.vue'
 export default {
   name: 'section-recent-requests',
   components: {
-    showRequest
-  }
+    showProposal
+    }
   ,
   data: () => ({
     loading: true,
