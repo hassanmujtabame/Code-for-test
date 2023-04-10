@@ -27,7 +27,7 @@
                 <div v-if="!userIsProvider" class="box  mx-2 mt-3 ">
                     <!-- lamp-->
                     <lamp-icon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-client-my-requests')" class="mx-2 m-c ">
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-proposals')" class="mx-2 m-c ">
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('my-requests') }}
                             </button>
                     </router-link>

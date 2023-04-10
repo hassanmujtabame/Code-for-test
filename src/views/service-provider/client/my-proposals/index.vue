@@ -21,7 +21,7 @@
                 </ul>
         </template>
         <template v-slot:default="{item}">
-            <router-link class="router-link" :to="getRouteLocale('service-provider-client-my-request-page',{id:item.id})">
+            <router-link class="router-link" :to="getRouteLocale('service-provider-my-proposal-offers',{id:item.id})">
             <d-my-request-card
                             :itemId="item.id"
                             :status="item.status"

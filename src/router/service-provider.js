@@ -55,16 +55,16 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-my-purchases" */ '../views/service-provider/client/my-purchases/index.vue') 
     },
     {
-        path: 'service-provider/my-requests',
+        path: 'service-provider/my-proposals',
         meta:{layout:LayoutService,auth:true},
-        name: 'service-provider-client-my-requests',
-        component: () => import(/* webpackChunkName: "service-provider-my-requests" */ '../views/service-provider/client/my-requests/index.vue') 
+        name: 'service-provider-my-proposals',
+        component: () => import(/* webpackChunkName: "service-provider-my-proposals" */ '../views/service-provider/client/my-proposals/index.vue') 
     },
     {
-        path: 'service-provider/my-requests/:id',
+        path: 'service-provider/my-proposals/:id/offers',
         meta:{layout:LayoutService,auth:true},
-        name: 'service-provider-client-my-request-page',
-        component: () => import(/* webpackChunkName: "service-provider-my-request-page" */ '../views/service-provider/client/my-request-page/index.vue') 
+        name: 'service-provider-my-proposal-offers',
+        component: () => import(/* webpackChunkName: "service-provider-my-request-page" */ '../views/service-provider/client/my-proposal-offers/index.vue') 
     },
     {
         path: 'service-provider/my-schedules',
@@ -125,12 +125,6 @@ const routers =[
         meta:{layout:LayoutService,auth:true},
         name: 'service-provider-ready-service',
         component: () => import(/* webpackChunkName: "service-provider-page-service-ready" */ '../views/service-provider/page-service-ready/index.vue') 
-    },
-    {
-        path: 'service-provider/my-proposals',
-        meta:{layout:LayoutService},
-        name: 'service-provider-my-proposals',
-        component: () => import(/* webpackChunkName: "service-provider-my-proposals" */ '../views/service-provider/proposals/mine/index.vue') 
     },
     {
         path: 'service-provider/proposals',
