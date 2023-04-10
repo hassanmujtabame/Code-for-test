@@ -142,11 +142,11 @@
 import proposalsAPIs from '@/services/api/service-provider/user/proposals.js'
 
   export default {
-    name:'add-request-sp',
+    name:'add-proposal',
    props:{
       group:{
           type:String,
-          default:'add-request-sp'
+          default:'add-proposal'
       }
    },
    data:(vm)=>{

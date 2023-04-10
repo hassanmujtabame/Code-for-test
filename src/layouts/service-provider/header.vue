@@ -70,7 +70,7 @@ export default {
         evt.preventDefault();
         closeNavList()
         if(!this.userIsRoleProvider)
-        this.fireOpenDialog('add-request-sp')
+        this.fireOpenDialog('add-proposal')
         else
         this.fireOpenDialog('add-ready-service-dialog')
       },
