@@ -135,19 +135,19 @@ const routers =[
     {
         path: 'service-provider/proposals',
         meta:{layout:LayoutService},
-        name: 'service-provider-show-services',
+        name: 'service-provider-proposals',
         component: () => import(/* webpackChunkName: "service-provider-proposals" */ '../views/service-provider/proposals/index.vue') 
     },
     {
         path: 'service-provider/proposals/:id',
         meta:{layout:LayoutService,auth:true},
-        name: 'service-provider-show-service-page',
+        name: 'service-provider-proposal-page',
         component: () => import(/* webpackChunkName: "service-provider-show-service-page" */ '../views/service-provider/proposals/page/index.vue') 
     },
     {
         path: 'service-provider/proposals/:id/progress',
         meta:{layout:LayoutService,auth:true},
-        name: 'service-provider-show-service-in-process',
+        name: 'service-provider-proposal-in-process',
         component: () => import(/* webpackChunkName: "service-provider-show-service-page-progress" */ '../views/service-provider/proposals/request-page-in-progress/index.vue') 
     },
     {

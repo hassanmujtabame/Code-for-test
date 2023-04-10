@@ -25,7 +25,7 @@
                 </ul>
         </template>
         <template v-slot:search>
-            <router-link :to="getRouteLocale('service-provider-show-service-page',{id:$route.params.id})" class="btn btn-custmer">صفحة الطلب</router-link>
+            <router-link :to="getRouteLocale('service-provider-proposal-page',{id:$route.params.id})" class="btn btn-custmer">صفحة الطلب</router-link>
         </template>
         <template v-slot:default="{item}">
             <CardItem

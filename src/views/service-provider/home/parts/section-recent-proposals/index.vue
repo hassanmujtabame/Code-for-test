@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between align-items-center container">
       <h2 class="home-section-title">أحدث الطلبات </h2>
       <div>
-        <router-link class="router-link" custom :to="getRouteLocale('service-provider-show-services')"
+        <router-link class="router-link" custom :to="getRouteLocale('service-provider-proposals')"
           v-slot="{ navigate }">
           <button @click="navigate" class="more">{{ $t('more') }}</button>
         </router-link>
@@ -11,7 +11,7 @@
     </div>
     <div class="mt-3 row order">
       <div v-for="(item, i) in items" :key="i" class="col-12 col-md-6 mt-2">
-        <router-link class="router-link" :to="getRouteLocale('service-provider-show-service-page', { id: item.id })">
+        <router-link class="router-link" :to="getRouteLocale('service-provider-proposal-page', { id: item.id })">
           <showRequest 
           :title="item.title"
         :description="item.description"

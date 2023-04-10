@@ -11,7 +11,7 @@
   >
 
   <template v-slot="{item}">
-  <router-link class="router-link" :to="getRouteLocale('service-provider-show-service-page',{id:item.id})">
+  <router-link class="router-link" :to="getRouteLocale('service-provider-proposal-page',{id:item.id})">
     <showService 
         :title="item.title"
         :description="item.description"

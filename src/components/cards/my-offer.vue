@@ -7,7 +7,7 @@
             class="rounded-1 px-2 py-1 text-white" :class="statusClass">
            {{ statusName }}
     </div>
-        <h4 class="box-title m-c " @click="router_push('service-provider-show-service-page',{id:itemId})">
+        <h4 class="box-title m-c " @click="router_push('service-provider-proposal-page',{id:itemId})">
                 {{ service }}
         </h4>
     </div>

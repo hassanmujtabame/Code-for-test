@@ -35,7 +35,7 @@ export default {
         userIsRoleProvider:false,
       items:[
         /**provider */
-        {route:'service-provider-show-services', text:vm.$t('show-your-services'),provider:true},
+        {route:'service-provider-proposals', text:vm.$t('show-your-services'),provider:true},
         {route:'service-provider-my-ready-services', text:vm.$t('my-services'),provider:true},
         {route:'contact-us',text:vm.$t('contact-us'),provider:true},
         /** client */
