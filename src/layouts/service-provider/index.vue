@@ -14,7 +14,7 @@
           </main>
           <SectSubscribe/>
           <AddServiceDialog />
-          <AddRequestDialog />
+          <AddProposalDialog />
           <DefaultFooter/>
 
           
@@ -42,7 +42,7 @@
   import DefaultHeader from '../default/header.vue'
   import localHeader from './header.vue'
   import AddServiceDialog from './dialogs/add-service/index.vue'
-  import AddRequestDialog from './dialogs/add-request/index.vue'
+  import AddProposalDialog from './dialogs/add-proposal/index.vue'
   import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
   import sendMsgProvider from './dialogs/send-message/index'
   import graduateRiadiatFirstStep from './dialogs/graduate-riadiat/first'
@@ -59,7 +59,7 @@
           localHeader,
           SectSubscribe,
           AddServiceDialog,
-          AddRequestDialog,
+          AddProposalDialog,
           RateSuccessExperience,
           MyDrawer,
           graduateRiadiatFirstStep,
