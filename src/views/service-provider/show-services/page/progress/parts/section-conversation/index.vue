@@ -59,10 +59,10 @@ export default {
    meMsgText,
     otherMsgText
  },
- data:(vm)=>{
-    let date = new Date('2022-12-10 10:00');
-            let date_only = vm.dateToString(date);
-            let time_only = vm.dateToString(date);
+ data:(/*vm*/)=>{
+    //let date = new Date('2022-12-10 10:00');
+            //let date_only = vm.dateToString(date);
+            //let time_only = vm.dateToString(date);
     return {
         loading:false,
         message:'',
