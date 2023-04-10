@@ -77,7 +77,7 @@
               <!-- section details-->
               <SectionDetails :item-page="itemPage" />
               <!-- section-conversation-->
-              <SectionConversation :item-page="itemPage"/>
+              <SectionConversation :item-page="itemPage" :isOwner="isOwner"/>
           </div>
 
 
@@ -134,7 +134,7 @@ import ChangePriceRequest from './dialogs/change-value-amount.vue'
 import ChangeDateRequest from './dialogs/change-value-date.vue'
   export default {
     name:'request-progress-page',
- props:['itemPage'],
+ props:['itemPage','isOwner'],
    components:{
 
         ChangeDateRequest,

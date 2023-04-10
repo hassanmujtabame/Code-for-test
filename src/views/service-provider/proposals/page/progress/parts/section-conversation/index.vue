@@ -53,7 +53,7 @@ import { mapGetters } from 'vuex';
 import showMsg from '@/components/chat/chat-card/group-msg'
 export default {
  name:'section-conversation',
- props:['itemPage'],
+ props:['itemPage','isOwner'],
  components:{
     showMsg
 
@@ -92,9 +92,8 @@ export default {
  methods:{
     loadMsgsFromStore(){
       this.messages = []
-      let other_user_name = this.itemPage.user_offer.user_info.name;
-      let other_user_image = this.itemPage.user_offer.user_info.image;
-      this.$store.getters['chat/offerMessages'].filter(c=>c.offer_id==this.itemPage.user_offer.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg,other_user_name,other_user_image))
+      
+      this.$store.getters['chat/offerMessages'].filter(c=>c.offer_id==this.itemPage.user_offer.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
       
       this.$nextTick(()=>{
         let id= `chat-offer-${this.itemPage.user_offer.id}`
@@ -102,8 +101,9 @@ export default {
 
       })
     },
-    addMsgLoad(msg,other_user_name,other_user_image){
-     
+    addMsgLoad(msg){
+        let other_user_name = this.isOwner? this.itemPage.user_offer.user_info.name:this.itemPage.user_info.name;
+      let other_user_image = this.isOwner?this.itemPage.user_offer.user_info.image:this.itemPage.user_info.image;
       
      if (this.messages.length == 0) {
        let m = {
