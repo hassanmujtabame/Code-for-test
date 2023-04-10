@@ -14,7 +14,7 @@
          <SectionBestProvider />
 
           <!-- section 5-->
-          <SectionRecentRequests/>
+          <SectionRecentProposals/>
 
           <!-- section 6-->
           <div class="mt-2">
@@ -41,7 +41,7 @@
   import SectionFeatures from './parts/section-features/index.vue'
   import SectionHowOfferService from './parts/section-how-offer-service/index.vue'
   import SectionBestProvider from './parts/section-best-provider/index.vue'
-  import SectionRecentRequests from './parts/section-recent-requests/index.vue'
+  import SectionRecentProposals from './parts/section-recent-proposals/index.vue'
   import SectionNeedService from './parts/section-need-service/index.vue'
   import SectionExploreServices from './parts/section-explore-services/index.vue'
   import SectionRecentServices from './parts/section-recent-services/index.vue'
@@ -55,7 +55,7 @@
     SectionFeatures,
     SectionHowOfferService,
     SectionBestProvider,
-    SectionRecentRequests,
+    SectionRecentProposals,
     SectionNeedService,
     SectionExploreServices,
     SectionRecentServices,
