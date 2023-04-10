@@ -5,7 +5,8 @@ class MyPurchasesApi extends BaseApi{
 
     getAll(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/my-services?${s}`);
+        return window.axios.get(`service-provider/user/my-purchases?${s}`);
+       // return window.axios.get(`service-provider/user/my-services?${s}`);
     }
     getItem(id,params={}){
         let s=this.generateQueryUrl(params)
