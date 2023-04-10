@@ -5,7 +5,7 @@ class ServiceProviderApi extends BaseApi{
 
     getAll(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`service-provider/user/orders?${s}`);
+        return window.axios.get(`service-provider/user/my-orders?${s}`);
     }
     getItem(id,params={}){
         let s=this.generateQueryUrl(params)

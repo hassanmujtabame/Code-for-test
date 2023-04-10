@@ -24,7 +24,7 @@
             <d-my-purchase-card
                             :itemId="item.id"
                             :status="item.status"
-                            :service="item.title"
+                            :service="item.service"
                             :name="item.user_info.name"
                             :price="item.price"
                             :dateRequest="item.created_at"

@@ -28,7 +28,7 @@
                             :service="item.title"
                             :name="item.user_info.name"
                             :dateRequest="item.created_at"
-                            :place="item.city"
+                            :place="getPlaceItem(item)"
                             :price="item.price"
                             :during="item.execution_period"
                             :requests="item.count_requests"
@@ -65,6 +65,15 @@ export default {
         
     },
     methods:{
+        getPlaceItem(item){
+            switch (item.state) {
+                case 'online': return this.$t('online');
+                case 'service': return this.$t('ready-service');
+                case 'offline': return item.city;
+                default:
+                    return 'N/A';
+            }
+        },
         changeStatus(status){
             this.status =  status
             this.filterItem.status=status;
