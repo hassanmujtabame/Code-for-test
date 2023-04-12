@@ -20,7 +20,7 @@
                                     </div>
 
                                 </div>
-                                <div class="p-2">
+                                <div class="p-2" :id="`chat-request-service-${itemPage.id}`">
                                     
                                     <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
                                     </showMsg>
@@ -64,7 +64,7 @@ export default {
     return {
         loading:false,
         message:'',
-        conversations:[
+        messages:[
             /*{id:1,date:date_only,time:time_only,datetime:date,content:'اهلا وسهلا متحمسة للعمل سويا',time_human:'منذ 17 يوما و 24 دقيقة',isMe:true},
             {id:2,date:date_only,time:time_only,datetime:date,content:'مرحبا ريم كيف حالك ؟',time_human:'منذ 17 يوما و 24 دقيقة',isMe:false},
             {id:3,date:date_only,time:time_only,datetime:date,content:'مرحبا ريم وانا أيضاا سأطلعك على التفاصيل التي ارغب بها ، أخبريني عن ماهي المعلومات التي تحتاجينها فقط',time_human:'منذ 17 يوما و 24 دقيقة',isMe:false},
@@ -92,14 +92,52 @@ export default {
     loadMsgsFromStore(){
       this.messages = []
       
-      this.$store.getters['chat/requestServiceMessages'].filter(c=>c.offer_id==this.itemPage.user_offer.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
+      this.$store.getters['chat/requestServiceMessages'].filter(c=>c.request_id==this.itemPage.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
       
       this.$nextTick(()=>{
-        let id= `chat-offer-${this.itemPage.user_offer.id}`
+        let id= `chat-request-service-${this.itemPage.id}`
         window.$("#"+id).animate({scrollTop: document.getElementById(id).scrollHeight},"fast");
 
       })
     },
+    addMsgLoad(msg){
+        let other_user_name = this.isOwner? this.itemPage.service.user_info.name:this.itemPage.user_info.name;
+      let other_user_image = this.isOwner?this.itemPage.service.user_info.image:this.itemPage.user_info.image;
+      
+     if (this.messages.length == 0) {
+       let m = {
+         id: msg.id,
+         user_id: msg.user_id,
+         user_image:msg.sender_id==this.user.id?this.user.image: other_user_image,
+          user_name:msg.sender_id==this.user.id?this.user.name:other_user_name,
+         list: [{ ...msg }]
+       }
+       this.messages.unshift(m)
+     } else {
+       let first = this.messages[0]
+       //console.mylog('first',first,msg)
+       if (first.user_id == msg.user_id && first.list[0].datetime == msg.datetime){
+         
+         first.list.unshift({...msg})
+     
+       } else {
+         //console.mylog('new',msg)
+         let m = {
+           id: msg.id,
+           user_id: msg.user_id,
+           user_image:msg.sender_id==this.user.id?this.user.image: other_user_image,
+          user_name:msg.sender_id==this.user.id?this.user.name:other_user_name,
+           list: [{ ...msg}]
+         }
+      
+       this.messages.unshift(m)
+      
+
+     }
+    
+   }
+   },
+
     listenToChannel(){
         if(this.itemPage.status!='underway') return;
     window.Echo.private(`chat-request-service.${this.itemPage.id}`)
@@ -162,7 +200,7 @@ export default {
     },
     async initializing(message_id) {
       if(!message_id){
-        let ms= this.$store.getters['chat/RequestServiceMessages'].filter(c=>c.request_id==this.itemPage.id)
+        let ms= this.$store.getters['chat/requestServiceMessages'].filter(c=>c.request_id==this.itemPage.id)
         if(ms.length>0){
           this.loadMsgsFromStore()
           return;
@@ -178,7 +216,7 @@ export default {
         if(data.success){
           data.data.forEach(m=>{
             let newMsg =this.convertToMsg(m)
-            this.$store.commit('chat/ADD_MESSAGE_OFFER',newMsg);
+            this.$store.commit('chat/ADD_MESSAGE_REQUEST_SERVICE',newMsg);
           })
           
         }
@@ -194,7 +232,7 @@ export default {
     //window.EventBus.listen(this.group,this.openLocal)
   },
   beforeDestroy(){
-    window.Echo.leaveChannel(`chat-offer.${this.itemPage.id}`);
+    window.Echo.leaveChannel(`chat-request-service.${this.itemPage.id}`);
     //window.EventBus.off(this.group,this.openLocal)
 
   },
