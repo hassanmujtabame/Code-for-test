@@ -83,9 +83,15 @@
       },
   
    },
-
+   
    methods:{
-    showConsultationLink(){}
+    showConsultationLink(){
+      this.fireOpenDialog('show-consultation-link',{
+        title:this.$t('Consultation-link'),
+        description:`سيتم بدأ الجلسة الساعة ${this.timeFormatAMPM(this.timeBooking)} في تاريخ ${this.dateBooking}  
+        لا تقلق  سنقوم تنبيهك قبل موعد الاستشارة!`
+      })
+    }
    }
   }
   </script>

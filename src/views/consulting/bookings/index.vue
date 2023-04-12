@@ -41,6 +41,7 @@
         </template>
       </d-filter-list>
     </div>
+    <showLinkDialog />
     <showConfirmSessionDialog />
     <showRescheduleDialog @update-list="updateList" />
     </div>
@@ -48,10 +49,12 @@
 <script>
 import ConsultingRequest from './card-item.vue'
 import consultingAPI from '@/services/api/consulting/index'
+import showLinkDialog from './dialogs/show-consultation-link/index'
 export default {
     name: 'request-invet-projects',
     components:{
         ConsultingRequest,
+        showLinkDialog
     },
     data:()=>{
         return {
