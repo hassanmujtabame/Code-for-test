@@ -13,6 +13,13 @@ const routers =[
         component: () => import(/* webpackChunkName: "consulting-conversations" */ '../views/common/messages/conversations/index.vue') 
     },
     {
+        path: 'consulting/bookings',
+        meta:{auth:true,layout:LayoutDefault},
+        name: 'consulting-bookings',
+        component: () => import(/* webpackChunkName: "consulting-books" */ '../views/consulting/bookings/index.vue') 
+        
+    },
+    {
         path: 'consulting/requests',
         meta:{auth:true,layout:LayoutDefault},
         name: 'consulting-requests',

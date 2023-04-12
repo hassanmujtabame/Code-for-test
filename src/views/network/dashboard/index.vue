@@ -95,6 +95,14 @@
                         <widget-blog />
                    </div>
                 </div>
+                <div class="col-12 row  mt-3 gap-4">
+                    <div class="col-md-5 border p-3">
+                        <WidgetConsultingBookings />                           
+                    </div>
+                    <div class="col-md-5 border p-3">
+                        <WidgetMyInscriptionMeetings />
+                   </div>
+                </div>
         
     </div>
 </div>
@@ -106,10 +114,12 @@ import SectionHeader from './parts/section-header/index.vue'
 import SectionBalance from './parts/section-balance/index.vue'
 import WidgetConsultingRequests from './parts/widget-consulting-requests.vue';
 import WidgetConsultingRates from './parts/widget-consulting-rates';
+import WidgetConsultingBookings from './parts/widget-consulting-bookings';
 import WidgetBlog from './parts/widget-blog.vue';
 import WidgetInvestmentOthers from './parts/widget-investment-others.vue';
 import WidgetInvestment from './parts/widget-investment.vue';
 import WidgetDownloadModels from './parts/widget-download-models.vue';
+import WidgetMyInscriptionMeetings from './parts/widget-my-inscription-meetings.vue';
 export default {
 name:'network-dashboard',
 components:{
@@ -117,10 +127,12 @@ components:{
     SectionBalance,
     WidgetConsultingRequests,
     WidgetConsultingRates,
+    WidgetConsultingBookings,
     WidgetBlog,
     WidgetInvestmentOthers,
     WidgetInvestment,
-    WidgetDownloadModels
+    WidgetDownloadModels,
+    WidgetMyInscriptionMeetings,
 }
 }
 </script>

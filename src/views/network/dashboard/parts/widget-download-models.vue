@@ -1,5 +1,5 @@
 <template>
-  <MyBlog title="تحميلاتك لنماذج رياديات" :value="0" color="#1FB9B3" 
+  <MyBlog title="تحميلاتك لنماذج رياديات" :value="0" color="#F2631C" 
   :url="generatetoUrl('network-models/mine',{lang:$i18n.locale})"
   />
 </template>

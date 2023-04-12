@@ -1,5 +1,5 @@
 <template>
-  <MyBlog title="تدويناتك" :value="0"  color="#1FB9B3"
+  <MyBlog title="تدويناتك" :value="0"  color="#2C98B3"
   :url="generatetoUrl('network-blogs-mine',{lang:$i18n.locale})"
   />
 </template>
