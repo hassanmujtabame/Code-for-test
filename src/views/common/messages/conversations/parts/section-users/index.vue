@@ -48,11 +48,12 @@ export default {
     try {
       let { data } = await userAPI.loadLastMessagesChat()// this.$axios.post('user/last-messages')
       if(data.success){
-        this.items = data.data.map(m=>this.msgFormat(m))
+        this.items = data.data.filter(x=>x).map(m=>this.msgFormat(m))
         console.mylog('success',data.data)
       }
     } catch (error) {
-      //
+      console.mylog('error',error)
+        //
     }
   },
   handlerMsg(new_msg){
