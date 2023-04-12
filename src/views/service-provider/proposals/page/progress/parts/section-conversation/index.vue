@@ -228,7 +228,7 @@ export default {
  },
 
   beforeDestroy(){
-    window.Echo.leaveChannel(`chat-offer.${this.user.id}`);
+    window.Echo.leaveChannel(`chat-offer-proposal.${this.itemPage.user_offer.id}`);
   },
    mounted(){
     this.initializing()
