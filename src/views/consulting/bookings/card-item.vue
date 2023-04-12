@@ -4,8 +4,8 @@
   <div class="d-flex align-items-center justify-content-between">
       <div >
         <div class="d-flex"> 
-          <div class="consulting-booking__status">
-          <div class="consulting-booking__status-wrapper">
+          <div class="consulting-booking__status" :class="statusClass">
+          <div class="consulting-booking__status-wrapper" >
             {{statusText}}
           </div>
           </div>
@@ -98,6 +98,15 @@ import consultingAPI from '@/services/api/consulting';
         case 'finished': return this.$t('finished-consulting');
         default:return 'N/A'
       }
+    },
+    statusClass(){
+      switch(this.status){
+        case 'disapprove':
+        case 'waiting': 
+        case 'approve': 
+        case 'finished': return `consulting-booking__status-${this.status}`;
+        default:return ''
+      }
     }
    },
    methods:{
@@ -182,6 +191,11 @@ line-height: 17px;
 /* identical to box height, or 142% */
 
 color: #737373;
+  }
+  .consulting-booking__status{
+    padding:3px 9px;
+    border-radius: 4px;
+    color:white;
   }
   .consulting-booking__status-approve{
     background: var(--color-primary);
