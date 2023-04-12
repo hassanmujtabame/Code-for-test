@@ -89,7 +89,7 @@
         
                 <div class="col-12 row  mt-3 gap-4">
                     <div class="col-md-5 border p-3">
-                        <widget-rate-service />                           
+                        <WidgetDownloadModels />                           
                     </div>
                     <div class="col-md-5 border p-3">
                         <widget-blog />
@@ -109,7 +109,7 @@ import WidgetConsultingRates from './parts/widget-consulting-rates';
 import WidgetBlog from './parts/widget-blog.vue';
 import WidgetInvestmentOthers from './parts/widget-investment-others.vue';
 import WidgetInvestment from './parts/widget-investment.vue';
-import WidgetRateService from './parts/widget-rate-service.vue';
+import WidgetDownloadModels from './parts/widget-download-models.vue';
 export default {
 name:'network-dashboard',
 components:{
@@ -120,7 +120,7 @@ components:{
     WidgetBlog,
     WidgetInvestmentOthers,
     WidgetInvestment,
-    WidgetRateService
+    WidgetDownloadModels
 }
 }
 </script>
