@@ -22,10 +22,8 @@
                                 </div>
                                 <div class="p-2">
                                     
-                                   <template v-for="(conv,i) in conversations" >
-                                <meMsgText :item="conv" v-if="conv.isMe" :key="i"/>
-                                <otherMsgText :item="conv" v-else :key="'jj'+i" />
-                                </template>
+                                    <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
+                                    </showMsg>
                                     <div>
                                         <ValidationObserver tag="form" @submit="sendMessage" ref="form">
                                             <ValidationProvider
@@ -50,16 +48,16 @@
 </template>
 
 <script>
-import meMsgText from './me-msg.vue';
-import otherMsgText from './other-msg.vue';
+import { mapGetters } from 'vuex';
+import showMsg from '@/components/chat/chat-card/group-msg';
+import userAPI from '@/services/api/user';
 export default {
  name:'section-conversation',
  props:['itemPage','readyService'],
  components:{
-   meMsgText,
-    otherMsgText
+    showMsg
  },
- data:(vm)=>{
+ data:()=>{
    // let date = new Date('2022-12-10 10:00');
            // let date_only = vm.dateToString(date);
            // let time_only = vm.dateToString(date);
@@ -76,29 +74,44 @@ export default {
     */]
     }
  },
+ computed:{
+  ...mapGetters({
+      mymessages:'chat/requestServiceMessages'
+  })
+},
+ watch:{
+  mymessages:{
+      deep:true,
+      immediate:true,
+      handler(){
+        this.loadMsgsFromStore()
+      }
+    },
+},
  methods:{
+    loadMsgsFromStore(){
+      this.messages = []
+      
+      this.$store.getters['chat/requestServiceMessages'].filter(c=>c.offer_id==this.itemPage.user_offer.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
+      
+      this.$nextTick(()=>{
+        let id= `chat-offer-${this.itemPage.user_offer.id}`
+        window.$("#"+id).animate({scrollTop: document.getElementById(id).scrollHeight},"fast");
+
+      })
+    },
     listenToChannel(){
         if(this.itemPage.status!='underway') return;
-    window.Echo.private(`chat-offer.${this.itemPage.id}`)
-    .listen('.send.message.offer', (e) => {
-        this.pushMessage(e)
-        console.mylog('send.message.offer',e)
-        console.mylog('private-offer',e);
+    window.Echo.private(`chat-request-service.${this.itemPage.id}`)
+    .listen('.send.message.request-service', (e) => {
+        let messageData = this.convertToMsg(e)  
+                //this.openLocal({user:item,message:messageData})
+              this.addMsg(messageData)  
+        console.mylog('send.message.request-service',e)
+        console.mylog('private-request-service',e);
     });
   },
-    pushMessage(msg){
-        let date = new Date(msg.created_at);
-            let date_only = this.dateToString(date);
-            let time_only = this.timeToString(date);
-        this.conversations.push(
-            {id:msg.id,
-                content:msg.message,
-                date:date_only,time:time_only,datetime:date,
-                isMe:msg.sender_id==this.user.id}
-                
-        )
-        this.message =  ''
-    },
+    
     async sendMessage(evt){
         this.loading =  true;
         evt.preventDefault();
@@ -111,20 +124,73 @@ export default {
             }
             let formData = new FormData();
             formData.append('message',this.message)
-            formData.append('offer_id',this.itemPage.id)
+            formData.append('request_id',this.itemPage.id)
             try {
-                let { data } = await window.axios.post('service-provider/user/send-message',formData)
+                let { data } = await  userAPI.sendMessageRequestService(formData)
                 //let { data } = await window.axios.post('service-provider/user/send-message-to-provider',formData)
                  if(data.success){
-                    //this.pushMessage()
+                    let datetime = data.data.created_at.substring(0,16)
+                    let time = datetime.split('T')[1]
+                    let date =  datetime.split('T')[0]
+                    let new_message = {...data.data,datetime,date,time,user_id:this.user.id,user_image:this.user.image}
+                    this.$store.commit('chat/ADD_MESSAGE_REQUEST_SERVICE',new_message)
+                // this.addMsg({...data.data,time,date,datetime,user_id:this.user.id,user_image:this.user.image})
+                this.message = '';
+                 }else{
+                  window.SwalError(data.message)
                  }
             } catch (error) {
                 //
             }
             this.loading =  false;
             
+    
+        },
+         convertToMsg(e){
+        let {sender_id,user_image,user_name,...msg} = e;
+        //let item ={id:sender_id,image:user_image,name:user_name}
+        let datetime = msg.created_at.substring(0,16)
+        let time = datetime.split('T')[1]
+            let date =  datetime.split('T')[0]
+        return {user_id:sender_id,sender_id,user_image,user_name,time,date,datetime,...msg}
+  },
+    addMsg(msg) {
+     this.$store.commit('chat/ADD_MESSAGE_REQUEST_SERVICE',msg)
+     if(msg.sender_id != this.user.id)
+     if(this.audio)
+      this.audio.play()
+    },
+    async initializing(message_id) {
+      if(!message_id){
+        let ms= this.$store.getters['chat/RequestServiceMessages'].filter(c=>c.request_id==this.itemPage.id)
+        if(ms.length>0){
+          this.loadMsgsFromStore()
+          return;
+        }
+      }
+      let formData = new FormData();
+      formData.append('request_id',this.itemPage.id)
+      if(message_id)
+      formData.append('message_id',message_id)
+
+     try {
+      let { data } = await userAPI.loadMessageRequestService(formData);
+        if(data.success){
+          data.data.forEach(m=>{
+            let newMsg =this.convertToMsg(m)
+            this.$store.commit('chat/ADD_MESSAGE_OFFER',newMsg);
+          })
+          
+        }
+     } catch (error) {
+      //
+      console.mylog('error',error)
+     }
+
     }
- },created(){
+
+ },
+ created(){
     //window.EventBus.listen(this.group,this.openLocal)
   },
   beforeDestroy(){
@@ -133,6 +199,7 @@ export default {
 
   },
   mounted(){
+    this.initializing()
     this.listenToChannel()
   }
 }

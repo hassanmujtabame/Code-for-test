@@ -17,6 +17,7 @@
 
 <script>
 import listItemVue from './list-item.vue'
+import userAPI from '@/services/api/user'
 export default {
  name:'chat-users-section',
  components:{
@@ -45,7 +46,7 @@ export default {
 },
   async initializing(){
     try {
-      let { data } = await this.$axios.post('user/last-messages')
+      let { data } = await userAPI.loadLastMessagesChat()// this.$axios.post('user/last-messages')
       if(data.success){
         this.items = data.data.map(m=>this.msgFormat(m))
         console.mylog('success',data.data)

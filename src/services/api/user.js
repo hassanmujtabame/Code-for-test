@@ -155,16 +155,32 @@ class UserApi extends BaseApi {
         /**
          * body{to_user_id,message}
          */
-        return window.axios.post(`user/send-message`,data);
+        return window.axios.post(`chat/send-message`,data);
+    }
+    sendMessageOfferProposal(data){
+        /**
+         * body{offer_id,message,sender_id}
+         */
+        return window.axios.post(`service-provider/chat/send-message-offer-proposal`,data);
+    }
+    sendMessageRequestService(data){
+        /**
+         * body{request_id,message}
+         */
+        return window.axios.post(`service-provider/chat/send-message-request-service`,data);
+    }
+    loadLastMessagesChat(){
+        return window.axios.post(`chat/last-messages`);
+
     }
     loadMessageChat(data){
-        return window.axios.post(`user/load-messages`,data);
+        return window.axios.post(`chat/load-messages`,data);
     }
     loadMessageRequestService(data){
-        return window.axios.post(`user/load-messages-request-service`,data);
+        return window.axios.post(`service-provider/chat/load-messages-request-service`,data);
     }
     loadMessageOfferProposal(data){
-        return window.axios.post(`user/load-messages-offer-proposal`,data);
+        return window.axios.post(`service-provider/chat/load-messages-offer-proposal`,data);
     }
    
 }

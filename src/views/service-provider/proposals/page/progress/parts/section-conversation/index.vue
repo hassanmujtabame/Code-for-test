@@ -22,8 +22,7 @@
                                 </div>
                                 <div :id="`chat-offer-${this.itemPage.user_offer.id}`" class="p-2">
                                     <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
-       
-    </showMsg>
+                                    </showMsg>
                                    
                                     <div>
                                         <ValidationObserver tag="form" @submit="sendMessage" ref="form">
@@ -78,7 +77,7 @@ export default {
  },
  computed:{
   ...mapGetters({
-      mymessages:'chat/offerMessages'
+      mymessages:'chat/offerPropsalMessages'
   })
 },
  watch:{
@@ -94,7 +93,7 @@ export default {
     loadMsgsFromStore(){
       this.messages = []
       
-      this.$store.getters['chat/offerMessages'].filter(c=>c.offer_id==this.itemPage.user_offer.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
+      this.$store.getters['chat/offerPropsalMessages'].filter(c=>c.offer_id==this.itemPage.user_offer.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
       
       this.$nextTick(()=>{
         let id= `chat-offer-${this.itemPage.user_offer.id}`
@@ -156,15 +155,17 @@ export default {
             formData.append('service_id',this.itemPage.id)
             formData.append('offer_id',this.itemPage.user_offer.id)
             try {
-                let { data } = await window.axios.post('service-provider/user/send-message-offer-proposal',formData)
+                let { data } = await  userAPI.sendMessageOfferProposal(formData)
                  if(data.success){
                     let datetime = data.data.created_at.substring(0,16)
                     let time = datetime.split('T')[1]
                     let date =  datetime.split('T')[0]
                     let new_message = {...data.data,datetime,date,time,user_id:this.user.id,user_image:this.user.image}
-                    this.$store.commit('chat/ADD_MESSAGE_OFFER',new_message)
+                    this.$store.commit('chat/ADD_MESSAGE_OFFER_PROPOSAL',new_message)
                 // this.addMsg({...data.data,time,date,datetime,user_id:this.user.id,user_image:this.user.image})
                 this.message = '';
+                 }else{
+                  window.SwalError(data.message)
                  }
             } catch (error) {
                 //
@@ -174,8 +175,8 @@ export default {
     },
     listenToChannel(){
     window.Echo.private(`chat-offer-proposal.${this.itemPage.user_offer.id}`)
-    .listen('.send.message.offer', (e) => {
-        console.mylog('send.message.offer',e)
+    .listen('.send.message.proposal.offer', (e) => {
+        console.mylog('send.message.proposal.offer',e)
         let messageData = this.convertToMsg(e)  
                 //this.openLocal({user:item,message:messageData})
               this.addMsg(messageData)  
@@ -191,14 +192,14 @@ export default {
         return {user_id:sender_id,sender_id,user_image,user_name,time,date,datetime,...msg}
   },
     addMsg(msg) {
-     this.$store.commit('chat/ADD_MESSAGE_OFFER',msg)
+     this.$store.commit('chat/ADD_MESSAGE_OFFER_PROPOSAL',msg)
      if(msg.sender_id != this.user.id)
      if(this.audio)
       this.audio.play()
     },
     async initializing(message_id) {
       if(!message_id){
-        let ms= this.$store.getters['chat/offerMessages'].filter(c=>(c.receiver_id == this.item.user_id && c.sender_id == this.user.id)||(c.sender_id == this.item.user_id && c.receiver_id == this.user.id))
+        let ms= this.$store.getters['chat/offerPropsalMessages'].filter(c=>(c.offer_id==this.itemPage.user_offer.id))
         if(ms.length>0){
           this.loadMsgsFromStore()
           return;
@@ -214,7 +215,7 @@ export default {
         if(data.success){
           data.data.forEach(m=>{
             let newMsg =this.convertToMsg(m)
-            this.$store.commit('chat/ADD_MESSAGE_OFFER',newMsg);
+            this.$store.commit('chat/ADD_MESSAGE_OFFER_PROPOSAL',newMsg);
           })
           
         }
@@ -230,7 +231,7 @@ export default {
     window.Echo.leaveChannel(`chat-offer.${this.user.id}`);
   },
    mounted(){
-    this.loadMessageChat()
+    this.initializing()
     this.listenToChannel()
   }
 }
