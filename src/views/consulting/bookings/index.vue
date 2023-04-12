@@ -59,8 +59,8 @@ export default {
             status:null,//status=coming|past
             actions:[
                 {status:null,label:'كل حجوزات'},
-                {status:'waiting',label:'حجوزات القادمة'},
-                {status:'approve',label:'حجوزات الماضية  '},
+                {status:'coming',label:'حجوزات القادمة'},
+                {status:'past',label:'حجوزات الماضية  '},
             ],
             filterItem:{
                 search:null,
