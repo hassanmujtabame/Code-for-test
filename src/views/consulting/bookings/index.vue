@@ -25,7 +25,7 @@
             <ConsultingRequest
                             :itemId="item.id"
                             :status="item.status"
-                            :title="item.title"
+                            :title="item.department_name"
                             :userName="item.user_info.name"
                             :dateBooking="item.start_date"
                             :timeBooking="item.available_time"
@@ -42,8 +42,6 @@
       </d-filter-list>
     </div>
     <showLinkDialog />
-    <showConfirmSessionDialog />
-    <showRescheduleDialog @update-list="updateList" />
     </div>
 </template>
 <script>
@@ -51,14 +49,14 @@ import ConsultingRequest from './card-item.vue'
 import consultingAPI from '@/services/api/consulting/index'
 import showLinkDialog from './dialogs/show-consultation-link/index'
 export default {
-    name: 'request-invet-projects',
+    name: 'consultation-bookings-page',
     components:{
         ConsultingRequest,
         showLinkDialog
     },
     data:()=>{
         return {
-            status:null,//status=approve|disapprove|waiting|finished
+            status:null,//status=coming|past
             actions:[
                 {status:null,label:'كل حجوزات'},
                 {status:'waiting',label:'حجوزات القادمة'},
@@ -67,7 +65,7 @@ export default {
             filterItem:{
                 search:null,
                 created_at:'asc',
-                status:null
+                status_date:null
             }
         }
         
@@ -78,7 +76,7 @@ export default {
         },
         changeStatus(status){
             this.status =  status
-            this.filterItem.status=status;
+            this.filterItem.status_date=status;
             this.fireEvent('d-filter-list-change-page',1)
         },
         changeFilter(val){
@@ -92,7 +90,7 @@ export default {
                     paginate:4,
                     ...this.filterItem
                 }
-                return await consultingAPI.consultants.myAppointments(params)
+                return await consultingAPI.client.getBookings(params)
 
             } catch (error) {
                 console.log('error', error)

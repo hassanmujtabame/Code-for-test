@@ -4,14 +4,18 @@
   <div class="d-flex align-items-center justify-content-between">
       <div >
         <div class="d-flex"> 
-     
+          <div class="consulting-booking__status">
+          <div class="consulting-booking__status-wrapper">
+            {{statusText}}
+          </div>
+          </div>
           <h4 class="consulting-booking__title">
             {{ $t('field-counseling') }}  {{ title??'N/A' }}
           </h4>
           </div>
           <div class="d-flex gap-2 flex-wrap">
             <p class="consulting-booking__info-label">
-          <d-user-rect :size="16" color="currentColor" />
+          <d-user-rect-icon :size="16" color="currentColor" />
           {{ userName }}
       </p>
       <p class="consulting-booking__info-label">
@@ -39,8 +43,10 @@
       <div class="d-flex flex-column flex-shrink-0 justify-content-end">
           
           <div class="d-flex" v-if="status=='approve'">
-          
             <button class="btn btn-custmer-w  mx-2"  @click="showConsultationLink">{{ $t('Consultation-link') }}</button>
+          </div>
+          <div class="d-flex" v-if="status=='finished'">
+            <button class="btn btn-custmer-w  mx-2"  @click="rateDialog">{{ $t('consultation-rate') }}</button>
           </div>
       </div>
   
@@ -50,7 +56,7 @@
   </template>
   
   <script>
-  //import consultingAPI from '@/services/api/consulting';
+import consultingAPI from '@/services/api/consulting';
   export default {
       name:'my-booking-client-card',
    props:{
@@ -76,14 +82,24 @@
           type:String,
       },
       duringBooking:{
-          type:String,
+          type:[String,Number],
       },
       status:{
           type:String,
       },
   
    },
-   
+   computed:{
+    statusText(){
+      switch(this.status){
+        case 'disapprove': return this.$t('disapproved');
+        case 'waiting': return this.$t('awaiting-approval');
+        case 'approve': return this.$t('approved');
+        case 'finished': return this.$t('finished-consulting');
+        default:return 'N/A'
+      }
+    }
+   },
    methods:{
     showConsultationLink(){
       this.fireOpenDialog('show-consultation-link',{
@@ -91,7 +107,38 @@
         description:`سيتم بدأ الجلسة الساعة ${this.timeFormatAMPM(this.timeBooking)} في تاريخ ${this.dateBooking}  
         لا تقلق  سنقوم تنبيهك قبل موعد الاستشارة!`
       })
-    }
+    },
+    async rateConsultation(dataR,form){
+            let valid = await form.validate();
+            if(!valid) return;
+            try{
+                let { data } = await consultingAPI.client.rateConsultation(this.item.id,dataR)
+                if(data.success){
+                   /* let dataEvt ={
+                        title:'',
+                        description:``
+                    }
+                    this.showSuccessMsg(dataEvt);
+                    */
+                    return true;
+                }else{
+                    window.SwalError(data.message)
+                    return false;
+                }
+            }catch(error){
+                window.DHelper.catchException.call(this,error,form)
+                return false;
+            }
+        },
+        rateDialog(){
+            this.fireOpenDialog('standard-rate-dialog',{
+                title:this.$t('consultation-rate'),
+                btns:[
+                    {title:this.$t('send-rate'),action:this.rateConsultation}
+                ]
+            
+            })
+        },
    }
   }
   </script>
@@ -135,5 +182,17 @@ line-height: 17px;
 /* identical to box height, or 142% */
 
 color: #737373;
+  }
+  .consulting-booking__status-approve{
+    background: var(--color-primary);
+  }
+  .consulting-booking__status-disapprove{
+    background: var(--color-dark-gray);
+  }
+  .consulting-booking__status-waiting{
+    background: var(--color-secondary);
+  }
+  .consulting-booking__status-finished{
+    background: var(--color-accent);
   }
   </style>    
