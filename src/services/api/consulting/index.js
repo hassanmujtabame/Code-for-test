@@ -3,8 +3,10 @@ import BaseApi from "../base-service";
 import fields from "./fields";
 import consultants from "./consultants";
 import requests from "./requests";
+import client from "./client";
 class ConsultingApi extends BaseApi{
     fields = fields;
+    client = client
     requests = requests;
     consultants = consultants;
             //Get all Consulting
