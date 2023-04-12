@@ -20,10 +20,11 @@
                                     </div>
 
                                 </div>
-                                <div :id="`chat-offer-${this.itemPage.user_offer.id}`" class="p-2">
+                                <div  class="chat-offer-proposal p-2">
+                                  <div class="chat-offer-proposal__wrapper" :id="`chat-offer-${this.itemPage.user_offer.id}`">
                                     <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
                                     </showMsg>
-                                   
+                                  </div>
                                     <div>
                                         <ValidationObserver tag="form" @submit="sendMessage" ref="form">
                                             <ValidationProvider
@@ -238,5 +239,8 @@ export default {
 </script>
 
 <style>
-
+.chat-offer-proposal__wrapper{
+  height:200px;
+  overflow-y: auto;
+}
 </style>

@@ -20,10 +20,11 @@
                                     </div>
 
                                 </div>
-                                <div class="p-2" :id="`chat-request-service-${itemPage.id}`">
-                                    
+                                <div class="chat-request-service p-2" >
+                                    <div class="chat-request-service__wrapper" :id="`chat-request-service-${itemPage.id}`">                                        
                                     <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
                                     </showMsg>
+                                  </div>
                                     <div>
                                         <ValidationObserver tag="form" @submit="sendMessage" ref="form">
                                             <ValidationProvider
@@ -244,5 +245,8 @@ export default {
 </script>
 
 <style>
-
+.chat-request-service__wrapper{
+  height: 200px;
+  overflow-y: auto;
+}
 </style>
