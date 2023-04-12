@@ -138,19 +138,7 @@ export default {
     
    }
    },
-    pushMessage(){
-        let date = new Date();
-            let date_only = this.dateToString(date);
-            let time_only = this.dateToString(date);
-        this.messages.push(
-            {id:6,
-                content:this.message,
-                date:date_only,time:time_only,datetime:date,
-                isMe:true}
-                
-        )
-        this.message =  ''
-    },
+    
     async sendMessage(evt){
         this.loading =  true;
         evt.preventDefault();
@@ -175,7 +163,7 @@ export default {
                     let new_message = {...data.data,datetime,date,time,user_id:this.user.id,user_image:this.user.image}
                     this.$store.commit('chat/ADD_MESSAGE_OFFER',new_message)
                 // this.addMsg({...data.data,time,date,datetime,user_id:this.user.id,user_image:this.user.image})
-                this.itemForm.message = '';
+                this.message = '';
                  }
             } catch (error) {
                 //

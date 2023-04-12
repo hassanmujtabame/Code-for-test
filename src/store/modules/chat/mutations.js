@@ -1,5 +1,6 @@
 export default{
     ADD_MESSAGE(state,payload){
+        if(!state.messages.find(x=>x.id==payload.id))
         state.messages.push(payload) 
     },
     ADD_MESSAGES(state,payload){
@@ -31,6 +32,7 @@ export default{
     },
     /** chat offer */
     ADD_MESSAGE_OFFER(state,payload){
+        if(!state.offer_messages.find(x=>x.id==payload.id))
         state.offer_messages.push(payload) 
     },
     ADD_MESSAGES_OFFER(state,payload){
