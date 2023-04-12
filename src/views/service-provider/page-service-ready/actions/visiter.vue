@@ -34,7 +34,7 @@ export default {
             this.openCheckout()
         }
        
-        else if(this.itemPage.status=='offline')
+        else if(this.itemPage.state=='offline')
         this.fireOpenDialog('booking-service',this.itemPage)
         else{
             let dataEvt = {
