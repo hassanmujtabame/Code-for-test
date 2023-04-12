@@ -709,5 +709,10 @@
   "add-proposal": "add proposal",
   "update-proposal": "update proposal",
   "field-counseling": "field of counseling",
-  "Consultation-link": "Consultation link"
+  "Consultation-link": "Consultation link",
+  "consultation-rate": "consultation rate",
+  "disapproved": "disapproved",
+  "approved": "approved",
+  "finished-consulting": "completed",
+  "awaiting-approval": "awaiting approval"
 }

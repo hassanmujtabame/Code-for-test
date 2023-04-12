@@ -704,5 +704,9 @@
   "add-proposal": "أضف الطلب",
   "update-proposal": "حفظ",
   "field-counseling": "مجال الاستشارة",
-  "Consultation-link": "رابط الاستشارة"
+  "Consultation-link": "رابط الاستشارة",
+  "consultation-rate": "تقييم الاستشارة",
+  "disapproved": "مرفوض",
+  "finished-consulting": "ماضي",
+  "awaiting-approval": "بانتظار الموافقة"
 }
