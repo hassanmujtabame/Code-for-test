@@ -16,15 +16,15 @@
       </p>
       <p class="consulting-booking__info-label">
           <d-calendar-icon :size="16" color="currentColor" />
-          {{ datebooking }}
+          {{ dateBooking }}
       </p>
       <p class="consulting-booking__info-label">
           <d-time-icon :size="16" color="currentColor" />
-          {{ timeFormatAMPM(timebooking,true) }}
+          {{ timeFormatAMPM(timeBooking,true) }}
       </p>
       <p class="consulting-booking__info-label">
           <d-time-icon :size="16" color="currentColor" />
-          {{ duringbooking }}{{ $t('minute') }}
+          {{ duringBooking }}{{ $t('minute') }}
       </p>
       <p class="consulting-booking__info-label">
           <d-empty-wallet-icon :size="16" color="currentColor" />
@@ -69,13 +69,13 @@
       desc:{
           type:String,
       },
-      datebooking:{
+      dateBooking:{
           type:String,
       },
-      timebooking:{
+      timeBooking:{
           type:String,
       },
-      duringbooking:{
+      duringBooking:{
           type:String,
       },
       status:{

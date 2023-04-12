@@ -27,13 +27,12 @@
                             :status="item.status"
                             :title="item.title"
                             :userName="item.user_info.name"
-                            :dateRequest="item.start_date"
-                            :timeRequest="item.available_time"
-                            :place="item.city"
+                            :dateBooking="item.start_date"
+                            :timeBooking="item.available_time"
+                            :duringBooking="30"
                             :desc="item.description"
                             :price="item.price"
                             @update-list="updateList"
-                            :description="item.desc"
                             
                             
                             >
