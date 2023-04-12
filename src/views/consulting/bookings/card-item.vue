@@ -1,24 +1,35 @@
 <template>
-    <div class="consulting-request">
+    <div class="consulting-booking">
   
   <div class="d-flex align-items-center justify-content-between">
       <div >
         <div class="d-flex"> 
      
-          <h4 class="consulting-request__title">
-                  {{ userName??'N/A' }}
+          <h4 class="consulting-booking__title">
+            {{ $t('field-counseling') }}  {{ title??'N/A' }}
           </h4>
           </div>
           <div class="d-flex gap-2 flex-wrap">
-      <p class="consulting-request__info-label">
+            <p class="consulting-booking__info-label">
+          <d-user-rect :size="16" color="currentColor" />
+          {{ userName }}
+      </p>
+      <p class="consulting-booking__info-label">
           <d-calendar-icon :size="16" color="currentColor" />
-          {{ dateRequest }}
+          {{ datebooking }}
       </p>
-      <p class="consulting-request__info-label">
+      <p class="consulting-booking__info-label">
           <d-time-icon :size="16" color="currentColor" />
-          {{ timeFormatAMPM(timeRequest,true) }}
+          {{ timeFormatAMPM(timebooking,true) }}
       </p>
-      
+      <p class="consulting-booking__info-label">
+          <d-time-icon :size="16" color="currentColor" />
+          {{ duringbooking }}{{ $t('minute') }}
+      </p>
+      <p class="consulting-booking__info-label">
+          <d-empty-wallet-icon :size="16" color="currentColor" />
+          {{ price }}{{ $t('riyals') }}
+      </p>
      
   </div>
           <p class="t-c w-75 m-0" v-html="desc">
@@ -27,13 +38,9 @@
 
       <div class="d-flex flex-column flex-shrink-0 justify-content-end">
           
-          <div class="d-flex" v-if="status=='waiting'">
-            <button class="btn btn-custmer" @click="acceptRequest">{{ $t('accept') }}</button>
-            <button class="btn btn-custmer btn-danger mx-2" @click="confirmDisapproveRequest">{{ $t('reject') }}</button>
-          </div>
           <div class="d-flex" v-if="status=='approve'">
-            <button class="btn btn-custmer" @click="rescheduleRequest">{{ $t('reschedule') }}</button>
-            <button class="btn btn-custmer-w  mx-2"  @click="confirmFinishRequest">{{ $t('finished') }}</button>
+          
+            <button class="btn btn-custmer-w  mx-2"  @click="showConsultationLink">{{ $t('Consultation-link') }}</button>
           </div>
       </div>
   
@@ -43,9 +50,9 @@
   </template>
   
   <script>
-  import consultingAPI from '@/services/api/consulting';
+  //import consultingAPI from '@/services/api/consulting';
   export default {
-      name:'my-request-client-card',
+      name:'my-booking-client-card',
    props:{
       itemId:{
           type:[String,Number],
@@ -56,16 +63,19 @@
       userName:{
           type:String
       },
-      place:{
+      price:{
           type:String,
       },
       desc:{
           type:String,
       },
-      dateRequest:{
+      datebooking:{
           type:String,
       },
-      timeRequest:{
+      timebooking:{
+          type:String,
+      },
+      duringbooking:{
           type:String,
       },
       status:{
@@ -75,83 +85,18 @@
    },
 
    methods:{
-    rescheduleRequest(){
-        this.fireOpenDialog('reschedule-session',{id:this.itemId
-            ,session_date:this.dateRequest
-            ,session_time:'09:00'})
-    },
-    async finishSession(){
-         
-          try {
-            let {data} = await consultingAPI.requests.finishedIt(this.itemId)
-            if(data.success){
-              this.$emit('update-list')
-            }else{
-              window.SwalError(data.message)
-            }
-          } catch (error) {
-            //
-            window.DHelper.catchException.call(this,error,this.$refs.form)
-          }
-            
-            
-        },
-    confirmFinishRequest(){
-        let dataEvt={
-            title:'انت على وشك انهاء الجلسة',
-            description:'',
-            type:'warning',
-            btns:[
-                {title:this.$t('confirm-finishing-session'),action:this.finishSession}
-            ]
-        }
-        this.showConfirmMsg(dataEvt);
-    },
-    acceptRequest(){
-       this.fireOpenDialog('show-session-confirmation',{
-        id:this.itemId,
-        title:this.userName,
-        description:this.description
-       })
-    },
-    async disapproveSession(){
-         
-         try {
-           let {data} = await consultingAPI.requests.disapproveIt(this.itemId)
-           if(data.success){
-             this.$emit('update-list')
-           }else{
-             window.SwalError(data.message)
-           }
-         } catch (error) {
-           //
-           window.DHelp.catchException.call(this,error,this.$refs.form)
-         }
-           
-           
-       },
-       confirmDisapproveRequest(){
-        let dataEvt={
-            title:'انت على وشك رفض الطلب',
-            description:'',
-            type:'warning',
-            btns:[
-                {title:this.$t('confirm-rejection'),action:this.disapproveSession}
-            ]
-        }
-        this.showConfirmMsg(dataEvt);
-    },
+    showConsultationLink(){}
    }
   }
   </script>
   
   <style scoped>
-  .consulting-request{
+  .consulting-booking{
       padding: 10px;
     border-bottom: 1px solid rgba(205, 215, 216, 1);
 ;
   }
-  .consulting-request__title{
+  .consulting-booking__title{
     font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -164,7 +109,7 @@ text-transform: capitalize;
 
 color: #414042;
   }
-  .consulting-request__type{
+  .consulting-booking__type{
     font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -176,7 +121,7 @@ align-items: center;
 text-transform: capitalize;
 color: #F2631C;
   }
-  .consulting-request__info-label{
+  .consulting-booking__info-label{
     font-style: normal;
 font-weight: 400;
 font-size: 12px;

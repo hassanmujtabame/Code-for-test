@@ -707,5 +707,7 @@
   "confirm-finishing-session": "Confirm session termination",
   "confirm-rejection": "confirm rejection",
   "add-proposal": "add proposal",
-  "update-proposal": "update proposal"
+  "update-proposal": "update proposal",
+  "field-counseling": "field of counseling",
+  "Consultation-link": "Consultation link"
 }

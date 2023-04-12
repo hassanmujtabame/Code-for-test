@@ -702,5 +702,7 @@
   "confirm-finishing-session": "تأكيد انهاء الجلسة",
   "confirm-rejection": "تأكيد الرفض",
   "add-proposal": "أضف الطلب",
-  "update-proposal": "حفظ"
+  "update-proposal": "حفظ",
+  "field-counseling": "مجال الاستشارة",
+  "Consultation-link": "رابط الاستشارة"
 }
