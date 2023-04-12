@@ -124,7 +124,6 @@ height:42.38px;
 .ready-service-card__content{
     padding:5px 16px;
 }
-.ready-service-card__status{}
 .ready-service-card__category{
     font-weight: 400;
 font-size: 12px;

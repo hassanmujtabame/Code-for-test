@@ -26,7 +26,7 @@
 
                                                 <p class="student-course__item-info col-6">
                                                     <d-localisation-icon :size="24"  color="currentColor"/>
-                                                        {{$t(item.type)}}
+                                                        {{courseType}}
                                                 </p>
                                                 
                                                 <p class="student-course__item-info  col-12 mt-1">
@@ -66,6 +66,16 @@ export default {
         showProgress:{
             type:Boolean,
             default:false
+        }
+    },
+    computed:{
+        courseType(){
+            
+            if (this.item.type==='on-site') 
+                return this.item.place_name
+                return this.$t(this.item.type);
+                    
+        
         }
     },
     methods:{
