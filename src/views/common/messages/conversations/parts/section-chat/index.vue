@@ -1,7 +1,7 @@
 <template>
   <div class="chat-conversation h-100">
   <chatEmpty v-if="!personSelected" />
-  <ChatPerson v-else :item="personSelected" />
+  <ChatPerson v-else-if="!loading" :item="personSelected" />
   </div>
 </template>
 
@@ -22,13 +22,19 @@ export default {
  },
  data: () => {
   return {
+    loading:false,
     personSelected:null,
   }
 },
   methods: {
     handlerPerson(p){
+      this.personSelected = null
+      this.loading = true;
       let user_id = (p.receiver_id==this.user.id)?p.sender_id:p.receiver_id;
-      this.personSelected = {...p,user_id};
+      this.$nextTick(()=>{
+        this.personSelected = {...p,user_id};
+      })
+      this.loading = false;
     }
   },
   created(){

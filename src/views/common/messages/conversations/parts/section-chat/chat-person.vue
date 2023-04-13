@@ -1,6 +1,6 @@
 <template>
   <div class="chat-conversation h-100">
-  <div class="chat-conversation__header border-bottom">
+  <div  class="chat-conversation__header border-bottom">
   <div class="chat-conversation__header-wrapper">
   <div class="chat-conversation__header-user">
   <img class="chat-conversation__header-user-avatar" :src="item.user_image" />
@@ -46,9 +46,8 @@ export default {
  name:'chat-conversation-person-section',
  props:{
   item:{
-    default:()=>{
-      return {user_id:197,title:'Robert Fox',subtitle:'hi, I am robet, i am waiting you on big house',time:'11:00 AM',image:'https://i.pravatar.cc/150?img=3'}
-    }
+    type:[Array,Object],
+    require:true
   }
  },
  data: (vm) => {
@@ -83,6 +82,8 @@ computed:{
       deep:true,
       immediate:true,
       handler(){
+        //this.itemForm.to_user_id=this.item.user_id;
+        //this.group=`chat-card-${this.item.user_id}`,
         this.messages = []
         this.initializing()
       }
