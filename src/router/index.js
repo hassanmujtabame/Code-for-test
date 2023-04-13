@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import NotFoundPage from '../views/main/pages/404.vue'
 import middlewiare_auth from '@/middleware/auth'
 import LayoutDefault from '@/layouts/default/index.vue'
 import networkRoute from './network'
@@ -22,7 +23,7 @@ const routes = [
     name:'main-router'
   },
   {
-    path:'/:lang',
+    path:'/:lang(ar|en)',
     component: () => import(/* webpackChunkName: "rout" */ '../views/route.vue'),
   children:[
 
@@ -157,8 +158,14 @@ const routes = [
   ...academyRoute,
   ...incubatorRoute,
   ...serviceRoute,
-  ...consultingRoute
+  ...consultingRoute 
 ]
+},
+{ 
+  path: '/:any(.*)*',
+  meta:{layout:LayoutDefault},
+  component:NotFoundPage,
+  name: 'NotFound'
 }
 ]
 
