@@ -3,8 +3,7 @@
         <div>
             <button @click="openBooking" style="height: 40px;" class="btn-main"  
                 role="button">
-
-                أطلب الخدمة
+                {{ labelBuyBtn }}
             </button>
         </div>
         <div>
@@ -28,6 +27,13 @@
 export default {
  name:'action-for-visiter',
  props:['itemPage'],
+ computed:{
+    labelBuyBtn(){
+        if(this.itemPage.state=='offline')
+        return 'أطلب الخدمة';
+        return 'إشتري الخدمة';
+    }
+ },
  methods:{
     openBooking(){
         if(this.itemPage.state=='online'){
