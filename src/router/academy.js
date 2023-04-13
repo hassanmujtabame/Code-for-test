@@ -13,7 +13,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-dashboard" */ '../views/academy/dashboard/index.vue') 
     },
     {
-        path: 'academy/departments/:id',
+        path: 'academy/departments/:id(\\d+)',
         meta:{layout:LayoutDefault},
         name: 'academy-department-show',
         component: () => import(/* webpackChunkName: "academy-department-show" */ '../views/academy/departments/show/index.vue') 
@@ -43,7 +43,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-preview-profile" */ '../views/academy/preview-profile/index.vue')
     },
     {
-        path: 'academy/:id/show-profile',
+        path: 'academy/:id(\\d+)/show-profile',
         name: 'academy-show-profile',
         meta:{layout:LayoutDefault},
         component: () => import(/* webpackChunkName: "academy-show-profile" */ '../views/academy/show-profile/index.vue')
@@ -55,19 +55,19 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-courses" */ '../views/academy/courses/index.vue') 
     },
     {
-        path: 'academy/courses/:id',
+        path: 'academy/courses/:id(\\d+)',
         meta:{layout:LayoutDefault},
         name: 'academy-course-show',
         component: () => import(/* webpackChunkName: "academy-course-show" */ '../views/academy/courses/show/guest/index.vue') 
     },
     {
-        path: 'academy/courses/:id/preview',
+        path: 'academy/courses/:id(\\d+)/preview',
         meta:{layout:LayoutDefault},
         name: 'academy-course-preview-show',
         component: () => import(/* webpackChunkName: "academy-course-show" */ '../views/academy/courses/show/index.vue') 
     },
     {
-        path: 'academy/courses/:id/add-exam',
+        path: 'academy/courses/:id(\\d+)/add-exam',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-course-add-exam',
         component: () => import( '../views/academy/instructor/add-exam/index.vue') 
@@ -85,7 +85,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-my-projects" */ '../views/academy/projects/mine/index.vue') 
     },
     {
-        path: 'academy/my-projects/:id',
+        path: 'academy/my-projects/:id(\\d+)',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-my-project-show',
         component: () => import(/* webpackChunkName: "academy-my-project" */ '../views/academy/instructor/students/projects/index.vue') 
@@ -103,7 +103,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-your-exams" */ '../views/academy/exams/mine/index.vue') 
     },
     {
-        path: 'academy/my-exams/:id/do-exam',
+        path: 'academy/my-exams/:id(\\d+)/do-exam',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-your-exams-do-exam',
         component: () => import(/* webpackChunkName: "academy-your-exams-do-exam" */ '../views/academy/your-exams/do-exam/index.vue') 
@@ -115,7 +115,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-your-courses" */ '../views/academy/your-courses/index.vue') 
     },
     {
-        path: 'academy/instructor/my-students/:id',
+        path: 'academy/instructor/my-students/:id(\\d+)',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-instructor-your-student-show',
         component: () => import(/* webpackChunkName: "academy-instructor-your-student-show" */ '../views/academy/instructor/students/page/index.vue') 
@@ -151,7 +151,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-blogs" */ '../views/academy/blogs/list/index.vue') 
     },
     {
-        path: 'academy/blogs/:id',
+        path: 'academy/blogs/:id(\\d+)',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-blog-show',
         component: () => import(/* webpackChunkName: "academy-blog-show" */ '../views/academy/blogs/page/index.vue') 
@@ -187,7 +187,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-learning-meetings" */ '../views/academy/learning-meetings/index.vue') 
     },
     {
-        path: 'academy/learning-meetings/:id',
+        path: 'academy/learning-meetings/:id(\\d+)',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-learning-meeting-show',
         component: () => import(/* webpackChunkName: "academy-learning-meeting-show" */ '../views/academy/learning-meetings/page/index.vue') 

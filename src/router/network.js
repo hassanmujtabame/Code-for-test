@@ -20,7 +20,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-preview-profile" */ '../views/network/preview-profile/index.vue')
     },
     {
-        path: 'network/:id/show-profile',
+        path: 'network/:id(\\d+)/show-profile',
         name: 'network-show-profile',
         meta:{layout:LayoutNetwork},
         component: () => import(/* webpackChunkName: "network-show-profile" */ '../views/network/show-profile/index.vue')
@@ -50,7 +50,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-success-stories" */ '../views/network/success-stories/index.vue') 
     },
     {
-        path: 'network/success-stories/:id',
+        path: 'network/success-stories/:id(\\d+)',
         meta:{layout:LayoutNetwork},
         name: 'network-success-story-show',
         component: () => import(/* webpackChunkName: "network-success-story-show" */ '../views/network/success-story/index.vue') 
@@ -80,7 +80,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-investment-project-request-add" */ '../views/network/investment-project-request/index.vue') 
     },
     {
-        path: 'network/investment-projects/:id',
+        path: 'network/investment-projects/:id(\\d+)',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-investment-project-show',
         component: () => import(/* webpackChunkName: "network-investment-project-show" */ '../views/network/investment-project-page/index.vue') 
@@ -104,7 +104,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-blogs-mine" */ '../views/network/blog/mine/index.vue') 
     },
     {
-        path: 'network/blogs/:id',
+        path: 'network/blogs/:id(\\d+)',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-blog-show',
         component: () => import(/* webpackChunkName: "network-blog-show" */ '../views/network/blog-page/index.vue') 
@@ -122,7 +122,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-podcasts" */ '../views/network/podcasts/index.vue') 
     },
     {
-        path: 'network/podcasts/:id',
+        path: 'network/podcasts/:id(\\d+)',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-podcast-show',
         component: () => import(/* webpackChunkName: "network-podcast-show" */ '../views/network/podcast-page/index.vue') 
@@ -134,19 +134,19 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-exhibitions" */ '../views/network/exhibitions/index.vue') 
     },
     {
-        path: 'network/exhibitions/:id',
+        path: 'network/exhibitions/:id(\\d+)',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-exhibition-show',
         component: () => import(/* webpackChunkName: "network-exhibition-show" */ '../views/network/exhibition-page/index.vue') 
     },
     {
-        path: 'network/exhibitions/:id/requests',
+        path: 'network/exhibitions/:id(\\d+)/requests',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-exhibition-requests',
         component: () => import(/* webpackChunkName: "network-exhibitions-requests" */ '../views/network/exhibitions/requests/index.vue') 
     },
     {
-        path: 'network/exhibitions/:id/demand-participate',
+        path: 'network/exhibitions/:id(\\d+)/demand-participate',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-exhibition-demand-participate',
         component: () => import(/* webpackChunkName: "network-exhibition-demand-participate" */ '../views/network/exhibition-page/participate/index.vue') 
@@ -170,7 +170,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-member-network" */ '../views/network/member-network/index.vue') 
     },
     {
-        path: 'network/members/:id',
+        path: 'network/members/:id(\\d+)',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-member-show',
         component: () => import(/* webpackChunkName: "network-member-show" */ '../views/network/member-show/index.vue') 
@@ -188,7 +188,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-mine" */ '../views/network/models/mine/index.vue') 
     },
     {
-        path: 'network/models/:id',
+        path: 'network/models/:id(\\d+)',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-model-show',
         component: () => import(/* webpackChunkName: "network-model-show" */ '../views/network/models/show/index.vue') 
@@ -200,7 +200,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-learning-meetings" */ '../views/network/learning-meetings/index.vue') 
     },
     {
-        path: 'network/learning-meetings/:id',
+        path: 'network/learning-meetings/:id(\\d+)',
         meta:{layout:LayoutNetwork,auth:true},
         name: 'network-learning-meeting-show',
         component: () => import(/* webpackChunkName: "network-learning-meeting-show" */ '../views/network/learning-meeting-page/index.vue') 

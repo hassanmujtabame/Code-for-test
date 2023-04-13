@@ -48,7 +48,7 @@ const routers =[
         
     },
     {
-        path: 'consultants/:id',
+        path: 'consultants/:id(\\d+)',
         meta:{layout:LayoutDefault},
         name: 'consultant-page',
         component: () => import(/* webpackChunkName: "consultant-page" */ '../views/consulting/consultant/index.vue') 
@@ -66,7 +66,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "consulting-fields" */ '../views/consulting/fields/index.vue') 
     },
     {
-        path: 'consulting/fields/:id/consultants',
+        path: 'consulting/fields/:id(\\d+)/consultants',
         meta:{layout:LayoutDefault},
         name: 'consulting-field-consultants',
         component: () => import(/* webpackChunkName: "consulting-field-consultants" */ '../views/consulting/fields/consultants/index.vue') 
