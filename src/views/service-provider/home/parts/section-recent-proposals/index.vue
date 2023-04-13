@@ -52,6 +52,7 @@ export default {
       navigate(evt)
     },
     goToProposal(item,evt){
+      //if(evt) evt.preventDefault();
       if(item.user_info.id!=this.user.id && !this.shouldBeProviderMsg(evt)){
         this.router_push('service-provider-proposal-page', { id: item.id })
       }

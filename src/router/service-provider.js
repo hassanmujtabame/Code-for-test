@@ -134,7 +134,7 @@ const routers =[
     },
     {
         path: 'service-provider/proposals/:id(\\d+)',
-        meta:{layout:LayoutService,auth:true,role:'provider'},
+        meta:{layout:LayoutService,auth:true},
         name: 'service-provider-proposal-page',
         component: () => import(/* webpackChunkName: "service-provider-show-service-page" */ '../views/service-provider/proposals/page/index.vue') 
     },
