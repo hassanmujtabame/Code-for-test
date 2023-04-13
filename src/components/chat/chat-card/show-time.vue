@@ -1,7 +1,8 @@
 <template>
-  <p class="message-group-time"
+  <time class="message-group-time"
   v-tooltip="`${dateLong}`"
-  v-bind="$attrs">{{ showDate }}</p>
+  :datetime="dateTime"
+  v-bind="$attrs"></time>
 </template>
 
 <script>
@@ -28,10 +29,13 @@ var dateString = new Intl.DateTimeFormat(lang, { dateStyle: 'full', timeStyle: '
     }
   },
   beforeDestroy(){
-    clearInterval(this.timer)
+    window.timeAgo.cancel('chat',this.$el)
+    
+    //clearInterval(this.timer)
   },
   mounted(){
-    this.timer = setInterval(this.updateDate, 1000);
+    window.timeAgo.render('chat',this.$el,1000*60)// update after each 60 seconds
+    //this.timer = setInterval(this.updateDate, 1000);
   }
 }
 </script>

@@ -715,5 +715,6 @@
   "approved": "approved",
   "finished-consulting": "completed",
   "awaiting-approval": "awaiting approval",
-  "not-found-page": "not found page"
+  "not-found-page": "not found page",
+  "just-now": "just now"
 }

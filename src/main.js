@@ -15,10 +15,11 @@ import  './plugins/v-calendar.js';
 import './plugins/axios'
 //import './plugins/vue-lazy-image'
 import './plugins/i18n'
+import TimeAgo from './plugins/timeago'
 import './plugins/sweetalert2'
 import EventBus from './helper/EventBus';
 import Dhelper from './helper/d-helper';
-
+window.timeAgo = new TimeAgo();
 window.DHelper =  Dhelper;
 window.Pusher = require('pusher-js');
 window.EventBus =  new EventBus();

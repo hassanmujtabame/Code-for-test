@@ -93,7 +93,7 @@ const mixin = {
                 if(mth==2 && this.$i18n.locale=='ar') return ago+" "+"ثانتين";
                 if(mth==1 && this.$i18n.locale=='ar') return ago+" "+label;
                 if(mth==1 && this.$i18n.locale=='en') return "a second"+" "+ago;
-                result = Math.floor(m) +" "+ label;
+                result = Math.floor(s) +" "+ label;
     
               } else if (m < 60) {
                 label = this.$t('minute_s')
