@@ -49,7 +49,7 @@ const routers =[
     },
     {
         path: 'consultants/:id(\\d+)',
-        meta:{layout:LayoutDefault},
+        meta:{layout:LayoutDefault,auth:true},
         name: 'consultant-page',
         component: () => import(/* webpackChunkName: "consultant-page" */ '../views/consulting/consultant/index.vue') 
     },
