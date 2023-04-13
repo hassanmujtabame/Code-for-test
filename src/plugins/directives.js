@@ -9,9 +9,9 @@ Vue.directive('auth', {
                 console.mylog('v-auth false')
                 e.preventDefault();
                 e.stopImmediatePropagation();
-                let dataEvt ={
+                /*let dataEvt ={
                     title:'test'
-                }
+                }*/
                 
                 return false;
             }      
