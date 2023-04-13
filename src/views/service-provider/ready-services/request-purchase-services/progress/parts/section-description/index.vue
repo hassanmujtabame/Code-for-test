@@ -152,7 +152,7 @@
                                 <h3 class="border-bottom title-section fs-r-24-40 p-2">
                                     الكلمات المفتاحية
                                 </h3>
-                                <div v-if="readyService.keywords" class="p-2 d-flex flex-wrap justify-content-between text-white word-intial pt-3">
+                                <div v-if="readyService.keywords" class="p-2 d-flex flex-wrap justify-content-start gap-2 text-white word-intial pt-3">
                                     <p v-for="(tag,i) in readyService.keywords.split(',')" :key="i">
                                         {{tag}}
                                     </p>
