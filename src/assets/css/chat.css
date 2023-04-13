@@ -21,7 +21,7 @@
   .bg-your-msg {
     width: fit-content;
     color: #737373;
-    background:#e9ecef;
+    background:#F6F8F9;
   }
   .bg-your-msg,.bg-my-msg{
     border-radius: var(--bs-border-radius-lg) !important;
