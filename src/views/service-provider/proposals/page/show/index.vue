@@ -65,7 +65,7 @@
                             </h2>
                             <p class="p-3 flex-grow-1" v-html="itemPage.description">
                             </p>
-                            <div class="d-flex gap-3 flex-wrap flex-shrink-0">
+                            <div v-if="false" class="d-flex gap-3 flex-wrap flex-shrink-0">
                                 <a style="text-decoration: revert;" class="t-c" href="">
                                     Image 1
                                 </a>

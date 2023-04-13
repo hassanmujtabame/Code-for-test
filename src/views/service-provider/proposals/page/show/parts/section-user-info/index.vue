@@ -18,6 +18,7 @@
                                 </div>
 
                             </div>
+                            <div v-if="userIsProvider">
                             <div v-if="is_offer_sent">
                                 <h1>لقد ارسلت عرضك</h1>
                             </div>
@@ -101,6 +102,7 @@
                             </ValidationObserver>
                             <SuccessSendOffer />
                             </div>
+                        </div>
                         </div>
 </template>
 
