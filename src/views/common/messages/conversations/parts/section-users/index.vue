@@ -6,11 +6,14 @@
   <span  class="input-group-prepend search-input-icon">
   <i class="fa fa-search"></i>
   </span >
-  <input type="text" class="form-control search-input" :placeholder="$t('search')" >
+  <input type="text" v-model="search" class="form-control search-input" :placeholder="$t('search')" >
 </div>
     </div>
-    <div class="chat-users__body">
-    <listItemVue v-for="(it,i) in items" :key="i" @selected="selectPerson" :item="it" />
+    <div v-if="search!=''" class="chat-users__body">
+      <listItemVue  v-for="(it,i) in searchItems" :key="i" @selected="selectPerson" :item="it" />
+  </div>
+  <div v-else class="chat-users__body">
+    <listItemVue  v-for="(it,i) in items" :key="i" @selected="selectPerson" :is-selected="selectedItem && it.id==selectedItem.id" :item="it" />
   </div>
   </div>
 </template>
@@ -24,13 +27,21 @@ export default {
   listItemVue
  },
  data:()=>({
-  seletedItem:null,
+  selectedItem:null,
   //item:{title:'Robert Fox',subtitle:'hi, I am robet, i am waiting you on big house',time:'11:00 AM',image:'https://i.pravatar.cc/150?img=3'},
-  items:[]//process.env.NODE_ENV=='development'?usersTest:[]
+  items:[],//process.env.NODE_ENV=='development'?usersTest:[]
+  searchItems:[],
+  search:'',
  }),
+ watch:{
+  search(){
+    if(this.search=='') return;
+      this.searchUsers()
+  }
+ },
  methods:{
   selectPerson(person){
-    this.seletedItem = person
+    this.selectedItem = person
     this.fireEvent('section-chat-select-person',person)
   },
   msgFormat(m){
@@ -44,6 +55,18 @@ export default {
     arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
     return arr; // for testing
 },
+async searchUsers(){
+    try {
+      let { data } = await userAPI.loadLastMessagesChat({search:this.search})// this.$axios.post('user/last-messages')
+      if(data.success){
+        this.searchItems = data.data.filter(x=>x).map(m=>this.msgFormat(m))
+  
+      }
+    } catch (error) {
+      console.mylog('error',error)
+        //
+    }
+  },
   async initializing(){
     try {
       let { data } = await userAPI.loadLastMessagesChat()// this.$axios.post('user/last-messages')

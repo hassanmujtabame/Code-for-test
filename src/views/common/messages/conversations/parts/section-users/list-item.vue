@@ -1,5 +1,5 @@
 <template>
-  <div @click="selectItem" class="chat-users__item">
+  <div @click="selectItem" class="chat-users__item" :class="{'chat-users__item-selected':selected}">
   <div class="chat-users__item-wrapper">
     <div class="chat-users__item-avatar">
         <img  :src="item.user_image"/>
@@ -16,7 +16,25 @@
 <script>
 export default {
  props:{
-    item:{}
+    item:{},
+    isSelected:{
+        type:Boolean,
+        default:false
+    }
+ },
+ data:()=>{
+    return{
+        selected:false,
+    }
+ },
+ watch:{
+        isSelected:{
+            deep:true,
+            immediate:true,
+            handler(){
+                this.selected = this.isSelected
+            }
+        }
  },
  methods:{
     selectItem(){
@@ -33,6 +51,9 @@ export default {
     width: 100%;
     cursor: pointer;
     background: white;
+}
+.chat-users__item-selected{
+    background: #F3F3F3;
 }
 .chat-users__item-wrapper{
     display: flex;

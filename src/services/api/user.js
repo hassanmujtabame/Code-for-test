@@ -169,9 +169,11 @@ class UserApi extends BaseApi {
          */
         return window.axios.post(`service-provider/chat/send-message-request-service`,data);
     }
-    loadLastMessagesChat(){
-        return window.axios.post(`chat/last-messages`);
-
+    loadLastMessagesChat(params={}){
+            let s=this.generateQueryUrl(params)
+            s=`?${s}`;
+            if(!params) s = ''
+        return window.axios.post(`chat/last-messages${s}`);
     }
     loadMessageChat(data){
         return window.axios.post(`chat/load-messages`,data);
