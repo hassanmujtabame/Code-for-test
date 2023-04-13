@@ -10,7 +10,7 @@
 </div>
     </div>
     <div v-if="search!=''" class="chat-users__body">
-      <listItemVue  v-for="(it,i) in searchItems" :key="i" @selected="selectPerson" :item="it" />
+      <listItemVue  v-for="(it,i) in searchItems" :key="i" @selected="selectOnSearch" :item="it" />
   </div>
   <div v-else class="chat-users__body">
     <listItemVue  v-for="(it,i) in items" :key="i" @selected="selectPerson" :is-selected="selectedItem && it.id==selectedItem.id" :item="it" />
@@ -35,11 +35,20 @@ export default {
  }),
  watch:{
   search(){
-    if(this.search=='') return;
+    if(this.search=='') 
+    this.searchItems = [];
+    else
       this.searchUsers()
   }
  },
  methods:{
+  selectOnSearch(person){
+   
+    this.selectPerson(person);
+    this.$nextTick(()=>{
+      this.search = ''
+    })
+  },
   selectPerson(person){
     this.selectedItem = person
     this.fireEvent('section-chat-select-person',person)
