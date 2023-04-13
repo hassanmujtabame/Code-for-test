@@ -14,14 +14,19 @@
   }
   .bg-my-msg {
     width: fit-content;
-    background: #2787f5;
+    background: var(--color-primary);
     color: #fff;
   }
   
   .bg-your-msg {
     width: fit-content;
-    color: #95aac9;
+    color: #737373;
     background:#e9ecef;
+  }
+  .bg-your-msg,.bg-my-msg{
+    border-radius: var(--bs-border-radius-lg) !important;
+    padding: .3rem .8rem !important;
+    font-size: .875em;
   }
   .message-group-chat{
     flex-grow:1;

@@ -8,7 +8,7 @@
           <showMsg v-for="(msg, j) in chatter.list" :key="`msg-${chatter.id}-${j}`"
             :class="[user.id == chatter.user_id ? 'ms-3 bg-my-msg' : 'me-3 bg-your-msg']">{{ msg.message }}</showMsg>
 
-          <showTime :time="chatter.list[chatter.list.length-1].time" class="d-flex justify-content-start"
+          <showTime :dateTime="chatter.list[chatter.list.length-1].created_at" class="d-flex justify-content-start"
             :class="[user.id == chatter.user_id ? '' : '']"></showTime>
         </div>
       </div>

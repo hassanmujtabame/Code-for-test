@@ -74,6 +74,7 @@ const mixin = {
               let date1 = new Date(date)
               let date2 = new Date()
               var millisec = date2.getTime() - date1.getTime();
+              
               var s = (millisec / 1000).toFixed(1);
 
               var m = (millisec / (1000 * 60)).toFixed(1);
