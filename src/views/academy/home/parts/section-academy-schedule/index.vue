@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-            <div class=" table-network ">
+            <div class=" section-schedule ">
                 <h2>جدول اكاديمية رياديات</h2>
                 <p>
                     هنا تجدين كل المواعيد  المهمة الخاصة بأكاديمية رياديات
                                 </p>
                 
-                <div style="background-color: #F6F8F9;">
+                <div class="section-schedule-content">
                     <div class="row p-2">
                         <div class="col-md-8">
                             <div class="row">

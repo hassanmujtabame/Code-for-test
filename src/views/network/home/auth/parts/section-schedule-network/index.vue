@@ -1,6 +1,6 @@
 <template>
    <div class="container">
-            <div class=" table-network ">
+            <div class=" section-schedule ">
                 <h2 class="home-section-title">
                    {{ $t('riadiat-network-schedule') }}
     
@@ -10,7 +10,7 @@
                     
                 </p>
                 
-                <div style="background-color: #F6F8F9;;min-height: 200px;">
+                <div class="section-schedule-content" >
                     <div class="row p-2">
                         <div class="col-md-8">
                             <div class="row">
