@@ -3,19 +3,9 @@
         <h4>
             {{ $t('filter') }}
         </h4>
-        <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne">
-                        نوع التدريب
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                    aria-labelledby="panelsStayOpen-headingOne">
-                    <div class="accordion-body">
-                        <div>
+        <d-expanded-panel id="accordionPanelsStayOpenExample">
+        <d-expanded-panel-item title="نوع التدريب">
+            <div>
                             <div v-for="(state,i) in states" :key="i" class="form-check">
                                 <input class="form-check-input" type="radio" :value="state.id" v-model="filter.type_training" 
                                 :selected="state.id===filter.type_training"
@@ -26,45 +16,20 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+            </d-expanded-panel-item>
+           
             <!--مجالات التريب-->
-            <div class="accordion-item  show">
-                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseTwo">
-                        مجالات التدريب
-
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
-                    aria-labelledby="panelsStayOpen-headingTwo">
-                    <div class="accordion-body show">
-                        <div v-for="(cat,i) in categories" :key="i" class="form-check">
+            <d-expanded-panel-item title="مجالات التدريب">
+                <div v-for="(cat,i) in categories" :key="i" class="form-check">
                             <input v-model="filter.department_id" :value="cat.id" class="form-check-input" type="checkbox">
                             <label class="form-check-label" for="defaultCheck1">
                                 {{cat.name}}
                             </label>
                         </div>
-                  
-                    </div>
-                </div>
-            </div>
+            </d-expanded-panel-item>
          <!--طريقة العرض-->
-         <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingType">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseType" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseType">
-                        طريقة العرض
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseType" class="accordion-collapse collapse show"
-                    aria-labelledby="panelsStayOpen-headingType">
-                    <div class="accordion-body">
-                        <div>
+         <d-expanded-panel-item title="طريقة العرض">
+            <div>
                             <div v-for="(it,i) in types" :key="i" class="form-check">
                                 <input class="form-check-input" type="radio" :value="it.id" v-model="filter.type" 
                                 :selected="it.id===filter.type"
@@ -75,21 +40,10 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+         </d-expanded-panel-item>
             <!--سعر الدورة-->
-            <div class="accordion-item show">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
-                                    aria-controls="panelsStayOpen-collapseFour">
-                                    سعر الدورة
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
-                                aria-labelledby="panelsStayOpen-headingFour">
-                                <div style="margin: 20px 0px 0 0" class="a">
+         <d-expanded-panel-item title="سعر الدورة">
+            <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">
                                        
                                         <rslider-input
@@ -100,9 +54,9 @@
                                          />
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-        </div>
+            </d-expanded-panel-item>
+       
+        </d-expanded-panel>
         <div class="mt-3 text-center">
             <button @click="updateFilter" class="btn-custmer">
                 {{$t('save')}}
