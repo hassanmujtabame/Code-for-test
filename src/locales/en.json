@@ -720,5 +720,9 @@
   "meeting-categories": "meeting categories",
   "type": "type",
   "orderby": "order by",
-  "display-method": "display method"
+  "display-method": "display method",
+  "classification": "classification",
+  "exhibition-departments": "exhibition departments",
+  "offer-departments": "offer departments",
+  "discount-value": "discount value"
 }

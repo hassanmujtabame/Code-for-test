@@ -714,5 +714,9 @@
   "meeting-categories": "مجالات القاء",
   "type": "نوع",
   "orderby": "ترتيب حسب",
-  "display-method": "طريقة العرض"
+  "display-method": "طريقة العرض",
+  "classification": "تصنيف",
+  "exhibition-departments": "مجالات المعرض",
+  "offer-departments": "مجالات العروض",
+  "discount-value": "قيمة الخصم"
 }

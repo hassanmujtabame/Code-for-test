@@ -3,19 +3,9 @@
         <h4>
             {{ $t('filter') }}
         </h4>
-        <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne">
-                        تصنيف
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                    aria-labelledby="panelsStayOpen-headingOne">
-                    <div class="accordion-body">
-                        <div>
+        <d-expanded-panel class="accordion" id="accordionPanelsStayOpenExample">
+            <d-expanded-panel-item :title="$t('classification')">
+                <div>
                             <div v-for="(state,i) in states" :key="i" class="form-check">
                                 <input class="form-check-input" type="radio" :value="state.id" v-model="filter.expired" 
                                 :selected="state.id===filter.expired"
@@ -26,41 +16,17 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseTwo">
-                        مجالات العروض
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                    aria-labelledby="panelsStayOpen-headingTwo">
-                    <div class="accordion-body">
-                        <div v-for="(cat,i) in categories" :key="i" class="form-check">
+            </d-expanded-panel-item>
+            <d-expanded-panel-item :title="$t('offer-departments')">
+                <div v-for="(cat,i) in categories" :key="i" class="form-check">
                             <input class="form-check-input" type="checkbox" :value="cat.id" v-model="filter.category_id" :id="`defaultCheck${cat.id}`">
                             <label class="form-check-label" :for="`defaultCheck${cat.id}`">
                                 {{ cat.name }}
                             </label>
                         </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseThree">
-                        قيمة الخصم
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseThree" class="accordion-collapse "
-                    aria-labelledby="panelsStayOpen-headingThree">
-                    <div style="margin: 20px 0px 0 0" class="a">
+            </d-expanded-panel-item>
+            <d-expanded-panel-item :title="$t('discount-value')">
+                <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">
                                         <rslider-input
                                          :min.sync="filter.min_discount" 
@@ -71,10 +37,9 @@
                                          />
                                     </div>
                                 </div>
-                </div>
-            </div>
-         
-        </div>
+            </d-expanded-panel-item>
+      
+        </d-expanded-panel>
         <div class="mt-3 text-center">
             <button @click="updateFilter" class="btn-custmer">
                 {{$t('save')}}
