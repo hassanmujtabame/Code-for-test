@@ -15,7 +15,7 @@
                 <div class="information-item">
                   <p class="information-item__label">ايام الدورة : </p>
                   <p class="information-item__value">
-                   {{ itemPage.course_days.map(d=>$t(d)).join(',')  }}
+                   {{ itemPage.course_days?itemPage.course_days.map(d=>$t(d)).join(','):''  }}
                 </p>
                 </div>
                 <div class="information-item">

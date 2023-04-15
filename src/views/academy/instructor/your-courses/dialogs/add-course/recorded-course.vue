@@ -418,7 +418,8 @@
                 price,
                 type_training,
                 learn:learn??[''],
-                instructors:instructors?instructors.map(x=>x.id):[]
+                instructors:instructors?instructors.map(x=>typeof x =='object'?x.id:x):[]
+
             })
             }
             this.showDialog = true;

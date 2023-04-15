@@ -9,7 +9,7 @@
  <PageOnSite :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='on-site'" />
  <PageLive :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='live'"/>
  <PageRecorded :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded'"/>
-
+<addCourseDialog />
 
 </template>
  </div>
@@ -21,11 +21,13 @@
  import PageRecorded from './recorded/joined/index.vue'
  import PageLive from './live/index.vue'
  import coursesAPI from '@/services/api/academy/courses'
+ import addCourseDialog from '@/views/academy/instructor/your-courses/dialogs/add-course/first-dialog'
  export default {
   name:'course-show',
   components:{
    PageOnSite,
    //PageRecordedGuest,
+   addCourseDialog,
    PageRecorded,
    PageLive
   },

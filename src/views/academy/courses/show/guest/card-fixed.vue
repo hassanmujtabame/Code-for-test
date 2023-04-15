@@ -18,7 +18,7 @@
     <d-money-icon color="var(--m-color)" />
     <span class="px-2">{{itemPage.price}} {{ $t('riyals') }}</span>
    </div>
-   <div v-if="token && (userIsSubAcademy ||itemPage.user_is_join_course) " class="mt-3">
+   <div v-if="token && (userIsSubAcademy ||itemPage.user_is_join_course || isOwner) " class="mt-3">
     <button v-if="!isOwner && (!token || !itemPage.user_is_join_course)" @click="inscription" class="btn btn-custmer w-100">إشترك في الدورة</button>
     <button v-else @click="showCourse" class="btn btn-custmer w-100">{{ btnTitleSub() }}</button>
   </div>

@@ -17,7 +17,7 @@
             <div :key="i" class="flex-shrink-0 flex-grow-1 d-flex" v-for="(sel,i) in selected">
                 <d-chip class="w-100" :item="sel" @close="unselected(i)" />
             </div>
-        <input style="min-with:50px" ref="inputMention" v-on="$listeners" @focus="focused=true" @input="inputEvent" class="form-control flex-shink-0" v-bind="{...$attrs,value:undefined}" v-model="value" />
+        <input style="min-with:50px" ref="inputMention" v-on="$listeners" @focus="focused=true" @input="inputEvent" class="form-control flex-shink-0" v-bind="{...$attrs,value:undefined}" v-model="value_" />
         </div>
         <slot name="append-icon"></slot>
     </div>
@@ -72,6 +72,7 @@ export default {
  },
  props:{
     label:{},
+    value:{},
     inline:{
         type:Boolean,
         default:false,
@@ -95,10 +96,11 @@ export default {
       prop: 'value',
       event: 'updateValue'
   },
-    data: () => {
+    data: (vm) => {
+        let selected=vm.items.filter(x=>vm.value.includes(x.id))
         return {
-            value:'',
-            selected:[],
+            value_:'',
+            selected:selected,
            focused:false,
         }
     },
@@ -111,7 +113,9 @@ export default {
       items:{
         immediate:true,
         deep:true,
-        handler(){}
+        handler(){
+            
+        }
       } 
     },
     computed:{
@@ -138,7 +142,7 @@ export default {
             if(!this.selected.find(i=>i.id==item.id)){
                 this.selected.push(item)
                 this.$emit('updateValue',this.selected)
-                this.value=''
+                this.value_=''
             }
             this.$refs['inputMention'].focus()
         },

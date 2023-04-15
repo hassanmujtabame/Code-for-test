@@ -484,7 +484,8 @@ export default {
                     image,
                     price,
                     type_training,
-                    instructors:instructors?instructors.map(x=>x.id):[]
+                    instructors:instructors?instructors.map(x=>typeof x =='object'?x.id:x):[]
+
                 })
             }
             this.showDialog = true;

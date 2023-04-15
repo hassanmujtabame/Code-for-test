@@ -9,10 +9,10 @@
                     أختر نوع الدورة التدريبة التي ترغب بنشرها في اكاديمية رياديات و قم بتنظيم محتويات الدورة ووضع اختبارت و راجع مشاريع الطلاب بكل سهولة 
 سيحصل جميع الطلاب في النهاية على شهادة مقدمة لهم من رياديات تحمل اسمك فتأكد جيدا من المحتوى الذي تقوم بتقديمه  
                 </p>
-                <form action="">
+                <form action="" v-if="showDialog">
                  
                     
-                      <d-select-input label="نوع الدورة" v-model="type" class=" w-100">
+                      <d-select-input label="نوع الدورة" v-model="itemForm.type" class=" w-100">
                         <option value="live" >لايف</option>
                         <option value="on-site"  >دورة  في المقر </option>
                         <option value="recorded">دورة مسجلة </option>
@@ -20,13 +20,13 @@
                 
                     <div class="mt-3"> 
                         <d-mention-input
-    v-model="instructors"
+    v-model="itemForm.instructors"
       label="قم بعمل منشن لمدربين معك في هذا الدورة " 
-    :items="items"
+    :items="instructors"
     :tooltipEvents="events"
   >
   <template #[`item-@`]="{ item }">
-          <d-list-item :title="item.name" :sub-title="item.job" :image="item.image" avatar />
+          <d-list-item :title="item.name" :sub-title="item.job??item.job_title" :image="item.image" avatar />
         </template>
   </d-mention-input>
                       </div>
@@ -93,11 +93,14 @@ export default {
     return{
       items:process.env.NODE_ENV=='development'?users:[],
       type:'live',
+      isUpdate:false,
+      itemDialog:{},
         showDialog:false,
-        instructors:[],
+        instructors:process.env.NODE_ENV=='development'?users:[],
         keyChoose:null,
         itemForm:{
-          instructors:[]
+          instructors:[],
+          type:'live',
         }
     }
   },
@@ -115,7 +118,7 @@ export default {
       */
      if(key) this.keyChoose =  key ;//just future when want to change list type  ex: @ for instructors ,# for students
       let {data} = await academyAPI.instructor.getAll({search:search})
-      this.items = data.data
+      this.instructors = data.data
     }
   ,
     async onOpen (key,...rest) {
@@ -133,14 +136,25 @@ export default {
       this.type = type
     },
     nextDialogCourse(){
-      this.fireOpenDialog('add-course-'+this.type,{instructors:this.itemForm.instructors})
-      this.  closeEvent()
+      let groupDialog = this.isUpdate?'update-course':`add-course-${this.itemForm.type}`
+      let dataEvt = this.isUpdate?{...this.itemDialog}:{}
+      this.fireOpenDialog(groupDialog,{...dataEvt, instructors:this.itemForm.instructors})
+      this.closeEvent()
     },
     closeEvent(){
       this.fireCloseDialog(this.group)
     },
-    openDialog(){
+    openDialog(dataEvt){
+      this.isUpdate = !!dataEvt;
+      if(dataEvt){
+        
+        this.itemDialog = dataEvt;
+      this.itemForm.type = dataEvt.type;
+      this.instructors = dataEvt.instructors;
+      this.itemForm.instructors = dataEvt.instructors.map(ins=>ins.id);
+      }
         this.showDialog = true;
+      
         return true;
     },
     closeDialog(){

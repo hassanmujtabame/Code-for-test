@@ -50,7 +50,8 @@ watch:{
 },
 methods:{
     updateCourse(){
-        this.fireOpenDialog('update-course',this.itemPage)
+        this.fireOpenDialog('add-course-first',this.itemPage)
+        //this.fireOpenDialog('update-course',this.itemPage)
     },
     confirmDeleteItem(){
         let dataEvt={
