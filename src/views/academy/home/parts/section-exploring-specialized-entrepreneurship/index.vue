@@ -11,6 +11,7 @@
         
               </div>
               <d-swiper
+              v-if="!loading"
                 :slides-per-view="7"
                 is-auto
                 :space-between="10"
