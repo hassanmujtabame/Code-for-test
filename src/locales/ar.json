@@ -711,5 +711,8 @@
   "awaiting-approval": "بانتظار الموافقة",
   "not-found-page": "الصفحة غير موجودة",
   "just-now": "الآن",
-  "meeting-categories": "مجالات القاء"
+  "meeting-categories": "مجالات القاء",
+  "type": "نوع",
+  "orderby": "ترتيب حسب",
+  "display-method": "طريقة العرض"
 }

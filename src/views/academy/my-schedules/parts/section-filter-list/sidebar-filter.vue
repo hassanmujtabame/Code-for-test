@@ -1,40 +1,18 @@
 <template>
    <div class="box border p-3 rounded-3">
                     <h4>{{ $t('filter') }}</h4>
-                    <div class="accordion" id="accordionPanelsStayOpenExample">
-                        <div class="accordion-item show">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
-                                    aria-controls="panelsStayOpen-collapseTwo">
-                                    نوع
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
-                                aria-labelledby="panelsStayOpen-headingTwo">
-                                <div class="accordion-body show">
-                                    <div v-for="(cat,i) in categories" :key="i" class="form-check">
+                    <d-expanded-panel id="accordionPanelsStayOpenExample">
+                        <d-expanded-panel-item :title="$t('type')">
+                            <div v-for="(cat,i) in categories" :key="i" class="form-check">
                                     <input v-model="filter.type" :value="cat.id" class="form-check-input" type="checkbox">
                                     <label class="form-check-label" for="defaultCheck1">
                                         {{cat.name}}
                                     </label>
                                 </div>
-                                </div>
-                            </div>
-                        </div>
+                        </d-expanded-panel-item>
                         <!-- order-->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                    aria-controls="panelsStayOpen-collapseOne">
-                                 ترتيب حسب
-                            </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                aria-labelledby="panelsStayOpen-headingOne">
-                                <div class="accordion-body">
-                                    <div>
+                        <d-expanded-panel-item :title="$t('orderby')">
+                            <div>
                                         <div v-for="(state,i) in states" :key="i" class="form-check">
                                 <input class="form-check-input" type="radio" :value="state.id" v-model="filter.created_at" 
                                 :selected="state.id===filter.created_at"
@@ -45,21 +23,9 @@
                                 </label>
                             </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <div class="accordion-item show">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
-                                    aria-controls="panelsStayOpen-collapseThree">
-                                    طريقة العرض
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse  collapse show"
-                                aria-labelledby="panelsStayOpen-headingThree">
-                                <div style="margin: 20px 0px 0 0" class="a">
+                        </d-expanded-panel-item>
+                        <d-expanded-panel-item :title="$t('display-method')">
+                            <div style="margin: 20px 0px 0 0" class="a">
                                     <div v-for="(cat,i) in show_types" :key="i" class="form-check">
                                     <input v-model="filter.type" :value="cat.id" class="form-check-input" type="checkbox">
                                     <label class="form-check-label" for="defaultCheck1">
@@ -67,10 +33,8 @@
                                     </label>
                                 </div>
                                 </div>
-                            </div>
-                        </div>
-                       
-                    </div>
+                        </d-expanded-panel-item>
+                    </d-expanded-panel>
                     <div class="mt-3 text-center">
                         <button @click="updateFilter" class="btn-custmer">
                             {{$t('save')}}

@@ -717,5 +717,8 @@
   "awaiting-approval": "awaiting approval",
   "not-found-page": "not found page",
   "just-now": "just now",
-  "meeting-categories": "meeting categories"
+  "meeting-categories": "meeting categories",
+  "type": "type",
+  "orderby": "order by",
+  "display-method": "display method"
 }
