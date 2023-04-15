@@ -3,7 +3,7 @@
     <div id="course-instructors">
     <h1  class="course-guest-section__title">{{ $t('course-instructors') }}</h1>
     <div class="mt-4" >
-      <instructorCard :item="itemPage.user_info" />
+      <instructorCard v-if="itemPage.user_info" :item="itemPage.user_info" />
     </div>
     </div>
    
