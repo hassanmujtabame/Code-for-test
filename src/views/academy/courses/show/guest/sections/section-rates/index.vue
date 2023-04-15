@@ -7,6 +7,7 @@
       :image="r.user_info.image"
       :rate="r.rate"
       :comment="r.comment"
+      :datetime="r.created_at"
       class="mt-2"
       />
     </div>
@@ -17,7 +18,7 @@
 let itemTest={
     comment:'دكتور مميز لقد أستفدت منه الكثير',
             rate:3,
-            
+            created_at:'2023-03-15T12:08:10',
             user_info:{
                 id:148,
                 image:'/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg',

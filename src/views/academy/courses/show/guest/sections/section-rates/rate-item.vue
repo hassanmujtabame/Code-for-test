@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="course-rate-item__action">
-        <span class="course-rate-item__date">{{ datetime }}</span>
+        <span class="course-rate-item__date">{{ datetime?timeAgoToHuman(datetime):'N/A' }}</span>
     </div>
   </div>
   <p class="course-rate-item__comment mt-3" v-html="comment"></p>
@@ -32,8 +32,7 @@ export default {
     rate:{type:Number},
     comment:{type:String},
     datetime:{
-        type:String,
-        default:'منذ شهر'
+        type:String
     }
  },
  data:()=>({
