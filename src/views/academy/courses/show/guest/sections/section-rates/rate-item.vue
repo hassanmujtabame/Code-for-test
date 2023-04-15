@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="course-rate-item__action">
-        <span class="course-rate-item__date">{{ datetime?timeAgoToHuman(datetime):'N/A' }}</span>
+        <time :dattime="datetime" class="course-rate-item__date">{{ datetime?timeAgoToHuman(datetime):'N/A' }}</time>
     </div>
   </div>
   <p class="course-rate-item__comment mt-3" v-html="comment"></p>
