@@ -31,7 +31,7 @@ export default {
     items:[],
     filterSide:{
       during:null,
-      category_id:[],
+      call_type:null,
       min_price:0,
       max_price:1000
     },
@@ -39,7 +39,7 @@ export default {
             created_at:'asc',
             search:null,
             during:null,
-            category_id:[],
+            call_type:null,
             min_price:0,
             max_price:1000
         }

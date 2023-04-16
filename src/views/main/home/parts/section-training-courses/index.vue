@@ -6,7 +6,7 @@
           >
             <h1>{{ $t('home-section-courses-title') }}</h1>
             <div>
-              <button class="more">{{$t('more')}}</button>
+              <router-link :to="getRouteLocale('academy-courses')" class="more">{{$t('more')}}</router-link>
             </div>
           </div>
           <p class="container">

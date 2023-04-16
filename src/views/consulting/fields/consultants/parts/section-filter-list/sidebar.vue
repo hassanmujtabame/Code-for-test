@@ -40,8 +40,8 @@
               <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
                   aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="accordion-body show">
-                      <div v-for="(cat,i) in categories" :key="i" class="form-check">
-                          <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="checkbox">
+                      <div v-for="(cat,i) in communications_type" :key="i" class="form-check">
+                          <input v-model="filter.call_type" :value="cat.id" class="form-check-input" type="radio">
                           <label class="form-check-label" for="defaultCheck1">
                               {{cat.name}}
                           </label>
@@ -85,6 +85,7 @@
 <script>
 import meetingsAPIs from '@/services/api/learning-meetings.js'
 
+import commonAPI from '@/services/api/common'
 export default {
 name:'sidebar-box',
 props:{
@@ -94,6 +95,8 @@ props:{
   }
 },
 data:(vm)=>{
+    let types = commonAPI.getTypeConsultations()
+    types.unshift({id:null,name:vm.$t('all')})
   return{
       states:[
           {id:null,name:vm.$t('all')},
@@ -102,7 +105,7 @@ data:(vm)=>{
           {id:60,name:'ساعة'},
 
       ],
-      categories:[],
+      communications_type:types,
   filter:vm.filterItem
 }},
 watch:{
