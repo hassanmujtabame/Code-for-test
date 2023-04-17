@@ -2185,3 +2185,14 @@ input[name="card.number"]{
     color: #FFBC00 !important;
     border-color: #FFBC00 !important;
 }
+
+.mobile-layout .nav.nav-pills{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+.mobile-layout .nav.nav-pills::-webkit-scrollbar{
+    width: .5px;
+}
+.mobile-layout .nav.nav-pills>li.nav-item{
+    flex: 1 0 164px;
+}
