@@ -12,7 +12,10 @@
                   {{ item.name }}
                   </TabHead>
                 
-              <div class="container">
+              
+  
+                 </DTabs>
+                 <div class="container">
   
   <div class="tab-content" id="pills-tabContent">
       <TabItem
@@ -24,9 +27,6 @@
       
       </div>
       </div>
-  
-                 </DTabs>
-                 
                 </div>
   
             </div>
