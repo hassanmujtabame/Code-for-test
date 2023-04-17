@@ -50,9 +50,12 @@ export default {
       Design for desktop displays from 1024×768 through 1920×1080
       Design for mobile displays from 360×640 through 414×896
       Design for tablet displays from 601×962 through 1280×800
+      Small (smaller than 640px)
+Medium (641px to 1007px)
+Large (1008px and larger)
       */
-      this.$store.dispatch('core/setIsMobile',window.innerWidth <= 600)
-      this.$store.dispatch('core/setIsTablet',window.innerWidth > 600 && window.innerWidth<=764)
+      this.$store.dispatch('core/setIsMobile',window.innerWidth <= 640)
+      this.$store.dispatch('core/setIsTablet',window.innerWidth > 641 && window.innerWidth<=1007)
     },
     tagManager(){
       let noscript = document.createElement('noscript');

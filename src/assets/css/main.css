@@ -699,6 +699,10 @@ overflow: hidden;
     width: 100% !important;
     height: 100% !important;
 }
+.mobile-layout .img-cons{
+    width: 150px;
+    height: 150px;
+}
 .consulting .btn-custmer-w{
     background-color: transparent !important;
     color: white !important;
@@ -2018,17 +2022,23 @@ color: #414042;
     font-style: normal;
     font-weight: 600;
     font-size: 56px;
-    line-height: 72px;
+    line-height: 1.3;
     /* identical to box height, or 129% */
     color: #FFFFFF;
+  }
+  .mobile-layout .header-title-page{
+    font-size: 45px;
   }
   .header-desc-page{
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    line-height: 32px;
+    line-height: 1.3;
     /* or 133% */
     color: #FFFFFF;
+  }
+  .mobile-layout .header-desc-page{
+    font-size: 20px;
   }
   .home-section-title{
     font-style: normal;

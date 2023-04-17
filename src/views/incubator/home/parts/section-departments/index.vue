@@ -1,6 +1,6 @@
 <template>
    <div class="sec-five mt-5 p-3 bg-transparent">
-            <div class="">
+            <div class="container">
               <div
                 class="d-flex justify-content-center align-items-center container"
               >

@@ -2,7 +2,7 @@
   <div class="container">
     <div class=" section-schedule ">
     <h2 class="home-section-title">{{ $t('riadiat-incubator-schedule') }}</h2>
-                <p class="home-section-text">{{ $t('riadiat-network-schedule-text') }}</p>
+                <p class="home-section-text">{{ $t('riadiat-incubator-schedule-text') }}</p>
                 
                 <div class="section-schedule-content" >
                     <div class="row p-2">

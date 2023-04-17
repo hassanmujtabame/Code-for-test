@@ -2,23 +2,23 @@
   <div class="consulting p-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6  mb-5">
+                    <div class="col-8 col-md-6  mb-5">
                         <h1 class="header-title-page">اكاديمية رياديات</h1>
                         <p class="header-desc-page">
                             طوري مهاراتك و أنطلقي في عالم ريادة الاعمال والعمل الحر , أكاديمية رياديات ستكون معكِ خطوة بخطوة   
                         </p>
-                            <div class="btn-main-style mt-3">
-                                <a @click="shouldLoginMsg" class="btn-custmer shadow"> {{ $t('join-us') }} </a>
-                                <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
-                             </div>
+                           
                     </div>
-                    <div class="col-md-6 m-auto">
+                    <div class="col-3 col-md-6 m-auto">
                         <div style="overflow: inherit;" class="img-cons m-auto ">
                             <img  src="/assets/img/1664192063672 1.png" alt="academy-home" >
                         </div>
 
                     </div>
-
+                    <div class="col-12 mt-3">
+                                <a @click="shouldLoginMsg" class="btn-custmer shadow"> {{ $t('join-us') }} </a>
+                                <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
+                             </div>
                 </div>
                 <div class="star-cons">
                     <img src="/assets/img/starrrr.png" alt="">
