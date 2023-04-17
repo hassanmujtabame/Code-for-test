@@ -1,5 +1,5 @@
 <template>
-   <div class="consulting" :class="{'p-5':!isMobile}">
+   <div class="consulting" :class="[isMobile?'p-3':'p-5']">
             <div class="netwok-home-header">
                 <div class="row">
                     <div class="col-8 col-md-6">
@@ -16,14 +16,14 @@
                         </div>
 
                     </div>
-                    <div class="col-12 mt-5">
+                    <div class="col-12 my-3">
                           <router-link v-if="user" :to="getRouteLocale('network-dashboard')" class="btn-custmer shadow mt-2">الصفة الرئيسية</router-link>
 
                             <template v-else>
 
 
-                          <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer fs-r-24 shadow mt-2">{{ $t('join-us') }}</router-link>
-                          <router-link :to="getRouteLocale('login')" class="btn-custmer-w fs-r-24 bg-transparent text-white mt-2">{{ $t('login-female') }}</router-link>
+                          <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2">{{ $t('join-us') }}</router-link>
+                          <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">{{ $t('login-female') }}</router-link>
                         </template> 
                         </div>
 

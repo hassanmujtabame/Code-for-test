@@ -1,6 +1,6 @@
 <template>
-   <div class="consulting p-5">
-            <div class="container">
+   <div class="consulting " :class="[isMobile?'p-3':'p-5']">
+            <div class="" :class="{container:!isMobile}">
                 <div class="row">
                     <div class="col-8 col-md-6">
                         <h1 class="header-title-page">
@@ -15,12 +15,14 @@
                         </div>
 
                     </div>
-                    <div class="col-12 mt-5">
+                    <div class="col-12">
+                        <div class="my-3">
                         <a v-if="!token" @click="shouldLoginMsg" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
                               <router-link v-else-if="userIsSubIncubator" :to="getRouteLocale('incubator-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
                               <a v-else @click="shouldSubNetworkMsg(subNetworkTitle,$event)"  class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
                               <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
                              </div> 
+                            </div>
                 </div>
                 <div class="star-cons">
                     <img src="/assets/img/starrrr.png" alt="">

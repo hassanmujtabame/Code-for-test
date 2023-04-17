@@ -1,8 +1,8 @@
 <template>
-  <div class="consulting " :class="{'p-5':!isMobile}">
+  <div class="consulting " :class="[isMobile?'p-3':'p-5']">
             <div class="netwok-home-header">
                 <div class="row align-items-center justify-content-between">
-                    <div class="col-md-6">
+                    <div class="col-8 col-md-6">
                         <h1 class="header-title-page">
                             {{ $t('Riadiat-network') }}                                                                     </h1>
                         <p class="header-desc-page">
@@ -13,16 +13,17 @@
                             <p class="header-desc-page">
                                 {{ $t('riadiat-network-home-text-3') }}
                         </p>     
-                        <div class="btn-main-style mt-5">
-                          <router-link v-if="!userIsSubNetwork" :to="getRouteLocale('network-subscribe')" class="btn-custmer fs-r-24 shadow mt-2">{{ $t('join-us') }}</router-link>
-
-                            </div>                                   
+                                                       
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-3 col-md-6">
                         <div style="overflow: inherit;" class=" m-auto text-end">
                             <img class="img-fluid"  src="/assets/img/pana-network.png" alt="" >
                         </div>
                     </div>
+                    <div class="col-12 my-5">
+                          <router-link v-if="!userIsSubNetwork" :to="getRouteLocale('network-subscribe')" class="btn-custmer fs-r-24 shadow mt-2">{{ $t('join-us') }}</router-link>
+
+                            </div>   
                 </div>
             </div>
         </div>
