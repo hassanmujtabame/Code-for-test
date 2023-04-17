@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import OpenLinkSVG from '@/components/icon-svg/open-link.vue'
+//import OpenLinkSVG from '@/components/icon-svg/open-link.vue'
 //import BtnSimple from '@/components/btns/BtnSimple.vue'
 export default {
   props:{
@@ -51,7 +51,7 @@ export default {
     }
   },
   components:{
-    OpenLinkSVG,
+   /* OpenLinkSVG,*/
   //  BtnSimple
   }
 }
