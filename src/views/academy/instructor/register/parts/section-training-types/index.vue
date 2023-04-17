@@ -1,5 +1,5 @@
 <template>
-   <div class="conatiner mt-5">
+   <div class="container mt-5">
                 <h2 class="text-center ">
                     تعرف على انواع التدريب </h2>
                 <div class="row traning mt-5 ">

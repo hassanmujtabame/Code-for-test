@@ -8,7 +8,7 @@
        <SectionTop/>
         <!--#section top exhibition-->
         <!--section filter exhibition-->
-        <div class="conatiner mt-5">
+        <div class="container mt-5">
         <SectionFilter />
         </div>
         <!--#section filter exhibition-->

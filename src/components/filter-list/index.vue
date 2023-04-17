@@ -405,7 +405,8 @@ export default {
             if(evt && evt.page){
                 this.changePage(evt.page)
             }else
-            this.loadList()
+            this.changePage(1)
+            //this.loadList()
         },
         async loadList() {
             if (this.fakeItems){
