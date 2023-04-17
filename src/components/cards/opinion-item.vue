@@ -1,15 +1,17 @@
 <template>
     <div class="item">
-        <div class="row align-items-center p">
-            <div class="col-md-8 osition-relative">
+        <div class="row align-items-stretch">
+            <div class="col-8 position-relative">
+                <div class="d-flex flex-column">
                 <p class="opinion-text" v-html="desc"></p>
                 <h6 class="opinion-name">{{ name }}
                 </h6>
+            </div>
                 <div class="position-absolute dote">
                     <img src="/assets/svg/double-quoted.svg" alt="">
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-4">
                 <img class="opinion-img rounded-3" :src="image" :alt="name" width="368" height="368">
             </div>
         </div>
@@ -33,6 +35,15 @@ export default {
 </script>
 
 <style scoped>
+ .dote >img{
+    width:40px;
+    height:30px;
+}
+
+.dote {
+    top: -24px !important;
+    left:0 !important;
+}
 .opinion-text{
     font-style: normal;
 font-weight: 400;
@@ -41,6 +52,7 @@ line-height: 32px;
 /* or 133% */
 text-transform: capitalize;
 color: #737373;
+flex: 1 0;
 }
 .opinion-img {
     width: 368px;
@@ -54,5 +66,22 @@ color: #737373;
     /* or 133% */
     text-transform: capitalize;
     color: #FFBC00;
+    flex: 0 0;
+}
+.mobile-layout .dote >img{
+    height:15px;
+}
+
+.mobile-layout .dote {
+    top: -10px !important;
+}
+.mobile-layout .opinion-img {
+    width: 100px;
+    height: 100px;
+}
+.mobile-layout .opinion-name
+,.mobile-layout .opinion-text{
+    font-size: 16px;
+    line-height: 1.3;
 }
 </style>

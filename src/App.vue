@@ -1,5 +1,5 @@
 <template>
-  <div id="app position-relative">
+  <div id="app position-relative" :class="{'mobile-layout':isMobile}">
     <d-overlays-simple class="top-0" v-if="isPageLoading" >
       <d-laoding-tail-spin color="#fff" />
       </d-overlays-simple>

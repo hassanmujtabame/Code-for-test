@@ -2,7 +2,7 @@
     <div class="sex-eight mt-5  max-width-100-hidden">
         <div class="container">
           <h2 class="text-center">ماذا يقولون المشتركات في اكاديمية رياديات</h2>
-            <div :id="carouselId" class="hear-carousel owl-carousel owl-theme">
+            <div :id="carouselId" class="hear-carousel owl-carousel owl-theme  mt-5">
               <ItemSlide
               v-for="(item,i) in items"
               :key="i"
