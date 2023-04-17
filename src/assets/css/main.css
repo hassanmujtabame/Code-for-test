@@ -1906,6 +1906,7 @@ select.show-arrow{
     border: 1px solid #979797 !important;
     border-radius: 4px !important;
     color: #979797 !important;
+    height: 100%;
 }
 .filter-list__before-body .nav-pills .nav-link.active {
     background-color: var(--m-color) !important;

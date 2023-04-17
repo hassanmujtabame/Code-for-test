@@ -42,16 +42,16 @@
                 </div>
                 <ul class="nav nav-pills  mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto mt-1 active" id="pills-settings-exams-tab" data-bs-toggle="pill" data-bs-target="#pills-settings-exams" type="button" role="tab" aria-controls="pills-settings-exams" aria-selected="true">ظبط اعدادات الاختبارت  </button>
+                      <button class="nav-link  border t-c m-auto active" id="pills-settings-exams-tab" data-bs-toggle="pill" data-bs-target="#pills-settings-exams" type="button" role="tab" aria-controls="pills-settings-exams" aria-selected="true">ظبط اعدادات الاختبارت  </button>
                     </li>
                     <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto mt-1" id="pills-courses-has-exams-tab" data-bs-toggle="pill" data-bs-target="#pills-courses-has-exams" type="button" role="tab" aria-controls="pills-courses-has-exams" aria-selected="false">  دورات تحتوى على اختبارت </button>
+                      <button class="nav-link  border t-c m-auto" id="pills-courses-has-exams-tab" data-bs-toggle="pill" data-bs-target="#pills-courses-has-exams" type="button" role="tab" aria-controls="pills-courses-has-exams" aria-selected="false">  دورات تحتوى على اختبارت </button>
                     </li>
                     <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto mt-1" id="pills-students-pass-exams-tab" data-bs-toggle="pill" data-bs-target="#pills-students-pass-exams" type="button" role="tab" aria-controls="pills-students-pass-exams" aria-selected="false">  طلاب أجتازو الاختبار</button>
+                      <button class="nav-link  border t-c m-auto" id="pills-students-pass-exams-tab" data-bs-toggle="pill" data-bs-target="#pills-students-pass-exams" type="button" role="tab" aria-controls="pills-students-pass-exams" aria-selected="false">  طلاب أجتازو الاختبار</button>
                     </li>
                     <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto mt-1" id="pills-students-fails-exams-tab" data-bs-toggle="pill" data-bs-target="#pills-students-fails-exams" type="button" role="tab" aria-controls="pills-students-fails-exams" aria-selected="false" > طلاب لم يجتازو الاختبارت  </button>
+                      <button class="nav-link  border t-c m-auto" id="pills-students-fails-exams-tab" data-bs-toggle="pill" data-bs-target="#pills-students-fails-exams" type="button" role="tab" aria-controls="pills-students-fails-exams" aria-selected="false" > طلاب لم يجتازو الاختبارت  </button>
                     </li>
                   </ul>
 

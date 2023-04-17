@@ -41,17 +41,17 @@
                 </div>
                 <ul class="nav nav-pills  mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto mt-1 active" id="pills-settings-projects-tab" data-bs-toggle="pill" data-bs-target="#pills-settings-projects" type="button" role="tab" aria-controls="pills-settings-projects" aria-selected="true">ظبط اعدادات المشاريع  </button>
+                      <button class="nav-link  border t-c m-auto active" id="pills-settings-projects-tab" data-bs-toggle="pill" data-bs-target="#pills-settings-projects" type="button" role="tab" aria-controls="pills-settings-projects" aria-selected="true">ظبط اعدادات المشاريع  </button>
                     </li>
                     <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto mt-1" id="pills-project-need-revision-tab" data-bs-toggle="pill" data-bs-target="#pills-project-need-revision" type="button" role="tab" aria-controls="pills-project-need-revision" aria-selected="false">مشاريع تحتاج مراجعتك </button>
+                      <button class="nav-link  border t-c m-auto" id="pills-project-need-revision-tab" data-bs-toggle="pill" data-bs-target="#pills-project-need-revision" type="button" role="tab" aria-controls="pills-project-need-revision" aria-selected="false">مشاريع تحتاج مراجعتك </button>
                     </li>
                     <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto mt-1" id="pills-courses-has-projects-tab" data-bs-toggle="pill" data-bs-target="#pills-courses-has-projects" type="button" role="tab" aria-controls="pills-courses-has-projects" aria-selected="false"> دورات تحتوي الى مشاريع</button>
+                      <button class="nav-link  border t-c m-auto" id="pills-courses-has-projects-tab" data-bs-toggle="pill" data-bs-target="#pills-courses-has-projects" type="button" role="tab" aria-controls="pills-courses-has-projects" aria-selected="false"> دورات تحتوي الى مشاريع</button>
                     </li>
                     
                     <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto mt-1" id="pills-students-list-tab" data-bs-toggle="pill" data-bs-target="#pills-students-list" type="button" role="tab" aria-controls="pills-students-list" aria-selected="false" >  قائمة الطلاب  </button>
+                      <button class="nav-link  border t-c m-auto" id="pills-students-list-tab" data-bs-toggle="pill" data-bs-target="#pills-students-list" type="button" role="tab" aria-controls="pills-students-list" aria-selected="false" >  قائمة الطلاب  </button>
                     </li>
                   </ul>
 

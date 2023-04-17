@@ -24,7 +24,7 @@
           <template v-slot:before-body>
             <ul class="nav nav-pills  mb-3  justify-content-center">
               <li v-for="(btn, i) in actions" :key="i" class="nav-item col-12 col-md-3">
-                <button class="nav-link  border w-75 t-c m-auto mt-1" :class="{ active: filterItem.status == btn.status }"
+                <button class="nav-link  border w-75 t-c m-auto" :class="{ active: filterItem.status == btn.status }"
                   type="button" @click="changeStatus(btn.status)">{{ btn.label }}</button>
               </li>
             </ul>
