@@ -48,9 +48,11 @@
                                     </svg>
                                     مجالات متنوعة و فريدة                                
                             </p>
-                            <router-link :to="getRouteLocale('consulting-register')" class="btn-main p-3 mt-3 text-white"> 
-                                سجل كمسشار 
+                            <div class="mb-4">
+                            <router-link :to="getRouteLocale('consulting-register')" class="btn-custmer p-3"> 
+                                {{ $t('signup-as-consultant') }} 
                             </router-link>
+                        </div>
                         </div>
     
                     </div>
