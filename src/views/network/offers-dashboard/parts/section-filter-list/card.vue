@@ -126,12 +126,17 @@ margin-bottom: 15px;
     display: flex;
     margin: 0 -5px;
 }
-.offer-item__details-item{font-style: normal;
+.offer-item__details-item{
+    font-style: normal;
 font-weight: 400;
 font-size: 16px;
 line-height: 14px;
 padding: 0 5px;
 } 
+.mobile-layout .offer-item__details-item{
+    font-size: 10px;
+}
+ 
 .date-color{
     color: #1FB9B3;
 }
