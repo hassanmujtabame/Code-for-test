@@ -1,8 +1,8 @@
 <template>
    <div style="" class="consult">
-        <!-- section 1 -->
-        <SectionOne/>
-        <!-- #section 1 -->
+        <!-- section header -->
+        <SectionHeader />
+        <!-- #section Header -->
         <!-- section 2-->
         <div class="container mt-5">
     <!-- شبكة رياديات: وسع دائرة معارفك-->
@@ -48,7 +48,7 @@
 </div>
 </template>
 <script>
-import SectionOne from './parts/section-1/index.vue';
+import SectionHeader from './parts/section-header/index.vue';
 import SectionThree from './parts/section-3/index.vue';
 import SectionMembership from './parts/section-membership/index.vue';
 import SectionSchedules from './parts/section-schedules/index.vue';
@@ -66,7 +66,7 @@ import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
 export default {
 name:'IndexPageGuest',
 components:{
-    SectionOne,
+    SectionHeader,
 
     SectionThree,
     SectionMembership,
