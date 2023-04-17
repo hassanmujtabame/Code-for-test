@@ -694,6 +694,11 @@ position: relative;
 overflow: hidden;
 
 }
+.img-cons img{
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+}
 .consulting .btn-custmer-w{
     background-color: transparent !important;
     color: white !important;

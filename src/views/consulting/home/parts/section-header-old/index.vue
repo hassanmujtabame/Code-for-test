@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-md-6 m-auto">
                         <div class="img-cons m-auto ">
-                            <img style="border-radius: 50%;position: absolute;width: 300px;height: 300px;" src="/assets/img/Group 289326.png" alt="" >
+                            <img src="/assets/img/Group 289326.png" alt="consulting-home" >
                         </div>                        </div>
 
                     </div>

@@ -45,11 +45,11 @@
   </template>
   
   <script>
-  let itemsTest=[
+  /*let itemsTest=[
           {id:1,image_path:'/assets/img/serv-1.png'},
           {id:2,image_path:'/assets/img/serv-2.png'},
           {id:3,image_path:'/assets/img/serv-3.png'},
-      ]
+      ]*/
   export default {
    name:'section-gallary',
    props:{
@@ -60,7 +60,7 @@
    },
    data:(vm)=>{
     let gallery = []
-    if(vm.item.medias.length)gallery=vm.item.medias.filter(x=>true);
+    if(vm.item.medias.length)gallery=vm.item.medias.filter(x=>!!x);
    gallery.unshift({id:-1,image_path:vm.item.image})
     
    return  {

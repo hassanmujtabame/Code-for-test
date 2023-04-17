@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-md-6 m-auto">
                         <div style="overflow: inherit;" class="img-cons m-auto ">
-                            <img style=" position: absolute;width: 341px; height: 341px;top: 7px;left: -36px;" src="/assets/img/1664280407882 1.png" alt="" >
+                            <img  src="/assets/img/1664280407882 1.png" alt="service-provider-home" >
                         </div>
 
                     </div>
