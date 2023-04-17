@@ -1,6 +1,6 @@
 <template>
- <div class="consulting p-5">
-            <div class="container">
+   <div class="consulting" :class="[isMobile?'p-3':'p-5']">
+            <div class="" :class="{container:!isMobile}">
                 <div class="row">
                     <div class="col-8 col-md-6">
                         <h1 class="header-title-page">
@@ -17,7 +17,7 @@
                         </div>
 
                     </div>
-                    <div class="col-12 mt-5">
+                    <div class="col-12 mb-3">
                                                     <a @click="shouldLoginMsg" class="btn-custmer shadow"> {{ $t('join-us') }} </a>
                                                     <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent"> {{ $t('login-female') }}</router-link>
                     </div>
