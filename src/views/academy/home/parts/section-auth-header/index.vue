@@ -1,6 +1,6 @@
 <template>
-    <div class="consulting ">
-        <div class="container">
+   <div class="consulting" :class="[isMobile?'p-3':'p-5']">
+            <div class="" :class="{container:!isMobile}">
             <div class="row align-items-center justify-content-between">
                 <div class="col-8 col-md-6  mb-5">
                     <h1 class="header-title-page">
@@ -15,7 +15,7 @@
                         <img class="img-fluid" src="/assets/img/Group 1171274931s.png" alt="">
                     </div>
                 </div>
-                <div class="col-12 mt-3">
+                <div class="col-12 mb-3">
                         <router-link v-if="userIsSubAcademy" :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
                               <a v-else @click="shouldSubNetworkMsg(subNetworkTitle,$event)"  class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
  

@@ -1,6 +1,6 @@
 <template>
-  <div class="consulting p-5">
-            <div class="container">
+  <div class="consulting" :class="[isMobile?'p-3':'p-5']">
+            <div class="" :class="{container:!isMobile}">
                 <div class="row">
                     <div class="col-8 col-md-6  mb-5">
                         <h1 class="header-title-page">اكاديمية رياديات</h1>
@@ -15,7 +15,7 @@
                         </div>
 
                     </div>
-                    <div class="col-12 mt-3">
+                    <div class="col-12 mb-3">
                                 <a @click="shouldLoginMsg" class="btn-custmer shadow"> {{ $t('join-us') }} </a>
                                 <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
                              </div>
