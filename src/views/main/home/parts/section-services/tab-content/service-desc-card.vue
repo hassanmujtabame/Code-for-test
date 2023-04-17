@@ -6,9 +6,9 @@
                     <p class="">
                         <slot></slot>
                     </p>
-                    <button @click="router_push(routeName)" class="btn btn-custmer pt-3 my-2">
+                    <button @click="router_push(routeName)" class="btn btn-custmer my-2">
                   
-                     <OpenLinkSVG/>
+                      <i class="fa fa-arrow-up-right-from-square"></i>
                      {{ $t('know-more') }}
                   
                   </button>
