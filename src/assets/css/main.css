@@ -58,7 +58,10 @@ textarea {
 
 
 }
-
+.mobile-layout{
+    width: 100vw;
+    overflow-x: hidden;
+}
 .owl-carousel .owl-item img {
     display: block;
     width: 100%;
@@ -789,7 +792,7 @@ line-height: 40PX;
     margin:100px 0;
 }
 .section-schedule-content{
-    height:346px;
+    min-height:346px;
     background-color: #F6F8F9;
 }
 .network-subscribe button{
@@ -1693,6 +1696,7 @@ position: relative;
     width: 100%;
     height: 390px;
     margin: 0 auto;
+    position: relative;
   }
  /** filter list pagination **/
  .disabled>.page-link, .page-link.disabled {

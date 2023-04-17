@@ -5,7 +5,7 @@
             <div class="row justify-content-center  gap-2">
                 <div v-for="(partner,i) in items" :key="i" class=" col-12 col-md-3 text-center" data-aos="fade-up" data-aos-duration="2000">
                   <div class="mx-auto" style="width:fit-content">
-                    <ImgAvatar class="filter-shadow-partner" :img="partner.image_path"  size=180 />
+                    <ImgAvatar class="filter-shadow-partner mx-auto" :img="partner.image_path"  size=180 />
                   </div>
                 </div>
             </div>
