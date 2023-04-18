@@ -1,17 +1,43 @@
+.chat-view{
+  background-color:white;
+}
 .message-group{
     display: flex;
     margin-bottom: 5px;
   }
   .message-group-avatar{
-    --r-avatar:24px;
-      border-radius: 50%;
-      min-height: var(--r-avatar);
-      min-width: var(--r-avatar);
-      height: var(--r-avatar);
-      width: var(--r-avatar);
-      border: 1px solid #f1f1f1;
+    --r-avatar:40px;
+    display: flex;
+    align-items: end;
+    height: var(--r-avatar);
+   width: var(--r-avatar);
+   border-radius: 50%;
+   border: 1px solid #f1f1f1;
       box-shadow: inset 0 1 2;
+      position: relative;
   }
+  .avatar-user-chat{
+    position: relative;
+  }
+  .avatar-user-chat>.status-user-chat,
+  .avatar-user-chat>.status-user-chat.right{
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+  }
+  .avatar-user-chat>.status-user-chat.left{
+    position: absolute;
+    bottom: -8px;
+    right: auto;
+    left: 0;
+  }
+  .message-group-avatar>img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+   border-radius: 50%;
+
+    }
   .bg-my-msg {
     width: fit-content;
     background: var(--color-primary);
@@ -20,24 +46,80 @@
   
   .bg-your-msg {
     width: fit-content;
-    color: #737373;
-    background:#F6F8F9;
+    color: #003439;
+    background: #F5F7F7;
+  
   }
   .bg-your-msg,.bg-my-msg{
-    border-radius: var(--bs-border-radius-lg) !important;
-    padding: .3rem .8rem !important;
-    font-size: .875em;
+    border-radius: 7px !important;
+    padding: 10px 17px !important;
+    font-size: 14px;
+    line-height: 17px;
   }
   .message-group-chat{
     flex-grow:1;
     display:flex;
     flex-direction: column;
   }
-  .message-group-time{
-    color: #bfccdf!important;
-    font-size: .665em;
-    margin: 0 1rem;
+  .message-info-group{
+    color: #9095A4!important;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height, or 123% */
+    margin: 5px 1rem;
+    display: flex;
+    justify-content: start;
   }
-  .chat-view{
-    background-color:#f8f9fa
+  .message-info-group.reverse{
+    flex-direction: row-reverse;
+  }
+  .message-info-group>*{
+    color: #9095A4!important;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .message-info-group>*:not(:last-child)::after{
+    content: ".";
+    padding: 0 2px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .message-info-group.reverse>*:not(:last-child)::after{
+    all: unset;
+  }
+  .message-info-group.reverse>*:not(:last-child)::before{
+    content: ".";
+    padding: 0 2px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .d-divider-chat{
+   position: relative;
+    text-align: center;
+    margin: 1rem 0;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .d-divider-chat>p{
+    background: white;
+    margin: 0;
+    z-index: 2;
+    padding: 0 5px;
+    font-weight: 400;
+font-size: 11px;
+line-height: 13px;
+/* identical to box height, or 118% */
+
+text-align: center;
+
+color: #B6B9C3;
+  }
+  .d-divider-chat>hr{
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    border:1px solid #e7e7ed;
+
   }

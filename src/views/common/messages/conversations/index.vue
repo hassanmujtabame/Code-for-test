@@ -1,11 +1,11 @@
 <template>
- <div style="margin-top: 75px" class="bg-body-page" >
+ <div style="margin-top: 75px;padding:5px">
  <div class="container bg-white mt-5 rounded-2">
  <div class="row">
-    <div class="col-4 border-left  p-0">
+    <div class="col-4">
       <sectionUsers />
     </div>
-    <div class="col-8 border-left border-right p-0">
+    <div class="col-8">
       <sectionChat />
     </div>
  </div>

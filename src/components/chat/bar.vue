@@ -44,6 +44,21 @@ export default {
  methods:{
     
   listenToChannel(){
+    window.Echo.join('online')
+    .here((users)=>{
+        console.mylog('joining',users)
+        this.$store.commit('chat/SET_ONLINE_USERS',users)
+    })
+    .joining((user)=>{
+        console.mylog('joining',user)
+    })
+    .leaving((user)=>{
+        console.mylog('leaving',user)
+
+    })
+    .error((error) => {
+        console.mylog('error online users',error);
+    });
     window.Echo.private(`chat.${this.user.id}`)
     .listen('.send.message.chat', (e) => {
         console.mylog('send.message.chat',e)

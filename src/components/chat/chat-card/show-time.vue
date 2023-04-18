@@ -1,5 +1,5 @@
 <template>
-  <time class="message-group-time"
+  <time class="message-info-group__time"
   v-tooltip="`${dateLong}`"
   :datetime="dateTime"
   v-bind="$attrs"></time>

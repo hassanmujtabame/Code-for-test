@@ -1,4 +1,11 @@
 export default{
+    SET_ONLINE_USERS(state,payload=[]){
+        state.online_users = payload
+    },
+    ADD_ONLINE_USER(state,payload){
+        if(!state.online_users.find(x=>x.id==payload.id))
+        state.online_users.push(payload) 
+    },
     ADD_MESSAGE(state,payload){
         if(!state.messages.find(x=>x.id==payload.id))
         state.messages.push(payload) 

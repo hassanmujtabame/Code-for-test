@@ -50,7 +50,9 @@ export default {
                     wsPort:wsport??443,
                     wssPort:wsport??443,
                     wsPath:'',
-                    disableStats: false,
+                    disableStats: true,
+                    encrypted: true,
+                    forceTLS: false,
                     authEndpoint: auth_endpoint??'https://test1.riadiat.sa/laravel-websockets/auth',
                     auth: {
                         headers: {
@@ -59,7 +61,7 @@ export default {
                             'X-App-ID': process.env.VUE_APP_PUSHER_APP_ID
                         }
                     },
-                    enabledTransports: ['ws', 'flash'],
+                    enabledTransports: ['ws', 'wss'],
                 });
                 window.Echo = new Echo({
                     broadcaster: 'pusher',
@@ -98,13 +100,14 @@ export default {
             },
             subscribeToAllChannels() {
                 [
-                    'disconnection',
+                    /*'disconnection',
                     'connection',
                     'vacated',
                     'occupied',
                     'subscribed',
                     'client-message',
-                    'api-message',
+                    'api-message',*/
+                    'presence-user-online'
                 ].forEach(channelName => this.subscribeToChannel(channelName))
             },
             subscribeToChannel(channel) {

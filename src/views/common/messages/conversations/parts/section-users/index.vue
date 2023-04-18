@@ -1,13 +1,17 @@
 <template>
-  <div class="chat-users">
+  <div class="chat-users py-3">
     <div class="chat-users__header">
-      <h1 class="chat-users__header-title">{{$t('Chats')}} <span>({{items.length}})</span></h1>
+      <h1 v-if="false" class="chat-users__header-title">{{$t('Chats')}} <span>({{items.length}})</span></h1>
     <div class="input-group search-input-group mb-3">
   <span  class="input-group-prepend search-input-icon">
   <i class="fa fa-search"></i>
   </span >
   <input type="text" v-model="search" class="form-control search-input" :placeholder="$t('search')" >
 </div>
+    </div>
+    <div class="d-flex gap-2 mb-3">
+      <button class="btn-chat-filter selected">الاحدث</button>
+      <button class="btn-chat-filter">غرف الدردسة</button>
     </div>
     <div v-if="search!=''" class="chat-users__body">
       <listItemVue  v-for="(it,i) in searchItems" :key="i" @selected="selectOnSearch" :item="it" />
@@ -120,8 +124,9 @@ async searchUsers(){
 .chat-users{
   width: 100%;
   padding: 0 10px;
-  background: #f8f9faa3;
-  padding-top:5px
+  
+  padding-top:5px;
+  border: 0.5px solid rgba(12, 47, 51, 0.2);
 }
 .chat-users__header-title{
   font-size: 20px;
@@ -162,5 +167,24 @@ html[lang=en] .search-input-icon{
   height: calc(100vh - 240px);
     overflow-y: auto;
     margin-left: -10px;
+}
+.btn-chat-filter{
+  box-sizing: border-box;
+border: 1px solid rgba(65, 92, 94,10%);
+border-radius: 4px;
+flex:1 0 50%;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height, or 121% */
+
+padding:16px 5px;
+color: #9095A4;
+}
+.btn-chat-filter.selected{
+  font-weight: 700;
+color: #1FB9B3;
+background: rgba(31, 185, 179,10%);
 }
 </style>

@@ -8,7 +8,7 @@
     <h1>{{ item.user_name }}</h1></div>
 
   </div>
-  <div class="chat-conversation__header-actions">
+  <div v-if="false" class="chat-conversation__header-actions">
     <span><i class="fa fa-video"></i></span>
     <span><i class="fa fa-phone"></i></span>
     <span>|</span>
@@ -19,9 +19,13 @@
   </div>
   </div>
   <div class="chat-conversation__body chat-view" id="chat-view">
-    <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
+    
+    <div v-for="(dateMsg, i) in Object.keys(messages).reverse()" :key="i" :chatter="chatter">
+      <showDivider :text="dateMsg" isDate></showDivider>
+      <showMsg v-for="(chatter, j) in messages[dateMsg]" :key="`chatters${j}`" :chatter="chatter">
        
       </showMsg>
+      </div>
   </div>
   <div class="chat-conversation__footer">
     <div class="chat-conversation__footer-wrapper">
@@ -38,11 +42,13 @@
 </template>
 
 <script>
-import showMsg from './group-msg.vue'
+import showMsg from '@/components/chat/chat-card/group-msg.vue'
 import userAPI from '@/services/api/user';
 import { mapGetters } from 'vuex';
-
+import mixinChat from '@/common/mixins/mixin-chat.vue';
+import showDivider from '@/components/chat/chat-card/divider-chat.vue'
 export default {
+  mixins:[mixinChat],
  name:'chat-conversation-person-section',
  props:{
   item:{
@@ -68,7 +74,8 @@ computed:{
   })
 },
   components: {
-    showMsg
+    showMsg,
+    showDivider
   },
   watch:{
     mymessages:{
@@ -92,7 +99,7 @@ computed:{
   methods: {
     loadMsgsFromStore(){
       this.messages = []
-      this.$store.getters['chat/messages'].filter(c=>(c.receiver_id == this.item.user_id && c.sender_id == this.user.id)||(c.sender_id == this.item.user_id && c.receiver_id == this.user.id)).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
+      this.$store.getters['chat/messages'].filter(c=>(c.receiver_id == this.item.user_id && c.sender_id == this.user.id)||(c.sender_id == this.item.user_id && c.receiver_id == this.user.id)).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoadByDate(msg,this.item.user_image,this.item.user_name))
       this.$nextTick(()=>{
       window.$('#chat-view').animate({scrollTop: document.getElementById('chat-view').scrollHeight},"fast");
       })
@@ -111,7 +118,7 @@ computed:{
             let date =  datetime.split('T')[0]
             let new_message = {...data.data,datetime,date,time,user_id:this.user.id,user_image:this.user.image}
             this.$store.commit('chat/ADD_MESSAGE',new_message)
-            //this.addMsg()
+            
             this.itemForm.message = '';
         }
       } catch (error) {
@@ -130,74 +137,6 @@ computed:{
     },
     onloadedmetadata(event){
         this.audio = event.target;
-    },
-    addMsgLoad(msg){
-      if (this.messages.length == 0) {
-        let m = {
-          id: msg.id,
-          user_id: msg.user_id,
-          user_image:msg.sender_id==this.user.id?this.user.image: this.item.user_image,
-          user_name:msg.sender_id==this.user.id?this.user.name:this.item.user_name,
-          list: [{ ...msg }]
-        }
-        this.messages.unshift(m)
-      } else {
-        let first = this.messages[0]
-        //console.mylog('first',first,msg)
-        if (first.user_id == msg.user_id && first.list[0].datetime == msg.datetime){
-          
-          first.list.unshift({...msg})
-      
-        } else {
-          //console.mylog('new',msg)
-          let m = {
-            id: msg.id,
-            user_id: msg.user_id,
-            user_image:msg.sender_id==this.user.id?this.user.image: this.item.user_image,
-          user_name:msg.sender_id==this.user.id?this.user.name:this.item.user_name,
-            list: [{ ...msg}]
-          }
-       
-        this.messages.unshift(m)
-       
-
-      }
-     
-    }
-    },
-    addMsg(msg) {
-      if (this.messages.length == 0) {
-        let m = {
-          id: msg.id,
-          user_id: msg.user_id,
-          user_image:msg.sender_id==this.user_id?this.user.image: this.item.user_image,
-          user_name:msg.sender_id==this.user_id?this.user.name:this.item.user_name,
-          list: [{ ...msg}]
-        }
-        this.messages.push(m)
-      } else {
-
-        let last = this.messages[this.messages.length - 1]
-        if (last.user_id == msg.user_id && last.list[last.list.length - 1].datetime == msg.datetime) {
-        last.list.push({...msg})
-
-        } else {
-          let m = {
-            id: msg.id,
-            user_id: msg.user_id,
-            user_image:msg.sender_id==this.user_id?this.user.image: this.item.user_image,
-            user_name:msg.sender_id==this.user_id?this.user.name:this.item.user_name,
-            list: [{ ...msg}]
-          }
-          this.messages.push(m)
-        }
-
-      }
-      //console.mylog('sdqs aud',this.audio)
-     if(msg.sender_id != this.user.id)
-     if(this.audio)
-      this.audio.play()
-
     },
     async initializing(message_id) {
       if(!message_id){
@@ -268,7 +207,10 @@ computed:{
 </script>
 
 <style>
+.chat-conversation{
+  border: 0.5px solid rgba(12, 47, 51, 0.2);
 
+}
 .chat-conversation__header-wrapper{
   padding:15px 15px;
   display: flex;

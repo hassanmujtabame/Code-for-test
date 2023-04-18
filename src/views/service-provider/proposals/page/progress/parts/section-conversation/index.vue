@@ -22,8 +22,11 @@
                                 </div>
                                 <div  class="chat-offer-proposal p-2">
                                   <div class="chat-offer-proposal__wrapper" :id="`chat-offer-${this.itemPage.user_offer.id}`">
-                                    <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
+                                    <div v-for="(dateMsg, i) in Object.keys(messages).reverse()" :key="i" :chatter="chatter">
+                                    <showDivider :text="dateMsg" isDate></showDivider>
+                                    <showMsg v-for="(chatter, j) in messages[dateMsg]" :key="`chatters${j}`" :chatter="chatter">
                                     </showMsg>
+                                    </div>
                                   </div>
                                     <div>
                                         <ValidationObserver tag="form" @submit="sendMessage" ref="form">
@@ -52,11 +55,15 @@
 import { mapGetters } from 'vuex';
 import showMsg from '@/components/chat/chat-card/group-msg'
 import userAPI from '@/services/api/user';
+import showDivider from '@/components/chat/chat-card/divider-chat.vue'
+import mixinChat from '@/common/mixins/mixin-chat.vue';
 export default {
+  mixins:[mixinChat],
  name:'section-conversation',
  props:['itemPage','isOwner'],
  components:{
-    showMsg
+    showMsg,
+    showDivider
 
  },
  data:(/*vm*/)=>{
@@ -93,8 +100,9 @@ export default {
  methods:{
     loadMsgsFromStore(){
       this.messages = []
-      
-      this.$store.getters['chat/offerPropsalMessages'].filter(c=>c.offer_id==this.itemPage.user_offer.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
+      let other_user_name = this.isOwner? this.itemPage.user_offer.user_info.name:this.itemPage.user_info.name;
+      let other_user_image = this.isOwner?this.itemPage.user_offer.user_info.image:this.itemPage.user_info.image;
+      this.$store.getters['chat/offerPropsalMessages'].filter(c=>c.offer_id==this.itemPage.user_offer.id).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoadByDate(msg,other_user_image,other_user_name))
       
       this.$nextTick(()=>{
         let id= `chat-offer-${this.itemPage.user_offer.id}`
@@ -102,44 +110,7 @@ export default {
 
       })
     },
-    addMsgLoad(msg){
-        let other_user_name = this.isOwner? this.itemPage.user_offer.user_info.name:this.itemPage.user_info.name;
-      let other_user_image = this.isOwner?this.itemPage.user_offer.user_info.image:this.itemPage.user_info.image;
-      
-     if (this.messages.length == 0) {
-       let m = {
-         id: msg.id,
-         user_id: msg.user_id,
-         user_image:msg.sender_id==this.user.id?this.user.image: other_user_image,
-          user_name:msg.sender_id==this.user.id?this.user.name:other_user_name,
-         list: [{ ...msg }]
-       }
-       this.messages.unshift(m)
-     } else {
-       let first = this.messages[0]
-       //console.mylog('first',first,msg)
-       if (first.user_id == msg.user_id && first.list[0].datetime == msg.datetime){
-         
-         first.list.unshift({...msg})
-     
-       } else {
-         //console.mylog('new',msg)
-         let m = {
-           id: msg.id,
-           user_id: msg.user_id,
-           user_image:msg.sender_id==this.user.id?this.user.image: other_user_image,
-          user_name:msg.sender_id==this.user.id?this.user.name:other_user_name,
-           list: [{ ...msg}]
-         }
-      
-       this.messages.unshift(m)
-      
-
-     }
-    
-   }
-   },
-    
+  
     async sendMessage(evt){
         this.loading =  true;
         evt.preventDefault();

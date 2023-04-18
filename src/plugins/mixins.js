@@ -500,6 +500,12 @@ const mixin = {
               }
               return false;
               },
+              getPreviousDay(days,date = new Date()) {
+                const previous = new Date(date.getTime());
+                previous.setDate(date.getDate() - days);
+              
+                return previous;
+              },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");
               plugin.setAttribute(
@@ -556,6 +562,7 @@ const mixin = {
                     userIsSubProvider: 'auth/isSubscribeProvider',
                     userIsSubAcademy: 'auth/isSubscribeAcademy',
                     userIsSubIncubator: 'auth/isSubscribeIncubator',
+                    onlineUsers: 'chat/onlineUsers',
                     token: 'auth/token',
                     authenticated: 'auth/authenticated',
                    

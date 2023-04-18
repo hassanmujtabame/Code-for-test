@@ -11,13 +11,11 @@
       </div>
     </div>
     <div class="card-body chat-view" :id="group" ref="chat-view">
-
-      <showMsg v-for="(chatter, i) in messages" :key="i" :chatter="chatter">
+      <div v-for="(dateMsg, i) in Object.keys(messages).reverse()" :key="i" :chatter="chatter">
+      <showDivider :text="dateMsg" isDate></showDivider>
+      <showMsg v-for="(chatter, j) in messages[dateMsg]" :key="`chatters${j}`" :chatter="chatter">
        
       </showMsg>
-
-      <div v-if="false" class="divider d-flex align-items-center mb-4">
-        <p class="text-center mx-3 mb-0" style="color: #a2aab7;">Today</p>
       </div>
     </div>
     <div class="card-footer text-muted d-flex justify-content-start align-items-center">
@@ -36,7 +34,10 @@
 import userAPI from '@/services/api/user';
 import showMsg from './group-msg'
 import { mapGetters } from 'vuex';
+import mixinChat from '@/common/mixins/mixin-chat.vue';
+import showDivider from '@/components/chat/chat-card/divider-chat.vue'
 export default {
+  mixins:[mixinChat],
   name: 'd-chat-card',
   props: {
     item: {}
@@ -69,13 +70,14 @@ watch:{
     },
 },
   components: {
-    showMsg
+    showMsg,
+    showDivider
 
   },
   methods: {
     loadMsgsFromStore(){
       this.messages = []
-      this.$store.getters['chat/messages'].filter(c=>(c.receiver_id == this.item.id && c.sender_id == this.user.id)||(c.sender_id == this.item.id && c.receiver_id == this.user.id)).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoad(msg))
+      this.$store.getters['chat/messages'].filter(c=>(c.receiver_id == this.item.id && c.sender_id == this.user.id)||(c.sender_id == this.item.id && c.receiver_id == this.user.id)).sort((a, b)=>{return a.created_at > b.created_at?-1:1}).forEach(msg=>this.addMsgLoadByDate(msg,this.item.image,this.item.name))
       this.$nextTick(()=>{
         window.$("#"+this.group).animate({scrollTop: document.getElementById(this.group).scrollHeight},"fast");
 
@@ -112,78 +114,6 @@ watch:{
       datep.setMinutes(minute);
       datep.setSeconds(0);
       return datep.toLocaleString("en-GB")
-    },
-    addMsgLoad(msg){
-     
-      
-     if (this.messages.length == 0) {
-       let m = {
-         id: msg.id,
-         user_id: msg.user_id,
-         user_image:msg.sender_id==this.user.id?this.user.image: this.item.image,
-          user_name:msg.sender_id==this.user.id?this.user.name:this.item.name,
-         list: [{ ...msg }]
-       }
-       this.messages.unshift(m)
-     } else {
-       let first = this.messages[0]
-       //console.mylog('first',first,msg)
-       if (first.user_id == msg.user_id && first.list[0].datetime == msg.datetime){
-         
-         first.list.unshift({...msg})
-     
-       } else {
-         //console.mylog('new',msg)
-         let m = {
-           id: msg.id,
-           user_id: msg.user_id,
-           user_image:msg.sender_id==this.user.id?this.user.image: this.item.image,
-          user_name:msg.sender_id==this.user.id?this.user.name:this.item.name,
-           list: [{ ...msg}]
-         }
-      
-       this.messages.unshift(m)
-      
-
-     }
-    
-   }
-   },
-    addMsg(msg) {
-
-      if (this.messages.length == 0) {
-        let m = {
-          id: msg.id,
-          user_id: msg.user_id,
-          user_image:msg.sender_id==this.user.id?this.user.image: this.item.image,
-          user_name:msg.sender_id==this.user.id?this.user.name:this.item.name,
-          list: [{ ...msg }]
-        }
-        this.messages.push(m)
-      } else {
-
-        let last = this.messages[this.messages.length - 1]
-        if (last.user_id == msg.user_id && last.list[last.list.length - 1].datetime == msg.datetime) {
-        last.list.push({...msg})
-
-        } else {
-          let m = {
-            id: msg.id,
-            user_id: msg.user_id,
-            user_image:msg.sender_id==this.user.id?this.user.image: this.item.image,
-            user_name:msg.sender_id==this.user.id?this.user.name:this.item.name,
-            list: [{ ...msg}]
-          }
-          this.messages.push(m)
-        }
-
-      }
-      //console.mylog('sdqs aud',this.audio)
-     /*
-     if(msg.sender_id != this.user.id)
-     if(this.audio)
-      this.audio.play()
-    */
     },
     async initializing(message_id) {
       if(!message_id){
