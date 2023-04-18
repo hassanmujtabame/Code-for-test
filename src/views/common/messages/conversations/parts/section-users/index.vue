@@ -11,7 +11,7 @@
     </div>
     <div class="d-flex gap-2 mb-3">
       <button class="btn-chat-filter selected">الاحدث</button>
-      <button class="btn-chat-filter">غرف الدردسة</button>
+      <button class="btn-chat-filter">غرف الدردشة</button>
     </div>
     <div v-if="search!=''" class="chat-users__body">
       <listItemVue  v-for="(it,i) in searchItems" :key="i" @selected="selectOnSearch" :item="it" />
