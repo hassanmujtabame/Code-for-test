@@ -118,6 +118,7 @@ export default {
       */
      if(key) this.keyChoose =  key ;//just future when want to change list type  ex: @ for instructors ,# for students
       let {data} = await academyAPI.instructor.getAll({search:search})
+      if(data.data)
       this.instructors = data.data
     }
   ,
@@ -146,12 +147,12 @@ export default {
     },
     openDialog(dataEvt){
       this.isUpdate = !!dataEvt;
-      if(dataEvt){
+      if(dataEvt && dataEvt.id){
         
         this.itemDialog = dataEvt;
-      this.itemForm.type = dataEvt.type;
-      this.instructors = dataEvt.instructors;
-      this.itemForm.instructors = dataEvt.instructors.map(ins=>ins.id);
+      this.itemForm.type = dataEvt.type??'live';
+      this.instructors = dataEvt.instructors??[];
+      this.itemForm.instructors = this.instructors.map(ins=>ins.id);
       }
         this.showDialog = true;
       
