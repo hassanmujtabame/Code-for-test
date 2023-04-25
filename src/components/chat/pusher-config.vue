@@ -51,11 +51,12 @@ export default {
                     wssPort:wsport??443,
                     wsPath:'',
                     disableStats: true,
-                    encrypted: true,
+                   // encrypted: true,
                     forceTLS: false,
-                    authEndpoint: auth_endpoint??'https://test1.riadiat.sa/laravel-websockets/auth',
+                    authEndpoint: auth_endpoint??'https://test1.riadiat.sa/broadcasting/auth',
                     auth: {
                         headers: {
+                            "Accept": "application/json",
                             'Authorization' : `Bearer ${this.myToken}`,
                             //'X-CSRF-Token': "{{ csrf_token() }}",
                             'X-App-ID': process.env.VUE_APP_PUSHER_APP_ID

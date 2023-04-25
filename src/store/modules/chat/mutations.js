@@ -6,6 +6,11 @@ export default{
         if(!state.online_users.find(x=>x.id==payload.id))
         state.online_users.push(payload) 
     },
+    DEL_ONLINE_USER(state,payload){
+        let index=state.online_users.findIndex(x=>x.id==payload.id)
+        if(index>=0)
+        state.online_users.splice(index,1) 
+    },
     ADD_MESSAGE(state,payload){
         if(!state.messages.find(x=>x.id==payload.id))
         state.messages.push(payload) 

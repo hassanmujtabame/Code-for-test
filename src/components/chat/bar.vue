@@ -46,15 +46,16 @@ export default {
   listenToChannel(){
     window.Echo.join('online')
     .here((users)=>{
-        console.mylog('joining',users)
+        console.mylog('here online',users)
         this.$store.commit('chat/SET_ONLINE_USERS',users)
     })
     .joining((user)=>{
         console.mylog('joining',user)
+        this.$store.commit('chat/ADD_ONLINE_USER',user)
     })
     .leaving((user)=>{
         console.mylog('leaving',user)
-
+        this.$store.commit('chat/DEL_ONLINE_USER',user)
     })
     .error((error) => {
         console.mylog('error online users',error);
