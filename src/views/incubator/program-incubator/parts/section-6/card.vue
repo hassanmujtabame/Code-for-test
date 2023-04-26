@@ -26,7 +26,7 @@ export default {
     },
     url:{
         type:String,
-        default:'/incubator/program-icubator'
+        default:'/incubator/program-incubator'
     }
 }
 }

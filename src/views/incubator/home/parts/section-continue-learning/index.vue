@@ -11,10 +11,10 @@
                     أكملي دوراتك، مراسلاتك وشاركي فـــــــي الشبكة والحاضنة من خلال تطبيق رياديــــــات
                 </h2>
                 <div class="mt-4">
-                    <a href="../Incubator/program-icubator.html">
+                    <a href="#">
                         <img src="/assets/img/34-349265_app-store-google-play-svg 3.png" alt="">
                     </a>
-                    <a href="../Incubator/program-icubator.html">
+                    <a href="#">
                         <img src="/assets/img/34-349265_app-store-google-play-svg 1.png" alt="">
                     </a>
                 </div>
