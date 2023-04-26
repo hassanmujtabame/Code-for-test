@@ -1,154 +1,80 @@
 <template>
-  <div style="background-color:#F6F8F9 ;" class="container mt-5 p-5">
+  <div style="background-color:#F6F8F9;" class="container mt-5 p-5">
 
 <div  class="container">
   <h2 class="home-section-title text-center">
-      برامج  و مشروعات الحاضنة
-
+    برامج و مشروعات الحاضنة
   </h2>
   <div class="row incobter">
-      <div class="col-md-3 mt-4 ">
-          <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
-
-              <div class="box">
-                  <img src="/assets/img/h1.png" alt="">
-              </div>
-              <div>
-                  <h4 class="m-c mt-2"> 
-                      الاستشارات والإرشاد
-
-                  </h4>
-                  <p>
-                      أكثر من 12 جلسة استشارية وإرشادية خلال برنامج الاحتضان
-                  </p>
-              </div>
-          </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4">
+        <CardItem 
+        title="الاستشارات والإرشاد"
+        image="/assets/img/h1.png"
+        >
+        أكثر من 12 جلسة استشارية وإرشادية خلال برنامج الاحتضان
+    </CardItem>  
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 ">
+        <CardItem 
+        title="محفزات المحتضنات"
+        image="/assets/img/h3.png"
+        >
+        نقدم المحفزات التقنية والمالية والتسويقية والاستشارية للمحتضنات</CardItem>
+        
 
       </div>
-      <div class="col-md-3 mt-4 ">
-          <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
-
-              <div class="box">
-                  <img src="/assets/img/h3.png" alt="">
-              </div>
-              <div>
-                  <h4 class="m-c mt-2"> 
-                      الاستشارات والإرشاد
-
-                  </h4>
-                  <p>
-                      أكثر من 12 جلسة استشارية وإرشادية خلال برنامج الاحتضان
-                  </p>
-              </div>
-          </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 ">
+        <CardItem 
+        title="نموذج أولي"
+        image="/assets/img/h4.png"
+        >
+        إنتاج النموذج الأولي المقدم للمنتج أو الخدمة لكل مشروع
+    </CardItem>
+          
 
       </div>
-      <div class="col-md-3 mt-4 ">
-          <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
-
-              <div class="box">
-                  <img src="/assets/img/h4.png" alt="">
-              </div>
-              <div>
-                  <h4 class="m-c mt-2"> 
-                      الاستشارات والإرشاد
-
-                  </h4>
-                  <p>
-                      أكثر من 12 جلسة استشارية وإرشادية خلال برنامج الاحتضان
-                  </p>
-              </div>
-          </div>
-
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 ">
+        <CardItem 
+        title="بناء علامات تجارية"
+        image="/assets/img/h5.png"
+        >
+        تصميم شعار وعلامة تجارية سعودية مميزة لماركتك، بجودة عالمية
+    </CardItem>
       </div>
-      <div class="col-md-3 mt-4 ">
-          <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
-
-              <div class="box">
-                  <img src="/assets/img/h5.png" alt="">
-              </div>
-              <div>
-                  <h4 class="m-c mt-2"> 
-                      الاستشارات والإرشاد
-
-                  </h4>
-                  <p>
-                      أكثر من 12 جلسة استشارية وإرشادية خلال برنامج الاحتضان
-                  </p>
-              </div>
-          </div>
-
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 ">
+        <CardItem 
+        title="التعليم والتدريب"
+        image="/assets/img/h6.png"
+        >
+        تقدم رياديات برنامجا تدريبا مكثفا تتراوح مدته 96 ساعة في 24 يومًا خلال برنامج متكامل مــــــــن خلال
+ فترة الاحتضــــــان
+    </CardItem>
       </div>
-      <div class="col-md-3 mt-4 ">
-          <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
-
-              <div class="box">
-                  <img src="/assets/img/h6.png" alt="">
-              </div>
-              <div>
-                  <h4 class="m-c mt-2"> 
-                      الاستشارات والإرشاد
-
-                  </h4>
-                  <p>
-                      أكثر من 12 جلسة استشارية وإرشادية خلال برنامج الاحتضان
-                  </p>
-              </div>
-          </div>
-
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 ">
+        <CardItem 
+        title="التمويل والاستثمار"
+        image="/assets/img/h 6.png"
+        >
+        البحث عن أفضل البدائل المتاحة لكل خريجات الحاضنة، سواء التمويل من الجهات الممولة المعتمدة أو المستثمرين الأفراد أو الشركات الاستثمارية أو البحث عن شركاء
+    </CardItem>
       </div>
-      <div class="col-md-3 mt-4 ">
-          <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
-
-              <div class="box">
-                  <img src="/assets/img/h 6.png" alt="">
-              </div>
-              <div>
-                  <h4 class="m-c mt-2"> 
-                      الاستشارات والإرشاد
-
-                  </h4>
-                  <p>
-                      أكثر من 12 جلسة استشارية وإرشادية خلال برنامج الاحتضان
-                  </p>
-              </div>
-          </div>
-
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 ">
+        <CardItem 
+        title="الدراسات"
+        image="/assets/img/h7.png"
+        >
+        مساعدة الريادية على تعلم وعمل العديد من المهارات الريادية، ومنها نموذج العمل التجاري، خطة العمل، دراسة الجدوى، والخطة التسويقية
+ و الماليــــــــــة
+    </CardItem>
       </div>
-      <div class="col-md-3 mt-4 ">
-          <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
-
-              <div class="box">
-                  <img src="/assets/img/h7.png" alt="">
-              </div>
-              <div>
-                  <h4 class="m-c mt-2"> 
-                      الاستشارات والإرشاد
-
-                  </h4>
-                  <p>
-                      أكثر من 12 جلسة استشارية وإرشادية خلال برنامج الاحتضان
-                  </p>
-              </div>
-          </div>
-
-      </div>
-      <div class="col-md-3 mt-4 ">
-          <div class="bg-white d-flex flex-column align-items-center text-center rounded-3 p-3 main">
-
-              <div class="box">
-                  <img src="/assets/img/h8.png" alt="">
-              </div>
-              <div>
-                  <h4 class="m-c mt-2"> 
-                      الاستشارات والإرشاد
-
-                  </h4>
-                  <p>
-                      أكثر من 12 جلسة استشارية وإرشادية خلال برنامج الاحتضان
-                  </p>
-              </div>
-          </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 ">
+        <CardItem 
+        title="لقاءات الهامية"
+        image="/assets/img/h8.png"
+        >
+        استضافة العديد من الشخصيات الالهامية والريادية على مدار الأسبوع خلال فترة الاحتضان
+    </CardItem>
+         
 
       </div>
 
@@ -160,8 +86,12 @@
 </template>
 
 <script>
+import CardItem from './card-item.vue';
 export default {
- name:'section-programs-projects'
+ name:'section-programs-projects',
+ components:{
+    CardItem
+ }
 }
 </script>
 

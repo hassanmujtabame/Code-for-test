@@ -15,7 +15,7 @@
                   v-if="!loading"
             :slides-per-view="4"
             :space-between="10"
-              
+              is-auto
               :navigation="true"
               :items="items"
             >
