@@ -1,6 +1,6 @@
 <template>
   <div class="incubator-business-content">
-    <d-stepper-head >
+    <d-stepper-head v-if="false" >
           <d-stepper-head-item status="done">
             دورات تدريبية
           </d-stepper-head-item>
