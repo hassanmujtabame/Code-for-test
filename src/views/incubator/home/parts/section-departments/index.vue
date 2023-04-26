@@ -19,7 +19,9 @@
             >
        
             <template  v-slot:default="{item}" >
-                <CardVue :title="item.title" :img="item.image_path"/>
+                <CardVue :title="item.title" :img="item.image_path"
+                :url="getRouteLocale('incubator-program-incubator')"
+                />
                 </template>
                 </DSwiper>
                 

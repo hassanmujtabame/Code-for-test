@@ -25,8 +25,8 @@ export default {
         type:String
     },
     url:{
-        type:String,
-        default:'/incubator/program-incubator'
+        type:[String,Object],
+        default:()=>{return{name:'incubator-program-incubator'}}
     }
 }
 }
