@@ -2,13 +2,13 @@
  <div class="d-stepper-head-item" >
   <div class="d-stepper-head-item__wrapper">
     <slot name="icon-selected" v-if="status=='done'" :status="status">
-        <i class="icon-status fa-solid fa-circle-check m-c"></i>
+    <d-stepper-icon class="icon-status" :status="status"></d-stepper-icon>
     </slot>
     <slot name="icon-selected" v-if="status=='selected'" :status="status">
-        <i class="icon-status  fa-regular fa-circle-check m-c"></i>
+        <d-stepper-icon class="icon-status" :status="status"></d-stepper-icon>
     </slot>
     <slot name="icon-selected" v-if="status=='disabled'" :status="status">
-        <i class="icon-status fa-regular fa-circle t-c"></i>
+        <d-stepper-icon class="icon-status" :status="status"></d-stepper-icon>
     </slot>
     <span class="d-stepper-head-item__title">
     <slot></slot>
