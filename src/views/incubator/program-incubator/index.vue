@@ -27,6 +27,8 @@
         <!-- section 6-->
         <SectionReadDept :itemPage="itemPage"/>
       </div>
+      <SectionContinueLearning/>
+      <SectionHear :itemPage="itemPage"/>
     </div>
     </div>
 </template>
@@ -38,6 +40,8 @@ import SectionProgramContent from './parts/section-program-content/index.vue'
 import SectionGraduated from './parts/section-graduated/index.vue'
 import SectionPartners from './parts/section-our-partners/index.vue'
 import SectionReadDept from './parts/section-read-dept/index.vue'
+import SectionContinueLearning from '@/views/incubator/home/parts/section-continue-learning/index.vue'
+import SectionHear from './parts/section-hear/index.vue'
 import incubatorAPI from '@/services/api/incubator';
 
 export default {
@@ -48,7 +52,9 @@ components:{
   SectionProgramContent,
   SectionGraduated,
   SectionPartners,
-  SectionReadDept
+  SectionReadDept,
+  SectionContinueLearning,
+  SectionHear,
 },
 data:()=>({
   loading:false,

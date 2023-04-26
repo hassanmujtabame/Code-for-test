@@ -1,7 +1,7 @@
 <template>
   <div class="sex-eight mt-5">
       <div class="container">
-        <h2 class="text-center">   ماذا يقولون المشتركات في حاضنة      </h2>
+        <h2 class="text-center">   ماذا يقولون المشتركات في حاضنة {{ itemPage.name }}     </h2>
         <div :id="carouselId" class="hear-carousel owl-carousel owl-theme  mt-5">
             <ItemSlide
             v-for="(item,i) in items"
@@ -23,9 +23,6 @@ import commonAPI from '@/services/api/common'
 import ItemSlide from '@/components/cards/opinion-item'
 export default {
  name:'section-hear',
- props:{
-    itemPage:{}
- },
  components:{
     ItemSlide
  },
