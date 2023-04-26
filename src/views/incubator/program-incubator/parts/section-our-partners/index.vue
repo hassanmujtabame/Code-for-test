@@ -23,7 +23,7 @@
 <script>
 import ImgAvatar from '@/components/avatars/img-avatar.vue';
 export default {
- name:'section-5',
+ name:'section-our-partners',
  components:{
     ImgAvatar
 }

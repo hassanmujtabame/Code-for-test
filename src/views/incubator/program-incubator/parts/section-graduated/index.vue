@@ -33,7 +33,7 @@
 import DSwiper from '@/components/swiper/index.vue'
 import CardMember from '@/components/cards/card-member.vue'
 export default {
-  name:'section-4',
+  name:'section-graduated',
   components:{
 
   DSwiper,

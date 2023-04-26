@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name:'section-2'
+  name:'section-desc'
 }
 </script>
 

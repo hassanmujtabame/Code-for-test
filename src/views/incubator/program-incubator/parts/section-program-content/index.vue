@@ -152,7 +152,7 @@
 
 <script>
 export default {
-  name:'section-3'
+  name:'section-program-content'
 }
 </script>
 

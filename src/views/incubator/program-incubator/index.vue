@@ -2,22 +2,22 @@
   <div class="mt-5">
        
    <!-- section 1-->
-   <SectionOne />
+   <SectionHeader />
         <!--#section 1-->
        <!-- section 2-->
-       <SectionTwo/>
+       <SectionDesc/>
         <!--#section 2-->
         <!-- section 3-->
-        <SectionThree />
+        <SectionProgramContent />
         <!--#section 3-->
        <!-- section 4-->
-       <SectionFour />
+       <SectionGraduated />
         <!--#section 4-->
         <!-- section 5-->
-        <SectionFive/>
+        <SectionPartners/>
         <!--#section 5-->
         <!-- section 6-->
-        <SectionSix />
+        <SectionReadDept />
         <!--#section 6-->
         <!-- section 7-->
         <SectionSeven />
@@ -44,22 +44,22 @@
 </template>
 
 <script>
-import SectionOne from './parts/section-1/index.vue'
-import SectionTwo from './parts/section-2/index.vue'
-import SectionThree from './parts/section-3/index.vue'
-import SectionFour from './parts/section-4/index.vue'
-import SectionFive from './parts/section-5/index.vue'
-import SectionSix from './parts/section-6/index.vue'
+import SectionHeader from './parts/section-header/index.vue'
+import SectionDesc from './parts/section-description/index.vue'
+import SectionProgramContent from './parts/section-program-content/index.vue'
+import SectionGraduated from './parts/section-graduated/index.vue'
+import SectionPartners from './parts/section-our-partners/index.vue'
+import SectionReadDept from './parts/section-read-dept/index.vue'
 
 export default {
 name:"program-incubator",
 components:{
-  SectionOne,
-  SectionTwo,
-  SectionThree,
-  SectionFour,
-  SectionFive,
-  SectionSix
+  SectionHeader,
+  SectionDesc,
+  SectionProgramContent,
+  SectionGraduated,
+  SectionPartners,
+  SectionReadDept
 }
 }
 </script>

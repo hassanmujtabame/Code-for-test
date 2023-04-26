@@ -33,7 +33,7 @@ import DSwiper from '@/components/swiper/index.vue'
 import CardVue from './card.vue'
 
 export default {
-    name:'section-6',
+    name:'section-read-dept',
     components:{
         DSwiper,
         CardVue
