@@ -18,11 +18,11 @@
     <div class="incubator-business-sidebar__body">
       <d-expanded-panel  id="step-1">
   <template v-slot>
-        <d-expanded-panel-item classTitle="step-title">
+        <d-expanded-panel-item v-for="n in 3" :key="n" classTitle="step-title">
           <template v-slot:btnTitle >
            
           <i class="fa-solid fa-circle-check m-c"></i>
-          المرحلة الاولى
+          المرحلة {{n}}
         </template>
           <d-stepper-head vertical>
           <d-stepper-head-item status="done">
