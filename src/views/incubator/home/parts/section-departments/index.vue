@@ -20,7 +20,8 @@
        
             <template  v-slot:default="{item}" >
                 <CardVue :title="item.title" :img="item.image_path"
-                :url="getRouteLocale('incubator-program-incubator')"
+                :url="getRouteLocale('incubator-program-incubator',{id:item.id})"
+
                 />
                 </template>
                 </DSwiper>
