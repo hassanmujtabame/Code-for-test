@@ -1,5 +1,5 @@
 <template>
-  <WidgetItem title="دوراتك التدريبية" :value="0" color="#1FB9B3"
+  <WidgetItem title="دوراتك التدريبية" code="my-courses" color="#1FB9B3"
   btn-title="عرض الكل"
   :url="generatetoUrl('network-investment-project-requests',{lang:$i18n.locale})"
   />

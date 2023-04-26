@@ -1,5 +1,5 @@
 <template>
-  <WidgetItem title="شهاداتك" :value="0" color="#1FB9B3" 
+  <WidgetItem title="شهاداتك" code="certificates" color="#1FB9B3" 
   :url="getRouteLocale('academy-your-certificates')"
   />
 </template>

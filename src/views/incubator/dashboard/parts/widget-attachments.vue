@@ -1,5 +1,5 @@
 <template>
-  <WidgetItem title="مرفقات" :value="0" color="#F2631C" 
+  <WidgetItem title="مرفقات" code="incubuator-attachments" color="#F2631C" 
   :url="generatetoUrl('network-models/mine',{lang:$i18n.locale})"
   />
 </template>

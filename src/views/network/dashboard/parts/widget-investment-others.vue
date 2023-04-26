@@ -1,6 +1,6 @@
 <template>
   <WidgetItem title="طلباتك لاستثمار مع الاخرين"
-   :value="0" color="#FFBC00" 
+   code="request-investment-with-others" color="#FFBC00" 
    url="/"
    />
 </template>

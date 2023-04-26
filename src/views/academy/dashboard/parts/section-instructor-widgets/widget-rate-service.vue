@@ -1,5 +1,5 @@
 <template>
-  <WidgetItem title="قائمة الإختبارات" :value="0" color="#1FB9B3" 
+  <WidgetItem title="قائمة الإختبارات" code="instructor-exams" color="#1FB9B3" 
   :url="getRouteLocale('academy-your-exams')"
   />
 </template>
