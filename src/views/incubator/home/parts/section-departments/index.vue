@@ -19,7 +19,7 @@
             >
        
             <template  v-slot:default="{item}" >
-                <CardVue :title="item.title" :img="item.image_path"
+                <CardVue :title="item.name" :img="item.image_path"
                 :url="getRouteLocale('incubator-program-incubator',{id:item.id})"
 
                 />
@@ -43,20 +43,20 @@ export default {
     data:()=>({
       loading: false,
         items:[
-        {title:'المجوهرات',image_path:'/assets/svg/jewelry.svg'},
-            {title:'الازيــــــاء',image_path:'/assets/svg/fashion.svg'},
-            {title:'التقنية',image_path:'/assets/svg/techinic.svg'},
-            {title:'الزهــــور والهدايا',image_path:'/assets/svg/flowers-gifts.svg'},
-        {title:'ريــــــــادة الاعمال',image_path:'/assets/svg/business.svg'},
-            {title:'المحاسبة والمالية',image_path:'/assets/svg/account.svg'},
-            {title:'التسويق',image_path:'/assets/svg/shopping.svg'},
-            {title:'القانون',image_path:'/assets/svg/law.svg'},
-            {title:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {title:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {title:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {title:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {title:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {title:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
+        {name:'المجوهرات',image_path:'/assets/svg/jewelry.svg'},
+            {name:'الازيــــــاء',image_path:'/assets/svg/fashion.svg'},
+            {name:'التقنية',image_path:'/assets/svg/techinic.svg'},
+            {name:'الزهــــور والهدايا',image_path:'/assets/svg/flowers-gifts.svg'},
+        {name:'ريــــــــادة الاعمال',image_path:'/assets/svg/business.svg'},
+            {name:'المحاسبة والمالية',image_path:'/assets/svg/account.svg'},
+            {name:'التسويق',image_path:'/assets/svg/shopping.svg'},
+            {name:'القانون',image_path:'/assets/svg/law.svg'},
+            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
+            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
+            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
+            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
+            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
+            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
 
     ]}),
     methods:{
@@ -75,7 +75,7 @@ export default {
     }
     },
     mounted(){
-      //this.initializing()
+      this.initializing()
     }
 }
 </script>

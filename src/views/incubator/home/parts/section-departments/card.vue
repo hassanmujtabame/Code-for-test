@@ -59,4 +59,19 @@ box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.25);
     object-fit: fill;
 
 }
+.incubator-dept__title{
+    font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 1;
+/* or 120% */
+
+display: flex;
+align-items: center;
+text-align: center;
+text-transform: capitalize;
+justify-content: center;
+margin:15px 0 0;
+color: #737373;
+}
 </style>
