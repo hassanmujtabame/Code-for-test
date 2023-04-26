@@ -9,7 +9,7 @@
                             </button>
                           </h2>
                           <slot  name="title" :id="id" :toggle="toggle" :open="opened_"></slot>
-                          <div :id="id" class="accordion-collapse" :class="{'collapse show':opened_}"   :aria-labelledby="idh" data-bs-parent="#accordionFlushExample1">
+                          <div :id="id" class="accordion-collapse collapse" :class="{'show':opened_}"   :aria-labelledby="idh" data-bs-parent="#accordionFlushExample1">
                             <div class="accordion-body">
                                 <slot></slot>
                             </div>
