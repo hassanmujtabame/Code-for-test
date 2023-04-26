@@ -21,13 +21,15 @@
 </template>
 
 <script>
+import commonAPI from '@/services/api/common';
+
 export default {
  props:{
     title:{
         type:String,
         require:true
     },
-    value:{
+    code:{
         default:''
     },
     btnTitle:{type:String},
@@ -38,10 +40,25 @@ export default {
         type:[String,Object],
         
     }
- }
+ },
+    data:()=>({
+      value:0,
+    }),
+    methods:{
+     async initializing(){
+        try {
+          let {data}= await commonAPI.getWidgetValue({code:this.code})
+          if(data.success){
+            this.value=data.data
+          }
+        } catch (error) {
+          console.mylog('error',error)
+        }
+      }
+    },
+    mounted(){
+        if(this.code) this.initializing()
+    }
+
 }
 </script>
-
-<style>
-
-</style>
