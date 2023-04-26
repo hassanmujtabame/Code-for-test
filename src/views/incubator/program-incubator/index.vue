@@ -1,8 +1,14 @@
 <template>
-  <div class="mt-5">
+ <div style="margin-top: 96px;">
+    <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+      هناك خطأ غير معروف يرجي تحديث الصفحة
+    </div>
+    <div v-else >
        
    <!-- section 1-->
    <SectionHeader />
+   <div class="container" >
         <!--#section 1-->
        <!-- section 2-->
        <SectionDesc/>
@@ -18,28 +24,8 @@
         <!--#section 5-->
         <!-- section 6-->
         <SectionReadDept />
-        <!--#section 6-->
-        <!-- section 7-->
-        <SectionSeven />
-        <!--#section 7-->
-         <!-- section 8-->
-         <SectionEight />
-        <!--#section 8--> 
-         <!-- section 9-->
-         <SectionNine />
-        <!--#section 9-->   
-        <!-- section 10-->
-        <SectionTen />
-        <!--#section 10-->  
-        <!-- section 11-->
-        <SectionEleven />
-        <!--#section 11--> 
-        <!-- section 12-->
-        <SectionTwelve/>
-        <!--#section 12--> 
-
-    
-
+      </div>
+    </div>
     </div>
 </template>
 
@@ -50,6 +36,7 @@ import SectionProgramContent from './parts/section-program-content/index.vue'
 import SectionGraduated from './parts/section-graduated/index.vue'
 import SectionPartners from './parts/section-our-partners/index.vue'
 import SectionReadDept from './parts/section-read-dept/index.vue'
+import incubatorAPI from '@/services/api/incubator';
 
 export default {
 name:"program-incubator",
@@ -60,7 +47,31 @@ components:{
   SectionGraduated,
   SectionPartners,
   SectionReadDept
-}
+},
+data:()=>({
+  loading:false,
+  hasError:false,
+  itemPage:{}
+}) 
+,
+methods:{
+    async initializing(){
+      this.loading  = true;
+      try {
+        let { data } = await incubatorAPI.getDepartment(this.$route.params.id)
+        if(data.success){
+          this.itemPage = data.data
+        }
+      } catch (error) {
+          console.mylog('error',error)
+        //
+      }
+      this.loading  = false;
+    }
+    },
+    mounted(){
+      this.initializing()
+    }
 }
 </script>
 
