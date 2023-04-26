@@ -26,7 +26,10 @@
 
 <script>
 export default {
-  name:'section-header'
+  name:'section-header',
+  props:{
+    itemPage:{}
+  }
 }
 </script>
 

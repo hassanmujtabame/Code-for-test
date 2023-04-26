@@ -2202,3 +2202,21 @@ input[name="card.number"]{
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
+.btn-dash{
+    all: unset;
+    background: #CDD7D8;
+    border-radius: 7.17722px;
+    color:white;
+    border-color: #CDD7D8;
+}
+.btn-dash:hover{
+    background:rgba(var( --color-secondary-rgb),0.2);
+  
+    color:var( --color-secondary);
+    border-color: var( --color-secondary);
+}
+.btn-dash.active{
+    background: #2CB7B3;
+    border-color: #2CB7B3;
+
+}

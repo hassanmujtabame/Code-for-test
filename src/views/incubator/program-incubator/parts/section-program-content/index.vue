@@ -152,7 +152,10 @@
 
 <script>
 export default {
-  name:'section-program-content'
+  name:'section-program-content',
+  props:{
+    itemPage:{}
+  }
 }
 </script>
 

@@ -4,7 +4,7 @@
            
                 <div class="col-md-6">
                     <h2>
-                        حاضنة السياحة                    </h2>
+                        حاضنة {{itemPage.name}}                    </h2>
                     <p style="color: #979797;line-height: 40px;font-size: 24px;" class="">
                         برنامج احتضان لأفكار المشاريع الريادية في مجال السياحة و يهدف البرنامج الى تطوير المواهب والمهارات والتعليم والتدريب في ريادة الاعمال و المشاريع الريادية                     </p>
                     <div>
@@ -27,7 +27,10 @@
 
 <script>
 export default {
-  name:'section-desc'
+  name:'section-desc',
+  props:{
+    itemPage:{}
+  }
 }
 </script>
 

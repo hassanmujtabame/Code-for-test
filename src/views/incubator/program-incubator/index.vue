@@ -7,23 +7,25 @@
     <div v-else >
        
    <!-- section 1-->
-   <SectionHeader />
+   <SectionHeader :itemPage="itemPage"/>
    <div class="container" >
         <!--#section 1-->
        <!-- section 2-->
-       <SectionDesc/>
+       <SectionDesc :itemPage="itemPage"/>
         <!--#section 2-->
         <!-- section 3-->
-        <SectionProgramContent />
+        <SectionProgramContent :itemPage="itemPage" />
         <!--#section 3-->
        <!-- section 4-->
-       <SectionGraduated />
+       <SectionGraduated :itemPage="itemPage" />
         <!--#section 4-->
         <!-- section 5-->
-        <SectionPartners/>
+        <div class="mt-5">
+        <SectionPartners :itemPage="itemPage"/>
+      </div>
         <!--#section 5-->
         <!-- section 6-->
-        <SectionReadDept />
+        <SectionReadDept :itemPage="itemPage"/>
       </div>
     </div>
     </div>

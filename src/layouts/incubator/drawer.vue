@@ -1,5 +1,5 @@
 <template>
-    <TemplateDrawer v-slot="{clickLink}">
+    <TemplateDrawer dashboard="incubator-dashboard" v-slot="{clickLink}">
 
                 <div class="box  mx-2 mt-3 ">
                     <d-user-rect-icon class="m-c" color="currentColor"/>

@@ -32,7 +32,7 @@
 
 <script>
 import DSwiper from '@/components/swiper/index.vue'
-import CardVue from './card.vue'
+import CardVue from '@/components/cards/incubator-dept-circle.vue'
 import incubatorAPI from '@/services/api/incubator';
 export default {
     name:'section-incubation-departments',

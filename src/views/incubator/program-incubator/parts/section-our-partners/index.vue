@@ -3,7 +3,7 @@
         
         <div class="container">
             <h2 class="text-center">
-                شركائنا في مجال الازياء
+                شركائنا في مجال {{itemPage.name}}
             </h2>
             <div class="row">
 
@@ -24,6 +24,9 @@
 import ImgAvatar from '@/components/avatars/img-avatar.vue';
 export default {
  name:'section-our-partners',
+  props:{
+    itemPage:{}
+  },
  components:{
     ImgAvatar
 }
@@ -34,10 +37,7 @@ export default {
         {img:'/assets/img/Ellipse 25.png',name:'partner 02'},
         {img:'/assets/img/Ellipse 24.png',name:'partner 03'},
         {img:'/assets/img/Ellipse 25.png',name:'partner 04'},
-        {img:'/assets/img/Ellipse 24.png',name:'partner 05'},
-        {img:'/assets/img/Ellipse 25.png',name:'partner 06'},
-        {img:'/assets/img/Ellipse 24.png',name:'partner 07'},
-        {img:'/assets/img/Ellipse 25.png',name:'partner 08'},
+     
     ]
  }),
  mounted(){

@@ -6,32 +6,25 @@
               <!-- <a class="nav-link active" aria-current="page" href="../index.html"
                 >الرئيسية</a
               > -->
-              <router-link :to="getRouteLocale('network-home')"  class="nav-link">{{ $t('Home-page') }}</router-link>
+              <router-link :to="getRouteLocale('incubator-home')"  class="nav-link">{{ $t('Home-page') }}</router-link>
             </li>
             <li class="nav-item px-2">
            
-              <router-link :to="getRouteLocale('network-investment-project')" class="nav-link">{{ $t('Investment-projects') }}</router-link>
+              <router-link :to="getRouteLocale('network-investment-project')" class="nav-link">{{ $t('incubator-stages') }}</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-exhibitions')" class="nav-link">{{ $t('Exhibitions') }}</router-link>
+              <router-link :to="getRouteLocale('network-exhibitions')" class="nav-link">{{ $t('learning-meetings') }}</router-link>
             </li>
            
-            <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-offers')" class="nav-link">{{ $t('Offers') }}</router-link>
+           <li class="nav-item px-2">
+              <router-link :to="getRouteLocale('network-offers')" class="nav-link">{{ $t('training-courses') }}</router-link>
             </li>
-            <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-models')" class="nav-link">{{ $t('Models') }}</router-link>
-            </li>
-            <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-blogs')" class="nav-link">{{ $t('Blogs') }}</router-link>
-            </li>
+
+            
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
             </li>
-            <div  v-if="false" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center">
-                        <a href="" class="text-white " data-bs-toggle="modal"
-                        data-bs-target="#addModal">{{ $t('add-new-service') }}</a>
-                    </div>
+           
       
     </TemplateHeader>
 </template>

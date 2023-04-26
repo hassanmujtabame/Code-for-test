@@ -5,15 +5,15 @@
                 class="d-flex justify-content-between align-items-center container"
               >
                 <h1>
-                    خريجات مميزات في برنامج السياحة                         </h1>
+                    خريجات مميزات في برنامج {{itemPage.name}}                         </h1>
       
               </div>
               <DSwiper
             v-if="!loading"
-            :slides-per-view="5"
+            :slides-per-view="4"
+            is-auto
             :space-between="10"
               :loop="true"
-              :pagination="true"
               :navigation="true"
               :items="items"
             >
@@ -34,6 +34,9 @@ import DSwiper from '@/components/swiper/index.vue'
 import CardMember from '@/components/cards/card-member.vue'
 export default {
   name:'section-graduated',
+  props:{
+    itemPage:{}
+  },
   components:{
 
   DSwiper,
