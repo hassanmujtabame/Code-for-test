@@ -1,6 +1,6 @@
 <template>
   <MyBlog title="مشاريع دوراتك التدريبة"
-   :value="0" color="#F2631C" 
+   code="my-course-projects" color="#F2631C" 
    :url="getRouteLocale('academy-my-projects')"
    />
 </template>

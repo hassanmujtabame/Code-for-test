@@ -1,5 +1,5 @@
 <template>
-  <itemCard title="لقاءات اشتراكت بها" :value="0"  color="#FFBC00"
+  <itemCard title="لقاءات اشتراكت بها" code="participated-meetings"  color="#FFBC00"
   btnTitle="عرض الكل"
   :url="generatetoUrl('academy-my-meetings',{lang:$i18n.locale})"
   />

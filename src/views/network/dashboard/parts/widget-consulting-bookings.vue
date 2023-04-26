@@ -1,5 +1,5 @@
 <template>
-  <itemCard title="حجوزات استشاراتي" :value="0"  color="#1FB9B3"
+  <itemCard title="حجوزات استشاراتي" code="my-consultation-bookings"  color="#1FB9B3"
   btnTitle="عرض الكل"
   :url="generatetoUrl('consulting-bookings',{lang:$i18n.locale})"
   />

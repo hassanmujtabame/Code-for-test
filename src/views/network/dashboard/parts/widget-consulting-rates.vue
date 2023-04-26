@@ -1,5 +1,5 @@
 <template>
-  <MyBlog title="تقييم استشاراتي" :value="0"  color="#414042"
+  <MyBlog title="تقييم استشاراتي" code="consulting-rate"  color="#414042"
   btnTitle="عرض تقييمات"
   :url="generatetoUrl('consulting-rates',{lang:$i18n.locale})"
   />

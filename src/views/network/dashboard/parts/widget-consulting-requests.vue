@@ -1,5 +1,5 @@
 <template>
-  <MyBlog title="طلبات الاستشارة" :value="0"  color="#414042"
+  <MyBlog title="طلبات الاستشارة" code="request-consutling"  color="#414042"
   :url="generatetoUrl('consulting-requests',{lang:$i18n.locale})"
   />
 </template>

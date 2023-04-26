@@ -1,5 +1,5 @@
 <template>
-  <MyBlog title="طلبات استثمار مشاريعك" :value="0" color="#1FB9B3"
+  <MyBlog title="طلبات استثمار مشاريعك" code="request-investment-projects" color="#1FB9B3"
   btn-title="عرض الطلبات"
   :url="generatetoUrl('network-investment-project-requests',{lang:$i18n.locale})"
   />

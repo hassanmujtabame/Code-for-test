@@ -1,6 +1,6 @@
 <template>
   <MyBlog title="لقائاتك"
-   :value="0" color="#F2631C" 
+   code="my-meetings" color="#F2631C" 
    :url="getRouteLocale('academy-my-meetings')"
    />
 </template>

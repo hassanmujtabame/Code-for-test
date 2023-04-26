@@ -1,5 +1,5 @@
 <template>
-  <MyBlog title="نتائج اختبارتك" :value="0"  color="#2C98B3"
+  <MyBlog title="نتائج اختبارتك" code="my-exam-results"  color="#2C98B3"
   :url="getRouteLocale('academy-your-exams')"
   />
 </template>

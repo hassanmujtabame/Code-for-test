@@ -1,6 +1,6 @@
 <template>
   <MyBlog title="لقاءات التعليمية"
-   :value="0" color="#FFBC00" 
+   code="participated-meetings" color="#FFBC00" 
    url="/"
    />
 </template>

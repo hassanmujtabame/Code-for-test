@@ -1,5 +1,5 @@
 <template>
-  <MyBlog title="لقائات اشتركت بها" :value="0" color="#FFBC00"
+  <MyBlog title="لقائات اشتركت بها" code="participated-meetings" color="#FFBC00"
   :url="getRouteLocale('academy-your-learning-meetings')"
   />
 </template>
