@@ -6,14 +6,14 @@
                     <div class="col-md-6 ">
                     <div class="widget-card w-100 mt-3 p-3">
                         <div class="border p-3">
-                        <widget-rate-service />
+                        <widget-exams />
                         </div>
                     </div>
                     </div>
                     <div class="col-md-6">
                         <div class="widget-card w-100 mt-3 p-3">
                             <div class="border p-3">
-                            <widget-investment />
+                            <widget-projects />
                             </div>
                         </div>
                 </div>
@@ -22,7 +22,7 @@
                     <div class="col-md-6 ">
                         <div class="widget-card w-100  mt-3 p-3">
                         <div class="border p-3">
-                            <widget-investment-others />
+                            <widget-meetings />
                         </div>
                         </div>
                     </div>
@@ -40,17 +40,17 @@
 
 <script>
 import WidgetBlog from './widget-blog.vue';
-import WidgetInvestmentOthers from './widget-investment-others.vue';
-import WidgetInvestment from './widget-investment.vue';
-import WidgetRateService from './widget-rate-service.vue';
+import WidgetMeetings from './widget-meetings.vue';
+import WidgetProjects from './widget-projects.vue';
+import WidgetExams from './widget-exams.vue';
 
 export default {
  name:'widgets-index',
  components:{
     WidgetBlog,
-    WidgetInvestmentOthers,
-    WidgetInvestment,
-    WidgetRateService,
+    WidgetMeetings,
+    WidgetProjects,
+    WidgetExams,
  }
 }
 </script>
