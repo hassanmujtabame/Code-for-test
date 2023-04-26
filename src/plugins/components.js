@@ -60,9 +60,13 @@ import dProgressBar from '@/components/progress-bar/index'
 import dLoadingCircleFill from '@/components/loading/circle-fill/index'
 import dLoadingTailSpin from '@/components/loading/tail-spin/index'
 import UserPreviewProfileCard from '@/components/cards/user/preview-profile-card.vue'
+import dStepperHead from '@/components/stepper/head'
+import dStepperHeadItem from '@/components/stepper/head-item'
 
 Vue.directive('click-outside',clickOutside)
 
+Vue.component(dStepperHead.name,dStepperHead)
+Vue.component(dStepperHeadItem.name,dStepperHeadItem)
 Vue.component(DListItem.name,DListItem)
 Vue.component(DChip.name,DChip)
 Vue.component(DExpandedPanel.name,DExpandedPanel)

@@ -2234,3 +2234,23 @@ input[name="card.number"]{
     border-color: #2CB7B3;
 
 }
+
+.accordion-button.before::after {
+all:unset
+}
+    .accordion-button.before::before {
+    flex-shrink: 0;
+    width: var(--bs-accordion-btn-icon-width);
+    height: var(--bs-accordion-btn-icon-width);
+    margin-right: auto;
+    content: "";
+    background-image: var(--bs-accordion-btn-icon);
+    background-repeat: no-repeat;
+    background-size: var(--bs-accordion-btn-icon-width);
+    transition: var(--bs-accordion-btn-icon-transition);
+}
+
+html[lang="ar"] .accordion-button::after {
+    margin-right: auto;
+    left: 0;
+}

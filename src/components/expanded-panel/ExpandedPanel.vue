@@ -1,6 +1,10 @@
 <template>
   <div class="accordion accordion-flush" >
-                        <h3 v-if="title" class="fw-bolder">{{title}}</h3>
+                        <h3 v-if="title || $slots.title" :class="classTitle">
+                          <slot name="title">
+                          {{title}}
+                        </slot>
+                        </h3>
                         <slot></slot>
   </div>
 </template>
@@ -13,10 +17,15 @@ export default {
         type:String,
 
     },
+    classTitle:{
+      type:String,
+      default:"fw-bolder"
+    }
+  },
 data:()=>({
 
 })
- }
+ 
 }
 </script>
 

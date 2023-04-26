@@ -13,6 +13,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "incubator-dashboard" */ '../views/incubator/dashboard/index.vue') 
     },
     {
+        path: 'incubator/incubator-business',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'incubator-incubator-business',
+        component: () => import(/* webpackChunkName: "incubator-incubator-business" */ '../views/incubator/incubator-business/index.vue') 
+    },
+    {
         path: 'incubator/subscribe',
         meta:{layout:LayoutDefault},
         name: 'incubator-subscribe',

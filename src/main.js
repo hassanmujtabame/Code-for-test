@@ -31,6 +31,7 @@ window.jquery=jquery;
 Vue.prototype.jQuery = jquery
 window.jQuery=jquery;
 import 'bootstrap/dist/js/bootstrap.bundle.js'
+window.bootstrap =require('bootstrap/dist/js/bootstrap.bundle')
 //require('bootstrap/dist/js/bootstrap.bundle');
 //import './assets/js/owl.carousel.min.js'
 let owl_carousel = require('./assets/js/owl.carousel.min.js').default;
