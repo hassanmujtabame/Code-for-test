@@ -7,10 +7,10 @@
    <SectionBalance/>
    <!--#section balance-->
     <div class="row mt-5">
-        <div class="col-md-5 network">
+        <div class="col-md-6">
             <d-card-one/>
         </div>
-        <div class="col-md-5 network">
+        <div class="col-md-6">
             <d-card-two />
         </div>
 

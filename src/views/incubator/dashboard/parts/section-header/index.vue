@@ -1,20 +1,18 @@
 <template>
   <div class="row ">
         <div class="col-md-6 mt-4">
-            <div class="box one  p-3">
+            <div class="box one  p-3 h-100 d-flex flex-column">
                 <h3 class="m-c fw-bolder text-start">
                     تنقل بين خدمات رياديات
                 </h3>
-                <p>
+                <p class="flex-grow-1 mt-3">
                     يمكنك التنقل بيين خدمات رياديات الاخرى بكل سهولة كل ماعليك فعله هو تحديد الخدمة من ثم  الاشتراك في الباقة المناسبة لك ..
                 </p>
                
-                <ul class="nav nav-pills mb-3 d-flex gap-2 flex-wrap "  role="tablist">
-                    <ul class="nav nav-pills mb-3 d-flex gap-2 flex-wrap "  role="tablist">
+               
+                    <ul class="nav nav-pills d-flex gap-2 flex-wrap "  role="tablist">
                       <button v-for="(btn,i) in btns" :key="i" @click="openConfirmDialog(btn,$event)" class="p-2 btn-dash" :class="{active:btn.active}" >{{ btn.title }} </button>
-                       
                   </ul>   
-                  </ul>
             
             </div>
         </div>

@@ -1,7 +1,7 @@
 <template>
   <itemCard title="لقاءات اشتراكت بها" :value="0"  color="#FFBC00"
   btnTitle="عرض الكل"
-  :url="generatetoUrl('consulting-bookings',{lang:$i18n.locale})"
+  :url="generatetoUrl('academy-my-meetings',{lang:$i18n.locale})"
   />
 </template>
 

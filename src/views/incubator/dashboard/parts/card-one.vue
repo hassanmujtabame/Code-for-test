@@ -15,7 +15,7 @@
                     </router-link>
                     </div>
                     <div>
-                        <img class="img-fluid"  src="/assets/img/ve 1.png" alt="">
+                        <img class="img-fluid"  src="/assets/img/Group 1171276122.png" alt="">
 
                     </div>
                 </div>

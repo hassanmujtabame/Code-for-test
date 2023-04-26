@@ -1,20 +1,20 @@
 <template>
-  <div  class="box border  p-4 rounded-2">
+  <div  class="box border  p-3 rounded-2">
                 <div class="d-flex ">
                     <div class="w-75">
 
                         <h3 class="text-dark">
-                            تحتاج الى المساعدة ؟
+                            تبحثين عن موظفين؟
                         </h3>
                         <p  class="text-dark">
-                            لانك عضو في شبكة رياديات يمكنك طلب استشارات  من مستشارينا المميزين في اغلب المجالات بكل سهولة     
+                            يمكنك الان البحث عن الموظفين المناسبين لك عن طريق وظائف رياديات
                         </p>
                         <router-link :to="getRouteLocale('consulting-page')" class="border  border-white rounded-2  text-white bg-main p-2">
                             {{ $t('know_more') }} 
                         </router-link>
                     </div>
-                    <div>
-                        <img class="img-fluid"  src="/assets/img/vuesax/v2.png" alt="">
+                    <div >
+                        <img class="img-fluid" style="height: 184px;" src="/assets/img/Group 1171276124.png" alt="تبحثين عن موظفين؟">
 
                     </div>
                 </div>
