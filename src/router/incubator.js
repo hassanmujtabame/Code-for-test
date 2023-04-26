@@ -8,7 +8,7 @@ const routers =[
     },
     {
         path: 'incubator/dashboard',
-        meta:{layout:LayoutDefault},
+        meta:{layout:LayoutDefault,auth:true},
         name: 'incubator-dashboard',
         component: () => import(/* webpackChunkName: "incubator-dashboard" */ '../views/incubator/dashboard/index.vue') 
     },

@@ -13,9 +13,9 @@
                   </div>
                   <DSwiper
                   v-if="!loading"
-              :slides-per-view="5"
-              :space-between="10"
-              :loop="true"
+            :slides-per-view="4"
+            :space-between="10"
+              
               :navigation="true"
               :items="items"
             >
@@ -38,7 +38,7 @@ export default {
         CardVue
     },
     data:()=>({
-      loading: false,
+      loading: true,
         items:[
         /*{title:'مركز باكورة الأهلية',image:'/assets/img/Group 14502.png'},
         {title:'مركز باكورة الأهلية',image:'/assets/img/Group 17753.png'},

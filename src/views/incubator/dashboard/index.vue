@@ -8,53 +8,10 @@
    <!--#section balance-->
     <div class="row mt-5">
         <div class="col-md-5 network">
-            <div  class="box bg-main p-3 rounded-2">
-                <div class="d-flex">
-                    <div class="w-75">
-
-                        <h3 class="text-white">
-                            تشاركينا ؟
-                        </h3>
-                        <p  class="text-white">
-                            يمكنك ترقية حسابك الان من عضو في الشبكة الى شريك في منصة رياديات والاستفادة بالكثير من المميزات
-
-                        </p>
-                        <router-link custom :to="getRouteLocale('register-networking')" v-slot="{navigate}">
-                        <button @click="navigate"  class="border  border-white rounded-2  text-white bg-transparent p-2">
-                           {{ $t('know_more') }}
-                        </button>
-                    </router-link>
-                    </div>
-                    <div>
-                        <img class="img-fluid"  src="/assets/img/ve 1.png" alt="">
-
-                    </div>
-                </div>
-
-            </div>
+            <d-card-one/>
         </div>
         <div class="col-md-5 network">
-            <div  class="box border  p-4 rounded-2">
-                <div class="d-flex ">
-                    <div class="w-75">
-
-                        <h3 class="text-dark">
-                            تحتاج الى المساعدة ؟
-                        </h3>
-                        <p  class="text-dark">
-                            لانك عضو في شبكة رياديات يمكنك طلب استشارات  من مستشارينا المميزين في اغلب المجالات بكل سهولة     
-                        </p>
-                        <router-link :to="getRouteLocale('consulting-page')" class="border  border-white rounded-2  text-white bg-main p-2">
-                            {{ $t('know_more') }} 
-                        </router-link>
-                    </div>
-                    <div>
-                        <img class="img-fluid"  src="/assets/img/vuesax/v2.png" alt="">
-
-                    </div>
-                </div>
-
-            </div>
+            <d-card-two />
         </div>
 
     </div>
@@ -95,6 +52,8 @@ import WidgetConsultations from './parts/widget-consultations.vue';
 import WidgetLearningMeetings from './parts/widget-learning-meetings.vue';
 import WidgetCourses from './parts/widget-courses.vue';
 import WidgetAttachments from './parts/widget-attachments.vue';
+import dCardOne from './parts/card-one.vue';
+import dCardTwo from './parts/card-two.vue';
 export default {
 name:'network-dashboard',
 components:{
@@ -104,6 +63,8 @@ components:{
     WidgetLearningMeetings,
     WidgetCourses,
     WidgetAttachments,
+    dCardOne,
+    dCardTwo
 }
 }
 </script>

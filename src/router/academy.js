@@ -8,7 +8,7 @@ const routers =[
     },
     {
         path: 'academy/dashboard',
-        meta:{layout:LayoutDefault},
+        meta:{layout:LayoutDefault,auth:true},
         name: 'academy-dashboard',
         component: () => import(/* webpackChunkName: "academy-dashboard" */ '../views/academy/dashboard/index.vue') 
     },
