@@ -57,7 +57,7 @@ components:{
   SectionHear,
 },
 data:()=>({
-  loading:false,
+  loading:true,
   hasError:false,
   itemPage:{}
 }) 
