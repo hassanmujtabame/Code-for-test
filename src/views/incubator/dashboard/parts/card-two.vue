@@ -9,7 +9,7 @@
                         <p  class="text-dark">
                             يمكنك الان البحث عن الموظفين المناسبين لك عن طريق وظائف رياديات
                         </p>
-                        <router-link :to="getRouteLocale('consulting-page')" class="border  border-white rounded-2  text-white bg-main p-2">
+                        <router-link :to="getRouteLocale('service-provider-home')" class="border  border-white rounded-2  text-white bg-main p-2">
                             {{ $t('know_more') }} 
                         </router-link>
                     </div>

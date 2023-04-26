@@ -8,7 +8,7 @@
                         </h3>
                         <p  class="text-white">
                             اعرضي مشروعك على الشبكة واحصلي على تمويل مالي لتنفيذ مشروعك.</p>
-                        <router-link custom :to="getRouteLocale('register-networking')" v-slot="{navigate}">
+                        <router-link custom :to="getRouteLocale('network-investment-project-request-add')" v-slot="{navigate}">
                         <button @click="navigate"  class="border  border-white rounded-2  text-white bg-transparent p-2">
                            {{ $t('know_more') }}
                         </button>
