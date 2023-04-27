@@ -10,10 +10,10 @@
                 </a>
               </p>
               <div class="w-100 text-end">
-              <button class="btn btn-custmer my-2">
+              <router-link :to="getRouteLocale('consulting-home')" class="btn btn-custmer my-2">
                 <i class="fa fa-arrow-up-right-from-square"></i>
                 {{$t('know-more')}}
-              </button>
+              </router-link>
             </div>
             </div>
 
