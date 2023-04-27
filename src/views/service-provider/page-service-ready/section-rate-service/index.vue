@@ -13,7 +13,12 @@
             </div>
             <div>
                 <rateCard v-for="(rateItem,i) in rates" :key="i"
-                :item="rateItem" 
+                :image="item.user_info.image"
+                :name="item.user_info.name"
+                :rate="item.rate"
+                :comment="rateItem.note"
+                :datetime="rateItem.created_at"
+                class="mt-2"
                 :showBorder="(rates.length-1)>i"
                 />
             </div>
@@ -37,7 +42,7 @@ let ratesTest=[
             itemTest,
             itemTest,
         ]
-import rateCard from './rate-card.vue';
+import rateCard from '@/components/cards/rate-item.vue';
 export default {
     name: 'section-rate-service',
     components:{
