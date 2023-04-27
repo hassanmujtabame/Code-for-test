@@ -7,6 +7,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "incubator-home" */ '../views/incubator/home/index.vue') 
     },
     {
+        path: 'incubator/contact-us',
+        meta:{layout:LayoutDefault},
+        name: 'incubator-contact-us',
+        component: () => import(/* webpackChunkName: "ContactUs" */ '../views/main/contact-us/index.vue')
+    },
+    {
         path: 'incubator/dashboard',
         meta:{layout:LayoutDefault,auth:true},
         name: 'incubator-dashboard',
