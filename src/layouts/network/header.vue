@@ -26,7 +26,7 @@
               <router-link :to="getRouteLocale('network-blogs')" class="nav-link">{{ $t('Blogs') }}</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
+              <router-link :to="getRouteLocale('network-contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
             </li>
             <div  v-if="false" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center">
                         <a href="" class="text-white " data-bs-toggle="modal"
