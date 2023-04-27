@@ -10,7 +10,7 @@
                 <div class="col-md-6">
                     <h3>
                         <span class="m-c">
-                            خدمة جاهزة :
+                             {{title_page}} :
                         </span>
                         {{ itemPage.title}}
                     </h3>
@@ -260,6 +260,17 @@ export default {
         starIcon
     },
     computed:{
+        title_page(){
+            switch (this.itemPage.state) {
+                case 'online':
+                case 'offline': return `${this.$t('service')} ${this.$t(this.itemPage.state)}`;
+                case 'service': return this.$t('ready-service');
+            
+                default:
+                    return this.$t('service')
+                    
+            }
+        },
         service_type(){
         
             switch (this.itemPage.state) {
