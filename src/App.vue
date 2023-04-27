@@ -10,12 +10,14 @@
       <portal-target name="body">
       </portal-target>
       <JoinASPartnerDialog />
+      <AbuseDialog />
     <dChatBar />
   </div>
 </template>
 <script>
 
 import JoinASPartnerDialog from '@/common/dialogs/join-as-partner.vue'
+import AbuseDialog from '@/common/dialogs/abuse-dialog/index.vue'
 import dChatBar from '@/components/chat/bar.vue'
 import { mapGetters } from 'vuex'
 export default {
@@ -52,6 +54,7 @@ export default {
     ,
   components:{
     JoinASPartnerDialog,
+    AbuseDialog,
     dChatBar
   },
   computed:{

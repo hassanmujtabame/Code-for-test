@@ -130,6 +130,10 @@ class UserApi extends BaseApi {
     deleteMyWorkGallary(id){
         return window.axios.delete(`user/my-work-gallaries/${id}`);
     }
+    sendAbuseStandard(data){
+        //
+        return window.axios.post(`send-abuse-standard`,data);
+    }
     sendAbuseCommentOnRate(data){
         return window.axios.post(`service-provider/provider/report-comments`,data);
     }

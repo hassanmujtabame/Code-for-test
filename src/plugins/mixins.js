@@ -52,6 +52,10 @@ const mixin = {
               })
               return formData;
             },
+            showAbuseDialog(data){
+              this.fireOpenDialog('abuse-dialog-standard',data)
+
+            },
             showSendMsgProvider(userInfo){
               let dataEvent={
                 formData:{user_id:userInfo.id},

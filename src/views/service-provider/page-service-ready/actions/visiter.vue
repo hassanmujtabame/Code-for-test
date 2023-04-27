@@ -7,7 +7,7 @@
             </button>
         </div>
         <div>
-            <button class="border-0 px-3 py-1 rounded-3">
+            <button @click="sendAbuse" class="border-0 px-3 py-1 rounded-3">
 
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -35,6 +35,9 @@ export default {
     }
  },
  methods:{
+    sendAbuse(){
+        this.showAbuseDialog({item:this.itemPage,form:{table_type:'ready-service',table_id:this.itemPage.id}})
+    },
     openBooking(){
         if(this.itemPage.state=='online'){
             this.openCheckout()
