@@ -27,7 +27,7 @@
   
                           class="mySwiper service-provider" 
                           :items="items"
-                          :loop="true"
+                          
                           :spaceBetween=10
                               :slidesPerView=4
                               is-auto
