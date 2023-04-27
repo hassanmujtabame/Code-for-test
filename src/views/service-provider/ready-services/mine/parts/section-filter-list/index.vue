@@ -23,7 +23,7 @@
                    :price="item.price"
                    :place="item.city"
                    :state="item.state"
-                   :name="item.user_info.name"
+                   :name="item.user_info ? item.user_info.name : 'N/A' "
                    :description="item.desc"
                    :department="item.category_name??'N/A'"
                    :status="item.status"
@@ -47,9 +47,12 @@ export default {
         readyServiceCard,
         sidebarFilter
     },
-    data: () => ({
+    data: (vm) => {
+        let state = ['online','offline','service'].includes(vm.$route.query.state)?vm.$route.query.state:null
+
+        return{
         fitlterSide:{
-            state:null,
+            state,
             category_id:[],
             max_period:100,
             min_period:0,
@@ -59,14 +62,15 @@ export default {
         filterItem:{
             search:null,
             price:'asc',
-            state:null,
+            state,
             category_id:[],
             max_period:100,
             min_period:0,
             max_price:1000,
             min_price:0,
         }
-    }),
+    }
+},
     methods: {
         changeFilter(val){
             this.filterItem = {...this.filterItem,...val}
