@@ -225,7 +225,7 @@ import starIcon from '@/components/icon-svg/star-icon.vue'
 export default {
     name:'page-service-ready',
     metaInfo() {
-  
+  console.mylog('metaInfo')
   return { ...this.metaInfo_ }
 },
     metaInfo2: {
@@ -342,7 +342,10 @@ export default {
         }
   },
   async mounted(){
-    this.initializing()
+    console.mylog('before metaInfo')
+   await this.initializing()
+   console.mylog('after metaInfo')
+
   }
 }
 </script>

@@ -14,6 +14,7 @@ import VueMeta from 'vue-meta'
 Vue.use(VueRouter)
 Vue.use(VueMeta,{
   keyName: 'metaInfo',
+  tagIDKeyName: 'hid'
 })
 
 let lang= Cookies.get('i18n_lang') || 'ar';

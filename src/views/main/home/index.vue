@@ -46,8 +46,20 @@ import SectBlog from './parts/section-blog/index.vue'
 export default {
   name: 'IndexView',
   metaInfo: {
-      
-      title: 'ريادات- Riadiat',
+    meta: [
+    {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'Hello World'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Hello World'
+        }
+     
+    ],
+      title: 'ريادات- Riadiat1',
       titleTemplate:null
     },
   components: {
