@@ -10,18 +10,16 @@
                       </div>
                   </a>
                   <div class="social mt-3">
-                      <a href="#" class="t-c">
-                        <i class="fa-brands fa-twitter"></i>
-                      </a>
-                      <a href="#" class="t-c">
-                        <i class="fa-brands fa-instagram"></i>
-                      </a>
-                      <a href="" class="t-c">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                      </a>
-                      <a href="" class="t-c">
-                        <i class="fa-brands fa-facebook"></i>
-                      </a>
+                    <a v-for="(m,i) in socialMedias" :key="i" :href="m.url" class="t-c">
+                                    <i v-if="m.name=='facebook'" class="fab fa-facebook-f" ></i>
+                                    <i v-if="m.name=='youtube'" class="fab fa-youtube" ></i>
+                                    <i v-if="m.name=='linkedin'" class="fab fa-linkedin-in" ></i>
+                                    <i v-if="m.name=='instagram'" class="fab fa-instagram" ></i>
+                                    <i v-if="m.name=='twitter'" class="fab fa-twitter" ></i>
+                                    <i v-if="m.name=='tiktok'" class="fab fa-tiktok" ></i>
+                                
+                                </a>
+                     
                   </div>
                   <div class="policy-links">
                       <router-link :to="getRouteLocale('Terms-and-Conditions')">
