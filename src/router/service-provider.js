@@ -151,13 +151,13 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/ready-services/request-purchase-services/index.vue') 
     },
     {
-        path: 'service-provider/request-purchase-services/:id(\\d+)/progress',
+        path: 'service-provider/ready-services/purchase-requests/:id(\\d+)/progress',
         meta:{layout:LayoutService,auth:true},
         name: 'service-provider-request-purchase-service-progress',
         component: () => import(/* webpackChunkName: "service-provider-request-purchase-progress" */ '../views/service-provider/ready-services/request-purchase-services/progress/index.vue') 
     },
     {
-        path: 'service-provider/request-purchase-services/:id(\\d+)',
+        path: 'service-provider/ready-services/purchase-requests/:id(\\d+)',
         meta:{layout:LayoutService,auth:true},
         name: 'service-provider-request-purchase-service-show',
         component: () => import(/* webpackChunkName: "service-provider-request-purchase-show" */ '../views/service-provider/ready-services/request-purchase-services/show-request.vue') 
