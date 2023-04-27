@@ -9,7 +9,7 @@ hideAmount
   <div v-if="dialog" class="d-flex flex-wrap gap-2">
 
                                 <div>
-                                    <p class="p-0 m-0 t-c fs-r-24">
+                                    <p class="word-break-all p-0 m-0 t-c fs-r-24">
                                             {{item.title}}
                                     </p>
                                     <p  class="p-0 m-0 m-c" style="font-size:20px">

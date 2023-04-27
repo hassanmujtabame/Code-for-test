@@ -8,7 +8,7 @@
 
             <div class="row justify-content-between">
                 <div class="col-md-6">
-                    <h3>
+                    <h3 class="word-break-all">
                         <span class="m-c">
                              {{title_page}} :
                         </span>

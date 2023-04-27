@@ -109,6 +109,10 @@ line-height: 24px;
 text-transform: capitalize;
 margin: 0;
 color: #414042;
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
 }
 .ready-service-card__description{
 font-style: normal;
@@ -119,7 +123,7 @@ line-height: 17px;
 text-align: right;
 color: #737373;
 height:42.38px;
-
+word-break: break-all;
 }
 .ready-service-card__content{
     padding:5px 16px;

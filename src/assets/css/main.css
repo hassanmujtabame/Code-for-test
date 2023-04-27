@@ -2254,3 +2254,7 @@ html[lang="ar"] .accordion-button::after {
     margin-right: auto;
     left: 0;
 }
+
+.word-break-all{
+    word-break: break-all;
+}

@@ -10,7 +10,7 @@
                 <div class="col-md-5 justify-content-end tex-end ">
                     <div class="border mt-2 payment-card-detail">
                         <div class="box ">
-                            <h6 class="">
+                            <h6 class="checkout-title">
                                 {{ title_ }}
                             </h6>
                             <slot :item="itemForm" :otherData="otherData"></slot>
@@ -238,6 +238,9 @@ export default {
 </script>
 
 <style scoped>
+.checkout-title{
+    word-break: break-all;
+}
 .payment-card-detail {
     width: 360px;
     height: 352px;
