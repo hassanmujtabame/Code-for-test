@@ -22,11 +22,13 @@
                  <div class="row p-3">
                      <div v-for="(pack,p) in packages" :key="p" class="col-md-4  mt-2">
                          <SubscribeCard
+                         :itemId="pack.id"
                          :title="getTitleSubscribe(pack.type)"
                          :price="pack.price"
                          :features="pack.features.map(c=>c.desc)"
                          :type-subscribe="pack.type"
                          @selected="choose(pack)"
+                         :subscribed="userSubAcademy"
                          ></SubscribeCard>
                       
                      </div>

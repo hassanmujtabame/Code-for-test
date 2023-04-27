@@ -20,8 +20,11 @@
                          </div>
                      </div>
                      <div >
-                         <a @click="selected" href="#" class="btn-main px-4 py-2" >
+                         <a @click="selected" v-if="!subscribed.subscribe" href="#" class="btn-main px-4 py-2" >
                              اشتركي الآن
+                         </a>
+                         <a  v-else-if="subscribed.package_id==itemId" href="#" class="btn-danger px-4 py-2" >
+                             انت مشترك الان
                          </a>
                      </div>
             
@@ -32,6 +35,9 @@
 
 export default {
   props:{
+    itemId:{
+        type:[String,Number]
+    },
     title:{
         type:String,
     },
@@ -42,6 +48,10 @@ export default {
         type:String
     },
     features:{
+        type:[Array,Object],
+        
+    },
+    subscribed:{
         type:[Array,Object],
         
     }
