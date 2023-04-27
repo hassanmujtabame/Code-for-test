@@ -145,7 +145,7 @@ const routers =[
         component: () => import(/* webpackChunkName: "service-provider-show-service-page-progress" */ '../views/service-provider/proposals/request-page-in-progress/index.vue') 
     },
     {
-        path: 'service-provider/request-purchase-services',
+        path: 'service-provider/ready-services/purchase-requests',
         meta:{layout:LayoutService,auth:true},
         name: 'service-provider-request-purchase-services',
         component: () => import(/* webpackChunkName: "service-provider-request-purchase" */ '../views/service-provider/ready-services/request-purchase-services/index.vue') 

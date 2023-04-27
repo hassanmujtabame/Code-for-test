@@ -85,7 +85,7 @@
     
              <!--request description -->
              <SectionDesc :item-page="itemPage" />
-              <div class="box border rounded-3 p-4 mt-3">
+              <div v-if="false" class="box border rounded-3 p-4 mt-3">
                   <p class="fs-3 text-center">
                       طلبات شراء هذه الخدمة
                   </p>

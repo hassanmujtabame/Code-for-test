@@ -5,7 +5,7 @@
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
      <div v-else class="container">
-  <ProgressView :readyService="readyService" :itemPage="itemPage" />
+  <ProgressView :readyService="readyService" :itemPage="itemPage" :isOwner="isOwner"/>
 </div>
 </div>
 </template>
@@ -49,7 +49,7 @@ export default {
                     let {service,...item} =data.data
                    this.itemPage = item;
                    this.readyService = service;
-                   this.isOwner = this.itemPage.user_id==this.user.id
+                   this.isOwner = this.readyService.user_id==this.user.id
                 }else{
                   this.hasError = true;
                 }

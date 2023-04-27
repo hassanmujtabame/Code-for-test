@@ -86,7 +86,7 @@
               
                        <!--request description -->
                        <SectionDesc :item-page="itemPage" />
-                        <div class="box border rounded-3 p-4 mt-3">
+                        <div v-if="isOwner" class="box border rounded-3 p-4 mt-3">
                             <p class="fs-3 text-center">
                                 طلبات شراء هذه الخدمة
                             </p>
@@ -147,6 +147,7 @@ export default {
       loading:true,
       hasError:false,
       msgError:null,
+      isOwner:false,
       itemPage:{},
       colors:['#F2631C','#FFBC00','#2C98B3']
   }},
@@ -174,6 +175,7 @@ export default {
                 let { data } = await readyServiceAPI.getRequestForPurchaseService(this.$route.params.id)
                 if (data.success) {
                    this.itemPage = data.data;
+                   this.isOwner = this.itemPage.service.user_id==this.user.id
                 }else{
                   this.hasError = true;
                   this.msgError = data.message

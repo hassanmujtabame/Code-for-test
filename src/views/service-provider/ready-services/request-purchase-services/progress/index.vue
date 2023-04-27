@@ -84,7 +84,7 @@
       
                <!--request description -->
                <SectionDesc :item-page="itemPage" :readyService="readyService" />
-                <div class="box border rounded-3 p-4 mt-3">
+                <div v-if="isOwner" class="box border rounded-3 p-4 mt-3">
                     <p class="fs-3 text-center">
                         طلبات شراء هذه الخدمة
                     </p>
@@ -133,7 +133,7 @@
   import ChangeDateRequest from './dialogs/change-value-date.vue'
     export default {
       name:'request-progress-page',
-   props:['itemPage','readyService'],
+   props:['itemPage','readyService','isOwner'],
      components:{
   
           ChangeDateRequest,
