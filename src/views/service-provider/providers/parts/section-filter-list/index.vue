@@ -19,7 +19,7 @@
             
 
             <template v-slot="{ item }">
-                <router-link  class="router-link" :to="getRouteLocale('service-provider-ready-service', { id: item.id })">
+                <router-link  class="router-link" :to="getRouteLocale('service-provider-show-profile', { id: item.id })">
                     <cardInfoVue 
                     :name="item.name"
                     :bio="item.bio"
