@@ -61,7 +61,7 @@ export default {
         filterItem:{
             search:null,
             price:'asc',
-            state:state,
+            state,
             category_id:[],
             max_period:100,
             min_period:0,
