@@ -21,7 +21,7 @@
             </div>
             <div class="ready-service-card__footer-item">
             <d-localisation-icon :size="16" color="#979797"/>
-            <span>{{ $t(state) }}</span>
+            <span>{{ stateText }}</span>
             </div>
             <div class="ready-service-card__footer-item">
             <d-school-wallet-icon :size="16" color="#979797"/>
@@ -67,6 +67,18 @@ export default {
     },
     status:{
         type:String,//actived | stopped
+    }
+ },
+ computed:{
+    stateText(){
+        switch (this.state) {
+            case 'online':
+            case 'offline': return this.$t(this.state)
+            case 'service': return this.$t('ready-service')
+        
+            default:
+                return this.$t('service')
+        }
     }
  }
 }
