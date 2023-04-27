@@ -15,7 +15,7 @@
                             </h2>
                         </div>
 
-                <router-link :to="getRouteLocale('service-provider-services-online')"
+                <router-link :to="getRouteLocale('service-provider-ready-services',{},{state:'online'})"
                             class="text-white fs-1 box-tow">
                             <svg width="50" height="50" viewBox="0 0 107 107" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@
 
                         </div>
 
-                        <router-link :to="getRouteLocale('service-provider-services-offline')" class="text-white fs-1 box-tow">
+                        <router-link :to="getRouteLocale('service-provider-ready-services',{},{state:'offline'})" class="text-white fs-1 box-tow">
                             <svg width="50" height="50" viewBox="0 0 107 107" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
