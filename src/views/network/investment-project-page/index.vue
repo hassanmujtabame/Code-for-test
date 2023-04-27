@@ -7,10 +7,10 @@
         <div v-else class="container">
             <div class="d-flex flex-wrap justify-content-between">
                 <div class="">
-                    <h3>{{  project.title }}</h3>
+                    <h3>{{  itemPage.title }}</h3>
                 </div>
                 <div>
-                    <button style="background-color:#F6F8F9 ;" class="btn">
+                    <button @click="sendAbuse" style="background-color:#F6F8F9 ;" class="btn">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M6.86719 30.3337C6.32052 30.3337 5.86719 29.8803 5.86719 29.3337V2.66699C5.86719 2.12033 6.32052 1.66699 6.86719 1.66699C7.41385 1.66699 7.86719 2.12033 7.86719 2.66699V29.3337C7.86719 29.8803 7.41385 30.3337 6.86719 30.3337Z"
@@ -37,17 +37,17 @@
                         <p class="text-end t-c">
                             {{ $t('publish-date') }}
                             <span>
-                                : {{project.created_at}}
+                                : {{itemPage.created_at}}
                             </span>
                         </p>
                         <div class="text-start">
 
                             <h5 class="t-c">
-                               {{ project.title}}
+                               {{ itemPage.title}}
                             </h5>
                             <p>
                                 <span class="m-c">
-                                    {{project.amount_financing_required}}
+                                    {{itemPage.amount_financing_required}}
                                 </span>
                                 <span class="y-c">
                                     {{$t('SAR')}}
@@ -63,7 +63,7 @@
                                         <div class="d-flex justify-content-between">
                                             <p>
                                                 <span class="fw-bolder t-c fs-6">
-                                                    من {{project.count_invest}} مستثمر
+                                                    من {{itemPage.count_invest}} مستثمر
                                                 </span>
                                             </p>
                                         </div>
@@ -74,7 +74,7 @@
 
                                 <small class="t-c text-start">
                                     <span>
-                                        {{project.minimum_investment}}%
+                                        {{itemPage.minimum_investment}}%
                                     </span>
                                     {{ $t('required-minimum')  }} 
                                 </small>
@@ -90,7 +90,7 @@
                             </div>
                             <div class="mt-2">
                                 <div>
-                                    <button v-if="project.investment_type=='physical'" @click="openConfirmFinanceDialog" class="btn bg-main text-white" 
+                                    <button v-if="itemPage.investment_type=='physical'" @click="openConfirmFinanceDialog" class="btn bg-main text-white" 
                                         >
                                        {{ $t('Project_financing') }} 
                                     </button>
@@ -110,7 +110,7 @@
                                 <p class="mt-1 t-c">
                                     الحد الأدنى للاستثمار:
                                     <span>
-                                        {{project.minimum_investment}} رس
+                                        {{itemPage.minimum_investment}} رس
                                     </span>
                                 </p>
                             </div>
@@ -137,7 +137,7 @@
                                         {{ $t('rest-days-to-end') }}
                                     </small>
                                     <p class="text-dark">
-                                        {{project.rest_days}} يوم
+                                        {{itemPage.rest_days}} يوم
                                     </p>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                                         {{ $t('offered-property')  }} 
                                     </small>
                                     <p class="text-dark">
-                                        {{project.offered_property}} %
+                                        {{itemPage.offered_property}} %
                                     </p>
                                 </div>
                             </div>
@@ -178,16 +178,16 @@
                     <h3>
                         عن المشروع
                     </h3>
-                    <p v-html="project.description"></p>
+                    <p v-html="itemPage.description"></p>
                     <h3>
                         المشكلة المستهدف حلها
                     </h3>
-                    <p v-html="project.problem_solved">
+                    <p v-html="itemPage.problem_solved">
                       </p>
                     <h3>
                         الخطة المستقبلية
                     </h3>
-                    <p v-html="project.future_plan"></p>
+                    <p v-html="itemPage.future_plan"></p>
                     <div>
                         <iframe style="height: 360px;" class="rounded-3 w-100"
                             src="https://www.youtube.com/embed/dGG9pWXS3ZQ" title="مقطع تعريفي عن شركة رياديات"
@@ -200,7 +200,7 @@
                     <h3>
                         عن الفريق
                     </h3>
-                    <p v-html="project.description_user"></p>
+                    <p v-html="itemPage.description_user"></p>
                 </div>
                 <div class="col-md-4">
                     <div>
@@ -389,7 +389,7 @@
                                         </span>
                                     </p>
                                     <p class="p-0 m-0">
-                                        <a :href="project.investment_contract" class="m-c" download>
+                                        <a :href="itemPage.investment_contract" class="m-c" download>
 
                                             <svg width="19" height="18" viewBox="0 0 19 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -443,16 +443,19 @@ export default {
       loading:true,
       hasError:false,
       isOwner:false,
-      project:{},
+      itemPage:{},
       colors:['#F2631C','#FFBC00','#2C98B3']
   }},
   methods:{
+    sendAbuse(){
+        this.showAbuseDialog({item:this.itemPage,form:{table_type:'project-investment',table_id:this.itemPage.id}})
+    },
     openConfirmFinanceDialog(){
         console.log('confirm-make-finance')
-    this.fireOpenDialog('confirm-make-finance',this.project)
+    this.fireOpenDialog('confirm-make-finance',this.itemPage)
   },
     openConfirmOfferDialog(){
-    this.fireOpenDialog('confirm-make-offer',this.project)
+    this.fireOpenDialog('confirm-make-offer',this.itemPage)
   },
     async initializing() {
       this.loading = true;
@@ -462,13 +465,13 @@ export default {
                 if (data.success) {
                     
                     this.isOwner = this.user && data.data.user_info.id===this.user.id
-                   this.project = data.data;
+                   this.itemPage = data.data;
                 }else{
                   this.hasError = true;
                 }
             } catch (error) {
-                console.log('error', error)
-                console.log('error response', error.response)
+                console.mylog('error', error)
+                console.mylog('error response', error.response)
                 this.hasError = true;
               }
 
