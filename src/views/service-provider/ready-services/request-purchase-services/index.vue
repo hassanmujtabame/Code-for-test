@@ -1,6 +1,10 @@
 <template>
     <div style="margin-top: 96px;">
-        <div class="container">
+        <d-overlays-simple v-if="loading" />
+    <div v-else-if="hasError">
+      هناك خطأ غير معروف يرجي تحديث الصفحة
+    </div>
+        <div v-else  class="container">
       <d-filter-list
       :call-list="loadList"
       hideSide
@@ -9,6 +13,7 @@
       >
         <template v-slot:total>
             <h4 class="fw-bold">طلبات شراء خدماتك</h4>
+            <h6 v-if="readyService">{{ $t('service') }} : {{ readyService.title }}</h6>
         </template>
         <template v-slot:before-body>
             <ul class="nav nav-pills  mb-3">
@@ -46,6 +51,7 @@
     </div>
 </template>
 <script>
+import serviceProviderAPI from '@/services/api/service-provider'
 import requestPurchasesAPI from '@/services/api/service-provider/provider/request-purchases.js'
 import confirmRequestPurchase from './dialogs/confirm-request-puchase.vue'
 export default {
@@ -55,6 +61,9 @@ export default {
     },
     data:()=>{
         return {
+            loading:true,
+            hasError:false,
+            readyService:null,
             status:null,
             actions:[
                 {label:'كل الطلبات',status:null},
@@ -72,6 +81,22 @@ export default {
         
     },
     methods:{
+       async initializing(){
+            this.loading = true;
+            this.hasError = false;
+            if(this.$route.params.id)
+            try {
+                let {data} =  await serviceProviderAPI.readyService.getItem(this.$route.params.id)
+                if(data.success){
+                    this.readyService = data.data
+                }else{
+                this.hasError = true;
+                }
+            } catch (error) {
+                this.hasError = true;
+            }
+            this.loading = false;
+        },
         cancelledOrder(/*item*/){
             this.fireEvent('d-filter-list-refresh')
         },
@@ -104,6 +129,9 @@ export default {
                 console.log('response', error.response)
             }
         }
+    },
+    mounted(){
+        this.initializing()
     }
 }
 </script>

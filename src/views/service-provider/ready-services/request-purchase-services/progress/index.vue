@@ -84,10 +84,10 @@
       
                <!--request description -->
                <SectionDesc :item-page="itemPage" :readyService="readyService" />
-                <div v-if="isOwner" class="box border rounded-3 p-4 mt-3">
-                    <p class="fs-3 text-center">
-                        طلبات شراء هذه الخدمة
-                    </p>
+               <div v-if="isOwner" class="box border rounded-3 p-4 mt-3 text-center">
+                            <router-link :to="getRouteLocale('service-provider-purchase-requests-one-service',{id:readyService.id})" class="fs-3 ">
+                                طلبات شراء هذه الخدمة
+                            </router-link>
                 </div>
   
                 <div style="background-color: #FFF3E5;" class="box p-5 text-center mt-3 rounded-3">
