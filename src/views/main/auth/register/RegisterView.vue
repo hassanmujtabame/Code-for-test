@@ -32,19 +32,35 @@
                             </div>
                         </div>
                     </ValidationProvider>
-                    <ValidationProvider :name="$t('Phone')" 
+                    
+                        <div class="col-md-4 w-100 row mb-2">
+                            <div class="cols-12 d-flex gap-1">
+                                <ValidationProvider :name="$t('Phone')" 
+                                tag="div"
+                                class="flex-grow-1"
                     vid="phone" 
                     rules="required|numeric|min:8" 
                     v-slot="{ errors }"
                     >
-                        <div class="col-md-4 w-100 row mb-2">
-                            <div class="cols-12">
-                                <d-text-input :errors="errors" type="text" class="form-control" v-model="form.phone"
+                                <d-text-input :errors="errors" type="text"  v-model="form.phone"
                                     :label="$t('Phone')">
                                 </d-text-input>
+                    </ValidationProvider>
+                    <ValidationProvider :name="$t('country-phone')" 
+                                tag="div"
+                                class="flex-shrink-0"
+                    vid="phone_code" 
+                    rules="required" 
+                    v-slot="{ errors }"
+                    >
+                                <d-select-input :errors="errors" type="text" v-model="form.phone_code"
+                                    :label="$t('country-phone')">
+                                    <option v-for="(it,i) in phone_codes" :key="i" :value="it.id">{{ it.name }}({{ it.id }})</option>
+                                </d-select-input>
+                    </ValidationProvider>
+
                             </div>
                         </div>
-                    </ValidationProvider>
                     <ValidationProvider :name="$t('Password')" vid="password" rules="required" v-slot="{ errors }">
                         <div class="col-md-4 w-100 row mb-2">
                             <div class="cols-12 position-relative">
@@ -108,11 +124,17 @@ export default {
     data: () => ({
         show: false,
         showC: false,
+        phone_codes:[
+            {id:'+966',name:'سعودي'},
+            {id:'+213',name:'جزائري'},
+            {id:'+20',name:'مصري'},
+        ],
         form: {
             email: process.env.EMAIL || '',
             password: process.env.PASSWORD || '',
             name: '',
             phone: '',
+            phone_code: '+966',
             passwordConfirm: ''
         },
         hasError: false,
