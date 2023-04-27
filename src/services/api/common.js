@@ -2,7 +2,9 @@
 import BaseApi from "./base-service";
 import _i18n from "@/plugins/i18n";
 class CommonApi extends BaseApi {
-
+    getListCountries(){
+      return window.axios.get('https://restcountries.com/v3/lang/arabic')
+    }
     ContactUsSend(data){
         return window.axios.post(`contact-us`,{data});
     }

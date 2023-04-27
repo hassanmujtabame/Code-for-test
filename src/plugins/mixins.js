@@ -546,6 +546,12 @@ const mixin = {
           }
           },
             computed: {
+              socialMedias(){
+                let list = process.env.VUE_APP_SOCIAL_MEDIA.split(',');
+                return list.map(l=>{
+                  return {name:l,url:process.env[`VUE_APP_${l.toUpperCase()}`]}
+                })
+              },
               isDevelopment(){
                 return process.env.NODE_ENV=='development'
               },

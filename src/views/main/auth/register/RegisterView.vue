@@ -55,7 +55,9 @@
                     >
                                 <d-select-input :errors="errors" type="text" v-model="form.phone_code"
                                     :label="$t('country-phone')">
-                                    <option v-for="(it,i) in phone_codes" :key="i" :value="it.id">{{ it.name }}({{ it.id }})</option>
+                                    <option v-for="(it,i) in phone_codes" :key="i" :value="it.phone_code">
+                                        {{it.flag}}({{ it.phone_code }})
+                                    </option>
                                 </d-select-input>
                     </ValidationProvider>
 
@@ -118,6 +120,7 @@
 </template>
 
 <script>
+import commonAPI from '@/services/api/common';
 
 
 export default {
@@ -125,9 +128,10 @@ export default {
         show: false,
         showC: false,
         phone_codes:[
-            {id:'+966',name:'سعودي'},
-            {id:'+213',name:'جزائري'},
-            {id:'+20',name:'مصري'},
+            {phone_code:'+966',flag: "🇸🇦",name_country:{"ar":'سعودية',"en":"saoudi"}},
+            {phone_code:'+213',flag: "🇩🇿",name_country:{"ar":'جزائر',"en":"Algeria"}},
+            {phone_code:'+20',flag:  "🇪🇬",name_country:{"ar":'مصر',"en":"Egypt"}},
+           
         ],
         form: {
             email: process.env.EMAIL || '',
@@ -141,6 +145,17 @@ export default {
         message: '',
     }),
     methods: {
+        async loadCountries(){
+            try {
+                let {data} = await commonAPI.getListCountries()
+                    if(!data.message){
+                        let countries = data
+                       this.phone_codes= window.DHelper.convertCountriesToPhoneCodes(countries)
+                    }
+            } catch (error) {
+               // 
+            }
+        },
         async signup(e) {
             e.preventDefault();
             this.hasError = false;
@@ -178,6 +193,9 @@ export default {
                 this.hasError = true;
             }
         }
+    },
+    mounted(){
+        this.loadCountries()
     }
 }
 </script>
@@ -191,5 +209,14 @@ export default {
 html[lang="en"] .icon-input-end {
     left: auto;
     right: 15px
+}
+.flag-icon{
+    height: 1.5em;
+    width: 1.5em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
 }
 </style>
