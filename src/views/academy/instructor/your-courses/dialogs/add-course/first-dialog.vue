@@ -146,8 +146,9 @@ export default {
       this.fireCloseDialog(this.group)
     },
     openDialog(dataEvt){
-      this.isUpdate = !!dataEvt;
+      this.isUpdate = false;
       if(dataEvt && dataEvt.id){
+      this.isUpdate = true;
         
         this.itemDialog = dataEvt;
       this.itemForm.type = dataEvt.type??'live';
