@@ -46,21 +46,16 @@ import SectBlog from './parts/section-blog/index.vue'
 export default {
   name: 'IndexView',
   metaInfo: {
-    meta: [
-    {
-          hid: 'og:title',
-          name: 'og:title',
-          content: 'Hello World'
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Hello World'
-        }
-     
-    ],
-      title: 'ريادات- Riadiat1',
-      titleTemplate:null
+      title: 'ريادات- Riadiat',
+      titleTemplate:null,
+      meta: [
+      { name: 'description', content: 'ريادات- Riadiat' },
+      // Facebook meta tags
+      { property: 'og:title', content: 'ريادات- Riadiat' },
+      { property: 'og:description', content: 'Your Description' },
+      { property: 'og:image', content: 'Your Image URL' },
+      { property: 'og:url', content: 'Your URL' }
+  ]
     },
   components: {
     SectMainSlider,

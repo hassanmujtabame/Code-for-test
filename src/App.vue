@@ -22,24 +22,18 @@ import dChatBar from '@/components/chat/bar.vue'
 import { mapGetters } from 'vuex'
 export default {
   metaInfo: {
-      
-    meta: [
-    {
-          hid: 'og:title',
-          name: 'og:title',
-          content: 'Hello World'
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Hello World'
-        }
-     
-    ],
-      // if no subcomponents specify a metaInfo.title, this title will be used
+  // if no subcomponents specify a metaInfo.title, this title will be used
       title: '',
       // all titles will be injected into this template
       titleTemplate: '%s | ريادات- Riadiat',
+      meta: [
+      { name: 'description', content: 'ريادات- Riadiat' },
+      // Facebook meta tags
+      { property: 'og:title', content: 'ريادات- Riadiat' },
+      { property: 'og:description', content: 'Your Description' },
+      { property: 'og:image', content: 'Your Image URL' },
+      { property: 'og:url', content: 'Your URL' }
+      ],
       style: [{
     vmid: 'page-load-overlay',
     innerHTML: `
