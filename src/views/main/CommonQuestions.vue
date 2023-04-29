@@ -31,17 +31,17 @@
         </div>
             <div class="container mt-5">
                 <div class="row ">
-                    <div  class="col-md-4 mt-2" >
-                        <div style="background-color:#F2631C ;" class="  box m-auto text-center text-white p-3 rounded-2">
-                            الاسئلة العامة 
+                    <div v-for="(item,i) in items" :key="i" class="col-md-4 mt-2" >
+                        <div :style="{'background-color':colors[i%3]} " class="  box m-auto text-center text-white p-3 rounded-2">
+                            {{item.title}}
                         </div>
                     </div>
-                    <div  class="col-md-4 mt-2" >
+                    <div  v-if="false" class="col-md-4 mt-2" >
                         <div style="background-color:#2C98B3 ;" class="  box m-auto text-center text-white p-3 rounded-2">
 
                             أسئلة مقدم الخدمة                        </div>
                     </div>
-                    <div  class="col-md-4 mt-2" >
+                    <div v-if="false" class="col-md-4 mt-2" >
                         <div style="background-color:#FFBC00 ;" class="  box m-auto text-center text-white p-3 rounded-2">
 
                             أسئلة العميل
@@ -50,19 +50,19 @@
     
                 </div>
 
-                <div  v-for="(question,i) in questions"
+                <div  v-for="(item,i) in items"
                   :key="i" class="mt-5">
                   <ExpandedPanel 
                  
-                  :title="question.title" 
+                  :title="item.title" 
                   :id="('accordionFlushExample'+i)"
                   >
                       <ExpandedPanelItem
-                      v-for="(child,c) in question.children"
+                      v-for="(child,c) in item.questions"
                         :key="('c'+c)"
                        :title="child.title"
                        >
-                        Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                        {{ child.content }}
                       </ExpandedPanelItem>
                   </ExpandedPanel>  
                 </div>
@@ -74,12 +74,15 @@
 <script>
 import ExpandedPanel from '@/components/expanded-panel/ExpandedPanel.vue';
 import ExpandedPanelItem from '@/components/expanded-panel/ExpandedPanelItem.vue';
+import commonAPI from '@/services/api/common';
 export default {
  components:{
   ExpandedPanel,
   ExpandedPanelItem
  },
  data:()=>({
+    items:[],
+    colors:['#F2631C','#2C98B3','#FFBC00'],
   questions:[
     {
       title:'الاسئلة الشائعة العامة',
@@ -109,7 +112,22 @@ export default {
       ]
     }
   ]
- })
+ }),
+ methods:{
+   async initializing(){
+        try {
+            let {data} = await commonAPI.getFAQ()
+            if(data.success){
+                this.items = data.data
+            }
+        } catch (error) {
+            //
+        }
+    }
+ },
+ mounted(){
+    this.initializing()
+ }
 }
 </script>
 

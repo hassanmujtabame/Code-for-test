@@ -2,6 +2,10 @@
 import BaseApi from "./base-service";
 import _i18n from "@/plugins/i18n";
 class CommonApi extends BaseApi {
+  getFAQ(params = {}){
+    let s=this.generateQueryUrl(params)
+    return window.axios.get(`faqs?${s}`);  
+  }
     getListCountries(){
       return window.axios.get('https://restcountries.com/v3/lang/arabic')
     }
