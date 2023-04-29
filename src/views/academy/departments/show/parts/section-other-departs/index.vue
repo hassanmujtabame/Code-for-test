@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import CardVue from './card.vue'
+import CardVue from '@/components/cards/academy-field.vue'
 import academyAPI from '@/services/api/academy/index.js'
 export default {
     name:'section-exploring-entrepreneurship',
