@@ -4,12 +4,12 @@
 <div class="mt-5">
   <div class="riadiat-of-number">
       <h2 class="text-center"> حاضنة رياديات في أرقام  </h2>
-      <div v-if="false" class="row justify-content-center ">
+      <div v-if="true" class="row justify-content-center ">
           <div v-for="(item,i) in items" :key="i" class="col-6 col-sm-3 col-md-2 mt-3">
               <div class="box">
 
                   <h5 class="m-c fw-bolder">
-                     {{item.number}}
+                     {{item.value}}
                   </h5>
                   <p>
                     {{item.title}}
@@ -115,6 +115,9 @@ export default {
                 //
             }
         }
+    },
+    mounted(){
+        this.initializing()
     }
 }
 </script>
