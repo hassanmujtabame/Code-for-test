@@ -11,7 +11,7 @@ getItem(id){
     return window.axios.get(`consulting/consultants/${id}`);
 }
 register(data){
-    return window.axios.get(`consulting/consultants`,data);
+    return window.axios.post(`consulting/consultants`,data);
     
 }
 getAvailability(id,params={}){

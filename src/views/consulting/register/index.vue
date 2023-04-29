@@ -222,7 +222,7 @@
                         >
                         
                         <d-select-input :errors="errors" v-model="itemForm.department_id" :label="$t('Specialization')">
-                          <option selected disabled  >مجال التخصص</option>
+                          <option >مجال التخصص</option>
                           <option v-for="(department,i) in departments" :key="i" :value="department.id">{{ department.name }}</option>
 
                         </d-select-input>
@@ -328,21 +328,12 @@
                     <div class="col-md-6">
                         <div class="box">
                             <div class="position-relative">
-                                <img style="
-                           
-                                width: 100%;
-                            
-                            " src="/assets/img/Frame 5001.png" alt="">
-                                <div style="
-                            
-                            
-                            " class="position-absolute img-bg-contact">
+                                <img style="width: 100%;" src="/assets/img/Frame 5001.png" alt="">
+                                <div  class="position-absolute img-bg-contact">
                                     <img class="w-100" src="/assets/img/logo-white.png" alt="">
 
                                 </div>
-                                <div style="    top: 68%;
-                                left: 27%;
-                            " class="position-absolute icon-contact">
+                                <div style="top: 68%;left: 27%;" class="position-absolute icon-contact">
                                     <a href="" class="mx-2">
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -444,9 +435,6 @@
 </template>
 
 <script>
-
-
-import academyAPI from '@/services/api/academy';
 import commonAPI from '@/services/api/common';
 import consultingAPI from '@/services/api/consulting';
 export default {
@@ -558,11 +546,12 @@ export default {
     },
     async loadDepartments(){
         try {
-            let { data } = await academyAPI.getDepartments();
+            let { data } = await consultingAPI.fields.getAll();
             if(data.success){
                 this.departments = data.data;
             }
         } catch (error) {
+            console.mylog('error',error)
             //
         }
     },
