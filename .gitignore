@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+/distNew
 /src/views/test
 payments.txt
 comments.txt
