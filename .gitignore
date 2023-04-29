@@ -5,6 +5,8 @@ node_modules
 /src/views/test
 payments.txt
 comments.txt
+dist.zip
+distNew.zip
 # local env files
 .env.local
 .env.*.local
