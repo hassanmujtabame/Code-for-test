@@ -4,13 +4,13 @@
             {{ $t('filter') }}
         </h4>
         <d-expanded-panel id="accordionPanelsStayOpenExample">
-        <d-expanded-panel-item title="نوع التدريب">
+        <d-expanded-panel-item opened title="نوع التدريب">
             <div>
                             <div v-for="(state,i) in states" :key="i" class="form-check">
                                 <input class="form-check-input" type="radio" :value="state.id" v-model="filter.type_training" 
-                                :selected="state.id===filter.type_training"
+                                :selected="state.id==filter.type_training"
                                 name="stateRadioDefault"
-                                    id="flexRadioDefault1">
+                                    id="RadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                    {{state.name}}
                                 </label>
@@ -33,8 +33,8 @@
                             <div v-for="(it,i) in types" :key="i" class="form-check">
                                 <input class="form-check-input" type="radio" :value="it.id" v-model="filter.type" 
                                 :selected="it.id===filter.type"
-                                name="stateRadioDefault"
-                                    id="flexRadioDefault1">
+                                name="typeRadioDefault"
+                                    id="typeRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                    {{it.name}}
                                 </label>

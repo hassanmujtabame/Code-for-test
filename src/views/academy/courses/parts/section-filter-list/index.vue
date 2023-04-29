@@ -35,9 +35,13 @@ export default {
     let type = vm.$route.query.type
     if(!type || !['live','on-site','recorded'].includes(type))
     type=null;
+    let type_training = vm.$route.query['training-type']
+    //console.mylog('vm.$route.query',vm.$route.query)
+    if(!type_training || !['public','prive'].includes(type_training))
+    type_training=null;
     return {
       filterSide:{
-      type_training:null,
+      type_training:type_training,
       type:type,
       department_id:[],
       min_price:0,
@@ -46,7 +50,7 @@ export default {
         filterItem:{
             search:null,
             created_at:'asc',
-            type_training:null,
+            type_training:type_training,
             type:type,
             department_id:[],
             min_price:0,
