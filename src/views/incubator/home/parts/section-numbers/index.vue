@@ -4,7 +4,7 @@
 <div class="mt-5">
   <div class="riadiat-of-number">
       <h2 class="text-center"> حاضنة رياديات في أرقام  </h2>
-      <div class="row justify-content-center ">
+      <div v-if="false" class="row justify-content-center ">
           <div v-for="(item,i) in items" :key="i" class="col-6 col-sm-3 col-md-2 mt-3">
               <div class="box">
 
@@ -17,7 +17,7 @@
               </div>
           </div>
           </div>
-      <div  v-if="false" class="row justify-content-center ">
+      <div  v-else class="row justify-content-center ">
           <div class="col-6 col-md-2 mt-3">
               <div class="box">
 
