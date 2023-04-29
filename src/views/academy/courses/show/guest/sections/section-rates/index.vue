@@ -21,7 +21,7 @@ let itemTest={
             created_at:'2023-03-15T12:08:10',
             user_info:{
                 id:148,
-                image:'/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg',
+                image:'/assets/img/avatar-11.jpg',
                 name:'ليلى احمد'
             }
         }

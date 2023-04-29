@@ -4,7 +4,7 @@
                             <div class=" justify-content-center border-bottom ">
                                 <div class=" img-service text-center">
                                     <img class="rounded-circle "
-                                        src="/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt=""
+                                        src="/assets/img/avatar-11.jpg" alt=""
                                         width="120" height="120">
                                 </div>
                                 <div class=" t-c text-center mt-3">

@@ -31,7 +31,7 @@
                                     </div>
                                        
                                 </div>  
-                                <!-- <img class="rounded-circle img-person" src="../assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg" alt="" width="140" height="140"> -->
+                                <!-- <img class="rounded-circle img-person" src="../assets/img/avatar-11.jpg" alt="" width="140" height="140"> -->
                                 <p class="pen">
                                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="20" cy="20" r="20" fill="#FFBC00"/>

@@ -30,7 +30,7 @@ export default {
    member:{
      type:[Array,Object],
      default:()=>{return {
-        image:'/assets/img/صورة واتساب بتاريخ 2022-10-18 في 09.53.21.jpg',
+        image:'/assets/img/avatar-11.jpg',
         name:'عبد الرحمن الشيخ',
         job:'مصمم واجهات اميامية',
      }}
