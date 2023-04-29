@@ -73,7 +73,7 @@ export default {
                 //{label:'طلبات تم إلغاؤها',status:"excluded"},
             ],
             filterItem:{
-                readyService:null,
+                ready_service:null,
                 search:null,
                 created_at:'asc',
                 status:null
@@ -90,7 +90,7 @@ export default {
                 let {data} =  await serviceProviderAPI.readyService.getItem(this.$route.params.id)
                 if(data.success){
                     this.readyService = data.data;
-                    this.filterItem.readyService=this.readyService.id
+                    this.filterItem.ready_service=this.readyService.id
                 }else{
                 this.hasError = true;
                 }
