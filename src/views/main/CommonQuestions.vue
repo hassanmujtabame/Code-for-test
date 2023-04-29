@@ -32,7 +32,7 @@
             <div class="container mt-5">
                 <div class="row ">
                     <div v-for="(item,i) in items" :key="i" class="col-md-4 mt-2" >
-                        <div :style="{'background-color':colors[i%3]} " class="  box m-auto text-center text-white p-3 rounded-2">
+                        <div :style="{'background-color':item.color??colors[i%3]} " class="  box m-auto text-center text-white p-3 rounded-2">
                             {{item.title}}
                         </div>
                     </div>

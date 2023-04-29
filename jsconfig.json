@@ -1,4 +1,11 @@
 {
+  "vueCompilerOptions": {
+    
+    "optionsWrapper":[
+      "",
+      ""
+    ]
+  },
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",

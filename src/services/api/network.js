@@ -47,6 +47,10 @@ class NetworkApi extends BaseApi {
     checkoutPackageFree(data){
         return window.axios.post(`network/user-checkout-package-free`,data);
     }
+    getNumbers(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/numbers?${s}`);
+    }
     checkoutPackage(data){
         /*
           type if 0

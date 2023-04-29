@@ -5,6 +5,19 @@
   <div class="riadiat-of-number">
       <h2 class="text-center"> حاضنة رياديات في أرقام  </h2>
       <div class="row justify-content-center ">
+          <div v-for="(item,i) in items" :key="i" class="col-6 col-sm-3 col-md-2 mt-3">
+              <div class="box">
+
+                  <h5 class="m-c fw-bolder">
+                     {{item.number}}
+                  </h5>
+                  <p>
+                    {{item.title}}
+                  </p>
+              </div>
+          </div>
+          </div>
+      <div  v-if="false" class="row justify-content-center ">
           <div class="col-6 col-md-2 mt-3">
               <div class="box">
 
@@ -85,8 +98,24 @@
 </template>
 
 <script>
+import incubatorAPI from '@/services/api/incubator'
 export default {
-    name:'section-academy-numbers'
+    name:'section-numbers',
+    data:()=>({
+        items:[]
+    }),
+    methods:{
+       async initializing(){
+            try{
+                let {data} = await incubatorAPI.getNumbers()
+                if(data.success){
+                    this.items = data.data
+                }
+            }catch(error){
+                //
+            }
+        }
+    }
 }
 </script>
 

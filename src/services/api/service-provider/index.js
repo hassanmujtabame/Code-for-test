@@ -47,6 +47,10 @@ rechargeBalance(data){
     return window.axios.post(`service-provider/provider/recharge-balance`,data);
 
 }
+getNumbers(params={}){
+    let s=this.generateQueryUrl(params)
+    return window.axios.get(`service-provider/numbers?${s}`);
+}
 getMyTransaction(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`service-provider/provider/recharge-balance?${s}`);
