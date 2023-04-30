@@ -2,7 +2,7 @@
    <router-link :to="url">
 
 <div class="incubator-dept box rounded-circle">
- <div class="incubator-dept__wrapper rounded-circle p-3">
+ <div class="incubator-dept__wrapper">
  <div class="incubator-dept__image">
 
   <img :src="img" :alt="title">
@@ -43,15 +43,17 @@ height: 160px;
 background: #FFFFFF;
 /* 4 */
 
-box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.25);
+
 }
 .incubator-dept__image{
     display: flex;
     justify-content: center;
-    width: 90px;
-    height: 88px;
+    width: 140px;
+    height: 140px;
     overflow: hidden;
     margin: 0 auto;
+    box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
 }
 .incubator-dept__image>img{
     width: 100%;
