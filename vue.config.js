@@ -5,8 +5,8 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin;
     const prefix_url = process.env.PREFIX_URL;
 module.exports = defineConfig({
-  outputDir:prefix_url? path.resolve(__dirname,`./${prefix_url}`):undefined,
-  publicPath: process.env.NODE_ENV === 'production'
+  outputDir:prefix_url? path.resolve(__dirname,`./${prefix_url}`):'./dist',
+  publicPath: process.env.NODE_ENV === 'production' && prefix_url 
    ? `/${prefix_url}/`
    : '/',
   transpileDependencies: true,
