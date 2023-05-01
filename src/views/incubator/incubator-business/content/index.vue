@@ -94,4 +94,27 @@ created(){
   min-height: 400px;
 
 }
+.incubator-business-content__title{
+  font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 59px;
+/* identical to box height */
+
+/* Secondary/#2D2F3A */
+
+color: #2D2F3A;
+}
+.incubator-business-content__desc{
+  font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 35px;
+/* or 219% */
+
+
+/* Secondary/medium gray */
+
+color: #767676;
+}
 </style>

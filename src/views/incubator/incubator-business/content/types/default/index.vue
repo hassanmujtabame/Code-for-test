@@ -1,5 +1,8 @@
 <template>
-  <div>default</div>
+ <div>
+    <h1 class="incubator-business-content__title">{{ phase.title }}</h1>
+    <p class="incubator-business-content__desc">{{ phase.description }}</p>
+  </div>
 </template>
 
 <script>

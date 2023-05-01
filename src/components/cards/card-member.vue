@@ -2,9 +2,11 @@
   <div class="provider-card ">
   <div class="provider-card__wrapper">
                         <div class="provider-card__image">
-                            <router-link :to="to">
+                            <router-link v-if="to" :to="to">
                             <img  :src="img" alt="" width="259" height="192">
                         </router-link>
+                        <img v-else @click="$emit('click-image')" :src="img" alt="" width="259" height="192">
+
                         </div>
                         <div class="provider-card__content"
                          :class="{'p-3':!description}"
@@ -39,7 +41,7 @@ export default {
     },
     to:{
         type:[Object,Array],
-        default:()=>{return {}}
+        default:null
     },
     description:{
         type:String

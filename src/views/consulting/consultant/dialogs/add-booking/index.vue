@@ -155,13 +155,16 @@ export default {
             }
         },
         openDialog(dataEvt) {
-            this.itemDailog = dataEvt;
+            this.itemDailog = dataEvt.item;
             this.loadAvailableDates()
             this.itemForm ={
                 start_date:null,
                 consultant_id:this.itemDailog.id,
                 description:'',
                 available_time:null
+            }
+            if(dataEvt.opts){
+                this.itemForm = Object.assign(this.itemForm,{...dataEvt.opts})
             }
             this.showDialog = true;
             return true;
