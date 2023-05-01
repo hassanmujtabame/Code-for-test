@@ -211,10 +211,10 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-my-financial-transactions" */ '../views/academy/my-financial-transactions/index.vue')
     },
     {
-        path: 'incubator/menu-subscribe',
+        path: 'academy/menu-subscribe',
         meta:{auth:true,layout:LayoutDefault},
-        name: 'incubator-menu-subscribe',
-        component: () => import(/* webpackChunkName: "incubator-menu-subscribe" */ '../views/incubator/menu-subscribe/index.vue') 
+        name: 'academy-menu-subscribe',
+        component: () => import(/* webpackChunkName: "academy-menu-subscribe" */ '../views/academy/menu-subscribe/index.vue') 
     },
     {
         path: 'academy/subscribe',

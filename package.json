@@ -5,6 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-minasa": "npm run build -- --env.PREFIX_URL=minasa",
+    "serve-minasa": "npm run serve -- --env.PREFIX_URL=minasa",
     "prod": "vue-cli-service build --max_old_space_size=4096",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""

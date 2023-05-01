@@ -2,10 +2,12 @@
 node_modules
 /dist
 /distNew
+/minasa
 /src/views/test
 payments.txt
 comments.txt
 dist.zip
+minasa.zip
 distNew.zip
 # local env files
 .env.local
