@@ -10,7 +10,7 @@
     <slot name="icon-selected" v-if="status=='not-started'" :status="status">
         <d-stepper-icon class="icon-status" :status="status"></d-stepper-icon>
     </slot>
-    <span class="d-stepper-head-item__title">
+    <span @click="$emit('click',$event)" class="d-stepper-head-item__title clickable">
     <slot></slot>
     </span>
   </div>

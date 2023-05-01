@@ -1,31 +1,96 @@
 <template>
   <div class="incubator-business-content">
-    <d-stepper-head v-if="false" >
-          <d-stepper-head-item status="done">
-            دورات تدريبية
-          </d-stepper-head-item>
-          <d-stepper-head-item status="selected">
-         جلسة استشارية
-          </d-stepper-head-item>
-          <d-stepper-head-item status="disabled">
-            نماذج
-          </d-stepper-head-item>
-          </d-stepper-head>
+    <d-overlays-simple v-if="loading"></d-overlays-simple>
+    <div v-else>
+    <component :is="componentChoosen" v-if="phase" v-bind="componentBind">
+      </component>
+    </div>
   </div>
 </template>
 
 <script>
+import dCourseContent from './types/course';
+import dConsultationContent from './types/consultation';
+import dModelsContent from './types/model';
+import dMeetingContent from './types/meeting';
+import dDefaultContent from './types/default';
+import incubatorAPI from '@/services/api/incubator'
+
 export default {
-name:'d-content'
+name:'d-content',
+components:{
+  dCourseContent,
+  dConsultationContent,
+  dModelsContent,
+  dMeetingContent,
+  dDefaultContent,
+},
+data:()=>({
+  loading:true,
+  itemPage:null,
+  phase:null,
+  typeContent:'default'
+}),
+computed:{
+  componentBind(){
+    return {
+      phase:this.phase,
+      itemPage:this.itemPage
+    }
+  },
+  componentChoosen(){
+    switch (this.typeContent) {
+      case 'course':
+      case 'consultation':
+      case 'meeting':
+      case 'models':return `d-${this.typeContent}-content`
+    
+      default:
+      return `d-default-content`
+    }
+  }
+},
+mounted(){
+this.initializing()
+},
+methods:{
+  async initializing(){
+    this.loading = true;
+    this.itemPage = null;
+    try{
+      let { data } = await incubatorAPI.getStagePhase(this.phase.stage_id,{type:this.typeContent});
+      if(data.success){
+        this.itemPage = data.data
+      }
+    }catch(error){
+      //
+    }
+    this.loading = false;
+  },
+  loadContent(data){
+    if(this.phase && data.id==this.phase.id) return;
+    this.phase = data;
+    this.typeContent = this.phase.type;
+    this.initializing()
+  }
+},
+
+beforeDestroy(){
+  window.EventBus.off('phase-choosen',this.loadContent)
+},
+created(){
+  window.EventBus.listen('phase-choosen',this.loadContent)
+}
 }
 </script>
 
 <style>
 .incubator-business-content{
+  position: relative;
   width: 100%;
   overflow: auto;
   height: calc(100vh - 150px);
-  background: #c0c0c0;
+ /* background: #c0c0c0;*/
   min-height: 400px;
 
 }

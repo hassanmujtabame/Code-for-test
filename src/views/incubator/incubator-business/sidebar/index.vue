@@ -28,7 +28,10 @@
         </template>
    <d-stepper-head vertical>
 
-        <d-stepper-head-item v-for="(phase,i) in item.phases" :key="i" :status="phase.status">
+        <d-stepper-head-item v-for="(phase,i) in item.phases" :key="i" 
+        :status="phase.status"
+        @click="onChoose(phase,item.id)"
+        >
             {{ phase.title }}
           </d-stepper-head-item>
           </d-stepper-head>
@@ -55,6 +58,9 @@ data:()=>({
   items:[]
 }),
 methods:{
+  onChoose(phase,stage_id){
+    this.fireEvent('phase-choosen',{...phase,stage_id})
+  },
   async initializing(){
     try{
       let { data } = await incubatorAPI.getStages();

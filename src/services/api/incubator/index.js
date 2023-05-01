@@ -14,8 +14,13 @@ class IncubatorApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`incubator/user-subscriptions?${s}`);
     }
-    getStageItem(id){
-        return window.axios.get(`incubator/stages/${id}`);
+    getStageItem(id,params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`incubator/stages/${id}?${s}`);
+    }
+    getStagePhase(stage_id,params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`incubator/stage/${stage_id}?${s}`);
     }
     getPackages(params={}){
         let s=this.generateQueryUrl(params)
