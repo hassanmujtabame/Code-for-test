@@ -19,6 +19,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "incubator-dashboard" */ '../views/incubator/dashboard/index.vue') 
     },
     {
+        path: 'incubator/balance-charge',
+        name: 'incubator-balance-charge',
+        meta:{layout:LayoutDefault,auth:true},
+        component: () => import(/* webpackChunkName: "incubator-balance-charge" */ '../views/incubator/balance-charge/index.vue')
+      },
+    {
         path: 'incubator/my-financial-transactions',
         meta:{layout:LayoutDefault,auth:true},
         name: 'incubator-my-financial-transactions',

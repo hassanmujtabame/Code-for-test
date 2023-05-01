@@ -9,7 +9,7 @@
                     </h4>
                 </div>
                 <div class="col-md-4 text-end">
-                    <button @click="$router.push(getRouteLocale('network-balance-charge'))" class="btn-main">
+                    <button @click="$router.push(getRouteLocale('incubator-balance-charge'))" class="btn-main">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M21.3333 17H10.6667C10.12 17 9.66666 16.5467 9.66666 16C9.66666 15.4533 10.12 15 10.6667 15H21.3333C21.88 15 22.3333 15.4533 22.3333 16C22.3333 16.5467 21.88 17 21.3333 17Z"
