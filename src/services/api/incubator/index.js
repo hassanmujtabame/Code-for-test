@@ -5,6 +5,14 @@ class IncubatorApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/network-schedule?${s}`);
     }
+    getStages(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`incubator/stages?${s}`);
+
+    }
+    getStageItem(id){
+        return window.axios.get(`incubator/stages/${id}`);
+    }
     getPackages(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`incubator/packages?${s}`);

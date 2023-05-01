@@ -18,24 +18,15 @@
     <div class="incubator-business-sidebar__body">
       <d-expanded-panel  id="step-1">
   <template v-slot>
-        <d-expanded-panel-item v-for="n in 3" :opened="status[(n-1)%3]==='selected'" :key="n" classTitle="step-title">
+        <d-expanded-panel-item v-for="(item,n) in items" 
+        :opened="status[(n-1)%3]==='selected'" :key="n" 
+        classTitle="step-title">
           <template v-slot:btnTitle >
-    <d-stepper-icon  :status="status[(n-1)%3]"></d-stepper-icon>
-           
-         
-          المرحلة {{n}}
+    <d-stepper-icon  :status="status[(n-1)%3]">
+    </d-stepper-icon>
+    {{ item.title }}
         </template>
-          <d-stepper-head vertical>
-          <d-stepper-head-item status="done">
-            دورات تدريبية
-          </d-stepper-head-item>
-          <d-stepper-head-item status="selected">
-         جلسة استشارية
-          </d-stepper-head-item>
-          <d-stepper-head-item status="disabled">
-            نماذج
-          </d-stepper-head-item>
-          </d-stepper-head>
+        <ListItem :itemId="item.id" />
         </d-expanded-panel-item>
       </template>
       </d-expanded-panel>
@@ -45,14 +36,33 @@
 </template>
 
 <script>
+import incubatorAPI from '@/services/api/incubator'
+import ListItem from './list-item'
 export default {
 name:'d-sidebar',
+components:{
+  ListItem
+},
 data:()=>({
   start_date:'30 أكتوبر 2023',
   period:24,
-  status:['done','selected','disabled']
+  status:['done','selected','disabled'],
+  items:[]
 }),
+methods:{
+  async initializing(){
+    try{
+      let { data } = await incubatorAPI.getStages();
+      if(data.success){
+        this.items = data.data
+      }
+    }catch(error){
+      //
+    }
+  }
+},
 mounted(){
+this.initializing()
 }
 }
 </script>

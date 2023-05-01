@@ -10,7 +10,7 @@
             </li>
             <li class="nav-item px-2">
            
-              <router-link :to="getRouteLocale('network-investment-project')" class="nav-link">{{ $t('incubator-stages') }}</router-link>
+              <router-link :to="getRouteLocale('incubator-incubator-business')" class="nav-link">{{ $t('incubator-stages') }}</router-link>
             </li>
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('network-exhibitions')" class="nav-link">{{ $t('learning-meetings') }}</router-link>
