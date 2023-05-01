@@ -8,7 +8,7 @@ name:'d-stepper-icon',
 props:{
     status:{
         type:String,
-        default:'disabled'
+        default:'not-started'
     }
 },
 watch:{
@@ -17,10 +17,10 @@ watch:{
 computed:{
     statusClass(){
         switch (this.status) {
-            case 'done': return 'fa-solid fa-circle-check m-c';
-            case 'selected': return 'fa-regular fa-circle-check m-c';
+            case 'finished': return 'fa-solid fa-circle-check m-c';
+            case 'in-progress': return 'fa-regular fa-circle-check m-c';
             default:
-            return 'fa-regular fa-circle t-c';//disabled
+            return 'fa-regular fa-circle t-c';//not-started
         }
     }
 }

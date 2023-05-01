@@ -22,11 +22,16 @@
         :opened="status[(n-1)%3]==='selected'" :key="n" 
         classTitle="step-title">
           <template v-slot:btnTitle >
-    <d-stepper-icon  :status="status[(n-1)%3]">
+    <d-stepper-icon  :status="item.status">
     </d-stepper-icon>
     {{ item.title }}
         </template>
-        <ListItem :itemId="item.id" />
+   <d-stepper-head vertical>
+
+        <d-stepper-head-item v-for="(phase,i) in item.phases" :key="i" :status="phase.status">
+            {{ phase.title }}
+          </d-stepper-head-item>
+          </d-stepper-head>
         </d-expanded-panel-item>
       </template>
       </d-expanded-panel>
@@ -37,11 +42,11 @@
 
 <script>
 import incubatorAPI from '@/services/api/incubator'
-import ListItem from './list-item'
+//import ListItem from './list-item'
 export default {
 name:'d-sidebar',
 components:{
-  ListItem
+  //ListItem
 },
 data:()=>({
   start_date:'30 أكتوبر 2023',

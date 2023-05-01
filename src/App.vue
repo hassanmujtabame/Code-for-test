@@ -98,7 +98,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
     }
   },
   mounted () {
-    console.mylog('mounted')
+    console.mylog('mounted',process.env)
     this.onResizeBrowser()
     window.addEventListener('resize', this.onResizeBrowser, { passive: true })
   },

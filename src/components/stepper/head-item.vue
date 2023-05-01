@@ -1,13 +1,13 @@
 <template>
  <div class="d-stepper-head-item" >
   <div class="d-stepper-head-item__wrapper">
-    <slot name="icon-selected" v-if="status=='done'" :status="status">
+    <slot name="icon-selected" v-if="status=='finished'" :status="status">
     <d-stepper-icon class="icon-status" :status="status"></d-stepper-icon>
     </slot>
-    <slot name="icon-selected" v-if="status=='selected'" :status="status">
+    <slot name="icon-selected" v-if="status=='in-progress'" :status="status">
         <d-stepper-icon class="icon-status" :status="status"></d-stepper-icon>
     </slot>
-    <slot name="icon-selected" v-if="status=='disabled'" :status="status">
+    <slot name="icon-selected" v-if="status=='not-started'" :status="status">
         <d-stepper-icon class="icon-status" :status="status"></d-stepper-icon>
     </slot>
     <span class="d-stepper-head-item__title">
