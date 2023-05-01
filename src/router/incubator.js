@@ -19,6 +19,30 @@ const routers =[
         component: () => import(/* webpackChunkName: "incubator-dashboard" */ '../views/incubator/dashboard/index.vue') 
     },
     {
+        path: 'incubator/my-financial-transactions',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'incubator-my-financial-transactions',
+        component: () => import(/* webpackChunkName: "incubator-my-financial-transactions" */ '../views/incubator/my-financial-transactions/index.vue')
+    },
+    {
+        path: 'incubator/preview-profile',
+        name: 'incubator-preview-profile',
+        meta:{layout:LayoutDefault,auth:true},
+        component: () => import(/* webpackChunkName: "incubator-preview-profile" */ '../views/incubator/preview-profile/index.vue')
+    },
+    {
+        path: 'incubator/my-profile',
+        name: 'incubator-my-profile',
+        meta:{layout:LayoutDefault,auth:true},
+        component: () => import(/* webpackChunkName: "incubator-my-profile" */ '../views/common/my-profile/index.vue')
+    },
+    {
+        path: 'incubator/:id(\\d+)/show-profile',
+        name: 'incubator-show-profile',
+        meta:{layout:LayoutDefault},
+        component: () => import(/* webpackChunkName: "incubator-show-profile" */ '../views/incubator/show-profile/index.vue')
+    },
+    {
         path: 'incubator/incubator-business',
         meta:{layout:LayoutDefault,auth:true},
         name: 'incubator-incubator-business',
