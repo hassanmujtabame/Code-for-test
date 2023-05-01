@@ -148,6 +148,22 @@
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
+                    <!-- place_map -->
+                    <div class="mb-3">
+                        <!-- <keep-alive> -->
+                        <ValidationProvider
+                         :name="$t('suggest-course-map')" 
+                         vid="place_map" rules="" v-slot="{ errors }"
+                            v-if="step == 2">
+                            <d-text-input :errors="errors"
+                             v-model="itemForm.place_map"
+                                :label="$t('suggest-course-map')">
+                               
+                            </d-text-input>
+
+                        </ValidationProvider>
+                        <!-- </keep-alive> -->
+                    </div>
                     <!--price-->
                     <div class="mb-3">
                         <!-- <keep-alive> -->
@@ -435,6 +451,7 @@ export default {
                 department_id: '',
                 place_id: '',
                 place_suggest:'',
+                place_map:'',
                 notes: '',
                 desc: '',
                 image: null,
@@ -456,6 +473,7 @@ export default {
                     department_id,
                     place_id,
                     place_suggest,
+                    place_map,
                     notes,
                     desc,
                     image,
@@ -479,6 +497,7 @@ export default {
                     department_id,
                     place_id,
                     place_suggest,
+                    place_map,
                     notes,
                     desc,
                     image,
