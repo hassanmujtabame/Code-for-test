@@ -9,9 +9,9 @@
                                 قائمة اشتركاتك 
                             </h3>
                             <div>
-                                <button style="height: 40px;" class="btn-main">
+                                <router-link :to="getRouteLocale('service-provider-subscribe')" style="height: 40px;" class="btn btn-main">
                                     تجديد الاشتراك 
-                                </button>
+                                </router-link>
                             </div>
                         </div>
                     </div>

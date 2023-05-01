@@ -9,7 +9,7 @@
                                 قائمة اشتركاتك 
                             </h3>
                             <div>
-                                <router-link :to="getRouteLocale('network-subscribe')" style="height: 40px;" class="btn btn-main">
+                                <router-link :to="getRouteLocale('incubator-subscribe')" style="height: 40px;" class="btn btn-main">
                                     تجديد الاشتراك 
                                 </router-link>
                             </div>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import networkAPI from '@/services/api/network';
+import incubatorAPI from '@/services/api/incubator';
 import subscribeItem from '@/components/cards/subscribe-item.vue';
 export default {
  name:'menu-subscribe',
@@ -54,7 +54,7 @@ export default {
    
     async loadList(){
         try {
-            let { data } = await networkAPI.getSubscribes()
+            let { data } = await incubatorAPI.getSubscribes()
             if(data.success){
                 this.items = data.data
             }

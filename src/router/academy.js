@@ -211,6 +211,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "academy-my-financial-transactions" */ '../views/academy/my-financial-transactions/index.vue')
     },
     {
+        path: 'incubator/menu-subscribe',
+        meta:{auth:true,layout:LayoutDefault},
+        name: 'incubator-menu-subscribe',
+        component: () => import(/* webpackChunkName: "incubator-menu-subscribe" */ '../views/incubator/menu-subscribe/index.vue') 
+    },
+    {
         path: 'academy/subscribe',
         meta:{layout:LayoutDefault,auth:true},
         name: 'academy-subscribe',

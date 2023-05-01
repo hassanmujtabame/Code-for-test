@@ -25,6 +25,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "incubator-incubator-business" */ '../views/incubator/incubator-business/index.vue') 
     },
     {
+        path: 'incubator/menu-subscribe',
+        meta:{auth:true,layout:LayoutDefault},
+        name: 'incubator-menu-subscribe',
+        component: () => import(/* webpackChunkName: "incubator-menu-subscribe" */ '../views/incubator/menu-subscribe/index.vue') 
+    },
+    {
         path: 'incubator/subscribe',
         meta:{layout:LayoutDefault},
         name: 'incubator-subscribe',
