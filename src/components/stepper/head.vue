@@ -1,7 +1,7 @@
 <template>
   <div class="d-stepper-head" :class="{vertical:vertical}">
   <div class="d-stepper-head__wrapper">
-    <slot></slot>
+    <slot :vertical="vertical"></slot>
   </div>
 
   </div>
@@ -21,16 +21,21 @@ props:{
 
 <style>
 .d-stepper-head{
-  padding:3px
+  padding:3px;
+}
+.vertical.d-stepper-head{
+height: 100%;
 }
 .d-stepper-head__wrapper{
   display:flex;
   flex-direction: row;
   /*align-items: center;*/
     gap: 5px;
+    justify-content: space-evenly;
 }
 .vertical .d-stepper-head__wrapper{
   flex-direction: column;
+  height: 100%;
 }
  .d-stepper-head-item__wrapper{
   display:flex;
@@ -42,10 +47,27 @@ props:{
   flex-direction: row;
   gap:3px;
 }
+.d-stepper-head-item__content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:5px;
+  margin-right: -100%;
+}
+.vertical .d-stepper-head-item__content{
+  flex-direction: row;
+margin-right: 0;
+}
+
 .d-stepper-head-item{
   z-index: 1;
   position: relative;
-
+  flex:1;
+  display: flex;
+}
+.vertical .d-stepper-head-item{
+  display: block;
 }
 .d-stepper-head-item .icon-status{
   z-index: 1;
@@ -62,20 +84,27 @@ props:{
     height: 0px;
     border:1px dashed var(--color-primary);
     display: block;
-    position: relative;
-    margin: -27px 5px 0 -12px;
-  
-    /* left: 81px;*/
+    width: 100%;
+    position: absolute;
+    /* margin: -30px 5px 0 -12px; */
+    left: 0;
+    top: 12px;
 }
+
 .vertical .d-stepper-head__wrapper .d-stepper-head-item:not(:last-child):after{
   min-height: 20px;
-  height: auto;
+  height: 100%;
     width: 0px;
     min-width: 0px;
     border:1px dashed var(--color-primary);
     display: block;
     position: relative;
     margin: -10px 11px;
+    left: auto;
+    top:0;
+}
+.d-stepper-head__wrapper .d-stepper-head-item:last-child{
+  flex:0
 }
 .d-stepper-head-item__title{
   line-height: 1;
