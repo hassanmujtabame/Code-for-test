@@ -5,13 +5,13 @@
     {{ $t('has-error') }}
     </div>
     <div v-else class="container">
-        <div class="row">
-            <div class="col-12 col-md-8">
+        <div class="row justify-content-between">
+            <div class="col-12 col-md-7 border rounded">
                 <!--content-->
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <div class="incubator-project_image">
-                            <img :src="itemPage.image" :alt="itemPage.title"> 
+                        <div class="incubator-project__image rounded border">
+                            <img :src="itemPage.image" class="rounded border" :alt="itemPage.title"> 
                         </div>
                     </div>
                     <div class="col">
@@ -26,9 +26,9 @@
                 </div>
 
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 border rounded">
                 <!--user info-->
-                <d-user-preview-profile :tags="[]" hideSocial :member="itemPage.user_info"/>
+                <d-user-preview-profile :canChat="false" :tags="[]" hideSocial :member="itemPage.user_info"/>
             </div>
         </div>
     </div>
@@ -71,8 +71,10 @@ export default {
     display: block;
 }
 .incubator-project__image{
-    height:265px;
-    width:265px;
+    height: 265px;
+    width: 265px;
+    max-width: 100%;
+    padding: 20px;
 }
 .incubator-project__image>img{
     width: 100%;
