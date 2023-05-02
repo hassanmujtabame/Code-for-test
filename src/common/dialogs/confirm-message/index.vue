@@ -47,15 +47,16 @@
           default:'standard-confirm-message'
       }
    },
-   data:()=>({
+   data:(vm)=>{
+    return{
     hideImage:false,
     itemDialog:{title:null
       ,description:null
       ,btns:null
       ,type:'error'
-      ,image:`${this.publicPath}assets/img/tick-square-2.png`},
+      ,image:`${vm.publicPath}assets/img/tick-square-2.png`},
       showDialog:false,
-   }),
+   }},
 
    methods:{
    async callAction(btn){
