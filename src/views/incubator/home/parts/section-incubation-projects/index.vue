@@ -20,7 +20,9 @@
               :items="items"
             >
             <template  v-slot:default="{item}" >
+              <router-link class="router-link" :to="getRouteLocale('incubator-project-show',{id:item.id})">
                 <CardVue :title="item.title" :img="item.image"/>
+              </router-link>
                 </template>
                 </DSwiper>
                 </div>

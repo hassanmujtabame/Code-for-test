@@ -7,7 +7,7 @@
         <div class="user-preview-profile__info">
             <div class="user-preview-profile__tags"><span class="user-preview-profile__tag-item" v-for="(tag,i) in tags" :key="i">{{ tag }}</span></div>
             <h1 class="user-preview-profile__name">{{ member.name }}</h1>
-            <h2 class="user-preview-profile__job">{{ member.job_title }}</h2>
+            <h2 class="user-preview-profile__job">{{ member.job_title??member.job }}</h2>
         </div>
     </div>
     <!--user bio-->
@@ -17,7 +17,7 @@
     <!--user footer-->
     <div class="user-preview-profile__footer">
         <button @click="openChat" class="btn btn-custmer">أرسل رسالة</button>
-        <div class="user-preview-profile__social-media">
+        <div v-if="!hideSocial" class="user-preview-profile__social-media">
             
             
             <i class="fab fa-linkedin-in"></i>
@@ -37,6 +37,10 @@ export default {
  props:{
     member:{
         require:true
+    },
+    hideSocial:{
+        type:Boolean,
+        default:false,
     },
     tags:{
         type:[Array,Object],

@@ -2,7 +2,7 @@
   <div style="margin-top: 96px;">
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">
-      هناك خطأ غير معروف يرجي تحديث الصفحة
+      {{ $t('has-error') }}
     </div>
     <div v-else class="container blog-page">
       <div class=" position-relative">

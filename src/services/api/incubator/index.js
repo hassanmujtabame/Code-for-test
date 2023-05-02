@@ -22,6 +22,9 @@ class IncubatorApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`incubator/stage/${stage_id}?${s}`);
     }
+    getProgram(id){
+        return window.axios.get(`incubator/projects/${id}`);
+    }
     getPackages(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`incubator/packages?${s}`);
