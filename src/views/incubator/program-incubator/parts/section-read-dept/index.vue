@@ -42,25 +42,27 @@ export default {
         DSwiper,
         CardVue
     },
-    data:()=>({
+    data:(vm)=>{
+      return{
       loading:false,
         items:[
-        {name:'المجوهرات',image_path:'/assets/svg/jewelry.svg'},
-            {name:'الازيــــــاء',image_path:'/assets/svg/fashion.svg'},
-            {name:'التقنية',image_path:'/assets/svg/techinic.svg'},
-            {name:'الزهــــور والهدايا',image_path:'/assets/svg/flowers-gifts.svg'},
-        {name:'ريــــــــادة الاعمال',image_path:'/assets/svg/business.svg'},
-            {name:'المحاسبة والمالية',image_path:'/assets/svg/account.svg'},
-            {name:'التسويق',image_path:'/assets/svg/shopping.svg'},
-            {name:'القانون',image_path:'/assets/svg/law.svg'},
-            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
-            {name:'الاستراتيجية والقيادة',image_path:'/assets/svg/stratigy-leadership.svg'},
+        {name:'المجوهرات',image_path:`${vm.publicPath}assets/svg/jewelry.svg`},
+            {name:'الازيــــــاء',image_path:`${vm.publicPath}assets/svg/fashion.svg`},
+            {name:'التقنية',image_path:`${vm.publicPath}assets/svg/techinic.svg`},
+            {name:'الزهــــور والهدايا',image_path:`${vm.publicPath}assets/svg/flowers-gifts.svg`},
+        {name:'ريــــــــادة الاعمال',image_path:`${vm.publicPath}assets/svg/business.svg`},
+            {name:'المحاسبة والمالية',image_path:`${vm.publicPath}assets/svg/account.svg`},
+            {name:'التسويق',image_path:`${vm.publicPath}assets/svg/shopping.svg`},
+            {name:'القانون',image_path:`${vm.publicPath}assets/svg/law.svg`},
+            {name:'الاستراتيجية والقيادة',image_path:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {name:'الاستراتيجية والقيادة',image_path:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {name:'الاستراتيجية والقيادة',image_path:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {name:'الاستراتيجية والقيادة',image_path:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {name:'الاستراتيجية والقيادة',image_path:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {name:'الاستراتيجية والقيادة',image_path:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
 
-        ]})
+        ]}
+      }
 }
 </script>
 

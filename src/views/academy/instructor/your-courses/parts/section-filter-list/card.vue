@@ -1,7 +1,7 @@
 <template>
     <div class="course-instructo-item box rounded-3 border mt-3">
         <div class="course-instructo-item__image">
-            <img class="w-100" src="/assets/img/Rectangle qqq.png" alt="" height="184">
+            <img class="w-100" :src="`${publicPath}assets/img/Rectangle qqq.png`" alt="" height="184">
         </div>
         <div class="course-instructo-item__body">
         <div class="p-1 d-flex justify-content-between">

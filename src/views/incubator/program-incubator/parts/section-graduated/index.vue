@@ -42,20 +42,21 @@ export default {
   DSwiper,
         CardMember
     },
-    data:()=>({
+    data:(vm)=>{
+      return{
       loading:false,
         items:[
-            {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
-            {name:'العنود محمد',description:'',img:'/assets/img/Rectangle 1775qa.png'},
+            {name:'العنود محمد',description:'',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`},
+            {name:'العنود محمد',description:'',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`},
+            {name:'العنود محمد',description:'',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`},
+            {name:'العنود محمد',description:'',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`},
+            {name:'العنود محمد',description:'',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`},
+            {name:'العنود محمد',description:'',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`},
+            {name:'العنود محمد',description:'',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`},
+            {name:'العنود محمد',description:'',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`},
+            {name:'العنود محمد',description:'',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`},
         ]
-    })
+    }}
 }
 </script>
 

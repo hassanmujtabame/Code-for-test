@@ -7,7 +7,7 @@
     <template v-slot>
         <div class="text-center" v-if="showed">
 
-<img src="/assets/img/feeling-sorry.png" />
+<img :src="`${publicPath}assets/img/feeling-sorry.png`" />
  <p class="dialog-title mt-1">
   نعتذر لك إذا كانت الخدمة أزعجتك!
  </p>

@@ -6,7 +6,7 @@
 >
 <template v-slot:default>
   <div>
-                <img class="img-fluid" src="/assets/img/cuate-2.png" alt="">
+                <img class="img-fluid" :src="`${publicPath}assets/img/cuate-2.png`" alt="">
             </div>
             <div>
                 <h3>

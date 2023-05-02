@@ -14,11 +14,11 @@
                                     سلمى احمد
                                 </h6>
                                 <div class="position-absolute dote">
-                                    <img src="/assets/img/dot.png" alt="">
+                                    <img :src="`${publicPath}assets/img/dot.png`" alt="">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4 ">
-                                <img class="rounded-3 m-auto  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                                <img class="rounded-3 m-auto  " :src="`${publicPath}assets/img/Rectangle 1765.png`" alt=""  width="368" height="368">
                             </div>
                          
     
@@ -35,11 +35,11 @@
                                     سلمى احمد
                                 </h6>
                                 <div class="position-absolute dote">
-                                    <img src="/assets/img/dot.png" alt="">
+                                    <img :src="`${publicPath}assets/img/dot.png`" alt="">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4 ">
-                                <img class="rounded-3 m-auto  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                                <img class="rounded-3 m-auto  " :src="`${publicPath}assets/img/Rectangle 1765.png`" alt=""  width="368" height="368">
                             </div>
                          
     
@@ -56,11 +56,11 @@
                                     سلمى احمد
                                 </h6>
                                 <div class="position-absolute dote">
-                                    <img src="/assets/img/dot.png" alt="">
+                                    <img :src="`${publicPath}assets/img/dot.png`" alt="">
                                 </div>
                             </div>
                             <div class="col-12 col-md-4 ">
-                                <img class="rounded-3 m-auto  " src="/assets/img/Rectangle 1765.png" alt=""  width="368" height="368">
+                                <img class="rounded-3 m-auto  " :src="`${publicPath}assets/img/Rectangle 1765.png`" alt=""  width="368" height="368">
                             </div>
                          
     

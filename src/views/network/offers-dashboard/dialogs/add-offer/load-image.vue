@@ -4,7 +4,7 @@
             <div v-if="file" @click="makeImageEmpty" class="loading-image__close">X</div>
             <div class="file-label__wrapper w-100 h-100">
             <div class="load-image__image-empty">
-                <img src="/assets/svg/empty-image.svg" height="96" width="96" />
+                <img :src="`${publicPath}assets/svg/empty-image.svg`" height="96" width="96" />
                 <p class="m-c">{{ $t('add-display-image') }} </p>
             </div>
             <div class="add-img-selected">

@@ -24,12 +24,12 @@ export default {
     components: {
         cardShow
     },
-    data: () => {
+    data: (vm) => {
         return {
             items: [
-                { title: 'إنضمي الينا', image: '/assets/svg/hand-click.svg', description: 'سجلى كمسوقة بالعمولة و ابداى رحلتك معانا' },
-                { title: 'تواصلى مع الاخرين', image: '/assets/svg/contact-networking.svg', description: 'تواصلى مع الاخرين من خلال  لوحة تحكم خاصة بكى تسهل الترويج لمنتجاتك' },
-                { title: 'أربحى المال', image: '/assets/svg/money-bills-2.svg', description: 'تلقى عمولتك للتسويق لمنتجاتك من خلال منصة رياديات' },
+                { title: 'إنضمي الينا', image: `${vm.publicPath}assets/svg/hand-click.svg`, description: 'سجلى كمسوقة بالعمولة و ابداى رحلتك معانا' },
+                { title: 'تواصلى مع الاخرين', image: `${vm.publicPath}assets/svg/contact-networking.svg`, description: 'تواصلى مع الاخرين من خلال  لوحة تحكم خاصة بكى تسهل الترويج لمنتجاتك' },
+                { title: 'أربحى المال', image: `${vm.publicPath}assets/svg/money-bills-2.svg`, description: 'تلقى عمولتك للتسويق لمنتجاتك من خلال منصة رياديات' },
             ]
         }
     }

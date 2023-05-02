@@ -266,7 +266,7 @@
                                     <div class="p-2 d-flex">
                                         <div>
                                             <img class="rounded-circle"
-                                                src="/assets/img/avatar-11.jpg" alt=""
+                                                :src="`${publicPath}assets/img/avatar-11.jpg`" alt=""
                                                 width="42" height="42">
                                         </div>
                                         <div>
@@ -293,7 +293,7 @@
                                     <div class="p-2 d-flex">
                                         <div>
                                             <img class="rounded-circle"
-                                                src="/assets/img/avatar-11.jpg" alt=""
+                                                :src="`${publicPath}assets/img/avatar-11.jpg`" alt=""
                                                 width="42" height="42">
                                         </div>
                                         <div>
@@ -320,7 +320,7 @@
                                     <div class="p-2 d-flex">
                                         <div>
                                             <img class="rounded-circle"
-                                                src="/assets/img/avatar-11.jpg" alt=""
+                                                :src="`${publicPath}assets/img/avatar-11.jpg`" alt=""
                                                 width="42" height="42">
                                         </div>
                                         <div>
@@ -347,7 +347,7 @@
                                     <div class="p-2 d-flex">
                                         <div>
                                             <img class="rounded-circle"
-                                                src="/assets/img/avatar-11.jpg" alt=""
+                                                :src="`${publicPath}assets/img/avatar-11.jpg`" alt=""
                                                 width="42" height="42">
                                         </div>
                                         <div>

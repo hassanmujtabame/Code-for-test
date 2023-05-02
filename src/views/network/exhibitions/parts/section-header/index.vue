@@ -15,16 +15,16 @@
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit" class="m-auto text-end">
-                            <img class="cloud-bg" src="/assets/svg/Group 1171275412.svg" alt="" />
-                            <img class="img-header" src="/assets/img/vector 555@2x.png" alt="" />
+                            <img class="cloud-bg" :src="`${publicPath}assets/svg/Group 1171275412.svg`" alt="" />
+                            <img class="img-header" :src="`${publicPath}assets/img/vector 555@2x.png`" alt="" />
                         </div>
                     </div>
                 </div>
                 <div class="star-cons">
-                    <img src="/assets/img/starrrr.png" alt="" />
+                    <img :src="`${publicPath}assets/img/starrrr.png`" alt="" />
                 </div>
                 <div class="star-cons stars">
-                    <img src="/assets/img/starsss.png" alt="" />
+                    <img :src="`${publicPath}assets/img/starsss.png`" alt="" />
                 </div>
             </div>
         </div>

@@ -354,7 +354,7 @@
             <div class="col-md-6">
                 <div class="box h-100">
                     <div class="h-100 position-relative">
-                        <img style="width: 100%;height: 82rem;" class="h-100" src="/assets/img/Group 289271.png" alt="">
+                        <img style="width: 100%;height: 82rem;" class="h-100" :src="`${publicPath}assets/img/Group 289271.png`" alt="">
                     </div>
 
                 </div>

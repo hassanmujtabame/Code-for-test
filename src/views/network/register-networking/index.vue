@@ -15,19 +15,19 @@
                 {{ $t('Register-now') }}
             </a>
             <div class="position-absolute anim-hwo-ar-you" :style="$i18n.locale !== 'ar' ? { left: 'auto', right: 0 } : {}">
-                <img src="/assets/svg/wave-top.svg" :class="{ 'rotateY-180': $i18n.locale !== 'ar' }" alt="">
+                <img :src="`${publicPath}assets/svg/wave-top.svg`" :class="{ 'rotateY-180': $i18n.locale !== 'ar' }" alt="">
             </div>
             <div class="star position-absolute">
-                <img class="landing" src="/assets/svg/start.svg" alt="">
+                <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             <div class="square position-absolute">
-                <img class="landing" src="/assets/svg/square.svg" alt="">
+                <img class="landing" :src="`${publicPath}assets/svg/square.svg`" alt="">
             </div>
             <div class="star-two position-absolute">
-                <img class="landing" src="/assets/svg/start.svg" alt="">
+                <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             <div class="star-big position-absolute">
-                <img class="landing" src="/assets/svg/star-big.svg" alt="">
+                <img class="landing" :src="`${publicPath}assets/svg/star-big.svg`" alt="">
             </div>
         </div>
         <!--features-->

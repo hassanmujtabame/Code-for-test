@@ -11,13 +11,13 @@
                         <button :disabled="loading" @click="suspendItem" v-if="!itemPage.is_suspend" style="height: 40px; background-color:#FFBC00 ;"
                             class="btn-main px-3 w-100 border-0 rounded-2" 
                            role="button">
-                           <img src="/assets/svg/suspendu.svg" />
+                           <img :src="`${publicPath}assets/svg/suspendu.svg`" />
                             {{$t('suspend')}}
                         </button>
                         <button :disabled="loading" @click="notSuspendItem" v-else style="height: 40px; background-color:#FFBC00 ;"
                             class="btn-main px-3 w-100 border-0 rounded-2" 
                             role="button">
-                           <img src="/assets/svg/suspendu.svg" />
+                           <img :src="`${publicPath}assets/svg/suspendu.svg`" />
                             {{$t('republish')}}
                         </button>
                     </div>

@@ -8,7 +8,7 @@
                     <div class="box">
                         <div class="position-relative text-center">
                             <d-hover v-slot="{hover}">
-                            <img :src="hover?'/assets/img/network289322-colored.png':'/assets/img/network289322.png'" alt=""
+                            <img :src="hover?`${publicPath}assets/img/network289322-colored.png`:`${publicPath}assets/img/network289322.png`" alt=""
                              :style="hover?{transform: 'rotate(45deg)'}:{}"
                             />
                             

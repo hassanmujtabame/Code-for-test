@@ -40,14 +40,14 @@ export default {
   data:()=>({
     loading:true,
     items:[
-       /* {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',image:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+       /* {name:'العنقود محمد',image:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',image:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',image:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',image:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',image:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',image:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',image:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',image:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
   */]
   }),
   methods:{

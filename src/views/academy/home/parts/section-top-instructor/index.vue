@@ -21,9 +21,9 @@
                         </router-link>
                 </div>
                 <div class="col-md-6 position-relative">
-                    <img class="img-fluid" src="/assets/img/Group 1171274848s.png" alt="">
+                    <img class="img-fluid" :src="`${publicPath}assets/img/Group 1171274848s.png`" alt="">
                     <div style="top: 27px;left: 23%" class="position-absolute">
-                        <img class="img-fluid" src="/assets/img/Group 1171274931.png" alt="">
+                        <img class="img-fluid" :src="`${publicPath}assets/img/Group 1171274931.png`" alt="">
 
                     </div>
                 </div>
@@ -33,16 +33,16 @@
             </div>
        
             <div class="star position-absolute" >
-                    <img  class="landing"  src="/assets/svg/start.svg" alt="">
+                    <img  class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             <div class="square position-absolute" >
-                <img class="landing"  src="/assets/img/square.png" alt="">
+                <img class="landing"  :src="`${publicPath}assets/img/square.png`" alt="">
              </div>
              <div class="star-two position-absolute" >
-                <img class="landing"  src="/assets/svg/start.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
              </div>
             <div class="star-big position-absolute" >
-                <img class="landing"  src="/assets/svg/star-big.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/star-big.svg`" alt="">
             </div>
         </div>
 </template>

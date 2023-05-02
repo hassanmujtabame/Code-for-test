@@ -40,13 +40,13 @@ export default {
     data:()=>({
       loading: true,
         items:[
-        /*{title:'مركز باكورة الأهلية',image:'/assets/img/Group 14502.png'},
-        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 17753.png'},
-        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 145029.png'},
-        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 1450232.png'},
-        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 1450232.png'},
-        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 1450232.png'},
-        {title:'مركز باكورة الأهلية',image:'/assets/img/Group 1450232.png'},
+        /*{title:'مركز باكورة الأهلية',image:`${vm.publicPath}assets/img/Group 14502.png`},
+        {title:'مركز باكورة الأهلية',image:`${vm.publicPath}assets/img/Group 17753.png`},
+        {title:'مركز باكورة الأهلية',image:`${vm.publicPath}assets/img/Group 145029.png`},
+        {title:'مركز باكورة الأهلية',image:`${vm.publicPath}assets/img/Group 1450232.png`},
+        {title:'مركز باكورة الأهلية',image:`${vm.publicPath}assets/img/Group 1450232.png`},
+        {title:'مركز باكورة الأهلية',image:`${vm.publicPath}assets/img/Group 1450232.png`},
+        {title:'مركز باكورة الأهلية',image:`${vm.publicPath}assets/img/Group 1450232.png`},
     */]
     }),
     methods:{

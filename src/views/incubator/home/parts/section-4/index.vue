@@ -1,6 +1,6 @@
 <template>
   <div>
-            <img class="img-fluid" src="/assets/img/Component 37.png" alt="">
+            <img class="img-fluid" :src="`${publicPath}assets/img/Component 37.png`" alt="">
         </div>
 </template>
 

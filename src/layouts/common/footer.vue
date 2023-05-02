@@ -6,7 +6,7 @@
                   <a href="/"
                       class="d-flex header-logo align-items-center justify-content-center mb-2 mb-lg-0 text-dark text-decoration-none">
                       <div>
-                          <img src="/assets/svg/logo-footer.svg" >
+                          <img :src="`${publicPath}assets/svg/logo-footer.svg`" >
                       </div>
                   </a>
                   <div class="social mt-3">
@@ -66,13 +66,13 @@
 
           <div  class="mt-3">
             <a href="">
-              <img src="/assets/svg/google-play-with-text.svg">
+              <img :src="`${publicPath}assets/svg/google-play-with-text.svg`">
 
             </a>
           </div>
           <div class="mt-3">
             <a href="">
-              <img src="/assets/svg/app-store-with-text.svg" alt="">
+              <img :src="`${publicPath}assets/svg/app-store-with-text.svg`" alt="">
 
             </a>
           </div>

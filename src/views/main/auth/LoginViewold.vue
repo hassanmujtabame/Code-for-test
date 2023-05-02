@@ -88,7 +88,7 @@
                     </div>
                     <div class=" col-12 col-md-6">
                         <div class="box">
-                            <img src="/assets/svg/riadiat-green-card.svg"/>
+                            <img :src="`${publicPath}assets/svg/riadiat-green-card.svg`"/>
 
                         </div>
 

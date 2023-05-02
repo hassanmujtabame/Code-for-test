@@ -9,7 +9,7 @@
         </div>
 
     </div>
-    <audio muted  ref="myaudio" style="display:none" src="/assets/sound/new-msg-chat.m4r" >
+    <audio muted  ref="myaudio" style="display:none" :src="`${publicPath}assets/sound/new-msg-chat.m4r`" >
   </audio>
 </div>
 </template>

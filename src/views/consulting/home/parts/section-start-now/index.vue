@@ -2,7 +2,7 @@
     <div class="container">
   <div class="row mt-5 align-items-center">
                 <div class="col-md-6">
-                    <img class="img-fluid rounded-3" src="/assets/img/Rectangle 1777888.png" alt="">
+                    <img class="img-fluid rounded-3" :src="`${publicPath}assets/img/Rectangle 1777888.png`" alt="">
 
                 </div>
                 <div class="col-md-6">

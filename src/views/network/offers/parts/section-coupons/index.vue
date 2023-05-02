@@ -15,7 +15,7 @@
       <template v-slot="{ item }">
        
           <CouponCard 
-          img="/assets/img/Icon ionic-logo-xbox-2.png" 
+          :img="`${publicPath}assets/img/Icon ionic-logo-xbox-2.png`" 
           :title="item.name_company" 
           :discount="item.discount"
             :date="item.start_date" 
@@ -40,7 +40,8 @@ export default {
     CouponCard,
     SidebarBox
   },
-  data: () => ({
+  data: (vm) => {
+    return{
     group: 'list-coupon',
     filterSide:{
       expired:null,
@@ -58,11 +59,11 @@ export default {
     max_discount:100,
 
     },
-    item_test: { title: 'معرض الازياء الرجالي', img: '/assets/img/Rectangle -network.png', description: 'معرض متكام لبيع و تنسيق الزهور' },
+    item_test: { title: 'معرض الازياء الرجالي', img: `${vm.publicPath}assets/img/Rectangle -network.png`, description: 'معرض متكام لبيع و تنسيق الزهور' },
     categories: [{ id: null, name: 'الكل' }],
         category_id: null,
     items: []
-  }),
+  }},
   methods: {
     changeFilter(val){
             this.filterItem = {...this.filterItem,...val}

@@ -3,7 +3,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div >
-                        <img v-if="false" class="img-fluid" src="/assets/img/network 289320.png" alt="" width="470">
+                        <img v-if="false" class="img-fluid" :src="`${publicPath}assets/img/network 289320.png`" alt="" width="470">
                     <AnimateCard />
                     </div>
 

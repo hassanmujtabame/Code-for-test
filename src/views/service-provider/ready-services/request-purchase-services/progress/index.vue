@@ -170,7 +170,7 @@
       methods:{
           showConfirmRateProvider(){
               let dataEvent = {
-              image:'/assets/img/Group 3024.png',
+              image:`${this.publicPath}assets/img/Group 3024.png`,
               title:'قيم مقدم الخدمة بشكل شخصي',
               description:'قم بتقيم مقدم الخدمة و تعامله معك و اتقانه لعمله لا تقيم الخدمة نفسها الان',
               groupBtns:'d-flex justify-content-evenly',
@@ -258,7 +258,7 @@
           showConfirmRateService(){
              setTimeout(()=>{
               let dataEvent = {
-              image:'/assets/img/Frame1.png',
+              image:`${this.publicPath}assets/img/Frame1.png`,
               title:'الان حان دور تقيم الخدمة',
               description:'قم بتقيم الخدمة نفسها , هل وجدت الخدمة كما ترغب؟ هل كانت متقنة و جيدة بنسبة لك',
               groupBtns:'d-flex justify-content-evenly',

@@ -24,16 +24,17 @@ export default {
     SectionLearning,
     SectionFilterList
  },
- data:()=>({
+ data:(vm)=>{
+   return{
     items:[
-        {id:1,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
-        {id:2,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
-        {id:3,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
-        {id:4,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
-        {id:5,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:'/assets/img/Rectangle 1798.png'},
-        {id:6,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'stopped',image:'/assets/img/Rectangle 1798.png'},
+        {id:1,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:`${vm.publicPath}assets/img/Rectangle 1798.png`},
+        {id:2,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:`${vm.publicPath}assets/img/Rectangle 1798.png`},
+        {id:3,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:`${vm.publicPath}assets/img/Rectangle 1798.png`},
+        {id:4,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:`${vm.publicPath}assets/img/Rectangle 1798.png`},
+        {id:5,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'actived',image:`${vm.publicPath}assets/img/Rectangle 1798.png`},
+        {id:6,title:'تجهيز كوشة فرح',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',department:'الافراح',status:'stopped',image:`${vm.publicPath}assets/img/Rectangle 1798.png`},
     ]
- })
+ }}
 }
 </script>
 

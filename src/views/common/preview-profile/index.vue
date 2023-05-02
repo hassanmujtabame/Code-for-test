@@ -22,7 +22,7 @@
                            </div>
                        </div>
                        <div class="col-12 col-md-6">
-                           <img class="w-100" src="/assets/img/Group 1171275405.png" alt="">
+                           <img class="w-100" :src="`${publicPath}assets/img/Group 1171275405.png`" alt="">
                        </div>
 
                    </div>
@@ -142,7 +142,7 @@
                                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
                                                    <div class="d-flex">
                                                        <div>
-                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  src="/assets/img/Rectangle 39879.png" alt="">
+                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  :src="`${publicPath}assets/img/Rectangle 39879.png`" alt="">
                                                        </div>
                                                        <div class="mx-3">
                                                            <h5>
@@ -189,7 +189,7 @@
                                                    </div>
                                                    <div class="d-flex mt-3">
                                                        <div>
-                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  src="/assets/img/Rectangle 39879.png" alt="">
+                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  :src="`${publicPath}assets/img/Rectangle 39879.png`" alt="">
                                                        </div>
                                                        <div class="mx-3">
                                                            <h5>
@@ -236,7 +236,7 @@
                                                    </div>
                                                    <div class="d-flex mt-3">
                                                        <div>
-                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  src="/assets/img/Rectangle 39879.png" alt="">
+                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  :src="`${publicPath}assets/img/Rectangle 39879.png`" alt="">
                                                        </div>
                                                        <div class="mx-3">
                                                            <h5>
@@ -285,7 +285,7 @@
                                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
                                                    <div class="d-flex">
                                                        <div>
-                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  src="/assets/img/Rectangle 39879aa.png" alt="">
+                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  :src="`${publicPath}assets/img/Rectangle 39879aa.png`" alt="">
                                                        </div>
                                                        <div class="mx-3 ">
                                                            <div class="d-flex align-items-center">
@@ -343,7 +343,7 @@
                                                    </div>
                                                    <div class="d-flex mt-3">
                                                        <div>
-                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  src="/assets/img/Rectangle 39879aa.png" alt="">
+                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  :src="`${publicPath}assets/img/Rectangle 39879aa.png`" alt="">
                                                        </div>
                                                        <div class="mx-3 ">
                                                            <div class="d-flex align-items-center">
@@ -399,7 +399,7 @@
                                                    </div>
                                                    <div class="d-flex mt-3">
                                                        <div>
-                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  src="/assets/img/Rectangle 39879aa.png" alt="">
+                                                           <img     style="width: 200px;height: 100px;" class="rounded-3"  :src="`${publicPath}assets/img/Rectangle 39879aa.png`" alt="">
                                                        </div>
                                                        <div class="mx-3 ">
                                                            <div class="d-flex align-items-center">

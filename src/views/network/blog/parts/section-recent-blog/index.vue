@@ -44,9 +44,9 @@ export default {
  data:()=>({
     loading:true,
     blogs:[
-       /* {id:1,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:2,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:3,title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+       /* {id:1,title:'عنوان المدونة',image:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:2,title:'عنوان المدونة',image:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:3,title:'عنوان المدونة',image:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
 */
     ]
  }),

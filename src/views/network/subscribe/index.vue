@@ -9,10 +9,10 @@
                         </h1>
                     </div>
                     <div class="col-md-6">
-                        <img class="img-fluid" src="/assets/img/_x36__1_.png" alt="">
+                        <img class="img-fluid" :src="`${publicPath}assets/img/_x36__1_.png`" alt="">
                     </div>
                     <div style="left: 2px; bottom: 14px;width: fit-content;transform: rotate(127deg)" class="position-absolute">
-                        <img src="/assets/img/starrrr.png" alt="">
+                        <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
                     </div>
 
                 </div>

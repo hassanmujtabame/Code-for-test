@@ -4,7 +4,7 @@
                 <div class="col-md-5">
                     <div>
                         <div class="bg-back position-relative">
-                            <img  class="img-fluid" src="/assets/img/Group 39920 - B@2x.svg" alt="">
+                            <img  class="img-fluid" :src="`${publicPath}assets/img/Group 39920 - B@2x.svg`" alt="">
                        
                         </div>
                     </div>

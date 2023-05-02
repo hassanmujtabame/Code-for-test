@@ -9,7 +9,7 @@
                         <div class="box border text-center p-3 rounded-2">
 
                             <div>
-                                <img src="/assets/img/m1.png" alt="">
+                                <img :src="`${publicPath}assets/img/m1.png`" alt="">
                             </div>
                             <p>
                                 الإعلان عن الخدمـــــــــــــات والعروض المُقدّمة لأعضــاء شبكة رياديات مـــــــن خلال
@@ -21,7 +21,7 @@
                         <div class="box border text-center p-3 rounded-2">
 
                             <div>
-                                <img src="/assets/img/m2.png" alt="">
+                                <img :src="`${publicPath}assets/img/m2.png`" alt="">
                             </div>
                             <p>
                                 وضع شعار الشركة علـــــى موقع شبكة رياديـــــــــــات لإعلانها كجهة مشاركــــــة </p>
@@ -31,7 +31,7 @@
                         <div class="box border text-center p-3 rounded-2">
 
                             <div>
-                                <img src="/assets/img/m3.png" alt="">
+                                <img :src="`${publicPath}assets/img/m3.png`" alt="">
                             </div>
                             <p>
                                 إتاحة الفرصة للتعاون مــــع شركة رياديات الأعمـــــــــال لتقديم خدمات حصريــــــــــة

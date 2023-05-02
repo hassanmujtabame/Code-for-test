@@ -47,15 +47,16 @@ export default {
   components:{
   TrainingCourseCard
   },
- data:()=>({
+ data:(vm)=>{
+  return{
     courses:[
-    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:2000,currency:'ريال'},
-    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-    {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
-   {image_path:'/assets/img/Rectangle 1775.png',title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    {image_path:`${vm.publicPath}assets/img/Rectangle 1775.png`,title:'تصميم واجهات المواقع والتطبيقات',price:2000,currency:'ريال'},
+    {image_path:`${vm.publicPath}assets/img/Rectangle 1775.png`,title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    {image_path:`${vm.publicPath}assets/img/Rectangle 1775.png`,title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    {image_path:`${vm.publicPath}assets/img/Rectangle 1775.png`,title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    {image_path:`${vm.publicPath}assets/img/Rectangle 1775.png`,title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+    {image_path:`${vm.publicPath}assets/img/Rectangle 1775.png`,title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
+   {image_path:`${vm.publicPath}assets/img/Rectangle 1775.png`,title:'تصميم واجهات المواقع والتطبيقات',price:1000,currency:'ريال'},
     ],
     loading:true,
   total:0,
@@ -67,7 +68,8 @@ export default {
             "price": 1500
           },
     items:[]
- }),
+ }
+},
  methods:{
     async initlizing(){
       this.loading = true;

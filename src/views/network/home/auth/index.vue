@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div @click="router_push('network-exhibitions')" class=" box clickable">
-                        <img class="w-100 shadow-hover" src="/assets/img/Component 40.png" alt="" height="295">
+                        <img class="w-100 shadow-hover" :src="`${publicPath}assets/img/Component 40.png`" alt="" height="295">
 
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                                 </button>
                             </div>
                             <div>
-                                <img class="img-fluid"  src="/assets/img/vuesax/v2.png" alt="">
+                                <img class="img-fluid"  :src="`${publicPath}assets/img/vuesax/v2.png`" alt="">
 
                             </div>
                         </div>
@@ -70,21 +70,21 @@
                     </router-link>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-fluid" src="/assets/img/Group 1171275365.png" alt="">
+                    <img class="img-fluid" :src="`${publicPath}assets/img/Group 1171275365.png`" alt="">
                 </div>
             </div>
        
             <div class="star position-absolute" >
-                    <img  class="landing"  src="/assets/svg/start.svg" alt="">
+                    <img  class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             <div class="square position-absolute" >
-                <img class="landing"  src="/assets/svg/square.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/square.svg`" alt="">
              </div>
              <div class="star-two position-absolute" >
-                <img class="landing"  src="/assets/svg/start.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
              </div>
             <div class="star-big position-absolute" >
-                <img class="landing"  src="/assets/svg/star-big.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/star-big.svg`" alt="">
             </div>
         </div>
   

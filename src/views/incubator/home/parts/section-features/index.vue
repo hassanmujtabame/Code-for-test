@@ -10,7 +10,7 @@
                         <div class="box border d-flex gap-4 align-items-center rounded-2">
     
                             <div>
-                                <img src="/assets/img/Vector.png" alt="">
+                                <img :src="`${publicPath}assets/img/Vector.png`" alt="">
                             </div>
                             <div>
                                 تطوير الافكار
@@ -25,7 +25,7 @@
                         <div class="box border d-flex align-items-center  gap-4  rounded-2">
     
                             <div>
-                                <img src="/assets/img/Vector2.png" alt="">
+                                <img :src="`${publicPath}assets/img/Vector2.png`" alt="">
                             </div>
                             <div>
                                 دراسة جدوى أقتصاديــــــــة                            
@@ -38,7 +38,7 @@
                         <div class="box border d-flex align-items-center gap-4 rounded-2">
     
                             <div>
-                                <img src="/assets/img/Group3.png" alt="">
+                                <img :src="`${publicPath}assets/img/Group3.png`" alt="">
                             </div>
                             <div>
                                 تجهيز عـــــرض أسـتـثـمـــــاري                                                                            </div>
@@ -49,7 +49,7 @@
                         <div class="box border d-flex align-items-center gap-4 rounded-2">
     
                             <div>
-                                <img src="/assets/img/Group4.png" alt="">
+                                <img :src="`${publicPath}assets/img/Group4.png`" alt="">
                             </div>
                             <div>
                                 تجهيز خـــطــــة العمـــــــــــــــل                                                                    </div>

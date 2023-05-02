@@ -22,7 +22,7 @@
                            </div>
                        </div>
                        <div class="col-12 col-md-6">
-                           <img class="w-100" src="/assets/img/Group 1171275405.png" alt="">
+                           <img class="w-100" :src="`${publicPath}assets/img/Group 1171275405.png`" alt="">
                        </div>
 
                    </div>

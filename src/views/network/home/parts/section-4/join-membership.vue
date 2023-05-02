@@ -2,7 +2,7 @@
   <div class="row align-items-center">
                 <div class="col-md-6">
                     <div >
-                        <img class="img-fluid" src="/assets/img/network 289320.png" alt="" width="470">
+                        <img class="img-fluid" :src="`${publicPath}assets/img/network 289320.png`" alt="" width="470">
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -5,7 +5,7 @@
                 <div class="row align-items-center ">
                     <div class="col-md-6">
                         <div>
-                            <img v-if="false" class="img-fluid" src="/assets/img/network 289320.png" alt="" width="470">
+                            <img v-if="false" class="img-fluid" :src="`${publicPath}assets/img/network 289320.png`" alt="" width="470">
                             <AnimateCard />
                         </div>
                     </div>
@@ -132,42 +132,42 @@
 
                                 <div class="row justify-content-center">
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img class="rounded-circle" src="/assets/img/Ellipse 24-aa.png" alt=""
+                                        <img class="rounded-circle" :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt=""
                                             width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img class="rounded-circle" src="/assets/img/Ellipse 25.png" alt=""
+                                        <img class="rounded-circle" :sr="`${publicPath}assets/img/Ellipse 25.png`" alt=""
                                             width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img class="rounded-circle" src="/assets/img/Ellipse 24-aa.png" alt=""
+                                        <img class="rounded-circle" :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt=""
                                             width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img class="rounded-circle" src="/assets/img/Ellipse 25.png" alt=""
+                                        <img class="rounded-circle" :sr="`${publicPath}assets/img/Ellipse 25.png`" alt=""
                                             width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img class="rounded-circle" src="/assets/img/Ellipse 24-aa.png" alt=""
+                                        <img class="rounded-circle" :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt=""
                                             width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img class="rounded-circle" src="/assets/img/Ellipse 25.png" alt=""
+                                        <img class="rounded-circle" :sr="`${publicPath}assets/img/Ellipse 25.png`" alt=""
                                             width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img class="rounded-circle" src="/assets/img/Ellipse 24-aa.png" alt=""
+                                        <img class="rounded-circle" :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt=""
                                             width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img class="rounded-circle" src="/assets/img/Ellipse 25.png" alt=""
+                                        <img class="rounded-circle" :sr="`${publicPath}assets/img/Ellipse 25.png`" alt=""
                                             width="180px" height="180px">
 
                                     </div>
@@ -178,35 +178,35 @@
                                 aria-labelledby="pills-profile-tab" tabindex="0">
                                 <div class="row justify-content-center">
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
 
@@ -216,35 +216,35 @@
                                 aria-labelledby="pills-contact-tab" tabindex="0">
                                 <div class="row justify-content-center">
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
 
@@ -254,35 +254,35 @@
                                 aria-labelledby="pills-servProvider-tab" tabindex="0">
                                 <div class="row justify-content-center">
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
 
@@ -292,35 +292,35 @@
                                 tabindex="0">
                                 <div class="row justify-content-center">
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 24-aa.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24-aa.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-6 col-md-3 text-center">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
                                     </div>
                                 </div>
                             </div>

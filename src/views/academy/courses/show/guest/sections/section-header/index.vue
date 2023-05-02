@@ -9,16 +9,16 @@
        {{ itemPage.short_description }}
         </p>
         <div class="star position-absolute">
-          <img class="landing" src="/assets/svg/start.svg" alt="" />
+          <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="" />
         </div>
         <div class="square position-absolute">
-          <img class="landing" src="/assets/svg/square.svg" alt="" />
+          <img class="landing" :src="`${publicPath}assets/svg/square.svg`" alt="" />
         </div>
         <div class="star-two position-absolute">
-          <img class="landing" src="/assets/svg/start.svg" alt="" />
+          <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="" />
         </div>
         <div class="star-big position-absolute">
-          <img class="landing" src="/assets/svg/star-big.svg" alt="" />
+          <img class="landing" :src="`${publicPath}assets/svg/star-big.svg`" alt="" />
         </div>
       </div>
         <div class="course-menu-top px-5">

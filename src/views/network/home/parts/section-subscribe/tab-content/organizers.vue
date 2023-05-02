@@ -13,18 +13,19 @@ export default {
 components:{
     ImgAvatar
 },
- data:()=>({
+ data:(vm)=>{
+    return{
     partners:[
-        {img:'/assets/img/Ellipse 24.png',name:'partner 01'},
-        {img:'/assets/img/Ellipse 25.png',name:'partner 02'},
-        {img:'/assets/img/Ellipse 24.png',name:'partner 03'},
-        {img:'/assets/img/Ellipse 25.png',name:'partner 04'},
-        {img:'/assets/img/Ellipse 24.png',name:'partner 05'},
-        {img:'/assets/img/Ellipse 25.png',name:'partner 06'},
-        {img:'/assets/img/Ellipse 24.png',name:'partner 07'},
-        {img:'/assets/img/Ellipse 25.png',name:'partner 08'},
+        {img:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 01'},
+        {img:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 02'},
+        {img:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 03'},
+        {img:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 04'},
+        {img:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 05'},
+        {img:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 06'},
+        {img:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 07'},
+        {img:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 08'},
     ]
- })
+ }}
 }
 </script>
 

@@ -7,7 +7,7 @@
       <template v-slot>
           <div class="text-center" v-if="showDialog">
             <div >
-            <img src="/assets/img/Group 39921.png" width="300" height="220" alt="">
+            <img :src="`${publicPath}assets/img/Group 39921.png`" width="300" height="220" alt="">
           </div>
             <div>
                 <h4  >
@@ -49,12 +49,13 @@ import consultingAPI from '@/services/api/consulting/index'
             default: "show-session-confirmation"
         }
     },
-    data: () => ({
-        itemDialog: { title: null, description: null, btns: null, image: "/assets/img/cuate-2.png" },
+    data: (vm) => {
+      return{
+        itemDialog: { title: null, description: null, btns: null, image: `${vm.publicPath}assets/img/cuate-2.png` },
         itemForm:{url:null},
         loading: false,
         showDialog: false,
-    }),
+    }},
     methods: {
         async confirmAccept() {
           this.loading = true;

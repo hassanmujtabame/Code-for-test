@@ -35,18 +35,19 @@ export default {
  components:{
     CardMember
   },
-  data:()=>({
+  data:(vm)=>{
+  return {
     items:[
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
-        {name:'العنقود محمد',img:'/assets/img/Rectangle 1775qa.png',description:'التصوير'},
+        {name:'العنقود محمد',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
+        {name:'العنقود محمد',img:`${vm.publicPath}assets/img/Rectangle 1775qa.png`,description:'التصوير'},
     ]
-  })
+  }}
 }
 </script>
 

@@ -7,7 +7,7 @@
       <template v-slot>
           <div class="text-center" v-if="showed">
             <div>
-            <img src="/assets/img/cuate-2.png" alt="">
+            <img :src="`${publicPath}assets/img/cuate-2.png`" alt="">
           </div>
             <div>
                 <h4>

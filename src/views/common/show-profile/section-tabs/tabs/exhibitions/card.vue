@@ -1,7 +1,7 @@
 <template>
    <div class="d-flex">
             <div>
-                <img     style="width: 200px;height: 100px;" class="rounded-3"  src="/assets/img/Rectangle 39879aa.png" alt="">
+                <img     style="width: 200px;height: 100px;" class="rounded-3"  :src="`${publicPath}assets/img/Rectangle 39879aa.png`" alt="">
             </div>
             <div class="mx-3 ">
                 <div class="d-flex align-items-center">

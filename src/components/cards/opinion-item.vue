@@ -8,7 +8,7 @@
                 </h6>
             </div>
                 <div class="position-absolute dote">
-                    <img src="/assets/svg/double-quoted.svg" alt="">
+                    <img :src="`${publicPath}assets/svg/double-quoted.svg`" alt="">
                 </div>
             </div>
             <div class="col-4">

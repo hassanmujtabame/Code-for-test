@@ -106,7 +106,7 @@
                         </div>
                         <div class="col-md-5 riad-img-carwsel">
                           <img
-                            src="/assets/img/1663686448841 1.png"
+                            :src="`${publicPath}assets/img/1663686448841 1.png`"
                             alt=""
                             width="450.14"
                             height="276"
@@ -121,7 +121,7 @@
                         <div class="position-relative">
                           <img
                             style="opacity: 0.6"
-                            src="/assets/img/NoPath - Copy (2).jpg"
+                            :src="`${publicPath}assets/img/NoPath - Copy (2).jpg`"
                             alt=""
                             height="292"
                           />

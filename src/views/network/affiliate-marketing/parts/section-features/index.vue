@@ -12,7 +12,7 @@
                           <div class="box border d-flex gap-4 align-items-center rounded-2">
       
                               <div>
-                                  <img src="/assets/svg/ads-statics-chat.svg" alt="">
+                                  <img :src="`${publicPath}assets/svg/ads-statics-chat.svg`" alt="">
                               </div>
                               <div>
                                   التسويـق بالروابط
@@ -26,7 +26,7 @@
                           <div class="box border d-flex align-items-center  gap-4  rounded-2">
       
                               <div>
-                                  <img src="/assets/svg/money-bills.svg" alt="">
+                                  <img :src="`${publicPath}assets/svg/money-bills.svg`" alt="">
                               </div>
                               <div>
                                   أعلى نسبة عمولة تصــــــل الى 20%
@@ -39,7 +39,7 @@
                           <div class="box border d-flex align-items-center gap-4 rounded-2">
       
                               <div>
-                                  <img src="/assets/svg/watch-course.svg" alt="">
+                                  <img :src="`${publicPath}assets/svg/watch-course.svg`" alt="">
                               </div>
                               <div>
                                   دورات متــــــخصصة ومجانية للمسوقين المعتمديـــــــــــــــن                                                                          </div>
@@ -50,7 +50,7 @@
                           <div class="box border d-flex align-items-center gap-4 rounded-2">
       
                               <div>
-                                  <img src="/assets/svg/earn-money.svg" alt="">
+                                  <img :src="`${publicPath}assets/svg/earn-money.svg`" alt="">
                               </div>
                               <div>
                                   سهولة الربــح وزيادة الدخــل                                                               </div>

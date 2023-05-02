@@ -4,7 +4,7 @@
                 <div class="col-md-6">
                     <div>
                         <div class="bg-back position-relative">
-                            <img  class="img-fluid" src="/assets/img/image1000.png" alt="">
+                            <img  class="img-fluid" :src="`${publicPath}assets/img/image1000.png`" alt="">
                        
                         </div>
                     </div>

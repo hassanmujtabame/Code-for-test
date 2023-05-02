@@ -10,17 +10,17 @@
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit;" class=" m-auto text-end">
-                            <img  src="/assets/img/Group 3066.png" alt="" >
+                            <img  :src="`${publicPath}assets/img/Group 3066.png`" alt="" >
                         </div>
 
                     </div>
 
                 </div>
                 <div class="star-cons">
-                    <img src="/assets/img/starrrr.png" alt="">
+                    <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
                 </div>
                 <div class="star-cons stars">
-                    <img src="/assets/img/starsss.png" alt="">
+                    <img :src="`${publicPath}assets/img/starsss.png`" alt="">
                 </div>
 
             </div>

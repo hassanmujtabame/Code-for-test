@@ -12,7 +12,7 @@
                 </h4>
               </div>
           <div>
-            <img src="/assets/img/cuate-2.png" alt="">
+            <img :src="`${publicPath}assets/img/cuate-2.png`" alt="">
           </div>
           <div class="mt-3">
             <button @click="goBack" style="height: 40px;" class="btn btn-main">

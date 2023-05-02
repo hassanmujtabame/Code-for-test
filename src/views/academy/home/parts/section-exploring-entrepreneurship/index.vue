@@ -43,16 +43,16 @@ export default {
     data:()=>({
       loading : false,
         items:[
-            /*{id:1,title:'ريــــــــادة الاعمال',img:'/assets/svg/business.svg'},
-            {id:1,title:'المحاسبة والمالية',img:'/assets/svg/account.svg'},
-            {id:1,title:'التسويق',img:'/assets/svg/shopping.svg'},
-            {id:1,title:'القانون',img:'/assets/svg/law.svg'},
-            {id:1,title:'الاستراتيجية والقيادة',img:'/assets/svg/stratigy-leadership.svg'},
-            {id:1,title:'الاستراتيجية والقيادة',img:'/assets/svg/stratigy-leadership.svg'},
-            {id:1,title:'الاستراتيجية والقيادة',img:'/assets/svg/stratigy-leadership.svg'},
-            {id:1,title:'الاستراتيجية والقيادة',img:'/assets/svg/stratigy-leadership.svg'},
-            {id:1,title:'الاستراتيجية والقيادة',img:'/assets/svg/stratigy-leadership.svg'},
-            {id:1,title:'الاستراتيجية والقيادة',img:'/assets/svg/stratigy-leadership.svg'},
+            /*{id:1,title:'ريــــــــادة الاعمال',img:`${vm.publicPath}assets/svg/business.svg`},
+            {id:1,title:'المحاسبة والمالية',img:`${vm.publicPath}assets/svg/account.svg`},
+            {id:1,title:'التسويق',img:`${vm.publicPath}assets/svg/shopping.svg`},
+            {id:1,title:'القانون',img:`${vm.publicPath}assets/svg/law.svg`},
+            {id:1,title:'الاستراتيجية والقيادة',img:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {id:1,title:'الاستراتيجية والقيادة',img:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {id:1,title:'الاستراتيجية والقيادة',img:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {id:1,title:'الاستراتيجية والقيادة',img:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {id:1,title:'الاستراتيجية والقيادة',img:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
+            {id:1,title:'الاستراتيجية والقيادة',img:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
           */
         ]
     }),

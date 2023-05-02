@@ -8,7 +8,7 @@
     >
     <div v-if="showDialog" class="text-center">
                   <div>
-                      <img class="img-fluid" src="/assets/img/Group 1171275567.png" alt="">
+                      <img class="img-fluid" :src="`${publicPath}assets/img/Group 1171275567.png`" alt="">
                   </div>
                   <div>
                  

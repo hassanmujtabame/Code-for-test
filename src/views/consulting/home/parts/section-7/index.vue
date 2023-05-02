@@ -4,7 +4,7 @@
                   <div class="col-md-6 mt-2">
                       <div class="img-screen">
       
-                          <img class="img-fluid" src="/assets/img/mobile-screen 1.png" alt="">
+                          <img class="img-fluid" :src="`${publicPath}assets/img/mobile-screen 1.png`" alt="">
                       </div>
       
                   </div>
@@ -16,10 +16,10 @@
                       </h2>
                       <div class="mt-4">
                           <a href="">
-                              <img src="/assets/img/34-349265_app-store-google-play-svg 3.png" alt="">
+                              <img :src="`${publicPath}assets/img/34-349265_app-store-google-play-svg 3.png`" alt="">
                           </a>
                           <a href="">
-                              <img src="/assets/img/34-349265_app-store-google-play-svg 1.png" alt="">
+                              <img :src="`${publicPath}assets/img/34-349265_app-store-google-play-svg 1.png`" alt="">
                           </a>
                       </div>
       
@@ -28,16 +28,16 @@
               </div>
          
               <div class="star position-absolute" >
-                      <img  class="landing"  src="/assets/svg/start.svg" alt="">
+                      <img  class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
               </div>
               <div class="square position-absolute" >
-                  <img class="landing"  src="/assets/img/square.png" alt="">
+                  <img class="landing"  :src="`${publicPath}assets/img/square.png`" alt="">
                </div>
                <div class="star-two position-absolute" >
-                  <img class="landing"  src="/assets/svg/start.svg" alt="">
+                  <img class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
                </div>
               <div class="star-big position-absolute" >
-                  <img class="landing"  src="/assets/svg/star-big.svg" alt="">
+                  <img class="landing"  :src="`${publicPath}assets/svg/star-big.svg`" alt="">
               </div>
           </div>
 </template>

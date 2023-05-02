@@ -74,7 +74,8 @@ export default {
     confirmJoinMeetingDialog,
     successJoinMeetingDialog
  },
- data:()=>({
+ data:(vm)=>{
+  return{
   isJoined:false,
   isOwner:false,
       loading:true,
@@ -90,10 +91,11 @@ export default {
       ,categoryName:'مجلس',
       date:'23 يوليو'
       ,time:'2:23 ص'
-      ,image:'/assets/img/learning.png'
+      ,image:`${vm.publicPath}assets/img/learning.png`
     },
 
- }),
+ }
+},
  methods:{
   successJoined(){
     this.isJoined = true;

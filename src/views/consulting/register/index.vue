@@ -328,9 +328,9 @@
                     <div class="col-md-6">
                         <div class="box">
                             <div class="position-relative">
-                                <img style="width: 100%;" src="/assets/img/Frame 5001.png" alt="">
+                                <img style="width: 100%;" :src="`${publicPath}assets/img/Frame 5001.png`" alt="">
                                 <div  class="position-absolute img-bg-contact">
-                                    <img class="w-100" src="/assets/img/logo-white.png" alt="">
+                                    <img class="w-100" :src="`${publicPath}assets/img/logo-white.png`" alt="">
 
                                 </div>
                                 <div style="top: 68%;left: 27%;" class="position-absolute icon-contact">

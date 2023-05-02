@@ -139,7 +139,7 @@ name:'section-user-info',
     async sendOffer(){
         if(!this.userIsProvider && this.userIsSubProvider){
             let dataEvent ={
-                image:'/assets/img/Group 1171275670.png',
+                image:`${this.publicPath}assets/img/Group 1171275670.png`,
                 title:'لا يمكنك تقديم عرض تقديم الخدمة',
                 description:'حتى تتمكن من التقديم على الخدمات يجب ان تكون كمقدم خدمة في المنصة',
                 btns:[
@@ -151,7 +151,7 @@ name:'section-user-info',
         }
         if(!this.userIsSubProvider){
             let dataEvent ={
-                image:'/assets/img/Group 1171275670.png',
+                image:`${this.publicPath}assets/img/Group 1171275670.png`,
                 title:'لا يمكنك تقديم عرض تقديم الخدمة',
                 description:'حتى تتمكن من التقديم على الخدمات يجب ان تكون مشترك كمقدم خدمة في المنصة',
                 btns:[

@@ -32,18 +32,19 @@ export default {
  components:{
     BlogInfoCard
  },
- data:()=>({
+ data:(vm)=>{
+  return{
     blogs:[
-        {title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {title:'عنوان المدونة',image:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {title:'عنوان المدونة',image:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {title:'عنوان المدونة',image:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {title:'عنوان المدونة',image:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
 
     ]
     ,
     loading:true,
   total:0,
     items:[]
- }),
+ }},
  methods:{
     async initlizing(){
       this.loading = true;

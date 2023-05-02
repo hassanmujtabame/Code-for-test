@@ -17,7 +17,7 @@
                          v-slot="{ validate, errors }">
                             <label for="imginput" class="form-label file-label first w-100">
                                 <div class="text-center p-5">
-                                    <img src="/assets/svg/empty-image.svg">
+                                    <img :src="`${publicPath}assets/svg/empty-image.svg`">
 
                                     <p class="m-c">{{ $t('add_image_exhibition') }}</p>
                                 </div>

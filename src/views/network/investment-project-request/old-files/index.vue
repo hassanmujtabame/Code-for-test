@@ -18,7 +18,7 @@
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img class="img-fluid" src="/assets/img/danger@2x.png" alt="">
+                    <img class="img-fluid" :src="`${publicPath}assets/img/danger@2x.png`" alt="">
                 </div>
 
             </div>

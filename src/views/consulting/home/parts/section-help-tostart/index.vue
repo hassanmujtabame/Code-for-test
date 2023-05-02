@@ -4,10 +4,10 @@
                 <div class="col-md-6">
                     <div>
                         <div class="bg-back position-relative">
-                            <img  class="img-fluid" src="/assets/img/Group 1171274848.png" alt="">
+                            <img  class="img-fluid" :src="`${publicPath}assets/img/Group 1171274848.png`" alt="">
                             <div class="cute position-absolute">
 
-                                <img class=""  src="/assets/img/cuate.png" alt="" width="250px">
+                                <img class=""  :src="`${publicPath}assets/img/cuate.png`" alt="" width="250px">
                             </div>
                         </div>
                     </div>

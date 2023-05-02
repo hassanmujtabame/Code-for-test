@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid " :class="{'px-5':!isMobile}">
           <router-link class="navbar-brand" :to="getRouteLocale('index')"
-            ><img src="/assets/svg/logo-header.svg" alt=""
+            ><img :src="`${publicPath}assets/svg/logo-header.svg`" alt=""
           /></router-link>
           <div v-if="false" class="d-block d-sm-none">
             <SearchInput />

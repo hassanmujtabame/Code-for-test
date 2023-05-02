@@ -87,30 +87,31 @@ export default {
  components:{
     meetingCard
  },
- data:()=>({
+ data:(vm)=>{
+  return{
     meeting:{
         title:'خطة العمل ودراسة الجدوى المالية'
         ,owner:'مجلس'
         ,date:'23 يوليو'
         ,time:' 2:23 ص'
         ,description:'يبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعمال يبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعماليبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعماليبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعماليبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعماليبدأ من الخميس القادم، تعلمي كل ما تريدين معرفته عن دراسة الجدوى مع قامة من قامات رياديات الأعمال'
-        ,img:'/assets/img/learning.png'
+        ,img:`${vm.publicPath}assets/img/learning.png`
         ,video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'
     },
     items:[
-    {id:1,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:2,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:3,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:4,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:5,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:6,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:7,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:8,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:9,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
-    {id:10,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:'/assets/img/learning.png'},
+    {id:1,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
+    {id:2,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
+    {id:3,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
+    {id:4,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
+    {id:5,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
+    {id:6,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
+    {id:7,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
+    {id:8,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
+    {id:9,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
+    {id:10,title:'خطة العمل ودراسة الجدوى المالية',owner:'مجلس',date:'23 يوليو',img:`${vm.publicPath}assets/img/learning.png`},
 
     ]
- })
+ }}
 }
 </script>
 

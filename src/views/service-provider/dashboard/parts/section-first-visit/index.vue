@@ -33,7 +33,7 @@
         <div class="col-md-6 mt-4">
             <div class="box tow  p-3 row">
                 <div class="col-md-6">
-                    <img class="w-100" src="/assets/img/bro.png" alt="" height="195">
+                    <img class="w-100" :src="`${publicPath}assets/img/bro.png`" alt="" height="195">
                 </div>
                 <div class="col-md-4 text-center m-auto p-0 m-0 ">
 

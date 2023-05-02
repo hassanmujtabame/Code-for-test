@@ -5,7 +5,7 @@
                 <div class="col-md-6">
                     <div>
                         <div class="bg-back position-relative">
-                            <img  class="img-fluid" src="/assets/img/Group 1171274880.png" alt="">
+                            <img  class="img-fluid" :src="`${publicPath}assets/img/Group 1171274880.png`" alt="">
                        
                         </div>
                     </div>

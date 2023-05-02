@@ -10,7 +10,7 @@
                                 <div class="col-6  col-lg-3">
                                     <div class="box">
                                         <div>
-                                            <img src="/assets/img/nwtt1786.png" class="rounded-3" alt="" width="166">
+                                            <img :src="`${publicPath}assets/img/nwtt1786.png`" class="rounded-3" alt="" width="166">
                                         </div>
                                         <div class="p-2">
                                             <p>
@@ -31,7 +31,7 @@
                                 <div class="col-6  col-lg-3">
                                     <div class="box">
                                         <div>
-                                            <img src="/assets/img/img-network.png" class="rounded-3" alt="" width="166">
+                                            <img :src="`${publicPath}assets/img/img-network.png`" class="rounded-3" alt="" width="166">
                                         </div>
                                         <div class="p-2">
                                             <p>
@@ -52,7 +52,7 @@
                                 <div class="col-6  col-lg-3">
                                     <div class="box">
                                         <div>
-                                            <img src="/assets/img/nwtt1786.png" class="rounded-3" alt="" width="166">
+                                            <img :src="`${publicPath}assets/img/nwtt1786.png`" class="rounded-3" alt="" width="166">
                                         </div>
                                         <div class="p-2">
                                             <p>

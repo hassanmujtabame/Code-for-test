@@ -47,7 +47,7 @@ export default {
  components:{
     MyServiceCard,plusRectRoundIcon
  },
- data:()=>{
+ data:(vm)=>{
     return {
         loading:false,
         metaInfo:{
@@ -57,12 +57,12 @@ export default {
             total_page: 0,
         },
         items:[
-            {id:1,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
-            {id:2,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
-            {id:3,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
-            {id:4,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
-            {id:5,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
-            {id:6,image:'/assets/img/Rectangle 1798.png',title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'}
+            {id:1,image:`${vm.publicPath}assets/img/Rectangle 1798.png`,title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:2,image:`${vm.publicPath}assets/img/Rectangle 1798.png`,title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:3,image:`${vm.publicPath}assets/img/Rectangle 1798.png`,title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:4,image:`${vm.publicPath}assets/img/Rectangle 1798.png`,title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:5,image:`${vm.publicPath}assets/img/Rectangle 1798.png`,title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'},
+            {id:6,image:`${vm.publicPath}assets/img/Rectangle 1798.png`,title:'إنشاء لوجو احترافي',category:'التصميم',description:'عبارة عن تجهيز كوشة فرح وتجهيز القاعة بالكامل.',price:150,place:'جدة',name:'سارة',status:'actived'}
                ]
     }
  },

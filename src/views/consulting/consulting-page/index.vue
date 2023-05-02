@@ -15,15 +15,15 @@
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit" class="m-auto text-end">
-                            <img class="img-fluid" src="/assets/img/v2.png" alt="" />
+                            <img class="img-fluid" :src="`${publicPath}assets/img/v2.png`" alt="" />
                         </div>
                     </div>
                 </div>
                 <div class="star-cons">
-                    <img src="/assets/img/starrrr.png" alt="" />
+                    <img :src="`${publicPath}assets/img/starrrr.png`" alt="" />
                 </div>
                 <div class="star-cons stars">
-                    <img src="/assets/img/starsss.png" alt="" />
+                    <img :src="`${publicPath}assets/img/starsss.png`" alt="" />
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                 <div class="col-md-6">
                     <div>
                         <div class="bg-back position-relative">
-                            <img class="img-fluid" src="/assets/img/cuate.png" alt="">
+                            <img class="img-fluid" :src="`${publicPath}assets/img/cuate.png`" alt="">
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                         <div class=" col-12 mt-3 m-auto col-md-3">
                             <div class="box text-center shadow border rounded-3">
                                 <div>
-                                    <img class="" src="/assets/img/consult1775.png" alt="" width="259" height="192">
+                                    <img class="" :src="`${publicPath}assets/img/consult1775.png`" alt="" width="259" height="192">
                                 </div>
                                 <div class="text-box bg-white w-100 p-4 text-center rounded-3">
                                     دراسة جدوى
@@ -76,7 +76,7 @@
                         <div class=" col-12 mt-3 m-auto col-md-3">
                             <div class="box text-center shadow border rounded-3">
                                 <div>
-                                    <img class="" src="/assets/img/consult1775.png" alt="" width="259" height="192">
+                                    <img class="" :src="`${publicPath}assets/img/consult1775.png`" alt="" width="259" height="192">
                                 </div>
                                 <div class="text-box bg-white w-100 p-4 text-center rounded-3">
                                     دراسة جدوى
@@ -86,7 +86,7 @@
                         <div class=" col-12 mt-3 m-auto col-md-3">
                             <div class="box text-center shadow border rounded-3">
                                 <div>
-                                    <img class="" src="/assets/img/consult1775.png" alt="" width="259" height="192">
+                                    <img class="" :src="`${publicPath}assets/img/consult1775.png`" alt="" width="259" height="192">
                                 </div>
                                 <div class="text-box bg-white w-100 p-4 text-center rounded-3">
                                     دراسة جدوى
@@ -96,7 +96,7 @@
                         <div class=" col-12 mt-3 m-auto col-md-3">
                             <div class="box text-center shadow border rounded-3">
                                 <div>
-                                    <img class="" src="/assets/img/consult1775.png" alt="" width="259" height="192">
+                                    <img class="" :src="`${publicPath}assets/img/consult1775.png`" alt="" width="259" height="192">
                                 </div>
                                 <div class="text-box bg-white w-100 p-4 text-center rounded-3">
                                     دراسة جدوى

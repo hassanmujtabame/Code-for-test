@@ -1,11 +1,11 @@
 <template>
   <div class="box-program">
-    <img src="/assets/svg/half-border-top.svg" v-if="position=='top'" class="box-program_top" />
+    <img :src="`${publicPath}assets/svg/half-border-top.svg`" v-if="position=='top'" class="box-program_top" />
     <svg width="20" height="22" viewBox="0 0 20 22" v-if="!isFirst" fill="none" class="box-program_arrow" xmlns="http://www.w3.org/2000/svg">
 <path d="M19.2422 21.7903L0.394376 10.9049L19.2422 0.0195312V21.7903Z" fill="#1FB9B3"/>
 </svg>
 
-    <img src="/assets/svg/half-border-top.svg" v-if="position=='bottom'" class="box-program_bottom" />
+    <img :src="`${publicPath}assets/svg/half-border-top.svg`" v-if="position=='bottom'" class="box-program_bottom" />
   <div class="box-program__wrapper">
   <div class="box-program__icon">
     <img :src="image" />

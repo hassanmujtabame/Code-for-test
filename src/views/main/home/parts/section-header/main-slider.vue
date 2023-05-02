@@ -1,7 +1,7 @@
 <template>
   <div class="sec-color p-0 m-0 sec-one">
         <div class="img-sec-one" :class="{'rotateY-180':$i18n.locale!=='ar'}">
-          <img class="img-fluid" src="/assets/img/Group 14510.png" alt="" />
+          <img class="img-fluid" :src="`${publicPath}assets/img/Group 14510.png`" alt="" />
         </div>
         <div class="container" style="position:relative">
           <div class="row align-items-center pt-5 pb-5">
@@ -21,7 +21,7 @@
             </div>
             <div class="col-md-5 circle-img m-auto">
               <div>
-                <img class="landing" src="/assets/img/image.png" alt="" />
+                <img class="landing" :src="`${publicPath}assets/img/image.png`" alt="" />
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@
                 <div class="row align-items-center p-0 position-relative ">
                     <div class="col-12 col-md-6 p-4">
                         <div style="" class="text-center " >
-                                 <img class="" src="/assets/img/pot_3_.png" alt="" width="320" height="220">
+                                 <img class="" :src="`${publicPath}assets/img/pot_3_.png`" alt="" width="320" height="220">
                         </div>
                         <div class="">
 
@@ -71,7 +71,7 @@
                     </div>
                     <div class=" col-12 col-md-6">
                         <div class="box">
-                            <img src="/assets/svg/riadiat-green-card.svg"/>
+                            <img :src="`${publicPath}assets/svg/riadiat-green-card.svg`"/>
                         </div>
                     </div>
                 </div>

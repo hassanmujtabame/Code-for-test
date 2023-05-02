@@ -26,7 +26,7 @@
                     </router-link>
                     </div>
                     <div>
-                        <img class="img-fluid"  src="/assets/img/ve 1.png" alt="">
+                        <img class="img-fluid"  :src="`${publicPath}assets/img/ve 1.png`" alt="">
 
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         </router-link>
                     </div>
                     <div>
-                        <img class="img-fluid"  src="/assets/img/vuesax/v2.png" alt="">
+                        <img class="img-fluid"  :src="`${publicPath}assets/img/vuesax/v2.png`" alt="">
 
                     </div>
                 </div>

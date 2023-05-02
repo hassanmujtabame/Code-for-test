@@ -12,15 +12,15 @@
             </div>
             <div class="col-md-6">
               <div style="overflow: inherit" class="m-auto text-end">
-                <img class="img-fluid" src="/assets/img/Frame-learning-metting.png" alt="" />
+                <img class="img-fluid" :src="`${publicPath}assets/img/Frame-learning-metting.png`" alt="" />
               </div>
             </div>
           </div>
           <div class="star-cons">
-            <img src="/assets/img/starrrr.png" alt="" />
+            <img :src="`${publicPath}assets/img/starrrr.png`" alt="" />
           </div>
           <div class="star-cons stars">
-            <img src="/assets/img/starsss.png" alt="" />
+            <img :src="`${publicPath}assets/img/starsss.png`" alt="" />
           </div>
         </div>
       </div>
@@ -317,7 +317,7 @@
                   <div class="box  ">
 
                     <div class="main-img position-relative">
-                        <img style="    filter: brightness(0.7);" class=" rounded-2" src="/assets/img/learning.png" alt="" width="368" height="192">
+                        <img style="    filter: brightness(0.7);" class=" rounded-2" :src="`${publicPath}assets/img/learning.png`" alt="" width="368" height="192">
 
                         <div class="position-absolute top-50 px-2 text-start">
                             <h6 style="width: fit-content;"  class="bg-yal p-1 px-2 rounded-2 text-white ">
@@ -348,7 +348,7 @@
                   <div class="box  ">
 
                     <div class="main-img position-relative">
-                        <img style="    filter: brightness(0.7);" class=" rounded-2" src="/assets/img/learning.png" alt="" width="368" height="192">
+                        <img style="    filter: brightness(0.7);" class=" rounded-2" :src="`${publicPath}assets/img/learning.png`" alt="" width="368" height="192">
 
                         <div class="position-absolute top-50 px-2 text-start">
                             <h6 style="width: fit-content;"  class="bg-yal p-1 px-2 rounded-2 text-white ">
@@ -379,7 +379,7 @@
                   <div class="box  ">
 
                     <div class="main-img position-relative">
-                        <img style="    filter: brightness(0.7);" class=" rounded-2" src="/assets/img/learning.png" alt="" width="368" height="192">
+                        <img style="    filter: brightness(0.7);" class=" rounded-2" :src="`${publicPath}assets/img/learning.png`" alt="" width="368" height="192">
 
                         <div class="position-absolute top-50 px-2 text-start">
                             <h6 style="width: fit-content;"  class="bg-yal p-1 px-2 rounded-2 text-white ">
@@ -410,7 +410,7 @@
                   <div class="box  ">
 
                     <div class="main-img position-relative">
-                        <img style="    filter: brightness(0.7);" class=" rounded-2" src="/assets/img/learning.png" alt="" width="368" height="192">
+                        <img style="    filter: brightness(0.7);" class=" rounded-2" :src="`${publicPath}assets/img/learning.png`" alt="" width="368" height="192">
 
                         <div class="position-absolute top-50 px-2 text-start">
                             <h6 style="width: fit-content;"  class="bg-yal p-1 px-2 rounded-2 text-white ">
@@ -441,7 +441,7 @@
                   <div class="box  ">
 
                     <div class="main-img position-relative">
-                        <img style="    filter: brightness(0.7);" class=" rounded-2" src="/assets/img/learning.png" alt="" width="368" height="192">
+                        <img style="    filter: brightness(0.7);" class=" rounded-2" :src="`${publicPath}assets/img/learning.png`" alt="" width="368" height="192">
 
                         <div class="position-absolute top-50 px-2 text-start">
                             <h6 style="width: fit-content;"  class="bg-yal p-1 px-2 rounded-2 text-white ">
@@ -472,7 +472,7 @@
                   <div class="box  ">
 
                     <div class="main-img position-relative">
-                        <img style="    filter: brightness(0.7);" class=" rounded-2" src="/assets/img/learning.png" alt="" width="368" height="192">
+                        <img style="    filter: brightness(0.7);" class=" rounded-2" :src="`${publicPath}assets/img/learning.png`" alt="" width="368" height="192">
 
                         <div class="position-absolute top-50 px-2 text-start">
                             <h6 style="width: fit-content;"  class="bg-yal p-1 px-2 rounded-2 text-white ">

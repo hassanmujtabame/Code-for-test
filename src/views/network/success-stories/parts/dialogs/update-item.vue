@@ -65,7 +65,7 @@ export default {
     categories:[],
     tags:[],
     idImage: `image-selected-${vm.generateRandomString(8)}`,
-    url:'/assets/svg/empty-image.svg',
+    url:`${vm.publicPath}assets/svg/empty-image.svg`,
     imageUrl:'none',
     file:null,
     itemOrigin:{},

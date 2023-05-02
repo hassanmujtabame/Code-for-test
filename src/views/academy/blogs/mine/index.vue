@@ -21,16 +21,17 @@ components:{
     AddBlogDialog
     
 },
-data:()=>({
+data:(vm)=>{
+return{
   blogs:[
-        {id:1,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:2,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:3,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:4,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:5,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:6,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:1,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:2,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:3,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:4,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:5,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:6,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
     ]
-}),
+}},
 methods:{
   addBlog(){
        this.fireOpenDialog('add-dialog')

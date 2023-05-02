@@ -38,16 +38,16 @@
             </div>
        
             <div class="star position-absolute" >
-                    <img  class="landing"  src="/assets/svg/start.svg" alt="">
+                    <img  class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             <div class="square position-absolute" >
-                <img class="landing"  src="/assets/img/square.png" alt="">
+                <img class="landing"  :src="`${publicPath}assets/img/square.png`" alt="">
              </div>
              <div class="star-two position-absolute" >
-                <img class="landing"  src="/assets/svg/start.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
              </div>
             <div class="star-big position-absolute" >
-                <img class="landing"  src="/assets/svg/star-big.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/star-big.svg`" alt="">
             </div>
         </div>
 </template>

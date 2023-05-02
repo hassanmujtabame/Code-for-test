@@ -4,14 +4,14 @@
     <balanceCard 
     title="الرصيد الكلي" 
     :value="total_balance" 
-    img="/assets/svg/balance-total.svg" 
+    :img="`${publicPath}assets/svg/balance-total.svg`" 
     />
     </div>
     <div class="col-md-4 border-end  text-center p-2 ">
     <balanceCard 
     title="الرصيد المعلق" 
     :value="outstanding_balance" 
-    img="/assets/svg/balance-outstanding.svg"
+    :img="`${publicPath}assets/svg/balance-outstanding.svg`"
     class-value="text-danger" 
     />
     </div>
@@ -20,7 +20,7 @@
     title="الرصيد المتاح" 
     :value="available_balance" 
     class-value="text-warning"
-    img="/assets/svg/balance-available.svg" 
+    :img="`${publicPath}assets/svg/balance-available.svg`" 
     />
     </div>
   </div>

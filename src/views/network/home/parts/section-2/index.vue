@@ -4,7 +4,7 @@
                 <div class="col-md-6">
                     <div>
                         <div class="bg-back position-relative">
-                            <img  class="img-fluid" src="/assets/img/pana.png" alt="">
+                            <img  class="img-fluid" :src="`${publicPath}assets/img/pana.png`" alt="">
                        
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                         <div class="box border d-flex align-items-center rounded-2">
 
                             <div>
-                                <img src="/assets/img/a1.svg" alt="">
+                                <img :src="`${publicPath}assets/img/a1.svg`" alt="">
                             </div>
                             <div>
                                 جمع والهــــــام وتمكين النســاء                             </div>
@@ -42,7 +42,7 @@
                         <div class="box border d-flex align-items-center rounded-2">
 
                             <div>
-                                <img src="/assets/img/a2.svg" alt="">
+                                <img :src="`${publicPath}assets/img/a2.svg`" alt="">
                             </div>
                             <div>
                                 بناء شبكــــــــــة علاقــــــــــــــات                                                      </div>
@@ -53,7 +53,7 @@
                         <div class="box border d-flex align-items-center rounded-2">
 
                             <div>
-                                <img src="/assets/img/a3.png" alt="">
+                                <img :src="`${publicPath}assets/img/a3.png`" alt="">
                             </div>
                             <div>
                                 شراكات مـــــــع
@@ -66,7 +66,7 @@
                         <div class="box border d-flex align-items-center rounded-2">
 
                             <div>
-                                <img src="/assets/img/a4.png" alt="">
+                                <img :src="`${publicPath}assets/img/a4.png`" alt="">
                             </div>
                             <div>
                                 تطوير رائـــــدات الاعمــــــــــــــال
@@ -183,7 +183,7 @@
                         </div>
                         <div class="col-md-5 riad-img-carwsel">
                           <img
-                            src="/assets/img/1663686448841 1.png"
+                            :src="`${publicPath}assets/img/1663686448841 1.png`"
                             alt=""
                             width="450.14"
                             height="276"
@@ -198,7 +198,7 @@
                         <div class="position-relative">
                           <img
                             style="opacity: 0.6"
-                            src="/assets/img/NoPath - Copy (2).jpg"
+                            :src="`${publicPath}assets/img/NoPath - Copy (2).jpg`"
                             alt=""
                             height="292"
                           />

@@ -4,7 +4,7 @@
             <div class="col-md-6 mt-2">
                 <div class="img-screen">
 
-                    <img class="img-fluid" src="/assets/svg/mobile-screen-1.svg" alt="">
+                    <img class="img-fluid" :src="`${publicPath}assets/svg/mobile-screen-1.svg`" alt="">
                 </div>
 
             </div>
@@ -16,10 +16,10 @@
                 </h2>
                 <div class="mt-4">
                     <a href="">
-                        <img :class="{'h-40px':isMobile}" src="/assets/svg/app-store-dark.svg" alt="">
+                        <img :class="{'h-40px':isMobile}" :src="`${publicPath}assets/svg/app-store-dark.svg`" alt="">
                     </a>
                     <a href="">
-                        <img :class="{'h-40px':isMobile}" src="/assets/svg/google-play-dark.svg" alt="">
+                        <img :class="{'h-40px':isMobile}" :src="`${publicPath}assets/svg/google-play-dark.svg`" alt="">
                     </a>
                 </div>
 
@@ -28,16 +28,16 @@
         </div>
    
         <div class="star position-absolute" >
-                <img  class="landing"  src="/assets/svg/start.svg" alt="">
+                <img  class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
         </div>
         <div class="square position-absolute" >
-            <img class="landing"  src="/assets/svg/square.svg" alt="">
+            <img class="landing"  :src="`${publicPath}assets/svg/square.svg`" alt="">
          </div>
          <div class="star-two position-absolute" >
-            <img class="landing"  src="/assets/svg/start.svg" alt="">
+            <img class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
          </div>
         <div class="star-big position-absolute" >
-            <img class="landing"  src="/assets/svg/star-big.svg" alt="">
+            <img class="landing"  :src="`${publicPath}assets/svg/star-big.svg`" alt="">
         </div>
     </div>
 </template>

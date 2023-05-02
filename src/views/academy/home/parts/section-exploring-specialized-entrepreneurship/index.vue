@@ -40,15 +40,15 @@ export default {
     data:()=>({
       loading : false,
         items:[
-           /* {id:1,title:'المجوهرات',img:'/assets/svg/jewelry.svg'},
-            {id:1,title:'الازيــــــاء',img:'/assets/svg/fashion.svg'},
-            {id:1,title:'التقنية',img:'/assets/svg/techinic.svg'},
-            {id:1,title:'الزهــــور والهدايا',img:'/assets/svg/flowers-gifts.svg'},
-            {id:1,title:'التجـــــــارة الالكترونية',img:'/assets/svg/ecommerce.svg'},
-            {id:1,title:'السباحة',img:'/assets/svg/swimming.svg'},
-            {id:1,title:'التجميل',img:'/assets/svg/beauty.svg'},
-            {id:1,title:'التجميل',img:'/assets/svg/beauty.svg'},
-            {id:1,title:'التجميل',img:'/assets/svg/beauty.svg'},
+           /* {id:1,title:'المجوهرات',img:`${vm.publicPath}assets/svg/jewelry.svg`},
+            {id:1,title:'الازيــــــاء',img:`${vm.publicPath}assets/svg/fashion.svg`},
+            {id:1,title:'التقنية',img:`${vm.publicPath}assets/svg/techinic.svg`},
+            {id:1,title:'الزهــــور والهدايا',img:`${vm.publicPath}assets/svg/flowers-gifts.svg`},
+            {id:1,title:'التجـــــــارة الالكترونية',img:`${vm.publicPath}assets/svg/ecommerce.svg`},
+            {id:1,title:'السباحة',img:`${vm.publicPath}assets/svg/swimming.svg`},
+            {id:1,title:'التجميل',img:`${vm.publicPath}assets/svg/beauty.svg`},
+            {id:1,title:'التجميل',img:`${vm.publicPath}assets/svg/beauty.svg`},
+            {id:1,title:'التجميل',img:`${vm.publicPath}assets/svg/beauty.svg`},
           */
         ]
     }),

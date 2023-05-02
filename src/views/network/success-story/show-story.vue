@@ -20,7 +20,7 @@
                         <div class="box  rounded-3 p-2">
                             <div v-if="isOwner" class="text-center">
                                 <button @click="openUpdateStory" class="btn bg-main p-1 px-2 text-white" >
-                                    <img src="/assets/svg/update.svg" />
+                                    <img :src="`${publicPath}assets/svg/update.svg`" />
                                     تعديل
                                 </button>
                             

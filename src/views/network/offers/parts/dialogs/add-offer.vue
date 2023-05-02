@@ -9,7 +9,7 @@
                         <div class="col-md-12">
                             <label for="imginput" class="form-label file-label first w-100">
                                 <div class="text-center p-5">
-                                  <img src="/assets/svg/empty-image.svg"  height="96" width="96"/>
+                                  <img :src="`${publicPath}assets/svg/empty-image.svg`"  height="96" width="96"/>
                                       
                                     <p class="m-c">{{ $t('add-display-image') }} </p>
                                 </div>
@@ -172,7 +172,7 @@ export default {
     categories:[],
     tags:[],
     idImage: `image-selected-${vm.generateRandomString(8)}`,
-    url:'/assets/svg/empty-image.svg',
+    url:`${vm.publicPath}assets/svg/empty-image.svg`,
     file:null,
     offer:{
         title:'',
@@ -274,7 +274,7 @@ export default {
     },
     openDialog(){
         this.loading =  false;
-        this.url='/assets/svg/empty-image.svg'
+        this.url=`${this.publicPath}assets/svg/empty-image.svg`
         this.file=null;
         this.offer.title=''
         this.offer.title_en=''

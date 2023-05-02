@@ -15,7 +15,7 @@
 
                 </div>
                 <div class="col-md-6">
-                    <img class="img-fluid rounded-3" src="/assets/img/Rectangle 55.png" alt="">
+                    <img class="img-fluid rounded-3" :src="`${publicPath}assets/img/Rectangle 55.png`" alt="">
 
                 </div>
 

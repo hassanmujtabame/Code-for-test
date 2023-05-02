@@ -53,7 +53,7 @@
       ,description:null
       ,btns:null
       ,type:'error'
-      ,image:'/assets/img/tick-square-2.png'},
+      ,image:`${this.publicPath}assets/img/tick-square-2.png`},
       showDialog:false,
    }),
 
@@ -73,14 +73,14 @@
         this.itemDialog=Object.assign({},data);
         if(!data.btns)  this.itemDialog.btns= null
         
-        if(!data.image) //this.itemDialog.image = '/assets/img/tick-square-2.png'
+        if(!data.image) 
         //else
         switch (this.itemDialog.type) {
           case 'warning':
-          this.itemDialog.image = '/assets/svg/warning-dialog.svg'
+          this.itemDialog.image = `${this.publicPath}assets/svg/warning-dialog.svg`
             break;
           default:
-          this.itemDialog.image = '/assets/img/tick-square-2.png'
+          this.itemDialog.image = `${this.publicPath}assets/img/tick-square-2.png`
             break;
         }
         this.hideImage = data.hideImage===true

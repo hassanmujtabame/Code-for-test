@@ -22,24 +22,24 @@
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit" class="m-auto text-end">
-                            <img class="img-fluid" src="/assets/img/Frameass.png" alt="" />
+                            <img class="img-fluid" :src="`${publicPath}assets/img/Frameass.png`" alt="" />
                         </div>
                     </div>
                 </div>
                 <template >
                 <div class="star-cons-blog">
-                    <img src="/assets/img/starrrr.png" alt="" />
+                    <img :src="`${publicPath}assets/img/starrrr.png`" alt="" />
                 </div>
                 <div class="star-cons-blog stars">
-                    <img src="/assets/img/starsss.png" alt="" />
+                    <img :src="`${publicPath}assets/img/starsss.png`" alt="" />
                 </div>
                 <div class="star-blog position-absolute" >
-                <img  class="landing"  src="/assets/svg/start.svg" alt="">
+                <img  class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             </template>
         
         <div v-if="false" class="position-absolute" style="width: 100%;height: 100%;top: 0;left: 0" >
-            <img class="landing"  src="/assets/img/background-blogs-header.png" >
+            <img class="landing"  :src="`${publicPath}assets/img/background-blogs-header.png`" >
          </div>
         
             </div>
@@ -71,16 +71,17 @@ components:{
     AddBlogDialog,
     SuccessAddBlogDialog
 },
-data:()=>({
+data:(vm)=>{
+    return{
   blogs:[
-        {id:1,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:2,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:3,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:4,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:5,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
-        {id:6,title:'عنوان المدونة',img:'/assets/img/Rectangle 3.png',date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:1,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:2,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:3,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:4,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:5,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
+        {id:6,title:'عنوان المدونة',img:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
     ]
-}),
+}},
 methods:{
   addBlog(){
        this.fireOpenDialog('add-blog')

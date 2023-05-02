@@ -3,24 +3,24 @@
       <h2 class="home-section-title text-center"> أهداف شبكة رياديات</h2>
       <div class="row min-riadiat network">
           <div class="col-md-3 mt-2 ">
-            <CardGoal src="/assets/img/a1.svg" >
+            <CardGoal :src="`${publicPath}assets/img/a1.svg`" >
                 جمع والهــــــام وتمكين النســاء
             </CardGoal>
 
           </div>
           <div class="col-md-3 mt-2 ">
-            <CardGoal src="/assets/img/a2.svg" >
+            <CardGoal :src="`${publicPath}assets/img/a2.svg`" >
                 بناء شبكــــــــــة علاقــــــــــــــات
             </CardGoal>
           </div>
           <div class="col-md-3 mt-2 ">
-            <CardGoal src="/assets/img/a3.png" >
+            <CardGoal :src="`${publicPath}assets/img/a3.png`" >
                 شراكات مـــــــع
                       مختلف الجهـات
             </CardGoal>
           </div>
           <div class="col-md-3 mt-2 ">
-            <CardGoal src="/assets/img/a4.png" >
+            <CardGoal :src="`${publicPath}assets/img/a4.png`" >
                 تطوير رائـــــدات الاعمــــــــــــــال
             </CardGoal>
           </div>

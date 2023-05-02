@@ -5,19 +5,19 @@
           يقوم مقدمي الخدمات بعرض خدامتهم و مهارتهم و يمكنك شراء هذه الخدمات و التواصل مع اصحابها بكل سهولة
         </p>
         <div class="position-absolute top-0" :class="{'rotateY-180':$i18n.locale!='ar','right-0':$i18n.locale!='ar','left-0':$i18n.locale=='ar'}">
-          <img src="/assets/svg/wave-top.svg" alt="" />
+          <img :src="`${publicPath}assets/svg/wave-top.svg`" alt="" />
         </div>
         <div class="star position-absolute">
-          <img class="landing" src="/assets/svg/start.svg" alt="" />
+          <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="" />
         </div>
         <div class="square position-absolute">
-          <img class="landing" src="/assets/svg/square.svg" alt="" />
+          <img class="landing" :src="`${publicPath}assets/svg/square.svg`" alt="" />
         </div>
         <div class="star-two position-absolute">
-          <img class="landing" src="/assets/svg/start.svg" alt="" />
+          <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="" />
         </div>
         <div class="star-big position-absolute">
-          <img class="landing" src="/assets/svg/star-big.svg" alt="" />
+          <img class="landing" :src="`${publicPath}assets/svg/star-big.svg`" alt="" />
         </div>
       </div>
 </template>

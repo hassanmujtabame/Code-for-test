@@ -111,7 +111,8 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
       this.initializing()
   }
  },
- data:()=>({
+ data:(vm)=>{
+  return{
   isJoined:false,
   isOwner:false,
       loading:true,
@@ -127,10 +128,10 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
       ,categoryName:'مجلس',
       date:'23 يوليو'
       ,time:'2:23 ص'
-      ,image:'/assets/img/learning.png'
+      ,image:`${vm.publicPath}assets/img/learning.png`
     },
 
- }),
+ }},
  methods:{
   successJoined(){
     this.isJoined = true;

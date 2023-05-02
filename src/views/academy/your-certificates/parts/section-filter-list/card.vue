@@ -1,7 +1,7 @@
 <template>
     <div class="box rounded-end">
                                     <div>
-                                        <img class="w-100 rounded-top" src="/assets/img/courses-1768.png" alt=""
+                                        <img class="w-100 rounded-top" :src="`${publicPath}assets/img/courses-1768.png`" alt=""
                                             height="173px">
                                     </div>
                                     <div class="p-3 ">

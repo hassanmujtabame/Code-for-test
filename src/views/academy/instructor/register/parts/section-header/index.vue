@@ -1,7 +1,7 @@
 <template>
   <div class="section-header-register-instructor position-relative">
     <div class="position-absolute anim-hwo-ar-you">
-                <img src="/assets/svg/arabsstock_P34769_large1.svg"  height="612" alt="">
+                <img :src="`${publicPath}assets/svg/arabsstock_P34769_large1.svg`"  height="612" alt="">
             </div>
             <div class="section-header-register-instructor__wrapper px-5" >
             <h1 class="section-header-register-instructor__title">شاركي خبراتك ومهاراتك</h1>
@@ -11,16 +11,16 @@
             </a>
         </div>
             <div class="star position-absolute">
-                <img class="landing" src="/assets/svg/start.svg" alt="">
+                <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             <div class="square position-absolute">
-                <img class="landing" src="/assets/img/square.png" alt="">
+                <img class="landing" :src="`${publicPath}assets/img/square.png`" alt="">
             </div>
             <div class="star-two position-absolute">
-                <img class="landing" src="/assets/svg/start.svg" alt="">
+                <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             <div class="star-big position-absolute">
-                <img class="landing" src="/assets/svg/star-big.svg" alt="">
+                <img class="landing" :src="`${publicPath}assets/svg/star-big.svg`" alt="">
             </div>
         </div>
 </template>

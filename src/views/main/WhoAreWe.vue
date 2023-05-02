@@ -3,19 +3,19 @@
         <div class="main-top p-5 position-relative">
             <h1 class="text-white p-5 fs-1"> {{ $t('know-more-about-riadiat') }}  </h1>
             <div class="position-absolute anim-hwo-ar-you">
-                <img src="/assets/svg/wave-top.svg" alt="">
+                <img :src="`${publicPath}assets/svg/wave-top.svg`" alt="">
             </div>
             <div class="star position-absolute" >
-                    <img  class="landing"  src="/assets/svg/start.svg" alt="">
+                    <img  class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             <div class="square position-absolute" >
-                <img class="landing"  src="/assets/svg/square.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/square.svg`" alt="">
              </div>
              <div class="star-two position-absolute" >
-                <img class="landing"  src="/assets/svg/start.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
              </div>
             <div class="star-big position-absolute" >
-                <img class="landing"  src="/assets/svg/star-big.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/star-big.svg`" alt="">
             </div>
         </div>
         <div class="container">
@@ -28,13 +28,13 @@
 
                 </div>
                 <div class="col-md-6 text-center mian-img-how-are-you ">
-                    <img class="img-how-are-you" src="/assets/img/Rectangle 1768.png" alt="">
+                    <img class="img-how-are-you" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="">
                 </div>
 
             </div>
             <div class="row justify-content-between mt-4">
                 <div class="col-md-6 text-center mian-img-how-are-you  two">
-                    <img class="img-how-are-you" src="/assets/img/Rectangle 1768.png" alt="">
+                    <img class="img-how-are-you" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="">
                 </div>
                 <div class="col-md-6">
                     <h2>رسالتنا </h2>
@@ -366,7 +366,7 @@
                 <div class="col-md-6">
                     <div class="img-screen">
 
-                        <img src="/assets/img/mobile-screen 1.png" alt="">
+                        <img :src="`${publicPath}assets/img/mobile-screen 1.png`" alt="">
                     </div>
 
                 </div>
@@ -381,7 +381,7 @@
                             <img src="/1649003961.jpg 3.png" alt="">
                         </a>
                         <a href="">
-                            <img src="/assets/img/34-349265_app-store-google-play-svg 1.png" alt="">
+                            <img :src="`${publicPath}assets/img/34-349265_app-store-google-play-svg 1.png`" alt="">
                         </a>
                     </div>
 
@@ -390,16 +390,16 @@
             </div>
        
             <div class="star position-absolute" >
-                    <img  class="landing"  src="/assets/svg/start.svg" alt="">
+                    <img  class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             <div class="square position-absolute" >
-                <img class="landing"  src="/assets/svg/square.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/square.svg`" alt="">
              </div>
              <div class="star-two position-absolute" >
-                <img class="landing"  src="/assets/svg/start.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
              </div>
             <div class="star-big position-absolute" >
-                <img class="landing"  src="/assets/svg/star-big.svg" alt="">
+                <img class="landing"  :src="`${publicPath}assets/svg/star-big.svg`" alt="">
             </div>
         </div>
 

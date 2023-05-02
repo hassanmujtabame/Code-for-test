@@ -4,7 +4,7 @@
                 <div class="col-12 col-md-5">
                     <div>
                         <div class="bg-back position-relative">
-                            <img  class="img-fluid" src="/assets/img/Rectangle 1777_2.png" alt="">
+                            <img  class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1777_2.png`" alt="">
                        
                         </div>
                     </div>

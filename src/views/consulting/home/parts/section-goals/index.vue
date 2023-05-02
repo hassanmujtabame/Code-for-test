@@ -8,7 +8,7 @@
                         <div class="box border text-center p-3 rounded-2">
 
                             <div>
-                                <img src="/assets/img/es 1.png" alt="">
+                                <img :src="`${publicPath}assets/img/es 1.png`" alt="">
                             </div>
                             <p>
                                 إن كنت تنشئين مشروعـا أو تقومين بتأسيس أو تطويــر شركــــة ناشئة، فيمكننا أن نساعدك في كل مرحلة من مراحل العمل. 
@@ -20,7 +20,7 @@
                         <div class="box border text-center p-3 rounded-2">
 
                             <div>
-                                <img src="/assets/img/es 2.png" alt="">
+                                <img :src="`${publicPath}assets/img/es 2.png`" alt="">
                             </div>
                             <p>
                                 تقديم استشارات إلكترونية، وعقد جلسات استشاريـــــة متخصصة فـي مجال معين.
@@ -32,7 +32,7 @@
                         <div class="box border text-center p-3 rounded-2">
 
                             <div>
-                                <img src="/assets/img/es 3.png" alt="">
+                                <img :src="`${publicPath}assets/img/es 3.png`" alt="">
                             </div>
                             <p>
                                 تنفيذ الخدمات الاستشاريــة و تطويــــر الأعمـال  فــــي مـجــالات عـــمـــل رياديات.

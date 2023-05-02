@@ -56,17 +56,18 @@ export default {
     plusRectRoundIcon,
     exhibitionCard
  },
- data:()=>({
+ data:(vm)=>{
+    return{
     itemsTest:[
-        {id:44,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:43,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:44,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:43,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
-        {id:44,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:'/assets/img/Rectangle -network.png',content:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:44,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:`${vm.publicPath}assets/img/Rectangle -network.png`,content:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:43,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:`${vm.publicPath}assets/img/Rectangle -network.png`,content:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:44,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:`${vm.publicPath}assets/img/Rectangle -network.png`,content:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:43,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:`${vm.publicPath}assets/img/Rectangle -network.png`,content:'معرض متكام لبيع و تنسيق الزهور'},
+        {id:44,title:'معرض الازياء الرجالي',city:'جدة',user_info:{name:'سارة'},image:`${vm.publicPath}assets/img/Rectangle -network.png`,content:'معرض متكام لبيع و تنسيق الزهور'},
     ],
     loading:true,
     items:[]
- }),
+ }},
  methods:{ 
 
     openAddDialog(){

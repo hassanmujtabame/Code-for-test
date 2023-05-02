@@ -18,7 +18,7 @@
             </div>
 
             <div class="col-md-6" data-aos="fade-right"  data-aos-duration="2000">
-              <img class="w-100" src="/assets/img/Rectangle 1777.png" alt="" width="460" />
+              <img class="w-100" :src="`${publicPath}assets/img/Rectangle 1777.png`" alt="" width="460" />
             </div>
           </div>
         </div>

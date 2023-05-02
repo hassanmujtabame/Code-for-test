@@ -26,11 +26,11 @@
           <div class="text-end">
                   
                         <button @click="openEditDialog" class="btn bg-main border-0 text-white p-2 mx-1"   >
-                           <img src="/assets/svg/update.svg" />   
+                           <img :src="`${publicPath}assets/svg/update.svg`" />   
                            تعديل 
                         </button>
                         <button @click="openDeleteDialog" class="btn bg-danger border-0 text-white p-2"   >
-                            <img src="/assets/svg/trash-outline.svg" />
+                            <img :src="`${publicPath}assets/svg/trash-outline.svg`" />
                            حذف 
                         </button>
 
@@ -48,7 +48,7 @@
             <div class="blogs-auhter">
               <div class="box rounded-3 border mt-3">
                 <div class="image">
-                  <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
+                  <img class="w-100" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="" height="184">
                 </div>
                 <div class="text p-3">
                   <h5>عنوان المدونة </h5>
@@ -75,7 +75,7 @@
               </div>
               <div class="box rounded-3 border mt-3">
                 <div class="image">
-                  <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
+                  <img class="w-100" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="" height="184">
                 </div>
                 <div class="text p-3">
                   <h5>عنوان المدونة </h5>
@@ -102,7 +102,7 @@
               </div>
               <div class="box rounded-3 border mt-3">
                 <div class="image">
-                  <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
+                  <img class="w-100" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="" height="184">
                 </div>
                 <div class="text p-3">
                   <h5>عنوان المدونة </h5>
@@ -129,7 +129,7 @@
               </div>
               <div class="box rounded-3 border mt-3">
                 <div class="image">
-                  <img class="w-100" src="/assets/img/Rectangle 1768.png" alt="" height="184">
+                  <img class="w-100" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="" height="184">
                 </div>
                 <div class="text p-3">
                   <h5>عنوان المدونة </h5>

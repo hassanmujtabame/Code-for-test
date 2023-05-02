@@ -26,7 +26,7 @@
       <a :disabled="true" v-if="false" class="ms-3 text-muted" href="#!"><i class="fas fa-smile"></i></a>
       <a @click="sendMessage" :disabled="loading" class="ms-3 link-info" href="#!"><i class="fas fa-paper-plane"></i></a>
     </div>
-    <audio muted  ref="myaudio" style="display:none" src="/assets/sound/new-msg-chat.m4r" />
+    <audio muted  ref="myaudio" style="display:none" :src="`${publicPath}assets/sound/new-msg-chat.m4r`" />
   </div>
 </template>
 

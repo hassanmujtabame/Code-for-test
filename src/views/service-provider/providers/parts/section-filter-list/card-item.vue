@@ -1,7 +1,7 @@
 <template>
   <div class="provider-card">
   <div class="provider-card__wrapper">
-  <div class="provider-card__rate"><img src="/assets/svg/star-move.svg" width="24" height="24" /><span>{{ rate }}</span></div>
+  <div class="provider-card__rate"><img :src="`${publicPath}assets/svg/star-move.svg`" width="24" height="24" /><span>{{ rate }}</span></div>
   <div class="provider-card__avatar">
     <img :src="image"/>
   </div>

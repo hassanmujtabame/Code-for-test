@@ -16,7 +16,7 @@
                         <div class="col-md-12 text-center">
                             <label for="imginput" class="img-zone form-label file-label first w-100">
                                 <div class="text-center p-5">
-                                  <img src="/assets/svg/empty-image.svg"  height="96" width="96"/>
+                                  <img :src="`${publicPath}assets/svg/empty-image.svg`"  height="96" width="96"/>
                                       
                                     <p class="m-c">{{ $t('add-display-image') }} </p>
                                 </div>
@@ -111,7 +111,7 @@ export default {
     showDialog:false,
     categories:[],
     idImage: `image-selected-${vm.generateRandomString(8)}`,
-    url:'/assets/svg/empty-image.svg',
+    url:`${vm.publicPath}assets/svg/empty-image.svg`,
     file:null,
     blog:{
         title:'',
@@ -147,7 +147,7 @@ export default {
                 let dataEvt={
                     title:'سيتم مراجعة تدوينتك ثم نشرها على الفور',
                     icon:true,
-                    iconUrl:'/assets/img/cuate-2.png',
+                    iconUrl:`${this.publicPath}assets/img/cuate-2.png`,
                     btns:[
                         {title:this.$t('blog'),action:()=>this.$router.push(this.getRouteLocale('academy-blog-show',{id:data.data[0].blog_id}))},
                         {title:this.$t('close'),class:'btn btn-custmer-w'}

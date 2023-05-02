@@ -18,7 +18,7 @@
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img class="img-fluid" src="/assets/svg/warning-triangle.svg" alt="">
+                    <img class="img-fluid" :src="`${publicPath}assets/svg/warning-triangle.svg`" alt="">
                 </div>
 
             </div>
@@ -189,7 +189,7 @@
                                         <date-picker-input class="form-control " mode="date" v-model="itemForm.end_date"
                                             placeholder="حدد التاريخ" />
                                         <div class="m-c fw-bolder">
-                                            <img src="/assets/svg/calendar.svg" />
+                                            <img :src="`${publicPath}assets/svg/calendar.svg`" />
                                         </div>
                                     </div>
                                     <d-error-input v-if="errors.length" :errors="errors" />

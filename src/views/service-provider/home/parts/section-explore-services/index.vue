@@ -9,7 +9,7 @@
                     <div class="box ">
                         <div class=" d-flex align-items-center gap-3">
 
-                           <img src="/assets/svg/browser.svg"/>
+                           <img :src="`${publicPath}assets/svg/browser.svg`"/>
                             <h2 class="m-c">
                                 خدمات تقدم اونلاين
                             </h2>
@@ -41,7 +41,7 @@
                     <div class="box  ">
                         <div class="d-flex align-items-center gap-3">
 
-                            <img src="/assets/svg/hand-cog.svg" />
+                            <img :src="`${publicPath}assets/svg/hand-cog.svg`" />
 
                             <h2 class="m-c">
                                 خدمات تقدم أوفلاين

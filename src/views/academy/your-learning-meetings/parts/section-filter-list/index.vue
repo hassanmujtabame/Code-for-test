@@ -31,10 +31,10 @@ export default {
   components:{
     meetingCard
   },
-  data:()=>{
+  data:(vm)=>{
     return {
       itemTest:
-    {id:1,title:'خطة العمل ودراسة الجدوى المالية',userName:'مجلس',date:'23 يوليو',image:'/assets/img/learning.png'},
+    {id:1,title:'خطة العمل ودراسة الجدوى المالية',userName:'مجلس',date:'23 يوليو',image:`${vm.publicPath}assets/img/learning.png`},
       filterSide:{
       is_share:null,
       category_id:[],

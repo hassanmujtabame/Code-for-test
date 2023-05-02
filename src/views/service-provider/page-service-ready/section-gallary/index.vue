@@ -46,9 +46,9 @@
   
   <script>
   /*let itemsTest=[
-          {id:1,image_path:'/assets/img/serv-1.png'},
-          {id:2,image_path:'/assets/img/serv-2.png'},
-          {id:3,image_path:'/assets/img/serv-3.png'},
+          {id:1,image_path:`${vm.publicPath}assets/img/serv-1.png`},
+          {id:2,image_path:`${vm.publicPath}assets/img/serv-2.png`},
+          {id:3,image_path:`${vm.publicPath}assets/img/serv-3.png`},
       ]*/
   export default {
    name:'section-gallary',

@@ -52,15 +52,16 @@ import availableTimeVue from '@/components/available-time/index'
     components:{
       availableTimeVue
     },
-    data: () => ({
-        itemDialog: { title: null, description: null, btns: null, image: "/assets/img/cuate-2.png" },
+    data: (vm) => {
+      return{
+        itemDialog: { title: null, description: null, btns: null, image: `${vm.publicPath}assets/img/cuate-2.png` },
         itemForm:{url:null,time:null,start_date:null},
         loading: false,
         showDialog: false,
         myAvailability:{},
         available_time:null,
         available_times:[]
-    }),
+    }},
     watch:{
       available_time(){
         this.itemForm.available_time = this.available_time

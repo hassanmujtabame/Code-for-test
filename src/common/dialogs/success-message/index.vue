@@ -48,10 +48,11 @@
           default:'standard-success-message'
       }
    },
-   data:()=>({
-    itemDialog:{title:null,description:null,btns:null,image:'/assets/img/cuate-2.png'},
+   data:(vm)=>{
+    return{
+    itemDialog:{title:null,description:null,btns:null,image:`${vm.publicPath}assets/img/cuate-2.png`},
       showed:false,
-   }),
+   }},
    methods:{
    async callAction(btn){
       if(btn.action){
@@ -70,8 +71,8 @@
         if(!data.btns)  this.itemDialog.btns= null;
        
         
-        if(!data.image) this.itemDialog.image = '/assets/img/cuate-2.png'
-        if(!data.iconUrl) this.itemDialog.iconUrl = '/assets/svg/tick-square.svg'
+        if(!data.image) this.itemDialog.image = `${this.publicPath}assets/img/cuate-2.png`
+        if(!data.iconUrl) this.itemDialog.iconUrl = `${this.publicPath}assets/svg/tick-square.svg`
         this.showed=true
         return true;
       },

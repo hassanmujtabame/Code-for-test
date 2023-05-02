@@ -40,12 +40,12 @@ export default {
   total:0,
   loading:true,
     items:[
-       /* {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
-        {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
-        {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
-        {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
-        {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500},
-        {title:'خطة العمل ودراسة الجدوى المالية',img:'/assets/img/Mask Group 1.png',value:500}
+       /* {title:'خطة العمل ودراسة الجدوى المالية',img:`${vm.publicPath}assets/img/Mask Group 1.png`,value:500},
+        {title:'خطة العمل ودراسة الجدوى المالية',img:`${vm.publicPath}assets/img/Mask Group 1.png`,value:500},
+        {title:'خطة العمل ودراسة الجدوى المالية',img:`${vm.publicPath}assets/img/Mask Group 1.png`,value:500},
+        {title:'خطة العمل ودراسة الجدوى المالية',img:`${vm.publicPath}assets/img/Mask Group 1.png`,value:500},
+        {title:'خطة العمل ودراسة الجدوى المالية',img:`${vm.publicPath}assets/img/Mask Group 1.png`,value:500},
+        {title:'خطة العمل ودراسة الجدوى المالية',img:`${vm.publicPath}assets/img/Mask Group 1.png`,value:500}
     */
       ]
  }),

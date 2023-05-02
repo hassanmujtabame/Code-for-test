@@ -34,7 +34,7 @@
                   >
                 
                   <template v-slot:icon>
-                    <img src="/assets/svg/sewing.svg" />
+                    <img :src="`${publicPath}assets/svg/sewing.svg`" />
 
                   </template>
                   </d-job-card>

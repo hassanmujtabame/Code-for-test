@@ -7,7 +7,7 @@
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                     <div class="box">
                         <div class="position-relative">
-                            <img src="/assets/img/network289322.png" alt="">
+                            <img :src="`${publicPath}assets/img/network289322.png`" alt="">
                             <div  class="position-absolute bg-white img-person-network ">
                             <p class="m-c">
                                 رائدة اعمال 
@@ -21,7 +21,7 @@
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                     <div class="box">
                         <div class="position-relative">
-                            <img src="/assets/img/network289322.png" alt="">
+                            <img :src="`${publicPath}assets/img/network289322.png`" alt="">
                             <div  class="position-absolute bg-white img-person-network ">
                                 <p class="m-c">
                                     مؤثرون 
@@ -35,7 +35,7 @@
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                     <div class="box">
                         <div class="position-relative">
-                            <img src="/assets/img/network289322.png" alt="">
+                            <img :src="`${publicPath}assets/img/network289322.png`" alt="">
                             <div  class="position-absolute bg-white img-person-network ">
                                 <p class="m-c">
                                     مستثمرون
@@ -48,7 +48,7 @@
                 <div class="col-12 col-md-6 col-lg-3 mt-3">
                     <div class="box">
                         <div class="position-relative">
-                            <img src="/assets/img/network289322.png" alt="">
+                            <img :src="`${publicPath}assets/img/network289322.png`" alt="">
                             <div  class="position-absolute bg-white img-person-network ">
                                 <p class="m-c">
                                     معلنين

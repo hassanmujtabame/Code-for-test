@@ -32,11 +32,11 @@
                     <div class="col-md-6  text-end">
                         <template v-if="isOwner">
                         <button @click="openEditDialog" class="btn bg-main border-0 text-white p-2 mx-1"   >
-                           <img src="/assets/svg/update.svg" />   
+                           <img :src="`${publicPath}assets/svg/update.svg`" />   
                            تعديل 
                         </button>
                         <button  @click="openDeleteDialog" class="btn bg-danger border-0 text-white p-2"   >
-                            <img src="/assets/svg/trash-outline.svg" />
+                            <img :src="`${publicPath}assets/svg/trash-outline.svg`" />
                            حذف 
                         </button>
 
@@ -179,7 +179,7 @@ export default {
         let dataEvt = {
             title:'',
             description:`هل لديك منتجات تخص هذا المعرض وتود حجز بوث لك يمكنك من خلاله عرض منتجاتك ؟ فقط كل ما عليك فعله هو ملئ استمارة المشاركة وسنقوم بأرسالها الى صاحب المعرض ليختار المشاركين المناسبين له , نأمل انت تكون منهم بكل تأكيد !`,
-            image:'/assets/img/Group 1171275567.png',
+            image:`${this.publicPath}assets/img/Group 1171275567.png`,
             btns:[
                 {title:this.$t('fill-form'),action:this.openDemandParticipatePage}
             ]

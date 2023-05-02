@@ -14,7 +14,7 @@
                         </router-link>
                     </div>
                     <div >
-                        <img class="img-fluid" style="height: 184px;" src="/assets/img/Group 1171276124.png" alt="تبحثين عن موظفين؟">
+                        <img class="img-fluid" style="height: 184px;" :src="`${publicPath}assets/img/Group 1171276124.png`" alt="تبحثين عن موظفين؟">
 
                     </div>
                 </div>

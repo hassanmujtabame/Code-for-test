@@ -13,17 +13,17 @@
                     </div>
                     <div class="col-md-6 m-auto">
                         <div class="">
-                            <img  src="/assets/img/v781.png" alt="" >
+                            <img  :src="`${publicPath}assets/img/v781.png`" alt="" >
                         </div>                        </div>
 
                     </div>
 
                 </div>
                 <div class="star-cons">
-                    <img src="/assets/img/starrrr.png" alt="">
+                    <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
                 </div>
                 <div class="star-cons stars">
-                    <img src="/assets/img/starsss.png" alt="">
+                    <img :src="`${publicPath}assets/img/starsss.png`" alt="">
                 </div>
 
             </div>

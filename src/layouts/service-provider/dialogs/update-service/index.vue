@@ -307,7 +307,7 @@ return{
         city:{},
         showImage:false,
         idImage: `image-selected-${vm.generateRandomString(8)}`,
-        url:'/assets/svg/empty-image.svg',
+        url:`${vm.publicPath}assets/svg/empty-image.svg`,
         attachment:null,
         imageFile:null,
         gallaries:[],

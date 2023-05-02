@@ -43,12 +43,12 @@ export default {
   loading:true,
   total:0,
     items:[
-        /*{title:'معرض الزهور',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {title:'معرض الزهور',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {title:'معرض الزهور',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {title:'معرض الزهور',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {title:'معرض الزهور',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
-        {title:'معرض الزهور',image:'/assets/img/Rectangle -network.png',description:'معرض متكام لبيع و تنسيق الزهور'},
+        /*{title:'معرض الزهور',image:`${vm.publicPath}assets/img/Rectangle -network.png`,description:'معرض متكام لبيع و تنسيق الزهور'},
+        {title:'معرض الزهور',image:`${vm.publicPath}assets/img/Rectangle -network.png`,description:'معرض متكام لبيع و تنسيق الزهور'},
+        {title:'معرض الزهور',image:`${vm.publicPath}assets/img/Rectangle -network.png`,description:'معرض متكام لبيع و تنسيق الزهور'},
+        {title:'معرض الزهور',image:`${vm.publicPath}assets/img/Rectangle -network.png`,description:'معرض متكام لبيع و تنسيق الزهور'},
+        {title:'معرض الزهور',image:`${vm.publicPath}assets/img/Rectangle -network.png`,description:'معرض متكام لبيع و تنسيق الزهور'},
+        {title:'معرض الزهور',image:`${vm.publicPath}assets/img/Rectangle -network.png`,description:'معرض متكام لبيع و تنسيق الزهور'},
         */
       ],
  })

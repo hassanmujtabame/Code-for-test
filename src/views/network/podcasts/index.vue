@@ -15,19 +15,19 @@
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit" class="m-auto text-end">
-                            <img class="img-fluid" src="/assets/img/Frameass.png" alt="" />
+                            <img class="img-fluid" :src="`${publicPath}assets/img/Frameass.png`" alt="" />
                         </div>
                     </div>
                 </div>
                 <template >
                 <div class="star-cons-podcast">
-                    <img src="/assets/img/starrrr.png" alt="" />
+                    <img :src="`${publicPath}assets/img/starrrr.png`" alt="" />
                 </div>
                 <div class="star-cons-podcast stars">
-                    <img src="/assets/img/starsss.png" alt="" />
+                    <img :src="`${publicPath}assets/img/starsss.png`" alt="" />
                 </div>
                 <div class="star-podcast position-absolute" >
-                <img  class="landing"  src="/assets/svg/start.svg" alt="">
+                <img  class="landing"  :src="`${publicPath}assets/svg/start.svg`" alt="">
             </div>
             </template>
         

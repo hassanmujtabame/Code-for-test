@@ -97,42 +97,42 @@
                                 <div class="row justify-content-center">
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
 
@@ -148,42 +148,42 @@
                                 <div class="row justify-content-center">
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
 
@@ -199,42 +199,42 @@
                                 <div class="row justify-content-center">
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
 
@@ -250,42 +250,42 @@
                                 <div class="row justify-content-center">
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
 
@@ -301,42 +301,42 @@
                                 <div class="row justify-content-center">
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="1000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="2000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 24.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 24.png`" alt="" width="180px" height="180px">
 
                                     </div>
                                     <div class=" col-12 col-md-3 text-center" data-aos="fade-up"
                                         data-aos-duration="3000">
-                                        <img src="/assets/img/Ellipse 25.png" alt="" width="180px" height="180px">
+                                        <img :sr="`${publicPath}assets/img/Ellipse 25.png`" alt="" width="180px" height="180px">
 
                                     </div>
 
