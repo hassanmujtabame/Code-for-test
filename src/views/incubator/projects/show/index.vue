@@ -6,7 +6,7 @@
     </div>
     <div v-else class="container">
         <div class="row">
-            <div class="col-12 col-md-9">
+            <div class="col-12 col-md-8">
                 <!--content-->
                 <div class="row">
                     <div class="col-12 col-md-4">
@@ -26,7 +26,7 @@
                 </div>
 
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
                 <!--user info-->
                 <d-user-preview-profile :tags="[]" hideSocial :member="itemPage.user_info"/>
             </div>
