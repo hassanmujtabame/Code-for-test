@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const path = require("path");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin;
-    const prefix_url = process.env.PREFIX_URL;
+    const prefix_url = process.env.VUE_APP_PREFIX_URL;
 module.exports = defineConfig({
   outputDir:prefix_url? path.resolve(__dirname,`./${prefix_url}`):'./dist',
   publicPath: process.env.NODE_ENV === 'production' && prefix_url 

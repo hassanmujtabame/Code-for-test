@@ -14,6 +14,10 @@ props:{
   vertical:{
     type:Boolean,
     default:false
+  },
+  space:{
+    type:Number,
+    default:20
   }
 }
 }

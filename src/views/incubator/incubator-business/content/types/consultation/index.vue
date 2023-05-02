@@ -38,7 +38,7 @@ props:{
 },
 methods:{
   openConsultantDialog(item){
-    this.fireOpenDialog('consultant-page',{item,opts:{stage_id:this.phase.stage_id}})
+    this.fireOpenDialog('consultant-page',{item,opts:{stage_id:this.phase.stage_id,phase_id:this.phase.id}})
   }
 },
 mounted(){

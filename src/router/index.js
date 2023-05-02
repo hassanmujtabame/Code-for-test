@@ -172,6 +172,7 @@ const routes = [
 
 const router = new VueRouter({
   mode:'history',
+  base:process.env.VUE_APP_PREFIX_URL??'/',
   routes,
   scrollBehavior(/*to, from, savedPosition*/) {
     // always scroll to top
