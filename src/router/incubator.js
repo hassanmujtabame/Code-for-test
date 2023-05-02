@@ -19,6 +19,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "incubator-dashboard" */ '../views/incubator/dashboard/index.vue') 
     },
     {
+        path: 'incubator/e-feasibility-study',
+        name: 'incubator-e-feasibility-study',
+        meta:{layout:LayoutDefault,auth:true},
+        component: () => import(/* webpackChunkName: "incubator-e-feasibility-study" */ '../views/incubator/e-feasibility-study/index.vue')
+      },
+    {
         path: 'incubator/balance-charge',
         name: 'incubator-balance-charge',
         meta:{layout:LayoutDefault,auth:true},
