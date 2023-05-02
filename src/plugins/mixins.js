@@ -9,7 +9,7 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           data:()=>({
-            publicPath:process.env.base_url
+            publicPath:process.env.BASE_URL
           }),
           methods:{
             timeToParts(duration){
