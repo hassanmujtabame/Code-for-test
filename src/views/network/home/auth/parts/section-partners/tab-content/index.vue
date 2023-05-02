@@ -24,19 +24,8 @@ export default {
 components:{
     ImgAvatar
 },
- data:(vm)=>{
+ data:()=>{
   return{
-    partners:[
-        {image_path:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 01'},
-        {image_path:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 02'},
-        {image_path:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 03'},
-        {image_path:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 04'},
-        {image_path:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 05'},
-        {image_path:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 06'},
-        {image_path:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 07'},
-        {image_path:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 08'},
-    ]
-    ,
     loading:true,
     items:[]
  }}

@@ -36,6 +36,10 @@ class IncubatorApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`incubator/projects?${s}`); 
     }
+    getPartners(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`incubator/partners?${s}`); 
+    }
     getProgramContents(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`incubator/program-contents?${s}`); 
