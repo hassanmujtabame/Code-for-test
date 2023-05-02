@@ -8,6 +8,9 @@ import userAPI from '../services/api/user';
 const mixin = {
     install(Vue) {
         Vue.mixin({
+          data:()=>({
+            publicPath:process.env.base_url
+          }),
           methods:{
             timeToParts(duration){
               var h = Math.floor(duration/ (60*60));
