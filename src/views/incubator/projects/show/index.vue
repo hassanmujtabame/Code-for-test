@@ -17,7 +17,7 @@
                     <div class="col">
                         <div class="incubator-project__content">
                             <h1 class="incubator-project__title">{{ itemPage.title }}</h1>
-                            <p class="incubator-project__place"><i class="fa fa-location-dot"></i> {{ itemPage.place }}</p>
+                            <p class="incubator-project__place"><i class="fa fa-location-dot"></i> {{ itemPage.city_name }}</p>
                            <p class="incubator-project__desc" v-html="itemPage.description">
                             
                         </p>
