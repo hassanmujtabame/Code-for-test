@@ -13,7 +13,7 @@
               v-if="!loading"
             :slides-per-view="5"
             :space-between="10"
-              :loop="true"
+              
               :navigation="true"
               :items="items"
             >
@@ -40,10 +40,11 @@ export default {
         DSwiper,
         CardVue
     },
-    data:(vm)=>{
+    data:(/*vm*/)=>{
       return{
       loading: false,
         items:[
+          /*
         {name:'المجوهرات',image_path:`${vm.publicPath}assets/svg/jewelry.svg`},
             {name:'الازيــــــاء',image_path:`${vm.publicPath}assets/svg/fashion.svg`},
             {name:'التقنية',image_path:`${vm.publicPath}assets/svg/techinic.svg`},
@@ -58,8 +59,10 @@ export default {
             {name:'الاستراتيجية والقيادة',image_path:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
             {name:'الاستراتيجية والقيادة',image_path:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
             {name:'الاستراتيجية والقيادة',image_path:`${vm.publicPath}assets/svg/stratigy-leadership.svg`},
-
-    ]}},
+*/
+    ]
+  }
+  },
     methods:{
     async initializing(){
       this.loading  = true;
