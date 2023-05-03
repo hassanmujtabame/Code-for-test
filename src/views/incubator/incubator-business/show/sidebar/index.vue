@@ -63,11 +63,12 @@ methods:{
   },
   async initializing(){
     try{
-      let { data } = await incubatorAPI.getStages();
+      let { data } = await incubatorAPI.getStages({department_id:this.$route.params.id});
       if(data.success){
         this.items = data.data
       }
     }catch(error){
+      console.log('error',error)
       //
     }
   }

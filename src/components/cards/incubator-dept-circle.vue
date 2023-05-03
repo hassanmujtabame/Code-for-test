@@ -1,18 +1,19 @@
 <template>
-   <router-link :to="url">
+   
 
 <div class="incubator-dept box rounded-circle">
  <div class="incubator-dept__wrapper">
  <div class="incubator-dept__image">
-
+    <router-link v-if="url" :to="url">
   <img :src="img" :alt="title">
-       
+      </router-link> 
+      <img v-else @click="$emit('click-image',$event)" class="clickable" :src="img" :alt="title">
+
  </div>
- <p class="s-c incubator-dept__title">{{title}}</p>
+ <p class="incubator-dept__title" :class="classTitle??''">{{title}}</p>
    
 </div>
 </div>
-   </router-link>
 </template>
 
 <script>
@@ -25,9 +26,12 @@ export default {
     title:{
         type:String
     },
+    classTitle:{
+        type:String
+    },
     url:{
         type:[String,Object],
-        default:()=>{return{name:'incubator-program-incubator'}}
+        //default:()=>{return{name:'incubator-program-incubator'}}
     }
 }
 }
@@ -55,7 +59,11 @@ background: #FFFFFF;
     box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.25);
     border-radius: 50%;
 }
-.incubator-dept__image>img{
+.incubator-dept__image>a{
+    width: 100%;
+    height: 100%;
+}
+.incubator-dept__image img{
     width: 100%;
     height: 100%;
     object-fit: fill;
