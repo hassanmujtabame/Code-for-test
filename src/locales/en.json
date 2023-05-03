@@ -734,5 +734,7 @@
   "country-phone": "Country code",
   "suggest-course-map": "map",
   "link-consultation": "consultation link",
-  "has-error": "There is an unknown error, please refresh the page"
+  "has-error": "There is an unknown error, please refresh the page",
+  "Session-headquarters": "Session headquarters",
+  "Course-headquarters": "Course-headquarters"
 }
