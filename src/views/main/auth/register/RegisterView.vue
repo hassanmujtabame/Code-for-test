@@ -53,9 +53,9 @@
                     rules="required" 
                     v-slot="{ errors }"
                     >
-                                <d-select-input :errors="errors" type="text" v-model="form.phone_code"
+                                <d-select-input :errors="errors" type="text" class="text-flag" v-model="form.phone_code"
                                     :label="$t('country-phone')">
-                                    <option v-for="(it,i) in phone_codes" :key="i" :value="it.phone_code">
+                                    <option v-for="(it,i) in phone_codes" :key="i" :value="it.phone_code" >
                                         {{it.flag}}({{ it.phone_code }})
                                     </option>
                                 </d-select-input>
