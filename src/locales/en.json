@@ -738,5 +738,11 @@
   "Session-headquarters": "Session headquarters",
   "Course-headquarters": "Course-headquarters",
   "department": "department",
-  "workspaces": "workspaces"
+  "workspaces": "workspaces",
+  "R": {
+    "S": "R.S"
+  },
+  "add_workspace": "add workspace",
+  "address": "address",
+  "the-address": "Address"
 }

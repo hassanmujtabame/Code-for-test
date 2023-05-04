@@ -82,8 +82,8 @@ export default {
                 this.items = data.data;
             }
         } catch (error) {
-            console.log('error',error)
-            console.log('response',error.response)
+            console.mylog('error',error)
+            console.mylog('response',error.response)
         }
         this.loading = false;
     }

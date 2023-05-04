@@ -736,5 +736,11 @@
   "Session-headquarters": "مقر الجلسة",
   "Course-headquarters": "مقر الدورة",
   "department": "قسم",
-  "workspaces": "اماكن للعمل"
+  "workspaces": "اماكن للعمل",
+  "R": {
+    "S": "رس"
+  },
+  "add_workspace": "اعرض مساحة عمل",
+  "address": "عنوان",
+  "the-address": "العنوان"
 }
