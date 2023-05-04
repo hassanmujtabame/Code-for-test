@@ -15,7 +15,7 @@
                         </div>
                         <div v-for="(item, i) in items" :key="i" class="col-3">
                             <CardVue :title="item.name" :img="item.image_path" @click-image="onChoose(item)" :size="90"
-                                :class="{ 'selected': selected === item }" />
+                                :class="{ 'selected': selected === item,'disabled':userSubIncubators.some(x=>x.subscribe && x.department_id==item.id) }" />
                         </div>
                         <div class="col-12 text-center">
                             <button :disabled="!selected || paying" @click="doPayment" class="btn btn-custmer mt-5">
@@ -54,6 +54,7 @@ export default {
     }),
     methods: {
         onChoose(item) {
+            if(item.subscribed) return;
             this.selected = item
         },
         async doPayment() {
@@ -70,7 +71,7 @@ export default {
             try {
                 let { data } = await incubatorAPI.getDepartments();
                 if (data.success) {
-                    this.items = data.data.map((dept) => { return { ...dept, choosen: false } })
+                    this.items = data.data.map((dept) => { return { ...dept, choosen: false } }).sort((a,b)=>a.subscribed && !b.subscribed?-1:1)
                     if (process.env.NODE_ENV == 'development' && this.items.length == 1) {
                         this.items[0].image_path = 'https://test1.riadiat.sa/uploads/academy/departments/1682664230.jpg';
                         this.items.push({ id: 2, name: 'مجال', image_path: 'https://test1.riadiat.sa/uploads/academy/departments/1682664386.jpg', subscribed: false })
@@ -105,5 +106,8 @@ export default {
 }
 .selected >>> .incubator-dept__image{
     box-shadow: 0px 4px 15px 1px rgba(255, 0, 0, 0.25);
+}
+.disabled >>> .incubator-dept__image{
+    filter: contrast(0.2);
 }
 </style>

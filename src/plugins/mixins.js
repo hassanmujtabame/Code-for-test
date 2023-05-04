@@ -571,6 +571,7 @@ const mixin = {
                     userSubProvider: 'auth/subscribeProvider',
                     userSubAcademy: 'auth/subscribeAcademy',
                     userSubIncubator: 'auth/subscribeIncubator',
+                    userSubIncubators:'auth/subscribeIncubators',
                     userIsSubNetwork: 'auth/isSubscribeNetwork',
                     userIsSubProvider: 'auth/isSubscribeProvider',
                     userIsSubAcademy: 'auth/isSubscribeAcademy',

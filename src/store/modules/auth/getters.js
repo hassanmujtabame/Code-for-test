@@ -40,6 +40,9 @@ export default {
     subscribeIncubator (state) { 
         return state.subscribeIncubator;
     },
+    subscribeIncubators (state) { 
+        return state.subscribeIncubators;
+    },
     isSubscribeNetwork (state) { 
         return state.isSubscribeNetwork;
     },
@@ -51,6 +54,9 @@ export default {
     },
     isSubscribeIncubator (state) { 
         return state.isSubscribeIncubator;
+    },
+    isSubscribeIncubators (state) { 
+        return state.isSubscribeIncubators;
     },
     authenticated(state){
         return !!state.user || !!localStorage.getItem('auth_user')

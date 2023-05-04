@@ -20,12 +20,26 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import incubatorAPI from '@/services/api/incubator';
 import CardVue from '@/components/cards/incubator-dept-circle.vue'
 export default {
 name:'incubator-business-departments',
 components:{
     CardVue
+},
+computed:{
+  ...mapGetters({
+    subscribeIncubators:'auth/subscribeIncubators',
+})  
+},
+watch:{
+    subscribeIncubators:{
+        deep:true,
+        handler(){
+            this.items = this.items.map((dept)=>{return{...dept,subscribed:this.subscribeIncubators.some(x=>x.subscribe && x.department_id==dept.id)}}).sort((a,b)=>a.subscribed && !b.subscribed?-1:1)
+        }
+    }
 },
 data:()=>({
     loading:false,
@@ -53,11 +67,11 @@ methods:{
     try{
       let { data } = await incubatorAPI.getDepartments();
       if(data.success){
-        this.items = data.data.map((dept,i)=>{return{...dept,subscribed:i==0}}).sort((a,b)=>a.subscribed &&b.subscribed?-1:1)
-        if(process.env.NODE_ENV=='development' && this.items.length==1){
+        this.items = data.data.map((dept)=>{return{...dept,subscribed:this.subscribeIncubators.some(x=>x.subscribe && x.department_id==dept.id)}}).sort((a,b)=>a.subscribed && !b.subscribed?-1:1)
+        /*if(process.env.NODE_ENV=='development' && this.items.length==1){
             this.items[0].image_path='https://test1.riadiat.sa/uploads/academy/departments/1682664230.jpg';
             this.items.push({id:2,name:'مجال',image_path:'https://test1.riadiat.sa/uploads/academy/departments/1682664386.jpg',subscribed:false})
-        }
+        }*/
       }
     }catch(error){
         console.mylog('error',error)

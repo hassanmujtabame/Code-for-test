@@ -30,10 +30,12 @@ export default{
         state.subscribeProvider=null;
         state.subscribeAcademy=null;
         state.subscribeIncubator=null;
+        state.subscribeIncubators=[];
         state.isSubscribeNetwork=false;
         state.isSubscribeProvider=false;
         state.isSubscribeAcademy =false;
         state.isSubscribeIncubator = false;
+        state.isSubscribeIncubators = false;
         state.academyRole = null;
         localStorage.removeItem("auth_user");
         localStorage.removeItem("user_provider");
@@ -69,10 +71,12 @@ export default{
         state.subscribeProvider    = subscribers.service_provider??null;
         state.subscribeAcademy     = subscribers.academy??null;
         state.subscribeIncubator   = subscribers.incubator??null;
+        state.subscribeIncubators   = subscribers.incubators??[];
         state.isSubscribeNetwork   = subscribers && subscribers.network? subscribers.network.subscribe:null
         state.isSubscribeProvider  = subscribers && subscribers.service_provider? !!subscribers.service_provider.subscribe:null
         state.isSubscribeAcademy   = subscribers && subscribers.academy? subscribers.academy.subscribe:null
         state.isSubscribeIncubator = subscribers && subscribers.incubator? !!subscribers.incubator.subscribe:null
+        state.isSubscribeIncubators = state.subscribeIncubators.length>0&&state.subscribeIncubators.some(x=>x.subscribe)
         localStorage.setItem("auth_user", JSON.stringify(user));
     },
     SET_PARTNER(state,payload){
@@ -101,6 +105,9 @@ export default{
     },
     SET_IS_SUBSCRIBE_INCUBATOR(state,payload){
         state.isSubscribeIncubator=payload;
+    },
+    SET_IS_SUBSCRIBE_INCUBATORS(state,payload){
+        state.isSubscribeIncubators=payload;
     }
 
 }
