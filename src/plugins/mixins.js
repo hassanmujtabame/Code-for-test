@@ -513,6 +513,10 @@ const mixin = {
               
                 return previous;
               },
+              isDeptIncubatorSubscribe(dept,inc){
+                let incubators=inc??this.userSubIncubators;
+                return incubators.some(i=>i.subscribe && i.department_id == dept.id)
+              },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");
               plugin.setAttribute(

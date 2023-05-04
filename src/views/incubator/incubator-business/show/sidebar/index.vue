@@ -2,7 +2,7 @@
   <div class="incubator-business-sidebar">
     <div class="incubator-business-sidebar__wrapper">
     <div class="incubator-business-sidebar__header">
-      <h1>مسار حاضنة الأزياء</h1>
+      <h1>مسار حاضنة {{itemPage.name}}</h1>
       <div class="d-flex align-items-center">
         <div class="flex-grow-1">
         <d-progress-bar :height="3" bgColor="#F6F8F9" percentColor="var(--color-primary)" :progress="50"/>
@@ -48,6 +48,9 @@ import incubatorAPI from '@/services/api/incubator'
 //import ListItem from './list-item'
 export default {
 name:'d-sidebar',
+props:{
+  itemPage:{}
+},
 components:{
   //ListItem
 },

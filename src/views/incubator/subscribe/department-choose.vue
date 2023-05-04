@@ -71,7 +71,7 @@ export default {
             try {
                 let { data } = await incubatorAPI.getDepartments();
                 if (data.success) {
-                    this.items = data.data.map((dept) => { return { ...dept, choosen: false } }).sort((a,b)=>a.subscribed && !b.subscribed?-1:1)
+                    this.items = data.data.map((dept) => { return { ...dept,subscribed:this.userSubIncubators.some(x=>x.subscribe && x.department_id==dept.id), choosen: false } }).sort((a,b)=>a.subscribed && !b.subscribed?1:-1)
                     if (process.env.NODE_ENV == 'development' && this.items.length == 1) {
                         this.items[0].image_path = 'https://test1.riadiat.sa/uploads/academy/departments/1682664230.jpg';
                         this.items.push({ id: 2, name: 'مجال', image_path: 'https://test1.riadiat.sa/uploads/academy/departments/1682664386.jpg', subscribed: false })
