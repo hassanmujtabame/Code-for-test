@@ -61,7 +61,8 @@
  },
    data:()=>({
      show:false,
-     packages:[]
+     packages:[],
+     package:null,
    }),
    methods:{
     getTypePackage(data){
@@ -79,25 +80,35 @@
     openSuccessSubscribed(data){
         this.fireOpenDialog('success-incubator-subscribed', data)
     },
+    async checkOutFreeRequest(sendForm){
+        try {
+                let { data } = await incubatorAPI.checkoutPackageFree(sendForm);
+                if(data.success){
+                    this.loadCurrentUser();
+                    this.openSuccessSubscribed(this.package)
+                    return true;
+                }else{
+                    window.SwalError(data.message)
+
+                    return false;
+                }
+            } catch (error) {
+                console.mylog('error',error)
+            }
+            return false;
+    },
     async choose(pack){
-        console.mylog('choose',pack)
+        this.package = pack;
         if(!this.userIsSubNetwork){
            this.showMessageForSubscribeNetwork()
             return;
         }
         if(pack.type=='free'){
-            
-            try {
-                let { data } = await incubatorAPI.checkoutPackageFree({package_id:pack.id});
-                if(data.success){
-                    this.loadCurrentUser()
-                    this.openSuccessSubscribed(pack)
-                }else{
-                    window.SwalError(data.message)
-                }
-            } catch (error) {
-                console.log('error',error)
-            }
+            this.fireOpenDialog('department-choose',{
+          payInfo:{package_id:pack.id},
+          payment:this.checkOutFreeRequest
+         })
+          
         
         }
         else{
