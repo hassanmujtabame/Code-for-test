@@ -3,9 +3,13 @@ import BaseApi from "../base-service";
 
 class WorkspaceApi extends BaseApi{
    
-    getRecents(params={}){
+    getAll(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`workspace/recents?${s}`);
+        return window.axios.get(`workspaces?${s}`);
+    }
+    getRecents(params={created_at:'desc',paginate:6}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`workspaces?${s}`);
     }
     
 }

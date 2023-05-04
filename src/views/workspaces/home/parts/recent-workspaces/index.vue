@@ -29,8 +29,8 @@
                  <router-link class="router-link h-100" :to="getRouteLocale('network-workspace-show',{id:item.id})">
                  <workspaceCard 
                  :title="item.title" 
-                               :image="item.image" 
-                               :company="item.company" 
+                               :image="item.image_path" 
+                               :company="item.city_name" 
                                :description="item.description" 
                                :price="item.price"
                  />
@@ -76,7 +76,7 @@
              let {data} = await workspaceAPI.getRecents()
  
              if(data.success){
-                if(process.env.NODE_ENV!=='development')
+                //if(process.env.NODE_ENV!=='development')
                  this.items = data.data;
              }
          } catch (error) {

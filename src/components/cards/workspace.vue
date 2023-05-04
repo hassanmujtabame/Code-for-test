@@ -12,11 +12,11 @@
         </div>
         <div class="workspace-card__footer">
 
-            <div class="workspace-card__footer-item">
+            <div class="workspace-card__footer-item  flex-grow-1">
             <d-localisation-icon :size="16" color="#979797"/>
             <span>{{ company }}</span>
             </div>
-            <div class="workspace-card__footer-item">
+            <div class="workspace-card__footer-item flex-shrink-0">
             <d-empty-wallet-icon :size="16" color="#979797"/>
             <span>{{ price??'N/A' }}</span>
             <span> {{ $t('R.S') }}</span>
@@ -58,7 +58,7 @@ export default {
 
 .workspace-card__footer{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 5px 5px;
 }
 .workspace-card__footer-item{

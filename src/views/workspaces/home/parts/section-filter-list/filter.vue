@@ -12,7 +12,6 @@
              </template>
                 </ul>
                 <d-filter-list 
-                :fakeItems="items"
                 :call-list="loadList" 
                 @change="changeFilter"
         classColCard="col-md-3  mt-3">
@@ -27,8 +26,8 @@
                               <router-link class="router-link" :to="getRouteLocale('workspace-show',{id:item.id})" > 
                               <workspaceCard
                                :title="item.title" 
-                               :image="item.image" 
-                               :company="item.company" 
+                               :image="item.image_path" 
+                               :company="item.city_name" 
                                :description="item.description" 
                                :price="item.price" 
                              
