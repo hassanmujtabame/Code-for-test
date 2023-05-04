@@ -74,11 +74,12 @@ export default {
             this.otherData = data.data;
             this.itemForm = Object.assign({ payment_type: null, amount: null }, data.item)
             this.showDialog = true;
+            this.$emit('show')
             return true;
         },
         closeDialog() {
             this.showDialog = false
-
+            this.$emit('hide')
             return true;
         },
     }

@@ -29,7 +29,7 @@
                          :features="pack.features.map(c=>c.desc)"
                          :type-subscribe="pack.type"
                          @selected="choose(pack)"
-                         :subscribed="userSubIncubator"
+                         
 
                          ></SubscribeCard>
                       
@@ -41,6 +41,7 @@
          </div>
       <successSubscribeDialog />
       <checkoutPackageDiag/>
+      <departmentChooseDialog />
      </div>
  </template>
  
@@ -49,12 +50,14 @@
  import incubatorAPI from '@/services/api/incubator'
  import successSubscribeDialog from './success-subscribe-dialog.vue';
  import checkoutPackageDiag from './check-out/index.vue';
+ import departmentChooseDialog from './department-choose.vue';
  export default {
  name:'network-subscribe',
  components:{
      SubscribeCard,
      successSubscribeDialog,
-     checkoutPackageDiag
+     checkoutPackageDiag,
+     departmentChooseDialog
  },
    data:()=>({
      show:false,

@@ -20,7 +20,7 @@
                          </div>
                      </div>
                      <div >
-                         <a @click="selected" v-if="!subscribed.subscribe" href="#" class="btn-main px-4 py-2" >
+                         <a @click="selected" v-if="!subscribed || !subscribed.subscribe" href="#" class="btn-main px-4 py-2" >
                              اشتركي الآن
                          </a>
                          <a  v-else-if="subscribed.package_id==itemId" href="#" class="btn-danger px-4 py-2" >

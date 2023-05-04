@@ -2,8 +2,8 @@
    
 
 <div class="incubator-dept box rounded-circle">
- <div class="incubator-dept__wrapper">
- <div class="incubator-dept__image">
+ <div class="incubator-dept__wrapper" :style="styleCircle">
+ <div class="incubator-dept__image" :style="styleImage">
     <router-link v-if="url" :to="url">
   <img :src="img" :alt="title">
       </router-link> 
@@ -32,6 +32,26 @@ export default {
     url:{
         type:[String,Object],
         //default:()=>{return{name:'incubator-program-incubator'}}
+    },
+    size:{
+        type:Number,
+        default:160
+    }
+},
+computed:{
+    styleCircle(){
+        let size = this.size;
+        return {
+            height:`${size}px`,
+            width:`${size}px`,
+        }
+    },
+    styleImage(){
+        let size = this.size-20;
+        return {
+            height:`${size}px`,
+            width:`${size}px`,
+        }
     }
 }
 }

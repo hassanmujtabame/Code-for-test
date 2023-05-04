@@ -4,6 +4,7 @@
   title=" تفاصيل الدفع"
   hideAmount
   :do-payment="payment"
+  @show="openDialog"
 >
 <template v-slot:default="{ item,dialog }">
   <div v-if="dialog" class="d-flex flex-wrap gap-2">
@@ -74,7 +75,9 @@ export default {
   },
   data:()=>({
     showDialog:false,
-    checkoutInfo:{}
+    checkoutInfo:{},
+    payInfo:{},
+    department:null,
   }),
     methods:{
       async payment(evt){
@@ -105,23 +108,54 @@ export default {
          }
       
          console.mylog('sending',pay_info)
+         this.payInfo = pay_info;
+         //open choose department
+         this.fireOpenDialog('department-choose',{
+          checkout_id:this.checkoutInfo.id,
+          payInfo:pay_info,
+          payment:this.checkOutRequest
+         })
+       
+      },
+     async checkOutRequest(pay_info,department){
+      this.department = department;
+      
         try {
           let { data } = await incubatorAPI.checkoutPackage(pay_info)
           if(data.success){
             this.checkoutInfo = data.data;
-          this.loadJS(`https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.checkoutInfo.id}`,true,true);
-          
+            this.loadJS(`https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.checkoutInfo.id}`,true,true);
             console.mylog('success',data)
-            //this.closeEvent()
-            //this.loadCurrentUser()
-            //this.openSuccessSubscribed(otherData)
+            let element = document.getElementById('before-cardvirual');
+              if(element){
+                element.innerHTML = `<h1>${this.$t('department')}:${department.name}</h1>`
+              }
+            return true;
           }else{
             window.SwalError(data.message)
+            return false;
           }
         } catch (error) {
         console.log('error',error)
+        window.SwalError('حدث خطأ غير معروف')
+        return false;
         }
       },
+   
+      closeEvent(){
+        this.fireCloseDialog(this.group)
+      },
+      openSuccessSubscribed(data){
+          this.fireOpenDialog('success-incubator-subscribed', data)
+      },
+      openDialog(){
+        this.department = null;
+        let element = document.getElementById('before-cardvirual');
+      if(element){
+        element.innerHTML = ``
+      }
+      }
+    },
     beforeDestroy() {
       if(this.checkoutInfo.id)
       window.$('script').each(function() {
@@ -132,13 +166,6 @@ export default {
         }
         });
     },
-      closeEvent(){
-        this.fireCloseDialog(this.group)
-      },
-      openSuccessSubscribed(data){
-          this.fireOpenDialog('success-incubator-subscribed', data)
-      },
-    }
 }
 
 </script>

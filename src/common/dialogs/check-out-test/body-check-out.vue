@@ -52,6 +52,9 @@
                 <div class="col-md-5">
 
                     <div class="row justify-content-center">
+                        <div class="col-12" id="before-cardvirual">
+
+                        </div>
                         <div class="col-12 mt-5 row">
                             
                             <div class="col-12" style="box-shadow: 0px 1px 4px 0px;padding: 29px;">
