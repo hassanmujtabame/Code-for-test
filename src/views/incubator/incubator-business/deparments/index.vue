@@ -7,7 +7,7 @@
             <h1>مراحل الحاضنة</h1>
             <p>اختر القسم الذي تريد تتبع مراحله</p>
         </div>
-            <div v-for="(item,i) in items.sort((a,b)=>a.subscribed &&b.subscribed?-1:1)" :key="i" class="col-2">
+            <div v-for="(item,i) in items" :key="i" class="col-2">
             <CardVue :title="item.name" :img="item.image_path"
                 @click-image="onChoose(item)"
                 class="incubator"
@@ -53,7 +53,7 @@ methods:{
     try{
       let { data } = await incubatorAPI.getDepartments();
       if(data.success){
-        this.items = data.data.map((dept,i)=>{return{...dept,subscribed:i==0}})
+        this.items = data.data.map((dept,i)=>{return{...dept,subscribed:i==0}}).sort((a,b)=>a.subscribed &&b.subscribed?-1:1)
         if(process.env.NODE_ENV=='development' && this.items.length==1){
             this.items[0].image_path='https://test1.riadiat.sa/uploads/academy/departments/1682664230.jpg';
             this.items.push({id:2,name:'مجال',image_path:'https://test1.riadiat.sa/uploads/academy/departments/1682664386.jpg',subscribed:false})

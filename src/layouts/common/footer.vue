@@ -37,7 +37,7 @@
                           <router-link :to="getRouteLocale('who-are-we')" class="d-block">{{ $t('who-are-we') }}</router-link>
                       
                           <a href="#" class="d-block">تمبليت</a>
-                          <a href="#" class="d-block">اماكن للعمل</a>
+                          <router-link :to="getRouteLocale('workspaces-home')" class="d-block">{{ $t('workspaces') }}</router-link>
                          
                       </div>
                       <div class="col-3 col-md-3">

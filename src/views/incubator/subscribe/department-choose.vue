@@ -59,7 +59,7 @@ export default {
         async doPayment() {
             this.paying = true;
             let { payment, payInfo } = this.itemDialog;
-            let sendData = { ...payInfo, deparment_id: this.selected.id }
+            let sendData = { ...payInfo, department_id: this.selected.id }
             let valid = await payment(sendData,{...this.selected})
             if(valid) this.closeEvent()
             this.paying =false;

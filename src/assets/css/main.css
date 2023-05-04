@@ -57,6 +57,10 @@
 .text-flag select {
     font-family: "Twemoji Country Flags"
 }
+select.text-flag>option,
+    .text-flag select>option {
+    font-family: "Twemoji Country Flags"
+}
 .img-contain{
     height: 100%;
     width: 100%;
@@ -1098,9 +1102,13 @@ color: #979797;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
 }
-
+.workspaces-img{
+    background-image: url(../img/workspace-home.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 #offcanvas-profile{
     z-index: 99999999;
 }

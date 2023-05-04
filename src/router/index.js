@@ -8,6 +8,7 @@ import academyRoute from './academy'
 import incubatorRoute from './incubator'
 import serviceRoute from './service-provider'
 import consultingRoute from './consulting'
+import workspaceRoute from './workspace'
 import Cookies from 'js-cookie'
 import VueMeta from 'vue-meta'
 
@@ -159,7 +160,8 @@ const routes = [
   ...academyRoute,
   ...incubatorRoute,
   ...serviceRoute,
-  ...consultingRoute 
+  ...consultingRoute, 
+  ...workspaceRoute
 ]
 },
 { 
