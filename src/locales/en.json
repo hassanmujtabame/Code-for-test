@@ -744,5 +744,6 @@
   },
   "add_workspace": "add workspace",
   "address": "address",
-  "the-address": "Address"
+  "the-address": "Address",
+  "course-type": "course type"
 }

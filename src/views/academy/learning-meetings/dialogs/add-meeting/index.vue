@@ -11,7 +11,21 @@
         <p class="t-c fs-r-16-24">يمكنك رفع فيديو تعليمي لمدة ساعة</p>
         <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
-                <!--title-->
+            <!--type-->
+            <div class="mt-3">
+                        <ValidationProvider :name="$t('course-type')"
+                            vid="course_type"
+                            rules="required"
+                            v-slot="{errors}"
+                            v-if="step==1"
+                        >
+                    <d-select-input :errors="errors" v-model="itemForm.course_type" :label="$t('course-type')" >
+                    <option  selected disabled>{{ $t('course-type') }}</option>
+                    <option v-for="(t,i) in course_types" :key="i" :value="t.id">{{ t.name }}</option>
+                    </d-select-input>
+                </ValidationProvider>
+                </div>    
+            <!--title-->
             <div class="mt-3">
                         <ValidationProvider :name="$t('meeting-title')"
                             vid="title"
@@ -162,8 +176,10 @@
       },
       data:()=>{
         let types = commonAPI.getMeetingTypes();
+        let course_types = commonAPI.getCourseTypes();
         return{
             types:types,
+            course_types,
             step:1,
             showDialog:false,
             categories:[],
@@ -174,10 +190,10 @@
       },
       computed:{
         videoRules(){
-            if(this.itemForm.id){
+            if(this.itemForm.id || this.itemForm.course_type!=='recored'){
                 return  this.step==2?'ext:mp4':''
             }
-            return this.step==2?'ext:mp4':''
+            return this.step==2?'required|ext:mp4':''
         },
         imageRules(){
             if(this.itemForm.id){
@@ -329,7 +345,8 @@ async uploadImage(evt,validate){
                 content:'',
                 video:null,
                 image:null,
-                type:''
+                type:'',
+                course_type:''
             }
             if(dataEvt){
                 let {
@@ -339,7 +356,8 @@ async uploadImage(evt,validate){
                 category_id,
                 content,
                 image,
-                video} = dataEvt;
+                video,
+                course_type} = dataEvt;
                 
                 this.itemForm = Object.assign(this.itemForm,{ 
                     id, 
@@ -348,7 +366,8 @@ async uploadImage(evt,validate){
                 category_id,
                 content,
                 image,
-                video})
+                video,
+                course_type})
             }
             this.showDialog = true;
             this.$nextTick(()=>{
