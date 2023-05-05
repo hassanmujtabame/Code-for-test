@@ -177,7 +177,7 @@
             if(this.itemForm.id){
                 return  this.step==2?'ext:mp4':''
             }
-            return this.step==2?'required|ext:mp4':''
+            return this.step==2?'ext:mp4':''
         },
         imageRules(){
             if(this.itemForm.id){
