@@ -15,6 +15,7 @@ import DDatePicker from '@/components/calendar/d-date-picker.vue'
 import DCarousel from '@/components/carousel/index.vue'
 import DCarouselSlide from '@/components/carousel/slide.vue'
 import DFilterList from '@/components/filter-list/index.vue'
+import DSingleList from '@/components/filter-list/single-list.vue'
 import DMultiSelecetTagInput from '@/components/inputs/multi-select/tags.vue'
 import DChip from '@/components/chips/index.vue'
 import RSliderInput from '@/components/inputs/r-slider/index.vue'
@@ -125,6 +126,8 @@ Vue.component('d-hover', DHover)
 Vue.component('d-carousel', DCarousel)
 Vue.component('d-carousel-slide', DCarouselSlide)
 Vue.component('d-filter-list', DFilterList)
+Vue.component(DSingleList.name, DSingleList)
+
 Vue.component('rslider-input', RSliderInput)
 Vue.component('d-user-info', DUserInfo)
 Vue.component('d-user-info-li', DUserInfoLi)
