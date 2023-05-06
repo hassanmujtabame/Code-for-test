@@ -3,8 +3,8 @@
         <d-single-list
         :call-list="initializing" 
         :paginate="3"
-        showMore="أعرض المزيد من الدورات"
-        noMoreItems='لا يوجد المزيد من الدورات'
+        showMore="أعرض المزيد من العروض"
+        noMoreItems='لا يوجد المزيد من العروض'
         style="min-height:200px"
         >
             <template v-slot="{item}">
@@ -13,7 +13,7 @@
         :title="item.name_company"
         :desc="item.description"
 
-        :url="getRouteLocale('academy-offers')"
+        :url="getRouteLocale('network-offers')"
     />
 </template>
     </d-single-list>
