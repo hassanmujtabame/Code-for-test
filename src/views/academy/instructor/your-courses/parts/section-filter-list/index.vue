@@ -14,7 +14,7 @@ classColSearch="col-12"
             أضافة دورة جديدة
           </button>
 </template>
-<template v-slot:[`head-end`]>
+<template v-slot:head-end>
     <button class="more">المزيد</button>
 </template>
 <template v-slot="{item}">

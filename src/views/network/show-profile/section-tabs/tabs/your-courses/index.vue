@@ -9,11 +9,11 @@
         >
             <template v-slot="{item}">
     <CardItem  
-        :image="item.image"
-        :title="item.name_company"
-        :desc="item.description"
-
-        :url="getRouteLocale('academy-offers')"
+        :image="item.image_path"
+        :title="item.title"
+        :name="item.user_info.name"
+        :price="item.price"
+        :url="getRouteLocale('academy-course',{id:item.id})"
     />
 </template>
     </d-single-list>
@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import offersAPI from '@/services/api/offers';
+import instructorAPI from '@/services/api/academy/instructor';
 import CardItem from './card-item.vue';
 export default {
- name:'d-tab-pane-offers',
+ name:'d-tab-pane-your-course',
  components:{
     CardItem,
  },
@@ -36,7 +36,7 @@ export default {
     this.loading = true;
     try {
 
-       return await offersAPI.getMyOffers(metaInfo)
+       return await instructorAPI.getCourses(metaInfo)
       
     } catch (error) {
         //

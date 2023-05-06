@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import TabYourCourses from './tabs/your-courses/index.vue'
 import TabWatchedCourses from './tabs/courses-watched/index.vue'
 import TabOffers from './tabs/offers/index.vue'
 import TabBlog from './tabs/blog/index.vue'
@@ -29,6 +30,7 @@ import DTabPane from '@/components/tabs/DTabPane.vue'
 export default {
  name:'section-tabs',
  components:{ 
+  TabYourCourses,
   TabWatchedCourses,
     TabOffers,
     TabBlog,
@@ -40,8 +42,9 @@ export default {
  },
  data:(vm)=>{
   return{
-    tabActive:'offers',
+    tabActive:'your-course',
     tabs:[
+      {tag:'your-course',title:vm.$t('your-courses'),content:TabYourCourses},
       {tag:'offers',title:vm.$t('offers'),content:TabOffers},
       {tag:'courses-watched',title:vm.$t('courses-you-have-watched'),content:TabWatchedCourses},
       {tag:'blog',title:vm.$t('the-blogs'),content:TabBlog},
