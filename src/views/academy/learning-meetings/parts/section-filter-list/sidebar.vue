@@ -4,7 +4,7 @@
           {{ $t('filter') }}
       </h4>
       <d-expanded-panel id="accordionPanelsStayOpenExample">
-        <d-expanded-panel-item :title="$t('Category')">
+        <d-expanded-panel-item :title="$t('meeting-type')">
             <div>
                 <div v-for="(state,i) in states" :key="i" class="form-check">
                     <input class="form-check-input" type="radio" :value="state.id" v-model="filter.type" 
@@ -47,7 +47,7 @@ props:{
   }
 },
 data:(vm)=>{
-    let types = commonAPI.getMeetingTypes();
+    let types = commonAPI.getCourseTypes();
     types.unshift({id:null,name:vm.$t('all')})
   return{
       states:types,

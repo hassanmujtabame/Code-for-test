@@ -14,14 +14,14 @@
             <!--meeting-type-->
             <div class="mt-3">
                         <ValidationProvider :name="$t('meeting-type')"
-                            vid="course_type"
+                            vid="type"
                             rules="required"
                             v-slot="{errors}"
                             v-if="step==1"
                         >
-                    <d-select-input :errors="errors" v-model="itemForm.course_type" :label="$t('meeting-type')" >
+                    <d-select-input :errors="errors" v-model="itemForm.type" :label="$t('meeting-type')" >
                     <option  selected disabled>{{ $t('meeting-type') }}</option>
-                    <option v-for="(t,i) in course_types" :key="i" :value="t.id">{{ t.name }}</option>
+                    <option v-for="(t,i) in types" :key="i" :value="t.id">{{ t.name }}</option>
                     </d-select-input>
                 </ValidationProvider>
                 </div>    
@@ -37,7 +37,7 @@
                 </ValidationProvider>
                 </div>
                 <!--type-->
-                <div class="mt-3">
+                <div v-if="false" class="mt-3">
                         <ValidationProvider :name="$t('classification')"
                             vid="type"
                             rules="required"
@@ -175,11 +175,11 @@
         }
       },
       data:()=>{
-        let types = commonAPI.getMeetingTypes();
+        //let types = commonAPI.getMeetingTypes();
         let course_types = commonAPI.getCourseTypes();
         return{
-            types:types,
-            course_types,
+            types:course_types,
+            //course_types,
             step:1,
             showDialog:false,
             categories:[],
