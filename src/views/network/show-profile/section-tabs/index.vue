@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import TabCourses from './tabs/courses-watched/index.vue'
+import TabWatchedCourses from './tabs/courses-watched/index.vue'
 import TabOffers from './tabs/offers/index.vue'
 import TabBlog from './tabs/blog/index.vue'
 import TabExhibitions from './tabs/exhibitions/index.vue'
@@ -29,7 +29,7 @@ import DTabPane from '@/components/tabs/DTabPane.vue'
 export default {
  name:'section-tabs',
  components:{ 
-    TabCourses,
+  TabWatchedCourses,
     TabOffers,
     TabBlog,
     DTabBtn,
@@ -43,7 +43,7 @@ export default {
     tabActive:'offers',
     tabs:[
       {tag:'offers',title:vm.$t('offers'),content:TabOffers},
-      {tag:'courses-watched',title:vm.$t('courses-you-have-watched'),content:TabCourses},
+      {tag:'courses-watched',title:vm.$t('courses-you-have-watched'),content:TabWatchedCourses},
       {tag:'blog',title:vm.$t('the-blogs'),content:TabBlog},
       {tag:'exhibitions',title:vm.$t('the-exhibitions'),content:TabExhibitions},
       {tag:'projects',title:vm.$t('the-projects'),content:TabProject},
