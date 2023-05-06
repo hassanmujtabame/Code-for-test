@@ -13,8 +13,8 @@
         <SectionRecentCoursesRecored />
         <SectionRecentCoursesOnSite />
         <!-- educational meetings-->
-      <SectionEducationalMeeting />
-        <!-- section our partner-->
+        <SectionEducationalMeeting />
+          <SectionCoupons />
         <SectionOurPartners/>
         <!-- section blog-->
         <SectionBlog/>
@@ -40,6 +40,7 @@ import SectionRecentCoursesOnline from './parts/section-recent-courses-online/in
 import SectionRecentCoursesRecored from './parts/section-recent-courses-recorded/index.vue'
 import SectionRecentCoursesOnSite from './parts/section-recent-courses-onsite/index.vue'
 import SectionOurPartners from './parts/section-our-partners/index.vue'
+import SectionCoupons from './parts/section-coupons'
 import SectionContinueLearning from '@/views/academy/common-components/section-continue-learning/index.vue'
 import SectionHear from '@/views/academy/common-components/section-hear/index.vue'
 
@@ -54,6 +55,7 @@ components:{
   SectionRecentCoursesOnline,
   SectionRecentCoursesRecored,
   SectionRecentCoursesOnSite,
+  SectionCoupons,
   SectionOurPartners,
   SectionContinueLearning,
   SectionHear
