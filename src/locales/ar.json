@@ -599,7 +599,7 @@
   "chat": "محادثة",
   "type-message": "اكتب رسالة",
   "Chats": "المحادثات",
-  "Full-name": "الاسم ",
+  "Full-name": "الاسم بالكامل",
   "my-services": "خدماتي",
   "select-your-gender": "حدد جنسك",
   "freelance_document": "وثيقة العمل الحر",
@@ -743,5 +743,8 @@
   "add_workspace": "اعرض مساحة عمل",
   "address": "عنوان",
   "the-address": "العنوان",
-  "course-type": "نوع الدورة"
+  "course-type": "نوع الدورة",
+  "project-name": "اسم المشروع",
+  "project-field": "مجال المشروع",
+  "project-bio": "نبذة عن المشروع"
 }

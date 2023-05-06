@@ -745,5 +745,9 @@
   "add_workspace": "add workspace",
   "address": "address",
   "the-address": "Address",
-  "course-type": "course type"
+  "course-type": "course type",
+  "project-name": "project name",
+  "project-field": "project field",
+  "project-desc": "project description",
+  "project-bio": "about project"
 }

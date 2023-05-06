@@ -17,7 +17,7 @@
 
         <!-- section 7-->
         <SectionProgramsProjects />
-
+        <SectionHaveProject />
          <!-- section 8-->
          <SectionOurPartners />
          <!-- section 9-->
@@ -47,6 +47,7 @@ import SectionSchedule from './parts/section-schedule/index.vue'
 import SectionNumbers from './parts/section-numbers/index.vue'
 import SectionContinueLearning from './parts/section-continue-learning/index.vue'
 import SectionHear from './parts/section-hear/index.vue'
+import SectionHaveProject from './parts/section-have-project/index.vue'
 export default {
 name:"incubator-home",
 components:{
@@ -63,7 +64,8 @@ components:{
   SectionIncubationProjects,
   SectionSchedule,
   SectionContinueLearning,
-  SectionHear
+  SectionHear,
+  SectionHaveProject
 }
 }
 </script>

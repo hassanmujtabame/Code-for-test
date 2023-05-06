@@ -61,6 +61,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "incubator-show-profile" */ '../views/incubator/show-profile/index.vue')
     },
     {
+        path: 'incubator/contact-us-for-project',
+        meta:{layout:LayoutDefault},
+        name: 'incubator-contact-us-for-project',
+        component: () => import(/* webpackChunkName: "incubator-contact-us-for-project" */ '../views/incubator/contact-us-for-project') 
+    },
+    {
         path: 'incubator/incubator-business',
         meta:{layout:LayoutDefault,auth:true},
         name: 'incubator-incubator-business',
