@@ -91,7 +91,7 @@
           <!-- شركائنا-->
           <SectionPartner />
           <!-- تشاركينا ؟-->
-          <SectionJoinUs />
+          <SectionJoinUs v-if="!userPartner"/>
           <SectionPodcast/> 
         <!--مدونات-->
         <SectionBlogs />
