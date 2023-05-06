@@ -57,14 +57,17 @@
             <div class="col-md-6">
                 <div>
                    
-                    <iframe 
+                  <iframe 
+                    v-if="itemPage.video"
                   height="384"
                     class="rounded-3 w-100 "
-                    :src="itemPage.video??'https://www.youtube.com/embed/dGG9pWXS3ZQ'" 
-                    title="مقطع تعريفي عن شركة رياديات" 
+                    :src="itemPage.video" 
+                    :title="itemPage.title" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    sandbox="allow-same-origin allow-scripts"
+                    allow="payment 'none';camera 'none';microphone 'none';accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen></iframe> 
+                    <img :src="itemPage.image" v-else   class="border rounded-3 w-100 " height="384" :alt="itemPage.title"/>
                 </div>
             </div>
         </div>
