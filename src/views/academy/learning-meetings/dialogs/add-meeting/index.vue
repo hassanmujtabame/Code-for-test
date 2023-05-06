@@ -13,14 +13,14 @@
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
             <!--type-->
             <div class="mt-3">
-                        <ValidationProvider :name="$t('course-type')"
+                        <ValidationProvider :name="$t('meeting-type')"
                             vid="course_type"
                             rules="required"
                             v-slot="{errors}"
                             v-if="step==1"
                         >
                     <d-select-input :errors="errors" v-model="itemForm.course_type" :label="$t('course-type')" >
-                    <option  selected disabled>{{ $t('course-type') }}</option>
+                    <option  selected disabled>{{ $t('meeting-type') }}</option>
                     <option v-for="(t,i) in course_types" :key="i" :value="t.id">{{ t.name }}</option>
                     </d-select-input>
                 </ValidationProvider>
@@ -38,13 +38,13 @@
                 </div>
                 <!--type-->
                 <div class="mt-3">
-                        <ValidationProvider :name="$t('meeting-type')"
+                        <ValidationProvider :name="$t('classification')"
                             vid="type"
                             rules="required"
                             v-slot="{errors}"
                             v-if="step==1"
                         >
-                    <d-select-input :errors="errors" v-model="itemForm.type" label="تصنيف اللقاء" >
+                    <d-select-input :errors="errors" v-model="itemForm.type" :label="$t('classification')" >
                     <option  selected disabled>حدد التصنيف</option>
                     <option v-for="(t,i) in types" :key="i" :value="t.id">{{ t.name }}</option>
                     </d-select-input>
