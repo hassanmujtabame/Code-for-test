@@ -68,6 +68,9 @@ class NetworkApi extends BaseApi {
         */
         return window.axios.post(`network/user-checkout`,data);
     }
+    getCategories(){
+        return window.axios.get(`network/categories`);
+    }
    
 
 }

@@ -748,5 +748,7 @@
   "project-field": "مجال المشروع",
   "project-bio": "نبذة عن المشروع",
   "service-provider": "مقدم خدمة",
-  "section": "قسم"
+  "section": "قسم",
+  "members": "أعضاء",
+  "search-by-name-or-field": "إبحث بالاسم أو المجال"
 }

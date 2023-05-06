@@ -4,6 +4,7 @@
     :call-list="loadList" 
     :pluralName="$t('members')"
     :singleName="$t('member')"
+    :searchPlaceholder="$t('search-by-name-or-field')"
     classColCard="col-12 col-md-4 mt-4">
       <template v-slot="{ item }">
 
@@ -18,7 +19,7 @@
       </template>
 
       <template v-slot:side>
-        <SidebarBox />
+        <SidebarBox :filterItem="filterSide" @change="changeFilter" />
       </template>
 
 
@@ -40,6 +41,16 @@ export default {
   },
   data: (vm) => {
     return{
+      filterSide:{
+        membership:null,
+        category_id:[]
+      },
+      filterItem:{
+      search:null,
+      created_at:'asc',
+      membership:null,
+        category_id:[]
+    },
     items_test: [
       { name: 'العنقود محمد', img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`, description: 'التصوير' },
       { name: 'العنقود محمد', img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`, description: 'التصوير' },
@@ -53,11 +64,18 @@ export default {
     items: []
   }},
   methods: {
+    changeFilter(val){
+          console.log(val)
+            this.filterItem = {...this.filterItem,...val}
+            this.fireEvent('d-filter-list-refresh')
+        },
     async loadList(metaInfo) {
       try {
         let params = {
-          page: metaInfo.current_page
-        }
+            page:metaInfo.current_page,
+            paginate:6,
+            ...this.filterItem
+          }
         return await MembersApi.getAll(params)
       } catch (error) {
         console.log('error', error)

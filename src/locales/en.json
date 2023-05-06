@@ -751,5 +751,6 @@
   "project-desc": "project description",
   "project-bio": "about project",
   "service-provider": "service provider",
-  "section": "section"
+  "section": "section",
+  "search-by-name-or-field": "search by name or field"
 }
