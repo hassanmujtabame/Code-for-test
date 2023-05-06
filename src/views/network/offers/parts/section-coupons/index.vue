@@ -41,9 +41,13 @@ export default {
     SidebarBox
   },
   data: (vm) => {
+    let section = vm.$route.query.section;
+        if(!['network','academy','service-provider'].includes(section))
+        section = null;
     return{
     group: 'list-coupon',
     filterSide:{
+      section:section,
       expired:null,
       category_id:[],
     min_discount:0,
@@ -51,6 +55,7 @@ export default {
 
     },
     filterItem:{
+      section:section,
       search:null,
       price:'asc',
       expired:null,

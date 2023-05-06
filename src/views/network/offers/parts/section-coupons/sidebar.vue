@@ -4,7 +4,7 @@
             {{ $t('filter') }}
         </h4>
         <d-expanded-panel class="accordion" id="accordionPanelsStayOpenExample">
-            <d-expanded-panel-item :title="$t('classification')">
+            <d-expanded-panel-item opened :title="$t('classification')">
                 <div>
                             <div v-for="(state,i) in states" :key="i" class="form-check">
                                 <input class="form-check-input" type="radio" :value="state.id" v-model="filter.expired" 
@@ -17,7 +17,20 @@
                             </div>
                         </div>
             </d-expanded-panel-item>
-            <d-expanded-panel-item :title="$t('offer-departments')">
+            <d-expanded-panel-item opened :title="$t('section')" >
+                <div>
+                            <div v-for="(sect,i) in sections" :key="i" class="form-check">
+                                <input class="form-check-input" type="radio" :value="sect.id" v-model="filter.section" 
+                                :selected="sect.id===filter.section"
+                                name="stateRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                   {{sect.name}}
+                                </label>
+                            </div>
+                        </div>
+            </d-expanded-panel-item> 
+            <d-expanded-panel-item opened :title="$t('offer-departments')">
                 <div v-for="(cat,i) in categories" :key="i" class="form-check">
                             <input class="form-check-input" type="checkbox" :value="cat.id" v-model="filter.category_id" :id="`defaultCheck${cat.id}`">
                             <label class="form-check-label" :for="`defaultCheck${cat.id}`">
@@ -25,7 +38,7 @@
                             </label>
                         </div>
             </d-expanded-panel-item>
-            <d-expanded-panel-item :title="$t('discount-value')">
+            <d-expanded-panel-item opened :title="$t('discount-value')">
                 <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">
                                         <rslider-input
@@ -64,6 +77,12 @@ export default {
             {id:null,name:'الكل'},
             {id:'soon',name:'ينتهي قريبا'},
             {id:'end-week',name:'ينتهي بعد اسبوع'},
+        ],
+        sections:[
+        {id:null,name:'الكل'},
+            {id:'network',name:vm.$t('network')},
+            {id:'service-provider',name:vm.$t('service-provider')},
+            {id:'academy',name:vm.$t('academy')}
         ],
      categories: [],
         

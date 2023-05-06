@@ -749,5 +749,7 @@
   "project-name": "project name",
   "project-field": "project field",
   "project-desc": "project description",
-  "project-bio": "about project"
+  "project-bio": "about project",
+  "service-provider": "service provider",
+  "section": "section"
 }

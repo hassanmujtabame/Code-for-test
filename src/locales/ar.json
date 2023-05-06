@@ -746,5 +746,7 @@
   "course-type": "نوع الدورة",
   "project-name": "اسم المشروع",
   "project-field": "مجال المشروع",
-  "project-bio": "نبذة عن المشروع"
+  "project-bio": "نبذة عن المشروع",
+  "service-provider": "مقدم خدمة",
+  "section": "قسم"
 }
