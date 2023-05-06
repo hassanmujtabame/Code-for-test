@@ -42,7 +42,7 @@ export default {
  },
  computed:{
     typeText(){
-        let r= commonAPI.getMeetingTypes().find(x=>x.id==this.type)
+        let r= commonAPI.getCourseTypes().find(x=>x.id==this.type)
         return r?r.name:this.type
     },
     dateText(){
