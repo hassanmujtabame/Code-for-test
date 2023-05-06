@@ -2,16 +2,16 @@
   <div class="incubator-business-sidebar">
     <div class="incubator-business-sidebar__wrapper">
     <div class="incubator-business-sidebar__header">
-      <h1>مسار حاضنة {{itemPage.name}}</h1>
+      <h1>مسار حاضنة {{itemPage.department_name}}</h1>
       <div class="d-flex align-items-center">
         <div class="flex-grow-1">
-        <d-progress-bar :height="3" bgColor="#F6F8F9" percentColor="var(--color-primary)" :progress="50"/>
+        <d-progress-bar :height="3" bgColor="#F6F8F9" percentColor="var(--color-primary)" :progress="itemPage.ratio"/>
       </div>
-        <span class="flex-shrink-0 percent-label">50%</span>
+        <span class="flex-shrink-0 percent-label">{{itemPage.ratio}}%</span>
       </div>
       <div class="d-flex justify-content-between mt-3">
-        <span class="percent-label">بداية الحاضنة:{{ start_date }}</span>
-        <span class="percent-label">المدة:{{ period }} {{ $t('day_s') }}</span>
+        <span class="percent-label">بداية الحاضنة:{{ itemPage.start_date }}</span>
+        <span class="percent-label">المدة:{{ itemPage.duration }} {{ $t('day_s') }}</span>
       </div>
 
     </div>
@@ -54,9 +54,9 @@ props:{
 components:{
   //ListItem
 },
-data:()=>({
-  start_date:'30 أكتوبر 2023',
-  period:24,
+data:(vm)=>({
+  start_date:vm.itemPage.start_date,
+  period:vm.itemPage.duration,
   status:['done','selected','disabled'],
   items:[]
 }),

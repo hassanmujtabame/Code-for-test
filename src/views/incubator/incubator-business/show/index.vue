@@ -8,7 +8,7 @@
         <div class="height-body-page-without-nav">
     <div class="w-100 h-100 d-flex flex-justify-content-center align-items-center">
         <div class="d-alert d-alert-danger mx-auto">
-        <h1 >انت غير مشترك في قسم : {{ itemPage.name }}</h1>
+        <h1 >انت غير مشترك في قسم : {{ itemPage.departement_name }}</h1>
         <p>عليك الاشتراك في القسم لكي تستفيد من متابعة مراحل الحضنة فيه</p>
         <router-link :to="getRouteLocale('incubator-subscribe')" class="btn btn-custmer" >إشترك الان</router-link>
         
@@ -49,9 +49,9 @@ methods:{
         this.loading = true;
         this.hasError = false;
         try {
-            let { data } = await incubatorAPI.getDepartment(this.$route.params.id);
+            let { data } = await incubatorAPI.getStageItem(this.$route.params.id);
             if(data.success){
-                this.itemPage = {...data.data,subscribed:this.isDeptIncubatorSubscribe(data.data)};
+                this.itemPage = {...data.data,subscribed:this.isDeptIncubatorSubscribe({id:data.data.department_id})};
             }
         } catch (error) {
             this.hasError = true;
