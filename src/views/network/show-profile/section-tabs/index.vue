@@ -3,66 +3,54 @@
 
                         
 <ul class="nav nav-pills mb-3 gap-3 border-bottom pb-3 py-3 px-2" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link  active" id="pills-courses-watched-tab" data-bs-toggle="pill" data-bs-target="#pills-courses-watched" type="button" role="tab" aria-controls="pills-courses-watched" aria-selected="true">الدورات التي شاهدتها</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link " id="pills-blog-tab" data-bs-toggle="pill" data-bs-target="#pills-blog" type="button" role="tab" aria-controls="pills-blog" aria-selected="false">المدونات</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link " id="pills-exhibitions-tab" data-bs-toggle="pill" data-bs-target="#pills-exhibitions" type="button" role="tab" aria-controls="pills-exhibitions" aria-selected="false">المعارض</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link " id="pills-project-tab" data-bs-toggle="pill" data-bs-target="#pills-project" type="button" role="tab" aria-controls="pills-project" aria-selected="false">المشاريع</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link " id="pills-story-tab" data-bs-toggle="pill" data-bs-target="#pills-story" type="button" role="tab" aria-controls="pills-story" aria-selected="false">قصة نجاح</button>
-      </li>
+   <DTabBtn v-for="(tab,i) in tabs" :key="i" :tag="tab.tag" :active="tab.tag===tabActive">
+    {{tab.title}}
+   </DTabBtn>
+ 
  
 </ul>
   <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-courses-watched" role="tabpanel" aria-labelledby="pills-courses-watched-tab" tabindex="0">
-        <!--courses watched-->
-        <TabCourses />
-    </div>
-    <div class="tab-pane fade" id="pills-blog" role="tabpanel" aria-labelledby="pills-blog-tab" tabindex="0">
-       <!--blogs-->
-       <TabBlog />
-    </div>
-    <div class="tab-pane fade" id="pills-exhibitions" role="tabpanel" aria-labelledby="pills-exhibitions-tab" tabindex="0">
-        <!-- exhibitions-->
-        <TabExhibitions/>
-    
-    </div>
-    <div class="tab-pane fade" id="pills-project" role="tabpanel" aria-labelledby="pills-project-tab" tabindex="0">
-
-      <!-- project-->
-        <TabProject />
-
-    </div>
-
-    <div class="tab-pane fade" id="pills-story" role="tabpanel" aria-labelledby="pills-story-tab" tabindex="0">
-        <!-- story-->
-        <TabStory/>
-    </div>
+    <d-tab-pane v-for="(tab,i) in tabs" :key="i" :tag="tab.tag" :active="tab.tag===tabActive">
+      <component :is="tab.content" />
+    </d-tab-pane>
   </div>
 </div>
 </template>
 
 <script>
 import TabCourses from './tabs/courses-watched/index.vue'
+import TabOffers from './tabs/offers/index.vue'
 import TabBlog from './tabs/blog/index.vue'
 import TabExhibitions from './tabs/exhibitions/index.vue'
 import TabStory from './tabs/story/index.vue'
 import TabProject from './tabs/project/index.vue'
+import DTabBtn from '@/components/tabs/DTabBtn.vue'
+import DTabPane from '@/components/tabs/DTabPane.vue'
 export default {
  name:'section-tabs',
  components:{ 
     TabCourses,
+    TabOffers,
     TabBlog,
+    DTabBtn,
+    DTabPane,
     TabExhibitions,
     TabProject,
     TabStory
+ },
+ data:(vm)=>{
+  return{
+    tabActive:'offers',
+    tabs:[
+      {tag:'offers',title:vm.$t('offers'),content:TabOffers},
+      {tag:'courses-watched',title:vm.$t('courses-you-have-watched'),content:TabCourses},
+      {tag:'blog',title:vm.$t('the-blogs'),content:TabBlog},
+      {tag:'exhibitions',title:vm.$t('the-exhibitions'),content:TabExhibitions},
+      {tag:'projects',title:vm.$t('the-projects'),content:TabProject},
+      {tag:'story',title:vm.$t('success-story'),content:TabStory},
+
+    ]
+  }
  }
 }
 </script>

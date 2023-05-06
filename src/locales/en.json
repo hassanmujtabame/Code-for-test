@@ -752,5 +752,9 @@
   "project-bio": "about project",
   "service-provider": "service provider",
   "section": "section",
-  "search-by-name-or-field": "search by name or field"
+  "search-by-name-or-field": "search by name or field",
+  "courses-you-have-watched": "courses you have watched",
+  "the-blogs": "Blogs",
+  "the-exhibitions": "Exhibitions",
+  "the-projects": "Projects"
 }

@@ -750,5 +750,9 @@
   "service-provider": "مقدم خدمة",
   "section": "قسم",
   "members": "أعضاء",
-  "search-by-name-or-field": "إبحث بالاسم أو المجال"
+  "search-by-name-or-field": "إبحث بالاسم أو المجال",
+  "courses-you-have-watched": "الدورات التي شاهدتها",
+  "the-blogs": "المدونات",
+  "the-exhibitions": "المعارض",
+  "the-projects": "المشاريع"
 }
