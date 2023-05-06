@@ -19,7 +19,7 @@
                             v-slot="{errors}"
                             v-if="step==1"
                         >
-                    <d-select-input :errors="errors" v-model="itemForm.course_type" :label="$t('course-type')" >
+                    <d-select-input :errors="errors" v-model="itemForm.course_type" :label="$t('meeting-type')" >
                     <option  selected disabled>{{ $t('meeting-type') }}</option>
                     <option v-for="(t,i) in course_types" :key="i" :value="t.id">{{ t.name }}</option>
                     </d-select-input>
