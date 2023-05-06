@@ -1,61 +1,50 @@
 <template>
-  <div class="position-relative" style="min-height:200px">
-  <d-overlays-simple v-if="loading" />
-  <div v-else-if="hasError">
-    هناك خطأ غير معروف يرجي تحديث الصفحة
-  </div>
-  <div v-else >
-  <ItemCard v-for="(item,i) in items" :key="i"
+  <div class="position-relative container" style="min-height:200px">
+      <d-single-list
+      :call-list="initializing" 
+      :paginate="3"
+      showMore="أعرض المزيد من المدونات"
+      noMoreItems='لا يوجد المزيد من المدونات'
+      style="min-height:200px"
+      >
+          <template v-slot="{item}">
+  <CardItem  
   :itemId="item.id"
   :title="item.title"
   :views="item.watched"
   :date="item.created_at"
   :image="item.image"
   :liked="item.liked"
-
-
   />
+</template>
+  </d-single-list>
+  </div>
+</template>
 
- </div>
- </div>
- </template>
- 
- <script>
- import ItemCard from './card.vue'
+<script>
  import userAPI from '@/services/api/user.js'
- export default {
-  name:'blogs-tab',
-  components:{
-     ItemCard
-  },
+import CardItem from './card.vue';
+export default {
+name:'d-tab-pane-your-blogs',
+components:{
+  CardItem,
+},
 data:()=>({
-  loading:true,
-  hasError:false,
-  metaD:{},
-  items:[]
+  loading:false,
 }),
 methods:{
+ async initializing(metaInfo){
+  this.loading = true;
+  try {
 
-  async initializing(){
-      this.loading = true;
-      try {
-          let { data } = await userAPI.getBlogstUser(this.$route.params.id)
-          if(data.success){
-              this.items.push(...data.data) 
-
-          }else{
-                this.hasError = true;
-              }
-      } catch (error) {
-          this.hasError = true;
-          console.log('error',error);
-          console.log('error response',error.response);  
-      }
-      this.loading = false;
+     return await userAPI.getBlogstUser(this.$route.params.id,metaInfo)
+    
+  } catch (error) {
+      //
   }
-},
-mounted(){
-  this.initializing()
+  this.loading = false;
+
+ }
 }
 }
 </script>

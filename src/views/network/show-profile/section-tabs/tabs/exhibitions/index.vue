@@ -1,13 +1,15 @@
 <template>
-    <div class="position-relative" style="min-height:200px">
-    <d-overlays-simple v-if="loading" />
-    <div v-else-if="hasError">
-      هناك خطأ غير معروف يرجي تحديث الصفحة
-    </div>
-    <div v-else >
-
-    <ItemCard v-for="(item,i) in items" :key="i"
-    :itemId="item.id"
+   <div class="position-relative container" style="min-height:200px">
+       <d-single-list
+       :call-list="initializing" 
+       :paginate="3"
+       showMore="أعرض المزيد من المعارض"
+       noMoreItems='لا يوجد المزيد من المعارض'
+       style="min-height:200px"
+       >
+           <template v-slot="{item}">
+   <CardItem  
+   :itemId="item.id"
     :title="item.title"
     :price="item.price"
     :date="item.date_publish"
@@ -15,52 +17,40 @@
     :place="item.city"
     :status="item.status"
 
-    />
+   />
+ </template>
+   </d-single-list>
+   </div>
+ </template>
  
-   </div>
-   </div>
-   </template>
-   
-   <script>
-   import ItemCard from './card.vue'
-   import userAPI from '@/services/api/user.js'
-   export default {
-    name:'exhibitions-tab',
-    components:{
-       ItemCard
-    },
+ <script>
+  import userAPI from '@/services/api/user.js'
+ import CardItem from './card.vue';
+ export default {
+ name:'d-tab-pane-your-blogs',
+ components:{
+   CardItem,
+ },
  data:()=>({
-    loading:true,
-    hasError:false,
-    metaD:{},
-    items:[]
+   loading:false,
  }),
  methods:{
-
-    async initializing(){
-        this.loading = true;
-        try {
-            let { data } = await userAPI.getExhibitionstUser(this.$route.params.id)
-            if(data.success){
-                this.items.push(...data.data) 
-
-            }else{
-                  this.hasError = true;
-                }
-        } catch (error) {
-            this.hasError = true;
-            console.log('error',error);
-            console.log('error response',error.response);  
-        }
-        this.loading = false;
-    }
- },
- mounted(){
-    this.initializing()
+  async initializing(metaInfo){
+   this.loading = true;
+   try {
+ 
+      return await userAPI.getExhibitionstUser(this.$route.params.id,metaInfo)
+     
+   } catch (error) {
+       //
+   }
+   this.loading = false;
+ 
+  }
  }
-}
-</script>
-
-<style>
-
-</style>
+ }
+ </script>
+ 
+ <style>
+ 
+ </style>

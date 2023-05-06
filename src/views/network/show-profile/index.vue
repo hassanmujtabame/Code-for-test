@@ -31,7 +31,7 @@
 
                    </div>
             <!-- tabs -->
-                   <sectionTabs />
+                   <sectionTabs :userPage="userPage"/>
    
                </div>
            </div>

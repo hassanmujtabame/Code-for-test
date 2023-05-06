@@ -3,14 +3,14 @@
 
                         
 <ul class="nav nav-pills mb-3 gap-3 border-bottom pb-3 py-3 px-2" id="pills-tab" role="tablist">
-   <DTabBtn v-for="(tab,i) in tabs" :key="i" :tag="tab.tag" :active="tab.tag===tabActive">
+   <DTabBtn v-for="(tab,i) in tabs.filter(f=>f.show)" :key="i" :tag="tab.tag" :active="tab.tag===tabActive">
     {{tab.title}}
    </DTabBtn>
  
  
 </ul>
   <div class="tab-content" id="pills-tabContent">
-    <d-tab-pane v-for="(tab,i) in tabs" :key="i" :tag="tab.tag" :active="tab.tag===tabActive">
+    <d-tab-pane v-for="(tab,i) in tabs.filter(f=>f.show)" :key="i" :tag="tab.tag" :active="tab.tag===tabActive">
       <component :is="tab.content" />
     </d-tab-pane>
   </div>
@@ -29,6 +29,9 @@ import DTabBtn from '@/components/tabs/DTabBtn.vue'
 import DTabPane from '@/components/tabs/DTabPane.vue'
 export default {
  name:'section-tabs',
+ props:{
+  userPage:{}
+ },
  components:{ 
   TabYourCourses,
   TabWatchedCourses,
@@ -41,16 +44,19 @@ export default {
     TabStory
  },
  data:(vm)=>{
+  let tabActive='courses-watched';
+  if(vm.userPage.is_partner) tabActive='offers';
+  if(vm.userPage.is_instructor) tabActive='your-course';
   return{
-    tabActive:'your-course',
+    tabActive:tabActive,
     tabs:[
-      {tag:'your-course',title:vm.$t('your-courses'),content:TabYourCourses},
-      {tag:'offers',title:vm.$t('offers'),content:TabOffers},
-      {tag:'courses-watched',title:vm.$t('courses-you-have-watched'),content:TabWatchedCourses},
-      {tag:'blog',title:vm.$t('the-blogs'),content:TabBlog},
-      {tag:'exhibitions',title:vm.$t('the-exhibitions'),content:TabExhibitions},
-      {tag:'projects',title:vm.$t('the-projects'),content:TabProject},
-      {tag:'story',title:vm.$t('success-story'),content:TabStory},
+      {tag:'your-course',title:vm.$t('your-courses'),content:TabYourCourses,show:!!vm.userPage.is_instructor},
+      {tag:'offers',title:vm.$t('offers'),content:TabOffers,show:!!vm.userPage.is_partner},
+      {tag:'courses-watched',title:vm.$t('courses-you-have-watched'),content:TabWatchedCourses,show:true},
+      {tag:'blog',title:vm.$t('the-blogs'),content:TabBlog,show:true},
+      {tag:'exhibitions',title:vm.$t('the-exhibitions'),content:TabExhibitions,show:true},
+      {tag:'projects',title:vm.$t('the-projects'),content:TabProject,show:true},
+      {tag:'story',title:vm.$t('success-story'),content:TabStory,show:true},
 
     ]
   }
