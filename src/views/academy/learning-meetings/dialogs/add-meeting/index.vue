@@ -11,7 +11,7 @@
         <p class="t-c fs-r-16-24">يمكنك رفع فيديو تعليمي لمدة ساعة</p>
         <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
-            <!--type-->
+            <!--meeting-type-->
             <div class="mt-3">
                         <ValidationProvider :name="$t('meeting-type')"
                             vid="course_type"
