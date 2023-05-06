@@ -92,8 +92,9 @@ class UserApi extends BaseApi {
         let s=this.generateQueryUrl({...params,user_id:id})
         return window.axios.get(`network/blogs?${s}`);
     }
-    getCoursesUser(id){
-        return window.axios.post(`user/user-meetings`,{user_id:id});
+    getCoursesUser(id,params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.post(`user/user-meetings?${s}`,{user_id:id});
     }
     addCreditCardInfo(data){
         /**
