@@ -37,10 +37,52 @@ export default {
  }),
  methods:{
   openSuccessJoinMeeting(){
-    this.fireOpenDialog('success-join-meeting',this.itemDialog)
+    if(this.itemDialog.type=='live'){
+      let time =  this.itemDialog.time?this.timeFormatAMPM(this.itemDialog.time):'N/A';
+      let date = this.dateTextMonth(this.itemDialog.date);
+      let dataEvt={
+        title:'تم الانضمام في اللقاء بنجاح',
+        description:`يسعدنا تسجيلك في هذا اللقاء الذي سيتم اذاعته عبر البث المباشر في تاريخ <span class="o-c">${date}</span> في الساعه <span class="o-c">${time}</span> سيرسل لك أدمن رياديات رسالة بها رابط اللقاء في نفس اليوم`,
+        image:`${this.publicPath}assets/img/cuate-2.png`,
+        btns:[
+          {title:this.$t('Home'),action:()=>this.router_push('network-home')}
+        ]
+      }
+      this.showConfirmMsg(dataEvt);
+    }else{
+      let dataEvt={
+      title:'تم الانضمام في اللقاء بنجاح',
+        description:``,
+        image:`${this.publicPath}assets/img/Group 1171275411.png`,
+        btns:[
+          {title:'صفحة اللقاء'},
+          {title:this.$t('undo-joining'),action:this.confirmCancelJoin,class:"btn btn-custmer-danger"}
+        ]
+      }
+      this.showConfirmMsg(dataEvt);
+    }
+    //this.fireOpenDialog('success-join-meeting',this.itemDialog)
     this.closeEvent()
   },
+  async confirmCancelJoin(){
+        try {
+            let {data} = await meetingsAPI.postCancelJoinMeeting(this.itemDialog.id)
+            if(data.success){
+                this.$emit('cancel',false)
+                this.closeEvent()
+            }
+        } catch (error) {
+            console.mylog('error',error)
+            console.mylog('error response',error.response)
+        }
+    },
     async confirmJoin(){
+      /*let ok=true;
+      if(ok==1){
+        //this.itemDialog.type='live'
+        this.openSuccessJoinMeeting();
+        return;
+      } */
         try {
             let {data} = await meetingsAPI.postJoinMeeting(this.itemDialog.id)
             if(data.success){
@@ -50,13 +92,35 @@ export default {
                 this.closeEvent()
             }
         } catch (error) {
-            console.log('error',error)
-            console.log('error response',error.response)
+            console.mylog('error',error)
+            console.mylog('error response',error.response)
         }
+    },
+    async checkBeforeJoin(){
+      this.loading = true;
+      try {
+            let {data} = await meetingsAPI.postbeforeJoinMeeting(this.itemDialog.id)
+            if(data.success){
+              //this.closeEvent()
+            }else{
+              let dataEvt ={
+                title:'لقد وصلت للحد الأقصى لانضمامك للقاءات هذا الشهر',
+                description:`لقد انضممت الى 4 لقاءات هذا الشهر لا يمكنك لاسف الانضمام الى المزيد من اللقاءات .... لا تقلق مازال بأمكانك  تجربة مميزات فريدة اخرى في شبكة رياديات `,
+                image:`${this.publicPath}assets/img/Group 1171275442.png`,
+              }
+              this.closeEvent()
+              this.showConfirmMsg(dataEvt);
+            }
+        } catch (error) {
+            console.mylog('error',error)
+            console.mylog('error response',error.response)
+        }
+        this.loading = true;
     },
     openDialog(data){
       this.itemDialog=Object.assign({},data);
-      this.showed=true
+      this.checkBeforeJoin()
+      this.showed=true;
       return true;
     },
     closeDialog(){
@@ -67,6 +131,7 @@ export default {
        this.fireEvent(this.group+'-close-dialog')
     }
  }
+
 }
 </script>
 

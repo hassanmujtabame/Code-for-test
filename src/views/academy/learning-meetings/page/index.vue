@@ -80,7 +80,7 @@
 <div class="container">
 <SectionOtherMeetings  />
 </div>
-<confirmJoinMeetingDialog @success="successJoined" />
+<confirmJoinMeetingDialog @success="successJoined" @cancel="successCanceled" />
 <successJoinMeetingDialog @cancel="successCanceled" />
 <confirmCancelJoinMeetingDialog @success="successCanceled" />
 <UpdateItemDialog />
@@ -89,9 +89,9 @@
 
 <script>
 import meetingsAPI from '@/services/api/learning-meetings.js'
-import confirmJoinMeetingDialog from './dialogs/confirm-join-meeting.vue';
-import confirmCancelJoinMeetingDialog from './dialogs/confirm-cancel-join-meeting.vue';
-import successJoinMeetingDialog from './dialogs/success-join-meeting.vue';
+import confirmJoinMeetingDialog from '@/views/network/learning-meetings/dialogs/confirm-join-meeting.vue';
+import confirmCancelJoinMeetingDialog from '@/views/network/learning-meetings/dialogs/confirm-cancel-join-meeting.vue';
+import successJoinMeetingDialog from '@/views/network/learning-meetings/dialogs/success-join-meeting.vue';
  import SectionOtherMeetings from './parts/other-meetings/index.vue'   
 import UpdateItemDialog from '../dialogs/add-meeting/index'
 import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js'

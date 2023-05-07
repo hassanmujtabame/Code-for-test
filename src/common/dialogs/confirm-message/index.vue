@@ -102,6 +102,6 @@
   <style>
   .confirm-msg__image{
   max-width:90%;
-  max-height:377px;
+  max-height:217px;
   }
   </style>

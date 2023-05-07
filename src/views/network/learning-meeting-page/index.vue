@@ -57,7 +57,7 @@
 </div>
 <!-- others meetings-->
 <SectionOtherMeetings  />
-<confirmJoinMeetingDialog @success="successJoined" />
+<confirmJoinMeetingDialog @success="successJoined" @cancel="successCanceled"/>
 <successJoinMeetingDialog @cancel="successCanceled" />
 <confirmCancelJoinMeetingDialog @success="successCanceled" />
 </div>
