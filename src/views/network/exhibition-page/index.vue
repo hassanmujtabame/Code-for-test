@@ -60,7 +60,7 @@
                         </h4>
                         <div class="d-flex gap-4 justify-content-center p-4 icon-social-exibition">
                             <!--facebook-->
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="&lt;span&gt; &lt;i class=&quot;fab fa-twitter&quot; &gt;&lt;/i&gt;&lt;/span&gt;" data-show-count="false">Tweet</a>
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"  data-show-count="false">Tweet</a>
                            
                            <span v-if="false"> <i  class="fab fa-instagram" ></i></span>
 
