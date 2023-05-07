@@ -9,7 +9,8 @@ const mixin = {
     install(Vue) {
         Vue.mixin({
           data:()=>({
-            publicPath:process.env.BASE_URL
+            publicPath:process.env.BASE_URL,
+            currentUrl: window.location.href
           }),
           methods:{
             timeToParts(duration){
@@ -341,6 +342,7 @@ const mixin = {
                },
                routeToUrl(name,params={},query ={}){
                 let r= this.$router.resolve(this.getRouteLocale(name,params,query));
+                console.mylog('routetourl',r)
                 return r?r.href:'#'
                },
                refreshPage(data={}){
@@ -517,6 +519,12 @@ const mixin = {
                 let incubators=inc??this.userSubIncubators;
                 return incubators.some(i=>i.subscribe && i.department_id == dept.id)
               },
+              addScriptJs(text){
+                let script = document.createElement('script');
+                let scr = document.createTextNode(text);
+                script.appendChild(scr)
+              document.body.appendChild(script)
+            },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");
               plugin.setAttribute(

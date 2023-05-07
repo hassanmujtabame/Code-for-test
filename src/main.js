@@ -14,7 +14,7 @@ import  './plugins/components';
 import  './plugins/v-calendar.js';
 import './plugins/axios'
 //import './plugins/vue-lazy-image'
-import './plugins/i18n'
+import i18n from './plugins/i18n'
 import TimeAgo from './plugins/timeago'
 import './plugins/sweetalert2'
 import EventBus from './helper/EventBus';
