@@ -4,7 +4,7 @@
             {{ $t('filter') }}
         </h4>
         <d-expanded-panel  class="accordion" id="accordionPanelsStayOpenExample">
-            <d-expanded-panel-item :title="$t('classification')" >
+            <d-expanded-panel-item opened :title="$t('classification')" >
                 <div>
                             <div v-for="(state,i) in states" :key="i" class="form-check">
                                 <input class="form-check-input" type="radio" :value="state.id" v-model="filter.is_share" 
@@ -17,7 +17,7 @@
                             </div>
                         </div>
             </d-expanded-panel-item> 
-            <d-expanded-panel-item :title="$t('exhibition-departments')" >
+            <d-expanded-panel-item opened :title="$t('exhibition-departments')" >
                 <div v-for="(cat,i) in categories" :key="i" class="form-check">
                             <input v-model="filter.category_id" :value="cat.id" class="form-check-input" type="checkbox">
                             <label class="form-check-label" for="defaultCheck1">

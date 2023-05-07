@@ -2,7 +2,7 @@
     <div style="margin-top: 96px;">
         <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">
-      هناك خطأ غير معروف يرجي تحديث الصفحة
+      {{$t('has-error')}}
     </div>
         <div  v-else class="container exhibition-page">
             <div class=" position-relative">
@@ -26,18 +26,18 @@
                         {{ itemPage.title??'معرض' }}
                         </h3>
                         <p v-if="!isOwner" class="t-c p-0 m-0">
-                        تاريخ نشر: {{ itemPage.date_publish }}
+                         {{ $t('publish-date') }}: {{ itemPage.date_publish }}
                     </p>
                     </div>
                     <div class="col-md-6  text-end">
                         <template v-if="isOwner">
                         <button @click="openEditDialog" class="btn bg-main border-0 text-white p-2 mx-1"   >
                            <img :src="`${publicPath}assets/svg/update.svg`" />   
-                           تعديل 
+                           {{$t('modification')}} 
                         </button>
                         <button  @click="openDeleteDialog" class="btn bg-danger border-0 text-white p-2"   >
                             <img :src="`${publicPath}assets/svg/trash-outline.svg`" />
-                           حذف 
+                           {{$t('delete')}} 
                         </button>
 
                         
@@ -50,9 +50,7 @@
                 <div class=" col-12 col-md-8">
 
                     
-                    <p class="pargrapg content-word-break  mt-3" v-html="itemPage.content">
-                        
-                    </p>
+                    <p class="pargrapg content-word-break  mt-3" v-html="itemPage.content"></p>
                     <div >
                         <button v-if="isOwner" @click="router_push('network-exhibition-requests',{id:itemPage.id})" class="btn btn-show-exhibition-req">قائمة طلبات المشاركة في المعرض</button>
                     </div>
@@ -202,7 +200,7 @@ export default {
                    this.itemPage = data.data;
                    this.itemPage.start_time = this.convertTime(this.itemPage.start_time)
                    this.itemPage.end_time = this.convertTime(this.itemPage.end_time)
-                   this.isOwner = this.itemPage.user_info.id==this.user.id
+                   this.isOwner = this.itemPage.user_info && this.itemPage.user_info.id==this.user.id
                 }else{
                   this.hasError = true;
                 }

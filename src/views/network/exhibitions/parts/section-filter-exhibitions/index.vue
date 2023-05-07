@@ -25,7 +25,7 @@
                     :price="item.price"
                     :place="item.city"
                     :isShared="item.is_share"
-                    :userName="item.user_info.name" 
+                    :userName="item.user_info ? item.user_info.name : 'N/A'"
                     :description="item.content" 
                     :title="item.title"
                     :userInfo="item.user_info"
@@ -70,6 +70,7 @@ export default {
             try {
                 let params = {
                     page: metaInfo.current_page,
+                    paginate:9,
                     ...this.filterItem
                 }
                 return await exhibitionAPI.getAll(params)
