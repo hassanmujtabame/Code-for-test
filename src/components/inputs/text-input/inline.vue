@@ -90,16 +90,20 @@ align-items: center;
 
 color: #979797;
 }
-.form-group .form-control{
+.form-group>.input-group>.form-control{
     color: #667D80;
     font-weight: 400;
     padding: 4px 1px;
     font-size: 0.9rem;
     line-height: 1;
     border: none;
+    text-align: right;
     flex:1;
    /* box-shadow: 0 0 0 0.1rem rgb(13 110 253 / 25%);*/
    box-shadow:none;
+}
+html[lang="en"] .form-group>.input-group>.form-control{
+    text-align: left;
 }
 .form-group.solo{
     position: relative;

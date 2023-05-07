@@ -123,11 +123,7 @@
                         rules="required" 
                         v-slot="{ errors }"
                         >
-                        <label class="form-label">{{$t('exhibition_title')}}</label>
-                            <input type="text" class="form-control" 
-                            v-model="itemForm.title"
-                            :placeholder="hidePlaceholder?'':$t('exhibition_title')">
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                        <d-text-input :errors="errors" v-model="itemForm.title" :label="$t('exhibition_title')"/>
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
@@ -138,9 +134,7 @@
                         vid="price" 
                         rules="required|numeric" 
                         v-slot="{ errors }">
-                        <label class="form-label">{{ $t('entry_price') }}</label>
-                            <input type="text" v-model="itemForm.price" class="form-control" :placeholder="hidePlaceholder?'':$t('entry_price')">
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                        <d-text-input :errors="errors" v-model="itemForm.price" :label="$t('entry_price')"/>
                         </ValidationProvider>
                     </div>
                     <div class=" mb-3 row">
@@ -192,21 +186,11 @@
                         class="form-group"
                         rules="required" v-slot="{ errors }"
                         >
-                        <label class="form-label">{{ $t('the_city') }}</label>
-                        <multi-select v-model="region" 
-                            :selectLabel="$t('selectLabel')"
-                            :selectedLabel="$t('selectedLabel')" 
-                            :deselectLabel="$t('deselectLabel')"
-                            :options="cities" 
-                            :multiple="false"  
-                            :group-select="false" 
-                            :placeholder="hidePlaceholder?'':$t('the_city')" 
-                            :custom-label="(it)=>`${it.name}-${it.region.name}`"
-                            track-by="id" label="name">
-                                <span slot="noResult">{{ $t('no-result-search') }}</span>
-                            </multi-select>
-                        
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                        <d-select-input :errors="errors" v-model="itemForm.region_id"   :label="$t('the_city')">
+                            <option :key="i" v-for="(it,i) in cities" :value="it.id">
+                                {{ `${it.name}-${it.region.name}` }}
+                            </option>
+                        </d-select-input>
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
@@ -215,13 +199,7 @@
                         vid="address" rules="required"
                          v-slot="{ errors }"
                          >
-                            <div class="form-group position-relative">
-                                <label class="form-label">{{ $t('exhibition_map_url') }}</label>
-                                <input type="text" class="form-control" 
-                                    v-model="itemForm.address"
-                                    :placeholder="hidePlaceholder?'':$t('exhibition_map_url')">
-                            </div>
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
+                        <d-text-input :errors="errors" v-model="itemForm.address" :label="$t('exhibition_map_url')"/>
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
@@ -251,16 +229,14 @@
                         rules="required"
                          v-slot="{ errors }"
                          >
-                         <div class="form-group">
-                            <label class="form-label">{{ $t('exhibition_categories') }}</label>
-                        <select v-model="itemForm.category_id"  class="form-select" :plaeholder="$t('exhibition_categories')">
+                         
+                        <d-select-input :errors="errors" v-model="itemForm.category_id"   :label="$t('exhibition_categories')">
                             <option disabled :value="null"  class="t-c" selected>{{ $t('exhibition_categories') }}</option>
                             <option :key="i" v-for="(option,i) in categories" :value="option.id">
                                 {{ option.name }}
                             </option>
-                        </select>
-                    </div>
-                        <d-error-input :errors="errors" v-if="errors.length>0" />
+                        </d-select-input>
+    
                     </ValidationProvider>
                     </div>
 
@@ -282,9 +258,8 @@
                                 rules="required"
                                 v-slot="{ errors }"
                             >
-                            <label class="form-label">{{ $t('booth_name') }}</label>
-                                <input type="text" v-model="itemForm.booth_name[i]" class="form-control" placeholder="أدخل اسم البوث">
-                           <d-error-input :errors="errors" v-if="errors.length" />
+                            <d-text-input :errors="errors" type="text" v-model="itemForm.booth_name[i]" :label="$t('booth_name')">
+                            </d-text-input>
                             </ValidationProvider>
                             </div>
                     </div>
@@ -299,13 +274,9 @@
                                 rules="required|numeric"
                                 v-slot="{ errors }"
                             >
-                            <label class="form-label">{{ $t('rent_price') }}</label>
-                            <div class="position-relative d-flex">
-                            <input type="text" v-model="itemForm.rental_price[i]" class="form-control" :placeholder="$t('rent_price')">
-                            <div class="d-flex align-items-center">
-                       </div>
-                        </div>
-                            <d-error-input :errors="errors" v-if="errors.length" />
+                            <d-text-input :errors="errors" type="text" v-model="itemForm.rental_price[i]" :label="$t('rent_price')">
+                            </d-text-input>
+                            
                             </ValidationProvider>
                         </div>
                       
@@ -322,16 +293,16 @@
                                 rules="required|numeric"
                                 v-slot="{ errors }"
                             >
-                            <label class="form-label">{{ $t('insurance_price') }}</label>
                             <div class="position-relative d-flex">
-                            <input type="text" v-model="itemForm.insurance_price[i]" class="form-control" :placeholder="$t('insurance_price')">
+                            <d-text-input :errors="errors" type="text" v-model="itemForm.insurance_price[i]" :label="$t('insurance_price')">
+                            </d-text-input>
+                                                       
                             <div class="d-flex align-items-center">
                         <button v-if="i!==0" @click="removeBooth(i)"
                         style="border: none;background: transparent;color: red;"
                         ><trashOutlineIcon color="red" :size="24"/></button>
                        </div>
                         </div>
-                            <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
                         </div>
                       
@@ -359,9 +330,8 @@
                                 rules="required"
                                 v-slot="{ errors }"
                             >
-                            <label class="form-label">{{ $t('observation_for_participant') }}</label>
-                        <textarea v-model="itemForm.notice_peoples" class="w-100 p-3 border"   rows="10" placeholder="أكتب تنويه للاشخاص المشاركين في المعرض "></textarea>
-                        <d-error-input :errors="errors" v-if="errors.length" />
+                            
+                        <d-textarea-input :errors="errors" v-model="itemForm.notice_peoples" class="w-100 p-3 border"   rows="10" label="أكتب تنويه للاشخاص المشاركين في المعرض "></d-textarea-input>
                             </ValidationProvider>
                     </div>
 
@@ -464,7 +434,7 @@ watch:{
             let formData = new FormData();
             formData.append('content', this.itemForm.content);
             if(this.region)
-            formData.append('region_id', this.region.id);
+            formData.append('region_id',this.itemForm.region_id);
             formData.append('address', this.itemForm.address);
             formData.append('price', this.itemForm.price);
             formData.append('start_date', this.itemForm.start_date);
