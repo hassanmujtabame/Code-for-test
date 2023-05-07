@@ -44,11 +44,11 @@ class CommonApi extends BaseApi {
    }
    cities(params = {}){
     let s=this.generateQueryUrl(params)
-     return window.axios.get(`user/cities?${s}`);   
+     return window.axios.get(`cities?${s}`);   
    }
    getCountries(params = {}){
     let s=this.generateQueryUrl(params)
-    return window.axios.get(`user/countries?${s}`);
+    return window.axios.get(`countries?${s}`);
 }
 getTypeCertificates(){
   return [
