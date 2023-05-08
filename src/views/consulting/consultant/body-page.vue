@@ -96,7 +96,25 @@ export default {
         
     }),
     methods:{
+        buyConsultation(){
+
+        },
+        checkBeforeBooking(){
+            /*
+            let dataEvt = {
+                title:'لقد وصلت للحد الأقصى من الاستشارات المجانية',
+                image:`${this.publicPath}assets/img/Group 1171275442.png`,
+                description:`لقد قمت ب 4 استشارت مجانية  هذا الشهر هو الحد الاقصى لك , ولكن لا تقلق مازل بامكانك شراء الاستشارة بقيمة<span class="o-c"> 150 ريال</span> `,
+                btns:[
+                    {title:'أشتريها الان',action:this.buyConsultation}
+                ]
+            }
+            this.showConfirmMsg(dataEvt);
+            */
+            return true;
+        },
         openAddBooking(){
+            if(this.checkBeforeBooking())
             this.fireOpenDialog('add-booking-consultant',{item:this.itemPage,opts:this.opts})
         },
     }
