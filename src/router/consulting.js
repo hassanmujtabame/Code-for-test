@@ -70,6 +70,12 @@ const routers =[
         meta:{layout:LayoutDefault},
         name: 'consulting-field-consultants',
         component: () => import(/* webpackChunkName: "consulting-field-consultants" */ '../views/consulting/fields/consultants/index.vue') 
+    },
+    {
+        path: 'consulting/consultants',
+        meta:{layout:LayoutDefault},
+        name: 'consulting-consultants',
+        component: () => import(/* webpackChunkName: "consulting-consultants" */ '../views/consulting/consultants/index.vue') 
     }
 ]
 export default routers;

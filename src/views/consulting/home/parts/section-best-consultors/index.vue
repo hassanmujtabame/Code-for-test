@@ -6,7 +6,7 @@
               >
                 <h1 class="home-section-title">أبرز مستشارينا</h1>
                 <div>
-                  <button class="more">{{ $t('more') }}</button>
+                  <router-link :to="getRouteLocale('consulting-consultants')" class="more">{{ $t('more') }}</router-link>
                 </div>
               </div>
             

@@ -5,8 +5,8 @@
           <!--#section 1-->
          <!-- section help to start-->
          <SectionHelpToStart/>
-         <SectionGoals />
-        <SectionLaunchNow />
+         <SectionGoals v-if="false" />
+        <SectionLaunchNow v-if="false" />
          <!--#section 2-->
           <div class="container mt-5">
          <!-- section 4-->
