@@ -2,9 +2,11 @@
 import BaseApi from "../base-service";
 import proposals from "./user/proposals";
 import readyService from "./provider/ready-service";
+import partners from "./partners";
 class ServiceProviderApi extends BaseApi {
- proposals = proposals
- readyService = readyService
+    proposals = proposals;
+    readyService = readyService;
+    partners = partners;
     //Get all project-categories
  getAll(params={}){
     let s=this.generateQueryUrl(params)

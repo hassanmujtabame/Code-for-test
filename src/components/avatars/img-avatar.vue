@@ -10,6 +10,7 @@
 
 <script>
 export default {
+    name:'d-avatar',
  props:{
     img:{
         type:String

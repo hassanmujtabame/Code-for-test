@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import './directives'
 import './audio-visual'
+import DAvatar from '@/components/avatars/img-avatar.vue'
 import DListItem from '@/components/list/d-list-item.vue'
 import DRateDialog from '@/common/dialogs/rate-dialog/index.vue'
 import DSuccessMessage from '@/common/dialogs/success-message/index.vue'
@@ -80,6 +81,7 @@ Vue.component(dProgressBar.name,dProgressBar)
 Vue.component(dChatCircle.name,dChatCircle)
 Vue.component(dChatCard.name,dChatCard)
 Vue.component(dDropdown.name,dDropdown)
+Vue.component(DAvatar.name,DAvatar)
 Vue.component(UserPreviewProfileCard.name, UserPreviewProfileCard)
 Vue.component('d-rate-dialog', DRateDialog)
 Vue.component('d-success-message', DSuccessMessage)

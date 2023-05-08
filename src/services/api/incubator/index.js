@@ -1,6 +1,8 @@
 
 import BaseApi from "../base-service";
+import partners from "./partners";
 class IncubatorApi extends BaseApi{
+    partners = partners
     getHomeSchedules(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/network-schedule?${s}`);
