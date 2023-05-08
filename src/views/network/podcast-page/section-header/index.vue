@@ -18,8 +18,8 @@
                     </div>
                     <div class="podcast-item__player">
                         <div class="podcast-item__player-icon"  @click="doPlay">
-                            <playIcon v-if="!play || pause" :bgColor="'var(--m-color)'" :playColor="'#FFFFFF'" />
-                            <playIcon v-if="playing" :bgColor="'var(--m-color)'" :playColor="'red'" />
+                            <i  v-if="!play || pause" class="fa fa-play podcast-item__player-icon"></i> 
+                            <i  v-if="playing" class="fa fa-pause podcast-item__player-icon"></i> 
                         </div>
                         <div class="podcast-item__player-progress">
                             <div class="podcast-item__player-progress-start-time">{{currentTime}}</div>
@@ -46,14 +46,12 @@
 </template>
 
 <script>
-import playIcon from '@/components/icon-svg/play.vue';
 //import pauseIcon from '@/components/icon-svg/pause.vue';
 import progressBar from './progress-bar.vue'
 export default {
     name: 'section-header',
     props: ['itemPage'],
     components: {
-        playIcon,
         progressBar
     },
     data:()=>{
@@ -238,5 +236,18 @@ html[dir=ltr] .podcast-item__content {
 
 .podcast-item__player-progress-bar {
     flex: 1
+}
+.podcast-item__player-icon{
+    color: white;
+  background: var(--color-primary);
+  height: max-content;
+  border-radius: 53%;
+  font-size: 27px;
+  border: 1px solid var(--color-primary);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
