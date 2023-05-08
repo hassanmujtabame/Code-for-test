@@ -15,12 +15,12 @@
       <template v-slot="{ item }">
        
           <CouponCard 
-          :img="`${publicPath}assets/img/Icon ionic-logo-xbox-2.png`" 
+          :img="item.image"    
           :title="item.name_company" 
           :discount="item.discount"
             :date="item.start_date" 
             :during="item.day" :name="item.code" 
-            :tag="item.category ? item.category.name : ''" 
+            :tag="item.category ? item.category.name : null" 
             />
 
       </template>

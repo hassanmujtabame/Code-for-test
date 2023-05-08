@@ -24,7 +24,7 @@
             :date="item.start_date" 
             :during="item.day" 
             :name="item.code" 
-            :tag="item.category ? item.category.name : ''" 
+            :tag="item.category ? item.category.name : null" 
               />
           </div>
         </template>

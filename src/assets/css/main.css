@@ -113,7 +113,9 @@ textarea {
 .y-c{
     color:#FFBC00 ;
 }
-
+.bg-grey{
+    background-color: var(--bg-gray);
+}
 .bg-yal {
     background-color: #FFBC00;
 }

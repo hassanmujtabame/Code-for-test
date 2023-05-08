@@ -1,8 +1,13 @@
 <template>
-    <div class="border rounded-3 coupon-card">
+    <div class="border rounded-3 coupon-card position-relative">
+      <div :id="`${couponId}-alert`"  class="overlay-alert">
+        <span class="copyAlert" :id="`${couponId}-alert`">
+          Copied
+        </span>
+      </div>
                             <div class="d-flex justify-content-end p-3" style="height:75px">
-                                  <p v-if="tag" style=" background-color:var(--m-color) ;width: fit-content;"  class="text-white px-3 rounded-2">
-                                      {{tag}}
+                                  <p  style=" background-color:var(--m-color) ;width: fit-content;"  class="text-white px-3 rounded-2">
+                                      {{tag??'الجميع'}}
                                   </p>
                               </div>
                               <div class="d-flex">
@@ -26,7 +31,6 @@
                                               <path d="M22 8.75048H19C16.34 8.75048 15.25 7.66048 15.25 5.00048V2.00048C15.25 1.70048 15.43 1.42048 15.71 1.31048C15.99 1.19048 16.31 1.26048 16.53 1.47048L22.53 7.47048C22.74 7.68048 22.81 8.01048 22.69 8.29048C22.58 8.57048 22.3 8.75048 22 8.75048ZM16.75 3.81048V5.00048C16.75 6.83048 17.17 7.25048 19 7.25048H20.19L16.75 3.81048Z" fill="#1FB9B3"/>
                                               </svg>
                                               <span class="coupon-card__code-text" :id="couponId">{{name}}</span>
-                                              <span class="copyAlert " :id="`${couponId}-alert`"></span>
                                       </button>
                                   </div>
                               </div>
@@ -88,13 +92,13 @@
   // Copy the text inside the text field
   navigator.clipboard.writeText(copyText.innerHTML);
   const copyDiv = document.getElementById(this.couponId+"-alert")
-    copyDiv.textContent = "Copied!";
-    copyDiv.style.display = "inline"; 
-    copyDiv.style.animationName = "disappear";
-    copyDiv.style.animationDuration = "2.5s"; 
+    //copyDiv.textContent = "Copied!";
+    copyDiv.style.display = "flex"; 
+    //copyDiv.style.animationName = "disappear";
+    //copyDiv.style.animationDuration = "2.5s"; 
     setTimeout(function(){ 
     copyDiv.style.display = "none"; 
-    copyDiv.style.animationName = "none"; 
+    //copyDiv.style.animationName = "none"; 
     }, 2400);
   // Alert the copied text
   //alert("Copied the text: " + copyText.innerHTML);
@@ -140,18 +144,43 @@ color: #585858;
     line-height: 17px;
     color: #979797;
   }
+  .overlay-alert{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color:rgba(55, 54, 54, 0.62)
+  }
   .copyAlert {
-  opacity: 0;
-  color:rgb(79, 222, 79)
+    opacity: 1;
+  color: rgb(79, 222, 79);
+  background: rgba(79, 222, 79, 0.5);
+  display: block;
+  padding: 5px 14px;
+  width: 75%;
+  border-radius: 8px;
+  animation-name:disappear ;
+  animation-iteration-count: infinite;
+  animation-duration: 2.5s;
+
 }
 
 @keyframes disappear {
-  30% {
+  0% {
     opacity: 0;
   }
+ 25% {
+    opacity: .5;
+  }
 
-  60% {
+  50% {
     opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
   }
 
   100% {
