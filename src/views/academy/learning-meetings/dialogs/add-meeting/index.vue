@@ -94,7 +94,7 @@
                 <div class="mt-3">
                     <ValidationProvider :name="$t('meeting-url')"
                     vid="meeting_url"
-                    :rules="this.itemForm.type=='live'?'required':''"
+                    :rules="itemForm.type == 'live' ? 'required' : ''"
                     v-slot="{errors}"
                     v-if="step==1"
                     >
