@@ -140,8 +140,8 @@ const routes = [
   {
     path: 'terms-and-conditions',
     meta:{layout:LayoutDefault},
-    name: 'Terms-and-Conditions',
-    component: () => import(/* webpackChunkName: "Terms-and-Conditions" */ '../views/main/policy/Terms-and-Conditions.vue')
+    name: 'terms-and-conditions',
+    component: () => import(/* webpackChunkName: "terms-and-conditions" */ '../views/main/policy/terms-and-conditions.vue')
   }
   ,
   {

@@ -333,9 +333,9 @@
                                 @input="event => itemForm.terms_use = event.target.checked===true?true:null"   class="form-check-input" type="checkbox"  id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">
                                 أؤكد على اني أوافق على 
-                                <a href="" class="m-c">
-                                    {{$t('terms_use')}}
-                                </a>
+                                <router-link :to="getRouteLocale('terms-and-conditions')" class="m-c">
+            {{$t('terms_use')}}
+        </router-link>
                             </label>
                         </div>
                             <d-error-input :errors="errors" v-if="errors.length>0"/>
