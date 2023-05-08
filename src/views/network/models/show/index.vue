@@ -1,10 +1,10 @@
 <template>
   <div class="content-main" style="margin-top: 96px;" >
     <div v-if="loading">
-        <DOverlay />
+        <d-overlays-simple />
     </div>
     <template v-else>
-        <ModelPage v-if="loaded" :item="model" />
+        <ModelPage v-if="loaded" :itemPage="itemPage" />
         <div v-else>
             Error
         </div>
@@ -15,15 +15,13 @@
 <script>
 import ModelsApi from '@/services/api/models.js'
 import ModelPage from './page.vue'
-import DOverlay from '@/components/overlays/simple'
 export default {
- name:'model-show',
+ name:'itemPage-show',
  components:{
-    ModelPage,
-    DOverlay
+    ModelPage
  },
  data:()=>({
-    model:{},
+    itemPage:{},
     loading:true,
     loaded:false,
 
@@ -35,7 +33,7 @@ export default {
         let {data} = await ModelsApi.getItem(this.$route.params.id)
         if(data.success){
             
-            this.model = data.data;
+            this.itemPage = data.data;
             this.loaded=true;
         }else{
             this.loaded=false
