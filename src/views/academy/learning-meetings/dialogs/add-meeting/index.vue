@@ -36,18 +36,39 @@
                     <d-text-input :errors="errors" v-model="itemForm.title" label="عنوان اللقاء التدريبي" />
                 </ValidationProvider>
                 </div>
-                <!--type-->
-                <div v-if="false" class="mt-3">
-                        <ValidationProvider :name="$t('classification')"
-                            vid="type"
+                 <!--start_date-->
+            <div class="mt-3">
+                        <ValidationProvider :name="$t('meeting-date')"
+                            vid="start_date"
                             rules="required"
                             v-slot="{errors}"
                             v-if="step==1"
                         >
-                    <d-select-input :errors="errors" v-model="itemForm.type" :label="$t('classification')" >
-                    <option  selected disabled>حدد التصنيف</option>
-                    <option v-for="(t,i) in types" :key="i" :value="t.id">{{ t.name }}</option>
-                    </d-select-input>
+                        <d-datepicker-input  v-model="itemForm.start_date" :label="$t('meeting-date')" />
+                <d-error-input :errors="errors" v-if="errors && errors.length>0" />
+                </ValidationProvider>
+                </div>
+                <!--time-->
+            <div class="mt-3 d-flex justify-content-around gap-1">
+                        <ValidationProvider :name="$t('start-time')"
+                        tag="div"
+                        class="flex-grow-1"
+                            vid="start_time"
+                            rules="required"
+                            v-slot="{errors}"
+                            v-if="step==1"
+                        >
+                        <d-text-input :errors="errors" type="time" v-model="itemForm.start_time" :label="$t('start-time')" />
+                </ValidationProvider>
+                <ValidationProvider :name="$t('end-time')"
+                tag="div"
+                class="flex-grow-1"
+                            vid="end_time"
+                            rules="required"
+                            v-slot="{errors}"
+                            v-if="step==1"
+                        >
+                        <d-text-input :errors="errors" type="time" v-model="itemForm.end_time" :label="$t('end-time')" />
                 </ValidationProvider>
                 </div>
                   <!--specialite -->
@@ -69,6 +90,16 @@
                                 />
                 </ValidationProvider>
             
+                </div>
+                <div class="mt-3">
+                    <ValidationProvider :name="$t('meeting-url')"
+                    vid="meeting_url"
+                    :rules="this.itemForm.type=='live'?'required':''"
+                    v-slot="{errors}"
+                    v-if="step==1"
+                    >
+                    <d-text-input type="text" :errors="errors"  v-model="itemForm.meeting_url"  :label="$t('meeting-url')" />
+                </ValidationProvider>
                 </div>
                 <div class="mt-3">
                 
@@ -346,6 +377,10 @@ async uploadImage(evt,validate){
                 video:null,
                 image:null,
                 type:'',
+                start_date:'',
+                start_time:'',
+                end_time:'',
+                meeting_url:'',
                 course_type:''
             }
             if(dataEvt){
@@ -357,6 +392,10 @@ async uploadImage(evt,validate){
                 content,
                 image,
                 video,
+                start_date,
+                start_time,
+                end_time,
+                meeting_url,
                 course_type} = dataEvt;
                 
                 this.itemForm = Object.assign(this.itemForm,{ 
@@ -367,6 +406,10 @@ async uploadImage(evt,validate){
                 content,
                 image,
                 video,
+                start_date,
+                start_time,
+                end_time,
+                meeting_url,
                 course_type})
             }
             this.showDialog = true;

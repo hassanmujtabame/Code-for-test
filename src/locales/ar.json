@@ -754,5 +754,9 @@
   "courses-you-have-watched": "الدورات التي شاهدتها",
   "the-blogs": "المدونات",
   "the-exhibitions": "المعارض",
-  "the-projects": "المشاريع"
+  "the-projects": "المشاريع",
+  "meeting-date": "موعد اللقاء",
+  "start-time": "تبدا الساعة",
+  "end-time": "تنتهي الساعة",
+  "meeting-url": "رابط اللقاء على زوم او جوجل ميت "
 }

@@ -756,5 +756,9 @@
   "courses-you-have-watched": "courses you have watched",
   "the-blogs": "Blogs",
   "the-exhibitions": "Exhibitions",
-  "the-projects": "Projects"
+  "the-projects": "Projects",
+  "meeting-date": "meeting date",
+  "start-time": "start time",
+  "end-time": "end time",
+  "meeting-url": "meeting url (zoom, google meet)"
 }
