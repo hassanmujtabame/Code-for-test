@@ -1,12 +1,12 @@
 <template>
-  <div class="box rounded-3 border">
-                      <div class="box rounded-3 ">
-                          <div class="rounded-top">
+  <div class="model-card box rounded-3 border">
+                      <div class="model-card__wrapper box rounded-3 ">
+                          <div class="model-card__image rounded-top">
                               <img class="w-100 rounded-top"  :src="img" :alt="title"  height="186">
                           </div>
                           <div class="text-start bg-white  p-2">
-                              <h6 class="box-title text-center text-two-lines">{{title}}</h6>
-                              <div v-if="!hideCounter">
+                              <h6 class="model-card__title text-center text-two-lines">{{title}}</h6>
+                              <div v-if="!hideCounter" class="text-center">
                                 <small class="m-c">
                                     عدد التنزيلات
                                 </small>
@@ -47,7 +47,21 @@ props:{
 </script>
 
 <style scoped>
-.box-title{
-    height:40px;
+
+.model-card__title{
+    font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* or 120% */
+
+text-align: center;
+text-transform: capitalize;
+
+color: #414042;
+height:48px;
+}
+.model-card__image{
+    height:186px;
 }
 </style>
