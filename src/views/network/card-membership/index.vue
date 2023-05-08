@@ -26,7 +26,7 @@
                                 نبذه عن بطاقة العضوية واهميتها و ازاي هنستخدمها يعني نكتب تفاصيل عنها بطريقة توضح
                                 اهميتها و بتجدد كل قد ايه - كل التفاصيل عنها بمعنى اصح بس بطريقة تشد الانتباه
                             </p>
-                            <button class="btn-main mt-3" data-bs-toggle="modal" data-bs-target="#exampleModalToggle3">
+                            <button class="btn-main mt-3" @click="downloadCard">
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -68,6 +68,31 @@ export default {
     components:{
         AnimateCard,
         dFilterList
+    },
+    methods:{
+        downloadCard(evt){
+            if(!this.shouldSubNetworkMsg('انت غير مشترك في الشبكة',evt)){
+                if(this.userSubNetwork.type=='free'){
+                    let dataEvt ={
+                        title:'للأسف ليست لديك بطاقة عضوية',
+                        description:`انت مشترك في الباقة المجانية وهذه الباقة لا تمنحك بطاقة العضوية - رقي حسابك الى الباقة الشهرية او السنوية و استفيد من بطاقة العضوية و المزيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+                }
+                let dataEvt ={
+                        title:'بطاقة عضوية',
+                        description:`بطاقة العضوية غير جاهزة الان`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`
+                    }
+                    this.showConfirmMsg(dataEvt);
+            } 
+
+        }
     }
 }
 </script>

@@ -21,7 +21,10 @@
                      </div>
                      <div >
                          <a @click="selected" v-if="!subscribed || !subscribed.subscribe" href="#" class="btn-main px-4 py-2" >
-                             اشتركي الآن
+                             {{ $t('subscribe-now') }}
+                         </a>
+                         <a @click="selected" v-else-if="(subscribed.subscribe && subscribed.type=='free' &&subscribed.package_id!==itemId)" href="#" class="btn-main px-4 py-2" >
+                             رقي حسابك
                          </a>
                          <a  v-else-if="subscribed.package_id==itemId" href="#" class="btn-danger px-4 py-2" >
                              انت مشترك الان
