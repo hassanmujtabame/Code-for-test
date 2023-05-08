@@ -60,14 +60,15 @@ export default {
  computed:{
     dateText(){
         if(!this.date) return 'N/A';
-        let parts = this.date.trim().split('-');
+        return this.dateTextMonth(this.date)
+        /*let parts = this.date.trim().split('-');
            
             let date = new Date(parts[2],parts[1],parts[0]);
             if(date=='Invalid Date') return this.date.trim()
             let d = date.getDate()
             let m =  date.toLocaleString('default', { month: 'short' });
             let y =date.getFullYear();
-        return `${d} ${m},${y}`
+        return `${d} ${m},${y}`*/
     }
  }
 }
