@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-top: 92px">
+    <div style="margin-top: 83px;background-color:#F6F8F9">
         <ShowStory isOwner :storyId="73" />
        <!-- members of network-->
        <MembersNetwork />

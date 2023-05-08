@@ -1,10 +1,10 @@
 <template>
- <div style="margin-top: 96px;">
+ <div style="margin-top: 83px;background-color:#F6F8F9">
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
-    <div v-else  class="container">
+    <div v-else >
       <span style="display:none">{{ storyId }}</span>
         <ShowStory :isOwner="isOwner" :story="story" />
        <!-- members of network-->

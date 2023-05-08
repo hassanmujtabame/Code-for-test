@@ -1,9 +1,9 @@
 <template>
    
-          
-            <div class="row" >
-                <div class="col-md-8 ">
-                    <div class="shadow p-3">
+          <div class="container py-5" >
+            <div class="row " >
+                <div class="col-md-8  ">
+                    <div class="shadow p-3 bg-white">
                         <h3 class="m-c">{{ story.title }}
                         </h3>
                         <p class="t-c">
@@ -16,9 +16,9 @@
                 </div>
                 <div class="col-md-4 ">
 
-                    <div v-if="isOwner" class="box ">
+                    <div v-if="isOwner" class="box">
                         <div class="box  rounded-3 p-2">
-                            <div v-if="isOwner" class="text-center">
+                            <div v-if="isOwner" class="d-flex justify-content-center gap-2">
                                 <button @click="openUpdateStory" class="btn bg-main p-1 px-2 text-white" >
                                     <img :src="`${publicPath}assets/svg/update.svg`" />
                                     تعديل
@@ -31,10 +31,11 @@
 
                         </div>
                     </div>
-                    <d-user-info-li v-else sizeImage="100" :member="story.user_info" />
+                    
+                    <d-user-info-li v-else sizeImage="100" class="bg-white" :member="story.user_info" />
                 </div>
             </div>
-  
+        </div>
 </template>
 
 <script>

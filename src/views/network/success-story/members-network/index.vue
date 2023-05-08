@@ -1,9 +1,9 @@
 <template>
-    <div class="sec-five mt-5 p-3">
+    <div class="bg-white mt-5 p-3">
 
-        <div class="">
+        <div class="container">
             <div class="d-flex justify-content-between align-items-center container">
-                <h1>أعضاء الشبكة </h1>
+                <h1> قصص أخرى </h1>
                 <div>
                     <router-link custom :to="getRouteLocale('network-success-stories')" v-slot="{navigate}">
                     <button @click="navigate" class="more">{{ $t('more') }}</button>
@@ -31,7 +31,7 @@
                 <template v-slot="{item}">
                     <router-link class="router-link w-100" :to="getRouteLocale('network-success-story-show',{id:item.id})">
                     <d-story-card 
-                    :image="item.image"
+                    :image="item.user_info.image"
                         :title="item.title"
                         :name="item.user_info.name"
                         :description="item.user_info.job"
