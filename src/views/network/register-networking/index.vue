@@ -1,5 +1,6 @@
 <template>
     <div class="mt-5">
+        <div v-if="userPartner"></div>
         <div class="main-top p-5 position-relative">
             <h1 class="text-white p-5 fs-1"> {{ $t('Join-our-family-of-partners') }}</h1>
             <a id="btn-register" href="#register-form" class="mx-5">
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 import SectionForm from './parts/section-form/index.vue'
 import SectionServices from './parts/section-services/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
@@ -52,7 +54,24 @@ export default {
         successRegisterDialog,
         SectionServices,
         SectionFeatures
+    },
+ computed:{
+...mapGetters({
+   companyInfo: 'auth/partner'
+})
+},
+watch:{
+    companyInfo:{
+        deep:true,
+        immediate:true,
+        handler(){
+            if(this.userPartner){
+            this.router_push('network-offers-dashboard')
+        }
     }
+}
+}
+    
 }
 </script>
 
