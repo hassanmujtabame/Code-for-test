@@ -4,9 +4,7 @@
           <div class="row align-items-center justify-content-between">
             <div class="col-md-6">
               <h1 class="fs-1 text-white">   قصص نجاح </h1>
-              <p class="text-white">
-                لاشك اننا نرغب بقرأه قصص نجاح الاخرين حتى نرسم طريقاً لنا مليئ بالامل والطموح  
-            </p>
+              <p class="text-white">لاشك اننا نرغب بقرأه قصص نجاح الاخرين حتى نرسم طريقاً لنا مليئ بالامل والطموح</p>
             <button v-if="user && !user.has_story" class="btn border text-white px-3"  @click="openAddStory">
                 اعرض قصتك الان 
             </button>

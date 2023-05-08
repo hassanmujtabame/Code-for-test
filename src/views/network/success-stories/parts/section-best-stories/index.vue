@@ -15,11 +15,10 @@
                 </div>
             </div>
             <div class="row ">
-
                 <div v-for="(item,i) in stories" :key="i" class="col-12 col-md-6 col-lg-3 mt-2">
                    <router-link class="w-100" :to="getRouteLocale('network-success-story-show',{id:item.id})">
                     <d-story-card 
-                    :image="item.image"
+                        :image="item.user_info.image"
                         :title="item.title"
                         :name="item.user_info.name"
                         :description="item.user_info.job"
@@ -57,8 +56,8 @@ methods:{
                 this.hasError=true
             }
         } catch (error) {
-            console.log('error',error)
-            console.log('error response',error.response)
+            console.mylog('error',error)
+            console.mylog('error response',error.response)
             this.hasError=true
         }
         this.loading = false

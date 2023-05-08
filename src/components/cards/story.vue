@@ -1,11 +1,11 @@
 <template>
     <div class="user-story-card box border rounded-3">
-        <div class="box-img">
+        <div class="user-story-card__image border-bottom">
             <img class="w-100 rounded-top" :src="image" :alt="name"
-                height="260">
+               >
         </div>
         <div class="text-center p-2">
-            <h5 class="user-story-card_title" >{{ title }}</h5>
+            <h5 class="user-story-card_title text-two-lines" >{{ title }}</h5>
             <div class="user-story-card__text">
                 <span class="user-story-card__name">{{ name??'N/A' }}
                 </span>
@@ -53,9 +53,7 @@ export default {
     text-transform: capitalize;
     color: #414042;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height:48px;
 }
 .user-story-card__text>*{
     font-style: normal;
@@ -70,5 +68,14 @@ color: #979797;
 }
 .user-story-card__name{
     color: #1FB9B3;
+}
+.user-story-card__image{
+    height:192px;
+}
+.user-story-card__image>img{
+    height:100%;
+    width:100%;
+    object-fit: fill;
+
 }
 </style>
