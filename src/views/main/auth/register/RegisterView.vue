@@ -87,8 +87,8 @@
                                     :type="showC ? 'text' : 'password'" class="form-control  " v-model="form.passwordConfirm"
                                     :label="$t('Password-confirm')">
                                     <template v-slot:append-icon>
-                                        <span style="color: #CDD7D8;font-size: 23px;" @click="show = !show"
-                                            class="fa-regular mx-1" :class="{ 'fa-eye': !show, 'fa-eye-slash': show }">
+                                        <span style="color: #CDD7D8;font-size: 23px;" @click="showC = !showC"
+                                            class="fa-regular mx-1" :class="{ 'fa-eye': !showC, 'fa-eye-slash': showC }">
                                         </span>
                                     </template>
                                 </d-text-input>

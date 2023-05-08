@@ -20,12 +20,9 @@
                                 rules="required"
                                 v-slot="{errors}"
                                 >
-                                <input type="text" class="form-control" 
+                                <d-text-input :errors="errors" 
                                 v-model="itemForm.company_name"
-                                    :placeholder="$t('company-name')">
-                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                        {{errors[0]}}
-                                    </div>
+                                    :label="$t('company-name')" />
                                       
                                 </ValidationProvider>
 
@@ -35,15 +32,13 @@
                                 <ValidationProvider
                                 :name="$t('Email')" 
                                 vid="email"
-                                rules="required"
+                                rules="required|email"
                                 v-slot="{errors}"
                                 >
-                                <input type="email" class="form-control" 
+                                <d-text-input :errors="errors" type="email" 
                                  v-model="itemForm.email"
-                                    :placeholder="$t('Email')" >
-                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                        {{errors[0]}}
-                                    </div>
+                                    :label="$t('Email')" />
+                                    
                                 </ValidationProvider>
                             </div>
                             <div class="col-md-4 w-100">
@@ -53,14 +48,11 @@
                                 rules="required"
                                 v-slot="{errors}"
                                 >
-                                <input type="text" class="form-control"
+                                <d-text-input type="text" :errors="errors"
                                 autocomplete="off" 
                                 name="phone"
-                                    :placeholder="$t('Phone')" 
-                                    v-model="itemForm.phone">
-                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                        {{errors[0]}}
-                                    </div>
+                                    :label="$t('Phone')" 
+                                    v-model="itemForm.phone"/>
                                 </ValidationProvider>
 
                             </div>
@@ -72,18 +64,18 @@
                                 v-slot="{errors}"
                                 >
                                 <div class="position-relative">
-                                <input id="password-field"
-                                name="password"
-                                type="password" class="form-control  "
-                                    v-model="itemForm.password"
-                                :placeholder="$t('Password')" >
-                                <span toggle="#password-field"
-                                    class="fa-regular fa-eye toggle-password position-absolute eye-password-icon">
-                                </span>
-                            </div>
-                            <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                        {{errors[0]}}
-                                    </div>
+                                    <d-text-input :errors="errors" 
+                                    :type="show ? 'text' : 'password'" 
+                                     v-model="form.password"
+                                    :label="$t('Password')">
+                                    <template v-slot:append-icon>
+                                        <span style="color: #CDD7D8;font-size: 23px;" @click="show = !show"
+                                            class="fa-regular mx-1" :class="{ 'fa-eye': !show, 'fa-eye-slash': show }">
+                                        </span>
+                                    </template>
+                                </d-text-input>
+                                
+                            </div>                          
                                 </ValidationProvider>
                             </div>
                             <div class="col-md-4 w-100">
@@ -94,17 +86,17 @@
                                 v-slot="{errors}"
                                 >
                                 <div class="position-relative">
-                                <input id="password-field2" type="password"
-                                class="form-control  " 
-                                    v-model="itemForm.password_confirm"
-                                :placeholder="$t('Password_confirm')" >
-                                <span toggle="#password-field2"
-                                    class="fa-regular fa-eye toggle-password position-absolute eye-password-icon">
-                                </span>
+                                    <d-text-input :errors="errors" 
+                                    :type="showC ? 'text' : 'password'" 
+                                     v-model="form.passwordConfirm"
+                                    :label="$t('Password-confirm')">
+                                    <template v-slot:append-icon>
+                                        <span style="color: #CDD7D8;font-size: 23px;" @click="showC = !showC"
+                                            class="fa-regular mx-1" :class="{ 'fa-eye': !showC, 'fa-eye-slash': showC }">
+                                        </span>
+                                    </template>
+                                </d-text-input>
                                 </div>
-                                <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                        {{errors[0]}}
-                                    </div>
                                 </ValidationProvider>
                             </div>
                         </template>
@@ -115,13 +107,10 @@
                                 rules="required"
                                 v-slot="{errors}"
                                 >
-                                <input type="text" class="form-control" 
-                                    :placeholder="$t('company_website')" 
+                                <d-text-input :errors="errors" 
+                                    :label="$t('company_website')" 
                                     v-model="itemForm.website"
-                                    >
-                                    <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                        {{errors[0]}}
-                                    </div>
+                                    />
                                 </ValidationProvider>
                                 </div>
                             <div class="col-md-4 w-100">
@@ -131,16 +120,14 @@
                                 rules="required"
                                 v-slot="{errors}"
                                 >
-                                <select v-model="itemForm.category_id" class="form-select px-3"  >
-                                    <option selected disabled>{{ $t('specialist_field') }}</option>
+                                <d-select-input v-model="itemForm.category_id" :errors="errors" :label="$t('specialist_field')"  >
+                                    <option  value=""></option>
                                     <option v-for="(cat,i) in categories" :key="i" 
                                     :value="cat.id">{{ cat.name }}</option>
                                    
 
-                                </select>
-                                <div v-if="errors.length!==0" class="col-12 text-input-error">
-                                        {{errors[0]}}
-                                    </div>
+                                </d-select-input>
+                            
                                 </ValidationProvider>
                             </div>
                             <div class="col-md-4 w-100">
