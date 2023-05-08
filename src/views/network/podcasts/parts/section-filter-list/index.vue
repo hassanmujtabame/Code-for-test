@@ -19,7 +19,7 @@
         hideSide
         orderName="created_at"
         @change="changeFilter"
-        classColCard="col-md-4 mt-3">
+        classColCard="col-md-3 mt-3">
             <template v-slot:total>
 
                 <h3 class="t-c ">

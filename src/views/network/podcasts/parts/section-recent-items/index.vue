@@ -10,9 +10,15 @@
                 
                 </div>
             </div>
-            <div class="row mt-3">
-                <div v-for="(item,i) in items" :key="i" class="col-md-auto " >
-                    <router-link class="router-link" :to="getRouteLocale('network-podcast-show',{id:item.id})">
+            <d-swiper v-if="!loading" 
+      :items="items" 
+      is-auto
+      :slides-per-view="5" 
+      :space-between="5"
+      >
+        <template v-slot="{ item }">
+          <div class=" mt-2 ">
+            <router-link class="router-link" :to="getRouteLocale('network-podcast-show',{id:item.id})">
                     <podcastCard 
                     :image="item.image"
                      :name="item.title"
@@ -20,7 +26,9 @@
                     />
                     </router-link>
           </div>
-            </div>
+        </template>
+      </d-swiper>
+        
         </div>
 </template>
 
