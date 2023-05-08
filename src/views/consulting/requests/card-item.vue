@@ -78,7 +78,7 @@
     rescheduleRequest(){
         this.fireOpenDialog('reschedule-session',{id:this.itemId
             ,session_date:this.dateRequest
-            ,session_time:'09:00'})
+            ,session_time:this.timeRequest})
     },
     async finishSession(){
          

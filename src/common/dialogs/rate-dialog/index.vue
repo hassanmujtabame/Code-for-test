@@ -83,7 +83,7 @@
 <script>
 import startItem from './star-item.vue'
 export default {
-  name:'standard-rate-dialog',
+  name:'d-standard-rate-dialog',
   props:{
     group:{
         type:String,

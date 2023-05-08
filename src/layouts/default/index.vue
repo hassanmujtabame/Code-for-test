@@ -5,6 +5,7 @@
     <main style="margin-top: 96px">
         <slot></slot>
         </main>
+        <d-standard-rate-dialog />
         <SectSubscribe/>
         <DefaultFooter/>
   </div>

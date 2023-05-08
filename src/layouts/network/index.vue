@@ -20,6 +20,7 @@
             />
             <RateSuccessExperience />
             <d-success-message />
+            <d-standard-rate-dialog />
             <d-confirm-message />
          
     </div>

@@ -55,7 +55,7 @@ import availableTimeVue from '@/components/available-time/index'
     data: (vm) => {
       return{
         itemDialog: { title: null, description: null, btns: null, image: `${vm.publicPath}assets/img/cuate-2.png` },
-        itemForm:{url:null,time:null,start_date:null},
+        itemForm:{url:null,time:null,available_time:null,start_date:null},
         loading: false,
         showDialog: false,
         myAvailability:{},
@@ -75,9 +75,9 @@ import availableTimeVue from '@/components/available-time/index'
                     console.mylog('success',data.data[0])
                     this.myAvailability = data.data[0]
                     this.available_times = this.myAvailability.available_times
-                    if(this.itemForm.available_time.length==5 && !this.available_times.includes(this.itemForm.available_time))
-                    this.available_times.push(this.itemForm.available_time)
-                    this.available_times.sort((a,b)=>a>b?1:-1);
+                    if(this.available_time.length==5 && !this.available_times.includes(this.available_time))
+                    this.available_times.push(this.available_time)
+                    this.available_times= this.available_times.sort((a,b)=>a>b?1:-1);
                 }
             }catch(error){
                 //

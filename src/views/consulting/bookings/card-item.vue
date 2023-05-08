@@ -117,11 +117,11 @@ import consultingAPI from '@/services/api/consulting';
         لا تقلق  سنقوم تنبيهك قبل موعد الاستشارة!`
       })
     },
-    async rateConsultation(dataR,form){
-            let valid = await form.validate();
+    async rateConsultation(itemForm,refForm){
+            let valid = await refForm.validate();
             if(!valid) return;
             try{
-                let { data } = await consultingAPI.client.rateConsultation(this.item.id,dataR)
+                let { data } = await consultingAPI.client.rateConsultation(this.itemId,itemForm)
                 if(data.success){
                    /* let dataEvt ={
                         title:'',
@@ -135,7 +135,7 @@ import consultingAPI from '@/services/api/consulting';
                     return false;
                 }
             }catch(error){
-                window.DHelper.catchException.call(this,error,form)
+                window.DHelper.catchException.call(this,error,refForm)
                 return false;
             }
         },

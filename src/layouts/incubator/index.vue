@@ -19,6 +19,7 @@
             category="incubator"
             />
             <RateSuccessExperience />
+            <d-standard-rate-dialog />
             <d-success-message />
             <d-confirm-message />
          
