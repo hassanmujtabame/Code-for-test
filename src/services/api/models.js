@@ -10,6 +10,10 @@ class ModelsApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/my-downloads-models?${s}`);
     }
+    canDownloadModel(id){
+        //check if this user rest ability to download
+        console.mylog(id)
+    }
     download(model_id){
         return window.axios.post(`network/download-model/${model_id}`);
     }
