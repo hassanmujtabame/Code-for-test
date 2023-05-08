@@ -1,8 +1,7 @@
 <template>
   <div style="overflow: hidden;" class="sec-tow">
             <div class="text">
-                <h1>{{ $t('Riadiat-services-for-you') }}</h1>
-                <p>تقدم رياديات لكي الكثير من الخدمات المميزة والفريدة</p>
+                <h1>جميع شركاء رياديات</h1>
             </div>
             <div class=" ">
                 <ul class="nav nav-pills mb-3 justify-content-center gap-2" id="pills-tab" role="tablist">
