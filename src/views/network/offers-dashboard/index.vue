@@ -48,6 +48,11 @@ export default {
         deep:true,
         immediate:true,
         handler(){
+            if(!this.userPartner){
+                 this.router_push('network-offers');
+                  this.fireOpenDialog('join-as-partner',this.getRouteLocale('register-networking'))
+
+            }
             this.itemPage = Object.assign(this.itemPage,this.companyInfo)
             this.loading = false;
         }
