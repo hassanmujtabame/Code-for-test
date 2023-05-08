@@ -13,13 +13,14 @@
             </template>
 
             <template v-slot="{ item }">
-                              <a class="router-link" href="#" @click="downloadFile(item,$event)"> 
+                <router-link class="router-link" :to="getRouteLocale('network-model-show',{id:item.id})" > 
+
                               <ModelCard
                                :title="item.title" :img="item.image" 
                                 :value="item.count_download"
                                 hideCounter
                                />  
-                              </a>    
+                              </router-link>    
                               </template>
                     
                 </d-filter-list>
