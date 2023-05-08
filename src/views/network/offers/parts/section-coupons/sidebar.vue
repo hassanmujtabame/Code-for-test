@@ -20,11 +20,11 @@
             <d-expanded-panel-item opened :title="$t('section')" >
                 <div>
                             <div v-for="(sect,i) in sections" :key="i" class="form-check">
-                                <input class="form-check-input" type="radio" :value="sect.id" v-model="filter.section" 
+                                <input class="form-check-input" type="checkbox" :value="sect.id" v-model="filter.section" 
                                 :selected="sect.id===filter.section"
-                                name="stateRadioDefault"
-                                    id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
+                                name="sectionDefault1"
+                                    id="sectionDefault1">
+                                <label class="form-check-label" for="sectionDefault1">
                                    {{sect.name}}
                                 </label>
                             </div>
