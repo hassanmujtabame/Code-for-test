@@ -198,6 +198,32 @@
                                     </div>
                                 </ValidationProvider>
                             </div>
+                            <div class="col-md-4 w-100 mt-2">
+
+<div class="form-check ">
+    <ValidationProvider 
+tag="div"
+class="w-100"
+:name="$t('terms_use')"
+rules="required"
+vid="terms_use"
+v-slot="{errors}"
+>
+<div class="form-group">
+   
+    <input :value="itemForm.terms_use"
+        @input="event => itemForm.terms_use = event.target.checked===true?true:null"   class="form-check-input" type="checkbox"  id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+        أؤكد على اني أوافق على 
+        <a href="" class="m-c">
+            {{$t('terms_use')}}
+        </a>
+    </label>
+</div>
+    <d-error-input :errors="errors" v-if="errors.length>0"/>
+</ValidationProvider>
+  </div>
+</div>
                             <div class="col-12 m-2 text-end">
                                 <button class="btn btn-main  " type="submit" @click="save"
                                     role="button"> {{ $t('Register-now') }} </button>
