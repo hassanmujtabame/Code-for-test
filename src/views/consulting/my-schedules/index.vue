@@ -65,7 +65,7 @@
                           timeFormatAMPM(attr.customData.end_hour, true)
                         }}</bdi>
                       </div>
-                      <div class="text-center w-100">
+                      <div v-if="false" class="text-center w-100">
                       
                         <button  @click="showMenu($event,attr.customData)" class="btn" >
                           <i class="fa-solid fa-ellipsis"></i>
@@ -128,7 +128,7 @@ export default {
       hasError:false,
       category_schedule:{
         title:'j^vdf',
-        color:'red'
+        color:"var(--color-accent)"
       },
       items: [],
       attributes:[],
@@ -159,7 +159,7 @@ export default {
     },
     successUpdate(dataEvent){
             this.category_schedule.title=dataEvent.title
-            this.category_schedule.color=dataEvent.color;
+            //this.category_schedule.color="var(--color-accent)";
             this.updateAttributes()
     },
     openDialogNewCatSchedule(){
@@ -291,7 +291,7 @@ width:100%;
 }
 
 .calendar-service-schedule .bg-day {
-  background: orange;
+  background: var(--color-accent);
   height: 100%;
   width: 100%;
 }

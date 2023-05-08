@@ -2281,5 +2281,8 @@ html[lang="ar"] .accordion-button::after {
     word-break: break-all;
 }
 .o-c{
-    color:#F2631C;
+    color:var(--color-accent);
+}
+.bg-accent{
+    background-color:var(--color-accent);
 }
