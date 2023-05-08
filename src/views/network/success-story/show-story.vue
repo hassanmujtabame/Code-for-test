@@ -23,7 +23,10 @@
                                     <img :src="`${publicPath}assets/svg/update.svg`" />
                                     تعديل
                                 </button>
-                            
+                                <button @click="confirmDeletStory" class="btn bg-main bg-danger p-1 px-2 text-white" >
+                                    <img :src="`${publicPath}assets/svg/trash-outline.svg`" />
+                                    حذف
+                                </button>
                             </div>
 
                         </div>
@@ -35,7 +38,7 @@
 </template>
 
 <script>
-//import StoriesApi from '@/services/api/stories.js'
+import StoriesApi from '@/services/api/stories.js'
 export default {
     props:{
         isOwner:{
@@ -60,6 +63,37 @@ export default {
     }
  },
  methods:{
+    async deleteItem(){
+        try {
+            let { data } = await StoriesApi.deleteItem(this.story.id);
+            if(data.success){
+                this.router_push('network-success-stories')
+            }else{
+                window.SwalError(data.message);
+            }
+        } catch (error) {
+            if(error.response){
+        let response= error.response;
+      
+        if(response.status==500 || response.status==405 ){
+            window.SwalError(response.data.message)
+        }
+    }
+
+        }
+
+    },
+    confirmDeletStory(){
+        let dataEvt={
+            title:this.$t('confirm_delete_story_message'),
+            description:this.story.title,
+            type:'warning',
+            btns:[
+                {title:this.$t('confirm_delete'),action:this.deleteItem,class:'btn btn-danger'}
+            ]
+        }
+        this.showConfirmMsg(dataEvt);
+    },
     openUpdateStory(){
     this.fireOpenDialog('update-story',this.story)
   }

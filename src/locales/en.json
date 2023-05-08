@@ -761,5 +761,6 @@
   "start-time": "start time",
   "end-time": "end time",
   "meeting-url": "meeting url (zoom, google meet)",
-  "story-desc": "write your story here"
+  "story-desc": "write your story here",
+  "confirm_delete_story_message": "You are about to delete your story"
 }

@@ -9,6 +9,9 @@ class StoriesApi extends BaseApi{
     addItem(data){
         return window.axios.post(`network/stories`,data);  
     }
+    deleteItem(id){
+        return window.axios.delete(`network/stories/${id}`);  
+    }
     updateItem(id,data){
         data.append('_method','PUT')
         return window.axios.post(`network/stories/${id}`,data);  
