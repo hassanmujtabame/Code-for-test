@@ -760,5 +760,6 @@
   "meeting-date": "meeting date",
   "start-time": "start time",
   "end-time": "end time",
-  "meeting-url": "meeting url (zoom, google meet)"
+  "meeting-url": "meeting url (zoom, google meet)",
+  "story-desc": "write your story here"
 }

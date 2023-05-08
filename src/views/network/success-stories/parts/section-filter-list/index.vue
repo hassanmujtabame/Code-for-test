@@ -8,7 +8,7 @@
             @change="changeFilter"
             >
                 <template v-slot:total>
-                    <h4>
+                    <h4 class="title-list">
                         قصص نجاح والهام
                     </h4>
                 </template>
@@ -54,6 +54,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.title-list{
+    font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 40px;
+/* identical to box height, or 125% */
+
+text-transform: capitalize;
+
+/* Medium gray */
+
+color: #737373;
+}
 
 </style>

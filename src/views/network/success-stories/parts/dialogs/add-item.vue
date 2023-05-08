@@ -5,13 +5,12 @@
     :openDialog="openDialog"
     :loading="loading"
     >
+    <template v-slot:header>
+        ألهمي الاخرين بقصتك
+    </template>
         <ValidationObserver ref="form">
             <div v-if="showDialog" class=" add-portfolio m-3 p-0">
-                <div class="   m-auto">
-                    <h3>
-                        ألهمي الاخرين بقصتك
-                    </h3>
-                </div>
+               
                 <div class="">
                     <div class="mb-3">
                         <ValidationProvider
@@ -19,19 +18,19 @@
                             vid="title"
                             rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{$t('story-title')}}</label>
-                                <input type="text" v-model="itemDialog.title" class="form-control" placeholder=" عنوان القصة">
-                            <d-error-input :errors="errors" v-if="errors.length" />
+                            
+                                <d-text-input :errors="errors" v-model="itemDialog.title" :label="$t('story-title')">
+                            </d-text-input>
                         </ValidationProvider>
                     </div>
 
                     <div class="mb-3">
                         <ValidationProvider
-                            :name="$t('story-title')"
-                            vid="title"
+                            :name="$t('story-desc')"
+                            vid="description"
                             rules="required"
                                     v-slot="{errors}">
-                                    <label class="form-label">{{$t('story-title')}}</label>
+                                    <label class="form-label">{{$t('story-desc')}}</label>
 
                         <d-ckeditor-classic v-model="itemDialog.description" 
                         class="form-control" 
