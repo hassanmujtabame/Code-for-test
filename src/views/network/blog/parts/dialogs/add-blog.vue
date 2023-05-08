@@ -148,7 +148,9 @@ let valid = await this.$refs.form.validate();
             this.closeEvent()
         }
     } catch (error) {
-        //
+        window.DHelper.catchException.call(this,error, this.$refs.form)
+        
+        /*
         if(error.response){
                 let response =error.response
                 if(response.status==422){
@@ -156,7 +158,7 @@ let valid = await this.$refs.form.validate();
                     this.$refs.form.setErrors(response.data.errors)
                 }
             }
-       
+       */
     }
     this.loading =  false;
 },

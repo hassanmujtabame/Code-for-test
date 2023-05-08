@@ -149,16 +149,17 @@ let valid = await this.$refs.form.validate();
             this.closeEvent()
         }
     } catch (error) {
-        console.log('error',error)
+        console.mylog('error',error)
+        window.DHelper.catchException.call(this,error, this.$refs.form)
         //
-        if(error.response){
+        /*if(error.response){
                 let response =error.response
                 console.log('error',response)
                 if(response.status==422){
                     if(response.data.errors)
                     this.$refs.form.setErrors(response.data.errors)
                 }
-            }
+            }*/
        
     }
     this.loading =  false;
