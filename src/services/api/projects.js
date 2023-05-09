@@ -49,6 +49,9 @@ class ProjectsApi extends BaseApi{
         return window.axios.post(`network/project-user-offers`,dataItem);
 
     }
+    checkOutServiceForPrepareProject(dataItem){
+        return window.axios.post(`network/checkout-service-for-prepare-project`,dataItem);
+    }
 }
 
 export default new ProjectsApi();
