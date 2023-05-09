@@ -79,6 +79,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-investment-project-requests" */ '../views/network/investment-project/requests/index.vue') 
     },
     {
+        path: 'network/investment-projects/investment-with-others-requests',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'network-investment-project-investment-with-others-requests',
+        component: () => import(/* webpackChunkName: "network-investment-project-requests-with-others" */ '../views/network/investment-project/investment-with-others-requests/index.vue') 
+    },
+    {
         path: 'network/investment-projects/request-add',
         meta:{layout:LayoutDefault,auth:true},
         name: 'network-investment-project-request-add',

@@ -1,7 +1,7 @@
 <template>
   <WidgetItem title="طلباتك لاستثمار مع الاخرين"
    code="request-investment-with-others" color="#FFBC00" 
-   url="/"
+   :url="getRouteLocale('network-investment-project-investment-with-others-requests')"
    />
 </template>
 
