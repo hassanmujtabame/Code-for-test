@@ -1,7 +1,7 @@
 <template>
     <div class="schedule-card">
                                         <div class="schedule-card__header">
-                                            <img :src="image" class="rounded-3" :alt="title" width="166">
+                                            <img :src="image" class="rounded-3" :alt="title" width="152">
                                         </div>
                                         <div  class="schedule-card__body p-2">
                                  
