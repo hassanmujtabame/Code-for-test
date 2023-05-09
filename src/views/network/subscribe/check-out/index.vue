@@ -79,7 +79,7 @@ export default {
   }),
   methods:{
     async payment(evt){
-      console.log('payment',evt)
+      console.mylog('payment',evt)
       let {item,cardInfo,otherData} = evt;
       let pay_info = {};
       if(item.payment_type == 'new')
