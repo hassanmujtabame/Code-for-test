@@ -427,13 +427,15 @@ export default {
                     this.metaInfo.total_page = data.meta.last_page;
                 }
             } catch (error) {
-                console.log('error', error)
-                console.log('response', error.response)
+                console.mylog('error', error)
+                console.mylog('response', error.response)
             }
         }
     },
     mounted() {
-        this.loadList()
+        this.$nextTick(()=>{
+            this.loadList()
+        })
     },
     created(){
         window.EventBus.listen(this.group+'-change-page',this.changePage)

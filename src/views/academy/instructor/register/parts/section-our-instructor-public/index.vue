@@ -89,7 +89,7 @@
                             aria-labelledby="pills-home-tab" tabindex="0">
 
                             <div
-                style="overflow-x: hidden"
+                
                 swiperRef=""
                 class="swiper-container mySwiper main-swiper"
               >
@@ -225,7 +225,7 @@
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
                             <div
-                style="overflow-x: hidden"
+                
                swiperRef=""
                 class="swiper-container mySwiper main-swiper"
               >
@@ -361,7 +361,7 @@
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                             aria-labelledby="pills-contact-tab" tabindex="0">
                             <div
-                style="overflow-x: hidden"
+                
                swiperRef=""
                 class="swiper-container mySwiper main-swiper"
               >
@@ -497,7 +497,7 @@
                         <div class="tab-pane fade" id="pills-servProvider" role="tabpanel"
                             aria-labelledby="pills-servProvider-tab" tabindex="0">
                             <div
-                            style="overflow-x: hidden"
+                            
                            swiperRef=""
                             class="swiper-container mySwiper main-swiper"
                           >
@@ -633,7 +633,7 @@
                         <div class="tab-pane fade" id="pills-shop" role="tabpanel" aria-labelledby="pills-shop-tab"
                             tabindex="0">
                             <div
-                            style="overflow-x: hidden"
+                            
                            swiperRef=""
                             class="swiper-container mySwiper main-swiper"
                           >

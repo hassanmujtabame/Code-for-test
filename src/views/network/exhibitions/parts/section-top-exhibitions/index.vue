@@ -20,7 +20,7 @@
                 </div>
 
             </div>
-            <d-swiper v-if="!loading" style="overflow-x: hidden" :slides-per-view="4" :space-between="20" is-auto
+            <d-swiper v-if="!loading"  :slides-per-view="4" :space-between="20" is-auto
                 :items="items">
                 <template v-slot:default="{ item }">
                     <router-link class="router-link h-100" :to="getRouteLocale('network-exhibition-show', { id: item.id })">

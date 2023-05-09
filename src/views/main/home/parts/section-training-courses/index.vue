@@ -12,7 +12,7 @@
           <p class="container">
             {{ $t('home-section-courses-text') }}
           </p>
-          <div class="container" style="overflow:hidden">
+          <div class="container" >
           <d-swiper
           v-if="!loading"
             :slides-per-view="5"

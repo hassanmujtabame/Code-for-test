@@ -20,7 +20,7 @@
          </div>
  
      </div>
-     <d-swiper v-if="!loading"  style="overflow-x: hidden"
+     <d-swiper v-if="!loading" 
              :slides-per-view="4"
              :space-between="20"
              is-auto
