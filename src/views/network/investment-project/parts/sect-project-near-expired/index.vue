@@ -21,7 +21,7 @@
           :space-bitween="10"
           >
           <template v-slot="{item}">
-            <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})"> 
+            <router-link class="router-link h-100" :to="getRouteLocale('network-investment-project-show',{id:item.id})"> 
             <DPhysicalProjectSimple v-if="item.investment_type=='physical'" style="width:95%"
             :image="item.image"
                    :title="item.title"
@@ -34,6 +34,7 @@
                    :offered_property="item.offered_property"
                    :amount="item.amount_financing_required"
                    classRestDays="text-danger"
+                   class="h-100"
                    />
             <DMoralProjectSimple v-else style="width:95%"
             :image="item.image"
@@ -47,6 +48,7 @@
                    :offered_property="item.offered_property"
                    :minRent="item.amount_financing_required"
                    classRestDays="text-danger"
+                   class="h-100"
                    />
             </router-link>
           </template>

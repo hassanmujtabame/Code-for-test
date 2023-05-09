@@ -28,7 +28,7 @@
               </template>
        <template v-slot:default="{item}">
         
-              <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
+              <router-link class="router-link h-100" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
               <DMoralProjectLarge
                  :title="item.title"
                  :description="item.description"
@@ -40,7 +40,7 @@
                  :minRent="item.amount_financing_required"
                  :maxRent="item.minimum_investment"
                  :place="item.place"
-
+                class="h-100"
                  />
               </router-link>
           </template>

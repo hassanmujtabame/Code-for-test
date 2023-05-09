@@ -29,7 +29,7 @@
                 </template>
          <template v-slot:default="{item}">
           
-                <router-link class="router-link" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
+                <router-link class="router-link h-100" :to="getRouteLocale('network-investment-project-show',{id:item.id})">   
                 <DPhysicalProjectLarge
                    :title="item.title"
                    :description="item.description"
@@ -41,6 +41,7 @@
                    :offered_property="item.offered_property"
                    :amount="item.amount_financing_required"
                    :place="item.place"
+                   class="h-100"
                    />
                 </router-link>
             </template>

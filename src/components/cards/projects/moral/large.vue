@@ -1,6 +1,6 @@
 <template>
-    <div class="box border rounded-top rounded-2 p-2">
-        <div class="p-2 text-start">
+    <div class="box border rounded-top rounded-2 p-2 d-flex flex-column">
+        <div class="p-2 text-start flex-grow-1">
 
             <p class="text-end t-c">
                 {{ $t('publish-date') }}
@@ -13,7 +13,7 @@
             </h5>
             <p class="text-two-lines" v-html="description"></p>
         </div>
-        <div style="background-color: #414042d4;" class="col-md-12  dashbord rounded-bottom">
+        <div style="background-color: #414042d4;" class="col-md-12  dashbord rounded-bottom flex-shrink-0">
             <div class=" row justify-content-between p-1 ">
                 <div class="d-flex col-md-4">
                     <div class="t-c">
