@@ -82,13 +82,13 @@ const routers =[
         path: 'network/investment-projects/request-add',
         meta:{layout:LayoutDefault,auth:true},
         name: 'network-investment-project-request-add',
-        component: () => import(/* webpackChunkName: "network-investment-project-request-add" */ '../views/network/investment-project-request/index.vue') 
+        component: () => import(/* webpackChunkName: "network-investment-project-request-add" */ '../views/network/investment-project/add-project/index.vue') 
     },
     {
         path: 'network/investment-projects/:id(\\d+)',
         meta:{layout:LayoutDefault,auth:true},
         name: 'network-investment-project-show',
-        component: () => import(/* webpackChunkName: "network-investment-project-show" */ '../views/network/investment-project-page/index.vue') 
+        component: () => import(/* webpackChunkName: "network-investment-project-show" */ '../views/network/investment-project/page/index.vue') 
     },
     {
         path: 'network/card-membership',
