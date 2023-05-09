@@ -22,7 +22,7 @@
  سناعددك بشكل كبير في خطوتك الاولى 
     </p>
     <div class="d-flex">
-        <EmptyWalletIcon /> <div class="confirm-card-price">
+        <d-empty-wallet-icon /> <div class="confirm-card-price">
             <span >سعر الخدمة : </span><span style="color:red">250 ريال </span>
         </div>
     </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import EmptyWalletIcon from '@/components/icon-svg/empty-wallet.vue'
+
 export default {
     name:'confirm-subscribe-project',
     props:{
@@ -46,7 +46,6 @@ export default {
         }
     },
     components:{
-        EmptyWalletIcon
     },
     data: () => {
         return{
@@ -59,7 +58,7 @@ export default {
             this.fireCloseDialog(this.group)
         },
         openCheckOutPage(){
-            this.fireOpenDialog('checkout-project-physical',{item:{amount:3000}})
+            this.fireOpenDialog('checkout-project-physical',{item:{amount:2500}})
             this.closeEvent()
         },
         closeDialog(){

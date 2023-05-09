@@ -35,7 +35,7 @@ export default {
      
     }
     },
-    addMsgLoadByDate(msg,other_image,other_name){
+    addMsgLoadByDate(msg,other_image=null,other_name=null){
       if(!this.messages[msg.date])
       this.messages[msg.date]=[]
       if (this.messages[msg.date].length == 0) {

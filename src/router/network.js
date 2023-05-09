@@ -85,6 +85,12 @@ const routers =[
         component: () => import(/* webpackChunkName: "network-investment-project-request-add" */ '../views/network/investment-project/add-project/index.vue') 
     },
     {
+        path: 'network/investment-projects/prepare-for-project',
+        meta:{layout:LayoutDefault,auth:true},
+        name: 'network-investment-project-service-prepare-project',
+        component: () => import(/* webpackChunkName: "network-investment-project-prepare-for-project" */ '../views/network/investment-project/prepare-for-project/index.vue') 
+    },
+    {
         path: 'network/investment-projects/:id(\\d+)',
         meta:{layout:LayoutDefault,auth:true},
         name: 'network-investment-project-show',

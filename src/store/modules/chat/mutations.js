@@ -63,5 +63,16 @@ export default{
     },
    SET_MESSAGES_REQUEST_SERVICE(state,payload=[]){
         state.request_service_messages = payload
-    }
+    },
+    /** chat prepare project */
+    ADD_MSG_PREPARE_PROJECT(state,payload){
+        if(!state.messages.find(x=>x.id==payload.id))
+        state.messages.push(payload) 
+    },
+    ADD_MSGS_PREPARE_PROJECT(state,payload){
+        state.messages.push(...payload) 
+    },
+    SET_MSGS_PREPARE_PROJECT(state,payload=[]){
+        state.request_service_messages = payload
+    },
 }

@@ -2,6 +2,9 @@ export default {
   offerPropsalMessages (state) {
     return state.offer_messages
     },
+    prepareProjectMessages (state) {
+      return state.prepare_project_messages
+      },
     onlineUsers (state) {
       return state.online_users
       },
