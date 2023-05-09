@@ -16,8 +16,7 @@
 
       v-slot="{errors}"
       >
-      <input type="text" v-model="itemForm.title" class="form-control rounded-2 p-2 mt-2" :placeholder="$t('title_request')">
-      <d-error-input v-if="errors.length" :errors="errors"/>
+      <d-text-input :errors="errors" type="text" v-model="itemForm.title" class=" p-2 mt-2" :label="$t('title_request')"/>
       </ValidationProvider>
         <!--قيمة الايجار المطلوب -->
     <ValidationProvider
@@ -28,8 +27,8 @@
 
       v-slot="{errors}"
       >
-      <input type="text" v-model="itemForm.rent" class="form-control rounded-2 p-2 mt-2" :placeholder="$t('value_rent')">
-      <d-error-input v-if="errors.length" :errors="errors"/>
+      <d-text-input :errors="errors" type="text" v-model="itemForm.rent" class="rounded-2 p-2 mt-2" :label="$t('value_rent')"/>
+      
       </ValidationProvider>             
        <!--عنوان المكان بالتفصيل-->
     <ValidationProvider
@@ -40,8 +39,8 @@
 
       v-slot="{errors}"
       >
-      <input type="text" v-model="itemForm.address" class="form-control rounded-2 p-2 mt-2" :placeholder="$t('address_place_details')">
-      <d-error-input v-if="errors.length" :errors="errors"/>
+      <d-text-input :errors="errors" type="text" v-model="itemForm.address" class="rounded-2 p-2 mt-2" :label="$t('address_place_details')" />
+  
       </ValidationProvider>
         <!--مساحة المكان-->
     <ValidationProvider
@@ -52,8 +51,7 @@
 
       v-slot="{errors}"
       >
-      <input type="text" v-model="itemForm.place_area" class="form-control rounded-2 p-2 mt-2" :placeholder="$t('space_place')">
-      <d-error-input v-if="errors.length" :errors="errors"/>
+      <d-text-input :errors="errors" type="text" v-model="itemForm.place_area" class="rounded-2 p-2 mt-2" :label="$t('space_place')" />
       </ValidationProvider>         
        <!--أكتب رسالتك  للعميل-->
     <ValidationProvider
@@ -65,8 +63,8 @@
       v-slot="{errors}"
       >
 
-      <textarea v-model="itemForm.desc" class="w-100 border p-1 mt-2" rows="10" :placeholder="$t('write_your_message')"></textarea>
-      <d-error-input v-if="errors.length" :errors="errors"/>
+      <d-textarea-input :errors="errors" v-model="itemForm.desc" class="w-100 border p-1 mt-2" rows="10" :label="$t('write_your_message')"></d-textarea-input>
+      
       </ValidationProvider>    
       <!-- ارفق صور او فيديو هات للمكان-->
     <ValidationProvider

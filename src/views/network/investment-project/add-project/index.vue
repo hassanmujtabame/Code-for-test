@@ -11,7 +11,7 @@
                         الغير مرتبة .
                         اذا كنت غير متأكد من مشروعك فنحن نقدم خدمة تجهيز المشاريع الاستثمار يمكنك الحصول عليها من
                         <span>
-                            <a @click="openConfirmSubscribeDialog" href="#" class="text-dark fw-bolder">
+                            <a @click="openConfirmPrepareProject" href="#" class="text-dark fw-bolder">
                                 هنا
                             </a>
                         </span>
@@ -534,8 +534,8 @@
         </div>
      
             <successAddProjectDiag />
-            <confirmSubscribeProjectDiag />
-            <checkoutProjectDiag />
+            <confirmSubscribePrepareProjectDiag />
+            <checkoutPrepareProjectDiag />
     </div>
 </template>
 
@@ -543,15 +543,15 @@
 //صفحة طلب عرض مشروع استثمارى/شبكة
 import ProjectAPI from '@/services/api/projects.js'
 import successAddProjectDiag from './dialogs/success-add-project.vue';
-import confirmSubscribeProjectDiag from './dialogs/confirm-subscribe-project.vue';
-import checkoutProjectDiag from './dialogs/check-out/index.vue';
+import confirmSubscribePrepareProjectDiag from './dialogs/confirm-subscribe-prepare-project.vue';
+import checkoutPrepareProjectDiag from './dialogs/check-out/index.vue';
 import InputFile from './input-file.vue'
 export default {
     name: 'investment-project-request',
     components: {
         successAddProjectDiag,
-        confirmSubscribeProjectDiag,
-        checkoutProjectDiag,
+        confirmSubscribePrepareProjectDiag,
+        checkoutPrepareProjectDiag,
         InputFile
     },
     data: (vm) => ({
@@ -618,9 +618,9 @@ export default {
             evt.preventDefault();
             this.fireOpenDialog('success-add-project')
         },
-        openConfirmSubscribeDialog(evt) {
+        openConfirmPrepareProject(evt) {
             evt.preventDefault();
-            this.fireOpenDialog('confirm-subscribe-project')
+            this.fireOpenDialog('confirm-subscribe-prepare-project')
         },
         async save(evt) {
             evt.preventDefault();

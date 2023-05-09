@@ -762,5 +762,6 @@
   "story-desc": "أكتبي قصتك هنا",
   "confirm_delete_story_message": " أنت الان على وشك حذف القصة الخاصة بك",
   "field-your-service": "مجال خدمتك",
-  "the_place": "المكان"
+  "the_place": "المكان",
+  "submit-report": "قدم بلاغ"
 }

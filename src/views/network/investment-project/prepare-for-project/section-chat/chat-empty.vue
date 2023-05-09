@@ -40,7 +40,7 @@ components:{
 },
 methods:{
   openCheckOutPage(){
-            this.fireOpenDialog('checkout-project-physical',{item:{amount:2500}})
+            this.fireOpenDialog('checkout-prepare-project-physical',{item:{amount:2500}})
         },
 }
 }

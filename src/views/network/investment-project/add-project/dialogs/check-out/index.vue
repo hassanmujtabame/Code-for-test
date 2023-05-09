@@ -16,11 +16,11 @@
 import networkAPI from '@/services/api/network.js'
 import CheckOutDialog from '@/common/dialogs/check-out-test/index'
 export default {
-  name: "checkout-project-physical",
+  name: "checkout-prepare-project-physical",
   props: {
     group: {
       type: String,
-      default: 'checkout-project-physical'
+      default: 'checkout-prepare-project-physical'
     }
   },
   components: {

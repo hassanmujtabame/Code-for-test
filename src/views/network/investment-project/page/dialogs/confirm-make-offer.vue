@@ -7,7 +7,7 @@
 <template v-slot:default>
     <div class="text-center">
                 <!-- icon-->
-                    <AlertRedIcon />
+                <img :src="`${publicPath}assets/svg/warning-dialog.svg`"  alt="">
               </div>
     <h3>هل لديك مكان للأيجار لهذا المشروع</h3>
               
@@ -24,12 +24,10 @@
 </d-dialog-large>
 </template>
 <script>
-import AlertRedIcon from '@/components/icon-svg/alert-red-icon.vue'
+
 export default {
   name:"confirm-make-offer",
-  components:{
-    AlertRedIcon
-  },
+  components:{},
   props:{
     group:{
         type:String,

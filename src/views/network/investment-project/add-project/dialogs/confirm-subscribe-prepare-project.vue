@@ -38,11 +38,11 @@
 <script>
 
 export default {
-    name:'confirm-subscribe-project',
+    name:'confirm-subscribe-prepare-project',
     props:{
         group:{
             type:String,
-            default:'confirm-subscribe-project'
+            default:'confirm-subscribe-prepare-project'
         }
     },
     components:{
@@ -58,7 +58,7 @@ export default {
             this.fireCloseDialog(this.group)
         },
         openCheckOutPage(){
-            this.fireOpenDialog('checkout-project-physical',{item:{amount:2500}})
+            this.fireOpenDialog('checkout-prepare-project-physical',{item:{amount:2500}})
             this.closeEvent()
         },
         closeDialog(){
