@@ -1,7 +1,7 @@
 <template>
     <div style="margin-top: 96px;" class="">
         <div class="container">
-            <div class="row rounded-4 p-2 bgc-secondary">
+            <div v-if="itemForm.investment_type=='physical'" class="row rounded-4 p-2 bgc-secondary">
                 <div class="col-md-8">
                     <h3 class="text-warning-message title-page-in-proj-re">
                         تنبيه مهم لطلب استثمار مادي
@@ -22,6 +22,7 @@
                 </div>
 
             </div>
+            <div v-else class="py-5"></div>
             <div class="row mt-4">
                 <div class="col-md-5">
                     <h4>طلب عرض المشروع للاستثمار</h4>
