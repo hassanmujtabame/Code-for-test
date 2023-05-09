@@ -6,14 +6,14 @@
                                         <div  class="schedule-card__body p-2">
                                  
                                             <p class="schedule-card__title text-two-lines">{{title}}</p>
-                                            <p >
+                                            <p style="margin-bottom:5px" >
                                                 <d-calendar-icon :size="24" color="#737373"/>
                                                
                                                    <span>
                                                   {{ date }}
                                                    </span> 
                                             </p>
-                                            <p >
+                                            <p style="margin-bottom:5px">
                                                 <d-timer-icon :size="24" color="#737373"/>
                                                
                                                    <span>
