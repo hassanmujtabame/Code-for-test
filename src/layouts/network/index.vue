@@ -22,6 +22,7 @@
             <d-success-message />
             <d-standard-rate-dialog />
             <d-confirm-message />
+            <d-share-social-media/>
          
     </div>
   </template>

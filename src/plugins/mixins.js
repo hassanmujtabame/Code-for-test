@@ -60,6 +60,9 @@ const mixin = {
               this.fireOpenDialog('abuse-dialog-standard',data)
 
             },
+            showShareSocialMedia(data={}){
+              this.fireOpenDialog('share-dialog-standard',data)
+            },
             showSendMsgProvider(userInfo){
               let dataEvent={
                 formData:{user_id:userInfo.id},
@@ -519,11 +522,27 @@ const mixin = {
                 let incubators=inc??this.userSubIncubators;
                 return incubators.some(i=>i.subscribe && i.department_id == dept.id)
               },
-              addScriptJs(text){
+              addScriptJs(text,id){
                 let script = document.createElement('script');
+                if(id) script.setAttribute('id',id)
                 let scr = document.createTextNode(text);
                 script.appendChild(scr)
               document.body.appendChild(script)
+            },
+            loadJSWithId(src,id,async=true,defer=false){
+              const plugin = document.createElement("script");
+              plugin.setAttribute(
+              "src",
+              src
+            );
+            plugin.setAttribute(
+              "id",
+              id
+            );
+            if(defer)
+            plugin.setAttribute("defer",true)
+            plugin.async = async;
+            document.body.appendChild(plugin);
             },
             loadJS(src,async=true,defer=false){
               const plugin = document.createElement("script");

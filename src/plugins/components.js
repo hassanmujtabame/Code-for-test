@@ -4,6 +4,7 @@ import './audio-visual'
 import DAvatar from '@/components/avatars/img-avatar.vue'
 import DListItem from '@/components/list/d-list-item.vue'
 import DRateDialogStandard from '@/common/dialogs/rate-dialog/index.vue'
+import DShareSocialMediaDialog from '@/common/dialogs/share-social-media/index.vue'
 import DSuccessMessage from '@/common/dialogs/success-message/index.vue'
 import DConfirmMessage from '@/common/dialogs/confirm-message/index.vue'
 import DSwiper from '@/components/swiper/index.vue'
@@ -68,6 +69,7 @@ import dStepperHeadIcon from '@/components/stepper/head-icon'
 
 Vue.directive('click-outside',clickOutside)
 
+Vue.component(DShareSocialMediaDialog.name,DShareSocialMediaDialog)
 Vue.component(dStepperHead.name,dStepperHead)
 Vue.component(dStepperHeadItem.name,dStepperHeadItem)
 Vue.component(dStepperHeadIcon.name,dStepperHeadIcon)

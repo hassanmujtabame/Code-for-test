@@ -97,7 +97,7 @@
                                     <button v-else class="btn bg-main text-white" @click="openConfirmOfferDialog" >
                                        {{ $t('Make_an_offer') }}            
                                     </button>
-                                    <button class="btn border m-c">
+                                    <button @click="showShareSocialMedia" class="btn border m-c">
                                         <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
