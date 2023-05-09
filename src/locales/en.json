@@ -762,5 +762,7 @@
   "end-time": "end time",
   "meeting-url": "meeting url (zoom, google meet)",
   "story-desc": "write your story here",
-  "confirm_delete_story_message": "You are about to delete your story"
+  "confirm_delete_story_message": "You are about to delete your story",
+  "field-your-service": "field your service",
+  "the_place": "place"
 }

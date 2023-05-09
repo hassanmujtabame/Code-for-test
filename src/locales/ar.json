@@ -760,5 +760,7 @@
   "end-time": "تنتهي الساعة",
   "meeting-url": "رابط اللقاء على زوم او جوجل ميت ",
   "story-desc": "أكتبي قصتك هنا",
-  "confirm_delete_story_message": " أنت الان على وشك حذف القصة الخاصة بك"
+  "confirm_delete_story_message": " أنت الان على وشك حذف القصة الخاصة بك",
+  "field-your-service": "مجال خدمتك",
+  "the_place": "المكان"
 }

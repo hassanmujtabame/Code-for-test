@@ -1,7 +1,7 @@
 <template>
     <div style="margin-top: 96px;" class="">
         <div class="container">
-            <div v-if="itemForm.investment_type=='physical'" class="row rounded-4 p-2 bgc-secondary">
+            <div v-if="isPhysical" class="row rounded-4 p-2 bgc-secondary">
                 <div class="col-md-8">
                     <h3 class="text-warning-message title-page-in-proj-re">
                         تنبيه مهم لطلب استثمار مادي
@@ -198,7 +198,7 @@
                             </div>
                         </div>
                         <!-- investment_contract -->
-                        <div class="col-md-6">
+                        <div v-if="isPhysical" class="col-md-6">
                             <div class="mb-3">
                                 <ValidationProvider tag="div" class="row" :name="$t('investment_contract')"
                                     vid="investment_contract" rules="required|ext:pdf" v-slot="{ validate, errors }">
@@ -237,12 +237,12 @@
                             </div>
                         </div>
                         <!--category-->
-                        <div class="col-md-6" v-if="false">
+                        <div class="col-md-6" v-if="isMoral">
                             <div class="mb-3">
-                                <ValidationProvider :name="$t('category')" tag="div" class="row" vid="category_id"
+                                <ValidationProvider :name="$t('field-your-service')" tag="div" class="row" vid="category_id"
                                     rules="required" v-slot="{ errors }">
                                     <div class="col-4">
-                                        <label class="form-label m-c fw-bold"> صنف :</label>
+                                        <label class="form-label m-c fw-bold"> {{ $t('field-your-service') }}:</label>
                                     </div>
                                     <div class="col-8  d-flex  align-items-center">
                                         <select v-model="itemForm.category_id" class="form-select">
@@ -318,7 +318,28 @@
                                         </div>
                                         
                                     </div>
-                                    <div class="row mt-4">
+                                    <div v-if="isMoral" class="row">
+                                        <div class="col-md-2">
+
+                                            <h4 class=" m-c fw-bolder">
+                                                 {{ $t('the_place') }}:
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <ValidationProvider tag="div" class="row" :name="$t('the_place')"
+                                                vid="place_rent_request" rules="required" v-slot="{ errors }">
+
+                                                <div class="col-12 position-relative">
+                                                    <input v-model="itemForm.place_rent_request"
+                                                        class="w-100 border p-2" rows="2"
+                                                        placeholder="حدد مكان طلب الايجار">
+                                                    
+                                                </div>
+                                                <d-error-input v-if="errors.length" :errors="errors" />
+                                            </ValidationProvider>
+                                        </div>
+                                    </div>
+                                    <div v-if="isPhysical" class="row mt-4">
                                         <div class="col-md-2">
 
                                             <h4 class=" m-c fw-bolder">
@@ -347,7 +368,7 @@
                                             </ValidationProvider>
                                         </div>
                                     </div>
-                                    <div class="row mt-4">
+                                    <div v-if="isPhysical" class="row mt-4">
                                         <div class="col-md-2">
 
                                             <h4 class=" m-c fw-bolder">
@@ -442,7 +463,7 @@
                     <div class="border  mt-5 ">
 
                         <h3 class=" fw-bolder border-bottom p-3">
-                           {{itemForm.investment_type=='physical'?' فيديو المشروع':'صورة العرض الرئيسية للمشروع'}}
+                           {{isPhysical?' فيديو المشروع':'صورة العرض الرئيسية للمشروع'}}
                         </h3>
                         <div class="  p-2">
                             <div class="col-md-">
@@ -564,11 +585,15 @@ export default {
             problem_solved_file: null,
             description_file:null,
             video_image:null,
+            place_rent_request:'',
         }
     }),
     computed:{
         isMoral(){
             return this.itemForm.investment_type!='physical'
+        },
+        isPhysical(){
+            return this.itemForm.investment_type=='physical'
         }
     },
     methods: {
