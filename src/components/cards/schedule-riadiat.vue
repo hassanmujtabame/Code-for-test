@@ -60,6 +60,7 @@ export default {
     width: 100%;
 }
 .schedule-card__title{
-    height:48px
-}
+    height:48px;
+    margin:0;
+    }
 </style>
