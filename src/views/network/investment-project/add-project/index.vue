@@ -67,7 +67,7 @@
                                         <label class="form-label m-c fw-bold">{{ $t('project_title') }} :</label>
                                     </div>
                                     <div class="col-8">
-                                        <input v-model="itemForm.title" class="form-control col-8"
+                                        <input v-model="itemForm.title" name="title" class="form-control col-8"
                                             placeholder="أكتب عنوان بوضوح">
 
                                     </div>
@@ -85,7 +85,7 @@
                                         <label class="form-label m-c fw-bold">{{ $t('offered_property') }} :</label>
                                     </div>
                                     <div class="col-8 position-relative">
-                                        <input class="form-control" v-model.number="itemForm.offered_property"
+                                        <input class="form-control" v-model.number="itemForm.offered_property" name="offered_property" 
                                             placeholder="أدخل قيمة المبلغ ">
                                         <div style="top: 20%;left: 15px;" class="position-absolute m-c fw-bolder">
                                             %
@@ -107,7 +107,7 @@
                                         <label class="form-label m-c fw-bold">{{ $t('minimum_rent') }}  :</label>
                                     </div>
                                     <div class="col-8 position-relative ">
-                                        <input v-model="itemForm.amount_financing_required" class="form-control"
+                                        <input v-model="itemForm.amount_financing_required" class="form-control" name="amount_financing_required"
                                             placeholder="أدخل الحد الادنى للمبلغ  ">
                                         <div style="top: 20%;left: 15px;" class="position-absolute m-c fw-bolder">
                                             ريال
@@ -126,7 +126,7 @@
                                         <label class="form-label m-c fw-bold">{{ $t('maximum_rent') }}   :</label>
                                     </div>
                                     <div class="col-8 position-relative">
-                                        <input v-model="itemForm.minimum_investment" class="form-control"
+                                        <input v-model="itemForm.minimum_investment" name="minimum_investment" class="form-control"
                                             placeholder="أدخل قيمة المبلغ">
                                         <div style="top: 20%;left: 15px;" class="position-absolute m-c fw-bolder">
                                             ريال
@@ -148,7 +148,7 @@
                                         <label class="form-label m-c fw-bold">{{ $t('amount_financing_required') }}  :</label>
                                     </div>
                                     <div class="col-8 position-relative ">
-                                        <input v-model="itemForm.amount_financing_required" class="form-control"
+                                        <input v-model="itemForm.amount_financing_required" name="amount_financing_required" class="form-control"
                                             placeholder="أدخل الحد الادنى للمبلغ  ">
                                         <div style="top: 20%;left: 15px;" class="position-absolute m-c fw-bolder">
                                             ريال
@@ -167,7 +167,7 @@
                                         <label class="form-label m-c fw-bold">{{ $t('minimum_investment') }}   :</label>
                                     </div>
                                     <div class="col-8 position-relative">
-                                        <input v-model="itemForm.minimum_investment" class="form-control"
+                                        <input v-model="itemForm.minimum_investment" name="minimum_investment" class="form-control"
                                             placeholder="أدخل قيمة المبلغ">
                                         <div style="top: 20%;left: 15px;" class="position-absolute m-c fw-bolder">
                                             ريال
@@ -186,7 +186,7 @@
                                     <div class="col-4">
                                         <label class="form-label m-c fw-bold">{{ $t('project_close_session') }}   :</label>
                                     </div>
-                                    <div class="col-8 position-relative d-flex  align-items-center">
+                                    <div class="col-8 position-relative d-flex  align-items-center" name="end_date">
                                         <date-picker-input class="form-control " mode="date" v-model="itemForm.end_date"
                                             placeholder="حدد التاريخ" />
                                         <div class="m-c fw-bolder">
@@ -213,7 +213,7 @@
                                             <span id="selected_filename" class="mx-3 gray font-13 ">
                                                {{ $t('upload_contract') }} 
                                             </span>
-                                            <input class="form-control opacity-0 w-100 position-absolute" type="file"
+                                            <input class="form-control opacity-0 w-100 position-absolute" name="investment_contract"  type="file"
                                                 @change="uploadContract($event) || validate($event)">
 
                                             <label for="fileinput1" class="form-label">
@@ -245,7 +245,7 @@
                                         <label class="form-label m-c fw-bold"> {{ $t('field-your-service') }}:</label>
                                     </div>
                                     <div class="col-8  d-flex  align-items-center">
-                                        <select v-model="itemForm.category_id" class="form-select">
+                                        <select v-model="itemForm.category_id" class="form-select" name="category_id">
                                             <option disabled value="" class="t-c"> تصنيفات </option>
                                             <option :key="i" v-for="(option, i) in categories" :value="option.id">
                                                 {{ option.name }}
@@ -278,7 +278,7 @@
                                                 vid="your_request" rules="required" v-slot="{ errors }">
 
                                                 <div class="col-12 position-relative">
-                                                    <textarea v-model="itemForm.your_request"
+                                                    <textarea v-model="itemForm.your_request" name="your_request"
                                                         class="w-100 border p-2" rows="2"
                                                         placeholder="أكتب  في سطرين ماذا تريد">
                                                     </textarea>
@@ -298,7 +298,7 @@
                                             <ValidationProvider tag="div" class="row" :name="$t('about_project')"
                                                 vid="description" rules="required" v-slot="{ errors }">
 
-                                                <div class="col-12 position-relative">
+                                                <div class="col-12 position-relative" name="description">
                                                     <d-ckeditor-classic v-model="itemForm.description"
                                                     :editorConfig="editorConfig"
                                                         class="w-100 border p-2" rows="15"
@@ -312,7 +312,7 @@
                                            
                                             <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('attachment')"
                                                 vid="description_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
-                                            <InputFile @change="loadStandardFile($event,validate,'description_file') || validate($event)" />
+                                            <InputFile name="description_file" @change="loadStandardFile($event,validate,'description_file') || validate($event)" />
                                             <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
                                         </div>
@@ -330,7 +330,7 @@
                                                 vid="place_rent_request" rules="required" v-slot="{ errors }">
 
                                                 <div class="col-12 position-relative">
-                                                    <input v-model="itemForm.place_rent_request"
+                                                    <input name="place_rent_request" v-model="itemForm.place_rent_request"
                                                         class="w-100 border p-2" rows="2"
                                                         placeholder="حدد مكان طلب الايجار">
                                                     
@@ -350,7 +350,7 @@
                                             <ValidationProvider tag="div" class="row" :name="$t('problem_for_solving')"
                                                 vid="problem_solved" rules="required" v-slot="{ errors }">
 
-                                                <div class="col-12 position-relative">
+                                                <div class="col-12 position-relative" name="problem_solved">
                                                     <d-ckeditor-classic v-model="itemForm.problem_solved"
                                                     :editorConfig="editorConfig"
                                                         class="w-100 border p-2" rows="15"
@@ -363,7 +363,7 @@
 
                                             <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('attachment')"
                                                 vid="problem_solved_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
-                                            <InputFile @change="loadStandardFile($event,validate,'problem_solved_file') || validate($event)" />
+                                            <InputFile name="problem_solved_file" @change="loadStandardFile($event,validate,'problem_solved_file') || validate($event)" />
                                             <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
                                         </div>
@@ -379,10 +379,11 @@
                                             <ValidationProvider tag="div" class="row" :name="$t('future_plan')"
                                                 vid="future_plan" rules="required" v-slot="{ errors }">
 
-                                                <div class="col-12 position-relative">
+                                                <div class="col-12 position-relative" name="future_plan">
                                                     <d-ckeditor-classic v-model="itemForm.future_plan"
                                                     :editorConfig="editorConfig"
                                                         class="w-100 border p-2" rows="15"
+                                                        name="future_plan"
                                                         placeholder="أكتب عن  خطتك للمستقبل وعن الاهداف التي ترغب في تحقيقها">
                                                     </d-ckeditor-classic>
                                                 </div>
@@ -391,7 +392,7 @@
                                             
                                             <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('attachment')"
                                                 vid="future_plan_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
-                                            <InputFile @change="loadStandardFile($event,validate,'future_plan_file') || validate($event)" />
+                                            <InputFile name="future_plan_file" @change="loadStandardFile($event,validate,'future_plan_file') || validate($event)" />
                                             <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
                                         </div>
@@ -417,17 +418,18 @@
                                             <ValidationProvider tag="div" class="row" :name="$t('about_team')"
                                                 vid="description_user" rules="required" v-slot="{ errors }">
 
-                                                <div class="col-12 position-relative">
+                                                <div class="col-12 position-relative" name="description_user">
                                                     <d-ckeditor-classic v-model="itemForm.description_user"
                                                         class="w-100 border p-2" rows="15"
                                                         :editorConfig="editorConfig"
+                                                        name="description_user"
                                                         placeholder="أكتب بعض تفاصيل المشروع"></d-ckeditor-classic>
                                                 </div>
                                                 <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
                                             <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('about_team')"
                                                 vid="description_user_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
-                                            <InputFile @change="loadStandardFile($event,validate,'description_user_file') || validate($event)" />
+                                            <InputFile name="description_user_file" @change="loadStandardFile($event,validate,'description_user_file') || validate($event)" />
                                             <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
                                         </div>
@@ -445,7 +447,7 @@
                                                 vid="team" rules="required" v-slot="{ errors }">
 
                                                 <div class="col-12">
-                                                    <input v-model="itemForm.team"
+                                                    <input name="team" v-model="itemForm.team"
                 
                                                         class="w-100 border p-2" 
                                                         placeholder="قم بوضع @  وكتابة اسم كل فرد في فريقك"/>

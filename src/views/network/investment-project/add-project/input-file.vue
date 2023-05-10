@@ -16,7 +16,7 @@
                     fill="#979797" />
             </svg>
         </label>
-        <input class="form-control" type="file" @change="onchange($event)">
+        <input class="form-control" :name="name" type="file" @change="onchange($event)">
         <span  class="mx-3 gray font-13 ">
             ارفق صورة او فيديو
         </span>
@@ -26,6 +26,9 @@
 <script>
 export default {
     name:'input-file',
+    props:{
+        name:{}
+    },
     data:()=>{
         return {
             file:null,
