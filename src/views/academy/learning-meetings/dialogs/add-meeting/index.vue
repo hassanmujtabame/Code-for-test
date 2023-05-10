@@ -19,7 +19,7 @@
                             v-slot="{errors}"
                             v-if="step==1"
                         >
-                    <d-select-input :errors="errors" v-model="itemForm.type" :label="$t('meeting-type')" >
+                    <d-select-input name="type" :errors="errors" v-model="itemForm.type" :label="$t('meeting-type')" >
                     <option  selected disabled>{{ $t('meeting-type') }}</option>
                     <option v-for="(t,i) in types" :key="i" :value="t.id">{{ t.name }}</option>
                     </d-select-input>
@@ -33,11 +33,11 @@
                             v-slot="{errors}"
                             v-if="step==1"
                         >
-                    <d-text-input :errors="errors" v-model="itemForm.title" label="عنوان اللقاء التدريبي" />
+                    <d-text-input name="title" :errors="errors" v-model="itemForm.title" label="عنوان اللقاء التدريبي" />
                 </ValidationProvider>
                 </div>
                  <!--start_date-->
-            <div class="mt-3">
+            <div class="mt-3" name="start_date">
                         <ValidationProvider :name="$t('meeting-date')"
                             vid="start_date"
                             rules="required"
@@ -58,7 +58,7 @@
                             v-slot="{errors}"
                             v-if="step==1"
                         >
-                        <d-text-input :errors="errors" type="time" v-model="itemForm.start_time" :label="$t('start-time')" />
+                        <d-text-input name="start_time" :errors="errors" type="time" v-model="itemForm.start_time" :label="$t('start-time')" />
                 </ValidationProvider>
                 <ValidationProvider :name="$t('end-time')"
                 tag="div"
@@ -68,11 +68,11 @@
                             v-slot="{errors}"
                             v-if="step==1"
                         >
-                        <d-text-input :errors="errors" type="time" v-model="itemForm.end_time" :label="$t('end-time')" />
+                        <d-text-input name="end_time" :errors="errors" type="time" v-model="itemForm.end_time" :label="$t('end-time')" />
                 </ValidationProvider>
                 </div>
                   <!--specialite -->
-                  <div class="mt-3">
+                  <div class="mt-3" name="category_id">
                     
                     <ValidationProvider :name="$t('meeting-field')"
                     vid="category_id"
@@ -98,7 +98,7 @@
                     v-slot="{errors}"
                     v-if="step==1"
                     >
-                    <d-text-input type="text" :errors="errors"  v-model="itemForm.meeting_url"  :label="$t('meeting-url')" />
+                    <d-text-input name="meeting_url" type="text" :errors="errors"  v-model="itemForm.meeting_url"  :label="$t('meeting-url')" />
                 </ValidationProvider>
                 </div>
                 <div class="mt-3">
@@ -109,7 +109,7 @@
                     v-slot="{errors}"
                     v-if="step==1"
                     >
-                    <d-textarea-input type="text" :errors="errors" 
+                    <d-textarea-input name="content" type="text" :errors="errors" 
                     rows="10" 
                     v-model="itemForm.content"  label="عن اللقاء" />
                 </ValidationProvider>
@@ -137,7 +137,7 @@
                                 <img class="image-selected-dialog" src="none" id="meeting-image" width="100%" height="100%" />
                             </div>
                         </label>
-                        <input @change="uploadImage($event,validate) || validate($event)" class="form-control opacity-0 " type="file"
+                        <input name="image" @change="uploadImage($event,validate) || validate($event)" class="form-control opacity-0 " type="file"
                             id="imginput">
                             <d-error-input :errors="errors" v-if="errors.length!==0" />
                     </div>
@@ -170,7 +170,7 @@
                                         <div class="w-100 h-100 top-0 left-0 position-absolute">
                                           <video id="video-add-lecture-player" src="none" ></video>
                                         </div>
-                                        <input @change="uploadVideo($event,validate) || validate($event)" class="form-control hidden-file-input" type="file"
+                                        <input name="video" @change="uploadVideo($event,validate) || validate($event)" class="form-control hidden-file-input" type="file"
                                         id="video-add-lecture">
                                     </label>
                                    
@@ -210,7 +210,6 @@
         let course_types = commonAPI.getCourseTypes();
         return{
             types:course_types,
-            //course_types,
             step:1,
             showDialog:false,
             categories:[],
@@ -221,7 +220,7 @@
       },
       computed:{
         videoRules(){
-            if(this.itemForm.id || this.itemForm.course_type!=='recored'){
+            if(this.itemForm.id || this.itemForm.type!=='recored'){
                 return  this.step==2?'ext:mp4':''
             }
             return this.step==2?'required|ext:mp4':''
@@ -380,8 +379,7 @@ async uploadImage(evt,validate){
                 start_date:'',
                 start_time:'',
                 end_time:'',
-                meeting_url:'',
-                course_type:''
+                meeting_url:''
             }
             if(dataEvt){
                 let {
@@ -395,8 +393,8 @@ async uploadImage(evt,validate){
                 start_date,
                 start_time,
                 end_time,
-                meeting_url,
-                course_type} = dataEvt;
+                meeting_url
+                } = dataEvt;
                 
                 this.itemForm = Object.assign(this.itemForm,{ 
                     id, 
@@ -409,8 +407,7 @@ async uploadImage(evt,validate){
                 start_date,
                 start_time,
                 end_time,
-                meeting_url,
-                course_type})
+                meeting_url})
             }
             this.showDialog = true;
             this.$nextTick(()=>{
