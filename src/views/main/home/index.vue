@@ -5,6 +5,7 @@
       <!-- section-1 -->
       <SectMainSlider />
       <!-- #section-1 -->
+
       <div class="container  max-width-100-hidden">
         <!-- services -->
         <SectServices/>
@@ -34,7 +35,7 @@
 </template>
 
 <script>
-import SectMainSlider from './parts/section-header/main-slider.vue'
+import SectMainSlider from '@/components/home/section-header/main-slider.vue'
 import SectServices from './parts/section-services/index.vue'
 import SectCampRiadiat from './parts/section-camp-riadiat/index.vue'
 import SectConsultingRiadiat from './parts/section-consulting/index.vue'
