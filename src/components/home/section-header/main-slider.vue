@@ -8,7 +8,7 @@
         <div class="col-xl-7 text">
           <h1 class="header-title-page">{{ $t('page-home-title') }}</h1>
           <p class="header-desc-page">{{ $t('page-home-desc') }}</p>
-          <div class v-if="!authenticated">
+          <div class v-if="!isAuthenticated">
             <button class="btn-customer mx-3" @click="router_push('register')">انضمي الان</button>
             <router-link custom :to="getRouteLocale('login')" v-slot="{navigate}">
               <button class="btn-customer-w" @click="navigate">سجلي دخولك</button>
@@ -24,8 +24,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: "section-header"
+  name: "section-header",
+  computed:{
+    ...mapGetters({
+          isAuthenticated: 'auth/authenticated',
+      })
+  }
 };
 </script>
 
