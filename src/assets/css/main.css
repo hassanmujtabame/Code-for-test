@@ -375,6 +375,7 @@ nav .lang {
     line-height: 1.5 !important;
     width: 25px !important;
     border-radius: 5px !important;
+    margin: 0 -10px;
 }
 
 .owl-theme .owl-nav .owl-prev {

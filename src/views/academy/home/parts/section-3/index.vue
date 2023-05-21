@@ -1,6 +1,6 @@
 <template>
    <div class="container">
-            <div class="sec-three mt-5">
+            <div class="mt-5">
                 <d-carousel>
                   <div style="height: 287.9px" class="item">
                     <d-carousel-slide>

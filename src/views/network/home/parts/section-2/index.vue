@@ -77,7 +77,7 @@
 
                 </div>
             </div>
-            <div class="sec-three mt-5">
+            <div class=" mt-5">
                 <div class="feature-carousel owl-carousel owl-theme">
                   <div style="height: 287.9px" class="item">
                     <div class="carwsel-slider-item rounded-4">
