@@ -1,5 +1,5 @@
 <template>
-  <div style="overflow: hidden;" class="sec-four mt-5">
+  <div class="container mt-5">
           <div class="row align-items-center">
             <div class="col-md-6" data-aos="fade-left"  data-aos-duration="2000">
               <h2>{{ $t('Riadiat-consulting') }}</h2>
