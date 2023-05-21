@@ -2247,7 +2247,6 @@ input[name="card.number"]{
 }
 
 .mobile-layout .nav.nav-pills{
-    flex-wrap: nowrap;
     overflow-x: auto;
 }
 .mobile-layout .nav.nav-pills::-webkit-scrollbar{
