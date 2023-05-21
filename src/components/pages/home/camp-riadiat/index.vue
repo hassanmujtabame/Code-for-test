@@ -187,6 +187,7 @@ export default {
       margin: 10,
       nav: true,
       rtl: true,
+      autoplay: true,
       responsive: {
         0: {
           items: 1,
