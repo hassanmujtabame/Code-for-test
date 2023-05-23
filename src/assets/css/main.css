@@ -1924,7 +1924,7 @@ select.show-arrow{
     /*height: 30px;*/
 }
 .btn-main {
-    height: 36px;
+    /* height: 36px; */
 }
 }
 @media screen and (max-width:300px){
