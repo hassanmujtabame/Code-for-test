@@ -31,7 +31,7 @@
             aria-label="Close"
           ></button>
         </div>
-        <ul class="navbar-nav me-4 mb-2 mb-lg-0">
+        <ul class="navbar-nav me-4 mb-2 mb-lg-0 align-items-center">
           <slot :closeNavList="closeNavList" :clickLink="clickLink"></slot>
         </ul>
         <div>
