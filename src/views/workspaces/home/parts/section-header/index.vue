@@ -1,32 +1,21 @@
 <template>
-  <div class="">
-    <div class="workspaces-img">
-      <div
-        :style="{ height: isMobile ? '400px' : '600px' }"
-        class="container d-flex flex-column justify-content-center align-items-center py-5"
-      >
-        <h1 class="service-provider-header_title" :class="{ mobile: isMobile }">
-          أهلاً و مرحباً بك في أماكن العمل
-        </h1>
-        <h6
-          class="service-provider-header_subtitle"
-          :class="{ mobile: isMobile }"
-        >
-          حافظ على إنتاجيتك مع مساحات العمل الحديثة والآمنة في شبكة رياديات
-        </h6>
-        <div
-          class="px-5 d-flex justify-content-ceneter"
-          :class="{ 'mx-5': !isMobile, 'mx-1': isMobile }"
-        >
-          <div class="px-3" style="flex: 1 0 75%">
-            <input
-              class="p-3 w-100 rounded-2 border-0 bg-white"
-              type="text"
-              placeholder="أين تريد أن تعمل؟"
+  <div class="consulting py-2 work-space-header">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-lg-6 text-white">
+          <h1 class="fs-1">أماكن العمل</h1>
+          <p>
+            حافظ على إنتاجيتك مع أماكن العمل الحديثة والآمنة والمجهزة بأحدث
+            الأجهزة في شبكة رياديات التي توجد في مختلف الأماكن!
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="m-auto text-end">
+            <img
+              class="img-fluid"
+              :src="`${publicPath}assets/img/Component 47.png`"
+              alt="WorkSpaceMainHeader"
             />
-          </div>
-          <div>
-            <button class="btn-main-v p-3">ابحث</button>
           </div>
         </div>
       </div>
@@ -36,49 +25,12 @@
 
 <script>
 export default {
-  name: "section-auth-header",
+  name: "WorkSpaceHeader",
 };
 </script>
 
 <style scoped>
-.service-provider-header_subtitle {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 32px;
-  /* identical to box height, or 133% */
-
-  text-align: center;
-  text-transform: capitalize;
-
-  color: #ffffff;
-
-  /* T */
-
-  text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.27);
-}
-.service-provider-header_subtitle.mobile {
-  font-size: 12px;
-  line-height: 16px;
-}
-.service-provider-header_title {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 56px;
-  line-height: 72px;
-  /* identical to box height, or 129% */
-
-  text-align: center;
-  text-transform: capitalize;
-
-  color: #ffffff;
-
-  /* T */
-
-  text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.27);
-}
-.service-provider-header_title.mobile {
-  font-size: 30px;
-  line-height: 40px;
+.work-space-header p {
+  font-size: 1.4em;
 }
 </style>
