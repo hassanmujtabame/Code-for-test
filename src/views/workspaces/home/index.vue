@@ -1,28 +1,30 @@
 <template>
-  <div style="margin-top:83px">
+  <div style="margin-top: 83px">
     <Header />
 
-  <div class="container">
-    <sectionRecents />
-    <sectionFilter />
-  </div>
+    <div class="container">
+      <Features/>
+      <sectionRecents />
+      <sectionFilter />
+    </div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/pages/workspaces/header'
-import sectionRecents from './parts/recent-workspaces'
-import sectionFilter from './parts/section-filter-list'
+import Header from "@/components/pages/workspaces/header";
+import Features from "@/components/pages/workspaces/features";
+import sectionRecents from "./parts/recent-workspaces";
+import sectionFilter from "./parts/section-filter-list";
 export default {
-name:'orkspacesPage',
-components:{
+  name: "orkspacesPage",
+  components: {
     Header,
+    Features,
     sectionRecents,
-    sectionFilter
-}
-}
+    sectionFilter,
+  },
+};
 </script>
 
 <style>
-
 </style>
