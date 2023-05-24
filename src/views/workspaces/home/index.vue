@@ -1,6 +1,6 @@
 <template>
-  <div style="margin-top:86px">
-    <sectionHeader />
+  <div style="margin-top:83px">
+    <Header />
 
   <div class="container">
     <sectionRecents />
@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import sectionHeader from './parts/section-header'
+import Header from '@/components/pages/workspaces/header'
 import sectionRecents from './parts/recent-workspaces'
 import sectionFilter from './parts/section-filter-list'
 export default {
-name:'workspaces-page',
+name:'orkspacesPage',
 components:{
-    sectionHeader,
+    Header,
     sectionRecents,
     sectionFilter
 }
