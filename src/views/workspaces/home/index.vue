@@ -13,7 +13,7 @@ import Features from "@/components/pages/workspaces/features";
 import RecentWorkspaces from "@/components/pages/workspaces/recent-workspaces";
 import sectionFilter from "./parts/section-filter-list";
 export default {
-  name: "orkspacesPage",
+  name: "WorkspacesPage",
   components: {
     Header,
     Features,

@@ -7,7 +7,7 @@
     >
       <h5 class="m-c fw-bolder m-0">تصنيف أماكن العمل :</h5>
       <template v-for="(btn, i) in categories">
-        <li v-if="true" :key="i" class="nav-item">
+        <li :key="i" class="nav-item">
           <button
             @click="changeCategories(btn.id)"
             class="nav-link"
@@ -23,12 +23,8 @@
     <d-filter-list
       :call-list="loadList"
       @change="changeFilter"
-      classColCard="col-md-3  mt-3"
+      classColCard="col-lg-6 mt-3"
     >
-      <template v-slot:total>
-        <h3 class="t-c"></h3>
-      </template>
-
       <template v-slot="{ item }">
         <router-link
           class="router-link"
@@ -60,30 +56,14 @@ export default {
     workspaceCard,
     sidebarBox,
   },
-  data: (vm) => {
-    let itemTest = {
-      id: 44,
-      title: "الورود",
-      price: 20,
-      company: "ش الملك عبد الله، الورود",
-      user_info: { name: "سارة" },
-      image: `${vm.publicPath}assets/img/Rectangle -network.png`,
-      description:
-        "نبذة عن مساحة العمل نبذة عن مساحة العمل نبذة عن مساحة العمل نبذة عن مساحة العمل",
-    };
-    let itemsTest = [];
-    itemsTest.push(itemTest);
-    itemsTest.push(itemTest);
-    itemsTest.push(itemTest);
-    itemsTest.push(itemTest);
-    itemsTest.push(itemTest);
+  data() {
     return {
-      items: itemsTest,
       filterSide: {
         state: null,
-        address: null,
+        address_id: [],
         min_price: 0,
         max_price: 1000,
+        
       },
       filterItem: {
         search: null,
@@ -95,18 +75,13 @@ export default {
       },
       categories: [
         { id: null, name: "الكل" },
-        { id: "academy", name: vm.$t("academy") },
-        { id: "service-provider", name: vm.$t("service-providers") },
+        { id: "academy", name: this.$t("academy") },
+        { id: "service-provider", name: this.$t("service-providers") },
       ],
       category_id: null,
     };
   },
-  computed: {
-    categoryName() {
-      let category = this.categories.find((cat) => cat.id == this.category_id);
-      return category.name;
-    },
-  },
+  computed: {},
   methods: {
     changeFilter(val) {
       this.filterItem = { ...this.filterItem, ...val };
@@ -125,8 +100,7 @@ export default {
         };
         return await workspaceAPI.getAll(params);
       } catch (error) {
-        console.mylog("error", error);
-        console.mylog("response", error.response);
+        console.log(error);
       }
     },
   },
