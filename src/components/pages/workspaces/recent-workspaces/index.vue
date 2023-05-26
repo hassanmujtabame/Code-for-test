@@ -27,7 +27,7 @@
             class="router-link h-100"
             :to="getRouteLocale('network-workspace-show', { id: item.id })"
           >
-            <workspaceCard
+            <WorkSpaceCard
               :title="item.title"
               :image="item.image_path"
               :company="item.city_name"
@@ -43,13 +43,13 @@
  
  <script>
 import workspaceAPI from "@/services/api/workspace";
-import workspaceCard from "@/components/cards/workspace.vue";
+import WorkSpaceCard from "@/components/pages/workspaces/recent-workspaces/WorkSpaceCard.vue";
 import plusRectRoundIcon from "@/components/icon-svg/plus-rect-round.vue";
 export default {
   name: "top-workspaces",
   components: {
     plusRectRoundIcon,
-    workspaceCard,
+    WorkSpaceCard,
   },
 
   data() {
