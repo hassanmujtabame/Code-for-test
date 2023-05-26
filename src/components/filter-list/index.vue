@@ -49,7 +49,7 @@
             </label>
           </slot>
         </div>
-        <div v-if="!hideOrder" :class="classColOrder" class="position-relative">
+        <div v-if="!hideOrder" :class="classColOrder" class="position-relative margin">
           <slot name="order">
             <select
               @change="updateFilter"
@@ -590,3 +590,12 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+@media (max-width: 991px) {
+    .margin{
+      margin-top: 15px !important;
+    }
+  }
+</style>

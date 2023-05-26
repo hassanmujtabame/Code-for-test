@@ -11,7 +11,7 @@
 import Header from "@/components/pages/workspaces/header";
 import Features from "@/components/pages/workspaces/features";
 import RecentWorkspaces from "@/components/pages/workspaces/recent-workspaces";
-import sectionFilter from "./parts/section-filter-list";
+import sectionFilter from "@/components/pages/workspaces/filter-list";
 export default {
   name: "WorkspacesPage",
   components: {
