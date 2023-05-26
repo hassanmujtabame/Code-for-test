@@ -1,62 +1,59 @@
 <template>
   <div>
-    
-    
-      <!-- section-1 -->
-      <SectMainSlider />
-      <!-- #section-1 -->
-      <div class="container  max-width-100-hidden">
-        <!-- services -->
-        <SectServices/>
-        <!--# service-->
-        <!-- section 3-->
-        <SectCampRiadiat/>
-        <!-- #section-3 -->
-        <!-- section 4 -->
-        <SectConsultingRiadiat/>
-        <!-- #section 4-->
-      </div>
+    <!-- section-1 -->
+    <SectMainSlider />
+    <!-- #section-1 -->
+
+    <!-- services -->
+    <SectServices />
+    <!--# service-->
+    <!-- section 3-->
+    <SectCampRiadiat />
+    <!-- #section-3 -->
+    <!-- section 4 -->
+    <SectConsultingRiadiat />
+    <!-- #section 4-->
     <!-- section 5 -->
     <SectTrainingCourses />
     <!-- #section 5-->
     <!-- section 6-->
-      <SectPartnerRiadiat />
+    <SectPartnerRiadiat />
     <!-- #section 6 -->
     <!-- section 7-->
-     <SectAboutUs/>
+    <SectAboutUs />
     <!-- #section 7-->
-      <!--section hear about us-->
-      <SectHearAboutUs />
-     <!-- section 8-->
-     <SectBlog v-if="false"/>
-     <!-- #section 8-->
+    <!--section hear about us-->
+    <SectHearAboutUs />
+    <!-- section 8-->
+    <SectBlog v-if="false" />
+    <!-- #section 8-->
   </div>
 </template>
 
 <script>
-import SectMainSlider from './parts/section-header/main-slider.vue'
-import SectServices from './parts/section-services/index.vue'
-import SectCampRiadiat from './parts/section-camp-riadiat/index.vue'
-import SectConsultingRiadiat from './parts/section-consulting/index.vue'
-import SectTrainingCourses from './parts/section-training-courses/index.vue'
-import SectPartnerRiadiat from './parts/section-partners/index.vue'
-import SectAboutUs from './parts/section-about-us/index.vue'
-import SectHearAboutUs from './parts/section-hear-about-us/index.vue'
-import SectBlog from './parts/section-blog/index.vue'
+import SectMainSlider from "@/components/pages/home/header/main-slider.vue";
+import SectServices from "@/components/pages/home/services/index.vue";
+import SectCampRiadiat from "@/components/pages/home/camp-riadiat/index.vue";
+import SectConsultingRiadiat from "@/components/pages/home/consulting/index.vue";
+import SectTrainingCourses from "@/components/pages/home/training-courses/index.vue";
+import SectPartnerRiadiat from "./parts/section-partners/index.vue";
+import SectAboutUs from "./parts/section-about-us/index.vue";
+import SectHearAboutUs from "./parts/section-hear-about-us/index.vue";
+import SectBlog from "./parts/section-blog/index.vue";
 export default {
-  name: 'IndexView',
+  name: "IndexView",
   metaInfo: {
-      title: 'ريادات- Riadiat',
-      titleTemplate:null,
-      meta: [
-      { name: 'description', content: 'ريادات- Riadiat' },
+    title: "ريادات- Riadiat",
+    titleTemplate: null,
+    meta: [
+      { name: "description", content: "ريادات- Riadiat" },
       // Facebook meta tags
-      { property: 'og:title', content: 'ريادات- Riadiat' },
-      { property: 'og:description', content: 'Your Description' },
-      { property: 'og:image', content: 'Your Image URL' },
-      { property: 'og:url', content: 'Your URL' }
-  ]
-    },
+      { property: "og:title", content: "ريادات- Riadiat" },
+      { property: "og:description", content: "Your Description" },
+      { property: "og:image", content: "Your Image URL" },
+      { property: "og:url", content: "Your URL" },
+    ],
+  },
   components: {
     SectMainSlider,
     SectServices,
@@ -66,10 +63,8 @@ export default {
     SectPartnerRiadiat,
     SectAboutUs,
     SectBlog,
-    SectHearAboutUs
+    SectHearAboutUs,
   },
-  data:()=>({
-    
-  })
-}
+  data: () => ({}),
+};
 </script>

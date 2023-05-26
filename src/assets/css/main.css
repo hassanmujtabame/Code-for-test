@@ -163,6 +163,17 @@ textarea {
     line-height: 17px;
 }
 
+.btn-customer {
+    cursor: pointer;
+    background: #1FB9B3;
+    border: 1px solid #1FB9B3;
+    border-radius: 8px;
+    padding: 10px 40px;
+    color: white;
+    font-size: 16px;
+    line-height: 17px;
+}
+
 .btn-custmer-w {
     cursor: pointer;
     background: white !important;
@@ -173,6 +184,18 @@ textarea {
     font-size: 16px;
     line-height: 17px;
 }
+
+.btn-customer-w {
+    cursor: pointer;
+    background: white !important;
+    border: 1px solid #1FB9B3 !important;
+    border-radius: 8px !important;
+    padding: 10px 40px !important;
+    color: #1FB9B3 !important;
+    font-size: 16px;
+    line-height: 17px;
+}
+
 .btn-default{
     background: white;
     border: 1px solid #979797;
@@ -359,6 +382,7 @@ nav .lang {
     line-height: 1.5 !important;
     width: 25px !important;
     border-radius: 5px !important;
+    margin: 0 -10px;
 }
 
 .owl-theme .owl-nav .owl-prev {
@@ -1907,7 +1931,7 @@ select.show-arrow{
     /*height: 30px;*/
 }
 .btn-main {
-    height: 36px;
+    /* height: 36px; */
 }
 }
 @media screen and (max-width:300px){
@@ -2231,7 +2255,6 @@ input[name="card.number"]{
 }
 
 .mobile-layout .nav.nav-pills{
-    flex-wrap: nowrap;
     overflow-x: auto;
 }
 .mobile-layout .nav.nav-pills::-webkit-scrollbar{
