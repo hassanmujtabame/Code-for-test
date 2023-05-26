@@ -1,12 +1,9 @@
 <template>
   <div style="margin-top: 83px">
     <Header />
-
-    <div class="container">
-      <Features/>
-      <sectionRecents />
-      <sectionFilter />
-    </div>
+    <Features/>
+    <sectionRecents />
+    <sectionFilter />
   </div>
 </template>
 
