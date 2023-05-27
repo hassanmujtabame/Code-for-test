@@ -4,7 +4,7 @@
       {{ $t("filter") }}
     </h4>
     <d-expanded-panel class="accordion" id="accordionPanelsStayOpenExample">
-      <d-expanded-panel-item :title="$t('classification')" opened>
+      <d-expanded-panel-item :title="$t('classification')" closed>
         <div>
           <div v-for="(state, i) in states" :key="i" class="form-check">
             <input
@@ -38,7 +38,7 @@
         </div>
       </d-expanded-panel-item>
 
-      <d-expanded-panel-item :title="$t('Price')" closed>
+      <d-expanded-panel-item :title="$t('Price')" opened>
         <div class="slider-container">
           <rslider-input
             :min.sync="filter.min_price"
