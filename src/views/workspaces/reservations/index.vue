@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 83px">
+  <div>
     <Reservations />
   </div>
 </template>

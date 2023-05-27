@@ -1,6 +1,6 @@
 <template>
-    <div style="margin-top: 96px">
-      <div class="container mt-5">
+    <div class="work-space-reservations">
+      <div class="container work-space-reservations-contain">
         <d-filter-list
           :call-list="loadList"
           hideSide
@@ -8,7 +8,7 @@
           @change="changeFilter"
         >
           <template v-slot:total>
-            <h4 class="fw-bold">طلبات إستشارة</h4>
+            <h4 class="fw-bold"> حجوزات أماكن العمل  </h4>
           </template>
           <template v-slot:before-body>
             <ul class="nav nav-pills mb-3">
@@ -66,10 +66,10 @@
       return {
         status: null, //status=approve|disapprove|waiting|finished
         actions: [
-          { status: null, label: "كل طلبات" },
-          { status: "waiting", label: "طلبات بانتظار موافقتك" },
-          { status: "approve", label: "طلبات تم الموافقة عليها" },
-          { status: "finished", label: "طلبات تم الانتهاء منها" },
+          { status: null, label: "الكل" },
+          { status: "waiting", label: "لم يتم الموافقة عليها بعد" },
+          { status: "approve", label: "حجوزات قادمة" },
+          { status: "finished", label: "حجوزات سابقة" },
         ],
         filterItem: {
           search: null,
@@ -108,5 +108,9 @@
   };
   </script>
   
-  <style>
+  <style scoped>
+.work-space-reservations {
+    margin-top: 6em ;
+    background-color: #ddd;
+}
   </style>
