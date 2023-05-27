@@ -48,7 +48,7 @@
 
 <script>
 import workspaceAPI from "@/services/api/workspace";
-import workspaceCard from "@/components/pages/workspaces/recent-workspaces/WorkSpaceCard.vue";
+import workspaceCard from "@/components/pages/workspaces/home/recent-workspaces/WorkSpaceCard.vue";
 import sidebarBox from "./sidebar.vue";
 export default {
   name: "section-filter",

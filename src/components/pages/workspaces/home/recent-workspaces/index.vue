@@ -43,7 +43,7 @@
  
  <script>
 import workspaceAPI from "@/services/api/workspace";
-import WorkSpaceCard from "@/components/pages/workspaces/recent-workspaces/WorkSpaceCard.vue";
+import WorkSpaceCard from "@/components/pages/workspaces/home/recent-workspaces/WorkSpaceCard.vue";
 import plusRectRoundIcon from "@/components/icon-svg/plus-rect-round.vue";
 export default {
   name: "top-workspaces",
