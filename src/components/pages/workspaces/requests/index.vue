@@ -1,12 +1,12 @@
 <template>
-  <div class="work-space-reservations">
-    <div class="container work-space-reservations-contain">
+  <div class="work-space-requests">
+    <div class="container work-space-requests-contain">
       <d-filter-list
-        :call-list="getWorkSpacesReservations"
+        :call-list="getWorkSpacesRequests"
         hideSide
         classColCard="col-12 mt-2"
         @change="changeFilter"
-        class="filter-reservations"
+        class="filter-requests"
       >
         <template v-slot:total>
           <h4 class="fw-bold">طلبات أماكن العمل</h4>
@@ -30,20 +30,12 @@
           </ul>
         </template>
         <template v-slot:default="{ item }">
-          <ConsultingRequest
+          <WorkSpaceRequestCard
             :itemId="item.id"
             :status="item.status"
             :title="item.title"
-            :userName="item.user_info.name"
-            :dateRequest="item.start_date"
-            :timeRequest="item.available_time"
-            :place="item.city"
-            :desc="item.description"
-            :price="item.price"
-            @update-list="updateList"
-            :description="item.desc"
           >
-          </ConsultingRequest>
+          </WorkSpaceRequestCard>
         </template>
       </d-filter-list>
     </div>
@@ -52,30 +44,30 @@
   </div>
 </template>
   <script>
-import ConsultingRequest from "./card-item.vue";
+import WorkSpaceRequestCard from "./card-item.vue";
 import showConfirmSessionDialog from "./dialogs/confirm-accept/index";
 import showRescheduleDialog from "./dialogs/reschedule/index";
-import WorkspaceAPI from "@/services/api/requests/index";
+import WorkspaceAPI from "@/services/api/workspace";
 export default {
-  name: "request-invet-projects",
+  name: "WorkSpaceRequest",
   components: {
-    ConsultingRequest,
+    WorkSpaceRequestCard,
     showConfirmSessionDialog,
     showRescheduleDialog,
   },
   data: () => {
     return {
-      status: null, //status=approve|disapprove|waiting|finished
+      status: "waiting",
       actions: [
-        { status: null, label: "الكل" },
-        { status: "waiting", label: "لم يتم الموافقة عليها بعد" },
-        { status: "approve", label: "حجوزات قادمة" },
-        { status: "finished", label: "حجوزات سابقة" },
+        { status: "waiting", label: "في انتظار موافقتك" },
+        { status: "comping", label: "قادمة" },
+        { status: "current", label: "حالية" },
+        { status: "precedent", label: "سابقة" },
       ],
       filterItem: {
         search: null,
         created_at: "asc",
-        status: null,
+        status: "waiting",
       },
     };
   },
@@ -102,7 +94,6 @@ export default {
         return await WorkspaceAPI.requests.getWrkSpacesRequests(params);
       } catch (error) {
         console.log("error", error);
-        console.log("response", error.response);
       }
     },
   },
@@ -110,13 +101,28 @@ export default {
 </script>
   
   <style scoped>
-.work-space-reservations {
+.work-space-requests {
   margin-top: 83px;
-  background-color: #F6F8F9;
+  background-color: #f6f8f9;
   padding: 5rem 0;
 }
-.filter-reservations {
+.filter-requests {
   padding: 1.5em;
   border-radius: 10px;
 }
 </style>
+
+<!-- <WorkSpaceRequestCard
+:itemId="item.id"
+:status="item.status"
+:title="item.title"
+:userName="item.user_info.name"
+:dateRequest="item.start_date"
+:timeRequest="item.available_time"
+:place="item.city"
+:desc="item.description"
+:price="item.price"
+@update-list="updateList"
+:description="item.desc"
+>
+</WorkSpaceRequestCard> -->

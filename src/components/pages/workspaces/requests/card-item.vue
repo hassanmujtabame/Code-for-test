@@ -1,5 +1,5 @@
 <template>
-  <div class="consulting-request">
+  <div class="work-space-request">
     <div class="d-flex align-items-center justify-content-between">
       <div>
         <div class="d-flex">
@@ -32,7 +32,7 @@
             {{ $t("reject") }}
           </button>
         </div>
-        <div class="d-flex" v-if="status == 'approve'">
+        <div class="d-flex" v-if="status == 'waiting'">
           <button class="btn btn-custmer" @click="rescheduleRequest">
             {{ $t("reschedule") }}
           </button>

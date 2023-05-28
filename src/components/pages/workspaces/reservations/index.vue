@@ -1,12 +1,12 @@
 <template>
-  <div class="work-space-requests">
-    <div class="container work-space-requests-contain">
+  <div class="work-space-reservations">
+    <div class="container work-space-reservations-contain">
       <d-filter-list
         :call-list="getWorkSpacesReservations"
         hideSide
         classColCard="col-12 mt-2"
         @change="changeFilter"
-        class="filter-requests"
+        class="filter-reservations"
       >
         <template v-slot:total>
           <h4 class="fw-bold">حجوزات أماكن العمل</h4>
