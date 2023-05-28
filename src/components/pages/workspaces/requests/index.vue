@@ -92,14 +92,14 @@ export default {
       this.filterItem = { ...this.filterItem, ...val };
       this.fireEvent("d-filter-list-refresh");
     },
-    async getWorkSpacesReservations(metaInfo) {
+    async getWorkSpacesRequests(metaInfo) {
       try {
         let params = {
           page: metaInfo.current_page,
           paginate: 4,
           ...this.filterItem,
         };
-        return await consultingAPI.requests.getAll(params);
+        return await WorkspaceApi.requests.getAll(params);
       } catch (error) {
         console.log("error", error);
         console.log("response", error.response);

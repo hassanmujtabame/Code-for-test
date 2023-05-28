@@ -1,7 +1,8 @@
 import BaseApi from "../base-service";
+import requests from "./requests";
 
 class WorkspaceApi extends BaseApi {
-
+    requests = requests;
     getAll(params = {}) {
         let s = this.generateQueryUrl(params)
         return window.axios.get(`workspaces?${s}`);

@@ -55,7 +55,7 @@
 import ConsultingRequest from "./card-item.vue";
 import showConfirmSessionDialog from "./dialogs/confirm-accept/index";
 import showRescheduleDialog from "./dialogs/reschedule/index";
-import consultingAPI from "@/services/api/consulting/index";
+import workSpacesAPI from "@/services/api/consulting/index";
 export default {
   name: "request-invet-projects",
   components: {
