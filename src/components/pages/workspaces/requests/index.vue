@@ -55,7 +55,7 @@
 import ConsultingRequest from "./card-item.vue";
 import showConfirmSessionDialog from "./dialogs/confirm-accept/index";
 import showRescheduleDialog from "./dialogs/reschedule/index";
-import consultingAPI from "@/services/api/consulting/index";
+import WorkspaceAPI from "@/services/api/requests/index";
 export default {
   name: "request-invet-projects",
   components: {
@@ -99,7 +99,7 @@ export default {
           paginate: 4,
           ...this.filterItem,
         };
-        return await WorkspaceApi.requests.getAll(params);
+        return await WorkspaceAPI.requests.getWrkSpacesRequests(params);
       } catch (error) {
         console.log("error", error);
         console.log("response", error.response);
