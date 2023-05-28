@@ -1,15 +1,15 @@
 <template>
-  <div class="work-space-requests">
-    <div class="container work-space-requests-contain">
+  <div class="work-space-reservations">
+    <div class="container work-space-reservations-contain">
       <d-filter-list
         :call-list="getWorkSpacesReservations"
         hideSide
         classColCard="col-12 mt-2"
         @change="changeFilter"
-        class="filter-requests"
+        class="filter-reservations"
       >
         <template v-slot:total>
-          <h4 class="fw-bold">حجوزات أماكن العمل</h4>
+          <h4 class="fw-bold">طلبات أماكن العمل</h4>
         </template>
         <template v-slot:before-body>
           <ul class="nav nav-pills mb-3">
@@ -110,12 +110,12 @@ export default {
 </script>
   
   <style scoped>
-.work-space-requests {
+.work-space-reservations {
   margin-top: 83px;
   background-color: #F6F8F9;
   padding: 5rem 0;
 }
-.filter-requests {
+.filter-reservations {
   padding: 1.5em;
   border-radius: 10px;
 }
