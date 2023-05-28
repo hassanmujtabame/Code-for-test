@@ -67,10 +67,10 @@ export default {
     return {
       status: null, //status=approve|disapprove|waiting|finished
       actions: [
-        { status: null, label: "الكل" },
-        { status: "waiting", label: "لم يتم الموافقة عليها بعد" },
-        { status: "approve", label: "حجوزات قادمة" },
-        { status: "finished", label: "حجوزات سابقة" },
+        { status: null, label: "في انتظار موافقتك" },
+        { status: "waiting", label: "قادمة" },
+        { status: "approve", label: "حالية" },
+        { status: "finished", label: "سابقة" },
       ],
       filterItem: {
         search: null,
