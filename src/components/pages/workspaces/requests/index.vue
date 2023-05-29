@@ -57,9 +57,9 @@ export default {
   },
   data: () => {
     return {
-      status: "waiting",
+      status: null,
       actions: [
-        { status: "waiting", label: "في انتظار موافقتك" },
+        { status: null, label: "في انتظار موافقتك" },
         { status: "comping", label: "قادمة" },
         { status: "current", label: "حالية" },
         { status: "precedent", label: "سابقة" },
@@ -67,7 +67,7 @@ export default {
       filterItem: {
         search: null,
         created_at: "asc",
-        status: "waiting",
+        status:null,
       },
     };
   },
@@ -91,7 +91,7 @@ export default {
           paginate: 4,
           ...this.filterItem,
         };
-        return await WorkspaceAPI.requests.getWrkSpacesRequests(params);
+        return await WorkspaceAPI.requests.getWorkSpacesRequests(params);
       } catch (error) {
         console.log("error", error);
       }
