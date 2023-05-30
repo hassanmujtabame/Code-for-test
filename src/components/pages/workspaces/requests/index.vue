@@ -34,21 +34,15 @@
         </template>
       </d-filter-list>
     </div>
-    <showConfirmSessionDialog />
-    <showRescheduleDialog @update-list="updateList" />
   </div>
 </template>
   <script>
 import WorkSpaceRequestCard from "./card-item.vue";
-import showConfirmSessionDialog from "./dialogs/confirm-accept/index";
-import showRescheduleDialog from "./dialogs/reschedule/index";
 import WorkspaceAPI from "@/services/api/workspace";
 export default {
   name: "WorkSpaceRequest",
   components: {
     WorkSpaceRequestCard,
-    showConfirmSessionDialog,
-    showRescheduleDialog,
   },
   data: () => {
     return {
@@ -106,18 +100,3 @@ export default {
   border-radius: 10px;
 }
 </style>
-
-<!-- <WorkSpaceRequestCard
-:itemId="item.id"
-:status="item.status"
-:title="item.title"
-:userName="item.user_info.name"
-:dateRequest="item.start_date"
-:timeRequest="item.available_time"
-:place="item.city"
-:desc="item.description"
-:price="item.price"
-@update-list="updateList"
-:description="item.desc"
->
-</WorkSpaceRequestCard> -->
