@@ -30,11 +30,7 @@
           </ul>
         </template>
         <template v-slot:default="{ item }">
-          <WorkSpaceRequestCard
-          :company="item.company"
-          :description="item.description"
-          >
-          </WorkSpaceRequestCard>
+          <WorkSpaceRequestCard :item="item" @update-list="updateList" />
         </template>
       </d-filter-list>
     </div>
@@ -66,7 +62,7 @@ export default {
       filterItem: {
         search: null,
         created_at: "asc",
-        status:"waiting",
+        status: "waiting",
       },
     };
   },

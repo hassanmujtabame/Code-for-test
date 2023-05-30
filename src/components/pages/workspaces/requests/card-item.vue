@@ -2,42 +2,48 @@
   <div class="work-space-request">
     <div class="d-flex align-items-center">
       <span class="status">انتظار</span>
-      <p class="title">{{ company }}</p>
+      <p class="title">{{ item.company }}</p>
     </div>
 
     <div class="d-flex align-items-center icons">
       <div class="mx-3">
         <d-user-rect-icon :size="16" color="currentColor" />
-        <span class="mx-1">{{ userName ?? "N/A" }} </span>
+        <span class="mx-1">{{ item.user_info.name ?? "N/A" }} </span>
       </div>
       <div class="mx-3">
         <d-timer-icon :size="16" color="currentColor" />
-        <span class="mx-1">9ص - 12ص </span>
+        <span class="mx-1"> {{ item.start_time }} - {{ item.end_time }} </span>
       </div>
       <div class="mx-3">
         <d-calendar-icon :size="16" color="currentColor" />
-        <span class="mx-1">20/12/2022 </span>
+        <span class="mx-1">{{ item.date }} </span>
       </div>
       <div class="mx-3">
         <d-money-icon :size="16" color="currentColor" />
-        <span class="mx-1">150 ر.س/ساعة </span>
+        <span class="mx-1">{{ item.price }} ر.س/ساعة </span>
       </div>
     </div>
 
     <div class="row align-items-center">
-      <p class="t-c my-4 col-lg-8">
-        {{ description }}
-      </p>
+      <p class="t-c my-4 col-lg-8" v-html="item.description"></p>
       <div class="col-lg-4">
-        <button class="btn btn-customer" @click="acceptRequest">
-          {{ $t("accept") }}
-        </button>
-        <button
-          class="btn btn-customer btn-danger mx-2"
-          @click="confirmDisapproveRequest"
-        >
-          {{ $t("reject") }}
-        </button>
+        <div v-if="item.status === 'waiting'">
+          <button class="btn btn-customer" @click="approveWorkSpacesRequest()">
+            {{ $t("accept") }}
+          </button>
+          <button
+            class="btn btn-customer btn-danger mx-2"
+            @click="disApproveWorkSpacesRequest()"
+          >
+            {{ $t("reject") }}
+          </button>
+        </div>
+
+        <div v-if="item.status === 'approve'">
+          <button class="btn btn-customer" @click="cancelWorkSpacesRequest()">
+            {{ $t("cancel") }}
+          </button>
+        </div>
       </div>
     </div>
     <hr />
@@ -45,104 +51,62 @@
 </template>
   
   <script>
-import consultingAPI from "@/services/api/consulting";
+import WorkspaceAPI from "@/services/api/workspace";
 export default {
   name: "my-request-client-card",
   props: {
-    itemId: {
-      type: [String, Number],
-    },
-    company: {
-      type: String,
-    },
-    userName: {
-      type: String,
-    },
-    place: {
-      type: String,
-    },
-    description: {
-      type: String,
-    },
-    dateRequest: {
-      type: String,
-    },
-    timeRequest: {
-      type: String,
-    },
-    status: {
-      type: String,
+    item: {
+      type: Object,
     },
   },
 
   methods: {
-    rescheduleRequest() {
-      this.fireOpenDialog("reschedule-session", {
-        id: this.itemId,
-        session_date: this.dateRequest,
-        session_time: this.timeRequest,
-      });
-    },
-    async finishSession() {
+    async approveWorkSpacesRequest() {
       try {
-        let { data } = await consultingAPI.requests.finishedIt(this.itemId);
+        let { data } = await WorkspaceAPI.requests.approveWorkSpacesRequest(
+          this.item.id
+        );
         if (data.success) {
+          window.SwalSuccess(data.message);
+          this.$emit("update-list");
+        } else {
+          window.SwalError();
+        }
+      } catch (error) {
+        window.SwalError(error.response.data.message);
+      }
+    },
+
+    async disApproveWorkSpacesRequest() {
+      try {
+        let { data } = await WorkspaceAPI.requests.disApproveWorkSpacesRequest(
+          this.item.id
+        );
+        if (data.success) {
+          window.SwalSuccess();
           this.$emit("update-list");
         } else {
           window.SwalError(data.message);
         }
       } catch (error) {
-        //
-        window.DHelper.catchException.call(this, error, this.$refs.form);
+        window.SwalError(error.response.data.message);
       }
     },
-    confirmFinishRequest() {
-      let dataEvt = {
-        title: "انت على وشك انهاء الجلسة",
-        description: "",
-        type: "warning",
-        btns: [
-          {
-            title: this.$t("confirm-finishing-session"),
-            action: this.finishSession,
-          },
-        ],
-      };
-      this.showConfirmMsg(dataEvt);
-    },
-    acceptRequest() {
-      this.fireOpenDialog("show-session-confirmation", {
-        id: this.itemId,
-        title: this.userName,
-        description: this.description,
-      });
-    },
-    async disapproveSession() {
+
+    async cancelWorkSpacesRequest() {
       try {
-        let { data } = await consultingAPI.requests.disapproveIt(this.itemId);
+        let { data } = await WorkspaceAPI.requests.cancelWorkSpacesRequest(
+          this.item.id
+        );
         if (data.success) {
+          window.SwalSuccess();
           this.$emit("update-list");
         } else {
           window.SwalError(data.message);
         }
       } catch (error) {
-        //
-        window.DHelp.catchException.call(this, error, this.$refs.form);
+        window.SwalError(error.response.data.message);
       }
-    },
-    confirmDisapproveRequest() {
-      let dataEvt = {
-        title: "انت على وشك رفض الطلب",
-        description: "",
-        type: "warning",
-        btns: [
-          {
-            title: this.$t("confirm-rejection"),
-            action: this.disapproveSession,
-          },
-        ],
-      };
-      this.showConfirmMsg(dataEvt);
     },
   },
 };
@@ -162,7 +126,6 @@ export default {
   color: #1fb9b3;
   font-size: 20px;
 }
-
 @media (max-width: 991px) {
   .work-space-request {
     text-align: center !important;
