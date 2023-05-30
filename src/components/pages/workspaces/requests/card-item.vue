@@ -2,13 +2,13 @@
   <div class="work-space-request">
     <div class="d-flex align-items-center">
       <span class="status">انتظار</span>
-      <p class="title">غرفة مكتبية: الورود</p>
+      <p class="title">{{ company }}</p>
     </div>
 
     <div class="d-flex align-items-center icons">
       <div class="mx-3">
         <d-user-rect-icon :size="16" color="currentColor" />
-        <span class="mx-1">نهى علي</span>
+        <span class="mx-1">{{ userName ?? "N/A" }} </span>
       </div>
       <div class="mx-3">
         <d-timer-icon :size="16" color="currentColor" />
@@ -26,9 +26,7 @@
 
     <div class="row align-items-center">
       <p class="t-c my-4 col-lg-8">
-        هنا هيبقى مكتوب وصف المكان بحيث إن اليوزر يفتكر المكان حتى بدون ما يحتاج
-        يدخل هنا هيبقى مكتوب وصف المكان بحيث إن اليوزر يفتكر المكان حتى بدون ما
-        يحتاج يدخل.
+        {{ description }}
       </p>
       <div class="col-lg-4">
         <button class="btn btn-customer" @click="acceptRequest">
@@ -42,7 +40,7 @@
         </button>
       </div>
     </div>
-    <hr/>
+    <hr />
   </div>
 </template>
   
@@ -54,7 +52,7 @@ export default {
     itemId: {
       type: [String, Number],
     },
-    title: {
+    company: {
       type: String,
     },
     userName: {
@@ -63,7 +61,7 @@ export default {
     place: {
       type: String,
     },
-    desc: {
+    description: {
       type: String,
     },
     dateRequest: {
@@ -166,12 +164,12 @@ export default {
 }
 
 @media (max-width: 991px) {
-  .work-space-request{
+  .work-space-request {
     text-align: center !important;
-
   }
   .icons {
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 </style>    

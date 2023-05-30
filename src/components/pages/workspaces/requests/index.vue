@@ -29,9 +29,10 @@
             </li>
           </ul>
         </template>
-        <template v-slot:default="{  }">
+        <template v-slot:default="{ item }">
           <WorkSpaceRequestCard
-
+          :company="item.company"
+          :description="item.description"
           >
           </WorkSpaceRequestCard>
         </template>
