@@ -1,47 +1,48 @@
 <template>
   <div class="work-space-request">
-    <div class="d-flex align-items-center justify-content-between">
-      <div>
-        <div class="d-flex">
-          <h4 class="consulting-request__title">
-            {{ userName ?? "N/A" }}
-          </h4>
-        </div>
-        <div class="d-flex gap-2 flex-wrap">
-          <p class="consulting-request__info-label">
-            <d-calendar-icon :size="16" color="currentColor" />
-            {{ dateRequest }}
-          </p>
-          <p class="consulting-request__info-label">
-            <d-time-icon :size="16" color="currentColor" />
-            {{ timeFormatAMPM(timeRequest, true) }}
-          </p>
-        </div>
-        <p class="t-c w-75 m-0" v-html="desc"></p>
-      </div>
+    <div class="d-flex align-items-center">
+      <span class="status">انتظار</span>
+      <p class="title">غرفة مكتبية: الورود</p>
+    </div>
 
-      <div class="d-flex flex-column flex-shrink-0 justify-content-end">
-        <div class="d-flex" v-if="status == 'waiting'">
-          <button class="btn btn-custmer" @click="acceptRequest">
-            {{ $t("accept") }}
-          </button>
-          <button
-            class="btn btn-custmer btn-danger mx-2"
-            @click="confirmDisapproveRequest"
-          >
-            {{ $t("reject") }}
-          </button>
-        </div>
-        <div class="d-flex" v-if="status == 'waiting'">
-          <button class="btn btn-custmer" @click="rescheduleRequest">
-            {{ $t("reschedule") }}
-          </button>
-          <button class="btn btn-custmer-w mx-2" @click="confirmFinishRequest">
-            {{ $t("finished") }}
-          </button>
-        </div>
+    <div class="d-flex align-items-center icons">
+      <div class="mx-3">
+        <d-user-rect-icon :size="16" color="currentColor" />
+        <span class="mx-1">نهى علي</span>
+      </div>
+      <div class="mx-3">
+        <d-timer-icon :size="16" color="currentColor" />
+        <span class="mx-1">9ص - 12ص </span>
+      </div>
+      <div class="mx-3">
+        <d-calendar-icon :size="16" color="currentColor" />
+        <span class="mx-1">20/12/2022 </span>
+      </div>
+      <div class="mx-3">
+        <d-money-icon :size="16" color="currentColor" />
+        <span class="mx-1">150 ر.س/ساعة </span>
       </div>
     </div>
+
+    <div class="row align-items-center">
+      <p class="t-c my-4 col-lg-8">
+        هنا هيبقى مكتوب وصف المكان بحيث إن اليوزر يفتكر المكان حتى بدون ما يحتاج
+        يدخل هنا هيبقى مكتوب وصف المكان بحيث إن اليوزر يفتكر المكان حتى بدون ما
+        يحتاج يدخل.
+      </p>
+      <div class="col-lg-4">
+        <button class="btn btn-customer" @click="acceptRequest">
+          {{ $t("accept") }}
+        </button>
+        <button
+          class="btn btn-customer btn-danger mx-2"
+          @click="confirmDisapproveRequest"
+        >
+          {{ $t("reject") }}
+        </button>
+      </div>
+    </div>
+    <hr/>
   </div>
 </template>
   
@@ -150,42 +151,27 @@ export default {
 </script>
   
   <style scoped>
-.consulting-request {
-  padding: 10px;
-  border-bottom: 1px solid rgba(205, 215, 216, 1);
+.work-space-request .status {
+  margin: 10px;
+  font-size: 15px;
+  background: #ffbc00;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 10px;
 }
-.consulting-request__title {
-  font-style: normal;
-  font-weight: 400;
+.work-space-request .title {
+  margin: 0;
+  color: #1fb9b3;
   font-size: 20px;
-  line-height: 24px;
-  /* or 120% */
-
-  display: flex;
-  align-items: center;
-  text-transform: capitalize;
-
-  color: #414042;
 }
-.consulting-request__type {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  /* identical to box height, or 120% */
 
-  display: flex;
-  align-items: center;
-  text-transform: capitalize;
-  color: #f2631c;
-}
-.consulting-request__info-label {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 17px;
-  /* identical to box height, or 142% */
+@media (max-width: 991px) {
+  .work-space-request{
+    text-align: center !important;
 
-  color: #737373;
+  }
+  .icons {
+    flex-wrap: wrap;
+  }
 }
 </style>    

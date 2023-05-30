@@ -29,11 +29,9 @@
             </li>
           </ul>
         </template>
-        <template v-slot:default="{ item }">
+        <template v-slot:default="{  }">
           <WorkSpaceRequestCard
-            :itemId="item.id"
-            :status="item.status"
-            :title="item.title"
+
           >
           </WorkSpaceRequestCard>
         </template>
@@ -57,9 +55,9 @@ export default {
   },
   data: () => {
     return {
-      status: null,
+      status: "waiting",
       actions: [
-        { status: null, label: "في انتظار موافقتك" },
+        { status: "waiting", label: "في انتظار موافقتك" },
         { status: "comping", label: "قادمة" },
         { status: "current", label: "حالية" },
         { status: "precedent", label: "سابقة" },
@@ -67,7 +65,7 @@ export default {
       filterItem: {
         search: null,
         created_at: "asc",
-        status:null,
+        status:"waiting",
       },
     };
   },
