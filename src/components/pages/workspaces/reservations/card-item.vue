@@ -43,7 +43,7 @@
 
         <div>
           <button class="btn btn-customer" @click="showRateProvider">
-            {{ $t("cancel") }}
+            تقييم
           </button>
         </div>
       </div>
