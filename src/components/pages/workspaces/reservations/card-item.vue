@@ -1,138 +1,190 @@
 <template>
-  <div class="work-space-request">
-    <div class="d-flex align-items-center">
-      <span class="status">انتظار</span>
-      <p class="title">{{ item.company }}</p>
-    </div>
+  <div class="consulting-request">
+    <div class="d-flex align-items-center justify-content-between">
+      <div>
+        <div class="d-flex">
+          <h4 class="consulting-request__title">
+            {{ userName ?? "N/A" }}
+          </h4>
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+          <p class="consulting-request__info-label">
+            <d-calendar-icon :size="16" color="currentColor" />
+            {{ dateRequest }}
+          </p>
+          <p class="consulting-request__info-label">
+            <d-time-icon :size="16" color="currentColor" />
+            {{ timeFormatAMPM(timeRequest, true) }}
+          </p>
+        </div>
+        <p class="t-c w-75 m-0" v-html="desc"></p>
+      </div>
 
-    <div class="d-flex align-items-center icons">
-      <div class="mx-3">
-        <d-user-rect-icon :size="16" color="currentColor" />
-        <span class="mx-1">{{ item.user_info.name ?? "N/A" }} </span>
-      </div>
-      <div class="mx-3">
-        <d-timer-icon :size="16" color="currentColor" />
-        <span class="mx-1"> {{ item.start_time }} - {{ item.end_time }} </span>
-      </div>
-      <div class="mx-3">
-        <d-calendar-icon :size="16" color="currentColor" />
-        <span class="mx-1">{{ item.date }} </span>
-      </div>
-      <div class="mx-3">
-        <d-money-icon :size="16" color="currentColor" />
-        <span class="mx-1">{{ item.price }} ر.س/ساعة </span>
-      </div>
-    </div>
-
-    <div class="row align-items-center">
-      <p class="t-c my-4 col-lg-8" v-html="item.description"></p>
-      <div class="col-lg-4">
-        <div v-if="item.status === 'waiting'">
-          <button class="btn btn-customer" @click="approveWorkSpacesRequest()">
+      <div class="d-flex flex-column flex-shrink-0 justify-content-end">
+        <div class="d-flex" v-if="status == 'waiting'">
+          <button class="btn btn-custmer" @click="acceptRequest">
             {{ $t("accept") }}
           </button>
           <button
-            class="btn btn-customer btn-danger mx-2"
-            @click="disApproveWorkSpacesRequest()"
+            class="btn btn-custmer btn-danger mx-2"
+            @click="confirmDisapproveRequest"
           >
             {{ $t("reject") }}
           </button>
         </div>
-
-        <div v-if="item.status === 'approve'">
-          <button class="btn btn-customer" @click="cancelWorkSpacesRequest()">
-            {{ $t("cancel") }}
+        <div class="d-flex">
+          <button class="btn btn-custmer" @click="rescheduleRequest">
+            {{ $t("reschedule") }}
+          </button>
+          <button class="btn btn-custmer-w mx-2" @click="confirmFinishRequest">
+            {{ $t("finished") }}
           </button>
         </div>
       </div>
     </div>
-    <hr />
   </div>
 </template>
   
   <script>
-import WorkspaceAPI from "@/services/api/workspace";
+import consultingAPI from "@/services/api/consulting";
 export default {
   name: "my-request-client-card",
   props: {
+    itemId: {
+      type: [String, Number],
+    },
+    title: {
+      type: String,
+    },
+    userName: {
+      type: String,
+    },
+    place: {
+      type: String,
+    },
+    desc: {
+      type: String,
+    },
+    dateRequest: {
+      type: String,
+    },
+    timeRequest: {
+      type: String,
+    },
+    status: {
+      type: String,
+    },
     item: {
       type: Object,
     },
   },
 
   methods: {
-    async approveWorkSpacesRequest() {
-      try {
-        let { data } = await WorkspaceAPI.requests.approveWorkSpacesRequest(
-          this.item.id
-        );
-        if (data.success) {
-          window.SwalSuccess();
-          this.$emit("update-list");
-        } else {
-          window.SwalError();
-        }
-      } catch (error) {
-        window.SwalError(error.response.data.message);
-      }
+    rescheduleRequest() {
+      this.fireOpenDialog("reschedule-reservation", { id: this.item.id });
     },
-
-    async disApproveWorkSpacesRequest() {
+    async finishSession() {
       try {
-        let { data } = await WorkspaceAPI.requests.disApproveWorkSpacesRequest(
-          this.item.id
-        );
+        let { data } = await consultingAPI.requests.finishedIt(this.itemId);
         if (data.success) {
-          window.SwalSuccess();
           this.$emit("update-list");
         } else {
           window.SwalError(data.message);
         }
       } catch (error) {
-        window.SwalError(error.response.data.message);
+        //
+        window.DHelper.catchException.call(this, error, this.$refs.form);
       }
     },
-
-    async cancelWorkSpacesRequest() {
+    confirmFinishRequest() {
+      let dataEvt = {
+        title: "انت على وشك انهاء الجلسة",
+        description: "",
+        type: "warning",
+        btns: [
+          {
+            title: this.$t("confirm-finishing-session"),
+            action: this.finishSession,
+          },
+        ],
+      };
+      this.showConfirmMsg(dataEvt);
+    },
+    acceptRequest() {
+      this.fireOpenDialog("show-session-confirmation", {
+        id: this.itemId,
+        title: this.userName,
+        description: this.description,
+      });
+    },
+    async disapproveSession() {
       try {
-        let { data } = await WorkspaceAPI.requests.cancelWorkSpacesRequest(
-          this.item.id
-        );
+        let { data } = await consultingAPI.requests.disapproveIt(this.itemId);
         if (data.success) {
-          window.SwalSuccess();
           this.$emit("update-list");
         } else {
           window.SwalError(data.message);
         }
       } catch (error) {
-        window.SwalError(error.response.data.message);
+        //
+        window.DHelp.catchException.call(this, error, this.$refs.form);
       }
+    },
+    confirmDisapproveRequest() {
+      let dataEvt = {
+        title: "انت على وشك رفض الطلب",
+        description: "",
+        type: "warning",
+        btns: [
+          {
+            title: this.$t("confirm-rejection"),
+            action: this.disapproveSession,
+          },
+        ],
+      };
+      this.showConfirmMsg(dataEvt);
     },
   },
 };
 </script>
   
   <style scoped>
-.work-space-request .status {
-  margin: 10px;
-  font-size: 15px;
-  background: #ffbc00;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 10px;
+.consulting-request {
+  padding: 10px;
+  border-bottom: 1px solid rgba(205, 215, 216, 1);
 }
-.work-space-request .title {
-  margin: 0;
-  color: #1fb9b3;
+.consulting-request__title {
+  font-style: normal;
+  font-weight: 400;
   font-size: 20px;
+  line-height: 24px;
+  /* or 120% */
+
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+
+  color: #414042;
 }
-@media (max-width: 991px) {
-  .work-space-request {
-    text-align: center !important;
-  }
-  .icons {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.consulting-request__type {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height, or 120% */
+
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  color: #f2631c;
+}
+.consulting-request__info-label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  /* identical to box height, or 142% */
+
+  color: #737373;
 }
 </style>    
