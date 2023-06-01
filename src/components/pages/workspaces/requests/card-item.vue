@@ -67,7 +67,7 @@ export default {
           this.item.id
         );
         if (data.success) {
-          window.SwalSuccess(data.message);
+          window.SwalSuccess();
           this.$emit("update-list");
         } else {
           window.SwalError();

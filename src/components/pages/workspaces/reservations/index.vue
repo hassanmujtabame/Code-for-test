@@ -9,7 +9,7 @@
         class="filter-reservations"
       >
         <template v-slot:total>
-          <h4 class="fw-bold">طلبات أماكن العمل</h4>
+          <h4 class="fw-bold">حجوزات أماكن العمل</h4>
         </template>
         <template v-slot:before-body>
           <ul class="nav nav-pills mb-3">
@@ -30,30 +30,30 @@
           </ul>
         </template>
         <template v-slot:default="{ item }">
-          <WorkSpaceRequestCard
-            :itemId="item.id"
-            :status="item.status"
-            :title="item.title"
-          >
-          </WorkSpaceRequestCard>
+          <WorkSpaceReservationsCard :item="item" @update-list="updateList" />
         </template>
       </d-filter-list>
     </div>
-    <showConfirmSessionDialog />
+
+    <calendar />
     <showRescheduleDialog @update-list="updateList" />
   </div>
 </template>
   <script>
-import WorkSpaceRequestCard from "./card-item.vue";
+import calendar from "@/views/consulting/my-schedules/dialogs/new-schedule";
+
+import WorkSpaceReservationsCard from "./card-item.vue";
 import showConfirmSessionDialog from "./dialogs/confirm-accept/index";
 import showRescheduleDialog from "./dialogs/reschedule/index";
 import WorkspaceAPI from "@/services/api/workspace";
+
 export default {
   name: "WorkSpaceRequest",
   components: {
-    WorkSpaceRequestCard,
+    WorkSpaceReservationsCard,
     showConfirmSessionDialog,
     showRescheduleDialog,
+    calendar
   },
   data: () => {
     return {
@@ -91,7 +91,7 @@ export default {
           paginate: 4,
           ...this.filterItem,
         };
-        return await WorkspaceAPI.requests.getWorkSpaceReservations(params);
+        return await WorkspaceAPI.reservations.getWorkSpaceReservations(params);
       } catch (error) {
         console.log("error", error);
       }
@@ -100,7 +100,7 @@ export default {
 };
 </script>
   
-  <style scoped>
+<style scoped>
 .work-space-reservations {
   margin-top: 83px;
   background-color: #f6f8f9;
@@ -111,18 +111,3 @@ export default {
   border-radius: 10px;
 }
 </style>
-
-<!-- <WorkSpaceRequestCard
-:itemId="item.id"
-:status="item.status"
-:title="item.title"
-:userName="item.user_info.name"
-:dateRequest="item.start_date"
-:timeRequest="item.available_time"
-:place="item.city"
-:desc="item.description"
-:price="item.price"
-@update-list="updateList"
-:description="item.desc"
->
-</WorkSpaceRequestCard> -->
