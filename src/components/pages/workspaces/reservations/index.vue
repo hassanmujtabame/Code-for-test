@@ -34,16 +34,10 @@
         </template>
       </d-filter-list>
     </div>
-
-    <calendar />
-    <showRescheduleDialog @update-list="updateList" />
   </div>
 </template>
   <script>
-import calendar from "@/views/consulting/my-schedules/dialogs/new-schedule";
-
 import WorkSpaceReservationsCard from "./card-item.vue";
-import showConfirmSessionDialog from "./dialogs/confirm-accept/index";
 import showRescheduleDialog from "./dialogs/reschedule/index";
 import WorkspaceAPI from "@/services/api/workspace";
 
@@ -51,9 +45,7 @@ export default {
   name: "WorkSpaceRequest",
   components: {
     WorkSpaceReservationsCard,
-    showConfirmSessionDialog,
     showRescheduleDialog,
-    calendar
   },
   data: () => {
     return {

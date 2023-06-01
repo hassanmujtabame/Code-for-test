@@ -1,79 +1,62 @@
 <template>
-  <div class="consulting-request">
-    <div class="d-flex align-items-center justify-content-between">
-      <div>
-        <div class="d-flex">
-          <h4 class="consulting-request__title">
-            {{ userName ?? "N/A" }}
-          </h4>
-        </div>
-        <div class="d-flex gap-2 flex-wrap">
-          <p class="consulting-request__info-label">
-            <d-calendar-icon :size="16" color="currentColor" />
-            {{ dateRequest }}
-          </p>
-          <p class="consulting-request__info-label">
-            <d-time-icon :size="16" color="currentColor" />
-            {{ timeFormatAMPM(timeRequest, true) }}
-          </p>
-        </div>
-        <p class="t-c w-75 m-0" v-html="desc"></p>
-      </div>
+  <div class="work-space-reservation">
+    <div class="d-flex align-items-center">
+      <span class="status">انتظار</span>
+      <p class="title">{{ item.company }}</p>
+    </div>
 
-      <div class="d-flex flex-column flex-shrink-0 justify-content-end">
-        <div class="d-flex" v-if="status == 'waiting'">
-          <button class="btn btn-custmer" @click="acceptRequest">
-            {{ $t("accept") }}
-          </button>
-          <button
-            class="btn btn-custmer btn-danger mx-2"
-            @click="confirmDisapproveRequest"
-          >
-            {{ $t("reject") }}
-          </button>
-        </div>
-        <div class="d-flex">
-          <button class="btn btn-custmer" @click="rescheduleRequest">
+    <div class="d-flex align-items-center icons">
+      <div class="mx-3">
+        <d-timer-icon :size="16" color="currentColor" />
+        <span class="mx-1">
+          {{ item.start_time ?? "N/A" }} - {{ item.end_time ?? "N/A" }}
+        </span>
+      </div>
+      <div class="mx-3">
+        <d-calendar-icon :size="16" color="currentColor" />
+        <span class="mx-1">{{ item.date ?? "N/A" }} </span>
+      </div>
+      <div class="mx-3">
+        <d-localisation-icon :size="16" color="currentColor" />
+        <span class="mx-1">{{ item.address ?? "N/A" }} </span>
+      </div>
+      <div class="mx-3">
+        <d-money-icon :size="16" color="currentColor" />
+        <span class="mx-1">{{ item.price }} ر.س/ساعة </span>
+      </div>
+    </div>
+
+    <div class="row align-items-center">
+      <p class="t-c my-4 col-lg-8" v-html="item.description"></p>
+      <div class="col-lg-4">
+        <div>
+          <button class="btn btn-customer" @click="rescheduleRequest">
             {{ $t("reschedule") }}
           </button>
-          <button class="btn btn-custmer-w mx-2" @click="confirmFinishRequest">
-            {{ $t("finished") }}
+          <button
+            class="btn btn-customer btn-danger mx-2"
+            @click="openCancelPopUp"
+          >
+            الغاء
+          </button>
+        </div>
+
+        <div>
+          <button class="btn btn-customer" @click="showRateProvider">
+            {{ $t("cancel") }}
           </button>
         </div>
       </div>
     </div>
+    <hr />
   </div>
 </template>
   
   <script>
-import consultingAPI from "@/services/api/consulting";
+import WorkspaceAPI from "@/services/api/workspace";
 export default {
-  name: "my-request-client-card",
+  name: "my-reservation-client-card",
   props: {
-    itemId: {
-      type: [String, Number],
-    },
-    title: {
-      type: String,
-    },
-    userName: {
-      type: String,
-    },
-    place: {
-      type: String,
-    },
-    desc: {
-      type: String,
-    },
-    dateRequest: {
-      type: String,
-    },
-    timeRequest: {
-      type: String,
-    },
-    status: {
-      type: String,
-    },
     item: {
       type: Object,
     },
@@ -81,110 +64,101 @@ export default {
 
   methods: {
     rescheduleRequest() {
-      this.fireOpenDialog("reschedule-reservation", { id: this.item.id });
+      this.fireOpenDialog("reschedule-reservation", this.item);
     },
-    async finishSession() {
+
+    showRateProvider() {
+      let dataEvent = {
+        title: "قيم مكان العمل",
+        btns: [
+          {
+            title: "تقييم",
+            action: (evt, form) => this.rateReservation(evt, form),
+            class: "btn btn-customer",
+          },
+        ],
+      };
+      this.showRateMsg(dataEvent);
+    },
+
+    async rateReservation(dataE, form) {
+      let valid = await form.validate();
+      if (!valid) {
+        return false;
+      }
+      let formData = this.loadObjectToForm(dataE);
       try {
-        let { data } = await consultingAPI.requests.finishedIt(this.itemId);
+        let { data } = await WorkspaceAPI.reservations.rateReservation(
+          this.item.workspace_id,
+          formData
+        );
         if (data.success) {
-          this.$emit("update-list");
+          window.SwalSuccess();
         } else {
           window.SwalError(data.message);
         }
       } catch (error) {
-        //
-        window.DHelper.catchException.call(this, error, this.$refs.form);
+        return false;
       }
     },
-    confirmFinishRequest() {
+
+    // open Cancel
+    openCancelPopUp() {
       let dataEvt = {
-        title: "انت على وشك انهاء الجلسة",
-        description: "",
+        title: "هل أنت متأكد من إلغاء حجز مكان؟",
+        description: "بمجرد إلغاء الحجز سوف يتم إزالته من قائمة حجوزاتك",
         type: "warning",
         btns: [
           {
-            title: this.$t("confirm-finishing-session"),
-            action: this.finishSession,
+            title: "إلغاء",
+            action: this.reservationCanceled,
           },
         ],
       };
       this.showConfirmMsg(dataEvt);
     },
-    acceptRequest() {
-      this.fireOpenDialog("show-session-confirmation", {
-        id: this.itemId,
-        title: this.userName,
-        description: this.description,
-      });
-    },
-    async disapproveSession() {
+
+    // Cancel request
+    async reservationCanceled() {
       try {
-        let { data } = await consultingAPI.requests.disapproveIt(this.itemId);
+        let { data } = await WorkspaceAPI.reservations.reservationCanceled(
+          this.item.id
+        );
         if (data.success) {
+          window.SwalSuccess();
           this.$emit("update-list");
         } else {
           window.SwalError(data.message);
         }
       } catch (error) {
-        //
         window.DHelp.catchException.call(this, error, this.$refs.form);
       }
-    },
-    confirmDisapproveRequest() {
-      let dataEvt = {
-        title: "انت على وشك رفض الطلب",
-        description: "",
-        type: "warning",
-        btns: [
-          {
-            title: this.$t("confirm-rejection"),
-            action: this.disapproveSession,
-          },
-        ],
-      };
-      this.showConfirmMsg(dataEvt);
     },
   },
 };
 </script>
   
   <style scoped>
-.consulting-request {
-  padding: 10px;
-  border-bottom: 1px solid rgba(205, 215, 216, 1);
+.work-space-reservation .status {
+  margin: 10px;
+  font-size: 15px;
+  background: #ffbc00;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 10px;
 }
-.consulting-request__title {
-  font-style: normal;
-  font-weight: 400;
+.work-space-reservation .title {
+  margin: 0;
+  color: #1fb9b3;
   font-size: 20px;
-  line-height: 24px;
-  /* or 120% */
-
-  display: flex;
-  align-items: center;
-  text-transform: capitalize;
-
-  color: #414042;
 }
-.consulting-request__type {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  /* identical to box height, or 120% */
-
-  display: flex;
-  align-items: center;
-  text-transform: capitalize;
-  color: #f2631c;
-}
-.consulting-request__info-label {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 17px;
-  /* identical to box height, or 142% */
-
-  color: #737373;
+@media (max-width: 991px) {
+  .work-space-reservation {
+    text-align: center !important;
+  }
+  .icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 </style>    

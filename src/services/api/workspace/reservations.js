@@ -7,8 +7,14 @@ class workSpacesReservationsApi extends BaseApi {
         let queryParams = this.generateQueryUrl(params)
         return window.axios.get(`workspace/user-bookings?${queryParams}`);
     }
-    reservationReschedule() {
-        return window.axios.put(`workspace/user-bookings`);
+    reservationReschedule(id, payload) {
+        return window.axios.post(`workspace/user-bookings/${id}`, payload);
+    }
+    reservationCanceled(id) {
+        return window.axios.post(`workspace/${id}/cancel`);
+    }
+    rateReservation(workspaceId, payload) {
+        return window.axios.post(`workspace/${workspaceId}/user-rates`, payload);
     }
 }
 

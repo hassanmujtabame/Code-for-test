@@ -120,14 +120,17 @@ export default {
       }
       const formData = this.loadObjectToForm({
         ...this.form,
-        workspace_id: this.itemDialog.id,
+        workspace_id: this.itemDialog.workspace_id,
+        _method: "put",
       });
       try {
-        let { data } = await WorkspaceAPI.reservations.reservationReschedule(formData);
+        let { data } = await WorkspaceAPI.reservations.reservationReschedule(
+          this.itemDialog.id,
+          formData
+        );
         if (data.success) {
           window.SwalSuccess();
           this.$emit("update-list");
-          this.closeEvent();
         } else {
           window.SwalError(data.message);
         }
