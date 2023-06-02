@@ -16,7 +16,9 @@ class WorkspaceApi extends BaseApi {
         let s = this.generateQueryUrl(params)
         return window.axios.get(`workspaces?${s}`);
     }
-
+    getWorkSpaceCategories() {
+        return window.axios.get(`/workspace-categories`);
+    }
 }
 
 export default new WorkspaceApi();

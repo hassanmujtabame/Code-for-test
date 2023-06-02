@@ -34,7 +34,7 @@
         </template>
       </d-filter-list>
     </div>
-     <showRescheduleDialog @update-list="updateList"/>
+    <showRescheduleDialog @update-list="updateList"/>
   </div>
 </template>
   <script>
