@@ -119,7 +119,7 @@
                 <option
                   :key="i"
                   v-for="(option, i) in categories"
-                  :value="option.id"
+                  :value="option.value"
                 >
                   {{ option.title }}
                 </option>
@@ -208,6 +208,24 @@
               />
             </ValidationProvider>
           </div>
+          <div class="mb-3">
+            <ValidationProvider
+              name="تاريخ الحجز"
+              vid="date"
+              rules="required"
+              v-slot="{ errors }"
+            >
+              <d-datepicker-input
+                v-model="form.date"
+                label="تاريخ الحجز"
+                class="my-2"
+              />
+              <d-error-input
+                :errors="errors"
+                v-if="errors && errors.length > 0"
+              />
+            </ValidationProvider>
+          </div>
           <div class="mb-3 row">
             <!-- time -->
             <div class="col-23 col-md-12">
@@ -227,23 +245,48 @@
               </div>
             </div>
           </div>
-          <div class="mb-3 feature">
+          <div class="mb-3 feature row" v-if="form.category_id === 'academy'">
             <p>الامتيازات</p>
-            <div v-for="(feature, i) in features" :key="i" class="row">
-              <div class="col-12 col-lg-4 form-check">
-                <input
-                  v-model="form.features"
-                  :value="feature.id"
-                  class="form-check-input my-1"
-                  type="checkbox"
-                  :id="`checkboxFeature${i}`"
-                />
-                <label class="form-check-label" :for="`checkboxFeature${i}`">
-                  {{ feature.title }}
-                </label>
-              </div>
+            <div
+              v-for="(feature, i) in features"
+              :key="i"
+              class="col-12 col-lg-4 form-check"
+            >
+              <input
+                v-model="form.features"
+                :value="feature.id"
+                class="form-check-input my-1"
+                type="checkbox"
+                :id="`checkboxFeature${i}`"
+              />
+              <label class="form-check-label" :for="`checkboxFeature${i}`">
+                {{ feature.title }}
+              </label>
             </div>
           </div>
+          <div
+            class="mb-3 feature row"
+            v-if="form.category_id === 'service-provider'"
+          >
+            <p>مجال الاختصاص</p>
+            <div
+              v-for="(cat, i) in providerCategories"
+              :key="i"
+              class="col-12 col-lg-4 form-check"
+            >
+              <input
+                v-model="form.service_categories_ids"
+                :value="cat.id"
+                class="form-check-input my-1"
+                type="checkbox"
+                :id="`checkboxCategory${i}`"
+              />
+              <label class="form-check-label" :for="`checkboxCategory${i}`">
+                {{ cat.name }}
+              </label>
+            </div>
+          </div>
+
           <div class="mb-3">
             <ValidationProvider
               name="وصف مكان العمل"
@@ -292,10 +335,22 @@ export default {
         end_time: "",
         features: [],
         description: "",
+        service_categories_ids: [],
+        date:""
       },
       features: [],
+      providerCategories: [],
       cities: [],
-      categories: [],
+      categories: [
+        {
+          title: "الأكاديمية",
+          value: "academy",
+        },
+        {
+          title: "مقدمي الخدمة",
+          value: "service-provider",
+        },
+      ],
       selectedImages: [],
     };
   },
@@ -315,7 +370,6 @@ export default {
       this.selectedImages.forEach((image) => {
         formData.append(`images[]`, image.file);
       });
-
 
       try {
         let { data } = await WorkspaceAPI.addWorkSpace(formData);
@@ -386,23 +440,23 @@ export default {
       reader.readAsDataURL(this.file);
     },
 
-    //WorkSpace Categories
-    async getWorkSpaceCategories() {
-      try {
-        let { data } = await WorkspaceAPI.getWorkSpaceCategories();
-        if (data.success) {
-          this.categories = data.data;
-        }
-      } catch (error) {
-        console.log("error", error);
-      }
-    },
     // Cites
     async loadCities() {
       try {
         let { data } = await commonAPI.cities();
         if (data.success) {
           this.cities = data.data;
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+    },
+
+    async getServiceProviderCategories() {
+      try {
+        let { data } = await WorkspaceAPI.getServiceProviderCategories();
+        if (data.success) {
+          this.providerCategories = data.data;
         }
       } catch (error) {
         console.log("error", error);
@@ -431,6 +485,7 @@ export default {
       this.showImage = false;
       this.selectedImages = [];
       this.form.features = [];
+      this.form.service_categories_ids = [];
       return true;
     },
 
@@ -440,8 +495,8 @@ export default {
   },
   mounted() {
     this.loadCities();
-    this.getWorkSpaceCategories();
     this.getWorkspaceFeatures();
+    this.getServiceProviderCategories();
   },
 };
 </script>

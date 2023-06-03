@@ -1,5 +1,5 @@
 <template>
-  <div class="consulting py-2 work-space-header">
+  <div class="consulting py-2 work-space-header mobile-center py-2">
     <div class="container">
       <div class="row align-items-center justify-content-between">
         <div class="col-lg-6 text-white">
@@ -12,8 +12,8 @@
         <div class="col-lg-6">
           <div class="m-auto text-end">
             <img
-              class="img-fluid"
-              :src="`${publicPath}assets/img/Component 47.png`"
+              class="w-60 main-img"
+              src="@/assets/img/work-spaces/workspace-home.png"
               alt="WorkSpaceMainHeader"
             />
           </div>
@@ -32,5 +32,11 @@ export default {
 <style scoped>
 .work-space-header p {
   font-size: 1.4em;
+}
+@media (max-width: 991px) {
+
+  .main-img {
+    display: none;
+  }
 }
 </style>
