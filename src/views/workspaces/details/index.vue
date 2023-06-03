@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 85px">
     <workspaceDetails />
   </div>
 </template>

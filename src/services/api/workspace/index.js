@@ -26,7 +26,7 @@ class WorkspaceApi extends BaseApi {
         return window.axios.get(`workspace-features`);
     }
     getDetailsWorkspace(id) {
-        return window.axios.get(`workspaces${id}`);
+        return window.axios.get(`workspaces/${id}`);
     }
 }
 
