@@ -46,7 +46,7 @@
 export default {
   name: "section-gallery",
   props: {
-    item: {
+    singleWorkspace: {
       type: [Object, Array],
       require: true,
     },
@@ -60,7 +60,7 @@ export default {
   computed: {
     items() {
       let gallery = [];
-      if (this.item.medias.length) gallery = this.item.medias;
+      if (this.singleWorkspace.medias.length) gallery = this.singleWorkspace.medias;
       return gallery;
     },
   },

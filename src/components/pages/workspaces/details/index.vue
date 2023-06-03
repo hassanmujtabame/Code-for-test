@@ -15,9 +15,9 @@
 
       <div class="row">
         <div class="col-md-6 mt-5">
-          <Gallery :item="singleWorkspace" />
+          <Gallery :singleWorkspace="singleWorkspace" />
           <!--rate service-->
-          <SectionRateService :item="singleWorkspace" />
+          <SectionRate :singleWorkspace="singleWorkspace" />
           <!--share service-->
           <SectionShareService :item="singleWorkspace" />
         </div>
@@ -163,12 +163,13 @@
 
 <script>
 import Gallery from "./gallery/index.vue";
+import SectionRate from "./rate/index.vue";
+
 import showRescheduleDialog from "../reservations/dialogs/reschedule/index";
 import WorkspaceAPI from "@/services/api/workspace";
 import readyServiceAPIs from "@/services/api/service-provider/provider/ready-service";
 import SectionContinueLearning from "@/views/service-provider/common-components/section-continue-learning/index.vue";
 import SectionHear from "@/views/service-provider/common-components/section-hear/index.vue";
-import SectionRateService from "./section-rate-service/index.vue";
 import SectionShareService from "./section-share-service/index.vue";
 import ActionCrud from "./actions/crud.vue";
 import ActionForVisiter from "./actions/visiter.vue";
@@ -207,7 +208,7 @@ export default {
     ActionForVisiter,
     SectionContinueLearning,
     SectionHear,
-    SectionRateService,
+    SectionRate,
     SectionShareService,
     treeViewIcon,
     truckIcon,
