@@ -336,7 +336,7 @@ export default {
         features: [],
         description: "",
         service_categories_ids: [],
-        date:""
+        date: "",
       },
       features: [],
       providerCategories: [],
@@ -374,7 +374,8 @@ export default {
       try {
         let { data } = await WorkspaceAPI.addWorkSpace(formData);
         if (data.success) {
-          console.log("test");
+          this.fireOpenDialog("success-add-workspace");
+          this.fireCloseDialog(this.group);
         }
       } catch (error) {
         if (error.response) {

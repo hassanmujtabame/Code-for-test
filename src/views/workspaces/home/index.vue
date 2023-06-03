@@ -2,21 +2,21 @@
   <div style="margin-top: 83px">
     <WorkSpaceHome />
     <Create />
-    <addSuccessExhibitionModal />
+    <SuccessAddWorkspace />
   </div>
 </template>
 
 <script>
 import WorkSpaceHome from "@/components/pages/workspaces/home";
 import Create from "@/components/pages/workspaces/create";
-import addSuccessExhibitionModal from "@/components/pages/workspaces/create/SuccessAddExhibition.vue";
+import SuccessAddWorkspace from "@/components/pages/workspaces/create/SuccessAddWorkspace.vue";
 
 export default {
   name: "WorkspacesPage",
   components: {
     WorkSpaceHome,
     Create,
-    addSuccessExhibitionModal,
+    SuccessAddWorkspace,
   },
 };
 </script>
