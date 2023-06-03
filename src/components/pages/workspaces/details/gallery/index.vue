@@ -32,6 +32,7 @@
         :freeMode="true"
         @swiper="setThumbsSwiper"
         watch-slides-progress
+        :loop="true"
       >
         <template v-slot="{ item }">
           <img style="height: 115px" :src="item.image_path" />
@@ -40,8 +41,8 @@
     </div>
   </div>
 </template>
-  
-  <script>
+
+<script>
 export default {
   name: "section-gallery",
   props: {
@@ -50,30 +51,29 @@ export default {
       require: true,
     },
   },
-  data()  {
-    let gallery = [];
-    if (this.item.medias.length) gallery = this.item.medias.filter((x) => !!x);
-    gallery.unshift({ id: -1, image_path: this.item.image });
-
+  data() {
     return {
       thumbsSwiper: null,
       controlledSwiper: null,
-      //items:itemsTest
-      items: gallery, //??itemsTest
     };
+  },
+  computed: {
+    items() {
+      let gallery = [];
+      if (this.item.medias.length) gallery = this.item.medias;
+      return gallery;
+    },
   },
   methods: {
     setThumbsSwiper(swiper) {
-      console.log("swiper");
       this.controlledSwiper = swiper;
-      //this.thumbsSwiper = swiper;
     },
   },
   mounted() {},
 };
 </script>
-  
-  <style scoped>
+
+<style scoped>
 @media (max-width: 496px) {
   .img-cons img {
     width: 100% !important;
