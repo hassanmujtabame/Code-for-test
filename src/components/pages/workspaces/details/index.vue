@@ -9,7 +9,7 @@
             {{ singleWorkspace.title }}
           </h3>
         </div>
-        <ActionCrud :singleWorkspace="singleWorkspace" v-if="!isOwner" />
+        <ActionCrud :singleWorkspace="singleWorkspace" v-if="isOwner" />
         <ActionForVisiter v-else :singleWorkspace="singleWorkspace" />
       </div>
 
@@ -18,8 +18,6 @@
           <Gallery :singleWorkspace="singleWorkspace" />
           <!--rate service-->
           <SectionRate :singleWorkspace="singleWorkspace" />
-          <!--share service-->
-          <SectionShareService :item="singleWorkspace" />
         </div>
 
         <div class="col-md-6 mt-5">
@@ -27,7 +25,6 @@
             route-name="service-provider-show-profile"
             group-dialog="send-message-to-provider"
             :member="singleWorkspace.user_info"
-            :dataEvent="dataEventMessage"
             class="mb-3"
             v-if="!isOwner"
           />
@@ -100,12 +97,7 @@
                   <div class="col-md-auto p-2">
                     <truckIcon :size="24" color="#979797" />
                     <span> مكان التنفيذ أو التسليم : </span>
-                    <span class="m-c">
-                      {{
-                        delivery_placeToText(singleWorkspace.delivery_place) ??
-                        "N/A"
-                      }}
-                    </span>
+                    <span class="m-c"> </span>
                   </div>
                 </template>
               </div>
@@ -133,51 +125,28 @@
               </span>
             </div>
           </div>
-          <div v-if="isOwner" class="box border rounded-3 p-4 mt-3 text-center">
-            <router-link
-              :to="
-                getRouteLocale(
-                  'service-provider-purchase-requests-one-service',
-                  { id: singleWorkspace.id }
-                )
-              "
-              class="fs-3"
-            >
-              طلبات شراء هذه الخدمة
-            </router-link>
-          </div>
         </div>
       </div>
     </div>
 
     <SectionContinueLearning />
     <SectionHear />
-    <showRescheduleDialog  mode="create" />
-    <DialogRequestService />
+    <showRescheduleDialog mode="create" />
     <DialogDeleteService />
-    <DialogUpdateService />
-    <CheckOutDialog />
-    <DialogSuccessRepublishService />
   </div>
 </template>
 
 <script>
 import Gallery from "./gallery/index.vue";
 import SectionRate from "./rate/index.vue";
-
 import showRescheduleDialog from "../reservations/dialogs/reschedule/index";
 import WorkspaceAPI from "@/services/api/workspace";
-import readyServiceAPIs from "@/services/api/service-provider/provider/ready-service";
 import SectionContinueLearning from "@/views/service-provider/common-components/section-continue-learning/index.vue";
 import SectionHear from "@/views/service-provider/common-components/section-hear/index.vue";
 import SectionShareService from "./section-share-service/index.vue";
 import ActionCrud from "./actions/crud.vue";
 import ActionForVisiter from "./actions/visiter.vue";
-import DialogRequestService from "./dialog/request-service/index.vue";
 import DialogDeleteService from "@/layouts/service-provider/dialogs/del-service.vue";
-import DialogSuccessRepublishService from "@/layouts/service-provider/dialogs/success-republish-service.vue";
-import DialogUpdateService from "@/layouts/service-provider/dialogs/update-service/index.vue";
-import CheckOutDialog from "./dialog/check-out/index";
 import treeViewIcon from "@/components/icon-svg/tree-view.vue";
 import truckIcon from "@/components/icon-svg/truck.vue";
 import localisationIcon from "@/components/icon-svg/localisation.vue";
@@ -198,12 +167,8 @@ export default {
   },
   components: {
     Gallery,
-    CheckOutDialog,
     showRescheduleDialog,
     DialogDeleteService,
-    DialogSuccessRepublishService,
-    DialogRequestService,
-    DialogUpdateService,
     ActionCrud,
     ActionForVisiter,
     SectionContinueLearning,
@@ -224,10 +189,6 @@ export default {
   data() {
     return {
       metaInfo_: {},
-      dataEventMessage: {
-        formData: { user_id: null },
-        opts: {},
-      },
       loading: true,
       singleWorkspace: {},
     };
@@ -240,13 +201,6 @@ export default {
   },
 
   methods: {
-    delivery_placeToText(div) {
-      let item = readyServiceAPIs
-        .getDeliveryPlaces()
-        .data.find((x) => div == x.id);
-      return item ? item.name : div;
-    },
-
     async getDetailsWorkspace() {
       this.loading = true;
       try {
@@ -255,10 +209,7 @@ export default {
         );
         if (data.success) {
           this.singleWorkspace = data.data;
-          this.dataEventMessage.formData.user_id = data.data.user_id;
-          this.dataEventMessage.opts.user = data.data.user_info;
           this.metaInfo_ = { title: this.singleWorkspace.title };
-
           try {
             await readyServiceAPIs.setAsView(this.$route.params.id);
           } catch (error) {
