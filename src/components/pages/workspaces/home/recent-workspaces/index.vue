@@ -25,7 +25,7 @@
         <template v-slot:default="{ item }">
           <router-link
             class="router-link h-100"
-            :to="getRouteLocale('network-workspace-show', { id: item.id })"
+            :to="getRouteLocale('workspaces-details', { id: item.id })"
           >
             <WorkSpaceCard
               :title="item.title"

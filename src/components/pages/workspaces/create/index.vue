@@ -265,7 +265,7 @@
     </ValidationObserver>
     <template v-slot:actions>
       <button @click="addWorkSpace" type="button" class="btn btn-main">
-        {{ $t("publish-exhibition") }}
+        نشر
       </button>
     </template>
   </d-dialog-large>
@@ -315,6 +315,7 @@ export default {
       this.selectedImages.forEach((image) => {
         formData.append(`images[]`, image.file);
       });
+
 
       try {
         let { data } = await WorkspaceAPI.addWorkSpace(formData);
@@ -420,15 +421,16 @@ export default {
     },
 
     openDialog() {
-      this.loading = false;
-      this.file = null;
-      this.showImage = false;
-      this.selectedImages = [];
       for (var key in this.form) {
         if (this.form.hasOwnProperty(key)) {
           this.form[key] = null;
         }
       }
+      this.loading = false;
+      this.file = null;
+      this.showImage = false;
+      this.selectedImages = [];
+      this.form.features = [];
       return true;
     },
 

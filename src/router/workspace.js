@@ -24,5 +24,13 @@ const routers = [
         name: 'workspaces-requests',
         component: () => import( /* webpackChunkName: "workspaces-home" */ '../views/workspaces/requests/index.vue')
     },
+    {
+        path: 'workspaces/:id',
+        meta: {
+            layout: LayoutDefault
+        },
+        name: 'workspaces-details',
+        component: () => import( /* webpackChunkName: "workspaces-home" */ '../views/workspaces/details/index.vue')
+    },
 ]
 export default routers;

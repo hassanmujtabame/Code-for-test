@@ -17,7 +17,7 @@ class WorkspaceApi extends BaseApi {
         return window.axios.get(`workspaces?${s}`);
     }
     addWorkSpace(payload) {
-        return window.axios.post(`workspace` , payload);
+        return window.axios.post(`workspaces` , payload);
     }
     getWorkSpaceCategories() {
         return window.axios.get(`workspace-categories`);
@@ -25,7 +25,9 @@ class WorkspaceApi extends BaseApi {
     getWorkspaceFeatures() {
         return window.axios.get(`workspace-features`);
     }
-
+    getDetailsWorkspace(id) {
+        return window.axios.get(`workspaces${id}`);
+    }
 }
 
 export default new WorkspaceApi();
