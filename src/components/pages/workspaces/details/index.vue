@@ -9,15 +9,13 @@
             {{ singleWorkspace.title }}
           </h3>
         </div>
-
         <ActionCrud :singleWorkspace="singleWorkspace" v-if="!isOwner" />
-        <ActionForVisiter @suspend="suspend" v-else :singleWorkspace="singleWorkspace" />
+        <ActionForVisiter v-else :singleWorkspace="singleWorkspace" />
       </div>
 
-      <div class="row redy-services">
+      <div class="row">
         <div class="col-md-6 mt-5">
-          <!-- gallary-->
-          <SectionGallary :item="singleWorkspace" />
+          <SectionGallery :item="singleWorkspace" />
           <!--rate service-->
           <SectionRateService :item="singleWorkspace" />
           <!--share service-->
@@ -73,8 +71,7 @@
                 <div class="col-6 p-2">
                   <signPostIcon :size="24" color="#979797" />
                   <span> التصنيف: </span>
-                  <span class="m-c">
-                  </span>
+                  <span class="m-c"> </span>
                 </div>
                 <div class="col-6 p-2">
                   <timerIcon :size="24" color="#979797" />
@@ -105,7 +102,8 @@
                     <span> مكان التنفيذ أو التسليم : </span>
                     <span class="m-c">
                       {{
-                        delivery_placeToText(singleWorkspace.delivery_place) ?? "N/A"
+                        delivery_placeToText(singleWorkspace.delivery_place) ??
+                        "N/A"
                       }}
                     </span>
                   </div>
@@ -154,31 +152,29 @@
 
     <SectionContinueLearning />
     <SectionHear />
-    <DialogBooking />
+    <showRescheduleDialog  mode="create" />
     <DialogRequestService />
     <DialogDeleteService />
     <DialogUpdateService />
     <CheckOutDialog />
-    <DialogSuccessSuspendService @suspend="suspend" />
     <DialogSuccessRepublishService />
   </div>
 </template>
 
 <script>
+import showRescheduleDialog from "../reservations/dialogs/reschedule/index";
+
 import WorkspaceAPI from "@/services/api/workspace";
 import readyServiceAPIs from "@/services/api/service-provider/provider/ready-service";
 import SectionContinueLearning from "@/views/service-provider/common-components/section-continue-learning/index.vue";
 import SectionHear from "@/views/service-provider/common-components/section-hear/index.vue";
-
-import SectionGallary from "./section-gallary/index.vue";
+import SectionGallery from "./section-gallery/index.vue";
 import SectionRateService from "./section-rate-service/index.vue";
 import SectionShareService from "./section-share-service/index.vue";
 import ActionCrud from "./actions/crud.vue";
 import ActionForVisiter from "./actions/visiter.vue";
-import DialogBooking from "./dialog/booking.vue";
 import DialogRequestService from "./dialog/request-service/index.vue";
 import DialogDeleteService from "@/layouts/service-provider/dialogs/del-service.vue";
-import DialogSuccessSuspendService from "@/layouts/service-provider/dialogs/success-suspend-service.vue";
 import DialogSuccessRepublishService from "@/layouts/service-provider/dialogs/success-republish-service.vue";
 import DialogUpdateService from "@/layouts/service-provider/dialogs/update-service/index.vue";
 import CheckOutDialog from "./dialog/check-out/index";
@@ -194,20 +190,17 @@ import starIcon from "@/components/icon-svg/star-icon.vue";
 export default {
   name: "page-service-ready",
   metaInfo() {
-    console.mylog("metaInfo");
     return { ...this.metaInfo_ };
   },
   metaInfo2: {
-    // if no subcomponents specify a metaInfo.title, this title will be used
     title: "ريادات- Riadiat",
-    // all titles will be injected into this template
     titleTemplate: "%s | ريادات- Riadiat",
   },
   components: {
+    SectionGallery,
     CheckOutDialog,
-    DialogBooking,
+    showRescheduleDialog,
     DialogDeleteService,
-    DialogSuccessSuspendService,
     DialogSuccessRepublishService,
     DialogRequestService,
     DialogUpdateService,
@@ -215,7 +208,6 @@ export default {
     ActionForVisiter,
     SectionContinueLearning,
     SectionHear,
-    SectionGallary,
     SectionRateService,
     SectionShareService,
     treeViewIcon,
@@ -228,10 +220,8 @@ export default {
     lovelyIcon,
     starIcon,
   },
-  computed: {
-
-  },
-  data: () => {
+  computed: {},
+  data() {
     return {
       metaInfo_: {},
       dataEventMessage: {
@@ -256,15 +246,8 @@ export default {
         .data.find((x) => div == x.id);
       return item ? item.name : div;
     },
-    suspend(val) {
-      if (val) {
-        this.fireOpenDialog("success-suspend-service", this.singleWorkspace);
-      } else {
-        this.fireOpenDialog("success-republish-service", this.singleWorkspace);
-      }
-      this.singleWorkspace.is_suspend = val;
-    },
-    async initializing() {
+
+    async getDetailsWorkspace() {
       this.loading = true;
       try {
         let { data } = await WorkspaceAPI.getDetailsWorkspace(
@@ -291,10 +274,8 @@ export default {
       this.loading = false;
     },
   },
-  async mounted() {
-    console.mylog("before metaInfo");
-    await this.initializing();
-    console.mylog("after metaInfo");
+  mounted() {
+    this.getDetailsWorkspace();
   },
 };
 </script>

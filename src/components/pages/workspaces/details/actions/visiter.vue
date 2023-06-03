@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-6 d-flex gap-2 justify-content-end">
     <div>
-      <button class="btn-main-v" role="button">احجز الآن</button>
+      <button class="btn-main-v px-5 py-2" role="button" @click="rescheduleRequest">احجز الآن</button>
     </div>
     <div>
       <button @click="sendAbuse" class="border-0 px-3 py-1 rounded-3">
@@ -24,30 +24,6 @@
         {{ $t("submit-report") }}
       </button>
     </div>
-    <div>
-      <button
-        :disabled="loading"
-        @click="suspendItem"
-        v-if="!singleWorkspace.is_suspend"
-        style="background-color: #ffbc00"
-        class="btn-main px-3 w-100 border-0 rounded-2"
-        role="button"
-      >
-        <img :src="`${publicPath}assets/svg/suspendu.svg`" />
-        {{ $t("suspend") }}
-      </button>
-      <button
-        :disabled="loading"
-        @click="notSuspendItem"
-        v-else
-        style="height: 40px; background-color: #ffbc00"
-        class="btn-main px-3 w-100 border-0 rounded-2"
-        role="button"
-      >
-        <img :src="`${publicPath}assets/svg/suspendu.svg`" />
-        {{ $t("republish") }}
-      </button>
-    </div>
   </div>
 </template>
 
@@ -55,66 +31,21 @@
 export default {
   name: "action-for-visiter",
   props: ["singleWorkspace"],
-  data() {
-    return {
-      loading: false,
-    };
-  },
   computed: {},
   methods: {
     sendAbuse() {
       this.showAbuseDialog({
         item: this.singleWorkspace,
         form: {
-          table_type: "ready-service",
+          table_type: "workspace",
           table_id: this.singleWorkspace.id,
         },
       });
     },
-
-    openCheckout() {
-      this.fireOpenDialog("checkout-ready-service-online", {
-        item: {
-          amount: this.singleWorkspace.price,
-          title: this.singleWorkspace.title,
-        },
-        data: this.singleWorkspace,
-      });
+    rescheduleRequest() {
+      this.fireOpenDialog("reschedule-reservation", this.singleWorkspace);
     },
 
-    async suspendItem() {
-      this.loading = true;
-      try {
-        let { data } = await ServiceProviderAPIs.suspend(
-          this.singleWorkspace.id
-        );
-        if (data.success) {
-          this.is_suspend = 1;
-          this.$emit("suspend", 1);
-        }
-      } catch (error) {
-        console.log("error", error);
-        console.log("error response", error.response);
-      }
-      this.loading = false;
-    },
-
-    async notSuspendItem() {
-      this.loading = true;
-      try {
-        let { data } = await ServiceProviderAPIs.notSuspend(
-          this.singleWorkspace.id
-        );
-        if (data.success) {
-          this.is_suspend = 0;
-          this.$emit("suspend", 0);
-        }
-      } catch (error) {
-        console.log("error", error);
-        console.log("error response", error.response);
-      }
-      this.loading = false;
-    },
   },
 };
 </script>

@@ -5,7 +5,9 @@
     :openDialog="openDialog"
     :closeDialog="closeDialog"
   >
-    <template v-slot:header>إعادة جدولة الحجز</template>
+    <template v-slot:header>{{
+      mode == "create" ? "احجز الان" : "إعادة جدولة الحجز"
+    }}</template>
     <template v-slot>
       <div>
         <ValidationObserver ref="form">
@@ -96,6 +98,10 @@ export default {
       type: String,
       default: "reschedule-reservation",
     },
+    mode: {
+      type: String,
+      default: "create",
+    },
   },
 
   data() {
@@ -118,14 +124,19 @@ export default {
         this.loading = false;
         return;
       }
-      const formData = this.loadObjectToForm({
+      const payload = {
         ...this.form,
         workspace_id: this.itemDialog.workspace_id,
         _method: "put",
-      });
+      };
+      if (this.mode === "create") {
+        delete payload._method;
+      }
+      const formData = this.loadObjectToForm(payload);
+
       try {
         let { data } = await WorkspaceAPI.reservations.reservationReschedule(
-          this.itemDialog.id,
+          !this.mode === "create" ? this.itemDialog.id : "",
           formData
         );
         if (data.success) {
