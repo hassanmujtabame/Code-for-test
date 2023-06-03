@@ -1,14 +1,7 @@
 <template>
   <div class="col-md-6 d-flex gap-2 justify-content-end">
     <div>
-      <button
-        @click="openBooking"
-        style="height: 40px"
-        class="btn-main"
-        role="button"
-      >
-        {{ labelBuyBtn }}
-      </button>
+      <button class="btn-main-v" role="button">احجز الآن</button>
     </div>
     <div>
       <button @click="sendAbuse" class="border-0 px-3 py-1 rounded-3">
@@ -31,51 +24,96 @@
         {{ $t("submit-report") }}
       </button>
     </div>
+    <div>
+      <button
+        :disabled="loading"
+        @click="suspendItem"
+        v-if="!singleWorkspace.is_suspend"
+        style="background-color: #ffbc00"
+        class="btn-main px-3 w-100 border-0 rounded-2"
+        role="button"
+      >
+        <img :src="`${publicPath}assets/svg/suspendu.svg`" />
+        {{ $t("suspend") }}
+      </button>
+      <button
+        :disabled="loading"
+        @click="notSuspendItem"
+        v-else
+        style="height: 40px; background-color: #ffbc00"
+        class="btn-main px-3 w-100 border-0 rounded-2"
+        role="button"
+      >
+        <img :src="`${publicPath}assets/svg/suspendu.svg`" />
+        {{ $t("republish") }}
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "action-for-visiter",
-  props: ["itemPage"],
-  computed: {
-    labelBuyBtn() {
-      if (this.itemPage.state == "offline") return "أطلب الخدمة";
-      return "إشتري الخدمة";
-    },
+  props: ["singleWorkspace"],
+  data() {
+    return {
+      loading: false,
+    };
   },
+  computed: {},
   methods: {
     sendAbuse() {
       this.showAbuseDialog({
-        item: this.itemPage,
-        form: { table_type: "ready-service", table_id: this.itemPage.id },
+        item: this.singleWorkspace,
+        form: {
+          table_type: "ready-service",
+          table_id: this.singleWorkspace.id,
+        },
       });
     },
-    openBooking() {
-      if (this.itemPage.state == "online") {
-        this.openCheckout();
-      } else if (this.itemPage.state == "offline")
-        this.fireOpenDialog("booking-service", this.itemPage);
-      else {
-        let dataEvt = {
-          title: "انت على وشك شراء الخدمة",
-          description: `بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
-          type: "warning",
-          btns: [
-            {
-              title: this.$t("buy_service"),
-              action: () => this.openCheckout(),
-            },
-          ],
-        };
-        this.showConfirmMsg(dataEvt);
-      }
-    },
+
     openCheckout() {
       this.fireOpenDialog("checkout-ready-service-online", {
-        item: { amount: this.itemPage.price, title: this.itemPage.title },
-        data: this.itemPage,
+        item: {
+          amount: this.singleWorkspace.price,
+          title: this.singleWorkspace.title,
+        },
+        data: this.singleWorkspace,
       });
+    },
+
+    async suspendItem() {
+      this.loading = true;
+      try {
+        let { data } = await ServiceProviderAPIs.suspend(
+          this.singleWorkspace.id
+        );
+        if (data.success) {
+          this.is_suspend = 1;
+          this.$emit("suspend", 1);
+        }
+      } catch (error) {
+        console.log("error", error);
+        console.log("error response", error.response);
+      }
+      this.loading = false;
+    },
+
+    async notSuspendItem() {
+      this.loading = true;
+      try {
+        let { data } = await ServiceProviderAPIs.notSuspend(
+          this.singleWorkspace.id
+        );
+        if (data.success) {
+          this.is_suspend = 0;
+          this.$emit("suspend", 0);
+        }
+      } catch (error) {
+        console.log("error", error);
+        console.log("error response", error.response);
+      }
+      this.loading = false;
     },
   },
 };
