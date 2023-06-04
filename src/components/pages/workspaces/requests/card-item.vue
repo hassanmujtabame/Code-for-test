@@ -10,7 +10,7 @@
       <span class="status comping-status" v-if="item.status == 'comping'"
         >قادمة</span
       >
-      <p class="title">{{ item.company }}</p>
+      <p class="title">{{ item.title }}</p>
     </div>
 
     <div class="d-flex align-items-center icons">

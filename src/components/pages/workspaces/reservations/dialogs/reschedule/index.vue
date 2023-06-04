@@ -126,7 +126,7 @@ export default {
       }
       const payload = {
         ...this.form,
-        workspace_id: this.itemDialog.workspace_id,
+        workspace_id: this.itemDialog.workspace_id ?? this.itemDialog.id,
         _method: "put",
       };
       if (this.mode === "create") {
@@ -140,7 +140,7 @@ export default {
           formData
         );
         if (data.success) {
-          window.SwalSuccess();
+          window.successMgs();
           this.$emit("update-list");
         } else {
           window.SwalError(data.message);

@@ -11,7 +11,7 @@
       >قادمة</span
     >
 
-      <p class="title">{{ item.company }}</p>
+      <p class="title">{{ item.title }}</p>
     </div>
 
     <div class="d-flex align-items-center icons">
