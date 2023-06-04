@@ -75,7 +75,7 @@ export default {
           this.item.id
         );
         if (data.success) {
-          window.SwalSuccess();
+          window.successMgs();
           this.$emit("update-list");
         } else {
           window.SwalError();
@@ -91,7 +91,7 @@ export default {
           this.item.id
         );
         if (data.success) {
-          window.SwalSuccess();
+          window.successMgs();
           this.$emit("update-list");
         } else {
           window.SwalError(data.message);
