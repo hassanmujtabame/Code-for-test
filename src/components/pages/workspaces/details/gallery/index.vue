@@ -17,7 +17,7 @@
         style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
       >
         <template v-slot="{ item }">
-          <img style="height: 300px" :src="item.image_path" />
+          <img style="height: 300px" :src="item.image" />
         </template>
       </d-swiper>
     </div>
@@ -35,7 +35,7 @@
         :loop="true"
       >
         <template v-slot="{ item }">
-          <img style="height: 115px" :src="item.image_path" />
+          <img style="height: 115px" :src="item.image" />
         </template>
       </d-swiper>
     </div>
@@ -60,7 +60,8 @@ export default {
   computed: {
     items() {
       let gallery = [];
-      if (this.singleWorkspace.medias.length) gallery = this.singleWorkspace.medias;
+      if (this.singleWorkspace.medias.length)
+        gallery = this.singleWorkspace.medias;
       return gallery;
     },
   },
@@ -74,18 +75,6 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 496px) {
-  .img-cons img {
-    width: 100% !important;
-    left: 0 !important;
-  }
-
-  .img-cons {
-    background-color: white;
-    border-radius: 50%;
-    width: 100%;
-  }
-}
 .box {
   height: 300px;
 }
