@@ -53,9 +53,9 @@ export default {
       status: null,
       actions: [
         { status: null, label: "الكل" },
-        { status: "comping", label: "قادمة" },
-        { status: "current", label: "حالية" },
-        { status: "precedent", label: "سابقة" },
+        { status: "waiting", label: "لم يتم الموافقة عليها بعد" },
+        { status: "comping", label: "حجوزات قادمة" },
+        { status: "precedent", label: "حجوزات سابقة" },
       ],
       filterItem: {
         search: null,

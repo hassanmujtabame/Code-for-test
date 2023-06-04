@@ -1,7 +1,16 @@
 <template>
   <div class="work-space-reservation">
     <div class="d-flex align-items-center">
-      <span class="status">انتظار</span>
+      <span class="status waiting-status" v-if="item.status == 'waiting'"
+        >انتظار</span
+      >
+      <span class="status precedent-status" v-if="item.status == 'precedent'"
+        >سابق</span
+      >
+      <span class="status comping-status" v-if="item.status == 'comping'"
+      >قادمة</span
+    >
+
       <p class="title">{{ item.company }}</p>
     </div>
 
@@ -29,7 +38,7 @@
     <div class="row align-items-center">
       <p class="t-c my-4 col-lg-8" v-html="item.description"></p>
       <div class="col-lg-4">
-        <div>
+        <div v-if="item.status == 'waiting'">
           <button class="btn btn-customer" @click="rescheduleRequest">
             {{ $t("reschedule") }}
           </button>
@@ -41,7 +50,7 @@
           </button>
         </div>
 
-        <div>
+        <div v-if="item.status == 'precedent'">
           <button class="btn btn-customer" @click="showRateProvider">
             تقييم
           </button>
@@ -142,10 +151,19 @@ export default {
 .work-space-reservation .status {
   margin: 10px;
   font-size: 15px;
-  background: #ffbc00;
   color: white;
   padding: 10px 25px;
   border-radius: 10px;
+}
+.waiting-status {
+  background: #ffbc00;
+}
+.precedent-status{
+  background: #F2631C; 
+}
+.comping-status{ 
+  background: #1fb9b3; 
+
 }
 .work-space-reservation .title {
   margin: 0;

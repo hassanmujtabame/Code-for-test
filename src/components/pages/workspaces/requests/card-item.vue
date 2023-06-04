@@ -1,7 +1,15 @@
 <template>
   <div class="work-space-request">
     <div class="d-flex align-items-center">
-      <span class="status">انتظار</span>
+      <span class="status waiting-status" v-if="item.status == 'waiting'"
+        >انتظار</span
+      >
+      <span class="status precedent-status" v-if="item.status == 'precedent'"
+        >سابق</span
+      >
+      <span class="status comping-status" v-if="item.status == 'comping'"
+        >قادمة</span
+      >
       <p class="title">{{ item.company }}</p>
     </div>
 
@@ -39,9 +47,9 @@
           </button>
         </div>
 
-        <div v-if="item.status === 'approve'">
+        <div v-if="item.status === 'comping'">
           <button class="btn btn-customer" @click="cancelWorkSpacesRequest()">
-            {{ $t("cancel") }}
+            الغاء
           </button>
         </div>
       </div>
@@ -113,13 +121,21 @@ export default {
 </script>
   
   <style scoped>
-.work-space-request .status {
+.status {
   margin: 10px;
   font-size: 15px;
-  background: #ffbc00;
   color: white;
   padding: 10px 25px;
   border-radius: 10px;
+}
+.waiting-status {
+  background: #ffbc00;
+}
+.precedent-status {
+  background: #f2631c;
+}
+.comping-status {
+  background: #1fb9b3;
 }
 .work-space-request .title {
   margin: 0;
