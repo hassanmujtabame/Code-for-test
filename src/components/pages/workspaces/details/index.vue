@@ -9,7 +9,7 @@
             {{ singleWorkspace.title }}
           </h3>
         </div>
-        <ActionCrud :singleWorkspace="singleWorkspace" v-if="isOwner" />
+        <ActionCrud :singleWorkspace="singleWorkspace" v-if="!isOwner" />
         <ActionForVisiter v-else :singleWorkspace="singleWorkspace" />
       </div>
 
@@ -17,7 +17,7 @@
         <div class="col-md-6 mt-5">
           <Gallery :singleWorkspace="singleWorkspace" />
           <!--rate service-->
-          <SectionRate :singleWorkspace="singleWorkspace" />
+          <SectionRate :singleWorkspace="singleWorkspace" v-if="singleWorkspace.rates.length"/>
         </div>
 
         <div class="col-md-6 mt-5">

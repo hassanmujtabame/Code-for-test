@@ -1,7 +1,10 @@
 <template>
   <div class="col-md-6 d-flex gap-2 justify-content-end">
     <div>
-      <button class="btn-main-v px-5 py-2" role="button" @click="rescheduleRequest">احجز الآن</button>
+      <button class="btn-main-v px-5 py-2 h-100" role="button" @click="rescheduleRequest">احجز الآن</button>
+    </div>
+    <div>
+      <a :href="singleWorkspace.location" target="_blank" class=" google btn-main-v px-3  py-2" >العنوان </a>
     </div>
     <div>
       <button @click="sendAbuse" class="border-0 px-3 py-1 rounded-3">
@@ -50,5 +53,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.google {
+  display: block;
+}
 </style>

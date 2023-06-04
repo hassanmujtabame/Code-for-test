@@ -208,7 +208,7 @@
               />
             </ValidationProvider>
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <ValidationProvider
               name="تاريخ الحجز"
               vid="date"
@@ -225,7 +225,7 @@
                 v-if="errors && errors.length > 0"
               />
             </ValidationProvider>
-          </div>
+          </div> -->
           <div class="mb-3 row">
             <!-- time -->
             <div class="col-23 col-md-12">
@@ -336,7 +336,6 @@ export default {
         features: [],
         description: "",
         service_categories_ids: [],
-        date: "",
       },
       features: [],
       providerCategories: [],

@@ -25,6 +25,9 @@
       @change="changeFilter"
       classColCard="col-lg-6 mt-3"
     >
+      <template v-slot:total>
+        <h3 class="page-title">أماكن العمل</h3>
+      </template>
       <template v-slot="{ item }">
         <router-link
           class="router-link"
@@ -59,11 +62,10 @@ export default {
   data() {
     return {
       filterSide: {
-        state: null,
+        type: null,
         address_id: [],
         min_price: 0,
         max_price: 1000,
-        
       },
       filterItem: {
         search: null,

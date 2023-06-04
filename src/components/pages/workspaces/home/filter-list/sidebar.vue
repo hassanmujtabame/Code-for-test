@@ -6,18 +6,18 @@
     <d-expanded-panel class="accordion" id="accordionPanelsStayOpenExample">
       <d-expanded-panel-item :title="$t('classification')" closed>
         <div>
-          <div v-for="(state, i) in states" :key="i" class="form-check">
+          <div v-for="(type, i) in types" :key="i" class="form-check">
             <input
               class="form-check-input"
               type="radio"
-              :value="state.id"
-              v-model="filter.state"
-              :selected="state.id === filter.state"
+              :value="type.id"
+              v-model="filter.type"
+              :selected="type.id === filter.type"
               name="stateRadioDefault"
               :id="`flexRadioDefault${i}`"
             />
             <label class="form-check-label" :for="`flexRadioDefault${i}`">
-              {{ state.name }}
+              {{ type.name }}
             </label>
           </div>
         </div>
@@ -70,10 +70,10 @@ export default {
   },
   data() {
     return {
-      states: [
+      types: [
         { id: null, name: "الكل" },
-        { id: "1", name: "غرفة مكتبية" },
-        { id: "0", name: "قاعة الاجتماعات" },
+        { id: "office_room", name: "غرفة مكتبية" },
+        { id: "meeting_rooms", name: "قاعة الاجتماعات" },
       ],
       addresses: [],
       filter: this.filterItem,

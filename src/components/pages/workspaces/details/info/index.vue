@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-6 p-2">
           <emptyWalletIcon :size="24" color="#979797" />
-          <span> سعر </span>
+          <span> سعر :</span>
           <span class="m-c">
             {{ singleWorkspace.price }} {{ $t("riyals") }}
           </span>
@@ -22,25 +22,47 @@
 
         <div class="col-6 p-2">
           <timerIcon :size="24" color="#979797" />
-          <span> الساعات </span>
+          <span> الساعات :</span>
           <span class="m-c">
-            {{ numberToDay(singleWorkspace.execution_period) }}
+           {{ singleWorkspace.start_time }} - {{ singleWorkspace.end_time }}
+          </span>
+        </div>
+        <div class="col-6 p-2">
+          <span> المساحة :</span>
+          <span class="m-c">
+           {{ singleWorkspace.area }} متر
           </span>
         </div>
       </div>
     </div>
-    <div class="mt-4">
-      <h3 class="border-bottom p-2">الكلمات المفتاحية</h3>
+    <div class="mt-4" v-if="singleWorkspace.features.length">
+      <h3 class="border-bottom p-2">الامتيازات </h3>
       <div
         class="d-flex flex-wrap justify-content-start text-white word-intial pt-3"
       >
-        <template v-if="singleWorkspace.keywords">
+        <template >
           <p
             class="mx-1"
-            v-for="(key, i) in singleWorkspace.keywords.split(',')"
+            v-for="(key, i) in singleWorkspace.features"
             :key="i"
           >
-            {{ key }}
+            {{ key.title }}
+          </p>
+        </template>
+      </div>
+    </div>
+    <div class="mt-4" v-if="singleWorkspace.service_categories.length">
+      <h3 class="border-bottom p-2">مجال الاختصاص </h3>
+      <div
+        class="d-flex flex-wrap justify-content-start text-white word-intial pt-3"
+      >
+        <template >
+          <p
+            class="mx-1"
+            v-for="(key, i) in singleWorkspace.service_categories"
+            :key="i"
+          >
+            {{ key.title }}
           </p>
         </template>
       </div>
