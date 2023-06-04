@@ -28,6 +28,7 @@
           </span>
         </div>
         <div class="col-6 p-2">
+          <d-distance-icon :size="16" color="currentColor" />
           <span> المساحة :</span>
           <span class="m-c">
            {{ singleWorkspace.area }} متر

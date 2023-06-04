@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-6 d-flex gap-2 justify-content-end">
+  <div class="col-md-6 d-flex gap-2 crud-actions">
     <div>
       <button
         @click="openDeleteDialog"
@@ -49,5 +49,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.crud-actions {
+  justify-content: end;
+}
+@media (max-width: 991px) {
+  .crud-actions {
+    justify-content: center;
+    margin-top: 15px;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-6 d-flex gap-2 justify-content-end">
+  <div class="col-md-6 d-flex gap-2 visitor-action">
     <div>
       <button class="btn-main-v px-5 py-2 h-100" role="button" @click="rescheduleRequest">احجز الآن</button>
     </div>
@@ -56,5 +56,15 @@ export default {
 <style scoped>
 .google {
   display: block;
+}
+.visitor-action {
+  justify-content: end;
+}
+@media (max-width: 991px) {
+
+  .visitor-action {
+    justify-content: center; 
+    margin-top:15px ;
+   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="single-workspace">
+  <div class="single-workspace mobile-center">
     <d-overlays-simple v-if="loading" />
     <div v-else class="container py-4">
       <div class="row justify-content-between">
@@ -9,7 +9,7 @@
             {{ singleWorkspace.title }}
           </h3>
         </div>
-        <ActionCrud :singleWorkspace="singleWorkspace" v-if="!isOwner" />
+        <ActionCrud :singleWorkspace="singleWorkspace" v-if="isOwner" />
         <ActionForVisiter v-else :singleWorkspace="singleWorkspace" />
       </div>
 
