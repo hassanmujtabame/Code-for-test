@@ -104,13 +104,13 @@
           <div class="mb-3">
             <ValidationProvider
               :name="$t('exhibition_categories')"
-              vid="category_id"
+              vid="category"
               rules="required"
               v-slot="{ errors }"
             >
               <d-select-input
                 :errors="errors"
-                v-model="form.category_id"
+                v-model="form.category"
                 :label="$t('exhibition_categories')"
               >
                 <option disabled :value="null" class="t-c" selected>
@@ -245,7 +245,7 @@
               </div>
             </div>
           </div>
-          <div class="mb-3 feature row" v-if="form.category_id === 'academy'">
+          <div class="mb-3 feature row" v-if="form.category === 'academy'">
             <p>الامتيازات</p>
             <div
               v-for="(feature, i) in features"
@@ -266,7 +266,7 @@
           </div>
           <div
             class="mb-3 feature row"
-            v-if="form.category_id === 'service-provider'"
+            v-if="form.category === 'service-provider'"
           >
             <p>مجال الاختصاص</p>
             <div
@@ -325,7 +325,7 @@ export default {
       file: null,
       form: {
         title: "",
-        category_id: "",
+        category: "",
         city_id: "",
         address: "",
         location: "",

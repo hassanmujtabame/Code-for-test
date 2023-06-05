@@ -22,7 +22,7 @@
           }}</time>
         </div>
       </div>
-      <p class="rate-item__comment mt-3" v-html="rate.note"></p>
+      <p class="rate-item__comment mt-3" v-html="rate.comment"></p>
     </div>
   </div>
 </template>

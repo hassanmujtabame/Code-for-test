@@ -21,7 +21,7 @@
 <script>
 import rateCard from "./rate-card.vue";
 export default {
-  name: "section-rate-service",
+  name: "section-rate-workspace",
   components: {
     rateCard,
   },

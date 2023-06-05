@@ -97,7 +97,7 @@ export default {
       try {
         let params = {
           page: metaInfo.current_page,
-          category_id: this.category_id,
+          category: this.category_id,
           ...this.filterItem,
         };
         return await workspaceAPI.getAll(params);
