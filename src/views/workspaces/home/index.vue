@@ -1,28 +1,25 @@
 <template>
-  <div style="margin-top:86px">
-    <sectionHeader />
-
-  <div class="container">
-    <sectionRecents />
-    <sectionFilter />
-  </div>
+  <div style="margin-top: 83px">
+    <WorkSpaceHome />
+    <Create />
+    <SuccessAddWorkspace />
   </div>
 </template>
 
 <script>
-import sectionHeader from './parts/section-header'
-import sectionRecents from './parts/recent-workspaces'
-import sectionFilter from './parts/section-filter-list'
+import WorkSpaceHome from "@/components/pages/workspaces/home";
+import Create from "@/components/pages/workspaces/create";
+import SuccessAddWorkspace from "@/components/pages/workspaces/create/SuccessAddWorkspace.vue";
+
 export default {
-name:'workspaces-page',
-components:{
-    sectionHeader,
-    sectionRecents,
-    sectionFilter
-}
-}
+  name: "WorkspacesPage",
+  components: {
+    WorkSpaceHome,
+    Create,
+    SuccessAddWorkspace,
+  },
+};
 </script>
 
 <style>
-
 </style>

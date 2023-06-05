@@ -1,64 +1,62 @@
 export default {
-    
-    token (state) {
-    return state.token || localStorage.getItem('auth_token')
+
+    token(state) {
+        return state.token || localStorage.getItem('auth_token')
     },
-    user (state/*,a,b,c*/) {
+    user(state /*,a,b,c*/ ) {
         //console.mylog('dd',a,b,c)
         return state.user || JSON.parse(localStorage.getItem('auth_user'));
     },
-    partner (state) { 
+    partner(state) {
         return state.partner;
     },
-    isInstructor (state) { 
+    isInstructor(state) {
         return state.isInstructor;
     },
-    isConsultant (state) { 
+    isConsultant(state) {
         return state.isConsultant;
     },
-    academyRole(state){
-       return state.academyRole || localStorage.getItem('user_academy_role') || 'student'
+    academyRole(state) {
+        return state.academyRole || localStorage.getItem('user_academy_role') || 'student'
     },
-    isProvider (state,getters,...args) { 
-        console.mylog('sqsd',args)
-        let data = localStorage.getItem('user_provider')=='Y';
-        //console.mylog('load pr',data,getters)
-        if(data)
-        data = data && !!getters.subscribeProvider
+    isProvider(state, getters, ...args) {
+        let data = localStorage.getItem('user_provider') == 'Y';
+        if (data)
+            data = data && !!getters.subscribeProvider
         state.isProvider = data
         return state.isProvider;
     },
-    subscribeNetwork (state) { 
+    subscribeNetwork(state) {
         return state.subscribeNetwork;
     },
-    subscribeProvider (state) { 
+    subscribeProvider(state) {
         return state.subscribeProvider;
     },
-    subscribeAcademy (state) { 
+    subscribeAcademy(state) {
         return state.subscribeAcademy;
     },
-    subscribeIncubator (state) { 
+    subscribeIncubator(state) {
         return state.subscribeIncubator;
     },
-    subscribeIncubators (state) { 
+    subscribeIncubators(state) {
         return state.subscribeIncubators;
     },
-    isSubscribeNetwork (state) { 
+    isSubscribeNetwork(state) {
         return state.isSubscribeNetwork;
     },
-    isSubscribeProvider (state) { 
+    isSubscribeProvider(state) {
         return state.isSubscribeProvider;
     },
-    isSubscribeAcademy (state) { 
+    isSubscribeAcademy(state) {
         return state.isSubscribeAcademy;
     },
-    isSubscribeIncubator (state) { 
+    isSubscribeIncubator(state) {
         return state.isSubscribeIncubator;
     },
-    isSubscribeIncubators (state) { 
+    isSubscribeIncubators(state) {
         return state.isSubscribeIncubators;
     },
-    authenticated(state){
+    authenticated(state) {
         return !!state.user || !!localStorage.getItem('auth_user')
     }
-  }
+}

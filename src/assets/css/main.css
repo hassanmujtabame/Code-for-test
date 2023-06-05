@@ -145,6 +145,13 @@ textarea {
     color: white;
 }
 
+.btn-main-v {
+    background-color: #1FB9B3;
+    border: 1px solid #1FB9B3;
+    border-radius: 8px;
+    color: white;
+}
+
 .btn-custmer {
     cursor: pointer;
     background: #1FB9B3;

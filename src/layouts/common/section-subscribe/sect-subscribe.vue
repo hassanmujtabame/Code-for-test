@@ -1,7 +1,7 @@
 <template>
-  <div class="sec-subscripe mt-5">
+  <div class="sec-subscripe">
         <div class="container">
-          <div class="row align-items-center justify-content-center " :class="{'p-4':!isMobile,'py-4':isMobile}">
+        <div class="row align-items-center justify-content-center " :class="{'p-4':!isMobile,'py-4':isMobile}">
             <div class="col-md-6">
               <h1 class="text-white">
               {{ $t('subscribe-newsletter') }}

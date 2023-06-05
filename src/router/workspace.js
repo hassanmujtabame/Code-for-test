@@ -1,11 +1,36 @@
 import LayoutDefault from '@/layouts/network/index.vue'
-const routers =[
+const routers = [
     {
         path: 'workspaces/home',
-        meta:{layout:LayoutDefault},
+        meta: {
+            layout: LayoutDefault
+        },
         name: 'workspaces-home',
-        component: () => import(/* webpackChunkName: "workspaces-home" */ '../views/workspaces/home/index.vue') 
+        component: () => import( /* webpackChunkName: "workspaces-home" */ '../views/workspaces/home/index.vue')
     },
-    
+    {
+        path: 'workspaces/reservations',
+        meta: {
+            layout: LayoutDefault
+        },
+        name: 'workspaces-reservations',
+        component: () => import( /* webpackChunkName: "workspaces-home" */ '../views/workspaces/reservations/index.vue')
+    },
+    {
+        path: 'workspaces/requests',
+        meta: {
+            layout: LayoutDefault
+        },
+        name: 'workspaces-requests',
+        component: () => import( /* webpackChunkName: "workspaces-home" */ '../views/workspaces/requests/index.vue')
+    },
+    {
+        path: 'workspaces/:id',
+        meta: {
+            layout: LayoutDefault
+        },
+        name: 'workspaces-details',
+        component: () => import( /* webpackChunkName: "workspaces-home" */ '../views/workspaces/details/index.vue')
+    },
 ]
 export default routers;
