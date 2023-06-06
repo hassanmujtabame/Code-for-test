@@ -10,7 +10,7 @@
                         </h2>
 
                     </div>
-                    <div class="col-md-6 text-end">
+                    <div class="col-md-6 text-start ">
                         <button @click="openAddDialog" class="btn bg-main bg border text-white">
                             <plusRectRoundIcon />
                             {{ $t('add_exhibition') }}

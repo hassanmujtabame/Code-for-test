@@ -20,7 +20,7 @@
                         </form>
                     </div>
                     <div class="col-md-6">
-                        <div style="overflow: inherit;" class=" m-auto text-end">
+                        <div style="overflow: inherit;" class=" m-auto text-start ">
                             <img class="img-fluid"  :src="`${publicPath}assets/img/Frame-3.png`" alt="" >
                         </div>
                     </div>

@@ -29,7 +29,7 @@
                          {{ $t('publish-date') }}: {{ itemPage.date_publish }}
                     </p>
                     </div>
-                    <div class="col-md-6  text-end">
+                    <div class="col-md-6  text-start ">
                         <template v-if="isOwner">
                         <button @click="openEditDialog" class="btn bg-main border-0 text-white p-2 mx-1"   >
                            <img :src="`${publicPath}assets/svg/update.svg`" />   

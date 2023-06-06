@@ -9,7 +9,7 @@
             {{ $t("Riadiat-consulting-link") }}
           </a>
         </p>
-        <div class="w-100 text-end">
+        <div class="w-100 text-start ">
           <router-link
             :to="getRouteLocale('consulting-home')"
             class="btn btn-customer my-2"

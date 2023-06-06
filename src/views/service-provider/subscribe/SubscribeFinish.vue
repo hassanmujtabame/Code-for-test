@@ -117,7 +117,7 @@
                                   </router-link>
                                 </div>
                               </div>
-                              <div class="col-md-6 text-end">
+                              <div class="col-md-6 text-start ">
                                 
                                 <iframe width="420"
                                  height="234" 
@@ -157,7 +157,7 @@
                                   </router-link>
                               </div>
                             </div>
-                            <div class="col-md-6 text-end">
+                            <div class="col-md-6 text-start ">
                               
                               <iframe width="420"
                                height="234" 
@@ -198,7 +198,7 @@
                                   </router-link>
                               </div>
                             </div>
-                            <div class="col-md-6 text-end">
+                            <div class="col-md-6 text-start ">
                               
                               <iframe width="420"
                                height="234" 

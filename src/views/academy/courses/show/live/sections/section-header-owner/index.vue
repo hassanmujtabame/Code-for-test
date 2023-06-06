@@ -5,7 +5,7 @@
                     <widgetInfo v-bind="widget" />
                 </div>
             </div>
-            <div class="text-end">
+            <div class="text-start ">
                 <actionsPage :item-page="itemPage" />
             </div>
   </div>

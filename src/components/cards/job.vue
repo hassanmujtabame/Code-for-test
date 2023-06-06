@@ -13,7 +13,7 @@
                     </span>
                 </p>
             </div>
-            <div class="col-md-3 text-end">
+            <div class="col-md-3 text-start ">
                <slot name="icon">
 
                </slot>

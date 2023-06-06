@@ -8,7 +8,7 @@
                         قصص مميزة
                     </h3>
                 </div>
-                <div class="col-md-6 text-end">
+                <div class="col-md-6 text-start ">
                     <button v-if="user && !user.has_story" class="btn bg-main text-white p-2 px-3" @click="openAddStory">
                         اعرض قصتك الان
                     </button>

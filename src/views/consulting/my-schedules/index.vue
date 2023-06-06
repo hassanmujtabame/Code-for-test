@@ -13,7 +13,7 @@
           <p class="home-section-text">قم بإضافة مواعيدك المتاحة ليتمكن أعضاء الشبكة من حجز الموعد المناسب لهم</p>
 
         </div>
-        <div class="col-md-6 text-end">
+        <div class="col-md-6 text-start ">
           <button  style="height: 40px;" class="bg-main text-white border-0 rounded-2 px-3" @click="openDialogNewCatSchedule">
             <i class="fa fa-pen-to-square"></i>
             تعديل

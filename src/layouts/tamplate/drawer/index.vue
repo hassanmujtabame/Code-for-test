@@ -2,7 +2,7 @@
     <div class="offcanvas drawer-side"
     :class="{'offcanvas-end':$i18n.locale=='ar','offcanvas-start':$i18n.locale=='en',show:drawer}"
     tabindex="-1" id="offcanvas-profile" aria-labelledby="offcanvasExampleLabel">
-        <div id="myModal-drawer" class="offcanvas-headers text-end p-2 mx-4">
+        <div id="myModal-drawer" class="offcanvas-headers text-start  p-2 mx-4">
             <button type="button" id="btn-close-drawer" class="btn-close" data-bs-dismiss-old="offcanvas" @click="closeDrawer" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body text-center">

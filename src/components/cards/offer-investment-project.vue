@@ -2,7 +2,7 @@
     <div class="box border rounded-3">
         <div class="p-2">
 
-            <p class="text-end t-c">
+            <p class="text-start  t-c">
                 {{ $t('publish-date') }}
                 <span>
                     : {{ datePublish }}

@@ -16,7 +16,7 @@
                                                        
                     </div>
                     <div class="col-3 col-md-6">
-                        <div style="overflow: inherit;" class=" m-auto text-end">
+                        <div style="overflow: inherit;" class=" m-auto text-start ">
                             <img class="img-fluid"  :src="`${publicPath}assets/img/pana-network.png`" alt="" >
                         </div>
                     </div>

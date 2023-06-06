@@ -14,7 +14,7 @@
                         </button>
                     </div>
                     <div class="col-md-6">
-                        <div style="overflow: inherit" class="m-auto text-end">
+                        <div style="overflow: inherit" class="m-auto text-start ">
                             <img class="img-fluid" :src="`${publicPath}assets/img/v2.png`" alt="" />
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         أبرز مجالات الاستشارة
                     </h3>
                 </div>
-                <div class="col-md-6 text-end">
+                <div class="col-md-6 text-start ">
                     <button class="btn bg-main text-white p-2 px-3" data-bs-toggle="modal" data-bs-target="#addModal">
                         {{ $t('more') }}
                     </button>

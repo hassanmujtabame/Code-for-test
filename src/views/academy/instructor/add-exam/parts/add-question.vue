@@ -75,7 +75,7 @@
     </div>
 </ValidationObserver>
 </div>
-<div class="add-question-item__footer mt-3 text-end flex-shrink-0">
+<div class="add-question-item__footer mt-3 text-start  flex-shrink-0">
                         <button @click="save" :disabled="adding" class="btn btn-custmer px-3"
                             role="button">
                             <i class="fa fa-spinner fa-spin" v-if="adding"></i>

@@ -5,7 +5,7 @@
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
     <div v-else class="container">
-      <div v-if="isOwner" class="text-end">
+      <div v-if="isOwner" class="text-start ">
                 <div class=" d-flex gap-2 justify-content-end my-3">
             <div>
         <button @click="openEditDialog" style="height: 40px;" class="btn-main px-3 w-100 border-0 rounded-2"  role="button">

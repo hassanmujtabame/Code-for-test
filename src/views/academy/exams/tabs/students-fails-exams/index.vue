@@ -1,6 +1,6 @@
 <template>
 <div class="tab-pane fade" id="pills-students-fails-exams" role="tabpanel" aria-labelledby="pills-students-fails-exams-tab" tabindex="0">
-                            <div class="text-end">
+                            <div class="text-start ">
                                 <button style="background-color: #F2631C;" class="btn text-white"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">
                                     رسالة للجميع
                                 </button>

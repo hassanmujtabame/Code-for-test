@@ -7,7 +7,7 @@
                :call-list="loadList"
                >          
                     <template v-slot:before-body>
-                        <div class="text-end mb-3">
+                        <div class="text-start  mb-3">
                                 <button style="background-color: #F2631C;" class="btn text-white"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">
                                     رسالة للجميع
                                 </button>

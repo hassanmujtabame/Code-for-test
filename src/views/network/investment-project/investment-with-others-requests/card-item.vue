@@ -38,7 +38,7 @@
       </div>
 
       <div class="d-flex flex-column flex-shrink-0 justify-content-between">
-          <p class="t-c text-end">
+          <p class="t-c text-start ">
              {{ dateRequest }}
           </p>
           <div v-if="false" class="d-flex">

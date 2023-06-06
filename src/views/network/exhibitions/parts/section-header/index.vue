@@ -14,7 +14,7 @@
                         </button>
                     </div>
                     <div class="col-md-6">
-                        <div style="overflow: inherit" class="m-auto text-end">
+                        <div style="overflow: inherit" class="m-auto text-start ">
                             <img class="cloud-bg" :src="`${publicPath}assets/svg/Group 1171275412.svg`" alt="" />
                             <img class="img-header" :src="`${publicPath}assets/img/vector 555@2x.png`" alt="" />
                         </div>

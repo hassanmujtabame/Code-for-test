@@ -18,7 +18,7 @@
             </div>
             </div>
             <div class="col-md-6">
-              <div style="overflow: inherit" class="m-auto text-end">
+              <div style="overflow: inherit" class="m-auto text-start ">
                 <img class="img-fluid" :src="`${publicPath}assets/img/V 67.svg`" alt="" />
               </div>
             </div>

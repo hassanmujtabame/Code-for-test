@@ -27,7 +27,7 @@
                                       </d-text-input>
                                   </ValidationProvider>
                                   </ValidationObserver>
-                <div class="text-end mt-3">
+                <div class="text-start  mt-3">
                 <button @click="addQuestion" :disabled="!lectureId" class="btn btn-custmer rounded-2 px-4">
                     اضافة سؤال
                 </button>

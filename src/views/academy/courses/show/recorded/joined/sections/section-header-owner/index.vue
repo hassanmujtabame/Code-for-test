@@ -8,7 +8,7 @@
           
 
             </div>
-            <div class="text-end">
+            <div class="text-start ">
 
                 <!--actions-->
                 <actionsPage :item-page="itemPage" />

@@ -1,7 +1,7 @@
 <template>
   <div class="box border rounded-top rounded-2 p-2">
     <div class="text-start section-top-info">
-                        <p class="text-end t-c">
+                        <p class="text-start  t-c">
                             {{ $t('publish-date') }} 
                             <span>
                                 : {{datePublish}}

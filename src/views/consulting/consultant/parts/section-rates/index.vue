@@ -11,7 +11,7 @@
                                 </h4>
 
                             </div>
-                            <p class="text-end">
+                            <p class="text-start ">
                                 <d-rate-font-stars :value="itemPage.rate" readonly/>
                             </p>
                         </div>

@@ -15,7 +15,7 @@
           </h3>
 
         </div>
-        <div class="col-md-6 text-end">
+        <div class="col-md-6 text-start ">
           <button  style="height: 40px;" class="bg-main text-white border-0 rounded-2 px-3" @click="openDialogNewCatSchedule">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path

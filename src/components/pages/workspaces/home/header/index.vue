@@ -10,7 +10,7 @@
           </p>
         </div>
         <div class="col-lg-6">
-          <div class="m-auto text-end">
+          <div class="m-auto text-start ">
             <img
               class="w-60 main-img"
               src="@/assets/img/work-spaces/workspace-home.png"

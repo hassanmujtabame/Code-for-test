@@ -15,7 +15,7 @@
           </p>
         </div>
               </div>
-              <div class="blog-info-date date d-flex align-items-center text-end mx-1 flex-shrink-0">
+              <div class="blog-info-date date d-flex align-items-center text-start  mx-1 flex-shrink-0">
                 <p class="d-flex m-0">
                  
                 <bdi class="blog-info__date text-two-lines" style="padding: 0 5px;">{{dateText}}</bdi>

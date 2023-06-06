@@ -461,7 +461,7 @@
                                                    <div class="row">
                                                        <div class="col-md-6">
                                                            <div class="box border rounded-2 p-2">
-                                                               <p class="text-end t-c">
+                                                               <p class="text-start  t-c">
                                                                    {{ $t('publish-date') }} 
                                                                    <span>
                                                                        : 22\12\2022 
@@ -549,7 +549,7 @@
                                                        </div>
                                                        <div class="col-md-6">
                                                            <div class="box border rounded-2 p-2">
-                                                               <p class="text-end t-c">
+                                                               <p class="text-start  t-c">
                                                                    {{ $t('publish-date') }} 
                                                                    <span>
                                                                        : 22\12\2022 

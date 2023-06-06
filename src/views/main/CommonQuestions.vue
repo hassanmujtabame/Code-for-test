@@ -13,7 +13,7 @@
                             </p>                                     
                     </div>
                     <div class="col-md-6">
-                        <div style="overflow: inherit;" class=" m-auto text-end">
+                        <div style="overflow: inherit;" class=" m-auto text-start ">
                             <img  :src="`${publicPath}assets/img/Frame.png`" alt="" >
                         </div>
 

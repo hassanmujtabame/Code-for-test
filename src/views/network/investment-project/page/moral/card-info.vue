@@ -2,7 +2,7 @@
     <div class="box border rounded-top rounded-2 p-2 d-flex flex-column">
         <div class="p-2 text-start flex-grow-1">
 
-            <p class="text-end t-c">
+            <p class="text-start  t-c">
                 {{ $t('publish-date') }}
                 <span>
                     : {{ datePublish }}

@@ -9,7 +9,7 @@
     <p class="t-c">
         يمكنك عرض نفسك لتوظيف  في قائمة خريجين رياديات                  </p>
     </div>
-    <div class="col-md-6 text-end">
+    <div class="col-md-6 text-start ">
     <button @click="router_push('service-provider-graduate-riadiat')" style="height: 40px;" class="btn-main"  >
 
         متاح للتوظيف

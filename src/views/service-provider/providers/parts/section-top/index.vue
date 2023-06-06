@@ -8,7 +8,7 @@
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <div style="overflow: inherit" class="m-auto text-end">
+                        <div style="overflow: inherit" class="m-auto text-start ">
                             <img class="img-fluid" :src="`${publicPath}assets/svg/frame-52-2.svg`" alt="service-provider-header" />
                         </div>
                     </div>

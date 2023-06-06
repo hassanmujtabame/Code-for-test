@@ -1,10 +1,10 @@
 <template>
     <div class="d-flex justify-content-end">
         <div class="">
-            <p class=" p-2 border-0 rounded-2 text-dark chat-req text-end p-0 m-0">
+            <p class=" p-2 border-0 rounded-2 text-dark chat-req text-start  p-0 m-0">
               {{item.content}}
             </p>
-            <small class="t-c text-end">
+            <small class="t-c text-start ">
                 {{timeAgo}}
             </small>
         </div>

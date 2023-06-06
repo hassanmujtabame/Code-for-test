@@ -12,7 +12,7 @@
                     <div>
                       <p class="title-course-card">{{title}}</p>
                     </div>
-                    <div class="text-end mx-1">
+                    <div class="text-start  mx-1">
                       <p class="m-c">{{price}} {{currency}}</p>
                     </div>
                   </div>

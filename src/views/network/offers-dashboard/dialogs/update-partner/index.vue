@@ -132,7 +132,7 @@
                         </ValidationObserver>
 </template>
 <template v-slot:actions>
-    <div class="col-12 m-2 text-end">
+    <div class="col-12 m-2 text-start ">
                                 <button class="btn btn-main  " type="submit" @click="save"
                                     role="button"> {{ $t('update') }} </button>
                             </div>

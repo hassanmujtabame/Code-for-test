@@ -1,6 +1,6 @@
 <template>
   <div class="course-show-page__header">
-    <div class="text-end">
+    <div class="text-start ">
 
     <div class=" d-flex gap-2 justify-content-end my-3">
         <button v-if="!itemPage.user_is_join_course" @click="inscription" class="btn btn-custmer">أشترك في الدورة</button>

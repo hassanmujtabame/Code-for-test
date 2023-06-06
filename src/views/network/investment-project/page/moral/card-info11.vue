@@ -1,6 +1,6 @@
 <template>
   <div class="box border rounded-2 p-2">
-                    <p class="text-end t-c">
+                    <p class="text-start  t-c">
                         {{ $t('publish-date') }}
                         <span>
                             : {{ itemPage.created_at }}

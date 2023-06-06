@@ -23,7 +23,7 @@
         </div>
         <div class="col-12 col-md-4">
           <div v-if="isOwner" class="box  rounded-3 p-2">
-          <div class="text-end">
+          <div class="text-start ">
                         <button @click="openEditDialog" class="btn bg-main border-0 text-white p-2 mx-1"   >
                            <img :src="`${publicPath}assets/svg/update.svg`" />   
                            تعديل 

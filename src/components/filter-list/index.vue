@@ -1,6 +1,6 @@
 <template>
   <div class="filter-list">
-    <div class="text-end">
+    <div class="text-start ">
       <slot name="top-end"></slot>
     </div>
     <div v-if="!hideTop" class="row align-items-center">
