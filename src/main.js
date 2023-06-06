@@ -4,6 +4,9 @@ console.mylog = (...args) =>{
    if(process.env.NODE_ENV=='development')
    console.log(...args)
 } 
+import { BootstrapVue } from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './plugins/v-tooltip'
 import './plugins/vee-validate'
 import './plugins/ckeditor'
@@ -19,6 +22,8 @@ import TimeAgo from './plugins/timeago'
 import './plugins/sweetalert2'
 import EventBus from './helper/EventBus';
 import Dhelper from './helper/d-helper';
+Vue.use(BootstrapVue)
+
 window.timeAgo = new TimeAgo();
 window.DHelper =  Dhelper;
 window.Pusher = require('pusher-js');

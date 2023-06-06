@@ -100,22 +100,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
     }
   },
   mounted() {
-    console.mylog("mounted", process.env);
     this.onResizeBrowser();
     window.addEventListener("resize", this.onResizeBrowser, { passive: true });
   },
   created() {
-    //this.tagManager()
-    // this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",true)
-    //this.loadJS("/js/jquery.simple-calendar.min.js",true)
-    if (this.$i18n.locale == "ar")
-      this.loadCSS(
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css"
-      );
-    else
-      this.loadCSS(
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-      );
 
     const plugin = document.createElement("script");
     plugin.innerHTML = "$(function() {  AOS.init();  });";
