@@ -75,7 +75,7 @@
       </b-col>
       <b-col lg="5" class="mobile-hide">
         <div class="box">
-          <img :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
+          <b-img fluid :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
         </div>
       </b-col>
     </b-row>
@@ -95,32 +95,32 @@ export default {
     };
   },
   methods: {
-    async resendCode() {
-      let email = this.form.email;
-      try {
-        let { data } = await this.$axios.post("user/auth/resend-code", {
-          email
-        });
-        if (data.success) {
-          let pin_code = data.data.pin_code;
+    // async resendCode() {
+    //   let email = this.form.email;
+    //   try {
+    //     let { data } = await this.$axios.post("user/auth/resend-code", {
+    //       email
+    //     });
+    //     if (data.success) {
+    //       let pin_code = data.data.pin_code;
 
-          this.$emit("change-form", { data: { pin_code }, form: { email } });
-        } else {
-          window.SwalError(data.message);
-        }
-      } catch (error) {
-        window.SwalError("خطا غير معروف");
-        if (error.response) {
-          let response = error.response;
-          if (response.status == 422) {
-            this.message = response.data.message;
-            if (Object.hasOwnProperty.call(response.data, "errors")) {
-              this.$refs.form.setErrors(response.data.errors);
-            }
-          }
-        }
-      }
-    },
+    //       this.$emit("change-form", { data: { pin_code }, form: { email } });
+    //     } else {
+    //       window.SwalError(data.message);
+    //     }
+    //   } catch (error) {
+    //     window.SwalError("خطا غير معروف");
+    //     if (error.response) {
+    //       let response = error.response;
+    //       if (response.status == 422) {
+    //         this.message = response.data.message;
+    //         if (Object.hasOwnProperty.call(response.data, "errors")) {
+    //           this.$refs.form.setErrors(response.data.errors);
+    //         }
+    //       }
+    //     }
+    //   }
+    // },
     async login() {
       let valid = await this.$refs.loginForm.validate();
       if (!valid) {
@@ -157,7 +157,7 @@ export default {
   text-align: end;
 }
 .form {
-  padding: 2.5rem 0px;
+  padding-top: 2.5rem;
 }
 
 .icon-input-end {
