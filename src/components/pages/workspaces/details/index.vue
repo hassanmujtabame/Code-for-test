@@ -68,7 +68,6 @@ export default {
     SectionShareService,
     Info,
   },
-  computed: {},
   data() {
     return {
       metaInfo_: {},

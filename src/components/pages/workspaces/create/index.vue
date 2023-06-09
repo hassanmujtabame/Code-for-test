@@ -1,53 +1,30 @@
+/* eslint-disable */
 <template>
-  <d-dialog-large
-    :group="group"
-    :openDialog="openDialog"
-    :close-dialog="closeDialog"
-    :loading="loading"
-  >
+  <d-dialog-large :group="group" :openDialog="openDialog" :close-dialog="closeDialog" :loading="loading">
     <ValidationObserver ref="form">
       <div class="form-exhibition row add-portfolio m-3 p-0 position-relatiuve">
         <div class="col-12 col-lg-5 justify-content-center mx-auto">
           <div class="col-md-10">
-            <ValidationProvider
-              :name="$t('Image')"
-              vid="image1"
-              rules="required|image"
-              v-slot="{ validate, errors }"
-            >
+            <ValidationProvider :name="$t('Image')" vid="image1" rules="required|image" v-slot="{ validate, errors }">
               <label for="imginput1" class="form-label file-label first w-100">
                 <div class="text-center p-5">
                   <img :src="`${publicPath}assets/svg/empty-image.svg`" />
                   <p class="m-c">{{ $t("add-display-image") }}</p>
                 </div>
                 <div class="add-img-selected">
-                  <img
-                    class="w-100 h-100 image-selected-dialog"
-                    :src="showImage ?? 'none'"
-                    :style="{ opacity: showImage ? '1' : '0' }"
-                  />
+                  <img class="w-100 h-100 image-selected-dialog" :src="showImage ?? 'none'"
+                    :style="{ opacity: showImage ? '1' : '0' }" />
                 </div>
               </label>
 
-              <input
-                @change="
-                  uploadImage($event, validate, 'showImage') || validate($event)
-                "
-                class="form-control opacity-0"
-                type="file"
-                id="imginput1"
-                style="display: none"
-              />
+              <input @change="
+                uploadImage($event, validate, 'showImage') || validate($event)
+              " class="form-control opacity-0" type="file" id="imginput1" style="display: none" />
               <d-error-input :errors="errors" v-if="errors.length > 0" />
             </ValidationProvider>
           </div>
           <div class="col-md-10">
-            <ValidationProvider
-              :name="$t('Image')"
-              vid="image2"
-              rules="required"
-              v-slot="{ validate, errors }"
-            >
+            <ValidationProvider :name="$t('Image')" vid="image2" rules="required" v-slot="{ validate, errors }">
               <label for="imgInput" class="form-label file-label first w-100">
                 <div class="text-center p-2">
                   <img :src="`${publicPath}assets/svg/empty-image.svg`" />
@@ -55,28 +32,14 @@
                 </div>
               </label>
 
-              <input
-                @change="handleFileUpload($event, validate, 'selectedImages')"
-                class="form-control opacity-0"
-                type="file"
-                id="imgInput"
-                style="display: none"
-                multiple
-              />
+              <input @change="handleFileUpload($event, validate, 'selectedImages')" class="form-control opacity-0"
+                type="file" id="imgInput" style="display: none" multiple />
 
               <div class="row">
-                <div
-                  v-for="(image, index) in selectedImages"
-                  :key="index"
-                  class="col-lg-6 col-12"
-                >
+                <div v-for="(image, index) in selectedImages" :key="index" class="col-lg-6 col-12">
                   <div class="previews-images">
-                    <img
-                      class="w-100 h-100 image-selected-dialog"
-                      :src="image.url"
-                      :style="{ opacity: image.url ? '1' : '0' }"
-                      :id="`image-${index}`"
-                    />
+                    <img class="w-100 h-100 image-selected-dialog" :src="image.url"
+                      :style="{ opacity: image.url ? '1' : '0' }" :id="`image-${index}`" />
                   </div>
                 </div>
               </div>
@@ -86,60 +49,27 @@
         </div>
         <div class="col-12 col-lg-7">
           <div class="mb-3">
-            <ValidationProvider
-              name="اسم مكان العمل"
-              vid="title"
-              tag="div"
-              class="form-group"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <d-text-input
-                :errors="errors"
-                v-model="form.title"
-                label="اسم مكان العمل"
-              />
+            <ValidationProvider name="اسم مكان العمل" vid="title" tag="div" class="form-group" rules="required"
+              v-slot="{ errors }">
+              <d-text-input :errors="errors" v-model="form.title" label="اسم مكان العمل" />
             </ValidationProvider>
           </div>
           <div class="mb-3">
-            <ValidationProvider
-              :name="$t('exhibition_categories')"
-              vid="category"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <d-select-input
-                :errors="errors"
-                v-model="form.category"
-                :label="$t('exhibition_categories')"
-              >
+            <ValidationProvider :name="$t('exhibition_categories')" vid="category" rules="required" v-slot="{ errors }">
+              <d-select-input :errors="errors" v-model="form.category" :label="$t('exhibition_categories')">
                 <option disabled :value="null" class="t-c" selected>
                   {{ $t("exhibition_categories") }}
                 </option>
-                <option
-                  :key="i"
-                  v-for="(option, i) in categories"
-                  :value="option.value"
-                >
+                <option :key="i" v-for="(option, i) in categories" :value="option.value">
                   {{ option.title }}
                 </option>
               </d-select-input>
             </ValidationProvider>
           </div>
           <div class="mb-3">
-            <ValidationProvider
-              :name="$t('the_city')"
-              vid="city_id"
-              tag="div"
-              class="form-group"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <d-select-input
-                :errors="errors"
-                v-model="form.city_id"
-                :label="$t('the_city')"
-              >
+            <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group" rules="required"
+              v-slot="{ errors }">
+              <d-select-input :errors="errors" v-model="form.city_id" :label="$t('the_city')">
                 <option :key="i" v-for="(city, i) in cities" :value="city.id">
                   {{ `${city.name}` }}
                 </option>
@@ -147,68 +77,29 @@
             </ValidationProvider>
           </div>
           <div class="mb-3">
-            <ValidationProvider
-              name="العنوان تفصيليََا"
-              vid="address"
-              tag="div"
-              class="form-group"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <d-text-input
-                :errors="errors"
-                v-model="form.address"
-                label="العنوان تفصيليََا"
-              />
+            <ValidationProvider name="العنوان تفصيليََا" vid="address" tag="div" class="form-group" rules="required"
+              v-slot="{ errors }">
+              <d-text-input :errors="errors" v-model="form.address" label="العنوان تفصيليََا" />
             </ValidationProvider>
           </div>
           <div class="mb-3">
-            <ValidationProvider
-              name="رابط العنوان على خرائط جوجل"
-              vid="location"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <d-text-input
-                :errors="errors"
-                v-model="form.location"
-                label="رابط العنوان على خرائط جوجل"
-              />
+            <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required" v-slot="{ errors }">
+              <d-text-input :errors="errors" v-model="form.location" label="رابط العنوان على خرائط جوجل" />
             </ValidationProvider>
           </div>
           <div class="mb-3">
-            <ValidationProvider
-              name="سعر مكان العمل"
-              tag="div"
-              class="form-group"
-              vid="price"
-              rules="required|numeric"
-              v-slot="{ errors }"
-            >
-              <d-text-input
-                :errors="errors"
-                v-model="form.price"
-                label=" سعر مكان العمل (ريال سعودي / ساعه)"
-              />
+            <ValidationProvider name="سعر مكان العمل" tag="div" class="form-group" vid="price" rules="required|numeric"
+              v-slot="{ errors }">
+              <d-text-input :errors="errors" v-model="form.price" label=" سعر مكان العمل (ريال سعودي / ساعه)" />
             </ValidationProvider>
           </div>
           <div class="mb-3">
-            <ValidationProvider
-              name="مساحه مكان العمل"
-              tag="div"
-              class="form-group"
-              vid="area"
-              rules="required|numeric"
-              v-slot="{ errors }"
-            >
-              <d-text-input
-                :errors="errors"
-                v-model="form.area"
-                label=" مساحه مكان العمل (بالمتر)"
-              />
+            <ValidationProvider name="مساحه مكان العمل" tag="div" class="form-group" vid="area" rules="required|numeric"
+              v-slot="{ errors }">
+              <d-text-input :errors="errors" v-model="form.area" label=" مساحه مكان العمل (بالمتر)" />
             </ValidationProvider>
           </div>
-          <!-- <div class="mb-3">
+        <!-- <div class="mb-3">
             <ValidationProvider
               name="تاريخ الحجز"
               vid="date"
@@ -225,62 +116,35 @@
                 v-if="errors && errors.length > 0"
               />
             </ValidationProvider>
-          </div> -->
+            </div> -->
           <div class="mb-3 row">
             <!-- time -->
             <div class="col-23 col-md-12">
               <div class="form-group position-relative">
                 <label class="form-label">موعد الفتح - موعد الإغلاق</label>
-                <date-picker-range
-                  :valueStart.sync="form.start_time"
-                  :valueEnd.sync="form.end_time"
+                <date-picker-range :valueStart.sync="form.start_time" :valueEnd.sync="form.end_time"
                   :names="{ start: $t('Start-time'), end: $t('End-time') }"
-                  :vids="{ start: 'start_time', end: 'end_time' }"
-                  :rules="{ start: 'required', end: 'required' }"
-                  mode="time"
-                  mask="HH:mm"
-                  class="form-control"
-                >
+                  :vids="{ start: 'start_time', end: 'end_time' }" :rules="{ start: 'required', end: 'required' }"
+                  mode="time" mask="HH:mm" class="form-control">
                 </date-picker-range>
               </div>
             </div>
           </div>
           <div class="mb-3 feature row" v-if="form.category === 'academy'">
             <p>الامتيازات</p>
-            <div
-              v-for="(feature, i) in features"
-              :key="i"
-              class="col-12 col-lg-4 form-check"
-            >
-              <input
-                v-model="form.features"
-                :value="feature.id"
-                class="form-check-input my-1"
-                type="checkbox"
-                :id="`checkboxFeature${i}`"
-              />
+            <div v-for="(feature, i) in features" :key="i" class="col-12 col-lg-4 form-check">
+              <input v-model="form.features" :value="feature.id" class="form-check-input my-1" type="checkbox"
+                :id="`checkboxFeature${i}`" />
               <label class="form-check-label" :for="`checkboxFeature${i}`">
                 {{ feature.title }}
               </label>
             </div>
           </div>
-          <div
-            class="mb-3 feature row"
-            v-if="form.category === 'service-provider'"
-          >
+          <div class="mb-3 feature row" v-if="form.category === 'service-provider'">
             <p>مجال الاختصاص</p>
-            <div
-              v-for="(cat, i) in providerCategories"
-              :key="i"
-              class="col-12 col-lg-4 form-check"
-            >
-              <input
-                v-model="form.service_categories_ids"
-                :value="cat.id"
-                class="form-check-input my-1"
-                type="checkbox"
-                :id="`checkboxCategory${i}`"
-              />
+            <div v-for="(cat, i) in providerCategories" :key="i" class="col-12 col-lg-4 form-check">
+              <input v-model="form.service_categories_ids" :value="cat.id" class="form-check-input my-1" type="checkbox"
+                :id="`checkboxCategory${i}`" />
               <label class="form-check-label" :for="`checkboxCategory${i}`">
                 {{ cat.name }}
               </label>
@@ -288,19 +152,9 @@
           </div>
 
           <div class="mb-3">
-            <ValidationProvider
-              name="وصف مكان العمل"
-              vid="description"
-              tag="div"
-              class="form-group"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <d-text-input
-                :errors="errors"
-                v-model="form.description"
-                label="وصف مكان العمل"
-              />
+            <ValidationProvider name="وصف مكان العمل" vid="description" tag="div" class="form-group" rules="required"
+              v-slot="{ errors }">
+              <d-text-input :errors="errors" v-model="form.description" label="وصف مكان العمل" />
             </ValidationProvider>
           </div>
         </div>
@@ -476,6 +330,8 @@ export default {
 
     openDialog() {
       for (var key in this.form) {
+        // eslint-disable-next-line no-prototype-builtins
+
         if (this.form.hasOwnProperty(key)) {
           this.form[key] = null;
         }
@@ -506,10 +362,12 @@ label {
   width: 100%;
   text-align: start;
 }
+
 @media screen and (max-width: 600px) {
   .form-label {
     font-size: 0.8rem;
   }
+
   .form-control {
     font-size: 0.8rem;
   }
@@ -519,11 +377,13 @@ label {
 .form-exhibition .vc-time-picker .vc-date-time .vc-date {
   display: none !important;
 }
+
 .feature {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 10px;
 }
+
 .previews-images {
   height: 100px;
   padding: 10px;
