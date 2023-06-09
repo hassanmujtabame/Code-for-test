@@ -3,6 +3,7 @@
         flex-direction: row;
 
     }
+
     /*.swiper-wrapper {
         margin: 0px -450px !important;
     }*/
@@ -110,11 +111,8 @@
         text-align: center;
     }
 
-    .mobile-center{
+    .mobile-center {
         text-align: center !important;
-    }
-    .mobile-hide{
-        display: none !important
     }
 
     .text-network {
@@ -219,10 +217,11 @@
 
         font-size: 14px !important;
     }
-    .profile-services .list-group{
+
+    .profile-services .list-group {
         position: inherit !important;
         width: 100% !important;
-    
+
     }
 
 
@@ -232,11 +231,20 @@
 
 }
 
+@media (max-width:1201px) {
+    .mobile-hide {
+        display: none !important
+    }
+}
+
+
 @media (max-width:992px) {
     .swiper-wrapper {
         margin: 0px !important;
 
     }
+
+
 
     .swiper-button-prev,
     .swiper-rtl .swiper-button-next {

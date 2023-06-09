@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white rounded-3 mobile-center">
     <b-row>
-      <b-col lg="7">
+      <b-col xl="7">
         <div class="login-form">
           <h6 class="no-have-account">
             ليس لديك حساب ؟
@@ -73,7 +73,7 @@
           </div>
         </div>
       </b-col>
-      <b-col lg="5" class="mobile-hide">
+      <b-col xl="5" class="mobile-hide">
         <div class="box">
           <b-img fluid :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
         </div>
