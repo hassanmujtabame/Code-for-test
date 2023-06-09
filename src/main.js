@@ -35,10 +35,8 @@ window.fn=$;
 window.jquery=jquery;
 Vue.prototype.jQuery = jquery
 window.jQuery=jquery;
-import 'bootstrap/dist/js/bootstrap.bundle.js'
-window.bootstrap =require('bootstrap/dist/js/bootstrap.bundle')
-//require('bootstrap/dist/js/bootstrap.bundle');
-//import './assets/js/owl.carousel.min.js'
+
+
 let owl_carousel = require('./assets/js/owl.carousel.min.js').default;
 window.fn = owl_carousel;
 require('./assets/js/jquery.simple-calendar.min.js')
@@ -80,7 +78,6 @@ methods:{
   document.documentElement.setAttribute('dir', lng=='ar'?'rtl':'ltr')
            
    //this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js",false);
-   // this.loadJS("https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js",false);
     //this.loadJS("https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js",true)
     //this.loadJS("https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js",false)
    //this.loadJS("https://unpkg.com/aos@2.3.1/dist/aos.js",false)
