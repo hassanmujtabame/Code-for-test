@@ -113,6 +113,9 @@
     .mobile-center{
         text-align: center !important;
     }
+    .mobile-hide{
+        display: none !important
+    }
 
     .text-network {
         margin: 10px 0 !important;

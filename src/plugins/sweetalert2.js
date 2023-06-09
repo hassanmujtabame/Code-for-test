@@ -29,11 +29,24 @@ window.successMgs = () => {
         toast: true,
         position: "top-end",
         showCancelButton: false,
-        showConfirmButton:false,
+        showConfirmButton: false,
         timer: 5000,
         timerProgressBar: true,
         title: "عمليه ناجحه",
         icon: "success",
+    })
+}
+
+window.errorMsg = (msg) => {
+    Swal.fire({
+        toast: true,
+        position: "top-end",
+        showCancelButton: false,
+        showConfirmButton: false,
+        timer: 5000,
+        timerProgressBar: true,
+        title: msg,
+        icon: "error",
     })
 }
 window.SwalNotif = (message, icon, position = 'top-end') => {

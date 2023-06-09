@@ -233,7 +233,6 @@ export default {
       } catch (error) {
         if (error.response) {
           let response = error.response;
-          console.log("error", response);
           if (response.status == 422) {
             this.setErrorsForm(this.$refs.form, response);
           }

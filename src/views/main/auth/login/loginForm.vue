@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-3">
+  <div class="bg-white rounded-3 mobile-center">
     <b-row>
       <b-col lg="7">
         <div class="login-form">
@@ -12,10 +12,11 @@
             <p class="mb-3 text-secondary-color">لنبدأمن جديد ال انطلاق نحو المستقبل</p>
 
             <!-- Start Email -->
-            <ValidationObserver ref="form" @submit="login">
+            <ValidationObserver ref="loginForm">
               <ValidationProvider
+                vid="email"
+                rules="required|email"
                 :name="$t('Email')"
-                rules="required"
                 v-slot="{ errors }"
                 tag="div"
                 class="mb-3"
@@ -27,8 +28,9 @@
 
               <!-- Start Password -->
               <ValidationProvider
-                :name="$t('Password')"
+                vid="password"
                 rules="required"
+                :name="$t('Password')"
                 v-slot="{ errors }"
                 tag="div"
               >
@@ -39,7 +41,6 @@
                     v-model="form.password"
                     class="form-control"
                     :placeholder="$t('Password')"
-                    required
                   />
                   <span
                     @click="show = !show"
@@ -63,16 +64,16 @@
               </div>
               <div class="text-center mt-5">
                 <button
-                  @click="login"
                   class="btn btn-main-v py-2 px-5"
                   role="button"
+                  @click="login"
                 >{{ $t('login') }}</button>
               </div>
             </ValidationObserver>
           </div>
         </div>
       </b-col>
-      <b-col lg="5">
+      <b-col lg="5" class="mobile-hide">
         <div class="box">
           <img :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
         </div>
@@ -94,9 +95,7 @@ export default {
     };
   },
   methods: {
-    async resendCode(e) {
-      if (e) e.preventDefault();
-
+    async resendCode() {
       let email = this.form.email;
       try {
         let { data } = await this.$axios.post("user/auth/resend-code", {
@@ -122,47 +121,28 @@ export default {
         }
       }
     },
-    async login(e) {
-      e.preventDefault();
-      this.verifyCode = false;
-      this.message = "";
-      let valid = await this.$refs.form.validate();
+    async login() {
+      let valid = await this.$refs.loginForm.validate();
       if (!valid) {
-        console.log("form invalid");
         return;
       }
       try {
         let { data } = await this.$axios.post("user/auth/login", this.form);
         if (data.success) {
+          window.successMgs();
           let { token, ...user } = data.data;
           window.store.commit("auth/SET_TOKEN", token);
           window.store.commit("auth/SET_USER", user);
           window.store.commit("auth/SET_IS_PROVIDER", false);
           window.store.commit("auth/ACADEMY_ROLE", "student");
-          //this.$router.push('/')
           window.location.reload();
-        } else {
-          this.message = data.message;
-          if (data.data.type == "verify_code") {
-            this.verifyCode = true;
-          }
         }
+        this.$refs.loginForm.reset();
       } catch (error) {
-        console.log("error", error);
-        this.message = "خطا غير معروف";
-        if (error.response) {
-          let response = error.response;
-          if (response.status == 422) {
-            this.message = response.data.message;
-            if (Object.hasOwnProperty.call(response.data, "errors")) {
-              this.$refs.form.setErrors(response.data.errors);
-            }
-          } else if (response.status == 401) {
-            this.message = response.data.message;
-            if (response.data["type"] == "verify_code") {
-              this.verifyCode = true;
-            }
-          }
+        let response = error.response;
+        window.errorMsg(response.data.message);
+        if (response.status == 422) {
+          this.setErrorsForm(this.$refs.loginForm, response);
         }
       }
     }
