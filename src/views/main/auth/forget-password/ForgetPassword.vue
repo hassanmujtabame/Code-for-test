@@ -1,76 +1,108 @@
 <template>
-     <div class="container">
-            <div class="box bg-white    rounded-3">
-        
-                <div class="row align-items-center p-0 position-relative ">
-                    <div class="col-12 col-md-6 p-4">
-                        <div style="" class="text-center " >
-                                 <img class="" :src="`${publicPath}assets/img/pot_1_@2x.png`" alt="" width="320" height="220">
-                        </div>
-                        <div class="">
+  <div class="bg-white rounded-3 mobile-center">
+    <b-row>
+      <b-col xl="7">
+        <div class="forget-password-form">
+          <div class="text-center">
+            <b-img :src="`${publicPath}assets/img/pot_1_@2x.png`" width="320" height="220" />
+          </div>
 
-                            <h1 class="fw-bolder ">
-                                نسيت كلمة السر ؟
-                                                                                </h1>
-                            <p>
-                                لا تقلق سنساعدك على أستعادتها 
+          <div class="form">
+            <h1 class="fw-bolder">نسيت كلمة السر ؟</h1>
+            <p>لا تقلق سنساعدك على أستعادتها</p>
 
-                            </p>
-                            <ValidationObserver ref="form" tag="div" class="row g-3 needs-validation " novalidate>
-                        
-    
-                                <div class="col-md-4 w-100">
-                                    <d-text-input type="email" v-model="itemForm.email" class="form-control"
-                                    autocomplete="new-password"
-                                        label="البريد الالكتروني" >
-                                    
-                                    </d-text-input>
-                                </div>                         
-                                <div class="col-12 text-center ">
-                                    <button @click="doNext" class="btn btn-main  " type="submit"   role="button">  أستمر  </button>
-                                </div>                     
-                            </ValidationObserver>
-                        </div>
+            <!-- Start Email -->
+            <ValidationObserver ref="forgetPasswordForm">
+              <ValidationProvider
+                vid="email"
+                rules="required|email"
+                :name="$t('Email')"
+                v-slot="{ errors }"
+                tag="div"
+                class="mb-3"
+              >
+                <b-form-input type="text" :placeholder="$t('Email')" v-model="form.email" required />
+                <div class="text-input-error">{{ errors[0] }}</div>
+              </ValidationProvider>
+              <!-- End Email -->
 
-                    </div>
-                    <div class=" col-12 col-md-6">
-                        <div class="box">
-                            <img :src="`${publicPath}assets/svg/riadiat-green-card.svg`"/>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
+              <div class="text-center mt-3">
+                <button class="btn btn-main-v py-2 px-5" role="button" @click="doNext">أستمر</button>
+              </div>
+            </ValidationObserver>
+          </div>
         </div>
+      </b-col>
+      <b-col xl="5" class="tablet-hide">
+        <div class="box">
+          <b-img fluid :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
+        </div>
+      </b-col>
+    </b-row>
+  </div>
 </template>
 <script>
-export default{
-    name:'forget-password',
-    data:()=>({
-        itemForm:{
-            email:''
+export default {
+  name: "forget-password",
+  data() {
+    return {
+      form: {
+        email: ""
+      }
+    };
+  },
+  methods: {
+    async doNext() {
+      let valid = await this.$refs.forgetPasswordForm.validate();
+      if (!valid) {
+        return;
+      }
+      try {
+        let { data } = await this.$axios.post(
+          "user/auth/forget-password",
+          this.form
+        );
+        if (data.success) {
+          let info = {
+            data: data.data,
+            form: this.form
+          };
+          this.$emit("success", info);
+          window.successMgs(data.message);
         }
-    }),
-    methods:{
-        async doNext(){
-           try {
-            let { data } = await this.$axios.post('user/auth/forget-password', this.itemForm)
-            if(data.success){
-                
-                let info ={
-                            data:data.data,
-                            form:this.itemForm
-                    }
-                    this.$emit('success',info)
-            }else{
-                window.SwalError(data.message)
-            }
-           } catch (error) {
-            window.DHelper.catchException.call(this,error)
-           }
+      } catch (error) {
+        let response = error.response;
+        window.errorMsg(response.data.message);
+        if (response.status == 422) {
+          this.setErrorsForm(this.$refs.loginForm, response);
         }
+      }
     }
-}
+  }
+};
 </script>
+
+<style scoped>
+.forget-password-form {
+  padding: 2em;
+}
+.no-have-account {
+  text-align: end;
+}
+.form {
+  padding-top: 1.5rem;
+}
+
+.icon-input-end {
+  color: #cdd7d8;
+  font-size: 23px;
+}
+
+html[lang="en"] .icon-input-end {
+  left: auto;
+  right: 15px;
+}
+.form-control {
+  padding: 0.5rem 0.75rem;
+}
+</style>

@@ -24,7 +24,7 @@ window.SwalInfo = (message) => {
 window.SwalQuestion = (message) => {
     window.SwalStatus(message, 'question', '')
 }
-window.successMgs = () => {
+window.successMgs = (msg) => {
     Swal.fire({
         toast: true,
         position: "top-end",
@@ -32,7 +32,7 @@ window.successMgs = () => {
         showConfirmButton: false,
         timer: 5000,
         timerProgressBar: true,
-        title: "عمليه ناجحه",
+        title: msg || "عمليه ناجحه",
         icon: "success",
     })
 }

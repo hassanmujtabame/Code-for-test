@@ -9,6 +9,12 @@
     }*/
 }
 
+@media (max-width:1201px) {
+    .tablet-hide {
+        display: none !important
+    }
+}
+
 @media (max-width:991px) {
     .btn-custmer {
 
