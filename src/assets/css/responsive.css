@@ -15,6 +15,10 @@
         padding: 10px 27px;
     }
 
+    .mobile-hide {
+        display: none !important
+    }
+
     .btn-main-style {
         text-align: center;
         display: flex;
@@ -232,9 +236,7 @@
 }
 
 @media (max-width:1201px) {
-    .mobile-hide {
-        display: none !important
-    }
+
 }
 
 

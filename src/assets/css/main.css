@@ -2334,9 +2334,8 @@ select.show-arrow {
 .header-title-page {
     font-style: normal;
     font-weight: 600;
-    font-size: 56px;
+    font-size: 45px;
     line-height: 1.3;
-    /* identical to box height, or 129% */
     color: #FFFFFF;
 }
 
@@ -2347,7 +2346,7 @@ select.show-arrow {
 .header-desc-page {
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 23px;
     line-height: 1.3;
     /* or 133% */
     color: #FFFFFF;
