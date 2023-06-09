@@ -1,103 +1,98 @@
 <template>
-  <div class="login-form bg-white rounded-3">
+  <div class="bg-white rounded-3">
     <b-row>
-      <b-col lg="6">
-        <h6>
-          ليس لديك حساب ؟
-          <router-link :to="getRouteLocale('register')" class="m-c">أنشئ حساب الان</router-link>
-        </h6>
-        <h1 class="fw-bolder">مرحبا بك من جديد</h1>
-        <p>لنبدأمن جديد ال انطلاق نحو المستقبل</p>
-        <div v-if="hasError" class="alert alert-danger" role="alert">
-          {{ message }}
-          <div v-if="verifyCode">
-            <a href="#" @click="resendCode">{{ $t('resend-code') }}</a>
+      <b-col lg="7">
+        <div class="login-form">
+          <h6 class="no-have-account">
+            ليس لديك حساب ؟
+            <router-link :to="getRouteLocale('register')" class="m-c">أنشئ حساب الان</router-link>
+          </h6>
+          <div class="form">
+            <h1 class="fw-bolder">مرحبا بك من جديد</h1>
+            <p class="mb-3 text-secondary-color">لنبدأمن جديد ال انطلاق نحو المستقبل</p>
+
+            <!-- Start Email -->
+            <ValidationObserver ref="form" @submit="login">
+              <ValidationProvider
+                :name="$t('Email')"
+                rules="required"
+                v-slot="{ errors }"
+                tag="div"
+                class="mb-3"
+              >
+                <b-form-input type="text" :placeholder="$t('Email')" v-model="form.email" required />
+                <div class="text-input-error">{{ errors[0] }}</div>
+              </ValidationProvider>
+              <!-- End Email -->
+
+              <!-- Start Password -->
+              <ValidationProvider
+                :name="$t('Password')"
+                rules="required"
+                v-slot="{ errors }"
+                tag="div"
+              >
+                <div class="position-relative">
+                  <b-form-input
+                    id="password-field"
+                    :type="show ? 'text' : 'password'"
+                    v-model="form.password"
+                    class="form-control"
+                    :placeholder="$t('Password')"
+                    required
+                  />
+                  <span
+                    @click="show = !show"
+                    class="icon-input-end fa-regular position-absolute"
+                    :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"
+                  ></span>
+                </div>
+                <div class="text-input-error">{{ errors[0] }}</div>
+              </ValidationProvider>
+              <!-- End Password -->
+
+              <div class="d-flex justify-content-between mt-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value id="flexCheckDefault" />
+                  <label class="form-check-label" for="flexCheckDefault">{{ $t('rememberme') }}</label>
+                </div>
+                <router-link
+                  :to="getRouteLocale('forget-password')"
+                  class="m-c"
+                >{{ $t('forgot_password') }}</router-link>
+              </div>
+              <div class="text-center mt-5">
+                <button
+                  @click="login"
+                  class="btn btn-main-v py-2 px-5"
+                  role="button"
+                >{{ $t('login') }}</button>
+              </div>
+            </ValidationObserver>
           </div>
         </div>
-        <ValidationObserver ref="form" @submit="login" class="row g-3 needs-validation" novalidate>
-          <div class="col-md-4 w-100 row">
-            <ValidationProvider
-              :name="$t('Email')"
-              vid="email"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <div class="col-12">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="validationCustom03"
-                  :placeholder="$t('Email')"
-                  v-model="form.email"
-                  required
-                />
-              </div>
-              <div v-if="errors.length !== 0" class="col-12 text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-          </div>
-          <div class="col-md-4 w-100 mt-3 row">
-            <ValidationProvider
-              tag="div"
-              :name="$t('Password')"
-              vid="password"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <div class="col-12 position-relative">
-                <input
-                  id="password-field"
-                  :type="show ? 'text' : 'password'"
-                  v-model="form.password"
-                  class="form-control"
-                  :placeholder="$t('Password')"
-                  required
-                />
-                <span
-                  @click="show = !show"
-                  class="icon-input-end fa-regular position-absolute"
-                  :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"
-                ></span>
-              </div>
-              <div v-if="errors.length !== 0" class="col-12 text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-          </div>
-          <div class="d-flex justify-content-between mt-3">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value id="flexCheckDefault" />
-              <label class="form-check-label" for="flexCheckDefault">{{ $t('rememberme') }}</label>
-            </div>
-            <div>
-              <router-link :to="getRouteLocale('forget-password')" class="m-c">
-                {{ $t('forgot_password')
-                }}
-              </router-link>
-            </div>
-          </div>
-          <div class="col-12 text-center">
-            <button @click="login" class="btn btn-main" role="button">{{ $t('login') }}</button>
-          </div>
-        </ValidationObserver>
       </b-col>
-      <div class="col-12 col-md-6">
+      <b-col lg="5">
         <div class="box">
           <img :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
         </div>
-      </div>
+      </b-col>
     </b-row>
   </div>
 </template>
 <script>
 export default {
-  data: () => ({
-    show: false,
-    form: {
-      email: process.env.EMAIL || "",
-      password: process.env.PASSWORD || ""
-    },
-    hasError: false,
-    message: "",
-    verifyCode: false
-  }),
+  data() {
+    return {
+      show: false,
+      form: {
+        email: "",
+        password: ""
+      },
+      message: "",
+      verifyCode: false
+    };
+  },
   methods: {
     async resendCode(e) {
       if (e) e.preventDefault();
@@ -129,7 +124,6 @@ export default {
     },
     async login(e) {
       e.preventDefault();
-      this.hasError = false;
       this.verifyCode = false;
       this.message = "";
       let valid = await this.$refs.form.validate();
@@ -149,7 +143,6 @@ export default {
           window.location.reload();
         } else {
           this.message = data.message;
-          this.hasError = true;
           if (data.data.type == "verify_code") {
             this.verifyCode = true;
           }
@@ -171,14 +164,22 @@ export default {
             }
           }
         }
-
-        this.hasError = true;
       }
     }
   }
 };
 </script>
 <style scoped>
+.login-form {
+  padding: 2em;
+}
+.no-have-account {
+  text-align: end;
+}
+.form {
+  padding: 2.5rem 0px;
+}
+
 .icon-input-end {
   color: #cdd7d8;
   font-size: 23px;
@@ -187,5 +188,8 @@ export default {
 html[lang="en"] .icon-input-end {
   left: auto;
   right: 15px;
+}
+.form-control {
+  padding: 0.5rem 0.75rem;
 }
 </style>
