@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-xl">
-    <div class="container-fluid" :class="{ 'px-5': !isMobile }">
+    <div class="container">
       <router-link class="navbar-brand" :to="getRouteLocale('index')"
         ><img :src="`${publicPath}assets/svg/logo-header.svg`" alt=""
       /></router-link>

@@ -2,7 +2,7 @@
   <div>
     <DefaultHeader/>
     <MyDrawer v-if="user"/>
-    <main style="margin-top: 96px">
+    <main style="margin-top: 80px">
         <slot></slot>
         </main>
         <d-standard-rate-dialog />
