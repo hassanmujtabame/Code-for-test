@@ -99,24 +99,6 @@
               <d-text-input :errors="errors" v-model="form.area" label=" مساحه مكان العمل (بالمتر)" />
             </ValidationProvider>
           </div>
-        <!-- <div class="mb-3">
-            <ValidationProvider
-              name="تاريخ الحجز"
-              vid="date"
-              rules="required"
-              v-slot="{ errors }"
-            >
-              <d-datepicker-input
-                v-model="form.date"
-                label="تاريخ الحجز"
-                class="my-2"
-              />
-              <d-error-input
-                :errors="errors"
-                v-if="errors && errors.length > 0"
-              />
-            </ValidationProvider>
-            </div> -->
           <div class="mb-3 row">
             <!-- time -->
             <div class="col-23 col-md-12">
