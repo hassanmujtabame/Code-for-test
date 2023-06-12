@@ -1,17 +1,18 @@
 <template>
   <div>
-    <AuthPage v-if="token" />
-    <GuestPage v-else />
+    <ServiceProviderHome />
   </div>
 </template>
-<script>
-import GuestPage from "./guest.vue";
-import AuthPage from "./auth.vue";
+  
+  <script>
+import ServiceProviderHome from "@/components/pages/service-provider/home";
 export default {
-  name: "service-provider",
-  components: { GuestPage, AuthPage }
+  name: "service-provider-home",
+  components: {
+    ServiceProviderHome,
+  },
 };
 </script>
   
   <style>
-</style>
+</style>   
