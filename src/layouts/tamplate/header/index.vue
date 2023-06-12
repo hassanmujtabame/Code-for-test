@@ -54,7 +54,7 @@
                 >{{ $t("join-us") }}</router-link
               >
             </div>
-            <li class="nav-item dropdown ms-3 lang">
+            <!-- <li class="nav-item dropdown ms-3 lang">
               <a
                 class="nav-link m-c"
                 role="button"
@@ -80,7 +80,7 @@
                     >العربية</a>
                 </li>
               </ul>
-            </li>
+            </li> -->
           </div>
         </div>
       </div>
@@ -145,6 +145,9 @@ export default {
 </script>
   
   <style scoped>
+  .navbar-brand {
+    margin-right :0
+  }
 a.nav-link {
   text-align: start;
   white-space: nowrap;
