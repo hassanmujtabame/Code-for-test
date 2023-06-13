@@ -67,7 +67,6 @@ export default {
     text-transform: capitalize;
     color: #ffffff;
     padding: 5px;
-
   }
 }
 </style>
