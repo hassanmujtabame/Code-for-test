@@ -4,7 +4,7 @@
       code="my-consultation-bookings"
       color="#1FB9B3"
       btnTitle="عرض الكل"
-      :url="generatetoUrl('workspaces-requests', { lang: $i18n.locale })"
+      :url="generatetoUrl('workspaces-home', { lang: $i18n.locale })"
     />
   </template>
     
