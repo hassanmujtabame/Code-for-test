@@ -62,7 +62,7 @@ export default {
   .box a {
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 12px;
     text-align: justify;
     text-transform: capitalize;
     color: #ffffff;

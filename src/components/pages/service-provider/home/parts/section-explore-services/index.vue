@@ -57,20 +57,5 @@ export default {
 </script>
   
   <style scoped>
-.box .box-tow {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  padding: 20px 10px;
-}
-
-.box a {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  text-align: justify;
-  text-transform: capitalize;
-  color: #ffffff;
-}
 </style>
   
