@@ -2541,11 +2541,6 @@ input[name="card.number"] {
     flex: 1 0 164px;
 }
 
-.mobile-layout .btn-custmer,
-.mobile-layout .btn-custmer-w {
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-}
 
 .btn-dash {
     all: unset;
