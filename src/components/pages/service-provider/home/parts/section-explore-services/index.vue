@@ -1,105 +1,76 @@
 <template>
-    <div class="container mt-5">
-        <div>
-            <h2 class="home-section-title text-center">
-                تصفح الخدمات حسب التصنيف
-            </h2>
-            <div class="row search-service mt-4">
-                <div class="col-md-6 ">
-                    <div class="box ">
-                        <div class=" d-flex align-items-center gap-3">
-
-                           <img :src="`${publicPath}assets/svg/browser.svg`"/>
-                            <h2 class="m-c">
-                                خدمات تقدم اونلاين
-                            </h2>
-                        </div>
-                        <div class="box-tow">
-                            <router-link :to="getRouteLocale('service-provider-ready-services',{},{state:'online'})"
-                            >
-                            <svg v-if="false" width="50" height="50" viewBox="0 0 107 107" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M57.9615 52.3861C57.1144 52.3861 56.2673 52.074 55.5986 51.4052C54.3057 50.1123 54.3057 47.9723 55.5986 46.6794L92.1569 10.1211C93.4498 8.82814 95.5898 8.82814 96.8828 10.1211C98.1757 11.414 98.1757 13.554 96.8828 14.8469L60.3244 51.4052C59.6557 52.074 58.8086 52.3861 57.9615 52.3861Z"
-                                    fill="white" />
-                                <path
-                                    d="M98.0836 33.6607C96.2557 33.6607 94.7398 32.1449 94.7398 30.317V12.2607H76.6836C74.8557 12.2607 73.3398 10.7449 73.3398 8.91699C73.3398 7.08908 74.8557 5.57324 76.6836 5.57324H98.0836C99.9115 5.57324 101.427 7.08908 101.427 8.91699V30.317C101.427 32.1449 99.9115 33.6607 98.0836 33.6607Z"
-                                    fill="white" />
-                                <path
-                                    d="M66.8763 101.427H40.1263C15.9176 101.427 5.57422 91.0841 5.57422 66.8753V40.1253C5.57422 15.9166 15.9176 5.57324 40.1263 5.57324H49.043C50.8709 5.57324 52.3867 7.08908 52.3867 8.91699C52.3867 10.7449 50.8709 12.2607 49.043 12.2607H40.1263C19.5734 12.2607 12.2617 19.5724 12.2617 40.1253V66.8753C12.2617 87.4282 19.5734 94.7399 40.1263 94.7399H66.8763C87.4292 94.7399 94.7409 87.4282 94.7409 66.8753V57.9587C94.7409 56.1307 96.2567 54.6149 98.0846 54.6149C99.9125 54.6149 101.428 56.1307 101.428 57.9587V66.8753C101.428 91.0841 91.085 101.427 66.8763 101.427Z"
-                                    fill="white" />
-                            </svg>
-                        
-                            هي خدمات تقدم عن بعد من أي مكان تفضله مثل ( تصميم الهوية البصرية - تصميم لوجو - البرمجة - كتابة المحتوى - التصميم الداخلي - إلخ...)
-
-                        </router-link>
-                    </div>
-                    </div>
-
-                </div>
-                <div class="col-md-6 ">
-                    <div class="box  ">
-                        <div class="d-flex align-items-center gap-3">
-
-                            <img :src="`${publicPath}assets/svg/hand-cog.svg`" />
-
-                            <h2 class="m-c">
-                                خدمات تقدم أوفلاين
-                            </h2>
-
-                        </div>
-                        <div class="box-tow">
-                        <router-link :to="getRouteLocale('service-provider-ready-services',{},{state:'offline'})" >
-                            <svg v-if="false" width="50" height="50" viewBox="0 0 107 107" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M57.9615 52.3861C57.1144 52.3861 56.2673 52.074 55.5986 51.4052C54.3057 50.1123 54.3057 47.9723 55.5986 46.6794L92.1569 10.1211C93.4498 8.82814 95.5898 8.82814 96.8828 10.1211C98.1757 11.414 98.1757 13.554 96.8828 14.8469L60.3244 51.4052C59.6557 52.074 58.8086 52.3861 57.9615 52.3861Z"
-                                    fill="white" />
-                                <path
-                                    d="M98.0836 33.6607C96.2557 33.6607 94.7398 32.1449 94.7398 30.317V12.2607H76.6836C74.8557 12.2607 73.3398 10.7449 73.3398 8.91699C73.3398 7.08908 74.8557 5.57324 76.6836 5.57324H98.0836C99.9115 5.57324 101.427 7.08908 101.427 8.91699V30.317C101.427 32.1449 99.9115 33.6607 98.0836 33.6607Z"
-                                    fill="white" />
-                                <path
-                                    d="M66.8763 101.427H40.1263C15.9176 101.427 5.57422 91.0841 5.57422 66.8753V40.1253C5.57422 15.9166 15.9176 5.57324 40.1263 5.57324H49.043C50.8709 5.57324 52.3867 7.08908 52.3867 8.91699C52.3867 10.7449 50.8709 12.2607 49.043 12.2607H40.1263C19.5734 12.2607 12.2617 19.5724 12.2617 40.1253V66.8753C12.2617 87.4282 19.5734 94.7399 40.1263 94.7399H66.8763C87.4292 94.7399 94.7409 87.4282 94.7409 66.8753V57.9587C94.7409 56.1307 96.2567 54.6149 98.0846 54.6149C99.9125 54.6149 101.428 56.1307 101.428 57.9587V66.8753C101.428 91.0841 91.085 101.427 66.8763 101.427Z"
-                                    fill="white" />
-                            </svg>
-                            
-                            هي خدمات تقدم على أرض الواقع مثل: ( تصميم كوشة - تصميم أزياء- ميك اب ارتست- إلخ..)
-                        </router-link>
-                    </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
+  <div class="container mt-5">
+    <h2 class="home-section-title text-center">تصفح الخدمات حسب التصنيف</h2>
+    <b-row class="search-service mt-4">
+      <b-col v-for="service in services" :key="service.id" md="6">
+        <card-box
+          :image-src="service.image"
+          :title="service.title"
+          :content="service.description"
+          :link-to="service.link"
+        ></card-box>
+      </b-col>
+    </b-row>
+  </div>
 </template>
+  
+  <script>
+import CardBox from "./CardBox.vue";
 
-<script>
 export default {
-    name: 'section-explore-services'
-}
+  name: "section-explore-services",
+  components: {
+    CardBox
+  },
+
+  computed: {
+    services() {
+      return [
+        {
+          id: 1,
+          image: `${this.publicPath}assets/svg/browser.svg`,
+          title: "خدمات تقدم اونلاين",
+          description:
+            "هي خدمات تقدم عن بعد من أي مكان تفضله مثل ( تصميم الهوية البصرية - تصميم لوجو - البرمجة - كتابة المحتوى - التصميم الداخلي - إلخ...)",
+          link: this.getRouteLocale(
+            "service-provider-ready-services",
+            {},
+            { state: "online" }
+          )
+        },
+        {
+          id: 2,
+          image: `${this.publicPath}assets/svg/hand-cog.svg`,
+          title: "خدمات تقدم أوفلاين",
+          description:
+            "هي خدمات تقدم على أرض الواقع مثل: ( تصميم كوشة - تصميم أزياء- ميك اب ارتست- إلخ..)",
+          link: this.getRouteLocale(
+            "service-provider-ready-services",
+            {},
+            { state: "offline" }
+          )
+        }
+      ];
+    }
+  }
+};
 </script>
-
-<style scoped>
-.box .box-tow{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    padding:20px 10px;
+  
+  <style scoped>
+.box .box-tow {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 20px 10px;
 }
-.box a{
-    font-style: normal;
-font-weight: 400;
-font-size: 20px;
-/*line-height: 32px;*/
-/* or 133% */
 
-text-align: justify;
-text-transform: capitalize;
-
-/* FFFFFF */
-
-color: #FFFFFF;
+.box a {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: justify;
+  text-transform: capitalize;
+  color: #ffffff;
 }
 </style>
+  
