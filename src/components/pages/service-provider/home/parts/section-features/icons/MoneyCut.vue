@@ -186,7 +186,10 @@
 </template>
 
 <script>
-export default {};
+export default {
+    name:"MoneyCut"
+
+};
 </script>
 
 <style>

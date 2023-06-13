@@ -186,7 +186,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Announcement"
+};
 </script>
 
 <style>

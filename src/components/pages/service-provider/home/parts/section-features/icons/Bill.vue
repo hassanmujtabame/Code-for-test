@@ -66,7 +66,10 @@
 </template>
 
 <script>
-export default {};
+export default {
+    name:"Bill"
+
+};
 </script>
 
 <style>
