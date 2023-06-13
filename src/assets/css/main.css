@@ -285,6 +285,10 @@ nav .offcanvas-start .nav-item a.nav-link {
     font-size: 15px;
 }
 
+.navbar-nav {
+    align-items: center;
+}
+
 .navbar-nav .nav-link.active,
 .navbar-nav .show>.nav-link {
     color: var(--m-color);

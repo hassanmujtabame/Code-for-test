@@ -34,7 +34,7 @@
             @click="toggleOffcanvas"
           ></button>
         </div>
-        <ul class="navbar-nav me-4 mb-2 mb-lg-0 align-items-center">
+        <ul class="navbar-nav">
           <slot :closeNavList="closeNavList" :clickLink="clickLink"></slot>
         </ul>
         <div>
