@@ -140,6 +140,9 @@ export default {
         this.$refs.loginForm.reset();
       } catch (error) {
         let response = error.response;
+
+        console.log("error.response.data" ,error.response.data)
+
         window.errorMsg(response.data.message);
         if (response.status == 422) {
           this.setErrorsForm(this.$refs.loginForm, response);

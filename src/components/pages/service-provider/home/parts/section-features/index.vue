@@ -1,5 +1,5 @@
 <template>
-  <b-container class="mt-5">
+  <b-container class="mt-5 mobile-center">
     <h2 class="home-section-title text-center">المزايا المُقدّمة من رياديات إلى مقدمي الخدمات</h2>
     <b-row class="why-riadiat order">
       <b-col lg="3" md="6" v-for="item in features" :key="item.id" class="mt-3">
