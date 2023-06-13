@@ -1,7 +1,7 @@
 <template>
   <b-card no-body class="box">
     <div class="d-flex align-items-center gap-3 px-3 text-center">
-      <b-img :src="imageSrc" class="mr-3" />
+      <b-img fluid :src="imageSrc" class="mr-3" />
       <h3 class="m-c">{{ title }}</h3>
     </div>
     <div class="box-tow">
@@ -40,7 +40,6 @@ export default {
   display: flex;
   justify-content: center;
   align-content: center;
-  padding: 20px 10px;
 }
 
 .box a {
@@ -50,6 +49,26 @@ export default {
   text-align: justify;
   text-transform: capitalize;
   color: #ffffff;
+  padding: 5px;
+}
+
+@media (max-width: 991px) {
+  .box {
+    margin-top: 1.5rem;
+  }
+  img {
+    width: 12%;
+  }
+  .box a {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: justify;
+    text-transform: capitalize;
+    color: #ffffff;
+    padding: 5px;
+
+  }
 }
 </style>
   

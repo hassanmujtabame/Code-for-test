@@ -1,8 +1,8 @@
 <template>
-  <div class="main-top py-2 px-5 mt-5">
+  <div class="main-top py-3 px-5 my-5">
     <div class="row align-items-center text-center m-auto">
       <div class="col-md-6 mt-2">
-        <div class="img-screen">
+        <div class="img-screen  mobile-hide">
           <img class="img-fluid" :src="`${publicPath}assets/svg/mobile-screen-1.svg`" alt />
         </div>
       </div>
@@ -50,5 +50,6 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style scoped>
+
+</style>>

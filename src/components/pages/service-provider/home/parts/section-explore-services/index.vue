@@ -2,7 +2,7 @@
   <div class="container mt-5">
     <h2 class="home-section-title text-center">تصفح الخدمات حسب التصنيف</h2>
     <b-row class="search-service mt-4">
-      <b-col v-for="service in services" :key="service.id" md="6">
+      <b-col v-for="service in services" :key="service.id" lg="6">
         <card-box
           :image-src="service.image"
           :title="service.title"
