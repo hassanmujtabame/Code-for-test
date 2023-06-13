@@ -1,12 +1,12 @@
 <template>
   <nav class="navbar navbar-expand-xl">
     <div class="container">
-      <router-link class="navbar-brand" :to="getRouteLocale('index')"
-        ><img :src="`${publicPath}assets/svg/logo-header.svg`" alt=""
-      /></router-link>
-      <div v-if="false" class="d-block d-sm-none">
+      <router-link class="navbar-brand" :to="getRouteLocale('index')">
+        <img :src="`${publicPath}assets/svg/logo-header.svg`" alt="">
+      </router-link>
+      <!-- <div v-if="false" class="d-block d-sm-none">
         <SearchInput />
-      </div>
+      </div> -->
       <button
         class="navbar-toggler"
         type="button"
@@ -15,20 +15,23 @@
         aria-controls="offcanvasExample"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        @click="toggleOffcanvas"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div
         class="offcanvas offcanvas-start justify-content-between"
         id="offcanvasExample"
+        :class="{ 'show': showMobileNav }"
       >
         <div class="offcanvas-header">
           <button
-            type="button "
+            type="button"
             id="btn-close-header"
             class="btn-close me-3 m-c"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
+            @click="toggleOffcanvas"
           ></button>
         </div>
         <ul class="navbar-nav me-4 mb-2 mb-lg-0 align-items-center">
@@ -51,44 +54,16 @@
               <router-link
                 :to="getRouteLocale('register')"
                 class="text-white"
-                >{{ $t("join-us") }}</router-link
-              >
+              >{{ $t("join-us") }}</router-link>
             </div>
-            <!-- <li class="nav-item dropdown ms-3 lang">
-              <a
-                class="nav-link m-c"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <ArrowDownSVG />
-                {{ $root.$i18n.locale }}
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a
-                    class="dropdown-item"
-                    v-if="$i18n.locale != 'en'"
-                    @click="changeLang('en', $event)"
-                    >English</a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    v-if="$i18n.locale != 'ar'"
-                    @click="changeLang('ar', $event)"
-                    >العربية</a>
-                </li>
-              </ul>
-            </li> -->
           </div>
         </div>
       </div>
     </div>
   </nav>
 </template>
-  
-  <script>
+
+<script>
 import ArrowDownSVG from "@/components/icon-svg/arrow-down.vue";
 
 import UserNav from "@/layouts/common/user-nav.vue";
@@ -114,7 +89,7 @@ export default {
     UserMsg,
     UserNotif,
   },
-  data: () => {
+  data() {
     return {
       lang: "AR",
       showMobileNav: false,
@@ -122,12 +97,14 @@ export default {
   },
   methods: {
     closeNavList() {
-      window.$(`#btn-close-header`).click();
+      this.showMobileNav = false;
     },
     clickLink(navigate, evnt) {
-      //this.myModal.hide();
       this.closeNavList();
       navigate(evnt);
+    },
+    toggleOffcanvas() {
+      this.showMobileNav = !this.showMobileNav;
     },
     logout() {
       window.store.commit("auth/CLEAR_TOKEN");
@@ -136,18 +113,13 @@ export default {
       window.location.reload();
     },
   },
-  mounted() {
-    window.$(`#offcanvasExample .nav-link`).click(() => {
-      if (this.isMobile) this.closeNavList();
-    });
-  },
 };
 </script>
-  
-  <style scoped>
-  .navbar-brand {
-    margin-right :0
-  }
+
+<style scoped>
+.navbar-brand {
+  margin-right: 0;
+}
 a.nav-link {
   text-align: start;
   white-space: nowrap;
