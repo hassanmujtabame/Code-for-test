@@ -2584,7 +2584,7 @@ input[name="card.number"] {
 
 html[lang="ar"] .accordion-button::after {
     margin-right: auto;
-    left: 0;
+    left: 18px;
 }
 
 .word-break-all {

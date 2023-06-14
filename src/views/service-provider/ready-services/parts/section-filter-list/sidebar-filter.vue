@@ -4,25 +4,37 @@
     <div class="accordion" id="accordionPanelsStayOpenExample">
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-          <b-button v-b-toggle.classfication type="button" class="accordion-button">تصنيف الخدمة</b-button>
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne"
+            aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne"
+          >تصنيف الخدمة</button>
         </h2>
-
-        <b-collapse id="classfication">
-          <div>
-            <div v-for="(state,i) in states" :key="i" class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                :value="state.id"
-                v-model="filter.state"
-                :selected="state.id===filter.state"
-                name="stateRadioDefault"
-                id="flexRadioDefault1"
-              />
-              <label class="form-check-label" for="flexRadioDefault1">{{state.name}}</label>
+        <div
+          id="panelsStayOpen-collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="panelsStayOpen-headingOne"
+        >
+          <div class="accordion-body">
+            <div>
+              <div v-for="(state,i) in states" :key="i" class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  :value="state.id"
+                  v-model="filter.state"
+                  :selected="state.id===filter.state"
+                  name="stateRadioDefault"
+                  id="flexRadioDefault1"
+                />
+                <label class="form-check-label" for="flexRadioDefault1">{{state.name}}</label>
+              </div>
             </div>
           </div>
-        </b-collapse>
+        </div>
       </div>
       <div class="accordion-item show">
         <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
@@ -140,11 +152,11 @@ export default {
   },
   watch: {
     /*filter:{
-        deep:true,
-        handler(val){
-            this.$emit('change',val)
-        }
-    }*/
+       deep:true,
+       handler(val){
+           this.$emit('change',val)
+       }
+   }*/
   },
   methods: {
     updateFilter() {
