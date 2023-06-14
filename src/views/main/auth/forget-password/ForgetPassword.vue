@@ -74,7 +74,7 @@ export default {
         let response = error.response;
         window.errorMsg(response.data.message);
         if (response.status == 422) {
-          this.setErrorsForm(this.$refs.loginForm, response);
+          this.setErrorsForm(this.$refs.forgetPasswordForm, response);
         }
       }
     }

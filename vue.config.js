@@ -10,10 +10,6 @@ module.exports = defineConfig({
    ? `/${prefix_url}/`
    : '/',
   transpileDependencies: true,
-  devServer: {
-    https:true,
-    port: 8050,
-  },
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({

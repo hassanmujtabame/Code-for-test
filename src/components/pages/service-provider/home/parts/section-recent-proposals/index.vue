@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="mt-3 row order">
-      <div v-for="(item, i) in items" :key="i" class="col-12 col-md-6 mt-2">
+      <div v-for="(item, i) in items" :key="i" class="col-12 col-lg-6 mt-2">
         <a class="router-link" href="#" @click="goToProposal(item,$event)">
           <showProposal 
           :title="item.title"

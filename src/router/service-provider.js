@@ -122,7 +122,7 @@ const routers =[
     },
     {
         path: 'service-provider/ready-services',
-        meta:{layout:LayoutDefault},
+        meta:{layout:LayoutDefault,auth:true},
         name: 'service-provider-ready-services',
         component: () => import(/* webpackChunkName: "service-provider-ready-services" */ '../views/service-provider/ready-services/index.vue') 
     },

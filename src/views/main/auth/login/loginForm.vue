@@ -62,6 +62,11 @@
                   class="m-c"
                 >{{ $t('forgot_password') }}</router-link>
               </div>
+
+              <div v-if="verifyCode" class="alert alert-danger mt-2" role="alert">
+                <a href="#" @click="resendCode">{{ $t('resend-code') }}</a>
+              </div>
+
               <div class="text-center mt-5">
                 <button
                   class="btn btn-main-v py-2 px-5"
@@ -90,38 +95,30 @@ export default {
         email: "",
         password: ""
       },
-      message: "",
       verifyCode: false
     };
   },
   methods: {
-    // async resendCode() {
-    //   let email = this.form.email;
-    //   try {
-    //     let { data } = await this.$axios.post("user/auth/resend-code", {
-    //       email
-    //     });
-    //     if (data.success) {
-    //       let pin_code = data.data.pin_code;
-
-    //       this.$emit("change-form", { data: { pin_code }, form: { email } });
-    //     } else {
-    //       window.SwalError(data.message);
-    //     }
-    //   } catch (error) {
-    //     window.SwalError("خطا غير معروف");
-    //     if (error.response) {
-    //       let response = error.response;
-    //       if (response.status == 422) {
-    //         this.message = response.data.message;
-    //         if (Object.hasOwnProperty.call(response.data, "errors")) {
-    //           this.$refs.form.setErrors(response.data.errors);
-    //         }
-    //       }
-    //     }
-    //   }
-    // },
+    async resendCode() {
+      let email = this.form.email;
+      try {
+        let { data } = await this.$axios.post("user/auth/resend-code", {
+          email
+        });
+        if (data.success) {
+          let pin_code = data.data.pin_code;
+          this.$emit("change-form", { data: { pin_code }, form: { email } });
+          window.successMgs(data.message);
+        } else {
+          window.errorMsg(data.message);
+        }
+      } catch (error) {
+        let response = error.response;
+        window.errorMsg(response.data.message);
+      }
+    },
     async login() {
+      this.verifyCode = false;
       let valid = await this.$refs.loginForm.validate();
       if (!valid) {
         return;
@@ -136,6 +133,10 @@ export default {
           window.store.commit("auth/SET_IS_PROVIDER", false);
           window.store.commit("auth/ACADEMY_ROLE", "student");
           window.location.reload();
+        } else {
+          if (data.data.type == "verify_code") {
+            this.verifyCode = true;
+          }
         }
         this.$refs.loginForm.reset();
       } catch (error) {
