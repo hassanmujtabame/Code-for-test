@@ -45,8 +45,7 @@ class Dhelper{
     return list;
  }
  catchException(error,form){
-    console.mylog('error',error)
-    console.mylog('error response',error.response)
+
     if(error.response){
         let response= error.response;
         if(response.status==422){
