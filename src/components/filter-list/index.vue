@@ -73,7 +73,7 @@
       <!--ordzer-->
       <div
         v-if="$slots['head-end']"
-        class="col-12 col-md-auto"
+        class="col-12 col-lg-auto"
         :style="{
           'margin-right': $i18n.locale ? 'auto' : '',
           'margin-left': $i18n.locale ? 'auto' : '',
@@ -86,7 +86,7 @@
       <slot name="before-body"></slot>
     </div>
     <div class="row">
-      <div v-if="!hideSide" class="col-md-3 mt-2">
+      <div v-if="!hideSide" class="col-xl-3 mt-2">
         <slot name="side">
           <div class="box border p-3 rounded-3">
             <h4>{{ $t("filter") }}</h4>
@@ -310,7 +310,7 @@
           </div>
         </slot>
       </div>
-      <div :class="{ 'col-md-9': !hideSide, 'col-md-12': hideSide }">
+      <div :class="{ 'col-xl-9': !hideSide, 'col-lg-12': hideSide }">
         <div class="row">
           <div v-if="items.length == 0">
             <h1 class="t-c text-center">لا يوجد عناصر</h1>
@@ -431,27 +431,27 @@ export default {
     },
     classColCard: {
       type: String,
-      default: "col-12 col-md-6 mt-2",
+      default: "col-12 col-lg-6 mt-2",
     },
     classColSearch: {
       type: String,
-      default: "col-12 col-md-6",
+      default: "col-12 col-lg-6",
     },
     classTotal: {
       type: String,
-      default: "col-md-4",
+      default: "col-lg-4",
     },
     classTitle: {
       type: String,
-      default: "col-md-2",
+      default: "col-lg-2",
     },
     classSearchOrder: {
       type: String,
-      default: "col-md-6",
+      default: "col-lg-6",
     },
     classColOrder: {
       type: String,
-      default: "col-12 col-md-6",
+      default: "col-12 col-lg-6",
     },
     hideTotal: {
       type: Boolean,

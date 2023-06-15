@@ -5,9 +5,9 @@
 pluralName="الدورات"
 singleName="دورة"
 hideTitle
-classSearchOrder="col-md-8"
-classColOrder="col-12 col-md-4"
-classColSearch="col-12 col-md-8"
+classSearchOrder="col-lg-8"
+classColOrder="col-12 col-lg-4"
+classColSearch="col-12 col-lg-8"
 >
 <template v-slot="{item}">
   

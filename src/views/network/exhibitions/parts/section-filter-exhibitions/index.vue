@@ -2,9 +2,9 @@
         <d-filter-list 
        
         :call-list="loadList" 
-        classColCard="col-md-6 mt-2" 
-        classColSearch="col-12 col-md-8"
-        classColOrder="col-12 col-md-4"
+        classColCard="col-lg-6 mt-2" 
+        classColSearch="col-12 col-lg-8"
+        classColOrder="col-12 col-lg-4"
         :pluralName="$t('exhibitions')" 
         :singleName="$t('exhibition')"
         :searchPlaceholder="$t('search_by_service')"

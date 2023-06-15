@@ -87,7 +87,7 @@
                 :min.sync="filter.min_period"
                 :max.sync="filter.max_period"
                 :lmin="0"
-                :lmax="100"
+                :lmax="1000"
               />
             </div>
           </div>

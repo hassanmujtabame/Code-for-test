@@ -10,7 +10,7 @@
                 {id:'asc',name:'الأقل سعرا'},
                 {id:'desc',name:'الأغلى سعرا',}
             ]"
-      classColCard="col-md-4 mt-3"
+      classColCard="col-lg-4 mt-3"
     >
       <template v-slot:side>
         <sidebarFilter @change="changeFilter" :filter-item="fitlterSide" />
@@ -56,7 +56,7 @@ export default {
       fitlterSide: {
         state,
         category_id: [],
-        max_period: 100,
+        max_period: 1000,
         min_period: 0,
         max_price: 1000,
         min_price: 0
@@ -66,7 +66,7 @@ export default {
         price: "asc",
         state,
         category_id: [],
-        max_period: 100,
+        max_period: 1000,
         min_period: 0,
         max_price: 1000,
         min_price: 0

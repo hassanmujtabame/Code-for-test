@@ -10,9 +10,9 @@
     :searchPlaceholder="$t('search-by-course-or-instructor')"
     hideSide
     hideTotal
-    classColCard="col-12 col-md-4 mt-3"
+    classColCard="col-12 col-lg-4 mt-3"
     classSearchOrder="justify-content-between"
-    classColOrder="col-md-3"
+    classColOrder="col-lg-3"
     orderName="price"
         :orderOpts="
              [

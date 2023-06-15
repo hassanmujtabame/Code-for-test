@@ -1124,7 +1124,7 @@ html[lang=en] .main-top {
 }
 
 .accordion-item .accordion-button {
-    padding: 10px 35px;
+    padding: 10px ;
 
 }
 
@@ -1910,6 +1910,7 @@ span {
 /** update css swiper */
 .swiper-container {
     position: unset;
+    margin: 0 auto;
 }
 
 .swiper-button-next,

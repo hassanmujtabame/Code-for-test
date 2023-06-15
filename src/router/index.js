@@ -193,7 +193,6 @@ router.beforeEach((to,from,next)=>{
   middlewiare_auth(to,from,next)
 })
 router.afterEach(()=>{
-  console.mylog('afterEach',window.store)
   window.store.dispatch('core/setLoading',false)
 })
 window.router = router;
