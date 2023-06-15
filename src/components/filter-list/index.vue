@@ -451,7 +451,7 @@ export default {
     },
     classColOrder: {
       type: String,
-      default: "col-12 col-md-6",
+      default: "col-12 col-lg-6",
     },
     hideTotal: {
       type: Boolean,

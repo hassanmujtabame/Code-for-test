@@ -25,7 +25,7 @@
             :title="item.title"
             :place="item.city"
             :price="item.price"
-            :name="item.user_name"
+            :name="item.user_info.name"
           />
         </router-link>
       </div>
