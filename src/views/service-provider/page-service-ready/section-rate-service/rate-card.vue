@@ -6,7 +6,7 @@
           <img
             class="rounded-circle"
             :src="item.user_info.image"
-            :alt="item.user_info.name"
+           
             width="50"
             height="50"
           />

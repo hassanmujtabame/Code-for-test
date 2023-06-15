@@ -43,18 +43,18 @@
                 <div class="row">
                   <div class="col-6 p-2">
                     <eyeOpenIcon :size="24" color="#979797" />
-                    <span>المشاهدات:</span>
+                    <span>المشاهدات: </span>
                     <span class="m-c">{{itemPage.views??'N/A'}}</span>
                   </div>
                   <div class="col-6 p-2">
                     <starIcon :size="24" color="#979797" />
 
-                    <span>التقيمات:</span>
+                    <span>التقيمات: </span>
                     <span class="m-c">{{ itemPage.rate??'N/A'}}</span>
                   </div>
                   <div class="col-6 p-2">
                     <lovelyIcon :size="24" color="#979797" />
-                    <span>المشترين:</span>
+                    <span>المشترين: </span>
                     <span class="m-c">{{itemPage.n_buyers??'N/A'}}</span>
                   </div>
                   <div class="col-6 p-2">
@@ -76,13 +76,13 @@
                   <div class="col-6 p-2">
                     <!--tree view icon-->
                     <treeViewIcon />
-                    <span>المجال:</span>
+                    <span> المجال: </span>
                     <span class="m-c">{{itemPage.category_name??'N/A'}}</span>
                   </div>
                   <template v-if="itemPage.state=='offline'">
                     <div class="col-6 p-2">
                       <localisationIcon :size="24" color="#979797" />
-                      <span>العنوان :</span>
+                      <span>العنوان : </span>
                       <span class="m-c">{{itemPage.city??'N/A'}}</span>
                     </div>
                     <div class="col-md-auto p-2">
