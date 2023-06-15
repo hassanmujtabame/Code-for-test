@@ -160,7 +160,7 @@
           <!-- execution during-->
           <div class="mb-3">
             <ValidationProvider
-              :name="$t('execution-during')"
+              :name="$t('execution-during') "
               vid="execution_period"
               rules="required"
               v-slot="{errors}"
@@ -170,7 +170,7 @@
                 type="text"
                 v-model="itemForm.execution_period"
                 class="form-control"
-                :label="$t('execution-during')"
+                :label="$t('execution-during') + ' (اليوم)'"
               />
             </ValidationProvider>
           </div>

@@ -1910,6 +1910,7 @@ span {
 /** update css swiper */
 .swiper-container {
     position: unset;
+    margin: 0 auto;
 }
 
 .swiper-button-next,
