@@ -79,7 +79,7 @@ export default {
           email
         });
         if (data.success) {
-          window.successMgs(data.message);
+          window.successMsg(data.message);
           this.code = data.data.pin_code;
         } else {
           window.errorMsg(data.message);
@@ -108,7 +108,7 @@ export default {
         let { data } = await this.$axios.post("user/auth/verify-code", payload);
         if (data.success) {
           this.$emit("success", this.dataInfo);
-          window.successMgs(data.message);
+          window.successMsg(data.message);
         } else {
           window.errorMsg(data.message);
         }

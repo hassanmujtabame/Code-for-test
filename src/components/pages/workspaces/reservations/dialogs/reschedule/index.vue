@@ -140,7 +140,7 @@ export default {
           formData
         );
         if (data.success) {
-          window.successMgs();
+          window.successMsg();
           this.$emit("update-list");
         } else {
           window.SwalError(data.message);

@@ -97,7 +97,7 @@ export default {
                 this.loading =  true;
                 let { data } = await myRequestsClientAPI.acceptOffer(this.item_.id) 
                 if(data.success){
-                    window.successMgs(data.message);
+                    window.successMsg(data.message);
                 }else{
                     window.SwalError(data.message)
                 }

@@ -68,7 +68,7 @@ export default {
             form: this.form
           };
           this.$emit("success", info);
-          window.successMgs(data.message);
+          window.successMsg(data.message);
         }
       } catch (error) {
         let response = error.response;
