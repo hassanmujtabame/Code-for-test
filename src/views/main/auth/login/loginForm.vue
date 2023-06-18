@@ -130,7 +130,7 @@ export default {
           let { token, ...user } = data.data;
           window.store.commit("auth/SET_TOKEN", token);
           window.store.commit("auth/SET_USER", user);
-          window.store.commit("auth/SET_IS_PROVIDER", false);
+          window.store.commit("auth/SET_IS_PROVIDER", user.subscribers.service_provider.subscribe);
           window.store.commit("auth/ACADEMY_ROLE", "student");
           window.location.reload();
         } else {
