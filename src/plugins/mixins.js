@@ -186,8 +186,7 @@ const mixin = {
               window.SwalError(data.message)
             }
           } catch (error) {
-            console.log('error', error)
-            console.log('error response', error.response)
+
             if (error.response) {
               let response = error.response
               if (response.status == 401) {
@@ -301,7 +300,6 @@ const mixin = {
           let h = date.getHours() + ""
           m = m.padStart(2, '0')
           h = h.padStart(2, '0')
-          //console.log('bb',date,`${h}:${m}`)
           //.toString().padStart(2, '0')
           return `${h}:${m}`
         },
@@ -344,7 +342,6 @@ const mixin = {
         },
         routeToUrl(name, params = {}, query = {}) {
           let r = this.$router.resolve(this.getRouteLocale(name, params, query));
-          console.mylog('routetourl', r)
           return r ? r.href : '#'
         },
         refreshPage(data = {}) {
@@ -378,7 +375,6 @@ const mixin = {
             params: params, // put your route information in
             query: this.$route.query // put your route information in
           });
-          //console.log(r)
           //this.$router.go(r.route)
           if (this.$router.mode == 'hash') {
             window.location.assign(r.href)

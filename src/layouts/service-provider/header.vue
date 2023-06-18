@@ -53,7 +53,6 @@ export default {
       immediate:true,
       handler(val){
         this.userIsRoleProvider = val;
-        console.mylog('userIsProvider changed',val)
       }
     }
   },
