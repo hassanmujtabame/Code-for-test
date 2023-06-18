@@ -50,7 +50,7 @@ export default {
   }),
   methods: {
     btnMore(navigate, evt) {
-      if (!this.shouldBeProviderMsg()) navigate(evt);
+      navigate(evt)
     },
     goToProposal(item, evt) {
       if (!this.shouldBeProviderMsg(evt)) {
