@@ -108,7 +108,7 @@ export default {
         if (data.success) {
           let pin_code = data.data.pin_code;
           this.$emit("change-form", { data: { pin_code }, form: { email } });
-          window.successMgs(data.message);
+          window.successMsg(data.message);
         } else {
           window.errorMsg(data.message);
         }
@@ -126,11 +126,11 @@ export default {
       try {
         let { data } = await this.$axios.post("user/auth/login", this.form);
         if (data.success) {
-          window.successMgs();
+          window.successMsg();
           let { token, ...user } = data.data;
           window.store.commit("auth/SET_TOKEN", token);
           window.store.commit("auth/SET_USER", user);
-          window.store.commit("auth/SET_IS_PROVIDER", false);
+          window.store.commit("auth/SET_IS_PROVIDER", user.subscribers.service_provider.subscribe);
           window.store.commit("auth/ACADEMY_ROLE", "student");
           window.location.reload();
         } else {

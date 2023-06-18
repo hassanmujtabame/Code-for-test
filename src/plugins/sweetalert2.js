@@ -24,7 +24,7 @@ window.SwalInfo = (message) => {
 window.SwalQuestion = (message) => {
     window.SwalStatus(message, 'question', '')
 }
-window.successMgs = (msg) => {
+window.successMsg = (msg) => {
     Swal.fire({
         toast: true,
         position: "top-end",

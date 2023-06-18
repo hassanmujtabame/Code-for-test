@@ -16,11 +16,11 @@
         <div class="t-c" v-html="item_.note">
         </div>
         <div class="mt-2">
-            <button :disabled="loading || item_.status!=='waiting'" class="btn btn-custmer" @click="acceptConfirm">
+            <button :disabled="loading || item.status !== 'waiting'" v-if="item.status ==='waiting'" class="btn btn-custmer" @click="acceptConfirm">
                 <i v-if="loading" class="fas fa-spinner fa-spin"></i>
                 اقبل العرض
             </button>
-            <button :disabled="loading || item_.status!=='waiting'" class="btn btn-custmer btn-danger" @click="refuseConfirm">
+            <button :disabled="loading || item.status !=='waiting'" v-if="item.status ==='waiting'" class="btn btn-custmer btn-danger" @click="refuseConfirm">
                 <i v-if="loading" class="fas fa-spinner fa-spin"></i>
               رفض العرض
             </button>
@@ -97,7 +97,7 @@ export default {
                 this.loading =  true;
                 let { data } = await myRequestsClientAPI.acceptOffer(this.item_.id) 
                 if(data.success){
-                    this.item_.status = 'underway'
+                    window.successMsg(data.message);
                 }else{
                     window.SwalError(data.message)
                 }

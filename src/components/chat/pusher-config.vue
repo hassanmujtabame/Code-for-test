@@ -27,7 +27,6 @@ export default {
     },
     methods:{
         myconnect(){
-            console.mylog('myconnect')
            /* window.Echo = new window.Echo({
                     broadcaster: 'pusher',
                     key: process.env.MIX_PUSHER_APP_KEY,
@@ -114,7 +113,6 @@ export default {
             subscribeToChannel(channel) {
                 this.pusher.subscribe(channel)
                     .bind('log-message', (data) => {
-                        console.mylog('log-message',data)
                         this.logs.push(data);
                     });
             },

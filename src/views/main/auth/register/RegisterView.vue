@@ -232,7 +232,7 @@ export default {
       try {
         let { data } = await this.$axios.post("user/auth/register", this.form);
         if (data.success) {
-          window.successMgs(data.message);
+          window.successMsg(data.message);
           let info = {
             data: data,
             form: this.form

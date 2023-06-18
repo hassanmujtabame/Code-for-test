@@ -15,7 +15,7 @@
     </div>
     <div class="mt-3 row order">
       <div v-for="(item, i) in items" :key="i" class="col-12 col-lg-6 mt-2">
-        <a class="router-link" href="#" @click="goToProposal(item,$event)">
+        <a class="router-link" @click="goToProposal(item,$event)">
           <showProposal
             :title="item.title"
             :description="item.description"
@@ -50,11 +50,10 @@ export default {
   }),
   methods: {
     btnMore(navigate, evt) {
-      if (!this.shouldBeProviderMsg()) navigate(evt);
+      navigate(evt)
     },
     goToProposal(item, evt) {
-      //if(evt) evt.preventDefault();
-      if (item.user_info.id != this.user.id && !this.shouldBeProviderMsg(evt)) {
+      if (!this.shouldBeProviderMsg(evt)) {
         this.router_push("service-provider-proposal-page", { id: item.id });
       }
     },

@@ -50,11 +50,9 @@ export default {
         this.$store.commit('chat/SET_ONLINE_USERS',users)
     })
     .joining((user)=>{
-        console.mylog('joining',user)
         this.$store.commit('chat/ADD_ONLINE_USER',user)
     })
     .leaving((user)=>{
-        console.mylog('leaving',user)
         this.$store.commit('chat/DEL_ONLINE_USER',user)
     })
     .error((error) => {
@@ -62,7 +60,6 @@ export default {
     });
     window.Echo.private(`chat.${this.user.id}`)
     .listen('.send.message.chat', (e) => {
-        console.mylog('send.message.chat',e)
         let {sender_id,user_image,user_name,...msg} = e;
         let item ={id:sender_id,image:user_image,name:user_name}
         let datetime = msg.created_at.substring(0,16)

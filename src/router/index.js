@@ -184,6 +184,7 @@ const router = new VueRouter({
   linkExactActiveClass: "active",
 })
 router.beforeEach((to,from,next)=>{
+  document.title = to.meta.title
   //console.mylog('from',from)
   window.store.dispatch('core/setLoading',true)
   //window.scrollTo(0, 0)
