@@ -36,7 +36,7 @@ window.jquery = jquery;
 Vue.prototype.jQuery = jquery
 window.jQuery = jquery;
 import 'bootstrap/dist/js/bootstrap.bundle.js'
-window.bootstrap =require('bootstrap/dist/js/bootstrap.bundle')
+window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle')
 
 
 let owl_carousel = require('./assets/js/owl.carousel.min.js').default;
@@ -59,6 +59,11 @@ import store from './store'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+
+Vue.filter('truncateWords', function (value, length) {
+   const words = value.split(' ');
+   return words.slice(0, length).join(' ');
+});
 
 new Vue({
    router,
