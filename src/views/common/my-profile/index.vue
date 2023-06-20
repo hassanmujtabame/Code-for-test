@@ -7,11 +7,11 @@
     <div v-else class="container">
 
     <div class="row  profile-services ">
-        <div class="col-12 col-md-4 mt-3">
+        <div class="col-12 col-lg-3 mt-3">
           <!--sidebar-->
           <Sidebar />
         </div>
-        <div class="col-12 col-md-8 mt-3">
+        <div class="col-12 col-lg-9 mt-3">
           <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
                     <!-- معومات العرض-->
                     <SectionDisplay  :currentUser="currentUser"/>

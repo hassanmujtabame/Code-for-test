@@ -1,117 +1,145 @@
 <template>
-
+  <div class="contact-page mobile-center">
     <div class="container">
-        <div class="box bg-white contact-us p-3  rounded-3">
-
-            <div class="row align-items-center ">
-                <div class="col-md-6">
-                    <h2>
-                        اطلبي مكالمة أو اجتماع قهوة مع فريقنا
-                    </h2>
-                    <p>
-                        فلنناقش سوياً كيف يمكننا مساعدة شركة أعمالك
-                    </p>
-                    <ValidationObserver ref="form" tag="form" @submit="sendMessage">
-                        <!-- full name -->
-                        <ValidationProvider tag="div" :name="$t('full-name')" vid="name" rules="required"
-                            v-slot="{ errors }">
-                            <label class="form-lable">{{ $t('full-name') }}</label>
-                            <input type="text" v-model="itemForm.name" class=" mt-2 w-100" :placeholder="$t('full-name')">
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
-                        </ValidationProvider>
-                        <!--email -->
-                        <ValidationProvider tag="div" :name="$t('Email')" vid="email" rules="required|email"
-                            v-slot="{ errors }">
-                            <input type="text" v-model="itemForm.email" class=" mt-2 w-100" :placeholder="$t('Email')">
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
-                        </ValidationProvider>
-                        <!-- title_message -->
-                        <ValidationProvider tag="div"  :name="$t('title_message')" vid="title_message" rules="required"
-                            v-slot="{ errors }">
-                            <input type="text" v-model="itemForm.title_message" class=" mt-2 w-100" :placeholder="$t('title_message')">
-                            <d-error-input :errors="errors" v-if="errors.length>0" />
-                        </ValidationProvider>
-                        <!--message-->
-                        <ValidationProvider tag="div"  :name="$t('message')" vid="message" rules="required"
-                            v-slot="{ errors }">
-                        <textarea class=" mt-2 w-100" v-model="itemForm.message" cols="30" rows="5" :placeholder="$t('message')"></textarea>
-                        <d-error-input :errors="errors" v-if="errors.length>0" />
-                        </ValidationProvider>
-                    </ValidationObserver>
-                    <div class="text-start mt-2 ">
-                        <button @click="sendMessage" class="btn btn-main" role="button"> {{ $t('send_request') }} </button>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <!-- image-->
-                    <ImageBox />
-                </div>
-
+      <b-card class="bg-white contact-us p-3 rounded-3">
+        <div class="row align-items-center">
+          <div class="col-xl-6">
+            <h2>اطلبي مكالمة أو اجتماع قهوة مع فريقنا</h2>
+            <p>فلنناقش سوياً كيف يمكننا مساعدة شركة أعمالك</p>
+            <ValidationObserver ref="form" tag="form" @submit="sendMessage">
+              <!-- full name -->
+              <ValidationProvider
+                v-slot="{ errors }"
+                :name="$t('full-name')"
+                rules="required"
+                vid="name"
+                tag="div"
+                class="my-2"
+              >
+                <b-form-input v-model="itemForm.name" type="text" :placeholder="$t('full-name')"></b-form-input>
+                <d-error-input :errors="errors" v-if="errors.length>0" />
+              </ValidationProvider>
+              <!--email -->
+              <ValidationProvider
+                v-slot="{ errors }"
+                :name="$t('Email')"
+                rules="required|email"
+                vid="email"
+                tag="div"
+                class="my-2"
+              >
+                <b-form-input v-model="itemForm.email" type="text" :placeholder="$t('Email')"></b-form-input>
+                <d-error-input :errors="errors" v-if="errors.length>0" />
+              </ValidationProvider>
+              <!-- title_message -->
+              <ValidationProvider
+                v-slot="{ errors }"
+                :name="$t('title_message')"
+                rules="required"
+                vid="title_message"
+                tag="div"
+                class="my-2"
+              >
+                <b-form-input
+                  v-model="itemForm.title_message"
+                  type="text"
+                  :placeholder="$t('title_message')"
+                ></b-form-input>
+                <d-error-input :errors="errors" v-if="errors.length>0" />
+              </ValidationProvider>
+              <!--message-->
+              <ValidationProvider
+                v-slot="{ errors }"
+                :name="$t('message')"
+                rules="required"
+                vid="message"
+                tag="div"
+                class="my-2"
+              >
+                <b-form-textarea v-model="itemForm.message" :placeholder="$t('message')" rows="5"></b-form-textarea>
+                <d-error-input :errors="errors" v-if="errors.length>0" />
+              </ValidationProvider>
+            </ValidationObserver>
+            <div class="text-start mt-2">
+              <button @click="sendMessage" class="btn-main-v p-3">{{$t('send_request')}}</button>
             </div>
+          </div>
+          <div class="col-xl-6 tablet-hide" >
+            <!-- image-->
+            <ImageBox />
+          </div>
         </div>
-
+      </b-card>
     </div>
-
+  </div>
 </template>
-<script>
-import commonAPI from '@/services/api/common.js'
-import ImageBox from './image-box.vue'
+  
+  <script>
+import commonAPI from "@/services/api/common.js";
+import ImageBox from "./image-box.vue";
+
 export default {
-    name: 'contact-us',
-    components: {
-        ImageBox
+  name: "contact-us",
+  components: {
+    ImageBox
+  },
+  data() {
+    return {
+      itemForm: {
+        name: "",
+        email: "",
+        message: "",
+        title_message: "",
+        phone: ""
+      }
+    };
+  },
+  methods: {
+    clearContent() {
+      Object.keys(this.itemForm).forEach(key => {
+        this.itemForm[key] = "";
+      });
+
+      this.$nextTick(() => {
+        if (this.$refs.form) {
+          this.$refs.form.reset();
+        }
+      });
     },
-    data:()=>({
-        itemForm:{
-            name:'',
-            email:'',
-            message:'',
-            title_message:'',
-            phone:'',
+    async sendMessage(evt) {
+      if (evt) evt.preventDefault();
 
+      let valid = await this.$refs.form.validate();
+      if (!valid) {
+        console.log("form invalid");
+        return;
+      }
+      let formData = new FormData();
+      Object.keys(this.itemForm).forEach(key => {
+        formData.append(key, this.itemForm[key]);
+      });
+      try {
+        let { data } = await commonAPI.ContactUsSend(formData);
+        if (data.success) {
+          this.clearContent();
+          window.successMsg(data.message)
         }
-    }),
-        methods: {
-        clearContent(){
-            Object.keys(this.itemForm).forEach((key) => {
-                this.itemForm[key]=''
-            })
-
-            this.$nextTick(()=>{
-                if (this.$refs["form"]) {
-                    this.$refs.form.reset();
-                    }
-            })
-        },
-        async sendMessage(evt) {
-            if (evt) evt.preventDefault();
-
-            let valid = await this.$refs.form.validate();
-            if (!valid) {
-                console.log('form invalid');
-                return;
-            }
-            let formData = new FormData();
-            Object.keys(this.itemForm).forEach((key) => {
-                formData.append(key, this.itemForm[key]);
-            })
-            try {
-                let { data } = await commonAPI.ContactUsSend(formData)
-                if (data.success) {
-                    this.clearContent()
-                }
-            } catch (error) {
-                //
-                if (error.response) {
-                    let response = error.response
-                    console.log('error', response)
-                    if (response.status == 422) {
-                        this.setErrorsForm(this.$refs.form,response)
-                    }
-                }
-
-            }
+      } catch (error) {
+        if (error.response) {
+          let response = error.response;
+          console.log("error", response);
+          if (response.status == 422) {
+            this.setErrorsForm(this.$refs.form, response);
+          }
         }
+      }
     }
-}
+  }
+};
 </script>
+  <style>
+.contact-page {
+  background-color: #f6f8f9;
+  padding: 5em 0 6em;
+}
+</style>

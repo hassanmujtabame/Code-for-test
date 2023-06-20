@@ -5,7 +5,6 @@
         <div class="login-form">
           <div
             :style="{ top: '17px', left: $i18n.locale == 'ar' ? 'auto' : '0', right: $i18n.locale !== 'ar' ? 'auto' : '0' }"
-            class="position-absolute form-loging"
           >
             <h6>
               لديك حساب بالفعل؟
@@ -20,136 +19,120 @@
               vid="name"
               rules="required"
               v-slot="{ errors }"
+              tag="div"
+              class="mb-3"
             >
-              <div class="col-md-4 w-100 row mb-2">
-                <div class="cols-12">
-                  <d-text-input
-                    type="text"
-                    :errors="errors"
-                    class="form-control"
-                    v-model="form.name"
-                    :label="$t('Full-name')"
-                  ></d-text-input>
-                </div>
-              </div>
+              <b-form-input
+                type="text"
+                :placeholder="$t('Full-name')"
+                v-model="form.name"
+                required
+              />
+              <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
             <ValidationProvider
               :name="$t('Email')"
               vid="email"
               rules="required|email"
               v-slot="{ errors }"
+              tag="div"
+              class="mb-3"
             >
-              <div class="col-md-4 w-100 row mb-2">
-                <div class="cols-12">
-                  <d-text-input
-                    :errors="errors"
-                    type="email"
-                    class="form-control"
-                    v-model="form.email"
-                    :label="$t('Email')"
-                  ></d-text-input>
-                </div>
-              </div>
+              <b-form-input type="email" :placeholder="$t('Email')" v-model="form.email" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
 
-            <div class="col-md-4 w-100 row mb-2">
-              <div class="cols-12 d-flex gap-1">
-                <ValidationProvider
-                  :name="$t('Phone')"
-                  tag="div"
-                  class="flex-grow-1"
-                  vid="phone"
-                  rules="required|numeric|min:8"
-                  v-slot="{ errors }"
+            <div class="cols-12 d-flex gap-1 mb-3 align-items-start">
+              <ValidationProvider
+                :name="$t('Phone')"
+                tag="div"
+                class="flex-grow-1"
+                vid="phone"
+                rules="required|numeric|min:8"
+                v-slot="{ errors }"
+                
+              >
+                <b-form-input
+                  type="number"
+                  :placeholder="$t('Phone')"
+                  v-model="form.phone"
+                  required
+                />
+                <div class="text-input-error">{{ errors[0] }}</div>
+              </ValidationProvider>
+              <ValidationProvider
+                :name="$t('country-phone')"
+                tag="div"
+                class="flex-grow-1"
+                vid="phone_code"
+                rules="required"
+                v-slot="{ errors }"
+              >
+                <d-select-input
+                  :errors="errors"
+                  type="text"
+                  class="text-flag  rounded-3 align-items-center"
+                  v-model="form.phone_code"
                 >
-                  <d-text-input
-                    :errors="errors"
-                    type="text"
-                    v-model="form.phone"
-                    :label="$t('Phone')"
-                  ></d-text-input>
-                </ValidationProvider>
-                <ValidationProvider
-                  :name="$t('country-phone')"
-                  tag="div"
-                  class="flex-shrink-0"
-                  vid="phone_code"
-                  rules="required"
-                  v-slot="{ errors }"
-                >
-                  <d-select-input
-                    :errors="errors"
-                    type="text"
-                    class="text-flag"
-                    v-model="form.phone_code"
-                    :label="$t('country-phone')"
-                  >
-                    <option
-                      v-for="(it,i) in phone_codes"
-                      :key="i"
-                      :value="it.phone_code"
-                    >{{it.flag}}({{ it.phone_code }})</option>
-                  </d-select-input>
-                </ValidationProvider>
-              </div>
+                  <option
+                    v-for="(it,i) in phone_codes"
+                    :key="i"
+                    :value="it.phone_code"
+                  >{{it.flag}}({{ it.phone_code }})</option>
+                </d-select-input>
+              </ValidationProvider>
             </div>
+
             <ValidationProvider
-              :name="$t('Password')"
               vid="password"
               rules="required"
+              :name="$t('Password')"
               v-slot="{ errors }"
+              tag="div"
+              class="mb-3"
             >
-              <div class="col-md-4 w-100 row mb-2">
-                <div class="cols-12 position-relative">
-                  <d-text-input
-                    :errors="errors"
-                    id="password-register"
-                    :type="show ? 'text' : 'password'"
-                    class="form-control"
-                    v-model="form.password"
-                    :label="$t('Password')"
-                    autocomplete="new-password"
-                  >
-                    <template v-slot:append-icon>
-                      <span
-                        style="color: #CDD7D8;font-size: 23px;"
-                        @click="show = !show"
-                        class="fa-regular mx-1"
-                        :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"
-                      ></span>
-                    </template>
-                  </d-text-input>
-                </div>
+              <div class="position-relative">
+                <b-form-input
+                  id="password-field"
+                  :type="show ? 'text' : 'password'"
+                  v-model="form.password"
+                  class="form-control"
+                  :placeholder="$t('Password')"
+                />
+                <span
+                  @click="show = !show"
+                  class="icon-input-end fa-regular position-absolute"
+                  :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"
+                ></span>
               </div>
+              <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
+
             <ValidationProvider
-              :name="$t('Password-confirm')"
               vid="passwordConfirm"
               rules="required"
+              :name="$t('Password-confirm')"
               v-slot="{ errors }"
+              tag="div"
+              class="mb-3"
             >
-              <div class="col-md-4 w-100 row mb-2">
-                <div class="cols-12 position-relative">
-                  <d-text-input
-                    :errors="errors"
-                    id="password-register-confirm"
-                    :type="showC ? 'text' : 'password'"
-                    class="form-control"
-                    v-model="form.passwordConfirm"
-                    :label="$t('Password-confirm')"
-                  >
-                    <template v-slot:append-icon>
-                      <span
-                        style="color: #CDD7D8;font-size: 23px;"
-                        @click="showC = !showC"
-                        class="fa-regular mx-1"
-                        :class="{ 'fa-eye': !showC, 'fa-eye-slash': showC }"
-                      ></span>
-                    </template>
-                  </d-text-input>
-                </div>
+              <div class="position-relative">
+                <b-form-input
+                  id="password-register-confirm"
+                  :type="showC ? 'text' : 'password'"
+                  v-model="form.passwordConfirm"
+                  class="form-control"
+                  :placeholder="$t('Password-confirm')"
+                />
+                <span
+                  @click="showC = !showC"
+                  class="icon-input-end fa-regular position-absolute"
+                  :class="{ 'fa-eye': !showC, 'fa-eye-slash': showC }"
+                ></span>
               </div>
+              <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
+
             <div class="col-12 text-center">
               <button @click="signup" class="btn btn-main" type="submit">أشتركي الان</button>
             </div>
@@ -159,6 +142,7 @@
                 <router-link
                   :to="getRouteLocale('terms-and-conditions')"
                   class="m-c"
+                  target="_blank"
                 >شروط الاستخدام وسياسة الخصوصيه</router-link>
               </p>
             </div>
@@ -178,23 +162,7 @@ export default {
   data: () => ({
     show: false,
     showC: false,
-    phone_codes: [
-      {
-        phone_code: "+966",
-        flag: "🇸🇦",
-        name_country: { ar: "سعودية", en: "saoudi" }
-      },
-      {
-        phone_code: "+213",
-        flag: "🇩🇿",
-        name_country: { ar: "جزائر", en: "Algeria" }
-      },
-      {
-        phone_code: "+20",
-        flag: "🇪🇬",
-        name_country: { ar: "مصر", en: "Egypt" }
-      }
-    ],
+    phone_codes: [],
     form: {
       email: process.env.EMAIL || "",
       password: process.env.PASSWORD || "",
@@ -306,8 +274,8 @@ html[lang="en"] .icon-input-end {
   vertical-align: middle;
 }
 .main-img {
-    display: block;
-    width: 100%;
-    height: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 </style>

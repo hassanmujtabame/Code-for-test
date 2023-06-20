@@ -34,99 +34,35 @@
           </div>
         </div>
       </div>
-      <div class="accordion-item show">
-        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#panelsStayOpen-collapseTwo"
-            aria-expanded="true"
-            aria-controls="panelsStayOpen-collapseTwo"
-          >مجالات الاختصاص</button>
-        </h2>
-        <div
-          id="panelsStayOpen-collapseTwo"
-          class="accordion-collapse collapse show"
-          aria-labelledby="panelsStayOpen-headingTwo"
-        >
-          <div class="accordion-body">
-            <ExpandedPanel :id="('accordionFlushCat')">
-              <ExpandedPanelItem
-                v-for="(cat,i) in categories"
-                :key="i"
-                class="form-check"
-                :borderBottom="false"
-              >
-                <template v-slot:title="{id}">
-                  <div class="form-check">
-                    <input
-                      v-model="filter.category_id"
-                      :value="cat.id"
-                      class="form-check-input"
-                      type="checkbox"
-                    />
-                    <label
-                      class="form-check-label accordion-label collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      :data-bs-target="`#${id}`"
-                      aria-expanded="false"
-                      :aria-controls="id"
-                    >{{cat.name}}</label>
-                  </div>
-                </template>
 
-                <!-- children-->
-
-                <template v-slot:default>
-                  <div class="cat-children">
-                    <div v-for="(catc,j) in cat.childreen" :key="j" class="form-check">
-                      <input
-                        v-model="filter.category_id"
-                        :value="catc.id"
-                        class="form-check-input"
-                        type="checkbox"
-                      />
-                      <label class="form-check-label" for="defaultCheck1">{{catc.name}}</label>
-                    </div>
-                  </div>
-                </template>
-              </ExpandedPanelItem>
-            </ExpandedPanel>
-          </div>
+      <d-expanded-panel-item :title="'مجالات الاختصاص'" closed>
+        <div v-for="(cat,i) in categories" :key="i" class="form-check">
+          <input
+            v-model="filter.category_id"
+            :value="cat.id"
+            class="form-check-input my-1"
+            type="checkbox"
+            :id="`checkboxBtn${i}`"
+          />
+          <label class="form-check-label" :for="`checkboxBtn${i}`">{{ cat.name }}</label>
         </div>
-      </div>
+      </d-expanded-panel-item>
+
       <!-- cities-->
-      <div class="accordion-item show">
-        <h2 class="accordion-header" id="panelsStayOpen-headingCities">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#panelsStayOpen-collapseCities"
-            aria-expanded="true"
-            aria-controls="panelsStayOpen-collapseCities"
-          >موقع طلب الخدمة</button>
-        </h2>
-        <div
-          id="panelsStayOpen-collapseCities"
-          class="accordion-collapse collapse show"
-          aria-labelledby="panelsStayOpen-headingCities"
-        >
-          <div class="accordion-body">
-            <div v-for="(city,i) in cities" :key="i" class="form-check">
-              <input
-                v-model="filter.city_id"
-                :value="city.id"
-                class="form-check-input"
-                type="checkbox"
-              />
-              <label class="form-check-label" for="defaultCheck1">{{city.name}}</label>
-            </div>
-          </div>
+
+      <d-expanded-panel-item :title="'موقع طلب الخدمة'" closed>
+        <div v-for="(city,i) in cities" :key="i" class="form-check">
+          <input
+            v-model="filter.city_id"
+            :value="city.id"
+            class="form-check-input my-1"
+            type="checkbox"
+            :id="`checkboxBtn${i}`"
+          />
+          <label class="form-check-label" :for="`checkboxBtn${i}`">{{ city.name }}</label>
         </div>
-      </div>
+      </d-expanded-panel-item>
+
       <div class="accordion-item show">
         <h2 class="accordion-header" id="panelsStayOpen-headingThree">
           <button
@@ -196,6 +132,7 @@
 import myRequestsAPIs from "@/services/api/service-provider/user/proposals.js";
 import ExpandedPanel from "@/components/expanded-panel/ExpandedPanel.vue";
 import ExpandedPanelItem from "@/components/expanded-panel/ExpandedPanelItem.vue";
+import commonAPI from "@/services/api/common";
 
 export default {
   name: "sidebar-box",
@@ -217,15 +154,7 @@ export default {
         { id: "offline", name: vm.$t("offline") }
       ],
       categories: [],
-      cities: [
-        { id: null, name: "دمام" },
-        { id: null, name: "الخبر" },
-        { id: null, name: "الرياض" },
-        { id: null, name: "تبوك" },
-        { id: null, name: "عرعر" },
-        { id: null, name: "القصيم" },
-        { id: null, name: "الباحة" }
-      ],
+      cities: [],
       filter: vm.filterItem
     };
   },
@@ -252,10 +181,21 @@ export default {
         console.log("error", error);
         console.log("error response", error.response);
       }
+    },
+    async loadCities() {
+      try {
+        let { data } = await commonAPI.cities();
+        if (data.success) {
+          this.cities = data.data;
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
     }
   },
   mounted() {
     this.getCategories();
+    this.loadCities();
   }
 };
 </script>
