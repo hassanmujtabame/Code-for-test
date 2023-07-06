@@ -36,7 +36,7 @@
 
 <script>
 import networkAPIs from '@/services/api/network.js'
-
+ 
 export default {
 name:'sidebar-box',
 props:{

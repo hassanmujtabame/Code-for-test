@@ -8,7 +8,7 @@
           !opened_ ? 'collapsed' : '',
           classTitle,
           before ? 'before' : '',
-        ]"
+        ]" 
         type="button"
         data-bs-toggle="collapse"
         :data-bs-target="`#${id}`"

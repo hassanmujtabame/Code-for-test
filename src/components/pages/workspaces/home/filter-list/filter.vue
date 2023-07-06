@@ -63,7 +63,7 @@ export default {
     return {
       filterSide: {
         type: null,
-        address_id: [],
+        city_id: [], 
         min_price: 0,
         max_price: 1000,
       },

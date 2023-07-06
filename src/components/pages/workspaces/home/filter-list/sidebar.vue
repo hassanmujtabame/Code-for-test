@@ -22,11 +22,10 @@
           </div>
         </div>
       </d-expanded-panel-item>
-      
       <d-expanded-panel-item :title="$t('the-address')" closed>
-        <div v-for="(address, i) in addresses" :key="i" class="form-check">
+        <div v-for="(address, i) in cities" :key="i" class="form-check">
           <input
-            v-model="filter.address_id"
+            v-model="filter.city_id"
             :value="address.id"
             class="form-check-input my-1"
             type="checkbox"
@@ -37,9 +36,8 @@
           </label>
         </div>
       </d-expanded-panel-item>
-
       <d-expanded-panel-item :title="$t('Price')" opened>
-        <div class="slider-container">
+        <div class="slider-container mt-3">
           <rslider-input
             :min.sync="filter.min_price"
             :max.sync="filter.max_price"
@@ -59,6 +57,7 @@
 
 <script>
 import exhibitionsAPIs from "@/services/api/exhibitions.js";
+import commonAPIs from "@/services/api/common.js";
 
 export default {
   name: "sidebar-box",
@@ -76,6 +75,7 @@ export default {
         { id: "meeting_rooms", name: "قاعة الاجتماعات" },
       ],
       addresses: [],
+      cities:[],
       filter: this.filterItem,
     };
   },
@@ -84,19 +84,32 @@ export default {
     updateFilter() {
       this.$emit("change", this.filter);
     },
-    async getAddresses() {
+     async loadCities() {  
       try {
-        let { data } = await exhibitionsAPIs.getCategories();
+        let { data } = await commonAPIs.cities();
+
         if (data.success) {
-          this.addresses = data.data;
+          this.cities = data.data;
         }
       } catch (error) {
-        console.log(error)
+        console.mylog("error", error);
       }
     },
+    // async getAddresses() {
+    //   try {
+    //     let { data } = await exhibitionsAPIs.getCategories();
+    //     if (data.success) {
+    //       this.addresses = data.data;
+    //     }
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // },
   },
   mounted() {
-    this.getAddresses();
+    // this.getAddresses();
+    this.loadCities();
+
   },
 };
 </script>
