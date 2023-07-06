@@ -23,8 +23,8 @@ export default {
 .faq-btn-fixed{
     cursor: pointer;
     position: fixed;
-    right: auto;
-    left:0;
+    right:9% ;
+    left:auto;
     top: calc(100vh / 2 + 70px);
     z-index: 999999;
     
@@ -32,6 +32,7 @@ export default {
     border-radius:32px ;
     border: 1px solid #b5e5e4;
     background-color:#b5e5e4;
+    margin-top: 180px;
 }
 html[dir=ltr] .faq-btn-fixed{
     right: 0;

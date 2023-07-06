@@ -60,15 +60,18 @@
                         </h4>
                         <div class="d-flex gap-4 justify-content-center p-4 icon-social-exibition">
                             <!--facebook-->
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"  data-show-count="false">Tweet</a>
+                            <!-- <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"  data-show-count="false">Tweet</a> -->
                            
-                           <span v-if="false"> <i  class="fab fa-instagram" ></i></span>
+                            <img class="h-100" :src="`${publicPath}assets/img/Twitter.png`" alt="" />
+                            <img class="h-100" :src="`${publicPath}assets/img/Instagram.png`" alt="" />
+                            <img class="h-100" :src="`${publicPath}assets/img/Linkedin.png`" alt="" />
+                            <img class="h-100" :src="`${publicPath}assets/img/Facebook.png`" alt="" />
 
-                           <span v-if="false"> <i  class="fab fa-linkedin-in" ></i></span>
-                           <div class="fb-share-button" 
-:data-href="currentUrl" 
-data-layout="button_count">
-</div>
+                           <!-- <span v-if="false"> <i  class="fab fa-instagram" ></i></span> -->
+
+                           <!-- <span v-if="false"> <i  class="fab fa-linkedin-in" ></i></span> -->
+                           <div class="fb-share-button" :data-href="currentUrl"  data-layout="button_count">
+                    </div>
                            
 
                         
@@ -92,7 +95,7 @@ data-layout="button_count">
        
     </div>
 </template>
-
+ 
 <script>
 import exhibitionsAPI from '@/services/api/exhibitions';
 import ShareDialog from '../exhibitions/parts/dialogs/share-exhibition.vue'

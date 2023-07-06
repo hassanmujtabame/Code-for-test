@@ -1,5 +1,5 @@
 <template>
-  <div class="rate-experience">
+  <div class="rate-experience " >
     <div @click="openDialog" class="rate-experience-wrapper">
         <div class="rate-experience-star">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,7 +10,7 @@
                 </svg>
 </div>
 <div class="rate-experience-text">
-    {{ $t('rate-your-experience') }}
+    {{ $t('rate-your-experience') }} 
 </div>
     </div>
   </div>
@@ -37,14 +37,15 @@ export default {
 .rate-experience{
     cursor: pointer;
     position: fixed;
-    right: auto;
-    left:0;
+    right:0 ;
+    left: auto;
     border-radius:  0px 8px 8px 0px ;
     width:56px;
     height: 112px;
     background: #CDD7D8;
-    top: calc(100vh / 2 - 56px);
+    top: calc(100vh / 2 - 76px);
     z-index: 999999;
+
 }
 html[dir=ltr] .rate-experience{
     right: 0;

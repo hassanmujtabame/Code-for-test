@@ -5,7 +5,7 @@
       <p class="gray-color">{{ singleWorkspace.address }}</p>
     </div>
     <div class="border-bottom py-3 px-2">
-      <h5>وصف مكان العمل</h5>
+      <h5>وصف مكان العمل</h5> 
       <p class="gray-color">{{ singleWorkspace.description }}</p>
     </div>
 

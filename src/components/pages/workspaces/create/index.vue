@@ -4,14 +4,14 @@
     <ValidationObserver ref="form">
       <div class="form-exhibition row add-portfolio m-3 p-0 position-relatiuve">
         <div class="col-12 col-lg-5 justify-content-center mx-auto">
-          <div class="col-md-10">
-            <ValidationProvider :name="$t('Image')" vid="image1" rules="required|image" v-slot="{ validate, errors }">
+          <div class="col-md-10"> 
+            <ValidationProvider  :name="$t('Image')" vid="image1" rules="required|image" v-slot="{ validate, errors }">
               <label for="imginput1" class="form-label file-label first w-100">
                 <div class="text-center p-5">
-                  <img :src="`${publicPath}assets/svg/empty-image.svg`" />
+                  <img :src="`${publicPath}assets/svg/empty-image.svg`"  />
                   <p class="m-c">{{ $t("add-display-image") }}</p>
                 </div>
-                <div class="add-img-selected">
+                <div class="add-img-selected" style="width:100%">
                   <img class="w-100 h-100 image-selected-dialog" :src="showImage ?? 'none'"
                     :style="{ opacity: showImage ? '1' : '0' }" />
                 </div>
@@ -26,8 +26,8 @@
           <div class="col-md-10">
             <ValidationProvider :name="$t('Image')" vid="image2" rules="required" v-slot="{ validate, errors }">
               <label for="imgInput" class="form-label file-label first w-100">
-                <div class="text-center p-2">
-                  <img :src="`${publicPath}assets/svg/empty-image.svg`" />
+                <div class="text-center p-2" style="background: #E9F8F7;">
+                  <img :src="`${publicPath}assets/img/send-square@2x.png`"   />
                   <p class="m-c">إضافة صور أخرى</p>
                 </div>
               </label>
@@ -112,7 +112,7 @@
               </div>
             </div>
           </div>
-          <div class="mb-3 feature row" v-if="form.category === 'academy'">
+          <!-- <div class="mb-3 feature row" v-if="form.category === 'academy'">
             <p>الامتيازات</p>
             <div v-for="(feature, i) in features" :key="i" class="col-12 col-lg-4 form-check">
               <input v-model="form.features" :value="feature.id" class="form-check-input my-1" type="checkbox"
@@ -121,15 +121,19 @@
                 {{ feature.title }}
               </label>
             </div>
-          </div>
+          </div> -->
           <div class="mb-3 feature row" v-if="form.category === 'service-provider'">
             <p>مجال الاختصاص</p>
             <div v-for="(cat, i) in providerCategories" :key="i" class="col-12 col-lg-4 form-check">
-              <input v-model="form.service_categories_ids" :value="cat.id" class="form-check-input my-1" type="checkbox"
+             <div class="form-check d-flex justify-content-between" style="display: flex;">
+
+              <input v-model="form.service_categories_ids" :value="cat.id" class="form-check-input my-1 " type="checkbox"
+                style="margin-left: 6px;"
                 :id="`checkboxCategory${i}`" />
               <label class="form-check-label" :for="`checkboxCategory${i}`">
                 {{ cat.name }}
               </label>
+              </div>
             </div>
           </div>
 
@@ -139,9 +143,50 @@
               <d-text-input :errors="errors" v-model="form.description" label="وصف مكان العمل" />
             </ValidationProvider>
           </div>
+
+             <div class="">
+ <!-- v-if="form.category === 'academy'" -->
+        <div class="accordion" role="tablist" v-if="form.category === 'academy'">
+    <b-card no-body class="mb-1">
+      <b-card-header header-tag="header"  class="p-1 bg-transparent" role="tab">
+        <div block v-b-toggle.accordion-1 variant="info">الامتيازات</div>
+      </b-card-header>
+      <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <b-card-text class="d-flex flex-wrap ">
+            <div  v-for="item,i in featuresWorkSpace" :key="i"  style="width:30%">
+                     <div class="form-check d-flex justify-content-between" style="display: flex;">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        :value="item.name"
+                        :id="item.name"
+                        style="margin-left: 6px;"
+                        @click="getFeaturesSelect(item.name)"
+                      />
+                       <label class="form-check-label" :for="item.name">
+                        {{item.name}}
+                      </label>
+                     
+                    </div>
+            </div>
+          </b-card-text>
+        </b-card-body>
+      </b-collapse>
+    </b-card>
+
         </div>
+        </div>
+        </div>
+     
+
       </div>
+      
     </ValidationObserver>
+   
+
+
+   
     <template v-slot:actions>
       <button @click="addWorkSpace" type="button" class="btn btn-main">
         نشر
@@ -187,6 +232,18 @@ export default {
         },
       ],
       selectedImages: [],
+      featuresWorkSpace:[
+        {name:'مكيف',id:'condition'},
+        {name:'واي فاي',id:'wiFi'},
+        {name:'سبوره',id:'dashboard'},
+        {name:'شاشات ال اي دي',id:'screen'},
+        {name:'كافيتريا',id:'cafeteria'},
+        {name:'مكتبة',id:'library'},
+        {name:'غرفه للصلاة',id:'pray'},
+        {name:'طابعة',id:'print'},
+        {name:'قهوة مجانية',id:'coffey'}
+      ],
+      featuresSelect:[]
     };
   },
 
@@ -205,6 +262,7 @@ export default {
       this.selectedImages.forEach((image) => {
         formData.append(`images[]`, image.file);
       });
+        formData.append(`features[]`, this.featuresSelect);
 
       try {
         let { data } = await WorkspaceAPI.addWorkSpace(formData);
@@ -329,6 +387,20 @@ export default {
     closeDialog() {
       return true;
     },
+    getFeaturesSelect(id){
+      console.log(id);
+      let el = document.getElementById(id);
+      if (el.checked == true) {
+        console.log('true');
+      this.featuresSelect.push(id)
+
+      }else{
+        console.log('false');
+        let remEl = this.featuresSelect.indexOf(id);
+      this.featuresSelect.splice(remEl,1)
+
+      }
+    }
   },
   mounted() {
     this.loadCities();

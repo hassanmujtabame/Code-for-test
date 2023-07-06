@@ -1,6 +1,7 @@
 <template>
   <div class="px-5">
-    <div class="box">
+
+    <div class="box mb-4">
       <!--mySwiper2-->
       <d-swiper
         v-if="controlledSwiper"
@@ -16,8 +17,10 @@
         }"
         style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
       >
-        <template v-slot="{ item }">
-          <img style="height: 300px" :src="item.image" />
+        <template v-slot="{ item }" >
+          <!-- <div class="d-flex mx-auto" style=" height: 300px; width: 420px; ">  -->
+          <img style=" height: 300px;   width: 420px;" :src="item.image" />
+          <!-- </div> -->
         </template>
       </d-swiper>
     </div>
@@ -35,7 +38,7 @@
         :loop="true"
       >
         <template v-slot="{ item }">
-          <img style="height: 115px" :src="item.image" />
+          <img style="heigh115px; object-fit: contain;" :src="item.image" />
         </template>
       </d-swiper>
     </div>

@@ -248,7 +248,8 @@
                 </p>
                 <!-- list boothes-->
                 <div  v-for="(bn,i) in this.itemForm.booth_name" :key="'bo'+i" class="row  m-3 p-0 position-relatiuve">
-                    <div class="col-12 col-md-5 col-lg-5">
+                    
+                    <div class="col-6">
                             <div  class="mb-3">
                                 <ValidationProvider 
                                 :name="$t('booth_name')" 
@@ -263,9 +264,10 @@
                             </ValidationProvider>
                             </div>
                     </div>
-                    <div  class="col-12 col-md-3 col-lg-3">
-                        <div  class="mb-3 d-flex">
-                        <div>
+
+                    <div  class="col-6">
+                        <div  class="mb-3 d-flex" style="width:100%">
+                        <div style="width:100%">
                                 <ValidationProvider 
                                 :name="$t('rent_price')" 
                                 tag="div"
@@ -273,8 +275,9 @@
                                 :vid="`rental_price.${i}`" 
                                 rules="required|numeric"
                                 v-slot="{ errors }"
+                                style="width:100%"
                             >
-                            <d-text-input :errors="errors" type="text" v-model="itemForm.rental_price[i]" :label="$t('rent_price')">
+                            <d-text-input style="width:100%" :errors="errors" type="text" v-model="itemForm.rental_price[i]" :label="$t('rent_price')" >
                             </d-text-input>
                             
                             </ValidationProvider>
@@ -282,7 +285,8 @@
                       
                     </div>
                     </div>
-                    <div  class="col-12 col-md-4 col-lg-4">
+
+                    <!-- <div  class="col-12 col-md-4 col-lg-4">
                         <div  class="mb-3 d-flex">
                         <div>
                                 <ValidationProvider 
@@ -307,7 +311,7 @@
                         </div>
                       
                     </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- end list-->
                     <div class="row m-3 p-0 position-relatiuve">

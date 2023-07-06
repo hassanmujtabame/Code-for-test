@@ -12,7 +12,7 @@
       :class="{'modal-xl':xl&&!mlg,'modal-lg':mlg,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen}"
     >
       <div class="modal-content">
-        <div v-if="!hideHeader" class="modal-header">
+        <div v-if="!hideHeader" class="modal-header" style="margin-right: auto; border-bottom:0">
           <h1 class="modal-title" :class="customHeaderClass" :id="`modal-large-${modalId}`">
             <slot name="header"></slot>
           </h1>

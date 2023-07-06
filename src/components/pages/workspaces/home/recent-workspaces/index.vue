@@ -51,8 +51,8 @@ export default {
     plusRectRoundIcon,
     WorkSpaceCard,
   },
-
-  data() {
+  
+  data:()=>{
     return {
       loading: true,
       items: [],

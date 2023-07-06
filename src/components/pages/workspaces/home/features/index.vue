@@ -4,7 +4,7 @@
     <div class="row min-riadiat academy">
       <div class="col-xl-3 col-md-6 mt-2">
         <CardItem :src="require('@/assets/img/work-spaces/Group.png')">
-          مزايا أماكن العمل
+           أماكن عمل موثوقة
         </CardItem>
       </div>
       <div class="col-xl-3 col-md-6 mt-2">

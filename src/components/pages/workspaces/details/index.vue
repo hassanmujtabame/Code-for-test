@@ -5,9 +5,9 @@
       <div class="row justify-content-between">
         <div class="col-md-6">
           <h3 class="word-break-all">
-            <span class="m-c"> </span>
+            <span class="m-c">غرفة مكتبية:</span>
             {{ singleWorkspace.title }}
-          </h3>
+          </h3> 
         </div>
         <ActionCrud :singleWorkspace="singleWorkspace" v-if="isOwner" />
         <ActionForVisiter v-else :singleWorkspace="singleWorkspace" />

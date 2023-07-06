@@ -1264,7 +1264,12 @@ span {
     background-size: cover;
     background-position: center;
 }
-
+.bg-header{
+     background-image: url(../img/bg-header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 #offcanvas-profile {
     z-index: 99999999;
 }
