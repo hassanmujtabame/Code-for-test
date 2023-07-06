@@ -19,6 +19,7 @@
               :key="i"
               :href="m.url"
               class="t-c"
+              target="_blank"
             >
               <i v-if="m.name == 'facebook'" class="fab fa-facebook-f"></i>
               <i v-if="m.name == 'youtube'" class="fab fa-youtube"></i>
