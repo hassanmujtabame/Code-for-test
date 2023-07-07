@@ -89,6 +89,7 @@ watch:{
       this.loading = true;
       let formData=  this.loadObjectToForm(this.itemForm)
       //formData.append('from_user_id',this.user.id)
+      if (this.itemForm.message && this.itemForm.message.length > 0) {
       try {
         let { data} = await userAPI.sendMessageChat(formData)
         if(data.success){
@@ -103,6 +104,8 @@ watch:{
       } catch (error) {
         console.mylog('errr',error)
       }
+      }
+
       this.loading = false;
     },
     onloadedmetadata(event){
