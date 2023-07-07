@@ -62,7 +62,7 @@ export default {
       expired:null,
       category_id:[],
     min_discount:0,
-    max_discount:100,
+    max_discount:0,
 
     },
     item_test: { title: 'معرض الازياء الرجالي', img: `${vm.publicPath}assets/img/Rectangle -network.png`, description: 'معرض متكام لبيع و تنسيق الزهور' },
