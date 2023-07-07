@@ -106,8 +106,9 @@ export default {
     this.itemPage.available_meetings_month -=1 
   },
   successCanceled(){
-    this.isJoined = true;
+    this.isJoined = false;
     this.itemPage.available_meetings_month +=1 
+    
   },
   openConfirmJoinMeeting(){
     this.fireOpenDialog('confirm-join-meeting',this.itemPage)

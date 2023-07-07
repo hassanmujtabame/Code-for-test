@@ -48,6 +48,7 @@ export default {
             if(data.success){
               this.$emit('success',false)
                 this.closeEvent()
+                this.closeDialog()
             }
         } catch (error) {
             console.log('error',error)
