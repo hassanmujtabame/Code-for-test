@@ -190,6 +190,7 @@
                             <option :key="i" v-for="(it,i) in cities" :value="it.id">
                                 {{ `${it.name}-${it.region.name}` }}
                             </option>
+
                         </d-select-input>
                         </ValidationProvider>
                     </div>
@@ -389,7 +390,7 @@ components:{
             insurance_price:[''],
             rental_price:[''],
             content:'',
-            region_id:null,
+            region_id:'',
             address:'',
             price: '',
             start_date : '',
@@ -437,7 +438,7 @@ watch:{
             }
             let formData = new FormData();
             formData.append('content', this.itemForm.content);
-            if(this.region)
+            if(this.itemForm.region_id)
             formData.append('region_id',this.itemForm.region_id);
             formData.append('address', this.itemForm.address);
             formData.append('price', this.itemForm.price);
