@@ -5,7 +5,14 @@
     :pluralName="$t('members')"
     :singleName="$t('member')"
     :searchPlaceholder="$t('search-by-name-or-field')"
-    classColCard="col-12 col-md-4 mt-4">
+    classColCard="col-12 col-md-4 mt-4"
+    :orderOpts=" 
+             [
+                {id:'asc',name:'الاحدث'},
+                {id:'desc',name:'الاقدم',}
+            ]"
+            @change="changeFilter"
+    >
       <template v-slot="{ item }">
 
         
@@ -15,7 +22,6 @@
           :description="item.description" 
           :img="item.image" 
           />
-
       </template>
 
       <template v-slot:side>

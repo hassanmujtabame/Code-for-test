@@ -9,7 +9,7 @@
         :singleName="$t('exhibition')"
         :searchPlaceholder="$t('search_by_service')"
         orderName="price"
-        :orderOpts="
+        :orderOpts=" 
              [
                 {id:'asc',name:'الأقل سعرا'},
                 {id:'desc',name:'الأغلى سعرا',}
