@@ -1,6 +1,8 @@
 <template>
   <router-link custom :to="getRouteLocale('common-questions')" v-slot="{navigate}">
-  <div @click="navigate" class="faq-btn-fixed">
+  <div @click="navigate"
+:class="[ networkExhibition ? 'faq-btn-fixed-network': 'faq-btn-fixed']"
+  >
   <div class="faq-btn-wrapper">
     <p><MsgIcon /> <span class="faq-btn-title">{{$t('popular-questions')}}</span></p>
   </div>
@@ -15,8 +17,20 @@ export default {
  name:'faq-btn',
  components:{
   MsgIcon
- }
+ },
+ data:()=>{
+    return  {
+        networkExhibition:false
+    }
+ },
+ mounted(){
+  console.log('route',this.$route.name == 'network-exhibition-show');
+  if (this.$route.name == 'network-exhibition-show') {
+    this.networkExhibition = true
+  }
 }
+}
+
 </script>
 
 <style>
@@ -25,6 +39,20 @@ export default {
     position: fixed;
     right:9% ;
     left:auto;
+    top: calc(100vh / 2 + 70px);
+    z-index: 999999;
+    
+    padding: 2px;
+    border-radius:32px ;
+    border: 1px solid #b5e5e4;
+    background-color:#b5e5e4;
+    margin-top: 180px;
+}
+.faq-btn-fixed-network{
+    cursor: pointer;
+    position: fixed;
+    right:auto !important ;
+    left:0 !important;
     top: calc(100vh / 2 + 70px);
     z-index: 999999;
     
