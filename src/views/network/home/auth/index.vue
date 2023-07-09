@@ -18,7 +18,7 @@
       <div class="row">
         <div class="col-md-6">
           <div
-            @click="router_push('network-exhibitions')"
+            @click="router_push('network-offers')"
             class="box clickable"
           >
             <img
