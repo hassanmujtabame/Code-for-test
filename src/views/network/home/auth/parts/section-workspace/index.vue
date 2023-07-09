@@ -37,7 +37,7 @@
                     fill="#F6F8F9"
                   />
                 </svg>
-                تعرف على المزيد
+                  {{ $t('more') }}
               </button>
             </router-link>
           </div>

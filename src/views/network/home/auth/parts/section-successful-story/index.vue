@@ -7,7 +7,10 @@
             <div>
                 <router-link class="more"  
                 :to="getRouteLocale('network-success-stories')"
-                >{{ $t('know-more') }}</router-link>
+                >
+                    {{ $t('more') }}
+
+                </router-link>
             </div>
           </div>
             <div class="row">

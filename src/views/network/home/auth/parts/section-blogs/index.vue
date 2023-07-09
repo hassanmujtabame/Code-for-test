@@ -1,5 +1,5 @@
 <template>
-    <div style="overflow: hidden;" class="sec-nighn my-5">
+    <div style="overflow: hidden;" class="sec-nighn my-5" v-if="this.items.length">
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center container my-2">
