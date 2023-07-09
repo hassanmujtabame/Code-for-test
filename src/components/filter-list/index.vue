@@ -73,7 +73,7 @@
       <!--ordzer-->
       <div
         v-if="$slots['head-end']"
-        class="col-12 col-lg-auto"
+        :class="HeadEndClasses"
         :style="{
           'margin-right': $i18n.locale ? 'auto' : '',
           'margin-left': $i18n.locale ? 'auto' : '',
@@ -505,6 +505,10 @@ export default {
     group: {
       type: String,
       default: "d-filter-list",
+    },
+    HeadEndClasses: {
+      type: String,
+      default: "col-12 col-lg-auto",
     },
   },
   data: () => ({
