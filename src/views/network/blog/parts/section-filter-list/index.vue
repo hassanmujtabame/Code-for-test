@@ -1,12 +1,12 @@
 <template>
     <div class="mt-5">
     <div class="blog">
-        <ul class="nav nav-pills mb-3 rounded-2 align-items-center" id="pills-tab" role="tablist">
-            <h5 class="m-c fw-bolder m-0">
+        <ul class="nav nav-pills mb-3 rounded-2 align-items-center align-items-center flex-nowrap mb-3 nav nav-pills overflow-y-scroll rounded-2" id="pills-tab" role="tablist">
+            <h5 class="m-c fw-bolder m-0" style="white-space: nowrap">
                 تصنيف المواضيع :
             </h5>
             <template  v-for="(btn, i) in categories"> 
-            <li v-if="true" class="nav-item" role="presentation"  :key="'r'+i">
+            <li v-if="true" class="nav-item" role="presentation"  :key="'r'+i" style="width: auto; white-space: nowrap">
                 <button @click="changeCategories(btn.id)" class="nav-link" :class="{ active: category_id === btn.id }" type="button">{{ btn.name }}
                 
                 </button>

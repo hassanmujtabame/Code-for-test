@@ -8,8 +8,8 @@
                 <div>
                   <router-link class="more"  
                 :to="getRouteLocale('network-investment-project')">
-              {{ $t('know-more') }}
-                </router-link>
+                      {{ $t('more') }}
+                  </router-link>
                 </div>
               </div>
                 <div v-for="(item,i) in items" :key="i" class="col-md-6 mt-3">

@@ -51,24 +51,29 @@
         </div>
         <div v-if="!hideOrder" :class="classColOrder" class="position-relative margin">
           <slot name="order">
+              <p
+                      style="top: -13px; right: 280px; background: white"
+                      class="position-absolute"
+              >
+                  ترتيب حسب
+              </p>
             <select
               @change="updateFilter"
               v-model="filter.order"
-              class="form-select py-3 m-c fs-r-12"
+              class="form-select py-3 m-c fs-r-12 w-25"
               aria-label=".form-select-lg example"
             >
               <option v-for="(opt, i) in orderOpts" :key="i" :value="opt.id">
                 {{ opt.name }}
               </option>
             </select>
-            <p
-              style="top: -13px; right: 24px; background: white"
-              class="position-absolute"
-            >
-              ترتيب حسب
-            </p>
+
           </slot>
+            <slot name="append-order">
+
+            </slot>
         </div>
+
       </div>
       <!--ordzer-->
       <div

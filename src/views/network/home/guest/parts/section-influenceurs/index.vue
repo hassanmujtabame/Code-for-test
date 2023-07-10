@@ -1,5 +1,5 @@
 <template>
-   <div class="sec-five mt-5 p-3">
+   <div class="sec-five mt-5 p-3" v-if="this.items">
         <div class="container">
           <div
             class="d-flex justify-content-between align-items-center container"

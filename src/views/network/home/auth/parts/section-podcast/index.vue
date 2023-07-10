@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 p-3">
+  <div class="mt-5 p-3" v-if="this.items.length">
 
 <div class="container">
   <div
@@ -20,7 +20,7 @@
     :items="items"
               >
                 <template  v-slot:default="{item}" >
-                <podcastCard 
+                <podcastCard
                      :image="item.image"
                      :name="item.title"
                      :description="item.time_duration"
