@@ -1,6 +1,6 @@
 <template>
  <div class="main-top p-5 position-relative">
-            <h1 class="text-white p-5 fs-1"> أستكشف الدورات </h1>
+            <h1 class="text-white p-5 fs-1"> دورات في المقر  </h1>
 
             <div class="position-absolute anim-hwo-ar-you">
                 <img :src="`${publicPath}assets/svg/wave-top.svg`" alt="" />

@@ -8,11 +8,11 @@ hideTitle
 classSearchOrder="col-lg-8"
 classColOrder="col-12 col-lg-4"
 classColSearch="col-12 col-lg-8"
+@change="changeFilter"
 >
 <template v-slot="{item}">
   
     <CourseCard :item="item" :url="getRouteLocale('academy-course-show',{id:item.id})"/>
-  
 </template>
 <template v-slot:side>
   <sidebarBox :filterItem="filterSide" @change="changeFilter"/>

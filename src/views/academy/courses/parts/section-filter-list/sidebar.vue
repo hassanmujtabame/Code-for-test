@@ -28,7 +28,7 @@
                         </div>
             </d-expanded-panel-item>
          <!--طريقة العرض-->
-         <d-expanded-panel-item title="طريقة العرض">
+         <!-- <d-expanded-panel-item title="طريقة العرض">
             <div>
                             <div v-for="(it,i) in types" :key="i" class="form-check">
                                 <input class="form-check-input" type="radio" :value="it.id" v-model="filter.type" 
@@ -40,7 +40,7 @@
                                 </label>
                             </div>
                         </div>
-         </d-expanded-panel-item>
+         </d-expanded-panel-item> -->
             <!--سعر الدورة-->
          <d-expanded-panel-item title="سعر الدورة">
             <div style="margin: 20px 0px 0 0" class="a">

@@ -6,9 +6,14 @@
 
     </div>
   <div class="course-instructor__body">
+    <div class="course-instructor__name">
     <h1 class="course-instructor__title">{{ item.name }}</h1>
     <h2 class="course-instructor__subtitle"> {{ item.job_title }}</h2>
-    <p class="course-instructor__text">{{ item.description }}</p>
+    </div>
+    <div class="course-instructor__description">
+        <p class="course-instructor__text">{{ item.description }}</p>
+  </div>
+    
   </div>
     
   </div>
@@ -26,7 +31,8 @@ export default {
 
 <style scoped>
 .course-instructor{
-    width: 315px;
+    width: 300px;
+    margin-bottom:16px ;
 }
 .course-instructor__header{
     text-align: center;
@@ -44,7 +50,8 @@ export default {
     background: #F6F8F9;
     border-radius: 8px;
     padding-top: 52px;
-text-align: center;
+    text-align: center;
+    height: 250px;
 }
 .course-instructor__title{
     font-style: normal;
@@ -76,6 +83,15 @@ margin: 0;
     /* Dark gray */
     color: #414042;
     margin: 0;
-    height: 96px;
+
+}
+.course-instructor__description{
+    height: 230px;
+    padding: 5px;
+
+}
+.course-instructor__name{
+    height: 70px;
+
 }
 </style>

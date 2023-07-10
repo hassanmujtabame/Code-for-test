@@ -136,7 +136,8 @@ export default {
       
       this.type = type
     },
-    nextDialogCourse(){
+    nextDialogCourse(){ 
+      console.log('ertyuio');
       let groupDialog = this.isUpdate?'update-course':`add-course-${this.itemForm.type}`
       let dataEvt = this.isUpdate?{...this.itemDialog}:{}
       this.fireOpenDialog(groupDialog,{...dataEvt, instructors:this.itemForm.instructors})

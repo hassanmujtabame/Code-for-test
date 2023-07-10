@@ -12,7 +12,7 @@
       :class="{'modal-xl':xl&&!mlg,'modal-lg':mlg,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen}"
     >
       <div class="modal-content">
-        <div v-if="!hideHeader" class="modal-header" style="margin-right: auto; border-bottom:0">
+        <div v-if="!hideHeader" class="modal-header" style="margin-right: auto; border-bottom:0; width: 100%;">
           <h1 class="modal-title" :class="customHeaderClass" :id="`modal-large-${modalId}`">
             <slot name="header"></slot>
           </h1>
@@ -22,6 +22,7 @@
             @click="closeDialogLocal($event,true)"
             :style="{'padding':fullscreen?'0 30px':null}"
             aria-label="Close"
+            style="margin:0 !important"
           ></button>
         </div>
         <div class="position-relative">

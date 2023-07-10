@@ -61,6 +61,9 @@
           let { data } =  await partnersAPI.getCategories();
           if(data.success){
             this.categories = data.data
+          console.log('this.categories',this.categories)
+          console.log('data.data',data.data)
+            
           }
         } catch (error) {
           console.log('error',error)

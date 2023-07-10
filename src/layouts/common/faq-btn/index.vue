@@ -60,7 +60,7 @@ export default {
     border-radius:32px ;
     border: 1px solid #b5e5e4;
     background-color:#b5e5e4;
-    margin-top: 180px;
+    margin-top: 165px;
 }
 html[dir=ltr] .faq-btn-fixed{
     right: 0;

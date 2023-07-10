@@ -8,11 +8,12 @@
 <script>
 import AuthPage from './auth.vue'
 import GuestPage from './guest.vue'
+
 export default {
 name:"academy-home",
 components:{
   AuthPage,
-  GuestPage
+  GuestPage,
 }
 }
 </script>
