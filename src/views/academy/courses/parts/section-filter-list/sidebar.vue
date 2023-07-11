@@ -42,7 +42,8 @@
                         </div>
          </d-expanded-panel-item> -->
             <!--سعر الدورة-->
-         <d-expanded-panel-item title="سعر الدورة">
+            
+         <d-expanded-panel-item opened title="سعر الدورة">
             <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">
                                        
@@ -55,7 +56,6 @@
                                     </div>
                                 </div>
             </d-expanded-panel-item>
-       
         </d-expanded-panel>
         <div class="mt-3 text-center">
             <button @click="updateFilter" class="btn-custmer">
