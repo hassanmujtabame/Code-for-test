@@ -1,14 +1,14 @@
 <template>
-    <div class="student-course box border">
+    <div class="student-course box border" style="height: 361px;">
                                     <div class="student-course__image">
                                         <router-link custom v-slot="{ navigate }" :to="url??{}">
                                      
-                                        <img @click="goToCourse(navigate,$event)" class="w-100 rounded-top" :class="{clickable:url}" :src="item.image_path" :alt="item.title"
+                                         <img @click="goToCourse(navigate,$event)" class="w-100 rounded-top" :class="{clickable:url}" :src="item.image_path" :alt="item.title"
                                             height="100%">
                                         </router-link>
                                            </div>
                                     <div class="p-3 ">
-                                        <div class="d-flex justify-content-between ">
+                                        <div class="d-flex justify-content-between " style="align-items: baseline;">
                                             <h6 class="student-course__title">
                                                 {{item.title}}
                                             </h6>
@@ -142,7 +142,7 @@ export default {
 .student-course__title{
 font-style: normal;
 font-weight: 400;
-font-size: 20px;
+font-size: 17px;
 line-height: 24px;
 /* identical to box height, or 120% */
 text-transform: capitalize;
@@ -175,7 +175,7 @@ text-align: start;
     margin: 0;
     font-style: normal;
 font-weight: 400;
-font-size: 16px;
+font-size: 13px;
 line-height: 17px;
 /* identical to box height, or 106% */
 

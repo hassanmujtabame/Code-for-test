@@ -1,5 +1,5 @@
 <template>
-  <div class="card card-info" :class="{'tablet':isTablet}">
+  <div class="card card-info" style="position: absolute !important;" :class="{'tablet':isTablet}">
   <img class="card-img-top" :src="itemPage.image_path" :alt="itemPage.title">
   <div class="card-body pt-0">
    <div class="course-card-fixed__item">

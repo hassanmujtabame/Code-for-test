@@ -410,7 +410,6 @@
           
         },
         async save(){
-        console.log('ddsdfghj')
 
            if(this.step==1){
             await this.saveStep1()

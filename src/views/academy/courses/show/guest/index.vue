@@ -5,7 +5,6 @@
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
     <div v-else >
-        
        <SectionHeader  :itemPage="itemPage" />
        <div  style="max-width:628px" class="px-5">
        <SectionDesc  :itemPage="itemPage" />

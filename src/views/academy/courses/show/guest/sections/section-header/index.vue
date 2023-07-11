@@ -1,13 +1,17 @@
 <template>
 <div class="">
    <div class="main-top py-5 position-relative">
-   <div class="px-5 mb-3">
-      <span class="course-department-name mx-5 p-2">{{ itemPage.department_name }}</span>
+      <div class="px-5" style="">
+
+   <div class="px-5l mb-3">
+      <span class="course-department-name mx-5l py-2 px-3">{{ itemPage.department_name }}</span>
    </div>
-        <h1 class="text-white px-5 fs-1 position-relative z-index-1"> {{ itemPage.title }} </h1>
-        <p class="text-white fs-r-24 position-relative z-index-1" :class="{'px-5':!isMobile,'px-1':isMobile}" style="max-width:702px">
+        <h1 class="text-white px-5l fs-1 position-relative z-index-1"> {{ itemPage.title }} </h1>
+        <p class="text-white fs-r-24 position-relative z-index-1" :class="{'px-0':!isMobile,'px-1':isMobile}" style="max-width:702px">
        {{ itemPage.short_description }}
         </p>
+      </div>
+
         <div class="star position-absolute">
           <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="" />
         </div>

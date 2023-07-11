@@ -28,7 +28,7 @@ class WorkspaceApi extends BaseApi {
     getDetailsWorkspace(id) {
         return window.axios.get(`workspaces/${id}`);
     }
-    deleteWorkspace(id) {
+    deleteWorkspace(id) { 
         return window.axios.delete(`workspaces/${id}`);
     }
     getServiceProviderCategories() {

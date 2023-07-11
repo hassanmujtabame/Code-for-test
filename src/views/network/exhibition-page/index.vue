@@ -72,12 +72,6 @@
                            <!-- <span v-if="false"> <i  class="fab fa-linkedin-in" ></i></span> -->
                            <div class="fb-share-button" :data-href="currentUrl"  data-layout="button_count">
                     </div>
-                           
-
-                        
-                           
-                          
-                            
                         </div>
                     </div>
                 </div>

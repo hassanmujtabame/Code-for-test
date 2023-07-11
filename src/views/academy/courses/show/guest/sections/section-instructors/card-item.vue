@@ -52,6 +52,7 @@ export default {
     padding-top: 52px;
     text-align: center;
     height: 250px;
+    width: 200px;
 }
 .course-instructor__title{
     font-style: normal;

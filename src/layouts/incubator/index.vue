@@ -7,7 +7,7 @@
       <DefaultHeader v-else/>
       
       <main>
-        <faqBtn />
+        <faqBtn /> 
         <RateYourExperienceBtn group="rate-your-experience-network" />
           <slot></slot>
           </main>

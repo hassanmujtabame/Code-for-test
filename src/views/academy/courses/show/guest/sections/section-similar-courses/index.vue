@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5">
+  <div class="pt-5 academy-course-width">
               <h1 class="course-guest-section__title">دورات المشابهة</h1>
 
               <d-swiper
@@ -60,5 +60,10 @@ export default {
 </script>
 
 <style>
+.academy-course-width .swiper-slide{
+  width: 220px !important;
+  height: 450px !important;
+  margin-bottom: 20px !important;
+}
 
 </style>

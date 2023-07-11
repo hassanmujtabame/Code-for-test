@@ -23,7 +23,9 @@ import TimeAgo from './plugins/timeago'
 import './plugins/sweetalert2'
 import EventBus from './helper/EventBus';
 import Dhelper from './helper/d-helper';
+import VueSocialSharing from "vue-social-sharing";
 
+Vue.use(VueSocialSharing);
 window.timeAgo = new TimeAgo();
 window.DHelper = Dhelper;
 window.Pusher = require('pusher-js');

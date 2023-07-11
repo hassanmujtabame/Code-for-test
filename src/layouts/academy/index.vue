@@ -9,7 +9,6 @@
 
 
       <main >
-        <RateYourExperienceBtn group="rate-your-experience-network" />
           <slot></slot>
           </main>
           <SectSubscribe/>
@@ -24,14 +23,11 @@
           <d-success-message />
           <d-confirm-message />
           <d-standard-rate-dialog />
-          <faqBtn/>
     </div>
   </template>
   
   <script>
-  import faqBtn from '../common/faq-btn/index.vue'
-
-  import RateYourExperienceBtn from '../common/rate-experience.vue'
+ 
   import RateYourExperience from '../common/dialogs/rate-experience/index.vue'
   import RateSuccessExperience from '../common/dialogs/rate-experience/success-rate.vue'
   import MyDrawerInstructor from './drawer-instructor.vue'
@@ -43,7 +39,6 @@
  export default {
       name:'provider-layout',
       components:{
-        RateYourExperienceBtn,
         RateYourExperience,
           DefaultFooter,
           DefaultHeader,
@@ -53,7 +48,6 @@
           RateSuccessExperience,
           MyDrawerInstructor,
           MyDrawerStudent,
-          faqBtn
         
         }
   }
