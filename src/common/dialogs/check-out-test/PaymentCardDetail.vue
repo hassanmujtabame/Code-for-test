@@ -4,10 +4,9 @@
     <b-card-title class="checkout-title">{{ title }}</b-card-title>
     <b-form @submit.prevent="payment">
       <b-form-group class="mt-2"> 
-        <!-- rules="numeric" v-slot="{ errors }" -->
-        <ValidationProvider >
+        <ValidationProvider rules="required" v-slot="{ errors }">
           <b-form-input v-model="itemForm.coupon" class="form-control" placeholder="ادخل الكود"></b-form-input>
-          <!-- <span v-if="errors[0]" class="text-danger">{{ errors[0] }}</span> -->
+          <span v-if="errors[0]" class="text-danger">{{ errors[0] }}</span>
         </ValidationProvider>
       </b-form-group>
       <p class="text-center small">
@@ -15,7 +14,7 @@
         <b-link href="#" class="m-c">شروط الاستخدام</b-link>
       </p>
       <div class="text-center">
-        <button class="p-2 text-white btn-main-v" :disabled="loading" type="submit">
+        <button class="p-2 text-white btn-main-v" :disabled="!itemForm.coupon" type="submit">
           <b-spinner small v-if="loading"></b-spinner>تاكيد الدفع
         </button>
       </div>
