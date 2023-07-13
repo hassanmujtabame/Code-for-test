@@ -221,7 +221,10 @@ const routers = [
   },
   {
     path: 'academy/subscribe',
-    meta: { layout: LayoutDefault, auth: true, title: 'Subscribe' },
+    meta: { layout: LayoutDefault, auth: true, title: 'Subscribe', 
+			type: "academy",
+  
+  },
     name: 'academy-subscribe',
     component: () => import(/* webpackChunkName: "academy-subscribe" */ '../views/academy/subscribe/index.vue')
   }

@@ -62,6 +62,12 @@ components:{
     show:false,
     packages:[]
   }),
+  props:{
+        packageData: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   methods:{
     getTypePackage(data){
         switch (data.type) {
@@ -72,13 +78,15 @@ components:{
                 return 'N/A';
         }
     },
-    openCheckoutDialog(data){
+    openCheckoutDialog(data){ 
+        console.log('data',data);
         this.fireOpenDialog('checkout-subscribe-network',{item:{amount:data.price,title:this.$t('Riadiat-network'),type:this.getTypePackage(data)},data:data})
     },
     openSuccessSubscribed(data){
         this.fireOpenDialog('success-network-subscribed', data)
     },
     async choose(pack){
+        console.log('pack',pack);
         if(pack.type=='free'){
                 try {
                     let { data } = await networkAPI.checkoutPackageFree({package_id:pack.id});

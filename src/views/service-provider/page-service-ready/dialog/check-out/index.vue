@@ -5,6 +5,7 @@ title="تفاصيل الدفع"
 hideAmount
 :do-payment="payment"
 >
+
 <template v-slot:default="{ item,dialog }">
   <div v-if="dialog" class="d-flex flex-wrap gap-2">
 

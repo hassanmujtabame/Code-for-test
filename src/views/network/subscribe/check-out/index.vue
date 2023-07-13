@@ -6,7 +6,9 @@ hideAmount
 :do-payment="payment"
 @paymendt="payment"
 >
-<template v-slot:default="{ item,dialog }">
+
+
+<template v-slot:default="{ item,dialog }"> 
   <div v-if="dialog" class="d-flex flex-wrap gap-2">
   <div>
                                     <svg width="133" height="67" viewBox="0 0 133 67" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,6 +81,7 @@ export default {
   }),
   methods:{
     async payment(evt){
+      console.log('payment123',evt)
       console.mylog('payment',evt)
       let {item,cardInfo,otherData} = evt;
       let pay_info = {};
@@ -139,6 +142,9 @@ export default {
     openSuccessSubscribed(data){
         this.fireOpenDialog('success-network-subscribed', data)
     },
+  },
+  mounted(){
+    console.log('otherData', this.otherData);
   }
 }
 

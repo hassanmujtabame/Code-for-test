@@ -3,10 +3,11 @@
   <b-card class="mt-2 payment-card-detail" no-body>
     <b-card-title class="checkout-title">{{ title }}</b-card-title>
     <b-form @submit.prevent="payment">
-      <b-form-group class="mt-2">
-        <ValidationProvider rules="numeric" v-slot="{ errors }">
+      <b-form-group class="mt-2"> 
+        <!-- rules="numeric" v-slot="{ errors }" -->
+        <ValidationProvider >
           <b-form-input v-model="itemForm.coupon" class="form-control" placeholder="ادخل الكود"></b-form-input>
-          <span v-if="errors[0]" class="text-danger">{{ errors[0] }}</span>
+          <!-- <span v-if="errors[0]" class="text-danger">{{ errors[0] }}</span> -->
         </ValidationProvider>
       </b-form-group>
       <p class="text-center small">
@@ -44,7 +45,8 @@ export default {
     };
   },
   methods: {
-    async payment() {
+    async payment() { 
+      console.log('this.itemForm', this.itemForm);
       this.loading = true;
       try {
         this.$emit("payment", this.itemForm);

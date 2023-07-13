@@ -6,56 +6,63 @@ import projects from "./projects";
 import partners from "./partners";
 import models from "./models";
 class NetworkApi extends BaseApi {
-    ads = ads
-    offers = offers
-    projects = projects
-    models = models
-    partners = partners
-    
-    getSubscribes(params={}){
-        let s=this.generateQueryUrl(params)
-        return window.axios.get(`network/user-subscriptions?${s}`);
-    }
-    getHomeSchedules(params={}){
-        let s=this.generateQueryUrl(params)
-        return window.axios.get(`network/network-schedule?${s}`);
-    }
-    getPackages(params={}){
-        let s=this.generateQueryUrl(params)
-        return window.axios.get(`network/packages?${s}`);
-    }
-    rechargeBalance(data){
-        return window.axios.post(`network/recharge-balance`,data);
+	ads = ads;
+	offers = offers;
+	projects = projects;
+	models = models;
+	partners = partners;
 
-    }
-    getMyTransaction(params={}){
-        let s=this.generateQueryUrl(params)
-        return window.axios.get(`network/recharge-balance?${s}`);
-
-    }
-    async getBalance(){
-        try {
-            let res = await window.axios.post(`user/me`)
-            if(res.data.success){
-               let {total_balance,outstanding_balance,available_balance} = res.data.data;
-               return {data:{success:true,data:{total_balance,outstanding_balance,available_balance}}}
-            }else{
-                return res;
-            }
-         } catch (error) {
-            console.mylog('error',error)
-            return {success:false,message:'error general'}
-         }
-    }
-    checkoutPackageFree(data){
-        return window.axios.post(`network/user-checkout-package-free`,data);
-    }
-    getNumbers(params={}){
-        let s=this.generateQueryUrl(params)
-        return window.axios.get(`network/numbers?${s}`);
-    }
-    checkoutPackage(data){
-        /*
+	getSubscribes(params = {}) {
+		let s = this.generateQueryUrl(params);
+		return window.axios.get(`network/user-subscriptions?${s}`);
+	}
+	getHomeSchedules(params = {}) {
+		let s = this.generateQueryUrl(params);
+		return window.axios.get(`network/network-schedule?${s}`);
+	}
+	getPackages(params = {}) {
+		let s = this.generateQueryUrl(params);
+		return window.axios.get(`network/packages?${s}`);
+	}
+	rechargeBalance(data) {
+		return window.axios.post(`network/recharge-balance`, data);
+	}
+	getMyTransaction(params = {}) {
+		let s = this.generateQueryUrl(params);
+		return window.axios.get(`network/recharge-balance?${s}`);
+	}
+	async getBalance() {
+		try {
+			let res = await window.axios.post(`user/me`);
+			if (res.data.success) {
+				let { total_balance, outstanding_balance, available_balance } =
+					res.data.data;
+				return {
+					data: {
+						success: true,
+						data: { total_balance, outstanding_balance, available_balance },
+					},
+				};
+			} else {
+				return res;
+			}
+		} catch (error) {
+			console.mylog("error", error);
+			return { success: false, message: "error general" };
+		}
+	}
+	checkoutPackageFree(data) {
+		return window.axios.post(`network/user-checkout-package-free`, data);
+	}
+	checkoutPackageSelect(data) {
+		return window.axios.post(`checkout`, data);
+	}
+	getNumbers(params = {}) {
+		let s = this.generateQueryUrl(params);
+		return window.axios.get(`network/numbers?${s}`);
+	}
+	checkoutPackage(data) {
+		/*
           type if 0
             paymentBrand
             card_holder
@@ -69,13 +76,11 @@ class NetworkApi extends BaseApi {
             payment_id
             package_id
         */
-        return window.axios.post(`network/user-checkout`,data);
-    }
-    getCategories(){
-        return window.axios.get(`network/categories`);
-    }
-   
-
+		return window.axios.post(`network/user-checkout`, data);
+	}
+	getCategories() {
+		return window.axios.get(`network/categories`);
+	}
 }
 
 export default new NetworkApi();
