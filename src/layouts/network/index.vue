@@ -17,7 +17,7 @@
             <RateYourExperience
             :title="$t('network')"
             category="network"
-            />
+            /> 
             <RateSuccessExperience />
             <d-success-message />
             <d-standard-rate-dialog />

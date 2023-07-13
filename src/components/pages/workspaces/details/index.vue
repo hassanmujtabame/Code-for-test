@@ -29,11 +29,11 @@
             :member="singleWorkspace.user_info"
             class="mb-3"
           />
-          <Info :singleWorkspace="singleWorkspace" />
+          <Info :singleWorkspace="singleWorkspace" /> 
         </div>
              <div style="margin-right: auto; padding: 0; " class="col-md-6 mt-5 box border rounded-3 ">
                       <div class="border  p-4  p-4 " style="font-size:24px">
-              شارك مساحة العمل
+              شارك مساحة العمل   
             </div>
             <div class="d-flex justify-content-center  gap-4  p-4  p-4 icon-social-exibition">
                    <button style="background: transparent; border: 0;">

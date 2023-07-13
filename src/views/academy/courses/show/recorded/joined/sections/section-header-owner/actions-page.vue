@@ -7,7 +7,7 @@
                         </button>
                     </div>
                     <div>
-                        <button  class="btn-main btn-action-page btn-warning  px-3 w-100 border-0 rounded-2" role="button">
+                        <button v-b-modal="'my-modal'" class="btn-main btn-action-page btn-warning  px-3 w-100 border-0 rounded-2" role="button">
                             <i class="fa-solid fa-share-nodes"></i>
                                 شارك
                         </button>
@@ -18,6 +18,58 @@
                          حذف
                         </button>
                     </div>
+
+  <!-- The modal -->
+  <b-modal id="my-modal">
+      <h5 style="color:#ebae05;"> شارك الدورة على مواقع التواصل الاجتماعي</h5>
+
+         <div class="d-flex justify-content-center  gap-4  p-4  p-4 icon-social-exibition ">
+                   <button style="background: transparent; border: 0;">
+                      <ShareNetwork
+                          network="twitter"
+                          :url="shareLink"
+                          title="Share in twitter"
+                          description="This is another awesome article for awesome readers"
+                          >
+                          <img class="h-100" :src="`${publicPath}assets/img/Twitter.png`" alt="" />
+                          <!-- twitter-user="LindaOjo_" -->
+                      </ShareNetwork>
+                  </button>
+                    <!-- <button>
+                      <ShareNetwork
+                          network="Instagram"
+                          :url="shareLink"
+                          title="Share in instagram"
+                          description="This is another awesome article for awesome readers"
+                          >
+                          <img class="h-100" :src="`${publicPath}assets/img/Instagram.png`" alt="" />
+                      </ShareNetwork>
+                  </button> -->
+                    <button style="background: transparent; border: 0;">
+                      <ShareNetwork
+                          network="Linkedin"
+                          :url="shareLink"
+                          title="Share in Linkedin"
+                          description="This is another awesome article for awesome readers"
+                          >
+                        <img class="h-100" :src="`${publicPath}assets/img/Linkedin.png`" alt="" />
+                      </ShareNetwork>
+                  </button>
+                  <button style="background: transparent; border: 0;">
+                    <ShareNetwork
+                        network="Facebook"
+                        :url="shareLink"
+                        title="Share in facebook"
+                        description="This is another awesome article for awesome readers"
+                        >
+                        <img class="h-100" :src="`${publicPath}assets/img/Facebook.png`" alt="" />
+                    </ShareNetwork>
+                </button>
+            <div class="fb-share-button" :data-href="currentUrl"  data-layout="button_count">
+              </div>
+            </div>
+  </b-modal>
+
                 </div>
 </template>
 
@@ -26,9 +78,16 @@ import academyAPI from '@/services/api/academy'
 export default {
  name:'actions-page',
  props:{
-    itemPage:{}
+    itemPage:{},
+    
  },
+   data() {
+      return {
+      shareLink:''
+      }
+    },
 methods:{
+ 
     updateCourse(){
         this.fireOpenDialog('add-course-first',this.itemPage)
         //this.fireOpenDialog('update-course',this.itemPage)
@@ -44,6 +103,7 @@ methods:{
         };
         this.showConfirmMsg(dataEvt)
     },
+    
     async deleteItem(){
         try {
                 let {data} =  await academyAPI.coursesApi.deleteItem(this.itemPage.id)
@@ -62,10 +122,20 @@ methods:{
                 
             }
     },
-}
+},
+  mounted() {
+    this.shareLink = window.location.href;
+  },
 }
 </script>
 
 <style>
+.modal-backdrop{
+--bs-backdrop-zindex: none !important;
+}
+#my-modal___BV_modal_header_ , #my-modal___BV_modal_footer_{
+      visibility: hidden !important;
+}
+
 
 </style>

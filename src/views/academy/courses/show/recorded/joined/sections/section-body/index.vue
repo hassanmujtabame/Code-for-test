@@ -16,7 +16,7 @@
           <div class="course-show-page__details">
           <h1 class="course-show-page__details-title">تفاصيل الدورة  :</h1>
           <div class="course-show-page__details-content mt-2"> 
-            <p v-html="itemPage.desc"></p>
+            <p v-html="itemPage.desc"></p>  
           </div>
           </div>
           </div>

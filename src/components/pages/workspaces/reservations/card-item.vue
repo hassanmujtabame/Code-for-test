@@ -78,7 +78,7 @@ export default {
 
     showRateProvider() {
       let dataEvent = {
-        title: "قيم مكان العمل",
+        title: "قيم مكان العمل",  
         btns: [
           {
             title: "تقييم",

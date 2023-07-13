@@ -2,12 +2,12 @@
   <div class="mt-4">
     <div id="course-teaching">
     <h1  class="course-guest-section__title">{{ $t('what-will-you-learn') }}</h1>
-    <ul v-if="isModeDev" class="course-teaching__list">
+    <!-- <ul v-if="isModeDev" class="course-teaching__list">
       <li>هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم </li>
     <li>هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون</li>
     <li>هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم </li>
-  </ul>
-  <ul v-else class="course-teaching__list">
+  </ul> -->
+  <ul  class="course-teaching__list">
     <template v-if="itemPage.learn">
       <li v-for="(it,i) in itemPage.learn" :key="i">{{ it }}</li>
     </template>

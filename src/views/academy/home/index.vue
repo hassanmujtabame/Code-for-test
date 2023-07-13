@@ -3,7 +3,7 @@
     <auth-page v-if="token" />
     <GuestPage v-else />
           <faqBtn/>
-        <RateYourExperienceBtn group="rate-your-experience-network" />
+        <!-- <RateYourExperienceBtn group="rate-your-experience-network" /> -->
     
     </div>
     
@@ -12,16 +12,16 @@
 <script>
 import AuthPage from './auth.vue'
 import GuestPage from './guest.vue'
-import faqBtn from '@/layouts/common/faq-btn/index.vue'
-import RateYourExperienceBtn from '@/layouts/common/rate-experience.vue'
+// import faqBtn from '@/layouts/common/faq-btn/index.vue'
+// import RateYourExperienceBtn from '@/layouts/common/rate-experience.vue'
 
 export default {
 name:"academy-home",
 components:{
   AuthPage,
   GuestPage,
-  faqBtn,
-  RateYourExperienceBtn
+  // faqBtn,
+  // RateYourExperienceBtn
 
 }
 }
