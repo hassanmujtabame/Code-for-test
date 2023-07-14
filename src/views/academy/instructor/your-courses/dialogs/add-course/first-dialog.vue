@@ -11,7 +11,6 @@
                 </p>
                 <form action="" v-if="showDialog">
                  
-                    {{itemForm.type}}
                       <d-select-input label="نوع الدورة" v-model="itemForm.type" class=" w-100">
                         <option value="live" >لايف</option>
                         <option value="on-site"  >دورة  في المقر </option>
