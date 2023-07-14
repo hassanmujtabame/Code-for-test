@@ -16,8 +16,8 @@
                     </div>
                 </div>
                 <div class="col-12 mb-3">
-                        <router-link v-if="userIsSubAcademy" :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
-                              <a v-else @click="shouldSubNetworkMsg(subNetworkTitle,$event)"  class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
+                        <router-link v-if="!userIsSubAcademy" :to="getRouteLocale('academy-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
+                              <!-- <a v-else @click="shouldSubNetworkMsg(subNetworkTitle,$event)"  class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a> -->
  
                              </div>
             </div>
