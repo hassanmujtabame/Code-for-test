@@ -9,7 +9,7 @@
             {{ singleWorkspace.title }}
           </h3> 
         </div>
-    
+    <!-- {{isOwner}} -->
         <ActionCrud :singleWorkspace="singleWorkspace" v-if="!isOwner" />
         <ActionForVisiter v-else :singleWorkspace="singleWorkspace" />
       
@@ -118,7 +118,7 @@ export default {
     ActionForVisiter,
     SectionRate,
     SectionShareService,
-    Info,
+    Info
   },
   data() {
     return {
