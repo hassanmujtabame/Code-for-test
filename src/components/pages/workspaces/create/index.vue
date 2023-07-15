@@ -262,7 +262,10 @@ export default {
       this.selectedImages.forEach((image) => {
         formData.append(`images[]`, image.file);
       });
-        formData.append(`features[]`, this.featuresSelect);
+             this.featuresSelect.forEach((feature) => {
+        formData.append(`features[]`, feature);
+      });
+        // formData.append(`features[]`, this.featuresSelect);
 
       try {
         let { data } = await WorkspaceAPI.addWorkSpace(formData);
