@@ -2,7 +2,7 @@
     <div class="d-datepicker">
         <vc-date-picker v-model="date_value" mode="date"
         is24hr 
-        :min-date="minDate"
+        :min-date="new Date"
         :max-date="maxDate"
         :popover="popover"
         :modelConfig="modelConfig">
