@@ -10,7 +10,7 @@
           </h3> 
         </div>
     <!-- {{isOwner}} -->
-        <ActionCrud :singleWorkspace="singleWorkspace" v-if="!isOwner" />
+        <ActionCrud :singleWorkspace="singleWorkspace" v-if="isOwner" />
         <ActionForVisiter v-else :singleWorkspace="singleWorkspace" />
       
       </div>
