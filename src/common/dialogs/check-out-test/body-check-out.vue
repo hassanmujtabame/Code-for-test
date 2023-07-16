@@ -47,24 +47,49 @@ export default {
       type: [Array, Object],
       default: () => ({
         payment_type: "new",
-        amount: null 
+        amount: null ,
       })
     }
   },
    data() {
     return {
-      packageType: ''
+      packageType: '',
+      paymentUrlPth: ''
+
     };
   },
   methods: {
+       confirmPaymentUrl(){
+        let dataEvt={
+            title:'تم الاشتراك بنجاح',
+            btns:[
+                {title:'استكمال الدفع',action:this.paymentUrl,class:'btn btn-main'}
+                ],
+        };
+        this.showSuccessMsg(dataEvt)
+    },
+    paymentUrl(){
+      window.open(this.paymentUrlPth, '_blank')
+    },
     async handlePayment(data) {
       console.log('otherData',this.otherData);
       console.log('data...',data.coupon);  
+   if (data.coupon) {
+console.log('yes');
+   }else{
+console.log('no');
+
+   }
       let formData = new FormData();
-      formData.append('coupon',data.coupon)
+   
       formData.append('package_id',this.otherData.id)
       formData.append('package_type',this.packageType )
-         try {
+   if (data.coupon) {
+      formData.append('coupon',data.coupon)
+      }
+
+      if (data.coupon) {
+          try {
                     let { data } = await networkAPI.checkoutPackageSelect(formData);
                     console.log('data',data);
                     if(data.success){
@@ -76,8 +101,25 @@ export default {
                         window.SwalError("The given data was invalid")
 
                 } 
+      }else{
+                  try {
+                    let { data } = await networkAPI.PayPackageSelect(formData);
+                    console.log('data',data);
+                               console.log('s',data.data.payment_url);
+                      console.log('s',data.data);
+                    if(data.success){
+                        this.paymentUrlPth=	data.data.payment_url
+                        this.confirmPaymentUrl()
+                    }
+                } catch (error) {
+                    console.log('error',error)
+                        window.SwalError("The given data was invalid")
+                } 
+      }
+
       // handle payment data
-    }
+    },
+
   },
   mounted(){
     this.packageType = this.$route.meta.type

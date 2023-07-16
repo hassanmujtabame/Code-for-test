@@ -19,6 +19,19 @@
         {{ $t("delete") }}
       </button>
     </div>
+    ****
+    <div v-for="(dateF, date_id) in datesF" :key="date_id + 'A'" cols="6" sm="3">
+  <vc-date-picker v-model="range" color="red" is-range :input-debounce="500" :min-date="new Date()">
+    <template v-slot="{ inputValue, inputEvents }">
+      <input 
+        :value="inputValue.start" 
+        v-on="inputEvents.start" 
+        :label="dateF.label"
+           
+      />                          
+    </template>
+  </vc-date-picker>
+</div>
         <edit />
     <SuccessAddWorkspace />
   </div>
@@ -40,6 +53,14 @@ SuccessAddWorkspace
     return {
       loading: true,
       items: [],
+         datesF: [
+        { label: "Start Date", val: "start" },
+        { label: "End Date", val: "end" },
+      ],
+      range: {
+        start: new Date(),
+        end: new Date(),
+      },
     };
   },
   methods: {

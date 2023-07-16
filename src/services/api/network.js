@@ -57,6 +57,9 @@ class NetworkApi extends BaseApi {
 	checkoutPackageSelect(data) {
 		return window.axios.post(`checkout`, data);
 	}
+	PayPackageSelect(data) {
+		return window.axios.post(`pay`, data);
+	}
 	getNumbers(params = {}) {
 		let s = this.generateQueryUrl(params);
 		return window.axios.get(`network/numbers?${s}`);
