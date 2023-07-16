@@ -28,6 +28,7 @@
         <p class="price-text m-0">تبدأ من</p>
         <h3 class="price-title m-0">150/شهر</h3>
         <button class="btn btn-custmer" @click="gotToSubscribe">{{ $t('subscribe') }}</button>
+      
         <p id="remark-sub">افتح هذه الدورة و 4 آخرين</p>
       </div>
       <div  class="flex-shrink-0 text-center px-2">
@@ -143,9 +144,10 @@ export default {
     },
     gotToSubscribe(){
       if(this.shouldLoginMsg()) return;
-      this.router_push('academy-subscribe')
+        this.router_push('academy-subscribe',{query:this.itemPage.id})
+
     }
-    }
+    } 
 
 }
 </script>

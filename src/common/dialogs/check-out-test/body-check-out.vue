@@ -4,6 +4,42 @@
       <h5 class="mb-3">أستكملي عملية الدفع</h5>
       <div class="row justify-content-between">
         <div class="justify-content-end tex-end">
+          <div v-if="!this.idCourse && this.packageType == 'academy'" style="display: flex; align-items: center;">
+              <!-- <div style="overflow: inherit;" class=" m-auto text-start "> -->
+              <img style="width:260px; height:150px" class="img-fluid" :src="`${publicPath}assets/img/Group 1171274931s.png`" alt="">
+            <div class="mx-3" style="color: #1FB9B3; display: flex;" >
+                  <d-user-rect-icon :size="24" color="currentColor"/>
+                  <h4 class="mx-2"  style="color: #1FB9B3">انضم الى الأكاديمية</h4>
+               </div>
+                    <!-- </div> -->
+          </div>
+            <div v-else-if="!this.idCourse && this.packageType == 'network'" style="display: flex; align-items: center;">
+              <!-- <div style="overflow: inherit;" class=" m-auto text-start "> -->
+                            <img class="img-fluid"  style="width:260px; height:150px"   :src="`${publicPath}assets/img/pana-network.png`" alt="" >
+                      <div class="mx-3" style="color: #FFBC00; display: flex;" >
+                  <d-user-rect-icon :size="24" color="currentColor"/>
+                  <h4 class="mx-2"  style="color: #FFBC00">انضم الي الشبكه</h4>
+               </div>
+                    <!-- </div> -->
+          </div>
+             <div v-else style="display: flex;">
+              <div>
+            <img  style="width:150px; height:125px" :src="detailsCourse.image_path" alt="">
+          </div>
+          <div>
+            <div class="mx-3 mb-3 d-flex" style="color: #1FB9B3" >
+              <d-user-rect-icon :size="24" color="currentColor"/>
+              <span class="mx-2">{{detailsCourse.title}}</span>
+
+               </div>
+            <div class="mx-3" style="color: #FFBC00" >
+              <d-empty-wallet-icon :size="24" color="currentColor"/>
+
+              <span class="mx-2">{{detailsCourse.price}}</span>
+               </div>
+            <!-- <p class="mx-5" style="color: #1FB9B3" >{{detailsCourse.desc}} </p> -->
+          </div>
+        </div>
           <PaymentCardDetail 
             :title="title"
             :changeable="changeable"
@@ -21,6 +57,7 @@
 <script>
 import PaymentCardDetail from "./PaymentCardDetail.vue";
 import networkAPI from '@/services/api/network.js'
+ import coursesAPI from '@/services/api/academy/courses' 
 
 export default {
   components: {
@@ -54,7 +91,9 @@ export default {
    data() {
     return {
       packageType: '',
-      paymentUrlPth: ''
+      paymentUrlPth: '',
+      idCourse:'',
+      detailsCourse:{}
 
     };
   },
@@ -119,11 +158,37 @@ console.log('no');
 
       // handle payment data
     },
+    async getCourseDetails(){
+      if (this.idCourse) {
+        
+               try {
+                 let { data } = await coursesAPI.getItem(this.idCourse)
+                 if (data.success) {
+                   this.detailsCourse = data.data
+                console.log(data.data);
+                console.log(data.data.title);
+
+                  }else{
+                   console.log('error');
+                 }
+             } catch (error) {
+                 console.log('error', error)
+                 console.log('error response', error.response)
+               }
+      }
+
+    }
 
   },
   mounted(){
-    this.packageType = this.$route.meta.type
+this.idCourse = this.$route.params.query
+
+this.getCourseDetails()
+
+this.packageType = this.$route.meta.type
     console.log(this.$route.meta.type);
+    console.log(this.$route.params.query);
+    // console.log(this.$route.meta.id);
   }
 };
 </script>
