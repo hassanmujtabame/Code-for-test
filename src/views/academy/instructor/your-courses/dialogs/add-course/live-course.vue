@@ -213,12 +213,14 @@
                             <path d="M15.3538 6.60141C15.1638 6.60141 14.9738 6.53141 14.8238 6.38141L12.0038 3.56141L9.18375 6.38141C8.89375 6.67141 8.41375 6.67141 8.12375 6.38141C7.83375 6.09141 7.83375 5.61141 8.12375 5.32141L11.4738 1.97141C11.7638 1.68141 12.2438 1.68141 12.5338 1.97141L15.8838 5.32141C16.1738 5.61141 16.1738 6.09141 15.8838 6.38141C15.7438 6.53141 15.5438 6.60141 15.3538 6.60141Z" fill="#1FB9B3"/>
                             </svg>
                     </label>
-                    <input style="z-index: 99;" @change="uploadImage($event,validate) || validate($event)" class="form-control opacity-0 position-absolute  " type="file" id="fileinput1">
-                    <span id="selected_filename" class="mx-3 px-4 gray font-13 border-0  position-absolute m-c">
+                    <div class="d-flex align-items-end">
+                        <input style="z-index: 99;" @change="uploadImage($event,validate) || validate($event)" class="form-control opacity-0 position-absolute  " type="file" id="fileinput1">
+                        <div v-if="!itemForm.image_path" id="selected_filename" class="mx-3 px-4 gray font-13 border-0  position-absolute m-c">
                         أضف صورة للعرض
-                    </span>
+                        </div>
+                    </div>
                 <d-error-input :errors="errors" v-if="errors && errors.length>0" />
-                        <img id="add-course-image" class="mt-3" height="100" width="100" />
+                        <img v-if="itemForm.image_path" :src="itemForm.image_path" id="add-course-image" class="mt-3" height="100" width="100" />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
@@ -324,16 +326,16 @@
         async uploadImage(evt,validate){
        let resValid = await validate(evt)
        if(!resValid.valid){
-        this.itemForm.image =  null;
+        this.itemForm.image_path =  null;
         this.emptyImage()
                 return;
        }
         if (!evt.target.files && !evt.target.files[0]) {
-            this.itemForm.image =  null;
+            this.itemForm.image_path =  null;
             this.emptyImage()
                 return;
             }
-        this.itemForm.image = evt.target.files[0];
+        this.itemForm.image_path = evt.target.files[0];
         var reader = new FileReader();
             reader.onload =  (e) =>{
                 //console.log('result',e,this.idImage)
@@ -342,7 +344,7 @@
                     .css('display', 'block');
 
             };
-            reader.readAsDataURL(this.itemForm.image);
+            reader.readAsDataURL(this.itemForm.image_path);
         },
         async saveStep1(){
             let valid = await this.$refs.form1.validate(['number_day']);
@@ -457,7 +459,7 @@
                 has_exam:0,
                 desc:'',
                 short_description:'',
-                image:null,
+                image_path:null,
                 price:null,
                 type_training:null,
                 learn:[''],
@@ -476,7 +478,7 @@
                 has_exam,
                 desc,
                 short_description,
-                image,
+                image_path,
                 price,
                 type_training,
                 learn,
@@ -495,7 +497,7 @@
                 has_exam,
                 desc,
                 short_description,
-                image,
+                image_path,
                 price,
                 type_training,
                 learn:learn??[''],
@@ -517,7 +519,6 @@
     </script>
     
     <style scoped>
-    #add-course-image{
-        display: none;
-    }
+ 
     </style>
+    
