@@ -26,6 +26,16 @@
                 </ValidationProvider>
                 </div>    
             <!--title-->
+            <div v-if="itemForm.type == 'on-site'" class="mt-3">
+                        <ValidationProvider :name="$t('meeting-title')"
+                            vid="title"
+                            rules="required"
+                            v-slot="{errors}"
+                            v-if="step==1"
+                        >
+                    <d-text-input name="address_onSite" :errors="errors" v-model="itemForm.address_onSite" label="عنوان المقر وتفاصيله" />
+                </ValidationProvider>
+                </div>
             <div class="mt-3">
                         <ValidationProvider :name="$t('meeting-title')"
                             vid="title"
@@ -379,7 +389,8 @@ async uploadImage(evt,validate){
                 start_date:'',
                 start_time:'',
                 end_time:'',
-                meeting_url:''
+                meeting_url:'',
+                address_onSite:''
             }
             if(dataEvt){
                 let {
@@ -393,6 +404,7 @@ async uploadImage(evt,validate){
                 start_date,
                 start_time,
                 end_time,
+                address_onSite,
                 meeting_url
                 } = dataEvt;
                 
@@ -407,6 +419,7 @@ async uploadImage(evt,validate){
                 start_date,
                 start_time,
                 end_time,
+                address_onSite,
                 meeting_url})
             }
             this.showDialog = true;
