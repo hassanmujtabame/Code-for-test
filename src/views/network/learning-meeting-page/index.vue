@@ -18,8 +18,8 @@
                     {{itemPage.title}}
                   </h2>
                   <p class="t-c">
-                    {{dateTextMonth(itemPage.date)}}
-                    <span>
+                    <span  v-if="itemPage.date">{{dateTextMonth(itemPage.date)}}</span>
+                    <span  v-if="itemPage.date">
                         |
                     </span>
                    {{itemPage.time?timeFormatAMPM(itemPage.time):'N/A'}}
@@ -28,6 +28,7 @@
                    {{itemPage.content}}
                   </p>
                   <div>
+                    
                     <button v-if="!isJoined"  @click="openConfirmJoinMeeting" class="btn bg-main p-2 px-4 text-white">أنضم الى اللقاء</button>
                     <button v-else @click="openConfirmCancelMeeting" class="btn bg-danger p-2 px-4 text-white">إلغاء الانضمام</button>
                   </div>
