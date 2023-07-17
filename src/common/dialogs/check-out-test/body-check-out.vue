@@ -13,6 +13,7 @@
                </div>
                     <!-- </div> -->
           </div>
+
             <div v-else-if="!this.idCourse && this.packageType == 'network'" style="display: flex; align-items: center;">
               <!-- <div style="overflow: inherit;" class=" m-auto text-start "> -->
                             <img class="img-fluid"  style="width:260px; height:150px"   :src="`${publicPath}assets/img/pana-network.png`" alt="" >
@@ -22,7 +23,18 @@
                </div>
                     <!-- </div> -->
           </div>
-             <div v-else style="display: flex;">
+                     <div v-else-if="!this.idCourse && this.packageType == 'service-provider'" style="display: flex; align-items: center;">
+              <!-- <div style="overflow: inherit;" class=" m-auto text-start "> -->
+                            <img  style="width:260px; height:150px"  class="img-fluid" :src="`${publicPath}assets/svg/frame-52-2.svg`" alt="service-provider-header" />
+                           
+                      <div class="mx-3" style="color: #FFBC00; display: flex;" >
+                  <d-user-rect-icon :size="24" color="currentColor"/>
+                  <h4 class="mx-2"  style="color: #FFBC00">مقدمي الخدمة</h4>
+               
+               </div>
+                    <!-- </div> -->
+          </div>
+             <div v-else-if="this.idCourse" style="display: flex;">
               <div>
             <img  style="width:150px; height:125px" :src="detailsCourse.image_path" alt="">
           </div>
