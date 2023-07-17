@@ -8,7 +8,9 @@
     >
   
       <template v-slot:header>
-        <span v-html="titleDialog"></span>
+        <!-- <span v-html="titleDialog"></span> -->
+       {{ itemForm.id? $t('exam-modification'): $t('new-exam')}} : <span class="m-c"> {{titleEXM}} </span>
+
         </template>
       <template v-slot:default>
           <bodyExam v-if="showDialog" @add="addItem"  @update="updateItem" :courseId="itemPage.id" :itemSelected="itemDialog"></bodyExam>
@@ -35,7 +37,7 @@
        return this.itemForm.id?`${this.$t('exam-modification')}: <span class="m-c">${this.itemDialog.title}</span>`: this.$t('new-exam')
       }
     },
-    data:()=>({
+    data:()=>({ 
       loading :  false,
       saving: false,
       showDialog : false,
@@ -43,10 +45,13 @@
       itemPage:{},
       itemForm:{id:null},
       lectureId:null,
+      titleEXM:''
     }),
     methods:{
     addItem(data){
       console.mylog('adding..',data)
+      console.mylog('adding..',data.title)
+      this.titleEXM=data.title
       this.$emit('add',data);
       this.itemForm = Object.assign(this.itemForm,{...data})
       this.eventUpdateLectures({...data},'add')
