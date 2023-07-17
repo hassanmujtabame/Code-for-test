@@ -155,7 +155,7 @@
                         أضف صورة للعرض
                     </span>
                 <d-error-input :errors="errors" v-if="errors && errors.length>0" />
-                        <img id="add-course-image" class="mt-3" height="100" width="100" />
+                        <img :src="itemForm.image_path" id="add-course-image" class="mt-3" height="100" width="100" />
                 </ValidationProvider>
             <!-- </keep-alive> -->
                 </div>
@@ -261,16 +261,16 @@
         async uploadImage(evt,validate){
        let resValid = await validate(evt)
        if(!resValid.valid){
-        this.itemForm.image =  null;
+        this.itemForm.image_path =  null;
         this.emptyImage()
                 return;
        }
         if (!evt.target.files && !evt.target.files[0]) {
-            this.itemForm.image =  null;
+            this.itemForm.image_path =  null;
             this.emptyImage()
                 return;
             }
-        this.itemForm.image = evt.target.files[0];
+        this.itemForm.image_path = evt.target.files[0];
         var reader = new FileReader();
             reader.onload =  (e) =>{
                 //console.log('result',e,this.idImage)
@@ -279,7 +279,7 @@
                     .css('display', 'block');
 
             };
-            reader.readAsDataURL(this.itemForm.image);
+            reader.readAsDataURL(this.itemForm.image_path);
         },
         async saveStep1(){
             let valid = await this.$refs.form1.validate(['number_day']);
@@ -371,6 +371,9 @@
             this.fireCloseDialog(this.group)
     },
         openDialog(dataEvt){
+            console.log('dataEvt',dataEvt.image_path)
+            console.log('dataEvt',dataEvt)
+
             this.step = 1;
             this.emptyImage()
             this.itemForm={
@@ -382,7 +385,7 @@
                 course_code:'',
                 desc:'',
                 short_description:'',
-                image:null,
+                image_path:null,
                price:null,
                type_training:null,
                learn:[''],
@@ -398,7 +401,7 @@
                 course_code,
                 desc,
                 short_description,
-                image,
+                image_path,
                 price,
                 type_training,
                 learn,
@@ -414,7 +417,7 @@
                 course_code,
                 desc,
                 short_description,
-                image,
+                image_path,
                 price,
                 type_training,
                 learn:learn??[''],
@@ -437,7 +440,5 @@
     </script>
     
     <style scoped>
-    #add-course-image{
-        display: none;
-    }
+   
     </style>

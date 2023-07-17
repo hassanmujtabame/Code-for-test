@@ -20,7 +20,7 @@
                     </div>
 
   <!-- The modal -->
-  <b-modal id="my-modal" hide-header='true' hide-footer='true'>
+  <b-modal id="my-modal" :hide-header='true' :hide-footer='true'>
       <h5 style="color:#ebae05;" class="py-3"> شارك الدورة على مواقع التواصل الاجتماعي</h5>
             <img style="    display: flex; margin: auto;" :src="`${publicPath}assets/img/Group 1171276011.png`" >
          <div class="d-flex justify-content-center  gap-4  p-4  p-4 icon-social-exibition mt-4 ">
