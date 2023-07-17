@@ -6,8 +6,8 @@
       هناك خطأ غير معروف يرجي تحديث الصفحة
     </div>
     <template v-else>
- <!-- <PageOnSite :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='on-site'" /> -->
- <PageOnSite :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type==''" />
+ <PageOnSite :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='on-site'" />
+ <!-- <PageOnSite :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type==''" /> -->
  <PageLive :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='live'"/>
  <PageRecorded :itemPage="itemPage" :isOwner="isOwner" v-if="itemPage.type=='recorded'"/>
 <addCourseDialog />
