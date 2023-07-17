@@ -14,6 +14,7 @@
                   </div>
               </div>
               <d-swiper
+              class="custom-width"
               v-if="!loading"
               :slides-per-view="slidesperview"
               :space-between="10"
@@ -69,5 +70,7 @@ export default {
 </script>
 
 <style>
-
+.custom-width .swiper-slide{
+  width:257px !important
+}
 </style>
