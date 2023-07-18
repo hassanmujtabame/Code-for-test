@@ -39,8 +39,8 @@
                     {{itemPage.title}}
                   </h2>
                   <p class="t-c">
-                    {{dateTextMonth(itemPage.date)}}
-                    <span>
+                    <span  v-if="itemPage.date">{{dateTextMonth(itemPage.date)}}</span>
+                    <span  v-if="itemPage.date">
                         |
                     </span>
                    {{itemPage.time?timeFormatAMPM(itemPage.time):'N/A'}}
