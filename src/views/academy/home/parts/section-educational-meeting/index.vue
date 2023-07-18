@@ -1,7 +1,7 @@
 <template>
-  <div class="sec-five mt-5 p-3">
+  <div class="sec-fivell mt-5 p-3">
 
-<div class="container">
+<div class="containerll">
   <div
     class="d-flex justify-content-between align-items-center container"
   >
@@ -15,7 +15,7 @@
   <d-swiper
   v-if="!loading"
   :slides-per-view="3"
-  :space-between="5"
+  :space-between="15"
   is-auto
     :items="items"
               >
@@ -52,7 +52,7 @@ export default {
     async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await academyAPI.meetingsAPI.getAll({paginate:6});
+          let { data } =  await academyAPI.meetingsAPI.getAllMeeting();
           if(data.success){
             this.items = data.data
           }

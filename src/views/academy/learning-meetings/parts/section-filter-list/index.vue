@@ -57,12 +57,15 @@ data: () => ({
             this.fireEvent('d-filter-list-refresh')
         },
     async loadList(metaInfo){
+          console.log('metaInfo',metaInfo);
+
         try {
           let params = {
             page:metaInfo.current_page,
             ...this.filterItem,
             paginate: this.isMobile?3:undefined
           }
+          console.log('params',params);
             return await learningMeetingsAPI.getAll(params)
 
         } catch (error) {

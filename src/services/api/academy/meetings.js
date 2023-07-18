@@ -5,6 +5,9 @@ class InstructorMeetingsApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructor/meetings?${s}`);
     }
+      getAllMeeting(){
+        return window.axios.get("network/meetings?page=1");
+    }
     getItem(id){
         return window.axios.get(`academy/instructor/meetings/${id}`);
     }
