@@ -13,9 +13,10 @@
         classColCard="col-md-4 mt-3">
             <template v-slot:side>
                 <sidebarFilter   @change="changeFilter" :filter-item="fitlterSide" />
-                </template>
-            
 
+                </template>
+
+            
             <template v-slot="{ item }">
                
                     <scheduleCard 
@@ -41,15 +42,15 @@ import sidebarFilter from './sidebar-filter.vue'
 import academyAPI from '@/services/api/academy';
 export default {
     name: 'section-filter-list',
-    components:{
+    components:{ 
         scheduleCard,
         sidebarFilter
     },
     data: () => ({
         fitlterSide:{
             created_at:'asc',
-            type:null, // course | meeting
-            type_course:null, //live | on-site
+            type:[], // course | meeting
+            type_course:[], //live | on-site
         },
         filterItem:{
             //search:null,

@@ -5,7 +5,7 @@
                         <d-expanded-panel-item :title="$t('type')">
                             <div v-for="(cat,i) in categories" :key="i" class="form-check">
                                     <input v-model="filter.type" :value="cat.id" class="form-check-input" type="checkbox">
-                                    <label class="form-check-label" for="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck">
                                         {{cat.name}}
                                     </label>
                                 </div>
@@ -27,7 +27,7 @@
                         <d-expanded-panel-item :title="$t('display-method')">
                             <div style="margin: 20px 0px 0 0" class="a">
                                     <div v-for="(cat,i) in show_types" :key="i" class="form-check">
-                                    <input v-model="filter.type" :value="cat.id" class="form-check-input" type="checkbox">
+                                    <input v-model="filter.type_course" :value="cat.id" class="form-check-input" type="checkbox">
                                     <label class="form-check-label" for="defaultCheck1">
                                         {{cat.name}}
                                     </label>
@@ -83,6 +83,7 @@ export default {
  },
  methods:{
  updateFilter(){
+     console.log(this.filter);
     this.$emit('change',this.filter)
  },
  async getCategories() {
