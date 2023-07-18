@@ -45,7 +45,7 @@ export default {
       type:type,
       department_id:[],
       min_price:0,
-      max_price:1000
+      max_price:1000000
     },
         filterItem:{
             search:null,
@@ -54,7 +54,7 @@ export default {
             type:type,
             department_id:[],
             min_price:0,
-        max_price:1000
+        max_price:1000000
         },
       items:[]
     }
@@ -65,6 +65,8 @@ export default {
             this.fireEvent('d-filter-list-refresh')
         },
         async loadList(metaInfo) {
+          console.log('metaInfo',metaInfo);
+          console.log('this.filterItem', this.filterItem);
             try {
                 let params = {
                     page: metaInfo.current_page,
@@ -76,8 +78,10 @@ export default {
                 console.log('error', error)
                 console.log('response', error.response)
             }
-        }
-  }
+        },
+ 
+  },
+
 }
 </script>
 
