@@ -194,8 +194,10 @@
         </ValidationObserver>
     </div>
             </template>
+            
             <template v-slot:actions>
-                <button :disabled="step==1 || loading"  @click="prevStep" class="btn bg-main btn-danger text-white px-3" >رجوع</button>
+                <!-- <button :disabled="step==1 || loading"  @click="prevStep" class="btn bg-main btn-danger text-white px-3" >رجوع</button> -->
+                <button  :class="{ 'btn-non': step==1 || loading }"  @click="prevStep" class="btn bg-main btn-danger text-white px-3" >رجوع</button>
               <button @click="save" :disabled="loading" class="btn bg-main text-white px-3" >
                 <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i> 
                 أستمر
@@ -450,5 +452,8 @@ async uploadImage(evt,validate){
     #video-add-lecture-player{
         max-width: 100%;
     max-height: 100%;
+    }
+    .btn-non{
+        display: none ;
     }
     </style>
