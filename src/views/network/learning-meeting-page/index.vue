@@ -22,7 +22,7 @@
                     <span  v-if="itemPage.date">
                         |
                     </span>
-                   {{itemPage.time?timeFormatAMPM(itemPage.time):'N/A'}}
+                   {{itemPage.time?timeFormatAMPM(itemPage.time):''}}
                   </p>
                   <p class="t-c">
                    {{itemPage.content}}
