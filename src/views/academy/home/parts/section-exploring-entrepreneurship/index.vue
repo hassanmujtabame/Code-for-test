@@ -23,7 +23,7 @@
        
             <template  v-slot:default="{item}" >
               <router-link class="router-link" :to="getRouteLocale('academy-department-show',{id:item.id})">
-                <CardVue :title="item.title" :img="item.image_path"/>
+                <CardVue :title="item.name" :img="item.image_path"/>
               </router-link>
                 </template>
               </d-swiper>

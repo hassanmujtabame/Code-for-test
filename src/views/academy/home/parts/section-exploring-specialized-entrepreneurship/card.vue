@@ -1,11 +1,13 @@
 <template>
-<div style="    width: 160px;
-height: 160px;" class="box bg-white rounded-circle p-3">
- <div style="display: flex; align-items: center;   justify-content: center;">
 
-   <img :src="img" class="w-100 h-100 rounded-circle"/>
- </div>
- <p class="s-c">{{title}}</p>
+    <div style="width: 160px; height: 160px; display: flex; flex-direction: column;" class="box bg-white rounded-circle p-1">
+     <div style="display: flex; align-items: center;   justify-content: center; width: 90px; height: 90px; margin:auto">
+        <img :src="img" class="w-100 h-100 rounded-circle"/>
+<!-- <img :src="`${publicPath}assets/svg/shopping.svg`" /> -->
+
+    </div>
+ 
+ <div class="s-c d-flex mx-auto text-center justify-content-center" style="font-weight: 100;  width: 100px;">{{title}}</div> 
    
 </div>
 </template>
