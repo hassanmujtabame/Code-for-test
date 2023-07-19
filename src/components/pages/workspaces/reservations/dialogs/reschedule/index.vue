@@ -4,6 +4,7 @@
     :xl="false"
     :openDialog="openDialog"
     :closeDialog="closeDialog"
+    class="work-space-reschedule-header"
   >
     <template v-slot:header>{{
       mode == "create" ? "احجز الان" : "إعادة جدولة الحجز"
@@ -247,4 +248,9 @@ export default {
 color: #73737359;
 cursor: pointer;
 }
+    .work-space-reschedule-header .modal-header{
+          display: none;
+    }
+  
+
 </style>
