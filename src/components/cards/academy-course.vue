@@ -1,5 +1,5 @@
 <template>
-    <div class="student-course box border" style="height: 361px;">
+    <div class="student-course box border" style="height: 361px; width:100%">
                                     <div class="student-course__image">
                                         <router-link custom v-slot="{ navigate }" :to="url??{}">
                                      
