@@ -780,5 +780,10 @@ export default {
 </script>
 
 <style>
-
+.main-swiper .swiper-button-next{
+    display: none !important;
+}
+.main-swiper .swiper-button-prev{
+    display: none !important;
+}
 </style>
