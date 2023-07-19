@@ -10,9 +10,11 @@
     }}</template>
     <template v-slot>
       <div>
-        <ValidationObserver ref="form">
+        <ValidationObserver ref="form" class="work-space-reschedule">
           <!-- start date-->
-          <ValidationProvider
+            <vc-date-picker class="mb-3" v-model="form.date" :min-date="new Date()" style="width:100%; border-top: 0 ; border-left: 0; border-right: 0; border-radius:0 "/>
+ 
+          <!-- <ValidationProvider
             name="تاريخ الحجز"
             vid="start_date"
             rules="required"
@@ -27,10 +29,10 @@
               :errors="errors"
               v-if="errors && errors.length > 0"
             />
-          </ValidationProvider>
+          </ValidationProvider> -->
 
           <!-- start time -->
-          <ValidationProvider
+          <!-- <ValidationProvider
             name="وقت البدء"
             vid="start_time"
             rules="required"
@@ -51,10 +53,20 @@
                 v-if="errors && errors.length > 0"
               />
             </div>
-          </ValidationProvider>
+          </ValidationProvider> -->
+            <div class="mb-2">ميعاد الدخول</div>
+          <div class="d-flex justify-content-between" >
+          
+            <div v-for="(item,i) in startTime" :key="i">
+              <div  @click="getStartTime(item)"  class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"  :class="{'bg-main text-white':item.active}">
+                        {{item.value}}
+               </div>
+
+             </div>
+          </div>
 
           <!-- end time -->
-          <ValidationProvider
+          <!-- <ValidationProvider
             name="وقت الانتهاء"
             vid="end_time"
             rules="required"
@@ -75,7 +87,17 @@
                 v-if="errors && errors.length > 0"
               />
             </div>
-          </ValidationProvider>
+          </ValidationProvider> -->
+        <div class="my-3">ميعاد الخروج</div>
+          <div class="d-flex justify-content-between" >
+          
+            <div v-for="(item,i) in endTime" :key="i">
+              <div @click="getEndTime(item)" class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"  :class="{'bg-main text-white':item.active}">
+                        {{item.value}}
+               </div>
+
+             </div>
+          </div>
         </ValidationObserver>
 
         <div class="mt-3 text-center">
@@ -106,13 +128,16 @@ export default {
 
   data() {
     return {
+      date : new Date(),
       form: {
-        date: null,
+        date:  new Date(),
         start_time: null,
         end_time: null,
       },
       itemDialog: {},
       loading: false,
+      startTime:[{value:'9:00',id:'1',active:true},{value:'9:15',id:'2',active:false},{value:'9:30',id:'3',active:false},{value:'9:45',id:'4',active:false},{value:'10:15',id:'5',active:false},{value:'10:30',id:'6',active:false}],
+      endTime:[{value:'11:00',id:'12',active:true},{value:'11:15',id:'22',active:false},{value:'11:30',id:'32',active:false},{value:'11:45',id:'42',active:false},{value:'12:15',id:'62',active:false},{value:'12:30',id:'52',active:false}],
     };
   },
 
@@ -161,11 +186,35 @@ export default {
     closeEvent() {
       this.fireEvent(this.group + "-close-dialog");
     },
+    getStartTime(item){
+      this.form.start_time = item.value
+      for (let index = 0; index < this.startTime.length; index++) {
+        const element = this.startTime[index];
+        if (element.id==item.id) {
+          element.active=true
+        }else{
+          element.active=false
+
+        }
+      }
+    },
+     getEndTime(item){
+      this.form.end_time = item.value
+      for (let index = 0; index < this.endTime.length; index++) {
+        const element = this.endTime[index];
+        if (element.id==item.id) {
+          element.active=true
+        }else{
+          element.active=false
+
+        }
+      }
+    }
   },
 };
 </script>
 
-<style scoped>
+<style>
 .label-text {
   margin-bottom: 0;
   flex-shrink: 0;
@@ -185,5 +234,17 @@ export default {
 .input-group-text {
   background-color: #f8f9fa;
   border-color: #dee2e6;
+}
+
+.work-space-reschedule .vc-highlight{
+  background:#1FB9B3 !important;
+    border-radius: 20px 0 0px 20px !important;
+  width: 50px !important;
+}
+
+.t-g-c{
+  font-weight:100 ;
+color: #73737359;
+cursor: pointer;
 }
 </style>
