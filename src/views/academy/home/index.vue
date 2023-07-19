@@ -29,7 +29,7 @@ components:{
 
 <style>
 .consult{
-  width:100vw;
+  /* width:100vw; */
   overflow-x: hidden;
 }
 </style>
