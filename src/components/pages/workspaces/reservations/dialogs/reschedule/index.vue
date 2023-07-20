@@ -7,7 +7,7 @@
     class="work-space-reschedule-header"
   >
     <template v-slot:header>{{
-      mode == "create" ? "احجز الان" : "إعادة جدولة الحجز"
+      mode == "create" ? "" : "إعادة جدولة الحجز"
     }}</template>
     <template v-slot>
       <div>
@@ -103,7 +103,8 @@
 
         <div class="mt-3 text-center">
           <button :disabled="loading" class="btn btn-customer" @click="save">
-            {{ $t("schedule-confirmation") }}
+            <!-- {{ $t("schedule-confirmation") }} -->
+            حجز
           </button>
         </div>
       </div>
@@ -249,7 +250,8 @@ color: #73737359;
 cursor: pointer;
 }
     .work-space-reschedule-header .modal-header{
-          display: none;
+          /* display: none; */
+          padding: 5px;
     }
   
 
