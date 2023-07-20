@@ -102,6 +102,16 @@
           </ValidationProvider>
         </div>
         <!--field-->
+           <div class="mb-3">
+            <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group" rules="required"
+              v-slot="{ errors }">
+              <d-select-input :errors="errors" v-model="itemForm.city_id" :label="$t('the_city')">
+                <option :key="i" v-for="(city, i) in cities" :value="city.id">
+                  {{ `${city.name}` }}
+                </option>
+              </d-select-input>
+            </ValidationProvider>
+          </div>
         <div class="mb-3"> 
           <ValidationProvider
             tag="div"
@@ -128,7 +138,7 @@
             rules="required"
             v-slot="{errors}"
           >
-            <label class="form-label">أكتب وصف لطلبك بالتفاصيل</label>
+            <label class="form-label">أكتب وصف لطلبك بالتفاصيل</label> 
             <d-ckeditor-classic
               v-model="itemForm.desc"
               class="form-control"
@@ -167,6 +177,7 @@
   
   <script>
 import proposalsAPIs from "@/services/api/service-provider/user/proposals.js";
+import commonAPI from "@/services/api/common";
 
 export default {
   name: "add-proposal",
@@ -184,6 +195,7 @@ export default {
       showDialog: false,
       categories: [],
       fields: [],
+      cities:[],
       states: [
         { id: "online", name: vm.$t("online") },
         { id: "offline", name: vm.$t("offline") }
@@ -191,6 +203,16 @@ export default {
     };
   },
   methods: {
+      async loadCities() { 
+      try {
+        let { data } = await commonAPI.cities();
+        if (data.success) {
+          this.cities = data.data;
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+    },
     async save() {
       this.loading = true;
       let valid = await this.$refs.form.validate();
@@ -246,7 +268,7 @@ export default {
         id: null,
         title: "",
         state: "",
-
+        city_id: "",
         category_id: null,
         field_id: null,
         price: null,
@@ -318,6 +340,8 @@ export default {
     }
   },
   mounted() {
+    this.loadCities();
+
     this.loadCategories();
   }
 };

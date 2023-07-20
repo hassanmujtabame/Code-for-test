@@ -86,6 +86,7 @@
       },
       closeEvent(){
          this.fireEvent(this.group+'-close-dialog')
+                this.$router.push('/')
       }
    }
   }
