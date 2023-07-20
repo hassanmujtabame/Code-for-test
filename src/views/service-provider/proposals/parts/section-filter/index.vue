@@ -56,7 +56,7 @@ export default {
         city_id: [],
         max_period: 1000,
         min_period: 0,
-        max_price: 1000,
+        max_price: 5000,
         min_price: 0
       },
       filterItem: {
@@ -67,7 +67,7 @@ export default {
         city_id: [],
         max_period: 1000,
         min_period: 0,
-        max_price: 1000,
+        max_price: 5000,
         min_price: 0
       },
       items: []
