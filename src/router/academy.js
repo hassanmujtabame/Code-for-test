@@ -274,7 +274,7 @@ const routers = [
 		path: "academy/my-learning-meetings",
 		meta: { layout: LayoutDefault, auth: true, title: "My Learning Meetings" },
 		name: "academy-your-learning-meetings",
-		component: () =>
+		component: () => 
 			import(
 				/* webpackChunkName: "academy-your-learning-meetings" */ "../views/academy/your-learning-meetings/index.vue"
 			),

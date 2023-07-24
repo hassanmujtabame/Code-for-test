@@ -1,41 +1,26 @@
 <template>
- <div class="container mt-5">
-        <d-filter-list 
-        :call-list="loadList"
+<d-filter-list 
+:call-list="loadList"
 classColCard="col-12 col-md-4"
 searchPlaceholder="أبحث  في قائمة القاءت"
 hideSide
-        @change="changeFilter"
-
-        >
-        <template v-slot:total="{}">
-  <h1>لقاءات تعليمية</h1>
+>
+<template v-slot:total="{}">
+  <h1>لقاءاتك التعليمية</h1>
   </template>
-<template v-slot:before-body>
-
-    <div class="row">
-    <div class="col-12 col-md-6 mb-3" v-for="btn in meetingType" :key="btn.id" >
-      <button class="btn w-100" :class="[btn.active?'btn-custmer':'btn-default']" @click="getMeetingLearn(btn.id)">{{btn.text}} </button>
-    </div>
-
+<template v-slot="{item}">
+  <div class="box mt-3 mx-2">
+    <meetingCard
+    :item="item"
+    :img="item.image"
+    :title="item.title"
+    :type="item.type"
+    :date="item.date"
+    />
   </div>
 </template>
-              <template v-slot="{item}">
-                
-                  <router-link class="router-link" :to="getRouteLocale('academy-learning-meeting-show',{id:item.id})">
-                    <meetingCard 
-                      :item="item"
-                     :img="item.image"
-                     :title="item.title"
-                     :type="item.type"
-                     :date="item.date"
-                    />
-        
-                  </router-link>
-              </template>
-         
-        </d-filter-list>
-      </div> 
+
+</d-filter-list>
 </template>
 
 <script>
@@ -48,7 +33,6 @@ export default {
   },
   data:(vm)=>{
     return {
-      meetingType:[{text:'لقاءات قادمة',id:1,active:true},{text:'لقاءات ماضية',id:2,active:false}],
       itemTest:
     {id:1,title:'خطة العمل ودراسة الجدوى المالية',userName:'مجلس',date:'23 يوليو',image:`${vm.publicPath}assets/img/learning.png`},
       filterSide:{
@@ -72,19 +56,7 @@ export default {
     }
   },
   methods:{
-    getMeetingLearn(id){
-      for (let index = 0; index < this.meetingType.length; index++) {
-        const element = this.meetingType[index];
-           if (element.id==id) {
-        element.active=true
-      }else{
-        element.active=false
-      }
-      }
-   
-    },
     changeFilter(val){
-      console.log('val',val);
             this.filterItem = {...this.filterItem,...val}
             this.fireEvent('d-filter-list-refresh')
         },

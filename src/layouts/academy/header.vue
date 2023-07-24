@@ -43,6 +43,7 @@ export default {
         {route:'academy-courses', text:vm.$t('academy-courses'),role:'student'},
         {route:'academy-learning-meetings', text:vm.$t('academy-meetings'),role:'student'},
         {route:'academy-your-courses', text:vm.$t('your-courses'),role:'student'},
+        {route:'academy-your-learning-meetings', text:vm.$t('your-learning-meetings'),role:'student'},
         {route:'academy-contact-us',text:vm.$t('contact-us'),instructor:'student'},
         ]
     }

@@ -38,7 +38,7 @@ import CourseCard  from '@/components/cards/academy-course.vue'
 
 export default {
   name:'filter-list',
-  components:{
+  components:{ 
     CourseCard
   },
   data:()=>{
