@@ -11,7 +11,10 @@
       </b-form-group>
       <p class="text-center small">
         بإتمامك لعملية الشراء أنت توافق على
-        <b-link href="#" class="m-c">شروط الاستخدام</b-link>
+        <!-- <b-link href="conditions" class="m-c">....شروط الاستخدام</b-link> -->
+        <router-link class="m-c" :to="getRouteLocale('conditions')">
+              {{ $t("terms-use") }}
+            </router-link>
       </p>
       <div class="text-center">
         <button class="p-2 text-white btn-main-v" type="submit">
