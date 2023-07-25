@@ -10,8 +10,9 @@
       <span class="status comping-status" v-if="item.status == 'comping'"
       >قادمة</span
     >
+          <span class="m-c"> غرفة مكتبية : </span>
 
-      <p class="title">{{ item.title }}</p>
+      <p style="text-decoration-line: underline; margin:0 5px">{{ item.title }}</p>
     </div>
 
     <div class="d-flex align-items-center icons">
