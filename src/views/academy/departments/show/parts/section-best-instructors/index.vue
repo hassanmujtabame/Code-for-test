@@ -4,7 +4,7 @@
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-                <h1 class="home-section-title"> أبرز مدربتنا في مجال {{itemPage.title}}</h1>
+                <h1 class="home-section-title"> أهم مدربتنا في مجال {{itemPage.title}}</h1>
                 <div v-if="false">
                     <button class="more">
                       <a href="" class="text-dark">

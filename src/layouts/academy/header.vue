@@ -44,6 +44,7 @@ export default {
         {route:'academy-learning-meetings', text:vm.$t('academy-meetings'),role:'student'},
         {route:'academy-your-courses', text:vm.$t('your-courses'),role:'student'},
         {route:'academy-your-learning-meetings', text:vm.$t('your-learning-meetings'),role:'student'},
+        // {route:'academy-your-certificates', text:vm.$t('your-certificates'),role:'student'},
         {route:'academy-contact-us',text:vm.$t('contact-us'),instructor:'student'},
         ]
     }

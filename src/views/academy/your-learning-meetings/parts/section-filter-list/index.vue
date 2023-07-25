@@ -81,7 +81,6 @@ export default {
         element.active=false
       }
       }
-   
     },
     changeFilter(val){
       console.log('val',val);

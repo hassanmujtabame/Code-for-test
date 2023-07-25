@@ -1,5 +1,5 @@
 <template>
-    <div v-if="items.length" class="sex-eight mt-5  max-width-100-hidden">
+    <div  class="sex-eight mt-5  max-width-100-hidden">
           <div class="container">
             <h2 class="home-section-title text-center">ماذا يقولون المشتركات في مجال {{ itemPage.title }}</h2>
               <div  :id="carouselId" class="feature-carousel owl-carousel owl-theme  mt-5">

@@ -9,7 +9,7 @@
               </div>
               <d-swiper
             :slides-per-view="7"
-            is-auto
+            is-auto  
             :space-between="10"
               :items="items"
               class="academy-departments"

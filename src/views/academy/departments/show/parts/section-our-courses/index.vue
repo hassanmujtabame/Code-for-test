@@ -19,6 +19,8 @@
                 {id:'asc',name:'الأقل سعرا'},
                 {id:'desc',name:'الأغلى سعرا',}
             ]"
+        @change="changeFilter"
+
 >
 <template v-slot="{item}">
   
