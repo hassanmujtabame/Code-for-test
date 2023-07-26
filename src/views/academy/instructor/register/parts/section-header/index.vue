@@ -7,7 +7,7 @@
             <h1 class="section-header-register-instructor__title">شاركي خبراتك ومهاراتك</h1>
             <p class="section-header-register-instructor__text"></p>
             <a href="#" @click="scollToElement('regestr',$event)" class="btn-go-register m-5">
-                أنضمي كمدربة
+                أنضمي كمدربة 
             </a>
         </div>
             <div class="star position-absolute">

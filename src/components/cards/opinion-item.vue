@@ -1,6 +1,6 @@
 <template>
     <div class="item">
-        <div class="row align-items-stretch">
+        <div class="row align-items-stretch"> 
             <div class="col-8 position-relative">
                 <div class="d-flex flex-column">
                 <p class="opinion-text" v-html="desc"></p>

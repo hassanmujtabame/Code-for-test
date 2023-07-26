@@ -1,8 +1,8 @@
 <template>
-  <div class="section-how-create-course">
+  <div class="section-how-create-course mb-5">
     <h1 class="home-section-title text-center">كيفية إعداد دورتك التدريبية</h1>
-    <div class="row  p-5">
-        <div   class="col-12 col-md-4">
+    <div class="row  p-5l justify-content-center container">
+        <div   class="col-12 col-md-3">
             <div >
             <img :src="`${publicPath}assets/img/Group 1171276101.png`" >
             <div class="mt-3">
@@ -11,7 +11,7 @@
         </div>
         </div>
         <!--2-->
-        <div   class="col-12 col-md-4">
+        <div   class="col-12 col-md-3">
             <div >
             <img :src="`${publicPath}assets/img/Group 1171276011.png`" >
             <div class="mt-3">
@@ -20,7 +20,7 @@
         </div>
         </div>
         <!--3-->
-        <div   class="col-12 col-md-4">
+        <div   class="col-12 col-md-3">
             <div >
             <img :src="`${publicPath}assets/img/Group 1171276010.png`" >
             <div class="mt-3">

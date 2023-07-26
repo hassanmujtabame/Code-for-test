@@ -11,7 +11,7 @@
         <SectionOurInstructorPublic />
         <SectionOurInstructorSpecific />
          <SectionCreateCourse />
-         <sectionRequireGuide />
+         <!-- <sectionRequireGuide /> -->
         <!-- register form-->
         <SectionForm />
     </div>
@@ -21,7 +21,7 @@
 import SectionHeader from './parts/section-header/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
 import SectionCreateCourse from './parts/section-create-course/index.vue'
-import sectionRequireGuide from './parts/section-requirement-guide/index.vue'
+// import sectionRequireGuide from './parts/section-requirement-guide/index.vue'
 import SectionTrainingTypes from './parts/section-training-types/index.vue'
 import SectionOurInstructorPublic from './parts/section-our-instructor-public/index.vue'
 import SectionOurInstructorSpecific from './parts/section-our-instructor-specific/index.vue'
@@ -32,7 +32,7 @@ export default {
     SectionHeader,
     SectionFeatures,
     SectionCreateCourse,
-    sectionRequireGuide,
+   //  sectionRequireGuide,
     SectionTrainingTypes,
     SectionOurInstructorPublic,
     SectionOurInstructorSpecific,
