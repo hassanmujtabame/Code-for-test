@@ -1,5 +1,5 @@
 <template>
-  <div class="consulting" :class="[isMobile?'p-3':'p-5']">
+  <div class="consulting" :class="[isMobile?'p-3 pb-0':'px-5']">
             <div class="" :class="{container:!isMobile}">
                 <div class="row">
                     <div class="col-8 col-md-6  mb-5">
@@ -7,18 +7,18 @@
                         <p class="header-desc-page">
                             طوري مهاراتك و أنطلقي في عالم ريادة الاعمال والعمل الحر , أكاديمية رياديات ستكون معكِ خطوة بخطوة   
                         </p>
-                           
+                              <div class="col-12 mb-3 mt-5">
+                                <a @click="shouldLoginMsg" class="btn-custmer shadow"> {{ $t('join-us') }} </a>
+                                <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
+                             </div> 
                     </div>
-                    <div class="col-3 col-md-6 m-auto">
+                    <div class="col-3 col-md-6 m-auto" style="margin-bottom: 0 !important;">
                         <div style="overflow: inherit;" class="img-cons m-auto ">
-                            <img  :src="`${publicPath}assets/img/1664192063672 1.png`" alt="academy-home" >
+                            <img  :src="`${publicPath}assets/img/Group 1171276207.png`" alt="academy-home" style="object-fit: contain !important;">
                         </div>
 
                     </div>
-                    <div class="col-12 mb-3">
-                                <a @click="shouldLoginMsg" class="btn-custmer shadow"> {{ $t('join-us') }} </a>
-                                <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
-                             </div>
+                
                 </div>
                 <div class="star-cons">
                     <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
