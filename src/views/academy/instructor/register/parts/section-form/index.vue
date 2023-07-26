@@ -354,7 +354,9 @@
             <div class="col-md-6">
                 <div class="box h-100">
                     <div class="h-100 position-relative">
-                        <img style="width: 100%;" class="h-100" :src="`${publicPath}assets/img/wtIm.jpeg`" alt="">
+          <b-img fluid :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
+
+                        <!-- <img style="width: 100%;" class="h-100" :src="`${publicPath}assets/img/wtIm.jpeg`" alt=""> -->
                     </div>
 
                 </div>

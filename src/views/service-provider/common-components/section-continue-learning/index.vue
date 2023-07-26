@@ -41,6 +41,9 @@
     <div class="star-big position-absolute">
       <img class="landing" :src="`${publicPath}assets/svg/star-big.svg`" alt />
     </div>
+    <div>
+      
+    </div>
   </div>
 </template>
 
