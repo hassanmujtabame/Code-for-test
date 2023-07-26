@@ -14,7 +14,7 @@
                         <router-link style="height: auto;"  :to="getRouteLocale('academy-subscribe')" class="btn border p-2 px-4 text-white   mt-2  " >
                                 أختر الباقة الان
                             </router-link>
-                            <router-link style="height: auto;"  :to="getRouteLocale('academy-courses')" class="btn border p-2 px-4 text-white bg-transpernt svg-network   mt-2">
+                            <router-link style="height: auto;"  :to="getRouteLocale('academy-courses')" class="btn border p-2 px-4 text-white bg-transpernt svg-network  mx-3 mt-2">
                                     تصفح الدورات 
                                 </router-link>
                     </div>
