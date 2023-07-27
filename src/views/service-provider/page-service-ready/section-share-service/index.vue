@@ -4,9 +4,10 @@
             شارك الخدمة
         </h4>
         <div class="d-flex gap-4 justify-content-center p-4">
+
             <ShareNetwork
                     network="twitter"
-                    :url="this.$route.fullPath"
+                    :url="url"
                     :title="item.title"
                     :description="item.title"
                     :hashtags="item.keywords"
@@ -32,7 +33,7 @@
             </ShareNetwork>
             <ShareNetwork
                     network="linkedin"
-                    :url="this.$route.fullPath"
+                    :url="url"
                     :title="item.title"
                     :description="item.title"
                     :hashtags="item.keywords"
@@ -58,7 +59,7 @@
             </ShareNetwork>
             <ShareNetwork
                     network="facebook"
-                    :url="this.$route.fullPath"
+                    :url="url"
                     :title="item.title"
                     :description="item.title"
                     :hashtags="item.keywords"
@@ -89,8 +90,13 @@ export default {
             require: true
         }
     },
+    data() {
+        return {
+            url: null
+        }
+    },
     created() {
-        console.log(this.item)
+        this.url = window.location.href;
     }
 }
 </script>
