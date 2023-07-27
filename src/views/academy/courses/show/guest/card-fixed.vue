@@ -107,7 +107,7 @@ export default {
             title:'تم الانضمام الى هذه الدورة بنجاح',
             description:'',
             btns:[
-              {title:this.$t('course-page'),action:()=>this.router_push('academy-course-preview-show',{id:this.itemPage.id})},
+              {title:this.$t('course-page'),action:()=>this.coursePage()},
               {title:this.$t('undo-joining'),action:()=>this.cancelJoin(),class:"btn btn-danger"},
             ]
     }
@@ -149,7 +149,14 @@ export default {
       if(this.shouldLoginMsg()) return;
         this.router_push('academy-subscribe',{query:this.itemPage.id})
 
-    }
+    },
+      coursePage(){
+              this.refreshPage()
+            // this.$router.push(this.getRouteLocale('academy-course-preview-show',{id:this.itemPage.id}))
+                // this.showCourse()
+// this.router_push('academy-course-preview-show',{id:this.itemPage.id})
+
+  },
     } 
 
 }
