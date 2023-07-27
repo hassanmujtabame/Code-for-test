@@ -5,7 +5,7 @@
     :pluralName="$t('members')"
     :singleName="$t('member')"
     :searchPlaceholder="$t('search-by-name-or-field')"
-    classColCard="col-12 col-md-4 mt-4"
+    classColCard="col-12 col-lg-6 col-xl-4 mt-4"
     :orderOpts=" 
              [
                 {id:'asc',name:'الاحدث'},
@@ -15,12 +15,12 @@
     >
       <template v-slot="{ item }">
 
-        
-          <ItemCard 
+
+          <ItemCard
           :to="getRouteLocale('network-show-profile',{id:item.id})"
-          :name="item.name" 
-          :description="item.description" 
-          :img="item.image" 
+          :name="item.name"
+          :description="item.description"
+          :img="item.image"
           />
       </template>
 
