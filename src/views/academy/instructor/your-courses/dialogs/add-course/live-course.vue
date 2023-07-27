@@ -27,12 +27,14 @@
                     <!--course_days-->
                     <div class="mt-3">
                         <!-- <keep-alive> -->
+                         
                         <ValidationProvider :name="$t('days_week')"
                                             vid="course_days"
                                             rules="required"
                                             v-slot="{errors}"
                                             v-if="step==1"
                         >
+                      
                             <d-multiselect-input :errors="errors" label="ايام الدورة ( حددي ايام الاسبوع )"
                                                  :opts="daysOfWeek"
                                                  track-id="id" label-name="name"
@@ -40,6 +42,8 @@
                                                  multi-select
                                                  placeholder="ايام الدورة ( حددي ايام الاسبوع )"
                             />
+                    <span class="text-input-error" v-if="errorDayes">{{ errorDayes }}</span>
+
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
@@ -70,6 +74,7 @@
                                                :rules="{ start: 'required', end: 'required' }"
                                                mode="time" mask="HH:mm" class="form-control time-input">
                             </date-picker-range>
+
                         </div>
                     </div>
                     <span class="text-input-error" v-if="errors.time">{{ errors.time }}</span>
@@ -327,7 +332,8 @@ export default {
             departments: [],
             loading: false,
             itemForm: {},
-            errors: {}
+            errors: {},
+            errorDayes:null
         }
     },
     methods: {
@@ -371,7 +377,7 @@ export default {
         },
         async saveStep1() {
             let valid = await this.$refs.form1.validate(['number_day']);
-            if (!valid || this.errors.time) {
+            if (!valid || this.errors.time || this.errorDayes) {
                 return false;
             }
             this.step += 1;
@@ -549,6 +555,14 @@ export default {
                 return this.errors.time = 'يجب ان يكون تاريخ الانتهاء اكبر من تاريخ البدء';
             }
             return this.errors.time=null
+        },
+          'itemForm.course_days': function (val) {
+              console.log('val',val);
+           console.log(val.length <= this.itemForm.number_day);
+           if (val.length > this.itemForm.number_day) {
+                return this.errorDayes = 'يجب أن تكون عدد الأيام مناسبه مع عدد أيام الدورة';
+           }
+            return  this.errorDayes=null
         }
         ,
     }
