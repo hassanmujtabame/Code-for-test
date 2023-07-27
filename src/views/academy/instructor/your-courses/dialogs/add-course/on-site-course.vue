@@ -47,6 +47,8 @@
                             </date-picker-range>
                         </div>
                     </div>
+                    <span class="text-input-error" v-if="errors.time">{{ errors.time }}</span>
+
                     <!--end date booking -->
                     <div class="mt-3">
                         <!-- <keep-alive> -->
@@ -290,7 +292,8 @@ export default {
             places: [],
             departments: [],
             loading: false,
-            itemForm: {id:null}
+            itemForm: {id:null},
+            errors:{}
         }
     },
     methods: {
@@ -334,7 +337,7 @@ export default {
         },
         async saveStep1() {
             let valid = await this.$refs.form1.validate(['number_day']);
-            if (!valid) {
+            if (!valid || this.errors.time) {
                 console.mylog('invalid step 1');
                 return false;
             }
@@ -518,6 +521,15 @@ export default {
     mounted() {
         this.loadDepartments()
         this.loadPlaces()
+    },
+    watch: {
+        'itemForm.end_time': function (val) {
+            if (Date.parse(`01/01/2011 ${val}`) <= Date.parse(`01/01/2011 ${this.itemForm.start_time}`)) {
+                return this.errors.time = 'يجب ان يكون تاريخ الانتهاء اكبر من تاريخ البدء';
+            }
+            return this.errors.time=null
+        }
+        ,
     }
 }
 </script>
