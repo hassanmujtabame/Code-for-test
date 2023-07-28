@@ -10,8 +10,10 @@ export default {
             type:[Array,Object],
             require:true
         }
+    },
+    mounted(){
+        console.log('errors', this.errors);
     }
-
 }
 </script>
 

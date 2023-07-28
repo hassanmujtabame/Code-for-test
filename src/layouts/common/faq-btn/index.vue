@@ -23,9 +23,16 @@ export default {
         networkExhibition:false
     }
  },
+ watch:{
+     getRoute(){
+             if (this.$route.name == 'network-exhibition-show' || this.$route.name == 'academy-show-profile' || this.$route.name == 'network-show-profile' || this.$route.name == 'service-provider-show-profile') {
+                return  this.networkExhibition = true
+  }
+        },
+ },
  mounted(){
   console.log('route',this.$route.name == 'network-exhibition-show');
-  if (this.$route.name == 'network-exhibition-show') {
+  if (this.$route.name == 'network-exhibition-show' || this.$route.name == 'academy-show-profile' || this.$route.name == 'network-show-profile' || this.$route.name == 'service-provider-show-profile') {
     this.networkExhibition = true
   }
 }
