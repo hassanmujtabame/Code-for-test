@@ -72,7 +72,7 @@ export default {
 </script>
 <style>
 .pac-target-input{
-  border: 1px solid !important;
+  border: 1px solid #979797 !important;
     border-radius: 5px !important;
     padding: 5px !important;
 }
