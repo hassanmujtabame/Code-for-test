@@ -16,7 +16,7 @@
     </p>
     <!--user footer-->
     <div class="user-preview-profile__footer">
-        <button v-if="canChat" @click="openChat" class="btn btn-custmer">أرسل رسالة</button>
+        <button :disabled="userAcademyRole=='student'" v-if="canChat" @click="openChat" class="btn btn-custmer">أرسل رسالة</button>
         <div v-if="!hideSocial" class="user-preview-profile__social-media">
             
             
