@@ -21,6 +21,8 @@
                         >
                             <d-text-input type="text" :errors="errors" v-model="itemForm.number_day"
                                           label="عدد ايام الدورة "/>
+                    <span class="text-input-error" v-if="errorDayes">{{ errorDayes }}</span>
+
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
@@ -43,7 +45,6 @@
                                                  placeholder="ايام الدورة ( حددي ايام الاسبوع )"
                             />
                     <span class="text-input-error" v-if="errorDayes">{{ errorDayes }}</span>
-
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
@@ -376,6 +377,7 @@ export default {
             reader.readAsDataURL(this.itemForm.image_path);
         },
         async saveStep1() {
+            
             let valid = await this.$refs.form1.validate(['number_day']);
             if (!valid || this.errors.time || this.errorDayes) {
                 return false;
@@ -557,6 +559,14 @@ export default {
             return this.errors.time=null
         },
           'itemForm.course_days': function (val) {
+              console.log('val',val);
+           console.log(val.length <= this.itemForm.number_day);
+           if (val.length > this.itemForm.number_day) {
+                return this.errorDayes = 'يجب أن تكون عدد الأيام مناسبه مع عدد أيام الدورة';
+           }
+            return  this.errorDayes=null
+        },
+          'itemForm.number_day': function (val) {
               console.log('val',val);
            console.log(val.length <= this.itemForm.number_day);
            if (val.length > this.itemForm.number_day) {
