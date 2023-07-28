@@ -118,7 +118,8 @@ export default {
 
         let dataEvt ={
             title:'تم الانضمام الى هذه الدورة بنجاح',
-            description:` يسعدنا تسجيلك في هذه الدورة الذي سيتم اذاعته عبر البث المباشر في تاريخ ${this.itemPage.start_date}
+            description:` يسعدنا تسجيلك في هذه الدورة الذي سيتم اذاعته عبر البث المباشر في تاريخ <span style="color:#F2631C">${this.itemPage.start_date}</span>
+            </br>
                     ! لا تقلق سنقوم بتنبيهك قبل موعد الدرس بيوم `,
             btns:[
               {title:`${this.itemPage.meeting_url}`,action:()=>this.linkCourse(),class:"btn border-custom"},
