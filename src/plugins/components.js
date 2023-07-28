@@ -31,7 +31,8 @@ import DAudioInput from '@/components/inputs/audio-input/index.vue'
 import DCheckboxInput from '@/components/inputs/check-input/index.vue'
 import DRadioInput from '@/components/inputs/radio-input/index.vue'
 import DTextareaInput from '@/components/inputs/text-input/text-area.vue'
-import DatePickerInput from '@/components/inputs/date-picker/index.vue'
+import DatePickerInput from "@/components/inputs/date-picker/index.vue";
+import Map from "@/components/map/index.vue";
 import DDatePickerInput from '@/components/inputs/date-picker/d-datepicker.vue'
 import DatePickerRange from '@/components/inputs/date-picker/range.vue'
 import DCkeditorClassicInput from '@/components/inputs/d-ckeditor/classic.vue'
@@ -97,6 +98,8 @@ Vue.component('d-drown-list', drowListInput)
 Vue.component('d-multiselect-input', DMultiSelecetInput)//improve d-drown-list
 Vue.component('d-multi-select-tag', DMultiSelecetTagInput)
 Vue.component('date-picker-input', DatePickerInput)
+Vue.component("google-map", Map);
+
 Vue.component(DTextInput.name, DTextInput)
 Vue.component(DMentionInput.name, DMentionInput)
 Vue.component(DFileInput.name, DFileInput)
