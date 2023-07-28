@@ -37,7 +37,7 @@
                                             v-if="step==1"
                         >
                       
-                            <d-multiselect-input :errors="errors" label="ايام الدورة ( حددي ايام الاسبوع )"
+                            <d-multiselect-input label="ايام الدورة ( حددي ايام الاسبوع )"
                                                  :opts="daysOfWeek"
                                                  track-id="id" label-name="name"
                                                  v-model="itemForm.course_days"
@@ -45,6 +45,8 @@
                                                  placeholder="ايام الدورة ( حددي ايام الاسبوع )"
                             />
                     <span class="text-input-error" v-if="errorDayes">{{ errorDayes }}</span>
+                            <d-error-input :errors="errors" v-if="errorCourse_dayes ==true"/>
+                       
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
@@ -58,7 +60,8 @@
                                             v-if="step==1"
                         >
                             <d-datepicker-input v-model="itemForm.start_date" label="موعد بداية الدورة"/>
-                            <d-error-input :errors="errors" v-if="errors && errors.length>0"/>
+                            <!-- <d-error-input :errors="errors" v-if="errors && errors.length>0"/> -->
+                            <d-error-input :errors="errors" v-if="errorCourse_date ==true"/>
 
                         </ValidationProvider>
                         <!-- </keep-alive> -->
@@ -89,13 +92,15 @@
                                             v-if="step==1"
                         >
 
-                            <d-multiselect-input :errors="errors" label="نوع الشهادة التي تمنح للطلاب"
+                            <d-multiselect-input  label="نوع الشهادة التي تمنح للطلاب"
                                                  :opts="type_certificates"
                                                  track-id="id" label-name="name"
                                                  v-model="itemForm.type_certificate"
                                                  multi-select
                                                  seperate=" - "
                             />
+                            <d-error-input :errors="errors" v-if="errortype_certificates ==true"/>
+
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
@@ -334,7 +339,10 @@ export default {
             loading: false,
             itemForm: {},
             errors: {},
-            errorDayes:null
+            errorDayes:null,
+            errorCourse_date: false,
+            errorCourse_dayes:false,
+            errortype_certificates:false
         }
     },
     methods: {
@@ -379,6 +387,13 @@ export default {
         async saveStep1() {
             
             let valid = await this.$refs.form1.validate(['number_day']);
+            if (!this.itemForm.start_date) {
+                this.errorCourse_date = true
+            }if (!this.itemForm.course_days) {
+                this.errorCourse_dayes = true
+            }if (!this.itemForm.type_certificate) {
+                this.errortype_certificates = true
+            }
             if (!valid || this.errors.time || this.errorDayes) {
                 return false;
             }
@@ -573,8 +588,9 @@ export default {
                 return this.errorDayes = 'يجب أن تكون عدد الأيام مناسبه مع عدد أيام الدورة';
            }
             return  this.errorDayes=null
-        }
-        ,
+        },
+   
+        
     }
 
 }
