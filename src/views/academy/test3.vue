@@ -17,6 +17,8 @@
       :center='center'
       :zoom='12'
       style='width:100%;  height: 400px;'
+      @click="getMarker"
+
     >
       <GmapMarker
         :key="index"
@@ -25,6 +27,7 @@
         @click="center=m.position"
       />
     </GmapMap>
+    {{address}}
   </div>
 </template>
 
@@ -33,10 +36,13 @@ export default {
   name: 'GoogleMap',
   data() {
     return {
-      center: { lat: 45.508, lng: -73.587 },
+     center: { lat: 24.774265, lng: 46.738586 },
       currentPlace: null,
-      markers: [],
+      markers: [{ lat: 24.774265, lng: 46.738586 }],
+
       places: [],
+      address:{}
+
     }
   },
   mounted() {
@@ -58,7 +64,20 @@ export default {
         this.center = marker;
         this.currentPlace = null;
       }
+
     },
+    getMarker(event) {
+      console.log('event',event);
+      const marker = {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+      };
+      console.log(marker);
+      this.markers.push({ position: marker });
+      // this.$refs.mmm.panTo(marker);
+      //this.center = marker;
+      this.address = marker
+  },
     geolocate: function() {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {

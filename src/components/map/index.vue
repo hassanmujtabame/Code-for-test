@@ -1,22 +1,27 @@
 <template>
   <div style="">
+
     <div class="flex" style="width: fit-content; margin-right: auto;"> 
+
+    <div>
       <!-- <h2>Search and add a pin</h2> -->
-         <button
+      <GmapAutocomplete
+        @place_changed='setPlace'
+      />
+      <button
       class="btn"
         @click='addMarker'
       >
         Add
       </button>
-      <GmapAutocomplete
-        @place_changed='setPlace'
-      />
-   
+    </div>
     </div>
     <GmapMap
       :center='center'
       :zoom='12'
-      style='width:100%;  height: 250px;'
+      style='width:100%;  height: 400px;'
+      @click="getMarker"
+
     >
       <GmapMarker
         :key="index"
@@ -33,10 +38,13 @@ export default {
   name: 'GoogleMap',
   data() {
     return {
-      center: { lat: 24.774265, lng: 46.738586 },
+     center: { lat: 24.774265, lng: 46.738586 },
       currentPlace: null,
-      markers: [],
+      markers: [{ lat: 24.774265, lng: 46.738586 }],
+
       places: [],
+      address:{}
+
     }
   },
   mounted() {
@@ -58,7 +66,21 @@ export default {
         this.center = marker;
         this.currentPlace = null;
       }
+
     },
+    getMarker(event) {
+      console.log('event',event);
+      const marker = {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+      };
+      console.log(marker);
+      this.markers.push({ position: marker });
+
+      // this.$refs.mmm.panTo(marker);
+      //this.center = marker;
+      this.address = marker
+  },
     geolocate: function() {
       navigator.geolocation.getCurrentPosition(position => {
         this.center = {
