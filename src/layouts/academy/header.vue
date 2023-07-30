@@ -4,17 +4,17 @@
   prefixRoute='academy-'
   >
     <template v-slot="{/*closeNavList*/}" >
-            <li class="nav-item px-1">
+            <li class="nav-item px-1l">
               <!-- <a class="nav-link active" aria-current="page" href="../index.html"
                 >الرئيسية</a
               > -->
               <router-link :to="getRouteLocale('academy-home')"  class="nav-link">{{ $t('Home-page') }}</router-link>
             </li>
-            <li :key="i" v-for="(item,i) in items.filter(x=>x.role == userAcademyRole)" class="nav-item px-1">
+            <li :key="i" v-for="(item,i) in items.filter(x=>x.role == userAcademyRole)" class="nav-item px-1l">
               <router-link :to="getRouteLocale(item.route)"  class="nav-link">{{ item.text }}</router-link>
             </li>
               <div class="dropdown" style="cursor: pointer;">
-                  <li v-if="userAcademyRole=='student'" class="nav-link px-1 dropbtn">المجالات</li>
+                  <li v-if="userAcademyRole=='student'" class="nav-link px-1l dropbtn">المجالات</li>
                    <div class="dropdown-content">
                      <div  v-for="item,i in itemDepartments" :key="i">
               <router-link class="router-link" :to="getRouteLocale('academy-department-show',{id:item.id})"> 
@@ -58,6 +58,7 @@ itemDepartments:[],
         {route:'academy-courses', text:vm.$t('academy-courses'),role:'student'},
         {route:'academy-learning-meetings', text:vm.$t('academy-meetings'),role:'student'},
         {route:'academy-your-courses', text:vm.$t('your-courses'),role:'student'},
+        {route:'academy-your-certificates', text:vm.$t('your-certificates'),role:'student'},
         {route:'academy-your-learning-meetings', text:vm.$t('your-learning-meetings'),role:'student'},
         // {route:'academy-your-certificates', text:vm.$t('your-certificates'),role:'student'},
         {route:'academy-contact-us',text:vm.$t('contact-us'),instructor:'student'},
