@@ -23,6 +23,8 @@
                             <d-multiselect-input :errors="errors" label="ايام الدورة ( حددي ايام الاسبوع )"
                                 :opts="daysOfWeek" track-id="id" label-name="name" v-model="itemForm.course_days"
                                 multi-select placeholder="ايام الدورة ( حددي ايام الاسبوع )" />
+                    <span class="text-input-error" v-if="errorDayes">{{ errorDayes }}</span>
+
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
@@ -293,7 +295,8 @@ export default {
             departments: [],
             loading: false,
             itemForm: {id:null},
-            errors:{}
+            errors:{},
+            errorDayes:null
         }
     },
     methods: {
@@ -337,7 +340,7 @@ export default {
         },
         async saveStep1() {
             let valid = await this.$refs.form1.validate(['number_day']);
-            if (!valid || this.errors.time) {
+            if (!valid || this.errors.time || this.errorDayes) {
                 console.mylog('invalid step 1');
                 return false;
             }
@@ -528,6 +531,14 @@ export default {
                 return this.errors.time = 'يجب ان يكون تاريخ الانتهاء اكبر من تاريخ البدء';
             }
             return this.errors.time=null
+        },
+              'itemForm.course_days': function (val) {
+              console.log('val',val);
+           console.log(val.length <= this.itemForm.number_day);
+           if (val.length > this.itemForm.number_day) {
+                return this.errorDayes = 'يجب أن تكون عدد الأيام مناسبه مع عدد أيام الدورة';
+           }
+            return  this.errorDayes=null
         }
         ,
     }

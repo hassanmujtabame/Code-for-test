@@ -3,6 +3,7 @@
   <img class="card-img-top" :src="itemPage.image_path" :alt="itemPage.title">
   <div class="card-body pt-0">
    <div class="course-card-fixed__item my-2">
+
     <d-unlock-icon color="var(--m-color)" />
     <span class="px-2">محتوي متاح دائما</span>
    </div>
@@ -100,7 +101,7 @@ export default {
           console.log('joinCourse');
     try {
       let {data} = await academyAPI.coursesApi.joinCourse(this.itemPage.id);
-      if(data.success){
+      if(data.success  && this.itemPage.type != 'live'){
           console.log(data);
 
         let dataEvt ={
@@ -109,6 +110,22 @@ export default {
             btns:[
               {title:this.$t('course-page'),action:()=>this.coursePage()},
               {title:this.$t('undo-joining'),action:()=>this.cancelJoin(),class:"btn btn-danger"},
+            ]
+    }
+    this.showSuccessMsg(dataEvt)
+      } else if(data.success && this.itemPage.type == 'live'){
+          console.log(data);
+
+        let dataEvt ={
+            title:'تم الانضمام الى هذه الدورة بنجاح',
+            description:` يسعدنا تسجيلك في هذه الدورة الذي سيتم اذاعته عبر البث المباشر في تاريخ <span style="color:#F2631C">${this.itemPage.start_date}</span>
+            </br>
+                    ! لا تقلق سنقوم بتنبيهك قبل موعد الدرس بيوم `,
+            btns:[
+              {title:`${this.itemPage.meeting_url}`,action:()=>this.linkCourse(),class:"btn border-custom"},
+// this.$t('link-course')
+              {title:this.$t('course-page'),action:()=>this.coursePage()},
+              // {title:this.$t('undo-joining'),action:()=>this.cancelJoin(),class:"btn btn-danger"},
             ]
     }
     this.showSuccessMsg(dataEvt)
@@ -157,12 +174,19 @@ export default {
 // this.router_push('academy-course-preview-show',{id:this.itemPage.id})
 
   },
+  linkCourse(){
+    // window.open(this.itemPage.meeting_url,'_blank');
+      navigator.clipboard.writeText(this.itemPage.meeting_url);
+
+  },
+
     } 
 
 }
 </script>
 
 <style scoped>
+
 .card-info{
     position: fixed;
     width: 300px;
@@ -216,6 +240,7 @@ text-align: justify;
 
 color: #737373;
 }
+
 .card-img-top{
   height: 240px;
   max-height: 240px;

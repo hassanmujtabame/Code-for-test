@@ -4,6 +4,13 @@ console.mylog = (...args) => {
    if (process.env.NODE_ENV == 'development')
       console.log(...args)
 }
+import * as VueGoogleMaps from "vue2-google-maps";
+Vue.use(VueGoogleMaps, {
+	load: {
+		// key: 'YOUR_API_TOKEN',
+		libraries: "places", // This is required if you use the Autocomplete plugin
+	},
+});
 import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'

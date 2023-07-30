@@ -20,14 +20,23 @@ export default {
  },
  data:()=>{
     return  {
-        networkExhibition:false
+        networkExhibition:false,
     }
  },
+ watch:{
+        '$route' (to,from){
+          this.getRoteName()
+        }
+ },
+ methods:{
+getRoteName(){
+           if (this.$route.name == 'network-exhibition-show' || this.$route.name == 'academy-show-profile' || this.$route.name == 'network-show-profile' || this.$route.name == 'service-provider-show-profile') {
+                return  this.networkExhibition = true
+           }
+}
+ },
  mounted(){
-  console.log('route',this.$route.name == 'network-exhibition-show');
-  if (this.$route.name == 'network-exhibition-show') {
-    this.networkExhibition = true
-  }
+
 }
 }
 

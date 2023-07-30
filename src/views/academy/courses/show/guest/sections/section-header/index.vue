@@ -7,7 +7,7 @@
       <span class="course-department-name mx-5l py-2 px-3">{{ itemPage.department_name }}</span>
    </div>
         <h1 class="text-white px-5l fs-1 position-relative z-index-1"> {{ itemPage.title }} </h1>
-        <p class="text-white fs-r-24 position-relative z-index-1" :class="{'px-0':!isMobile,'px-1':isMobile}" style="max-width:702px">
+        <p class="text-white fs-r-24 position-relative z-index-1" :class="{'px-0':!isMobile,'px-1':isMobile}" style="max-width702px; width: 65%">
        {{ itemPage.short_description }}
         </p>
       </div>

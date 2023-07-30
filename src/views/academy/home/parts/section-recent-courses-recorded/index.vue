@@ -24,7 +24,7 @@
        
             <template  v-slot:default="{item}" >
               
-                <CardVue 
+                <CardVue  
                 :item="item"
                 :url="getRouteLocale('academy-course-show',{id:item.id})"
                 />
@@ -71,6 +71,6 @@ export default {
 
 <style>
 .custom-width .swiper-slide{
-  width:257px !important
+  width:257.5px !important
 }
 </style>

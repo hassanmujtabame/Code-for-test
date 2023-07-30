@@ -13,8 +13,8 @@
                 <h4 :class="[itemDialog.titleClass??'']" >
                  {{itemDialog.title}}
                 </h4>
-                <p class="t-c fs-r-16-24" :class="[itemDialog.descriptionClass??'']">
-                    {{ itemDialog.description }}
+                <p class="t-c fs-r-16-24" v-html="itemDialog.description" :class="[itemDialog.descriptionClass??'']">
+                    <!-- {{ itemDialog.description }}..... -->
                 </p>
               </div>
               <div v-if="itemDialog.icon">

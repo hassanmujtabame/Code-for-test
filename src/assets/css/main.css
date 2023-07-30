@@ -2604,3 +2604,14 @@ html[lang="ar"] .accordion-button::after {
 .bg-accent {
     background-color: var(--color-accent);
 }
+.border-custom{
+    color:#979797;
+  width: 100% !important;
+  border: 1px solid #979797 !important;
+background: white !important;
+text-align: right !important;
+    background: url(../img/copy1.png) no-repeat  !important;
+    background-size: 25px 20px !important;
+background-position: left !important;
+padding: 0px  15px !important;
+}

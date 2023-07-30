@@ -102,6 +102,15 @@ const routers = [
 			),
 	},
 	{
+		path: "academy/test3",
+		meta: { layout: LayoutDefault, title: "Courses" },
+		name: "academy-test3",
+		component: () =>
+			import(
+				/* webpackChunkName: "academy-courses" */ "../views/academy/test3.vue"
+			),
+	},
+	{
 		path: "academy/courses/:id(\\d+)",
 		meta: { layout: LayoutDefault, title: "Course Show" },
 		name: "academy-course-show",
@@ -274,7 +283,7 @@ const routers = [
 		path: "academy/my-learning-meetings",
 		meta: { layout: LayoutDefault, auth: true, title: "My Learning Meetings" },
 		name: "academy-your-learning-meetings",
-		component: () => 
+		component: () =>
 			import(
 				/* webpackChunkName: "academy-your-learning-meetings" */ "../views/academy/your-learning-meetings/index.vue"
 			),

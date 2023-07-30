@@ -15,10 +15,12 @@
               </div>
               <d-swiper
               v-if="!loading"
-                :slides-per-view="4"
+                :slides-per-view="slidesperview"
                 is-auto
-                :space-between="10"
-                :items="items"
+                :space-between="7"
+                :items="items" 
+              class="academy-departments"
+
             >
        
             <template  v-slot:default="{item}" >
@@ -28,6 +30,8 @@
                 :name="item.name" 
                 :description="item.description" 
                 :img="item.image"/>
+                  
+           
               
                 </template>
               </d-swiper>
@@ -48,7 +52,9 @@ export default {
     data:()=>({
     loading:true,
   total:0,
-    items:[]
+    items:[],
+        slidesperview:2
+
  }),
  methods:{
     async initlizing(){
@@ -72,5 +78,10 @@ export default {
 </script>
 
 <style>
-
+.swiper-slide{
+  width:257.5px !important
+}
+.provider-card{
+  width:100% !important
+}
 </style>
