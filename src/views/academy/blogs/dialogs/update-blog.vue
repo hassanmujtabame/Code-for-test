@@ -101,7 +101,7 @@
 </template>
 <script>
 import BlogsAPI from '@/services/api/academy/instructor/blogs.js'
-//import BlogsAPI from '@/services/api/blogs.js'
+// import BlogsAPI from '@/services/api/blogs.js'
 export default {
   data:(vm)=>{
     return{
