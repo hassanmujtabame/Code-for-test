@@ -1,5 +1,5 @@
 <template>
-    <div class="box rounded-3 border w-100 blog-info-card">
+    <div class="box rounded-3 border w-100 blog-info-card h-100">
               <div class="image">
                 <img class="w-100" :src="img" :alt="title" height="184">
               </div>
