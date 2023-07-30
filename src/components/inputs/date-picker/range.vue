@@ -2,9 +2,10 @@
   <vc-date-picker 
   v-model="range" 
   :mode="mode" 
-  :masks="masks" 
+  :masks="masks"  
   is-range 
   is24hr 
+  :min-date="new Date" 
   :locale="$i18n.locale"
     :modelConfig="modelConfig" 
     :style="{ 'text-align': $i18n.locale == 'ar' ? 'rtl' : 'ltr' }"
