@@ -1,5 +1,5 @@
 <template>
-  <div class="main-top py-2 px-5 position-relative mt-5">
+  <div class="main-top2 py-2 px-5 position-relative mt-5">
             <div class="row align-items-center justify-content-between m-auto p-3">
                 <div class="col-md-6 " >
                     <h1 class="text-white">
@@ -11,10 +11,10 @@
                     </p>
 
                     <div class="btn-main-style">
-                        <router-link style="height: auto;"  :to="getRouteLocale('academy-subscribe')" class="btn border p-2 px-4 text-white   mt-2  " >
+                        <router-link style="height: auto;"  :to="getRouteLocale('academy-subscribe')" class=" btn-custmer shadow py-1 px-4 text-white   mt-2  " >
                                 أختر الباقة الان
                             </router-link>
-                            <router-link style="height: auto;"  :to="getRouteLocale('academy-courses')" class="btn border p-2 px-4 text-white bg-transpernt svg-network  mx-3 mt-2">
+                            <router-link style="height: auto;"  :to="getRouteLocale('academy-courses')" class="btn border p-2 px-4 text-white bg-transpernt svg-network  mx-3 mt-2 mb-2">
                                     تصفح الدورات 
                                 </router-link>
                     </div>
