@@ -152,7 +152,7 @@ export default {
                     iconUrl:`${this.publicPath}assets/img/cuate-2.png`,
                     btns:[
 
-                        {title:this.$t('close')}
+                        {title:this.$t('close'),action:()=>this.close()}
                     ]
                 }
                 this.showSuccessMsg(dataEvt)
@@ -172,6 +172,9 @@ export default {
            
         }
         this.loading =  false;
+    },
+    close(){
+        this.refreshPage()
     },
     makeImageEmpty(){
         this.file = null;
