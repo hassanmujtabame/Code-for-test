@@ -1,6 +1,6 @@
 <template>
   <div class=" mt-5 p-3">
-            <div class="container">
+            <div class="container advertisements">
               <d-swiper
               v-if="!loading"
               :slides-per-view="slidesperview"
@@ -15,7 +15,7 @@
        
             <!-- <template  v-slot:default="{item}" > -->
               <div class="rounded-3">
-<img :src="`${publicPath}assets/img/over-lay-service-provider.png`" class="rounded-3"/>
+<img :src="`${publicPath}assets/img/advertisements.png`" class="rounded-3"/>
 
               </div>
                
@@ -61,8 +61,13 @@ export default {
 <style>
 .swiper-pagination-bullet{
   background: white !important;
+  margin-bottom: 10px !important;
 }
 .swiper-pagination-bullet-active{
   background: #FFBC00 !important;
+}
+.advertisements .swiper-slide{
+  width: 100% !important;
+  justify-content:unset !important
 }
 </style>
