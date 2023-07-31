@@ -185,7 +185,8 @@ this.idCourse = this.$route.params.query
 this.getCourseDetails()
 
 this.packageType = this.$route.meta.type
-    console.log(this.$route.meta.type);
+    console.log('this.$route.meta.type',this.$route.meta.type);
+    console.log('this.packageType',this.packageType);
     console.log(this.$route.params.query);
     // console.log(this.$route.meta.id);
   }

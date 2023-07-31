@@ -197,7 +197,8 @@ const routers = [
 	},
 	{
 		path: "service-provider/ready-services/:id(\\d+)",
-		meta: { layout: LayoutDefault, auth: true, title: "Ready Service" },
+		meta: { layout: LayoutDefault, auth: true, title: "Ready Service",type: "service-provider"
+},
 		name: "service-provider-ready-service",
 		component: () =>
 			import(
