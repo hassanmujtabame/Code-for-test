@@ -53,9 +53,9 @@ export default {
       navigate(evt)
     },
     goToProposal(item, evt) {
-      if (!this.shouldBeProviderMsg(evt)) {
+      // if (!this.shouldBeProviderMsg(evt)) {
         this.router_push("service-provider-proposal-page", { id: item.id });
-      }
+      // }
     },
     async loadList() {
       this.loading = true;
