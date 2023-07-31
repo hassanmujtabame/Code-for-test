@@ -22,10 +22,10 @@
                   <p class="information-item__label">موعد بداية الدورة : </p>
                   <p class="information-item__value">{{ itemPage.start_date }}</p>
                 </div>
-                <div class="information-item">
-                  <p class="information-item__label">موعد غلق الحجز : </p>
-                  <p class="information-item__value">{{ itemPage.reservation_closing_date }}</p>
-                </div>
+<!--                <div class="information-item">-->
+<!--                  <p class="information-item__label">موعد غلق الحجز : </p>-->
+<!--                  <p class="information-item__value">{{ itemPage.reservation_closing_date }}</p>-->
+<!--                </div>-->
               </template>
             </d-course-panel>
 </template>

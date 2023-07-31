@@ -24,7 +24,7 @@
     </div>
     <div class="row justify-content-between py-5">
       <div class="col-12 col-md-6">
-        <RateCourse :itemPage="itemPage" />
+        <RateCourse :itemPage="itemPage" v-if="itemPage.rates.length" />
         </div>
         <div class="col-12 col-md-4">
           <attachmentsCourse :itemPage="itemPage" :isOwner="isOwner"/>
