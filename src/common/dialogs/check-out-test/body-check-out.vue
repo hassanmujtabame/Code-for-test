@@ -4,7 +4,7 @@
       <h5 class="mb-3">أستكملي عملية الدفع</h5>
       <div class="row justify-content-between">
         <div class="justify-content-end tex-end">
-          <div v-if="!this.idCourse && this.packageType == 'academy'" style="display: flex; align-items: center;">
+          <div v-if="otherData.type && packageType == 'academy'" style="display: flex; align-items: center;">
             <img style="width:260px; height:150px" class="img-fluid" :src="`${publicPath}assets/img/Group 1171274931s.png`" alt="">
             <div class="mx-3" style="color: #1FB9B3; display: flex;" >
               <d-user-rect-icon :size="24" color="currentColor"/>
@@ -12,30 +12,30 @@
             </div>
           </div>
 
-               <div v-else-if="!this.idCourse && this.packageType == 'network'" style="display: flex; align-items: center;">
+               <div v-else-if="otherData.type && packageType == 'network'" style="display: flex; align-items: center;">
                   <img class="img-fluid"  style="width:260px; height:150px"   :src="`${publicPath}assets/img/pana-network.png`" alt="" >
                   <div class="mx-3" style="color: #FFBC00; display: flex;" >
                    <d-user-rect-icon :size="24" color="currentColor"/>
                    <h4 class="mx-2"  style="color: #FFBC00">انضم الي الشبكه</h4>
                  </div>
              </div>
-                <div v-else-if="!this.idCourse && this.packageType == 'service-provider'" style="display: flex; align-items: center;">
+                <div v-else-if="otherData.type && packageType == 'service-provider'" style="display: flex; align-items: center;">
                   <img  style="width:260px; height:150px"  class="img-fluid" :src="`${publicPath}assets/svg/frame-52-2.svg`" alt="service-provider-header" />
                   <div class="mx-3" style="color: #FFBC00; display: flex;" >
                    <d-user-rect-icon :size="24" color="currentColor"/>
                    <h4 class="mx-2"  style="color: #FFBC00">مقدمي الخدمة</h4>
                   </div>
              </div>
-             <div v-else-if="this.idCourse" style="display: flex;">
-              <img  style="width:150px; height:125px" :src="detailsCourse.image_path" alt="">
+             <div v-else-if="!otherData.type" style="display: flex;">
+              <img  style="width:150px; height:125px" :src="otherData.image" alt="">
                 <div>
                   <div class="mx-3 mb-3 d-flex" style="color: #1FB9B3" >
                      <d-user-rect-icon :size="24" color="currentColor"/>
-                     <span class="mx-2">{{detailsCourse.title}}</span>
+                     <span class="mx-2">{{otherData.title}}</span>
                   </div>
                   <div class="mx-3" style="color: #FFBC00" >
                      <d-empty-wallet-icon :size="24" color="currentColor"/>
-                     <span class="mx-2">{{detailsCourse.price}}</span>
+                     <span class="mx-2">{{otherData.price}}</span>
                     </div>
                 </div>
               </div>

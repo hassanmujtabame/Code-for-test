@@ -28,7 +28,7 @@ export default {
  name:'action-for-visiter',
  props:['itemPage'],
  computed:{
-    labelBuyBtn(){
+    labelBuyBtn(){ 
         if(this.itemPage.state=='offline')
         return 'أطلب الخدمة';
         return 'إشتري الخدمة';
@@ -38,14 +38,27 @@ export default {
     sendAbuse(){
         this.showAbuseDialog({item:this.itemPage,form:{table_type:'ready-service',table_id:this.itemPage.id}})
     },
-    openBooking(){
-        if(this.itemPage.state=='online'){
-            this.openCheckout()
-        }
+    // openBooking(){
+    //     if(this.itemPage.state=='online'){
+    //         this.openCheckout()
+    //     }
        
-        else if(this.itemPage.state=='offline')
-        this.fireOpenDialog('booking-service',this.itemPage)
-        else{
+    //     else if(this.itemPage.state=='offline')
+    //     this.fireOpenDialog('booking-service',this.itemPage)
+    //     else{
+    //         let dataEvt = {
+    //     title:'انت على وشك شراء الخدمة',
+    //     description:`بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
+    //             type:'warning',
+    //             btns:[
+    //                 {title:this.$t('buy_service'),action:()=> this.openCheckout()}
+    //             ]
+    //     }
+    //     this.showConfirmMsg(dataEvt)
+    //     }
+    // },
+        openBooking(){
+    
             let dataEvt = {
         title:'انت على وشك شراء الخدمة',
         description:`بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
@@ -55,7 +68,6 @@ export default {
                 ]
         }
         this.showConfirmMsg(dataEvt)
-        }
     },
     openCheckout(){
         this.fireOpenDialog('checkout-ready-service-online',{item:{amount:this.itemPage.price,title:this.itemPage.title},data:this.itemPage})
