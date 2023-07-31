@@ -622,6 +622,9 @@ img.landing {
 .main-top {
     background: linear-gradient(275.37deg, #1FB9B3 7.87%, #BBD2C5 101.4%);
 }
+.main-top2 {
+    background: linear-gradient(275.37deg, #BBD2C5 7.87%, #1FB9B3 101.4%);
+}
 
 html[lang=en] .main-top {
     background: linear-gradient(275.37deg, #BBD2C5 7.87%, #1FB9B3 101.4%);

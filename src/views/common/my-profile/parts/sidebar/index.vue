@@ -9,6 +9,7 @@
     <a class="list-group-item list-group-item-action" href="#list-item-7">اعدادات الاشعارت</a>
     <a class="list-group-item list-group-item-action" href="#list-item-8">قائمة الحظر</a>
     <a class="list-group-item list-group-item-action" href="#list-item-9">معرض الاعمال</a>
+    <router-link v-if="userAcademyRole=='student'"  :to="getRouteLocale('academy-your-certificates')"  class="list-group-item list-group-item-action">{{ $t('your-certificates') }}</router-link>
   </div>
 </template>
 
