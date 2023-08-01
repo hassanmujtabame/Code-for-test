@@ -36,7 +36,9 @@ getRoteName(){
 }
  },
  mounted(){
+          this.getRoteName()
 
+console.log('this.$route.name ',this.$route.name );
 }
 }
 
