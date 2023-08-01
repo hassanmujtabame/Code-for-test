@@ -10,13 +10,22 @@
     <a class="list-group-item list-group-item-action" href="#list-item-8">قائمة الحظر</a>
     <a class="list-group-item list-group-item-action" href="#list-item-9">معرض الاعمال</a>
     <router-link v-if="userAcademyRole=='student'"  :to="getRouteLocale('academy-your-certificates')"  class="list-group-item list-group-item-action">{{ $t('your-certificates') }}</router-link>
-    <router-link   :to="getRouteLocale('academy-my-schedules')"  class="list-group-item list-group-item-action">{{ $t('my-schedules') }}</router-link>
-  </div>
+    <router-link  v-if="nameRoute=='academy-my-profile' "  :to="getRouteLocale('academy-my-schedules')"  class="list-group-item list-group-item-action">{{ $t('my-schedules') }}</router-link>
+  </div> 
 </template>
 
 <script>
 export default {
   name: "side-bar",
+  data:()=>{
+    return{
+nameRoute:''
+    }
+  
+},
+  mounted(){
+    this.nameRoute=this.$route.name
+  }
 }
 
 </script>

@@ -1,24 +1,24 @@
 <template>
 <div class="tab-pane fade" id="pills-students-pass-exams" role="tabpanel" aria-labelledby="pills-students-pass-exams-tab" tabindex="0">
                             <div class="text-start ">
-                                <button style="background-color: #F2631C;" class="btn text-white"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+                                <button  style="background-color: #F2631C;" class="btn text-white"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">
                                     رسالة للجميع
                                 </button>
                             </div>
-                            <div class="box">
+                            <div class="box" v-for="item,i in items" :key="i">
     
                            
                                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                                         <div class="d-flex gap-2">
                                             <div>
-                                                <img class="rounded-circle" :src="user.image" alt="" width="48" height="48">
+                                                <img class="rounded-circle" :src="item.image" alt="" width="48" height="48">
                                             </div>
                                             <div>
                                                 <h6 class="m-c p-0 m-0">
-                                                    {{user.name}}
+                                                    {{item.name}}
                                                 </h6>
                                                 <p  class="t-c p-0 m-0">
-                                                    10/10  - دورة الازياء 
+                                                    {{item.description}}
                                                 </p>
                                             </div>
                                         </div>
@@ -32,89 +32,9 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="box">
-    
-                           
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                        <div class="d-flex gap-2">
-                                            <div>
-                                                <img class="rounded-circle" :src="user.image" alt="" width="48" height="48">
-                                            </div>
-                                            <div>
-                                                <h6 class="m-c p-0 m-0">
-                                                    {{user.name}}
-                                                </h6>
-                                                <p  class="t-c p-0 m-0">
-                                                    10/10  - دورة الازياء 
-                                                </p>
-                                            </div>
-                                        </div>
-                                       <div class="d-flex  gap-1 flex-wrap"> 
-                                        <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
-                                            ارسل رسالة
-                                        
-                                        </button>
-                     
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="box">
-    
-                           
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                        <div class="d-flex gap-2">
-                                            <div>
-                                                <img class="rounded-circle" :src="user.image" alt="" width="48" height="48">
-                                            </div>
-                                            <div>
-                                                <h6 class="m-c p-0 m-0">
-                                                    {{user.name}}
-                                                </h6>
-                                                <p  class="t-c p-0 m-0">
-                                                    10/10  - دورة الازياء 
-                                                </p>
-                                            </div>
-                                        </div>
-                                       <div class="d-flex  gap-1 flex-wrap"> 
-                                        <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
-                                            ارسل رسالة
-                                        
-                                        </button>
-                     
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="box">
-    
-                           
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                        <div class="d-flex gap-2">
-                                            <div>
-                                                <img class="rounded-circle" :src="user.image" alt="" width="48" height="48">
-                                            </div>
-                                            <div>
-                                                <h6 class="m-c p-0 m-0">
-                                                    {{user.name}}
-                                                </h6>
-                                                <p  class="t-c p-0 m-0">
-                                                    10/10  - دورة الازياء 
-                                                </p>
-                                            </div>
-                                        </div>
-                                       <div class="d-flex  gap-1 flex-wrap"> 
-                                        <button style="height: 40px; width: 100px;"  class="btn-main px-2 ">
-                                            ارسل رسالة
-                                        
-                                        </button>
-                     
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
+                       
                             
-                            <div class=" mt-5">
+                            <!-- <div class=" mt-5">
     
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination justify-content-center">
@@ -135,13 +55,46 @@
                                       </li>
                                     </ul>
                                   </nav>
-                            </div>
+                            </div> -->
                         </div>
 </template>
 
 <script>
+import CoursesAPI from '@/services/api/academy/exams.js'
+
 export default {
- name:'students-pass-exams'
+ name:'students-pass-exams',
+  data:(vm)=>{
+    return{
+    metaInfo:{
+        current_page:1,
+        total:0,
+        last_page:0,
+        paginate:vm.paginate
+    },
+    items:[],
+    loading:false,
+ }
+},
+methods:{
+   async studentsPassExam(){
+        try{
+          let {data } = await CoursesAPI.studentsNotPassExam()
+          if(data.success){
+              this.items = data.data
+              console.log('data',data.data);
+          }else{
+            //window.SwalError(data.message)
+          }
+        }catch(error){
+          //
+
+        }
+    }
+},
+mounted(){
+    this.studentsNotPassExam()
+}
 }
 </script>
 
