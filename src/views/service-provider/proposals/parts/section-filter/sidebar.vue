@@ -115,7 +115,7 @@
                 :min.sync="filter.min_price"
                 :max.sync="filter.max_price"
                 :lmin="0"
-                :lmax="5000"
+                :lmax="1000"
               />
             </div>
           </div>
