@@ -1,10 +1,10 @@
 <template>
-  <div class="sec-five p-3 max-width-100-hidden">
+  <div class="sec-five the-best-service-providers p-3 max-width-100-hidden">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center container">
         <h1 class="home-section-title w-100 text-center">أفضل مقدمي الخدمات هذا الشهر</h1>
       </div>
-      <d-swiper v-if="!loading" :slides-per-view="4" :space-between="10" is-auto :items="items">
+      <d-swiper v-if="!loading" :slides-per-view="4" :space-between="4" is-auto :items="items">
         <template v-slot:default="{item}">
           <CardMember
             :name="item.name"
@@ -55,4 +55,7 @@ export default {
 </script>
 
 <style>
+.the-best-service-providers .provider-card{
+width: 100% !important;
+}
 </style>
