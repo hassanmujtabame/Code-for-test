@@ -77,10 +77,10 @@ export default {
                 page: metaInfo.current_page,
                 paginate:6,
                 ...this.filterItem
-            }
+            } 
             return await academyAPI.getMyAppointments(params)
         },
-     
+
     },
     mounted() {
         //this.getCategories();
