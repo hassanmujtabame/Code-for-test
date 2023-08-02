@@ -5,7 +5,9 @@
     <div class="user-preview-profile__user-info">
         <img class="user-preview-profile__avatar" :src="member.image" :alt="member.name"/>
         <div class="user-preview-profile__info">
-            <div class="user-preview-profile__tags"><span class="user-preview-profile__tag-item" v-for="(tag,i) in tags" :key="i">{{ tag }}</span></div>
+            <div v-if="userAcademyRole=='student'" class="user-preview-profile__tags"><span class="user-preview-profile__tag-item" > طالبة</span></div>
+            <div v-else class="user-preview-profile__tags"><span class="user-preview-profile__tag-item" v-for="(tag,i) in tags" :key="i">{{ tag }}</span></div>
+            
             <h1 class="user-preview-profile__name">{{ member.name }}</h1>
             <h2 class="user-preview-profile__job">{{ member.job_title??member.job }}</h2>
         </div>
@@ -16,6 +18,8 @@
     </p>
     <!--user footer-->
     <div class="user-preview-profile__footer">
+        <!-- {{member}} -->
+ 
         <button :disabled="userAcademyRole=='student'" v-if="canChat" @click="openChat" class="btn btn-custmer">أرسل رسالة</button>
         <div v-if="!hideSocial" class="user-preview-profile__social-media">
             
