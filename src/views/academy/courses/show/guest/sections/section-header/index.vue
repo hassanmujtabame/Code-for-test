@@ -30,6 +30,7 @@
             <li @click="scollToElement('course-desc',$event)">الوصف</li>
             <li @click="scollToElement('course-teaching',$event)">ماذا ستتعلم</li>
             <li @click="scollToElement('course-contents',$event)">محتويات الدورة</li>
+            <li @click="scollToElement('course-instructors',$event)">{{ $t('course-instructors') }}</li>
             <li @click="scollToElement('course-rates',$event)">التقييمات</li>
          </ul>
         </div>
