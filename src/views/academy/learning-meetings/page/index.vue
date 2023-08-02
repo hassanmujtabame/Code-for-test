@@ -14,9 +14,9 @@
                     </button>
                     </div>
                     <div>
-                        <button style="height: 40px; background-color:#FFBC00 ;" class="btn-main px-3 w-100 border-0 rounded-2" role="button">
+                        <button v-b-modal="'my-modal'" style="height: 40px; background-color:#FFBC00 ;" class="btn-main px-3 w-100 border-0 rounded-2" role="button">
                             <d-send-icon />
-                                شارك
+                                شارك 
                         </button>
                     </div>
                     <div>
@@ -73,11 +73,60 @@
         </div>
       
     </div>
-
+  <!-- The modal -->
+  <b-modal id="my-modal" :hide-header='true' :hide-footer='true'>
+      <h5 style="color:#ebae05;" class="py-3"> شارك اللقاء على مواقع التواصل الاجتماعي</h5>
+            <img style="    display: flex; margin: auto;" :src="`${publicPath}assets/img/Group 1171276011.png`" >
+         <div class="d-flex justify-content-center  gap-4  p-4  p-4 icon-social-exibition mt-4 ">
+                   <button style="background: transparent; border: 0;">
+                      <ShareNetwork
+                          network="twitter"
+                          :url="shareLink"
+                          title="Share in twitter"
+                          description="This is another awesome article for awesome readers"
+                          >
+                          <img class="h-100" :src="`${publicPath}assets/img/Twitter.png`" alt="" />
+                          <!-- twitter-user="LindaOjo_" -->
+                      </ShareNetwork>
+                  </button>
+                    <!-- <button>
+                      <ShareNetwork
+                          network="Instagram"
+                          :url="shareLink"
+                          title="Share in instagram"
+                          description="This is another awesome article for awesome readers"
+                          >
+                          <img class="h-100" :src="`${publicPath}assets/img/Instagram.png`" alt="" />
+                      </ShareNetwork>
+                  </button> -->
+                    <button style="background: transparent; border: 0;">
+                      <ShareNetwork
+                          network="Linkedin"
+                          :url="shareLink"
+                          title="Share in Linkedin"
+                          description="This is another awesome article for awesome readers"
+                          >
+                        <img class="h-100" :src="`${publicPath}assets/img/Linkedin.png`" alt="" />
+                      </ShareNetwork>
+                  </button>
+                  <button style="background: transparent; border: 0;">
+                    <ShareNetwork
+                        network="Facebook"
+                        :url="shareLink"
+                        title="Share in facebook"
+                        description="This is another awesome article for awesome readers"
+                        >
+                        <img class="h-100" :src="`${publicPath}assets/img/Facebook.png`" alt="" />
+                    </ShareNetwork>
+                </button>
+            <div class="fb-share-button" :data-href="currentUrl"  data-layout="button_count">
+              </div>
+            </div>
+  </b-modal>
 
 </div>
 <!-- others meetings-->
-<div class="container">
+<div class="containerl px-4"> 
 <SectionOtherMeetings  />
 </div>
 <confirmJoinMeetingDialog @success="successJoined" @cancel="successCanceled" />
@@ -126,6 +175,7 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
         video:'https://www.youtube.com/embed/dGG9pWXS3ZQ'
     },
     items:[],
+    shareLink:'',
     itemTest:{id:1
       ,title:'خطة العمل ودراسة الجدوى المالية'
       ,categoryName:'مجلس',
@@ -218,10 +268,19 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
   },
   mounted(){
     this.initializing()
+    this.shareLink = window.location.href;
   }
 }
 </script>
 
+
 <style>
+.modal-backdrop{
+--bs-backdrop-zindex: none !important;
+}
+#my-modal___BV_modal_header_ , #my-modal___BV_modal_footer_{
+      visibility: hidden !important;
+}
+
 
 </style>
