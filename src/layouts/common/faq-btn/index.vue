@@ -30,7 +30,7 @@ export default {
  },
  methods:{
 getRoteName(){
-           if (this.$route.name == 'network-exhibition-show' || this.$route.name == 'academy-show-profile' || this.$route.name == 'network-show-profile' || this.$route.name == 'service-provider-show-profile') {
+           if (this.$route.name == 'network-exhibition-show' || this.$route.name == 'academy-show-profile' || this.$route.name == 'network-show-profile' || this.$route.name == 'service-provider-show-profile'|| this.$route.name =='network-exhibition-demand-participate') {
                 return  this.networkExhibition = true
            }else{
                 return  this.networkExhibition = false

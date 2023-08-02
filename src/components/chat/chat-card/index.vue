@@ -10,7 +10,6 @@
         <i @click="$emit('close', item)" class="chat-action fas fa-times text-muted fa-xs"></i>
       </div>
     </div>
-    {{itemForm.message}}
     <div class="card-body chat-view" :id="group" ref="chat-view">
       <div v-for="(dateMsg, i) in Object.keys(messages).reverse()" :key="i" :chatter="chatter">
       <showDivider :text="dateMsg" isDate></showDivider>
