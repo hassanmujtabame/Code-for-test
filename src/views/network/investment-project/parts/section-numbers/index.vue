@@ -74,14 +74,13 @@ import projectAPI from '@/services/api/projects'
 export default {
  name:'section-numbers',
  data:()=>({
-     statics:{}
-//    statics: {
-//         "invest_projects": 'N/A',
-//         "invested": 'N/A',
-//         "investment_amounts": 'N/A',
-//         "demand_investment": 'N/A',
-//         "moral_investments": 'N/A'
-//     }
+   statics: {
+        "invest_projects": 'N/A',
+        "invested": 'N/A',
+        "investment_amounts": 'N/A',
+        "demand_investment": 'N/A',
+        "moral_investments": 'N/A'
+    }
  }),
  methods:{
     async initializing(){
