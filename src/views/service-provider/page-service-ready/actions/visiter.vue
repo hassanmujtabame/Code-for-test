@@ -40,7 +40,7 @@ export default {
     },
     openBooking(){
         if(this.itemPage.state=='online'){
-            this.openCheckout()
+            this.openBookingOnlineSer()
         }
        
         else if(this.itemPage.state=='offline')
@@ -57,18 +57,18 @@ export default {
         this.showConfirmMsg(dataEvt)
         }
     },
-    //     openBooking(){
+        openBookingOnlineSer(){
     
-    //         let dataEvt = {
-    //     title:'انت على وشك شراء الخدمة',
-    //     description:`بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
-    //             type:'warning',
-    //             btns:[
-    //                 {title:this.$t('buy_service'),action:()=> this.openCheckout()}
-    //             ]
-    //     }
-    //     this.showConfirmMsg(dataEvt)
-    // },
+            let dataEvt = {
+        title:'انت على وشك شراء الخدمة',
+        description:`بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
+                type:'warning',
+                btns:[
+                    {title:this.$t('buy_service'),action:()=> this.openCheckout()}
+                ]
+        }
+        this.showConfirmMsg(dataEvt)
+    },
     openCheckout(){
         this.fireOpenDialog('checkout-ready-service-online',{item:{amount:this.itemPage.price,title:this.itemPage.title},data:this.itemPage})
 
