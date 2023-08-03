@@ -4,7 +4,6 @@
                 <div class="row justify-content-evenly ">
                     <div class="col-6 col-md-2 mt-3">
                         <div class="box">
-    
                             <h5 class="m-c fw-bolder">
                                 {{statics.invest_projects}}
                             </h5>
@@ -75,19 +74,21 @@ import projectAPI from '@/services/api/projects'
 export default {
  name:'section-numbers',
  data:()=>({
-   statics: {
-        "invest_projects": 'N/A',
-        "invested": 'N/A',
-        "investment_amounts": 'N/A',
-        "demand_investment": 'N/A',
-        "moral_investments": 'N/A'
-    }
+     statics:{}
+//    statics: {
+//         "invest_projects": 'N/A',
+//         "invested": 'N/A',
+//         "investment_amounts": 'N/A',
+//         "demand_investment": 'N/A',
+//         "moral_investments": 'N/A'
+//     }
  }),
  methods:{
     async initializing(){
         try {
             let {data} =  await projectAPI.getStatistics()
             if(data.success){
+                console.log('data',data);
                 this.statics =Object.assign(this.statics,data.data) 
             }
         } catch (error) {
