@@ -119,7 +119,7 @@ export default {
         })
         try {
             let { data } = await usersAPI.sendMessageToExhibitionOwner(formData)
-            if(this.itemForm.title){
+            if(data.success){
                 let dataMessage = {
                     title:'لقد تم إرسال رسالتك بنجاح',
                     description:'سيتواصل معك مقدم الخدمة عندما يتواجد'
@@ -133,7 +133,6 @@ export default {
         } catch (error) {
             //
         }
-        this.sending = false;
     },
     
     closeEvent(){
