@@ -19,7 +19,7 @@
                                </h2> 
                             </div>
                     
-                        <a href="" class="bg-white  box-tow" >
+                        <div  class="bg-white  box-tow" >
                           
                         <p class="text-dark p-3">
                             ميزات أن تطلب خدمة 
@@ -32,7 +32,7 @@
                             ميزات أن تطلب خدمة 
 
                         </p>
-                        </a>
+                        </div>
                                     
                                    
                     </div>
@@ -54,7 +54,7 @@
                                </h2> 
                             </div>
                     
-                        <a href="" class="bg-white  box-tow" >
+                        <div  class="bg-white  box-tow" >
                           
                         <p class="text-dark p-3">
                                 مميزات أن تقدم خدمة  
@@ -68,7 +68,7 @@
                                 مميزات أن تقدم خدمة  
                           
                         </p>
-                        </a>
+                        </div>
                                     
                                    
                     </div>

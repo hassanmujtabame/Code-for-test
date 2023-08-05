@@ -8,8 +8,7 @@
     <SectionRecentProposals />
     <!-- section explore-services-->
     <!-- <SectionExploreServices /> -->
-
-    <FeaturesService style="margin-top: 150px"/>
+    <FeaturesService style="margin-top: 150px" v-if="userIsProvider"/>
     <!-- section recent-services-->
     <SectionRecentServices />
     <!-- section seek for job-->
