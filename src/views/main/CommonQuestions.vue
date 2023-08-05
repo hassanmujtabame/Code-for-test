@@ -30,12 +30,13 @@
             </div>
         </div>
             <div class="container mt-5">
-                <div class="row ">
+                <div class="row mb-5">
                     <div v-for="(item,i) in questions" :key="i" class="col-md-4 mt-2" >
-                            
-                        <div @click="scollToElement(item.id,$event)" style="cursor: pointer" :style="{'background-color':item.color??colors[i%3]} " class="  box m-auto text-center text-white p-3 rounded-2">
+                            <a :href="`#${item.id}`">
+                        <div style="cursor: pointer" :style="{'background-color':item.color??colors[i%3]} " class="  box m-auto text-center text-white p-3 rounded-2">
                             {{item.title}}
                         </div>
+                            </a>
                     </div>
                     <div  v-if="false" class="col-md-4 mt-2" >
                         <div style="background-color:#2C98B3 ;" class="  box m-auto text-center text-white p-3 rounded-2">
@@ -52,8 +53,9 @@
                 </div>
 
                 <div  v-for="(item,i) in questions"
-                :id="item.id"
-                  :key="i" class="mt-5">
+                
+                  :key="i" class="mb-5">
+                  <div :id="item.id">
                   <ExpandedPanel 
                  
                   :title="item.title" 
@@ -67,6 +69,8 @@
                         {{ child.content }}
                       </ExpandedPanelItem>
                   </ExpandedPanel>  
+                  </div>
+
                 </div>
             </div>
 
@@ -87,7 +91,7 @@ export default {
     colors:['#F2631C','#2C98B3','#FFBC00'],
   questions:[
     {id:'1',
-      title:'الاسئلة الشائعة العامة',
+      title:'الاسئلة العامة',
      children:[
       {title:'ما هي مقدمي خدمات رياديات', content:'lorem1'},
       {title:'كيف أضمن حقوقي؟', content:'lorem2'},
@@ -96,7 +100,7 @@ export default {
      ]
     },
     {id:'2',
-      title:'الاسئلة الشائعة لمقدم الخدمة',
+      title:'اسئلة مقدم الخدمة',
       children:[
       {title:'ما هي مقدمي خدمات رياديات', content:'lorem5'},
       {title:'كيف أضمن حقوقي؟', content:'lorem6'},
@@ -105,7 +109,7 @@ export default {
       ]
     },
     {id:'3',
-      title:'الاسئلة الشائعة لمقدم الخدمة',
+      title:'الاسئلة العميل',
       children:[
       {title:'ما هي مقدمي خدمات رياديات', content:'lorem9'},
       {title:'كيف أضمن حقوقي؟', content:'lorem10'},
