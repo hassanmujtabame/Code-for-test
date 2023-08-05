@@ -3,11 +3,11 @@
     <!-- section Header-->
     <SectionAuthHeader />
     <!-- section recent-Proposals-->
-    <SectionExploreServices />
+    <SectionExploreServices  v-if="userIsProvider" />
 
     <SectionRecentProposals />
     <!-- section explore-services-->
-    <!-- <SectionExploreServices /> -->
+    <SectionExploreServices  v-if="!userIsProvider" />
     <FeaturesService style="margin-top: 150px" v-if="userIsProvider"/>
     <!-- section recent-services-->
     <SectionRecentServices />
