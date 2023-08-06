@@ -15,7 +15,7 @@
                 >{{ $t('more') }}</router-link>
         </div>
       </div>
-      <d-swiper v-if="!loading" is-auto :slides-per-view="4" :space-between="10" :items="items">
+      <d-swiper v-if="!loading" is-auto :slides-per-view="4" :space-between="4" :items="items">
         <template v-slot:default="{ item }">
           
             <CardMember :name="item.name" :to="getRouteLocale('network-show-profile',{id:item.id})" :description="item.description" :img="item.image" />
@@ -69,3 +69,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.provider-card{
+  width:100% !important
+}
+</style>
