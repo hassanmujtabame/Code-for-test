@@ -30,8 +30,8 @@
             </div>
         </div>
             <div class="container mt-5">
-                <div class="row mb-5">
-                    <div v-for="(item,i) in questions" :key="i" class="col-md-4 mt-2" >
+                <div class="row " style="margin-bottom: 100px;">
+                    <div v-for="(item,i) in questions" :key="i" class="col-md-4 my-3" >
                             <a :href="`#${item.id}`">
                         <div style="cursor: pointer" :style="{'background-color':item.color??colors[i%3]} " class="  box m-auto text-center text-white p-3 rounded-2">
                             {{item.title}}
@@ -54,17 +54,19 @@
 
                 <div  v-for="(item,i) in questions"
                 
-                  :key="i" class="mb-5">
+                  :key="i" class="mb-5" >
                   <div :id="item.id">
                   <ExpandedPanel 
-                 
+                    style="margin-bottom: 70px;"
                   :title="item.title" 
                   :id="('accordionFlushExample'+i)"
                   >
                       <ExpandedPanelItem
+                    style="margin-bottom: 30px !important;"
                       v-for="(child,c) in item.children"
                         :key="('c'+c)"
                        :title="child.title"
+                       :borderBottom='true'
                        >
                         {{ child.content }}
                       </ExpandedPanelItem>
@@ -91,7 +93,7 @@ export default {
     colors:['#F2631C','#2C98B3','#FFBC00'],
   questions:[
     {id:'1',
-      title:'الاسئلة العامة',
+      title:'الاسئلة الشائعة العامة',
      children:[
       {title:'ما هي مقدمي خدمات رياديات', content:'lorem1'},
       {title:'كيف أضمن حقوقي؟', content:'lorem2'},
