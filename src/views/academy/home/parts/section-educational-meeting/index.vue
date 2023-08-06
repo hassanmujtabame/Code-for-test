@@ -1,5 +1,5 @@
 <template>
-  <div class="sec-fivell mt-5 p-3">
+  <div class="sec-fivell mt-5 p-3" v-if="items.length">
 
 <div class="containerll">
   <div

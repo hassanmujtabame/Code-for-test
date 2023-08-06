@@ -1,5 +1,5 @@
 <template>
-  <div class=" mt-5 p-3">
+  <div class=" mt-5 p-3" v-if="items.length">
             <div class="container">
               <div
                 class="d-flex justify-content-between align-items-center container"
