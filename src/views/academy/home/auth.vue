@@ -11,6 +11,7 @@
         <SectionRecentCoursesOnline />
         <!-- section recent courses Recored-->
         <SectionRecentCoursesRecored />
+
         <SectionRecentCoursesOnSite />
         <!-- educational meetings-->
         <SectionEducationalMeeting />

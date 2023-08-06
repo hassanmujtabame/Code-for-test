@@ -145,12 +145,13 @@
             <ValidationProvider
               :name="$t('service-price')"
               vid="price"
-              rules="required"
+              :rules="{required:true,numeric: true,min_value:1}"
               v-slot="{errors}"
             >
               <d-text-input
                 :errors="errors"
-                type="text"
+                type="number"
+
                 v-model="itemForm.price"
                 class="form-control"
                 :label="$t('service-price')"
@@ -162,13 +163,15 @@
             <ValidationProvider
               :name="$t('execution-during') "
               vid="execution_period"
-              rules="required"
+
+              :rules="{required:true,numeric: true,min_value:1}"
               v-slot="{errors}"
             >
               <d-text-input
                 :errors="errors"
-                type="text"
+                type="number"
                 v-model="itemForm.execution_period"
+
                 class="form-control"
                 :label="$t('execution-during') + ' (اليوم)'"
               />
