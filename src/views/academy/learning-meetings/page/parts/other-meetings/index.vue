@@ -1,13 +1,16 @@
 <template>
-    <div class="container">
+    <div class="containerl ">
         <div class="sec-five mt-5 p-3">
 
             <div class="">
                 <div class="d-flex justify-content-between align-items-center container">
-                    <h1> لقاءات تعليمية أخرى </h1>
-                    <div>
+                    <h1>  لقاءات تعليمية أخرى </h1>
+                    <!-- <div>
                         <button class="more">{{ $t('more') }}</button>
-                    </div>
+                    </div> -->
+                          <router-link custom :to="getRouteLocale('academy-learning-meetings')" v-slot="{navigate}">
+      <button @click="navigate" role="link" class="more">{{ $t('more') }}</button>
+      </router-link>
                 </div>
                 <d-swiper v-if="!loading" is-auto :items="items">
                     <template v-slot="{ item }">

@@ -13,7 +13,7 @@
     <div class="card-body chat-view" :id="group" ref="chat-view">
       <div v-for="(dateMsg, i) in Object.keys(messages).reverse()" :key="i" :chatter="chatter">
       <showDivider :text="dateMsg" isDate></showDivider>
-      <showMsg v-for="(chatter, j) in messages[dateMsg]" :key="`chatters${j}`" :chatter="chatter">
+      <showMsg  v-for="(chatter, j) in messages[dateMsg]" :key="`chatters${j}`" :chatter="chatter">
        
       </showMsg>
       </div>
@@ -100,6 +100,7 @@ watch:{
             this.$store.commit('chat/ADD_MESSAGE',new_message)
          // this.addMsg({...data.data,time,date,datetime,user_id:this.user.id,user_image:this.user.image})
           this.itemForm.message = '';
+          console.log('data',data);
         }
       } catch (error) {
         console.mylog('errr',error)
@@ -172,6 +173,8 @@ watch:{
 
   },
   mounted() {
+    this.itemForm.to_user_id=this.$route.params.id
+    console.log('id',this.$route.params.id);
     //this.audio = new Audio()
     if(this.$refs['myaudio']){
             this.$refs.myaudio.addEventListener('loadedmetadata',this.onloadedmetadata);

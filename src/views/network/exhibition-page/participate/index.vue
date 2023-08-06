@@ -193,7 +193,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                                <d-user-info-li v-if="!isOwner" sizeImage="100" :member="itemPage.user_info" />
+                                <d-user-info-li-exhibitions v-if="!isOwner" sizeImage="100" :member="itemPage" />
                 <!--details-exhibition-->
                 <detailsExhibitionSection :itemPage="itemPage" />
                 <successSharedExhibitionDialog />

@@ -38,6 +38,8 @@ import DatePickerRange from '@/components/inputs/date-picker/range.vue'
 import DCkeditorClassicInput from '@/components/inputs/d-ckeditor/classic.vue'
 import DUserInfo from '@/components/cards/user-info.vue'
 import DUserInfoLi from '@/components/cards/user-info-left-img.vue'
+import DUserInfoLiExhibitions from "@/components/cards/user-info-left-img-exhibitions.vue";
+
 import DStoryCard from '@/components/cards/story.vue'
 import DJobCard from '@/components/cards/job.vue'
 import DExpandedPanel from '@/components/expanded-panel/ExpandedPanel'
@@ -138,3 +140,4 @@ Vue.component(DSingleList.name, DSingleList)
 Vue.component('rslider-input', RSliderInput)
 Vue.component('d-user-info', DUserInfo)
 Vue.component('d-user-info-li', DUserInfoLi)
+Vue.component("d-user-info-li-exhibitions", DUserInfoLiExhibitions);

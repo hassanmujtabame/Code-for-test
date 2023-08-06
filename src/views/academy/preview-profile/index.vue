@@ -1,10 +1,10 @@
 <template>
   <div style="margin-top: 75px;" class="bg-body-page">
        <div class="container mt-5">
-
            <div class="row">
                <div class="col-md-4  mt-3">
-                   <d-user-preview-profile :member="user" />
+
+                   <d-user-preview-profile :member="user"  :canChat="false" />
                </div>
                <div class="col-md-8 mt-3 ">
                    <div v-if="false" class="row border px-2">

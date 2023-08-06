@@ -17,11 +17,15 @@
     <SectionRecentProposals />
 
     <!-- section 6-->
+    <SectionExploreServices />
+
     <div class="mt-2">
       <SectionNeedService />
     </div>
     <!-- section 7-->
-    <SectionExploreServices />
+    <!-- <SectionExploreServices /> -->
+    
+    <!-- <FeaturesService style="margin-top: 150px"/> -->
 
     <!-- section 8-->
     <SectionRecentServices />
@@ -43,6 +47,8 @@ import SectionBestProvider from "./parts/section-best-provider/index.vue";
 import SectionRecentProposals from "./parts/section-recent-proposals/index.vue";
 import SectionNeedService from "./parts/section-need-service/index.vue";
 import SectionExploreServices from "./parts/section-explore-services/index.vue";
+// import FeaturesService from "./parts/features-service-provider/index.vue";
+
 import SectionRecentServices from "./parts/section-recent-services/index.vue";
 import SectionContinueLearning from "@/views/service-provider/common-components/section-continue-learning/index.vue";
 import SectionHear from "@/views/service-provider/common-components/section-hear/index.vue";
@@ -59,7 +65,8 @@ export default {
     SectionExploreServices,
     SectionRecentServices,
     SectionContinueLearning,
-    SectionHear
+    SectionHear,
+    // FeaturesService
   }
 };
 </script>

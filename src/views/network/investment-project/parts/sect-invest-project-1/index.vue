@@ -1,7 +1,8 @@
 <template>
-    <div class="row">
-        <div class="_d-flex justify-content-between align-items-center container">
+    <div class="row ">
+        <div class="_d-flex  justify-content-between align-items-center container">
             <DMasterFilter
+            class="position-custom"
                     group="d-filter-list-1"
                     classColCard="col-md-6   mt-3"
                     :call-list="initializing"
@@ -90,5 +91,7 @@ export default {
 </script>
 
 <style>
-
+.position-custom .position-relative p{
+    right: 209px !important; 
+}
 </style>

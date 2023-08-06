@@ -30,13 +30,11 @@
             </div>
         </div>
             <div class="container mt-5">
-                <div class="row " style="margin-bottom: 100px;">
-                    <div v-for="(item,i) in questions" :key="i" class="col-md-4 my-3" >
-                            <a :href="`#${item.id}`">
-                        <div style="cursor: pointer" :style="{'background-color':item.color??colors[i%3]} " class="  box m-auto text-center text-white p-3 rounded-2">
+                <div class="row ">
+                    <div v-for="(item,i) in items" :key="i" class="col-md-4 mt-2" >
+                        <div :style="{'background-color':item.color??colors[i%3]} " class="  box m-auto text-center text-white p-3 rounded-2">
                             {{item.title}}
                         </div>
-                            </a>
                     </div>
                     <div  v-if="false" class="col-md-4 mt-2" >
                         <div style="background-color:#2C98B3 ;" class="  box m-auto text-center text-white p-3 rounded-2">
@@ -52,27 +50,21 @@
     
                 </div>
 
-                <div  v-for="(item,i) in questions"
-                
-                  :key="i" class="mb-5" >
-                  <div :id="item.id">
+                <div  v-for="(item,i) in items"
+                  :key="i" class="mt-5">
                   <ExpandedPanel 
-                    style="margin-bottom: 70px;"
+                 
                   :title="item.title" 
                   :id="('accordionFlushExample'+i)"
                   >
                       <ExpandedPanelItem
-                    style="margin-bottom: 30px !important;"
-                      v-for="(child,c) in item.children"
+                      v-for="(child,c) in item.questions"
                         :key="('c'+c)"
                        :title="child.title"
-                       :borderBottom='true'
                        >
                         {{ child.content }}
                       </ExpandedPanelItem>
                   </ExpandedPanel>  
-                  </div>
-
                 </div>
             </div>
 
@@ -92,31 +84,31 @@ export default {
     items:[],
     colors:['#F2631C','#2C98B3','#FFBC00'],
   questions:[
-    {id:'1',
+    {
       title:'الاسئلة الشائعة العامة',
      children:[
-      {title:'ما هي مقدمي خدمات رياديات', content:'lorem1'},
-      {title:'كيف أضمن حقوقي؟', content:'lorem2'},
-      {title:'ماذا لو لم أكن راضياً عن مستوى الخدمة؟', content:'lorem3'},
-      {title:'ماذا سيحدث بعد نشر مشروعي؟', content:'lorem4'}
+      {title:'ما هي مقدمي خدمات رياديات'},
+      {title:'كيف أضمن حقوقي؟'},
+      {title:'ماذا لو لم أكن راضياً عن مستوى الخدمة؟'},
+      {title:'ماذا سيحدث بعد نشر مشروعي؟'}
      ]
     },
-    {id:'2',
-      title:'اسئلة مقدم الخدمة',
+    {
+      title:'الاسئلة الشائعة لمقدم الخدمة',
       children:[
-      {title:'ما هي مقدمي خدمات رياديات', content:'lorem5'},
-      {title:'كيف أضمن حقوقي؟', content:'lorem6'},
-      {title:'ماذا لو لم أكن راضياً عن مستوى الخدمة؟', content:'lorem7'},
-      {title:'ماذا سيحدث بعد نشر مشروعي؟', content:'lorem8'}
+      {title:'ما هي مقدمي خدمات رياديات'},
+      {title:'كيف أضمن حقوقي؟'},
+      {title:'ماذا لو لم أكن راضياً عن مستوى الخدمة؟'},
+      {title:'ماذا سيحدث بعد نشر مشروعي؟'}
       ]
     },
-    {id:'3',
-      title:'الاسئلة العميل',
+    {
+      title:'الاسئلة الشائعة لمقدم الخدمة',
       children:[
-      {title:'ما هي مقدمي خدمات رياديات', content:'lorem9'},
-      {title:'كيف أضمن حقوقي؟', content:'lorem10'},
-      {title:'ماذا لو لم أكن راضياً عن مستوى الخدمة؟', content:'lorem11'},
-      {title:'ماذا سيحدث بعد نشر مشروعي؟', content:'lorem12'}
+      {title:'ما هي مقدمي خدمات رياديات'},
+      {title:'كيف أضمن حقوقي؟'},
+      {title:'ماذا لو لم أكن راضياً عن مستوى الخدمة؟'},
+      {title:'ماذا سيحدث بعد نشر مشروعي؟'}
       ]
     }
   ]

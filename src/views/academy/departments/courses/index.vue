@@ -1,10 +1,10 @@
 <template>
-  <div style="margin-top: 85px " class="consult">
+  <div style="margin-top: 111px " class="consult">
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">
       هناك خطأ غير معروف يرجي تحديث الصفحة
-    </div>
-    <div v-else class="container">
+    </div> 
+    <div v-else class="container mt-5">
     <!--header -->
     <SectionHeader :departmentId="itemPage.id" :title="itemPage.title" />
     <div class="container">

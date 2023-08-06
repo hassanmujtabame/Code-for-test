@@ -4,7 +4,6 @@
                 <div class="row justify-content-evenly ">
                     <div class="col-6 col-md-2 mt-3">
                         <div class="box">
-    
                             <h5 class="m-c fw-bolder">
                                 {{statics.invest_projects}}
                             </h5>
@@ -88,6 +87,7 @@ export default {
         try {
             let {data} =  await projectAPI.getStatistics()
             if(data.success){
+                console.log('data',data);
                 this.statics =Object.assign(this.statics,data.data) 
             }
         } catch (error) {
