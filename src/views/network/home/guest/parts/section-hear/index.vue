@@ -1,5 +1,5 @@
 <template>
-  <div class="sex-eight mt-5  max-width-100-hidden" v-if="this.items.length">
+  <div class="sex-eight my-5  max-width-100-hidden" v-if="this.items.length">
       <div class="container">
         <h2 class="home-section-title text-center">ماذا يقولون المشتركات في الشبكة</h2>
           <div :id="carouselId" class="hear-carousel owl-carousel owl-theme  mt-5">
@@ -10,7 +10,6 @@
                     :name="item.user_info.name"
                     :image="item.user_info.image"
             />
-
           </div>
       </div>
     </div>

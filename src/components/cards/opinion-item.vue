@@ -1,7 +1,7 @@
 <template>
     <div class="item">
         <div class="row align-items-stretch"> 
-            <div class="col-8 position-relative">
+            <div class="col-8 position-relative" style="margin-top: 60px;">
                 <div class="d-flex flex-column">
                 <p class="opinion-text" v-html="desc"></p>
                 <h6 class="opinion-name">{{ name }}
