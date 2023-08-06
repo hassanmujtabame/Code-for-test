@@ -32,13 +32,13 @@
                         </div>
          </d-expanded-panel-item>
             <!--سعر الدورة-->
-         <d-expanded-panel-item title="سعر الدورة">
+         <d-expanded-panel-item opened title="سعر الدورة">
             <div style="margin: 20px 0px 0 0" class="a">
                                     <div class="slider-container">
                                        
                                         <rslider-input
                                          :min.sync="filter.min_price" 
-                                         :max.sync="filter.max_price"
+                                          :max.sync="filter.max_price"
                                          :lmin="0"
                                          :lmax="1000"
                                          />

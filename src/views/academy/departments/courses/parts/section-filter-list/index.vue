@@ -8,6 +8,7 @@ hideTitle
 classSearchOrder="col-lg-8"
 classColOrder="col-12 col-lg-4"
 classColSearch="col-12 col-lg-8"
+@change="changeFilter"
 >
 <template v-slot="{item}">
   

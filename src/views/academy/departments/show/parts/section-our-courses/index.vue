@@ -1,8 +1,17 @@
 <template>
   <div class="container mt-3">
   <div class="row">
-  <div class="col-12">
-    <h1 class="home-section-title text-center"> دورتنا في مجال {{itemPage.title}}</h1>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="home-section-title "> دورتنا في مجال {{itemPage.title}}</h1>
+                      <!-- <a href="" class="text-dark"> -->
+              <router-link style="width: fit-content;" class="router-link" :to="getRouteLocale('academy-department-courses',{id:itemPage.id})">
+       
+         <button class="more">
+
+                          {{ $t('more') }}
+                    </button>
+              </router-link>
+
   </div>
   <div class="col-12">
 <d-filter-list 
