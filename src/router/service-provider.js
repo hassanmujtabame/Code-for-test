@@ -3,7 +3,7 @@ import LayoutDefault from '@/layouts/service-provider'
 const routers = [
 	{
 		path: "service-provider/home",
-		meta: { layout: LayoutDefault, title: "Home" },
+		meta: { layout: LayoutDefault, title: "service provider home" },
 		name: "service-provider-home",
 		component: () =>
 			import(

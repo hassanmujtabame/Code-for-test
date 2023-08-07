@@ -3,7 +3,7 @@ import LayoutDefault from '@/layouts/academy/index.vue';
 const routers = [
 	{
 		path: "academy/home",
-		meta: { layout: LayoutDefault, title: "Home" },
+		meta: { layout: LayoutDefault, title: "academy home" },
 		name: "academy-home",
 		component: () =>
 			import(
