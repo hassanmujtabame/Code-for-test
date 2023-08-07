@@ -127,7 +127,7 @@
                     </div>
         </ValidationObserver>
         <!--form 2-->
-        <ValidationObserver   class="form-step" ref="form2" id="form-step-2" v-show="step==2">
+        <ValidationObserver  class="form-step" ref="form2" id="form-step-2" v-show="step==2">
             <ValidationProvider
                                 :name="$t('Image')"
                              vid="image"
@@ -314,8 +314,13 @@ async uploadImage(evt,validate){
                 console.mylog('invalid step 1');
                 return false;
             }
+            else if(this.itemForm.type =='on-site'){
+                this.saveStep2()
+            }
+            else{
             this.step+=1;
             return true;
+            }
         },
         async saveStep2(){
             let valid = await this.$refs.form2.validate();
