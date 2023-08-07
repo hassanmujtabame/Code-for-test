@@ -110,15 +110,6 @@ const routers = [
 				/* webpackChunkName: "academy-courses" */ "../views/academy/test3.vue"
 			),
 	},
-		{
-		path: "academy/test5",
-		meta: { layout: LayoutDefault, title: "Courses" },
-		name: "academy-test5",
-		component: () =>
-			import(
-				/* webpackChunkName: "academy-courses" */ "../views/academy/test5.vue"
-			),
-	},
 	{
 		path: "academy/courses/:id(\\d+)",
 		meta: { layout: LayoutDefault, title: "Course Show" },
