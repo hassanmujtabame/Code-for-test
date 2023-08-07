@@ -25,6 +25,7 @@
       </d-swiper>
     </div>
     <!--mySwiper service-provider-->
+    
     <div class="px-2">
       <d-swiper
         class="mySwiper service-provider"
@@ -35,7 +36,6 @@
         :freeMode="true"
         @swiper="setThumbsSwiper"
         watch-slides-progress
-        :loop="true"
       >
         <template v-slot="{ item }">
           <img style="heigh115px; object-fit: contain;" :src="item.image" />
