@@ -75,6 +75,15 @@ const routers = [
 			),
 	},
 	{
+		path: "academy/my-schedules-details/:id(\\d+)",
+		meta: { layout: LayoutDefault, title: "my schedules Details" },
+		name: "academy-my-schedules-details",
+		component: () =>
+			import(
+				/* webpackChunkName: "academy-my-schedules" */ "../views/academy/my-schedules/my-schedules-details.vue"
+			),
+	},
+	{
 		path: "academy/preview-profile",
 		name: "academy-preview-profile",
 		meta: { layout: LayoutDefault, auth: true, title: "Preview Profile" },
@@ -108,6 +117,15 @@ const routers = [
 		component: () =>
 			import(
 				/* webpackChunkName: "academy-courses" */ "../views/academy/test3.vue"
+			),
+	},
+	{
+		path: "academy/test5",
+		meta: { layout: LayoutDefault, title: "Courses" },
+		name: "academy-test5",
+		component: () =>
+			import(
+				/* webpackChunkName: "academy-courses" */ "../views/academy/test5.vue"
 			),
 	},
 	{

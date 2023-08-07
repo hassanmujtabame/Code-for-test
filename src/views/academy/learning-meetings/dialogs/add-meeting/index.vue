@@ -127,14 +127,14 @@
                     </div>
         </ValidationObserver>
         <!--form 2-->
-        <ValidationObserver class="form-step" ref="form2" id="form-step-2" v-show="step==2">
+        <ValidationObserver   class="form-step" ref="form2" id="form-step-2" v-show="step==2">
             <ValidationProvider
                                 :name="$t('Image')"
                              vid="image"
                              :rules="imageRules"
                            
                                 v-slot="{validate,errors}">
-            <div class="   m-auto">
+            <div class="   m-auto" >
                     <div class="col-md-12 text-center" v-if="itemForm.type != 'live'">
                         <label for="imginput" class="img-zone form-label file-label first w-100">
                             <div class="text-center p-5">

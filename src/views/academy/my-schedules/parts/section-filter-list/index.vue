@@ -18,15 +18,16 @@
 
             
             <template v-slot="{ item }">
-               
+
+<div @click="router_push('academy-my-schedules-details',{id:item.id})">
                     <scheduleCard 
-                   
                    :title="item.title"
                    :time="item.start_time"
                    :date="item.start_date"
                    color="var(--color-secondary)"
-                   
+                   style="cursor: pointer"
                    />
+    </div>               
         
             </template>
 
