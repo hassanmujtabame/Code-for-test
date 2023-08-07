@@ -2429,7 +2429,7 @@ select.show-arrow {
 .academy-departments .swiper-container-rtl .swiper-button-next {
     left: 0 !important;
 }
-
+ 
 
 .academy-departments .swiper-container-rtl .swiper-button-prev {
     right: 0 !important;
@@ -2617,4 +2617,16 @@ text-align: right !important;
     background-size: 25px 20px !important;
 background-position: left !important;
 padding: 0px  15px !important;
+}
+.vc-arrow {
+  background-color: #F6F8F9 !important;
+  height: 45px;
+  width: 45px;
+}
+.vc-arrow{
+   transform: rotateY(180deg) !important;
+   
+}
+.vc-header{
+    margin-bottom: 80px;
 }

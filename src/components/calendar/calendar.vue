@@ -4,7 +4,7 @@ class="my-schedule"
 :attributes="$attrs.attributes??attributes"
  :locale="$i18n.locale" style="direction:ltr" 
  v-bind="$attrs" 
-v-on="$listeners"
+v-on="$listeners"  
 >
 <template #day-content="props">
   <slot name="day-content" v-bind="props"></slot>
