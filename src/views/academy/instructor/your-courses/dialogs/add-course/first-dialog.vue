@@ -34,6 +34,12 @@
               </template>
               <template v-slot:actions>
               <button @click="nextDialogCourse" class="btn bg-main text-white px-3" >أستمر </button>
+                <div class="d-flex justify-content-center  my-3" style="display: inline-block; width: 100%"> 
+                  <div class="" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                  <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                  <div style="border-radius: 100% ; width: 13px; height: 13px;  background: #1FB9B3 "></div>
+                </div>
+                
                 </template>
 </d-dialog-large>
 </template>
