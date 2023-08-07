@@ -1,6 +1,5 @@
 <template>
 <div class=" my-profile box info border p-3 bg-card" v-bind="$attrs" >
-                        
                         <div class="main-img text-center m-auto avatar-user-card clickable"
             @click="showProfile"
             :style="{'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
