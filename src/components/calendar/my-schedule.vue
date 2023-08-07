@@ -1,8 +1,9 @@
 <template>
   <div class=" section container" style="margin-top: 125px">
+<h2>جدول خطة التسويق</h2>
 
     <vc-calendar
-      class="custom-calendar max-w-full"
+      class="custom-calendar max-w-full mt-5"
       :masks="masks"
       :attributes="attributes"
       disable-page-swipe
