@@ -365,7 +365,7 @@ const routers = [
 	},
 	{
 		path: "network/home",
-		meta: { layout: LayoutDefault, title: "Home" },
+		meta: { layout: LayoutDefault, title: "network home" },
 		name: "network-home",
 		component: () =>
 			import(

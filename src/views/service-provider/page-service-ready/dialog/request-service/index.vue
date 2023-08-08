@@ -92,7 +92,7 @@
                         <label class="form-label"> وقت تنفيذ او استلام الخدمة</label>
                         <div class="">
                         <select v-model="itemForm.execution_period" class="form-select ">
-                            <option value="" class="t-c" selected> وقت تنفيذ او استلام الخدمة</option>
+                            <!-- <option value="" class="t-c" selected> وقت تنفيذ او استلام الخدمة</option> -->
                             <option value="specific_date">تحديد موعد التنفيذ</option>
                             <option value="time_available_product">الاستلام  وقت توفر المنتج</option>
                         </select>

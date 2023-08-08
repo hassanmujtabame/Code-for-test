@@ -1,5 +1,5 @@
 <template>
-  <div class="sec-six" v-if="items.length">
+  <div class="sec-six" v-if="items && items.length>0">
     <div class="container p-3">
       <h2>{{ $t('our-partners-in-riadiat') }}</h2>
       <div class="row justify-content-center gap-2">

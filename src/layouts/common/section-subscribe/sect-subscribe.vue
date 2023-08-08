@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mt-5">
         <div class="sec-subscripe">
             <div class="container">
                 <div class="row align-items-center justify-content-center " :class="{'p-4':!isMobile,'py-4':isMobile}">

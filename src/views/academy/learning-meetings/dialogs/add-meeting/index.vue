@@ -127,15 +127,15 @@
                     </div>
         </ValidationObserver>
         <!--form 2-->
-        <ValidationObserver class="form-step" ref="form2" id="form-step-2" v-show="step==2">
+        <ValidationObserver  class="form-step" ref="form2" id="form-step-2" v-show="step==2">
             <ValidationProvider
                                 :name="$t('Image')"
                              vid="image"
                              :rules="imageRules"
                            
                                 v-slot="{validate,errors}">
-            <div class="   m-auto">
-                    <div class="col-md-12 text-center">
+            <div class="   m-auto" >
+                    <div class="col-md-12 text-center" v-if="itemForm.type != 'live'">
                         <label for="imginput" class="img-zone form-label file-label first w-100">
                             <div class="text-center p-5">
                               <img :src="`${publicPath}assets/svg/empty-image.svg`"  height="96" width="96"/>
@@ -314,8 +314,13 @@ async uploadImage(evt,validate){
                 console.mylog('invalid step 1');
                 return false;
             }
+            else if(this.itemForm.type =='on-site'){
+                this.saveStep2()
+            }
+            else{
             this.step+=1;
             return true;
+            }
         },
         async saveStep2(){
             let valid = await this.$refs.form2.validate();
