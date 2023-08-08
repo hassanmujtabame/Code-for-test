@@ -39,29 +39,30 @@
           </div>
           </div>
           <d-user-info-li v-else sizeImage="100" :member="itemPage.user_info" routeName="network-show-profile"/>
-          <div class="box border rounded-3 p-2 mt-3">
+          <div class="box border rounded-3 p-2 mt-3" v-if="itemPage.related_blogs.length">
             <h3>
               تدوينات أخرى
             </h3>
 
 
-            <div class="blogs-auhter">
+            <div class="blogs-auhter" v-for="(blog,index) in itemPage.related_blogs" :key="index">
               <div class="box rounded-3 border mt-3">
                 <div class="image">
-                  <img class="w-100" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="" height="184">
+                  <img class="w-100" :src="blog.image" alt="" height="184">
                 </div>
                 <div class="text p-3">
-                  <h5>عنوان المدونة </h5>
+                  <h5>{{blog.title}}</h5>
                   <p>
-                    نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي
+                      {{blog.description}}
                   </p>
                 </div>
                 <div class="date d-flex justify-content-between mx-1 p-3">
-                  <p class="m-c">
-                    ريادة الاعمال
-                  </p>
+                    <p v-for="(cat,c) in blog.categories" :key="c" :style="{'background-color':colors[c%3]}" class="m-c">
+                        {{ cat.name }}
+                    </p>
+
                   <p>
-                    10 sep, 2021
+                      {{blog.date}}
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
