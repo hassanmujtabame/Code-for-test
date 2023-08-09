@@ -40,7 +40,37 @@
               تدوينات أخرى
             </h3>
 
+       <div class="blogs-auhter" v-for="(blog,index) in itemPage.related_blogs" :key="index">
+              <div class="box rounded-3 border mt-3">
+                <div class="image">
+                  <img class="w-100" :src="blog.image" alt="" height="184">
+                </div>
+                <div class="text p-3">
+                  <h5>{{blog.title}}</h5>
+                  <p v-html="blog.description">
+                      <!-- {{blog.description}} -->
+                  </p>
+                </div>
+                <div class="date d-flex justify-content-between mx-1 p-3">
+                    <p v-for="(cat,c) in blog.categories" :key="c" :style="{'background-color':colors[c%3]}" class="m-c p-1 rounded-3">
+                        {{ cat.name }}
+                    </p>
 
+                  <p>
+                      {{blog.date}}
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
+                        fill="#979797" />
+                    </svg>
+
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+<!-- 
             <div class="blogs-auhter">
               <div class="box rounded-3 border mt-3">
                 <div class="image">
@@ -147,7 +177,7 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

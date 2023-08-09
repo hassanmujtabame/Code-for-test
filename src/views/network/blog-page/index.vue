@@ -44,7 +44,6 @@
               تدوينات أخرى
             </h3>
 
-
             <div class="blogs-auhter" v-for="(blog,index) in itemPage.related_blogs" :key="index">
               <div class="box rounded-3 border mt-3">
                 <div class="image">
