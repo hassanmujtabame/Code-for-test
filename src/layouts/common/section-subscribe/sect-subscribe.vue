@@ -23,6 +23,7 @@
                                    required
                             >
                             <span @click="subscribe" class="input-group-text bg-yal text-black"
+                            style="cursor:pointer"
                                   :class="{'fs-6':isMobile}"
                                   id="inputGroup-sizing-lg">{{ $t('Subscribe') }}</span>
                         </div>
