@@ -21,6 +21,7 @@
           :department="item.category_name"
           :category="item.field_name"
           :price="item.price"
+          :execution-time="item.execution_period"
           :during="item.rest_days"
           :place="item.city"
           :offers="item.count_offer"
