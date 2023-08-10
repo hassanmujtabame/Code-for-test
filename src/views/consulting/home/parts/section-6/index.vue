@@ -3,7 +3,7 @@
 
 <div class="mt-5">
   <div class="riadiat-of-number">
-      <h2 class="text-center">رياديات في ارقام  </h2>
+      <h2 class="text-center">مركز الاستشارات في ارقام  </h2>
       <div class="row justify-content-center ">
           <div class="col-6 col-md-auto mt-3">
               <div class="box">
@@ -24,8 +24,7 @@
                       5222+
                   </h5>
                   <p>
-                      اشتراك في برامجنا
-
+                        ساعة تدربية
                   </p>
               </div>
           </div>
@@ -33,10 +32,10 @@
               <div class="box">
 
                   <h5 class="m-c fw-bolder">
-                      5222+
+                      898+
                   </h5>
                   <p>
-                      اشتراك في برامجنا
+                  اشتراك في الدورات
 
                   </p>
               </div>
@@ -48,8 +47,7 @@
                       9+
                   </h5>
                   <p>
-                      اشتراك في برامجنا
-
+                       مجالات تدريبية 
                   </p>
               </div>
           </div>
@@ -60,8 +58,7 @@
                       876+
                   </h5>
                   <p>
-                      اشتراك في برامجنا
-
+                       محاضرة 
                   </p>
               </div>
           </div>

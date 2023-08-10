@@ -1,6 +1,6 @@
 <template>
   <div class=" section container" style="margin-top: 125px">
-<h2>جدول خطة التسويق</h2>
+<h2 @click="loadBlogCategories">جدول خطة التسويق</h2>
 
     <vc-calendar
       class="custom-calendar max-w-full mt-5"
@@ -79,7 +79,7 @@ export default {
             title: 'Take car to the shop',
             class: 'bg-red-600 text-white',
           },
-          dates: new Date(year, month, 5),
+          dates: new Date(year, month, 20),
         },
         {
           key: 4,
@@ -124,6 +124,19 @@ export default {
       ],
     };
   },
+methods:{
+       async loadBlogCategories() {
+            try {
+                let { data } = await this.$axios.get('academy/schedule')
+                if (data.success) {
+                  console.log('data',data);
+                    // this.categories = data.data
+                }
+            } catch (error) {
+                console.log('error', error)
+            }
+        },
+}
 };
 </script>
 

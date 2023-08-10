@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-                <h2 class="text-center">
+  <div class="container">  
+                <h2 class="text-center my-5">
                     أهداف الاستشارة من رياديات 
                 </h2>
                 <div class="row min-riadiat">

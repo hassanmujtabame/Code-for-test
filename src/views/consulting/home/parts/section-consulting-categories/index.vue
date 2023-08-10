@@ -9,7 +9,7 @@ class="d-flex justify-content-between align-items-center container my-2"
   <button @click="router_push('consulting-fields')" class="more">{{ $t('more') }}</button>
 </div>
 </div>
-<div  v-if="isMobile">
+<!-- <div  v-if="isMobile">
 <d-swiper
               v-if="!loading"
               :slides-per-view="4"
@@ -33,7 +33,28 @@ class="d-flex justify-content-between align-items-center container my-2"
    <consultingFieldCard :item="item"/>
    </router-link>
 </div>
-</div>
+</div> -->
+
+   <div class="container">
+        <d-swiper
+          v-if="!loading"
+          :slides-per-view="4"
+          is-auto
+          :space-between="10"
+          :items="items"
+        >
+          <template v-slot="{ item }">
+            <router-link
+              class="router-link"
+              :to="getRouteLocale('consulting-field-consultants', { id: item.id })"
+            >
+            
+   <consultingFieldCard :item="item"/>
+             
+            </router-link>
+          </template>
+        </d-swiper>
+      </div>
 </div>
 </template>
 
@@ -53,7 +74,7 @@ export default {
     async initializing(){
       this.loading = true;
         try {
-            let { data } = await consultingAPI.fields.getBest({paginate:4})
+            let { data } = await consultingAPI.fields.getBest()
             if(data.success){
                 this.items = data.data
             }

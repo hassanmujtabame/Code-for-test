@@ -8,7 +8,7 @@
                         </h1>
                         <p class="text-white">
                             تقدمي إلى الأمام وابدئي مشروعك باستشارة مهنية في أغلب المجالات 
-                        </p>
+                        </p> 
                         <div class="btn-main-style">
                             <a href="" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
                             <a class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }} </a>

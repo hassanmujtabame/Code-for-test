@@ -5,7 +5,7 @@
                 class="d-flex justify-content-between align-items-center container"
               >
                 <h1 class="home-section-title">أبرز مستشارينا</h1>
-                <div>
+                <div>  
                   <router-link :to="getRouteLocale('consulting-consultants')" class="more">{{ $t('more') }}</router-link>
                 </div>
               </div>

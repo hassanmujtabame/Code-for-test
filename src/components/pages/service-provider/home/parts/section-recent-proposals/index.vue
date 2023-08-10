@@ -26,7 +26,7 @@
             :offers="item.count_offer"
             :datePublish="item.created_at"
             :image="item.image"
-            :resetDays="item.rest_days"
+            :resetDays="item.rest_days" 
             :department="item.category_name"
           />
         </a>
