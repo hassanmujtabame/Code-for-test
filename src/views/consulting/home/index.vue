@@ -1,7 +1,8 @@
 <template>
     <div style="margin-top: 85px " class="consult">
           <!-- section header-->
-          <SectionHeader />
+          <SectionHeader v-if="token"/>
+          <SectionHeader2 v-if="!token"/>
           <!--#section 1-->
          <!-- section help to start-->
          <SectionHelpToStart/>
@@ -37,6 +38,7 @@
   
   <script>
   import SectionHeader from './parts/section-header/index.vue'
+  import SectionHeader2 from './parts/section-header-old/index.vue'
 
   import SectionGoals from './parts/section-goals/index.vue'
   import SectionLaunchNow from './parts/section-launch-now/index.vue'
@@ -61,6 +63,7 @@
     Section6,
     whatSay,
     Section7,
+    SectionHeader2,
     AreYouConsultor
 
   }
