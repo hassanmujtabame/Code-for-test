@@ -18,7 +18,7 @@ class InstructorBlogsApi extends BaseApi {
 		return window.axios.put(`network/blogs/${id}`, data);
 	}
 	updateBlog(id, data) {
-		data.append("_method", "PUT");
+		// data.append("_method", "PUT");
 		return window.axios.put(`academy/instructor/blogs/${id}`, data);
 	}
 	deleteItem(id) {

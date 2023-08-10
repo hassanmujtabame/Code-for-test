@@ -57,7 +57,7 @@
                                  rules="required"
                                     v-slot="{errors}">
 
-                                    <d-multiselect-input
+                         <d-multiselect-input
                             track-id="id" label-name="name"
                             multi-select
                             :opts="categories" 
@@ -68,7 +68,6 @@
                             </d-multiselect-input>
                                 </ValidationProvider>
                       </div>
-                    
                         <!--content-->
                         <div class="mb-3">
                             <ValidationProvider
@@ -119,6 +118,7 @@ export default {
         description:'',
         short_description:'',
         category_id:[],
+        categories:[],
         tag:[],
     }
   }},
@@ -132,18 +132,29 @@ export default {
             this.loading =  false;
             return ;
         }
-     let formData = new FormData();
-     formData.append('title',this.blog.title);
-     formData.append('ar[title]',this.blog.title);
-     formData.append('ar[description]',this.blog.description);
-     formData.append('ar[short_description]',this.blog.short_description);
-     formData.append('image',this.file);
-     formData.append('user_id',this.user.id);
-     if(Array.isArray(this.blog.category_id)){
-        this.blog.category_id.forEach(cat=> formData.append('categories[]',cat))
-     }
+    //  let formData = new FormData();
+    //  formData.append('title',this.blog.title);
+    //  formData.append('ar[title]',this.blog.title);
+    //  formData.append('ar[description]',this.blog.description);
+    //  formData.append('ar[short_description]',this.blog.short_description);
+    //  formData.append('image',this.file);
+    //  formData.append('user_id',this.user.id);
+    //  if(Array.isArray(this.blog.category_id)){
+    //     this.blog.category_id.forEach(cat=> formData.append('categories[]',cat))
+    //  }
+   
         try {
-            let { data } = await BlogsAPI.updateBlog(this.blog.id,formData)
+            let { data } = await BlogsAPI.updateBlog(this.blog.id,{
+                '_method': 'PUT',
+                title:this.blog.title,
+                'ar[title]':this.blog.title,
+                'image':this.file,
+                description:this.blog.description,
+                'categories':this.blog.category_id,
+                'ar[short_description]': this.blog.short_description,
+                'user_id':this.user.id,
+
+            })
             if(data.success){
                
                 let dataEvt={
@@ -214,6 +225,7 @@ export default {
         }
     },
     openDialog(data){
+        console.log(data);
         this.loading =  false;
         this.imageUrl = data.image
         this.blog.id=data.id
@@ -236,7 +248,7 @@ export default {
     },
     closeEvent(){
        this.fireEvent(this.group+'-close-dialog')
-    }
+    },
   },
   mounted(){
     this.loadBlogCategories()
