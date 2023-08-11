@@ -79,7 +79,7 @@ html:lang(en) body {
     --color-dark-gray: #414042;
 }
 
-*:lang(ar) {
+/* *{
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
@@ -88,15 +88,26 @@ html:lang(en) body {
     font-family: 'Amiri', change;
 
 }
-*:lang(en){
+*/
+
+
+body:lang(ar) {
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    font-family: 'Amiri', change;
+
+}
+body:lang(en){
 box-sizing: border-box;
     list-style: none;
     text-decoration: none;
     -moz-appearance: none !important;
     appearance: none !important;
     font-family:'Playfair Display' , 'Yanone Kaffeesatz' ;
-}
-
+} 
 .img-fill {
     height: 100%;
     width: 100%;
