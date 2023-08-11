@@ -20,7 +20,7 @@
 }
 @font-face {
     font-family: "Playfair Display";
-        src: url(../fontPlayfairDisplay-Black/PlayfairDisplay-Black.woff2) format('woff2');
+    src: url(../fontPlayfairDisplay-Black/PlayfairDisplay-Black.woff2) format('woff2');
     src: url(../fontPlayfairDisplay-Black/PlayfairDisplay-Black.woff) format('woff');
     src: url(../fontPlayfairDisplay-Black/PlayfairDisplay-BlackItalic.woff) format('woff');
     src: url(../fontPlayfairDisplay-Black/PlayfairDisplay-BlackItalic.woff2) format('woff2');
@@ -37,22 +37,16 @@
 }
 @font-face {
     font-family: 'Yanone Kaffeesatz';
-  src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Bold.woff2) format('woff2');
+     src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Bold.woff2) format('woff2');
     src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Bold.woff) format('woff');
     src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Regular.woff) format('woff');
     src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Regular.woff2) format('woff2');
     src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-ExtraLight.woff) format('woff');
     src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-ExtraLight.woff2) format('woff2');
-        src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Light.woff) format('woff');
+    src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Light.woff) format('woff');
     src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Light.woff2) format('woff2');
 
 }
-/* html:lang(ar) {
-    font-family: "Amiri";
-}
-html:lang(en) body {
-    font-family: "Amiri";
-} */
  
 :root {
     --swiper-navigation-size: 15px;
