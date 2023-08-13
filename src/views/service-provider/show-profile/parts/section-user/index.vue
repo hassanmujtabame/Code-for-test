@@ -67,10 +67,12 @@
                     <div class="box border  mt-3">
                         <div>
                             <h3 class=" border-bottom p-2">
-                                تقيم الخدمه 
+                              تقيم الخدمه 
                             </h3>
                         </div>
-                        <div v-for="(item,i) in items" :key="i" class="box border-bottom">
+                        <div  v-if="items && items.length>0" >
+
+                        <div  v-for="(item,i) in items" :key="i" class="box border-bottom">
 
                             <div class="d-flex align-items-center justify-content-between  m-0 p-2">
                                     <div class="d-flex align-items-center ">
@@ -93,8 +95,12 @@
                                 </p>
                             </div>
                         </div>
-                        
+                        </div>
+                               <div v-else class="d-flex align-items-center justify-content-center">
+                <h6 class="t-c">لا توجد تقييمات</h6>
+            </div>
                     </div>
+               
                 </div>
 </template>
 
