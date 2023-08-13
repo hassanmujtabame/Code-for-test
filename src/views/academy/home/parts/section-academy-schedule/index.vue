@@ -1,11 +1,10 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="token">
             <div class=" section-schedule ">
                 <h2>جدول اكاديمية رياديات</h2>
                 <p>
                     هنا تجدين كل المواعيد  المهمة الخاصة بأكاديمية رياديات
                                 </p>
-                
                 <div class="section-schedule-content">
                     <div class="row p-2">
                         <div class="col-md-8">
