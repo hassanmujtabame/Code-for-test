@@ -1,8 +1,8 @@
 <template>
 <div id="course-rates">
     <h1  class="course-guest-section__title">{{ $t('rates') }}</h1>
-    <div class="mt-3">
-      <rateCard v-for="(r,i) in rates"  :key="i"
+    <div class="mt-3"  v-if="itemPage.rates && itemPage.rates.length>0">
+      <rateCard v-for="(r,i) in itemPage.rates"  :key="i"
       :name="r.user_info.name"
       :image="r.user_info.image"
       :rate="r.rate"
@@ -11,6 +11,10 @@
       class="mt-2"
       />
     </div>
+   <div v-else class="d-flex align-items-center justify-content-center">
+                <h3 class="t-c">لا توجد تقييمات</h3>
+            </div>
+
     </div>
 </template>
 
@@ -39,7 +43,7 @@ export default {
     itemTest,
     itemTest,]
   return {
-  rates:process.env.NODE_ENV=='development' && vm.itemPage.rates.length==0?ratesTest:vm.itemPage.rates
+  // rates:process.env.NODE_ENV=='development' && vm.itemPage.rates.length==0?ratesTest:vm.itemPage.rates
  }
 }
 }
