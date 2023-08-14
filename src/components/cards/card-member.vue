@@ -1,5 +1,5 @@
 <template>
-  <div class="provider-card">
+  <div class="provider-card" >
     <div class="provider-card__wrapper">
       <div class="provider-card__image">
         <router-link v-if="to" :to="to">
@@ -7,7 +7,7 @@
         </router-link>
         <img v-else @click="$emit('click-image')" :src="img" alt width="259" height="192" />
       </div>
-      <div class="provider-card__content" :class="{ 'p-3': !description }">
+      <div class="provider-card__content" :class="{ 'p-3': !description }" style="height: 165px !important; display: flex; flex-direction: column; justify-content: space-between;">
         <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
         <p v-if="description" class="provider-card__description">{{ description }}</p>
         <div v-if="showRate">
