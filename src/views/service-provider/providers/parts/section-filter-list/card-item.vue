@@ -1,5 +1,5 @@
 <template>
-  <div class="provider-card" style="height: 340px;">
+  <div class="provider-card" style="height: 360px;">
   <div class="provider-card__wrapper">
   <div class="provider-card__rate"><img :src="`${publicPath}assets/svg/star-move.svg`" width="24" height="24" /><span>{{ rate }}</span></div>
   <div class="provider-card__avatar">
@@ -10,7 +10,7 @@
     <div class="provider-card__job">{{ job }}</div>
     <div class="provider-card__bio text-two-lines">{{ bio }}</div>
   </div>
-<div class="provider-card__actions">
+<div class="provider-card__actions mb-3">
     <button @click="openChat" ><i  class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
 </div>
   </div>
@@ -98,6 +98,7 @@ color: #FFBC00;
     /* identical to box height, or 150% */
     /* 979797 */
     color: #979797;
+    height: 28px;
 }
 .provider-card__bio{
     font-style: normal;
