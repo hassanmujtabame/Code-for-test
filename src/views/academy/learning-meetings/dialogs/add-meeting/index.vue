@@ -108,7 +108,7 @@
                     v-slot="{errors}"
                     v-if="step==1"
                     >
-                    <d-text-input name="meeting_url" type="text" :errors="errors"  v-model="itemForm.meeting_url"  :label="$t('meeting-url')" />
+                    <d-text-input name="meeting_url" type="text" :errors="errors"  v-model="itemForm.meeting_url"  :label="itemForm.type != 'on-site'?$t('meeting-url') : 'رابط موقع المقر' " />
                 </ValidationProvider>
                 </div>
                 <div class="mt-3">
