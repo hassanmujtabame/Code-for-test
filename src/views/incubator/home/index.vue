@@ -3,7 +3,7 @@
         <!-- section top-->
         <SectionTop />
        <!-- section definition-->
-       <SectionDefinition/>
+       <SectionDefinition v-if="!token"/>
 
         <!-- section features-->
         <SectionFeatures />
@@ -11,20 +11,20 @@
        <!-- section ads-->
        <SectionAds department="incubator"  />
        <sectionJourneyLaunch />
-        <SectionIncubationProgram />
+        <SectionIncubationProgram  v-if="!token"/>
         <!-- section 6-->
-        <SectionDepartments />
+        <SectionDepartments v-if="!token"/>
 
         <!-- section 7-->
         <SectionProgramsProjects />
-        <SectionHaveProject />
+        <SectionHaveProject v-if="!token"/>
          <!-- section 8-->
          <SectionOurPartners />
          <!-- section 9-->
          <SectionIncubationProjects /> 
         <!-- section 10-->
         <SectionSchedule />
-        <SectionNumbers />
+        <!-- <SectionNumbers /> -->
         <!-- section 11-->
         <SectionContinueLearning />
         <!-- section 12-->
@@ -44,7 +44,7 @@ import SectionProgramsProjects from './parts/section-programs-projects/index.vue
 import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionIncubationProjects from './parts/section-incubation-projects/index.vue'
 import SectionSchedule from './parts/section-schedule/index.vue'
-import SectionNumbers from './parts/section-numbers/index.vue'
+// import SectionNumbers from './parts/section-numbers/index.vue'
 import SectionContinueLearning from './parts/section-continue-learning/index.vue'
 import SectionHear from './parts/section-hear/index.vue'
 import SectionHaveProject from './parts/section-have-project/index.vue'
@@ -55,7 +55,7 @@ components:{
   SectionDefinition,
   SectionFeatures,
   SectionAds,
-  SectionNumbers,
+  // SectionNumbers,
   sectionJourneyLaunch,
   SectionIncubationProgram,
   SectionDepartments,

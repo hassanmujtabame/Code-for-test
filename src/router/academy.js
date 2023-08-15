@@ -129,6 +129,15 @@ const routers = [
 			),
 	},
 	{
+		path: "academy/test6",
+		meta: { layout: LayoutDefault, title: "Courses" },
+		name: "academy-test6",
+		component: () =>
+			import(
+				/* webpackChunkName: "academy-courses" */ "../views/academy/test6.vue"
+			),
+	},
+	{
 		path: "academy/test4",
 		meta: { layout: LayoutDefault, title: "Courses" },
 		name: "academy-test4",

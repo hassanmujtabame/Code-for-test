@@ -7,6 +7,18 @@
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('personal_page') }}</button>
                     </router-link>
                 </div>
+                   <div class="box  mx-2 mt-3 ">
+                    <d-incubator-business-icon class="m-c" color="currentColor"/>
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('incubator-incubator-business')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('incubator-stages') }}</button>
+                    </router-link>
+                </div> 
+                   <div class="box  mx-2 mt-3 ">
+                    <paperclip-icon class="m-c" color="currentColor"/>
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('network-models')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('Models') }}</button>
+                    </router-link>
+                </div> 
 
                 <div class="box  mx-2 mt-3 ">
                     <d-empty-wallet-icon class="m-c" color="currentColor" />
