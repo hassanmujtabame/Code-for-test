@@ -8,7 +8,7 @@
         {{ itemDialog.id?$t('meeting-modification'):$t('add-meeting') }}
         </template>
     <template v-slot:default>
-        <p class="t-c fs-r-16-24">يمكنك رفع فيديو تعليمي لمدة ساعة</p>
+        <p class="t-c fs-r-16-24" v-if="itemForm.type != 'live'">يمكنك رفع فيديو تعليمي لمدة ساعة</p>
         <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
             <!--meeting-type-->
@@ -135,7 +135,7 @@
                            
                                 v-slot="{validate,errors}">
             <div class="   m-auto" >
-                    <div class="col-md-12 text-center" v-if="itemForm.type != 'live'">
+                    <div class="col-md-12 text-center" >
                         <label for="imginput" class="img-zone form-label file-label first w-100">
                             <div class="text-center p-5">
                               <img :src="`${publicPath}assets/svg/empty-image.svg`"  height="96" width="96"/>
@@ -153,7 +153,9 @@
                     </div>
                 </div>
             </ValidationProvider>
-            <ValidationProvider tag="div" 
+            <ValidationProvider 
+                                v-if="itemForm.type != 'live'"
+                                tag="div" 
                                 :name="$t('lecture-video')"
                                 vid="video"
                                 :rules="videoRules"
