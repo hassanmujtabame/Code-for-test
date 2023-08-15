@@ -6,7 +6,7 @@
     <template v-slot="{closeNavList}" >
             <li class="nav-item px-2">
               <!-- <a class="nav-link active" aria-current="page" href="../index.html"
-                >الرئيسية</a
+                >الرئيسية</a 
               > -->
               <router-link :to="getRouteLocale('service-provider-home')"  class="nav-link">{{ $t('Home-page') }}</router-link>
             </li>
@@ -35,11 +35,12 @@ export default {
         userIsRoleProvider:false,
       items:[
         /**provider */
-        {route:'service-provider-proposals', text:vm.$t('show-your-services'),provider:true},
+        // {route:'service-provider-proposals', text:vm.$t('show-your-services'),provider:true},
         {route:'service-provider-my-ready-services', text:vm.$t('my-services'),provider:true},
         {route:'service-provider-contact-us',text:vm.$t('contact-us'),provider:true},
-        /** client */
+        /** client */ 
         {route:'service-provider-ready-services', text:vm.$t('service'),provider:false},
+        {route:'service-provider-proposals', text:vm.$t('requests'),provider:true},
         /*{route:'service-provider-my-proposals', text:vm.$t('my-proposals'),provider:false},*/
         {route:'service-provider-providers', text:vm.$t('service-providers'),provider:false},
         //{route:'service-provider-client-my-purchases', text:vm.$t('my-purchases'),provider:false},

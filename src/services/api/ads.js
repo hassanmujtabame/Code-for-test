@@ -1,6 +1,6 @@
 import BaseApi from "./base-service";
 class AdsApi extends BaseApi{
- 
+  
     getAll(params={}){
         let s=this.generateQueryUrl(params)
         ///user/banners?position=string&paginate=number

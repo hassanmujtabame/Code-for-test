@@ -58,7 +58,7 @@ class readyServicesApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`service-provider/provider/rates?${s}`);
     }
-    getRequestsForPurchaseService(params={}){
+    getRequestsForPurchaseService(params={}){ 
         let s=this.generateQueryUrl(params)
         /**
          * status :  underway waiting  cancel finished

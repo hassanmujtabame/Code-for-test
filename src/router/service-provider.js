@@ -195,10 +195,15 @@ const routers = [
 				/* webpackChunkName: "service-provider-ready-services" */ "../views/service-provider/ready-services/index.vue"
 			),
 	},
+
 	{
 		path: "service-provider/ready-services/:id(\\d+)",
-		meta: { layout: LayoutDefault, auth: true, title: "Ready Service",type: "service-provider"
-},
+		meta: {
+			layout: LayoutDefault,
+			auth: true,
+			title: "Ready Service",
+			type: "service-provider",
+		},
 		name: "service-provider-ready-service",
 		component: () =>
 			import(

@@ -104,7 +104,7 @@
         style.remove()
     }
    },
-   methods:{
+   methods:{ 
       async initializing(){
           this.loading = true;
           try {

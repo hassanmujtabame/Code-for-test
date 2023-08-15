@@ -29,6 +29,8 @@
             :executionTime="item.execution_period"
             :resetDays="item.rest_days"
             :department="item.category_name"
+            :state="item.state"
+
           />
         </a>
       </div>

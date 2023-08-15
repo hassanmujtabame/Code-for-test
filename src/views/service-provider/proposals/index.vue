@@ -1,16 +1,23 @@
 <template>
-    <div style="margin-top: 85px " class="consult max-width-100-hidden">
+    <div style="margin-top: 85px " class="consult max-width-100-hidden ">
         <div class="consulting ">
             <div class="container">
                 <div class="row justify-content-between">
-                    <div class="col-md-6">
-                        <h1 class="fs-1 text-white">الخدمات</h1>
-                        <p class="text-white fs-r-24">
-                            يمكنك عرض خدماتك ومهارتك على أصحاب المشاريع  و تحديد قيمة الصفقة المناسبة لكلاً منكم </p>         
+                    <div class="col-md-6 mt-5">
+                        <h1 class="fs-1 text-white my-5">
+                            <!-- الخدمات -->
+                            الطلبات
+                        </h1>
+                        <p class="text-white fs-r-24 mt-5">
+                            يمكنك أضافة خدماتك و ما يمكنك تقديمه الى العملاء كخدمات جاهزة يمكنهم طلب شرائها منك
+                            <!-- يمكنك عرض خدماتك ومهارتك على أصحاب المشاريع  و تحديد قيمة الصفقة المناسبة لكلاً منكم
+                                   -->
+                             </p>    
+
                     </div>
                     <div class="col-md-6">
-                        <div style="overflow: inherit;" class=" m-auto text-start ">
-                            <img  :src="`${publicPath}assets/img/Group 3066.png`" alt="" >
+                        <div style="overflow: inherit;" class=" m-auto text-start p-5 pb-0">
+                            <img  :src="`${publicPath}assets/img/VECTOR25.png`" alt="" >
                         </div>
 
                     </div>
