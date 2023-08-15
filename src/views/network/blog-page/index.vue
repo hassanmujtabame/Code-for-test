@@ -51,8 +51,9 @@
                 </div>
                 <div class="text p-3">
                   <h5>{{blog.title}}</h5>
-                  <p>
-                      {{blog.description}}
+                  <p v-html="blog.description">
+
+                      <!-- {{blog.description}} -->
                   </p>
                 </div>
                 <div class="date d-flex justify-content-between mx-1 p-3">
