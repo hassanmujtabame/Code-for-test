@@ -42,7 +42,7 @@
             <!-- </keep-alive> -->
                 </div>
                     <!--price-->
-            <div class="mb-3">
+            <div class="my-3">
                 <!-- <keep-alive> -->
                 <ValidationProvider :name="$t('course-price')"
                     vid="price"
@@ -217,6 +217,27 @@
                 <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i> 
                 أستمر
             </button>
+              <div v-if="step==1" class="d-flex justify-content-center my-3" style="display: inline-block; width: 100%"> 
+                  <div class="" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                  <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea "></div>
+                  <div class="" style="border-radius: 100% ; width: 13px; height: 13px;  background: #1FB9B3;"></div>
+                  <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                </div>
+                    <div v-if="step==2" class="d-flex my-3 justify-content-center mt-3" style="display: inline-block; width: 100%"> 
+                  <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                
+                  <div style="border-radius: 100% ; width: 13px; height: 13px;  background: #1FB9B3 "></div>
+                
+                  <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                  <div class="" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                </div>
+                    <div v-if="step==3" class="d-flex my-3 justify-content-center mt-3" style="display: inline-block; width: 100%"> 
+                  <div style="border-radius: 100% ; width: 13px; height: 13px;  background: #1FB9B3 "></div>
+                
+                  <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                  <div class="" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                  <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
+                </div>
                 </template>
     </d-dialog-large>
     </template>
@@ -319,7 +340,7 @@
                         title:' خطوتك الاولى تمت بنجاح عليك الان برفع الدروس و المرفقات',
                         btns:[
                             {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
-                        ]
+                        ] 
                     }
                     if(this.itemForm.id){
                         dataEvt={
@@ -434,7 +455,8 @@
         closeDialog(){
             this.showDialog = false;
             return true;
-        }
+        },
+  
       },
       mounted(){
         this.loadDepartments()
