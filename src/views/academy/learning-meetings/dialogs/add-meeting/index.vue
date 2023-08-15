@@ -47,7 +47,7 @@
                 </ValidationProvider>
                 </div>
                  <!--start_date-->
-            <div class="mt-3" name="start_date">
+            <div class="mt-3" name="start_date" v-if="itemForm.type !='recored'" >
                         <ValidationProvider :name="$t('meeting-date')"
                             vid="start_date"
                             rules="required"
@@ -59,7 +59,7 @@
                 </ValidationProvider>
                 </div>
                 <!--time-->
-            <div class="mt-3 d-flex justify-content-around gap-1">
+            <div class="mt-3 d-flex justify-content-around gap-1" v-if="itemForm.type !='recored'">
                         <ValidationProvider :name="$t('start-time')"
                         tag="div"
                         class="flex-grow-1"
@@ -101,7 +101,7 @@
                 </ValidationProvider>
             
                 </div>
-                <div class="mt-3">
+                <div class="mt-3" v-if="itemForm.type !='recored'">
                     <ValidationProvider :name="$t('meeting-url')"
                     vid="meeting_url"
                     :rules="itemForm.type == 'live' ? 'required' : ''"
