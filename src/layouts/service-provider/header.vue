@@ -3,7 +3,8 @@
   hideSearch
   prefixRoute='service-provider-'
   >
-    <template v-slot="{closeNavList}" >
+    <template v-slot="{}" >
+      <!-- closeNavList -->
             <li class="nav-item px-2">
               <!-- <a class="nav-link active" aria-current="page" href="../index.html"
                 >الرئيسية</a 
@@ -13,9 +14,9 @@
             <li :key="i" v-for="(item,i) in items.filter(x=>x.provider === userIsRoleProvider)" class="nav-item px-2">
               <router-link :to="getRouteLocale(item.route)"  class="nav-link">{{ item.text }}</router-link>
             </li>
-            <button @click="openAddService($event,closeNavList)" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center text-white">
+            <!-- <button @click="openAddService($event,closeNavList)" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center text-white">
               {{userIsRoleProvider?$t('add-new-service'):$t('add-new-request') }}
-            </button>
+            </button> -->
           
                   <button @click="switchRole" class="btn m-c">{{userIsRoleProvider?$t('switch-to-buyer') : $t('switch-to-provider') }}</button>
                   </template>
@@ -36,7 +37,7 @@ export default {
       items:[
         /**provider */
         // {route:'service-provider-proposals', text:vm.$t('show-your-services'),provider:true},
-        {route:'service-provider-my-ready-services', text:vm.$t('my-services'),provider:true},
+        // {route:'service-provider-my-ready-services', text:vm.$t('my-services'),provider:true}, 
         {route:'service-provider-contact-us',text:vm.$t('contact-us'),provider:true},
         /** client */ 
         {route:'service-provider-ready-services', text:vm.$t('service'),provider:false},

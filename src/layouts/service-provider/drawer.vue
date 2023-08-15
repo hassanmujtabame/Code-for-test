@@ -74,6 +74,14 @@
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('how-see-me-others') }}</button>
                     </router-link>
                 </div>
+                  <div v-if="userIsProvider" class="box  mx-2 mt-3 ">
+                    <!-- lamp-->
+                    <lock-icon />
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-ready-services')" class="mx-2 m-c ">
+                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('my-services') }}
+                            </button>
+                    </router-link>
+                </div>
                 <div class="box  mx-2 mt-3 ">
                   <lockPassIcon />
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('change-password')" class="mx-2 m-c ">
@@ -87,6 +95,8 @@
 <script>
 import TemplateDrawer from '@/layouts/tamplate/drawer/index.vue'
 import lampIcon from '@/components/icon-svg/lamp-icon'
+import lockIcon from '@/components/icon-svg/lock-icon'
+
 import closedWalletIcon from '@/components/icon-svg/closed-wallet.vue'
 import userRectIcon from '@/components/icon-svg/user-rect-icon.vue'
 import schoolWalletIcon from '@/components/icon-svg/school-wallet.vue'
@@ -111,7 +121,8 @@ export default {
         emptyWalletIcon,
         invoiceIcon,
         eyeOpenIcon,
-        lockPassIcon
+        lockPassIcon,
+        lockIcon
     },
     methods: {
         clickLink(navigate,evnt){
