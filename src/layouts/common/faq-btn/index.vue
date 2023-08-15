@@ -1,6 +1,7 @@
 <template>
   <router-link custom :to="getRouteLocale('common-questions')" v-slot="{navigate}">
   <div @click="navigate"
+  class="px-3"
 :class="[ networkExhibition ? 'faq-btn-fixed-network': 'faq-btn-fixed']"
   > 
   <div class="faq-btn-wrapper">

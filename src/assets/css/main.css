@@ -2688,3 +2688,6 @@ padding: 0px  15px !important;
 .vc-header{
     margin-bottom: 80px;
 }
+button:focus{
+    outline: none !important;
+}
