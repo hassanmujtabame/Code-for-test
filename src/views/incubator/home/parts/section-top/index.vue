@@ -10,11 +10,10 @@
 
                         <div class="my-5">
                         <a v-if="!token" @click="shouldLoginMsg" class="btn-custmer shadow mt-2 "> {{ $t('join-us') }} </a>
-                              <router-link v-else-if="userIsSubIncubator" :to="getRouteLocale('incubator-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
+                              <router-link v-else-if="!userIsSubIncubator" :to="getRouteLocale('incubator-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
                               <a v-else @click="shouldSubNetworkMsg(subNetworkTitle,$event)"  class="btn-custmer shadow mt-2 "> {{ $t('join-us') }} </a>
                               <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2 mx-3"> {{ $t('login-female') }}  </router-link>
                              </div> 
-                                        
                     </div>
                     <div class="col-3 col-md-6 m-auto">
                         <div style="overflow: inherit;" class="img-cons m-auto ">
