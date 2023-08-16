@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div> 
 
                         <div class="box d-flex align-items-center justify-content-between ">
                             <h5 :style="{color:color}">
@@ -46,8 +46,11 @@ export default {
     }),
     methods:{
      async initializing(){
+    let formData = new FormData();
+   
+      formData.append('code',this.code)
         try {
-          let {data}= await commonAPI.getWidgetValue({code:this.code})
+          let {data}= await commonAPI.getWidgetValue(formData)
           if(data.success){
             this.value=data.data
           }

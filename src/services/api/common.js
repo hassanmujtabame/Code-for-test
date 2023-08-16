@@ -13,7 +13,7 @@ class CommonApi extends BaseApi {
         return window.axios.post(`contact-us`,{data});
     }
     getWidgetValue(data){
-      return window.axios.post(`widget/dash`,{data});
+      return window.axios.post(`widget-dash`, data); 
 
     }
     getOpinions(params={department_name:'riadiat'}){
