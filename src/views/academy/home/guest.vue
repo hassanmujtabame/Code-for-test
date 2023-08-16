@@ -8,7 +8,7 @@
         <!--#section 2-->
         <!-- section 3-->
         <SectionFeatures />
-        <sectionAdvertisements/>
+        <SectionAds department="academy" />
         <SectionHelpsYou />
         <SectionSubscribeNow />
         <!--#section 3-->
@@ -58,7 +58,8 @@ import SectionGuestHeader from './parts/section-guest-header/index.vue'
 import SectionTwo from './parts/section-2/index.vue'
 import SectionThree from './parts/section-3/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
-import sectionAdvertisements from './parts/section-advertisements/index.vue'
+// import sectionAdvertisements from './parts/section-advertisements/index.vue'
+import SectionAds from '@/common/components/advertisements/index'
 
 import SectionHelpsYou from './parts/section-helps-you/index.vue'
 import SectionSubscribeNow from './parts/section-subscribe-now/index.vue'
@@ -82,7 +83,7 @@ components:{
   SectionThree,
   SectionHelpsYou,
   SectionFeatures,
-  sectionAdvertisements,
+  SectionAds,
   SectionSubscribeNow,
   sectionTopInstructor,
   SectionTrainingFields,

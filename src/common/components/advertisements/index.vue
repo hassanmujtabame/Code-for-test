@@ -1,5 +1,5 @@
 <template>
-          <div class="container">
+          <div class="container mt-5" v-if="sliders && sliders.length>0">
               <div  :id="carouselId" class="ads-carousel owl-carousel owl-theme">
               <ItemSlide
                 v-for="(item,i) in sliders"
