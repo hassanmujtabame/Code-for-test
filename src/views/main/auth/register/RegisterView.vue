@@ -106,6 +106,7 @@
                 ></span>
               </div>
               <div class="text-input-error">{{ errors[0] }}</div>
+
             </ValidationProvider>
 
             <ValidationProvider
@@ -131,6 +132,7 @@
                 ></span>
               </div>
               <div class="text-input-error">{{ errors[0] }}</div>
+              <span class="text-input-error" v-if="errorPasswordConfirm">{{ errorPasswordConfirm }}</span>
             </ValidationProvider>
 
             <div class="col-12 text-center">
@@ -163,6 +165,7 @@ export default {
     show: false,
     showC: false,
     phone_codes: [],
+    errorPasswordConfirm:null,
     form: {
       email: process.env.EMAIL || "",
       password: process.env.PASSWORD || "",
@@ -193,7 +196,7 @@ export default {
       this.hasError = false;
       this.message = "";
       let valid = await this.$refs.form.validate();
-      if (!valid) {
+      if (!valid || this.errorPasswordConfirm) {
         console.log("form invalid");
         return;
       }
@@ -226,6 +229,15 @@ export default {
       }
     }
   },
+    watch: {
+         'form.passwordConfirm': function (val) {
+           console.log(val);
+           if (val != this.form.password) {
+                return this.errorPasswordConfirm = "كلمة السر غير مطابقة"  
+           }
+            return  this.errorPasswordConfirm=null
+         }
+        },
   mounted() {
     this.loadCountries();
   }
