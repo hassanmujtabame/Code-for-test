@@ -28,7 +28,7 @@ export default {
       return [
         {
           id: 1,
-          image: `${this.publicPath}assets/svg/browser.svg`,
+          image: `${this.publicPath}assets/svg/Group89.svg`,
           title: "خدمات تقدم اونلاين",
           description:
             "هي خدمات تقدم عن بعد من أي مكان تفضله مثل ( تصميم الهوية البصرية - تصميم لوجو - البرمجة - كتابة المحتوى - التصميم الداخلي - إلخ...)",
