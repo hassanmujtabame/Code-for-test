@@ -15,7 +15,7 @@ hideSide
 
     <div class="row">
     <div class="col-12 col-md-6 mb-3" v-for="btn in meetingType" :key="btn.id" >
-      <button class="btn w-100" :class="[btn.active?'btn-custmer':'btn-default']" @click="getMeetingLearn(btn.id)">{{btn.text}} </button>
+      <button class="btn w-100" :class="[btn.active?'btn-custmer':'btn-default']" @click="getMeetingLearn(btn)">{{btn.text}} </button>
     </div>
 
   </div>
@@ -49,7 +49,7 @@ export default {
   },
   data:(vm)=>{
     return {
-      meetingType:[{text:'لقاءات قادمة',id:1,active:true},{text:'لقاءات ماضية',id:2,active:false}],
+      meetingType:[{text:'لقاءات قادمة',id:1,active:true,type:'coming'},{text:'لقاءات ماضية',id:2,active:false,type:'completed'}],
       itemTest:
     {id:1,title:'خطة العمل ودراسة الجدوى المالية',userName:'مجلس',date:'23 يوليو',image:`${vm.publicPath}assets/img/learning.png`},
       filterSide:{
@@ -61,6 +61,8 @@ export default {
             price:'asc',
             is_share:null,
             category_id:[],
+            status:'coming',
+
         },
       items:[
         {},
@@ -73,11 +75,13 @@ export default {
     }
   },
   methods:{
-    getMeetingLearn(id){
+    getMeetingLearn(data){
       for (let index = 0; index < this.meetingType.length; index++) {
         const element = this.meetingType[index];
-           if (element.id==id) {
+           if (element.id==data.id) {
         element.active=true
+        this.filterItem.status=element.type;
+        this.fireEvent('d-filter-list-refresh')
       }else{
         element.active=false
       }
