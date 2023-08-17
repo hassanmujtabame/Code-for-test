@@ -12,7 +12,7 @@
       class="btn"
         @click='addMarker'
       >
-        Add
+        Add {{address}}
       </button>
     </div>
     </div>
@@ -63,7 +63,8 @@ export default {
           lat: this.currentPlace.geometry.location.lat(),
           lng: this.currentPlace.geometry.location.lng(),
         };
-        this.markers.push({ position: marker });
+        // this.markers.push({ position: marker });
+        this.markers =[{ position: marker }];
         this.places.push(this.currentPlace);
         this.center = marker;
         this.currentPlace = null;
@@ -77,7 +78,8 @@ export default {
         lng: event.latLng.lng(),
       };
       console.log(marker);
-      this.markers.push({ position: marker });
+      // this.markers.push({ position: marker });
+      this.markers=[{ position: marker }];
 
       // this.$refs.mmm.panTo(marker);
       //this.center = marker;
