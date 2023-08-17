@@ -36,6 +36,8 @@
 <script>
 export default {
   name: 'GoogleMap',
+
+
   data() {
     return {
      center: { lat: 24.774265, lng: 46.738586 },
@@ -79,7 +81,9 @@ export default {
 
       // this.$refs.mmm.panTo(marker);
       //this.center = marker;
-      this.address = marker
+      this.address = marker;
+            this.$emit('address_map', this.address)
+ 
   },
     geolocate: function() {
       navigator.geolocation.getCurrentPosition(position => {
@@ -89,7 +93,7 @@ export default {
         };
       });
     },
-  },
+  }, 
 };
 </script>
 <style>
