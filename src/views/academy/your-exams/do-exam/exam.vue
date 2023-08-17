@@ -30,7 +30,7 @@
         </div>
         <div class="do-exam__footer">
             <button :disabled="step<=1  || responsing" @click="prevStep" class="btn btn-custmer btn-small">السابق</button>
-            <button :disabled="step>itemPage.number_questions || responsing" @click="nextStep" class="btn btn-custmer btn-small">
+            <button :disabled="step>itemPage.number_questions || responsing" @click="nextStep" class="btn btn-custmer btn-small mx-3">
                 <i class="fa fa-spinner fa-spin" v-if="responsing"></i>
                 إرسال الجواب</button>
         </div>
