@@ -12,7 +12,7 @@
       class="btn"
         @click='addMarker'
       >
-        Add {{address}}
+        Add 
       </button>
     </div>
     </div>
