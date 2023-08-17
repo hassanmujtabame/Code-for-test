@@ -26,6 +26,15 @@
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('subscribes') }}</button>
                     </router-link>
                 </div>
+
+                      <div class="box  mx-2 mt-3 ">
+                    <d-cup-icon class="m-c" color="currentColor"/>
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-your-exams')" class="mx-2 m-c ">
+                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">إختباراتك</button> 
+                    </router-link>
+                </div>
+
+
                 <div class="box  mx-2 mt-3 ">
                   <d-invoice-icon class="m-c" color="currentColor"/>
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-financial-transactions')" class="mx-2 m-c ">

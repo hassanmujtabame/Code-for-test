@@ -5,7 +5,7 @@
                 <div class="row align-items-center mb-3">
                     <div class=" col-12 col-md-4 mt-3">
                         <h4 class="fw-bold">
-                            الاختبارت 
+                           88 الاختبارت 
                         </h4>
                     </div>
                     <div class=" col-12 col-md-5 mt-3">

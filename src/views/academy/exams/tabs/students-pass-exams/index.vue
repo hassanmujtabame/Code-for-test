@@ -2,7 +2,7 @@
 <div class="tab-pane fade" id="pills-students-pass-exams" role="tabpanel" aria-labelledby="pills-students-pass-exams-tab" tabindex="0">
                             <div class="text-start ">
                                 <button  style="background-color: #F2631C;" class="btn text-white"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">
-                                    رسالة للجميع
+                                     رسالة للجميع
                                 </button>
                             </div>
                             <div class="box" v-for="item,i in items" :key="i">
@@ -79,7 +79,7 @@ export default {
 methods:{
    async studentsPassExam(){
         try{
-          let {data } = await CoursesAPI.studentsNotPassExam()
+          let {data } = await CoursesAPI.studentsPassExam()
           if(data.success){
               this.items = data.data
               console.log('data',data.data);
@@ -93,7 +93,7 @@ methods:{
     }
 },
 mounted(){
-    this.studentsNotPassExam()
+    this.studentsPassExam()
 }
 }
 </script>

@@ -26,7 +26,7 @@ class CoursesApi extends BaseApi{
     }
     deleteItem(id){
         return window.axios.delete(`academy/instructor/courses/${id}`);
-    }
+    } 
     getCoursesHasExams(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructor/course-exams?${s}`);

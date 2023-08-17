@@ -24,9 +24,9 @@
                 </div>
                 <showQuestion @update="updateResponse" :item="currentQuestion"/>
             </div>
-            <div v-if="env.NODE_ENV=='development'">
+            <!-- <div v-if="env.NODE_ENV=='development'">
         {{ responses.map(x=>x.value) }}
-    </div>
+    </div> -->
         </div>
         <div class="do-exam__footer">
             <button :disabled="step<=1  || responsing" @click="prevStep" class="btn btn-custmer btn-small">السابق</button>

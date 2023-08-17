@@ -5,7 +5,7 @@
     <div class="do-exam__wrapper">
         <div class="do-exam__header">
             <div class="do-exam__header-start">
-            <h1 class="do-exam__title">اختبار 1 : دورة الازياء</h1>
+            <h1 class="do-exam__title">{{exam.title}}</h1>
         </div>
             <div class="do-exam__header-end">
                 <d-dots-progress :dots="questions.length" :value="step" />
@@ -19,13 +19,13 @@
         
         />
             </div>
-            <div v-if="env.NODE_ENV=='development'">
+            <!-- <div v-if="env.NODE_ENV=='development'">
         {{ responses.map(x=>x.value) }}
-    </div>
+    </div> -->
         </div>
         <div class="do-exam__footer">
             <button :disabled="step<=1" @click="prevStep" class="btn btn-custmer btn-small">السابق</button>
-            <button :disabled="step>=questions.length" @click="nextStep" class="btn btn-custmer btn-small">التالى</button>
+            <button :disabled="step>=questions.length" @click="nextStep" class="btn btn-custmer btn-small mx-3">التالى</button>
         </div>
     </div>
 </div>

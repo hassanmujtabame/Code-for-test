@@ -4,8 +4,9 @@
         <h3 class="course-exam-display__subtitle">الحالة: <span class="m-c">{{exam.is_open?$t("opened"):$t('closed') }}</span></h3>
         <h3 class="course-exam-display__subtitle">النتيجة: <span :class="{'m-c':exam.status=='pass','m-r':exam.status=='fail'}">{{ $t(exam.status) }}</span></h3>
         <div class="text-center">
-            <button @click="doStart" :disabled="exam.status=='pass' || !exam.is_open" class="btn btn-custmer">إبدا الاختبار</button>
+            <button @click="doStart" :disabled="exam.status=='pass'" class="btn btn-custmer">إبدا الاختبار</button>
         </div>
+        <!-- :disabled="exam.status=='pass' || !exam.is_open":disabled="exam.status=='pass' || !exam.is_open" -->
         </div>
 </template>
 

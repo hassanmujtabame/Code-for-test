@@ -35,6 +35,9 @@ class ExamsApi extends BaseApi {
 	deleteExam(id) {
 		return window.axios.delete(`academy/instructor/courses/exam/${id}`);
 	}
+	getExam(id) {
+		return window.axios.get(`academy/instructor/courses/exam/${id}`);
+	}
 	updateExam(id, data) {
 		data.append("_method", "PUT");
 		return window.axios.post(`academy/instructor/course-exams/${id}`, data);

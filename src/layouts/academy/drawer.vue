@@ -19,6 +19,9 @@
                     </router-link>
                 </div>
 
+                  
+
+
         <div class="box  mx-2 mt-3 ">
                     <invoiceIcon />
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-financial-transactions')" class="mx-2 m-c ">

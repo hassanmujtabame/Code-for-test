@@ -217,7 +217,7 @@ const routers = [
 			),
 	},
 	{
-		path: "academy/my-exams/:id(\\d+)/do-exam",
+		path: "academy/my-exams/:id(\\d+)/do-exam", 
 		meta: { layout: LayoutDefault, auth: true, title: "Do Exam" },
 		name: "academy-your-exams-do-exam",
 		component: () =>
