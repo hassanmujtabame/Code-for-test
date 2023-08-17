@@ -223,11 +223,11 @@ export default {
         description: "",
         service_categories_ids: [],
       },
-      addressName:[
-        {'address_name':{
+      addressName:{
+          address_name:'',
           lat:'',
           lng:''
-        }}],
+        },
       features: [],
       providerCategories: [],
       cities: [],
@@ -273,7 +273,7 @@ export default {
         main_image: this.file,
       });
       
-      formData.append(`map_address`, this.addressName[0]);
+      formData.append(`map_address`, this.addressName);
 
       this.selectedImages.forEach((image) => {
         formData.append(`images[]`, image.file);
@@ -420,8 +420,8 @@ export default {
       }
     },
     getAddressMap(data){
-      this.addressName[0].address_name.lat=data.lat
-      this.addressName[0].address_name.lng=data.lng
+      this.addressName.lat=data.lat
+      this.addressName.lng=data.lng
 console.log('getAddressMap',data);
     }
   },
