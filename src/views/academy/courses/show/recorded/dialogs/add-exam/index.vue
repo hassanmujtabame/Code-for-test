@@ -9,8 +9,8 @@
   
       <template v-slot:header>
         <!-- <span v-html="titleDialog"></span> -->
-       {{ itemForm.id? $t('exam-modification'): $t('new-exam')}} : <span class="m-c"> {{titleEXM}} </span>
-
+       {{ itemForm.id? $t('exam-modification'): $t('new-exam')}} : <span class="m-c"> {{itemForm.title}} </span>
+<!-- ***{{titleEXM}} -->
         </template>
       <template v-slot:default>
           <bodyExam v-if="showDialog" @add="addItem"  @update="updateItem" :courseId="itemPage.id" :itemSelected="itemDialog"></bodyExam>
