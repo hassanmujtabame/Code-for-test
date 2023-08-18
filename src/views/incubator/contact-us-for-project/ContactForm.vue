@@ -32,7 +32,7 @@
                                 tag="div"
                                 class="flex-grow-1"
                     vid="phone" 
-                    rules="required|numeric|min:8" 
+                    rules="required|numeric|min:10" 
                     v-slot="{ errors }"
                     >
                                 <d-text-input :errors="errors" type="text"  v-model="form.phone"
