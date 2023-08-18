@@ -9,8 +9,10 @@
                   v-for="(item,i) in categories"
                   :key="i"
                   :current.sync="currentTab" group="pills"  :reference="`cat-${item.id}`">
-                  {{ item.user_name }}
+                  {{ item.name }}
                   </TabHead>
+                
+           
                  </DTabs>
                  <div class="container">
   
@@ -56,7 +58,7 @@
   async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await partnersAPI.getAll();
+          let { data } =  await partnersAPI.getCategories();
           if(data.success){
             this.categories = data.data
           console.log('this.categories',this.categories)
