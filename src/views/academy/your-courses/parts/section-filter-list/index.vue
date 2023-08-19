@@ -3,6 +3,7 @@
 :call-list="loadList"
 classColCard="col-12 col-md-4 mt-3"
 hideSide
+@change="changeFilter"
 >
 <template v-slot:total="{}">
    <h1 class="fw-bolder">دوراتي التدريبة</h1>
@@ -10,10 +11,10 @@ hideSide
 <template v-slot:before-body>
   <div class="row">
     <div class="col-12 col-md-6">
-      <button class="btn w-100" :class="[status=='incomplete'?'btn-custmer':'btn-default']">الدورات الحالية</button>
+      <button  @click="changeStatus('in-progress')" class="btn w-100" :class="[status=='in-progress'?'btn-custmer':'btn-default']">الدورات الحالية</button>
     </div>
     <div class="col-12 col-md-6">
-      <button class="btn  w-100" :class="[status=='complete'?'btn-custmer':'btn-default']">الدورات المنجزة</button>
+      <button @click="changeStatus('completed')"  class="btn  w-100" :class="[status=='complete'?'btn-custmer':'btn-default']">الدورات المنجزة</button>
     </div>
   </div>
   <div>
@@ -43,8 +44,13 @@ export default {
   },
   data:()=>{
     return {
-      status:'incomplete',
-      items:[]
+      status:'in-progress',
+      items:[],
+         filterItem:{
+            search:null,
+            order_by:'asc',
+            status:'in-progress',
+        },
     }
   },
   methods:{
