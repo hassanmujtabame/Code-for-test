@@ -86,7 +86,7 @@
             </ValidationProvider>
           </div>
           <div class="mb-3">
-            <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required" v-slot="{ errors }">
+            <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required">
               <!-- <d-text-input :errors="errors" v-model="form.location" label="رابط العنوان على خرائط جوجل" /> -->
             <div style="border: 1px solid"> رابط العنوان على خرائط جوجل</div> 
               <google-map @address_map='getAddressMap'/>
