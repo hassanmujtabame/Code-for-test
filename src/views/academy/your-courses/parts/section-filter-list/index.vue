@@ -14,7 +14,7 @@ hideSide
       <button  @click="changeStatus('in-progress')" class="btn w-100" :class="[status=='in-progress'?'btn-custmer':'btn-default']">الدورات الحالية</button>
     </div>
     <div class="col-12 col-md-6">
-      <button @click="changeStatus('completed')"  class="btn  w-100" :class="[status=='complete'?'btn-custmer':'btn-default']">الدورات المنجزة</button>
+      <button @click="changeStatus('completed')"  class="btn  w-100" :class="[status=='completed'?'btn-custmer':'btn-default']">الدورات المنجزة</button>
     </div>
   </div>
   <div>
