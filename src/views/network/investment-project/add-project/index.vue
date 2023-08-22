@@ -641,7 +641,7 @@ export default {
                 let { data } = await ProjectAPI.addItem(formData)
                 //console.log('success', data)
                 if (data.success) {
-                    this.openSuccessDialog()
+                    this.openSuccessDialog(evt)
                     Object.keys(this.itemForm).forEach(key => {
                         this.itemForm[key] = this.project_default[key];
                     })
