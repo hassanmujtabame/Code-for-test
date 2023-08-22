@@ -322,6 +322,7 @@
                   <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
                   <div class="" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
                 </div>
+                <!-- router_push('academy-course-show', {id: data.data.course_id}) -->
         </template>
     </d-dialog-large>
 </template>
@@ -443,7 +444,7 @@ export default {
                             btns: [
                                 {
                                     title: 'صفحة الدورة',
-                                    action: () => this.router_push('academy-course-show', {id: data.data.course_id}),
+                                    action: () => this.refreshPage(),
                                     class: 'btn btn-custmer'
                                 }
                             ]

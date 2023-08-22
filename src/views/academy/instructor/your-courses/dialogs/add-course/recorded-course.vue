@@ -239,6 +239,7 @@
                   <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
                 </div>
                 </template>
+                <!-- router_push('academy-course-show',{id:data.data.course_id}) -->
     </d-dialog-large>
     </template>
     
@@ -339,7 +340,7 @@
                 let dataEvt={
                         title:' خطوتك الاولى تمت بنجاح عليك الان برفع الدروس و المرفقات',
                         btns:[
-                            {title:'صفحة الدورة',action:()=>this.router_push('academy-course-show',{id:data.data.course_id}),class:'btn btn-custmer'}
+                            {title:'صفحة الدورة',action:()=>this.refreshPage(),class:'btn btn-custmer'}
                         ] 
                     }
                     if(this.itemForm.id){
