@@ -236,9 +236,13 @@
               />
             </ValidationProvider>
           </div>
+            <div style="border: 1px solid"> مكان إقامة الخدمة</div> 
+
+              <google-map @address_map='getAddressMap'/>
+
 
           <!--details-->
-          <div class="mb-3">
+          <div class="my-3">
             <ValidationProvider
               :name="$t('service-description')"
               vid="desc"
@@ -397,7 +401,12 @@ export default {
       imageFile: null,
       gallaries: [],
       gallariesUrl: [],
-      itemForm: {}
+      itemForm: {},
+       addressName:{
+          address_name:'',
+          lat:'',
+          lng:''
+        },
     };
   },
   methods: {
@@ -593,6 +602,11 @@ export default {
     },
     closeEvent() {
       this.fireEvent(this.group + "-close-dialog");
+    },
+      getAddressMap(data){
+      this.addressName.lat=data.lat
+      this.addressName.lng=data.lng
+console.log('getAddressMap',data);
     }
   },
   mounted() {
