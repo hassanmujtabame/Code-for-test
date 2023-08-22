@@ -39,8 +39,8 @@ export default {
   methods:{
     goToProjects(){
       this.closeMe();
-      this.$router.push(this.getRouteLocate('network-investment-project'))
-      
+      this.$router.push(this.getRouteLocale('network-investment-project'))
+
     },
     closeMe(){
     this.fireCloseDialog(this.group)
