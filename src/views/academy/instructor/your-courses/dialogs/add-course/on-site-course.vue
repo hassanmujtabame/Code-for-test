@@ -5,6 +5,7 @@
         </template>
         <template v-slot:default>
             <div v-if="showDialog" ref="form" class="form-onsite" tag="div">
+                {{itemForm}}
                 <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step == 1">
                     <!--number_day -->
                     <div class="mt-3">
@@ -148,6 +149,9 @@
                                 :label="$t('suggest-course-place')">
                                
                             </d-text-input>
+
+              <google-map @address_map='getAddressMap'/>
+
 
                         </ValidationProvider>
                         <!-- </keep-alive> -->
@@ -308,10 +312,20 @@ export default {
             loading: false,
             itemForm: {id:null},
             errors:{},
-            errorDayes:null
+            errorDayes:null,
+            addressName:{
+            address_name:'',
+            lat:'',
+            lng:''
+            },
         }
     },
     methods: {
+            getAddressMap(data){
+      this.addressName.lat=data.lat
+      this.addressName.lng=data.lng
+console.log('getAddressMap',data);
+    },
         deleteLearn(index){
             this.itemForm.learn.splice(index,1)
         },
@@ -475,7 +489,12 @@ export default {
                 image: null,
                 price: 0,
                 type_training: null,
-                instructors:dataEvt.instructors??[]
+                instructors:dataEvt.instructors??[],
+                      addressName:{
+            address_name:'',
+            lat:'',
+            lng:''
+            },
             }
             if (dataEvt) {
                 let { id, course_days,
