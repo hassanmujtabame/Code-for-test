@@ -6,7 +6,7 @@
   :style="{direction:$i18n.locale=='ar'?'rtl':'ltr'}"
   :mode="mode" :is24hr="is24hr"  :masks="masks"
   :maxDate="maxDate"
-  :minDate="minDate"
+  :minDate="new Date()"
   :disabled="disabled"
   :modelConfig="modelConfig"
 
