@@ -2,7 +2,7 @@
   <div class="row ">
         <div class="col-md-6 mt-4">
             <div class="box one  p-3">
-                <h3 class="m-c fw-bolder text-start">
+                <h3 class="m-c fw-bolder text-startl">
                     تهانينا
                 </h3>
                 <p>

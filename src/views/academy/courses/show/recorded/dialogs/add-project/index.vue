@@ -137,7 +137,7 @@
               if(this.itemForm.id){
                 this.$emit('update',{...this.itemForm})
                 this.eventUpdateLectures({...this.itemForm,type:'project'},'update')
-
+ 
               }else{
                 this.itemForm.id= data.data.project_id
                 this.$emit('add',{...this.itemForm})

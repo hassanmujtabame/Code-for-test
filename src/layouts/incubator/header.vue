@@ -13,12 +13,12 @@
               <router-link :to="getRouteLocale('incubator-incubator-business')" class="nav-link">{{ $t('incubator-stages') }}</router-link>
             </li>
             <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-exhibitions')" class="nav-link">{{ $t('learning-meetings') }}</router-link>
+              <router-link :to="getRouteLocale('incubator-your-learning-meetings')" class="nav-link">{{ $t('learning-meetings') }}</router-link>
             </li>
            
            <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-offers')" class="nav-link">{{ $t('training-courses') }}</router-link>
-            </li>
+              <router-link :to="getRouteLocale('incubator-your-courses')" class="nav-link">{{ $t('training-courses') }}</router-link>
+            </li> 
 
             
             <li class="nav-item px-2">

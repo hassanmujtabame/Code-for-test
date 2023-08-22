@@ -13,7 +13,7 @@
                                 rules="required"
                                 v-slot="{errors}"
                             class="">
-                    <d-text-input :errors="errors" v-model="itemForm.title" label="اسم المرفق الجديد" >
+                    <d-text-input :disabled="!lectureId"  :errors="errors" v-model="itemForm.title" label="اسم المرفق الجديد" >
                        <!--after error-->
                         <!-- :disabled="!lectureId"  -->
                         <template v-slot:after-error>
@@ -31,7 +31,7 @@
                             >
                             <label  class="btn position-relative">
                             <i class="fa fa-paperclip" :class="[lectureId?'m-c':'t-c']"></i>
-                            <input type="file" @change="uploadFile($event,validate) || validate($event)" class="position-absolute top-0 left-0 w-100 h-100" style="opacity: 0;">
+                            <input :disabled="!lectureId" type="file" @change="uploadFile($event,validate) || validate($event)" class="position-absolute top-0 left-0 w-100 h-100" style="opacity: 0;">
                              <!-- :disabled="!lectureId"  -->
                             </label>
                             <d-error-input :errors="errors" v-if="errors && errors.length>0" />

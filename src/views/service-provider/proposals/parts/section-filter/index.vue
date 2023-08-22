@@ -17,7 +17,7 @@ classColSearch="col-12 col-md-8"
 classTotal="col-md-3"
   >
       <template v-slot:total="{}">
-           <button @click="openAddService($event)" style="line-height: 2.5; height: 46px; width: 230px !important;" class="btn-main btn-nav text-center text-white">
+           <button @click="openAddService($event)" style="line-height: 2.5; height: 46px; width: 230px !important; margin-bottom: 20px;" class="btn-main btn-nav text-center text-white">
            <plusCircleOutline :size="24" color="currentColor" class="mx-1"/>
              
               {{$t('add-new-service')}}

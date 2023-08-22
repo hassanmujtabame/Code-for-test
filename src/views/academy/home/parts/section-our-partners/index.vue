@@ -39,7 +39,7 @@
   import DTabs from '@/components/tabs/DTabs.vue'
   
   import TabContentItem from './tab-content/index.vue'
-  import partnersAPI from '@/services/api/partners.js'
+  import partnersAPI from '@/services/api/academy/partners.js'
   export default {
   name:'section-partners',
   components:{
@@ -58,7 +58,7 @@
   async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await partnersAPI.getCategories();
+          let { data } =  await partnersAPI.getAll();
           if(data.success){
             this.categories = data.data
           }

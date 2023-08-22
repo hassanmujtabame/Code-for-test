@@ -23,6 +23,8 @@
               <d-error-input :errors="errors" v-if="errors.length > 0" />
             </ValidationProvider>
           </div>
+
+
           <div class="col-md-10">
             <ValidationProvider :name="$t('Image')" vid="image2" rules="required" v-slot="{ validate, errors }">
               <label for="imgInput" class="form-label file-label first w-100">
@@ -31,7 +33,6 @@
                   <p class="m-c">إضافة صور أخرى</p>
                 </div>
               </label>
-
               <input @change="handleFileUpload($event, validate, 'selectedImages')" class="form-control opacity-0"
                 type="file" id="imgInput" style="display: none" multiple />
 
@@ -45,7 +46,9 @@
               </div>
               <d-error-input :errors="errors" v-if="errors.length > 0" />
             </ValidationProvider>
+
           </div>
+
         </div>
         <div class="col-12 col-lg-7">
           <div class="mb-3">
@@ -83,10 +86,10 @@
             </ValidationProvider>
           </div>
           <div class="mb-3">
-            <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required" v-slot="{ errors }">
+            <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required">
               <!-- <d-text-input :errors="errors" v-model="form.location" label="رابط العنوان على خرائط جوجل" /> -->
             <div style="border: 1px solid"> رابط العنوان على خرائط جوجل</div> 
-              <google-map/>
+              <google-map @address_map='getAddressMap'/>
             </ValidationProvider>
           </div>
           <div class="mb-3">
@@ -191,7 +194,7 @@
    
     <template v-slot:actions>
       <button @click="addWorkSpace" type="button" class="btn btn-main">
-        نشر
+         نشر
       </button>
     </template>
   </d-dialog-large>
@@ -220,6 +223,11 @@ export default {
         description: "",
         service_categories_ids: [],
       },
+      addressName:{
+          address_name:'',
+          lat:'',
+          lng:''
+        },
       features: [],
       providerCategories: [],
       cities: [],
@@ -253,14 +261,20 @@ export default {
     async addWorkSpace() {
       this.loading = true;
       let valid = await this.$refs.form.validate();
-      if (!valid) {
-        this.loading = false;
-        return;
-      }
+      console.log(valid);
+      // if (!valid) {
+      //   this.loading = false;
+
+      //   console.log('err');
+      //   return;
+      // }
       let formData = this.loadObjectToForm({
         ...this.form,
         main_image: this.file,
       });
+      
+      formData.append(`map_address`, this.addressName);
+
       this.selectedImages.forEach((image) => {
         formData.append(`images[]`, image.file);
       });
@@ -268,7 +282,6 @@ export default {
         formData.append(`features[]`, feature);
       });
         // formData.append(`features[]`, this.featuresSelect);
-
       try {
         let { data } = await WorkspaceAPI.addWorkSpace(formData);
         if (data.success) {
@@ -405,6 +418,11 @@ export default {
       this.featuresSelect.splice(remEl,1)
 
       }
+    },
+    getAddressMap(data){
+      this.addressName.lat=data.lat
+      this.addressName.lng=data.lng
+console.log('getAddressMap',data);
     }
   },
   mounted() {

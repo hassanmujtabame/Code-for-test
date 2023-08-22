@@ -2,7 +2,7 @@
 <div class="tab-pane fade" id="pills-students-fails-exams" role="tabpanel" aria-labelledby="pills-students-fails-exams-tab" tabindex="0">
                             <div class="text-start ">
                                 <button style="background-color: #F2631C;" class="btn text-white"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">
-                                    رسالة للجميع
+                                     رسالة للجميع
                                 </button>
                             </div>
                                     <div class="box" v-for="item,i in items" :key="i">
@@ -165,7 +165,9 @@
                         </div>
 </template>
 
-<script>
+<script> 
+import CoursesAPI from '@/services/api/academy/exams.js'
+
 export default {
  name:'students-fails-exams',
    data:(vm)=>{
@@ -197,7 +199,7 @@ methods:{
     }
 },
 mounted(){
-    this.studentsNotPassExam()
+    this.studentsPassExam()
 }
 }
 

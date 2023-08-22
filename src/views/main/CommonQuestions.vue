@@ -62,13 +62,15 @@
                   :id="('accordionFlushExample'+i)"
                   >
                       <ExpandedPanelItem
-                    style="margin-bottom: 30px !important;"
+                    style="margin-bottom: 30px !important; border: 1px solid #CDD7D8"
+                    class="rounded-3 py-5 px-3 "
                       v-for="(child,c) in item.children"
                         :key="('c'+c)"
                        :title="child.title"
-                       :borderBottom='true'
                        >
+                       <div style="width:90%; color: #414042" class="mb-3">
                         {{ child.content }}
+                       </div>
                       </ExpandedPanelItem>
                   </ExpandedPanel>  
                   </div>
@@ -95,8 +97,8 @@ export default {
     {id:'1',
       title:'الاسئلة الشائعة العامة',
      children:[
-      {title:'ما هي مقدمي خدمات رياديات', content:'lorem1'},
-      {title:'كيف أضمن حقوقي؟', content:'lorem2'},
+      {title:'ما هي مقدمي خدمات رياديات', content:'مقدمو الخدمات في تلبية احتياجات العميل اليومية أو مع الخدمات التي يختارها العملاء لتحسين حياتهم ودعم مشاركتهم في المجتمع. تتعاون مع مزودي الخدمة الذين لديهم مهارات ممتازة وخلفيات تعليمية مناسبة وقيم أخلاقية والذين يقدمون مجموعة واسعة من الخدمات والدعم.'},
+      {title:'كيف أضمن حقوقي؟', content:'مقدمو الخدمات في تلبية احتياجات العميل اليومية أو مع الخدمات التي يختارها العملاء لتحسين حياتهم ودعم مشاركتهم في المجتمع. تتعاون مع مزودي الخدمة الذين لديهم مهارات ممتازة وخلفيات تعليمية مناسبة وقيم أخلاقية والذين يقدمون مجموعة واسعة من الخدمات والدعم.'},
       {title:'ماذا لو لم أكن راضياً عن مستوى الخدمة؟', content:'lorem3'},
       {title:'ماذا سيحدث بعد نشر مشروعي؟', content:'lorem4'}
      ]

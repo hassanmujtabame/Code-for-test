@@ -200,7 +200,7 @@ export default {
             try {
                 let {data} =  await academyAPI.examsAPI.getQuestions(this.itemForm.id)
                 if(data.success){
-                
+                console.log('data',data);
                     let questions = []
                     data.data.forEach(question=>{
                         console.mylog('question',question)

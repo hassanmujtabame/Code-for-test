@@ -6,8 +6,8 @@
                     <h2 class="home-section-title">
                         مجال {{itemPage.title}} في الأكاديمية 
                     </h2>
-                    <p class="home-section-text mb-3">
-                        {{ itemPage.description }}
+                    <p class="home-section-text mb-3" v-html="itemPage.description">
+                        <!-- {{ itemPage.description }} -->
                     </p>
                     <router-link :to="getRouteLocale('register')" class="btn btn-custmer btn-shadow">{{ $t('join-us') }}</router-link>
                 </div>

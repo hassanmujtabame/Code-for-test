@@ -3,7 +3,7 @@
   <div @click="navigate"
 :class="[ networkExhibition ? 'faq-btn-fixed-network': 'faq-btn-fixed']"
   > 
-  <div class="faq-btn-wrapper">
+  <div class="faq-btn-wrapper px-3">
     <p><MsgIcon /> <span class="faq-btn-title">{{$t('popular-questions')}}</span></p>
   </div>
   </div>

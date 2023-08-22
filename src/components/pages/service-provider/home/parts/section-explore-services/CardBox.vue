@@ -1,12 +1,18 @@
 <template>
   <b-card no-body class="box">
-    <div class="d-flex align-items-center gap-3 px-3 text-center">
+    <!-- <div class="d-flex align-items-center gap-3 px-3 text-center">
       <b-img fluid :src="imageSrc" class="mr-3" />
       <h3 class="m-c">{{ title }}</h3>
-    </div>
-    <div class="box-tow">
+    </div>  -->
+    <router-link :to="linkTo" class="text-decoration-none p-0">
+    <div :class="[title =='خدمات تقدم أوفلاين'?'bg-grey':'bg-main']" class="d-flexl align-items-center gap-3 px-3  text-center" style="padding-top: 5rem; padding-bottom: 5rem">
+      <b-img  :src="imageSrc" class="mr-3" />
+      <h3 class="mt-3" :class="[title =='خدمات تقدم أوفلاين'?'m-c':'text-white']">{{ title }}</h3>
+    </div> 
+    </router-link>
+    <!-- <div class="box-tow">
       <router-link :to="linkTo" class="text-decoration-none">{{ content }}</router-link>
-    </div>
+    </div> -->
   </b-card>
 </template>
   

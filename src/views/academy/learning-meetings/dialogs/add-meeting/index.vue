@@ -8,7 +8,7 @@
         {{ itemDialog.id?$t('meeting-modification'):$t('add-meeting') }}
         </template>
     <template v-slot:default>
-        <p class="t-c fs-r-16-24">يمكنك رفع فيديو تعليمي لمدة ساعة</p>
+        <p class="t-c fs-r-16-24" v-if="itemForm.type == 'recored'">يمكنك رفع فيديو تعليمي لمدة ساعة</p>
         <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step==1">
             <!--meeting-type-->
@@ -47,7 +47,7 @@
                 </ValidationProvider>
                 </div>
                  <!--start_date-->
-            <div class="mt-3" name="start_date">
+            <div class="mt-3" name="start_date" v-if="itemForm.type !='recored'" >
                         <ValidationProvider :name="$t('meeting-date')"
                             vid="start_date"
                             rules="required"
@@ -59,7 +59,7 @@
                 </ValidationProvider>
                 </div>
                 <!--time-->
-            <div class="mt-3 d-flex justify-content-around gap-1">
+            <div class="mt-3 d-flex justify-content-around gap-1" v-if="itemForm.type !='recored'">
                         <ValidationProvider :name="$t('start-time')"
                         tag="div"
                         class="flex-grow-1"
@@ -101,7 +101,7 @@
                 </ValidationProvider>
             
                 </div>
-                <div class="mt-3">
+                <div  class="mt-3" v-if="itemForm.type =='live'">
                     <ValidationProvider :name="$t('meeting-url')"
                     vid="meeting_url"
                     :rules="itemForm.type == 'live' ? 'required' : ''"
@@ -110,6 +110,12 @@
                     >
                     <d-text-input name="meeting_url" type="text" :errors="errors"  v-model="itemForm.meeting_url"  :label="$t('meeting-url')" />
                 </ValidationProvider>
+                </div>
+
+                <div  class="mt-3" v-if="itemForm.type =='on-site'">
+            <div class="my-2" style="border: 1px solid"> رابط العنوان على خرائط جوجل</div> 
+
+              <google-map @address_map='getAddressMap'/>
                 </div>
                 <div class="mt-3">
                 
@@ -129,13 +135,12 @@
         <!--form 2-->
         <ValidationObserver  class="form-step" ref="form2" id="form-step-2" v-show="step==2">
             <ValidationProvider
-                                :name="$t('Image')"
-                             vid="image"
-                             :rules="imageRules"
-                           
-                                v-slot="{validate,errors}">
-            <div class="   m-auto" >
-                    <div class="col-md-12 text-center" v-if="itemForm.type != 'live'">
+                :name="$t('Image')"
+                vid="image"
+                :rules="imageRules"
+                v-slot="{validate,errors}">
+            <div class="m-auto" >
+                    <div class="col-md-12 text-center" >
                         <label for="imginput" class="img-zone form-label file-label first w-100">
                             <div class="text-center p-5">
                               <img :src="`${publicPath}assets/svg/empty-image.svg`"  height="96" width="96"/>
@@ -151,9 +156,11 @@
                             id="imginput">
                             <d-error-input :errors="errors" v-if="errors.length!==0" />
                     </div>
-                </div>
+            </div>
             </ValidationProvider>
-            <ValidationProvider tag="div" 
+            <ValidationProvider 
+                                v-if="itemForm.type == 'recored'"
+                                tag="div" 
                                 :name="$t('lecture-video')"
                                 vid="video"
                                 :rules="videoRules"
@@ -202,6 +209,9 @@
                 <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i> 
                 أستمر
             </button>
+                 <!-- else if(this.itemForm.type =='on-site'){
+                this.saveStep2()
+            } -->
                 </template>
     </d-dialog-large>
     </template>
@@ -245,6 +255,11 @@
         }
       },
       methods:{
+    getAddressMap(data){
+        this.addressName.lat=data.lat
+        this.addressName.lng=data.lng
+        console.log('getAddressMap',data);
+    },
         prevStep(){
             this.step-=1
         },
@@ -314,9 +329,7 @@ async uploadImage(evt,validate){
                 console.mylog('invalid step 1');
                 return false;
             }
-            else if(this.itemForm.type =='on-site'){
-                this.saveStep2()
-            }
+       
             else{
             this.step+=1;
             return true;
@@ -397,7 +410,12 @@ async uploadImage(evt,validate){
                 start_time:'',
                 end_time:'',
                 meeting_url:'',
-                address_onSite:''
+                address_onSite:'',
+                addressName:{
+                    address_name:'',
+                    lat:'',
+                    lng:''
+                    },
             }
             if(dataEvt){
                 let {

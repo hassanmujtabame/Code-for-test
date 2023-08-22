@@ -18,6 +18,13 @@
                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('students-projects') }}</button> 
                     </router-link>
                 </div>
+
+                  <div class="box  mx-2 mt-3 ">
+                    <d-cup-icon />
+                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-your-exams')" class="mx-2 m-c ">
+                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">الاختبارت</button> 
+                    </router-link>
+                </div>
                 <div class="box  mx-2 mt-3 ">
                    <d-calendar-icon color="var(--m-color)"/>
                     

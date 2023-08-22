@@ -12,7 +12,7 @@
       class="btn"
         @click='addMarker'
       >
-        Add
+        Add 
       </button>
     </div>
     </div>
@@ -36,6 +36,8 @@
 <script>
 export default {
   name: 'GoogleMap',
+
+
   data() {
     return {
      center: { lat: 24.774265, lng: 46.738586 },
@@ -61,7 +63,8 @@ export default {
           lat: this.currentPlace.geometry.location.lat(),
           lng: this.currentPlace.geometry.location.lng(),
         };
-        this.markers.push({ position: marker });
+        // this.markers.push({ position: marker });
+        this.markers =[{ position: marker }];
         this.places.push(this.currentPlace);
         this.center = marker;
         this.currentPlace = null;
@@ -75,11 +78,14 @@ export default {
         lng: event.latLng.lng(),
       };
       console.log(marker);
-      this.markers.push({ position: marker });
+      // this.markers.push({ position: marker });
+      this.markers=[{ position: marker }];
 
       // this.$refs.mmm.panTo(marker);
       //this.center = marker;
-      this.address = marker
+      this.address = marker;
+            this.$emit('address_map', this.address)
+ 
   },
     geolocate: function() {
       navigator.geolocation.getCurrentPosition(position => {
@@ -89,7 +95,7 @@ export default {
         };
       });
     },
-  },
+  }, 
 };
 </script>
 <style>

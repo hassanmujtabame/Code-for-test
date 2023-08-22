@@ -56,7 +56,7 @@
                                 </ValidationProvider>
 
                             </div>
-                            <div class="col-md-4 w-100">
+                            <!-- <div class="col-md-4 w-100">
                                 <ValidationProvider
                                 :name="$t('Password')" 
                                 vid="password"
@@ -98,7 +98,7 @@
                                 </d-text-input>
                                 </div>
                                 </ValidationProvider>
-                            </div>
+                            </div> -->
                         </template>
                             <div class="col-md-4 w-100">
                                 <ValidationProvider

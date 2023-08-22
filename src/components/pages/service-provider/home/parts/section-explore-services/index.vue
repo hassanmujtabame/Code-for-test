@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-5">
+  <div class="container my-5">
     <h2 class="home-section-title text-center">تصفح الخدمات حسب التصنيف</h2>
     <b-row class="search-service mt-4">
       <b-col v-for="service in services" :key="service.id" lg="6">
@@ -28,7 +28,7 @@ export default {
       return [
         {
           id: 1,
-          image: `${this.publicPath}assets/svg/browser.svg`,
+          image: `${this.publicPath}assets/svg/Group89.svg`,
           title: "خدمات تقدم اونلاين",
           description:
             "هي خدمات تقدم عن بعد من أي مكان تفضله مثل ( تصميم الهوية البصرية - تصميم لوجو - البرمجة - كتابة المحتوى - التصميم الداخلي - إلخ...)",

@@ -129,6 +129,15 @@ const routers = [
 			),
 	},
 	{
+		path: "academy/test6",
+		meta: { layout: LayoutDefault, title: "Courses" },
+		name: "academy-test6",
+		component: () =>
+			import(
+				/* webpackChunkName: "academy-courses" */ "../views/academy/test6.vue"
+			),
+	},
+	{
 		path: "academy/test4",
 		meta: { layout: LayoutDefault, title: "Courses" },
 		name: "academy-test4",
@@ -208,7 +217,7 @@ const routers = [
 			),
 	},
 	{
-		path: "academy/my-exams/:id(\\d+)/do-exam",
+		path: "academy/my-exams/:id(\\d+)/do-exam", 
 		meta: { layout: LayoutDefault, auth: true, title: "Do Exam" },
 		name: "academy-your-exams-do-exam",
 		component: () =>

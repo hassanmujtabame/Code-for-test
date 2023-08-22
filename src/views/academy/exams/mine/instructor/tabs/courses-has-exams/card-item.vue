@@ -16,8 +16,8 @@
                                         <button @click="showItem(exam)" class="btn btn-custmer  btn-small ">
                                             عرض
                                         </button>
-                                        <button class="btn rounded-2 border-danger text-danger bg-transparent btn-small mx-2  " data-bs-toggle="modal" href="#staticBackdrop2">
-                                            حذف الاختبار
+                                        <button @click="showConfirmDeleteItem(exam)" class="btn rounded-2 border-danger text-danger bg-transparent btn-small mx-2  ">
+                                             حذف الاختبار
                                         </button>
                                     
                                     </div>
@@ -38,7 +38,7 @@
             exams:vm.item.exams
         }
     },
-    methods:{
+    methods:{ 
         editItem(pro){
             let {student,projects_review,...course}= this.item
             console.mylog('editItem exam',student,projects_review)

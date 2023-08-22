@@ -3,7 +3,7 @@
         <!-- section top-->
         <SectionTop />
        <!-- section definition-->
-       <SectionDefinition/>
+       <SectionDefinition v-if="!token"/>
 
         <!-- section features-->
         <SectionFeatures />
@@ -11,13 +11,13 @@
        <!-- section ads-->
        <SectionAds department="incubator"  />
        <sectionJourneyLaunch />
-        <SectionIncubationProgram />
+        <SectionIncubationProgram  v-if="!token"/>
         <!-- section 6-->
-        <SectionDepartments />
+        <SectionDepartments v-if="!token"/>
 
         <!-- section 7-->
         <SectionProgramsProjects />
-        <SectionHaveProject />
+        <SectionHaveProject v-if="!token"/>
          <!-- section 8-->
          <SectionOurPartners />
          <!-- section 9-->
