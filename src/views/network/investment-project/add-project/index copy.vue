@@ -312,8 +312,6 @@
                                            
                                             <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('attachment')"
                                                 vid="description_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
-                                           
-                   
                                             <InputFile name="description_file" @change="loadStandardFile($event,validate,'description_file') || validate($event)" />
                                             <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
@@ -431,11 +429,6 @@
                                             </ValidationProvider>
                                             <ValidationProvider tag="div" class="col-12 mt-1" :name="$t('about_team')"
                                                 vid="description_user_file" rules="required|ext:mp4,jpep,jpg,git,png" v-slot="{ errors,validate }">
-                                          
-                                                <div class="mb-3 w-100">
-
-                                                    <img class="image-selected-dialog" src="none" :id="idImage" width="150" height="150" />
-                                                </div>
                                             <InputFile name="description_user_file" @change="loadStandardFile($event,validate,'description_user_file') || validate($event)" />
                                             <d-error-input v-if="errors.length" :errors="errors" />
                                             </ValidationProvider>
@@ -470,7 +463,7 @@
                     </div>
                  
                     <div class="border  mt-5 ">
-                                    
+
                         <h3 class=" fw-bolder border-bottom p-3">
                            {{isPhysical?' فيديو المشروع':'صورة العرض الرئيسية للمشروع'}}
                         </h3>
@@ -485,12 +478,7 @@
                                     vid="image" 
                                     :rules="isMoral ? 'required|image' : 'required|ext:mp4'"
                                     v-slot="{ validate, errors }">
-                                        <div class="">
-                                          <video  style="height: 250px; width: 400px" id="video-add-lecture-player2" src="none" ></video>
-                                        </div>
                                     <div class="d-flex upload-request-file form-control align-items-center  mb-3 justify-content-between position-relative">
-                                        
-                                   
                                         <input class="form-control" 
                                         type="file" 
                                         @change="uploadImage($event,validate)"
@@ -575,7 +563,6 @@ export default {
         file: null,
         fileContact: null,
         showImage: false,
-        prevVideo:null,
         itemForm: {},
         editorConfig:{
             minHeight:'150px',
@@ -623,17 +610,6 @@ export default {
                 return;
             }
             this.itemForm[name] = evt.target.files[0];
-             let prevFile = evt.target.files[0];
-            var reader = new FileReader();
-            reader.onload =  (e) =>{
-                console.log('result',e,this.idImage)
-                window.$('#'+this.idImage)
-                    .attr('src', e.target.result)
-                    .css('opacity', '1');
-
-            };
-            reader.readAsDataURL(prevFile);
-            console.log('prevFile',prevFile);
         },
         editorConfig1( config )
         {
@@ -715,38 +691,24 @@ export default {
             this.video_image = evt.target.files[0];
 
         },
-    emptyVideo(){
-      window.$('#video-add-lecture-player2')
-                    .attr('src',this.file??'none')
-                    .css('display',this.file?'block':'none');
-                    this.file = null;
-    },
     async uploadImage(evt,validate){
-      this.emptyVideo();
-
+    
        let resValid = await validate(evt)
-       if(!resValid.valid){ 
-                this.emptyVideo();
-
+       if(!resValid.valid){
                 this.makeImageEmpty();
                 return;
        }
         if (!evt.target.files && !evt.target.files[0]) {
             this.makeImageEmpty();
-            this.emptyVideo();
-
                 return;
             }
         
             this.file = evt.target.files[0];
             var reader = new FileReader();
             reader.onload = (e) => {
-                // this.showImage = e.target.result;
-                 window.$('#video-add-lecture-player2')
-                    .attr('src', e.target.result)
-                    .css('display','block'); 
+                this.showImage = e.target.result;
+
             };
-            
             reader.readAsDataURL(this.file);
         },
         async loadCategories() {
@@ -778,11 +740,6 @@ export default {
 </script>
 
 <style>
-#video-add-lecture-player2{
-  display: none;
-  width:100%;
-  height:100%
-}
 #fileinputImageVideo{
     
     position: absolute;
@@ -797,3 +754,5 @@ line-height: 72px;
 text-transform: capitalize;
 }
 </style>
+
+
