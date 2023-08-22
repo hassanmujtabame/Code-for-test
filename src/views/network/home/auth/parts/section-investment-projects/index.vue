@@ -21,6 +21,7 @@
                    :date-publish="item.created_at"
                    :rest-day="item.rest_days"
                    :investor="item.count_invest"
+                   :image="item.image"
                    :minimum-goal="item.minimum_investment"
                    :offered_property="item.offered_property"
                    :amount="item.amount_financing_required"
