@@ -1,5 +1,5 @@
-<template>
-   <div class="mt-4">
+<template >
+   <div class="mt-4" style="display: none">
                     <h3 class="team-card-title text-center">
                         فريق المشـــروع
                     </h3>
