@@ -13,13 +13,12 @@
                   </TabHead>
                  </DTabs>
                  <div class="container">
-  
   <div class="tab-content" id="pills-tabContent">
       <TabItem
       v-for="(item,i) in categories"
                   :key="i"
       :current.sync="currentTab" group="pills" :reference="`cat-${item.id}`" v-slot="{selected}">
-          <TabContentItem :categoryId="item.id" :selected="selected"/>
+          <TabContentItem :categoryId="item" :selected="selected"/>
       </TabItem>
       
       </div>
