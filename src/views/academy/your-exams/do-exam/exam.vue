@@ -61,7 +61,8 @@ export default {
         hasErrorResponse:false,
         step:1,
         responses:[],
-        currentQuestion:{id:null,title:null,opts:[],type:'radio'}
+        currentQuestion:{id:null,title:null,opts:[],type:'radio'},
+        fail:true
     }
  },
  methods:{
@@ -88,6 +89,7 @@ export default {
             if(data.success){
                 if(this.step==this.itemPage.number_questions){
                     this.$emit('finished',data.data);
+                    this.getStatusExam()
                 }
             }else{
                 window.SwalError(data.message)
@@ -136,7 +138,54 @@ export default {
             this.hasError =  true;
         }
         this.loading = false;
+    },
+        async getStatusExam() {
+  
+            try {
+                let { data } = await academyAPI.student.getMyExam(this.$route.params.id)
+                if (data.success) {
+                    console.log('data', data);
+                    console.log('data', data.data);
+                   this.statusExam(data.data.status)
+                }else{
+                window.SwalError(data.message)
+                  this.hasError = true;
+                }
+            } catch (error) {
+                window.DHelper.catchException.call(this,error)
+                this.hasError = true;
+              }
+
+            this.loading = false;
+        },
+          statusExam(data){
+        if(data=='fail'){
+
+                    let dataEvt ={
+                    title:'للأسف لم تستطيع اجتياز الاختبار',
+                    btns:[
+                        {title:'حاول مرة أخرى',action:()=>this.refreshPage()}
+                    ]
+            }
+                 this.showConfirmMsg(dataEvt)
+               
+        }else{
+                let  dataEvt ={
+                    title:'ممتاز لقد اجتزت الاختبار!',
+                    description:'',
+                    btns:[
+                    {title:"الصفحة الرئيسية",action:()=>this.router_push("academy-your-exams")}
+                    ]
+            
+            }
+    
+            this.showSuccessMsg(dataEvt)
+
+                    }
+                return;
+               
     }
+  
  },
  mounted(){
     this.step = 1;

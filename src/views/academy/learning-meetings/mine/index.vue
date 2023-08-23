@@ -8,7 +8,7 @@
         </div>
         <SendToAllParticipants />
         <AddMeetingDialog />
-    </div>
+    </div> 
 </template>
 <script>
 import SectionFilterList from './parts/section-filter-list/index.vue'

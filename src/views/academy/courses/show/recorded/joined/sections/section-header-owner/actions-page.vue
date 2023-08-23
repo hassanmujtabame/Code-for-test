@@ -104,11 +104,11 @@ methods:{
         this.showConfirmMsg(dataEvt)
     },
     
-    async deleteItem(){
+    async deleteItem(){ 
         try {
                 let {data} =  await academyAPI.coursesApi.deleteItem(this.itemPage.id)
                 if(data.success){
-                    this.router_push('academy-my-courses')
+                    this.router_push('academy-instructor-your-courses')
                 }else{
                     window.SwalError(data.message)
                 }

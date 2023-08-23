@@ -40,9 +40,9 @@
     خبرة {{experience}} سنوات
   </p>
 </div>
-<p class="t-c w-75 m-0">
-    {{ description }}
-  </p>
+
+      <p class="t-c w-75 m-0" v-html="description"></p>
+
 </div>
   </div>
   <div class="col-12 col-md-3">

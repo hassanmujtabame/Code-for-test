@@ -18,7 +18,7 @@
     </div>
     <GmapMap
       :center='center'
-      :zoom='12'
+      :zoom='10'
       style='width:100%;  height: 400px;'
       @click="getMarker"
 

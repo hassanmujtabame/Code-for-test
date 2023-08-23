@@ -7,7 +7,6 @@
     <div v-else  class="container bg-white py-5 mb-5">
         <mainShow v-if="!started" @start="doStart" :exam="itemPage" />
         <examShow @finished="onfinished" v-else :itemPage="itemPage" />
-
     </div>
  </div>
 </template>
@@ -45,6 +44,7 @@ export default {
                 let { data } = await academyAPI.student.getMyExam(this.$route.params.id)
                 if (data.success) {
                    this.itemPage = data.data;
+         
                 }else{
                 window.SwalError(data.message)
                   this.hasError = true;
@@ -55,7 +55,8 @@ export default {
               }
 
             this.loading = false;
-        }
+        },
+
   },
   mounted(){
     this.initializing()

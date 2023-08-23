@@ -5,6 +5,7 @@
         </template>
         <template v-slot:default>
             <div v-if="showDialog" ref="form" class="form-onsite" tag="div">
+                {{itemForm}}
                 <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step == 1">
                     <!--number_day -->
                     <div class="mt-3">
@@ -149,6 +150,9 @@
                                
                             </d-text-input>
 
+              <google-map @address_map='getAddressMap'/>
+
+
                         </ValidationProvider>
                         <!-- </keep-alive> -->
                     </div>
@@ -279,6 +283,7 @@
                   <div class="mx-3" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
                   <div class="" style="border-radius: 100% ; width: 13px; height: 13px;  background: #eaeaea;"></div>
                 </div>
+                <!-- router_push('academy-course-show', { id: data.data.course_id }) -->
         </template>
     </d-dialog-large>
 </template>
@@ -307,10 +312,20 @@ export default {
             loading: false,
             itemForm: {id:null},
             errors:{},
-            errorDayes:null
+            errorDayes:null,
+            addressName:{
+            address_name:'',
+            lat:'',
+            lng:''
+            },
         }
     },
     methods: {
+            getAddressMap(data){
+      this.addressName.lat=data.lat
+      this.addressName.lng=data.lng
+console.log('getAddressMap',data);
+    },
         deleteLearn(index){
             this.itemForm.learn.splice(index,1)
         },
@@ -384,7 +399,7 @@ export default {
                     let dataEvt = {
                         title: 'تم أضافة دورتك  بنجاح ',
                         btns: [
-                            { title: 'صفحة الدورة', action: () => this.router_push('academy-course-show', { id: data.data.course_id }), class: 'btn btn-custmer' }
+                            { title: 'صفحة الدورة', action: () => this.refreshPage(), class: 'btn btn-custmer' }
                         ]
                     }
                     if (this.itemForm.id) {
@@ -474,7 +489,12 @@ export default {
                 image: null,
                 price: 0,
                 type_training: null,
-                instructors:dataEvt.instructors??[]
+                instructors:dataEvt.instructors??[],
+                      addressName:{
+            address_name:'',
+            lat:'',
+            lng:''
+            },
             }
             if (dataEvt) {
                 let { id, course_days,
