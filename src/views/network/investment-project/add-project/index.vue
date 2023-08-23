@@ -541,7 +541,7 @@
             </div>
           </div>
           <div class="text-center mt-5">
-            <button @click="save" class="btn bg-main text-white">
+            <button @click="save" class="btn bg-main text-white" :disabled="isSubmit">
               <div class="spinner-border spinner-border-sm" role="status" v-if="isSubmit">
                 <span class="sr-only">Loading...</span>
               </div>
