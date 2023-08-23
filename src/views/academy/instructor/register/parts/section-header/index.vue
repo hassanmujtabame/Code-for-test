@@ -1,7 +1,7 @@
 <template>
   <div class="section-header-register-instructor position-relative">
-    <div class="position-absolute anim-hwo-ar-you">
-                <img :src="`${publicPath}assets/svg/arabsstock_P34769_large1.svg`"  height="612" alt="">
+    <div class="position-absolute anim-hwo-ar-you" style="width: 100% ;">
+                <img style="width: 100% ; object-fit: cover;" :src="`${publicPath}assets/svg/arabsstock_P34769_large1.svg`"  height="612" alt="">
             </div>
             <div class="section-header-register-instructor__wrapper px-5" >
             <h1 class="section-header-register-instructor__title">شاركي خبراتك ومهاراتك</h1>
