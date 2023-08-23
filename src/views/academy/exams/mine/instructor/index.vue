@@ -77,6 +77,7 @@ import studentsPassExams from './tabs/students-pass-exams/index.vue'
 import studentsFailsExams from './tabs/students-fails-exams/index.vue'
 import UpdateExamDialog from '@/views/academy/courses/show/recorded/dialogs/add-exam/index'
 import DisplayExamDialog from '@/common/dialogs/display-exam/index'
+
 export default {
   name: 'your-certifcates-page',
   components:{
@@ -85,7 +86,7 @@ export default {
     studentsPassExams,
     studentsFailsExams,
     UpdateExamDialog,
-    DisplayExamDialog
+    DisplayExamDialog,
   }
 }
 </script>

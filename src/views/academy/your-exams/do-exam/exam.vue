@@ -1,6 +1,7 @@
 <template>
  <div style="margin-top: 96px;" class="bg-body-page">
     <div class="container pt-5">
+        <button @click="statusExam">statusExam</button>
 <div class="do-exam">
     <div class="do-exam__wrapper">
         <div class="do-exam__header">
@@ -61,7 +62,8 @@ export default {
         hasErrorResponse:false,
         step:1,
         responses:[],
-        currentQuestion:{id:null,title:null,opts:[],type:'radio'}
+        currentQuestion:{id:null,title:null,opts:[],type:'radio'},
+        fail:true
     }
  },
  methods:{
@@ -88,6 +90,7 @@ export default {
             if(data.success){
                 if(this.step==this.itemPage.number_questions){
                     this.$emit('finished',data.data);
+                    console.log('data.data',data);
                 }
             }else{
                 window.SwalError(data.message)
@@ -136,6 +139,34 @@ export default {
             this.hasError =  true;
         }
         this.loading = false;
+    },
+    statusExam(){
+        if(this.fail == false){
+
+                    let dataEvt ={
+                    title:'للأسف لم تستطيع اجتياز الاختبار',
+                    description:`بأنضمامك الى هذا الدورة  سيتبقى لك <span style="color:#F2631C">${this.resetCourse} دورات</span> هذا الشهر`,
+                    btns:[
+                        {title:'حاول مرة أخرى',action:()=>this.joinCourse()}
+                    ]
+            }
+                 this.showConfirmMsg(dataEvt)
+               
+        }else{
+                       let  dataEvt ={
+                    title:'ممتاز لقد اجتزت الاختبار!',
+                    description:'',
+                    btns:[
+                    {title:this.$t('undo-joining'),action:()=>this.confirmCancelJoin()},
+                    ]
+            
+            }
+    
+            this.showSuccessMsg(dataEvt)
+
+                    }
+                return;
+               
     }
  },
  mounted(){
