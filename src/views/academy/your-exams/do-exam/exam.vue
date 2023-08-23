@@ -1,7 +1,6 @@
 <template>
  <div style="margin-top: 96px;" class="bg-body-page">
     <div class="container pt-5">
-        <button @click="statusExam">statusExam</button>
 <div class="do-exam">
     <div class="do-exam__wrapper">
         <div class="do-exam__header">
@@ -90,7 +89,7 @@ export default {
             if(data.success){
                 if(this.step==this.itemPage.number_questions){
                     this.$emit('finished',data.data);
-                    console.log('data.data',data);
+                    this.getStatusExam()
                 }
             }else{
                 window.SwalError(data.message)
@@ -140,24 +139,42 @@ export default {
         }
         this.loading = false;
     },
-    statusExam(){
-        if(this.fail == false){
+        async getStatusExam() {
+  
+            try {
+                let { data } = await academyAPI.student.getMyExam(this.$route.params.id)
+                if (data.success) {
+                    console.log('data', data);
+                    console.log('data', data.data);
+                   this.statusExam(data.data.status)
+                }else{
+                window.SwalError(data.message)
+                  this.hasError = true;
+                }
+            } catch (error) {
+                window.DHelper.catchException.call(this,error)
+                this.hasError = true;
+              }
+
+            this.loading = false;
+        },
+          statusExam(data){
+        if(data=='fail'){
 
                     let dataEvt ={
                     title:'للأسف لم تستطيع اجتياز الاختبار',
-                    description:`بأنضمامك الى هذا الدورة  سيتبقى لك <span style="color:#F2631C">${this.resetCourse} دورات</span> هذا الشهر`,
                     btns:[
-                        {title:'حاول مرة أخرى',action:()=>this.joinCourse()}
+                        {title:'حاول مرة أخرى',action:()=>this.refreshPage()}
                     ]
             }
                  this.showConfirmMsg(dataEvt)
                
         }else{
-                       let  dataEvt ={
+                let  dataEvt ={
                     title:'ممتاز لقد اجتزت الاختبار!',
                     description:'',
                     btns:[
-                    {title:this.$t('undo-joining'),action:()=>this.confirmCancelJoin()},
+                    {title:"الصفحة الرئيسية",action:()=>this.router_push("academy-your-exams")}
                     ]
             
             }
@@ -168,6 +185,7 @@ export default {
                 return;
                
     }
+  
  },
  mounted(){
     this.step = 1;
