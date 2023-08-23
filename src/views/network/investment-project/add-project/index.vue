@@ -541,7 +541,7 @@
             </div>
           </div>
           <div class="text-center mt-5">
-            <button @click="save" class="btn bg-main text-white" :disabled="isSubmit">
+            <button @click="save" class="btn bg-main text-white">
               <div class="spinner-border spinner-border-sm" role="status" v-if="isSubmit">
                 <span class="sr-only">Loading...</span>
               </div>
@@ -648,6 +648,9 @@ export default {
       this.fireOpenDialog('confirm-subscribe-prepare-project')
     },
     async save(evt) {
+      if (this.isSubmit) {
+        return;
+      }
       evt.preventDefault();
       let valid = await this.$refs.form.validate();
       if (!valid) {
