@@ -54,7 +54,7 @@
 
                 <div  v-for="(item,i) in questions"
                 
-                  :key="i" class="mb-5" >
+                  :key="i" class="mb-5 common" >
                   <div :id="item.id">
                   <ExpandedPanel 
                     style="margin-bottom: 70px;"
@@ -141,6 +141,40 @@ export default {
 }
 </script>
 
+
 <style>
+.accordion-button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    background: none;
+    color: #737373;
+}
+.common .accordion-button::after{
+  all: unset;
+
+}
+.common .accordion-button::after{
+    content:unset !important;
+  float: right !important;
+    font-family: FontAwesome;
+    content:"\f068" !important;
+    padding-right: 5px;
+    margin-right: auto;
+
+}
+.common .accordion-button.collapsed::after{
+    content:unset !important;
+  content: "\f0fe" !important;
+    float: right !important;
+    content:"\f067" !important;
+    margin-right: auto;
+}
 
 </style>

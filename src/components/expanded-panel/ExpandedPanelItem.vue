@@ -3,7 +3,7 @@
     <h2 v-if="title || $slots.btnTitle" class="accordion-header" :id="idh">
       <slot name="before-btn"></slot>
       <button
-        class="accordion-button2 d-flex" 
+        class="accordion-button d-flex" 
         :class="[
           !opened_ ? 'collapsed' : '',
           classTitle,
@@ -85,34 +85,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.accordion-button2{
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    font-size: 1rem;
-    text-align: left;
-    border: 0;
-    border-radius: 0;
-    overflow-anchor: none;
-    background: none;
-    color: #737373;
-}
-.accordion-button2::after{
-  float: right !important;
-    font-family: FontAwesome;
-    content:"\f068";
-    padding-right: 5px;
-    margin-right: auto;
-
-}
-.accordion-button2.collapsed::after{
-  content: "\f0fe";
-    float: right !important;
-    content:"\f067";
-    margin-right: auto;
-}
-
-</style>

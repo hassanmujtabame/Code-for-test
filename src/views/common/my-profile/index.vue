@@ -18,7 +18,7 @@
                     <!--معومات شخصية  -->
                     <SectionPersonal  :currentUser="currentUser"/>
                     <!-- بطاقات الدفع -->
-                    <!-- <SectionPaymentCards /> -->
+                    <SectionPaymentCards />
                     <!--معلومات الدراسة -->
                     <SectionEducation  :currentUser="currentUser" />
                     <!--معلومات مهنية -->
