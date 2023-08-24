@@ -7,8 +7,9 @@ console.mylog = (...args) => {
 import * as VueGoogleMaps from "vue2-google-maps";
 Vue.use(VueGoogleMaps, {
 	load: {
-		// key: 'YOUR_API_TOKEN',
-		libraries: "places", // This is required if you use the Autocomplete plugin
+		key: 'AIzaSyA9UeezZ2xyNjrwck8SLdh9NxsJp6HhLQc',
+		libraries: "places",
+       language: 'AR',
 	},
 });
 import { BootstrapVue } from 'bootstrap-vue'
