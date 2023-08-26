@@ -1,24 +1,22 @@
 <template>
-<div>
-   <div :class="[title =='خدمات عن بعد'?'bg-on-line':'bg-off-line']" class="" style="width: fit-content;  border-radius: 100%; padding: 12px; margin: auto;">
+  <b-card no-body class="box">
+    <!-- <div class="d-flex align-items-center gap-3 px-3 text-center">
+      <b-img fluid :src="imageSrc" class="mr-3" />
+      <h3 class="m-c">{{ title }}</h3>
+    </div>  -->
+    <router-link :to="linkTo" class="text-decoration-none p-0">
+    <!-- <div :class="[title =='خدمات تقدم أوفلاين'?'bg-grey':'bg-main']" class="d-flexl align-items-center gap-3 px-3  text-center" style="padding-top: 5rem; padding-bottom: 5rem"> -->
+    <div  class="d-flexl bg-grey align-items-center gap-3 px-3  text-center" style="padding-top: 5rem; padding-bottom: 5rem">
       <b-img  :src="imageSrc" class="mr-3" />
-     </div>
-       <router-link :to="linkTo" class="text-decoration-none p-0" style="z-index: 3 !important;">
-
-  <b-card no-body class="box" style="z-index: -1;">
- 
-    <div  class="d-flexl bg-grey align-items-center gap-3 px-3 pb-0  text-center" style="padding-top: 5rem; padding-bottom: 5rem">
-   
+      <!-- <h3 class="mt-3" :class="[title =='خدمات تقدم أوفلاين'?'m-c':'text-white']">{{ title }}</h3> -->
       <h3 class="my-3" style="color: rgba(0, 0, 0, 1);">{{ title }}</h3>
-   <div class="mb-5" style="color:rgba(0, 0, 0, 0.53)">{{ content }}</div>
-    <div class="text-center my-5" style="color: rgba(74, 125, 255, 1);">خدماتنا</div>
-        </div> 
-
+   <div class="" style="color:rgba(0, 0, 0, 0.53)">{{ content }}</div>
+    </div> 
+    </router-link>
+    <!-- <div class="box-tow">
+      <router-link :to="linkTo" class="text-decoration-none">{{ content }}</router-link>
+    </div> -->
   </b-card>
-        </router-link>
-
-</div>
-
 </template>
   
   <script>
@@ -79,15 +77,6 @@ export default {
     color: #ffffff;
     padding: 5px;
   }
-}
-.bg-on-line{
-  background: rgba(31, 185, 179, 1);
-  transform: translateY(30px);
-}
-.bg-off-line{
-  background: rgba(44, 152, 179, 1);
-  padding: 15px !important;
-  transform: translateY(30px);
 }
 </style>
   

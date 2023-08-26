@@ -1,6 +1,6 @@
 <template>
   <div class="container my-5">
-    <h2 class="home-section-title text-center">تصفح الخدمات حسب التصنيف</h2>
+    <h2 class="home-section-title text-centerl">تصفح الخدمات حسب التصنيف</h2>
     <b-row class="search-service mt-4">
       <b-col v-for="service in services" :key="service.id" lg="6">
         <card-box
@@ -28,10 +28,9 @@ export default {
       return [
         {
           id: 1,
-          image: `${this.publicPath}assets/svg/Group89.svg`,
-          title: "خدمات تقدم اونلاين",
-          description:
-            "هي خدمات تقدم عن بعد من أي مكان تفضله مثل ( تصميم الهوية البصرية - تصميم لوجو - البرمجة - كتابة المحتوى - التصميم الداخلي - إلخ...)",
+          image: `${this.publicPath}assets/svg/carbon_ibm-security-services.svg`,
+          title: "خدمات عن بعد",
+          description:"هي خدمات تقدم عن بعد من أي مكان تفضله مثل ( تصميم الهوية البصرية - تصميم لوجو - البرمجة - كتابة المحتوى - التصميم الداخلي - إلخ...)",
           link: this.getRouteLocale(
             "service-provider-ready-services",
             {},
@@ -40,10 +39,9 @@ export default {
         },
         {
           id: 2,
-          image: `${this.publicPath}assets/svg/hand-cog.svg`,
-          title: "خدمات تقدم أوفلاين",
-          description:
-            "هي خدمات تقدم على أرض الواقع مثل: ( تصميم كوشة - تصميم أزياء- ميك اب ارتست- إلخ..)",
+          image: `${this.publicPath}assets/svg/Group123456.svg`,
+          title: "خدمات حضورية",
+          description:"هي خدمات تقدم على أرض الواقع مثل : ( تصميم كوشة - تصميم أزياء- ميك اب ارتست- إلخ..)",
           link: this.getRouteLocale(
             "service-provider-ready-services",
             {},
