@@ -15,7 +15,7 @@
     </div>
     <div class="mt-3 row order">
       <div v-for="(item, i) in items" :key="i" class="col-12 col-lg-6 mt-2">
-        <a class="router-link" @click="goToProposal(item,$event)">
+        <!-- <a class="router-link" @click="goToProposal(item,$event)"> -->
           <showProposal
             :title="item.title"
             :description="item.description"
@@ -30,9 +30,10 @@
             :resetDays="item.rest_days"
             :department="item.category_name"
             :state="item.state"
+            :id="item.id"
 
           />
-        </a>
+        <!-- </a> -->
       </div>
     </div>
   </div>

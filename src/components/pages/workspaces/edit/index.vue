@@ -122,7 +122,7 @@
                             <div class="col-23 col-md-12">
                                 <div class="form-group position-relative">
                                     <label class="form-label">موعد الفتح - موعد الإغلاق </label>
-                                    <!-- {{form.start_time}} - {{form.end_time}} -->
+                                    {{form.start_time}} - {{form.end_time}}
                                     <date-picker-range :valueStart.sync="form.start_time" :valueEnd.sync="form.end_time"
                                         :names="{ start: $t('Start-time'), end: $t('End-time') }"
                                         :vids="{ start: 'start_time', end: 'end_time' }"

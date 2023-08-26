@@ -30,10 +30,7 @@ classTotal="col-md-3"
           :items="items"
         > -->
     <template v-slot="{item}">
-      <router-link
-        class="router-link"
-        :to="getRouteLocale('service-provider-proposal-page',{id:item.id})"
-      >
+    
         <showProposal
           :title="item.title"
           :description="item.description"
@@ -47,8 +44,8 @@ classTotal="col-md-3"
           :datePublish="item.created_at"
           :image="item.image"
           :state="item.state"
+          :id="item.id"
         />
-      </router-link>
     </template>
          <!-- </d-swiper> -->
     <template v-slot:side>
