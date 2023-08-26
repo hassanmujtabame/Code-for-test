@@ -139,7 +139,7 @@
                         </label>
                       </div>
                     </div> -->
-                    <div class="mb-3 feature row" v-if="form.category === 'service-provider'">
+                    <!-- <div class="mb-3 feature row" v-if="form.category === 'service-provider'">
                         <p>مجال الاختصاص</p>
                         <div v-for="(cat, i) in providerCategories" :key="i" class="col-12 col-lg-4 form-check">
                             <div class="form-check d-flex justify-content-between" style="display: flex;">
@@ -153,7 +153,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="mb-3">
                         <ValidationProvider name="وصف مكان العمل" vid="description" tag="div" class="form-group"
@@ -165,7 +165,7 @@
 
                     <div class="">
                         <!-- v-if="form.category === 'academy'" -->
-                        <div class="accordion" role="tablist" v-if="form.category === 'academy'">
+                        <div class="accordion" role="tablist" v-if="form.category">
                             <b-card no-body class="mb-1">
                                 <b-card-header header-tag="header" class="p-1 bg-transparent" role="tab">
                                     <div block v-b-toggle.accordion-1 variant="info">الامتيازات</div>
@@ -179,15 +179,14 @@
                                                     <input
                                                             class="form-check-input"
                                                             type="checkbox"
-                                                            :value="item.name"
-                                                            :id="item.name"
+                                                            :value="item.title"
+                                                            :id="item.id"
                                                             style="margin-left: 6px;"
-                                                            @click="getFeaturesSelect(item.name)"
+                                                            @click="getFeaturesSelect(item.id)"
                                                     />
-                                                    <label class="form-check-label" :for="item.name">
-                                                        {{ item.name }}
+                                                    <label class="form-check-label" :for="item.title">
+                                                        {{ item.title }}
                                                     </label>
-
                                                 </div>
                                             </div>
                                         </b-card-text>
@@ -256,7 +255,7 @@ export default {
                     title: "مقدمي الخدمة",
                     value: "service-provider",
                 },
-            ],
+            ], 
             selectedImages: [],
             featuresWorkSpace: [
                 {name: 'مكيف', id: 'condition'},
@@ -394,7 +393,7 @@ export default {
             try {
                 let {data} = await WorkspaceAPI.getWorkspaceFeatures();
                 if (data.success) {
-                    this.features = data.data;
+                    this.featuresWorkSpace = data.data;
                 }
             } catch (error) {
                 console.log("error", error);
@@ -437,7 +436,7 @@ export default {
         },
         getAddressMap(data) {
             this.addressName = data
-        }
+        },
     },
     mounted() {
         this.loadCities();

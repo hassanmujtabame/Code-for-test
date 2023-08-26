@@ -22,7 +22,7 @@ class WorkspaceApi extends BaseApi {
 		return window.axios.post(`workspaces`, payload);
 	}
 	editWorkspace(id, payload) {
-		return window.axios.get(`workspaces/${id}`, payload);
+		return window.axios.post(`workspaces/${id}`, payload);
 	}
 	getWorkSpaceCategories() {
 		return window.axios.get(`workspace-categories`);

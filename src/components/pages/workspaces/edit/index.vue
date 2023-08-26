@@ -8,10 +8,10 @@
                         <div class="col-md-10">
                             <ValidationProvider :name="$t('Image')" vid="image1" rules="required|image"
                                                 v-slot="{ validate, errors }">
-                                <label for="imginput1" class="form-label file-label first w-100">
-                                    <div class="text-center p-5">
-                                        <img :src="file"/>
-                                        <p class="m-c">{{ $t("add-display-image") }}</p>
+                                <label for="imginput1" class="form-label file-label rounded-3 first w-100">
+                                    <div class="text-center p-5l" style="width: 350px; height: 233px">
+                                        <img :src="file"  class="w-100 h-100"/>
+                                        <p v-if="!file" class="m-c">{{ $t("add-display-image") }}</p>
                                     </div>
                                     <div class="add-img-selected" style="width:100%">
                                         <img class="w-100 h-100 image-selected-dialog" :src="showImage ?? 'none'"
@@ -25,7 +25,7 @@
                                 <d-error-input :errors="errors" v-if="errors.length > 0"/>
                             </ValidationProvider>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-10 mt-3">
                             <ValidationProvider :name="$t('Image')" vid="image2" rules="required"
                                                 v-slot="{ validate, errors }">
                                 <label for="imgInput" class="form-label file-label first w-100">
@@ -41,7 +41,9 @@
                                 <div class="row">
                                     <div v-for="(image, index) in selectedImages" :key="index" class="col-lg-6 col-12">
                                         <div class="previews-images">
-                                            <img class="w-100 h-100 image-selected-dialog" :src="image.image"
+                                            <img v-if="image && image.url" class="w-100 h-100 image-selected-dialog" :src="image.url"
+                                                 :style="{ opacity: image.url ? '1' : '0' }" :id="`image-${index}`"/>
+                                        <img v-else class="w-100 h-100 image-selected-dialog" :src="image.image"
                                                  :style="{ opacity: image.image ? '1' : '0' }" :id="`image-${index}`"/>
                                         </div>
                                     </div>
@@ -83,19 +85,20 @@
                                 </d-select-input>
                             </ValidationProvider>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <ValidationProvider name="العنوان تفصيليََا" vid="address" tag="div" class="form-group"
                                                 rules="required"
                                                 v-slot="{ errors }">
-                                <d-text-input :errors="errors" v-model="form.address" label="العنوان تفصيليََا"/>
+                                <d-text-input :errors="errors" v-model="addressName.address_name" label="العنوان تفصيليََا"/>
                             </ValidationProvider>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required"
                                                 v-slot="{ errors }">
                                 <!-- <d-text-input :errors="errors" v-model="form.location" label="رابط العنوان على خرائط جوجل" /> -->
                                 <!--                <div style="border: 1px solid"> رابط العنوان على خرائط جوجل</div> -->
-                                <VGoogleMap :center="form.map_address" :marker="form.map_address"/>
+                                <VGoogleMap @mapUpdated='getAddressMap' :center="addressName" :marker="addressName"/>
+                                <!-- <VGoogleMap :center="form.map_address" :marker="form.map_address"/> -->
 
                             </ValidationProvider>
                         </div>
@@ -119,12 +122,15 @@
                             <div class="col-23 col-md-12">
                                 <div class="form-group position-relative">
                                     <label class="form-label">موعد الفتح - موعد الإغلاق </label>
+                                    <!-- {{form.start_time}} - {{form.end_time}} -->
                                     <date-picker-range :valueStart.sync="form.start_time" :valueEnd.sync="form.end_time"
-                                                       :names="{ start: $t('Start-time'), end: $t('End-time') }"
-                                                       :vids="{ start: 'start_time', end: 'end_time' }"
-                                                       :rules="{ start: 'required', end: 'required' }"
-                                                       mode="time" mask="HH:mm" class="form-control">
+                                        :names="{ start: $t('Start-time'), end: $t('End-time') }"
+                                        :vids="{ start: 'start_time', end: 'end_time' }"
+                                        :rules="{ start: 'required', end: 'required' }"
+                                        mode="time" mask="HH:mm" class="form-control time-input">
+                         
                                     </date-picker-range>
+                    
                                 </div>
                             </div>
                         </div>
@@ -138,7 +144,7 @@
                             </label>
                           </div>
                         </div> -->
-                        <div class="mb-3 feature row" v-if="form.category === 'service-provider'">
+                        <!-- <div class="mb-3 feature row" v-if="form.category === 'service-provider'">
                             <p>مجال الاختصاص</p>
                             <div v-for="(cat, i) in providerCategories" :key="i" class="col-12 col-lg-4 form-check">
                                 <div class="form-check d-flex justify-content-between" style="display: flex;">
@@ -152,7 +158,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="mb-3">
                             <ValidationProvider name="وصف مكان العمل" vid="description" tag="div" class="form-group"
@@ -165,7 +171,7 @@
                         <div class="">
                             <!-- v-if="form.category === 'academy'" -->
                             <div class="accordion" role="tablist" v-if="form.category === 'academy'">
-                                <b-card no-body class="mb-1">
+                                <!-- <b-card no-body class="mb-1">
                                     <b-card-header header-tag="header" class="p-1 bg-transparent" role="tab">
                                         <div block v-b-toggle.accordion-1 variant="info">الامتيازات</div>
                                     </b-card-header>
@@ -178,21 +184,36 @@
                                                         <input
                                                                 class="form-check-input"
                                                                 type="checkbox"
-                                                                :value="item.name"
-                                                                :id="item.name"
+                                                                :value="item.title"
+                                                                :id="item.id"
                                                                 style="margin-left: 6px;"
-                                                                @click="getFeaturesSelect(item.name)"
+                                                                @click="getFeaturesSelect(item.id)"
                                                         />
-                                                        <label class="form-check-label" :for="item.name">
-                                                            {{ item.name }}
+                                                        <label class="form-check-label" :for="item.title">
+                                                            {{ item.title }}
                                                         </label>
                                                     </div>
                                                 </div>
                                             </b-card-text>
                                         </b-card-body>
                                     </b-collapse>
-                                </b-card>
+                                </b-card> -->
 
+                    <ValidationProvider
+                            name="الامتيازات"
+                            vid="features_id"
+                            rules="required"
+                            v-slot="{errors}">
+                     <d-multiselect-input
+                        track-id="id" label-name="title"
+                        multi-select
+                        :opts="features" 
+                        v-model="featuresWorkSpace" 
+                       :errors="errors"
+                        label="الامتيازات" 
+                       >
+                        </d-multiselect-input>
+                    </ValidationProvider>
                             </div>
                         </div>
                     </div>
@@ -229,7 +250,7 @@ export default {
                 category: "",
                 city_id: "",
                 address: "",
-                map_address: {},
+                // map_address: {},
                 location: "",
                 price: "",
                 area: "",
@@ -237,6 +258,11 @@ export default {
                 end_time: "",
                 description: "",
                 service_categories_ids: [],
+            },
+         addressName: {
+                address_name: '',
+                lat: '',
+                lng: ''
             },
             main_image: null,
             features: [],
@@ -271,7 +297,7 @@ export default {
     methods: {
         async editWorkSpace() {
             this.loading = true;
-            // let valid = await this.$refs.form.validate();
+            let valid = await this.$refs.form.validate();
             // if (!valid) {
             //   this.loading = false;
             //   return;
@@ -279,11 +305,19 @@ export default {
             let formData = this.loadObjectToForm({
                 ...this.form,
                 main_image: this.file,
+
             });
+      formData.append(`map_address`, JSON.stringify(this.addressName));
+
             this.selectedImages.forEach((image) => {
-                formData.append(`images[]`, image.file);
+                if (image.file) {
+                formData.append(`images[0]`, image.file);
+                }else{
+                formData.append(`images[0]`, image.image);
+                }
             });
-            this.featuresSelect.forEach((feature) => {
+
+            this.featuresWorkSpace.forEach((feature) => {
                 formData.append(`features[]`, feature);
             });
             // formData.append(`features[]`, this.featuresSelect);
@@ -294,7 +328,7 @@ export default {
                     this.fireOpenDialog("success-add-workspace");
                     this.fireCloseDialog(this.group);
                 }
-            } catch (error) {
+            }catch (error) {
                 if (error.response) {
                     let response = error.response;
                     if (response.status == 422) {
@@ -362,6 +396,7 @@ export default {
             const reader = new FileReader();
             reader.onload = () => {
                 this.showImage = reader.result;
+                console.log(' reader.result', reader.result);
             };
             reader.readAsDataURL(this.file);
         },
@@ -442,6 +477,7 @@ export default {
                     this.$route.params.id
                 );
                 if (data.success) {
+                    
                     this.form.title = data.data.title
                     this.form.address = data.data.address
                     this.form.price = data.data.price
@@ -454,8 +490,8 @@ export default {
                     this.file = data.data.image_path
                     this.selectedImages = data.data.medias
                     this.form.category = data.data.category
-                    this.form.map_address = data.data.map_address
-                    // this.featuresSelect = data.data.features
+                    this.addressName = data.data.map_address
+                    this.featuresWorkSpace = data.data.features.map(cat=>cat.id)
 
                     console.log(data.data);
                     try {
@@ -469,6 +505,11 @@ export default {
             }
 
             this.loading = false;
+        },
+           getAddressMap(data) {
+            this.addressName = data
+            console.log('data741',data.address_name);
+            console.log('data741',data);
         },
     },
     mounted() {
