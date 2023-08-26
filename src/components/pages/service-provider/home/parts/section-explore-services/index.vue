@@ -1,7 +1,7 @@
 <template>
   <div class="container my-5">
     <h2 class="home-section-title text-centerl">تصفح الخدمات حسب التصنيف</h2>
-    <b-row class="search-service mt-4">
+    <b-row class="search-service mt-4 " style="justify-content: center;">
       <b-col v-for="service in services" :key="service.id" lg="6">
         <card-box
           :image-src="service.image"
