@@ -99,7 +99,7 @@
                                 <!--                <div style="border: 1px solid"> رابط العنوان على خرائط جوجل</div> -->
                                 <VGoogleMap @mapUpdated='getAddressMap' :center="addressName" :marker="addressName"/>
                                 <!-- <VGoogleMap :center="form.map_address" :marker="form.map_address"/> -->
-
+ 
                             </ValidationProvider>
                         </div>
                         <div class="mb-3">
@@ -508,8 +508,7 @@ export default {
         },
            getAddressMap(data) {
             this.addressName = data
-            console.log('data741',data.address_name);
-            console.log('data741',data);
+      
         },
     },
     mounted() {

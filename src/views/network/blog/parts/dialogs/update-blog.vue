@@ -14,13 +14,13 @@
             <div class=" add-portfolio m-3 p-0">
                 <div class="   m-auto">
                     <div class="col-md-12 text-center">
-                        <label for="imginput" class="img-zone form-label file-label first w-100">
+                        <label for="imginput" class="img-zone form-label rounded-3 file-label first w-100">
                             <div class="text-center p-5">
                               <img :src="`${publicPath}assets/svg/empty-image.svg`"  height="96" width="96"/>
                                   
                                 <p class="m-c">{{ $t('add-display-image') }}</p>
                             </div>
-                            <div class="add-img-selected w-100">
+                            <div class="add-img-selected w-100 h-100">
 
                                 <img class="image-selected-dialog " src="none" :id="idImage" width="434" height="236" />
                             </div>
@@ -52,12 +52,12 @@
                   <!-- category-->
                   <div class="mb-3">
                         <ValidationProvider
-                                :name="$t('blog-category')"
-                             vid="category_id"
-                             rules="required"
-                                v-slot="{errors}">
+                            :name="$t('blog-category')"
+                            vid="category_id"
+                            rules="required"
+                            v-slot="{errors}">
 
-                                <d-multiselect-input
+                    <d-multiselect-input
                         track-id="id" label-name="name"
                         multi-select
                         :opts="categories" 

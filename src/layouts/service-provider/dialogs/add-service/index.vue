@@ -236,10 +236,10 @@
               />
             </ValidationProvider>
           </div>
-            <div style="border: 1px solid"> مكان إقامة الخدمة</div> 
+            <!-- <div style="border: 1px solid"> مكان إقامة الخدمة</div>  -->
 
-              <google-map @address_map='getAddressMap'/>
-
+             <VGoogleMap @mapUpdated='getAddressMap'/>
+  
 
           <!--details-->
           <div class="my-3">
@@ -367,6 +367,8 @@
   </d-dialog-large>
 </template>
 <script>
+import VGoogleMap from "@/components/shared/map.vue";
+
 import PlusCircleOutlineIcon from "@/components/icon-svg/plus-circle-outline.vue";
 import TrashOutlineIcon from "@/components/icon-svg/trash-outline.vue";
 import ServiceProviderAPIs from "@/services/api/service-provider/provider/ready-service";
@@ -377,7 +379,8 @@ export default {
   components: {
     PlusCircleOutlineIcon,
     TrashOutlineIcon,
-    galleryImage
+    galleryImage,
+    VGoogleMap
   },
   data: vm => {
     return {
@@ -402,11 +405,11 @@ export default {
       gallaries: [],
       gallariesUrl: [],
       itemForm: {},
-       addressName:{
-          address_name:'',
-          lat:'',
-          lng:''
-        },
+      addressName: {
+        address_name: '',
+        lat: '',
+        lng: ''
+      },
     };
   },
   methods: {
@@ -440,6 +443,7 @@ export default {
       for (i = 0; i < this.itemForm.field_id.length; i++) {
         formData.append("field_id[]", this.itemForm.field_id[i]);
       }
+      formData.append(`map_address`, JSON.stringify(this.addressName));
       try {
         let { data } = await ServiceProviderAPIs.add(formData);
         if (data.success) {
@@ -603,11 +607,9 @@ export default {
     closeEvent() {
       this.fireEvent(this.group + "-close-dialog");
     },
-      getAddressMap(data){
-      this.addressName.lat=data.lat
-      this.addressName.lng=data.lng
-console.log('getAddressMap',data);
-    }
+    getAddressMap(data) {
+            this.addressName = data
+        },
   },
   mounted() {
     this.loadCategories();

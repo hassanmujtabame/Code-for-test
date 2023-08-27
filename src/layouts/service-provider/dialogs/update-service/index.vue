@@ -163,6 +163,7 @@
                                 />
                     </ValidationProvider>
                   </div>
+                                <VGoogleMap @mapUpdated='getAddressMap' :center="addressName" :marker="addressName"/>
                     
                     <div class="mb-3">
                             <ValidationProvider
@@ -278,13 +279,15 @@ import TrashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import commonAPIs from '@/services/api/common.js'
 import galleryImage  from '../add-service/gallery-image.vue'
+import VGoogleMap from "@/components/shared/map.vue";
 
 export default {
     name:'update-ready-service-dialog',
     components:{
         galleryImage,
         PlusCircleOutlineIcon,
-        TrashOutlineIcon
+        TrashOutlineIcon,
+        VGoogleMap
     },
 data:(vm)=>{
 return{
@@ -335,6 +338,8 @@ let valid = await this.$refs.form.validate();
  //formData.append('execution_place',this.itemForm.execution_place)
  formData.append('state',this.itemForm.state);
  formData.append('image',this.imageFile);
+formData.append(`map_address`, JSON.stringify(this.addressName));
+
  //formData.append('file',this.attachment);
  formData.append('category_id',this.itemForm.category_id);
  //formData.append('field_id',this.itemForm.field_id);
@@ -494,6 +499,7 @@ async loadCities(){
     }
 },
 openDialog(dataEvent){
+    console.log('dataEvent',dataEvent);
     this.itemForm =Object.assign({
         id:null,
         title:null,
@@ -551,7 +557,10 @@ closeDialog(){
 },
 closeEvent(){
    this.fireEvent(this.group+'-close-dialog')
-}
+},
+         getAddressMap(data) {
+            this.addressName = data
+        },
 },
 mounted(){
     this.loadCategories()
