@@ -11,6 +11,7 @@
             :description="item.job"
             :img="item.image"
             :rate="item.rate"
+            :bio="item.bio"
             showRate
             :to="getRouteLocale('service-provider-show-profile',{id:item.id})"
           />
@@ -21,7 +22,7 @@
 </template>
 
 <script>
-import CardMember from "@/components/cards/card-member.vue";
+import CardMember from "@/components/cards/card-member-service.vue";
 import serviceProviderAPIs from "@/services/api/service-provider/index";
 export default {
   name: "section-best-provider",
@@ -40,6 +41,7 @@ export default {
       try {
         let { data } = await serviceProviderAPIs.getBestProvider();
         if (data.success) {
+          console.log('data', data.data);
           this.items = data.data;
         }
       } catch (error) {
