@@ -238,7 +238,7 @@
           </div>
             <!-- <div style="border: 1px solid"> مكان إقامة الخدمة</div>  -->
 
-             <VGoogleMap @mapUpdated='getAddressMap'/>
+             <!-- <VGoogleMap @mapUpdated='getAddressMap'/> -->
   
 
           <!--details-->
@@ -367,7 +367,7 @@
   </d-dialog-large>
 </template>
 <script>
-import VGoogleMap from "@/components/shared/map.vue";
+// import VGoogleMap from "@/components/shared/map.vue";
 
 import PlusCircleOutlineIcon from "@/components/icon-svg/plus-circle-outline.vue";
 import TrashOutlineIcon from "@/components/icon-svg/trash-outline.vue";
@@ -380,7 +380,7 @@ export default {
     PlusCircleOutlineIcon,
     TrashOutlineIcon,
     galleryImage,
-    VGoogleMap
+    // VGoogleMap
   },
   data: vm => {
     return {
@@ -443,7 +443,7 @@ export default {
       for (i = 0; i < this.itemForm.field_id.length; i++) {
         formData.append("field_id[]", this.itemForm.field_id[i]);
       }
-      formData.append(`map_address`, JSON.stringify(this.addressName));
+      // formData.append(`map_address`, JSON.stringify(this.addressName));
       try {
         let { data } = await ServiceProviderAPIs.add(formData);
         if (data.success) {

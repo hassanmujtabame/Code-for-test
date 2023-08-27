@@ -163,7 +163,7 @@
                                 />
                     </ValidationProvider>
                   </div>
-                                <VGoogleMap @mapUpdated='getAddressMap' :center="addressName" :marker="addressName"/>
+                                <!-- <VGoogleMap @mapUpdated='getAddressMap' :center="addressName" :marker="addressName"/> -->
                     
                     <div class="mb-3">
                             <ValidationProvider
@@ -279,7 +279,7 @@ import TrashOutlineIcon from '@/components/icon-svg/trash-outline.vue'
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import commonAPIs from '@/services/api/common.js'
 import galleryImage  from '../add-service/gallery-image.vue'
-import VGoogleMap from "@/components/shared/map.vue";
+// import VGoogleMap from "@/components/shared/map.vue";
 
 export default {
     name:'update-ready-service-dialog',
@@ -287,7 +287,7 @@ export default {
         galleryImage,
         PlusCircleOutlineIcon,
         TrashOutlineIcon,
-        VGoogleMap
+        // VGoogleMap
     },
 data:(vm)=>{
 return{
@@ -338,7 +338,7 @@ let valid = await this.$refs.form.validate();
  //formData.append('execution_place',this.itemForm.execution_place)
  formData.append('state',this.itemForm.state);
  formData.append('image',this.imageFile);
-formData.append(`map_address`, JSON.stringify(this.addressName));
+// formData.append(`map_address`, JSON.stringify(this.addressName));
 
  //formData.append('file',this.attachment);
  formData.append('category_id',this.itemForm.category_id);
