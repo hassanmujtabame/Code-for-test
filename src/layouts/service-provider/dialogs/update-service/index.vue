@@ -2,7 +2,7 @@
   
     <d-dialog-large :xl="true" 
     :group="group" 
-    :closeDialog="closeDialog"
+    :closeDialog="cancel"
     :openDialog="openDialog"
     :loading="loading"
     >
@@ -553,9 +553,16 @@ this.gallariesUrl = dataEvent.medias
 closeDialog(){
     this.showDialog = false
     this.loading = false;
+    this.refreshPage()
+    return true;
+},
+cancel(){
+    this.showDialog = false
+    this.loading = false;
     return true;
 },
 closeEvent(){
+    this.closeDialog()
    this.fireEvent(this.group+'-close-dialog')
 },
          getAddressMap(data) {

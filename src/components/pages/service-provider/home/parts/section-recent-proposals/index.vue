@@ -37,6 +37,7 @@
             :department="item.category_name"
             :state="item.state"
             :id="item.id"
+            :user_info="item.user_info"
 
           />
         <!-- </a> -->

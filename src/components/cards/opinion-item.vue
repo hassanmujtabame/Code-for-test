@@ -3,7 +3,7 @@
         <div class="row align-items-stretch"> 
             <div class="col-8 position-relative" style="margin-top: 60px;">
                 <div class="d-flex flex-column">
-                 <h6 class="opinion-name">{{ title }}</h6>
+                 <h6 class="opinion-name mb-3">{{ title }}</h6>
                 <p class="opinion-text" v-html="desc"></p>
                 <h6 class="opinion-name">{{ name }}
                 </h6>

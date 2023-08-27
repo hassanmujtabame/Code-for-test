@@ -30,6 +30,7 @@
             :price="item.price"
             :name="item.user_info"
             :id="item.id"
+            :rates="item.rates"
           />
         <!-- </router-link> -->
       </div>

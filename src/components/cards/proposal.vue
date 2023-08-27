@@ -64,10 +64,12 @@
 </div>
                         </router-link>
         <div class="d-flex gap-2 mt-3"  style="align-items: flex-start;">
-            <img :src="`${publicPath}assets/img/Ellipse 603 (1).svg`" style="" />
-            <div>
-                <span class="t-c">شركة بداية</span>
+               <img style="border-radius: 100%;" :src="user_info.image" width="35px" height="35px"/>
 
+            <!-- <img :src="`${publicPath}assets/img/Ellipse 603 (1).svg`" style="" /> -->
+            <div>
+                <span class="t-c">{{user_info.name}}</span>
+ 
                 <div class="t-c opacity-50 fs-r-12  mb-0">
             <img :src="`${publicPath}assets/img/wi_time-8.svg`" style="" />
                         
@@ -177,9 +179,12 @@ export default {
         resetDays: {
             type: [Number]
         },
+        user_info:{
+            type: Object
+        },
         price: {
             type: [String, Number]
-        }
+        },
     },
      data:()=>{
   return{

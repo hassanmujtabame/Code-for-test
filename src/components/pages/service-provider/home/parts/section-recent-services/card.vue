@@ -69,13 +69,15 @@
      
 
       </div>
-      <div class="d-flex gap-2 justify-content-between">
+      <div class="d-flex gap-2 justify-content-between align-items-center">
       <div class="d-flex align-items-center">
 <div><img class="" style="border-radius: 100%;" :src="name.image" height="40px" width="40px" /></div>
 <div class="px-3">{{name.name}}</div>
 
       </div>
-      
+      <div>
+          <RateStars :value="rates" :size="12" />
+      </div>
       </div>
     </div>
         </router-link>
@@ -122,8 +124,11 @@
 </template>
 
 <script>
+import RateStars from "../rate-stars/index";
+
 export default {
   name: "card-service",
+  components:{RateStars},
   props: {
     name: {
       type: [String,Object]
@@ -146,6 +151,10 @@ export default {
     },
     price: {
       type: [String, Number]
+    },
+    rates:{
+      type: [String, Number],
+      default: 0
     }
   },
      data:()=>{

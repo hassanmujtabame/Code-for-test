@@ -45,6 +45,7 @@ classTotal="col-md-3"
           :image="item.image"
           :state="item.state"
           :id="item.id"
+          :user_info="item.user_info"
         />
     </template>
          <!-- </d-swiper> -->
