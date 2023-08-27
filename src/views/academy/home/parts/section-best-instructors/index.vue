@@ -79,7 +79,8 @@ export default {
 
 <style>
 .swiper-slide{
-  width:257.5px !important
+  /* width:257.5px !important */
+  width:280px !important
 }
 .provider-card{
   width:100% !important
