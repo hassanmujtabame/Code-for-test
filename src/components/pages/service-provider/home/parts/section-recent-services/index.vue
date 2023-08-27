@@ -32,6 +32,7 @@
             :id="item.id"
             :rates="item.rates"
           />
+          
         <!-- </router-link> -->
       </div>
     </div>
@@ -41,7 +42,7 @@
 <script>
 import serviceProviderAPIs from "@/services/api/service-provider/index";
 import CardService from "./card.vue";
-export default {
+export default { 
   name: "section-recent-services",
   components: {
     CardService

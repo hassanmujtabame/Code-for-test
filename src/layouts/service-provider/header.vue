@@ -41,7 +41,9 @@ export default {
         {route:'service-provider-contact-us',text:vm.$t('contact-us'),provider:true},
         /** client */ 
         {route:'service-provider-ready-services', text:vm.$t('service'),provider:false},
+        {route:'service-provider-ready-services', text:vm.$t('service'),provider:true},
         {route:'service-provider-proposals', text:vm.$t('requests'),provider:true},
+        {route:'service-provider-proposals', text:vm.$t('requests'),provider:false},
         /*{route:'service-provider-my-proposals', text:vm.$t('my-proposals'),provider:false},*/
         {route:'service-provider-providers', text:vm.$t('service-providers'),provider:false},
         //{route:'service-provider-client-my-purchases', text:vm.$t('my-purchases'),provider:false},

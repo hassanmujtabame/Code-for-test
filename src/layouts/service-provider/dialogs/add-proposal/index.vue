@@ -263,6 +263,7 @@ export default {
       this.loading = false;
     },
     openDialog(dataEvent) {
+      console.log('dataEvent',dataEvent);
       this.loading = false;
       this.itemForm = {
         id: null,

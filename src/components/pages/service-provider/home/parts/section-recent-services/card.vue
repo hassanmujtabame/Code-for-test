@@ -1,5 +1,5 @@
 <template>
-  <div class="box rounded-top">
+  <div class="box rounded-top mb-3">
     <div class="parent">
       <img class="w-100 image1" :src="image" :alt="title" height="264px" />
 <div v-b-modal="`my-modal-${id}`"  class=" image2 bg-white" style="border-radius: 100%;width: 35px;  height: 35px; display: flex; justify-content: center; align-items: center;" >

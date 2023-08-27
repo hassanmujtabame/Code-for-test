@@ -1,5 +1,5 @@
 <template>
-    <div class="ready-service-card box" :class="{'service-stopped':status=='stopped'}">
+    <div class="ready-service-card box mb-5" :class="{'service-stopped':status=='stopped'}">
         <div class="ready-service-card__wrapper">
         <div class="ready-service-card__image" >
             <img class="w-100" :src="image" alt="" height="164px">

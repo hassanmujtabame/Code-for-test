@@ -1,11 +1,13 @@
 <template>
   <div class="main-top py-5 position-relative">
     <b-container>
-      <h1 class="text-white  fs-1 position-relative z-index-1">{{ $t('ready-services') }}</h1>
+      <h1 class="text-white  fs-1 position-relative z-index-1">{{ $t('service') }}</h1>
       <p
         class="text-white fs-r-24 position-relative z-index-1"
         style="max-width:702px"
-      >يقوم مقدمي الخدمات بعرض خدامتهم و مهارتهم و يمكنك شراء هذه الخدمات و التواصل مع اصحابها بكل سهولة</p>
+      >
+      يمكنك عرض خدماتك ومهارتك على أصحاب المشاريع و تحديد قيمة الصفقة المناسبة لكلاً منكم
+
       <div
         class="position-absolute top-0"
         :class="{'rotateY-180':$i18n.locale!='ar','right-0':$i18n.locale!='ar','left-0':$i18n.locale=='ar'}"
