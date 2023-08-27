@@ -168,7 +168,8 @@ export default {
             type: String
         }, 
         id: {
-            type: String
+            type: [String, Number]
+
         },
         offers: {
             type: [String, Number]

@@ -126,7 +126,7 @@ export default {
   name: "card-service",
   props: {
     name: {
-      type: String
+      type: [String,Object]
     },
     image: {
       type: String
@@ -135,7 +135,7 @@ export default {
       type: String
     },
       id: {
-      type: String
+      type: [String, Number]
     },
     description: {
       type: String
