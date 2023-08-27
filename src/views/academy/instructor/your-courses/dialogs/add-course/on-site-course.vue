@@ -5,7 +5,6 @@
         </template>
         <template v-slot:default>
             <div v-if="showDialog" ref="form" class="form-onsite" tag="div">
-                {{itemForm}}
                 <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step == 1">
                     <!--number_day -->
                     <div class="mt-3">
