@@ -7,7 +7,7 @@
 
   <b-card no-body class="box bg-grey" style="z-index: -1; height: 260px; width: 422px">
  
-    <div  class="d-flexl align-items-center gap-3 px-3 py-0  text-center" style="padding-top: 5rem; padding-bottom: 5rem">
+    <div  class="d-flexl align-items-center gap-3 px-3   text-center" style="padding-top: 10rem; padding-bottom: 5rem">
    
       <h3 class="my-3" style="color: rgba(0, 0, 0, 1);">{{ title }}</h3>
    <div class="mb-5" style="color:rgba(0, 0, 0, 0.53)">{{ content }}</div>
