@@ -8,7 +8,6 @@
 
 
       <main >
-        <faqBtn />
         <RateYourExperienceBtn group="rate-your-experience-network" />
           <slot></slot>
           </main>
@@ -33,7 +32,6 @@
   </template>
   
   <script>
-   import faqBtn from '../common/faq-btn/index.vue'
   import RateYourExperienceBtn from '../common/rate-experience.vue'
   import RateYourExperience from '../common/dialogs/rate-experience/index.vue'
   import RateSuccessExperience from '../common/dialogs/rate-experience/success-rate.vue'
@@ -50,7 +48,6 @@
   export default {
       name:'provider-layout',
       components:{
-        faqBtn,
         sendMsgProvider,
         RateYourExperienceBtn,
         RateYourExperience,

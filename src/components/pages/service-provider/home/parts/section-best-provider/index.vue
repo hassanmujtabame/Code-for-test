@@ -12,6 +12,7 @@
             :img="item.image"
             :rate="item.rate"
             :bio="item.bio"
+            :member="item"
             showRate
             :to="getRouteLocale('service-provider-show-profile',{id:item.id})"
           />

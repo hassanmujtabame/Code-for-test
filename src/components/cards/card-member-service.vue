@@ -8,19 +8,21 @@
         <img v-else @click="$emit('click-image')" :src="img" alt width="259" height="192" />    
       </div>
       
-      <div class="provider-card__content pt-0 " :class="{ 'p-3': !description }" style="height: 190px !important; display: flex; flex-direction: column; justify-content: space-between;">
+      <div class="provider-card__content py-0 " style="height: 190px !important; display: flex; flex-direction: column; justify-content: space-between;">
        
         <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
-       <div class="d-flex" style="width: 100%; justify-content: space-between;">
+       <div class="d-flex px-3" style="width: 100%; justify-content: space-between;">
         <p  class="provider-card__description">{{ description }}</p>
         <div v-if="showRate" class="show-rate">
           <RateStars :value="rate" :size="12" />
         </div>
        </div>
-        <div class="provider-card__bio text-two-lines">{{bio}} </div>
+        <div class="provider-card__bio text-two-lines px-0">{{bio}} </div>
 
+       <button @click="openChat" class="text-white border-0 py-2 bg-main w-100 rounded-3">{{ $t('chat') }}</button>
 
       </div>
+
     </div>
   </div>
 </template>
@@ -53,9 +55,17 @@ export default {
       bio: {
       type: String
     },
+    member:{
+     type:[Array,Object],
+    },
     rate: {
       type: [String, Number],
       default: 0
+    }
+  },
+  methods:{
+       openChat(){
+        this.fireEvent('chat-bar',{user:this.member})
     }
   }
 };
@@ -100,7 +110,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 20px 0px;
   gap: 8px;
   background: #ffffff;
   border: 1px solid #cdd7d8;
