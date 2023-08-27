@@ -28,6 +28,7 @@
             group-dialog="send-message-to-provider"
             :member="singleWorkspace.user_info"
             class="mb-3"
+            :showBtnChat="isOwner ? false: true"
           />
           <Info :singleWorkspace="singleWorkspace" /> 
         </div>

@@ -33,7 +33,8 @@ getRoteName(){
            if (this.$route.name == 'network-exhibition-show' || this.$route.name == 'academy-show-profile' || 
            this.$route.name == 'network-show-profile' || this.$route.name == 'service-provider-show-profile' ||
             this.$route.name == 'service-provider-ready-service'||
-            this.$route.name == 'network-success-story-show'
+            this.$route.name == 'network-success-story-show'||
+            this.$route.name == 'workspaces-details'
             ) {
                 return  this.networkExhibition = true
            }else{
