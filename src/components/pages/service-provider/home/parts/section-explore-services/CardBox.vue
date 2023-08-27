@@ -5,7 +5,7 @@
      </div>
        <router-link :to="linkTo" class="text-decoration-none p-0" style="z-index: 3 !important;">
 
-  <b-card no-body class="box bg-grey" style="z-index: -1; height: 365px; width: 422px">
+  <b-card no-body class="box bg-grey" style="z-index: -1; height: 260px; width: 422px">
  
     <div  class="d-flexl align-items-center gap-3 px-3 py-0  text-center" style="padding-top: 5rem; padding-bottom: 5rem">
    
