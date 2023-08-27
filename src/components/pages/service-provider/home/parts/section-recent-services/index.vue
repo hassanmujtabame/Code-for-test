@@ -18,19 +18,20 @@
     </div>
     <div class="row order mt-3">
       <div v-for="(item,i) in items" :key="i" class="col-lg-4">
-        <router-link
+        <!-- <router-link
           class="router-link"
           :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
-        >
+        > -->
           <CardService
             :image="item.image"
-            :description="item.description"
+            :description="item.desc"
             :title="item.title"
             :place="item.city"
             :price="item.price"
-            :name="item.user_info.name"
+            :name="item.user_info"
+            :id="item.id"
           />
-        </router-link>
+        <!-- </router-link> -->
       </div>
     </div>
   </div>

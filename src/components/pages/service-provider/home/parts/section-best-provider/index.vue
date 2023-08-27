@@ -2,7 +2,7 @@
   <div class="sec-five the-best-service-providers p-3 max-width-100-hidden">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center container">
-        <h1 class="home-section-title w-100 text-center">أفضل مقدمي الخدمات هذا الشهر</h1>
+        <h1 class="home-section-title w-100 text-centerl mb-3">أفضل مقدمي الخدمات هذا الشهر</h1>
       </div>
       <d-swiper v-if="!loading" :slides-per-view="4" :space-between="4" is-auto :items="items">
         <template v-slot:default="{item}">

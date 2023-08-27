@@ -17,7 +17,7 @@
           <RateStars :value="rate" :size="12" />
         </div>
        </div>
-        <div class="provider-card__bio">{{bio}} </div>
+        <div class="provider-card__bio text-two-lines">{{bio}} </div>
 
 
       </div>
@@ -148,10 +148,10 @@ export default {
   width: 60px !important;
 }
 .provider-card__bio{
-  white-space: wrap;
+  /* white-space: wrap;
   overflow: hidden;
-  text-overflow: ellipsis !important;
-  height: 60px;
+  text-overflow: ellipsis !important; */
+  /* height: 60px; */
   font-size: 13px;
 
 }
