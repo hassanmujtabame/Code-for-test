@@ -1,9 +1,9 @@
 <template>
   <div class="box border p-3 rounded-3">
-    <!-- <h4>{{ $t('filter') }}</h4> -->
-    <div class=" " id="accordionPanelsStayOpenExample">
+    <h4>{{ $t('filter') }}</h4>
+    <div class="accordion" id="accordionPanelsStayOpenExample">
       <div class="accordion-item">
-        <!-- <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
           <button
             class="accordion-button"
             type="button"
@@ -11,39 +11,33 @@
             data-bs-target="#panelsStayOpen-collapseOne"
             aria-expanded="true"
             aria-controls="panelsStayOpen-collapseOne"
-          >تصنيف الخدمات</button>
-        </h2> -->
-          <div class="d-flex justify-content-between">
-            <div>تصنيف الخدمات</div>
-            <div> عدد خدماتك <span class="m-c">{{totalServices}} خدمة</span> </div>
-            
-          </div>
-
+          >تصنيف الخدمة</button>
+        </h2>
         <div
           id="panelsStayOpen-collapseOne"
           class="accordion-collapse collapse show"
           aria-labelledby="panelsStayOpen-headingOne"
         >
           <div class="accordion-body">
-            <div class=" d-flex rounded-3" style="width:fit-content; border: 1px solid #1FB9B3;">
-              <div v-for="(state,i) in states" :key="i" class="form-check form-check-custom-states">
+            <div>
+              <div v-for="(state,i) in states" :key="i" class="form-check">
                 <input
-                  class="form-check-input form-check-states"
+                  class="form-check-input"
                   type="radio"
                   :value="state.id"
                   v-model="filter.state"
                   :selected="state.id===filter.state"
                   name="stateRadioDefault"
-                  :id="state.id"
+                  id="flexRadioDefault1"
                 />
-                <label @click="updateFilter" style="color: #1FB9B3; cursor: pointer;" :id="state.id" class="form-check-label t form-check-custom" :for="state.id">{{state.name}}</label>
+                <label class="form-check-label" for="flexRadioDefault1">{{state.name}}</label>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="accordion-item show mt-3">
-        <!-- <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      <div class="accordion-item show">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
           <button
             class="accordion-button"
             type="button"
@@ -52,27 +46,26 @@
             aria-expanded="true"
             aria-controls="panelsStayOpen-collapseTwo"
           >مجالات الاختصاص</button>
-        </h2> -->
-        <!-- <div
+        </h2>
+        <div
           id="panelsStayOpen-collapseTwo"
           class="accordion-collapse collapse show"
           aria-labelledby="panelsStayOpen-headingTwo"
-        > -->
-          <div class="accordion-body show d-flex flex-wrap">
-            <div v-for="(cat,i) in categories" :key="i" class="form-check mb-2" style="padding-left: 0.5em !important;">
+        >
+          <div class="accordion-body show">
+            <div v-for="(cat,i) in categories" :key="i" class="form-check">
               <input
                 v-model="filter.category_id"
                 :value="cat.id"
-                class="form-check-input-custom"
+                class="form-check-input"
                 type="checkbox"
-                :id="cat.name"
               />
-              <label @click="updateFilter" class="form-check-label py-1 px-2" style="cursor: pointer;" :for="cat.name">{{cat.name}}</label>
+              <label class="form-check-label" for="defaultCheck1">{{cat.name}}</label>
             </div>
           </div>
-        <!-- </div> -->
+        </div>
       </div>
-      <!-- <div class="accordion-item show">
+      <div class="accordion-item show">
         <h2 class="accordion-header" id="panelsStayOpen-headingThree">
           <button
             class="accordion-button"
@@ -127,11 +120,11 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
     </div>
-    <!-- <div class="mt-3 text-center">
+    <div class="mt-3 text-center">
       <button @click="updateFilter" class="btn-custmer">{{$t('save')}}</button>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -143,18 +136,15 @@ export default {
     filterItem: {
       type: [Object, Array], //defaults values
       require: true
-    },
-    totalServices:{
-      type:Number
     }
   },
   data: vm => {
     return {
       states: [
-        // { id: null, name: "الكل" },
-        { id: "online", name: vm.$t("online-services") },
-        { id: "offline", name: vm.$t("offline-services") },
-        // { id: "service", name: vm.$t("ready-service") }
+        { id: null, name: "الكل" },
+        { id: "online", name: vm.$t("online") },
+        { id: "offline", name: vm.$t("offline") },
+        { id: "service", name: vm.$t("ready-service") }
       ],
       categories: [],
       filter: vm.filterItem
@@ -195,43 +185,4 @@ export default {
 
 
 <style>
-.form-check-input-custom{
- display: none;
-}
-.form-check-input-custom:checked + label{
-    background-color: #1FB9B3;
-    border-radius: 5px;
-    color: white;
-}
-.form-check-custom{
-/* border: 1px solid #1FB9B3; */
-/* border-radius: 8px; */
-padding: 3px 45px;
-
-}
-.form-check-custom-states{
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.form-check-states:checked  + label{
-    background-color: #1FB9B3;
-    border-radius: 5px ;
-    border-top-left-radius: 0px !important ;
-    border-bottom-left-radius: 0px !important ;
-    color: white !important;
-}
-.form-check-states:checked   + #offline{
-    background-color: #1FB9B3;
-    border-top-right-radius: 0px !important ;
-    border-bottom-right-radius: 0px !important ;
-   border-top-left-radius: 5px !important ;
-    border-bottom-left-radius: 5px !important ;
-    color: white !important;
-}
-.form-check-states{
- display: none;
-}
-#offline{
- border-right: 1px solid #1FB9B3;
-}
 </style>

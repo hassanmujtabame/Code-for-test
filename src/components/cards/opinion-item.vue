@@ -4,7 +4,7 @@
             <div class="col-8 position-relative" style="margin-top: 60px;">
                 <div class="d-flex flex-column">
                  <h6 class="opinion-name mb-3">{{ title }}</h6>
-                <p class="opinion-text" v-html="desc"></p>
+                <p class="opinion-text mt-5" v-html="desc"></p>
                 <h6 class="opinion-name">{{ name }}
                 </h6>
             </div>

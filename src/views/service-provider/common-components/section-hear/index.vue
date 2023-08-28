@@ -9,7 +9,6 @@
                       :desc="item.desc"
                       :name="item.user_info.name"
                       :image="item.user_info.image"
-                      :title="item.title"
               />
               </div>
           </div>

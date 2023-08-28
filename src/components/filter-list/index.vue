@@ -18,6 +18,9 @@
         </slot>
       </div>
       <div class="col-12 mt-3 row mb-3" :class="classSearchOrder">
+            <div v-if="showBtnSearch" class="mt-3 text-center" :class="classBtnSearch">
+      <button @click="updateFilter" class="btn-custmer">{{$t('search')}}</button>
+    </div>
         <div v-if="!hideSearch" :class="classColSearch">
           <slot name="search">
             <label for="" class="position-relative w-100">
@@ -69,6 +72,7 @@
             </p>
           </slot>
         </div>
+     
       </div>
       <!--ordzer-->
       <div
@@ -86,7 +90,7 @@
       <slot name="before-body"></slot>
     </div>
     <div class="row">
-      <div v-if="!hideSide" class="col-xl-3 mt-2">
+      <div v-if="!hideSide" class="mt-2" :class="classSideBar">
         <slot name="side">
           <div class="box border p-3 rounded-3">
             <h4>{{ $t("filter") }}</h4>
@@ -310,7 +314,7 @@
           </div>
         </slot>
       </div>
-      <div :class="{ 'col-xl-9': !hideSide, 'col-lg-12': hideSide }">
+      <div :class="{ 'col-xl-9': !hideSide, 'col-lg-12': hideSide, 'col-xl-12': newFilter } "  >
         <div class="row">
           <div v-if="items.length == 0">
             <h1 class="t-c text-center">لا يوجد عناصر</h1>
@@ -331,7 +335,7 @@
           aria-label="Page navigation example"
         >
           <ul
-            class="pagination justify-content-center"
+            class="pagination justify-content-center gap-3"
             :style="{
               'flex-direction': $i18n.locale == 'ar' ? 'row-reverse' : 'row',
             }"
@@ -449,11 +453,23 @@ export default {
       type: String,
       default: "col-lg-6",
     },
+    classSideBar:{
+      type: String,
+      default: "col-xl-3",
+    },
     classColOrder: {
       type: String,
       default: "col-12 col-lg-6",
     },
+    classBtnSearch:{
+     type: String,
+      default: "col-12 col-md-2",
+    },
     hideTotal: {
+      type: Boolean,
+      default: false,
+    },
+    showBtnSearch:{
       type: Boolean,
       default: false,
     },
@@ -471,6 +487,10 @@ export default {
     },
     hideSide: {
       type: Boolean,
+      default: false,
+    },
+    newFilter:{
+       type: Boolean,
       default: false,
     },
     hideTop: {
