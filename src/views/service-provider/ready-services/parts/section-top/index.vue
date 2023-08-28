@@ -1,8 +1,31 @@
 <template>
   <div class="main-top py-5 position-relative ">
     <b-container>
-      <div class="d-flex justify-content-between">
+      <div v-if="state=='online'" class="d-flex justify-content-between">
+      <div>
+      <h1 class="text-white  fs-1 position-relative z-index-1">خدمات عن بعد</h1>
+      <p
+        class="text-white fs-r-24 position-relative z-index-1"
+        style="max-width:702px"
+      >
+      هي خدمات متوعة و مميزة يقدمها مقدم الخدمة عبر الانترنت يمكنك التواصل معه و طلب ماتريده
+      </p>
+      </div>
+      </div>
 
+  <div v-else-if="state=='offline'" class="d-flex justify-content-between">
+      <div>
+      <h1 class="text-white  fs-1 position-relative z-index-1"> خدمات حضورية </h1>
+      <p
+        class="text-white fs-r-24 position-relative z-index-1"
+        style="max-width:702px"
+      >
+      انها ميزة فريدة في مقدمي خدمات رياديات فالان يمكنك طلب خدمة حرفية اوفلاين بكل سهولة
+      </p>
+      </div>
+      </div>
+
+      <div v-else class="d-flex justify-content-between">
       <div>
       <h1 class="text-white  fs-1 position-relative z-index-1">{{ $t('service') }}</h1>
       <p
@@ -12,7 +35,6 @@
       يمكنك عرض خدماتك ومهارتك على أصحاب المشاريع و تحديد قيمة الصفقة المناسبة لكلاً منكم</p>
       </div>
         <img class="" :src="`${publicPath}assets/svg/Group 3066.svg`" alt />
-
       </div>
 
       <!-- <div
@@ -40,7 +62,26 @@
 
 <script>
 export default {
-  name: "section-top"
+  name: "section-top",
+   data:()=>{
+    return{
+      state:'444'
+    }
+   },
+    watch:{
+        '$route' (to,from){
+          this.getQueryName()
+        }
+ },
+ methods:{
+   getQueryName(){
+    this.state=this.$route.query.state
+   }
+ },
+ mounted(){
+   this.getQueryName()
+ }
+
 };
 </script>
 
