@@ -66,8 +66,9 @@
                 class="form-check-input-custom"
                 type="checkbox"
                 :id="cat.name"
+                @change="updateFilter"
               />
-              <label @click="updateFilter" class="form-check-label py-1 px-2" style="cursor: pointer;" :for="cat.name">{{cat.name}}</label>
+              <label  class="form-check-label py-1 px-2" style="cursor: pointer;" :for="cat.name">{{cat.name}}</label>
             </div>
           </div>
         <!-- </div> -->
