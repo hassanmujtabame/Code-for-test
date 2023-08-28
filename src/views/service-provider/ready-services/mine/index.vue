@@ -1,6 +1,6 @@
 <template>
     <div style="margin-top: 85px " class="consult max-width-100-hidden">
-        <SectionTop />
+        <!-- <SectionTop /> -->
     
         <div class="container">
            <SectionFilterList />
@@ -14,13 +14,13 @@
 <script>
 import SectionFilterList from './parts/section-filter-list/index'
 import SectionHear from '@/views/service-provider/common-components/section-hear/index.vue'
-import SectionTop from './parts/section-top/index.vue'
+// import SectionTop from './parts/section-top/index.vue'
 import SectionLearning from '@/views/service-provider/common-components/section-continue-learning/index.vue'
 export default {
  name:'ready-services',
  components:{
     SectionHear,
-    SectionTop,
+   //  SectionTop,
     SectionLearning,
     SectionFilterList
  },

@@ -16,7 +16,6 @@
             
 
             <template v-slot="{ item }">
-                <router-link  class="router-link" :to="getRouteLocale('service-provider-ready-service', { id: item.id })">
                     <readyServiceCard 
                     :image="item.image"
                    :title="item.title"
@@ -24,12 +23,12 @@
                    :price="item.price"
                    :place="item.city"
                    :state="item.state"
-                   :name="item.user_info.name"
+                   :name="item.user_info"
                    :department="item.category_name"
                    :status="item.status"
+                    :id="item.id"
                    
                    />
-                </router-link>
             </template>
 
 

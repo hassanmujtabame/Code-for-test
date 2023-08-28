@@ -168,7 +168,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .txt-description {
   height: 48px;
 }
@@ -188,5 +188,12 @@ export default {
   position: absolute;
   bottom: 10px;
   left: 10px;
+}
+.modal-backdrop{
+--bs-backdrop-zindex: none !important;
+--bs-backdrop-bg : none !important;
+}
+#my-modal___BV_modal_header_ , #my-modal___BV_modal_footer_{
+      visibility: hidden !important;
 }
 </style>

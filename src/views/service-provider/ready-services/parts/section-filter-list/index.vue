@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 blog">
+  <div class="mt-5 blog"> 
     <d-filter-list
       :call-list="loadList"
       @change="changeFilter"
@@ -15,10 +15,10 @@
             ]"
       classColCard="col-lg-4 mt-3"
       classSideBar="w-100"
-            classSearchOrder="col-md-9 flex-direction"
-classColOrder="col-12 col-md-3" 
-classColSearch="col-12 col-md-7"
-classTotal="col-md-3"
+      classSearchOrder="col-md-9 flex-direction"
+      classColOrder="col-12 col-md-3" 
+      classColSearch="col-12 col-md-7"
+      classTotal="col-md-3"
     >
       <!-- <template v-slot:side> -->
            <template v-slot:total="{}">
@@ -33,10 +33,10 @@ classTotal="col-md-3"
       </template>
 
       <template v-slot="{ item }">
-        <router-link
+        <!-- <router-link
           class="router-link"
           :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
-        >
+        > -->
           <!-- <readyServiceCard
             :image="item.image"
             :title="item.title"
@@ -59,7 +59,7 @@ classTotal="col-md-3"
             :rates="item.rates"
           />
      
-        </router-link>
+        <!-- </router-link> -->
       </template>
     </d-filter-list>
   </div>

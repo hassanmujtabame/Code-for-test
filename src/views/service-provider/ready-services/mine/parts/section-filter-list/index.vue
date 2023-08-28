@@ -1,37 +1,56 @@
 <template>
-    <div class="mt-5 blog">
-        <d-filter-list :call-list="loadList" 
+    <div class="my-5 blog border rounded-3">
+        <d-filter-list style="background: unset !important" :call-list="loadList" 
         @change="changeFilter"
         :searchPlaceholder="$t('search_by_service')"
         orderName="price"
-        :orderOpts="
+        :orderOpts=" 
              [
                 {id:'asc',name:'الأقل سعرا'},
                 {id:'desc',name:'الأغلى سعرا',}
             ]"
-        classColCard="col-md-4 mt-3">
+        classColCard="col-md-4 mt-3"
+      classSideBar="w-100"
+        hideTop
+      newFilter
+        
+        >
             <template v-slot:side>
                 <sidebarFilter   @change="changeFilter" :filter-item="fitlterSide" />
                 </template>
-            
+              
 
             <template v-slot="{ item }">
-                <router-link  class="router-link" :to="getRouteLocale('service-provider-ready-service', { id: item.id })">
                     <readyServiceCard 
                     :image="item.image"
                    :title="item.title"
                    :price="item.price"
                    :place="item.city"
                    :state="item.state"
-                   :name="item.user_info ? item.user_info.name : 'N/A' "
+                   :name="item.user_info"
                    :description="item.desc"
                    :department="item.category_name??'N/A'"
                    :status="item.status"
-                   
-                   />
-                </router-link>
-            </template>
+                    :id="item.id"
 
+                     
+                   />
+            </template>
+   <!-- filterItem:{
+            search:null,
+            price:'asc',
+            state,
+            category_id:[],
+            max_period:100,
+            min_period:0,
+            max_price:1000,
+            min_price:0,
+        } -->
+      <!-- category_id:[],
+            max_period:100,
+            min_period:0,
+            max_price:1000,
+            min_price:0, -->
 
         </d-filter-list>
     </div>
@@ -47,27 +66,16 @@ export default {
         readyServiceCard,
         sidebarFilter
     },
-    data: (vm) => {
-        let state = ['online','offline','service'].includes(vm.$route.query.state)?vm.$route.query.state:null
-
+    data: () => {
+        // let state = ['online','offline','service'].includes(vm.$route.query.state)?vm.$route.query.state:null
+// vm
         return{
         fitlterSide:{
-            state,
-            category_id:[],
-            max_period:100,
-            min_period:0,
-            max_price:1000,
-            min_price:0,
+            state:null,
+      
         },
         filterItem:{
-            search:null,
-            price:'asc',
-            state,
-            category_id:[],
-            max_period:100,
-            min_period:0,
-            max_price:1000,
-            min_price:0,
+            state:null,
         }
     }
 },

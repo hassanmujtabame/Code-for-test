@@ -37,7 +37,7 @@
                   :id="state.id"
                 />
                 <label @click="updateFilter" style="color: #1FB9B3; cursor: pointer;" :id="state.id" class="form-check-label t form-check-custom" :for="state.id">{{state.name}}</label>
-              </div>
+              </div> 
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@ export default {
       states: [
         // { id: null, name: "الكل" },
         { id: "online", name: vm.$t("online-services") },
-        { id: "offline", name: vm.$t("offline-services") },
+        { id: "offline", name: vm.$t("offline-services") }, 
         // { id: "service", name: vm.$t("ready-service") }
       ],
       categories: [],
