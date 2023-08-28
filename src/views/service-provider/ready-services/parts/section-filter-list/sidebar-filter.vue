@@ -35,8 +35,9 @@
                   :selected="state.id===filter.state"
                   name="stateRadioDefault"
                   :id="state.id"
+                  @change="updateFilter" 
                 />
-                <label @click="updateFilter" style="color: #1FB9B3; cursor: pointer;" :id="state.id" class="form-check-label t form-check-custom" :for="state.id">{{state.name}}</label>
+                <label style="color: #1FB9B3; cursor: pointer;" :id="state.id" class="form-check-label t form-check-custom" :for="state.id">{{state.name}}</label>
               </div> 
             </div>
           </div>
