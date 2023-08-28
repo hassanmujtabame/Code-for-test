@@ -29,7 +29,7 @@
             </button>
       </template>
       <template v-slot:side>
-        <sidebarFilter @change="changeFilter" :filter-item="fitlterSide" :totalServices="totalYourServices"/>
+        <sidebarFilter @change="changeFilter" :filter-item="fitlterSide" />
       </template>
 
       <template v-slot="{ item }">

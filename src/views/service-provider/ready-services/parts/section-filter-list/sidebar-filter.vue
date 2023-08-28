@@ -145,9 +145,9 @@ export default {
       type: [Object, Array], //defaults values
       require: true
     },
-    totalServices:{
-      type:Number
-    }
+    // totalServices:{
+    //   type:Number
+    // }
   },
   data: vm => {
     return {
@@ -158,7 +158,8 @@ export default {
         // { id: "service", name: vm.$t("ready-service") }
       ],
       categories: [],
-      filter: vm.filterItem
+      filter: vm.filterItem,
+      totalServices:0
     };
   },
   watch: {
@@ -172,6 +173,19 @@ export default {
   methods: {
     updateFilter() {
       this.$emit("change", this.filter);
+      this.getTotalYourServices()
+    },
+           async getTotalYourServices() {
+      try {
+        let { data } = await readyServiceAPIs.getAll(this.filter);
+        if (data.success) {
+          console.log('145',data);
+        this.totalServices = data.meta.total
+        }
+      } catch (error) {
+        console.log("error", error);
+        console.log("error response", error.response);
+      }
     },
     async getCategories() {
       try {
@@ -189,6 +203,7 @@ export default {
   },
   mounted() {
     this.getCategories();
+    this.getTotalYourServices()
   }
 };
 </script>
