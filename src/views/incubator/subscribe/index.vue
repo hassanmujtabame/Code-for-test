@@ -6,6 +6,8 @@
                      <div class="col-md-6">
                          <h1 class="text-white fs-1">
                              ابدأي رحلة نجاحــــك معنا واختري الباقـة المناسـبـة لــــــــــك
+              
+
                          </h1>
                      </div>
                      <div class="col-md-6">
@@ -23,14 +25,12 @@
                      <div v-for="(pack,p) in packages" :key="p" class="col-md-4  mt-2">
                          <SubscribeCard
                          :itemId="pack.id"
-
                          :title="getTitleSubscribe(pack.type)"
                          :price="pack.price"
                          :features="pack.features.map(c=>c.desc)"
                          :type-subscribe="pack.type"
                          @selected="choose(pack)"
-                         
-
+                         :subscribed="userSubIncubators[0]"
                          ></SubscribeCard>
                       
                      </div>

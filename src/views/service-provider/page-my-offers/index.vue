@@ -45,7 +45,7 @@
     </div>
     </div>
 </template>
-<script>
+<script> 
 import userAPI from '@/services/api/user.js'
 import MyOfferCard from '@/components/cards/my-offer.vue'
 export default {
