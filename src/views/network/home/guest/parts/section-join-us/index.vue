@@ -15,12 +15,12 @@
                   </p>
                   <div style="margin-top: 20px;" class="">
 
-                    <router-link
+                    <!-- <router-link
                         :to="getRouteLocale('register-networking')"
                         custom
                         v-slot="{ navigate }"
-                      >
-                    <button @click="navigate" role="link" class="btn border p-2 text-white bg-transpernt svg-network ">
+                      > -->
+                    <button @click="registerNetworking()"  class="btn border p-2 text-white bg-transpernt svg-network ">
                       
                       <svg     height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="#F6F8F9"/>
@@ -28,7 +28,7 @@
                           </svg>
                           {{ $t('knows-more') }}
                     </button>
-                    </router-link>
+                    <!-- </router-link> -->
                 </div>
 
                 </div>
@@ -64,6 +64,25 @@ name:"section-join-us",
 components:{
   IconForPartner,
   IconForNoPartner
+},
+methods:{
+  registerNetworking(){
+           if(this.userSubNetwork.type=='year'){ 
+                      this.router_push('register-networking')
+              }else{
+                  let dataEvt ={
+                        title:'للأسف لايمكنك التسجيل كشريكة',
+                        description:`انتي غير مشتركة في الباقة السنوية وهذه الباقة لا تمكنك من التسجيل كشريكة  - رقي حسابك الى الباقة السنوية و استفيد من  التسجيل معنا كشريكة و المزيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+              }
+
+  }
 }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-<div class="sec-five p-3">
+<div class="sec-five p-3" v-if="userIsSubNetwork">
             <div class="">
               <div
                 class="d-flex justify-content-between align-items-center container"

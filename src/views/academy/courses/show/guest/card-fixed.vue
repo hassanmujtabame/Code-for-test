@@ -23,6 +23,7 @@
     <button v-if="!isOwner && (!token || !itemPage.user_is_join_course)" @click="inscription" class="btn btn-custmer w-100">إشترك في الدورة</button>
     <button v-else @click="showCourse" class="btn btn-custmer w-100">{{ btnTitleSub() }}</button>
   </div>
+
   <div v-else class="mt-3">
     <div class="d-flex justify-content-center">
       <div class="flex-shrink-0 text-center" id="subscribe-action">
@@ -40,6 +41,8 @@
     </div>
   </div>
   </div>
+  {{userSubNetwork.type}}
+{{userIsSubNetwork}} 
   </div>
 </template>
 

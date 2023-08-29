@@ -12,11 +12,11 @@
            
               <router-link :to="getRouteLocale('network-investment-project')" class="nav-link">{{ $t('Investment-projects') }}</router-link>
             </li>
-            <li class="nav-item px-2">
+            <li class="nav-item px-2" v-if="userIsSubNetwork"> 
               <router-link :to="getRouteLocale('network-exhibitions')" class="nav-link">{{ $t('Exhibitions') }}</router-link>
             </li>
            
-            <li class="nav-item px-2">
+            <li class="nav-item px-2"> 
               <router-link :to="getRouteLocale('network-offers')" class="nav-link">{{ $t('Offers') }}</router-link>
             </li>
             <li class="nav-item px-2">

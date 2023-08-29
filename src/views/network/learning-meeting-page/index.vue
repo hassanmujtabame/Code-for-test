@@ -111,9 +111,39 @@ export default {
     this.itemPage.available_meetings_month +=1 
     
   },
-  openConfirmJoinMeeting(){
+  // openConfirmJoinMeeting(){
+  //   this.fireOpenDialog('confirm-join-meeting',this.itemPage)
+  // },
+   openConfirmJoinMeeting(){
+  if(this.userSubNetwork.type!='free' && this.itemPage.available_meetings_month>0){ 
     this.fireOpenDialog('confirm-join-meeting',this.itemPage)
+  }
+
+   else if(this.userSubNetwork.type!='free' && this.itemPage.available_meetings_month<1)
+    {
+      let dataEvt={
+        title:'لا يمنك الانضمام',
+          description:'لقد استنفذت عدد اللقاءات الممنوحة لهذا الشهر',
+        btns:[
+          {title:this.$t('Ok')}
+        ]
+      }
+      this.showConfirmMsg(dataEvt)
+    }
+    else if(this.userSubNetwork.type == 'free'){
+        let dataEvt ={
+                        title:'للأسف لايمكنك  الانضمام الى اللقاء',
+                        description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الانضمام للقاء  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من اللقاءات و المزيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+    }
   },
+
   openConfirmCancelMeeting(){
     this.fireOpenDialog('confirm-cancel-join-meeting',this.itemPage)
   },

@@ -29,8 +29,21 @@
 export default {
  name:'section-top',
  methods:{
-  openAddStory(){
+  openAddStory(){  
+  if(this.userSubNetwork.type!='free'){ 
     this.fireOpenDialog('add-story')
+  }else{
+        let dataEvt ={
+                        title:'للأسف لايمكنك نشر قصتك',
+                        description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من نشر قصة - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من  التسجيل معنا والحصول على المزيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+  }
   }
  }
 }

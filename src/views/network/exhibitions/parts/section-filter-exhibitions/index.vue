@@ -1,6 +1,6 @@
 <template>
         <d-filter-list 
-       
+       v-if="userSubNetwork.type=='year'"
         :call-list="loadList" 
         classColCard="col-lg-6 mt-2" 
         classColSearch="col-12 col-lg-8"

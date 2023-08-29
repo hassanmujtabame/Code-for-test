@@ -114,8 +114,24 @@ export default {
             return true;
         },
         openAddBooking(){
-            if(this.checkBeforeBooking())
+     if(this.userSubNetwork.type=='year'){ 
             this.fireOpenDialog('add-booking-consultant',{item:this.itemPage,opts:this.opts})
+
+              }else{
+                  let dataEvt ={
+                        title:'للأسف لايمكنك الحصول على استشارة ',
+                        description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  استشارة - رقي حسابك الى الباقة السنوية و استفيد من المميزات في الشبكة`,
+
+                       image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+              }
+            // if(this.checkBeforeBooking())
+            // this.fireOpenDialog('add-booking-consultant',{item:this.itemPage,opts:this.opts})
         },
     }
 }

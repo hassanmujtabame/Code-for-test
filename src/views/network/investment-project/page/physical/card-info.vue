@@ -159,7 +159,21 @@ export default {
  },
  methods:{
     openConfirmFinanceDialog(){
+           if (this.userSubNetwork.type=='year') {
         this.$emit('make-finance')
+        }else{
+                let dataEvt ={
+                        title:'للأسف لايمكنك تمويل المشروع',
+                        description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك تمويل مشروع - رقي حسابك الى الباقة السنوية و استفيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+
+        }
     }
  }
 }

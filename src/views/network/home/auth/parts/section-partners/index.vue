@@ -1,5 +1,5 @@
 <template>
-    <div class="network-subscribe p-3" v-if="this.categories.length">
+    <div class="network-subscribe p-3" v-if="userIsSubNetwork && this.categories.length">
         <h2 class="home-section-title text-center" >
               شركائنا في الشبكة رياديات 
             </h2>

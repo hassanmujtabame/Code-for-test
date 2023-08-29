@@ -26,10 +26,12 @@
                     <div></div>
                 </template>
                 <template v-slot:append-order>
-                    <router-link :to="getRouteLocale('network-investment-project-request-add')"
+                    <!-- <router-link :to="getRouteLocale('network-investment-project-request-add')"
                                  class="btn bg-main text-white p-2">
                         أعرض مشروعك لاستثمار
-                    </router-link>
+                    </router-link> -->
+                          <button @click="displayYourProject" class="btn bg-main text-white p-2"> أعرض مشروعك لاستثمار</button>
+
                 </template>
                 <template v-slot:default="{item}">
 
@@ -86,7 +88,23 @@ export default {
             }
             return await projectsAPI.getAllPage('moral', 4, params)
 
-        }
+        },
+            displayYourProject(){
+            if(this.userSubNetwork.type!='free'){ 
+                this.router_push('network-investment-project-request-add')
+            }else{
+                    let dataEvt ={
+                                    title:'للأسف لايمكنك عرض مشروعك ',
+                                    description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من عرض مشروعك - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من عرض مشروعك والمزيد من المميزات في الشبكة`,
+                                    image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                                    btns:[
+                                        {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                                    ]
+                                }
+                                this.showConfirmMsg(dataEvt);
+                                return;
+            }
+                    }
     }
 }
 </script>

@@ -38,8 +38,22 @@ export default {
     plusRectRoundIcon
   },
   methods:{
-    openAddDialog(){
+    openAddDialog(){ 
+        if (this.userSubNetwork.type=='year') {
        this.fireOpenDialog('add-dialog')
+        }else{
+            let dataEvt ={
+                        title:'للأسف لايمكنك  اضافة معرض',
+                        description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة معرض  - رقي حسابك الى الباقة السنويه و استفيد من إضافة معرضك و المزيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+
+        }
   },
   }
 }

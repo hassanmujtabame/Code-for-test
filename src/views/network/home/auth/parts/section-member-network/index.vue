@@ -1,5 +1,5 @@
 <template>
-  <div class="sec-five mt-5 p-3">
+  <div class="sec-five mt-5 p-3" v-if="userSubNetwork.type!='free'">
     <h2 class="m-c text-center text-bold">
       {{ $t('network-sect-members-network-count') }}
       <a href="" class="y-c">

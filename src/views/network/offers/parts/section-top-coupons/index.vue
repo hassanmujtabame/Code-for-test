@@ -47,11 +47,25 @@ export default {
   }),
   methods:{
     addOffer() {
-   
-      if(!this.userPartner)
-      this.fireOpenDialog('join-as-partner',this.getRouteLocale('register-networking'))
-      else
+     if (this.userSubNetwork.type=='year') {
       this.router_push('network-offers-dashboard')
+        }else{
+                let dataEvt ={
+                        title:'للأسف لايمكنك اضافة عرض',
+                        description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة عرض أو خضم - رقي حسابك الى الباقة السنوية و استفيد من إضافة العروض والخصومات و المزيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+
+        }
+      // if(!this.userPartner)
+      // this.fireOpenDialog('join-as-partner',this.getRouteLocale('register-networking'))
+      // else
+      // this.router_push('network-offers-dashboard')
       //this.fireOpenDialog('add-dialog')
       
     },
