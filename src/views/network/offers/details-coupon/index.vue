@@ -29,11 +29,20 @@
 			<h4 class="m-c">عن {{details.name_company}}  </h4>
 			<p  class="t-c my-4" v-html="details.description"></p>
 			<h4 class="m-c ">خدماتنا</h4>
+				<ul class="t-c" v-for="item,i in 4" :key="i">
+			<li>
+			<p class="t-c"> {{details.name_company}}  </p>
+			</li>
+		</ul>
 			<!-- <p  class="t-c my-4" v-html="details.description"></p> -->
 			<h4 class="m-c my-4">الشروط والأحكام</h4>
-
+		<ul class="t-c" v-for="item,i in 4" :key="i">
+			<li>
+			<p class="t-c">{{details.name_company}}  </p>
+			</li>
+		</ul>
 </div>
-<div class="col-12 col-md-4 border rounded-4 p-3 relative">
+<div class="col-12 col-md-4 border rounded-4 p-3 relative" style="height:fit-content">
 			<h4 class="m-c ">الكوبون</h4>
 			<!-- <p  class="t-c my-4" v-html="details.short_description"></p> -->
 		<p class="t-c my-4">
@@ -62,6 +71,9 @@
 
 			</div>
 			<p class=""> البار كود QR</p>
+			<div  class="d-flex justify-content-center">
+<qr-code :text="details.name_company" :size="90"></qr-code>
+			</div>
 
 </div>
 </div>

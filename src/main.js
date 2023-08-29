@@ -4,6 +4,10 @@ console.mylog = (...args) => {
    if (process.env.NODE_ENV == 'development')
       console.log(...args)
 }
+import VueQRCodeComponent from "vue-qrcode-component";
+
+Vue.component("qr-code", VueQRCodeComponent);
+
 import * as VueGoogleMaps from "vue2-google-maps";
 Vue.use(VueGoogleMaps, {
 	load: {
