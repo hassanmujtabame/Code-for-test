@@ -66,14 +66,13 @@ export default {
         }
     },
     methods: {
-
-        openAddDialog() {
-     if (this.userSubNetwork.type=='year') {
+    openAddDialog(){ 
+        if (this.userSubNetwork.type=='year' && this.userSubIncubators && this.userSubIncubators.length>0 && this.userSubIncubators[0].subscribe) {
        this.fireOpenDialog('add-dialog')
-        }else{
-                let dataEvt ={
+        }else if(this.userSubNetwork.type!='year' && this.userSubIncubators && this.userSubIncubators.length>0 && this.userSubIncubators[0].subscribe){
+            let dataEvt ={
                         title:'للأسف لايمكنك  اضافة معرض',
-                        description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة معرض  - رقي حسابك الى الباقة السنوية و استفيد من إضافة معرضك و المزيد من المميزات في الشبكة`,
+                        description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة معرض  - رقي حسابك الى الباقة السنويه و استفيد من إضافة معرضك و المزيد من المميزات في الشبكة`,
                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
                         btns:[
                             {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
@@ -83,7 +82,33 @@ export default {
                     return;
 
         }
-        },
+        else if(this.userSubNetwork.type!='year' && this.userSubIncubators.length==0){
+            let dataEvt ={
+                        title:'للأسف لايمكنك  اضافة معرض',
+                        description:'يجب عليك الاشتراك في الحاضنه والاشتراك في الباقة السنوية كي تتمكن من إضافة معرض',
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')},
+                            {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+
+        }
+        else if (this.userSubNetwork.type=='year' && this.userSubIncubators.length==0) {
+     let dataEvt ={
+                title:'غير مشترك في الحاضنة',
+                description:'انت غير مشترك في الحاضنة ٫ لذا عليك الاشتراك لتتمكن من اضافة معرض',
+                type:'warning',
+                btns:[
+                    {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
+                ]
+            }
+            this.showConfirmMsg(dataEvt)
+        }
+        
+  },
         async loadList() {
             this.loading = true;
             try {
