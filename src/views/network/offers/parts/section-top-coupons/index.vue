@@ -25,6 +25,7 @@
             :during="item.day" 
             :name="item.code" 
             :tag="item.category ? item.category.name : null" 
+            :id="item.id"
               />
           </div>
         </template>

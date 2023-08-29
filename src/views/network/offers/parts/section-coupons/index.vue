@@ -18,9 +18,11 @@
           :img="item.image"    
           :title="item.name_company" 
           :discount="item.discount"
-            :date="item.start_date" 
+            :date="item.start_date"  
             :during="item.day" :name="item.code" 
             :tag="item.category ? item.category.name : null" 
+            :id="item.id"
+
             />
 
       </template>
