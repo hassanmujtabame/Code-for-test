@@ -110,14 +110,6 @@ export default {
       window.open(this.paymentUrlPth, '_blank')
     },
     async handlePayment(data) {
-      console.log('otherData',this.otherData);
-      console.log('data...',data.coupon);  
-   if (data.coupon) {
-console.log('yes');
-   }else{
-console.log('no');
-
-   }
       let formData = new FormData();
    
       formData.append('package_id',this.otherData.id)
@@ -129,28 +121,21 @@ console.log('no');
       if (data.coupon) {
           try {
                     let { data } = await networkAPI.checkoutPackageSelect(formData);
-                    console.log('data',data);
                     if(data.success){
-                      console.log('s',data);
                       window.SwalSuccess(data.message)
                     }
                 } catch (error) {
-                    console.log('error',error)
                         window.SwalError("The given data was invalid")
-
                 } 
       }else{
                   try {
                     let { data } = await networkAPI.PayPackageSelect(formData);
-                    console.log('data',data);
-                               console.log('s',data.data.payment_url);
-                      console.log('s',data.data);
+                    
                     if(data.success){
                         this.paymentUrlPth=	data.data.payment_url
                         this.confirmPaymentUrl()
                     }
                 } catch (error) {
-                    console.log('error',error)
                         window.SwalError("The given data was invalid")
                 } 
       }

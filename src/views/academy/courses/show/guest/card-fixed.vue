@@ -41,8 +41,6 @@
     </div>
   </div>
   </div>
-  {{userSubNetwork.type}}
-{{userIsSubNetwork}} 
   </div>
 </template>
 

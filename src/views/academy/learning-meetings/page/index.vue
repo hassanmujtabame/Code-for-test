@@ -194,12 +194,12 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
     this.isJoined = true;
     this.itemPage.available_meetings_month +=1 
   },
-  openConfirmJoinMeeting(){
-  if(this.userSubNetwork.type!='free' && this.itemPage.available_meetings_month>0){ 
+   openConfirmJoinMeeting(){
+  if(this.userIsSubNetwork && this.userSubNetwork.type=='free' && this.itemPage.available_meetings_month>0){ 
     this.fireOpenDialog('confirm-join-meeting',this.itemPage)
   }
 
-   else if(this.userSubNetwork.type!='free' && this.itemPage.available_meetings_month<1)
+   else if(this.userIsSubNetwork && this.userSubNetwork.type=='free' && this.itemPage.available_meetings_month<1)
     {
       let dataEvt={
         title:'لا يمنك الانضمام',
@@ -210,7 +210,7 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
       }
       this.showConfirmMsg(dataEvt)
     }
-    else if(this.userSubNetwork.type == 'free'){
+    else if(!this.userIsSubNetwork){
         let dataEvt ={
                         title:'للأسف لايمكنك  الانضمام الى اللقاء',
                         description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الانضمام للقاء  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من اللقاءات و المزيد من المميزات في الشبكة`,
@@ -223,7 +223,6 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
                     return;
     }
   },
-
   openConfirmCancelMeeting(){
     this.fireOpenDialog('confirm-cancel-join-meeting',this.itemPage)
   },

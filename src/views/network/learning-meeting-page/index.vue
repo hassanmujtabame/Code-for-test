@@ -115,11 +115,11 @@ export default {
   //   this.fireOpenDialog('confirm-join-meeting',this.itemPage)
   // },
    openConfirmJoinMeeting(){
-  if(this.userSubNetwork.type!='free' && this.itemPage.available_meetings_month>0){ 
+  if(this.userIsSubNetwork && this.userSubNetwork.type=='free' && this.itemPage.available_meetings_month>0){ 
     this.fireOpenDialog('confirm-join-meeting',this.itemPage)
   }
 
-   else if(this.userSubNetwork.type!='free' && this.itemPage.available_meetings_month<1)
+   else if(this.userIsSubNetwork && this.userSubNetwork.type=='free' && this.itemPage.available_meetings_month<1)
     {
       let dataEvt={
         title:'لا يمنك الانضمام',
@@ -130,7 +130,7 @@ export default {
       }
       this.showConfirmMsg(dataEvt)
     }
-    else if(this.userSubNetwork.type == 'free'){
+    else if(!this.userIsSubNetwork){
         let dataEvt ={
                         title:'للأسف لايمكنك  الانضمام الى اللقاء',
                         description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الانضمام للقاء  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من اللقاءات و المزيد من المميزات في الشبكة`,
