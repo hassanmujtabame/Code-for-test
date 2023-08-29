@@ -5,7 +5,6 @@
   :masks="masks"  
   is-range 
   is24hr 
-  :min-date="new Date" 
   :locale="$i18n.locale"
     :modelConfig="modelConfig" 
     :style="{ 'text-align': $i18n.locale == 'ar' ? 'rtl' : 'ltr' }"
@@ -142,6 +141,7 @@ export default {
   methods: {
     emitUpdate(val, name) {
       //console.log(val)
+      // new Date
       if (val == 'Invalid Date') return;
       if (!val) {
         this.$emit(name, null)

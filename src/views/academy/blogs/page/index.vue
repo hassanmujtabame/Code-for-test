@@ -18,7 +18,7 @@
         <div class=" col-12 col-md-8">
           <h3 class="m-c">{{ itemPage.title }}
           </h3>
-          <div class="pargrapg" v-html="itemPage.description">
+          <div class="pargrapg" style="width: 85%;" v-html="itemPage.description">
           </div>
         </div>
         <div class="col-12 col-md-4">

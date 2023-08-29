@@ -55,6 +55,7 @@
              try {
                  let { data } = await coursesAPI.getItem(this.$route.params.id)
                  if (data.success) {
+                   console.log('datalll',data);
                     this.itemPage = data.data;
                     this.isOwner = this.itemPage.user_info.id==this.user.id
                     if((!this.isOwner && !this.itemPage.user_is_join_course)){

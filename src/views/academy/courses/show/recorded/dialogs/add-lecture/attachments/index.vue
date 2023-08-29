@@ -6,7 +6,6 @@
                 <h1 class="flex-grown-1">{{ $t('attachments') }} : </h1>
                 <ValidationObserver ref="form" class="flex-shrink-0" tag="div" v-slot="{invalid }">
                 <div class="d-flex align-items-center">
-                   
                     <ValidationProvider tag="div" 
                                 :name="$t('attachment-title')"
                                 vid="title"
@@ -39,9 +38,10 @@
                         <!--append-icon-->
                         <template v-slot:append-icon>
                             <div class="">
-                                <button @click="uploadAttachment" :disabled="!lectureId || invalid || loading" class="btn no-border" :class="{'c-save':!invalid,'t-c':invalid}" >
+                                <button @click="uploadAttachment"  :disabled="!lectureId || invalid || loading" class="btn no-border" :class="{'c-save':!invalid,'t-c':invalid}" >
                                     <i v-if="!loading" class="fa fa-upload"></i>
                                     <i v-else class="fa fa-spinner fa-spin"></i>
+                                     <!-- :disabled="!lectureId || invalid || loading" -->
                                 </button>
                             </div>
                                 </template>
@@ -138,11 +138,11 @@ export default {
         async uploadAttachment(){
             this.percentage = 0
             this.loading =  true;
-                    let valid = await this.$refs.form.validate()
-                    if(!valid){
-                        this.loading =  false;
-                        return;
-                    }
+                    // let valid = await this.$refs.form.validate()
+                    // if(!valid){
+                    //     this.loading =  false;
+                    //     return;
+                    // }
                     let config ={
             onUploadProgress: progressEvent =>{
               
@@ -189,6 +189,9 @@ export default {
                     return;
             }
             this.itemForm.file = evt.target.files[0];
+            this.itemForm.file = evt.target.files[0];
+            this.itemForm.title=evt.target.files[0].name
+    
         }
     }
 }
