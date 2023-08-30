@@ -3,11 +3,11 @@
               <div class="image">
                 <img class="w-100" :src="img" :alt="title" height="184">
               </div>
-              <div class="text p-3 text-start">
+              <div class="text p-3 text-end">
                 <h6 class="blog-info__title text-two-lines" >{{title}}</h6>
-                <p style="height:80px" class="description-blog" v-html="description"></p>
+                <p style="height:80px" class="description-blog text-end" >{{strip_tags(description)}}</p>
               </div>
-              <div class="d-flex">
+              <div class="d-flex text-end">
                 <div class="blog-info-category date text-start mx-1 flex-grow-1">
                   <div class="d-flex gap-2   data">
           <p v-for="(cat,c) in categories" :key="c" :style="{'color':`${colors[c%3]}!important`}" class="p-1 px-2 rounded-2 text-white m-0">
@@ -18,7 +18,7 @@
               <div class="blog-info-date date d-flex align-items-center text-start  mx-1 flex-shrink-0">
                 <p class="d-flex m-0">
                  
-                <bdi class="blog-info__date text-two-lines" style="padding: 0 5px;">{{dateText}}</bdi>
+                <bdi class="blog-info__date text-two-lines" style="padding: 0 5px;">{{dayjs(date).locale('ar').format('DD MMMM YYYY') }}</bdi>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
                     </svg>
@@ -31,6 +31,10 @@
 </template>
 
 <script>
+var locale_de = require('dayjs/locale/ar')
+
+import dayjs from "dayjs";
+
 export default {
   props:{
     img:{
@@ -58,7 +62,11 @@ export default {
     colors:['#1FB9B3','#FFBC00','#F2631C','#2C98B3']
   }),
  computed:{
+     dayjs() {
+         return dayjs
+     },
     dateText(){
+
         if(!this.date) return 'N/A';
         return this.dateTextMonth(this.date)
         /*let parts = this.date.trim().split('-');
