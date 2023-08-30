@@ -62,6 +62,7 @@ export default {
 }
 .visitor-action {
   justify-content: end;
+      font-size: 13px;
 }
 @media (max-width: 991px) {
 
