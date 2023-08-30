@@ -21,6 +21,7 @@
           :name="item.name"
           :description="item.job_title"
           :img="item.image"
+          :showJob="true"
           />
       </template>
 

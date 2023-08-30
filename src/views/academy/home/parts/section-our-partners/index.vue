@@ -1,7 +1,7 @@
 <template>
-    <div class="network-subscribe p-3 mt-5" >
+    <div class="network-subscribe network-subscribe-custom2 p-3 mt-5" >
         <h2 class="home-section-title text-center">
-            شركائنا في أكاديمية رياديات
+            شركائنا في أكاديمية رياديات 
             </h2>
               <div class=" ">
                  <DTabs group="pills" :current.sync="currentTab">
@@ -76,5 +76,8 @@
   </script>
   
   <style>
-  
+  .network-subscribe-custom .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #979797 !important;
+    border: 2px solid #979797 !important;
+}
   </style>

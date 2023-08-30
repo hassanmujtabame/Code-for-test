@@ -7,9 +7,9 @@
         </router-link>
         <img v-else @click="$emit('click-image')" :src="img" alt width="259" height="162" />
       </div>
-      <div class="provider-card__content" :class="{ 'p-3': !description }" style="height: 115px !important; display: flex; flex-direction: column; justify-content: space-between;">
+      <div class="provider-card__content" :class="{ 'p-3': !description , 'h-job': showJob}"  style=" display: flex; flex-direction: column; justify-content: space-between;">
         <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
-        <p  class="provider-card__description">{{description}} </p>
+        <p class="provider-card__description">{{description}} </p>
         <div v-if="showRate">
           <RateStars :value="rate" :size="12" />
         </div>
@@ -27,6 +27,10 @@ export default {
   },
   props: {
     showRate: {
+      type: Boolean,
+      default: false
+    },
+      showJob: {
       type: Boolean,
       default: false
     },
@@ -134,5 +138,8 @@ export default {
   justify-content: center;
   text-transform: capitalize;
   color: var(--m-color);
+}
+.h-job{
+  height: 115px;
 }
 </style>
