@@ -11,7 +11,7 @@
           data-aos-duration="2000"
         >
           <div class="mx-auto" style="width:fit-content">
-            <ImgAvatar class="filter-shadow-partner mx-auto" :img="partner.image_path" size="180" />
+            <ImgAvatar class="filter-shadow-partner mx-auto" :item="partner" size="180" />
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
 
 <script>
 import partnersAPI from "@/services/api/partners.js";
-import ImgAvatar from "@/components/avatars/img-avatar.vue";
+import ImgAvatar from "@/components/avatars/img-avatar-partners.vue";
 export default {
   name: "partners-riadiat",
   components: {

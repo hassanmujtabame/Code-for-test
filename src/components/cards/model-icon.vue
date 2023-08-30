@@ -1,10 +1,10 @@
 <template>
   <div class="box rounded-3 border" >
                       
-                          <div class="rounded-top">
-                              <img class="w-100 rounded-top"  :src="img" :alt="title"  height="186">
+                          <div class="rounded-top" style="height: 186px;">
+                              <img class="w-100 h-100 rounded-top"  :src="img" :alt="title"  >
                           </div>
-                          <div class="text-start bg-white  p-2">
+                          <div class="text-end bg-white  p-2">
                               <h6>{{title}}</h6>
                               <div>
                                 <DownloadIcon />

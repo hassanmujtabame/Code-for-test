@@ -1,10 +1,10 @@
 <template>
-   <div class="mt-5 p-3">
-            <div class="container">
+   <div class="mt-5 p-5">
+            <div class="conltainer">
               <div
                 class="d-flex justify-content-between align-items-center "
               >
-                <h1 class="home-section-title"> {{ $t('riadiat-models') }} </h1>
+                <h1 class="home-section-title mb-3"> {{ $t('riadiat-models') }} </h1>
                 <div>
                 <router-link class="more" custom 
                 :to="getRouteLocale('network-models')"
@@ -16,6 +16,7 @@
               :slides-per-view="4"
               is-auto
               :items='items'
+              :space-between="30"
               >
                  <template v-slot="{item}">
                   <router-link class="router-link" :to="getRouteLocale('network-model-show',{id:item.id})">
