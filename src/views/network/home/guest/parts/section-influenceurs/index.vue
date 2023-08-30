@@ -19,7 +19,7 @@
                 <template  v-slot:default="{item}" >
                     <CardMember 
                     :name="item.name" 
-                    :description="item.description" 
+                    :description="item.job_title" 
                     :to="getRouteLocale('network-show-profile',{id:item.id})"
                     :img="item.image"/>
                 </template>
