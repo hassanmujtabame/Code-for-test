@@ -18,6 +18,7 @@
     "bootstrap": "^5.3.0",
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
+    "dayjs": "^1.11.9",
     "imask": "^6.4.3",
     "jquery": "^3.6.1",
     "js-cookie": "^3.0.1",
