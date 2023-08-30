@@ -6,7 +6,7 @@
                 <div class="form-exhibition row add-portfolio m-3 p-0 position-relatiuve">
                     <div class="col-12 col-lg-5 justify-content-center mx-auto">
                         <div class="col-md-10">
-                            <ValidationProvider :name="$t('Image')" vid="image1" rules="required|image"
+                            <ValidationProvider :name="$t('Image')" vid="image1" rules="image"
                                                 v-slot="{ validate, errors }">
                                 <label for="imginput1" class="form-label file-label rounded-3 first w-100">
                                     <div class="text-center p-5l" style="width: 350px; height: 233px">
@@ -26,7 +26,7 @@
                             </ValidationProvider>
                         </div>
                         <div class="col-md-10 mt-3">
-                            <ValidationProvider :name="$t('Image')" vid="image2" rules="required"
+                            <ValidationProvider :name="$t('Image')" vid="image2" rules=""
                                                 v-slot="{ validate, errors }">
                                 <label for="imgInput" class="form-label file-label first w-100">
                                     <div class="text-center p-2" style="background: #E9F8F7;">

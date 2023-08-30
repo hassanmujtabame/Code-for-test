@@ -17,10 +17,9 @@
       </div>
       <d-swiper v-if="!loading" is-auto :slides-per-view="4" :space-between="4" :items="items">
         <template v-slot:default="{ item }">
-          
-            <CardMember :name="item.name" :to="getRouteLocale('network-show-profile',{id:item.id})" :description="item.description" :img="item.image" />
-    
-        </template>
+           
+            <CardMember :name="item.name" :to="getRouteLocale('network-show-profile',{id:item.id})" :description="item.job_title" :img="item.image" />
+        </template> 
       </d-swiper>
     </div>
   </div>

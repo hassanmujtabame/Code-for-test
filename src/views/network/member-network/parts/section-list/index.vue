@@ -19,7 +19,7 @@
           <ItemCard
           :to="getRouteLocale('network-show-profile',{id:item.id})"
           :name="item.name"
-          :description="item.description"
+          :description="item.job_title"
           :img="item.image"
           />
       </template>

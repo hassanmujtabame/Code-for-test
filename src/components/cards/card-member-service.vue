@@ -1,9 +1,10 @@
 <template>
   <div class="provider-card" >
     <div class="provider-card__wrapper relative">
-      <div class="provider-card__image">
+      <div class="provider-card__image parent">
         <router-link v-if="to" :to="to">
-          <img :src="img" alt width="259" height="192" />
+          <img :src="img" alt width="259" height="192"  class="image1"/>
+          <img :src="img" alt class="image2"/>
         </router-link>
         <img v-else @click="$emit('click-image')" :src="img" alt width="259" height="192" />    
       </div>
@@ -67,6 +68,8 @@ export default {
        openChat(){
         this.fireEvent('chat-bar',{user:this.member})
     }
+  },
+  mounted(){
   }
 };
 </script>
@@ -164,5 +167,25 @@ export default {
   /* height: 60px; */
   font-size: 13px;
 
+}
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image2 {
+  position: absolute;
+  bottom: 0px;
+  left: 30%;
+  width: 100px !important;
+    height: 100px !important;
+    border-radius: 100%;
 }
 </style>
