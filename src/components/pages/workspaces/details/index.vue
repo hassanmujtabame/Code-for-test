@@ -19,7 +19,8 @@
         <div class="col-md-6 mt-5">
           <Gallery :singleWorkspace="singleWorkspace" />
           <!--rate service-->
-          <SectionRate :singleWorkspace="singleWorkspace" v-if="singleWorkspace.rates.length"/>
+          <SectionRate :singleWorkspace="singleWorkspace"/>
+           <!-- v-if="singleWorkspace.rates.length" -->
         </div>
 
         <div class="col-md-6 mt-5">

@@ -6,7 +6,7 @@
           <h4 class="s-c fw-bolder">تقيم مكان العمل</h4>
         </div>
       </div>
-      <div>
+      <div  v-if="rates && rates.length>0">
         <rateCard
           v-for="(rateItem, i) in rates"
           :key="i"
@@ -14,6 +14,9 @@
           class="mt-2"
         />
       </div>
+        <div v-else class="d-flex align-items-center justify-content-center">
+                <h3 class="t-c">لا توجد تقييمات</h3>
+            </div>
     </div>
   </div>
 </template>

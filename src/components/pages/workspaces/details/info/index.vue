@@ -2,7 +2,7 @@
   <div class="box border rounded-3 p-4">
     <div class="border-bottom pb-3 px-2">
       <h5>العنوان بالتفصيل</h5>
-      <p class="gray-color">{{ singleWorkspace.address }}</p>
+      <p class="gray-color">{{ singleWorkspace.map_address.address_name }}</p>
     </div>
     <div class="border-bottom py-3 px-2">
       <h5>وصف مكان العمل</h5> 

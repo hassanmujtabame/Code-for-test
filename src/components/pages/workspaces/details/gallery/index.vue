@@ -38,7 +38,7 @@
         watch-slides-progress
       >
         <template v-slot="{ item }">
-          <img style="heigh115px; object-fit: contain;" :src="item.image" />
+          <img style="height: 115px !important; object-fit: contain;" :src="item.image" />
         </template>
       </d-swiper>
     </div>
