@@ -1,7 +1,7 @@
 <template>
-    <div class="network-subscribe p-3" v-if="categories && categories.length>0">
+    <div class="network-subscribe p-3" >
         <h2 class="home-section-title text-center">
-            شركائنا في أكاديمية رياديات 
+            شركائنا في أكاديمية رياديات
             </h2>
               <div class=" ">
                  <DTabs group="pills" :current.sync="currentTab">
@@ -16,13 +16,13 @@
   
                  </DTabs>
                  <div class="container">
-  
+
   <div class="tab-content" id="pills-tabContent">
       <TabItem
       v-for="(item,i) in categories"
                   :key="i"
       :current.sync="currentTab" group="pills" :reference="`cat-${item.id}`" v-slot="{selected}">
-          <TabContentItem :categoryId="item.id" :selected="selected"/>
+          <TabContentItem :categoryId="item.id" :selected="selected" :instructors="item.instructors"/>
       </TabItem>
       
       </div>

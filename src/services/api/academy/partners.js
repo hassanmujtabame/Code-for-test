@@ -3,10 +3,10 @@ class PartnersApi extends BaseApi{
     //Get all Partners
     getAll(params={}){
         let s=this.generateQueryUrl(params)
-        return window.axios.get(`academy/partners?${s}`);
+        return window.axios.get(`academy/departments?${s}`);
     }
     getItem(id){
-        return window.axios.get(`academy/partners/${id}`);
+        return window.axios.get(`academy/departments/${id}`);
     }
     
 }
