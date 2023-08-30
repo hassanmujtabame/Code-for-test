@@ -1,13 +1,13 @@
 <template>
-    <div class="row justify-content-around">
-        <div v-for="(instructor,i) in instructors" :key="i" class="col-6 col-md-3 text-center">
+    <div class="row w-100">
+        <div v-for="(instructor,i) in instructors" :key="i" class="col-6 col-md-2 mx-2 mb-3 text-center">
             <router-link class="router-link" :to="getRouteLocale('network-offers',{},{section:'academy'})">
                 <ImgAvatar class="filter-shadow-partner mx-auto" :img="instructor.image_path" :alt="instructor.name??''"
-                           size="180" />
+                           size="150" />
             </router-link>
         </div>
-        <div v-if="items.length==0" style="min-height:180px" class="col-12  d-flex align-items-center">
-            <h3 class="t-c">{{ $t('no-items') }}</h3>
+        <div v-if="instructors.length==0" style="min-height:180px" class="col-12  d-flex align-items-center text-center w-100">
+            <h3 class="t-c text-center w-100">{{ $t('no-items') }}</h3>
         </div>
     </div>
 </template>

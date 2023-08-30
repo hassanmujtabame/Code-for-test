@@ -1,6 +1,6 @@
 <template>
   <ul
-    class="nav nav-pills mb-3 justify-content-center"
+    class="nav nav-pills mb-3 justify-content-center p-0"
     :id="`${group}-tab`"
     role="tablist"
   >

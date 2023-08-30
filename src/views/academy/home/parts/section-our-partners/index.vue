@@ -1,5 +1,5 @@
 <template>
-    <div class="network-subscribe p-3" >
+    <div class="network-subscribe p-3 mt-5" >
         <h2 class="home-section-title text-center">
             شركائنا في أكاديمية رياديات
             </h2>
