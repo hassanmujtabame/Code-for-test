@@ -671,7 +671,6 @@ const mixin = {
 							onlineUsers: "chat/onlineUsers",
 							token: "auth/token",
 							authenticated: "auth/authenticated",
-							setSubscribersNetwork: "user/network/system-packages",
 						}),
 					},
 				});

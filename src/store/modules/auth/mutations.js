@@ -9,6 +9,7 @@ export default {
 		state.subscribeProvider = null;
 		state.isSubscribeNetwork = null;
 		state.isSubscribeProvider = null;
+        state.userSubNetworkPackages=[];
 		localStorage.removeItem("auth_token");
 		localStorage.removeItem("user_provider");
 		localStorage.removeItem("user_academy_role");
@@ -37,6 +38,8 @@ export default {
 		state.isSubscribeIncubator = false;
 		state.isSubscribeIncubators = false;
 		state.academyRole = null;
+        state.userSubNetworkPackages = [];
+
 		localStorage.removeItem("auth_user");
 		localStorage.removeItem("user_provider");
 		localStorage.removeItem("user_academy_role");
@@ -119,7 +122,5 @@ export default {
 	SET_IS_SUBSCRIBE_INCUBATORS(state, payload) {
 		state.isSubscribeIncubators = payload;
 	},
-	SET_SUBSCRIBERS_NETWORK_Packages(state, payload) {
-		state.userSubNetworkPackages = payload;
-	},
+
 };

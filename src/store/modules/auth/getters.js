@@ -61,7 +61,5 @@ export default {
 	authenticated(state) {
 		return !!state.user || !!localStorage.getItem("auth_user");
 	},
-	userSubNetworkPackages(state) {
-		return state.userSubNetworkPackages;
-	},
+
 };

@@ -23,7 +23,5 @@ export default {
 	clearPartner({ commit }) {
 		commit("CLEAR_PARTNER");
 	},
-	setSubscribersNetwork({ commit }, payload) {
-		commit("SET_SUBSCRIBERS_NETWORK_Packages", payload);
-	},
+
 };

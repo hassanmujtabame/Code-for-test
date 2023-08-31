@@ -16,5 +16,4 @@ export default () => ({
 	academyRole: null,
 	isInstructor: false,
 	isConsultant: false,
-	userSubNetworkPackages:[],
 });
