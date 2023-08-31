@@ -167,6 +167,7 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
   return{
   isJoined:false,
   isOwner:false,
+  join_meeting:false,
       loading:true,
       hasError:false,
       colors:['#F2631C','#FFBC00','#2C98B3'],
@@ -199,7 +200,7 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
     this.fireOpenDialog('confirm-join-meeting',this.itemPage)
   }
 
-   else if(this.userIsSubNetwork && this.userSubNetwork.type=='free' && this.itemPage.available_meetings_month<1)
+   else if(this.join_meeting && this.itemPage.available_meetings_month<1)
     {
       let dataEvt={
         title:'لا يمنك الانضمام',
@@ -210,7 +211,7 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
       }
       this.showConfirmMsg(dataEvt)
     }
-    else if(!this.userIsSubNetwork){
+    else if(!this.join_meeting){
         let dataEvt ={
                         title:'للأسف لايمكنك  الانضمام الى اللقاء',
                         description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الانضمام للقاء  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من اللقاءات و المزيد من المميزات في الشبكة`,
@@ -280,8 +281,18 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
 
             this.loading = false;
         },
+          checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                 if (element.key == "meetings" || element.key == "free_meetings") {
+                        this.join_meeting = true
+                    }
+                }
+    }
+
   },
   mounted(){
+    this.checkSubscriptionOptions()
     this.initializing()
     this.shareLink = window.location.href;
   }
