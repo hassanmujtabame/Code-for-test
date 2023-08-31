@@ -111,17 +111,30 @@ components:{
         try {
             let { data } = await networkAPI.getPackages();
             if(data.success){
-                console.log('data5555',data);
+                console.log('Packages',data);
                 this.packages = data.data
             }
         } catch (error) {
             console.log('error',error)
         }
     },
+    checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                    if (element.key=='show_exhibitions') {
+                        console.log('444',element);
+                        
+                    }
+                }
+
+        
+    }
    
   },
   mounted(){
     this.loadPackages()
+    this.checkSubscriptionOptions()
+
   }
 }
 </script>

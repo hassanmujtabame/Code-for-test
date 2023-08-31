@@ -28,9 +28,14 @@
 <script>
 export default {
  name:'section-top',
+  data:()=>{
+    return {
+    successStories:false
+ }
+  },
  methods:{
   openAddStory(){  
-  if(this.userSubNetwork.type!='free'){ 
+  if(this.successStories){ 
     this.fireOpenDialog('add-story')
   }else{
         let dataEvt ={
@@ -44,8 +49,19 @@ export default {
                     this.showConfirmMsg(dataEvt);
                     return;
   }
-  }
- }
+  },
+        checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "success_stories") {
+                        this.successStories = true
+                    } 
+                }
+    }
+ },
+ mounted(){
+    this.checkSubscriptionOptions()
+}
 }
 </script>
 

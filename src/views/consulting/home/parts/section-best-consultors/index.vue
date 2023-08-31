@@ -1,5 +1,5 @@
 <template>
-<div class="sec-five p-3" v-if="userIsSubNetwork">
+<div class="sec-five p-3" v-if="consultants">
             <div class="">
               <div
                 class="d-flex justify-content-between align-items-center container"
@@ -44,7 +44,8 @@ export default {
   },
   data:()=>({
     loading:true,
-    items:[]
+    items:[],
+    consultants:false
   }),
   methods:{
     async initializing(){
@@ -58,9 +59,20 @@ export default {
            // 
         }
         this.loading = false;
+    },
+            checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "consultants") {
+                        this.consultants = true
+                        
+                    } 
+                }
     }
   },
   mounted(){
+    this.checkSubscriptionOptions()
+
     this.initializing()
   }
 }

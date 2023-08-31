@@ -157,9 +157,16 @@ export default {
     itemPage:{},
     isOwner:{}
  },
+  data:()=>{
+    return {
+ addInvestmentProjects:false
+
+ }
+},
+
  methods:{
     openConfirmFinanceDialog(){
-           if (this.userSubNetwork.type=='year') {
+           if (this.addInvestmentProjects) {
         this.$emit('make-finance')
         }else{
                 let dataEvt ={
@@ -174,8 +181,20 @@ export default {
                     return;
 
         }
-    }
- }
+    },
+         checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "add_investment_projects") {
+                        this.addInvestmentProjects = true
+                    } 
+                }
+    },
+    
+ },
+ mounted(){
+    this.checkSubscriptionOptions()
+}
 }
 </script>
 

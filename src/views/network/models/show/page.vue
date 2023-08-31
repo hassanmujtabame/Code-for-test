@@ -54,6 +54,11 @@ export default {
         require:true
     }
  },
+    data: () => {
+        return {
+        freeModels: false
+        }
+    },
  methods:{
     checkCanDowload(){
         return true;
@@ -78,17 +83,17 @@ export default {
     },
     async downloadModel(){
         let valid = await this.checkCanDowload();
-        if (this.userSubNetwork.type!='free' && valid) {
+        if (this.freeModels && valid) {
         this.downloadingModel()
         }
-        else if(this.userSubNetwork.type!='free' && !valid){
+        else if(!valid){
             let dataEvt = {
                 title:'لقد وصلت للحد الأقصى لتحميل هذا الشهر',
                 description:`لقد قمت بتحميل4 نماذج هذا الشهر  ولا يمكن تحميل المزيد من النماذج .... لا تقلق مازال بأمكانك  تجربة مميزات فريدة اخرى في شبكة رياديات `,
                 image:`${this.publicPath}assets/img/Group 1171275442.png`
             }
             this.showConfirmMsg(dataEvt);
-        }else if (this.userSubNetwork.type=='free') {
+        }else if (!this.freeModels) {
                 let dataEvt ={
                         title:'للأسف لايمكنك الحصول على النموذج',
                         description:`انت مشترك في الباقة المجانية وهذه الباقة لا تمنحك نموذج - رقي حسابك الى الباقة الشهرية أو الباقة السنويه و استفيد من  النماذج و المزيد من المميزات في الشبكة`,
@@ -101,8 +106,19 @@ export default {
                     return;
         }
         // use simple download before build
+    },
+         checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "free_models") {
+                        this.freeModels = true
+                    }
+                }
     }
- }
+ },
+     mounted() {
+    this.checkSubscriptionOptions()
+    }
 }
 </script>
 

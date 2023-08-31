@@ -48,12 +48,35 @@ export default {
         {id:2,title:'عنوان المدونة',image:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
         {id:3,title:'عنوان المدونة',image:`${vm.publicPath}assets/img/Rectangle 3.png`,date:'10  sep, 2021',description:'نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي نص  تعريفي'},
 */
-    ]
+    ],
+    shareBlogs:false
  }),
+ 
  methods:{
     addBlog(){
+if(this.shareBlogs){ 
     this.fireOpenDialog('add-blog')
+  }else{
+        let dataEvt ={
+                        title:'للأسف لايمكنك المشاركة في التدوين',
+                        description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من المشاركة في التدوين - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من  نشر تدوينتك معنا والحصول على المزيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+  }
   },
+      checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "blogs") {
+                        this.shareBlogs = true
+                    } 
+                }
+    },
     async getRecents() {
         this.loading = true;
             try {
@@ -72,7 +95,8 @@ export default {
         }
  },
  mounted(){
-    this.getRecents()
+    this.getRecents(),
+    this.checkSubscriptionOptions()
  }
 }
 </script>

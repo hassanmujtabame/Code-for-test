@@ -39,11 +39,12 @@ export default {
     stories:[],
     loading:true,
     hasError:false,
+    successStories:false
  }
 },
 methods:{
   openAddStory(){
-if(this.userSubNetwork.type!='free'){ 
+if(this.successStories){ 
     this.fireOpenDialog('add-story')
   }else{
         let dataEvt ={
@@ -74,10 +75,19 @@ if(this.userSubNetwork.type!='free'){
             this.hasError=true
         }
         this.loading = false
+    },
+          checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "success_stories") {
+                        this.successStories = true
+                    } 
+                }
     }
 },
 mounted(){
     this.initializing()
+    this.checkSubscriptionOptions()
 }
 }
 </script>

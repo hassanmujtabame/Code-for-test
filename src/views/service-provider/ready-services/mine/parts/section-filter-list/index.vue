@@ -13,7 +13,7 @@
       classSideBar="w-100"
         hideTop
       newFilter
-        
+         
         >
             <template v-slot:side>
                 <sidebarFilter   @change="changeFilter" :filter-item="fitlterSide" />

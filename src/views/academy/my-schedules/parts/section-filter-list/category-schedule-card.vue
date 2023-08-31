@@ -1,5 +1,5 @@
 <template>
-  <div class="box schedule-card border rounded-2">
+  <div class="box schedule-card border rounded-2" >
                 <div class="h-100 d-flex flex-column align-items-center">
                   <div class="flex-shrink-0 ">
                     <noteCircleIcon :color="color" />

@@ -69,10 +69,16 @@ export default {
         AnimateCard,
         dFilterList
     },
+    
+       data: () => {
+        return {
+            offersCardMember: false
+        }
+   },
     methods:{
         downloadCard(evt){
             if(!this.shouldSubNetworkMsg('انت غير مشترك في الشبكة',evt)){
-                if(this.userSubNetwork.type=='free'){
+                if(!this.offersCardMember){
                     let dataEvt ={
                         title:'للأسف ليست لديك بطاقة عضوية',
                         description:`انت مشترك في الباقة المجانية وهذه الباقة لا تمنحك بطاقة العضوية - رقي حسابك الى الباقة الشهرية أو الباقة السنويه و استفيد من بطاقة العضوية و المزيد من المميزات في الشبكة`,
@@ -92,7 +98,19 @@ export default {
                     this.showConfirmMsg(dataEvt);
             } 
 
-        }
+        },
+        
+          checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                    if (element.key == "offers_card_member") {
+                        this.offersCardMember = true
+                    }
+                }
+    }
+    },
+      mounted() {
+    this.checkSubscriptionOptions()
     }
 }
 </script>

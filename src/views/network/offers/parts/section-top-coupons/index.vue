@@ -26,6 +26,7 @@
             :name="item.code" 
             :tag="item.category ? item.category.name : null" 
             :id="item.id"
+            :sowDetails="addOffers"
               />
           </div>
         </template>
@@ -44,11 +45,13 @@ export default {
   },
   data: () => ({
     loading:true,
-    items: []
+    items: [],
+    addOffers:false,
+
   }),
   methods:{
     addOffer() {
-     if (this.userSubNetwork.type=='year') {
+     if (this.addOffers) {
       this.router_push('network-offers-dashboard')
         }else{
                 let dataEvt ={
@@ -70,6 +73,14 @@ export default {
       //this.fireOpenDialog('add-dialog')
       
     },
+               checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "add_offers") {
+                        this.addOffers = true
+                    } 
+                }
+    },
     async getRecents() {
       this.loading = true;
             try {
@@ -86,6 +97,8 @@ export default {
  },
  mounted(){
     this.getRecents()
+    this.checkSubscriptionOptions()
+
  }
 }
 </script>

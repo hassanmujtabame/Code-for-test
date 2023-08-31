@@ -1,5 +1,5 @@
 <template>
-    <div class="network-subscribe p-3" v-if="userIsSubNetwork && this.categories.length">
+    <div class="network-subscribe p-3" v-if="offers && this.categories.length">
         <h2 class="home-section-title text-center" >
               شركائنا في الشبكة رياديات 
             </h2>
@@ -49,6 +49,7 @@
       currentTab:'',
       loading:true,
       categories:[],
+      offers:false
   }),
   methods:{
 
@@ -66,9 +67,19 @@
           console.log('error',error)
         }
       this.loading = false;
+    },
+          checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                    if (element.key == "offers") {
+                        this.offers = true
+                    }
+                }
     }
   },
   async mounted(){
+   await this.checkSubscriptionOptions()
+
     await this.initlizing()
       this.currentTab=`cat-${this.categories[0].id}`
     }

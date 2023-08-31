@@ -70,7 +70,8 @@ export default {
     data: () => ({
         filterItem: {
             search: '', created_at: 'asc'
-        }
+        },
+        investmentProjects:false,
 
     }),
     methods: {
@@ -89,7 +90,7 @@ export default {
 
         },
             displayYourProject(){
-            if(this.userSubNetwork.type!='free'){ 
+            if(this.investmentProjects){ 
                 this.router_push('network-investment-project-request-add')
             }else{
                     let dataEvt ={
@@ -103,8 +104,20 @@ export default {
                                 this.showConfirmMsg(dataEvt);
                                 return;
             }
-                    }
-    }
+                    },
+
+            checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "investment_projects") {
+                        this.investmentProjects = true
+                    } 
+                }
+    },
+    },
+     mounted(){
+    this.checkSubscriptionOptions()
+}
 }
 </script>
 

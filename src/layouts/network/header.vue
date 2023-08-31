@@ -12,14 +12,14 @@
            
               <router-link :to="getRouteLocale('network-investment-project')" class="nav-link">{{ $t('Investment-projects') }}</router-link>
             </li> 
-            <li class="nav-item px-2" v-if="userIsSubNetwork"> 
+            <li class="nav-item px-2" v-if="showExhibition"> 
               <router-link :to="getRouteLocale('network-exhibitions')" class="nav-link">{{ $t('Exhibitions') }}</router-link>
             </li>
            
-            <li class="nav-item px-2" v-if="userIsSubNetwork"> 
+            <li class="nav-item px-2" v-if="addOffers"> 
               <router-link :to="getRouteLocale('network-offers')" class="nav-link">{{ $t('Offers') }}</router-link>
             </li>
-            <li class="nav-item px-2">
+            <li class="nav-item px-2" v-if="showModels">
               <router-link :to="getRouteLocale('network-models')" class="nav-link">{{ $t('Models') }}</router-link>
             </li>
             <li class="nav-item px-2">
@@ -43,7 +43,37 @@ export default {
     components:{
       TemplateHeader
     },
-   
+       data: () => {
+        return {
+     
+            showExhibition: false,
+            showModels: false,
+            addOffers:false
+
+
+        }
+    },
+    methods: {
+  
+         checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "show_exhibitions") {
+                        this.showExhibition = true
+                    } else if (element.key == "models") {
+                        this.showModels = true
+
+                    }else if (element.key == "add_offers") {
+                        this.addOffers = true
+                    } 
+                }
+    }
+
+    },
+    mounted() {
+    this.checkSubscriptionOptions()
+        this.loadList()
+    }
 }
 </script>
 

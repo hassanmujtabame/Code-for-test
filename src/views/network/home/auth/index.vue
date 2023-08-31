@@ -145,7 +145,8 @@
     <!-- شركائنا-->
     <SectionPartner />
     <!-- تشاركينا ؟-->
-    <SectionJoinUs v-if="!userPartner" />
+    <!-- <SectionJoinUs v-if="!userPartner" /> -->
+    <SectionJoinUs  />
     <SectionPodcast />
     <SectionWorkspace/>
     <!--مدونات-->

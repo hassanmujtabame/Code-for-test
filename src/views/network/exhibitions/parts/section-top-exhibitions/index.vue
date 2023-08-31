@@ -1,5 +1,5 @@
 <template>
-    <div class=" p-3">
+    <div class=" p-3" v-if="showExhibition">
 
         <div class="container">
             <div class="">
@@ -7,6 +7,7 @@
                     <div class="col-md-6">
                         <h2>
                             أهم المعارض
+                            {{showExhibition}}
                         </h2>
 
                     </div>
@@ -62,14 +63,18 @@ export default {
                 { id: 44, title: 'معرض الازياء الرجالي', city: 'جدة', user_info: { name: 'سارة' }, image: `${vm.publicPath}assets/img/Rectangle -network.png`, content: 'معرض متكام لبيع و تنسيق الزهور' },
             ],
             loading: true,
-            items: []
+            items: [],
+            addExhibition: false,
+            showExhibition: false
+
+
         }
     },
     methods: {
-    openAddDialog(){ 
-        if (this.userSubNetwork.type=='year' && this.userSubIncubators && this.userSubIncubators.length>0 && this.userSubIncubators[0].subscribe) {
+        openAddDialog(){
+                 if (this.addExhibition) {
        this.fireOpenDialog('add-dialog')
-        }else if(this.userSubNetwork.type!='year' && this.userSubIncubators && this.userSubIncubators.length>0 && this.userSubIncubators[0].subscribe){
+        }else{
             let dataEvt ={
                         title:'للأسف لايمكنك  اضافة معرض',
                         description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة معرض  - رقي حسابك الى الباقة السنويه و استفيد من إضافة معرضك و المزيد من المميزات في الشبكة`,
@@ -82,33 +87,50 @@ export default {
                     return;
 
         }
-        else if(this.userSubNetwork.type!='year' && this.userSubIncubators.length==0){
-            let dataEvt ={
-                        title:'للأسف لايمكنك  اضافة معرض',
-                        description:'يجب عليك الاشتراك في الحاضنه والاشتراك في الباقة السنوية كي تتمكن من إضافة معرض',
-                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
-                        btns:[
-                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')},
-                            {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
-                        ]
-                    }
-                    this.showConfirmMsg(dataEvt);
-                    return;
+        },
+//     openAddDialog(){ 
+//         if (this.userSubNetwork.type=='year' && this.userSubIncubators && this.userSubIncubators.length>0 && this.userSubIncubators[0].subscribe) {
+//        this.fireOpenDialog('add-dialog')
+//         }else if(this.userSubNetwork.type!='year' && this.userSubIncubators && this.userSubIncubators.length>0 && this.userSubIncubators[0].subscribe){
+//             let dataEvt ={
+//                         title:'للأسف لايمكنك  اضافة معرض',
+//                         description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة معرض  - رقي حسابك الى الباقة السنويه و استفيد من إضافة معرضك و المزيد من المميزات في الشبكة`,
+//                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
+//                         btns:[
+//                             {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+//                         ]
+//                     }
+//                     this.showConfirmMsg(dataEvt);
+//                     return;
 
-        }
-        else if (this.userSubNetwork.type=='year' && this.userSubIncubators.length==0) {
-     let dataEvt ={
-                title:'غير مشترك في الحاضنة',
-                description:'انت غير مشترك في الحاضنة ٫ لذا عليك الاشتراك لتتمكن من اضافة معرض',
-                type:'warning',
-                btns:[
-                    {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
-                ]
-            }
-            this.showConfirmMsg(dataEvt)
-        }
+//         }
+//         else if(this.userSubNetwork.type!='year' && this.userSubIncubators.length==0){
+//             let dataEvt ={
+//                         title:'للأسف لايمكنك  اضافة معرض',
+//                         description:'يجب عليك الاشتراك في الحاضنه والاشتراك في الباقة السنوية كي تتمكن من إضافة معرض',
+//                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
+//                         btns:[
+//                             {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')},
+//                             {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
+//                         ]
+//                     }
+//                     this.showConfirmMsg(dataEvt);
+//                     return;
+
+//         }
+//         else if (this.userSubNetwork.type=='year' && this.userSubIncubators.length==0) {
+//      let dataEvt ={
+//                 title:'غير مشترك في الحاضنة',
+//                 description:'انت غير مشترك في الحاضنة ٫ لذا عليك الاشتراك لتتمكن من اضافة معرض',
+//                 type:'warning',
+//                 btns:[
+//                     {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
+//                 ]
+//             }
+//             this.showConfirmMsg(dataEvt)
+//         }
         
-  },
+//   },
         async loadList() {
             this.loading = true;
             try {
@@ -122,9 +144,24 @@ export default {
                 console.mylog('response', error.response)
             }
             this.loading = false;
-        }
+        },
+         checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                    if (element.key == "add_exhibitions") {
+                        this.addExhibition = true
+                        console.log('element',element);
+                    } else if (element.key == "show_exhibitions") {
+                        this.showExhibition = true
+                        
+                    } 
+                }
+    }
+
     },
     mounted() {
+    this.checkSubscriptionOptions()
+
         this.loadList()
     }
 }

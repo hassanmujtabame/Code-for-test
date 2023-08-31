@@ -38,7 +38,7 @@
                             
                               </div>
                         
-                              <button @click="getDetailCoupon" class="btn btn-main2" >عرض التفاصيل</button>
+                              <button :disabled="!sowDetails" @click="getDetailCoupon" class="btn btn-main2" >عرض التفاصيل</button>
                              </div>
   </template>
   
@@ -70,7 +70,11 @@
       },
       during:{
           type:[String,Number]
-      }
+      },
+          sowDetails: {
+            type: Boolean,
+            default: false,
+        },
    },
    data:(vm)=>{
     return {

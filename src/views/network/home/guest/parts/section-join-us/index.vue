@@ -4,7 +4,7 @@
                <div class="row align-items-center p-5 m-auto">
                 <div class="col-12 col-md-8 mt-3">
                   <h2 class="home-section-title text-white">
-                    تشاركينا ؟
+                    تشاركينا ؟ 
                   </h2>
                   
                   <p class="text-white" v-if="user && user.partner" style="max-width:490px">
@@ -65,9 +65,13 @@ components:{
   IconForPartner,
   IconForNoPartner
 },
+    data: () => ({
+        addOffers:false,
+    }),
+
 methods:{
   registerNetworking(){
-           if(this.userSubNetwork.type=='year'){ 
+           if(this.addOffers){ 
                       this.router_push('register-networking')
               }else{
                   let dataEvt ={
@@ -82,7 +86,19 @@ methods:{
                     return;
               }
 
-  }
+  },
+                  checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "add_offers") {
+                        this.addOffers = true
+                    } 
+                }
+    },
+
+},
+         mounted(){
+    this.checkSubscriptionOptions()
 }
 }
 </script>
