@@ -1,10 +1,11 @@
 <template>
- <div class="consulting">
+ <div class="consulting py-3">
         <div class="container">
           <div class="row align-items-center justify-content-between">
             <div class="col-md-6">
               <h1 class="fs-1 text-white">  أعضاء شبكة رياديات </h1>
-              <p class="text-white">
+              <h1 class="fs-2 text-white">رواد ورائدات الأعمال </h1>
+              <p class="text-white" style="font-size: 24px">
                 دائما ما نكون اسرة نستفيد من خبرات بعضنا البعض فلا تررد بابستكشاف الاخرين او التواصل معهم
               </p>
             </div>

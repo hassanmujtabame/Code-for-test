@@ -6,6 +6,9 @@
                     <div class="col-md-6">
                         <h1 class="text-white fs-1">
                             ابدأي رحلة نجاحــــك معنا واختري الباقـة المناسـبـة لــــــــــك
+                            {{userSubNetworkPackages}}
+
+                            
                         </h1>
                     </div>
                     <div class="col-md-6">
@@ -114,9 +117,21 @@ components:{
         } catch (error) {
             console.log('error',error)
         }
-    }
+    },
+        async loadBlogCategories() {
+            try {
+                let { data } = await this.$axios.get('user/network/system-packages')
+                if (data.success) {
+                  console.log('data5555',data);
+                    // this.categories = data.data
+                }
+            } catch (error) {
+                console.log('error', error)
+            }
+        },
   },
   mounted(){
+      this.loadBlogCategories()
     this.loadPackages()
   }
 }

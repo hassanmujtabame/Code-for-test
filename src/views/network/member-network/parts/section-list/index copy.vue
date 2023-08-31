@@ -1,16 +1,12 @@
 <template>
-  <div class="container mt-5 reverse-total-filter">
+  <div class="container mt-5">
     <d-filter-list 
     :call-list="loadList" 
     :pluralName="$t('members')"
     :singleName="$t('member')"
     :searchPlaceholder="$t('search-by-name-or-field')"
-       classColCard="col-md-4 mt-3"
-      classSideBar="w-100"
-      newFilter
-      hideTitle
-      hideSearch
-      hideOrder
+    classColCard="col-12 col-lg-6 col-xl-4 mt-4"
+ 
     :orderOpts=" 
              [
                 {id:'asc',name:'الاحدث'},
@@ -18,12 +14,9 @@
             ]"
             @change="changeFilter"
     >
-
-        <template v-slot:side>
-        <SidebarBox :filterItem="filterSide" @change="changeFilter" />
-      </template>
-
       <template v-slot="{ item }">
+
+
           <ItemCard
           :to="getRouteLocale('network-show-profile',{id:item.id})"
           :name="item.name"
@@ -33,7 +26,9 @@
           />
       </template>
 
-  
+      <template v-slot:side>
+        <SidebarBox :filterItem="filterSide" @change="changeFilter" />
+      </template>
 
 
 
@@ -111,8 +106,5 @@ export default {
 </script>
 
 <style>
-.reverse-total-filter .filter-list{
-/* display: flex; 
-flex-direction: column-reverse; */
-}
+
 </style>

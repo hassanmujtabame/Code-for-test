@@ -10,7 +10,7 @@
                 {id:'asc',name:'الأقل سعرا'},
                 {id:'desc',name:'الأغلى سعرا',}
             ]"
-        classColCard="col-md-4 mt-3">
+        classColCard="col-md-4 mt-3" style="height: 257px">
             <template v-slot:side>
                 <sidebarFilter   @change="changeFilter" :filter-item="fitlterSide" />
 
