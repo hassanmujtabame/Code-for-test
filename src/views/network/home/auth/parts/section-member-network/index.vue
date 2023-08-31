@@ -1,5 +1,5 @@
 <template>
-  <div class="sec-five mt-5 p-3" >
+  <div class="sec-five mt-5 p-3" v-if="showMembers" >
     <h2 class="m-c text-center text-bold">
       {{ $t('network-sect-members-network-count') }} 
       <a href="" class="y-c">
@@ -36,6 +36,7 @@ export default {
   data: () => ({
     loading:true,
     total:0,
+    showMembers:false,
     items: [
      /*{ id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
      { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
@@ -61,10 +62,19 @@ export default {
           console.log('error',error)
         }
       this.loading = false;
-    }
+    },
+            checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "members") {
+                        this.showMembers = true
+                    } 
+                }
+    },
   },
   mounted(){
     this.initlizing()
+    this.checkSubscriptionOptions()
   }
 }
 </script>

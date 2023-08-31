@@ -60,12 +60,14 @@
           </slot>
         </div>
       </d-expanded-panel >
+            <h4 class="mt-5"> عدد الأعضاء <span class="m-c">{{totalMembers}} عضو </span> </h4>
 
   </div>
 </template>
 
 <script>
 import networkAPIs from '@/services/api/network.js'
+import MembersApi from '@/services/api/members.js'
  
 export default {
 name:'sidebar-box',
@@ -85,7 +87,8 @@ data:(vm)=>{
           {id:'instructor',name:'مدرب'},
       ],
       categories:[],
-  filter:vm.filterItem
+  filter:vm.filterItem,
+  totalMembers:0
 }},
 watch:{
   /*filter:{
@@ -98,7 +101,21 @@ watch:{
 methods:{
 updateFilter(){
   this.$emit('change',this.filter)
+      this.getTotalMembers()
+
 },
+      async getTotalMembers() {
+      try {
+        let { data } = await MembersApi.getAll(this.filter);
+        if (data.success) {
+          console.log('145',data);
+        this.totalMembers = data.meta.total
+        }
+      } catch (error) {
+        console.log("error", error);
+        console.log("error response", error.response);
+      }
+    },
 async getCategories() {
           try {
               let { data } = await networkAPIs.getCategories()
@@ -116,6 +133,7 @@ async getCategories() {
   },
   mounted() {
       this.getCategories();
+      this.getTotalMembers()
   }
 }
 </script>

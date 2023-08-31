@@ -175,12 +175,11 @@ export default {
     updateFilter() {
       this.$emit("change", this.filter);
       this.getTotalYourServices()
-    },
+    }, 
            async getTotalYourServices() {
       try {
         let { data } = await readyServiceAPIs.getAll(this.filter);
         if (data.success) {
-          console.log('145',data);
         this.totalServices = data.meta.total
         }
       } catch (error) {
