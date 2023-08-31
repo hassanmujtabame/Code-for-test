@@ -25,7 +25,7 @@
                         <SubscribeCard
                         :itemId="pack.id"
 
-                        :title="getTitleSubscribe(pack.name)"
+                        :title="pack.name"
                         :price="pack.price"
                         :features="pack.options.map(c=>c.name_ar)"
                         :type-subscribe="pack.name"
@@ -33,6 +33,7 @@
                         :subscribed="userSubNetwork"
 
                         ></SubscribeCard>
+                        <!-- :title="getTitleSubscribe(pack.name)" -->
                      
                     </div>
 
