@@ -20,9 +20,13 @@ class NetworkApi extends BaseApi {
 		let s = this.generateQueryUrl(params);
 		return window.axios.get(`network/network-schedule?${s}`);
 	}
+	// getPackages(params = {}) {
+	// 	let s = this.generateQueryUrl(params);
+	// 	return window.axios.get(`network/packages?${s}`);
+	// }
 	getPackages(params = {}) {
 		let s = this.generateQueryUrl(params);
-		return window.axios.get(`network/packages?${s}`);
+		return window.axios.get(`user/network/system-packages?${s}`);
 	}
 	rechargeBalance(data) {
 		return window.axios.post(`network/recharge-balance`, data);
