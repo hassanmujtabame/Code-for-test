@@ -6,6 +6,8 @@
                      <div class="col-md-6">
                          <h1 class="text-white fs-1">
                              ابدأي رحلة نجاحــــك معنا واختري الباقـة المناسـبـة لــــــــــك
+                             {{userSubAcademy}}
+                             {{subscribed}}
                          </h1>
                      </div>
                      <div class="col-md-6">
@@ -22,15 +24,21 @@
                  <div class="row p-3">
                      <div v-for="(pack,p) in packages" :key="p" class="col-md-4  mt-2">
                          <SubscribeCard
-                         :itemId="pack.id"
+                        :itemId="pack.id"
+                        :title="pack.name"
+                        :price="pack.price"
+                        :features="pack.options.map(c=>c.name_ar)"
+                        :type-subscribe="pack.name"
+                        @selected="choose(pack)"
+                         :subscribed="userSubAcademy"
+                         ></SubscribeCard> 
+                      <!-- :itemId="pack.id"
                          :title="getTitleSubscribe(pack.type)"
                          :price="pack.price"
                          :features="pack.features.map(c=>c.desc)"
                          :type-subscribe="pack.type"
                          @selected="choose(pack)"
-                         :subscribed="userSubAcademy"
-                         ></SubscribeCard>
-                      
+                         :subscribed="userSubAcademy" -->
                      </div>
  
                  </div>

@@ -4,7 +4,7 @@
       <div class="provider-card__image parent">
         <router-link v-if="to" :to="to">
           <img :src="img" alt width="259" height="192"  class="image1"/>
-          <img :src="img" alt class="image2"/>
+          <!-- <img :src="img" alt class="image2"/> -->
         </router-link>
         <img v-else @click="$emit('click-image')" :src="img" alt width="259" height="192" />    
       </div>

@@ -6,7 +6,6 @@
                     <div class="col-md-6">
                         <h1 class="text-white fs-1">
                             ابدأي رحلة نجاحــــك معنا واختري الباقـة المناسـبـة لــــــــــك
-                            
                         </h1>
                     </div>
                     <div class="col-md-6">
@@ -30,7 +29,7 @@
                         :features="pack.options.map(c=>c.name_ar)"
                         :type-subscribe="pack.name"
                         @selected="choose(pack)"
-                        :subscribed="userSubNetwork"
+                        :subscribed="userSubNetwork" 
 
                         ></SubscribeCard>
                         <!-- :title="getTitleSubscribe(pack.name)" -->

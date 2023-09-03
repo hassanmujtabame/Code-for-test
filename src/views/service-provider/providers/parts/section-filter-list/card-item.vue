@@ -11,7 +11,7 @@
     <div class="provider-card__bio text-two-lines">{{ bio }}</div>
   </div>
 <div class="provider-card__actions mb-3">
-    <button @click="openChat" ><i  class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
+    <button v-if="user.name != name" @click="openChat"  ><i  class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
 </div>
   </div>
   </div>

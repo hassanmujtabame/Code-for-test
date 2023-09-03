@@ -19,7 +19,9 @@ class academyApi extends BaseApi {
 	student = student;
 	getPackages(params = {}) {
 		let s = this.generateQueryUrl(params);
-		return window.axios.get(`academy/packages?${s}`);
+		// return window.axios.get(`academy/packages?${s}`);
+		return window.axios.get(`user/academy/system-packages?${s}`);
+
 	}
 	getSubscribes(params = {}) {
 		let s = this.generateQueryUrl(params);
