@@ -106,8 +106,18 @@
             <div class="col-md-5 border p-3">
               <workspaceReservation />
             </div>
+            
             <div class="col-md-5 border p-3">
               <workspaceRequest />
+            </div>
+          </div>
+           <div class="col-12 row mt-3 gap-4">
+            <div class="col-md-5  p-3">
+              <freeConsultation />
+            </div>
+            
+            <div class="col-md-5  p-3">
+              <ideaSuggestion />
             </div>
           </div>
       </div>
@@ -128,6 +138,8 @@ import WidgetDownloadModels from "./parts/widget-download-models.vue";
 import WidgetMyInscriptionMeetings from "./parts/widget-my-inscription-meetings.vue";
 import workspaceReservation from "./parts/workspaceReservation.vue";
 import workspaceRequest from "./parts/workspaceRequest.vue";
+import freeConsultation from "./parts/free-consultation.vue";
+import ideaSuggestion from "./parts/idea-suggestion.vue";
 
 
 
@@ -145,7 +157,9 @@ export default {
     WidgetInvestment,
     WidgetDownloadModels,
     WidgetMyInscriptionMeetings,
-    workspaceReservation
+    workspaceReservation,
+    freeConsultation,
+    ideaSuggestion
     
   },
 };
