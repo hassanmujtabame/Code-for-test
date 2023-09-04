@@ -57,7 +57,7 @@
                   </p>
                 </div>
                 <div class="date d-flex justify-content-between mx-1 p-3">
-                    <p v-for="(cat,c) in blog.categories" :key="c" :style="{'background-color':colors[c%3]}" class="m-c">
+                    <p v-for="(cat,c) in blog.categories" :key="c" :style="{'background-color':colors[c%3]}" class="m-c p-1 rounded-3">
                         {{ cat.name }}
                     </p>
 

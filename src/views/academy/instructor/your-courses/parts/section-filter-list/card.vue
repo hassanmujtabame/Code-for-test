@@ -6,9 +6,10 @@
         <div class="course-instructo-item__body">
         <div class="p-1 d-flex justify-content-between">
             <h5 class="course-instructo-item__title">{{item.title}}</h5>
-
+ 
             <p class="course-instructo-item__type">
                {{typeText}}
+               {{item.type}}
             </p>
 
         </div>
