@@ -14,8 +14,8 @@
    <div class="course-card-fixed__item my-2">
     <d-medal-star-icon color="var(--m-color)" />
             <span class="px-2">شهادة اتمام دورة</span>
-   </div>
-   <div class="course-card-fixed__item">
+   </div> 
+   <div class="course-card-fixed__item"> 
     <d-money-icon color="var(--m-color)" />
     <span class="px-2">{{itemPage.price}} {{ $t('riyals') }}</span>
    </div>
@@ -23,7 +23,6 @@
     <button v-if="!isOwner && (!token || !itemPage.user_is_join_course)" @click="inscription" class="btn btn-custmer w-100">إشترك في الدورة</button>
     <button v-else @click="showCourse" class="btn btn-custmer w-100">{{ btnTitleSub() }}</button>
   </div>
-
   <div v-else class="mt-3">
     <div class="d-flex justify-content-center">
       <div class="flex-shrink-0 text-center" id="subscribe-action">
@@ -181,7 +180,10 @@ export default {
 
   },
 
-    } 
+    },
+mounted(){
+  console.log('userIsSubAcademy',this.userIsSubAcademy);
+}
 
 }
 </script>
