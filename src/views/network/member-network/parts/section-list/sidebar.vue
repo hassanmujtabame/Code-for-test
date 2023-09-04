@@ -16,19 +16,19 @@
                           </div>
                       </div>
           </d-expanded-panel-item> 
-          <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2" :title="'مجالات الاختصاص'" >
+          <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 " :title="'مجالات الاختصاص'" >
               <div v-for="(cat,i) in categories" :key="i" class="form-check states-input-custom">
                           <input v-model="filter.category_id" :value="cat.id" class="form-check-input form-check-input-member" type="checkbox"
                           :id="`defaultCheck1${i}`"
                               @change="updateFilter"
 
                           >
-                          <label class="form-check-label" :for="`defaultCheck1${i}`">
+                          <label class="form-check-label " :for="`defaultCheck1${i}`">
                               {{cat.name}}
                           </label>
               </div>
           </d-expanded-panel-item>
-                 <div class="col-12 col-md-6">
+                 <div class="col-12 col-md-7">
           <slot name="search">
             <label for="" class="position-relative w-100">
               <input
