@@ -6,7 +6,7 @@
     </div>
     <div v-else  class="container">
       <div class="row">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6l">
     <ItemCard v-for="(item,i) in items" :key="i"
     :itemId="item.id"
     :title="item.title"
