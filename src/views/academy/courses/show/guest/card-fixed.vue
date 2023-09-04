@@ -31,6 +31,7 @@
         <button class="btn btn-custmer" @click="gotToSubscribe">{{ $t('subscribe') }}</button>
       
         <p id="remark-sub">افتح هذه الدورة و 4 آخرين</p>
+        {{itemPage.type_certificate}}
       </div>
       <div  class="flex-shrink-0 text-center px-2">
         <p class="price-text m-0">إشتري هذي الدورة</p>

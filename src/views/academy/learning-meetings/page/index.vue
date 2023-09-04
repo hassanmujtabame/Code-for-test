@@ -16,7 +16,7 @@
                     <div>
                         <button v-b-modal="'my-modal'" style="height: 40px; background-color:#FFBC00 ;" class="btn-main px-3 w-100 border-0 rounded-2" role="button">
                             <d-send-icon />
-                                شارك 
+                                شارك  
                         </button>
                     </div>
                     <div>

@@ -19,7 +19,7 @@
  <p class="m-c m-0">
     {{blog.title}}
  </p>
-</div>
+</div> 
     </template>
     <template v-slot:actions>
         <button @click="delBlog" style="height: 40px;" class="btn btn-main"> {{$t('confirm_delete')}}</button>

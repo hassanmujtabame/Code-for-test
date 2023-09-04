@@ -144,7 +144,7 @@ export default {
         try {
             let { data } = await BlogsAPI.addItem(formData)
             if(data.success){
-                let dataEvt={
+                let dataEvt={  
                     title:'سيتم مراجعة تدوينتك ثم نشرها على الفور',
                     icon:true,
                     iconUrl:`${this.publicPath}assets/img/cuate-2.png`,

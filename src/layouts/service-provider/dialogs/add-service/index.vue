@@ -453,7 +453,7 @@ export default {
               "سيتم مراجعة الخدمة من خلالنا  خلال يوم  و سنخبرك عندما تكون جاهزة ",
             btns: [
               {
-                title: "قائمة خدماتي",
+                title: "قائمة خدماتي",  
                 action: () =>
                   this.router_push("service-provider-my-ready-services"),
                 class: "btn btn-custmer"
