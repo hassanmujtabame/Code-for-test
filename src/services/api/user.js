@@ -93,7 +93,7 @@ class UserApi extends BaseApi {
 		let s = this.generateQueryUrl({ ...params, user_id: id });
 		return window.axios.get(`network/exhibitions?${s}`);
 	}
-	getBlogstUser(id, params = {}) {
+	getBlogstUser(id, params = {}) { 
 		let s = this.generateQueryUrl({ ...params, user_id: id });
 		return window.axios.get(`network/blogs?${s}`);
 	}
