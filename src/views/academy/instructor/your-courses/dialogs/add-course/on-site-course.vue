@@ -122,10 +122,10 @@
                         <!-- </keep-alive> -->
                     </div>
                     <!-- place_id -->
-                    <div class="mb-3">
+                    <div class="mb-3" v-if="step == 2">
                         <!-- <keep-alive> -->
-                        <ValidationProvider :name="$t('course-place')" vid="place_id" rules="required" v-slot="{ errors }"
-                            v-if="step == 2">
+                        <!-- <ValidationProvider :name="$t('course-place')" vid="place_id" rules="required" v-slot="{ errors }" -->
+                            <!-- v-if="step == 2"> -->
                             <d-select-input :errors="errors" v-model="itemForm.place_id"
                                 label="مكان اقامة الدورة بالتفاصيل ">
                                 <option value="" class="t-c" selected disabled>حدد مكان اقامة الدورة </option>
@@ -133,7 +133,7 @@
 
                             </d-select-input>
 
-                        </ValidationProvider>
+                        <!-- </ValidationProvider> -->
                         <!-- </keep-alive> -->
                     </div>
                      <!-- place_suggest -->
@@ -150,7 +150,7 @@
                             </d-text-input>
 
  
-                            <VGoogleMap @mapUpdated='getAddressMap'/>
+                            <VGoogleMap @mapUpdated='getAddressMap' :center="addressName" :marker="addressName"/>
 
                         </ValidationProvider>
                         <!-- </keep-alive> -->
@@ -316,7 +316,7 @@ export default {
             itemForm: {id:null},
             errors:{},
             errorDayes:null,
-                addressName: {
+            addressName: {
                 address_name: '',
                 lat: '',
                 lng: ''
@@ -469,8 +469,10 @@ export default {
             this.fireCloseDialog(this.group)
         },
         openDialog(dataEvt) {
+            console.log('dataEvt44',dataEvt);
             this.step = 1;
             this.emptyImage()
+            this.addressName = dataEvt.map_address
             this.itemForm = {
                 type: 'on-site',
                 course_days: null,
@@ -493,11 +495,6 @@ export default {
                 price: 0,
                 type_training: null,
                 instructors:dataEvt.instructors??[],
-                      addressName:{
-            address_name:'',
-            lat:'',
-            lng:''
-            },
             }
             if (dataEvt) {
                 let { id, course_days,
