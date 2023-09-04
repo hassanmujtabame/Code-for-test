@@ -4,7 +4,7 @@
                   <div class="flex-shrink-0 ">
                     <noteCircleIcon :color="color" />
                   </div>
-                  <div class=" flex-grow-1 mt-3">
+                  <div class=" flex-grow-1 mt-3" style="height: 40px">
                   <h3 class="schedule-card__title">
                   {{title}}
                   </h3>
