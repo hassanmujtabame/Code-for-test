@@ -149,8 +149,8 @@
                                
                             </d-text-input>
 
-              <google-map @address_map='getAddressMap'/>
-
+ 
+                            <VGoogleMap @mapUpdated='getAddressMap'/>
 
                         </ValidationProvider>
                         <!-- </keep-alive> -->
@@ -266,7 +266,7 @@
             </div>
         </template>
         <template v-slot:actions>
-            <button :disabled="step == 1" @click="prevStep" class="btn bg-main btn-danger text-white px-3">رجوع</button>
+            <button v-if="step!=1" :disabled="step == 1" @click="prevStep" class="btn bg-main btn-danger text-white px-3">رجوع</button>
             <button @click="save" class="btn bg-main text-white px-3">
                 <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
                 أستمر
@@ -290,6 +290,8 @@
 <script>
 import commonAPI from '@/services/api/common'
 import academyAPI from '@/services/api/academy';
+import VGoogleMap from "@/components/shared/map.vue";
+
 export default {
     name: 'add-course-dialog-on-site',
     props: {
@@ -298,6 +300,8 @@ export default {
             default: 'add-course-on-site'
         }
     },
+    components: {VGoogleMap},
+
     data: () => {
         let daysOfWeek = commonAPI.getDaysOfWeek()
         let types = commonAPI.getTypeCertificates()
@@ -312,18 +316,17 @@ export default {
             itemForm: {id:null},
             errors:{},
             errorDayes:null,
-            addressName:{
-            address_name:'',
-            lat:'',
-            lng:''
+                addressName: {
+                address_name: '',
+                lat: '',
+                lng: ''
             },
+ 
         }
     },
     methods: {
             getAddressMap(data){
-      this.addressName.lat=data.lat
-      this.addressName.lng=data.lng
-console.log('getAddressMap',data);
+            this.addressName = data
     },
         deleteLearn(index){
             this.itemForm.learn.splice(index,1)
@@ -388,6 +391,7 @@ console.log('getAddressMap',data);
                 return false;
             }
             let formData = this.loadObjectToForm(this.itemForm)
+      formData.append(`map_address`, JSON.stringify(this.addressName));
 
             try {
                 let { data } = this.itemForm.id ? await academyAPI.coursesApi.updateItem(this.itemForm.id, formData) : await academyAPI.coursesApi.addItem(formData)

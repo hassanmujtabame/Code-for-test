@@ -306,7 +306,7 @@
             </div>
         </template>
         <template v-slot:actions>
-            <button :disabled="step==1" @click="prevStep" class="btn bg-main btn-danger text-white px-3">رجوع</button>
+            <button v-if="step!=1" :disabled="step==1" @click="prevStep" class="btn bg-main btn-danger text-white px-3">رجوع</button>
             <button @click="save" class="btn bg-main text-white px-3">
                 <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
                 أستمر
