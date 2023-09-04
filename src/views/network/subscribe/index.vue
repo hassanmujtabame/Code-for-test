@@ -5,7 +5,7 @@
                 <div class="row align-items-center p-5 position-relative">
                     <div class="col-md-6">
                         <h1 class="text-white fs-1">
-                            ابدأي رحلة نجاحــــك معنا واختري الباقـة المناسـبـة لــــــــــك
+                            ابدأي رحلة نجاحــــك معنا واختري الباقـة المناسـبـة لـــــــــك
                         </h1>
                     </div>
                     <div class="col-md-6">

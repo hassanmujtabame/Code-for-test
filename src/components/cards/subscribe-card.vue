@@ -1,10 +1,10 @@
 <template>
   <div
-    class="box-subscribe border shadow p-5 text-center rounded-2 bg-white d-flex flex-column justify-content-between"
+    class="box-subscribe border shadow p-5  text-center rounded-2 bg-white d-flex flex-column justify-content-between"
   >
     <div>
       <h2 class="fw-bolder subscribe-title">{{title}}</h2>
-      <h1 class="y-c fw-bolder fs-1 py-4">
+      <h1 class="y-c fw-bolder fs-1 py-1">
         <span class="subscribe-price">{{typeSubscribe=='free'?$t('free'):price}}</span>
         <span class="subscribe-price-currency" v-if="typeSubscribe!=='free'">{{ $t('riyals') }}</span>
       </h1>
