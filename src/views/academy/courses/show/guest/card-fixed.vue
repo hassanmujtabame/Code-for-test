@@ -13,7 +13,7 @@
    </div>
    <div class="course-card-fixed__item my-2">
     <d-medal-star-icon color="var(--m-color)" />
-            <p class="px-2" v-for="item,i in itemPage.type_certificate" :key="i">
+            <span class="px-2" v-for="item,i in itemPage.type_certificate" :key="i">
                <span v-if="item=='after_pass_exams'">
                  بعد إجتياز اختبارات
                </span>
@@ -23,16 +23,17 @@
                   <span v-else-if="item=='projects'">
                  مشاريع
                </span> 
-              </p>
+              </span>
    </div> 
    <div class="course-card-fixed__item"> 
     <d-money-icon color="var(--m-color)" />
     <span class="px-2">{{itemPage.price}} {{ $t('riyals') }}</span>
    </div>
-   <div v-if="token && (userIsSubAcademy && freeCourses ||itemPage.user_is_join_course || isOwner) " class="mt-3">
+   <div v-if="token && (userIsSubAcademy && freeCourses || choiceUnlimitedCourses ||itemPage.user_is_join_course || isOwner) " class="mt-3">
     <button v-if="!isOwner && (!token || !itemPage.user_is_join_course)" @click="inscription" class="btn btn-custmer w-100">إشترك في الدورة</button>
     <button v-else @click="showCourse" class="btn btn-custmer w-100">{{ btnTitleSub() }}</button>
   </div>
+
   <div v-else class="mt-3">
     <div class="d-flex justify-content-center">
       <div class="flex-shrink-0 text-center" id="subscribe-action">
@@ -67,7 +68,8 @@ export default {
     },
     data:()=>({
         resetCourse:3,
-        freeCourses:false,
+        freeCourses:true,
+        choiceUnlimitedCourses:true
     }),
     computed:{
     
@@ -96,10 +98,19 @@ export default {
                 this.showConfirmMsg(dataEvt);
                 return;
             }
-            if(!this.itemPage.user_is_join_course){
+            if(!this.itemPage.user_is_join_course && this.freeCourses && !this.choiceUnlimitedCourses){
                                 let dataEvt ={
                     title:'هل أنت متأكد من أنضمامك لهذه الدورة ؟',
                     description:`بأنضمامك الى هذا الدورة  سيتبقى لك <span style="color:#F2631C">${this.resetCourse} دورات</span> هذا الشهر`,
+                    btns:[
+                        {title:this.$t('join_confirmation'),action:()=>this.joinCourse()}
+                    ]
+                    }
+                    this.showConfirmMsg(dataEvt)
+                return;
+            } if(!this.itemPage.user_is_join_course && this.choiceUnlimitedCourses){
+                                let dataEvt ={
+                    title:'هل أنت متأكد من أنضمامك لهذه الدورة ؟',
                     btns:[
                         {title:this.$t('join_confirmation'),action:()=>this.joinCourse()}
                     ]
@@ -194,9 +205,13 @@ export default {
   checkSubscriptionOptions(){
                 for (let index = 0; index < this.user.subscription_options.length; index++) {
                     const element = this.user.subscription_options[index];
-                    if (element.key=='free_courses') {
+                    if (element.key=='free_courses'|| element.key=='choice_courses') {
                         this.freeCourses=true
+                    }else if (element.key=='choice_unlimited_courses') {
+                        this.choiceUnlimitedCourses=true
                     }
+
+                    
                 }
     }
     },
