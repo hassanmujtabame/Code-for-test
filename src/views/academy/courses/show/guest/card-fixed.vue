@@ -13,7 +13,17 @@
    </div>
    <div class="course-card-fixed__item my-2">
     <d-medal-star-icon color="var(--m-color)" />
-            <span class="px-2" v-for="item,i in itemPage.type_certificate" :key="i">{{item}}</span>
+            <p class="px-2" v-for="item,i in itemPage.type_certificate" :key="i">
+               <span v-if="item=='after_pass_exams'">
+                 بعد إجتياز اختبارات
+               </span>
+                  <span v-else-if="item=='presence'">
+                 حضور
+               </span>
+                  <span v-else-if="item=='projects'">
+                 مشاريع
+               </span> 
+              </p>
    </div> 
    <div class="course-card-fixed__item"> 
     <d-money-icon color="var(--m-color)" />
@@ -57,7 +67,7 @@ export default {
     },
     data:()=>({
         resetCourse:3,
-        freeCourses:false
+        freeCourses:false,
     }),
     computed:{
     
