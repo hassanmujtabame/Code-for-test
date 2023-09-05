@@ -68,8 +68,8 @@ export default {
     },
     data:()=>({
         resetCourse:3,
-        freeCourses:true,
-        choiceUnlimitedCourses:true
+        freeCourses:false,
+        choiceUnlimitedCourses:false
     }),
     computed:{
     
