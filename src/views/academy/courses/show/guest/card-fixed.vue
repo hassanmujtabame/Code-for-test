@@ -13,13 +13,13 @@
    </div>
    <div class="course-card-fixed__item my-2">
     <d-medal-star-icon color="var(--m-color)" />
-            <span class="px-2">شهادة اتمام دورة</span>
+            <span class="px-2" v-for="item,i in itemPage.type_certificate" :key="i">{{item}}</span>
    </div> 
    <div class="course-card-fixed__item"> 
     <d-money-icon color="var(--m-color)" />
     <span class="px-2">{{itemPage.price}} {{ $t('riyals') }}</span>
    </div>
-   <div v-if="token && (userIsSubAcademy ||itemPage.user_is_join_course || isOwner) " class="mt-3">
+   <div v-if="token && (userIsSubAcademy && freeCourses ||itemPage.user_is_join_course || isOwner) " class="mt-3">
     <button v-if="!isOwner && (!token || !itemPage.user_is_join_course)" @click="inscription" class="btn btn-custmer w-100">إشترك في الدورة</button>
     <button v-else @click="showCourse" class="btn btn-custmer w-100">{{ btnTitleSub() }}</button>
   </div>
@@ -31,7 +31,6 @@
         <button class="btn btn-custmer" @click="gotToSubscribe">{{ $t('subscribe') }}</button>
       
         <p id="remark-sub">افتح هذه الدورة و 4 آخرين</p>
-        {{itemPage.type_certificate}}
       </div>
       <div  class="flex-shrink-0 text-center px-2">
         <p class="price-text m-0">إشتري هذي الدورة</p>
@@ -58,6 +57,7 @@ export default {
     },
     data:()=>({
         resetCourse:3,
+        freeCourses:false
     }),
     computed:{
     
@@ -180,10 +180,19 @@ export default {
       navigator.clipboard.writeText(this.itemPage.meeting_url);
 
   },
-
+  
+  checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                    if (element.key=='free_courses') {
+                        this.freeCourses=true
+                    }
+                }
+    }
     },
 mounted(){
   console.log('userIsSubAcademy',this.userIsSubAcademy);
+  this.checkSubscriptionOptions()
 }
 
 }
