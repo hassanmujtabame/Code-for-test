@@ -18,7 +18,7 @@
                        <!--after error-->
                         <template v-slot:after-error>
                         <div class="d-flex" style="font-size: 10px;" v-if="itemForm.file"><span class="flex-grow-1">{{ itemForm.file.name }} </span><span class="flex-shrink-0" style="color:red">{{ percentage }} %</span></div>
-                       </template>
+                       </template> 
                        <!--prend-icon-->
                         <template v-slot:prend-icon>
                             <ValidationProvider tag="div" 

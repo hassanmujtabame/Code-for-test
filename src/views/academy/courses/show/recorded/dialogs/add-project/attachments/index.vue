@@ -193,6 +193,7 @@ export default {
                     return;
             }
             this.itemForm.file = evt.target.files[0];
+            this.itemForm.title = evt.target.files[0].name;
         }
     }
 }
