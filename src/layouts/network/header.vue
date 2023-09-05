@@ -82,7 +82,7 @@ export default {
                     this.showConfirmMsg(dataEvt);
                     return;
     }else{
-                  this.route_push('network-exhibitions')
+this.router_push('network-exhibitions')
     }
     },
     checkModelsSub(){
@@ -98,7 +98,7 @@ export default {
                     this.showConfirmMsg(dataEvt);
                     return;
     }else{
-                  this.route_push('network-models')
+                  this.router_push('network-models')
     }
     },
     checkSub(){
@@ -114,7 +114,7 @@ export default {
                     this.showConfirmMsg(dataEvt);
                     return;
     }else{
-                  this.route_push('network-offers')
+                  this.router_push('network-offers')
     }
     }
 

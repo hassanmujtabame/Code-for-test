@@ -250,7 +250,7 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
             try {
                 let { data } = await instructorMeetingsAPI.deleteItem(item.id)
                 if(data.success){
-                  this.route_push('academy-my-meetings')
+                  this.router_push('academy-my-meetings')
                 }else{
                     window.SwalError(data.message)
                 }
