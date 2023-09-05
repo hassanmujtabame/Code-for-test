@@ -214,7 +214,7 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
     else if(!this.join_meeting){
         let dataEvt ={
                         title:'للأسف لايمكنك  الانضمام الى اللقاء',
-                        description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الانضمام للقاء  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من اللقاءات و المزيد من المميزات في الشبكة`,
+                        description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الانضمام للقاء  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من اللقاءات و المزيد من المميزات في الأكاديمية`,
                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
                         btns:[
                             {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
@@ -284,7 +284,7 @@ import instructorMeetingsAPI from '@/services/api/academy/instructor/meetings.js
           checkSubscriptionOptions(){
                 for (let index = 0; index < this.user.subscription_options.length; index++) {
                     const element = this.user.subscription_options[index];
-                 if (element.key == "meetings" || element.key == "free_meetings") {
+                 if (element.key == "show_meetings") {
                         this.join_meeting = true
                     }
                 }
