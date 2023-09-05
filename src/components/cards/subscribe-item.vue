@@ -9,11 +9,11 @@
                                     {{title}}
                                 </p>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <button v-if="status=='active'" class="btn border-danger text-danger mt-3">
                                     الغاء الاشتراك
                                 </button>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="d-flex gap-2">
                                     

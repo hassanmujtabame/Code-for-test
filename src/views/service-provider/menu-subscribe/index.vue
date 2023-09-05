@@ -17,12 +17,11 @@
                     </div>
                     <subscribeItem 
                     v-for="(item,i) in items" :key="i"
-                    :title="getTitle(item.package_type)"
-                
-                    :status="item.package_status"
-                    :price="item.package_price"
-                    :date-start="item.start_date"
-                    :date-end="item.end_date"
+                     :title="item.name"
+                    :status="item.status"
+                    :price="item.price"
+                    :date-start="item.start_at"
+                    :date-end="item.end_at"
                     ></subscribeItem>
                 </div>
 

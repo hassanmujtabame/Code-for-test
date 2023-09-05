@@ -40,6 +40,23 @@
 
     </d-filter-list>
     <h3 class="t-c my-3" >تنزيل البيانات الخاصة برواد الاعمال </h3>
+       <!-- <p class="p-0 m-0">
+                <a :href="itemPage.investment_contract" class="m-c" download>
+
+                    <svg width="19" height="18" viewBox="0 0 19 18" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.7637 8.9795C17.7637 13.6087 14.011 17.3613 9.38184 17.3613C4.75268 17.3613 1 13.6086 1 8.9795C1 4.35034 4.75268 0.597656 9.38184 0.597656C14.011 0.597656 17.7637 4.35034 17.7637 8.9795Z"
+                            stroke="#1FB9B3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6.0293 8.97949L9.38204 12.3322L12.7348 8.97949" stroke="#1FB9B3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M9.38086 5.62695V12.3324" stroke="#1FB9B3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    تحميل 
+                </a>
+            </p> -->
+                <a :href="items.pdf" class="" download>
                 <button style="width: 160px" class="btn bg-main p-2 px-4 text-white d-flex align-items-center">
                   <div>
                       <svg width="26" height="26" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,6 +67,7 @@
 
                            <div class="mx-3">تنزيل</div>  
                         </button>
+                </a>
   </div>
 </template>
 
@@ -73,7 +91,7 @@ export default {
       search:null,
       created_at:'asc',
       membership:null,
-        category_id:[]
+      category_id:[]
     },
     items_test: [
       { name: 'العنقود محمد', img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`, description: 'التصوير' },
