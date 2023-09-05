@@ -6,7 +6,6 @@
         <div class="do-exam__header">
             <div class="do-exam__header-start">
             <h1 class="do-exam__title">اختبار 1 : {{itemPage.title}}</h1>
-            {{step}}
         </div>
             <div class="do-exam__header-end">
                 <d-dots-progress :dots="itemPage.number_questions" :value="step" />
