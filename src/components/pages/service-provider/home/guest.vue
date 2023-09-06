@@ -19,11 +19,12 @@
     <SectionRecentProposals />
 
     <!-- section 6-->
-    <SectionExploreServices />
 
-    <div class="mt-2">
+    <div class="my-2">
       <SectionNeedService />
     </div>
+    <SectionExploreServices />
+
     <!-- section 7-->
     <!-- <SectionExploreServices /> -->
     

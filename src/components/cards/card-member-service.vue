@@ -20,7 +20,7 @@
        </div>
         <div class="provider-card__bio text-two-lines px-0">{{bio}} </div>
 
-       <button @click="openChat" class="text-white border-0 py-2 bg-main w-100 rounded-3">{{ $t('chat') }}</button>
+       <button @click="openChat" class="text-white border-0 py-2 bg-main w-100 rounded-3">تواصل</button>
 
       </div>
 
