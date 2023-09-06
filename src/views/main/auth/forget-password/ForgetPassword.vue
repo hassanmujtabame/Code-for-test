@@ -26,8 +26,8 @@
               </ValidationProvider>
               <!-- End Email -->
 
-              <div class="text-center mt-3">
-                <button class="btn btn-main-v py-2 px-5" role="button" @click="doNext">أستمر</button>
+              <div class="text-center mt-3 w-50 mx-auto">
+                <button class="btn btn-main-v py-2 px-5 w-100" role="button" @click="doNext">أستمر</button>
               </div>
             </ValidationObserver>
           </div>
