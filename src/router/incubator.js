@@ -160,7 +160,7 @@ const routers = [
 	},
 	{
 		path: "incubator/subscribe",
-		meta: { layout: LayoutDefault, title: "Subscribe" },
+		meta: { layout: LayoutDefault, title: "Subscribe" , type:'incubator'},
 		name: "incubator-subscribe",
 		component: () =>
 			import(
