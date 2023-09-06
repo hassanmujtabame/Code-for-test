@@ -6,7 +6,7 @@
       <!-- section we-helpyou-->
       <SectionWeHelpYou />
       <SectionFeatures />
-        <SectionAds department="service-provider" />
+        <!-- <SectionAds department="service-provider" /> -->
 
     </div>
     <!-- section 3-->
@@ -49,7 +49,7 @@ import SectionBestProvider from "./parts/section-best-provider/index.vue";
 import SectionRecentProposals from "./parts/section-recent-proposals/index.vue";
 import SectionNeedService from "./parts/section-need-service/index.vue";
 import SectionExploreServices from "./parts/section-explore-services/index.vue";
-import SectionAds from '@/common/components/advertisements/index'
+// import SectionAds from '@/common/components/advertisements/index'
 
 // import FeaturesService from "./parts/features-service-provider/index.vue";
 
@@ -70,7 +70,7 @@ export default {
     SectionRecentServices,
     SectionContinueLearning,
     SectionHear,
-    SectionAds
+    // SectionAds
     // FeaturesService
   }
 };

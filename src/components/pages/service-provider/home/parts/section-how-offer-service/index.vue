@@ -1,7 +1,11 @@
 <template>
   <div class="container mt-5 p-5">
-    <h2 class="home-section-title text-center">كيف تقدم خدماتك في المنصة</h2>
+    <h2 class="home-section-title text-centerl">كيف تقدم خدماتك في المنصة</h2>
     <div class="mt-5">
+<img :src="`${publicPath}assets/svg/Group 1171276175.svg`"  style="width: -webkit-fill-available;"/>
+    </div>
+
+    <!-- <div class="mt-5">
       <div style="overflow: hidden;" class="row position-relative service-riadiat mt-5">
         <div class="col-lg-2 even">
           <BoxEvent color="#1FB9B3" :level="1">
@@ -34,7 +38,7 @@
           </BoxEvent>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
