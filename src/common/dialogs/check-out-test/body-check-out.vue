@@ -4,7 +4,7 @@
       <h5 class="mb-3">أستكملي عملية الدفع</h5>
       <div class="row justify-content-between">
         <div class="justify-content-end tex-end">
-          <div v-if="packageType == 'academy'" style="display: flex; align-items: center;">
+          <div v-if="!otherData.image && packageType == 'academy'" style="display: flex; align-items: center;">
             <img style="width:260px; height:150px" class="img-fluid" :src="`${publicPath}assets/img/Group 1171274931s.png`" alt="">
             <div class="mx-3" style="color: #1FB9B3; display: flex;" >
               <d-user-rect-icon :size="24" color="currentColor"/>
@@ -12,28 +12,28 @@
             </div>
           </div>
 
-               <div v-else-if="packageType == 'network'" style="display: flex; align-items: center;">
+               <div v-else-if="!otherData.image && packageType == 'network'" style="display: flex; align-items: center;">
                   <img class="img-fluid"  style="width:260px; height:150px" :src="`${publicPath}assets/img/pana-network.png`" alt="" >
                   <div class="mx-3" style="color: #FFBC00; display: flex;" >
                    <d-user-rect-icon :size="24" color="currentColor"/>
                    <h4 class="mx-2"  style="color: #FFBC00">انضم الي الشبكه</h4>
                  </div>
              </div>
-                <div v-else-if="packageType == 'service-provider'" style="display: flex; align-items: center;">
+                <div v-else-if="!otherData.image && packageType == 'service-provider'" style="display: flex; align-items: center;">
                   <img  style="width:260px; height:150px"  class="img-fluid" :src="`${publicPath}assets/svg/frame-52-2.svg`" alt="service-provider-header" />
                   <div class="mx-3" style="color: #FFBC00; display: flex;" >
                    <d-user-rect-icon :size="24" color="currentColor"/>
                    <h4 class="mx-2"  style="color: #FFBC00">انضم الي مقدمي الخدمة </h4>
                   </div>
              </div>
-               <div v-else-if="packageType == 'incubator'" style="display: flex; align-items: center;">
+               <div v-else-if="!otherData.image && packageType == 'incubator'" style="display: flex; align-items: center;">
                   <img  style="width:260px; height:150px"  class="img-fluid" :src="`${publicPath}assets/svg/frame-52-2.svg`" alt="service-provider-header" />
                   <div class="mx-3" style="color: #FFBC00; display: flex;" >
                    <d-user-rect-icon :size="24" color="currentColor"/>
                    <h4 class="mx-2"  style="color: #FFBC00"> انضم الي الحاضنة </h4>
                   </div>
              </div>
-             <div v-else-if="!otherData.type" style="display: flex;">
+             <div v-else-if="otherData.image" style="display: flex;">
               <img  style="width:150px; height:125px" :src="otherData.image" alt="">
                 <div>
                   <div class="mx-3 mb-3 d-flex" style="color: #1FB9B3" >
