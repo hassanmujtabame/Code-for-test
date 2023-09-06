@@ -57,6 +57,7 @@
             :name="item.user_info"
             :id="item.id"
             :rates="item.rates"
+            :categoryName="item.category_name"
           />
      
         <!-- </router-link> -->

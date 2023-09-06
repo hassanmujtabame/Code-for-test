@@ -15,7 +15,10 @@
           :to="getRouteLocale('service-provider-ready-service', { id: id })"
         >
     <div class="p-3">
-      <h6 class="m-c">{{ title }}</h6>
+      <div class="d-flex justify-content-between">
+      <h6 class="text-two-lines w-75" style="height: 20px;">{{ title }}</h6>
+      <span class="m-c">{{categoryName}} </span>
+      </div>
       <p class="text-two-lines txt-description" v-html="description"></p>
       <div class="d-flex gap-2 justify-content-between">
            <p class="t-c">
@@ -145,6 +148,9 @@ export default {
     description: {
       type: String
     },
+    categoryName:{
+      type: String
+    },
     place: {
       type: String,
       default: "N/A"
@@ -169,7 +175,7 @@ export default {
 
 <style>
 .txt-description {
-  height: 48px;
+  height: 60px;
 }
 .parent {
   position: relative;
