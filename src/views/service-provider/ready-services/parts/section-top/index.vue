@@ -5,7 +5,7 @@
       <div>
       <h1 class="text-white  fs-1 position-relative z-index-1">خدمات عن بعد</h1>
       <p
-        class="text-white fs-r-24 position-relative z-index-1"
+        class="text-white fs-r-24 position-relative z-index-1 w-75"
         style="max-width:702px"
       >
       هي خدمات متوعة و مميزة يقدمها مقدم الخدمة عبر الانترنت يمكنك التواصل معه و طلب ماتريده
@@ -29,7 +29,7 @@
       <div>
       <h1 class="text-white  fs-1 position-relative z-index-1">{{ $t('service') }}</h1>
       <p
-        class="text-white fs-r-24 position-relative z-index-1"
+        class="text-white fs-r-24 position-relative z-index-1 w-75"
         style="max-width:702px"
       >
       يمكنك عرض خدماتك ومهارتك على أصحاب المشاريع و تحديد قيمة الصفقة المناسبة لكلاً منكم</p>

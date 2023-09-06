@@ -29,7 +29,7 @@
                    :state="item.state"
                    :name="item.user_info"
                    :description="item.desc"
-                   :department="item.category_name??'N/A'"
+                   :categoryName="item.category_name??'N/A'"
                    :status="item.status"
                     :id="item.id"
 

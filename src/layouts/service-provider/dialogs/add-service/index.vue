@@ -362,7 +362,7 @@
     </ValidationObserver>
 
     <template v-slot:actions>
-      <button @click="save" type="button" class="btn btn-main">{{ $t('publish-service') }}</button>
+      <button @click="save" type="button" class="btn btn-main" style="width: 25% !important;">{{ $t('publish-service') }}</button>
     </template>
   </d-dialog-large>
 </template>
