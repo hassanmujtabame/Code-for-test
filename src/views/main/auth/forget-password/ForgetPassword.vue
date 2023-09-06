@@ -4,7 +4,7 @@
       <b-col xl="7">
         <div class="forget-password-form">
           <div class="text-center">
-            <b-img :src="`${publicPath}assets/img/pot_1_@2x.png`" width="320" height="220" />
+        <img :src="`${publicPath}assets/svg/pot_1_.svg`" />
           </div>
 
           <div class="form">
