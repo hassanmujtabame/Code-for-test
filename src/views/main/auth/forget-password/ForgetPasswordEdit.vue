@@ -59,8 +59,8 @@
 
                                 </ValidationProvider>
                                 </div>
-                                <div class="col-12 text-center ">
-                                    <button @click="resetPassword" :disabled="loading" class="btn btn-main  " >  
+                                <div class="col-12 text-center mx-auto w-50">
+                                    <button @click="resetPassword" :disabled="loading" class="btn btn-main w-100" >  
                                             تغير كلمة السر
                                         </button>
                                 </div>

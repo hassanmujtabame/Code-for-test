@@ -41,8 +41,8 @@
                   ></d-text-input>
                 </div>
               </ValidationProvider>
-              <div class="col-12 text-center">
-                <button @click="verifyCode" class="btn btn-main">أستمر</button>
+              <div class="col-12 text-center  w-50 mx-auto">
+                <button @click="verifyCode" class="btn btn-main  w-100">أستمر</button>
               </div>
             </ValidationObserver>
           </div>
