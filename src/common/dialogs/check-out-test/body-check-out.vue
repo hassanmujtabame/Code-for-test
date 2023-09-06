@@ -106,7 +106,7 @@ export default {
   methods: {
        confirmPaymentUrl(){
         let dataEvt={
-            title:'تم الاشتراك بنجاح',
+            title:'استكمال الدفع',
             btns:[
                 {title:'استكمال الدفع',action:this.paymentUrl,class:'btn btn-main'}
                 ],
@@ -140,7 +140,8 @@ export default {
                     
                     if(data.success){
                         this.paymentUrlPth=	data.data.payment_url
-                        this.confirmPaymentUrl()
+                        // this.confirmPaymentUrl()
+                        this.paymentUrl()
                     }
                 } catch (error) {
                         window.SwalError("The given data was invalid")
