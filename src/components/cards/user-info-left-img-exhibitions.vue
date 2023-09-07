@@ -55,9 +55,7 @@ import AddMessage from './exhibitions-message.vue'
 export default {
     name:'user-info-li',
       components:{
-
     AddMessage
-
 },
  props:{
     sizeImage:{
@@ -101,7 +99,7 @@ export default {
         console.mylog('sss',this.routeName)
         if(this.routeName){
             this.router_push(this.routeName,{id:this.member.id})
-        }
+        } 
     },
     sendMessage(){
         if(!this.groupDialog) return;

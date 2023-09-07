@@ -90,7 +90,7 @@
                 }else{
                     window.SwalError(data.message)
 
-                    return false;
+                    return false; 
                 }
             } catch (error) {
                 console.mylog('error',error)

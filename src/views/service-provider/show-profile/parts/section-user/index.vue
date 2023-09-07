@@ -1,5 +1,7 @@
 <template>
     <div>
+        <div class="d-flex justify-content-end">
+
            <button @click="openChat" class="text-white  border-0 px-2 py-1 rounded-3  px-3 mb-3 "
            style="background: rgba(255, 188, 0, 1);"
            >
@@ -11,6 +13,8 @@
                     </g>
                     </svg>
                         تواصل</button>
+        </div>
+
         <div class="position-relative">
         <d-user-info :member="{
             job:userPage.job_title,
@@ -113,6 +117,8 @@
                 <h6 class="t-c">لا توجد تقييمات</h6>
             </div>
                     </div>
+      <button @click="save" type="button" class="btn btn-main w-100 rounded-3 mt-5">طلب خدمة مشابهة</button>
+
         <AddMessage  />        
                
                 </div>
@@ -178,7 +184,7 @@ export default {
             }
         },
             openChat(){
-    this.fireOpenDialog('send-message',this.member)
+    this.fireOpenDialog('send-service-provider-message',this.userPage)
     }
  },
  mounted(){

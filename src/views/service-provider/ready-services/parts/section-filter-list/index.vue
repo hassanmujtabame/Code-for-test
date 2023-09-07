@@ -114,7 +114,7 @@ export default {
     closeAddService(evt) {
       evt.preventDefault();
       this.fireCloseDialog("add-ready-service-dialog");
-    },
+    }, 
     async loadList(metaInfo) {
       let params = {
         page: metaInfo.current_page,
