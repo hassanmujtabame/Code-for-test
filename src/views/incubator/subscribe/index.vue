@@ -24,17 +24,17 @@
                  <div class="row p-3">
                      <div v-for="(pack,p) in packages" :key="p" class="col-md-4  mt-2">
                          <SubscribeCard
-                         :itemId="pack.id"
-                         :title="getTitleSubscribe(pack.type)"
+                        :itemId="pack.name"
+                         :title="getTitleSubscribe(pack.name)"
                          :price="pack.price"
-                         :features="pack.features.map(c=>c.desc)"
-                         :type-subscribe="pack.type"
+                        :features="pack.options.map(c=>c.name_ar)"
+                         :type-subscribe="pack.name"
                          @selected="choose(pack)"
                          :subscribed="userSubIncubators[0]"
-                         ></SubscribeCard>
-                      
+                         ></SubscribeCard>  
+                         <!-- :features="pack.options.map(c=>c.desc)" -->
+                    
                      </div>
- 
                  </div>
              </div>
  

@@ -21,15 +21,17 @@
              <div class="shadow bg-white rounded-bottom">
                  <div class="row p-3">
                      <div v-for="(pack,p) in packages" :key="p" class="col-md-4  mt-2">
-                         <SubscribeCard
+                         <SubscribeCard 
                         :itemId="pack.name"
-                        :title="pack.name"
+                         :title="getTitleSubscribe(pack.name)"
                         :price="pack.price"
                         :features="pack.options.map(c=>c.name_ar)"
                         :type-subscribe="pack.name"
                         @selected="choose(pack)"
                          :subscribed="userSubAcademy"
                          ></SubscribeCard> 
+                        <!-- :title="pack.name" -->
+
                       <!-- :itemId="pack.id"
                          :title="getTitleSubscribe(pack.type)"
                          :price="pack.price"

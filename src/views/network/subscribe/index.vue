@@ -23,8 +23,7 @@
                     <div v-for="(pack,p) in packages" :key="p" class="col-md-4  mt-2">
                         <SubscribeCard
                         :itemId="pack.name"
-
-                        :title="pack.name"
+                         :title="getTitleSubscribe(pack.name)"
                         :price="pack.price"
                         :features="pack.options.map(c=>c.name_ar)"
                         :type-subscribe="pack.name"

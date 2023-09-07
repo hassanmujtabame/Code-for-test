@@ -66,7 +66,8 @@ class NetworkApi extends BaseApi {
 		return window.axios.post(`checkout`, data);
 	}
 	PayPackageSelect(data) {
-		return window.axios.post(`pay`, data);
+		// return window.axios.post(`pay`, data);
+		return window.axios.post(`payments/hyperbill/callback`, data);
 	}
 	getNumbers(params = {}) {
 		let s = this.generateQueryUrl(params);

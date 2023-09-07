@@ -120,7 +120,8 @@ export default {
       let formData = new FormData();
    
       formData.append('package_id',this.otherData.id)
-      formData.append('package_type',this.packageType )
+      // formData.append('package_type',this.packageType )
+      formData.append('user_id',this.user.id )
    if (data.coupon) {
       formData.append('coupon',data.coupon)
       }
