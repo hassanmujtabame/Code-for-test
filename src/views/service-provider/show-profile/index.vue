@@ -6,16 +6,17 @@
     </div>
     <div v-else class="container my-profile">
               <div class="row">
-                  <div class="col-md-3 mt-3">
-                      
-                      <SectionUser :userPage="userPage" />
-                  </div>
+              
                   <div class="col-md-9 mt-3">
                       <!--my service-->
                       <SectionMyService :userPage="userPage" />
                       <!--section gallery-->
                       <SectionGallery :userPage="userPage" />
       
+                  </div>
+                      <div class="col-md-3 mt-3">
+                      
+                      <SectionUser :userPage="userPage" />
                   </div>
               </div>
           </div>

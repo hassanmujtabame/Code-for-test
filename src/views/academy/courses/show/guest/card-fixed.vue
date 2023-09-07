@@ -3,7 +3,6 @@
   <img class="card-img-top" :src="itemPage.image_path" :alt="itemPage.title">
   <div class="card-body pt-0">
    <div class="course-card-fixed__item my-2">
-
     <d-unlock-icon color="var(--m-color)" />
     <span class="px-2">محتوي متاح دائما</span>
    </div>
