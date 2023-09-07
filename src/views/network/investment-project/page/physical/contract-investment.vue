@@ -32,7 +32,7 @@
                         <path d="M9.38086 5.62695V12.3324" stroke="#1FB9B3" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
-                    تحميل
+                    تحميل 
                 </a>
             </p>
         </div>

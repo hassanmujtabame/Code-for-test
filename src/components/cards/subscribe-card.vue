@@ -4,7 +4,6 @@
   >
     <div>
       <h2 class="fw-bolder subscribe-title">{{title}}</h2>
-  
       <h1 class="y-c fw-bolder fs-1 py-1">
         <span class="subscribe-price">{{subscribed.type=='free'?$t('free'):price}}</span>
         <span class="subscribe-price-currency" v-if="subscribed.type!=='free'">{{ $t('riyals') }}</span>

@@ -52,7 +52,7 @@
                                     <label class="w-100 position-relative  rounded-2">
                                         <input type="file" @change="uploadFile($event)" id="validationCustom03" class="form-control opacity-0 "
                                             required>
-
+ 
                                         <svg style="    top: 12px;" class="position-absolute" width="16" height="16"
                                             viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
