@@ -22,7 +22,7 @@
                  <div class="row p-3">
                      <div v-for="(pack,p) in packages" :key="p" class="col-md-4  mt-2">
                          <SubscribeCard
-                        :itemId="pack.name"
+                        :itemId="pack.id"
                         :title="pack.name"
                         :price="pack.price"
                         :features="pack.options.map(c=>c.name_ar)"

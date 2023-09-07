@@ -4,10 +4,9 @@
   >
     <div>
       <h2 class="fw-bolder subscribe-title">{{title}}</h2>
-  
       <h1 class="y-c fw-bolder fs-1 py-1">
-        <span class="subscribe-price">{{subscribed.type=='free'?$t('free'):price}}</span>
-        <span class="subscribe-price-currency" v-if="subscribed.type!=='free'">{{ $t('riyals') }}</span>
+        <span class="subscribe-price">{{typeSubscribe=='free'?$t('free'):price}}</span>
+        <span class="subscribe-price-currency" v-if="typeSubscribe!=='free'">{{ $t('riyals') }}</span>
       </h1>
       <div class="text-end">
         <p class="subscribe-feature" v-for="(feature,i) in features" :key="i">
@@ -36,12 +35,12 @@
       >{{ $t('subscribe-now') }}</a>
       <a
         @click="selected"
-        v-else-if="(subscribed.subscribe  && subscribed.type!==itemId)"
+        v-else-if="(subscribed.subscribe && subscribed.type=='free' &&subscribed.package_id!==itemId)"
         href="#"
         class="btn-main px-4 py-2"
       >رقي حسابك</a>
       <a
-        v-else-if="subscribed.type==itemId"
+        v-else-if="subscribed.package_id==itemId"
         href="#"
         class="btn-danger px-4 py-2"
       >انت مشترك الان</a>
