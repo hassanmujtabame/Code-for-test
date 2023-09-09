@@ -12,7 +12,7 @@
       
       <!--section my offers-->
       <SectionMyOffers />
-      
+      <SectionMyWorkSpace/>
     
 </div>
 </main>
@@ -23,6 +23,8 @@ import SectionTop from './parts/section-header/index.vue'
 import SectionFirstVisit from './parts/section-first-visit/index.vue'
 import SectionBalance from './parts/section-balance/index.vue'
 import SectionMyOffers from './parts/section-my-offers/index.vue'
+import SectionMyWorkSpace from './parts/section-my-work-space/index.vue'
+
 import SectionMyReadyServices from './parts/section-my-ready-services/index.vue'
 
 export default {
@@ -32,7 +34,8 @@ export default {
     SectionFirstVisit,
     SectionMyOffers,
     SectionBalance,
-    SectionMyReadyServices
+    SectionMyReadyServices,
+    SectionMyWorkSpace
  },
  data:()=>({
   isFirst:false,

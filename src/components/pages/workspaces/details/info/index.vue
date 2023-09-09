@@ -1,6 +1,6 @@
 <template>
   <div class="box border rounded-3 p-4">
-    <div class="border-bottom pb-3 px-2">
+    <div class="border-bottom pb-3 px-2"  v-if="singleWorkspace && singleWorkspace.map_address && singleWorkspace.map_address.address_name">
       <h5>العنوان بالتفصيل</h5>
       <p class="gray-color">{{ singleWorkspace.map_address.address_name }}</p>
     </div>
@@ -82,6 +82,7 @@ import timerIcon from "@/components/icon-svg/timer.vue";
 import emptyWalletIcon from "@/components/icon-svg/empty-wallet.vue";
 
 export default {
+  name:'details-work-space',
   components: {
     timerIcon,
     emptyWalletIcon,

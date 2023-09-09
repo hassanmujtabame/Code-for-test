@@ -2103,6 +2103,7 @@ span {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--m-color);
+    border-radius: 10px;
 }
 
 /* Handle on hover */
