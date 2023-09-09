@@ -18,7 +18,7 @@
       <div class="row">
         <div class="col-md-6">
           <div
-            @click="router_push('network-offers')"
+            @click="checkSub"
             class="box clickable"
           >
             <img
@@ -191,6 +191,29 @@ export default {
     SectionMemeberNetwork,
     SectionJoinUs,
   },
+   data: () => {
+        return {
+            showOffers: false,
+        }
+    },
+  methods:{
+     checkSub(){
+    if(!this.showOffers){
+        let dataEvt ={
+                        title:'للأسف لايمكنك  رؤية العروض  ',
+                        description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+    }else{
+                  this.router_push('network-offers')
+    }
+    }
+  }
 };
 </script>
 

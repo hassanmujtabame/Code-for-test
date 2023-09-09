@@ -48,8 +48,8 @@
             </template>
             <div
               v-else
-              style="line-height: 3.5"
               class="btn-main btn-nav text-center"
+              style="line-height: 3.5; display: flex; justify-content: center; align-items: center;"
             >
               <router-link
                 :to="getRouteLocale('register')"

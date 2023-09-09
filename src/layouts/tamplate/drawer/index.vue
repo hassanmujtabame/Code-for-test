@@ -13,7 +13,7 @@
                 <h3 class="m-c fw-bolder">
                     {{ user.name }}
                 </h3>
-                <p>
+                <p v-if="user && user.career_informations && user.career_informations.job_title">
                     {{user.career_informations.job_title}}
                 </p>
             </div>
