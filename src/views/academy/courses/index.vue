@@ -4,7 +4,7 @@
     <SectionHeader />
     <div class="container mt-5">
     <SectionFilterList />
-    </div> 
+    </div>  
   </div>
 </template>
 

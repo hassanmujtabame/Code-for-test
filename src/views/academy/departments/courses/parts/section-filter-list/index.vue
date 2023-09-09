@@ -65,7 +65,7 @@ export default {
             this.fireEvent('d-filter-list-refresh')
         },
         async loadList(metaInfo) {
-            try {
+            try { 
                 let params = {
                     page: metaInfo.current_page,
                     ...this.filterItem

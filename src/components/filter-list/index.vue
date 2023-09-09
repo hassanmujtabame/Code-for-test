@@ -328,10 +328,10 @@
             <slot name="list" :items="items"></slot>
           </div>
         </div>
-      </div>
+      </div> 
       <div class="mt-5">
         <nav
-          v-if="metaInfo.total_page > 1"
+          v-if="metaInfo.total_page > 0"
           aria-label="Page navigation example"
         >
           <ul
