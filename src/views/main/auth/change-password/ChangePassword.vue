@@ -1,11 +1,11 @@
 <template>
-     <div class="container">
-            <div class="box bg-white    rounded-3">
+     <div class="container ">
+            <div class="box bg-white  rounded-3">
         
                 <div class="row align-items-center p-0 position-relative ">
                     <div class="col-12 col-md-6 p-4">
                         <div style="" class="text-center " >
-                                 <img class="" :src="`${publicPath}assets/img/reset-password.png`" alt="" width="320" height="220">
+                                 <img class="" :src="`${publicPath}assets/img/reset-password.png`" alt="" width="320" height="220" style="object-fit: contain;">
                         </div>
                         <div class="">
 

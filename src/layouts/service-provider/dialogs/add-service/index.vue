@@ -451,6 +451,7 @@ export default {
             title: "لقد تم أضافة خدمة جديدة لك",
             description:
               "سيتم مراجعة الخدمة من خلالنا  خلال يوم  و سنخبرك عندما تكون جاهزة ",
+          image: `${this.publicPath}assets/svg/amico.svg`,
             btns: [
               {
                 title: "قائمة خدماتي",  
@@ -460,7 +461,7 @@ export default {
               }
             ]
           };
-          this.showSuccessMsg(dataEvt);
+          this.showSuccessMsg(dataEvt); 
           this.closeEvent();
         }
       } catch (error) {

@@ -112,7 +112,7 @@ import offersAPI from '@/services/api/offers';
 			setTimeout(() => {
 			this.copied=false
 
-      }, 2000);
+      }, 2300);
 
   }
 },
