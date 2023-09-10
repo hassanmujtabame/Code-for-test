@@ -1,5 +1,5 @@
 <template>
-    <div class="box p-3 rounded-3">
+    <div class="box p-3 rounded-3 proposal-card">
         <div class="d-flex">
    
         <div class="col-md-4 text-start">
@@ -64,10 +64,10 @@
 </div>
                         </router-link>
         <div class="d-flex gap-2 mt-3"  style="align-items: flex-start;">
-               <img style="border-radius: 100%;" :src="user_info.image" width="35px" height="35px"/>
+               <img v-if="user_info" style="border-radius: 100%;" :src="user_info.image" width="35px" height="35px"/>
 
             <!-- <img :src="`${publicPath}assets/img/Ellipse 603 (1).svg`" style="" /> -->
-            <div>
+            <div v-if="user_info">
                 <span class="t-c">{{user_info.name}}</span>
  
                 <div class="t-c opacity-50 fs-r-12  mb-0">
@@ -182,17 +182,19 @@ export default {
         user_info:{
             type: Object
         },
+        shareLink:{
+            type: String
+        },
         price: {
             type: [String, Number]
         },
     },
      data:()=>{
   return{
-    shareLink:'',
   }
      },
-      mounted(){
-    this.shareLink = window.location.href + "/" + this.id;
+  mounted(){
+    // this.shareLink = window.location.href + "/" + this.id;
   }
 };
 </script>

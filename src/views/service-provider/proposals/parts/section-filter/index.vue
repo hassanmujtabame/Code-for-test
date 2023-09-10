@@ -5,7 +5,7 @@
   :call-list="loadList"
   @change="changeFilter"
   :searchPlaceholder="$t('search-for-project')"
-  orderName="price" 
+  orderName="price"  
   :orderOpts="
     [
        {id:'asc',name:'الأقل سعرا'},
@@ -46,6 +46,7 @@
           :state="item.state"
           :id="item.id"
           :user_info="item.user_info"
+          :shareLink='shareLink + "/" + item.id'
         />
     </template>
          <!-- </d-swiper> -->
@@ -94,7 +95,8 @@ export default {
         max_price: 5000,
         min_price: 0
       },
-      items: []
+      items: [],
+      shareLink:''
     };
   },
   methods: {
@@ -125,6 +127,9 @@ export default {
       };
       return await proposalsAPIs.getAll(params);
     }
+  },
+  mounted(){
+    this.shareLink = window.location.href
   }
 };
 </script>
