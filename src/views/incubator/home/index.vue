@@ -9,7 +9,7 @@
         <SectionFeatures />
 
        <!-- section ads-->
-       <SectionAds department="incubator"  />
+       <SectionAds department="encubator"  />
        <sectionJourneyLaunch />
         <SectionIncubationProgram  v-if="!token"/>
         <!-- section 6-->

@@ -5,7 +5,6 @@
         <div class="row">
             <div class="col-md-6">
                 <div >
-              
                   <h2>{{itemPage.title}}</h2>
                  <p class="m-c">
                     تصنيف النموذج :{{itemPage.category_name}} 
@@ -46,6 +45,8 @@
 
 <script>
 import modelsAPI from '@/services/api/models';
+import networkAPI from '@/services/api/network.js'
+
 export default {
  name:'model-page',
  props:{
@@ -56,7 +57,8 @@ export default {
  },
     data: () => {
         return {
-        freeModels: false
+        freeModels: false,
+        idOptionFreeModels:null
         }
     },
  methods:{
@@ -75,10 +77,22 @@ export default {
                     document.body.appendChild(a);
                     a.click();
                     a.remove()
+        this.loadOptionsSub()
+
                 }
             
         } catch (error) {
             //
+        }
+    },
+          async loadOptionsSub(){
+        try {
+            let { data } = await networkAPI.optionsSub(10);
+            if(data.success){
+                console.log('Packages',data);
+            } 
+        } catch (error) {
+            console.log('error',error)
         }
     },
     async downloadModel(){
@@ -112,6 +126,7 @@ export default {
                     const element = this.user.subscription_options[index];
                    if (element.key == "free_models") {
                         this.freeModels = true
+                        this.idOptionFreeModels=element.id
                     }
                 }
     }

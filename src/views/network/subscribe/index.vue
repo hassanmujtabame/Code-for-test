@@ -126,12 +126,13 @@ components:{
                 }
 
         
-    }
+    },
+
+
    
   },
   mounted(){
     this.loadPackages()
-    this.checkSubscriptionOptions()
 
   }
 }

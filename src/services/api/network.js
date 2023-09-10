@@ -32,6 +32,9 @@ class NetworkApi extends BaseApi {
 		let s = this.generateQueryUrl(params);
 		return window.axios.get(`user/network/system-packages?${s}`);
 	}
+	optionsSub(data) {
+		return window.axios.post(`user/${data}/update-packages-subscriptions-data`);
+	}
 	rechargeBalance(data) {
 		return window.axios.post(`network/recharge-balance`, data);
 	}
@@ -66,7 +69,7 @@ class NetworkApi extends BaseApi {
 		return window.axios.post(`checkout`, data);
 	}
 	PayPackageSelect(data) {
-	window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
+		window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
 		// return window.axios.post(`pay`, data);
 		return window.axios.post(`payments/hyperbill/callback`, data);
 	}
