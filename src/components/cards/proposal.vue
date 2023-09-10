@@ -77,6 +77,13 @@
                         
                 </div>
             </div>
+
+            <div v-if="images">
+                 <div class="d-flex gap-3 flex-wrap flex-shrink-0">
+                <a v-for="item,i in images" :key="i" style="text-decoration: revert;" class="t-c" href>Image {{i+1}} </a>
+                 </div>
+
+            </div>
                             <img v-b-modal="`my-modal-${id}`"  style="margin-right: auto;" :src="`${publicPath}assets/img/Vector789.svg`">
 
          </div>
@@ -181,6 +188,9 @@ export default {
         },
         user_info:{
             type: Object
+        },
+        images:{
+            type: Array
         },
         shareLink:{
             type: String
