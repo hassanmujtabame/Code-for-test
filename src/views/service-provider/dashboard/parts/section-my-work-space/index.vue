@@ -137,7 +137,7 @@ import workSpaces from '../work-spaces.vue'
 import workSpacesMap from './work-spaces-map.vue'
 
 export default {
-  name: "section-my-offers",
+  name: "section-near-work-spaces",
   components:{workSpaces,workSpacesMap},
   data: () => ({
     loading: true,
