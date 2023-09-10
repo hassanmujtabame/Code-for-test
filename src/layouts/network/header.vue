@@ -49,7 +49,7 @@ export default {
      
             showExhibition: false,
             showModels: false,
-            addOffers:false
+            showOffers:false
 
 
         }
@@ -64,8 +64,8 @@ export default {
                     } else if (element.key == "models") {
                         this.showModels = true
 
-                    }else if (element.key == "add_offers") {
-                        this.addOffers = true
+                    }else if (element.key == "show_offers") {
+                        this.showOffers = true
                     } 
                 }
     },
@@ -86,7 +86,7 @@ this.router_push('network-exhibitions')
     }
     },
     checkModelsSub(){
-  if(!this.addOffers){
+  if(!this.showOffers){
         let dataEvt ={
                         title:'للأسف لايمكنك  رؤية النماذج  ',
                         description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على النماذج  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من النماذج و المزيد من المميزات في الشبكة`,
@@ -102,7 +102,7 @@ this.router_push('network-exhibitions')
     }
     },
     checkSub(){
-    if(!this.addOffers){
+    if(!this.showOffers){
         let dataEvt ={
                         title:'للأسف لايمكنك  رؤية العروض  ',
                         description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,

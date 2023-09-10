@@ -197,6 +197,14 @@ export default {
         }
     },
   methods:{
+          checkSubscriptionOptions(){
+                for (let index = 0; index < this.user.subscription_options.length; index++) {
+                    const element = this.user.subscription_options[index];
+                   if (element.key == "show_offers") {
+                        this.showOffers = true
+                    } 
+                }
+    },
      checkSub(){
     if(!this.showOffers){
         let dataEvt ={
@@ -213,7 +221,10 @@ export default {
                   this.router_push('network-offers')
     }
     }
-  }
+  },
+    mounted() {
+    this.checkSubscriptionOptions()
+    }
 };
 </script>
 
