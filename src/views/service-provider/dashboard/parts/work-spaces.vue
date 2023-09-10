@@ -7,11 +7,9 @@
         <img :src="image" :alt="name" />
     </div>
     <div class="course-rate-item__info mx-3">
-        <div class="w-100 d-flex">
+        <div class="w-100 d-flex justify-content-between">
         <h1 class="course-rate-item__name">{{ name }}</h1>
-          <!-- <a v-if="singleWorkspace && singleWorkspace.map_address !=null"  :href="`https://www.google.com/maps/search/${singleWorkspace.map_address.lat},${singleWorkspace.map_address.lng}`" target="_blank"> -->
-            <img style="height:40px; width153px"   class="w-100" :src="`${publicPath}assets/svg/Group 1171276111.svg`" />
-          <!-- </a> -->
+         <button class="btn btn-main" style="width: 100px; height: 30px; font-size: 12px; padding: 5px;">عرض التفاصيل</button>
         </div>
       <p class="course-rate-item__comment mt-1">
       {{comment}}

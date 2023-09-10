@@ -45,7 +45,7 @@
 
         <AddMessage  />        
 
-        </div>
+        </div> 
     </div>
 </template>
 
@@ -107,8 +107,6 @@ export default {
         this.fireOpenDialog(this.groupDialog,this.dataEvent)
     },
     openChat(){
-            // this.fireOpenDialog('add-blog')
-
     this.fireOpenDialog('send-message',this.member)
     }
     

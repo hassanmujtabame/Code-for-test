@@ -118,9 +118,7 @@
               <h5> أماكن العمل القريبة</h5>
               <p>{{itemCard.count_rate}}</p> 
             </div>
-          <!-- <a v-if="singleWorkspace && singleWorkspace.map_address !=null"  :href="`https://www.google.com/maps/search/${singleWorkspace.map_address.lat},${singleWorkspace.map_address.lng}`" target="_blank"> -->
-            <img style="height:40px; width153px; margin-right: auto;"   class="d-flex " :src="`${publicPath}assets/svg/Group 1171276111.svg`" />
-          <!-- </a> -->
+            <img @click="openDialog" style="cursor: pointer ; height:40px; width153px; margin-right: auto;"   class="d-flex " :src="`${publicPath}assets/svg/Group 1171276111.svg`" />
           </div>
             <div class="px-3" style="height:300px; overflow-y: scroll;">
                 <workSpaces v-for="(item,i) in 20" :key="i" class="my-3" :name="'قاعات مؤتمرات'" :comment="'قاعات  مؤتمرات مؤتمرات مؤتمرات'" :image="'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60'"/>
@@ -129,16 +127,18 @@
       </div>
     </div>
   </div>
+  <workSpacesMap/>
   </div>
 </template>
 
 <script>
 import readyServicesAPI from "@/services/api/service-provider/provider/ready-service.js";
 import workSpaces from '../work-spaces.vue'
+import workSpacesMap from './work-spaces-map.vue'
 
 export default {
   name: "section-my-offers",
-  components:{workSpaces},
+  components:{workSpaces,workSpacesMap},
   data: () => ({
     loading: true,
     itemCard: {}
@@ -186,6 +186,9 @@ export default {
         console.log("error", error);
       }
       this.loading = false;
+    },
+    openDialog(){
+    this.fireOpenDialog('work-spaces-map',this.itemCard)
     }
   },
   mounted() {
