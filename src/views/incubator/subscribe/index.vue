@@ -6,8 +6,6 @@
                      <div class="col-md-6">
                          <h1 class="text-white fs-1">
                              ابدأي رحلة نجاحــــك معنا واختري الباقـة المناسـبـة لــــــــــك
-              
-
                          </h1>
                      </div>
                      <div class="col-md-6">

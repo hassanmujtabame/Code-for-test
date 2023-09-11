@@ -4,7 +4,7 @@
     <div v-else-if="hasError">
         {{ $t('has-error') }}
     </div>
-    <div v-else-if="!itemPage.subscribed">
+    <!-- <div v-else-if="!itemPage.subscribed">
         <div class="height-body-page-without-nav">
     <div class="w-100 h-100 d-flex flex-justify-content-center align-items-center">
         <div class="d-alert d-alert-danger mx-auto">
@@ -15,7 +15,7 @@
     </div>
     </div>
   </div>
-    </div>
+    </div> -->
     <div v-else class="container">
         <div class="row">
             <div class="col-md-3">

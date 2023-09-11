@@ -8,10 +8,10 @@
             <p>اختر القسم الذي تريد تتبع مراحله</p>
         </div>
             <div v-for="(item,i) in items" :key="i" class="col-2">
-            <CardVue :title="item.name" :img="item.image_path"
+            <CardVue :title="item.title" :img="item.image_path"
                 @click-image="onChoose(item)"
                 class="incubator"
-                :class="{'subscribed':item.subscribed}"
+                :class="{'subscribed':userSubIncubators[0].subscribe}"
                 />
            </div>
         </div>
@@ -48,7 +48,7 @@ data:()=>({
 }),
 methods:{
     onChoose(dept){
-        if(!dept.subscribed){
+        if(!this.userSubIncubators[0].subscribe){
             let dataEvt ={
                 title:'غير مشترك في القسم',
                 description:'انت غير مشترك في القسم، لذا عليك الاشتراك فيه لتتبع مساره',
@@ -65,7 +65,7 @@ methods:{
     async initializing(){
     this.loading = true;
     try{
-      let { data } = await incubatorAPI.getDepartments();
+      let { data } = await incubatorAPI.getStages(); 
       if(data.success){
         this.items = data.data.map((dept)=>{return{...dept,subscribed:this.subscribeIncubators.some(x=>x.subscribe && x.department_id==dept.id)}}).sort((a,b)=>a.subscribed && !b.subscribed?-1:1)
         /*if(process.env.NODE_ENV=='development' && this.items.length==1){
