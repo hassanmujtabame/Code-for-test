@@ -7,7 +7,6 @@
                     <div class="col-md-6">
                         <h2>
                             أهم المعارض
-                            {{showExhibition}}
                         </h2>
 
                     </div>
