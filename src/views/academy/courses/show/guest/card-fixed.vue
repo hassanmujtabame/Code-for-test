@@ -98,7 +98,7 @@ export default {
                 this.showConfirmMsg(dataEvt);
                 return;
             }
-            if(!this.itemPage.user_is_join_course && this.freeCourses && !this.choiceUnlimitedCourses){
+            if(!this.itemPage.user_is_join_course ){
                                 let dataEvt ={
                     title:'هل أنت متأكد من أنضمامك لهذه الدورة ؟',
                     description:`بأنضمامك الى هذا الدورة  سيتبقى لك <span style="color:#F2631C">${this.resetCourse} دورات</span> هذا الشهر`,
@@ -108,7 +108,7 @@ export default {
                     }
                     this.showConfirmMsg(dataEvt)
                 return;
-            } if(!this.itemPage.user_is_join_course && this.choiceUnlimitedCourses){
+            } if(!this.itemPage.user_is_join_course ){
                                 let dataEvt ={
                     title:'هل أنت متأكد من أنضمامك لهذه الدورة ؟',
                     btns:[
