@@ -18,14 +18,14 @@
                                 </div>
 
                             </div>
-                            <div v-if="userIsProvider">
-                            <div v-if="is_offer_sent">
+                            <div v-if="userIsProvider" class="mt-3">
+                            <!-- <div v-if="is_offer_sent">
                                 <h1>لقد ارسلت عرضك</h1>
-                            </div>
-                            <div v-else-if="itemPage.user_offer && itemPage.user_offer.status!='waiting'">
+                            </div> -->
+                            <!-- <div v-else-if="itemPage.user_offer && itemPage.user_offer.status!='waiting'">
                                 <h1>لقد تم قبول عرض اخر</h1>
-                            </div>
-                            <div v-else>
+                            </div> -->
+                            <div >
                             <ValidationObserver tag="div" class="position-relative" ref="form">
                                 <d-overlays-simple v-if="sending" />
                                 <h3 class="m-c p-2">
