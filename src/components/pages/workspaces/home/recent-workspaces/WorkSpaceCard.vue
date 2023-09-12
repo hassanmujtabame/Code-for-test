@@ -16,8 +16,9 @@
       <div class="workspace-card__footer">
         <div class="workspace-card__footer-item flex-grow-1">
           <d-localisation-icon :size="20" color="#979797" class="mx-1"  />
-          <span v-if="company.map_address && company.map_address.address_name">{{ company.map_address.address_name }}</span>
-          <span v-else>{{ company.city_name }}</span>
+          <!-- <span v-if="company.map_address && company.map_address.address_name">{{ company.map_address.address_name }}</span>
+          <span v-else>{{ company.city_name }}</span> -->
+          <span>{{ company }}</span>
 
         </div>
         <div class="workspace-card__footer-item flex-shrink-0">
@@ -77,9 +78,9 @@ export default {
   align-items: center;
   text-align: start;
   color: #979797;
-      height: 22px;
+      /* height: 22px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
 }
 .workspace-card__title {
   font-style: normal;

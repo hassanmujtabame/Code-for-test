@@ -36,7 +36,7 @@
           <workspaceCard
             :title="item.title"
             :image="item.image_path"
-            :company="item"
+            :company="item.city_name"
             :description="item.description"
             :price="item.price"
           />
