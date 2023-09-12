@@ -1,11 +1,11 @@
 <template>
   <div class="recent-work-spaces p-3 my-5">
     <div class="container">
-      <div class="row mt-5 header">
+      <div class="row my-5 header">
         <div class="col-lg-6">
           <h2>أحدث مساحات العمل</h2>
         </div>
-        <div class="col-lg-6 add-work-space">
+        <!-- <div class="col-lg-6 add-work-space">
           <button
             @click="openAddWorkSpace"
             class="btn bg-main bg border text-white"
@@ -13,7 +13,7 @@
             <plusRectRoundIcon />
             {{ $t("add_workspace") }}
           </button>
-        </div>
+        </div> -->
       </div>
       <d-swiper
         v-if="!loading"
@@ -30,7 +30,7 @@
             <WorkSpaceCard
               :title="item.title"
               :image="item.image_path"
-              :company="item.city_name"
+              :company="item"
               :description="item.description"
               :price="item.price"
             />
@@ -42,7 +42,7 @@
 </template>
  
  <script>
-import workspaceAPI from "@/services/api/workspace";
+import workspaceAPI from "@/services/api/workspace"; 
 import WorkSpaceCard from "@/components/pages/workspaces/home/recent-workspaces/WorkSpaceCard.vue";
 import plusRectRoundIcon from "@/components/icon-svg/plus-rect-round.vue";
 export default {

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-between">
         <div class="col-lg-6 text-white">
-          <h1 class="fs-1">أماكن العمل</h1>
+          <h1 class="fs-1 text-white">أماكن العمل</h1>
           <p>
             حافظ على إنتاجيتك مع أماكن العمل الحديثة والآمنة والمجهزة بأحدث
             الأجهزة في شبكة رياديات التي توجد في مختلف الأماكن!
@@ -42,7 +42,7 @@
             <WorkSpaceCard
               :title="item.title"
               :image="item.image_path"
-              :company="item.city_name"
+              :company="item"
               :description="item.description"
               :price="item.price"
             />

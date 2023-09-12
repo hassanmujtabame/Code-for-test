@@ -1,6 +1,6 @@
 <template>
   <div class="workspace-card box border">
-    <div class="workspace-card__wrapper">
+    <div class="workspace-card__wrapper"> 
       <div class="workspace-card__image">
         <img class="w-100" :src="image" :alt="title" height="165px" />
       </div>
@@ -16,7 +16,9 @@
       <div class="workspace-card__footer">
         <div class="workspace-card__footer-item flex-grow-1">
           <d-localisation-icon :size="20" color="#979797" class="mx-1"  />
-          <span>{{ company }}</span>
+          <span v-if="company.map_address && company.map_address.address_name">{{ company.map_address.address_name }}</span>
+          <span v-else>{{ company.city_name }}</span>
+
         </div>
         <div class="workspace-card__footer-item flex-shrink-0">
           <d-empty-wallet-icon :size="20" color="#979797"  class="mx-1"/>
@@ -75,6 +77,9 @@ export default {
   align-items: center;
   text-align: start;
   color: #979797;
+      height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .workspace-card__title {
   font-style: normal;
