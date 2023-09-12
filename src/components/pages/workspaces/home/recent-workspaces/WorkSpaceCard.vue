@@ -7,6 +7,7 @@
       <div class="workspace-card__content">
         <div class="d-flex align-items-center justify-content-between">
           <h6 class="workspace-card__title">{{ title }}</h6>
+          <h6 class="workspace-card__title">{{ area }}</h6>
         </div>
         <p
           class="text-four-lines workspace-card__description"
@@ -21,12 +22,20 @@
           <span>{{ company }}</span>
 
         </div>
-        <div class="workspace-card__footer-item flex-shrink-0">
-          <d-empty-wallet-icon :size="20" color="#979797"  class="mx-1"/>
-          <span>{{ price ?? "N/A" }}</span>
-          <span> {{ $t("R.S") }}</span>
+        <div class="workspace-card__footer-item flex-shrink-0" >
+          <d-empty-wallet-icon :size="20" color="#414042"  class="mx-1"/>
+          <span style="color:#414042 !important" >{{ price ?? "N/A" }}</span>
+          <span style="color:#414042 !important"> {{ $t("R.S") }}</span>
         </div>
+      
       </div>
+        <div class="d-flex align-items-center justify-content-between px-3 pb-3" >
+         <button class="btn btn-main" style="width: 100px; height: 30px; font-size: 12px; padding: 5px;">عرض التفاصيل</button>
+       <div class="d-flex">
+        <span class="px-1" style="font-size: 15px; color:#414042;">{{rate}}</span> <img :src="`${publicPath}assets/svg/Vectorrate.svg`" style="object-fit: contain;"/> 
+       </div>
+       
+        </div>
     </div>
   </div>
 </template>
@@ -39,6 +48,12 @@ export default {
       type: String,
     },
     title: {
+      type: String,
+    },
+    area : {
+      type: String,
+    },
+     rate : {
       type: String,
     },
     description: {
@@ -62,7 +77,7 @@ export default {
 .workspace-card__footer {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  margin: 0 10px;
   font-size: 1.3em;
 }
 
@@ -102,8 +117,10 @@ export default {
   /* or 142% */
   text-align: start;
   color: #737373;
-  height: 50px;
+  height: 40px;
   word-break: break-all;
+  margin-bottom: 0;
+
 }
 .workspace-card__content {
   padding: 5px 16px;

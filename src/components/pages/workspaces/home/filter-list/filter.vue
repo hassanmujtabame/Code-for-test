@@ -39,6 +39,8 @@
             :company="item.city_name"
             :description="item.description"
             :price="item.price"
+            :area="item.area"
+            :rate="item.rate"
           />
         </router-link>
       </template>
