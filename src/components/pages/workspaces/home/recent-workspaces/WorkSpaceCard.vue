@@ -77,7 +77,7 @@ export default {
   align-items: center;
   text-align: start;
   color: #979797;
-      height: 26px;
+      height: 22px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
