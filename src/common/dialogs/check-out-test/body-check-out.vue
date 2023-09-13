@@ -60,6 +60,8 @@
 <div v-if="packageType == 'academy' && openDepartmentsDialog" class="departmentsDialog ">
   <div class="departmentsDialog-departments">
     <span class="px-5 d-flex justify-content-end mt-3" style="cursor: pointer" @click="openDepartmentsDialog=false">X</span>
+    <h3 class="text-center my-2">حددي مجال الاشتراك</h3>
+     
       <div class="d-flex" style="flex-wrap: wrap;">
       <div v-for="item,i in items" :key="i">
         <div :id="`department${item.id}`"  class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;" @click="departmentsIdsSelected(item.id)">
