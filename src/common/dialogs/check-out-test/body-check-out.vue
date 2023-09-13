@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container relative">
     <div class="chekout p-4 shadow my-4">
       <h5 class="mb-3">أستكملي عملية الدفع</h5>
       <div class="row justify-content-between">
@@ -10,6 +10,7 @@
               <d-user-rect-icon :size="24" color="currentColor"/>
               <h4 class="mx-2"  style="color: #1FB9B3">انضم الى الأكاديمية</h4>
             </div>
+          
           </div>
 
                <div v-else-if="!otherData.image && packageType == 'network'" style="display: flex; align-items: center;">
@@ -56,6 +57,26 @@
           />
         </div>
       </div>
+<div v-if="packageType == 'academy' && openDepartmentsDialog" class="departmentsDialog ">
+  <div class="departmentsDialog-departments">
+    <span class="px-5 d-flex justify-content-end mt-3" style="cursor: pointer" @click="openDepartmentsDialog=false">X</span>
+      <div class="d-flex" style="flex-wrap: wrap;">
+      <div v-for="item,i in items" :key="i">
+        <div :id="`department${item.id}`"  class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;" @click="departmentsIdsSelected(item.id)">
+ <div class="">
+  <img :src="item.image_path" :alt="title" style="width:70px; height: 70px; border-radius:100%">
+ </div>
+ <p class="incubator-dept__title" >{{item.name}}</p>
+   
+</div>
+      </div>
+      </div>
+            <button :disabled="departmentsIds.length==0" @click="openDepartmentsDialog=false" type="button" class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
+               {{$t('continuity')}}
+            </button>
+  </div>
+</div>
+
     </div>
   </div>
 </template>
@@ -64,6 +85,7 @@
 import PaymentCardDetail from "./PaymentCardDetail.vue";
 import networkAPI from '@/services/api/network.js'
  import coursesAPI from '@/services/api/academy/courses' 
+import incubatorAPI from '@/services/api/incubator';
 
 export default {
   components: {
@@ -99,11 +121,30 @@ export default {
       packageType: '',
       paymentUrlPth: '',
       idCourse:'',
-      detailsCourse:{}
-
+      detailsCourse:{},
+      openDepartmentsDialog:true,
+      departmentsIds:[],
+      
+      items:[]
+      
     };
   },
   methods: {
+    departmentsIdsSelected(id){
+    if (this.departmentsIds.includes(id)) {
+      let indexDepartment= this.departmentsIds.indexOf(id)
+       this.departmentsIds.splice(indexDepartment,1)
+      const elem = document.getElementById(`department${id}`);
+      elem.style.opacity='.4'
+    }else{
+      this.departmentsIds.push(id)
+ const elem = document.getElementById(`department${id}`);
+      elem.style.opacity='1'
+    }
+   
+ 
+
+    },
        confirmPaymentUrl(){
         let dataEvt={
             title:'استكمال الدفع',
@@ -124,6 +165,9 @@ export default {
       formData.append('user_id',this.user.id )
    if (data.coupon) {
       formData.append('coupon',data.coupon)
+      }
+      if (this.departmentsIds) {
+      formData.append('department_ids',this.departmentsIds)
       }
 
       if (data.coupon) {
@@ -170,10 +214,23 @@ export default {
                }
       }
 
+    },
+
+        async getDepartmentsAcademy(){
+    try{
+      let { data } = await incubatorAPI.getDepartments(); 
+      if(data.success){
+        this.items = data.data
+      }
+    }catch(error){
+        console.mylog('error',error)
+      //
     }
+  },
 
   },
   mounted(){
+    this.getDepartmentsAcademy()
 this.idCourse = this.$route.params.query
 
 this.getCourseDetails()
@@ -187,8 +244,27 @@ this.packageType = this.$route.meta.type
 };
 </script>
 
-<style scoped>
+<style>
 .chekout {
   margin: 0;
+}
+.departmentsDialog-departments{
+  position: absolute;
+  top: 15%; 
+   left: 30%; 
+    width: 430px;
+  height: 75%;
+  background: white;
+overflow-y: scroll;
+}
+.departmentsDialog{
+     position: absolute;
+  top: 0%;
+   left: 0%; 
+    width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0,.4)	
+  /* overflow-y: scroll; */
+
 }
 </style>
