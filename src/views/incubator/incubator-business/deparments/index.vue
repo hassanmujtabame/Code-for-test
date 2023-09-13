@@ -11,7 +11,7 @@
             <CardVue :title="item.name" :img="item.image_path"
                 @click-image="onChoose(item)"
                 class="incubator"
-                :class="{'subscribed':userSubIncubators[0].subscribe}"
+                :class="{'subscribed':item.subscribed}"
                 />
            </div>
         </div>
