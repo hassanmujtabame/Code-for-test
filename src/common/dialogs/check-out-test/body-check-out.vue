@@ -169,7 +169,7 @@ export default {
       formData.append('coupon',data.coupon)
       }
       if (this.departmentsIds) {
-      formData.append('department_ids',this.departmentsIds)
+      formData.append('department_ids',`[${this.departmentsIds}]`)
       }
 
       if (data.coupon) {
