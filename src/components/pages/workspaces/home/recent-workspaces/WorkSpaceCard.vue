@@ -1,8 +1,20 @@
 <template>
-  <div class="workspace-card box border">
+  <div class="workspace-card box border w-100">
     <div class="workspace-card__wrapper"> 
-      <div class="workspace-card__image">
-        <img class="w-100" :src="image" :alt="title" height="165px" />
+      <div class="workspace-card__image ">
+      <d-swiper
+        v-if="medias && medias.length>1"
+        :slides-per-view="1"
+        is-auto
+        :items="medias"
+        :navigation="true"
+        :loop="true"
+      >
+        <template v-slot:default="{ item }">
+        <img class="w-100 rounded-3" style="object-fifill;" :src="item.image" :alt="title" height="165px" />
+        </template>
+           </d-swiper>
+        <img v-else class="w-100" :src="image" :alt="title" height="165px" />
       </div>
       <div class="workspace-card__content">
         <div class="d-flex align-items-center justify-content-between">
@@ -30,7 +42,14 @@
       
       </div>
         <div class="d-flex align-items-center justify-content-between px-3 pb-3" >
+       <router-link
+            class="router-link"
+            :to="to"
+            style="width:100px"
+          >
          <button class="btn btn-main" style="width: 100px; height: 30px; font-size: 12px; padding: 5px;">عرض التفاصيل</button>
+          </router-link>
+      
        <div class="d-flex">
         <span class="px-1" style="font-size: 15px; color:#414042;">{{rate}}</span> <img :src="`${publicPath}assets/svg/Vectorrate.svg`" style="object-fit: contain;"/> 
        </div>
@@ -47,14 +66,20 @@ export default {
     image: {
       type: String,
     },
+    medias:{
+      type: Array,
+    },
     title: {
       type: String,
     },
     area : {
+      type: [String, Number],
+    },
+    to:{
       type: String,
     },
      rate : {
-      type: String,
+      type: [String, Number],
     },
     description: {
       type: String,
@@ -141,5 +166,27 @@ export default {
   height: 100%;
   width: 100%;
   object-fit: fill;
+}
+.workspace-card__image  .swiper-button-prev {
+    right: 5px !important;
+    left: auto !important;
+    color: black !important;
+    border-radius: 100% !important;
+    background: white;
+    border: black !important;
+        width: 23px !important;
+        height: 23px !important;
+
+}
+.workspace-card__image   .swiper-button-next {
+    left: 5px !important;
+    right: auto !important;
+    color: black !important;
+    border-radius: 100% !important;
+    background: white;
+    border:  black !important;
+        height: 23px !important;
+        width: 23px !important;
+
 }
 </style>

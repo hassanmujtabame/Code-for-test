@@ -123,26 +123,18 @@
                     </div>
                 </div>
                 <d-swiper 
-                :items="memberitems"
-                is-auto
-                          :loop="true"
-                          :spaceBetween=10
-                              :slidesPerView=4
-                class="swiper-container mySwiper main-swiper">
+                    :items="memberitems"
+                    is-auto
+                    :loop="true"
+                    :spaceBetween="10"
+                    :slidesPerView="4"
+                    class="swiper-container mySwiper main-swiper">
                 <CardMember 
                 :name="item.name" 
                 :description="item.job_title" 
                 :img="item.image"
                 :to="getRouteLocale('academy-show-profile',{id:item.id})"
                 />    
-                        
-                       
-                        
-                        
-                        
-
-                   
-
                     </d-swiper>
             </div>
         </div>

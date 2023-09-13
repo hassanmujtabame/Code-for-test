@@ -10,7 +10,7 @@
         :spaceBetween="10"
         :slidesPerView="1"
         is-auto
-        :loop="true"
+        :loop="true" 
         :navigation="{
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
@@ -30,15 +30,15 @@
       <d-swiper
         class="mySwiper service-provider"
         :items="items"
-        :spaceBetween="10"
-        :slidesPerView="4"
+        :spaceBetween="15"
+        :slidesPerView="2"
         is-auto
         :freeMode="true"
         @swiper="setThumbsSwiper"
         watch-slides-progress
       >
         <template v-slot="{ item }">
-          <img style="height: 115px !important; object-fit: contain;" :src="item.image" />
+          <img style="height: 100px !important; object-fit: contain;" :src="item.image" />
         </template>
       </d-swiper>
     </div>

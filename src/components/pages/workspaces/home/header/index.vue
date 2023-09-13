@@ -35,10 +35,6 @@
         :items="items"
       >
         <template v-slot:default="{ item }">
-          <router-link
-            class="router-link h-100"
-            :to="getRouteLocale('workspaces-details', { id: item.id })"
-          >
             <WorkSpaceCard
               :title="item.title"
               :image="item.image_path"
@@ -46,9 +42,10 @@
               :description="item.description"
               :price="item.price"
               :area="item.area"
-             :rate="item.rate"
+              :rate="item.rate"
+              :medias="item.medias"
+              :to="getRouteLocale('workspaces-details', { id: item.id })"
             />
-          </router-link>
         </template>
       </d-swiper>
     </div>

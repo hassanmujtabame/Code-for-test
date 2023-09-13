@@ -17,26 +17,25 @@
       </div>
       <d-swiper
         v-if="!loading"
-        :slides-per-view="4"
+        :slides-per-view="3.5"
         :space-between="20"
         is-auto
         :items="items"
       >
         <template v-slot:default="{ item }">
-          <router-link
-            class="router-link h-100"
-            :to="getRouteLocale('workspaces-details', { id: item.id })"
-          >
+   
             <WorkSpaceCard
               :title="item.title"
+              :medias="item.medias"
               :image="item.image_path"
               :company="item.city_name"
               :description="item.description"
               :price="item.price"
               :area="item.area"
               :rate="item.rate"
+              :to="getRouteLocale('workspaces-details', { id: item.id })"
+
             />
-          </router-link>
         </template>
       </d-swiper>
     </div>

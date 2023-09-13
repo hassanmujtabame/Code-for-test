@@ -29,10 +29,6 @@
         <h3 class="page-title">أماكن العمل</h3>
       </template>
       <template v-slot="{ item }">
-        <router-link
-          class="router-link"
-          :to="getRouteLocale('workspaces-details', { id: item.id })"
-        >
           <workspaceCard
             :title="item.title"
             :image="item.image_path"
@@ -41,8 +37,9 @@
             :price="item.price"
             :area="item.area"
             :rate="item.rate"
+            :medias="item.medias"
+            :to="getRouteLocale('workspaces-details', { id: item.id })"
           />
-        </router-link>
       </template>
       <template v-slot:side>
         <sidebarBox :filterItem="filterSide" @change="changeFilter" />
