@@ -169,7 +169,7 @@ export default {
       formData.append('coupon',data.coupon)
       }
       if (this.departmentsIds) {
-            for (i = 0; i < this.departmentsIds.length; i++) {
+            for (var i = 0; i < this.departmentsIds.length; i++) {
         formData.append("department_ids[]", this.departmentsIds[i]);
       }
       // formData.append('department_ids',`[${this.departmentsIds}]`)
