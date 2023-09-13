@@ -5,11 +5,11 @@
                  <div class="row align-items-center p-5 position-relative">
                      <div class="col-md-6">
                          <h1 class="text-white fs-1">
-                             ابدأي رحلة نجاحــــك معنا واختري الباقـة المناسـبـة لــــــــــك
+                             تعلمي مــع رياديات و أنـطـلـقـي الــــــى   ســــوق الـعـــمـــل
                          </h1>
                      </div>
                      <div class="col-md-6">
-                         <img class="img-fluid" :src="`${publicPath}assets/img/_x36__1_.png`" alt="">
+                         <img class="img-fluid" :src="`${publicPath}assets/svg/Group 39921.svg`" alt="">
                      </div>
                      <div style="left: 2px; bottom: 14px;width: fit-content;transform: rotate(127deg)" class="position-absolute">
                          <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
