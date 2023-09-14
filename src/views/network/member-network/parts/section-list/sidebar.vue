@@ -1,8 +1,8 @@
 <template>
   <div class="box member-filter">
    
-      <d-expanded-panel  class="accordion d-flex align-items-center" id="accordionPanelsStayOpenExample">
-          <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 " :title="$t('classification')" >
+      <d-expanded-panel  style="height: 150px"  class="accordion d-flex align-items-start" id="accordionPanelsStayOpenExample">
+          <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 mt-0 pb-0" :title="$t('classification')" >
               <div class="">
                           <div v-for="(state,i) in states" :key="i" class="form-check states-input-custom" style="">
                               <input class="form-check-input " type="radio" :value="state.id" v-model="filter.membership" 
@@ -16,7 +16,7 @@
                           </div>
                       </div>
           </d-expanded-panel-item> 
-          <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 " :title="'مجالات الاختصاص'" >
+          <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 mt-0 pb-0" :title="'مجالات الاختصاص'" >
               <div v-for="(cat,i) in categories" :key="i" class="form-check states-input-custom">
                           <input v-model="filter.category_id" :value="cat.id" class="form-check-input form-check-input-member" type="checkbox"
                           :id="`defaultCheck1${i}`"
@@ -60,7 +60,7 @@
           </slot>
         </div>
       </d-expanded-panel >
-            <h4 class="mt-5"> عدد الأعضاء <span class="m-c">{{totalMembers}} عضو </span> </h4>
+            <h4 class=""> عدد الأعضاء <span class="m-c">{{totalMembers}} عضو </span> </h4>
 
   </div>
 </template>
@@ -143,12 +143,12 @@ async getCategories() {
 
 }
 .member-filter .accordion-body{
-    position: absolute !important;
+    /* position: absolute !important; */
     background: white !important;
-    width: 100% !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12) !important;
-    border-bottom-left-radius:20px ;
-    border-bottom-right-radius:20px ;
+    /* width: 100% !important; */
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12) !important; */
+    /* border-bottom-left-radius:20px ; */
+    /* border-bottom-right-radius:20px ; */
     padding: 5px !important;
     height: 140px;
     overflow-y: scroll;

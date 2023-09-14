@@ -1,9 +1,9 @@
 <template>
   <div class="box filter-work-space  p-3 " style="height: 150px">
 
-    <d-expanded-panel  class="accordion d-flex align-items-center w-100" id="accordionPanelsStayOpenExample">
+    <d-expanded-panel  class="accordion d-flex h-100 align-items-start w-100" id="accordionPanelsStayOpenExample">
   
-      <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 " :title="$t('the-address')" closed>
+      <d-expanded-panel-item class="col-12 col-md-2 border  rounded-3 p-2 mt-0 pb-0" :title="$t('the-address')" closed>
         <div v-for="(address, i) in cities" :key="i" class="form-check states-input-custom ">
           <input
             v-model="filter.city_id"
@@ -18,7 +18,7 @@
           </label>
         </div>
       </d-expanded-panel-item>
-  <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 " title="نوع المكان" closed>
+  <d-expanded-panel-item class="col-12 col-md-2 border  rounded-3 p-2 mt-0 pb-0" title="نوع المكان" closed>
         <div>
           <div v-for="(type, i) in types" :key="i" class="form-check states-input-custom">
             <input
@@ -149,12 +149,12 @@ export default {
 
 }
 .filter-work-space .accordion-body{
-    position: absolute !important;
+    /* position: absolute !important; */
     background: white !important;
-    width: 100% !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12) !important;
-    border-bottom-left-radius:20px ;
-    border-bottom-right-radius:20px ;
+    /* width: 100% !important; */
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12) !important; */
+    /* border-bottom-left-radius:20px ; */
+    /* border-bottom-right-radius:20px ; */
     padding: 5px !important;
     height: 90px;
     overflow-y: scroll;
