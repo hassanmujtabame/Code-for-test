@@ -69,9 +69,9 @@
           </slot>
         </div> 
              <div class="col-12 col-md-2">
-               <button class="rounded-2 justify-content-around d-flex border mx-auto bg-transparent justify-content-center align-items-center w-75" style="height: 47px; color: #1FB9B3">
+               <button class="rounded-2  d-flex border mx-auto bg-transparent justify-content-center align-items-center w-75" style="height: 47px; color: #1FB9B3">
                   <img  :src="`${publicPath}assets/svg/fluent_my-location-24-filled.svg`"  />
-                 <span>الاقرب</span>
+                 <span class="px-2">الاقرب</span>
                </button>
         </div> 
     </d-expanded-panel>
