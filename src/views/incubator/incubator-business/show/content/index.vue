@@ -5,7 +5,8 @@
     <component :is="componentChoosen" v-if="phase" v-bind="componentBind">
       </component>
     </div>
-  </div>
+    <dCourseContent/>
+  </div> 
 </template>
 
 <script>
@@ -86,10 +87,10 @@ created(){
 
 <style>
 .incubator-business-content{
-  position: relative;
-  width: 100%;
-  overflow: auto;
-  height: calc(100vh - 150px);
+  /* position: relative; */
+  /* width: 100%; */
+  /* overflow: auto; */
+  /* height: calc(100vh - 150px); */
  /* background: #c0c0c0;*/
   min-height: 400px;
 

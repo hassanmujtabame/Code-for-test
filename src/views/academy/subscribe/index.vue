@@ -28,7 +28,7 @@
                         :features="pack.options.map(c=>c.name_ar)"
                         :type-subscribe="pack.name"
                         @selected="choose(pack)"
-                         :subscribed="userSubAcademy"
+                         :subscribed="user.system_subscriptions"
                          ></SubscribeCard> 
                         <!-- :title="pack.name" -->
 

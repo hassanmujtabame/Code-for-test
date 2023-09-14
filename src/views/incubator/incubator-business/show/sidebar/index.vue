@@ -2,20 +2,20 @@
   <div class="incubator-business-sidebar">
     <div class="incubator-business-sidebar__wrapper">
     <div class="incubator-business-sidebar__header">
-      <h1>مسار حاضنة {{itemPage.department_name}}</h1>
+      <h1 class="my-1">مسار حاضنة {{itemPage.department_name}}</h1>
       <div class="d-flex align-items-center">
         <div class="flex-grow-1">
         <d-progress-bar :height="3" bgColor="#F6F8F9" percentColor="var(--color-primary)" :progress="itemPage.ratio"/>
       </div>
         <span class="flex-shrink-0 percent-label">{{itemPage.ratio}}%</span>
       </div>
-      <div class="d-flex justify-content-between mt-3">
+      <div class="d-flex justify-content-between my-3">
         <span class="percent-label">بداية الحاضنة:{{ itemPage.start_date }}</span>
         <span class="percent-label">المدة:{{ itemPage.duration }} {{ $t('day_s') }}</span>
       </div>
 
     </div>
-    <div class="incubator-business-sidebar__body">
+    <div class="incubator-business-sidebar__body my-3">
       <d-expanded-panel  id="step-1">
   <template v-slot>
         <d-expanded-panel-item v-for="(item,n) in items" 
@@ -24,15 +24,25 @@
           <template v-slot:btnTitle >
     <d-stepper-icon  :status="item.status">
     </d-stepper-icon>
+                         
     {{ item.title }}
         </template>
    <d-stepper-head vertical>
 
-        <d-stepper-head-item v-for="(phase,i) in item.phases" :key="i" 
+        <d-stepper-head-item v-for="(phase,i) in item.courses" :key="i" 
         :status="phase.status"
         @click="onChoose(phase,item.id)"
         >
-            {{ phase.title }}
+             <!-- <input
+                          class="form-check-input"
+                          type="radio"
+                          name="stateRadioDefault23"
+                          id="flexRadioDefault123"
+                          style="transform: translateX(16px);"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault123"> -->
+                          {{ phase.title }}
+                        <!-- </label> -->
           </d-stepper-head-item>
           </d-stepper-head>
         </d-expanded-panel-item>

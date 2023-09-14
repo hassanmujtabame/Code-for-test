@@ -1,5 +1,5 @@
 <template>
-<div style="margin-top: 96px;">
+<div style="margin-top: 136px;">
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">
         {{ $t('has-error') }}
