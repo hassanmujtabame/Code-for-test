@@ -1,8 +1,24 @@
 <template>
-  <div class="box filter-work-space  p-3 mb-5">
+  <div class="box filter-work-space  p-3 " style="height: 200px">
 
-    <d-expanded-panel class="accordion d-flex align-items-center w-100" id="accordionPanelsStayOpenExample">
-      <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 " :title="$t('classification')" closed>
+    <d-expanded-panel  class="accordion d-flex align-items-center w-100" id="accordionPanelsStayOpenExample">
+  
+      <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 " :title="$t('the-address')" closed>
+        <div v-for="(address, i) in cities" :key="i" class="form-check states-input-custom ">
+          <input
+            v-model="filter.city_id"
+            :value="address.id"
+            class="form-check-input my-1 form-check-input-address"
+            type="checkbox"
+            :id="`checkboxBtn${i}`"
+            @change="updateFilter"
+          />
+          <label class="form-check-label" :for="`checkboxBtn${i}`">
+            {{ address.name }}
+          </label>
+        </div>
+      </d-expanded-panel-item>
+  <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 " title="نوع المكان" closed>
         <div>
           <div v-for="(type, i) in types" :key="i" class="form-check states-input-custom">
             <input
@@ -21,22 +37,7 @@
           </div>
         </div>
       </d-expanded-panel-item>
-      <d-expanded-panel-item class="col-12 col-md-2 border rounded-3 p-2 " :title="$t('the-address')" closed>
-        <div v-for="(address, i) in cities" :key="i" class="form-check states-input-custom">
-          <input
-            v-model="filter.city_id"
-            :value="address.id"
-            class="form-check-input my-1"
-            type="checkbox"
-            :id="`checkboxBtn${i}`"
-            @change="updateFilter"
-          />
-          <label class="form-check-label" :for="`checkboxBtn${i}`">
-            {{ address.name }}
-          </label>
-        </div>
-      </d-expanded-panel-item>
-            <div class="col-12 col-md-7">
+            <div class="col-12 col-md-5">
           <slot name="search">
             <label for="" class="position-relative w-100">
               <input
@@ -66,6 +67,12 @@
               </p>
             </label>
           </slot>
+        </div> 
+             <div class="col-12 col-md-2">
+               <button class="rounded-2 justify-content-around d-flex border mx-auto bg-transparent justify-content-center align-items-center w-75" style="height: 47px; color: #1FB9B3">
+                  <img  :src="`${publicPath}assets/svg/fluent_my-location-24-filled.svg`"  />
+                 <span>الاقرب</span>
+               </button>
         </div> 
     </d-expanded-panel>
 
@@ -164,9 +171,9 @@ export default {
     width: 100%;
     padding: 2px 12px;
 }
-.form-check-input-member:checked + label{
+.form-check-input-address:checked + label{
      background-color: #1FB9B3 !important;
-    color: white;
+    color: white !important;
 
 }
 </style>
