@@ -23,11 +23,17 @@
     <d-filter-list
       :call-list="loadList"
       @change="changeFilter"
-      classColCard="col-lg-6 mt-3"
+      classColCard="col-lg-4 mt-3"
+      hideTitle
+      hideTotal
+      hideTop
+      newFilter
+      classSearchOrder="col-lg-8"
+      classColOrder="col-12 col-lg-4"
+      classColSearch="col-12 col-lg-8"
+      classSideBar="col-12"
     >
-      <template v-slot:total>
-        <h3 class="page-title">أماكن العمل</h3>
-      </template>
+
       <template v-slot="{ item }">
           <workspaceCard
             :title="item.title"
@@ -63,21 +69,23 @@ export default {
       filterSide: {
         type: null,
         city_id: [], 
-        min_price: 0,
-        max_price: 1000,
+ 
       },
       filterItem: {
         search: null,
         created_at: "asc",
         state: null,
         address: null,
-        min_price: 0,
-        max_price: 1000,
+
       },
+        //       min_price: 0,
+        // max_price: 1000,
       categories: [
         { id: null, name: "الكل" },
         { id: "academy", name: this.$t("academy") },
-        { id: "service-provider", name: this.$t("service-providers") },
+        { id: "consulting", name: this.$t("consulting") },
+        { id: "Incubators", name: this.$t("Incubators") },
+        { id: "WomensActivities", name: this.$t("WomensActivities") },
       ],
       category_id: null,
     };

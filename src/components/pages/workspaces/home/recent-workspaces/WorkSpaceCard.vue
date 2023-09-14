@@ -50,7 +50,7 @@
          <button class="btn btn-main" style="width: 100px; height: 30px; font-size: 12px; padding: 5px;">عرض التفاصيل</button>
           </router-link>
       
-       <div class="d-flex">
+       <div class="d-flex align-items-center">
         <span class="px-1" style="font-size: 15px; color:#414042;">{{rate}}</span> <img :src="`${publicPath}assets/svg/Vectorrate.svg`" style="object-fit: contain;"/> 
        </div>
        
