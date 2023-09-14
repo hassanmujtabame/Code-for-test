@@ -96,7 +96,8 @@ this.initializing()
 .incubator-business-sidebar{
   width: 100%;
   overflow: auto;
-  height: calc(100vh - 150px);
+  height: 900px;
+  /* height: calc(100vh - 150px); */
   background: #c0c0c0;
   min-height: 400px;
   background: #FFFFFF;
@@ -104,6 +105,7 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 }
 .incubator-business-sidebar__wrapper{
   padding: 5px;
+
 }
 h1{
   font-style: normal;
@@ -118,7 +120,10 @@ color: #2D2F3A;
 margin:0;
 }
 .incubator-business-sidebar__body{
-  margin-top: 15px;
+  height: 80%;
+  margin: 15px;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+
 }
 .incubator-business-sidebar .percent-label{
   font-style: normal;
