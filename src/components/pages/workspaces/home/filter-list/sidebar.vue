@@ -1,5 +1,5 @@
 <template>
-  <div class="box filter-work-space  p-3 " style="height: 200px">
+  <div class="box filter-work-space  p-3 " style="height: 150px">
 
     <d-expanded-panel  class="accordion d-flex align-items-center w-100" id="accordionPanelsStayOpenExample">
   

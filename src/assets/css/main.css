@@ -1169,7 +1169,7 @@ html[lang=en] .main-top {
 }
 
 .accordion-button:not(.collapsed) {
-    color: black;
+    color: #1FB9B3;
     background-color: transparent;
     box-shadow: 0 0 0;
     padding: 10px 35px;
