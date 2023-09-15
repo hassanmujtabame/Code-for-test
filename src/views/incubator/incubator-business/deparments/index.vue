@@ -4,15 +4,18 @@
 
         <div class="row">
         <div class="col-12">
-            <h1>مراحل الحاضنة</h1>
-            <p>اختر القسم الذي تريد تتبع مراحله</p>
+            <h1 >مراحل الحاضنة</h1>
+            <h1 >اختر القسم الذي تريد تتبع مراحله</h1>
         </div>
             <div v-for="(item,i) in items" :key="i" class="col-2">
+                <div class="border mb-2" style="background: rgba(246, 248, 249, 1); box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12); border-radius: 8px;">
             <CardVue :title="item.name" :img="item.image_path"
                 @click-image="onChoose(item)"
                 class="incubator"
                 :class="{'subscribed':item.subscribed}"
                 />
+                </div>
+
            </div>
         </div>
     </div>

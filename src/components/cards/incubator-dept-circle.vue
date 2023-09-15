@@ -64,7 +64,7 @@ computed:{
 .incubator-dept__wrapper{
     width: 160px;
 height: 160px;
-background: #FFFFFF;
+/* background: #FFFFFF; */
 /* 4 */
 
 
