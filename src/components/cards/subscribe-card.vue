@@ -30,15 +30,15 @@
       </div>
     </div>
     <div>
-      <!-- <a
-        @click="selected"
-        v-if="!subscribed || !subscribed.subscribe"
-        href="#"
-        class="btn-main px-4 py-2"
-      >{{ $t('subscribe-now') }}</a> -->
       <a
         @click="selected"
-        v-if="(packId.id!==subscribed)"
+        v-if="subscribed == '1258888888888888'"
+        href="#"
+        class="btn-main px-4 py-2"
+      >{{ $t('subscribe-now') }}</a>
+      <a
+        @click="selected"
+        v-else-if="(packId.id!==subscribed)"
         href="#"
         class="btn-main px-4 py-2"
       >رقي حسابك</a>
@@ -67,13 +67,15 @@ export default {
       type: String
     },
     packId:{
-      type: [String, Number]
+      type: [Array, Object]
     },
     features: {
       type: [Array, Object]
     },
     subscribed: {
-      type: [Array, Object]
+      // type: [Array, Object]
+      type: [String, Number]
+
     }
   },
   methods: {

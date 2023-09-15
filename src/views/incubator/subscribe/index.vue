@@ -62,7 +62,7 @@
      show:false,
      packages:[],
      package:null,
-     subscribedType:null
+    subscribedType:'1258888888888888'
    }),
    methods:{
     getTypePackage(data){

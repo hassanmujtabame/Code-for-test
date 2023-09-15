@@ -63,7 +63,7 @@ components:{
   data:()=>({
     show:false,
     packages:[],
-    subscribedType:null
+    subscribedType:'1258888888888888'
   }),
   props:{
         packageData: {

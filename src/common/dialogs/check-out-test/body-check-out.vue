@@ -191,7 +191,8 @@ export default {
                     if(data.status){
                         this.paymentUrlPth=	data.data.payment_url
                         // this.confirmPaymentUrl()
-                      window.SwalSuccess(data.data)
+                      // window.SwalSuccess(data.data)
+        this.refreshPage()
 
                         // this.paymentUrl()
                     }

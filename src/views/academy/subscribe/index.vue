@@ -6,7 +6,6 @@
                      <div class="col-md-6">
                          <h1 class="text-white fs-1">
                              تعلمي مــع رياديات و أنـطـلـقـي الــــــى   ســــوق الـعـــمـــل
-                             <!-- {{subscribedType}} -->
                          </h1>
                      </div>
                      <div class="col-md-6">
@@ -69,7 +68,7 @@
    data:()=>({
      show:false,
      packages:[],
-     subscribedType:null
+     subscribedType:'1258888888888888'
    }),
    methods:{
      getTypePackage(data){
