@@ -99,10 +99,6 @@
     },
     async choose(pack){
         this.package = pack;
-        if(!this.userIsSubNetwork){
-           this.showMessageForSubscribeNetwork()
-            return;
-        }
         if(pack.type=='free'){
             this.fireOpenDialog('department-choose',{
           payInfo:{package_id:pack.id},

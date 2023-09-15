@@ -38,6 +38,10 @@
              </div>
  
          </div>
+              <!-- if(!this.userIsSubNetwork){
+           this.showMessageForSubscribeNetwork()
+            return;
+        } -->
       <successSubscribeDialog />
       <checkoutPackageDiag/>
      </div>
@@ -76,10 +80,7 @@
         this.fireOpenDialog('success-provider-subscribed', data)
     },
     async choose(pack){
-        if(!this.userIsSubNetwork){
-           this.showMessageForSubscribeNetwork()
-            return;
-        }
+   
         if(pack.type=='free'){
         try {
             let { data } = await providerAPI.checkoutPackageFree({package_id:pack.id});

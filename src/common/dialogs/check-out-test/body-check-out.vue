@@ -6,10 +6,16 @@
         <div class="justify-content-end tex-end">
           <div v-if="!otherData.image && packageType == 'academy'" style="display: flex; align-items: center;">
             <img style="width:260px; height:150px" class="img-fluid" :src="`${publicPath}assets/img/Group 1171274931s.png`" alt="">
+            <div>
             <div class="mx-3" style="color: #1FB9B3; display: flex;" >
               <d-user-rect-icon :size="24" color="currentColor"/>
               <h4 class="mx-2"  style="color: #1FB9B3">انضم الى الأكاديمية</h4>
+
             </div>
+    <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;" @click="openDepartmentsDialog=true">حددي مجال الاشتراك</button>
+
+            </div>
+
           
           </div>
 
@@ -29,9 +35,13 @@
              </div>
                <div v-else-if="!otherData.image && packageType == 'incubator'" style="display: flex; align-items: center;">
                   <img  style="width:260px; height:150px"  class="img-fluid" :src="`${publicPath}assets/svg/frame-52-2.svg`" alt="service-provider-header" />
+                  <div>
                   <div class="mx-3" style="color: #FFBC00; display: flex;" >
                    <d-user-rect-icon :size="24" color="currentColor"/>
                    <h4 class="mx-2"  style="color: #FFBC00"> انضم الي الحاضنة </h4>
+                  </div>
+
+    <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;" @click="openDepartmentsDialog=true">حددي مجال الاشتراك</button>
                   </div>
              </div>
              <div v-else-if="otherData.image" style="display: flex;">
@@ -57,10 +67,10 @@
           />
         </div>
       </div>
-<div v-if="packageType == 'academy' || packageType == 'incubator' && openDepartmentsDialog" class="departmentsDialog ">
+<div v-if="openDepartmentsDialog==true" class="departmentsDialog ">
   <div class="departmentsDialog-departments">
-    <span class="px-5 d-flex justify-content-end mt-3" style="cursor: pointer" @click="openDepartmentsDialog=false">X</span>
-    <h3 class="text-center my-2">حددي مجال الاشتراك</h3>
+    <span class=" d-flex justify-content-end mt-3" style="cursor: pointer; width: fit-content; margin-right: auto;" @click="closeDepartmentsDialog()">X</span>
+    <h3 class="text-center my-2 pt-3">حددي مجال الاشتراك</h3>
      
       <div class="d-flex" style="flex-wrap: wrap;">
       <div v-for="item,i in items" :key="i">
@@ -73,7 +83,7 @@
 </div>
       </div>
       </div>
-            <button :disabled="departmentsIds.length==0" @click="openDepartmentsDialog=false" type="button" class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
+            <button :disabled="departmentsIds.length==0" @click="closeDepartmentsDialog()"  class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
                {{$t('continuity')}}
             </button>
   </div>
@@ -124,7 +134,7 @@ export default {
       paymentUrlPth: '',
       idCourse:'',
       detailsCourse:{},
-      openDepartmentsDialog:true,
+      openDepartmentsDialog:false,
       departmentsIds:[],
       
       items:[]
@@ -160,6 +170,11 @@ export default {
       window.open(this.paymentUrlPth, '_blank')
     },
     async handlePayment(data) {
+      if (this.packageType == 'academy' || this.packageType == 'incubator') {
+        if ( this.departmentsIds.length==0) {
+        this.openDepartmentsDialog = true
+        }
+      }
       let formData = new FormData();
    
       formData.append('package_id',this.otherData.id)
@@ -185,20 +200,39 @@ export default {
                         window.SwalError("The given data was invalid")
                 } 
       }else{
+         if (this.packageType == 'academy' || this.packageType == 'incubator') {
+        if ( this.departmentsIds.length>0) {
                   try {
                     let { data } = await networkAPI.PayPackageSelect(formData);
                     
                     if(data.status){
                         this.paymentUrlPth=	data.data.payment_url
                         // this.confirmPaymentUrl()
-                      // window.SwalSuccess(data.data)
-        this.refreshPage()
+                      window.SwalSuccess(data.data)
+                        // this.router_push('index')
 
                         // this.paymentUrl()
                     }
                 } catch (error) {
                         window.SwalError("The given data was invalid")
                 } 
+        }
+        }else{
+              try {
+                    let { data } = await networkAPI.PayPackageSelect(formData);
+                    
+                    if(data.status){
+                        this.paymentUrlPth=	data.data.payment_url
+                        // this.confirmPaymentUrl()
+                      window.SwalSuccess(data.data)
+                        // this.router_push('index')
+                        // this.paymentUrl()
+                    }
+                } catch (error) {
+                        window.SwalError("The given data was invalid")
+                } 
+        }
+
       }
 
       // handle payment data
@@ -235,7 +269,11 @@ export default {
       //
     }
   },
-
+  
+closeDepartmentsDialog(){
+this.openDepartmentsDialog = false
+console.log('this.openDepartmentsDialog',this.openDepartmentsDialog);
+}
   },
   mounted(){
     this.getDepartmentsAcademy()

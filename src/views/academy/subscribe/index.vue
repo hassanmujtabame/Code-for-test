@@ -87,10 +87,6 @@
          this.fireOpenDialog('success-academy-subscribed', data)
      },
      async choose(pack){
-        if(!this.userIsSubNetwork){
-           this.showMessageForSubscribeNetwork()
-            return;
-        }
          if(pack.type=='free'){
             try {
                 let { data } = await academyAPI.checkoutPackageFree({package_id:pack.id});
