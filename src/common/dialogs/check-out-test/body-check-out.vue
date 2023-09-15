@@ -57,7 +57,7 @@
           />
         </div>
       </div>
-<div v-if="packageType == 'academy' && openDepartmentsDialog" class="departmentsDialog ">
+<div v-if="packageType == 'academy' || packageType == 'incubator' && openDepartmentsDialog" class="departmentsDialog ">
   <div class="departmentsDialog-departments">
     <span class="px-5 d-flex justify-content-end mt-3" style="cursor: pointer" @click="openDepartmentsDialog=false">X</span>
     <h3 class="text-center my-2">حددي مجال الاشتراك</h3>
@@ -178,8 +178,8 @@ export default {
       if (data.coupon) {
           try {
                     let { data } = await networkAPI.checkoutPackageSelect(formData);
-                    if(data.success){ 
-                      window.SwalSuccess(data.message)
+                    if(data.status){ 
+                      window.SwalSuccess(data.data)
                     }
                 } catch (error) {
                         window.SwalError("The given data was invalid")
@@ -188,10 +188,12 @@ export default {
                   try {
                     let { data } = await networkAPI.PayPackageSelect(formData);
                     
-                    if(data.success){
+                    if(data.status){
                         this.paymentUrlPth=	data.data.payment_url
                         // this.confirmPaymentUrl()
-                        this.paymentUrl()
+                      window.SwalSuccess(data.data)
+
+                        // this.paymentUrl()
                     }
                 } catch (error) {
                         window.SwalError("The given data was invalid")
