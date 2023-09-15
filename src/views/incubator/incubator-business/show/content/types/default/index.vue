@@ -6,13 +6,17 @@
       {{ phase.title }}
       </h1>
     <p class="incubator-business-content__desc">{{ phase.desc }}</p>
+
         <div class="student-course box border" style="width:260px">
                                     <div class="student-course__image">
                                         <!-- <router-link custom v-slot="{ navigate }" :to="url??{}"> -->
-                                     
+               <router-link class="router-link" :to="getRouteLocale('academy-course-show',{id:phase.id}) ">
+                                    
                                          <img class="w-100 rounded-top" :src="phase.image_path"
                                             height="100%">
                                         <!-- </router-link> -->
+                                         </router-link>
+
                                            </div>
                                     <div class="p-3 ">
                                         <div class="d-flex justify-content-between " style="align-items: baseline;">
@@ -46,6 +50,7 @@
  
                                     </div>
                                 </div>
+
   </div>
 </template>
 

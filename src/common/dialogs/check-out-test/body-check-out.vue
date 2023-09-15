@@ -12,7 +12,7 @@
               <h4 class="mx-2"  style="color: #1FB9B3">انضم الى الأكاديمية</h4>
 
             </div>
-    <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;" @click="openDepartmentsDialog=true">حددي مجال الاشتراك</button>
+    <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;" @click="openDepartmentsDialogAcademy=true">حددي مجال الاشتراك</button>
 
             </div>
 
@@ -67,13 +67,34 @@
           />
         </div>
       </div>
+<div v-if="openDepartmentsDialogAcademy==true" class="departmentsDialog ">
+  <div class="departmentsDialog-departments">
+    <span class=" d-flex justify-content-end mt-3" style="cursor: pointer; width: fit-content; margin-right: auto;" @click="closeDepartmentsDialog()">X</span>
+    <h3 class="text-center my-2 pt-3">حددي مجال الاشتراك</h3>
+     
+      <div class="d-flex" style="flex-wrap: wrap;">
+      <div v-for="item,i in itemsAcademy" :key="i">
+        <div :id="`department${item.id}`"  class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;" @click="departmentsIdsSelected(item.id)">
+ <div class="">
+  <img :src="item.image_path" :alt="title" style="width:70px; height: 70px; border-radius:100%">
+ </div>
+ <p class="incubator-dept__title" >{{item.name}}</p>
+   
+</div>
+      </div>
+      </div>
+            <button :disabled="departmentsIds.length==0" @click="closeDepartmentsDialog()"  class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
+               {{$t('continuity')}}
+            </button>
+  </div>
+</div>
 <div v-if="openDepartmentsDialog==true" class="departmentsDialog ">
   <div class="departmentsDialog-departments">
     <span class=" d-flex justify-content-end mt-3" style="cursor: pointer; width: fit-content; margin-right: auto;" @click="closeDepartmentsDialog()">X</span>
     <h3 class="text-center my-2 pt-3">حددي مجال الاشتراك</h3>
      
       <div class="d-flex" style="flex-wrap: wrap;">
-      <div v-for="item,i in items" :key="i">
+      <div v-for="item,i in itemsIncubator" :key="i">
         <div :id="`department${item.id}`"  class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;" @click="departmentsIdsSelected(item.id)">
  <div class="">
   <img :src="item.image_path" :alt="title" style="width:70px; height: 70px; border-radius:100%">
@@ -98,6 +119,7 @@ import PaymentCardDetail from "./PaymentCardDetail.vue";
 import networkAPI from '@/services/api/network.js'
  import coursesAPI from '@/services/api/academy/courses' 
 import incubatorAPI from '@/services/api/incubator';
+import academyAPI from '@/services/api/academy/index.js'
 
 export default {
   components: {
@@ -135,9 +157,10 @@ export default {
       idCourse:'',
       detailsCourse:{},
       openDepartmentsDialog:false,
+      openDepartmentsDialogAcademy:false,
       departmentsIds:[],
-      
-      items:[]
+      itemsIncubator:[],
+      itemsAcademy:[]
       
     };
   },
@@ -195,6 +218,7 @@ export default {
                     let { data } = await networkAPI.checkoutPackageSelect(formData);
                     if(data.status){ 
                       window.SwalSuccess(data.data)
+                      
                     }
                 } catch (error) {
                         window.SwalError("The given data was invalid")
@@ -227,6 +251,7 @@ export default {
                       window.SwalSuccess(data.data)
                         // this.router_push('index')
                         // this.paymentUrl()
+                        
                     }
                 } catch (error) {
                         window.SwalError("The given data was invalid")
@@ -257,12 +282,23 @@ export default {
       }
 
     },
-
+ 
         async getDepartmentsAcademy(){
+    try{
+      let { data } = await academyAPI.getDepartments(); 
+      if(data.success){
+        this.itemsAcademy = data.data
+      }
+    }catch(error){
+        console.mylog('error',error)
+      //
+    }
+  },
+          async getDepartmentsIncubator(){
     try{
       let { data } = await incubatorAPI.getDepartments(); 
       if(data.success){
-        this.items = data.data
+        this.itemsIncubator = data.data
       }
     }catch(error){
         console.mylog('error',error)
@@ -271,12 +307,15 @@ export default {
   },
   
 closeDepartmentsDialog(){
-this.openDepartmentsDialog = false
+this.openDepartmentsDialog = false;
+this.openDepartmentsDialogAcademy = false;
+
 console.log('this.openDepartmentsDialog',this.openDepartmentsDialog);
 }
   },
   mounted(){
-    this.getDepartmentsAcademy()
+    this.getDepartmentsAcademy();
+    this.getDepartmentsIncubator()
 this.idCourse = this.$route.params.query
 
 this.getCourseDetails()
