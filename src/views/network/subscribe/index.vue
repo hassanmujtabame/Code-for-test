@@ -6,6 +6,7 @@
                     <div class="col-md-6">
                         <h1 class="text-white fs-1">
                             ابدأي رحلة نجاحــــك معنا واختري الباقـة المناسـبـة لـــــــــك
+                            <!-- {{subscribedType}} -->
                         </h1>
                     </div>
                     <div class="col-md-6">
@@ -23,12 +24,13 @@
                     <div v-for="(pack,p) in packages" :key="p" class="col-md-4  mt-2">
                         <SubscribeCard
                         :itemId="pack.name"
+                        :packId="pack"
                          :title="getTitleSubscribe(pack.name)"
                         :price="pack.price"
                         :features="pack.options.map(c=>c.name_ar)"
                         :type-subscribe="pack.name"
                         @selected="choose(pack)"
-                        :subscribed="userSubNetwork" 
+                        :subscribed="subscribedType" 
 
                         ></SubscribeCard>
                         <!-- :title="getTitleSubscribe(pack.name)" -->
@@ -60,7 +62,8 @@ components:{
 },
   data:()=>({
     show:false,
-    packages:[]
+    packages:[],
+    subscribedType:null
   }),
   props:{
         packageData: {
@@ -130,10 +133,22 @@ components:{
         
     },
 
-
+     checkTypePackage(){
+         let date = this.dateToString(new Date());
+               for (let index = 0; index < this.user.system_subscriptions.length; index++) {
+                    const element = this.user.system_subscriptions[index];
+                    if (element.system_package.related_to.key=='network' && element.end_at > date) {
+                        
+                        console.log('444',element,'true');
+                        this.subscribedType = element.system_package.id
+                        
+                    }
+                }
+     }
    
   },
   mounted(){
+      this.checkTypePackage()
     this.loadPackages()
 
   }

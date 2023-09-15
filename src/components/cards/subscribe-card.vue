@@ -4,8 +4,9 @@
   > 
     <div>
       <h2 class="fw-bolder subscribe-title">{{title}}</h2>
+      <!-- {{subscribed}}
+      {{packId.id}} -->
       <h1 class="y-c fw-bolder fs-1 py-1">
-        <!-- {{subscribed}} -->
         <!-- <span class="subscribe-price">{{subscribed.type=='free'?$t('free'):price}}</span> -->
         <span class="subscribe-price">{{price}} </span>
         <span class="subscribe-price-currency" v-if="subscribed.type!=='free'">{{ $t('riyals') }}</span>
@@ -29,20 +30,20 @@
       </div>
     </div>
     <div>
-      <a
+      <!-- <a
         @click="selected"
         v-if="!subscribed || !subscribed.subscribe"
         href="#"
         class="btn-main px-4 py-2"
-      >{{ $t('subscribe-now') }}</a>
+      >{{ $t('subscribe-now') }}</a> -->
       <a
         @click="selected"
-        v-else-if="(subscribed.subscribe  && subscribed.type!==itemId)"
+        v-if="(packId.id!==subscribed)"
         href="#"
         class="btn-main px-4 py-2"
       >رقي حسابك</a>
       <a
-        v-else-if="subscribed.type==itemId"
+        v-else-if="packId.id==subscribed"
         href="#"
         class="btn-danger px-4 py-2"
       >انت مشترك الان</a>
@@ -65,6 +66,9 @@ export default {
     typeSubscribe: {
       type: String
     },
+    packId:{
+      type: [String, Number]
+    },
     features: {
       type: [Array, Object]
     },
@@ -80,6 +84,7 @@ export default {
     }
   },
   mounted(){
+    console.log('subscribed',this.subscribed);
   }
 };
 </script>
