@@ -51,7 +51,7 @@ data:()=>({
 }),
 methods:{
     onChoose(dept){
-        if(!this.userSubIncubators[0].subscribe){
+        if(!dept.subscribed){
             let dataEvt ={
                 title:'غير مشترك في القسم',
                 description:'انت غير مشترك في القسم، لذا عليك الاشتراك فيه لتتبع مساره',
