@@ -37,6 +37,22 @@ export default {
   align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+  .network-goal-item {
+    display: block !important;
+  }
+  .network-goal-item__img {
+    margin: auto;
+  }
+  
+}
+
+@media screen and (max-width: 565px) {
+  .min-riadiat .box {
+    height: auto;
+  }
+  
+}
 .network-goal-item__text {
   font-style: normal;
   font-weight: 400;
