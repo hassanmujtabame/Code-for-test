@@ -141,6 +141,15 @@ const routers = [
 			),
 	},
 	{
+		path: "incubator/incubator-testModels",
+		meta: { layout: LayoutDefault, auth: true, title: "Incubator testModels" },
+		name: "incubator-incubator-testModels",
+		component: () =>
+			import(
+				/* webpackChunkName: "incubator-incubator-business" */ "../views/incubator/incubator-business/deparments/testModels"
+			),
+	},
+	{
 		path: "incubator/incubator-business/:id",
 		meta: { layout: LayoutDefault, auth: true, title: "Incubator Business" },
 		name: "incubator-incubator-business-show",
@@ -160,7 +169,7 @@ const routers = [
 	},
 	{
 		path: "incubator/subscribe",
-		meta: { layout: LayoutDefault, title: "Subscribe" , type:'incubator'},
+		meta: { layout: LayoutDefault, title: "Subscribe", type: "incubator" },
 		name: "incubator-subscribe",
 		component: () =>
 			import(

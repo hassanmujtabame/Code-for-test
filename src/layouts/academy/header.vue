@@ -67,8 +67,8 @@ itemDepartments:[],
       async initializing(){
         this.loading= true;
         try{
-          let {data } = await academyAPI.getDepartments({belongs_to:'specialized_academy'})
-          // let {data } = await academyAPI.getDepartments()
+          // let {data } = await academyAPI.getDepartments({belongs_to:'specialized_academy'})
+          let {data } = await academyAPI.getDepartments()
           if(data.success){
             this.itemDepartments = data.data
           }else{
