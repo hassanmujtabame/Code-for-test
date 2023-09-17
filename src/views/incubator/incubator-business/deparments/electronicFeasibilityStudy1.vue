@@ -142,5 +142,8 @@ label{
 .img-zone{
     max-width: 430px;
 }
+p{
+  font-size: 20px;
+}
 </style>
 

@@ -6,6 +6,7 @@
       </component>
     </div>
     <dCourseContent/>
+    <dModelsContent/>
   </div> 
 </template>
 

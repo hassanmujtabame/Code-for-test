@@ -1,244 +1,89 @@
 <template>
-	<div id="list-item-8p" class="container" style="margin-top:120px">
-		<h1>
-			<span class="" style="color: #1fb9b3">نموذج : </span> الأربع أفكار
-		</h1>
-	<p class="s-c">
-    خصِّص/ي بعض الوقت للتفكير مليًّا في المشكلات التي تعاني منها مجالات اهتمام حاضنة رياديات ،و بعض الافكار والحلول والرؤى التي ترغب في تطويرها/ تغييرها/ أو تحسينها في هذا المجال ؟ من وجهة نظرك.
- فكِّر في كلِّ الجوانب والاتجاهات؛ الصحة، الغذاء، التعليم، الثقافة، التجارة الالكترونية ،التقنية، الإدارة والتسويق، السياحة، الترفيه، الفاشن، العقار والسكن، والمجتمعية؟
-  </p>
-  <p>الآن، هل يمكن ترتيب المشكلات التي تعاني منها احد هذه المجالات؟</p>
-<div class="col-12">
-  <table class="col-12">
-  <thead>
-    <tr>
-      <th>المشكلات</th>
-      <th>حل المشكلات / الفكرة</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-      <tr>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-     <tr>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-     <tr>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-  </tbody>
+  <div class="container" style="margin-top:90px">
+<form-wizard>
+  <tab-content title="بيانات المشروع">
+    <electronicFeasibilityStudy1/>
+  </tab-content>
+  <tab-content title="الدراسة التمهيدية ">
+    <electronicFeasibilityStudy2/>
 
-</table>
+   </tab-content>
+   <tab-content title="الدراسة التسويقية ">
+    <electronicFeasibilityStudy3/>
 
-</div>
-<div class="col-12 mt-3">
-  <p>كيف تختار/ي الفكرة الأنسب لك ؟</p>
-  <p>قد يكون شغفك هو نقطة الانطلاق نحو مشروعك الريادي , تساعدك “ النظرية اليابانية ايكجاي “ على اكتشاف هذا الشغف من خلال الاجابة على هذه الاسئلة :</p>
-    <table class="col-12">
-  <thead>
-    <tr>
-      <th>الاهتمامات والهوايات ماذا تحب؟</th>
-      <th>القدرات والمهارات ماذا تجيد؟</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-      <tr style="  background: rgba(31, 185, 179, 0.5); color: rgba(15, 119, 116, 1);">
-      <td>الاحتياج مالذي يحتاجه العالم منك؟</td>
-      <td>الفرصة مالذي يمكن ان يدفع لك من اجله؟</td>
-    </tr>
-     <tr>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-  
-  </tbody>
-
-</table>
-</div>
-<div class="mt-3">
-  <p>معايير تقييم أفكار المشروعات التجارية الناشئة :</p>
-  <div>
-    <p class="my-3" style="color:rgba(118, 118, 118, 1)">هناك عدة معايير تستخدم لتقييم أفكار المشروعات التجارية الناشئة منها :</p>
-    <p style="color:rgba(118, 118, 118, 1)"><span class="m-c">1.</span>  المعيار المالي : مدى قدرتك المالية لإنشاء المشروع.</p>
-    <p style="color:rgba(118, 118, 118, 1)"><span class="m-c">2.</span>  المعيار البشري : توافر الكفاءات البشرية.</p>
-    <p style="color:rgba(118, 118, 118, 1)"><span class="m-c">3.</span>  المعيار التسويقي : وجود طلب كافٍ في السوق.</p>
-    <p style="color:rgba(118, 118, 118, 1)"><span class="m-c">4.</span>  المعيار الشخصي : مدى حماسك و رغبتك في القيام بالمشروع.</p>
-    <p style="color:rgba(118, 118, 118, 1)"><span class="m-c">5.</span>  المعيار المعرفي : خبراتك و معرفتك في مجال المشروع.</p>
-  </div>
-    <table class="col-12">
-  <thead>
-    <tr>
-      <th>المعيار</th>
-      <th>فكرة  1</th>
-      <th>فكرة  2</th>
-      <th>فكرة  3</th>
-      <th>فكرة  4</th>
-    </tr>
-  </thead>
-  <tbody >
-    <tr>
-      <td class="text-end">1. المعيار المالي : مدى قدرتك المالية لإنشاء المشروع</td>
-      <td><input/> </td>
-       <td><input/> </td>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-     <tr>
-      <td class="text-end" >2. المعيار البشري : توافر الكفاءات البشرية</td>
-      <td><input/> </td>
-       <td><input/> </td>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-     <tr>
-      <td class="text-end" >3. المعيار التسويقي :وجود طلب كافٍ في السوق</td>
-      <td><input/> </td>
-       <td><input/> </td>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-      <tr>
-      <td class="text-end" >4. المعيار الشخصي : مدى حماسك ورغبتك في القيام بالمشروع</td>
-      <td><input/> </td>
-       <td><input/> </td>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-     <tr>
-      <td class="text-end" >5. المعيار المعرفي : خبراتك ومعرفتك في مجال المشروع</td>
-      <td><input/> </td>
-       <td><input/> </td>
-      <td><input/> </td>
-      <td><input/> </td>
-    </tr>
-     <tr>
-      <td style="background: rgba(255, 242, 205, 1);">المجموع</td>
-      <td style="background: rgba(255, 242, 205, 1);"></td>
-       <td style="background: rgba(255, 242, 205, 1);"></td>
-      <td style="background: rgba(255, 242, 205, 1);"></td>
-      <td style="background: rgba(255, 242, 205, 1);"></td>
-    </tr>
-  </tbody>
-
-</table>
-</div>
-   <button class="btn-custmer mt-5">
-        {{ $t("save") }}
-      </button>
+   </tab-content>
+     <tab-content title="الدراسة الفنية  ">
+    <electronicFeasibilityStudy4/>
+   </tab-content>
+     <tab-content title="الدراسة المالية  ">
+     Yuhuuu! This seems pretty damn simple
+   </tab-content>
+</form-wizard>
   </div>
 </template>
 <script>
 
-export default {
-  data:(vm)=>{
-    return{
-        loading:false,
-    group:'add-blog',
-    showDialog:false,
-    categories:[],
-    idImage: `image-selected-${vm.generateRandomString(8)}`,
-    url:`${vm.publicPath}assets/svg/Group 1171275983.svg`,
-    file:null,
-      options: [
-          { value: null, text: 'Please select an option' },
-          { value: 'a', text: 'This is First option' },
-          { value: 'b', text: 'Selected Option' },
-          { value: { C: '3PO' }, text: 'This is an option with object value' },
-          { value: 'd', text: 'This one is disabled', disabled: true }
-        ]
+import electronicFeasibilityStudy1 from './electronicFeasibilityStudy1';
+import electronicFeasibilityStudy2 from './electronicFeasibilityStudy2';
+import electronicFeasibilityStudy3 from './electronicFeasibilityStudy3';
+import electronicFeasibilityStudy4 from './electronicFeasibilityStudy4';
 
-  }},
-  methods:{
+import {FormWizard, TabContent} from 'vue-form-wizard'
+import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+export default{
 
-    makeImageEmpty(){
-        this.file = null;
-                window.$('#' + this.idImage)
-                    .attr('src', 'none')
-                    .css('opacity', '0');
-    },
-    async uploadImage(evt,validate){
-       let resValid = await validate(evt)
-       if(!resValid.valid){
-                this.makeImageEmpty();
-                return;
-       }
-        if (!evt.target.files && !evt.target.files[0]) {
-            this.makeImageEmpty();
-                return;
-            }
-            this.file = evt.target.files[0];
-            var reader = new FileReader();
-            reader.onload =  (e) =>{
-                console.log('result',e,this.idImage)
-                window.$('#'+this.idImage)
-                    .attr('src', e.target.result)
-                    .css('opacity', '1');
+components: {
+  FormWizard,
+  TabContent,
+  electronicFeasibilityStudy1,
+  electronicFeasibilityStudy4,
+  electronicFeasibilityStudy3,
+  electronicFeasibilityStudy2,
+}
 
-            };
-            reader.readAsDataURL(this.file);
-    },
-
-    openDialog(){
-        this.loading =  false;
-        window.$('#'+this.idImage)
-                    .attr('src', 'none')
-                    .css('opacity', '0');
-        return true;
-    },
- 
-
-  },
-  mounted(){
- 
-    // this.openDialog()
-  }
 }
 </script>
+<style >
+.vue-form-wizard .wizard-card-footer {
+    display: flex;
+    justify-content: end;
+}
 
-<style>
-label{
-    width:100%;
-    text-align: start;
+.vue-form-wizard .wizard-card-footer .wizard-footer-right {
+    float: unset !important;
+    margin: 0 10px;
 }
-.img-zone{
-    max-width: 430px;
+.vue-form-wizard .wizard-card-footer .wizard-footer-left {
+    float: unset !important;
+   
 }
-th, td{
-  height: 50px;
+.wizard-btn{
+    background: rgba(31, 185, 179, 1) !important; 
+     border-color: rgba(31, 185, 179, 1) !important; 
 }
-th, td,table{
-  border: 1px solid rgba(0, 0, 0, 1);
-  text-align: center;
-}
-th{
-  background: rgba(31, 185, 179, 0.5);
-  color: rgba(15, 119, 116, 1);
-  border-top: 0px !important ;
-  border-right: 1px solid  rgba(31, 185, 179, 0.5)!important ;
-  border-left: 1px solid rgba(31, 185, 179, 0.5) !important ;
-}
-table{
-  border-right: 1px solid rgba(31, 185, 179, 0.5) !important ;
-  border-left: 1px solid  rgba(31, 185, 179, 0.5)!important ;
-  border-top: 0px !important ;
-  border-radius:25px ;
+  .wizard-icon-container{
+    background: rgba(31, 185, 179, 1) !important; 
+     border-color: rgba(31, 185, 179, 1) !important; 
 
 }
-td input{
-  width: 100%;
-    height: 100%;
-    border: 0;
+.vue-form-wizard.md .wizard-icon-circle {
+  width:30px;
+  height:30px;
+  border-color: rgba(31, 185, 179, 1) !important; 
+}
+.vue-form-wizard  span{
+  color: rgba(31, 185, 179, 1) !important; 
+  margin-top: 10px;
+}
+.wizard-header{
+  display: none !important;
+}
+.vue-form-wizard .wizard-progress-bar{
+      float: right !important;
+  background-color: rgba(31, 185, 179, 1) !important; 
+}
+/* .vue-form-wizard .wizard-navigation .wizard-progress-with-circle .wizard-progress-bar */
+.vue-form-wizard.md .wizard-navigation .wizard-progress-with-circle{
+      top: 20px !important;
 }
 </style>
-
