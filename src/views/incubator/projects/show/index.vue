@@ -3,21 +3,29 @@
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">
     {{ $t('has-error') }}
-    </div>
+    </div> 
     <div v-else class="container pt-5">
         <div class="row justify-content-between" >
-            <div class="col-12 col-md-8 border rounded">
+            <div class="col-12  ">
                 <!--content-->
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="incubator-project__image">
-                            <img :src="itemPage.image" class="rounded border" :alt="itemPage.title"> 
+                <div class="row  justify-content-between">
+                    <div class="col-12 col-md-3 border rounded py-3" >
+                        <div class="incubator-project__image mx-auto">
+                            <img :src="itemPage.image" class="" :alt="itemPage.title"> 
                         </div>
+                            <h1 class="incubator-project__title text-center">{{ itemPage.title }}</h1>
+                            <p class="incubator-project__place text-center"><i class="fa fa-location-dot"></i> {{ itemPage.city_name }}</p>
+                            <div class="d-flex gap-3 justify-content-center">
+                                
+            <img :src="`${publicPath}assets/svg/Group 1171276170.svg`" style="" />
+            <img :src="`${publicPath}assets/svg/Group 1171276169.svg`" style="" />
+            <img :src="`${publicPath}assets/svg/Group 1171276168.svg`" style="" />
+
+                            </div>
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md-8 border rounded p-3">
                         <div class="incubator-project__content">
-                            <h1 class="incubator-project__title">{{ itemPage.title }}</h1>
-                            <p class="incubator-project__place"><i class="fa fa-location-dot"></i> {{ itemPage.city_name }}</p>
+                            <h1 class="incubator-project__title my-2">{{ itemPage.title }}</h1>
                            <p class="incubator-project__desc" v-html="itemPage.description">
                             
                         </p>
@@ -26,12 +34,11 @@
                 </div>
 
             </div>
-            <div class="col-12 col-md-4 ">
-                <!--user info-->
+            <!-- <div class="col-12 col-md-4 ">
                 <div class="border rounded">
                 <d-user-preview-profile  :canChat="false" :tags="[]" hideSocial :member="itemPage.user_info"/>
             </div>
-            </div>
+            </div> -->
         </div>
     </div>
     </div>
@@ -73,15 +80,15 @@ export default {
     display: block;
 }
 .incubator-project__image{
-    height: 265px;
-    width: 265px;
-    max-width: 100%;
-    padding: 20px 0;
+    height: 105px;
+    width: 105px;
+    /* max-width: 100%; */
+    /* padding: 20px 0; */
 }
 .incubator-project__image>img{
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: contain;
 }
 .incubator-project__title{
     font-style: normal;

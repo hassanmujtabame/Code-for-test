@@ -10,9 +10,9 @@
             <div v-for="(item,i) in items" :key="i" class="col-2">
                 <div class="border mb-2" style="background: rgba(246, 248, 249, 1); box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12); border-radius: 8px;">
             <CardVue :title="item.name" :img="item.image_path"
-                @click-image="onChoose(item)"
+                @click-image="onChoose(departmentsIncubatorSub.includes(item.id))"
                 class="incubator"
-                :class="{'subscribed':item.subscribed}"
+                :class="{'subscribed':departmentsIncubatorSub.includes(item.id)}"
                 />
                 </div>
 
@@ -47,11 +47,12 @@ watch:{
 data:()=>({
     loading:false,
     hasError:false,
-    items:[]
+    items:[],
+    departmentsIncubatorSub:[]
 }),
 methods:{
     onChoose(dept){
-        if(!dept.subscribed){
+        if(!dept){
             let dataEvt ={
                 title:'غير مشترك في القسم',
                 description:'انت غير مشترك في القسم، لذا عليك الاشتراك فيه لتتبع مساره',
@@ -82,8 +83,20 @@ methods:{
     }
     this.loading = false;
   },
+    departmentsIdsSubscriptions(){
+          for (let index = 0; index < this.user.system_subscriptions.length; index++) {
+                    const element = this.user.system_subscriptions[index];
+                 if (element.system_package.related_to.key=='incubator') {
+                        for (let index3 = 0; index3 < element.departments.length; index3++) {
+                        const element3 = Number(element.departments[index3]);
+                        this.departmentsIncubatorSub.push(element3)
+                      }
+                    }
+          }
+    },
 },
 mounted(){
+    this.departmentsIdsSubscriptions()
     this.initializing()
 }
 }

@@ -24,7 +24,7 @@
                          <SubscribeCard 
                         :itemId="pack.name"
                         :packId="pack"
-                         :title="getTitleSubscribe(pack.name)"
+                         :title="pack.name"
                         :price="pack.price"
                         :features="pack.options.map(c=>c.name_ar)"
                         :type-subscribe="pack.name"
@@ -34,7 +34,7 @@
                         <!-- :title="pack.name" -->
 
                       <!-- :itemId="pack.id"
-                         :title="getTitleSubscribe(pack.type)"
+                         :title="getTitleSubscribe(pack.name)"
                          :price="pack.price"
                          :features="pack.features.map(c=>c.desc)"
                          :type-subscribe="pack.type"

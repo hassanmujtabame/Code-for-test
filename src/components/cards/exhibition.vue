@@ -10,7 +10,7 @@
                             <button v-if="isShared" class="btn-shared-exibition"><tickCircleIcon />{{ $t('shared') }}</button>
                     </div>
                     <div class="p-2 text-start">
-                        <h6 class="exhibition-card-title mt-2">
+                        <h6  style="" class="exhibition-card-title mt-2">
                         {{title}}
                         </h6>
                         <p class="t-c text-two-lines exhibition-card-desc exhibition-card-text" v-html="description">
@@ -89,6 +89,9 @@ export default {
 font-weight: 400;
 font-size: 24px;
 line-height: 32px;
+height: 35px;
+overflow: hidden;
+text-overflow: ellipsis;
 /* identical to box height, or 133% */
 
 text-align: start;

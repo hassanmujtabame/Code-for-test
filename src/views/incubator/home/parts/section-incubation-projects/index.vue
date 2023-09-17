@@ -13,11 +13,11 @@
                   </div>
                   <DSwiper
                   v-if="!loading"
-            :slides-per-view="4"
-            :space-between="10"
-              is-auto
-              :navigation="true"
-              :items="items"
+                :slides-per-view="4"
+                :space-between="10"
+                is-auto
+                :navigation="true"
+                :items="items"
             >
             <template  v-slot:default="{item}" >
               <router-link class="router-link" :to="getRouteLocale('incubator-project-show',{id:item.id})">

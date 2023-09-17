@@ -12,7 +12,7 @@
               <h4 class="mx-2"  style="color: #1FB9B3">انضم الى الأكاديمية</h4>
 
             </div>
-    <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;" @click="openDepartmentsDialogAcademy=true">حددي مجال الاشتراك</button>
+    <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;" @click="openDepartmentsAcademyDialog()">حددي مجال الاشتراك</button>
 
             </div>
 
@@ -69,12 +69,11 @@
       </div>
 <div v-if="openDepartmentsDialogAcademy==true" class="departmentsDialog ">
   <div class="departmentsDialog-departments">
-    <span class=" d-flex justify-content-end mt-3" style="cursor: pointer; width: fit-content; margin-right: auto;" @click="closeDepartmentsDialog()">X</span>
+    <span class=" d-flex justify-content-end mt-3 mx-3" style="cursor: pointer; width: fit-content; margin-right: auto;" @click="closeDepartmentsDialog()">X</span>
     <h3 class="text-center my-2 pt-3">حددي مجال الاشتراك</h3>
-     
       <div class="d-flex" style="flex-wrap: wrap;">
       <div v-for="item,i in itemsAcademy" :key="i">
-        <div :id="`department${item.id}`"  class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;" @click="departmentsIdsSelected(item.id)">
+        <div :class="[departmentsAcademysub.includes(item.id)?'custom-opacity':'']"   :style="{'opacity': departmentsAcademysub.includes(item.id) ? '1' : '.4',}"  :id="`department${item.id}`"  class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;" @click="departmentsIdsSelected(item.id)">
  <div class="">
   <img :src="item.image_path" :alt="title" style="width:70px; height: 70px; border-radius:100%">
  </div>
@@ -83,19 +82,18 @@
 </div>
       </div>
       </div>
-            <button :disabled="departmentsIds.length==0" @click="closeDepartmentsDialog()"  class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
+            <button :disabled="departmentsAcademysub.length==0" @click="closeDepartmentsDialog()"  class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
                {{$t('continuity')}}
             </button>
   </div>
 </div>
 <div v-if="openDepartmentsDialog==true" class="departmentsDialog ">
   <div class="departmentsDialog-departments">
-    <span class=" d-flex justify-content-end mt-3" style="cursor: pointer; width: fit-content; margin-right: auto;" @click="closeDepartmentsDialog()">X</span>
+    <span class=" d-flex justify-content-end mt-3 mx-3" style="cursor: pointer; width: fit-content; margin-right: auto;" @click="closeDepartmentsDialog()">X</span>
     <h3 class="text-center my-2 pt-3">حددي مجال الاشتراك</h3>
-     
       <div class="d-flex" style="flex-wrap: wrap;">
       <div v-for="item,i in itemsIncubator" :key="i">
-        <div :id="`department${item.id}`"  class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;" @click="departmentsIdsSelected(item.id)">
+        <div :class="[departmentsIncubatorSub.includes(item.id)?'custom-opacity':'']"  :id="`department${item.id}`"  class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;" @click="departmentsIdsIncubatorSelected(item.id)">
  <div class="">
   <img :src="item.image_path" :alt="title" style="width:70px; height: 70px; border-radius:100%">
  </div>
@@ -104,7 +102,7 @@
 </div>
       </div>
       </div>
-            <button :disabled="departmentsIds.length==0" @click="closeDepartmentsDialog()"  class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
+            <button @click="closeDepartmentsDialog()"  class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
                {{$t('continuity')}}
             </button>
   </div>
@@ -160,25 +158,37 @@ export default {
       openDepartmentsDialogAcademy:false,
       departmentsIds:[],
       itemsIncubator:[],
-      itemsAcademy:[]
+      itemsAcademy:[],
+      departmentsAcademysub:[],
+      departmentsIncubatorSub:[],
+      
       
     };
   },
   methods: {
     departmentsIdsSelected(id){
-    if (this.departmentsIds.includes(id)) {
-      let indexDepartment= this.departmentsIds.indexOf(id)
-       this.departmentsIds.splice(indexDepartment,1)
+    if (this.departmentsAcademysub.includes(id)) {
+      let indexDepartment= this.departmentsAcademysub.indexOf(id)
+       this.departmentsAcademysub.splice(indexDepartment,1)
       const elem = document.getElementById(`department${id}`);
       elem.style.opacity='.4'
     }else{
-      this.departmentsIds.push(id)
+      this.departmentsAcademysub.push(id)
  const elem = document.getElementById(`department${id}`);
       elem.style.opacity='1'
     }
-   
- 
-
+    },
+      departmentsIdsIncubatorSelected(id){
+    if (this.departmentsIncubatorSub.includes(id)) {
+      let indexDepartment= this.departmentsIncubatorSub.indexOf(id)
+       this.departmentsIncubatorSub.splice(indexDepartment,1)
+      const elem = document.getElementById(`department${id}`);
+      elem.style.opacity='.4'
+    }else{
+      this.departmentsIncubatorSub.push(id)
+ const elem = document.getElementById(`department${id}`);
+      elem.style.opacity='1'
+    }
     },
        confirmPaymentUrl(){
         let dataEvt={
@@ -193,11 +203,11 @@ export default {
       window.open(this.paymentUrlPth, '_blank')
     },
     async handlePayment(data) {
-      if (this.packageType == 'academy' || this.packageType == 'incubator') {
-        if ( this.departmentsIds.length==0) {
-        this.openDepartmentsDialog = true
-        }
-      }
+      // if (this.packageType == 'academy' || this.packageType == 'incubator') {
+      //   if ( this.departmentsIds.length==0) {
+      //   this.openDepartmentsDialog = true
+      //   }
+      // }
       let formData = new FormData();
    
       formData.append('package_id',this.otherData.id)
@@ -206,12 +216,23 @@ export default {
    if (data.coupon) {
       formData.append('coupon',data.coupon)
       }
-      if (this.departmentsIds) {
-            for (var i = 0; i < this.departmentsIds.length; i++) {
-        formData.append("department_ids[]", this.departmentsIds[i]);
+      if (this.departmentsAcademysub) {
+            for (var i = 0; i < this.departmentsAcademysub.length; i++) {
+        formData.append("department_ids[]", this.departmentsAcademysub[i]);
       }
+      
       // formData.append('department_ids',`[${this.departmentsIds}]`)
       }
+        if (this.departmentsIncubatorSub) {
+            for (var k = 0; k < this.departmentsIncubatorSub.length; k++) {
+        formData.append("department_ids[]", this.departmentsIncubatorSub[k]);
+      }
+      
+      // formData.append('department_ids',`[${this.departmentsIds}]`)
+      }
+
+           
+
 
       if (data.coupon) {
           try {
@@ -225,7 +246,7 @@ export default {
                 } 
       }else{
          if (this.packageType == 'academy' || this.packageType == 'incubator') {
-        if ( this.departmentsIds.length>0) {
+        if ( this.departmentsIds.length==0) {
                   try {
                     let { data } = await networkAPI.PayPackageSelect(formData);
                     
@@ -310,12 +331,31 @@ closeDepartmentsDialog(){
 this.openDepartmentsDialog = false;
 this.openDepartmentsDialogAcademy = false;
 
-console.log('this.openDepartmentsDialog',this.openDepartmentsDialog);
-}
+},
+    departmentsIdsSubscriptions(){
+          for (let index = 0; index < this.user.system_subscriptions.length; index++) {
+                    const element = this.user.system_subscriptions[index];
+                    if (element.system_package.related_to.key=='academy') {
+                      for (let index2 = 0; index2 < element.departments.length; index2++) {
+                        const element2 = Number(element.departments[index2]);
+                        this.departmentsAcademysub.push(element2)
+                      }
+                    }else if (element.system_package.related_to.key=='incubator') {
+                        for (let index3 = 0; index3 < element.departments.length; index3++) {
+                        const element3 = Number(element.departments[index3]);
+                        this.departmentsIncubatorSub.push(element3)
+                      }
+                    }
+          }
+    },
+    openDepartmentsAcademyDialog(){
+      this.openDepartmentsDialogAcademy=true;
+    }
   },
   mounted(){
     this.getDepartmentsAcademy();
-    this.getDepartmentsIncubator()
+    this.getDepartmentsIncubator();
+    this.departmentsIdsSubscriptions()
 this.idCourse = this.$route.params.query
 
 this.getCourseDetails()
@@ -351,5 +391,8 @@ overflow-y: scroll;
   background-color: rgb(0,0,0,.4)	
   /* overflow-y: scroll; */
 
+}
+.custom-opacity{
+  opacity: 1 !important;
 }
 </style>

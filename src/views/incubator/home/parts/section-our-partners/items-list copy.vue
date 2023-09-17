@@ -1,30 +1,13 @@
 <template>
-
-  <div>
-
-   <d-swiper  
-        v-if="items && items.length>1"
-
-              :slides-per-view="4"
-              is-auto
-              :items='items'
-              :space-between="30"
-                   :navigation="true"
-        :loop="true"
-              >
-                 <template v-slot="{item}">
-              <ImgAvatar class="filter-shadow-partner mx-auto" :img="item.image"   size='180' />
-                </template>             
-            </d-swiper>
-    </div> 
-             <!-- <div class="row justify-content-around">
+   
+             <div class="row justify-content-around">
      <div v-for="(im,i) in items" :key="i" class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-duration="1000">
                      <ImgAvatar class="filter-shadow-partner mx-auto" :img="im.image" :alt="im.name??''"  size=180 />
                  </div>
                  <div v-if="items.length==0" style="min-height:180px" class="col-12  d-flex align-items-center">
                    <h3 class="t-c">{{ $t('no-items') }}</h3>
                  </div>
-             </div> -->
+             </div>
  </template> 
  
  <script>
@@ -34,13 +17,22 @@
  export default {
   name:'section-our-partners',
   components:{
-     ImgAvatar,
+     ImgAvatar
  }
   ,
   data:(/**/)=>{
      return{
          loading:true,
-         items:[]
+         items:[
+ /*{img:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 01'},
+         {img:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 02'},
+         {img:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 03'},
+         {img:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 04'},
+         {img:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 05'},
+         {img:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 06'},
+         {img:`${vm.publicPath}assets/img/Ellipse 24.png`,name:'partner 07'},
+         {img:`${vm.publicPath}assets/img/Ellipse 25.png`,name:'partner 08'},*/
+     ]
   }},
   watch:{
  loading(){
