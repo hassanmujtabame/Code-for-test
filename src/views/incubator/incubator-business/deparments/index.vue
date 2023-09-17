@@ -3,14 +3,14 @@
     <div class="container">
 
         <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-3">
             <h1 >مراحل الحاضنة</h1>
             <h1 >اختر القسم الذي تريد تتبع مراحله</h1>
         </div>
             <div v-for="(item,i) in items" :key="i" class="col-2">
                 <div class="border mb-2" style="background: rgba(246, 248, 249, 1); box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12); border-radius: 8px;">
             <CardVue :title="item.name" :img="item.image_path"
-                @click-image="onChoose(departmentsIncubatorSub.includes(item.id))"
+                @click-image="onChoose(item)"
                 class="incubator"
                 :class="{'subscribed':departmentsIncubatorSub.includes(item.id)}"
                 />
@@ -52,7 +52,7 @@ data:()=>({
 }),
 methods:{
     onChoose(dept){
-        if(!dept){
+        if(!this.departmentsIncubatorSub.includes(dept.id)){
             let dataEvt ={
                 title:'غير مشترك في القسم',
                 description:'انت غير مشترك في القسم، لذا عليك الاشتراك فيه لتتبع مساره',
