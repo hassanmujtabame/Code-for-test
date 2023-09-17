@@ -16,10 +16,36 @@
                             <h1 class="incubator-project__title text-center">{{ itemPage.title }}</h1>
                             <p class="incubator-project__place text-center"><i class="fa fa-location-dot"></i> {{ itemPage.city_name }}</p>
                             <div class="d-flex gap-3 justify-content-center">
-                                
-            <img :src="`${publicPath}assets/svg/Group 1171276170.svg`" style="" />
-            <img :src="`${publicPath}assets/svg/Group 1171276169.svg`" style="" />
-            <img :src="`${publicPath}assets/svg/Group 1171276168.svg`" style="" />
+                   
+                       <ShareNetwork
+                          network="Linkedin"
+                          :url="shareLink"
+                          title="Share in Linkedin"
+                          description="This is another awesome article for awesome readers"
+                          >  
+
+            <img :src="`${publicPath}assets/svg/Group 1171276168.svg`" style="cursor: pointer" />
+
+                       </ShareNetwork>
+                <ShareNetwork
+                          network="twitter"
+                          :url="shareLink"
+                          title="Share in twitter"
+                          description="This is another awesome article for awesome readers"
+                          >
+                        <img :src="`${publicPath}assets/svg/Group 1171276169.svg`" style="cursor: pointer" />
+                   </ShareNetwork>
+
+                   <ShareNetwork
+                          network="Instagram"
+                          :url="shareLink"
+                          title="Share in Instagram"
+                          description="This is another awesome article for awesome readers"
+                          >
+
+                        <img :src="`${publicPath}assets/svg/Group 1171276170.svg`" style="cursor: pointer" />
+
+                   </ShareNetwork>
 
                             </div>
                     </div>
@@ -51,7 +77,8 @@ export default {
         return {
             hasError:false,
             loading:true,
-            itemPage:{}
+            itemPage:{},
+            shareLink:''
         }
     },
     methods:{
@@ -71,6 +98,8 @@ export default {
         }
     },
     mounted(){
+    this.shareLink = window.location.href;
+
         this.initializing()
     }
 }
