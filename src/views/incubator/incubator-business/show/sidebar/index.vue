@@ -44,7 +44,7 @@
                           {{ phase.title }}
                         <!-- </label> -->
           </d-stepper-head-item>
-                  <a class="list-group-item list-group-item-action" href="#list-item-8p">  قائمة الحظر</a>
+                  <!-- <a class="list-group-item list-group-item-action" href="#list-item-8p">  قائمة الحظر</a> -->
           </d-stepper-head>
         </d-expanded-panel-item>
       </template>
