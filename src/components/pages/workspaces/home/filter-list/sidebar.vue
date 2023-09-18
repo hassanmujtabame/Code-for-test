@@ -1,5 +1,5 @@
 <template>
-  <div class="box filter-work-space  p-3 " style="height: 150px">
+  <div class="box filter-work-space  p-3 " style="height: 100px">
 
     <d-expanded-panel  class="accordion d-flex h-100 align-items-start w-100" id="accordionPanelsStayOpenExample">
   
@@ -158,6 +158,8 @@ export default {
     padding: 5px !important;
     height: 90px;
     overflow-y: scroll;
+       z-index: 999;
+    position: relative;
 }
 .states-input-custom input{
     display: none;

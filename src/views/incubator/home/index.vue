@@ -19,9 +19,10 @@
         <SectionProgramsProjects />
         <SectionHaveProject v-if="!token"/>
          <!-- section 8-->
-         <SectionOurPartners />
          <!-- section 9-->
          <SectionIncubationProjects /> 
+         <SectionOurPartners />
+
         <!-- section 10-->
         <SectionSchedule />
         <SectionNumbers />

@@ -1,6 +1,6 @@
 <template>
    <div class="container p-4">
-            <h2 class="home-section-title text-center">
+            <h2 class="home-section-title text-centerl">
                 شركائنا في حاضنة رياديات
             </h2>    
             <ItemsList /> 

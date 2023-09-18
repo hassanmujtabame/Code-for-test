@@ -44,9 +44,29 @@
                           {{ phase.title }}
                         <!-- </label> -->
           </d-stepper-head-item>
+          <div v-if="item.models.length>0">
+
+                 <d-stepper-head-item  v-for="(phase,i) in item.models" :key="i" 
+        :status="phase.status"
+        @click="onChoose2(phase,item.id)"
+        >
+             <!-- <input
+                          class="form-check-input"
+                          type="radio"
+                          name="stateRadioDefault23"
+                          id="flexRadioDefault123"
+                          style="transform: translateX(16px);"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault123"> -->
+                          {{ phase.title }}
+                        <!-- </label> -->
+          </d-stepper-head-item>
+          </div>
+
                   <!-- <a class="list-group-item list-group-item-action" href="#list-item-8p">  قائمة الحظر</a> -->
           </d-stepper-head>
         </d-expanded-panel-item>
+        
       </template>
       </d-expanded-panel>
     </div>
@@ -73,6 +93,9 @@ data:(vm)=>({
 }),
 methods:{
   onChoose(phase,stage_id){
+    this.fireEvent('phase-choosen',{...phase,stage_id})
+  },
+  onChoose2(phase,stage_id){
     this.fireEvent('phase-choosen',{...phase,stage_id})
   },
   async initializing(){

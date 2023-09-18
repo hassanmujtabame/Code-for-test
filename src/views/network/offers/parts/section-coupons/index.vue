@@ -4,14 +4,21 @@
     :pluralName="$t('coupons')"
     :singleName="$t('coupon')"
     @change="changeFilter"
-    :searchPlaceholder="$t('search_for_coupon')"
+      hideTitle
+      newFilter 
+      hideSearch
+      hideOrder
+      classSearchOrder="col-lg-8"
+      classColOrder="col-12 col-lg-4"
+      classColSearch="col-12 col-lg-8"
+      classSideBar="col-12"
     orderName="price"
         :orderOpts="
              [
                 {id:'asc',name:'الأقل سعرا'},
                 {id:'desc',name:'الأغلى سعرا',}
             ]"
-     classColCard="col-md-6 mt-2">
+     classColCard="col-md-4 mt-2">
       <template v-slot="{ item }">
        
           <CouponCard 

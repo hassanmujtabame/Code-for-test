@@ -2,11 +2,11 @@
   <div class="model-card box rounded-3 border">
                       <div class="model-card__wrapper box rounded-3 ">
                           <div class="model-card__image rounded-top">
-                              <img class="w-100 rounded-top"  :src="img" :alt="title"  height="186">
+                              <img class="w-100 rounded-top" v-if="img"  :src="img" :alt="title"  height="186">
                           </div>
                           <div class="text-start bg-white  p-2">
                               <h6 class="model-card__title text-center text-two-lines">{{title}}</h6>
-                              <div v-if="!hideCounter" class="text-center">
+                              <div v-if="!hideCounter || value" class="text-center">
                                 <small class="m-c">
                                     عدد التنزيلات
                                 </small>
