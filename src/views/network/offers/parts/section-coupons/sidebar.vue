@@ -35,9 +35,9 @@
             </d-expanded-panel-item> 
     <d-expanded-panel-item   class="col-12 col-md-2 border  rounded-3 p-2 mt-0 pb-0" :title="$t('offer-departments')">
                 <div>
-                         <div v-for="(cat,i) in categories" :key="i" class="form-check">
-                            <input class="form-check-input  states-input-custom" type="checkbox" :value="cat.id" v-model="filter.category_id" :id="`defaultCheck${cat.id}`">
-                            <label class="form-check-label" :for="`defaultCheck${cat.id}`">
+                         <div v-for="(cat,i) in categories" :key="i" class="form-check  states-input-custom">
+                            <input @change="updateFilter" class="form-check-input  form-check-input-address states-input-custom" type="checkbox" :value="cat.id" v-model="filter.category_id" :id="`defaultCheck${cat.id}`">
+                            <label class="form-check-label " :for="`defaultCheck${cat.id}`">
                                 {{ cat.name }}
                             </label>
                         </div>
