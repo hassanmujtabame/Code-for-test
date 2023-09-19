@@ -1,7 +1,7 @@
 <template>
 	<div class="container" style="margin-top:85px">
 		<h1>
-			<span class="" style="color: #1fb9b3">نموذج : </span>  دراسة الجدوى
+			<span class="" style="color: #1fb9b3">نموذج : </span> دراسة الجدوى الإلكترونية
 		</h1>
 		<div class="mt-3">
       <p>الرسالة</p>

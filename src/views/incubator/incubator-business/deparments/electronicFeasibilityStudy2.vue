@@ -1,7 +1,7 @@
 <template>
 	<div class="container" style="margin-top:85px">
 		<h1>
-			<span class="" style="color: #1fb9b3">نموذج : </span>  دراسة الجدوى
+			<span class="" style="color: #1fb9b3">نموذج : </span> دراسة الجدوى الإلكترونية
 		</h1>
 		<div class="mt-3">
 			<p> أهداف وأسباب اختيار المشروع :</p>
@@ -212,7 +212,7 @@ th, td,table{
   text-align: center;
 }
 th{
-  background: rgba(31, 185, 179, 0.5);
+background: rgba(227, 241, 241, 1);
   color: rgba(15, 119, 116, 1);
   border-top: 0px !important ;
   border-right: 1px solid  rgba(31, 185, 179, 0.5)!important ;

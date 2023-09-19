@@ -9,11 +9,20 @@
 
    </tab-content>
    <tab-content title="الدراسة التسويقية ">
+     <form-wizard class="marketing-step">
+  <tab-content>
     <electronicFeasibilityStudy3/>
-
+  </tab-content>
+  <tab-content>
+    <electronicFeasibilityStudy4/>
+  </tab-content>
+    <tab-content>
+    <electronicFeasibilityStudy5/>
+  </tab-content>
+     </form-wizard>
    </tab-content>
      <tab-content title="الدراسة الفنية  ">
-    <electronicFeasibilityStudy4/>
+       kkkk
    </tab-content>
      <tab-content title="الدراسة المالية  ">
      Yuhuuu! This seems pretty damn simple
@@ -27,6 +36,7 @@ import electronicFeasibilityStudy1 from './electronicFeasibilityStudy1';
 import electronicFeasibilityStudy2 from './electronicFeasibilityStudy2';
 import electronicFeasibilityStudy3 from './electronicFeasibilityStudy3';
 import electronicFeasibilityStudy4 from './electronicFeasibilityStudy4';
+import electronicFeasibilityStudy5 from './electronicFeasibilityStudy5';
 
 import {FormWizard, TabContent} from 'vue-form-wizard'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
@@ -36,6 +46,7 @@ components: {
   FormWizard,
   TabContent,
   electronicFeasibilityStudy1,
+  electronicFeasibilityStudy5,
   electronicFeasibilityStudy4,
   electronicFeasibilityStudy3,
   electronicFeasibilityStudy2,
@@ -82,8 +93,21 @@ components: {
       float: right !important;
   background-color: rgba(31, 185, 179, 1) !important; 
 }
+.marketing-step  .wizard-progress-bar{
+      float: left !important;
+}
 /* .vue-form-wizard .wizard-navigation .wizard-progress-with-circle .wizard-progress-bar */
 .vue-form-wizard.md .wizard-navigation .wizard-progress-with-circle{
       top: 20px !important;
+}
+
+.marketing-step .wizard-progress-with-circle{
+display: none !important;
+}
+.wizard-navigation .wizard-tab-content{
+  padding-top: 0 !important;
+}
+.vue-form-wizard .marketing-step .wizard-navigation ul{
+  display: none !important;
 }
 </style>
