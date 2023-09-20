@@ -105,21 +105,21 @@ props:{
 }
 },
 methods:{
-   async downloadingModel(){
+    downloadingModel(){
+                  console.log('data',this.phase.id);
+
         try {
-            let { data } = await modelsAPI.download(this.itemPage.id)
-                if(data.success){
-                    //download file
-                    let a = document.createElement('a');
-                    a.href= data.data.file;
+          modelsAPI.download(this.phase.id).then((data) => {
+                    console.log('data',data.data.data.file);
+                         let a = document.createElement('a');
+                    a.href= data.data.data.file;
                     a.target = '_blank';
                     a.download = true;
                     document.body.appendChild(a);
                     a.click();
                     a.remove()
-        this.loadOptionsSub()
+                })
 
-                }
             
         } catch (error) {
             //
