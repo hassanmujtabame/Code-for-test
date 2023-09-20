@@ -28,7 +28,7 @@
                         </button>
    </div>
    
-   <div  v-else >
+   <div  v-else-if="phase.department_name" >
 
     <h1 class="incubator-business-content__title pb-0">
       <!-- :checked="selected" -->
@@ -81,23 +81,34 @@
                                     </div>
                                 </div>
    </div>
+   <div v-else-if="phase.Id=='145'">
+     <theFourIdeas/>
+  </div> 
+     <div v-else-if="phase.Id=='146'">
+     <electronicFeasibilityStudy/>
+  </div> 
 
-
-  </div>
+  
+  </div> 
 </template>
 
 <script>
 import ModelCard from '@/components/cards/model.vue'
 import modelsAPI from '@/services/api/models';
+import theFourIdeas from './theFourIdeas.vue';
+import electronicFeasibilityStudy from './electronicFeasibilityStudy';
 
 export default {
 name:'section-type-default',
 components:{
-    ModelCard
+    ModelCard,
+    theFourIdeas,
+    electronicFeasibilityStudy
 },
 props:{
   phase:{},
-  itemPage:{}
+  itemPage:{},
+  Id:{},
 },
   data() {
     return {
@@ -127,7 +138,7 @@ methods:{
     },
 },
 mounted(){
-  console.mylog('mounted type',this.phase,this.itemPage)
+  console.mylog('mounted type',this.phase,this.itemPage,'id:', this.Id)
 }
 }
 </script>

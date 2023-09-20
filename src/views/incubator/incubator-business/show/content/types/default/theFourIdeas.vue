@@ -1,5 +1,5 @@
 <template>
-	<div id="list-item-8p" class="container" style="margin-top:120px">
+	<div id="list-item-8p" class="container" >
 		<h1>
 			<span class="" style="color: #1fb9b3">نموذج : </span> الأربع أفكار
 		</h1>

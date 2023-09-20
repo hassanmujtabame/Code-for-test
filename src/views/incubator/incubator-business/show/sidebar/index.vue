@@ -29,41 +29,32 @@
         </template>
    <d-stepper-head vertical>
 
-        <d-stepper-head-item v-for="(phase,i) in item.courses" :key="i" 
+      <d-stepper-head-item v-for="(phase,i) in item.courses" :key="i" 
         :status="phase.status"
         @click="onChoose(phase,item.id)"
         >
-             <!-- <input
-                          class="form-check-input"
-                          type="radio"
-                          name="stateRadioDefault23"
-                          id="flexRadioDefault123"
-                          style="transform: translateX(16px);"
-                        />
-                        <label class="form-check-label" for="flexRadioDefault123"> -->
                           {{ phase.title }}
-                        <!-- </label> -->
           </d-stepper-head-item>
-          <div v-if="item.models.length>0">
-
-                 <d-stepper-head-item  v-for="(phase,i) in item.models" :key="i" 
+    <div v-if="item.models.length>0">
+      <d-stepper-head-item  v-for="(phase,i) in item.models" :key="i" 
         :status="phase.status"
         @click="onChoose2(phase,item.id)"
         >
-             <!-- <input
-                          class="form-check-input"
-                          type="radio"
-                          name="stateRadioDefault23"
-                          id="flexRadioDefault123"
-                          style="transform: translateX(16px);"
-                        />
-                        <label class="form-check-label" for="flexRadioDefault123"> -->
                           {{ phase.title }}
-                        <!-- </label> -->
           </d-stepper-head-item>
           </div>
+                          <div v-if="item.title=='المرحلة الأولى'" style="cursor: pointer" class="t-c mt-3" @click="onChoose3('145')">نموذج : الأربع أفكار</div>
+                          <div v-if="item.title=='المرحلة الأولى'" style="cursor: pointer" class="t-c mt-3" @click="onChoose3('146')">نموذج : الأربع أفكا55ر</div>
 
-                  <!-- <a class="list-group-item list-group-item-action" href="#list-item-8p">  قائمة الحظر</a> -->
+              <!-- <div v-if="item.models.length>0">
+      <d-stepper-head-item  v-for="(phase,i) in item.models" :key="i" 
+        :status="phase.status"
+        @click="onChoose2(phase,item.id)"
+        >
+                          {{ phase.title }}
+          </d-stepper-head-item>
+          </div> -->
+
           </d-stepper-head>
         </d-expanded-panel-item>
         
@@ -98,6 +89,10 @@ methods:{
   onChoose2(phase,stage_id){
     this.fireEvent('phase-choosen',{...phase,stage_id})
   },
+    onChoose3(Id){
+    this.fireEvent('phase-choosen',{Id})
+  },
+
   async initializing(){
     try{
       let { data } = await incubatorAPI.getStages({department_id:this.$route.params.id});
