@@ -7,45 +7,27 @@
                                             height="100%">
                                         </router-link>
                                            </div>
-                                    <div class="p-3 ">
-                                        <div class="d-flex justify-content-between " style="align-items: baseline;">
+                                    <div class="py-3 ">
+                                           <div class="d-flex justify-content-between px-3" style="align-items: baseline;">
                                             <h6 class="student-course__title">
                                                 {{item.title}}
                                             </h6>
-                                            <p class="student-course__department">
-                                                {{item.department_name}}
+                                            <p class="student-course__department t-c">
+                                                {{item.views}} مشاهدة
                                             </p>
                                         </div>
-                                        <p class="student-course__description text-two-lines">{{ item.desc }}</p>
-                                        <div v-if="showInfo" class="row">
-
-                                                <p class="student-course__item-info col-6">
-                                                    <d-empty-wallet-icon :size="24" color="currentColor"/>
+                                              <h6 class="text-end px-3">
+                                                {{item.title}}
+                                            </h6>
+                                     
+                                               <p class="student-course__item-info col-6 px-3" style="color: #FF6C6A">
                                                         {{item.price??'N/A'}} {{ $t('riyals') }}
                                                 </p>
-
-                                                <p class="student-course__item-info col-6">
-                                                    <d-localisation-icon :size="24"  color="currentColor"/>
-                                                        {{courseType}}
-                                                </p>
-                                                
-                                                <p class="student-course__item-info  col-12 mt-1">
-                                                    <d-school-wallet-icon :size="24"  color="currentColor"/>
-                                                    {{item.user_info?item.user_info.name:'N/A'}}
-                                                </p>
-
-                                        </div>
-                                        <div v-if="showProgress">
-                                            <div v-if="item.progress_ratio<100">
-                                        <d-progress-bar :height="6" :progress="item.progress_ratio"/>
-                                        <span class="student-course__item-percent-label">{{ item.progress_ratio }}% مكتمل </span>
-                                        </div>
-                                        <div v-else class="d-flex">
-                                            <a class="btn btn-custmer flex-shrink-0 px-2" target="_blank" :href="item.certificate_url">حمّل شهادة تخرجك</a>
-                
-                                            <button class="btn btn-custmer-w mx-2  flex-shrink-0" @click="rateCourseDialog"> قيّم الدورة </button>
-                                        </div>
-                                        </div>
+                                        <!-- <p class="student-course__description text-two-lines">{{ item.desc }}</p> -->
+                                    <div v-if="item.user_info" class="border-top mt-2 py-2 w-100">
+                                     <div class="px-3" v-if="item.user_info.name">{{item.user_info.name}} </div>
+                                     <div class="px-3" v-if="item.user_info.description">{{item.user_info.description}} </div>
+                                    </div>
                                     </div>
                                 </div>
 </template>
@@ -156,7 +138,7 @@ line-height: 17px;
 /* identical to box height, or 142% */
 
 
-color: #1FB9B3;
+/* color: #1FB9B3; */
 }
 .student-course__description{
     font-style: normal;

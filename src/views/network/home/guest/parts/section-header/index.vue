@@ -12,7 +12,9 @@
                     </div>
                     <div class="col-3 col-md-6 m-auto">
                         <div class="img-cons m-auto ">
-                            <img :src="`${publicPath}assets/img/1664179507602 aefwG.png`" alt="network-home" >
+                            <img class="img-fluid"  :src="`${publicPath}assets/svg/Group 1171276206 (1).svg`" alt="" >
+
+                            <!-- <img :src="`${publicPath}assets/img/1664179507602 aefwG.png`" alt="network-home" > -->
                         </div>
 
                     </div>

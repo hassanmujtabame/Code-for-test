@@ -1,8 +1,8 @@
 <template>
-  <div class="sec-five py-3">
+  <div class="sec-five p-3">
             <div class="">
               <div
-                class="d-flex justify-content-between align-items-center container"
+                class="d-flex justify-content-between align-items-center "
               >
                 <h1 class="home-section-title"> أبرز مدربتنا في اكاديمية رياديات</h1>
                 <div v-if="false">
@@ -79,8 +79,8 @@ export default {
 
 <style>
 .swiper-slide{
-  /* width:257.5px !important */
-  width:280px !important
+  width:257.5px !important
+  /* width:280px !important */
 }
 .provider-card{
   width:100% !important

@@ -4,7 +4,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-8 col-md-6">
                         <h1 class="header-title-page">
-                            {{ $t('Riadiat-network') }}                                                                     </h1>
+                            {{ $t('Riadiat-network') }}                                                                </h1>
                         <p class="header-desc-page">
                             {{ $t('riadiat-network-home-text-1') }}
                   </p><p class="header-desc-page">

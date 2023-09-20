@@ -2,9 +2,10 @@
   <div>
         <!-- section 1-->
         <SectionAuthHeader />
+        <SectionBestInstructors />
+
         <div class="container">
         <!-- section best instructors-->
-        <SectionBestInstructors />
         <!-- section section-academy-schedule-->
         <section-academy-schedule />
         <!-- section recent courses online-->
