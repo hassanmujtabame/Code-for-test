@@ -141,12 +141,16 @@ const routers = [
 			),
 	},
 	{
-		path: "incubator/incubator-testModels",
-		meta: { layout: LayoutDefault, auth: true, title: "Incubator testModels" },
-		name: "incubator-incubator-testModels",
+		path: "incubator/incubator-theFourIdeas",
+		meta: {
+			layout: LayoutDefault,
+			auth: true,
+			title: "Incubator theFourIdeas",
+		},
+		name: "incubator-incubator-theFourIdeas",
 		component: () =>
 			import(
-				/* webpackChunkName: "incubator-incubator-business" */ "../views/incubator/incubator-business/deparments/testModels"
+				/* webpackChunkName: "incubator-incubator-business" */ "../views/incubator/incubator-business/theFourIdeas"
 			),
 	},
 	{

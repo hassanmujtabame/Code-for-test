@@ -10,7 +10,7 @@
                 type="text"
                 placeholder="اكتب اسم مشروعك هنا"
               />
-		</div>
+		</div>electronicFeasibilityStudy
 			<div class="mt-3">
 			<p> شعار المشروع</p>
 	
