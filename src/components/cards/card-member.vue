@@ -10,10 +10,10 @@
       <div class="provider-card__content" :class="{ 'h-job': showJob}"  style=" display: flex; flex-direction: column; justify-content: space-between;">
         <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
         <p class="provider-card__description t-c">{{description}} </p>
-        <div class="provider-card__description t-c d-flex align-items-center pb-2">
+        <div v-if="countCourse" class="provider-card__description t-c d-flex align-items-center pb-2">
           
           <img :src="`${publicPath}assets/svg/MyIcon.svg`"  />
-          <span>{{countCourse}}  دورة تدريبية </span>
+          <span >{{countCourse}}  دورة تدريبية </span>
           </div>
         <div v-if="showRate">
           <RateStars :value="rate" :size="12" />

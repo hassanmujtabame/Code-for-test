@@ -17,7 +17,7 @@
       </div>
       <d-swiper v-if="!loading" is-auto :slides-per-view="4" :space-between="4" :items="items">
         <template v-slot:default="{ item }">
-            <CardMember  :name="item.name" :to="getRouteLocale('network-show-profile',{id:item.id})" :img="item.image" />
+            <CardMember  :description="item.job_title" :name="item.name" :to="getRouteLocale('network-show-profile',{id:item.id})" :img="item.image" />
         </template> 
       </d-swiper>
     </div>
@@ -35,7 +35,7 @@ export default {
   data: () => ({
     loading:true,
     total:0,
-    showMembers:false,
+    showMembers:true,
     items: [
      /*{ id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
      { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
