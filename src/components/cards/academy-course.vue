@@ -26,7 +26,7 @@
                                         <!-- <p class="student-course__description text-two-lines">{{ item.desc }}</p> -->
                                     <div v-if="item.user_info" class="border-top mt-2 py-2 w-100">
                                      <div class="px-3" v-if="item.user_info.name">{{item.user_info.name}} </div>
-                                     <div class="px-3" v-if="item.user_info.description">{{item.user_info.description}} </div>
+                                     <div class="px-3 user_info_description" v-if="item.user_info.description">{{item.user_info.description}} </div>
                                     </div>
                                     </div>
                                 </div>
@@ -176,5 +176,10 @@ text-transform: capitalize;
 /* Medium gray */
 
 color: #737373;
+}
+.user_info_description{
+       overflow: hidden;
+    text-overflow: ellipsis;
+    height: 50px;
 }
 </style>
