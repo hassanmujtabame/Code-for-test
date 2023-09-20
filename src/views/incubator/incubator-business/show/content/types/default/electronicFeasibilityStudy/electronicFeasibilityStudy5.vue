@@ -1,5 +1,5 @@
 <template>
-	<div class="container" style="margin-top:120px">
+	<div class="container" >
 	
 		<div class="mt-3"> 
 			<p>نبذة عن المنتج أو الخدمة</p>

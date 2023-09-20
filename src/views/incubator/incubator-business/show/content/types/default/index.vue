@@ -82,9 +82,13 @@
                                 </div>
    </div>
    <div v-else-if="phase.Id=='145'">
+   {{phase.Id}}
+
      <theFourIdeas/>
   </div> 
      <div v-else-if="phase.Id=='146'">
+   {{phase.Id}}
+
      <electronicFeasibilityStudy/>
   </div> 
 
@@ -96,7 +100,7 @@
 import ModelCard from '@/components/cards/model.vue'
 import modelsAPI from '@/services/api/models';
 import theFourIdeas from './theFourIdeas.vue';
-import electronicFeasibilityStudy from './electronicFeasibilityStudy';
+import electronicFeasibilityStudy from './electronicFeasibilityStudy/electronicFeasibilityStudy.vue';
 
 export default {
 name:'section-type-default',

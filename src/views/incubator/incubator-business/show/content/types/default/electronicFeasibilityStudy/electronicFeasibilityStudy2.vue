@@ -1,5 +1,5 @@
 <template>
-	<div class="container" style="margin-top:85px">
+	<div class="container" >
 		<h1>
 			<span class="" style="color: #1fb9b3">نموذج : </span> دراسة الجدوى الإلكترونية
 		</h1>

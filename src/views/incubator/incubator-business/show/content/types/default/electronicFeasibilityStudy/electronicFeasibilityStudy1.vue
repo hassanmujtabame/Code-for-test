@@ -1,5 +1,5 @@
 <template>
-	<div class="container" style="margin-top:120px">
+	<div class="container">
 		<h1>
 			<span class="" style="color: #1fb9b3">نموذج : </span> دراسة الجدوى الإلكترونية
 		</h1>
@@ -10,7 +10,7 @@
                 type="text"
                 placeholder="اكتب اسم مشروعك هنا"
               />
-		</div>electronicFeasibilityStudy
+		</div>
 			<div class="mt-3">
 			<p> شعار المشروع</p>
 	

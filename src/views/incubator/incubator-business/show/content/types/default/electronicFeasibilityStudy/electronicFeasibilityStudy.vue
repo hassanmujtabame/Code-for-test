@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="margin-top:90px">
+  <div class="container">
 <form-wizard>
   <tab-content title="بيانات المشروع">
     <electronicFeasibilityStudy1/>
