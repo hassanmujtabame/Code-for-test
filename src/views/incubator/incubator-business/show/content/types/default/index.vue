@@ -82,12 +82,10 @@
                                 </div>
    </div>
    <div v-else-if="phase.Id=='145'">
-   {{phase.Id}}
 
      <theFourIdeas/>
   </div> 
      <div v-else-if="phase.Id=='146'">
-   {{phase.Id}}
 
      <electronicFeasibilityStudy/>
   </div> 

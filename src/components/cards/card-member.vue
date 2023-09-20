@@ -15,6 +15,10 @@
           <img :src="`${publicPath}assets/svg/MyIcon.svg`"  />
           <span >{{countCourse}}  دورة تدريبية </span>
           </div>
+            <div v-if="!countCourse" class="provider-card__description t-c d-flex align-items-center pb-2">
+          
+       
+          </div>
         <div v-if="showRate">
           <RateStars :value="rate" :size="12" />
         </div>
