@@ -74,6 +74,17 @@
                                 </d-select-input>
                             </ValidationProvider>
                         </div>
+                             <div class="mb-3">
+                            <ValidationProvider name="نوع المكان" vid="city_id" tag="div" class="form-group"
+                                                rules="required"
+                                                v-slot="{ errors }">
+                                <d-select-input :errors="errors" v-model="form.type" label="نوع المكان">
+                                    <option :key="i" v-for="(city, i) in types" :value="city.id">
+                                        {{ `${city.name}` }}
+                                    </option>
+                                </d-select-input>
+                            </ValidationProvider>
+                        </div> 
                         <!-- <div class="mb-3">
                             <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group"
                                                 rules="required"
@@ -250,6 +261,7 @@ export default {
                 category: "",
                 city_id: "",
                 address: "",
+                type:'',
                 // map_address: {},
                 location: "",
                 price: "",
@@ -291,6 +303,10 @@ export default {
             ],
             featuresSelect: [],
             selectedImages: [],
+               types: [
+        { id: "office_room", name: "غرفة مكتبية" },
+        { id: "meeting_rooms", name: "قاعة الاجتماعات" },
+      ],
         };
     },
 
@@ -485,7 +501,7 @@ export default {
                     this.form.area = data.data.area
                     this.form.end_time = data.data.end_time
                     this.form.start_time = data.data.start_time
-                    this.form.city_id = data.data.city_id
+                    this.form.type = data.data.type
                     this.form.location = data.data.location
                     this.file = data.data.image_path
                     this.selectedImages = data.data.medias

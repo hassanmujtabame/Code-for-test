@@ -75,17 +75,17 @@
                             </d-select-input>
                         </ValidationProvider>
                     </div>
-                    <!-- <div class="mb-3">
-                        <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group"
+                    <div class="mb-3">
+                        <ValidationProvider name="نوع المكان" vid="city_id" tag="div" class="form-group"
                                             rules="required"
                                             v-slot="{ errors }">
-                            <d-select-input :errors="errors" v-model="form.city_id" :label="$t('the_city')">
-                                <option :key="i" v-for="(city, i) in cities" :value="city.id">
+                            <d-select-input :errors="errors" v-model="form.type" label="نوع المكان">
+                                <option :key="i" v-for="(city, i) in types" :value="city.id">
                                     {{ `${city.name}` }}
                                 </option>
                             </d-select-input>
                         </ValidationProvider>
-                    </div> -->
+                    </div>
                     <!-- <div class="mb-3">
                         <ValidationProvider name="العنوان تفصيليََا" vid="address" tag="div" class="form-group"
                                             rules="required"
@@ -237,6 +237,7 @@ export default {
                 features: [],
                 description: "",
                 service_categories_ids: [],
+                type:''
             },
             addressName: {
                 address_name: '',
@@ -268,7 +269,11 @@ export default {
                 {name: 'طابعة', id: 'print'},
                 {name: 'قهوة مجانية', id: 'coffey'}
             ],
-            featuresSelect: []
+            featuresSelect: [],
+                           types: [
+        { id: "office_room", name: "غرفة مكتبية" },
+        { id: "meeting_rooms", name: "قاعة الاجتماعات" },
+      ],
         };
     },
 
