@@ -28,7 +28,7 @@
               :title="item.title"
               :medias="item.medias"
               :image="item.image_path"
-              :company="item.city_name"
+              :company="item"
               :description="item.description"
               :price="item.price"
               :area="item.area"
