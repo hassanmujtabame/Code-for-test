@@ -77,7 +77,7 @@ class NetworkApi extends BaseApi {
 	PayPackageFreeSelect(data) {
 		window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
 		// return window.axios.post(`pay`, data);
-		return window.axios.post(`payments/hyperbill/callback`, data);
+		return window.axios.get(`payments/hyperbill/callback`, data);
 		// return window.axios.post(`/pay/myfatoorah`, data);
 	}
 	getNumbers(params = {}) {
