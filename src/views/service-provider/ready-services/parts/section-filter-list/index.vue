@@ -59,7 +59,6 @@
             :rates="item.rates"
             :categoryName="item.category_name"
           />
-     
         <!-- </router-link> -->
       </template>
     </d-filter-list>

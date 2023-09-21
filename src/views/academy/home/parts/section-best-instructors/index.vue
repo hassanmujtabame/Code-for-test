@@ -4,7 +4,7 @@
               <div
                 class="d-flex justify-content-between align-items-center "
               >
-                <h1 class="home-section-title"> أبرز مدربتنا في اكاديمية رياديات</h1>
+                <h1 class="home-section-title px-3"> أبرز مدربتنا في اكاديمية رياديات</h1>
                 <div v-if="false">
                     <button class="more">
                       <a href="" class="text-dark">
@@ -19,6 +19,7 @@
                 is-auto
                 :space-between="7"
                 :items="items" 
+                :loop='true'
               class="academy-departments"
 
             >

@@ -38,7 +38,7 @@
               fill="#979797"
             />
           </svg>
-          {{place}}
+          {{place ?? 'N/A'}}
         </p>
         
         <p class="t-c">
@@ -72,13 +72,16 @@
      
 
       </div>
-      <div class="d-flex gap-2 justify-content-between align-items-center">
-      <div class="d-flex align-items-center">
+      <div class="d-flex gap-2 justify-content-between align-items-center border-top">
+      <div  v-if="name" class="d-flex align-items-center mt-2">
 <div><img class="" style="border-radius: 100%;" :src="name.image" height="40px" width="40px" /></div>
-<div class="px-3">{{name.name}}</div>
+<div  class="px-3">{{name.name??'N/A'}}</div>
 
       </div>
-      <div>
+         <div  v-else class="d-flex align-items-center" style="height:40px">
+
+      </div>
+      <div v-if="rates && rates.length>0">
           <RateStars :value="rates" :size="12" />
       </div>
       </div>
