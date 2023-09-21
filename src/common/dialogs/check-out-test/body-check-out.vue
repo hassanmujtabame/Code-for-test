@@ -212,7 +212,7 @@ export default {
    
       formData.append('package_id',this.otherData.id)
       formData.append('package_type',this.packageType )
-      // formData.append('user_id',this.user.id )
+      formData.append('user_id',this.user.id )
    if (data.coupon) {
       formData.append('coupon',data.coupon)
       }
@@ -244,7 +244,18 @@ export default {
                 } catch (error) {
                         window.SwalError("The given data was invalid")
                 } 
-      }else{
+      }
+      else if(this.otherData.name=='مجانا'){
+                  try {
+                    let { data } = await networkAPI.PayPackageFreeSelect(formData);
+                    if(data.success){
+                      window.SwalSuccess(data.data)
+                    }
+                } catch (error) {
+                        window.SwalError("The given data was invalid")
+                } 
+      }
+      else{
          if (this.packageType == 'academy' || this.packageType == 'incubator') {
         if ( this.departmentsIds.length==0) {
                   try {

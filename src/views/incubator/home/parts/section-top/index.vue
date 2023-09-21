@@ -16,9 +16,7 @@
                              </div> 
                     </div>
                     <div class="col-3 col-md-6 m-auto">
-                        <div>
-                            <img  :src="`${publicPath}assets/img/WhatsApp Image 2023-09-20 at 2.50.30 PM1.jpeg`" alt="" style="height: 256px !important; object-fit: contain !important;">
-                        </div>
+               
                         <div style="overflow: inherit; background:rgba(255, 188, 0, 1);" class="img-cons m-auto ">
                             <img  :src="`${publicPath}assets/svg/1664204864736 1.svg`" alt="" style="height: 256px !important; object-fit: contain !important;">
 
