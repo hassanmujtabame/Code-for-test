@@ -36,11 +36,16 @@ getRecentServices(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`service-provider/user/latest-added-services?${s}`);
 }
-getPackages(params={}){
-    let s=this.generateQueryUrl(params)
-    return window.axios.get(`service-provider/packages?${s}`);
-}
+// getPackages(params={}){
+//     let s=this.generateQueryUrl(params)
+//     return window.axios.get(`service-provider/packages?${s}`);
+// }
+  getPackages(params={}){
+        let s=this.generateQueryUrl(params)
+        // return window.axios.get(`incubator/packages?${s}`);
+		return window.axios.get(`user/service-provider/system-packages?${s}`);
 
+    }
 getBalance(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`service-provider/provider/view-balance?${s}`);

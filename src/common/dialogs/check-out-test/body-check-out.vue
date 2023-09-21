@@ -77,7 +77,7 @@
  <div class="">
   <img :src="item.image_path" :alt="title" style="width:70px; height: 70px; border-radius:100%">
  </div>
- <p class="incubator-dept__title" >{{item.name}}</p>
+ <p class="incubator-dept__title" >{{item.id}}</p>
    
 </div>
       </div>
@@ -348,13 +348,17 @@ this.openDepartmentsDialogAcademy = false;
                     const element = this.user.system_subscriptions[index];
                     if (element.system_package.related_to.key=='academy') {
                       for (let index2 = 0; index2 < element.departments.length; index2++) {
-                        const element2 = Number(element.departments[index2]);
-                        this.departmentsAcademysub.push(element2)
+                        this.departmentsAcademysub=[]
+
+                        // const element2 = element.departments[index2];
+                        // this.departmentsAcademysub.push(element2)
                       }
                     }else if (element.system_package.related_to.key=='incubator') {
                         for (let index3 = 0; index3 < element.departments.length; index3++) {
-                        const element3 = Number(element.departments[index3]);
-                        this.departmentsIncubatorSub.push(element3)
+                        this.departmentsIncubatorSub=[]
+
+                        // const element3 = Number(element.departments[index3]);
+                        // this.departmentsIncubatorSub.push(element3)
                       }
                     }
           }
