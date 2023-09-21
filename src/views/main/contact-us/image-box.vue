@@ -6,7 +6,7 @@
                                 <img class="w-100" :src="`${publicPath}assets/img/logo-white.png`" alt="">
                             </div>
                             <div style="top: 68%;left: 27%;" class="position-absolute icon-contact">
-                                <a v-for="(m,i) in socialMedias" :key="i" :href="m.url" class="mx-2">
+                                <a v-for="(m,i) in socialMedias" :key="i" :href="m.url" class="mx-2" target="_blank">
                                     <i v-if="m.name=='facebook'" class="fab fa-facebook-f" ></i>
                                     <i v-if="m.name=='youtube'" class="fab fa-youtube" ></i>
                                     <i v-if="m.name=='linkedin'" class="fab fa-linkedin-in" ></i>

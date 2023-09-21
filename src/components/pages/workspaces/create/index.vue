@@ -92,12 +92,13 @@
                                             v-slot="{ errors }">
                             <d-text-input :errors="errors" v-model="form.address" label="العنوان تفصيليََا"/>
                         </ValidationProvider>
+                      
                     </div>
                     <div class="mb-3">
                         <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required">
                             <!-- <d-text-input :errors="errors" v-model="form.location" label="رابط العنوان على خرائط جوجل" /> -->
 
-                            <VGoogleMap @mapUpdated='getAddressMap'/>
+                            <VGoogleMap @mapUpdated='getAddressMap' />
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
@@ -436,6 +437,9 @@ export default {
         },
         getAddressMap(data) {
             this.addressName = data
+                console.log('false',data);
+                this.form.address = data.address_name
+            
         },
     },
     mounted() {
