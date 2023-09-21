@@ -5,8 +5,7 @@
                 <div class="col-md-6 d-flex flex-column">
                     <h2>
                         حاضنة {{itemPage.name}}                    </h2>
-                    <p style="color: #979797;line-height: 40px;font-size: 24px;" class="flex-grow-1">
-                        {{ itemPage.description }}
+                    <p v-html="itemPage.description" style="color: #979797;line-height: 40px;font-size: 24px;" class="flex-grow-1">
                     </p>
                     <div>
               

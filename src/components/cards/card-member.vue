@@ -12,7 +12,7 @@
         <p class="provider-card__description t-c">{{description}} </p>
         <div v-if="countCourse" class="provider-card__description t-c d-flex align-items-center pb-2">
           
-          <img :src="`${publicPath}assets/svg/MyIcon.svg`"  />
+          <img :src="`${publicPath}assets/svg/MyIcon.svg`"  /> 
           <span >{{countCourse}}  دورة تدريبية </span>
           </div>
             <div v-if="!countCourse" class="provider-card__description t-c d-flex align-items-center pb-2">
