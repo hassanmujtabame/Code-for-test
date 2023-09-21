@@ -86,6 +86,13 @@
                             </d-select-input>
                         </ValidationProvider>
                     </div>
+                       <div class="mb-3">
+                        <ValidationProvider name="عدد المقاعد" vid="number_peoples" tag="div" class="form-group"
+                                            rules="required"
+                                            v-slot="{ errors }">
+                            <d-text-input :errors="errors" v-model="form.number_peoples" label="عدد المقاعد"/>
+                        </ValidationProvider>
+                    </div>
                     <!-- <div class="mb-3">
                         <ValidationProvider name="العنوان تفصيليََا" vid="address" tag="div" class="form-group"
                                             rules="required"
@@ -163,6 +170,7 @@
                             <d-text-input :errors="errors" v-model="form.description" label="وصف مكان العمل"/>
                         </ValidationProvider>
                     </div>
+                    
 
                     <div class="">
                         <!-- v-if="form.category === 'academy'" -->
@@ -237,7 +245,8 @@ export default {
                 features: [],
                 description: "",
                 service_categories_ids: [],
-                type:''
+                type:'',
+                number_peoples:''
             },
             addressName: {
                 address_name: '',

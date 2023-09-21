@@ -84,7 +84,15 @@
                                     </option>
                                 </d-select-input>
                             </ValidationProvider>
-                        </div> 
+                        </div>
+
+                                 <div class="mb-3">
+                        <ValidationProvider name="عدد المقاعد" vid="number_peoples" tag="div" class="form-group"
+                                            rules="required"
+                                            v-slot="{ errors }">
+                            <d-text-input :errors="errors" v-model="form.number_peoples" label="عدد المقاعد"/>
+                        </ValidationProvider>
+                    </div> 
                         <!-- <div class="mb-3">
                             <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group"
                                                 rules="required"
@@ -270,6 +278,7 @@ export default {
                 end_time: "",
                 description: "",
                 service_categories_ids: [],
+                number_peoples:''
             },
          addressName: {
                 address_name: '',
@@ -507,6 +516,8 @@ export default {
                     this.selectedImages = data.data.medias
                     this.form.category = data.data.category
                     this.addressName = data.data.map_address
+                    this.form.number_peoples = data.data.number_peoples
+                    
                     this.featuresWorkSpace = data.data.features.map(cat=>cat.id)
 
                     console.log(data.data);
