@@ -86,14 +86,14 @@
                             </d-select-input>
                         </ValidationProvider>
                     </div> -->
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <ValidationProvider name="العنوان تفصيليََا" vid="address" tag="div" class="form-group"
                                             rules="required"
                                             v-slot="{ errors }">
                             <d-text-input :errors="errors" v-model="form.address" label="العنوان تفصيليََا"/>
                         </ValidationProvider>
                       
-                    </div>
+                    </div> -->
                     <div class="mb-3">
                         <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required">
                             <!-- <d-text-input :errors="errors" v-model="form.location" label="رابط العنوان على خرائط جوجل" /> -->
@@ -229,7 +229,6 @@ export default {
                 title: "",
                 category: "",
                 city_id: "",
-                address: "",
                 location: "",
                 price: "",
                 area: "",
@@ -287,6 +286,8 @@ export default {
       let formData = this.loadObjectToForm({
         ...this.form,
         main_image: this.file,
+        address: "lorem",
+
       });
       
       formData.append(`map_address`, JSON.stringify(this.addressName));
@@ -437,9 +438,6 @@ export default {
         },
         getAddressMap(data) {
             this.addressName = data
-                console.log('false',data);
-                this.form.address = data.address_name
-            
         },
     },
     mounted() {
