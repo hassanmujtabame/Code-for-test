@@ -32,7 +32,7 @@
             :id="item.id"
             :rates="item.rates"
           />
-          
+          {{item}}
         <!-- </router-link> -->
       </div>
     </div>

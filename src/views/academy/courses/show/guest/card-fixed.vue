@@ -5,6 +5,7 @@
    <div class="course-card-fixed__item my-2">
     <d-unlock-icon color="var(--m-color)" />
     <span class="px-2">محتوي متاح دائما</span>
+ 
    </div>
    <div class="course-card-fixed__item">
     <d-doc-text-icon color="var(--m-color)" />

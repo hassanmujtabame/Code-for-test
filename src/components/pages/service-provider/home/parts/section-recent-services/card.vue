@@ -15,8 +15,8 @@
           :to="getRouteLocale('service-provider-ready-service', { id: id })"
         >
     <div class="p-3">
-      <h6 class="m-c">{{ title }}</h6>
-      <p class="text-two-lines txt-description" v-html="description"></p>
+      <h6 class="m-c">{{ title ?? 'N/A' }}</h6>
+      <p v-if="description" class="text-two-lines txt-description" v-html="description"></p>
       <div class="d-flex gap-2 justify-content-between">
            <p class="t-c">
           <svg
@@ -35,7 +35,7 @@
               fill="#979797"
             />
           </svg>
-          {{place}}
+          {{place ?? 'N/A'}}
         </p>
         
         <p class="t-c">
@@ -63,19 +63,24 @@
               fill="#979797"
             />
           </svg>
-          {{price}} {{ $t('riyals') }}
+          {{price?? 'N/A'}} {{ $t('riyals') }}
         </p>
 
      
 
       </div>
       <div class="d-flex gap-2 justify-content-between align-items-center">
-      <div class="d-flex align-items-center">
+      <div v-if="name && name !=null" class="d-flex align-items-center">
 <div><img class="" style="border-radius: 100%;" :src="name.image" height="40px" width="40px" /></div>
 <div class="px-3">{{name.name}}</div>
 
       </div>
-      <div>
+        <div v-else class="d-flex align-items-center" style="height:40px ">
+<div><img class="" style="border-radius: 100%;" :src="name.image" height="40px" width="40px" /></div>
+<div class="px-3">{{name.name}}</div>
+
+      </div>
+      <div v-if="rates && rates.length>0">
           <RateStars :value="rates" :size="12" />
       </div>
       </div>
