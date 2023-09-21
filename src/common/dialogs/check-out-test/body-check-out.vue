@@ -211,19 +211,19 @@ export default {
       let formData = new FormData();
    
       formData.append('package_id',this.otherData.id)
-      // formData.append('package_type',this.packageType )
-      formData.append('user_id',this.user.id )
+      formData.append('package_type',this.packageType )
+      // formData.append('user_id',this.user.id )
    if (data.coupon) {
       formData.append('coupon',data.coupon)
       }
-      if (this.departmentsAcademysub) {
+      if (this.packageType == 'academy' && this.departmentsAcademysub) {
             for (var i = 0; i < this.departmentsAcademysub.length; i++) {
         formData.append("department_ids[]", this.departmentsAcademysub[i]);
       }
       
       // formData.append('department_ids',`[${this.departmentsIds}]`)
       }
-        if (this.departmentsIncubatorSub) {
+        if (this.packageType == 'incubator' && this.departmentsIncubatorSub) {
             for (var k = 0; k < this.departmentsIncubatorSub.length; k++) {
         formData.append("department_ids[]", this.departmentsIncubatorSub[k]);
       }
@@ -250,13 +250,13 @@ export default {
                   try {
                     let { data } = await networkAPI.PayPackageSelect(formData);
                     
-                    if(data.status){
+                    if(data.success){
                         this.paymentUrlPth=	data.data.payment_url
                         // this.confirmPaymentUrl()
-                      window.SwalSuccess(data.data)
+                      // window.SwalSuccess(data.data)
                         // this.router_push('index')
 
-                        // this.paymentUrl()
+                        this.paymentUrl()
                     }
                 } catch (error) {
                         window.SwalError("The given data was invalid")
@@ -266,12 +266,12 @@ export default {
               try {
                     let { data } = await networkAPI.PayPackageSelect(formData);
                     
-                    if(data.status){
+                    if(data.success){
                         this.paymentUrlPth=	data.data.payment_url
                         // this.confirmPaymentUrl()
-                      window.SwalSuccess(data.data)
+                      // window.SwalSuccess(data.data)
                         // this.router_push('index')
-                        // this.paymentUrl()
+                        this.paymentUrl()
                         
                     }
                 } catch (error) {
