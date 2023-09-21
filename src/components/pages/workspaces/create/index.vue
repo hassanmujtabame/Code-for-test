@@ -75,7 +75,7 @@
                             </d-select-input>
                         </ValidationProvider>
                     </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group"
                                             rules="required"
                                             v-slot="{ errors }">
@@ -85,7 +85,7 @@
                                 </option>
                             </d-select-input>
                         </ValidationProvider>
-                    </div>
+                    </div> -->
                     <div class="mb-3">
                         <ValidationProvider name="العنوان تفصيليََا" vid="address" tag="div" class="form-group"
                                             rules="required"
@@ -245,7 +245,7 @@ export default {
             },
             features: [],
             providerCategories: [],
-            cities: [],
+            // cities: [],
             categories: [
                 {
                     title: "الأكاديمية",
@@ -439,7 +439,7 @@ export default {
         },
     },
     mounted() {
-        this.loadCities();
+        // this.loadCities();
         this.getWorkspaceFeatures();
         this.getServiceProviderCategories();
     },

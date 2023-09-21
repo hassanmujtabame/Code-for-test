@@ -178,7 +178,7 @@
                             </div>
                     </div>
                 </div>
-
+<!-- 
                     <div class="mb-3">
                         <ValidationProvider :name="$t('the_city')" 
                         vid="region_id" 
@@ -193,7 +193,7 @@
 
                         </d-select-input>
                         </ValidationProvider>
-                    </div>
+                    </div> -->
                     <div class="mb-3">
                         <ValidationProvider 
                         :name="$t('exhibition_map_url')" 
@@ -370,7 +370,7 @@ components:{
         showDialog: false,
         idImage: `image-selected-${vm.generateRandomString(8)}`,
         categories: [],
-        cities:[],
+        // cities:[],
         showImage:false,
         tags: [],
         file: null,
@@ -579,7 +579,7 @@ watch:{
         }
     },
     mounted() {
-        this.loadCities()
+        // this.loadCities()
         this.loadBlogCategories()
     }
 }
