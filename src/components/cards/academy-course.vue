@@ -8,13 +8,17 @@
                                         </router-link>
                                            </div>
                                     <div class="py-3 ">
-                                           <div class="d-flex justify-content-between px-3" style="align-items: baseline;">
+                                           <div class="d-flex justify-content-between align-items-center px-3" style="align-items: baseline;">
                                             <h6 class="student-course__title">
                                                 {{item.title}}
                                             </h6>
+                                            <div  class="d-flex">
                                             <p class="student-course__department t-c">
                                                 {{item.views}} مشاهدة
                                             </p>
+                                      <img class="mx-1" style="width: 20px; height: 20px;" :src="`${publicPath}assets/img/WhatsApp Image 2023-09-20 at 2.50.30 PM.jpeg`"  /> 
+                                            </div>
+
                                         </div>
                                               <h6 class="text-end px-3">
                                                 {{item.title}}

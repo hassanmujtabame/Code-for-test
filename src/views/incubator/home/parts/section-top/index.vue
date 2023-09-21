@@ -17,7 +17,9 @@
                     </div>
                     <div class="col-3 col-md-6 m-auto">
                         <div style="overflow: inherit;" class="img-cons m-auto ">
-                            <img  :src="`${publicPath}assets/img/1664204864736 1.png`" alt="" >
+                            <!-- <img  :src="`${publicPath}assets/img/1664204864736 1.png`" alt="" > -->
+                             <img :src="`${publicPath}assets/img/WhatsApp Image 2023-09-20 at 2.50.30 PM1.jpeg`"  /> 
+
                         </div>
 
                     </div>
