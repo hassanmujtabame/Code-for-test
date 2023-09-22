@@ -19,6 +19,12 @@
     <tab-content>
     <electronicFeasibilityStudy5/>
   </tab-content>
+    <tab-content>
+    <electronicFeasibilityStudy6/>
+  </tab-content>
+      <tab-content>
+    <electronicFeasibilityStudy7/>
+  </tab-content>
      </form-wizard>
    </tab-content>
      <tab-content title="الدراسة الفنية  ">
@@ -37,6 +43,8 @@ import electronicFeasibilityStudy2 from './electronicFeasibilityStudy2';
 import electronicFeasibilityStudy3 from './electronicFeasibilityStudy3';
 import electronicFeasibilityStudy4 from './electronicFeasibilityStudy4';
 import electronicFeasibilityStudy5 from './electronicFeasibilityStudy5';
+import electronicFeasibilityStudy6 from './electronicFeasibilityStudy6';
+import electronicFeasibilityStudy7 from './electronicFeasibilityStudy7';
 
 import {FormWizard, TabContent} from 'vue-form-wizard'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
@@ -50,6 +58,8 @@ components: {
   electronicFeasibilityStudy4,
   electronicFeasibilityStudy3,
   electronicFeasibilityStudy2,
+  electronicFeasibilityStudy6,
+  electronicFeasibilityStudy7
 }
 
 }
