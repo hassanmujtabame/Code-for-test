@@ -15,13 +15,10 @@
                               <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2 mx-3"> {{ $t('login-female') }}  </router-link>
                              </div> 
                     </div>
-                    <div class="col-3 col-md-6 m-auto">
-               
+                    <div class="col-3 col-md-6 m-auto d-none d-lg-block d-xl-block">
                         <div style="overflow: inherit; background:rgba(255, 188, 0, 1);" class="img-cons m-auto ">
                             <img  :src="`${publicPath}assets/svg/1664204864736 1.svg`" alt="" style="height: 256px !important; object-fit: contain !important;">
-
                         </div>
-
                     </div>
                     <!-- <div class="col-12">
                         <div class="my-3">
