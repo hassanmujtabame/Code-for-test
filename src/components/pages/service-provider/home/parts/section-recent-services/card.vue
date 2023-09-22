@@ -16,7 +16,7 @@
         >
     <div class="p-3">
       <h6 class="m-c">{{ title ?? 'N/A' }}</h6>
-      <p v-if="description" class="text-two-lines txt-description" v-html="description"></p>
+      <p v-if="description && description.length>0" class="text-two-lines txt-description" v-html="description"></p>
       <div class="d-flex gap-2 justify-content-between">
            <p class="t-c">
           <svg
@@ -65,7 +65,7 @@
           </svg>
           {{price?? 'N/A'}} {{ $t('riyals') }}
         </p>
-
+ 
      
 
       </div>
