@@ -77,7 +77,7 @@
  <div class="">
   <img :src="item.image_path" :alt="title" style="width:70px; height: 70px; border-radius:100%">
  </div>
- <p class="incubator-dept__title" >{{item.id}}</p>
+ <p class="incubator-dept__title" >{{item.name}}</p>
    
 </div>
       </div>
