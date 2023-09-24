@@ -12,14 +12,14 @@
 			<div class="mt-3">
 			<p> شعار المشروع</p>
 	
-	<div class="col-md-12">
+	<div class="">
                             <label style="border: 0px !important;" for="imginput" class="img-zone form-label file-label first w-100">
-																		<div v-if="file" class="add-img-selected w-100" style="width: 234px height: 136px">
+																		<div v-if="file" class="add-img-selected w-100" >
 
-																				<img class="image-selected-dialog" src="none" :id="idImage" width="234" height="136" />
+																				<img class="image-selected-dialog" src="none" :id="idImage"/>
 																		</div>
-																			<div v-else class="text-center p-5" style="width: 234px height: 136px">
-                                  <img :src="`${publicPath}assets/svg/Group 1171275983.svg`"  />
+																			<div v-else class="text-center p-5">
+                                  <img :src="`${publicPath}assets/svg/Group 1171275983.svg`"  style="width: 205%;" />
                                       
                                 </div>
           

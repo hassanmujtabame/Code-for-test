@@ -127,15 +127,10 @@
 <script>
 
 export default {
-  data:(vm)=>{
+  data:()=>{
     return{
-        loading:false,
-    group:'add-blog',
-    showDialog:false,
     items:[{name:'منشأة فردية',id:'1'},{name:'شركة تضامن',id:'2'},{name:'شركة توصية',id:'3'},{name:'ذات مسئولية محدودة',id:'4'}],
     stateValue:'',
-    idImage: `image-selected-${vm.generateRandomString(8)}`,
-    url:`${vm.publicPath}assets/svg/Group 1171275983.svg`,
     file:null,
       options: [
           { value: null, text: 'Please select an option' },
@@ -176,13 +171,7 @@ export default {
             reader.readAsDataURL(this.file);
     },
 
-    openDialog(){
-        this.loading =  false;
-        window.$('#'+this.idImage)
-                    .attr('src', 'none')
-                    .css('opacity', '0');
-        return true;
-    },
+
  
 
   },

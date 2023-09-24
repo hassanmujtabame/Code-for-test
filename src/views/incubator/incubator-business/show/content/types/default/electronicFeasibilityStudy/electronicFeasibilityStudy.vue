@@ -25,10 +25,20 @@
       <tab-content>
     <electronicFeasibilityStudy7/>
   </tab-content>
+    <tab-content>
+    <electronicFeasibilityStudy8/>
+  </tab-content>
      </form-wizard>
    </tab-content>
      <tab-content title="الدراسة الفنية  ">
-       kkkk
+            <form-wizard class="marketing-step">
+  <tab-content>
+    <electronicFeasibilityStudy9/>
+  </tab-content>
+   <tab-content>
+    <electronicFeasibilityStudy10/>
+  </tab-content>
+            </form-wizard>
    </tab-content>
      <tab-content title="الدراسة المالية  ">
      Yuhuuu! This seems pretty damn simple
@@ -45,6 +55,9 @@ import electronicFeasibilityStudy4 from './electronicFeasibilityStudy4';
 import electronicFeasibilityStudy5 from './electronicFeasibilityStudy5';
 import electronicFeasibilityStudy6 from './electronicFeasibilityStudy6';
 import electronicFeasibilityStudy7 from './electronicFeasibilityStudy7';
+import electronicFeasibilityStudy8 from './electronicFeasibilityStudy8';
+import electronicFeasibilityStudy9 from './electronicFeasibilityStudy9';
+import electronicFeasibilityStudy10 from './electronicFeasibilityStudy10';
 
 import {FormWizard, TabContent} from 'vue-form-wizard'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
@@ -59,7 +72,10 @@ components: {
   electronicFeasibilityStudy3,
   electronicFeasibilityStudy2,
   electronicFeasibilityStudy6,
-  electronicFeasibilityStudy7
+  electronicFeasibilityStudy7,
+  electronicFeasibilityStudy8,
+  electronicFeasibilityStudy9,
+  electronicFeasibilityStudy10
 }
 
 }

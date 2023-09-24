@@ -170,9 +170,13 @@
       <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
     </tr>
       <tr>
       <td>مدى توفر الطرق والمواصلات</td>
+      <td><input/> </td>
+      <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
@@ -182,15 +186,21 @@
       <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
     </tr>
         <tr>
       <td>مدى توفر الخدمات الاجتماعية</td>
       <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
     </tr>
         <tr>
       <td>لإيجار/البناء</td>
+      <td><input/> </td>
+      <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
@@ -201,9 +211,13 @@
       <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
     </tr>
          <tr>
       <td>7- اختيار العاملين</td>
+      <td><input/> </td>
+      <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
@@ -213,9 +227,13 @@
       <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
     </tr>
       <tr>
       <td>القرب من سكن مالك المشروع</td>
+      <td><input/> </td>
+      <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
       <td><input/> </td>
@@ -224,6 +242,8 @@
       <td style="background: rgba(255, 242, 205, 1);">المجموع</td>
       <td style="background: rgba(255, 242, 205, 1);"></td>
        <td style="background: rgba(255, 242, 205, 1);"></td>
+      <td style="background: rgba(255, 242, 205, 1);"></td>
+      <td style="background: rgba(255, 242, 205, 1);"></td>
       <td style="background: rgba(255, 242, 205, 1);"></td>
       <td style="background: rgba(255, 242, 205, 1);"></td>
     </tr>

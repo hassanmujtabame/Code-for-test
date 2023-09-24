@@ -51,14 +51,14 @@
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('schedules-your-services') }}</button>
                     </router-link>
                 </div>
-                <div class="box  mx-2 mt-3 ">
+                <!-- <div class="box  mx-2 mt-3 ">
                     <emptyWalletIcon :size="32" color="var(--m-color)" />
 
 
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-menu-subscribe')" class="mx-2 m-c ">
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('subscribes') }}</button>
                     </router-link>
-                </div>
+                </div> -->
                 <div class="box  mx-2 mt-3 ">
                     <!--invoice icon-->
 
