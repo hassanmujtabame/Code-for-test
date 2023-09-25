@@ -1,5 +1,6 @@
 <template>
  <div class="">
+ 
       <div v-if="phase.file">
    <h1 class="incubator-business-content__title pb-0 mb-3">
       <!-- :checked="selected" -->
@@ -28,7 +29,7 @@
                         </button>
    </div>
    
-   <div  v-else-if="phase.department_name" >
+   <div  v-if="phase.department_name" >
 
     <h1 class="incubator-business-content__title pb-0">
       <!-- :checked="selected" -->
@@ -81,13 +82,17 @@
                                     </div>
                                 </div>
    </div>
-   <div v-else-if="phase.Id=='145'">
+   <div v-if="phase.Id=='145'">
 
      <theFourIdeas/>
   </div> 
-     <div v-else-if="phase.Id=='146'">
+     <div v-if="phase.Id=='146'">
 
      <electronicFeasibilityStudy/>
+  </div> 
+
+     <div v-if="phase.Id=='146'">
+  <InvestmentProposalForm/>
   </div> 
 
   
@@ -99,13 +104,15 @@ import ModelCard from '@/components/cards/model.vue'
 import modelsAPI from '@/services/api/models';
 import theFourIdeas from './theFourIdeas.vue';
 import electronicFeasibilityStudy from './electronicFeasibilityStudy/electronicFeasibilityStudy.vue';
+import InvestmentProposalForm from './InvestmentProposalForm/InvestmentProposalForm.vue';
 
 export default {
 name:'section-type-default',
 components:{
     ModelCard,
     theFourIdeas,
-    electronicFeasibilityStudy
+    electronicFeasibilityStudy,
+    InvestmentProposalForm
 },
 props:{
   phase:{},
@@ -140,7 +147,9 @@ methods:{
     },
 },
 mounted(){
-  console.mylog('mounted type',this.phase,this.itemPage,'id:', this.Id)
+  // console.mylog('mounted type',this.phase,this.itemPage,'id:', this.Id)
+  console.mylog( 'id:', this.Id)
+  console.mylog('phase',this.phase)
 }
 }
 </script>

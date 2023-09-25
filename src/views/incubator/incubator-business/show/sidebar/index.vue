@@ -43,17 +43,10 @@
                           {{ phase.title }}
           </d-stepper-head-item>
           </div>
-          <div  v-if="item.title=='المرحلة الأولى'">
-         <d-stepper-head-item  v-for="(phase,i) in item.modelsDesigne" :key="i" 
-        :status="phase.status"
-        @click="onChoose2(phase,item.id)"
-        >
-                          {{ phase.title }}
-          </d-stepper-head-item>
-          </div>
+       
     
                           <div v-if="item.title=='المرحلة الأولى'" style="cursor: pointer" class="t-c mt-3" @click="onChoose3('145')">نموذج : الأربع أفكار</div>
-                          <div v-if="item.title=='المرحلة الأولى'" style="cursor: pointer" class="t-c mt-3" @click="onChoose3('146')"> نموذج : دراسة الجدوى الإلكترونية </div>
+                          <div v-if="item.title=='المرحلة الرابعة'" style="cursor: pointer" class="t-c mt-3" @click="onChoose3('146')"> نموذج : دراسة الجدوى الإلكترونية </div>
 
               <!-- <div v-if="item.models.length>0">
       <d-stepper-head-item  v-for="(phase,i) in item.models" :key="i" 
@@ -100,7 +93,8 @@ methods:{
     this.fireEvent('phase-choosen',{...phase,stage_id})
   },
     onChoose3(Id){
-    this.fireEvent('phase-choosen',{Id})
+    this.fireEvent('phase-choosen',{Id});
+
   },
 
 

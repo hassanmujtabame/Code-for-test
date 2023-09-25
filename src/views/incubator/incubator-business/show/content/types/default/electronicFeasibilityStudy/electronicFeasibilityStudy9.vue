@@ -87,7 +87,7 @@
  </div>
 
       <div class="mt-3 col-12">
-       <p>تقدير المنافع العامة: </p>
+       <p>تقدير المنافع العامة:</p>
        <table class="col-12">
   <thead>
     <tr>

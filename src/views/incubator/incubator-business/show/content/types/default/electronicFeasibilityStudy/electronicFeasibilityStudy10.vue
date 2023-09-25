@@ -1,7 +1,7 @@
 <template>
 	<div class="container" >
      <div class="mt-3 col-12">
-<p>1- التكاليف الرأسمالية في المشروع:  (من الدراسة الفنية)</p>
+<p>1- التكاليف الرأسمالية في المشروع: (من الدراسة الفنية)</p>
        <table class="col-12">
   <thead>
     <tr>
@@ -171,60 +171,160 @@
 
 </table>
  </div>
-
-       <div class="mt-3 col-12">
-       <p>مصاريف التأسيس:</p>
+        <div class="mt-3 col-12">
+       <p>6- إجمالي رأس المال العامل لتشغيل دورة إنتاجية واحدة (لمدة ستة أشهر):</p>
        <table class="col-12">
   <thead>
     <tr>
-      <th>البيان</th>
-      <th>التكلفة</th>
+      <th>البيـان</th>
+      <th>مصاريف التشغيل السنوية (ريال)</th>
+      <th>رأس المال العامل (ريال)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>تكاليف متغيرة(جدول 3)</td>
       <td><input/> </td>
       <td><input/> </td>
     </tr>
     <tr>
+      <td>تكاليف ثابتة (جدول 4)</td>
       <td><input/> </td>
       <td><input/> </td>
-
+    </tr>
+    <tr>
+      <td>مصروفات الاهلاك (جدول5)</td>
+      <td><input/> </td>
+      <td><input/> </td>
     </tr>
 
 
  <tr>
-        <td style="background: rgba(255, 242, 205, 1);">الإجمالي</td>
+        <td style="background: rgba(255, 242, 205, 1);">إجمالي رأس المال العامل لدورة إنتاجية واحدة</td>
       <td style="background: rgba(255, 242, 205, 1);"></td>
       <td style="background: rgba(255, 242, 205, 1);"></td>
-   
+ </tr>
+  </tbody>
+
+</table>
+ </div>
+         <div class="mt-3 col-12">
+           <p>7- -التكاليف الاستثمارية:</p>
+       <table class="col-12">
+  <thead>
+    <tr>
+      <th>البيـان</th>
+      <th>القيمة (ريال)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>التكاليف الرأسمالية الثابتة</td>
+      <td><input/> </td>
+    </tr>
+    <tr>
+      <td>مصروفات ما قبل التشغيل</td>
+      <td><input/> </td>
+    </tr>
+    <tr>
+      <td>رأس المال العامل لدورة إنتاجية واحدة</td>
+      <td><input/> </td>
+    </tr>
+
+
+ <tr>
+      <td style="background: rgba(255, 242, 205, 1);">إجمالي التكلفة الاستثمارية</td>
+      <td style="background: rgba(255, 242, 205, 1);"></td>
+ </tr>
+  </tbody>
+
+</table>
+ </div>
+       <div class="mt-3 col-12">
+           <p>مصادر التمويل:</p>
+       <table class="col-12">
+  <thead>
+    <tr>
+      <th>البيـان</th>
+      <th>النسبة المئوية</th>
+      <th>القيمة (ريال)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>رأس المال المدفوع</td>
+      <td><input/> </td>
+      <td><input/> </td>
+    </tr>
+    <tr>
+      <td>قروض</td>
+      <td><input/> </td>
+      <td><input/> </td>
+    </tr>
+ <tr>
+      <td style="background: rgba(255, 242, 205, 1);">الإجمالي</td>
+      <td style="background: rgba(255, 242, 205, 1);"></td>
+      <td style="background: rgba(255, 242, 205, 1);"></td>
+ </tr>
+  </tbody>
+
+</table>
+ </div>
+        <div class="mt-3 col-12">
+           <p>مصادر التمويل:</p>
+       <table class="col-12">
+  <thead>
+    <tr>
+      <th>البيـان</th>
+      <th>حجم المبيعات الشهرية</th>
+      <th> حجم المبيعات السنوية</th>
+      <th>السعر (ريال)</th>
+      <th>الإيرادات السنوية (ريال)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>منتج 1</td>
+      <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
+    </tr>
+     <tr>
+      <td>منتج 2</td>
+      <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
+    </tr>
+     <tr>
+      <td>منتج 3</td>
+      <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
+    </tr>
+      <tr>
+      <td>منتج 4</td>
+      <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
+      <td><input/> </td>
+    </tr>
+
+ <tr>
+      <td style="background: rgba(255, 242, 205, 1);">إجمالي الايرادات</td>
+      <td style="background: rgba(255, 242, 205, 1);"></td>
+      <td style="background: rgba(255, 242, 205, 1);"></td>
+      <td style="background: rgba(255, 242, 205, 1);"></td>
+      <td style="background: rgba(255, 242, 205, 1);"></td>
  </tr>
   </tbody>
 
 </table>
  </div>
 
-       <div class="mt-3 col-12">
-       <p>تكاليف الإيجار: (في حال كان الموقع مستأجر)</p>
-       <table class="col-12">
-  <thead>
-    <tr>
-      <th>البيان</th>
-      <th>التكلفة</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><input/> </td>
-    </tr>
-    <tr>
-      <td><input/> </td>
-
-    </tr>
-  </tbody>
-
-</table>
- </div>
+ 
 
 	</div>
 </template>

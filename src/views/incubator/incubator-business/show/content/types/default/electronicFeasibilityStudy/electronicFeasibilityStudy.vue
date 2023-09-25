@@ -28,21 +28,15 @@
     <tab-content>
     <electronicFeasibilityStudy8/>
   </tab-content>
-     </form-wizard>
-   </tab-content>
-     <tab-content title="الدراسة الفنية  ">
-            <form-wizard class="marketing-step">
-  <tab-content>
+    <tab-content>
     <electronicFeasibilityStudy9/>
   </tab-content>
    <tab-content>
     <electronicFeasibilityStudy10/>
   </tab-content>
-            </form-wizard>
+     </form-wizard>
    </tab-content>
-     <tab-content title="الدراسة المالية  ">
-     Yuhuuu! This seems pretty damn simple
-   </tab-content>
+
 </form-wizard>
   </div>
 </template>
