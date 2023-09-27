@@ -90,23 +90,21 @@ export default {
     selected(evt) {
       evt.preventDefault();
       if (this.typeSubscribe=='مجانا') {
+      let formData = new FormData();
+      formData.append('package_id',this.packId.id)
+      formData.append('package_type',this.packageType )
+      formData.append('user_id',this.user.id )
+               try {
+                    let { data } =  networkAPI.PayPackageFreeSelect(formData);
+                    if(data.success){
+
+                    this.router_push(`${this.typeSectionSub}-subscribe-finish`)
+                    }
+                } catch (error) {
+                        // window.SwalError("The given data was invalid")
                     this.router_push(`${this.typeSectionSub}-subscribe-finish`)
 
-      // let formData = new FormData();
-      // formData.append('package_id',this.packId.id)
-      // formData.append('package_type',this.packageType )
-      // formData.append('user_id',this.user.id )
-      //          try {
-      //               let { data } =  networkAPI.PayPackageFreeSelect(formData);
-      //               if(data.success){
-
-      //               this.router_push(`${this.typeSectionSub}-subscribe-finish`)
-      //               }
-      //           } catch (error) {
-      //                   // window.SwalError("The given data was invalid")
-      //               this.router_push(`${this.typeSectionSub}-subscribe-finish`)
-
-      //           } 
+                } 
       }else{
             this.$emit("selected", this.typeSubscribe);
 
