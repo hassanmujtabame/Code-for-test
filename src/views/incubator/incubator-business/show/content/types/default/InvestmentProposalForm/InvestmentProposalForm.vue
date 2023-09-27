@@ -5,7 +5,7 @@
     <InvestmentProposalForm1/>
   </tab-content>
   <tab-content >
-    <electronicFeasibilityStudy2/>
+    <InvestmentProposalForm2/>
 
    </tab-content>
   
@@ -15,6 +15,7 @@
 <script>
 
 import InvestmentProposalForm1 from './InvestmentProposalForm1';
+import InvestmentProposalForm2 from './InvestmentProposalForm2';
 
 
 import {FormWizard, TabContent} from 'vue-form-wizard'
@@ -25,6 +26,7 @@ components: {
   FormWizard,
   TabContent,
   InvestmentProposalForm1,
+  InvestmentProposalForm2
 
 }
 

@@ -90,8 +90,8 @@
 
      <electronicFeasibilityStudy/>
   </div> 
-
-     <div v-if="phase.Id=='146'">
+ 
+     <div v-if="phase.Id=='1450'">
   <InvestmentProposalForm/>
   </div> 
 

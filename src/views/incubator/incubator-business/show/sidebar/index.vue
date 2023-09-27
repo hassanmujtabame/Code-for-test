@@ -46,7 +46,8 @@
        
     
                           <div v-if="item.title=='المرحلة الأولى'" style="cursor: pointer" class="t-c mt-3" @click="onChoose3('145')">نموذج : الأربع أفكار</div>
-                          <div v-if="item.title=='المرحلة الرابعة'" style="cursor: pointer" class="t-c mt-3" @click="onChoose3('146')"> نموذج : دراسة الجدوى الإلكترونية </div>
+                          <div v-if="item.title=='المرحلة الثانية'" style="cursor: pointer" class="t-c mt-3" @click="onChoose3('1450')">نموذج :العرض الاستثماري</div>
+                          <div v-if="item.title=='المرحلة النهائية'" style="cursor: pointer" class="t-c mt-3" @click="onChoose3('146')"> نموذج : دراسة الجدوى الإلكترونية </div>
 
               <!-- <div v-if="item.models.length>0">
       <d-stepper-head-item  v-for="(phase,i) in item.models" :key="i" 

@@ -3,7 +3,7 @@
 		<h1>
 			<span class="" style="color: #1fb9b3">نموذج : </span> نموذج العرض الاستثماري
 		</h1>
-		<div class="mt-3">
+		<div class="mt-3"> 
       <p>اذكر قصة بداية اختيارك للفكرة وكيف بدأت؟ (بهدف جذب الجمهور)</p>
 		<input
                 class="form-control py-3 px-5 fs-r-12"
@@ -66,6 +66,88 @@
 
         <div class="mt-3 col-12">
       <p>ما هي التوجهات في السوق؟</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="اكتب إجابتك هنا"
+              />
+		</div>
+          <div class="mt-3 col-12">
+            <p>ما هي ديناميكيات السوق؟</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="اكتب إجابتك هنا"
+              />
+		</div>
+            <div class="mt-3 col-12">
+            <p>من هم العملاء المستهدفين؟</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="(SAM حجم السوق في المنطقة الجغرافية أو الفئة التي تكمن ضمن نطاق عملائك)"
+              />
+		</div>
+                <div class="mt-3 col-12">
+            <p>ما المقدار الذي تستهدفه من هذا السوق؟</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="( SOM هو حجم السوق الذي توقع أن تحصل عليه)"
+              />
+		</div>
+    <p class="mt-3">اذكر في سطر واحد مشكلة العميل التي تحاول حلها</p>
+                 <div class="mt-3 col-12">
+            <p>ما هي الحاجة/ المشكلة؟</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="اكتب إجابتك هنا"
+              />
+		</div>
+           <div class="mt-3 col-12">
+            <p>كم عدد العملاء المحتملين الذين يواجهون المشكلة أو الحاجة؟</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="اكتب إجابتك هنا"
+              />
+		</div>
+          <div class="mt-3 col-12">
+            <p>ما مدى عمق المشكلة أو الحاجة؟</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="اكتب إجابتك هنا"
+              />
+		</div>
+<p class="mt-3">اذكر في سطر  واحد مشكلة العميل التي تحاول حلها</p>
+        <div class="mt-3 col-12">
+            <p>ما هو الحل؟</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="اكتب إجابتك هنا"
+              />
+		</div>
+          <div class="mt-3 col-12">
+            <p>كيف ستحل المشكلة؟</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="اكتب إجابتك هنا"
+              />
+		</div>
+       <div class="mt-3 col-12">
+            <p>ما مدى فعالية الحل في حل مشكلة العميل أو معالجة هذه الحاجة؟ مع ذكر أمثلة أو حقائق إن وجدت</p>
+		<input
+                class="form-control py-3 px-5 fs-r-12"
+                type="text"
+                placeholder="مثل : (تحميلات التطبيق عدد المشاركين في برنامج ... الخ)"
+              />
+		</div>
+        <div class="mt-3 col-12">
+          <p>لماذا أنت؟</p>
 		<input
                 class="form-control py-3 px-5 fs-r-12"
                 type="text"
