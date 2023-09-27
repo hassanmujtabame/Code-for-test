@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container marketing-step2">
 <form-wizard>
   <tab-content>
     <InvestmentProposalForm1/>
@@ -71,7 +71,7 @@ components: {
       float: right !important;
   background-color: rgba(31, 185, 179, 1) !important; 
 }
-.marketing-step  .wizard-progress-bar{
+.marketing-step2  .wizard-progress-bar{
       float: left !important;
 }
 /* .vue-form-wizard .wizard-navigation .wizard-progress-with-circle .wizard-progress-bar */
@@ -79,13 +79,16 @@ components: {
       top: 20px !important;
 }
 
-.marketing-step .wizard-progress-with-circle{
+.marketing-step2 .wizard-progress-with-circle{
 display: none !important;
 }
 .wizard-navigation .wizard-tab-content{
   padding-top: 0 !important;
 }
-.vue-form-wizard .marketing-step .wizard-navigation ul{
+.vue-form-wizard .marketing-step2 .wizard-navigation ul{
+  display: none !important;
+}
+.marketing-step2  .vue-form-wizard .wizard-nav-pills{
   display: none !important;
 }
 </style>

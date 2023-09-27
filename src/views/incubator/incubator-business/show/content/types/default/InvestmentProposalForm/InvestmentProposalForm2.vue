@@ -1,6 +1,6 @@
 <template>
-	<div class="container mt-5">
-		<h1>
+	<div class="container">
+		<h1 class="mb-5">
 			<span class="" style="color: #1fb9b3">نموذج : </span> نموذج العرض الاستثماري
 		</h1>
 		<div class="mt-3"> 
