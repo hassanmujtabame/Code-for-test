@@ -12,7 +12,7 @@
                     <div  class="y-cll border-0 bg-transparent mx-2">
                         الباقة المجانية
                     </div>
-                        <button @click="detailsPackage" class="m-c border-0 bg-transparent" style="font-size: 20px;">عرض التفاصيل</button>
+                        <button   v-b-modal.modal-1 class="m-c border-0 bg-transparent" style="font-size: 20px;">عرض التفاصيل</button>
                 </h2>
                 <div class=" pt-4">
                     
@@ -229,21 +229,83 @@
 
         </div>
 
+  <b-modal id="modal-1" title="تفاصيل باقتك"  :hide-footer='true'>
+
+<div class="d-flex rounded-2 border w-100 mb-3">
+  <div class="m-c  w-4 px-3 py-2  border-left">أسم الخدمة</div>
+  <div class="t-c  w-60 px-3 py-2 ">{{nameSub}} </div>
+</div>
+<div class="d-flex rounded-2 border w-100 mb-3">
+  <div class="m-c  w-4 px-3 py-2  border-left">نوع الباقة</div>
+  <div class="t-c  w-60 px-3 py-2 "> مجانية</div>
+</div>
+<div class="d-flex rounded-2 border w-100 mb-3">
+  <div class="m-c  w-4 px-3 py-2  border-left">التفاصيل  </div>
+  <div class="t-c  w-60 px-3 pt-2">
+    <ul>
+      <li class="mb-1">تواصلي مع أعضاء الشبكة</li>
+      <li>شاركي في اللقاءات المستمرة لرواد الشبكة</li>
+    </ul>
+  </div>
+</div>
+  <div class="d-flex rounded-2 border w-100 mb-3">
+  <div class="m-c  w-4 px-3 py-2  border-left">التكلفة</div>
+  <div class="t-c  w-60 px-3 py-2 ">ريال0</div>
+</div>
+<div class="d-flex rounded-2 border w-100 mb-3">
+  <div class="m-c  w-4 px-3 py-2  border-left"> وقت الانتهاء</div>
+  <div class="t-c  w-60 px-3 py-2 ">{{endDate}} </div>
+</div>
+  </b-modal>
+
     </div>
 </template>
 
 <script>
 export default {
+ data:()=>({
+endDate:'',
+nameSub:''
+ }),
 
   methods:{
-    detailsPackage(){
-
-    }
+      detilsFreePackage(){
+               for (let index = 0; index < this.user.system_subscriptions.length; index++) {
+                    const element = this.user.system_subscriptions[index];
+                    if (element.system_package.name=='مجانا' && element.system_package.related_to.name=='الأكاديمية') {
+                        this.endDate=element.end_at
+                        this.nameSub= 'أكاديمية رياديات '
+                    }
+                }
+     }
+  },
+  mounted(){
+    this.detilsFreePackage()
   }
 
 }
 </script>
 
 <style>
-
+.modal-backdrop{
+--bs-backdrop-zindex: none !important;
+}
+#my-modal___BV_modal_header_ , #my-modal___BV_modal_footer_{
+      visibility: hidden !important;
+}
+.modal-header{
+  border: 0 !important;
+}
+.modal-header button{
+  background: transparent !important;
+  color: #80808059;
+  border: 0;
+  font-size: 55px;
+}
+.border-left{
+  border-left: 1px solid #eaeaea;
+}
+.w-4{
+width: 30%;
+}
 </style>

@@ -30,7 +30,7 @@
     <div>
       <a
         @click="selected"
-        v-if="typeSubscribe=='مجانا'"
+        v-if="typeSubscribe=='مجانا' && packId.id!==subscribed"
         href="#"
         class="btn-main px-4 py-2"
       >{{ $t('subscribe-now') }}</a>
