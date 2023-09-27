@@ -78,6 +78,6 @@
   <style>
   .network-subscribe-custom .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     background-color: #979797 !important;
-    border: 2px solid #979797 !important;
+    border: 2px solid white !important;
 }
   </style>

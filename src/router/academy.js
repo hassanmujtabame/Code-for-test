@@ -217,7 +217,7 @@ const routers = [
 			),
 	},
 	{
-		path: "academy/my-exams/:id(\\d+)/do-exam", 
+		path: "academy/my-exams/:id(\\d+)/do-exam",
 		meta: { layout: LayoutDefault, auth: true, title: "Do Exam" },
 		name: "academy-your-exams-do-exam",
 		component: () =>
@@ -385,6 +385,19 @@ const routers = [
 		component: () =>
 			import(
 				/* webpackChunkName: "academy-subscribe" */ "../views/academy/subscribe/index.vue"
+			),
+	},
+	{
+		path: "academy/subscribe/finish",
+		meta: {
+			layout: LayoutDefault,
+			title: "Subscribe Finish",
+			type: "academy",
+		},
+		name: "academy-subscribe-finish",
+		component: () =>
+			import(
+				/* webpackChunkName: "academy-subscribe-finish" */ "../views/academy/SubscribeFinish.vue"
 			),
 	},
 ];

@@ -31,7 +31,7 @@
                         :type-subscribe="pack.name"
                         @selected="choose(pack)"
                         :subscribed="subscribedType" 
-
+                         :typeSectionSub='"network"'
                         ></SubscribeCard>
                         <!-- :title="getTitleSubscribe(pack.name)" -->
                      

@@ -4,8 +4,6 @@
   > 
     <div>
       <h2 class="fw-bolder subscribe-title">{{title}}</h2>
-      <!-- {{subscribed}}
-      {{packId.id}} -->
       <h1 class="y-c fw-bolder fs-1 py-1">
         <!-- <span class="subscribe-price">{{subscribed.type=='free'?$t('free'):price}}</span> -->
         <span class="subscribe-price">{{price}} </span>
@@ -32,7 +30,7 @@
     <div>
       <a
         @click="selected"
-        v-if="subscribed == '1258888888888888'"
+        v-if="typeSubscribe=='مجانا'"
         href="#"
         class="btn-main px-4 py-2"
       >{{ $t('subscribe-now') }}</a>
@@ -52,6 +50,8 @@
 </template>
 
 <script>
+import networkAPI from '@/services/api/network.js'
+
 export default {
   props: {
     itemId: {
@@ -64,6 +64,9 @@ export default {
       type: [String, Number]
     },
     typeSubscribe: {
+      type: String
+    },  
+    typeSectionSub: {
       type: String
     },
     packId:{
@@ -78,15 +81,40 @@ export default {
 
     }
   },
+   data() {
+    return {
+      packageType: '',
+    }
+   },
   methods: {
     selected(evt) {
       evt.preventDefault();
+      if (this.typeSubscribe=='مجانا') {
+                    this.router_push(`${this.typeSectionSub}-subscribe-finish`)
 
-      this.$emit("selected", this.typeSubscribe);
+      // let formData = new FormData();
+      // formData.append('package_id',this.packId.id)
+      // formData.append('package_type',this.packageType )
+      // formData.append('user_id',this.user.id )
+      //          try {
+      //               let { data } =  networkAPI.PayPackageFreeSelect(formData);
+      //               if(data.success){
+
+      //               this.router_push(`${this.typeSectionSub}-subscribe-finish`)
+      //               }
+      //           } catch (error) {
+      //                   // window.SwalError("The given data was invalid")
+      //               this.router_push(`${this.typeSectionSub}-subscribe-finish`)
+
+      //           } 
+      }else{
+            this.$emit("selected", this.typeSubscribe);
+
+      }
     }
   },
   mounted(){
-    console.log('subscribed',this.subscribed);
+    this.packageType = this.$route.meta.type
   }
 };
 </script>

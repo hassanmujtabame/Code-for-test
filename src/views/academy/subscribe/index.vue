@@ -30,6 +30,8 @@
                         :type-subscribe="pack.name"
                         @selected="choose(pack)"
                          :subscribed="subscribedType"
+                         :typeSectionSub='"academy"'
+
                          ></SubscribeCard> 
                         <!-- :title="pack.name" -->
 

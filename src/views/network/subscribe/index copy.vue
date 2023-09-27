@@ -30,7 +30,6 @@
                         :type-subscribe="pack.name"
                         @selected="choose(pack)"
                         :subscribed="userSubNetwork" 
-
                         ></SubscribeCard>
                         <!-- :title="getTitleSubscribe(pack.name)" -->
                      

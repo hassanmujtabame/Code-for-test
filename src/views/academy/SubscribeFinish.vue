@@ -12,7 +12,7 @@
                     <div  class="y-cll border-0 bg-transparent mx-2">
                         الباقة المجانية
                     </div>
-                        <button class="m-c border-0 bg-transparent" style="font-size: 20px;">عرض التفاصيل</button>
+                        <button @click="detailsPackage" class="m-c border-0 bg-transparent" style="font-size: 20px;">عرض التفاصيل</button>
                 </h2>
                 <div class=" pt-4">
                     
@@ -234,6 +234,12 @@
 
 <script>
 export default {
+
+  methods:{
+    detailsPackage(){
+
+    }
+  }
 
 }
 </script>

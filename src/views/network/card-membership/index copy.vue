@@ -375,10 +375,12 @@ color: #d0d0d0;
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     background-color: #1fb9b433 !important;
-    border: 1px solid #1fb9b433;
+    border: 1px solid white;
     color: #1FB9B3 !important;
 }
 .nav-item.active>button{
     color: #1FB9B3;
+    border: 1px solid white !important;
+
 }
 </style>

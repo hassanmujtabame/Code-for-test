@@ -41,6 +41,7 @@ export default {
     },
     closeDialog(){
         this.showDialog = false
+
         return true;
     },
   }

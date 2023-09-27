@@ -397,9 +397,9 @@ const routers = [
 	},
 	{
 		path: "network/subscribe/finish",
-		meta: { layout: LayoutDefault, title: "Subscribe Finish" },
+		meta: { layout: LayoutDefault, title: "Subscribe Finish",type: "network" },
 		name: "network-subscribe-finish",
-		component: () =>
+		component: () => 
 			import(
 				/* webpackChunkName: "network-subscribe-finish" */ "../views/network/SubscribeFinish.vue"
 			),

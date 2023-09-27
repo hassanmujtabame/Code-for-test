@@ -168,6 +168,19 @@ const routers = [
 			),
 	},
 	{
+		path: "incubator/subscribe/finish",
+		meta: {
+			layout: LayoutDefault,
+			title: "Subscribe Finish",
+			type: "incubator",
+		},
+		name: "incubator-subscribe-finish",
+		component: () =>
+			import(
+				/* webpackChunkName: "incubator-subscribe-finish" */ "../views/incubator/subscribe/SubscribeFinish.vue"
+			),
+	},
+	{
 		path: "incubator/program-incubator/:id",
 		meta: { layout: LayoutDefault, title: "Program Incubator" },
 		name: "incubator-program-incubator",

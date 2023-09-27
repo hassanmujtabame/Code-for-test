@@ -30,6 +30,7 @@
                          :type-subscribe="pack.name"
                          @selected="choose(pack)"
                          :subscribed="subscribedType"
+                         :typeSectionSub='"incubator"'
                          ></SubscribeCard>  
                          <!-- :title="getTitleSubscribe(pack.name)" -->
 
