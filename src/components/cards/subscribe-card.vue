@@ -101,8 +101,8 @@ export default {
                     this.router_push(`${this.typeSectionSub}-subscribe-finish`)
                     }
                 } catch (error) {
-                        // window.SwalError("The given data was invalid")
-                    this.router_push(`${this.typeSectionSub}-subscribe-finish`)
+                        window.SwalError("The given data was invalid")
+                    // this.router_push(`${this.typeSectionSub}-subscribe-finish`)
 
                 } 
       }else{
