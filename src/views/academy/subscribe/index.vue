@@ -118,11 +118,10 @@
          }
      },
      checkTypePackage(){
-         let date = this.dateToString(new Date());
 
                for (let index = 0; index < this.user.system_subscriptions.length; index++) {
                     const element = this.user.system_subscriptions[index];
-                    if (element.system_package.related_to.key=='academy' && element.end_at > date) {
+                    if (element.system_package.related_to.key=='academy' ) {
                         console.log('444',element,'true');
                         this.subscribedType = element.system_package.id
                         

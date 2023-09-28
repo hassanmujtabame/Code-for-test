@@ -42,7 +42,7 @@
                    <h4 class="mx-2"  style="color: #FFBC00"> انضم الي الحاضنة </h4>
                   </div>
 
-    <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;" @click="openDepartmentsDialog=true">حددي مجال الاشتراك</button>
+    <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;" @click="openDepartmentsDialogIncup()">حددي مجال الاشتراك</button>
                   </div>
              </div>
              <div v-else-if="otherData.image" style="display: flex;">
@@ -366,6 +366,14 @@ this.openDepartmentsDialogAcademy = false;
     },
     openDepartmentsAcademyDialog(){
       this.openDepartmentsDialogAcademy=true;
+    this.getDepartmentsAcademy();
+
+    },
+    openDepartmentsDialogIncup(){
+    this.getDepartmentsIncubator();
+      this.openDepartmentsDialog=true;
+
+
     }
   },
   mounted(){
