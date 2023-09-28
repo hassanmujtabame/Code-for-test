@@ -20,9 +20,9 @@
           <SectionBestConsultors/>
         </div>
 
-          <div class="container mt-5">
+          <!-- <div class="container mt-5">
           <Section6/>
-        </div>
+        </div> -->
            <div class=" mt-5">
           <Section7/>
         </div>
