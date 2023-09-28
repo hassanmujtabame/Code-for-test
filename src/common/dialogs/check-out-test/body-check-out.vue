@@ -2,6 +2,7 @@
   <div class="container relative">
     <div class="chekout p-4 shadow my-4">
       <h5 class="mb-3">أستكملي عملية الدفع</h5>
+      <!-- <h5 class="mb-3">أستكملي عملية الدفع</h5> -->
       <div class="row justify-content-between">
         <div class="justify-content-end tex-end">
           <div v-if="!otherData.image && packageType == 'academy'" style="display: flex; align-items: center;">

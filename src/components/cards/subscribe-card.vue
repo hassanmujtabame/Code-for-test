@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import networkAPI from '@/services/api/network.js'
 
 export default {
   props: {
@@ -96,20 +95,14 @@ export default {
       formData.append('user_id',this.user.id )
                try {
 		window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
-
-                    // let { data } =  networkAPI.PayPackageFreeSelect(formData);
                           window.axios.get(`payments/hyperbill/callback?package_id=${this.packId.id}&package_type=${this.packageType}&user_id=${this.user.id}`).then(res => {
                             console.log('res',res);
                     this.router_push(`${this.typeSectionSub}-subscribe-finish`)
 
             })
-                    // if(data.success){
-
-                    // this.router_push(`${this.typeSectionSub}-subscribe-finish`)
-                    // }
+        
                 } catch (error) {
                         window.SwalError("The given data was invalid")
-                    // this.router_push(`${this.typeSectionSub}-subscribe-finish`)
 
                 } 
       }else{
