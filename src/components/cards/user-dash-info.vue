@@ -9,7 +9,7 @@
             <h5 class="m-c">{{ member.name }}</h5>
             <p>{{ member.job??member.job_title }}</p>
             <router-link custom :to="getRouteLocale('my-profile')" v-slot="{navigate}">
-            <button @click="navigate" role="link" class="border px-3 py-2 rounded-2 bg-transparent">
+            <button @click="navigate" role="link" class="btn btn-outline-success px-3">
                 {{ $t('account-profil') }}
             </button>
             </router-link>

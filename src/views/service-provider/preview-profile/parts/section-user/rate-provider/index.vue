@@ -2,14 +2,10 @@
     <div class="rates-provider">
         <div class="box bg-white border">
             <div class="p-1">
-
                 <div class="d-flex justify-content-between border-bottom">
-                    <h4 class="rates-provider-title w-100">
-                        تقيم مقدم الخدمة </h4>
-
-
+                    <h4 
+                    class="rates-provider-title w-100">تقيم مقدم الخدمة </h4>
                 </div>
-
             </div>
             <div>
                 <rateCard v-for="(rateItem,i) in items" :key="i"
@@ -17,7 +13,9 @@
                 :showBorder="(items.length-1)>i"
                 />
             </div>
-
+            <div v-if="items?.length == 0">
+                <p class="text-center mb-0"> لا يوجد تقيمات</p>
+            </div>
         </div>
     </div>
 </template>
@@ -30,10 +28,11 @@ export default {
         rateCard
     },
      props:{
-    items:{
-        type:[Object,Array],
-        require:true
-    }
+        items:{
+            type:[Object,Array],
+            require:true,
+            default:()=>[]
+        }
     }
 }
 </script>

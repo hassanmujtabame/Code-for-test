@@ -1,24 +1,23 @@
 <template>
   <div class="comment px-2 py-2 "  :class="{'border-bottom':showBorder}">
+    <div class="d-flex">
 
-<div class="d-flex">
-
-<div class="d-flex justify-content-between align-items-center flex-shrink-0">
+        <div class="d-flex justify-content-between align-items-center flex-shrink-0">
  
-        <div class="">
-            <img class="rounded-circle"
-                :src="item.image" :alt="item.from_user" width="40"
-                height="40">
+            <div class="">
+                <img class="rounded-circle"
+                    :src="item.image" :alt="item.from_user" width="40"
+                    height="40">
+            </div>
         </div>
-    </div>
-    <div class="d-flex flex-grow-1">
-        <div class="flex-grow-1 d-flex flex-column px-1">
-            <h1 class="rate-item__name">{{ item.from_user??'N/A' }}</h1>
-            <div class="rate-item__comment">{{ item.comment}}</div>
-        </div>
-        <p class="m-0 flex-shrink-0">
-            <d-rate-stars :size="12" :value="item.rate"/>
-        </p>
+        <div class="d-flex flex-grow-1">
+            <div class="flex-grow-1 d-flex flex-column px-1">
+                <h1 class="rate-item__name">{{ item.from_user??'N/A' }}</h1>
+                <div class="rate-item__comment">{{ item.comment}}</div>
+            </div>
+            <p class="m-0 flex-shrink-0">
+                <d-rate-stars :size="12" :value="item.rate"/>
+            </p>
         </div>
    
     </div>

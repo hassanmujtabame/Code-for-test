@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Cookies from 'js-cookie'
+import './assets/scss/main.scss'
 console.mylog = (...args) => {
    if (process.env.NODE_ENV == 'development')
       console.log(...args)

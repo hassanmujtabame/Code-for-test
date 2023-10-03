@@ -2,7 +2,7 @@
   <div class="container">
     <div class="box bg-white rounded-3">
       <div class="row align-items-center p-0 position-relative">
-        <b-col xl="7 ">
+        <b-col xl="7 " class="">
           <div style class="text-center">
             <b-img fluid :src="`${publicPath}assets/img/pot_2_.png`" alt width="320" height="220" />
           </div>
@@ -41,13 +41,13 @@
                   ></d-text-input>
                 </div>
               </ValidationProvider>
-              <div class="col-12 text-center  w-50 mx-auto">
-                <button @click="verifyCode" class="btn btn-main  w-100">أستمر</button>
+              <div class="col-12 text-center w-50 mx-auto">
+                <button @click="verifyCode" class="btn btn-main mb-2 w-100">أستمر</button>
               </div>
             </ValidationObserver>
           </div>
         </b-col>
-        <b-col xl="5" class="tablet-hide">
+        <b-col xl="5" class="tablet-hide p-0">
           <div class="box">
             <b-img fluid :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
           </div>

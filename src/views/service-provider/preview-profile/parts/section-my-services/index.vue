@@ -13,22 +13,51 @@
         </p>
         <div>
             <d-overlays-simple v-if="loading" />
-        <div class="row p-2 order">
-            <div v-for="(item,k) in items" :key="k" class="col-md-4 mt-2">
-                <router-link class="router-link" :to="getRouteLocale('service-provider-ready-service',{id:item.id})">
-                    <MyServiceCard 
-                     :image="item.image"
-                     :title="item.title"
-                     :description="item.desc"
-                     :place="item.city"
-                     :department="item.category_name"
-                     :price="item.price"
-                     :name="item.user_name"
-                     :status="item.status"
-                    />
-                </router-link>
+            <nav>
+                <div class="nav nav-pills nav-tabs p-2" id="pills-tab" role="tablist">
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">خدمات عن بعد</button>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">خدمات حضورية</button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                
+                    <div class="row p-2 order">
+                        <div v-for="(item,k) in items.filter(item => item.state == 'online')" :key="k" class="col-md-4 mt-2">
+                            <router-link class="router-link" :to="getRouteLocale('service-provider-ready-service',{id:item.id})">
+                                <MyServiceCard 
+                                :image="item.image"
+                                :title="item.title"
+                                :description="item.desc"
+                                :place="item.city"
+                                :department="item.category_name"
+                                :price="item.price"
+                                :name="item.user_name"
+                                :status="item.status"
+                                />
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                    <div class="row p-2 order">
+                        <div v-for="(item,k) in items.filter(item => item.state == 'offline')" :key="k" class="col-md-4 mt-2">
+                            <router-link class="router-link" :to="getRouteLocale('service-provider-ready-service',{id:item.id})">
+                                <MyServiceCard 
+                                :image="item.image"
+                                :title="item.title"
+                                :description="item.desc"
+                                :place="item.city"
+                                :department="item.category_name"
+                                :price="item.price"
+                                :name="item.user_name"
+                                :status="item.status"
+                                />
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
         <div class="row">
         <div class="col-12">

@@ -7,7 +7,7 @@
         <img :src="`${publicPath}assets/svg/pot_1_.svg`" />
           </div>
 
-          <div class="form">
+          <div class="form mb-2">
             <h1 class="fw-bolder">نسيت كلمة السر ؟</h1>
             <p>لا تقلق سنساعدك على أستعادتها</p>
 

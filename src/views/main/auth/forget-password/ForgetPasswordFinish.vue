@@ -11,7 +11,7 @@
 
                             <h1 class="fw-bolder  "> تم تغير كلمة السر بنجاح </h1>
                                 <div class="col-12 text-center w-50 mx-auto">
-                                    <router-link :to="getRouteLocale('login')" class="btn btn-main  w-100" > تغير كلمة السر</router-link>
+                                    <router-link :to="getRouteLocale('login')" class="btn btn-main  w-100" style="line-height: 2">الصفحة الرئيسية</router-link>
                                 </div>
                
                         </div>

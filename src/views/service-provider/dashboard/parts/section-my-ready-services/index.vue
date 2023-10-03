@@ -4,7 +4,7 @@
             <div class="box border p-5 mt-3">
                 <div class="d-flex align-items-center justify-content-between">
                     <h3>
-                        خدماتي الجاهزة 
+                        خدماتي 
                     </h3>
                     <p class="fw-bolder fs-3">
                         {{ itemCard.count_ready_service }}
