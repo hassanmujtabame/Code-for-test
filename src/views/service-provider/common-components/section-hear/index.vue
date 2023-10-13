@@ -1,7 +1,7 @@
 <template>
     <div class="sex-eight mt-5  max-width-100-hidden">
           <div class="container">
-            <h2 class="home-section-title text-center">ماذا يقولون المشتركات في مقدمي الخدمات</h2>
+            <h2 class="home-section-title">ماذا يقولون المشتركات في مقدمي الخدمات</h2>
               <div  :id="carouselId" class="feature-carousel owl-carousel owl-theme  mt-5">
               <ItemSlide
               v-for="(item,i) in items"

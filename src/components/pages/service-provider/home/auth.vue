@@ -4,11 +4,11 @@
     <SectionAuthHeader />
     <!-- section recent-Proposals-->
     <SectionExploreServices  v-if="userIsProvider" />
-
-    <SectionRecentProposals />
     <!-- section explore-services-->
     <SectionExploreServices  v-if="!userIsProvider" />
-    <FeaturesService style="margin-top: 150px" v-if="userIsProvider"/>
+
+    <SectionRecentProposals />
+    <FeaturesService style="margin-top: 150px"/>
     <!-- section recent-services-->
     <SectionRecentServices />
     <!-- section seek for job-->

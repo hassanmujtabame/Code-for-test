@@ -1,16 +1,16 @@
 <template>
   <div class="container my-5">
-    <h2 class="home-section-title text-centerl">تصفح الخدمات حسب التصنيف</h2>
-    <b-row class="search-service mt-4 " style="justify-content: center;">
-      <b-col v-for="service in services" :key="service.id" lg="6">
+    <h2 class="home-section-title">تصفح الخدمات حسب التصنيف</h2>
+    <div class="d-flex justify-content-around search-service mt-4">
+      <div v-for="service in services" :key="service.id" >
         <card-box
           :image-src="service.image"
           :title="service.title"
           :content="service.description"
           :link-to="service.link"
         ></card-box>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
   </div>
 </template>
   

@@ -20,12 +20,6 @@
                               :data-href="currentUrl" 
                               data-layout="button_count">
                               </div>
-                           
-
-                        
-                           
-                          
-                            
                         </div>
         </div>
     </template>
