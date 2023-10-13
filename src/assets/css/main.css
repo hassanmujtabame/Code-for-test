@@ -91,7 +91,7 @@ body:lang(ar) {
     text-decoration: none;
     -moz-appearance: none !important;
     appearance: none !important;
-    font-family: 'Amiri', change;
+    font-family: change;
 
 }
 body:lang(en){
