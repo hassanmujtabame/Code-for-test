@@ -1,8 +1,8 @@
 <template>
-   <div class="sec-five mt-5 p-3 bg-transparent">
-            <div class="container">
+   <div class="sec-five2 mt-5 p-5 bg-transparent">
+            <div class="">
               <div
-                class="d-flex justify-content-center align-items-center container"
+                class="d-flex justify-content-center align-items-center"
               >
                 <h1 class="home-section-title">
                     تعرفي على مجالات الحاضنة           
@@ -11,8 +11,8 @@
               </div>
               <DSwiper
               v-if="!loading"
-            :slides-per-view="5"
-            :space-between="10"
+            :slides-per-view="6"
+            :space-between="5"
               
               :navigation="true"
               :items="items"
@@ -29,7 +29,12 @@
             </div>
           </div>
 </template>
+<style>
 
+.sec-five2{
+  background-color: #E9F8F7 !important;
+}
+</style>
 <script>
 import DSwiper from '@/components/swiper/index.vue'
 import CardVue from '@/components/cards/incubator-dept-circle.vue'

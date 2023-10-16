@@ -1,10 +1,10 @@
 <template>
 <div class="box">
     <div class="box-wrapper">
-    <h5  class="m-c fw-bolder box-value">
+    <h5  class="m-c fw-bolder box-value text-center">
         {{value}}
     </h5>
-    <p class="box-title"> {{title}}</p>
+    <p class="box-title text-center"> {{title}}</p>
 </div>
 </div>
 </template>
@@ -33,7 +33,7 @@ export default {
 .box{
     width: 240px;
     max-width: 240px;
-    /*height: 145px;*/
+    height: 145px;
     margin: 10px;
     background: #FFFFFF;
     padding: 5px 15px 10px;

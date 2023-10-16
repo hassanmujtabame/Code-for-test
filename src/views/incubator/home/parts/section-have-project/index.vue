@@ -1,15 +1,14 @@
 <template>
-   <div class="main-top p-2  position-relative mt-5" :class="{'px-5':!isMobile}">
+   <div class="main-top p-2  position-relative" :class="{'px-5':!isMobile}">
             
                <div class="row align-items-center px-5 m-auto">
                 <div class="col-12 col-md-6 mt-3">
-                  <h2 class="home-section-title text-white">
+                  <h1 class="home-section-title text-white">
                     عندك مشروع كبير؟
-                  </h2>
+                  </h1>
                   
-                  <p class="text-white" style="max-width:490px">
-                    اجتمع مع فريق رياديات للوصول لأفضل القرارات ونجاح مشروعك اجتمع مع فريق رياديات للوصول لأفضل القرارات ونجاح مشروعك 
-                  </p>
+                  <p class="text-white fs-3" style="max-width:900px">
+اجتمع مع فريق رياديات للوصول لأفضل القرارات ونجاح مشروعك اجتمع مع فريق رياديات للوصول لأفضل القرارات ونجاح مشروعك                   </p>
                 
                   <div style="margin-top: 20px;" class="">
 
@@ -25,8 +24,8 @@
                 </div>
 
                 </div>
-                <div class="col-md-4 mt-3">
-                  <img :src="`${publicPath}assets/svg/Group 1171275785.svg`" />
+                <div class="col-md-4">
+                  <img :src="`${publicPath}assets/svg/Group 1171275785.svg`" width="650" />
                 </div>
                </div>
         </div>
