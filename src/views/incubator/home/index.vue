@@ -3,25 +3,28 @@
         <!-- section top-->
         <SectionTop />
        <!-- section definition-->
-       <SectionDefinition v-if="!token"/>
+       <SectionDefinition />
 
         <!-- section features-->
         <SectionFeatures />
+        <SectionOurAds />
 
        <!-- section ads-->
        <SectionAds department="encubator"  />
        <sectionJourneyLaunch />
         <SectionIncubationProgram  v-if="!token"/>
         <!-- section 6-->
-        <SectionDepartments v-if="!token"/>
+        <SectionDepartments />
 
         <!-- section 7-->
         <SectionProgramsProjects />
         <SectionHaveProject v-if="!token"/>
          <!-- section 8-->
+         <SectionGraduated />
          <!-- section 9-->
-         <SectionIncubationProjects /> 
          <SectionOurPartners />
+
+         <SectionIncubationProjects /> 
 
         <!-- section 10-->
         <SectionSchedule />
@@ -49,6 +52,8 @@ import SectionSchedule from './parts/section-schedule/index.vue'
 import SectionContinueLearning from './parts/section-continue-learning/index.vue'
 import SectionHear from './parts/section-hear/index.vue'
 import SectionHaveProject from './parts/section-have-project/index.vue'
+import SectionOurAds from './parts/section-our-ads/index.vue'
+import SectionGraduated from './parts/section-graduated/index.vue'
 export default {
 name:"incubator-home",
 components:{
@@ -66,7 +71,9 @@ components:{
   SectionSchedule,
   SectionContinueLearning,
   SectionHear,
-  SectionHaveProject
+  SectionHaveProject,
+  SectionOurAds,
+  SectionGraduated
 }
 }
 </script>

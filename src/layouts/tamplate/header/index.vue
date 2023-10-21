@@ -7,32 +7,15 @@
       <!-- <div v-if="false" class="d-block d-sm-none">
         <SearchInput />
       </div> -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        @click="toggleOffcanvas"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation" @click="toggleOffcanvas">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
-        class="offcanvas offcanvas-start justify-content-between"
-        id="offcanvasExample"
-        :class="{ 'show': showMobileNav }"
-      >
+      <div class="offcanvas offcanvas-start justify-content-between" id="offcanvasExample"
+        :class="{ 'show': showMobileNav }">
         <div class="offcanvas-header">
-          <button
-            type="button"
-            id="btn-close-header"
-            class="btn-close me-3 m-c"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-            @click="toggleOffcanvas"
-          ></button>
+          <button type="button" id="btn-close-header" class="btn-close me-3 m-c" data-bs-dismiss="offcanvas"
+            aria-label="Close" @click="toggleOffcanvas"></button>
         </div>
         <ul class="navbar-nav">
           <slot :closeNavList="closeNavList" :clickLink="clickLink"></slot>
@@ -41,21 +24,17 @@
           <div class="d-flex res-search">
             <!-- search input -->
             <SearchInput class="mx-2" v-if="!hideSearch" />
+            <div class="btn-main btn-nav text-center" style="line-height: 3.5; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+              <router-link v-if="!token" :to="getRouteLocale('register')" class="text-white">{{ $t("join-us") }}</router-link>
+              <router-link v-else-if="!userIsSubIncubator" :to="getRouteLocale('incubator-subscribe')"
+              class="text-white"> {{ $t('join-us') }} </router-link>
+            </div>
             <template v-if="token">
               <UserMsg :prefixRoute="prefixRoute" />
               <UserNotif :prefixRoute="prefixRoute" />
               <UserNav :prefixRoute="prefixRoute" />
             </template>
-            <div
-              v-else
-              class="btn-main btn-nav text-center"
-              style="line-height: 3.5; display: flex; justify-content: center; align-items: center;"
-            >
-              <router-link
-                :to="getRouteLocale('register')"
-                class="text-white"
-              >{{ $t("join-us") }}</router-link>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -120,6 +99,7 @@ export default {
 .navbar-brand {
   margin-right: 0;
 }
+
 a.nav-link {
   text-align: start;
   white-space: nowrap;

@@ -1,37 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="sec-five my-5 p-3">
-=======
-<<<<<<< Updated upstream
-  <div class="sec-five mt-5 p-3">
->>>>>>> incubator
-                <div class="container">
-                  <div
-                    class="d-flex justify-content-between align-items-center container"
-                  >
-                    <h1 class="home-section-title">
-                        المشاريع المحتضنة
-                    </h1>
-                    <div>
-                      <button class="more">{{ $t('more') }}</button>
-                    </div>
-                  </div>
-                  <DSwiper
-                  v-if="!loading"
-                :slides-per-view="4"
-                :space-between="10"
-                is-auto
-                :navigation="true"
-                :items="items"
-            >
-            <template  v-slot:default="{item}" >
-              <router-link class="router-link" :to="getRouteLocale('incubator-project-show',{id:item.id})">
-                <CardVue :title="item.title" :img="item.image"/>
-              </router-link>
-                </template>
-                </DSwiper>
-                </div>
-=======
   <div class="sec-five p-5">
       <div class=" reduced-padding">
           <div class="section-header d-flex justify-content-between align-items-center mb-3">
@@ -39,7 +6,6 @@
               <h1 class="home-section-title text-center">المشاريع المحتضنة</h1>
               <div>
                   <button class="more-btn">{{ $t('more') }}</button>
->>>>>>> Stashed changes
               </div>
           </div>
           <DSwiper

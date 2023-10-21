@@ -11,7 +11,7 @@
 
                     <div class="row justify-content-center">
                         <!-- btn pyment type-->
-                        <div v-if="false" class="col-12">
+                        <div  class="col-12">
                             <div class="group-btn-type-pay">
                                 <btnTypePay name="pay-type" v-for="(btn, i) in payment_types" :key="i"
                                     :valueDefault="btn.id" v-model="itemForm.payment_type">
@@ -29,7 +29,7 @@
                             <div class="d-flex px-2 w-100">
                                 <btnTypePay name="pay-type" justify="start" class="mt-1" :valueDefault="card.id"
                                     v-model="itemForm.payment_type">
-                                    <visa2Icon />
+                                    <visa-2-icon />
                                     <bdi> البطاقة المنتهية بـ</bdi> {{ card.last4Digits }}
                                 </btnTypePay>
                                 <span class="mx-2">
@@ -104,8 +104,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <ValidationProvider tag="div" class="mt-3" :name="$t('security_code')"
-                                                    vid="card_cvv" rules="required|numeric|min:3|max:4"
-                                                    v-slot="{ errors }">
+                                                    vid="card_cvv" rules="required|numeric|min:3|max:4" v-slot="{ errors }">
                                                     <label class="form-label">{{ $t('security_code') }}</label>
                                                     <input maxlength="4" type="text" class="border rounded-2 w-100  p-2"
                                                         v-model="card_cvv" @focus="sendChangeFaceCard('back')"
@@ -145,13 +144,10 @@
                             <slot :item="itemForm" :otherData="otherData"></slot>
 
                             <div v-if="!hideAmount" class="input-group mb-3 mt-2">
-                                <ValidationObserver ref="amount" >
+                                <ValidationObserver ref="amount">
 
-                                    <ValidationProvider vid="price"
-                                    :name="$t('amount')"
-                                    :rules="changeable_ ? 'required|numeric' : ''" 
-                                    v-slot="{ errors }"
-                                    >
+                                    <ValidationProvider vid="price" :name="$t('amount')"
+                                        :rules="changeable_ ? 'required|numeric' : ''" v-slot="{ errors }">
                                         <input type="text" :disabled="!changeable_" v-model="itemForm.amount"
                                             class="form-control" placeholder="ادخل المبلغ">
                                         <d-error-input :errors="errors" v-if="errors" />
@@ -238,7 +234,11 @@ export default {
     data: (vm) => {
         let def_form = { ...vm.defaultForm }
         return {
-            cards: [],
+            cards: [
+                { id: 5, last4Digits: 2134 ,},
+                { id: 6, last4Digits: 6433 ,},
+                { id: 7, last4Digits: 1236, },
+            ],
             saveCard: false,
             changeable_: vm.changeable,
             title_: vm.title,
@@ -270,7 +270,8 @@ export default {
             try {
                 let { data } = await userAPI.getCreditCards()
                 if (data.success) {
-                    this.cards = data.data
+                    // uncomment this after dealing with api
+                    // this.cards = data.data
                 }
             } catch (error) {
                 console.log('error', error)
@@ -306,37 +307,37 @@ export default {
                     return;
                 }
             }
-            if (this.changeable_){
-                let v_amount= await this.$refs.amount.validate()
-                if(!v_amount) return;
+            if (this.changeable_) {
+                let v_amount = await this.$refs.amount.validate()
+                if (!v_amount) return;
             }
-            let  expiryMonth=this.expiry_date.split('/')[0];
-      let  expiryYear=`20${this.expiry_date.split('/')[1]}`;
-                let data = {
-                    cardInfo: {
-                        card_number: this.card_number,
-                        card_holder: this.card_holder,
-                        card_cvv: this.card_cvv,
-                        expiry_date: this.expiry_date,
-                        expiryMonth,
-                        expiryYear,
-                        paymentBrand: this.stateNumber.cardtype,
-                        saveCard: this.saveCard
-                    },
-                    item: {
-                        payment_type: this.itemForm.payment_type,
-                        amount: this.itemForm.amount,
+            let expiryMonth = this.expiry_date.split('/')[0];
+            let expiryYear = `20${this.expiry_date.split('/')[1]}`;
+            let data = {
+                cardInfo: {
+                    card_number: this.card_number,
+                    card_holder: this.card_holder,
+                    card_cvv: this.card_cvv,
+                    expiry_date: this.expiry_date,
+                    expiryMonth,
+                    expiryYear,
+                    paymentBrand: this.stateNumber.cardtype,
+                    saveCard: this.saveCard
+                },
+                item: {
+                    payment_type: this.itemForm.payment_type,
+                    amount: this.itemForm.amount,
 
-                    },
-                    otherData: this.otherData
-                }
+                },
+                otherData: this.otherData
+            }
             this.$emit('payment', data)
         },
     },
     mounted() {
-        if(process.env.NODE_ENV=='development'){
-            this.card_number ='4242424242424242'
-            this.card_cvv ='123'
+        if (process.env.NODE_ENV == 'development') {
+            this.card_number = '4242424242424242'
+            this.card_cvv = '123'
             this.expiry_date = '09/23'
             this.card_holder = 'full name'
         }
@@ -345,6 +346,7 @@ export default {
 }
 
 </script>
+
 
 <style scoped>
 .payment-card-detail {
@@ -411,4 +413,3 @@ export default {
     }
 }
 </style>
-

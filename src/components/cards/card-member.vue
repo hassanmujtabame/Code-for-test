@@ -1,7 +1,7 @@
 <template>
   <div class="provider-card" >
-    <div class="provider-card__wrapper pt-3">
-      <div class="provider-card__image mb-3">
+    <div class="provider-card__wrapper">
+      <div class="provider-card__image mb-4">
         <router-link v-if="to" :to="to"> 
           <img :src="img" alt width="259" height="162" />
         </router-link>
@@ -76,8 +76,9 @@ export default {
 }
 
 .provider-card__wrapper {
+  overflow: hidden;
   margin: 0 0 0px 0;
-  width: 100%;
+  width: 90%;
   /*max-width: 250px;*/
   /*height: 340px;*/
   border-radius: 11px;
@@ -92,11 +93,10 @@ export default {
 }
 
 .provider-card__image {
-    border-radius: 100%;
-    width: 162px;
-    height: 162px;
+  /*border-radius: 100%;*/
+    width: 100%;
+    height: 100%;
     margin: auto;
-  height: 162px;
   overflow: hidden;
 }
 

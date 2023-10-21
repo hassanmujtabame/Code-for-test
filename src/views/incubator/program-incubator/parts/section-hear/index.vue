@@ -28,7 +28,8 @@ export default {
         return {
             carouselId: `carousel-${vm.generateRandomString(8)}`,
             loading: true,
-            items: []
+            // make the items emty array after solving the api issue
+            items: [{"id":5,"department_name":"incubator","title":"هبه فراش","desc":"مؤسسة لعلامة هبة فرّاش لتصميم الازياء، رياديات منصة ملهمة انصح الجميع بالاشتراك فيها   والاستفادة من خدماتها.","image":null,"user_info":{"id":31,"image":"https:\/\/cp.riadiat.sa\/uploads\/user.png","name":"رياديات","job":"التصوير"}}]
         }
     },
     methods: {
@@ -39,7 +40,8 @@ export default {
                 let { data } = await commonAPI.getOpinions({ department_name: 'incubator' })
                 //console.log(data)
                 if (data.success) {
-                    this.items = data.data
+                    // please uncomment this after solving api type
+                    // this.items = data.data
                 }
             } catch (error) {
                 console.log('error', error)

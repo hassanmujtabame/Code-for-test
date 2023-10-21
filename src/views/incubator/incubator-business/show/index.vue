@@ -1,5 +1,5 @@
 <template>
-<div style="margin-top: 136px;">
+<div style="margin-top: 90px;">
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">
         {{ $t('has-error') }}
@@ -16,7 +16,7 @@
     </div>
   </div>
     </div> -->
-    <div v-else class="container">
+    <div v-else class="container-fluid">
         <div class="row">
             <div class="col-md-3">
                 <DSidebar :itemPage="itemPage"/>

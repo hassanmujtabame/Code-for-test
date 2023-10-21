@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Cookies from 'js-cookie'
 import './assets/scss/main.scss'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+
 console.mylog = (...args) => {
    if (process.env.NODE_ENV == 'development')
       console.log(...args)
@@ -20,6 +23,9 @@ Vue.use(VueGoogleMaps, {
 import VueFormWizard from "vue-form-wizard";
 import "vue-form-wizard/dist/vue-form-wizard.min.css";
 Vue.use(VueFormWizard);
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
+
 
 import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
