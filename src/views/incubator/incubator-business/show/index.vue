@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import DSidebar from './sidebar'
-import DContent from './content'
+import DSidebar from './sidebar/index.vue'
+import DContent from './content/index.vue'
 import incubatorAPI from '@/services/api/incubator';
 export default {
 name:'incubator-business',
