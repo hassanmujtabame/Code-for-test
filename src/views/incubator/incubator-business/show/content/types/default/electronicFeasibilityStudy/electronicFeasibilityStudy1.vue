@@ -223,17 +223,46 @@ export default {
 </script>
 
 <style scoped>
-label {
-  width: 100%;
-  text-align: start;
+label{
+    width:100%;
+    text-align: start;
 }
-
-.img-zone {
-  max-width: 430px;
+.img-zone{
+    max-width: 430px;
 }
-
-p {
+p{
   font-size: 20px;
 }
+th, td{
+  height: 50px;
+}
+th, td,table{
+  border: 1px solid rgba(200, 204, 204, 1);
+  text-align: center;
+}
+th{
+  font-weight: 200;
+  padding: 10px 15px;
+  background: rgba(227, 241, 241, 1);
+  color: rgba(15, 119, 116, 1);
+  border-top: 0px !important ;
+  border-right: 1px solid  rgba(31, 185, 179, 0.5)!important ;
+  border-left: 1px solid rgba(31, 185, 179, 0.5) !important ;
+}
+table{
+  border-right: 1px solid rgba(31, 185, 179, 0.5) !important ;
+  border-left: 1px solid  rgba(31, 185, 179, 0.5)!important ;
+  border-top: 0px !important ;
+  border-radius:25px ;
+
+}
+td input{
+  width: 100%;
+    height: 100%;
+    border: 0;
+}
+</style>
+
+
 </style>
 

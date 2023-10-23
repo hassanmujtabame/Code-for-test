@@ -1,12 +1,11 @@
 <template>
   <div class="container marketing-step2">
-<form-wizard>
+<form-wizard nextButtonText="التالى" backButtonText="السابق" finishButtonText="الانتهاء">
   <tab-content>
     <InvestmentProposalForm1/>
   </tab-content>
   <tab-content >
     <InvestmentProposalForm2/>
-
    </tab-content>
   
 </form-wizard>

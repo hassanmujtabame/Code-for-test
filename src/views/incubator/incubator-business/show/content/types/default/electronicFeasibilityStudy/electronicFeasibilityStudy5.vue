@@ -8,34 +8,6 @@
     </div>
 
     <div class="mt-3 col-12">
-      <p>طريقة الإنتاج: (توضيح المراحل المتبعة في المشروع بالتفصيل وتوضيح متطلبات كل مرحلة)</p>
-      <table class="col-12">
-        <thead>
-          <tr>
-            <th>الخدمة\المنتج</th>
-            <th>السعر</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input /> </td>
-            <td><input /> </td>
-          </tr>
-          <tr>
-            <td><input /> </td>
-            <td><input /> </td>
-          </tr>
-
-          <tr>
-            <td style="background: rgba(255, 242, 205, 1);">الإجمالي</td>
-            <td style="background: rgba(255, 242, 205, 1);"></td>
-
-          </tr>
-        </tbody>
-
-      </table>
-    </div>
-    <div class="mt-3 col-12">
       <p>السعر / السعر المتوقع</p>
       <table class="col-12">
         <thead>
@@ -58,6 +30,40 @@
         </tbody>
 
       </table>
+    </div>
+    <div class="mt-3 col-12">
+      <p>طريقة الإنتاج: (توضيح المراحل المتبعة في المشروع بالتفصيل وتوضيح متطلبات كل مرحلة)</p>
+      <table class="col-12">
+        <thead>
+          <tr>
+            <th>الخدمة\المنتج</th>
+            <th>السعر</th>
+          </tr>
+        </thead>
+        <tbody id="addHere2more">
+          <tr>
+            <td><input /> </td>
+            <td><input /> </td>
+          </tr>
+          <tr>
+            <td><input /> </td>
+            <td><input /> </td>
+          </tr>
+
+          <tr>
+            <td style="background: rgba(255, 242, 205, 1);">الإجمالي</td>
+            <td style="background: rgba(255, 242, 205, 1);"></td>
+
+          </tr>
+        </tbody>
+
+      </table>
+      <button @click="addHere2more()" style="background: #2CB7B3; padding: 10px 20px;
+      font-size: 20px;
+      background: transparent;
+      border: 3px solid #2CB7B3;
+      border-radius: 5px;
+      color:#2CB7B3; margin:20px 0;">إضافة المزيد</button>
     </div>
     <div class="mt-3 col-12">
       <p>جدول تحليل المنافسين</p>
@@ -183,9 +189,7 @@
     </div>
 
     <div class="mt-3 col-12">
-      <p>جدول تحليل المنافسين</p>
-      <p class="t-c">يساعدك هذا النموذج على مقارنة وضع مشروعك في السوق مع منافسيك، يمكنك زيادة عدد المنافسين حسب مشروعك.
-      </p>
+      <p>SWOT الافتراضات و المبادئ المبنية على تحليل</p>
       <table class="col-12">
         <thead>
           <tr>
@@ -235,11 +239,12 @@
     <div class="mt-3">
       <p> تحليل الاستبيان</p>
 
-      <div class="col-md-12">
+      <div class="col-md-12 mb-5">
         <label style="border: 0px !important;" for="imginput" class="img-zone form-label file-label first w-100">
           <div v-if="file" class="add-img-selected w-100">
-
-            <img class="image-selected-dialog" src="none" :id="idImage" />
+            <div style="width:120px; height:100px; margin: -20px 0 0 20px;">
+              <img class="image-selected-dialog" style="width:100%; height:100%;" src="none" :id="idImage" />
+            </div>
           </div>
           <div v-else class="text-center p-5">
             <img :src="`${publicPath}assets/svg/Group 11712759838.svg`" style="width: 205%;" />
@@ -292,7 +297,13 @@ export default {
     }
   },
   methods: {
-
+    addHere2more() {
+      const tr = document.createElement("tr");
+      tr.innerHTML = "<td style=' border: 1px solid rgba(200, 204, 204, 1);text-align: center; height:50px;'><input /> </td><td style=' border: 1px solid rgba(200, 204, 204, 1);text-align: center;height:50px;'><input /> </td>";
+      const el =document.getElementById("addHere2more");
+      el.insertBefore(tr, el.lastElementChild);
+      console.log('clicked')
+    },
     makeImageEmpty() {
       this.file = null;
       window.$('#' + this.idImage)

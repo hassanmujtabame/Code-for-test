@@ -20,7 +20,7 @@
       <p>هاتف</p>
       <input class="form-control py-3 px-5 fs-r-12" type="text" />
     </div>
-    <div>
+    <div class="mt-3">
       <p>تصنيف المشروع</p>
     </div>
     <div class="mt-3">
@@ -130,10 +130,13 @@
     </div>
 
     <div class="mt-3 col-12">
-      <p>مرحلة التصفية الأولى: (ذكر على الأقل 5 مواقع للمقارنة بينهم من حيث النقاط الموضحة بالجدول من خلال كتابة الأرقام
-        من 1 إلى 5)5 ممتاز، 4 جيد جداً، 3 جيد، 2 مقبول، 1ضعيف</p>
+      <p>
+        مرحلة التصفية الأولى: (اذكر على الأقل 5 مواقع للمقارنة بينهم من حيث النقاط الموضحة بالجدول من خلال كتابة الأرقام من 1 إلى 5)      </p>
+      <p>
+        5 ممتاز، 4 جيد جداً، 3 جيد، 2 مقبول، 1ضعيف
+      </p>
 
-      <table class="col-12">
+      <table class="mt-3 col-12">
         <thead>
           <tr>
             <th>العناصر الأساسية لخدمة المشروع</th>
@@ -147,85 +150,76 @@
         <tbody>
           <tr>
             <td>توفر المرافق العامة (كهرباء وماء)</td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
+            <td><input min="1" max="5" type="number" v-model="site1._1" /></td>
+            <td><input min="1" max="5" type="number" v-model="site2._1" /></td>
+            <td><input min="1" max="5" type="number" v-model="site3._1" /></td>
+            <td><input min="1" max="5" type="number" v-model="site4._1" /></td>
+            <td><input min="1" max="5" type="number" v-model="site5._1" /></td>
           </tr>
           <tr>
             <td>مدى توفر الطرق والمواصلات</td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
+            <td><input min="1" max="5" type="number" v-model="site1._2" /></td>
+            <td><input min="1" max="5" type="number" v-model="site2._2" /></td>
+            <td><input min="1" max="5" type="number" v-model="site3._2" /></td>
+            <td><input min="1" max="5" type="number" v-model="site4._2" /></td>
+            <td><input min="1" max="5" type="number" v-model="site5._2" /></td>
           </tr>
           <tr>
             <td>القرب من سكن العمالة</td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
+            <td><input min="1" max="5" type="number" v-model="site1._3" /></td>
+            <td><input min="1" max="5" type="number" v-model="site2._3" /></td>
+            <td><input min="1" max="5" type="number" v-model="site3._3" /></td>
+            <td><input min="1" max="5" type="number" v-model="site4._3" /></td>
+            <td><input min="1" max="5" type="number" v-model="site5._3" /></td>
           </tr>
           <tr>
             <td>مدى توفر الخدمات الاجتماعية</td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
+            <td><input min="1" max="5" type="number" v-model="site1._4" /></td>
+            <td><input min="1" max="5" type="number" v-model="site2._4" /></td>
+            <td><input min="1" max="5" type="number" v-model="site3._4" /></td>
+            <td><input min="1" max="5" type="number" v-model="site4._4" /></td>
+            <td><input min="1" max="5" type="number" v-model="site5._4" /></td>
           </tr>
           <tr>
             <td>لإيجار/البناء</td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
+            <td><input min="1" max="5" type="number" v-model="site1._5" /></td>
+            <td><input min="1" max="5" type="number" v-model="site2._5" /></td>
+            <td><input min="1" max="5" type="number" v-model="site3._5" /></td>
+            <td><input min="1" max="5" type="number" v-model="site4._5" /></td>
+            <td><input min="1" max="5" type="number" v-model="site5._5" /></td>
           </tr>
 
           <tr>
             <td>مدى توفر شبكات الصرف الصحي</td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-          </tr>
-          <tr>
-            <td>7- اختيار العاملين</td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
+            <td><input min="1" max="5" type="number" v-model="site1._6" /></td>
+            <td><input min="1" max="5" type="number" v-model="site2._6" /></td>
+            <td><input min="1" max="5" type="number" v-model="site3._6" /></td>
+            <td><input min="1" max="5" type="number" v-model="site4._6" /></td>
+            <td><input min="1" max="5" type="number" v-model="site5._6" /></td>
           </tr>
           <tr>
             <td>الحاجة إلى الترميم</td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
+            <td><input min="1" max="5" type="number" v-model="site1._8" /></td>
+            <td><input min="1" max="5" type="number" v-model="site2._8" /></td>
+            <td><input min="1" max="5" type="number" v-model="site3._8" /></td>
+            <td><input min="1" max="5" type="number" v-model="site4._8" /></td>
+            <td><input min="1" max="5" type="number" v-model="site5._8" /></td>
           </tr>
           <tr>
             <td>القرب من سكن مالك المشروع</td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
-            <td><input /> </td>
+            <td><input min="1" max="5" type="number" v-model="site1._9" /></td>
+            <td><input min="1" max="5" type="number" v-model="site2._9" /></td>
+            <td><input min="1" max="5" type="number" v-model="site3._9" /></td>
+            <td><input min="1" max="5" type="number" v-model="site4._9" /></td>
+            <td><input min="1" max="5" type="number" v-model="site5._9" /></td>
           </tr>
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">المجموع</td>
-            <td style="background: rgba(255, 242, 205, 1);"></td>
-            <td style="background: rgba(255, 242, 205, 1);"></td>
-            <td style="background: rgba(255, 242, 205, 1);"></td>
-            <td style="background: rgba(255, 242, 205, 1);"></td>
-            <td style="background: rgba(255, 242, 205, 1);"></td>
-            <td style="background: rgba(255, 242, 205, 1);"></td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(site1) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(site2) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(site3) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(site4) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(site5) }}</td>
           </tr>
         </tbody>
 
@@ -238,6 +232,61 @@
 export default {
   data: (vm) => {
     return {
+      site1: {
+        _1: '',
+        _2: '',
+        _3: '',
+        _4: '',
+        _5: '',
+        _6: '',
+        _7: '',
+        _8: '',
+        _9: ''
+      },
+      site2: {
+        _1: '',
+        _2: '',
+        _3: '',
+        _4: '',
+        _5: '',
+        _6: '',
+        _7: '',
+        _8: '',
+        _9: ''
+      },
+      site3: {
+        _1: '',
+        _2: '',
+        _3: '',
+        _4: '',
+        _5: '',
+        _6: '',
+        _7: '',
+        _8: '',
+        _9: ''
+      },
+      site4: {
+        _1: '',
+        _2: '',
+        _3: '',
+        _4: '',
+        _5: '',
+        _6: '',
+        _7: '',
+        _8: '',
+        _9: ''
+      },
+      site5: {
+        _1: '',
+        _2: '',
+        _3: '',
+        _4: '',
+        _5: '',
+        _6: '',
+        _7: '',
+        _8: '',
+        _9: ''
+      },
       loading: false,
       group: 'add-blog',
       showDialog: false,
@@ -257,7 +306,13 @@ export default {
     }
   },
   methods: {
-
+    calculateSum(site) {
+      var totalSum = Object.values(site).reduce((acc, value) => acc + parseFloat(value || 0), 0);
+      if (totalSum == 0) {
+        return ''
+      }
+      return totalSum
+    },
     makeImageEmpty() {
       this.file = null;
       window.$('#' + this.idImage)
@@ -320,6 +375,8 @@ p {
 th,
 td {
   height: 50px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 th,
@@ -348,6 +405,11 @@ td input {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+tr td:first-child{
+  text-align: start;
+  font-weight: 400;
 }
 </style>
 

@@ -213,10 +213,7 @@
   <tbody>
     <tr>
       <td><input/> </td>
-    </tr>
-    <tr>
       <td><input/> </td>
-
     </tr>
   </tbody>
 
@@ -313,7 +310,9 @@ th, td,table{
   text-align: center;
 }
 th{
-background: rgba(227, 241, 241, 1);
+  font-weight: 200;
+  padding: 10px 15px;
+  background: rgba(227, 241, 241, 1);
   color: rgba(15, 119, 116, 1);
   border-top: 0px !important ;
   border-right: 1px solid  rgba(31, 185, 179, 0.5)!important ;

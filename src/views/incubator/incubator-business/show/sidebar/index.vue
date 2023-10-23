@@ -40,10 +40,23 @@
                     @click="onChoose3('145')">
                     <d-stepper-icon></d-stepper-icon>
                     نموذج : الأربع أفكار</d-stepper-head-item>
-                  <d-stepper-head-item v-if="item.title == 'المرحلة الثانية'" @click="onChoose3('1450')">
+
+                    <d-stepper-head-item v-if="item.title == 'المرحلة الأولى'" style="cursor: pointer"
+                    @click="onChoose3('147')">
                     <d-stepper-icon></d-stepper-icon>
-                    نموذج: العرض
-                    الاستثماري</d-stepper-head-item>
+                    نموذج : العلامة التجارية (الشعار)</d-stepper-head-item>
+
+                    <d-stepper-head-item v-if="item.title == 'المرحلة الأولى'" style="cursor: pointer"
+                    @click="onChoose3('148')">
+                    <d-stepper-icon></d-stepper-icon>
+                    نموذج :   العمل التجاري</d-stepper-head-item>
+
+
+                  <d-stepper-head-item v-if="item.title == 'المرحلة الثانية'" @click="onChoose3('1450')">
+                      <d-stepper-icon></d-stepper-icon>
+                      نموذج: العرض
+                      الاستثماري  
+                    </d-stepper-head-item>
                 </div>
                 <d-stepper-head-item v-if="item.title == 'المرحلة النهائية'" @click="onChoose3('146')">
                   <d-stepper-icon></d-stepper-icon>

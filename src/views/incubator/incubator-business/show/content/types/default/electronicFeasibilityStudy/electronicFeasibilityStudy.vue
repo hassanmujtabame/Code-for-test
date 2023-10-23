@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form-wizard ref="normalSteps" nextButtonText="التالى" backButtonText="السابق" finishButtonText="الانتهاء">
+    <form-wizard @on-complete="onComplete" ref="normalSteps" nextButtonText="التالى" backButtonText="السابق" finishButtonText="الانتهاء">
       <tab-content title="الدراسة التمهيدية ">
         <electronicFeasibilityStudy1 />
         <!-- <wizard-step /> -->
@@ -27,12 +27,12 @@
             <electronicFeasibilityStudy9 />
           </tab-content>
           <tab-content>
-            <electronicFeasibilityStudy11 />
+            <electronicFeasibilityStudy10 />
           </tab-content>
         </form-wizard>
       </tab-content>
       <tab-content title=" الدراسة المالية ">
-        <electronicFeasibilityStudy10 />
+        <electronicFeasibilityStudy11 />
       </tab-content>
     </form-wizard>
   </div>
@@ -102,6 +102,9 @@ export default {
         console.log('switched');
         return true;
       }
+    },
+    onComplete: function () {
+      this.$router.push("/ar/incubator/home")
     }
   },
   

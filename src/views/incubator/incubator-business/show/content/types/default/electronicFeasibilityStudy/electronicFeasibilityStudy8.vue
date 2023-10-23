@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <p>اختيار الموقع المقترح: (تحديد الموقع بشكل دقيق)</p>
+    <div class="mt-3">
+      <p style="font-size:18px; color:gray;">اختيار الموقع المقترح: (تحديد الموقع بشكل دقيق)</p>
+    </div>
     <div class="mt-3">
       <p>موطن المشروع</p>
       <input class="form-control py-3 px-5 fs-r-12" type="text" />
@@ -19,7 +21,6 @@
       <p>رسم هندسي لموقع المشروع:
         احتياجات المشروع ومساحاتها: (يتم توضيح الغرف وتقسيمات موقع المشروع بالتفصيل ومساحاتها بالمتر المربع)
       </p>
-      <input class="form-control py-3 px-5 fs-r-12" type="text" />
     </div>
     <div class="mt-3 col-12">
       <table class="col-12">
@@ -38,7 +39,14 @@
             <td><input /> </td>
             <td><input /> </td>
           </tr>
-
+          <tr>
+            <td><input /> </td>
+            <td><input /> </td>
+          </tr>
+          <tr>
+            <td><input /> </td>
+            <td><input /> </td>
+          </tr>
         </tbody>
 
       </table>
@@ -49,7 +57,9 @@
         <label style="border: 0px !important;" for="imginput" class="img-zone form-label file-label first w-100">
           <div v-if="file" class="add-img-selected w-100">
 
-            <img class="image-selected-dialog" src="none" :id="idImage" />
+            <div style="width:120px; height:100px; margin: -20px 0 0 20px;">
+              <img class="image-selected-dialog" style="width:100%; height:100%;" src="none" :id="idImage" />
+            </div>
           </div>
           <div v-else class="text-center p-5">
             <img :src="`${publicPath}assets/svg/Group 11712759833.svg`" style="width: 205%" />
@@ -66,20 +76,7 @@
         </ValidationProvider>
       </div>
     </div>
-    <p>اختيار الفن الإنتاجي الملائم من حيث:</p>
-    <div class="mt-3">
-      <p>درجة توفر العمالة ووعيه</p>
-      <input class="form-control py-3 px-5 fs-r-12" type="text"
-        placeholder="هل المشروع يحتاج إلى أيدي عاملة أكثر من الآلات والمعدات أو العكس؟ وهل الأيدي العاملة مدربة أو لا؟" />
-    </div>
-    <div class="mt-3">
-      <p>هيكل السوق</p>
-      <input class="form-control py-3 px-5 fs-r-12" type="text"
-        placeholder="أين يتركز المشروع؟ وهل سيتوسع في المستقبل أو لا؟" />
-    </div>
-
-
-
+    <p style="color: #666; ">اختيار الفن الإنتاجي الملائم من حيث:</p>
 
     <div class="mt-3 col-12">
       <p>درجة توفر العمالة ووعيه</p>
@@ -87,13 +84,13 @@
         placeholder="هل المشروع يحتاج إلى أيدي عاملة أكثر من الآلات والمعدات أو العكس؟ وهل الأيدي العاملة مدربة أو لا؟" />
     </div>
 
-    <div class="mt-3" style="widthfit-content">
+    <div class="mt-3 col-12">
       <p>هيكل السوق</p>
       <input class="form-control py-3 px-5 fs-r-12" type="text"
         placeholder="أين يتركز المشروع؟ وهل سيتوسع في المستقبل أو لا؟" />
     </div>
 
-    <p class="mt-3">متطلبات المشروع من العمالة وأجورهم: (اذكري الموارد البشرية المستخدمة في المشروع بمسماها الوظيفي
+    <p class="mt-3 col-12">متطلبات المشروع من العمالة وأجورهم: (اذكري الموارد البشرية المستخدمة في المشروع بمسماها الوظيفي
       وأجورهم)
       عمالة ثابتة:
     </p>
@@ -186,6 +183,35 @@
             <td style="background: rgba(255, 242, 205, 1);">الإجمالي</td>
             <td style="background: rgba(255, 242, 205, 1);"></td>
             <td style="background: rgba(255, 242, 205, 1);"></td>
+            <td style="background: rgba(255, 242, 205, 1);"></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+    <div class="mt-3">
+      <p>
+        احتياجات المشروع من المباني والتعديلات والترميم: (في حال احتاج المشروع لترميم وتعديل يرجى كتابتها بالتفصيل)
+      </p>
+      <table class="col-12">
+        <thead>
+          <tr>
+            <th>البيان</th>
+            <th>التكلفة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input /> </td>
+            <td><input /> </td>
+          </tr>
+          <tr>
+            <td><input /> </td>
+            <td><input /> </td>
+          </tr>
+
+          <tr>
+            <td style="background: rgba(255, 242, 205, 1);">الإجمالي</td>
             <td style="background: rgba(255, 242, 205, 1);"></td>
           </tr>
         </tbody>
@@ -377,8 +403,10 @@ table {
 }
 
 th {
-  background: rgba(227, 241, 241, 1);
-  color: rgba(15, 119, 116, 1);
+  font-weight: 200;
+  padding: 10px 15px;
+  background: #E3F1F1;
+  color: #0F7774;
   border-top: 0px !important;
   border-right: 1px solid rgba(31, 185, 179, 0.5) !important;
   border-left: 1px solid rgba(31, 185, 179, 0.5) !important;

@@ -78,7 +78,7 @@
             onChoose(dept) {
                 if (!this.departmentsIncubatorSub.includes(dept.id)) {
                     let dataEvt = {
-                        title: 'غير مش1ترك في القسم',
+                        title: 'غير مشترك في القسم',
                         description:
                             'انت غير مشترك في القسم، لذا عليك الاشتراك فيه لتتبع مساره',
                         type: 'warning',

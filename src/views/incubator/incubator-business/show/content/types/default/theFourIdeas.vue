@@ -114,7 +114,7 @@
               <td><input type="number" v-model="idea3.knowledgeCriteria" /></td>
               <td><input type="number" v-model="idea4.knowledgeCriteria" /></td>
             </tr>
-  
+
             <tr style="background: rgba(255, 242, 205, 1);">
               <td>المجموع</td>
               <td>{{ calculateSum(idea1) }}</td>
@@ -209,7 +209,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 label {
   width: 100%;
   text-align: start;
@@ -217,6 +217,10 @@ label {
 
 .img-zone {
   max-width: 430px;
+}
+
+p {
+  font-size: 20px;
 }
 
 th,
@@ -227,7 +231,7 @@ td {
 th,
 td,
 table {
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: 1px solid rgba(200, 204, 204, 1);
   text-align: center;
 }
 
@@ -250,9 +254,5 @@ td input {
   width: 100%;
   height: 100%;
   border: 0;
-  outline: none;
 }
-
-td input:focus {
-  outline: none;
-}</style>
+</style>

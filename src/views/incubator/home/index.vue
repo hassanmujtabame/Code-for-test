@@ -1,39 +1,39 @@
-  <template>
+<template>
   <div style="margin-top: 85px " class="consult">
-        <!-- section top-->
-        <SectionTop />
-       <!-- section definition-->
-       <SectionDefinition />
+    <!-- section top-->
+    <SectionTop />
+    <!-- section definition-->
+    <SectionDefinition />
 
-        <!-- section features-->
-        <SectionFeatures />
-        <SectionOurAds />
+    <!-- section features-->
+    <SectionFeatures />
+    <SectionOurAds />
 
-       <!-- section ads-->
-       <SectionAds department="encubator"  />
-       <sectionJourneyLaunch />
-        <SectionIncubationProgram  v-if="!token"/>
-        <!-- section 6-->
-        <SectionDepartments />
+    <!-- section ads-->
+    <SectionAds department="encubator" />
+    <sectionJourneyLaunch />
+    <SectionIncubationProgram v-if="!token" />
+    <!-- section 6-->
+    <SectionDepartments />
 
-        <!-- section 7-->
-        <SectionProgramsProjects />
-        <SectionHaveProject v-if="!token"/>
-         <!-- section 8-->
-         <SectionGraduated />
-         <!-- section 9-->
-         <SectionOurPartners />
+    <!-- section 7-->
+    <SectionProgramsProjects />
+    <SectionHaveProject v-if="!token" />
+    <!-- section 8-->
+    <SectionGraduated />
+    <!-- section 9-->
+    <SectionOurPartners />
 
-         <SectionIncubationProjects /> 
+    <SectionIncubationProjects />
 
-        <!-- section 10-->
-        <SectionSchedule />
-        <!-- <SectionNumbers /> -->
-        <!-- section 11-->
-        <SectionContinueLearning />
-        <!-- section 12-->
-        <SectionHear/>
-    </div>
+    <!-- section 10-->
+    <SectionSchedule />
+    <!-- <SectionNumbers /> -->
+    <!-- section 11-->
+    <SectionContinueLearning />
+    <!-- section 12-->
+    <SectionHear />
+  </div>
 </template>
 
 <script>
@@ -55,29 +55,32 @@ import SectionHaveProject from './parts/section-have-project/index.vue'
 import SectionOurAds from './parts/section-our-ads/index.vue'
 import SectionGraduated from './parts/section-graduated/index.vue'
 export default {
-name:"incubator-home",
-components:{
-  SectionTop,
-  SectionDefinition,
-  SectionFeatures,
-  SectionAds,
-  // SectionNumbers,
-  sectionJourneyLaunch,
-  SectionIncubationProgram,
-  SectionDepartments,
-  SectionProgramsProjects,
-  SectionOurPartners,
-  SectionIncubationProjects,
-  SectionSchedule,
-  SectionContinueLearning,
-  SectionHear,
-  SectionHaveProject,
-  SectionOurAds,
-  SectionGraduated
-}
+  name: "incubator-home",
+  components: {
+    SectionTop,
+    SectionDefinition,
+    SectionFeatures,
+    SectionAds,
+    // SectionNumbers,
+    sectionJourneyLaunch,
+    SectionIncubationProgram,
+    SectionDepartments,
+    SectionProgramsProjects,
+    SectionOurPartners,
+    SectionIncubationProjects,
+    SectionSchedule,
+    SectionContinueLearning,
+    SectionHear,
+    SectionHaveProject,
+    SectionOurAds,
+    SectionGraduated
+  },
+  mounted: function() {
+    if(!this.token) {
+      this.shouldLoginMsg()
+    } 
+  }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
