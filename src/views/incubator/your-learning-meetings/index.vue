@@ -1,21 +1,19 @@
 <template>
   <div style="margin-top: 85px " class="consult">
-    <div class="bg-body-page">
-      <div class="container mt-5">
+    <SectionTop />
     <SectionFilterList />
-    </div>
-  </div>
   </div>
 </template>
 
 <script>
 
 import SectionFilterList from './parts/section-filter-list/index';
+import SectionTop from './parts/section-top/index';
 
 export default {
   name: 'your-certifcates-page',
   components:{
-
+    SectionTop,
     SectionFilterList,
 
   }

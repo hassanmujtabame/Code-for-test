@@ -282,7 +282,7 @@
 
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">إجمالي التكلفة الاستثمارية</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_6['column_1'])}}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_6['column_1']) }}</td>
           </tr>
         </tbody>
 
@@ -311,8 +311,8 @@
           </tr>
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">الإجمالي</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{calculateSum(table_7['column_1'])}}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{calculateSum(table_7['column_2'])}}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_7['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_7['column_2']) }}</td>
           </tr>
         </tbody>
 
@@ -345,7 +345,7 @@
 
           <tr>
             <td style="background: rgba(255, 242, 205, 1);"> إجمالي التكاليف</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{calculateSum(table_8['column_1'])}}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_8['column_1']) }}</td>
           </tr>
         </tbody>
 
@@ -399,7 +399,7 @@
             <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_1']) }}</td>
             <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_2']) }}</td>
             <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_3']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_4']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_4'], "table_9") }}</td>
           </tr>
         </tbody>
 
@@ -425,7 +425,7 @@
           </tr>
           <tr>
             <td style="background: rgba(255, 242, 205, 1);"> = اجمالي الأرباح</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{calculateSum(table_10['column_1'])}}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_10['column_1']) }}</td>
           </tr>
         </tbody>
 
@@ -455,7 +455,7 @@
           </tr>
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">= صافي الربح</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{calculateSum(table_11['column_1'])}}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_11['column_1']) }}</td>
           </tr>
         </tbody>
 
@@ -478,7 +478,7 @@ export default {
           row_3: '',
           row_4: '',
           row_5: ''
-        }
+        },
       },
       table_2: {
         column_1: {
@@ -582,7 +582,6 @@ export default {
           row_2: '',
           row_3: '',
           row_4: '',
-
         },
         column_2: {
           row_1: '',
@@ -601,7 +600,7 @@ export default {
           row_2: '',
           row_3: '',
           row_4: '',
-        }
+        },
       },
       table_10: {
         column_1: {
@@ -636,20 +635,19 @@ export default {
     }
   },
   methods: {
-    calculateSum(column) {
+    calculateSum(column, totalName) {
 
       var totalSum = Object.values(column).reduce((acc, value) => acc + parseFloat(value || 0), 0);
       if (totalSum == 0) {
         return ''
       }
+      if(typeof totalName !== "undefined"){
+
+        localStorage.setItem(totalName, totalSum)
+        console.log(localStorage.getItem(totalName))
+        console.log(totalName)  
+      }
       return totalSum
-      // var table = document.getElementById(selectedTable), sumVal = 0;
-
-      // for (var i = 1; i < table.rows.length; i++) {
-      //   sumVal = sumVal + parseInt(table.rows[i].cells[1].innerHTML);
-      // }
-
-
 
     },
     addHereMore(count, selected) {
@@ -695,12 +693,10 @@ export default {
       return true;
     },
 
-
   },
   mounted() {
-
     this.calculateSum()
-  }
+  },
 }
 </script>
 

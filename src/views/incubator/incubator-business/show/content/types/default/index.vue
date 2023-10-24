@@ -96,9 +96,11 @@
     <div v-if="phase.Id == '148'">
       <theBusiness  />
     </div>
-    <div v-if="phase.Id == '146'">
-      
+    <div v-if="phase.Id == '146'"> 
       <electronicFeasibilityStudy />
+    </div>
+    <div v-if="phase.Id == '149'"> 
+      <TheFinish />
     </div>
     
     <div v-if="phase.Id == '1450'">
@@ -117,6 +119,8 @@ import electronicFeasibilityStudy from './electronicFeasibilityStudy/electronicF
 import InvestmentProposalForm from './InvestmentProposalForm/InvestmentProposalForm.vue';
 import theNotifications from './theNotifications.vue';
 import theBusiness from './theBusiness.vue';
+import theFinish from './theFinish.vue';
+import TheFinish from './theFinish.vue';
 
 export default {
   name: 'section-type-default',
@@ -126,8 +130,10 @@ export default {
     electronicFeasibilityStudy,
     InvestmentProposalForm,
     theNotifications,
-    theBusiness
-  },
+    theBusiness,
+    theFinish,
+    TheFinish
+},
   props: {
     phase: {},
     itemPage: {},

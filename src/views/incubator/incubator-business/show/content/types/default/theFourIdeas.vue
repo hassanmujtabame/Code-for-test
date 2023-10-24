@@ -146,39 +146,43 @@ export default {
       needs: '',
       opportunity: '',
       idea1: {
-        financialCriteria: 0,
-        humanCriteria: 0,
-        marketingCriteria: 0,
-        personalCriteria: 0,
-        knowledgeCriteria: 0
+        financialCriteria: '',
+        humanCriteria: '',
+        marketingCriteria: '',
+        personalCriteria: '',
+        knowledgeCriteria: ''
       },
       idea2: {
-        financialCriteria: 0,
-        humanCriteria: 0,
-        marketingCriteria: 0,
-        personalCriteria: 0,
-        knowledgeCriteria: 0
+        financialCriteria: '',
+        humanCriteria: '',
+        marketingCriteria: '',
+        personalCriteria: '',
+        knowledgeCriteria: ''
       },
       idea3: {
-        financialCriteria: 0,
-        humanCriteria: 0,
-        marketingCriteria: 0,
-        personalCriteria: 0,
-        knowledgeCriteria: 0
+        financialCriteria: '',
+        humanCriteria: '',
+        marketingCriteria: '',
+        personalCriteria: '',
+        knowledgeCriteria: ''
       },
       idea4: {
-        financialCriteria: 0,
-        humanCriteria: 0,
-        marketingCriteria: 0,
-        personalCriteria: 0,
-        knowledgeCriteria: 0
+        financialCriteria: '',
+        humanCriteria: '',
+        marketingCriteria: '',
+        personalCriteria: '',
+        knowledgeCriteria: ''
       },
     };
   },
 
   methods: {
     calculateSum(idea) {
-      return Object.values(idea).reduce((acc, value) => acc + parseFloat(value || 0), 0);
+      var totalSum = Object.values(idea).reduce((acc, value) => acc + parseFloat(value || 0), 0);
+      if (totalSum == 0) {
+        return ''
+      }
+      return totalSum
     },
     createPDF() {
       var sTable = document.getElementById('myTable').innerHTML;

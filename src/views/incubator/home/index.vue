@@ -5,6 +5,9 @@
     <!-- section definition-->
     <SectionDefinition />
 
+    <!-- section members -->
+    <SectionMemberIncubation />
+
     <!-- section features-->
     <SectionFeatures />
     <SectionOurAds />
@@ -39,6 +42,7 @@
 <script>
 import SectionTop from './parts/section-top/index.vue'
 import SectionDefinition from './parts/section-definition/index.vue'
+import SectionMemberIncubation from './parts/section-member-incubation/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
 import SectionAds from '@/common/components/advertisements/index'
 import sectionJourneyLaunch from './parts/section-journey-launch/index.vue'
@@ -73,7 +77,8 @@ export default {
     SectionHear,
     SectionHaveProject,
     SectionOurAds,
-    SectionGraduated
+    SectionGraduated,
+    SectionMemberIncubation
   },
   mounted: function() {
     if(!this.token) {

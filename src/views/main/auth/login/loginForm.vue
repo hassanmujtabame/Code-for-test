@@ -11,8 +11,16 @@
             <h1 class="fw-bolder">مرحبا بك من جديد</h1>
             <p class="mb-3 text-secondary-color">لنبدأمن جديد ال انطلاق نحو المستقبل</p>
 
-            <!-- Start Email -->
+
             <ValidationObserver ref="loginForm">
+              <!-- Start choose the type of your account -->
+              <select class="form-select mb-3" aria-label="Default select example">
+                <option selected disabled>نوع الحساب</option>
+                <option value="1">مرشد</option>
+                <option value="2">عضو فى الحاضنه</option>
+              </select>
+              <!-- End the choose -->
+              <!-- Start Email -->
               <ValidationProvider
                 vid="email"
                 rules="required|email"
