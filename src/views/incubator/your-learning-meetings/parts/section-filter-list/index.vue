@@ -3,8 +3,8 @@
     <d-filter-list :items='items' classColCard="col-12 col-md-6" searchPlaceholder="أبحث  في قائمة القاءت">
 
       <template v-slot:list>
-        <div style="display:grid; gap:10px; grid-template-columns: 1fr 1fr 1fr;" >
-          <router-link v-for="(item, i) in items" :key="i" class="router-link"
+        <div class="d-flex flex-wrap flex-row justify-content-center" >
+          <router-link v-for="(item, i) in items" :key="i" class="router-link m-2"
             :to="getRouteLocale('academy-learning-meeting-show', { id: item.id })">
             <meetingCard :item="item" :img="`${publicPath + item.image}`" :title="item.title" :type="item.type"
               :date="item.date" />
@@ -126,4 +126,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+  .router-link {
+    width: fit-content;
+  }
+</style>

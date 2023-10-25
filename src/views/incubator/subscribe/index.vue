@@ -5,12 +5,12 @@
         <div class="container p-5 mt-5">
             <form-wizard color="#49b483ff" step-size="xs" @on-complete="onComplete" ref="normalSteps"
                 nextButtonText="التالى" backButtonText="السابق" finishButtonText="الانتهاء">
-                <tab-content title=" الباقه ">
+                <tab-content :before-change="beforeChange_1" title=" الباقه ">
 
                     <div v-for="(pack, p) in packages" :key="p" class="mt-2">
                         <div class="row p-3">
-                            <SubscribeCard :itemId="pack.name" :packId="pack" :title="pack.name" :price="pack.price"
-                                :features="pack.options.map(c => c.name_ar)" :type-subscribe="pack.name"
+                            <SubscribeCard @next-step="moveNext" :itemId="pack.name" :packId="pack" :title="pack.name"
+                                :price="pack.price" :features="pack.options.map(c => c.name_ar)" :type-subscribe="pack.name"
                                 @selected="choose(pack)" :subscribed="subscribedType" :typeSectionSub='"network"'>
                             </SubscribeCard>
                             <!-- :title="getTitleSubscribe(pack.name)" -->
@@ -94,6 +94,9 @@ export default {
         }
     },
     methods: {
+        moveNext() {
+            this.$refs.normalSteps.nextTab();
+        },
         getTypePackage(data) {
             switch (data.type) {
                 case 'free': return this.$t('free');
@@ -188,9 +191,6 @@ export default {
         },
 
         beforeChange() {
-            console.log('--')
-            console.log(localStorage.getItem('selectedPackage'))
-            console.log('--')
             if (this.fieldIds.length == 0) {
                 let dataEvt = {
                     title: '  اختار المجال ',
@@ -203,6 +203,21 @@ export default {
                 return false;
             } else {
                 localStorage.setItem('fieldsId', this.fieldIds)
+                return true
+            }
+        },
+        beforeChange_1() {
+            if (!localStorage.getItem("selectedPackage")) {
+                let dataEvt = {
+                    title: '  اختار الباقه ',
+                    description:
+                        ' يجب اختيار باقه من الاختيارات  ',
+                    type: 'warning',
+                    btns: null,
+                };
+                this.showConfirmMsg(dataEvt);
+                return false;
+            } else {
                 return true
             }
         },

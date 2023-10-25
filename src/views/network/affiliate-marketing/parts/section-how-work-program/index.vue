@@ -2,14 +2,14 @@
     <div class="py-4">
         <h2 class="text-center">كيفية عمل البرنامج</h2>
 
-        <div class="container mt-4 ">
+        <div class="container mt-4">
            
-            <div class="row">
-                <div v-for="(item, i) in items" :key="i" class="col-4 col-md-4 position-relative">
+            <div class="row justify-content-center">
+                <div v-for="(item, i) in items" :key="i" class="mt-3 col-lg-4 col-md-6 col-sm-12 position-relative">
                     <hr class="line-dd" v-if="i!==(items.length-1)" />
                     <cardShow :position="(i % 2) == 0 ? 'top' : 'bottom'" 
                     :isFirst="i==0"
-                    :image="item.image" :title="item.title"
+                    :image="`${publicPath + item.image} `" :title="item.title"
                         :description="item.description" />
                 </div>
             </div>
@@ -27,9 +27,9 @@ export default {
     data: (vm) => {
         return {
             items: [
-                { title: 'إنضمي الينا', image: `${vm.publicPath}assets/svg/hand-click.svg`, description: 'سجلى كمسوقة بالعمولة و ابداى رحلتك معانا' },
-                { title: 'تواصلى مع الاخرين', image: `${vm.publicPath}assets/svg/contact-networking.svg`, description: 'تواصلى مع الاخرين من خلال  لوحة تحكم خاصة بكى تسهل الترويج لمنتجاتك' },
-                { title: 'أربحى المال', image: `${vm.publicPath}assets/svg/money-bills-2.svg`, description: 'تلقى عمولتك للتسويق لمنتجاتك من خلال منصة رياديات' },
+                { title: 'إنضمي الينا', image: `assets/svg/hand-click.svg`, description: 'سجلى كمسوقة بالعمولة و ابداى رحلتك معانا' },
+                { title: 'تواصلى مع الاخرين', image: `assets/svg/contact-networking.svg`, description: 'تواصلى مع الاخرين من خلال  لوحة تحكم خاصة بكى تسهل الترويج لمنتجاتك' },
+                { title: 'أربحى المال', image: `assets/svg/money-bills-2.svg`, description: 'تلقى عمولتك للتسويق لمنتجاتك من خلال منصة رياديات' },
             ]
         }
     }
@@ -48,5 +48,11 @@ export default {
     padding:0;
     margin:0;
     opacity: 1;
+}
+@media screen and (max-width: 960px) {
+.line-dd {
+    width: 0;
+}
+    
 }
 </style>

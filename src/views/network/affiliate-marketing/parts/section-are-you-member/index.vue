@@ -1,5 +1,5 @@
 <template>
-   <div class="main-top py-2 position-relative mt-5" :class="{'px-5':!isMobile,'px-3':isMobile}">
+   <div class="main-top py-2 position-relative mt-5 container" style="border-radius: 10px;;" :class="{'px-5':!isMobile,'px-3':isMobile}">
             <div class="row align-items-center m-auto">
                 <div class="col-12">
                     <h1 class="text-white fw-bolder " :class="{'fs-r-56':!isMobile,'fs-6':isMobile}">

@@ -141,12 +141,30 @@ const routes = [
 					),
 			},
 			{
+				path: "login-affiliate",
+				meta: { layout: LayoutDefault, auth: false },
+				name: "login-affiliate",
+				component: () =>
+					import(
+						/* webpackChunkName: "Login" */ "../views/main/auth/login-affiliate/index.vue"
+					),
+			},
+			{
 				path: "register",
 				meta: { layout: LayoutDefault, auth: false },
 				name: "register",
 				component: () =>
 					import(
 						/* webpackChunkName: "Register" */ "../views/main/auth/register/index.vue"
+					),
+			},
+			{
+				path: "register-affiliate",
+				meta: { layout: LayoutDefault },
+				name: "register-affiliate",
+				component: () =>
+					import(
+						/* webpackChunkName: "Register" */ "../views/main/auth/register-affiliate/index.vue"
 					),
 			},
 			{

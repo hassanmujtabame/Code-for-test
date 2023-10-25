@@ -74,7 +74,7 @@ export default {
           window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
           window.axios.get(`payments/hyperbill/callback?package_id=${this.packId.id}&package_type=${this.packageType}&user_id=${this.user.id}`).then(res => {
             console.log('res', res);
-            this.$refs.normalSteps.next();
+            this.$refs.normalSteps.nextTab();
           })
 
         } catch (error) {
@@ -92,8 +92,8 @@ export default {
         // Advance to the next tab
         const scrollY = document.body.scrollHeight - window.innerHeight - 400; // Adjust 100 to your preferred position
         window.scrollTo(0, scrollY);
-      this.$refs.normalSteps.next();
-
+        
+        this.$emit('next-step')
       }
     }
   },
