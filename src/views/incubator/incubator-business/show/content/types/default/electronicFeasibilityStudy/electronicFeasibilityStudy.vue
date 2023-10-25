@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form-wizard @on-complete="onComplete" ref="normalSteps" nextButtonText="التالى" backButtonText="السابق" finishButtonText="الانتهاء">
+    <form-wizard title="none" @on-complete="onComplete" ref="normalSteps" nextButtonText="التالى" backButtonText="السابق" finishButtonText="الانتهاء">
       <tab-content title="الدراسة التمهيدية ">
         <electronicFeasibilityStudy1 />
         <!-- <wizard-step /> -->

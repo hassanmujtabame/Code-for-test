@@ -52,6 +52,12 @@ methods:{
             let { data } = await incubatorAPI.getStageItem(this.$route.params.id);
             if(data.success){
                 this.itemPage = {...data.data,subscribed:this.isDeptIncubatorSubscribe({id:data.data.department_id})};
+                console.log('--')
+                console.log('--')
+                console.log(this.itemPage)
+                console.log('--')
+                console.log('--')
+                
             }
         } catch (error) {
             this.hasError = true;

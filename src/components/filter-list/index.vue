@@ -247,7 +247,7 @@
                   </div>
                 </div>
               </div>
-              <div class="accordion-item">
+              <!-- <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                   <button
                     class="accordion-button collapsed"
@@ -276,8 +276,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item">
+              </div> -->
+              <!-- <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFour">
                   <button
                     class="accordion-button collapsed"
@@ -306,7 +306,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="mt-3 text-center">
               <button class="btn-main">حفظ</button>
@@ -317,7 +317,7 @@
       <div :class="{ 'col-xl-9': !hideSide, 'col-lg-12': hideSide, 'col-xl-12': newFilter } "  >
         <div class="row">
           <div v-if="items.length == 0">
-            <h1 class="t-c text-center">لا يوجد عناصر</h1>
+            <!-- <h1 class="t-c text-center">لا يوجد عناصر</h1> -->
           </div>
           <div v-else class="col-12 row order filter-list-items">
             <div v-for="(item, i) in items" :key="i" :class="classColCard">

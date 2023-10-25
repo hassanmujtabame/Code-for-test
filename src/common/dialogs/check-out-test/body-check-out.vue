@@ -1,126 +1,123 @@
 <template>
-  <div class="container relative">
-    <div class="chekout p-4 shadow my-4">
-      <h5 class="mb-3">أستكملي عملية الدفع</h5>
-      <!-- <h5 class="mb-3">أستكملي عملية الدفع</h5> -->
-      <div class="row justify-content-between">
-        <div class="justify-content-end tex-end">
-          <div v-if="!otherData.image && packageType == 'academy'" style="display: flex; align-items: center;">
-            <img style="width:260px; height:150px" class="img-fluid"
-              :src="`${publicPath}assets/img/Group 1171274931s.png`" alt="">
-            <div>
-              <div class="mx-3" style="color: #1FB9B3; display: flex;">
-                <d-user-rect-icon :size="24" color="currentColor" />
-                <h4 class="mx-2" style="color: #1FB9B3">انضم الى الأكاديمية</h4>
+  <div class="box p-4 shadow m-4 chekout">
 
-              </div>
-              <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;"
-                @click="openDepartmentsAcademyDialog()">حددي مجال الاشتراك</button>
+    <div class="row justify-content-between">
+        <div class="col-7">
+            <div class="row justify-content-center">
+                <!-- btn pyment type-->
+                <p class="fw-bold">معلومات الفاتوره</p>
+                <div class="col-12 d-flex flex-wrap justify-content-between">
+                    <div class="mt-3 col-6">
+                        <p> الاسم الاول</p>
+                        <input class="form-control" type="text" />
+                    </div>
 
-            </div>
-
-
-          </div>
-
-          <div v-else-if="!otherData.image && packageType == 'network'" style="display: flex; align-items: center;">
-            <img class="img-fluid" style="width:260px; height:150px" :src="`${publicPath}assets/img/pana-network.png`"
-              alt="">
-            <div class="mx-3" style="color: #FFBC00; display: flex;">
-              <d-user-rect-icon :size="24" color="currentColor" />
-              <h4 class="mx-2" style="color: #FFBC00">انضم الي الشبكه</h4>
-            </div>
-          </div>
-          <div v-else-if="!otherData.image && packageType == 'service-provider'"
-            style="display: flex; align-items: center;">
-            <img style="width:260px; height:150px" class="img-fluid" :src="`${publicPath}assets/svg/frame-52-2.svg`"
-              alt="service-provider-header" />
-            <div class="mx-3" style="color: #FFBC00; display: flex;">
-              <d-user-rect-icon :size="24" color="currentColor" />
-              <h4 class="mx-2" style="color: #FFBC00">انضم الي مقدمي الخدمة </h4>
-            </div>
-          </div>
-          <div v-else-if="!otherData.image && packageType == 'incubator'" style="display: flex; align-items: center;">
-            <img style="width:260px; height:150px" class="img-fluid" :src="`${publicPath}assets/svg/frame-52-2.svg`"
-              alt="service-provider-header" />
-            <div>
-              <div class="mx-3" style="color: #FFBC00; display: flex;">
-                <d-user-rect-icon :size="24" color="currentColor" />
-                <h4 class="mx-2" style="color: #FFBC00"> انضم الي الحاضنة </h4>
-              </div>
-
-              <button class="btn btn-main mx-3 mt-3" style="width: 142px; height: 35px;"
-                @click="openDepartmentsDialogIncup()">حددي مجال الاشتراك</button>
-            </div>
-          </div>
-          <div v-else-if="otherData.image" style="display: flex;">
-            <img style="width:150px; height:125px" :src="otherData.image" alt="">
-            <div>
-              <div class="mx-3 mb-3 d-flex" style="color: #1FB9B3">
-                <d-user-rect-icon :size="24" color="currentColor" />
-                <span class="mx-2">{{ otherData.title }}</span>
-              </div>
-              <div class="mx-3" style="color: #FFBC00">
-                <d-empty-wallet-icon :size="24" color="currentColor" />
-                <span class="mx-2">{{ otherData.price }}</span>
-              </div>
-            </div>
-          </div>
-          <PaymentCardDetail :title="title" :changeable="changeable" :hideAmount="hideAmount" :defaultForm="defaultForm"
-            :otherData="otherData" @payment="handlePayment" />
-        </div>
-      </div>
-      <div v-if="openDepartmentsDialogAcademy == true" class="departmentsDialog ">
-        <div class="departmentsDialog-departments">
-          <span class=" d-flex justify-content-end mt-3 mx-3"
-            style="cursor: pointer; width: fit-content; margin-right: auto;" @click="closeDepartmentsDialog()">X</span>
-          <h3 class="text-center my-2 pt-3">حددي مجال الاشتراك</h3>
-          <div class="d-flex" style="flex-wrap: wrap;">
-            <div v-for="item, i in itemsAcademy" :key="i">
-              <div :class="[departmentsAcademysub.includes(item.id) ? 'custom-opacity' : '']"
-                :style="{ 'opacity': departmentsAcademysub.includes(item.id) ? '1' : '.4', }" :id="`department${item.id}`"
-                class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;"
-                @click="departmentsIdsSelected(item.id)">
-                <div class="">
-                  <img :src="item.image_path" :alt="title" style="width:70px; height: 70px; border-radius:100%">
+                    <div class="mt-3 col-6">
+                        <p> الاسم الثانى </p>
+                        <input class="form-control" type="text" />
+                    </div>
+                    <div class="mt-3 col-6">
+                        <p> الايميل </p>
+                        <input class="form-control" type="email" />
+                    </div>
+                    <div class="mt-3 col-6">
+                        <p> الدوله</p>
+                        <select class="form-select">
+                            <option value="1">السعوديه</option>
+                            <option value="2">مصر</option>
+                            <option value="3">فلسطين</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mt-3 col-12">
+                        <p> العنوان</p>
+                        <input class="form-control" type="text" />
+                    
+                    </div>
+                    
+                    <div class="mt-3 col-6">
+                        <p> رقم المحمول  </p>
+                        <input class="form-control" />
+                      </div>
+                      <div class="mt-3 col-6">
+                        <p> المنطقه</p>
+                        <select class="form-select">
+                            <option value="1">المنطقه 1</option>
+                            <option value="2">المنطقه 2</option>
+                            <option value="3">المنطقه 3</option>
+                        </select>
+                      </div>
                 </div>
-                <p class="incubator-dept__title">{{ item.name }}</p>
 
-              </div>
+
             </div>
-          </div>
-          <button :disabled="departmentsAcademysub.length == 0" @click="closeDepartmentsDialog()"
-            class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
-            {{ $t('continuity') }}
-          </button>
-        </div>
-      </div>
-      <div v-if="openDepartmentsDialog == true" class="departmentsDialog ">
-        <div class="departmentsDialog-departments">
-          <span class=" d-flex justify-content-end mt-3 mx-3"
-            style="cursor: pointer; width: fit-content; margin-right: auto;" @click="closeDepartmentsDialog()">X</span>
-          <h3 class="text-center my-2 pt-3">حددي مجال الاشتراك</h3>
-          <div class="d-flex" style="flex-wrap: wrap;">
-            <div v-for="item, i in itemsIncubator" :key="i">
-              <div :class="[departmentsIncubatorSub.includes(item.id) ? 'custom-opacity' : '']" :id="`department${item.id}`"
-                class="incubator-dept box  mx-3" style="opacity: 40% ;cursor: pointer; width: 108px; text-align: center;"
-                @click="departmentsIdsIncubatorSelected(item.id)">
-                <div class="">
-                  <img :src="item.image_path" :alt="title" style="width:70px; height: 70px; border-radius:100%">
+            <div class="row justify-content-center">
+                <!-- btn pyment type-->
+                <p class="mt-4 fw-bold">وسائل الدفع</p>
+                <div class="col-12">
+                    <div class="group-btn-type-pay">
+                        <btnTypePay name="pay-type" v-for="(btn, i) in payment_types" :key="i"
+                            :valueDefault="btn.id" v-model="itemForm.payment_type">
+                            <template v-if="btn.type == 'text'">
+                                {{ btn.name }}
+                            </template>
+                            <component v-else :is="btn.name"></component>
+                        </btnTypePay>
+                    </div>
                 </div>
-                <p class="incubator-dept__title">{{ item.name }}</p>
 
-              </div>
+
             </div>
-          </div>
-          <button @click="closeDepartmentsDialog()"
-            class="btn btn-main d-flex mx-auto mb-3 justify-content-center text-center" style="height: 40px">
-            {{ $t('continuity') }}
-          </button>
         </div>
-      </div>
+        <div class="col-5 justify-content-end tex-end ">
+            <div class="border mt-2 payment-card-detail">
+                <div class="box ">
+                    <h6 class="">
+                        خطه
+                        ال{{ title_ }}
+                    </h6>
+                    <slot :item="itemForm" :otherData="otherData"></slot>
 
+                    <div v-if="!hideAmount" class="input-group mb-3 mt-2">
+                        <ValidationObserver ref="amount">
+
+                            <ValidationProvider vid="price" :name="$t('amount')"
+                                :rules="changeable_ ? 'required|numeric' : ''" v-slot="{ errors }">
+                                <p class="fw-bold">
+                                    المجموع
+                                ر.س
+
+                            </p>
+                                <input type="text" :disabled="!changeable_" v-model="total_ammount"
+                                    class="form-control" placeholder="ادخل المبلغ">
+                                    
+                                <d-error-input :errors="errors" v-if="errors" />
+                            </ValidationProvider>
+                        </ValidationObserver>
+                    </div>
+                    <input type="text" class="form-control mb-2 mt-2" placeholder=" ادخل كود الخصم  "/>
+
+                    <div>
+                        <p style="font-size: 12px;text-align: center;">
+                            بإتمامك لعملية الشراء أنت توافق على
+                            <span>
+                                <a href="" class="m-c">
+                                    شروط الاستخدام
+                                </a>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <button @click="payment" class="btn bg-main p-2 text-white ">
+                            تاكيد الدفع
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+</div>
 </template>
 
 <script>

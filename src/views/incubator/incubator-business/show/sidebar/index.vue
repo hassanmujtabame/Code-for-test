@@ -36,10 +36,15 @@
                     <d-stepper-icon :status="phase.status"></d-stepper-icon>
                     {{ phase.title }}
                   </d-stepper-head-item>
+                  
+
+
+                  
                   <d-stepper-head-item v-if="item.title == 'المرحلة الأولى'" style="cursor: pointer"
                     @click="onChoose3('145')">
                     <d-stepper-icon></d-stepper-icon>
-                    نموذج : الأربع أفكار</d-stepper-head-item>
+                    نموذج : الأربع أفكار
+                  </d-stepper-head-item>
 
                     <d-stepper-head-item v-if="item.title == 'المرحلة الأولى'" style="cursor: pointer"
                     @click="onChoose3('147')">
@@ -62,6 +67,10 @@
                   <d-stepper-icon></d-stepper-icon>
                   نموذج: دراسة الجدوى
                   الإلكترونية
+                </d-stepper-head-item>
+                <d-stepper-head-item v-if="item.title == 'المرحلة النهائية'" @click="onChoose3('149')">
+                  <d-stepper-icon></d-stepper-icon>
+                  النهايه
                 </d-stepper-head-item>
               </d-stepper-head>
             </d-expanded-panel-item>

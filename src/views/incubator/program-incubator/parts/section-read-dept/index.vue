@@ -12,8 +12,7 @@
 
         <template v-slot:default="{ item }">
           <CardVue :title="item.name" :img="`${publicPath + item.image_path}`"
-            :url="getRouteLocale('incubator-program-incubator', { id: item.id })"
-             />
+            :url="getRouteLocale('incubator-program-incubator', { id: item.id })" />
         </template>
       </DSwiper>
 
@@ -45,7 +44,7 @@ export default {
         { name: 'التسويق', image_path: `assets/svg/shopping.svg` },
         { name: 'القانون', image_path: `assets/svg/law.svg` },
         { name: 'الاستراتيجية والقيادة', image_path: `assets/svg/stratigy-leadership.svg` },
-        ]
+      ]
     }
   }
 }
