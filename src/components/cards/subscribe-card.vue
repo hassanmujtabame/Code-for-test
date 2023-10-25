@@ -1,4 +1,5 @@
 <template>
+  <!-- start -->
   <div class="subscription-card">
     <div class="subscription-header">
       <h2 class="subscription-title">{{ title }}</h2>
@@ -17,14 +18,18 @@
       </ul>
     </div>
     <div class="subscription-actions">
-      <button @click="selected" v-if="typeSubscribe === 'مجانا' && packId.id !== subscribed" class="subscribe-button">{{ $t('subscribe-now') }}</button>
-      <button @click="selected" :id="packId.id" v-else-if="(packId.id !== subscribed)" class="upgrade-button">رقي حسابك</button>
+      <button @click="selected" v-if="typeSubscribe === 'مجانا' && packId.id !== subscribed" class="subscribe-button">{{
+        $t('subscribe-now') }}</button>
+      <button @click="selected" :id="packId.id" v-else-if="(packId.id !== subscribed)" class="upgrade-button">رقي
+        حسابك</button>
       <button v-else-if="packId.id == subscribed" class="subscribed-button">انت مشترك الان</button>
     </div>
   </div>
+  <!-- end -->
 </template>
 
 <script>
+
 export default {
   props: {
     itemId: {
@@ -49,7 +54,9 @@ export default {
       type: [Array, Object]
     },
     subscribed: {
+      // type: [Array, Object]
       type: [String, Number]
+
     }
   },
   data() {
@@ -59,44 +66,42 @@ export default {
     }
   },
   methods: {
-  selected(evt) {
-    evt.preventDefault();
+    selected(evt) {
+      evt.preventDefault();
 
-    if (this.typeSubscribe === 'مجانا') {
-      try {
-        window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
-        window.axios.get(`payments/hyperbill/callback?package_id=${this.packId.id}&package_type=${this.packageType}&user_id=${this.user.id}`).then(res => {
-          console.log('res', res);
-          // Advance to the next tab
-          this.$refs.normalSteps.next();
-        });
-      } catch (error) {
-        window.SwalError("The given data was invalid");
-      }
-    } else {
-      let el = document.getElementById(this.packId.id);
-      el.innerHTML = 'تم الاختيار';
-      el.classList.add('upgrade-button');
-      el.classList.remove('subscribe-button');
-      localStorage.setItem('selectedPackage', this.typeSubscribe);
-      localStorage.setItem('packagePrice', this.price);
-      // Advance to the next tab
-  const scrollY = document.body.scrollHeight - window.innerHeight - 400; // Adjust 100 to your preferred position
-  window.scrollTo(0, scrollY);
+      if (this.typeSubscribe == 'مجانا') {
+        try {
+          window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
+          window.axios.get(`payments/hyperbill/callback?package_id=${this.packId.id}&package_type=${this.packageType}&user_id=${this.user.id}`).then(res => {
+            console.log('res', res);
+            this.$refs.normalSteps.next();
+          })
 
+        } catch (error) {
+          window.SwalError("The given data was invalid")
 
-
+        }
+      } else {
+        let el = document.getElementById(this.packId.id)
+        el.innerHTML = 'تم الاختيار'
+        el.classList.add('upgrade-button');
+        el.classList.remove('subscribe-button');
+        localStorage.setItem('selectedPackage', this.typeSubscribe)
+        localStorage.setItem('selectedPackageId', this.packId.id)
+        localStorage.setItem('packagePrice', this.price)
+        // Advance to the next tab
+        const scrollY = document.body.scrollHeight - window.innerHeight - 400; // Adjust 100 to your preferred position
+        window.scrollTo(0, scrollY);
       this.$refs.normalSteps.next();
-    }
-  }
-},
 
+      }
+    }
+  },
   mounted() {
-    this.packageType = this.$route.meta.type;
+    this.packageType = this.$route.meta.type
   }
 };
 </script>
-
 <style scoped>
 .subscription-card {
   border: 1px solid #e0e0e0;

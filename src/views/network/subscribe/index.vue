@@ -3,7 +3,7 @@
         <!--start wizard  -->
 
         <div class="container p-5 mt-5">
-            <form-wizard @step-changed="scrollToTop" step-size="xl" @on-complete="onComplete" ref="normalSteps" nextButtonText="التالى"
+            <form-wizard step-size="xs" @on-complete="onComplete" ref="normalSteps" nextButtonText="التالى"
                 backButtonText="السابق" finishButtonText="الانتهاء">
                 <tab-content title=" الباقه ">
 
@@ -70,7 +70,6 @@ export default {
         }
     },
     methods: {
-      
         getTypePackage(data) {
             switch (data.type) {
                 case 'free': return this.$t('free');
@@ -147,12 +146,7 @@ export default {
         onComplete: function () {
             // this.$router.push("/ar/incubator/home")
             alert('yay end')
-        },
-
-    scrollToTop: function () {
-        alert('f')
-      window.scrollTo(0, 0); // Scroll to the top of the page
-    },
+        }
     },
     mounted() {
         this.checkTypePackage()

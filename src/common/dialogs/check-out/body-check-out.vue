@@ -1,116 +1,125 @@
 <template>
-  <div class="checkout">
-    <div class="box p-4 shadow m-4">
+    <div class="">
+        <div class="box p-4 shadow m-4 chekout">
 
-      <div class="row justify-content-between">
-        <div class="col-7">
-          <div class="row justify-content-center">
-            <p class="fw-bold">معلومات الفاتورة</p>
-            <div class="col-12 d-flex flex-wrap justify-content-between">
-              <div class="mt-3 col-6">
-                <p>الاسم الأول</p>
-                <input class="form-control" type="text" />
-              </div>
+            <div class="row justify-content-between" >
+                <div class="col-7">
+                    <div class="row justify-content-center">
+                        <!-- btn pyment type-->
+                        <p class="fw-bold">معلومات الفاتوره</p>
+                        <div class="d-flex flex-wrap justify-content-around">
+                            <div class="mt-3 col-5">
+                                <p> الاسم الاول</p>
+                                <input class="form-control" type="text" />
+                            </div>
 
-              <div class="mt-3 col-6">
-                <p>الاسم الثاني</p>
-                <input class="form-control" type="text" />
-              </div>
-              <div class="mt-3 col-6">
-                <p>البريد الإلكتروني</p>
-                <input class="form-control" type="email" />
-              </div>
-              <div class="mt-3 col-6">
-                <p>الدولة</p>
-                <select class="form-select">
-                  <option value="1">السعودية</option>
-                  <option value="2">مصر</option>
-                  <option value="3">فلسطين</option>
-                </select>
-              </div>
+                            <div class="mt-3 col-5">
+                                <p> الاسم الثانى </p>
+                                <input class="form-control" type="text" />
+                            </div>
+                            <div class="mt-3 col-5">
+                                <p> الايميل </p>
+                                <input class="form-control" type="email" />
+                            </div>
+                            <div class="mt-3 col-5">
+                                <p> الدوله</p>
+                                <select class="form-select">
+                                    <option value="1">السعوديه</option>
+                                    <option value="2">مصر</option>
+                                    <option value="3">فلسطين</option>
+                                </select>
+                            </div>
 
-              <div class="mt-3 col-12">
-                <p>العنوان</p>
-                <input class="form-control" type="text" />
-              </div>
+                            <div class="mt-3 col-11">
+                                <p> العنوان</p>
+                                <input class="form-control" type="text" />
 
-              <div class="mt-3 col-6">
-                <p>رقم الهاتف</p>
-                <input class="form-control" />
-              </div>
-              <div class="mt-3 col-6">
-                <p>المنطقة</p>
-                <select class="form-select">
-                  <option value="1">المنطقة 1</option>
-                  <option value="2">المنطقة 2</option>
-                  <option value="3">المنطقة 3</option>
-                </select>
-              </div>
+                            </div>
+
+                            <div class="mt-3 col-5">
+                                <p> رقم المحمول </p>
+                                <input class="form-control" />
+                            </div>
+                            <div class="mt-3 col-5">
+                                <p> المنطقه</p>
+                                <select class="form-select">
+                                    <option value="1">المنطقه 1</option>
+                                    <option value="2">المنطقه 2</option>
+                                    <option value="3">المنطقه 3</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row justify-content-center">
+                        <!-- btn pyment type-->
+                        <p class="mt-4 fw-bold">وسائل الدفع</p>
+                        <div class="col-12">
+                            <div class="group-btn-type-pay">
+                                <btnTypePay name="pay-type" v-for="(btn, i) in payment_types" :key="i"
+                                    :valueDefault="btn.id" v-model="itemForm.payment_type">
+                                    <template v-if="btn.type == 'text'">
+                                        {{ btn.name }}
+                                    </template>
+                                    <component v-else :is="btn.name"></component>
+                                </btnTypePay>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-5 justify-content-end tex-end ">
+                    <div class="border mt-2 payment-card-detail">
+                        <div class="box ">
+                            <h6 class="">
+                                خطه
+                                ال{{ title_ }}
+                            </h6>
+                            <slot :item="itemForm" :otherData="otherData"></slot>
+
+                            <div v-if="!hideAmount" class="input-group mb-3 mt-2">
+                                <ValidationObserver ref="amount">
+
+                                    <ValidationProvider vid="price" :name="$t('amount')"
+                                        :rules="changeable_ ? 'required|numeric' : ''" v-slot="{ errors }">
+                                        <p class="fw-bold">
+                                            المجموع
+                                            ر.س
+
+                                        </p>
+                                        <input type="text" :disabled="!changeable_" v-model="total_ammount"
+                                            class="form-control" placeholder="ادخل المبلغ">
+
+                                        <d-error-input :errors="errors" v-if="errors" />
+                                    </ValidationProvider>
+                                </ValidationObserver>
+                            </div>
+                            <input type="text" class="form-control mb-2 mt-2" placeholder=" ادخل كود الخصم  " />
+
+                            <div>
+                                <p style="font-size: 12px;text-align: center;">
+                                    بإتمامك لعملية الشراء أنت توافق على
+                                    <span>
+                                        <a href="" class="m-c">
+                                            شروط الاستخدام
+                                        </a>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="text-center">
+                                <button @click="payment" class="btn bg-main p-2 text-white ">
+                                    تاكيد الدفع
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div class="row justify-content-center">
-            <p class="mt-4 fw-bold">وسائل الدفع</p>
-            <div class="col-12">
-              <div class="group-btn-type-pay">
-                <btnTypePay name="pay-type" v-for="(btn, i) in payment_types" :key="i"
-                  :valueDefault="btn.id" v-model="itemForm.payment_type">
-                  <template v-if="btn.type == 'text'">
-                    {{ btn.name }}
-                  </template>
-                  <component v-else :is="btn.name"></component>
-                </btnTypePay>
-              </div>
-            </div>
-          </div>
         </div>
-
-        <div class="col-5 justify-content-end text-end">
-          <div class="border mt-2 payment-card-detail">
-            <div class="box">
-              <h6 class="">
-                خطة {{ title_ }}
-              </h6>
-              <slot :item="itemForm" :otherData="otherData"></slot>
-
-              <div v-if="!hideAmount" class="input-group mb-3 mt-2">
-                <ValidationObserver ref="amount">
-                  <ValidationProvider vid="price" :name="$t('amount')"
-                    :rules="changeable_ ? 'required|numeric' : ''" v-slot="{ errors }">
-                    <p class="fw-bold">
-                      المجموع
-                      ر.س
-                    </p>
-                    <input type="text" :disabled="!changeable_" v-model="total_ammount" class="form-control"
-                      placeholder="ادخل المبلغ">
-                    <d-error-input :errors="errors" v-if="errors" />
-                  </ValidationProvider>
-                </ValidationObserver>
-              </div>
-              <input type="text" class="form-control mb-2 mt-2" placeholder="ادخل كود الخصم" />
-
-              <div>
-                <p class="small text-center">
-                  بإتمامك لعملية الشراء أنت توافق على
-                  <span>
-                    <a href="" class="m-c">
-                      شروط الاستخدام
-                    </a>
-                  </span>
-                </p>
-              </div>
-              <div class="text-center">
-                <button @click="payment" class="btn bg-main p-2 text-white">
-                  تأكيد الدفع
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
 </template>
 
 <script>
@@ -294,17 +303,34 @@ export default {
             this.sendEventCard('expiry-date', this.expiry_date)
         },
         async payment() {
-            if (!this.itemForm.payment_type) {
-                window.SwalError('من فضلك إختر بطافة للدفع')
-                return;
-            }
-            if (this.changeable_) {
-                let v_amount = await this.$refs.amount.validate()
-                if (!v_amount) return;
-            }
-            
+            // if (!this.itemForm.payment_type) {
+            //     window.SwalError('من فضلك إختر بطافة للدفع')
+            //     return;
+            // }
+            // if (this.changeable_) {
+            //     let v_amount = await this.$refs.amount.validate()
+            //     if (!v_amount) return;
+            // }
 
-            this.$emit('payment', localStorage.getItem('selectedPackage'))
+            // POST request using axios with async/await
+                // console.log(this.user.id)
+            const formData = { 
+                package_id: localStorage.getItem('selectedPackageId'),
+                package_type: 'incubator',
+                user_id: this.user_id
+            };
+            const response = await axios.post("https://cp.riadiat.sa/api/v1/pay/myfatoorah", formData);
+            // this.articleId = response.data.id;
+            if(response.data.success){
+                console.log('//')
+                console.log(response.data)
+                console.log('//')
+                window.open(response.data.data.payment_url, '_blank');
+            }else {
+                window.SwalError(" حدث خطاء يرجى اعاده المحاوله")
+            }
+
+            // this.$emit('payment', localStorage.getItem('selectedPackageId'))
         },
     },
     mounted() {
