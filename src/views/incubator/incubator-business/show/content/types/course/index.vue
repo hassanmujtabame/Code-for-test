@@ -25,7 +25,7 @@ props:{
   itemPage:{}
 },
 mounted(){
-  console.mylog('mounted type',this.phase,this.itemPage)
+  console.mylog('mounted type',this.phase,this.itemPage,'test')
 }
 }
 </script>

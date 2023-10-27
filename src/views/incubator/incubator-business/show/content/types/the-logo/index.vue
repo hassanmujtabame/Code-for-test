@@ -1,5 +1,5 @@
 <template>
-  <div id="notifications-main-content" class="container">
+  <div id="list-item-8p" class="container col-md-9">
     <h1>
       <span class="" style="color: #1fb9b3">نموذج : </span> العلامة التجارية (الشعار)
     </h1>

@@ -87,53 +87,19 @@
         </div>
       </div>
     </div>
-    <div v-if="phase.Id == '145'">
-      <theFourIdeas />
-    </div>
-    <div v-if="phase.Id == '147'">
-      <theNotifications  />
-    </div>
-    <div v-if="phase.Id == '148'">
-      <theBusiness  />
-    </div>
-    <div v-if="phase.Id == '146'"> 
-      <electronicFeasibilityStudy />
-    </div>
-    <div v-if="phase.Id == '149'"> 
-      <TheFinish />
-    </div>
-    
-    <div v-if="phase.Id == '1450'">
-      <InvestmentProposalForm />
-    </div>
-
-
   </div>
 </template>
 
 <script>
 import ModelCard from '@/components/cards/model.vue'
 import modelsAPI from '@/services/api/models';
-import theFourIdeas from './theFourIdeas.vue';
-import electronicFeasibilityStudy from './electronicFeasibilityStudy/electronicFeasibilityStudy.vue';
-import InvestmentProposalForm from './InvestmentProposalForm/InvestmentProposalForm.vue';
-import theNotifications from './theNotifications.vue';
-import theBusiness from './theBusiness.vue';
-import theFinish from './theFinish.vue';
-import TheFinish from './theFinish.vue';
+
 
 export default {
   name: 'section-type-default',
   components: {
     ModelCard,
-    theFourIdeas,
-    electronicFeasibilityStudy,
-    InvestmentProposalForm,
-    theNotifications,
-    theBusiness,
-    theFinish,
-    TheFinish
-},
+  },
   props: {
     phase: {},
     itemPage: {},
@@ -166,11 +132,6 @@ export default {
       }
     },
   },
-  mounted() {
-    // console.mylog('mounted type',this.phase,this.itemPage,'id:', this.Id)
-    console.mylog('id:', this.Id)
-    console.mylog('phase', this.phase)
-  }
 }
 </script>
 

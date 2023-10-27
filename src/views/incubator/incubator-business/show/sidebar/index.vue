@@ -18,60 +18,61 @@
       <div class="incubator-business-sidebar__body my-3">
         <d-expanded-panel id="step-1">
           <template v-slot>
-            <d-expanded-panel-item v-for="(item, n) in items" :opened="status[(n - 1)] == 'selected'" :key="n"
-              classTitle="step-title">
+            <!-- :opened="status[(n - 1)] == 'selected'" -->
+            <d-expanded-panel-item v-for="(item, n) in items" :key="n" classTitle="step-title">
               <template v-slot:btnTitle>
                 <d-stepper-icon :status="item.status"></d-stepper-icon>
                 {{ item.title }}
               </template>
               <d-stepper-head vertical>
-                <d-stepper-head-item v-for="(phase, i) in item.courses" :key="i" :status="phase.status"
-                  @click="onChoose(phase, item.id)">
-                  <d-stepper-icon status="finished"></d-stepper-icon>
+
+                <d-stepper-head-item v-for="(phase, i) in item.courses" :key="i" @click="onChoose(phase, item.id)">
+                  <d-stepper-icon :status="phase.status"></d-stepper-icon>
                   {{ phase.title }}
                 </d-stepper-head-item>
-                <div v-if="item.models.length > 0">
-                  <d-stepper-head-item v-for="(phase, i) in item.models" :key="i" :status="phase.status"
-                    @click="onChoose2(phase, item.id)">
+
+                <div>
+                  <d-stepper-head-item v-for="(phase, i) in item.models" :key="i" @click="onChoose(phase, item.id)">
                     <d-stepper-icon :status="phase.status"></d-stepper-icon>
                     {{ phase.title }}
                   </d-stepper-head-item>
-                  
 
 
-                  
-                  <d-stepper-head-item v-if="item.title == 'المرحلة الأولى'" style="cursor: pointer"
-                    @click="onChoose3('145')">
+                  <d-stepper-head-item v-if="item.id == 4" @click="onChoose({ id: '145', type: 'fourideas' }, 4)">
                     <d-stepper-icon></d-stepper-icon>
                     نموذج : الأربع أفكار
                   </d-stepper-head-item>
 
-                    <d-stepper-head-item v-if="item.title == 'المرحلة الأولى'" style="cursor: pointer"
-                    @click="onChoose3('147')">
+                  <d-stepper-head-item v-if="item.id == 4" @click="onChoose({ id: '147', type: 'thelogo', }, 4)">
                     <d-stepper-icon></d-stepper-icon>
-                    نموذج : العلامة التجارية (الشعار)</d-stepper-head-item>
+                    نموذج : العلامة التجارية (الشعار)
+                  </d-stepper-head-item>
 
-                    <d-stepper-head-item v-if="item.title == 'المرحلة الأولى'" style="cursor: pointer"
-                    @click="onChoose3('148')">
+                  <d-stepper-head-item v-if="item.id == 4" @click="onChoose({ id: '148', type: 'business' }, 4)">
                     <d-stepper-icon></d-stepper-icon>
-                    نموذج :   العمل التجاري</d-stepper-head-item>
+                    نموذج : العمل التجاري
+                  </d-stepper-head-item>
 
 
-                  <d-stepper-head-item v-if="item.title == 'المرحلة الثانية'" @click="onChoose3('1450')">
-                      <d-stepper-icon></d-stepper-icon>
-                      نموذج: العرض
-                      الاستثماري  
-                    </d-stepper-head-item>
+                  <d-stepper-head-item v-if="item.id == 5"
+                    @click="onChoose({ id: '133', type: 'investmentproposal' }, 4)">
+                    <d-stepper-icon></d-stepper-icon>
+                    نموذج: العرض
+                    الاستثماري
+                  </d-stepper-head-item>
+
+                  <d-stepper-head-item v-if="item.id == 10"
+                    @click="onChoose({ id: '33', type: 'electoronicfeasibilitystudy' }, 10)">
+                    <d-stepper-icon></d-stepper-icon>
+                    نموذج: دراسة الجدوى
+                    الإلكترونية
+                  </d-stepper-head-item>
+
+                  <d-stepper-head-item v-if="item.title == 10" @click="onChoose({ id: '37', type: 'finish' }, 10)">
+                    <d-stepper-icon></d-stepper-icon>
+                    النهايه
+                  </d-stepper-head-item>
                 </div>
-                <d-stepper-head-item v-if="item.title == 'المرحلة النهائية'" @click="onChoose3('146')">
-                  <d-stepper-icon></d-stepper-icon>
-                  نموذج: دراسة الجدوى
-                  الإلكترونية
-                </d-stepper-head-item>
-                <d-stepper-head-item v-if="item.title == 'المرحلة النهائية'" @click="onChoose3('149')">
-                  <d-stepper-icon></d-stepper-icon>
-                  النهايه
-                </d-stepper-head-item>
               </d-stepper-head>
             </d-expanded-panel-item>
           </template>
@@ -87,12 +88,13 @@ import incubatorAPI from '@/services/api/incubator'
 export default {
   name: 'd-sidebar',
   props: {
-    itemPage: {}
+    itemPage: {},
   },
   components: {
     //ListItem
   },
   data: (vm) => ({
+    phase_local_status: 'finished',
     start_date: vm.itemPage.start_date,
     period: vm.itemPage.duration,
     status: ['done', 'selected', 'disabled'],
@@ -100,27 +102,38 @@ export default {
     modelsDesigne: [{ name: '', id: '1425' }, { name: '', id: '1415' }]
   }),
   methods: {
-    onChoose(phase, stage_id) {
-      this.fireEvent('phase-choosen', { ...phase, stage_id })
-    },
-    onChoose2(phase, stage_id) {
-      this.fireEvent('phase-choosen', { ...phase, stage_id })
-    },
-    onChoose3(Id) {
-      this.fireEvent('phase-choosen', { Id });
 
+    onChoose(phase, stage_id_) {
+      axios
+        .post('https://cp.riadiat.sa/api/v1/incubator/stage/user-completed',
+          {
+            stage_id: stage_id_,
+            is_completed: 1,
+            department_id: phase.id
+          })
+        .then((response) => console.log(response))
+      // console.log('././')
+      // console.log(this.items[0])
+      // console.log('././')
+      this.fireEvent('phase-choosen', { ...phase, stage_id_ })
     },
+
+
 
     async initializing() {
       try {
         let { data } = await incubatorAPI.getStages({ department_id: this.$route.params.id });
         if (data.success) {
           this.items = data.data
+          // console.log('--')
+          // console.log(data.data)
+          // console.log('--')
         }
       } catch (error) {
         console.log('error', error)
         //
       }
+
     },
   },
   mounted() {

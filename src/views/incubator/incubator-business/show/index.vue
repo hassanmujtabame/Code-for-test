@@ -21,7 +21,7 @@
             <div class="col-md-3">
                 <DSidebar :itemPage="itemPage"/>
             </div>
-            <div class="col">
+            <div class="col-md-9">
                 <DContent />
             </div>
         </div>
