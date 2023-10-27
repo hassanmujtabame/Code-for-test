@@ -68,7 +68,7 @@
                     الإلكترونية
                   </d-stepper-head-item>
 
-                  <d-stepper-head-item v-if="item.title == 10" @click="onChoose({ id: '37', type: 'finish' }, 10)">
+                  <d-stepper-head-item v-if="item.id == 10" @click="onChoose({ id: '37', type: 'finish' }, 10)">
                     <d-stepper-icon></d-stepper-icon>
                     النهايه
                   </d-stepper-head-item>
