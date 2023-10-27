@@ -1,8 +1,13 @@
 <template>
   <!-- start -->
   <div class="subscription-card">
-    <div class="subscription-header">
+    <div class="subscription-header d-flex align-items-start">
       <h2 class="subscription-title">{{ title }}</h2>
+      <div class="subscription-image">
+        <img v-if="title == 'مجانا'" src="@/assets/img/subscription_free.png" alt="">
+        <img v-if="title == 'ثلاثة اشهر'" src="@/assets/img/subscription_three_months.png" alt="">
+        <img v-if="title == 'سنة'" src="@/assets/img/subscription_year.png" alt="">
+      </div>
       <div class="subscription-price">
         <span class="price">{{ price }}</span>
         <span v-if="subscribed.type !== 'free'" class="currency">{{ $t('riyals') }}</span>
@@ -10,7 +15,7 @@
     </div>
     <div class="subscription-features">
       <h3 class="features-title">الميزات و الخدمات:</h3>
-      <ul class="feature-list">
+      <ul class="feature-list d-flex flex-row flex-wrap">
         <li v-for="(feature, i) in features" :key="i" class="feature-item">
           <i class="fas fa-check-circle mx-2"></i>
           <span>{{ feature }}</span>
@@ -105,14 +110,28 @@ export default {
 <style scoped>
 .subscription-card {
   border: 1px solid #e0e0e0;
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 20px;
-  background: linear-gradient(to bottom, #f9f9f9, #e6e6e6);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #f9f9f936;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  /* align-items: center; */
   transition: all 0.3s;
+}
+
+@media  screen and (max-width: 1200px) {
+  .subscription-card {
+    flex-direction: column;
+    align-items: center;
+  }
+  .subscription-header {
+  flex-direction: column;
+  align-items: center !important;
+  }
+  .subscription-actions {
+    align-self: center !important;
+  }
+  
 }
 
 .subscription-card:hover {
@@ -129,15 +148,18 @@ export default {
   font-size: 28px;
   color: #333;
   font-weight: 700;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin: 10px 0 10px 20px;
 }
 
 .subscription-price {
   font-size: 36px;
-  color: #ffbc00;
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin: 40px 20px 0;
+}
+.subscription-price span {
+  color: #ffbe39;
+  margin-right: 5px;
 }
 
 .currency {
@@ -147,8 +169,8 @@ export default {
 }
 
 .subscription-features {
-  text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .features-title {
@@ -177,9 +199,7 @@ export default {
 }
 
 .subscription-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-self: end;
 }
 
 .subscribe-button,
@@ -189,10 +209,10 @@ export default {
   font-size: 20px;
   font-weight: 600;
   border: none;
-  border-radius: 30px;
+  border-radius: 15px;
   cursor: pointer;
   outline: none;
-  width: 100%;
+  width: 180px;
   transition: all 0.3s;
 }
 
@@ -200,7 +220,8 @@ export default {
   background: linear-gradient(to bottom, #1FB9B3, #13a89d);
   color: #fff;
   margin-bottom: 15px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .subscribe-button:hover {
@@ -208,23 +229,24 @@ export default {
 }
 
 .upgrade-button {
-  background: linear-gradient(to bottom, #FFBC00, #e6a100);
-  color: #333;
-  margin-bottom: 15px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  background: #ffbe39;
+  color: #fff;
+  margin-bottom: 20px;
+
 }
 
 .upgrade-button:hover {
-  background: linear-gradient(to bottom, #e6a100, #FFBC00);
+  opacity: 0.8;
 }
 
 .subscribed-button {
-  background: linear-gradient(to bottom, #6ac259, #5aa84a);
+  background: #2eb9b3;
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
 
 .subscribed-button:hover {
-  background: linear-gradient(to bottom, #5aa84a, #6ac259);
+  opacity: 0.8;
 }
 </style>

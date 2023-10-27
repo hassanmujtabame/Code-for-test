@@ -33,7 +33,7 @@
 
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">إجمالي رأس المال الثابت</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_1['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_1['column_1'], 'table_1') }}</td>
 
           </tr>
         </tbody>
@@ -53,15 +53,19 @@
         <tbody>
           <tr>
             <td>مصاريف التأسيس (جدول مصاريف التأسيس)</td>
-            <td><input /> </td>
+            <td><input type="number" v-model="table_2.column_1.row_1" /> </td>
           </tr>
           <tr>
             <td>احتياطي الطوارئ (يتم احتساب احتياطي الطوارئ بنسبة 10% من رأس المال أو التكاليف الرأسمالية للمشروع)</td>
-            <td><input /> </td>
+            <td><input type="number" v-model="table_2.column_1.row_2" /> </td>
           </tr>
           <tr>
             <td>مصروفات ما قبل التشغيل</td>
-            <td><input /> </td>
+            <td><input type="number" v-model="table_2.column_1.row_3" /> </td>
+          </tr>
+          <tr style="background: rgba(255, 242, 205, 1);">
+            <td>الاجمالى</td>
+            <td>{{ calculateSum(table_2['column_1'], 'table_2') }}</td>
           </tr>
         </tbody>
 
@@ -81,24 +85,24 @@
         <tbody id="changeable-cost">
           <tr>
             <td>العمالة المتغيرة</td>
-            <td><input type="number" v-model="table_2.column_1.row_1" /> </td>
-            <td><input type="number" v-model="table_2.column_2.row_1" /> </td>
+            <td><input type="number" v-model="table_3.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_3.column_2.row_1" /> </td>
           </tr>
           <tr>
             <td>المواد الخام</td>
-            <td><input type="number" v-model="table_2.column_1.row_2" /> </td>
-            <td><input type="number" v-model="table_2.column_2.row_2" /> </td>
+            <td><input type="number" v-model="table_3.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_3.column_2.row_2" /> </td>
           </tr>
           <tr>
             <td>التسويق</td>
-            <td><input type="number" v-model="table_2.column_1.row_3" /> </td>
-            <td><input type="number" v-model="table_2.column_2.row_3" /> </td>
+            <td><input type="number" v-model="table_3.column_1.row_3" /> </td>
+            <td><input type="number" v-model="table_3.column_2.row_3" /> </td>
           </tr>
 
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">إجمالي التكاليف المتغيرة</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_2['column_1']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_2['column_2']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_3['column_1'], 'table_3') }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_3['column_2']) }}</td>
           </tr>
         </tbody>
 
@@ -123,24 +127,24 @@
         <tbody id="static-cost">
           <tr>
             <td>الرواتب للعمالة الثابتة</td>
-            <td><input type="number" v-model="table_3.column_1.row_1" /> </td>
-            <td><input type="number" v-model="table_3.column_2.row_1" /> </td>
+            <td><input type="number" v-model="table_4.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_4.column_2.row_1" /> </td>
           </tr>
           <tr>
             <td>الإيجار</td>
-            <td><input type="number" v-model="table_3.column_1.row_2" /> </td>
-            <td><input type="number" v-model="table_3.column_2.row_2" /> </td>
+            <td><input type="number" v-model="table_4.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_4.column_2.row_2" /> </td>
           </tr>
           <tr>
             <td>المنافع العامة</td>
-            <td><input type="number" v-model="table_3.column_1.row_3" /> </td>
-            <td><input type="number" v-model="table_3.column_2.row_3" /> </td>
+            <td><input type="number" v-model="table_4.column_1.row_3" /> </td>
+            <td><input type="number" v-model="table_4.column_2.row_3" /> </td>
           </tr>
 
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">إجمالي التكاليف الثابتة</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_3['column_1']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_3['column_2']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_4['column_1'], 'table_4') }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_4['column_2']) }}</td>
           </tr>
         </tbody>
 
@@ -167,53 +171,53 @@
         <tbody>
           <tr>
             <td>تكاليف المبنى</td>
-            <td><input type="number" v-model="table_4.column_1.row_1" /> </td>
-            <td><input type="number" v-model="table_4.column_2.row_1" /></td>
-            <td><input type="number" v-model="table_4.column_3.row_1" /> </td>
-            <td><input type="number" v-model="table_4.column_4.row_1" /> </td>
+            <td><input type="number" v-model="table_5.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_5.column_2.row_1" /></td>
+            <td><input type="number" v-model="table_5.column_3.row_1" /> </td>
+            <td><input type="number" v-model="table_5.column_4.row_1" /> </td>
           </tr>
           <tr>
             <td>تكاليف الأثاث والمفروشات</td>
-            <td><input type="number" v-model="table_4.column_1.row_2" /> </td>
-            <td><input type="number" v-model="table_4.column_2.row_2" /></td>
-            <td><input type="number" v-model="table_4.column_3.row_2" /> </td>
-            <td><input type="number" v-model="table_4.column_4.row_2" /> </td>
+            <td><input type="number" v-model="table_5.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_5.column_2.row_2" /></td>
+            <td><input type="number" v-model="table_5.column_3.row_2" /> </td>
+            <td><input type="number" v-model="table_5.column_4.row_2" /> </td>
           </tr>
           <tr>
             <td>تكاليف الآلات والمعدات</td>
-            <td><input type="number" v-model="table_4.column_1.row_3" /> </td>
-            <td><input type="number" v-model="table_4.column_2.row_3" /></td>
-            <td><input type="number" v-model="table_4.column_3.row_3" /> </td>
-            <td><input type="number" v-model="table_4.column_4.row_3" /> </td>
+            <td><input type="number" v-model="table_5.column_1.row_3" /> </td>
+            <td><input type="number" v-model="table_5.column_2.row_3" /></td>
+            <td><input type="number" v-model="table_5.column_3.row_3" /> </td>
+            <td><input type="number" v-model="table_5.column_4.row_3" /> </td>
           </tr>
           <tr>
             <td>تكاليف الآلات والمعدات</td>
-            <td><input type="number" v-model="table_4.column_1.row_4" /> </td>
-            <td><input type="number" v-model="table_4.column_2.row_4" /></td>
-            <td><input type="number" v-model="table_4.column_3.row_4" /> </td>
-            <td><input type="number" v-model="table_4.column_4.row_4" /> </td>
+            <td><input type="number" v-model="table_5.column_1.row_4" /> </td>
+            <td><input type="number" v-model="table_5.column_2.row_4" /></td>
+            <td><input type="number" v-model="table_5.column_3.row_4" /> </td>
+            <td><input type="number" v-model="table_5.column_4.row_4" /> </td>
           </tr>
           <tr>
             <td>تكاليف الأجهزة والبرامج</td>
-            <td><input type="number" v-model="table_4.column_1.row_5" /> </td>
-            <td><input type="number" v-model="table_4.column_2.row_5" /></td>
-            <td><input type="number" v-model="table_4.column_3.row_5" /> </td>
-            <td><input type="number" v-model="table_4.column_4.row_5" /> </td>
+            <td><input type="number" v-model="table_5.column_1.row_5" /> </td>
+            <td><input type="number" v-model="table_5.column_2.row_5" /></td>
+            <td><input type="number" v-model="table_5.column_3.row_5" /> </td>
+            <td><input type="number" v-model="table_5.column_4.row_5" /> </td>
           </tr>
           <tr>
             <td>تكاليف السيارات</td>
-            <td><input type="number" v-model="table_4.column_1.row_6" /> </td>
-            <td><input type="number" v-model="table_4.column_2.row_6" /></td>
-            <td><input type="number" v-model="table_4.column_3.row_6" /> </td>
-            <td><input type="number" v-model="table_4.column_4.row_6" /> </td>
+            <td><input type="number" v-model="table_5.column_1.row_6" /> </td>
+            <td><input type="number" v-model="table_5.column_2.row_6" /></td>
+            <td><input type="number" v-model="table_5.column_3.row_6" /> </td>
+            <td><input type="number" v-model="table_5.column_4.row_6" /> </td>
           </tr>
 
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">الإجمالي</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_4['column_1']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_4['column_2']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_4['column_3']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_4['column_4']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_5['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_5['column_2']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_5['column_3']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_5['column_4'], 'table_5') }}</td>
           </tr>
         </tbody>
 
@@ -232,25 +236,25 @@
         <tbody>
           <tr>
             <td>تكاليف متغيرة(جدول 3)</td>
-            <td><input type="number" v-model="table_5.column_1.row_1" /> </td>
-            <td><input type="number" v-model="table_5.column_2.row_1" /> </td>
+            <td><input type="number" v-model="table_6.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_6.column_2.row_1" /> </td>
           </tr>
           <tr>
             <td>تكاليف ثابتة (جدول 4)</td>
-            <td><input type="number" v-model="table_5.column_1.row_2" /> </td>
-            <td><input type="number" v-model="table_5.column_2.row_2" /> </td>
+            <td><input type="number" v-model="table_6.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_6.column_2.row_2" /> </td>
           </tr>
           <tr>
             <td>مصروفات الاهلاك (جدول5)</td>
-            <td><input type="number" v-model="table_5.column_1.row_3" /> </td>
-            <td><input type="number" v-model="table_5.column_2.row_3" /> </td>
+            <td><input type="number" v-model="table_6.column_1.row_3" /> </td>
+            <td><input type="number" v-model="table_6.column_2.row_3" /> </td>
           </tr>
 
 
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">إجمالي رأس المال العامل لدورة إنتاجية واحدة</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_5['column_1']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_5['column_2']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_6['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_6['column_2'], 'table_6') }}</td>
           </tr>
         </tbody>
 
@@ -268,28 +272,30 @@
         <tbody>
           <tr>
             <td>التكاليف الرأسمالية الثابتة</td>
-            <td><input type="number" v-model="table_6.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_7.column_1.row_1" /> </td>
           </tr>
           <tr>
             <td>مصروفات ما قبل التشغيل</td>
-            <td><input type="number" v-model="table_6.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_7.column_1.row_2" /> </td>
           </tr>
           <tr>
             <td>رأس المال العامل لدورة إنتاجية واحدة</td>
-            <td><input type="number" v-model="table_6.column_1.row_3" /> </td>
+            <td><input type="number" v-model="table_7.column_1.row_3" /> </td>
           </tr>
 
 
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">إجمالي التكلفة الاستثمارية</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_6['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_7['column_1'], 'table_7') }}</td>
           </tr>
         </tbody>
 
       </table>
     </div>
     <div class="mt-3 col-12">
-      <p>مصادر التمويل:</p>
+      <p>
+        8: مصادر التمويل
+      </p>
       <table class="col-12">
         <thead>
           <tr>
@@ -301,18 +307,18 @@
         <tbody>
           <tr>
             <td>رأس المال المدفوع</td>
-            <td><input type="number" v-model="table_7.column_1.row_1" /> </td>
-            <td><input type="number" v-model="table_7.column_2.row_1" /> </td>
+            <td><input type="number" v-model="table_8.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_8.column_2.row_1" /> </td>
           </tr>
           <tr>
             <td>قروض</td>
-            <td><input type="number" v-model="table_7.column_1.row_2" /> </td>
-            <td><input type="number" v-model="table_7.column_2.row_2" /> </td>
+            <td><input type="number" v-model="table_8.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_8.column_2.row_2" /> </td>
           </tr>
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">الإجمالي</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_7['column_1']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_7['column_2']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_8['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_8['column_2'], 'table_8') }}</td>
           </tr>
         </tbody>
 
@@ -320,7 +326,7 @@
     </div>
 
     <div class="mt-3 col-12">
-      <p>7-التكاليف السنوية للمشروع :</p>
+      <p>9-التكاليف السنوية للمشروع :</p>
       <table class="col-12">
         <thead>
           <tr>
@@ -331,28 +337,30 @@
         <tbody>
           <tr>
             <td>التكاليف الثابتة (جدول 4)</td>
-            <td><input type="number" v-model="table_8.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_9.column_1.row_1" /> </td>
           </tr>
           <tr>
             <td>التكاليف المتغيرة (جدول 3)</td>
-            <td><input type="number" v-model="table_8.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_9.column_1.row_2" /> </td>
           </tr>
           <tr>
             <td>الاهلاك (جدول 5)</td>
-            <td><input type="number" v-model="table_8.column_1.row_3" /> </td>
+            <td><input type="number" v-model="table_9.column_1.row_3" /> </td>
           </tr>
-
-
           <tr>
             <td style="background: rgba(255, 242, 205, 1);"> إجمالي التكاليف</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_8['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_1'], 'table_9') }}</td>
           </tr>
         </tbody>
 
       </table>
     </div>
     <div class="mt-3 col-12">
-      <p>الإيرادات السنوية للمشروع:</p>
+      <p>
+
+        10: الإيرادات السنوية للمشروع
+
+      </p>
       <table class="col-12">
         <thead>
           <tr>
@@ -366,47 +374,50 @@
         <tbody>
           <tr>
             <td>منتج 1</td>
-            <td><input type="number" v-model="table_9.column_1.row_1" /> </td>
-            <td><input type="number" v-model="table_9.column_2.row_1" /> </td>
-            <td><input type="number" v-model="table_9.column_3.row_1" /> </td>
-            <td><input type="number" v-model="table_9.column_4.row_1" /> </td>
+            <td><input type="number" v-model="table_10.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_10.column_2.row_1" /> </td>
+            <td><input type="number" v-model="table_10.column_3.row_1" /> </td>
+            <td><input type="number" v-model="table_10.column_4.row_1" /> </td>
           </tr>
           <tr>
             <td>منتج 2</td>
-            <td><input type="number" v-model="table_9.column_1.row_2" /> </td>
-            <td><input type="number" v-model="table_9.column_2.row_2" /> </td>
-            <td><input type="number" v-model="table_9.column_3.row_2" /> </td>
-            <td><input type="number" v-model="table_9.column_4.row_2" /> </td>
+            <td><input type="number" v-model="table_10.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_10.column_2.row_2" /> </td>
+            <td><input type="number" v-model="table_10.column_3.row_2" /> </td>
+            <td><input type="number" v-model="table_10.column_4.row_2" /> </td>
           </tr>
           <tr>
             <td>منتج 3</td>
-            <td><input type="number" v-model="table_9.column_1.row_3" /> </td>
-            <td><input type="number" v-model="table_9.column_2.row_3" /> </td>
-            <td><input type="number" v-model="table_9.column_3.row_3" /> </td>
-            <td><input type="number" v-model="table_9.column_4.row_3" /> </td>
+            <td><input type="number" v-model="table_10.column_1.row_3" /> </td>
+            <td><input type="number" v-model="table_10.column_2.row_3" /> </td>
+            <td><input type="number" v-model="table_10.column_3.row_3" /> </td>
+            <td><input type="number" v-model="table_10.column_4.row_3" /> </td>
           </tr>
           <tr>
             <td>منتج 4</td>
-            <td><input type="number" v-model="table_9.column_1.row_4" /> </td>
-            <td><input type="number" v-model="table_9.column_2.row_4" /> </td>
-            <td><input type="number" v-model="table_9.column_3.row_4" /> </td>
-            <td><input type="number" v-model="table_9.column_4.row_4" /> </td>
+            <td><input type="number" v-model="table_10.column_1.row_4" /> </td>
+            <td><input type="number" v-model="table_10.column_2.row_4" /> </td>
+            <td><input type="number" v-model="table_10.column_3.row_4" /> </td>
+            <td><input type="number" v-model="table_10.column_4.row_4" /> </td>
           </tr>
 
 
           <tr>
             <td style="background: rgba(255, 242, 205, 1);"> إجمالي الايرادات</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_1']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_2']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_3']) }}</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_9['column_4'], "table_9") }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_10['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_10['column_2']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_10['column_3']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_10['column_4'], 'table_10') }}</td>
           </tr>
         </tbody>
 
       </table>
     </div>
     <div class="mt-3 col-12">
-      <p>الأرباح الاجمالية للمشروع</p>
+      <p>
+
+        11: الأرباح الاجمالية للمشروع
+      </p>
       <table class="col-12">
         <thead>
           <tr>
@@ -417,22 +428,24 @@
         <tbody>
           <tr>
             <td>الإيرادات السنوية </td>
-            <td><input type="number" v-model="table_10.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_11.column_1.row_1" /> </td>
           </tr>
           <tr>
             <td>_ التكاليف السنوية</td>
-            <td><input type="number" v-model="table_10.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_11.column_1.row_2" /> </td>
           </tr>
           <tr>
             <td style="background: rgba(255, 242, 205, 1);"> = اجمالي الأرباح</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_10['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_11['column_1'],'table_11') }}</td>
           </tr>
         </tbody>
 
       </table>
     </div>
     <div class="mt-3 col-12">
-      <p>صافي الربح</p>
+      <p>
+        12: صافي الربح
+      </p>
       <table class="col-12">
         <thead>
           <tr>
@@ -443,19 +456,19 @@
         <tbody>
           <tr>
             <td>الأرباح الإجمالية</td>
-            <td><input type="number" v-model="table_11.column_1.row_1" /> </td>
+            <td><input type="number" v-model="table_12.column_1.row_1" /> </td>
           </tr>
           <tr>
             <td>_ الزكاة 2.5% من الأرباح</td>
-            <td><input type="number" v-model="table_11.column_1.row_2" /> </td>
+            <td><input type="number" v-model="table_12.column_1.row_2" /> </td>
           </tr>
           <tr>
             <td>_ ضريبة القيمة المضافة 5% من الارباح</td>
-            <td><input type="number" v-model="table_11.column_1.row_3" /> </td>
+            <td><input type="number" v-model="table_12.column_1.row_3" /> </td>
           </tr>
           <tr>
             <td style="background: rgba(255, 242, 205, 1);">= صافي الربح</td>
-            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_11['column_1']) }}</td>
+            <td style="background: rgba(255, 242, 205, 1);">{{ calculateSum(table_12['column_1'], 'table_12') }}</td>
           </tr>
         </tbody>
 
@@ -486,11 +499,6 @@ export default {
           row_2: '',
           row_3: ''
         },
-        column_2: {
-          row_1: '',
-          row_2: '',
-          row_3: ''
-        }
       },
       table_3: {
         column_1: {
@@ -510,36 +518,41 @@ export default {
           row_1: '',
           row_2: '',
           row_3: '',
+
+        },
+        column_2: {
+          row_1: '',
+          row_2: '',
+          row_3: '',
+        }
+      },
+      table_5: {
+        column_1: {
+          row_1: '',
+          row_2: '',
+          row_3: '',
           row_4: '',
-          row_5: '',
-          row_6: '',
         },
         column_2: {
           row_1: '',
           row_2: '',
           row_3: '',
           row_4: '',
-          row_5: '',
-          row_6: '',
         },
         column_3: {
           row_1: '',
           row_2: '',
           row_3: '',
           row_4: '',
-          row_5: '',
-          row_6: '',
         },
         column_4: {
           row_1: '',
           row_2: '',
           row_3: '',
           row_4: '',
-          row_5: '',
-          row_6: '',
         }
       },
-      table_5: {
+      table_6: {
         column_1: {
           row_1: '',
           row_2: '',
@@ -552,14 +565,13 @@ export default {
           row_3: '',
         }
       },
-      table_6: {
+      table_7: {
         column_1: {
           row_1: '',
           row_2: '',
-          row_3: ''
-        }
+        },
       },
-      table_7: {
+      table_8: {
         column_1: {
           row_1: '',
           row_2: '',
@@ -569,14 +581,16 @@ export default {
           row_2: '',
         }
       },
-      table_8: {
+      table_9: {
         column_1: {
           row_1: '',
           row_2: '',
-          row_3: ''
-        }
+          row_3: '',
+          row_4: '',
+        },
       },
-      table_9: {
+      table_10: {
+
         column_1: {
           row_1: '',
           row_2: '',
@@ -602,13 +616,14 @@ export default {
           row_4: '',
         },
       },
-      table_10: {
+      table_11: {
         column_1: {
           row_1: '',
           row_2: '',
+          row_3: '',
         }
       },
-      table_11: {
+      table_12: {
         column_1: {
           row_1: '',
           row_2: '',
@@ -641,11 +656,11 @@ export default {
       if (totalSum == 0) {
         return ''
       }
-      if(typeof totalName !== "undefined"){
+      if (typeof totalName !== "undefined") {
 
-        localStorage.setItem(totalName, totalSum)
-        console.log(localStorage.getItem(totalName))
-        console.log(totalName)  
+        localStorage.setItem(totalName, JSON.stringify(totalSum))
+        console.log(JSON.parse(localStorage.getItem(totalName)))
+        console.log(totalName)
       }
       return totalSum
 
@@ -748,6 +763,15 @@ td input {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+  border: none;
 }
 
 tr td:first-child {
