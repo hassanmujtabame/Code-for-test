@@ -15,8 +15,7 @@
                         </div>
                     </div>
                     <div class="btn-main-style py-5">
-                          <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer fs-r-24 shadow mt-2">الدخول الى متجرك </router-link>
-                          <router-link :to="getRouteLocale('login')" class="btn-custmer-w fs-r-24 bg-transparent text-white mt-2">{{ $t('login-female') }}</router-link>
+                          <router-link :to="getRouteLocale('register-affiliate')" class="btn-custmer-w fs-r-24 bg-transparent text-white mt-2">سوقى الأن</router-link>
 
                         </div>
                 </div>

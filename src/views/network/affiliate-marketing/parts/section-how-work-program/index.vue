@@ -1,6 +1,6 @@
 <template>
     <div class="py-4">
-        <h2 class="text-center">كيفية عمل البرنامج</h2>
+        <h2 class="text-center ms-5">كيفية عمل البرنامج</h2>
 
         <div class="container mt-4">
            

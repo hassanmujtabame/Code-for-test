@@ -1,7 +1,7 @@
 <template>
     <div class="sex-eight mt-5">
         <div class="container">
-            <h2 class="text-center"> ماذا يقولون المشتركات في حاضنة {{ itemPage.name }} </h2>
+            <h2 class="text-center"> ماذا يقولون  المسوقين بالعموله  {{ itemPage.name }} </h2>
             <div :id="carouselId" class="hear-carousel owl-carousel owl-theme  mt-5">
                 <ItemSlide v-for="(item, i) in items" :key="i" :desc="item.desc"
                     :name="item.user_info ? item.user_info.name : 'N/A'" :image="item.user_info ? item.user_info.image : null" />

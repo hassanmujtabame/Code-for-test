@@ -11,7 +11,7 @@
                         <div class="row p-3">
                             <SubscribeCard @next-step="moveNext" :itemId="pack.name" :packId="pack" :title="pack.name"
                                 :price="pack.price" :features="pack.options.map(c => c.name_ar)" :type-subscribe="pack.name"
-                                @selected="choose(pack)" :subscribed="subscribedType" :typeSectionSub='"network"'>
+                                @selected="choose(pack)" :subscribed="subscribedType" :typeSectionSub='"incubator"'>
                             </SubscribeCard>
                             <!-- :title="getTitleSubscribe(pack.name)" -->
 
@@ -24,7 +24,7 @@
                 <tab-content :before-change="beforeChange" title="  اختيار مجال الاشتراك ">
                     <div class="d-flex flex-row flex-wrap justify-content-center">
                         <div :id="`department${item.id}`" @click="addFieldId(item.id)" v-for="(item, i) in items" :key="i">
-                            <CardVue :title="item.name" :img="`${publicPath + item.image_path}`" :id="item.id" />
+                            <CardVue :title="item.name" :img="`${item.image_path}`" :id="item.id" />
                         </div>
                     </div>
                 </tab-content>
@@ -44,7 +44,6 @@
 <script>
 import SectionReadDept from "../program-incubator/parts/section-read-dept"
 import SubscribeCard from '@/components/cards/subscribe-card.vue';
-import networkAPI from '@/services/api/network.js'
 import successSubscribeDialog from './success-subscribe-dialog.vue';
 import checkoutPackageDiag from './check-out/index.vue';
 
@@ -65,7 +64,7 @@ export default {
         successSubscribeDialog,
         FormWizard,
         TabContent,
-        SectionReadDept,
+        // SectionReadDept,
         CardVue,
         TheFinalStep
 
@@ -107,18 +106,11 @@ export default {
                     return 'N/A';
             }
         },
-        openCheckoutDialog(data) {
-            console.log('data', data);
-            this.fireOpenDialog('checkout-subscribe-network', { item: { amount: data.price, title: this.$t('Riadiat-network'), type: this.getTypePackage(data) }, data: data })
-        },
-        openSuccessSubscribed(data) {
-            this.fireOpenDialog('success-network-subscribed', data)
-        },
         async choose(pack) {
             console.log('pack', pack);
             if (pack.type == 'free') {
                 try {
-                    let { data } = await networkAPI.checkoutPackageFree({ package_id: pack.id });
+                    let { data } = await incubatorAPI.checkoutPackageFree({ package_id: pack.id });
                     if (data.success) {
                         this.loadCurrentUser()
                         // this.openSuccessSubscribed(pack)
@@ -138,7 +130,7 @@ export default {
 
         async loadPackages() {
             try {
-                let { data } = await networkAPI.getPackages();
+                let { data } = await incubatorAPI.getPackages();
                 if (data.success) {
                     console.log('Packages', data);
                     this.packages = data.data
@@ -163,7 +155,7 @@ export default {
             let date = this.dateToString(new Date());
             for (let index = 0; index < this.user.system_subscriptions.length; index++) {
                 const element = this.user.system_subscriptions[index];
-                if (element.system_package.related_to.key == 'network' && element.end_at > date) {
+                if (element.system_package.related_to.key == 'incubator' && element.end_at > date) {
 
                     console.log('444', element, 'true');
                     this.subscribedType = element.system_package.id

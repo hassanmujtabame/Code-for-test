@@ -7,7 +7,7 @@
             :style="{ top: '17px', left: $i18n.locale == 'ar' ? 'auto' : '0', right: $i18n.locale !== 'ar' ? 'auto' : '0' }">
             <h6>
               لديك حساب بالفعل؟
-              <router-link :to="getRouteLocale('login-affiliate')" class="m-c">سجل دخولك الان</router-link>
+              <router-link :to="getRouteLocale('login')" class="m-c">سجل دخولك الان</router-link>
             </h6>
           </div>
           <h1 class="fw-bolder">مرحبا بك معنا</h1>
@@ -26,55 +26,101 @@
               <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
 
-            <ValidationProvider :name="$t('Full-name')" vid="name" rules="required" v-slot="{ errors }" tag="div"
-              class="mb-3">
-              <b-form-input type="text" :placeholder="$t('Full-name')" v-model="form.name" required />
-              <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-
-            <ValidationProvider :name="$t('Email')" vid="email" rules="required|email" v-slot="{ errors }" tag="div"
-              class="mb-3">
-              <b-form-input type="email" :placeholder="$t('Email')" v-model="form.email" required />
-              <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-
-            <ValidationProvider :name="$t('Full-name')" vid="name" rules="required" v-slot="{ errors }" tag="div"
-              class="mb-3">
-              <b-form-input type="text" :placeholder="$t('Full-name')" v-model="form.name" required />
-              <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-
-            <ValidationProvider :name="$t('Email')" vid="email" rules="required|email" v-slot="{ errors }" tag="div"
-              class="mb-3">
-              <b-form-input type="email" :placeholder="$t('Email')" v-model="form.email" required />
-              <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-
-            <ValidationProvider :name="$t('Full-name')" vid="name" rules="required" v-slot="{ errors }" tag="div"
-              class="mb-3">
-              <b-form-input type="text" :placeholder="$t('Full-name')" v-model="form.name" required />
-              <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-
-
-
-
             <div class="cols-12 d-flex gap-1 mb-3 align-items-start">
+
               <ValidationProvider :name="$t('Phone')" tag="div" class="flex-grow-1" vid="phone"
                 rules="required|numeric|min:10" v-slot="{ errors }">
                 <b-form-input type="number" :placeholder="$t('Phone')" v-model="form.phone" required />
                 <div class="text-input-error">{{ errors[0] }}</div>
               </ValidationProvider>
-              
+
               <ValidationProvider :name="$t('country-phone')" tag="div" class="flex-grow-1" vid="phone_code"
                 rules="required" v-slot="{ errors }">
                 <d-select-input :errors="errors" type="text" class="text-flag  rounded-3 align-items-center"
                   v-model="form.phone_code">
-                  <option v-for="(it, i) in phone_codes" :key="i" :value="it.phone_code">{{ it.flag }}({{ it.phone_code }})
+                  <option v-for="(it, i) in phone_codes" :key="i" :value="it.phone_code">{{ it.flag }}({{ it.phone_code
+                  }})
                   </option>
                 </d-select-input>
               </ValidationProvider>
             </div>
+
+
+            <ValidationProvider :name="$t('id_number')" tag="div" class="flex-grow-1" vid="id_number"
+            rules="required|numeric|min:10" v-slot="{ errors }">
+            <b-form-input type="number" :placeholder="`رقم الهوية الوطنية / الاقامة`" v-model="form.id_number"
+              required />
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+
+          <ValidationProvider :name="$t('region')" vid="region" rules="required" v-slot="{ errors }" tag="div"
+            class="mb-3">
+            <b-form-input type="text" :placeholder="`المنطقة`" v-model="form.region" required />
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+
+          <ValidationProvider :name="$t('job_status')" vid="job_status" rules="required" v-slot="{ errors }" tag="div"
+            class="mb-3">
+            <b-form-input type="text" :placeholder="`الحالة الوظيفية`" v-model="form.job_status" required />
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+
+
+          <ValidationProvider :name="$t('bank_account')" vid="bank_account" rules="required" v-slot="{ errors }"
+            tag="div" class="mb-3">
+            <b-form-input type="text" :placeholder="`  الحساب البنكي`" v-model="form.bank_account" required />
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+          <ValidationProvider :name="$t('bank_name')" vid="bank_name" rules="required" v-slot="{ errors }" tag="div"
+            class="mb-3">
+            <b-form-input type="text" :placeholder="` اسم البنك`" v-model="form.bank_name" required />
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+          <ValidationProvider :name="$t('what_you_know')" vid="what_you_know" rules="required" v-slot="{ errors }"
+            tag="div" class="mb-3">
+            <b-form-input type="text" :placeholder="` ماذا تعرف عن رياديات ؟ `" v-model="form.what_you_know"
+              required />
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+
+          <ValidationProvider :name="$t('gender')" vid="gender" rules="required" v-slot="{ errors }" tag="div"
+            class="mb-3">
+            <select class="form-select mb-3" aria-label="Default select example">
+              <option selected disabled>الجنس </option>
+              <option value="male">ذكر</option>
+              <option value="female"> أنثى </option>
+            </select>
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+          <ValidationProvider :name="$t('reason_for_join')" vid="reason_for_join" rules="required" v-slot="{ errors }"
+            tag="div" class="mb-3">
+            <b-form-input type="text" :placeholder="` سبب انضمامك بالبرنامج؟ `" v-model="form.reason_for_join"
+              required />
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+          <ValidationProvider :name="$t('hours_number')" vid="hours_number" rules="required" v-slot="{ errors }"
+            tag="div" class="mb-3">
+            <b-form-input type="text" :placeholder="` عدد الساعات التي من الممكن تخصصيها للبرنامج بشكل اسبوعي ؟ `"
+              v-model="form.hours_number" required />
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+          <ValidationProvider :name="$t('how_to_convence')" vid="how_to_convence" rules="required" v-slot="{ errors }"
+            tag="div" class="mb-3">
+            <b-form-input type="text" :placeholder="` كيف راح تقنع العملاء بالتسجيل معك ؟ `"
+              v-model="form.how_to_convence" required />
+            <div class="text-input-error">{{ errors[0] }}</div>
+          </ValidationProvider>
+
+
 
             <ValidationProvider vid="password" rules="required" :name="$t('Password')" v-slot="{ errors }" tag="div"
               class="mb-3">
@@ -133,6 +179,16 @@ export default {
       email: process.env.EMAIL || "",
       password: process.env.PASSWORD || "",
       name: "",
+      id_number: '',
+      region: '',
+      job_status: '',
+      bank_name: '',
+      bank_account: '',
+      gender: '',
+      what_you_know: '',
+      reason_for_join: '',
+      hours_number: '',
+      how_to_convence: '',
       phone: "",
       phone_code: "+966",
       passwordConfirm: ""
@@ -164,7 +220,7 @@ export default {
         return;
       }
       try {
-        let { data } = await this.$axios.post("user/auth/register", this.form);
+        let { data } = await this.$axios.post("user/auth/affiliate-register", this.form);
         if (data.success) {
           window.successMsg(data.message);
           let info = {
@@ -264,5 +320,4 @@ html[lang="en"] .icon-input-end {
   display: block;
   width: 100%;
   height: 100%;
-}
-</style>
+}</style>

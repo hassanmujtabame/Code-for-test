@@ -5,7 +5,7 @@
               
               
               </h2>
-              <div class="container">
+              <div class="container-fluid">
   
                   <div class="row min-riadiat network">
                       <div class="col-md-3 mt-2 ">

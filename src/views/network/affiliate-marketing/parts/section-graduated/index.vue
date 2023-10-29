@@ -1,5 +1,5 @@
 <template>
-  <div class="sec-five mt-5 p-5 container">
+  <div class="sec-five mt-5 p-5 container-fluid">
     <div class="">
       <div class="d-flex justify-content-between align-items-center">
         <h1>

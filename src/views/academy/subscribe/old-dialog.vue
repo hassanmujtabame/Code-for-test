@@ -9,11 +9,11 @@
           <p class="px-3">
             حتى تتمكن من الانضمام الى باقي خدمتنا
             (
-            <router-link :to="getRouteLocale('academy-home')" class="m-c">
+            <router-link :to="getRouteLocale('incubator-home')" class="m-c">
                 الاكاديمية
             </router-link>
             او
-            <router-link :to="getRouteLocale('academy-home')" class="m-c">
+            <router-link :to="getRouteLocale('incubator-home')" class="m-c">
                 الحاضنة
             </router-link>
             او

@@ -1,6 +1,6 @@
 <template>
   <div class="mt-5 p-3">
-            <div class="container">
+            <div class="container-fluid">
               <div
                 class="d-flex justify-content-center align-items-center container"
               >

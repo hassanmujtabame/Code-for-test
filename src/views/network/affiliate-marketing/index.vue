@@ -8,11 +8,11 @@
         <div v-if="token">
             <SectionGraduated title="ابرز سفيرات التسويق بالعموله"/>
         </div>
-        <SectionDoubleWinings />
+        <!-- <SectionDoubleWinings /> -->
         <SectionAreYouMember />
         <SectionRecognize />
         <SectionCommonQuistions />
-        <SectionRecentCourses />
+        <!-- <SectionRecentCourses /> -->
         <SectionGraduated title=" المسوقين الاكثر ربحا " />
         <SectionContinueLearning  />
         <SectionHear :itemPage="itemPage"/>

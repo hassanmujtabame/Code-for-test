@@ -24,11 +24,6 @@
           <div class="d-flex res-search">
             <!-- search input -->
             <SearchInput class="mx-2" v-if="!hideSearch" />
-            <div class="btn-main btn-nav text-center" style=" height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
-              <router-link v-if="!token" :to="getRouteLocale('register')" class="text-white" >{{ $t("join-us") }}</router-link>
-              <router-link v-else-if="!userIsSubIncubator" :to="getRouteLocale('incubator-subscribe')"
-              class="text-white"> {{ $t('join-us') }} </router-link>
-            </div>
             <template v-if="token">
               <UserMsg :prefixRoute="prefixRoute" />
               <UserNotif :prefixRoute="prefixRoute" />
@@ -91,7 +86,7 @@ export default {
 
       window.location.reload();
     },
-  },
+  }
 };
 </script>
 

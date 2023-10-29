@@ -4,7 +4,7 @@
             <localHeader />
             <MyDrawer />
         </template>
-      <DefaultHeader v-else/>
+      <DefaultHeader  v-else/>
       
       <main>
         <faqBtn /> 

@@ -1,11 +1,11 @@
 <template>
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <h1>الأسئله الشائعه </h1>
         <div class="row">
-            <div class="col-4 image-side" style="min-height:400px">
+            <div class="col-md-5 image-side" style="min-height:400px">
                 <img src="@/assets/img/reset-password.png" style="width: 100%">
             </div>
-            <div class="col-8 quistions-side">
+            <div class="col-md-7 quistions-side">
                 <div  class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                       <h2 class="accordion-header">

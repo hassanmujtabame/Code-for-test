@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-5">
+  <div class="container-fluid mt-5">
             <div class="row align-items-center m-auto">
                 <div class="col-md-6">
                     <div>

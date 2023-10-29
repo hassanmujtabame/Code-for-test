@@ -1,131 +1,134 @@
 <template>
-  <TemplateHeader
-  prefixRoute='network-'
-  >
-            <li class="nav-item px-2">
-              <!-- <a class="nav-link active" aria-current="page" href="../index.html"
+  <TemplateHeader prefixRoute='network-'>
+    <li class="nav-item px-2">
+      <!-- <a class="nav-link active" aria-current="page" href="../index.html"
                 >الرئيسية</a
               > -->
-              <router-link :to="getRouteLocale('network-home')"  class="nav-link">{{ $t('Home-page') }}</router-link>
-            </li>
-            <li class="nav-item px-2">
-           
-              <router-link :to="getRouteLocale('network-investment-project')" class="nav-link">{{ $t('Investment-projects') }}</router-link>
-            </li> 
-         
-            <li class="nav-link nav-item px-2" style="cursor: pointer" @click="checkExhibitionsSub()"> 
-             {{ $t('Exhibitions') }}
-            </li> 
-            <li class="nav-link nav-item px-2" style="cursor: pointer" @click="checkSub()"> 
-             {{ $t('Offers') }}
-            </li>
-               <li class="nav-link nav-item px-2" style="cursor: pointer" @click="checkModelsSub()"> 
-             {{ $t('Models') }}
-            </li>
+      <router-link :to="getRouteLocale('network-home')" class="nav-link">{{ $t('Home-page') }}</router-link>
+    </li>
+    <li class="nav-item px-2">
 
-            <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-blogs')" class="nav-link">{{ $t('Blogs') }}</router-link>
-            </li>
-            <li class="nav-item px-2">
-              <router-link :to="getRouteLocale('network-contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
-            </li>
-            <div  v-if="false" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center">
-                        <a href="" class="text-white " data-bs-toggle="modal"
-                        data-bs-target="#addModal">{{ $t('add-new-service') }}</a>
-                    </div>
-      
-    </TemplateHeader>
+      <router-link :to="getRouteLocale('network-investment-project')" class="nav-link">{{ $t('Investment-projects')
+      }}</router-link>
+    </li>
+
+    <li class="nav-link nav-item px-2" style="cursor: pointer" @click="checkExhibitionsSub()">
+      {{ $t('Exhibitions') }}
+    </li>
+    <li class="nav-link nav-item px-2" style="cursor: pointer" @click="checkSub()">
+      {{ $t('Offers') }}
+    </li>
+    <li class="nav-link nav-item px-2" style="cursor: pointer" @click="checkModelsSub()">
+      {{ $t('Models') }}
+    </li>
+
+    <li class="nav-item px-2">
+      <router-link :to="getRouteLocale('network-blogs')" class="nav-link">{{ $t('Blogs') }}</router-link>
+    </li>
+    <li class="nav-item px-2">
+      <router-link :to="getRouteLocale('network-contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
+    </li>
+
+    <li class="nav-item px-2 btn-main btn-nav text-center" style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+      <router-link v-if="!token" :to="getRouteLocale('register')" class="text-white" >{{ $t("join-us") }}</router-link>
+      <router-link v-else-if="!userIsSubNetwork" :to="getRouteLocale('network-subscribe')"
+      class="text-white"> {{ $t('join-us') }} </router-link>
+    </li>
+
+    <div v-if="false" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center">
+      <a href="" class="text-white " data-bs-toggle="modal" data-bs-target="#addModal">{{ $t('add-new-service') }}</a>
+    </div>
+
+  </TemplateHeader>
 </template>
 
 <script>
 import TemplateHeader from '../tamplate/header/index.vue'
 export default {
-    name:'default-header',
-    components:{
-      TemplateHeader
-    },
-       data: () => {
-        return {
-     
-            showExhibition: false,
-            showModels: false,
-            showOffers:false
+  name: 'default-header',
+  components: {
+    TemplateHeader
+  },
+  data: () => {
+    return {
+
+      showExhibition: false,
+      showModels: false,
+      showOffers: false
 
 
+    }
+  },
+  methods: {
+
+    checkSubscriptionOptions() {
+      for (let index = 0; index < this.user.subscription_options.length; index++) {
+        const element = this.user.subscription_options[index];
+        if (element.key == "show_exhibitions") {
+          this.showExhibition = true
+        } else if (element.key == "models") {
+          this.showModels = true
+
+        } else if (element.key == "show_offers") {
+          this.showOffers = true
         }
+      }
     },
-    methods: {
-  
-         checkSubscriptionOptions(){
-                for (let index = 0; index < this.user.subscription_options.length; index++) {
-                    const element = this.user.subscription_options[index];
-                   if (element.key == "show_exhibitions") {
-                        this.showExhibition = true
-                    } else if (element.key == "models") {
-                        this.showModels = true
-
-                    }else if (element.key == "show_offers") {
-                        this.showOffers = true
-                    } 
-                }
+    checkExhibitionsSub() {
+      if (!this.showExhibition) {
+        let dataEvt = {
+          title: 'للأسف لايمكنك  رؤية المعارض  ',
+          description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على المعارض    - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من المعارض و المزيد من المميزات في الشبكة`,
+          image: `${this.publicPath}assets/img/Group 1171275670.png`,
+          btns: [
+            { title: 'رقي حسابك', action: () => this.router_push('network-subscribe') }
+          ]
+        }
+        this.showConfirmMsg(dataEvt);
+        return;
+      } else {
+        this.router_push('network-exhibitions')
+      }
     },
-    checkExhibitionsSub(){
-   if(!this.showExhibition){
-        let dataEvt ={
-                        title:'للأسف لايمكنك  رؤية المعارض  ',
-                        description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على المعارض    - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من المعارض و المزيد من المميزات في الشبكة`,
-                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
-                        btns:[
-                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
-                        ]
-                    }
-                    this.showConfirmMsg(dataEvt);
-                    return;
-    }else{
-this.router_push('network-exhibitions')
-    }
+    checkModelsSub() {
+      if (!this.showOffers) {
+        let dataEvt = {
+          title: 'للأسف لايمكنك  رؤية النماذج  ',
+          description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على النماذج  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من النماذج و المزيد من المميزات في الشبكة`,
+          image: `${this.publicPath}assets/img/Group 1171275670.png`,
+          btns: [
+            { title: 'رقي حسابك', action: () => this.router_push('network-subscribe') }
+          ]
+        }
+        this.showConfirmMsg(dataEvt);
+        return;
+      } else {
+        this.router_push('network-models')
+      }
     },
-    checkModelsSub(){
-  if(!this.showOffers){
-        let dataEvt ={
-                        title:'للأسف لايمكنك  رؤية النماذج  ',
-                        description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على النماذج  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من النماذج و المزيد من المميزات في الشبكة`,
-                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
-                        btns:[
-                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
-                        ]
-                    }
-                    this.showConfirmMsg(dataEvt);
-                    return;
-    }else{
-                  this.router_push('network-models')
-    }
-    },
-    checkSub(){
-    if(!this.showOffers){
-        let dataEvt ={
-                        title:'للأسف لايمكنك  رؤية العروض  ',
-                        description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
-                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
-                        btns:[
-                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
-                        ]
-                    }
-                    this.showConfirmMsg(dataEvt);
-                    return;
-    }else{
-                  this.router_push('network-offers')
-    }
+    checkSub() {
+      if (!this.showOffers) {
+        let dataEvt = {
+          title: 'للأسف لايمكنك  رؤية العروض  ',
+          description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
+          image: `${this.publicPath}assets/img/Group 1171275670.png`,
+          btns: [
+            { title: 'رقي حسابك', action: () => this.router_push('network-subscribe') }
+          ]
+        }
+        this.showConfirmMsg(dataEvt);
+        return;
+      } else {
+        this.router_push('network-offers')
+      }
     }
 
-    },
-    mounted() {
+  },
+  mounted() {
     this.checkSubscriptionOptions()
-        this.loadList()
-    }
+    this.loadList()
+  }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

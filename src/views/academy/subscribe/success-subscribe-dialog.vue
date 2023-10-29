@@ -20,7 +20,7 @@ export default {
     props:{
         group:{
             type:String,
-            default:'success-academy-subscribed'
+            default:'success-incubator-subscribed'
         }
     },
     components:{
@@ -41,6 +41,7 @@ export default {
     },
     closeDialog(){
         this.showDialog = false
+
         return true;
     },
   }

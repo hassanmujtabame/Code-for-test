@@ -104,6 +104,13 @@ class NetworkApi extends BaseApi {
 	getCategories() {
 		return window.axios.get(`network/categories`);
 	}
+	getDepartments(params = {}) {
+		let s = this.generateQueryUrl(params);
+		return window.axios.get(`network/departments?${s}`);
+	}
+	getDepartment(id) {
+		return window.axios.get(`network/departments/${id}`);
+	}
 }
 
 export default new NetworkApi();
