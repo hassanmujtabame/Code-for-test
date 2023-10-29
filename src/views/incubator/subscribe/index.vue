@@ -4,7 +4,7 @@
 
         <div class="container p-5 mt-5">
             <form-wizard color="#49b483ff" step-size="xs" @on-complete="onComplete" ref="normalSteps"
-                nextButtonText="التالى" backButtonText="السابق" finishButtonText="الانتهاء">
+                nextButtonText="التالى" backButtonText="السابق" finishButtonText="الدفع و التأكيد ">
                 <tab-content :before-change="beforeChange_1" title=" الباقه ">
 
                     <div v-for="(pack, p) in packages" :key="p" class="mt-2">
@@ -29,7 +29,7 @@
                     </div>
                 </tab-content>
                 <tab-content title=" الدفع و التأكيد  ">
-                    <TheFinalStep />
+                    <TheFinalStep ref="childComponentRef" />
                 </tab-content>
             </form-wizard>
         </div>
@@ -53,6 +53,7 @@ import TheFinalStep from '@/common/dialogs/check-out/body-check-out.vue';
 import { FormWizard, TabContent } from 'vue-form-wizard'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 import CardVue from '@/components/cards/incubator-dept-circle.vue'
+import incubatorAPI from '@/services/api/incubator';
 
 
 
@@ -178,7 +179,6 @@ export default {
                 let children = elem.querySelectorAll('img');
                 children[0].style.border = 'none';
                 elem.style.opacity = '1'
-                console.log(this.fieldIds.length)
             } else {
                 this.fieldIds.push(id)
                 const elem = document.getElementById(`department${id}`);
@@ -186,7 +186,6 @@ export default {
                 elem.style.opacity = '0.4'
                 children[0].style.border = '5px solid #2eb9b3';
                 children[0].style.borderRadius = "50%"
-                console.log(this.fieldIds.length)
             }
         },
 
@@ -202,7 +201,7 @@ export default {
                 this.showConfirmMsg(dataEvt);
                 return false;
             } else {
-                localStorage.setItem('fieldsId', this.fieldIds)
+                localStorage.setItem('departments_ids', this.fieldIds)
                 return true
             }
         },
@@ -221,14 +220,29 @@ export default {
                 return true
             }
         },
+        async getDepartments() {
+            this.loading = true;
+            try {
+                let { data } = await incubatorAPI.getDepartments();
+                if (data.success) {
+                    this.items = data.data
+                    console.log('--')
+                    console.log(this.items)
+                    console.log('--')
+                }
+            } catch (error) {
+                console.mylog('error', error);
+            }
+            this.loading = false;
+        },
         onComplete: function () {
-            // this.$router.push("/ar/incubator/home")
-            alert('yay end')
+            this.$refs.childComponentRef.payment(); // Call the method in the child component
         }
     },
     mounted() {
         this.checkTypePackage()
         this.loadPackages()
+        this.getDepartments()
 
     }
 }

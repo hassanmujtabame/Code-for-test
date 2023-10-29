@@ -303,28 +303,23 @@ export default {
             this.sendEventCard('expiry-date', this.expiry_date)
         },
         async payment() {
-            // if (!this.itemForm.payment_type) {
-            //     window.SwalError('من فضلك إختر بطافة للدفع')
-            //     return;
-            // }
-            // if (this.changeable_) {
-            //     let v_amount = await this.$refs.amount.validate()
-            //     if (!v_amount) return;
-            // }
-
-            // POST request using axios with async/await
-                // console.log(this.user.id)
             const formData = { 
                 package_id: localStorage.getItem('selectedPackageId'),
                 package_type: 'incubator',
-                user_id: this.user_id
+                user_id: this.user.id,
+                departments_ids: localStorage.getItem('departments_ids'),
             };
+            console.log('formData')
+            console.log(formData)
+            console.log("formData")
             const response = await axios.post("https://cp.riadiat.sa/api/v1/pay/myfatoorah", formData);
             // this.articleId = response.data.id;
             if(response.data.success){
-                console.log('//')
+                console.log('response')
                 console.log(response.data)
-                console.log('//')
+                console.log('response')
+
+
                 window.open(response.data.data.payment_url, '_blank');
             }else {
                 window.SwalError(" حدث خطاء يرجى اعاده المحاوله")

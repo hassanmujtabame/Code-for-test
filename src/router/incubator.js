@@ -131,19 +131,19 @@ const routers = [
 				/* webpackChunkName: "incubator-contact-us-for-project" */ "../views/incubator/contact-us-for-project"
 			),
 	},
+	// {
+	// 	path: "incubator/incubator-business",
+	// 	meta: { layout: LayoutDefault, auth: true, title: "Incubator Business" },
+	// 	name: "incubator-incubator-business",
+	// 	component: () =>
+	// 		import(
+	// 			/* webpackChunkName: "incubator-incubator-business" */ "../views/incubator/incubator-business/deparments"
+	// 		),
+	// },
 	{
 		path: "incubator/incubator-business",
 		meta: { layout: LayoutDefault, auth: true, title: "Incubator Business" },
 		name: "incubator-incubator-business",
-		component: () =>
-			import(
-				/* webpackChunkName: "incubator-incubator-business" */ "../views/incubator/incubator-business/deparments"
-			),
-	},
-	{
-		path: "incubator/incubator-business/:id",
-		meta: { layout: LayoutDefault, auth: true, title: "Incubator Business" },
-		name: "incubator-incubator-business-show",
 		component: () =>
 			import(
 				/* webpackChunkName: "incubator-incubator-business-show" */ "../views/incubator/incubator-business/show"
