@@ -1,64 +1,41 @@
 <template>
-  <div class="mt-5 blog"> 
-    <d-filter-list
-      :call-list="loadList"
-      @change="changeFilter"
-      :searchPlaceholder="$t('search_by_service')"
-      orderName="price"
-      newFilter
-      hideTitle
-      showBtnSearch
-      :orderOpts="
-             [
-                {id:'asc',name:'الأقل سعرا'},
-                {id:'desc',name:'الأغلى سعرا',}
-            ]"
-      classColCard="col-lg-4 mt-3"
-      classSideBar="w-100"
-      classSearchOrder="col-md-9 flex-direction"
+  <div class="mt-5 blog">
+    <d-filter-list 
+    :call-list="loadList" 
+    @change="changeFilter" 
+    :searchPlaceholder="$t('search_by_service')"
+      orderName="price" 
+      newFilter 
+      hideTitle 
+      showBtnSearch 
+      :orderOpts="[
+          { id: 'asc', name: 'الأقل سعرا' },
+          { id: 'desc', name: 'الأغلى سعرا', }
+        ]" 
+        classColCard="col-lg-4 mt-3" 
+        classSideBar="w-100" 
+        classSearchOrder="col-md-9 flex-direction"
       classColOrder="col-12 col-md-3" 
-      classColSearch="col-12 col-md-7"
-      classTotal="col-md-3"
-    >
+      classColSearch="col-12 col-md-7" 
+      classTotal="col-md-3">
       <!-- <template v-slot:side> -->
-           <template v-slot:total="{}">
-           <button @click="openAddService($event)" style="line-height: 2.5; height: 46px; width: 230px !important; margin-bottom: 20px;" class="btn-main btn-nav text-center text-white">
-           <plusCircleOutline :size="24" color="currentColor" class="mx-1"/>
-             
-              {{$t('add-new-service')}}
-            </button>
+      <template v-slot:total="{ }">
+        <button @click="openAddService($event)"
+          style="line-height: 2.5; height: 46px; width: 230px !important; margin-bottom: 20px;"
+          class="btn-main btn-nav text-center text-white">
+          <plusCircleOutline :size="24" color="currentColor" class="mx-1" />
+
+          {{ $t('add-new-service') }}
+        </button>
       </template>
       <template v-slot:side>
         <sidebarFilter @change="changeFilter" :filter-item="fitlterSide" />
       </template>
 
       <template v-slot="{ item }">
-        <!-- <router-link
-          class="router-link"
-          :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
-        > -->
-          <!-- <readyServiceCard
-            :image="item.image"
-            :title="item.title"
-            :price="item.price"
-            :place="item.city"
-            :name="item.user_info?item.user_info.name:'N/A'"
-            :description="item.desc"
-            :state="item.state"
-            :department="item.category_name??'N/A'"
-            :status="item.status"
-          /> -->
-     <readyServiceCard
-            :image="item.image"
-            :description="item.desc"
-            :title="item.title"
-            :place="item.city"
-            :price="item.price"
-            :name="item.user_info"
-            :id="item.id"
-            :rates="item.rates"
-            :categoryName="item.category_name"
-          />
+        <readyServiceCard :image="item.image" :description="item.desc" :title="item.title" :place="item.city"
+          :price="item.price" :name="item.user_info" :id="item.id" :rates="item.rates"
+          :categoryName="item.category_name" />
         <!-- </router-link> -->
       </template>
     </d-filter-list>
@@ -98,7 +75,7 @@ export default {
         max_price: 1000,
         min_price: 0
       },
-      totalYourServices:null
+      totalYourServices: null
     };
   },
   methods: {
@@ -113,7 +90,7 @@ export default {
     closeAddService(evt) {
       evt.preventDefault();
       this.fireCloseDialog("add-ready-service-dialog");
-    }, 
+    },
     async loadList(metaInfo) {
       let params = {
         page: metaInfo.current_page,
@@ -135,12 +112,12 @@ export default {
         console.log("error response", error.response);
       }
     },
-       async getTotalYourServices() {
+    async getTotalYourServices() {
       try {
         let { data } = await readyServiceAPIs.getAll();
         if (data.success) {
-          console.log('145',data);
-        this.totalYourServices = data.meta.total
+          console.log('145', data);
+          this.totalYourServices = data.meta.total
         }
       } catch (error) {
         console.log("error", error);
@@ -152,13 +129,14 @@ export default {
   mounted() {
     this.getTotalYourServices()
     //this.getCategories();
+    console.log('items here=>', this.totalYourServices)
   }
 };
 </script>
 
 <style>
-.flex-direction{
-    flex-direction: row-reverse;
-    align-items: baseline;
+.flex-direction {
+  flex-direction: row-reverse;
+  align-items: baseline;
 }
 </style>

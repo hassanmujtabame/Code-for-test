@@ -2,7 +2,7 @@
   <div class="container mt-5 p-5">
     <h2 class="home-section-title text-centerl">كيف تقدم خدماتك في المنصة</h2>
     <div class="mt-5">
-<img :src="`${publicPath}assets/svg/Group 1171276175.svg`"  style="width: -webkit-fill-available;"/>
+<img src="@/assets/img/new_special_service_providers.png"  style="width: -webkit-fill-available;"/>
     </div>
 
     <!-- <div class="mt-5">

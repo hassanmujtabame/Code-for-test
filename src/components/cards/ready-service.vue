@@ -109,7 +109,7 @@
             class="d-flex align-items-center"
             style="height: 40px"
           ></div>
-          <div v-if="rates && rates.length > 0">
+          <div >
             <RateStars :value="rates" :size="12" />
           </div>
         </div>

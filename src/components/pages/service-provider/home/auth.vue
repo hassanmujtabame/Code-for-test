@@ -15,16 +15,16 @@
     <SectionRecentProposals />
     <!-- section need service -->
     <SectionNeedService />
-    <!-- section recent-services-->
-    <SectionRecentServices />
-
+    
     <SectionExploreServices v-if="userIsProvider" />
     <!-- section explore-services-->
     <SectionExploreServices v-if="!userIsProvider" />
+    <!-- section recent-services-->
+    <SectionRecentServices />
 
-    <FeaturesService style="margin-top: 150px" />
+    <!-- <FeaturesService style="margin-top: 150px" /> -->
     <!-- section seek for job-->
-    <SectionSeekJob />
+    <!-- <SectionSeekJob /> -->
 
 
     <!-- section continue-learning-->

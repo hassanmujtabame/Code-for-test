@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-5 pt-5">
+  <div class="container mt-5 mb-5 pt-5">
     <div class="d-flex justify-content-between align-items-center container">
       <h1 class="home-section-title">أحدث الخدمات المضافة</h1>
       <div>
