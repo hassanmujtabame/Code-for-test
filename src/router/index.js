@@ -6,6 +6,7 @@ import LayoutDefault from '@/layouts/default/index.vue'
 import networkRoute from './network'
 import academyRoute from './academy'
 import incubatorRoute from './incubator'
+import affiliateMarketingRoute from './affiliate-marketing'
 import serviceRoute from './service-provider'
 import consultingRoute from './consulting'
 import workspaceRoute from './workspace'
@@ -212,9 +213,11 @@ const routes = [
 						/* webpackChunkName: "common-questions" */ "../views/main/CommonQuestions.vue"
 					),
 			},
+
 			...networkRoute,
 			...academyRoute,
 			...incubatorRoute,
+			...affiliateMarketingRoute,
 			...serviceRoute,
 			...consultingRoute,
 			...workspaceRoute,
