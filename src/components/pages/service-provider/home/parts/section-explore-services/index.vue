@@ -1,7 +1,7 @@
 <template>
   <div class="container my-5">
     <h2 class="home-section-title">تصفح الخدمات حسب التصنيف</h2>
-    <div class="d-flex justify-content-around search-service mt-4">
+    <div class="d-flex justify-content-around flex-wrap search-service mt-4">
       <div v-for="service in services" :key="service.id" >
         <card-box
           :image-src="service.image"

@@ -1,8 +1,8 @@
 <template>
   <div style="width: 422px">
     <div :class="[title == 'خدمات عن بعد' ? 'bg-on-line' : 'bg-off-line']" class=""
-      style="width: fit-content;  border-radius: 100%; padding: 12px; margin: auto;">
-      <b-img :src="imageSrc" class="mr-3" />
+      style="width: 77px; height: 77px;  border-radius: 100%; padding: 12px; margin: auto;">
+      <b-img :src="imageSrc" style="width: 100%; height: 100%" class="mr-3" />
     </div>
     <router-link :to="linkTo" class="text-decoration-none p-0" style="z-index: 3 !important;">
 

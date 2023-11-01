@@ -1,87 +1,58 @@
 <template>
-  <div class>
-    <div class="over-lay">
-      <div
-        :style="{height:isMobile?'400px':'600px'}"
-        class="container d-flex flex-column justify-content-center align-items-center py-5"
-      >
-        <h1
-          class="service-provider-header_title"
-          :class="{'mobile':isMobile}"
-        >أهلاً و مرحباً بك في مقدمي الخدمات</h1>
-        <h6
-          class="service-provider-header_subtitle"
-          :class="{'mobile':isMobile}"
-        >منصة تجمع أهم وألمع رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد</h6>
-        <div
-          class="px-5 d-flex justify-content-ceneter w-75"
-          :class="{'mx-5':!isMobile,'mx-1':isMobile}"
-        >
-          <div class="px-3" style="flex: 1 0 75%;">
-            <input
-              class="p-3 w-100 rounded-2 border-0 bg-white"
-              type="text"
-              placeholder="ابحث عن خدمات او طلبات من هنا"
-            />
-          </div>
-          <div
-            class="d-flex align-items-center"
-            style="flex: 1 0 151px;"
-            :class="{'mt-2 mb-3':isMobile}"
-          >
-            <button style="height: 51px;" class="btn-main" :class="{'w-100':isMobile}">ابحث</button>
-          </div>
+    <div class="consulting " :class="[isMobile ? 'p-3' : 'p-5 pb-0']">
+        <div class="" :class="{ container: !isMobile }">
+            <div class="row">
+                <div class="col-8 col-md-6">
+                    <h1 class="header-title-page">
+                        مقدمين الخدمات    
+                    </h1>
+                    <p class="header-desc-page mb-5">
+                        منصة تجمع أهم وألمع رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد
+                    </p>
+
+                    <div class="my-5">
+                        <router-link v-if="!token" :to="getRouteLocale('login')"
+                            class="btn-custmer-w bg-transparent text-white mt-2 mx-3"> {{ $t('login-female') }}
+                        </router-link>
+                    </div>
+                </div>
+
+                <div class="col-3 col-md-6 m-auto d-none d-lg-block d-xl-block">
+                    <div style="overflow: inherit;" class="m-auto ">
+                        <img src="@/assets/img/service_provider_header.png" alt=""
+                            style="height: 256px !important; object-fit: contain !important;">
+                    </div>
+                </div>
+                <!-- <div class="col-12">
+                        <div class="my-3">
+                        <a v-if="!token" @click="shouldLoginMsg" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
+                              <router-link v-else-if="userIsSubIncubator" :to="getRouteLocale('incubator-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
+                              <a v-else @click="shouldSubNetworkMsg(subNetworkTitle,$event)"  class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
+                              <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
+                             </div> 
+                            </div> -->
+            </div>
+            <div class="star-cons">
+                <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
+            </div>
+            <div class="star-cons stars">
+                <img :src="`${publicPath}assets/img/starsss.png`" alt="">
+            </div>
+
         </div>
-      </div>
+
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: "section-auth-header"
-};
+    name: 'section-top',
+    data: () => {
+        return {
+            subNetworkTitle: 'يجب عليك الاشتراك في الشبكة حتى يمكنك الاشتراك في حاضنة رياديات'
+        }
+    }
+}
 </script>
 
-<style scoped>
-.service-provider-header_subtitle {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 32px;
-  /* identical to box height, or 133% */
-
-  text-align: center;
-  text-transform: capitalize;
-
-  color: #ffffff;
-
-  /* T */
-
-  text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.27);
-}
-.service-provider-header_subtitle.mobile {
-  font-size: 12px;
-  line-height: 16px;
-}
-.service-provider-header_title {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 56px;
-  line-height: 72px;
-  /* identical to box height, or 129% */
-
-  text-align: center;
-  text-transform: capitalize;
-
-  color: #ffffff;
-
-  /* T */
-
-  text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.27);
-}
-.service-provider-header_title.mobile {
-  font-size: 30px;
-  line-height: 40px;
-}
-</style>
+<style></style>

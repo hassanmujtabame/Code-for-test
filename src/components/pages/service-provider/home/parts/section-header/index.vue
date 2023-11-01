@@ -1,51 +1,58 @@
 <template>
-  <div class="consulting pt-3 mobile-center">
-    <b-container>
-      <b-row>
-        <b-col lg="6">
-          <h1 class="header-title-page">{{ $t("service-providers") }}</h1>
-          <p class="header-desc-page text-white">
-            منصة تجمع أهم وألمع رائدين و رائدات الأعمال في السعودية والخليج في
-            مكان واحد
-          </p>
+  <div class="consulting " :class="[isMobile ? 'p-3' : 'p-5 pb-0']">
+      <div class="" :class="{ container: !isMobile }">
+          <div class="row">
+              <div class="col-8 col-md-6">
+                  <h1 class="header-title-page">
+                      مقدمين الخدمات    
+                  </h1>
+                  <p class="header-desc-page mb-5">
+                      منصة تجمع أهم وألمع رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد
+                  </p>
 
-          <div class="actions pt-2">
-            <a
-              @click="shouldLoginMsg"
-              class="btn-customer shadow d-inline-block mt-1"
-            >{{ $t("join-us") }}</a>
-            <router-link
-              :to="getRouteLocale('login')"
-              class="btn-custmer-w bg-transparent d-inline-block mx-4 mt-1"
-            >{{ $t("login-female") }}</router-link>
+                  <div class="my-5">
+                      <router-link v-if="!token" :to="getRouteLocale('login')"
+                          class="btn-custmer-w bg-transparent text-white mt-2 mx-3"> {{ $t('login-female') }}
+                      </router-link>
+                  </div>
+              </div>
+
+              <div class="col-3 col-md-6 m-auto d-none d-lg-block d-xl-block">
+                  <div style="overflow: inherit;" class="m-auto ">
+                      <img src="@/assets/img/service_provider_header.png" alt=""
+                          style="height: 256px !important; object-fit: contain !important;">
+                  </div>
+              </div>
+              <!-- <div class="col-12">
+                      <div class="my-3">
+                      <a v-if="!token" @click="shouldLoginMsg" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
+                            <router-link v-else-if="userIsSubIncubator" :to="getRouteLocale('incubator-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
+                            <a v-else @click="shouldSubNetworkMsg(subNetworkTitle,$event)"  class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
+                            <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
+                           </div> 
+                          </div> -->
           </div>
-        </b-col>
-        <b-col lg="6" class="m-auto mobile-hide">
-          <div style="overflow: inherit" class="img-cons m-auto">
-            <img :src="`${publicPath}assets/img/1664280407882 1.png`" alt="service-provider-home" />
+          <div class="star-cons">
+              <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
           </div>
-        </b-col>
-      </b-row>
-      <div class="star-cons">
-        <img :src="`${publicPath}assets/img/starrrr.png`" alt />
+          <div class="star-cons stars">
+              <img :src="`${publicPath}assets/img/starsss.png`" alt="">
+          </div>
+
       </div>
-      <div class="star-cons stars">
-        <img :src="`${publicPath}assets/img/starsss.png`" alt />
-      </div>
-    </b-container>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: "section-header"
-};
+  name: 'section-top',
+  data: () => {
+      return {
+          subNetworkTitle: 'يجب عليك الاشتراك في الشبكة حتى يمكنك الاشتراك في حاضنة رياديات'
+      }
+  }
+}
 </script>
 
-<style  scoped>
-@media (max-width:991px) {
-  .consulting {
-    padding: 30px 0
-  }
- }
-</style>>
+<style></style>
