@@ -2,7 +2,6 @@
   <d-dialog-large fullscreen :group="group" :closeDialog="closeDialog" :openDialog="openDialog">
     <template v-slot:default>
       <BodyForm
-        v-if="showDialog"
         @payment="payment"
         :defaultForm="itemForm"
         :otherData="otherData"
