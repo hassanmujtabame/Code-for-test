@@ -23,7 +23,7 @@
   </CheckOutDialog>
 </template>
 <script>
-import CheckOutDialog from '@/common/dialogs/check-out/index'
+import CheckOutDialog from './payment/index.vue'
 import readyserviceAPI from '@/services/api/service-provider/provider/ready-service.js'
 export default {
   name: "checkout-ready-service-online",
@@ -72,6 +72,7 @@ export default {
       }
     },
     async payment(evt) {
+      
       let { item, cardInfo, otherData } = evt;
       this.itemDialog = otherData;
       this.pay_info = {};
@@ -143,6 +144,9 @@ export default {
     closeEvent() {
       this.fireCloseDialog(this.group)
     }
+  },
+  mounted() {
+    // console.log('item_data=> ', this.group)
   }
 }
 

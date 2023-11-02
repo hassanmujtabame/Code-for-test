@@ -9,11 +9,6 @@
                         </p>
              
                     </div>
-                    <div class="col-md-6">
-                        <div style="overflow: inherit" class="m-auto text-start ">
-                            <img class="img-fluid" :src="`${publicPath}assets/img/bg-affiliate-marketing.png`" alt="" />
-                        </div>
-                    </div>
                     <div class="btn-main-style py-5">
                           <router-link :to="getRouteLocale('register-affiliate')" class="btn-custmer-w fs-r-24 bg-transparent text-white mt-2">سوقى الأن</router-link>
 
