@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-6 d-flex gap-2 crud-actions">
+  <div class="col-md-6  crud-actions" style="display:grid; gap: 10px; grid-template-columns: 1fr 1fr 1fr; align-items:end;" >
     <div>
       <button
         @click="openEditDialog"

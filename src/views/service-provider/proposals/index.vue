@@ -12,12 +12,12 @@
                             يمكنك أضافة خدماتك و ما يمكنك تقديمه الى العملاء كخدمات جاهزة يمكنهم طلب شرائها منك
                             <!-- يمكنك عرض خدماتك ومهارتك على أصحاب المشاريع  و تحديد قيمة الصفقة المناسبة لكلاً منكم
                                    -->
-                             </p>    
+                        </p>
 
                     </div>
                     <div class="col-md-6">
                         <div style="overflow: inherit;" class=" m-auto text-start p-5 pb-0">
-                            <img  :src="`${publicPath}assets/img/VECTOR25.png`" alt="" >
+                            <img :src="`${publicPath}assets/img/VECTOR25.png`" alt="">
                         </div>
 
                     </div>
@@ -33,30 +33,28 @@
             </div>
 
         </div>
-      <!--filter list-->
-      <div class="container mt-5">
-      <SectionFilterList />
-    </div>
-      <SectionContinueLearning />
-      <SectionHear />
+        <!--filter list-->
+        <div class="container mt-5">
+            <SectionFilterList />
+        </div>
+        <SectionContinueLearning />
+        <SectionHear />
     </div>
 </template>
 
 <script>
 import SectionFilterList from './parts/section-filter/index.vue'
 import SectionContinueLearning from '@/views/service-provider/common-components/section-continue-learning/index.vue'
-  import SectionHear from '@/views/service-provider/common-components/section-hear/index.vue'
- 
+import SectionHear from '@/views/service-provider/common-components/section-hear/index.vue'
+
 export default {
- name:'show-services',
- components:{
-    SectionFilterList,
-    SectionContinueLearning,
-    SectionHear
- }
+    name: 'show-services',
+    components: {
+        SectionFilterList,
+        SectionContinueLearning,
+        SectionHear
+    }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

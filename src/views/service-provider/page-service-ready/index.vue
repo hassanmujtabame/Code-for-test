@@ -4,20 +4,23 @@
     <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
     <div v-else class="container pb-3">
       <div class="row justify-content-between">
-        <div class="col-md-6">
-          <h3 class="word-break-all">
-            <span class="m-c">{{ title_page }} :</span>
-            {{ itemPage.title }}
-          </h3>
+        <div class="row justify-content-between" >
+          <div class="col-md-6">
+            <h3 class="word-break-all">
+              <span class="m-c">{{ title_page }} :</span>
+              {{ itemPage.title }}
+            </h3>
+          </div>
+          <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
+
+          <button v-if="!isOwner" style="width: 145px;
+          height: 50px;
+          text-align: center;
+          background: #ffbe39ff; border-radius:10px;" @click="openChat" class="col-md-6 text-white border-0 p-2 px-2 mx-4"><i
+              class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
         </div>
         <!-- actions page-->
-        <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
         <!-- <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" /> -->
-        <button style="    width: 145px;
-        height: 50px;
-        text-align: center;
-        background: #ffbe39ff; border-radius:10px;
-    margin: 20px 0 0px 30px !important;" @click="openChat" class="text-white border-0 p-2 px-2 mx-4"><i  class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
 
         <!-- #actions page-->
         <div class="row redy-services">
@@ -38,10 +41,11 @@
                 <h3 class="border-bottom p-2">وصف الخدمة</h3>
                 <p class="p-2" v-html="itemPage.desc"></p>
               </div>
-              <div>
+              <div >
                 <h3 class="border-bottom p-2">بائع الخدمة</h3>
-                <d-user-info-li :showBtnChat="false" route-name="service-provider-show-profile" group-dialog="send-message-to-provider"
-              :member="itemPage.user_info" :dataEvent="dataEventMessage" style="border: none;" class="mb-3" v-if="!isOwner" />
+                <d-user-info-li :showBtnChat="false" route-name="service-provider-show-profile"
+                  group-dialog="send-message-to-provider" :member="itemPage.user_info" :dataEvent="dataEventMessage"
+                  style="border: none;" class="mb-3"  />
               </div>
               <div>
                 <h3 class="border-bottom p-2">تفاصيل الخدمة</h3>
@@ -115,8 +119,8 @@
 
               </div>
             </div>
-            <div v-if="isOwner" class="box border rounded-3 p-4 mt-3 text-center">
-              <router-link :to="getRouteLocale('service-provider-purchase-requests-one-service', { id: itemPage.id })"
+            <div v-if="isOwner" class="box rounded-3 p-4 mt-3 text-center" style=" background: #2eb9b3;">
+              <router-link style="width:100%; display:block; color: #fff;" :to="getRouteLocale('service-provider-purchase-requests-one-service', { id: itemPage.id })"
                 class="fs-3">طلبات شراء هذه الخدمة</router-link>
             </div>
           </div>
@@ -239,8 +243,8 @@ export default {
     };
   },
   methods: {
-    openChat(){
-        this.fireEvent('chat-bar',{user:this.itemPage.user_info})
+    openChat() {
+      this.fireEvent('chat-bar', { user: this.itemPage.user_info })
     },
     delivery_placeToText(div) {
       let item = readyServiceAPIs

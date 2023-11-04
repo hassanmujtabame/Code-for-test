@@ -316,11 +316,12 @@
       </div>
       <div :class="{ 'col-xl-9': !hideSide, 'col-lg-12': hideSide, 'col-xl-12': newFilter } "  >
         <div class="row">
+          
           <div v-if="items.length == 0">
             <!-- <h1 class="t-c text-center">لا يوجد عناصر</h1> -->
           </div>
           <div v-else class="col-12 row order filter-list-items">
-            <div v-for="(item, i) in items" :key="i" :class="classColCard" >
+            <div v-for="(item, i) in items" :key="i" :class="classColCard" :style="`display: ${item.state == 'offline' ? 'none' : 'initial'};`" >
               <slot :item="item"></slot>
             </div>
           </div>
