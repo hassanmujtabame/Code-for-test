@@ -6,13 +6,19 @@
       <div class="row justify-content-between">
         <div class="col-md-6">
           <h3 class="word-break-all">
-            <span class="m-c">{{title_page}} :</span>
-            {{ itemPage.title}}
+            <span class="m-c">{{ title_page }} :</span>
+            {{ itemPage.title }}
           </h3>
         </div>
         <!-- actions page-->
         <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
-        <ActionForVisiter v-else :itemPage="itemPage" />
+        <!-- <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" /> -->
+        <button style="    width: 145px;
+        height: 50px;
+        text-align: center;
+        background: #ffbe39ff; border-radius:10px;
+    margin: 20px 0 0px 30px !important;" @click="openChat" class="text-white border-0 p-2 px-2 mx-4"><i  class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
+
         <!-- #actions page-->
         <div class="row redy-services">
           <div class="col-lg-6 mt-5">
@@ -25,18 +31,17 @@
           </div>
 
           <div class="col-lg-6 mt-5">
-            <d-user-info-li
-              route-name="service-provider-show-profile"
-              group-dialog="send-message-to-provider"
-              :member="itemPage.user_info"
-              :dataEvent="dataEventMessage"
-              class="mb-3"
-              v-if="!isOwner"
-            />
-            <div class="box border rounded-3 p-4">
-              <div class="t-c">
-                <h4 class="border-bottom">وصف الخدمة</h4>
-                <p v-html="itemPage.desc"></p>
+            <!-- <d-user-info-li route-name="service-provider-show-profile" group-dialog="send-message-to-provider"
+              :member="itemPage.user_info" :dataEvent="dataEventMessage" class="mb-3" v-if="!isOwner" /> -->
+            <div class="box border rounded-3">
+              <div>
+                <h3 class="border-bottom p-2">وصف الخدمة</h3>
+                <p class="p-2" v-html="itemPage.desc"></p>
+              </div>
+              <div>
+                <h3 class="border-bottom p-2">بائع الخدمة</h3>
+                <d-user-info-li :showBtnChat="false" route-name="service-provider-show-profile" group-dialog="send-message-to-provider"
+              :member="itemPage.user_info" :dataEvent="dataEventMessage" style="border: none;" class="mb-3" v-if="!isOwner" />
               </div>
               <div>
                 <h3 class="border-bottom p-2">تفاصيل الخدمة</h3>
@@ -44,51 +49,51 @@
                   <div class="col-6 p-2">
                     <eyeOpenIcon :size="24" color="#979797" />
                     <span>المشاهدات: </span>
-                    <span class="m-c">{{itemPage.views??'N/A'}}</span>
+                    <span class="m-c">{{ itemPage.views ?? 'N/A' }}</span>
                   </div>
                   <div class="col-6 p-2">
                     <starIcon :size="24" color="#979797" />
 
                     <span>التقيمات: </span>
-                    <span class="m-c">{{ itemPage.rate??'N/A'}}</span>
+                    <span class="m-c">{{ itemPage.rate ?? 'N/A' }}</span>
                   </div>
                   <div class="col-6 p-2">
                     <lovelyIcon :size="24" color="#979797" />
                     <span>المشترين: </span>
-                    <span class="m-c">{{itemPage.n_buyers??'N/A'}}</span>
+                    <span class="m-c">{{ itemPage.n_buyers ?? 'N/A' }}</span>
                   </div>
                   <div class="col-6 p-2">
                     <emptyWalletIcon :size="24" color="#979797" />
                     <span>سعر الخدمة</span>
-                    <span class="m-c">{{itemPage.price}} {{ $t('riyals') }}</span>
+                    <span class="m-c">{{ itemPage.price }} {{ $t('riyals') }}</span>
                   </div>
                   <div class="col-6 p-2">
                     <signPostIcon :size="24" color="#979797" />
                     <span>التصنيف:</span>
-                    <span class="m-c">{{service_type}}</span>
+                    <span class="m-c">{{ service_type }}</span>
                   </div>
                   <div class="col-6 p-2">
                     <timerIcon :size="24" color="#979797" />
 
                     <span>مدة التنفيذ :</span>
-                    <span class="m-c">{{numberToDay(itemPage.execution_period)}}</span>
+                    <span class="m-c">{{ numberToDay(itemPage.execution_period) }}</span>
                   </div>
                   <div class="col-6 p-2">
                     <!--tree view icon-->
                     <treeViewIcon />
                     <span> المجال: </span>
-                    <span class="m-c">{{itemPage.category_name??'N/A'}}</span>
+                    <span class="m-c">{{ itemPage.category_name ?? 'N/A' }}</span>
                   </div>
-                  <template v-if="itemPage.state=='offline'">
+                  <template v-if="itemPage.state == 'offline'">
                     <div class="col-6 p-2">
                       <localisationIcon :size="24" color="#979797" />
                       <span>العنوان : </span>
-                      <span class="m-c">{{itemPage.city??'N/A'}}</span>
+                      <span class="m-c">{{ itemPage.city ?? 'N/A' }}</span>
                     </div>
                     <div class="col-md-auto p-2">
                       <truckIcon :size="24" color="#979797" />
                       <span>مكان التنفيذ أو التسليم :</span>
-                      <span class="m-c">{{ delivery_placeToText(itemPage.delivery_place)??'N/A'}}</span>
+                      <span class="m-c">{{ delivery_placeToText(itemPage.delivery_place) ?? 'N/A' }}</span>
                     </div>
                   </template>
                 </div>
@@ -97,24 +102,22 @@
                 <h3 class="border-bottom p-2">الكلمات المفتاحية</h3>
                 <div class="d-flex flex-wrap justify-content-start text-white word-intial pt-3">
                   <template v-if="itemPage.keywords">
-                    <p
-                      class="mx-1"
-                      v-for="(keyw,i) in itemPage.keywords.split(',')"
-                      :key="i"
-                    >{{keyw}}</p>
+                    <p class="mx-1" v-for="(keyw, i) in itemPage.keywords.split(',')" :key="i">{{ keyw }}</p>
                   </template>
                 </div>
               </div>
               <div class="text-center">
                 <span>{{ $t('publish-date') }}:</span>
-                <span class="m-c fw-bolder">{{dateReverse(itemPage.created_at)??'N/A'}}</span>
+                <span class="m-c fw-bolder">{{ dateReverse(itemPage.created_at) ?? 'N/A' }}</span>
+              </div>
+              <div class="mt-4">
+                <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" />
+
               </div>
             </div>
             <div v-if="isOwner" class="box border rounded-3 p-4 mt-3 text-center">
-              <router-link
-                :to="getRouteLocale('service-provider-purchase-requests-one-service',{id:itemPage.id})"
-                class="fs-3"
-              >طلبات شراء هذه الخدمة</router-link>
+              <router-link :to="getRouteLocale('service-provider-purchase-requests-one-service', { id: itemPage.id })"
+                class="fs-3">طلبات شراء هذه الخدمة</router-link>
             </div>
           </div>
         </div>
@@ -236,6 +239,9 @@ export default {
     };
   },
   methods: {
+    openChat(){
+        this.fireEvent('chat-bar',{user:this.itemPage.user_info})
+    },
     delivery_placeToText(div) {
       let item = readyServiceAPIs
         .getDeliveryPlaces()
@@ -285,5 +291,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

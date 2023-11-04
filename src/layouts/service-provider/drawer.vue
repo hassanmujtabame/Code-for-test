@@ -74,7 +74,7 @@
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('how-see-me-others') }}</button>
                     </router-link>
                 </div>
-                  <div v-if="userIsProvider" class="box  mx-2 mt-3 ">
+                  <div  class="box  mx-2 mt-3 ">
                     <!-- lamp-->
                     <lock-icon />
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-ready-services')" class="mx-2 m-c ">

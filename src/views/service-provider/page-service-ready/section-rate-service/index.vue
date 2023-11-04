@@ -7,13 +7,7 @@
         </div>
       </div>
       <div>
-        <rateCard
-          v-for="(rateItem,i) in rates"
-          :key="i"
-          :item="rateItem"
-          class="mt-2"
-          :showBorder="(rates.length-1)>i"
-        />
+        <rateCard v-for="(rateItem, i) in ratesTest" :key="i" :item="rateItem" class="mt-2" :showBorder="(ratesTest.length - 1) > i" />
       </div>
     </div>
   </div>
@@ -29,7 +23,7 @@ let itemTest = {
     name: "ليلى احمد"
   }
 };
-let ratesTest = [itemTest, itemTest, itemTest];
+// let ratesTest = [itemTest, itemTest, itemTest];
 import rateCard from "./rate-card.vue";
 export default {
   name: "section-rate-service",
@@ -43,10 +37,38 @@ export default {
     }
   },
   data: vm => ({
-    rates: vm.item.rates ?? ratesTest
+    ratesTest: [
+      {
+        note: "دكتور مميز لقد أستفدت منه الكثير",
+        rate: 3,
+        user_info: {
+          id: 148,
+          image: "/assets/img/avatar-11.jpg",
+          name: "ليلى احمد"
+        }
+      },
+      {
+        note: "دكتور مميز لقد أستفدت منه الكثير",
+        rate: 3,
+        user_info: {
+          id: 148,
+          image: "/assets/img/avatar-11.jpg",
+          name: "ليلى احمد"
+        }
+      },
+      {
+        note: "دكتور مميز لقد أستفدت منه الكثير",
+        rate: 3,
+        user_info: {
+          id: 148,
+          image: "/assets/img/avatar-11.jpg",
+          name: "ليلى احمد"
+        }
+      }]
+
+    // rates: vm.item.rates ?? ratesTest
   })
 };
 </script>
 
-<style>
-</style>
+<style></style>

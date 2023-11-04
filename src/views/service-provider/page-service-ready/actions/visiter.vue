@@ -1,12 +1,12 @@
 <template>
-  <div class="col-md-6 d-flex gap-2 justify-content-end">
-        <div>
-            <button @click="openBooking" style="height: 40px;" class="btn-main"  
+  <div class="col-12 d-flex gap-2 justify-content-end">
+        <div style="width: 100%">
+            <button @click="openBooking" style="height: 70px; width:100%;" class="btn-main"  
                 role="button">
                 {{ labelBuyBtn }}
             </button>
         </div>
-        <div>
+        <!-- <div>
             <button @click="sendAbuse" class="border-0 px-3 py-1 rounded-3">
 
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +19,7 @@
                 </svg>
                 {{ $t('submit-report') }}
             </button>
-        </div>
+        </div> -->
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="box border rounded-3 p-4 bg-card" v-bind="$attrs">
+    <div class="rounded-3 p-4 bg-card" v-bind="$attrs">
         <div class="row justify-content-center">
             <div class="col-md-4 justify-content-center"
            
