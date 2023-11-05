@@ -29,10 +29,14 @@
       <router-link :to="getRouteLocale('network-contact-us')" class="nav-link">{{ $t('contact-us') }}</router-link>
     </li>
 
-    <li class="nav-item px-2 btn-main btn-nav text-center" style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
-      <router-link v-if="!token" :to="getRouteLocale('register')" class="text-white" >{{ $t("join-us") }}</router-link>
-      <router-link v-else-if="!userIsSubNetwork" :to="getRouteLocale('network-subscribe')"
-      class="text-white"> {{ $t('join-us') }} </router-link>
+    <li v-if="!token" class="nav-item px-2 btn-main btn-nav text-center"
+      style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+      <router-link :to="getRouteLocale('register')" class="text-white">{{ $t("join-us") }}</router-link>
+    </li>
+    <li v-else-if="!userIsSubNetwork" class="nav-item px-2 btn-main btn-nav text-center"
+    style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+
+      <router-link :to="getRouteLocale('network-subscribe')" class="text-white"> {{ $t('join-us') }} </router-link>
     </li>
 
     <div v-if="false" style="line-height: 2.5; height: 40px;" class="btn-main btn-nav text-center">

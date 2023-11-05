@@ -24,11 +24,16 @@
         $t('switch-to-instructor') }}</button>
       <button v-if="userAcademyRole == 'instructor'" @click="switchRole('student')"
         class="btn m-c">{{ $t('switch-to-student') }}</button>
-        <li class="nav-item px-2 btn-main btn-nav text-center" style=" padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
-          <router-link v-if="!token" :to="getRouteLocale('register')" class="text-white" >{{ $t("join-us") }}</router-link>
-          <router-link v-else-if="!userIsSubAcademy" :to="getRouteLocale('academy-subscribe')"
-          class="text-white"> {{ $t('join-us') }} </router-link>
-        </li>
+
+        <li v-if="!token" class="nav-item px-2 btn-main btn-nav text-center"
+        style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+        <router-link :to="getRouteLocale('register')" class="text-white">{{ $t("join-us") }}</router-link>
+      </li>
+      <li v-else-if="!userIsSubAcademy" class="nav-item px-2 btn-main btn-nav text-center"
+      style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+  
+        <router-link :to="getRouteLocale('academy-subscribe')" class="text-white"> {{ $t('join-us') }} </router-link>
+      </li>
 
     </template>
   </TemplateHeader>
