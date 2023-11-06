@@ -86,7 +86,7 @@
                 </div>
       </div>
     </div>
-    <!-- <showRescheduleDialog mode="create" /> -->
+    <showRescheduleDialog mode="create" />
     <DialogDeleteService />
     
   </div>
