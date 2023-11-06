@@ -119,9 +119,20 @@
                 label-name="name" v-model="itemForm.field_id" multi-select opened />
             </ValidationProvider>
           </div>
-          <!-- <div style="border: 1px solid"> مكان إقامة الخدمة</div>  -->
-
-          <!-- <VGoogleMap @mapUpdated='getAddressMap'/> -->
+          <div style="border: 1px solid; padding: 10px; font-weight: bold" >
+            مكان إقامة الخدمة:
+            <div class="mt-5" style="font-weight: bold">
+              أختار من اماكن العمل لدينا
+              <WorkSpaces />
+            </div>
+            <div class="mt-2" style="font-weight: bold">
+              أو اختار موقع من على الخريطه
+              <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required">
+                <!-- <d-text-input :errors="errors" v-model="form.location" label="رابط العنوان على خرائط جوجل" /> -->
+                <VGoogleMap @mapUpdated='getAddressMap' />
+            </ValidationProvider>
+            </div>
+          </div>
 
 
           <!--details-->
@@ -202,20 +213,22 @@
   </d-dialog-large>
 </template>
 <script>
-// import VGoogleMap from "@/components/shared/map.vue";
+import VGoogleMap from "@/components/shared/map.vue";
 
 import PlusCircleOutlineIcon from "@/components/icon-svg/plus-circle-outline.vue";
 import TrashOutlineIcon from "@/components/icon-svg/trash-outline.vue";
 import ServiceProviderAPIs from "@/services/api/service-provider/provider/ready-service";
 import commonAPIs from "@/services/api/common.js";
 import galleryImage from "./gallery-image.vue";
+import WorkSpaces from "./recent-workspaces/index.vue";
 export default {
   name: "add-ready-service-dialog",
   components: {
     PlusCircleOutlineIcon,
     TrashOutlineIcon,
     galleryImage,
-    // VGoogleMap
+    WorkSpaces,
+    VGoogleMap
   },
   data: vm => {
     return {

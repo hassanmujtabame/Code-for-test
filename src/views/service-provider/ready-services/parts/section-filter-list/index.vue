@@ -19,7 +19,7 @@
       classColSearch="col-12 col-md-7" 
       classTotal="col-md-3">
       <!-- <template v-slot:side> -->
-      <template v-slot:total="{ }">
+      <!-- <template v-slot:total="{ }" v-if="this.userIsRoleProvider" >
         <button @click="openAddService($event)"
           style="line-height: 2.5; height: 46px; width: 230px !important; margin-bottom: 20px;"
           class="btn-main btn-nav text-center text-white">
@@ -27,7 +27,7 @@
 
           {{ $t('add-new-service') }}
         </button>
-      </template>
+      </template> -->
       <template v-slot:side>
         <sidebarFilter @change="changeFilter" :filter-item="fitlterSide" />
       </template>

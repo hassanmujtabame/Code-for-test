@@ -36,7 +36,7 @@
           <div class="col-lg-6 mt-5">
             <!-- <d-user-info-li route-name="service-provider-show-profile" group-dialog="send-message-to-provider"
               :member="itemPage.user_info" :dataEvent="dataEventMessage" class="mb-3" v-if="!isOwner" /> -->
-            <div class="box border rounded-3">
+            <div class="box border rounded-3 p-3">
               <div>
                 <h3 class="border-bottom p-2">وصف الخدمة</h3>
                 <p class="p-2" v-html="itemPage.desc"></p>

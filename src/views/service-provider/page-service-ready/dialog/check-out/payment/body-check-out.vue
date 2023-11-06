@@ -303,11 +303,8 @@ export default {
         },
         async payment() {
             const formData = {
-                service: this.otherData,
-                buyer_id: this.user.id
-                // service_type: this.otherData,
-                // service_id: this.otherData.id,
-                // user_id: this.user.id
+                service_id: 179000,
+                user_id: this.user.id
             };
             console.log('formData')
             console.log(formData)
@@ -320,9 +317,9 @@ export default {
                 console.log('response')
 
 
-                // window.open(response.data.data.payment_url, '_blank');
+                window.open(response.data.data.payment_url, '_blank');
             }else {
-                console.log('test', response.data)
+                console.log('wrong', response.data)
                 window.SwalError(" حدث خطاء يرجى اعاده المحاوله")
             }
 

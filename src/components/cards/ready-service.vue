@@ -1,7 +1,6 @@
 <template>
   <div class="box rounded-top mb-3">
     <div class="parent">
-      <img class="w-100 image1" :src="image" :alt="title" height="264px" />
       <div
         v-b-modal="`my-modal-${id}`"
         class="image2 bg-white"
@@ -34,6 +33,8 @@
       class="router-link"
       :to="getRouteLocale('service-provider-ready-service', { id: id })"
     >
+    <img class="w-100 image1" :src="image" :alt="title" height="264px" />
+
       <div class="p-3">
         <div class="d-flex justify-content-between">
           <h6 class="text-two-lines w-75" style="height: 20px">{{ title }}</h6>

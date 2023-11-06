@@ -314,11 +314,11 @@ export default {
             console.log("formData")
             const response = await axios.post("https://cp.riadiat.sa/api/v1/pay/myfatoorah", formData);
             // this.articleId = response.data.id;
+            localStorage.clear()
             if(response.data.success){
                 console.log('response')
                 console.log(response.data)
                 console.log('response')
-
 
                 window.open(response.data.data.payment_url, '_blank');
             }else {

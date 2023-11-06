@@ -349,6 +349,32 @@ const routers = [
 				/* webpackChunkName: "service-provider-rate-my-service" */ "../views/service-provider/page-rate-my-services/index.vue"
 			),
 	},
+	{
+		path: "service-provider/service-paid/finish",
+		meta: {
+			layout: LayoutDefault,
+			title: "service paid finish",
+			type: "service-provider",
+		},
+		name: "service-provider-service-paid-finish",
+		component: () =>
+			import(
+				/* webpackChunkName: "incubator-subscribe-finish" */ "../views/service-provider/page-service-ready/dialog/success/ServicePaid.vue"
+			),
+	},
+	{
+		path: "service-provider/service-paid/error",
+		meta: {
+			layout: LayoutDefault,
+			title: "service paid error",
+			type: "service-provider",
+		},
+		name: "service-provider-service-paid-error",
+		component: () =>
+			import(
+				/* webpackChunkName: "incubator-subscribe-finish" */ "../views/service-provider/page-service-ready/dialog/error/index.vue"
+			),
+	},
 ];
 
 export default routers;

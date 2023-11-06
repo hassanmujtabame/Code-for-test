@@ -6,48 +6,46 @@
                 <div class="col-12 col-lg-5 justify-content-center mx-auto">
                     <div class="col-md-10">
                         <ValidationProvider :name="$t('Image')" vid="image1" rules="required|image"
-                                            v-slot="{ validate, errors }">
+                            v-slot="{ validate, errors }">
                             <label for="imginput1" class="form-label file-label first w-100">
                                 <div class="text-center p-5">
-                                    <img :src="`${publicPath}assets/svg/empty-image.svg`"/>
+                                    <img :src="`${publicPath}assets/svg/empty-image.svg`" />
                                     <p class="m-c">{{ $t("add-display-image") }}</p>
                                 </div>
                                 <div class="add-img-selected" style="width:100%">
                                     <img class="w-100 h-100 image-selected-dialog" :src="showImage ?? 'none'"
-                                         :style="{ opacity: showImage ? '1' : '0' }"/>
+                                        :style="{ opacity: showImage ? '1' : '0' }" />
                                 </div>
                             </label>
 
                             <input @change="
-                uploadImage($event, validate, 'showImage') || validate($event)
-              " class="form-control opacity-0" type="file" id="imginput1" style="display: none"/>
-                            <d-error-input :errors="errors" v-if="errors.length > 0"/>
+                                uploadImage($event, validate, 'showImage') || validate($event)
+                                " class="form-control opacity-0" type="file" id="imginput1" style="display: none" />
+                            <d-error-input :errors="errors" v-if="errors.length > 0" />
                         </ValidationProvider>
                     </div>
 
 
                     <div class="col-md-10">
-                        <ValidationProvider :name="$t('Image')" vid="image2" rules="required"
-                                            v-slot="{ validate, errors }">
+                        <ValidationProvider :name="$t('Image')" vid="image2" rules="required" v-slot="{ validate, errors }">
                             <label for="imgInput" class="form-label file-label first w-100">
                                 <div class="text-center p-2" style="background: #E9F8F7;">
-                                    <img :src="`${publicPath}assets/img/send-square@2x.png`"/>
+                                    <img :src="`${publicPath}assets/img/send-square@2x.png`" />
                                     <p class="m-c">إضافة صور أخرى</p>
                                 </div>
                             </label>
                             <input @change="handleFileUpload($event, validate, 'selectedImages')"
-                                   class="form-control opacity-0"
-                                   type="file" id="imgInput" style="display: none" multiple/>
+                                class="form-control opacity-0" type="file" id="imgInput" style="display: none" multiple />
 
                             <div class="row">
                                 <div v-for="(image, index) in selectedImages" :key="index" class="col-lg-6 col-12">
                                     <div class="previews-images">
                                         <img class="w-100 h-100 image-selected-dialog" :src="image.url"
-                                             :style="{ opacity: image.url ? '1' : '0' }" :id="`image-${index}`"/>
+                                            :style="{ opacity: image.url ? '1' : '0' }" :id="`image-${index}`" />
                                     </div>
                                 </div>
                             </div>
-                            <d-error-input :errors="errors" v-if="errors.length > 0"/>
+                            <d-error-input :errors="errors" v-if="errors.length > 0" />
                         </ValidationProvider>
 
                     </div>
@@ -55,17 +53,15 @@
                 </div>
                 <div class="col-12 col-lg-7">
                     <div class="mb-3">
-                        <ValidationProvider name="اسم مكان العمل" vid="title" tag="div" class="form-group"
-                                            rules="required"
-                                            v-slot="{ errors }">
-                            <d-text-input :errors="errors" v-model="form.title" label="اسم مكان العمل"/>
+                        <ValidationProvider name="اسم مكان العمل" vid="title" tag="div" class="form-group" rules="required"
+                            v-slot="{ errors }">
+                            <d-text-input :errors="errors" v-model="form.title" label="اسم مكان العمل" />
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
                         <ValidationProvider :name="$t('exhibition_categories')" vid="category" rules="required"
-                                            v-slot="{ errors }">
-                            <d-select-input :errors="errors" v-model="form.category"
-                                            :label="$t('exhibition_categories')">
+                            v-slot="{ errors }">
+                            <d-select-input :errors="errors" v-model="form.category" :label="$t('exhibition_categories')">
                                 <option disabled :value="null" class="t-c" selected>
                                     {{ $t("exhibition_categories") }}
                                 </option>
@@ -76,9 +72,8 @@
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
-                        <ValidationProvider name="نوع المكان" vid="city_id" tag="div" class="form-group"
-                                            rules="required"
-                                            v-slot="{ errors }">
+                        <ValidationProvider name="نوع المكان" vid="city_id" tag="div" class="form-group" rules="required"
+                            v-slot="{ errors }">
                             <d-select-input :errors="errors" v-model="form.type" label="نوع المكان">
                                 <option :key="i" v-for="(city, i) in types" :value="city.id">
                                     {{ `${city.name}` }}
@@ -86,11 +81,10 @@
                             </d-select-input>
                         </ValidationProvider>
                     </div>
-                       <div class="mb-3">
+                    <div class="mb-3">
                         <ValidationProvider name="عدد المقاعد" vid="number_peoples" tag="div" class="form-group"
-                                            rules="required"
-                                            v-slot="{ errors }">
-                            <d-text-input :errors="errors" v-model="form.number_peoples" label="عدد المقاعد"/>
+                            rules="required" v-slot="{ errors }">
+                            <d-text-input :errors="errors" v-model="form.number_peoples" label="عدد المقاعد" />
                         </ValidationProvider>
                     </div>
                     <!-- <div class="mb-3">
@@ -104,23 +98,20 @@
                     <div class="mb-3">
                         <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required">
                             <!-- <d-text-input :errors="errors" v-model="form.location" label="رابط العنوان على خرائط جوجل" /> -->
-
                             <VGoogleMap @mapUpdated='getAddressMap' />
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
                         <ValidationProvider name="سعر مكان العمل" tag="div" class="form-group" vid="price"
-                                            rules="required|numeric"
-                                            v-slot="{ errors }">
+                            rules="required|numeric" v-slot="{ errors }">
                             <d-text-input :errors="errors" v-model="form.price"
-                                          label=" سعر مكان العمل (ريال سعودي / ساعه)"/>
+                                label=" سعر مكان العمل (ريال سعودي / ساعه)" />
                         </ValidationProvider>
                     </div>
                     <div class="mb-3">
                         <ValidationProvider name="مساحه مكان العمل" tag="div" class="form-group" vid="area"
-                                            rules="required|numeric"
-                                            v-slot="{ errors }">
-                            <d-text-input :errors="errors" v-model="form.area" label=" مساحه مكان العمل (بالمتر)"/>
+                            rules="required|numeric" v-slot="{ errors }">
+                            <d-text-input :errors="errors" v-model="form.area" label=" مساحه مكان العمل (بالمتر)" />
                         </ValidationProvider>
                     </div>
                     <div class="mb-3 row">
@@ -129,10 +120,10 @@
                             <div class="form-group position-relative">
                                 <label class="form-label">موعد الفتح - موعد الإغلاق</label>
                                 <date-picker-range :valueStart.sync="form.start_time" :valueEnd.sync="form.end_time"
-                                                   :names="{ start: $t('Start-time'), end: $t('End-time') }"
-                                                   :vids="{ start: 'start_time', end: 'end_time' }"
-                                                   :rules="{ start: 'required', end: 'required' }"
-                                                   mode="time" mask="HH:mm" class="form-control">
+                                    :names="{ start: $t('Start-time'), end: $t('End-time') }"
+                                    :vids="{ start: 'start_time', end: 'end_time' }"
+                                    :rules="{ start: 'required', end: 'required' }" mode="time" mask="HH:mm"
+                                    class="form-control">
                                 </date-picker-range>
                             </div>
                         </div>
@@ -165,12 +156,11 @@
 
                     <div class="mb-3">
                         <ValidationProvider name="وصف مكان العمل" vid="description" tag="div" class="form-group"
-                                            rules="required"
-                                            v-slot="{ errors }">
-                            <d-text-input :errors="errors" v-model="form.description" label="وصف مكان العمل"/>
+                            rules="required" v-slot="{ errors }">
+                            <d-text-input :errors="errors" v-model="form.description" label="وصف مكان العمل" />
                         </ValidationProvider>
                     </div>
-                    
+
 
                     <div class="">
                         <!-- v-if="form.category === 'academy'" -->
@@ -182,17 +172,12 @@
                                 <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
                                     <b-card-body>
                                         <b-card-text class="d-flex flex-wrap ">
-                                            <div v-for="item,i in featuresWorkSpace" :key="i" style="width:30%">
+                                            <div v-for="item, i in featuresWorkSpace" :key="i" style="width:30%">
                                                 <div class="form-check d-flex justify-content-between"
-                                                     style="display: flex;">
-                                                    <input
-                                                            class="form-check-input"
-                                                            type="checkbox"
-                                                            :value="item.title"
-                                                            :id="item.id"
-                                                            style="margin-left: 6px;"
-                                                            @click="getFeaturesSelect(item.id)"
-                                                    />
+                                                    style="display: flex;">
+                                                    <input class="form-check-input" type="checkbox" :value="item.title"
+                                                        :id="item.id" style="margin-left: 6px;"
+                                                        @click="getFeaturesSelect(item.id)" />
                                                     <label class="form-check-label" :for="item.title">
                                                         {{ item.title }}
                                                     </label>
@@ -226,7 +211,7 @@ import commonAPI from "@/services/api/common";
 import VGoogleMap from "@/components/shared/map.vue";
 
 export default {
-    components: {VGoogleMap},
+    components: { VGoogleMap },
     data() {
         return {
             loading: false,
@@ -245,8 +230,8 @@ export default {
                 features: [],
                 description: "",
                 service_categories_ids: [],
-                type:'',
-                number_peoples:''
+                type: '',
+                number_peoples: ''
             },
             addressName: {
                 address_name: '',
@@ -265,70 +250,70 @@ export default {
                     title: "مقدمي الخدمة",
                     value: "service-provider",
                 },
-            ], 
+            ],
             selectedImages: [],
             featuresWorkSpace: [
-                {name: 'مكيف', id: 'condition'},
-                {name: 'واي فاي', id: 'wiFi'},
-                {name: 'سبوره', id: 'dashboard'},
-                {name: 'شاشات ال اي دي', id: 'screen'},
-                {name: 'كافيتريا', id: 'cafeteria'},
-                {name: 'مكتبة', id: 'library'},
-                {name: 'غرفه للصلاة', id: 'pray'},
-                {name: 'طابعة', id: 'print'},
-                {name: 'قهوة مجانية', id: 'coffey'}
+                { name: 'مكيف', id: 'condition' },
+                { name: 'واي فاي', id: 'wiFi' },
+                { name: 'سبوره', id: 'dashboard' },
+                { name: 'شاشات ال اي دي', id: 'screen' },
+                { name: 'كافيتريا', id: 'cafeteria' },
+                { name: 'مكتبة', id: 'library' },
+                { name: 'غرفه للصلاة', id: 'pray' },
+                { name: 'طابعة', id: 'print' },
+                { name: 'قهوة مجانية', id: 'coffey' }
             ],
             featuresSelect: [],
-                           types: [
-        { id: "office_room", name: "غرفة مكتبية" },
-        { id: "meeting_rooms", name: "قاعة الاجتماعات" },
-      ],
+            types: [
+                { id: "office_room", name: "غرفة مكتبية" },
+                { id: "meeting_rooms", name: "قاعة الاجتماعات" },
+            ],
         };
     },
 
-  methods: {
-    async addWorkSpace() {
-      this.loading = true;
-      let valid = await this.$refs.form.validate();
-      console.log(valid);
-      // if (!valid) {
-      //   this.loading = false;
+    methods: {
+        async addWorkSpace() {
+            this.loading = true;
+            let valid = await this.$refs.form.validate();
+            console.log(valid);
+            // if (!valid) {
+            //   this.loading = false;
 
-      //   console.log('err');
-      //   return;
-      // }
-      let formData = this.loadObjectToForm({
-        ...this.form,
-        main_image: this.file,
-        address: "lorem",
+            //   console.log('err');
+            //   return;
+            // }
+            let formData = this.loadObjectToForm({
+                ...this.form,
+                main_image: this.file,
+                address: "lorem",
 
-      });
-      
-      formData.append(`map_address`, JSON.stringify(this.addressName));
+            });
 
-      this.selectedImages.forEach((image) => {
-        formData.append(`images[]`, image.file);
-      });
-             this.featuresSelect.forEach((feature) => {
-        formData.append(`features[]`, feature);
-      });
-        // formData.append(`features[]`, this.featuresSelect);
-      try {
-        let { data } = await WorkspaceAPI.addWorkSpace(formData);
-        if (data.success) {
-          this.fireOpenDialog("success-add-workspace");
-          this.fireCloseDialog(this.group);
-        }
-      } catch (error) {
-        if (error.response) {
-          let response = error.response;
-          if (response.status == 422) {
-            this.setErrorsForm(this.$refs.form, response);
-          }
-        }
-      }
-      this.loading = false;
-    },
+            formData.append(`map_address`, JSON.stringify(this.addressName));
+
+            this.selectedImages.forEach((image) => {
+                formData.append(`images[]`, image.file);
+            });
+            this.featuresSelect.forEach((feature) => {
+                formData.append(`features[]`, feature);
+            });
+            // formData.append(`features[]`, this.featuresSelect);
+            try {
+                let { data } = await WorkspaceAPI.addWorkSpace(formData);
+                if (data.success) {
+                    this.fireOpenDialog("success-add-workspace");
+                    this.fireCloseDialog(this.group);
+                }
+            } catch (error) {
+                if (error.response) {
+                    let response = error.response;
+                    if (response.status == 422) {
+                        this.setErrorsForm(this.$refs.form, response);
+                    }
+                }
+            }
+            this.loading = false;
+        },
 
         handleFileUpload(event, validate) {
             const files = Array.from(event.target.files);
@@ -385,7 +370,7 @@ export default {
         // Cites
         async loadCities() {
             try {
-                let {data} = await commonAPI.cities();
+                let { data } = await commonAPI.cities();
                 if (data.success) {
                     this.cities = data.data;
                 }
@@ -396,7 +381,7 @@ export default {
 
         async getServiceProviderCategories() {
             try {
-                let {data} = await WorkspaceAPI.getServiceProviderCategories();
+                let { data } = await WorkspaceAPI.getServiceProviderCategories();
                 if (data.success) {
                     this.providerCategories = data.data;
                 }
@@ -407,7 +392,7 @@ export default {
         //features
         async getWorkspaceFeatures() {
             try {
-                let {data} = await WorkspaceAPI.getWorkspaceFeatures();
+                let { data } = await WorkspaceAPI.getWorkspaceFeatures();
                 if (data.success) {
                     this.featuresWorkSpace = data.data;
                 }

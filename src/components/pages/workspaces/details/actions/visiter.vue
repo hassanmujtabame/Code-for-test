@@ -49,6 +49,7 @@ export default {
       });
     },
     rescheduleRequest() {
+      console.log('singleWork', this.singleWorkspace)
       this.fireOpenDialog("reschedule-reservation", this.singleWorkspace);
     },
 
