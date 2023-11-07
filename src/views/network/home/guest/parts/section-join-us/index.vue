@@ -71,20 +71,21 @@ components:{
 
 methods:{
   registerNetworking(){
-           if(this.addOffers){ 
+          //  if(this.addOffers){ 
                       this.router_push('register-networking')
-              }else{
-                  let dataEvt ={
-                        title:'للأسف لايمكنك التسجيل كشريكة',
-                        description:`انتي غير مشتركة في الباقة السنوية وهذه الباقة لا تمكنك من التسجيل كشريكة  - رقي حسابك الى الباقة السنوية و استفيد من  التسجيل معنا كشريكة و المزيد من المميزات في الشبكة`,
-                        image:`${this.publicPath}assets/img/Group 1171275670.png`,
-                        btns:[
-                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
-                        ]
-                    }
-                    this.showConfirmMsg(dataEvt);
-                    return;
-              }
+              // }
+              // else{
+              //     let dataEvt ={
+              //           title:'للأسف لايمكنك التسجيل كشريكة',
+              //           description:`انتي غير مشتركة في الباقة السنوية وهذه الباقة لا تمكنك من التسجيل كشريكة  - رقي حسابك الى الباقة السنوية و استفيد من  التسجيل معنا كشريكة و المزيد من المميزات في الشبكة`,
+              //           image:`${this.publicPath}assets/img/Group 1171275670.png`,
+              //           btns:[
+              //               {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+              //           ]
+              //       }
+              //       this.showConfirmMsg(dataEvt);
+              //       return;
+              // }
 
   },
                   checkSubscriptionOptions(){
