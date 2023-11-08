@@ -17,8 +17,8 @@
         {{ userIsRoleProvider ? $t('add-new-service') : $t('add-new-request') }}
       </button>
 
-      <button @click="switchRole" class="btn m-c">{{ userIsRoleProvider ? $t('switch-to-buyer') : $t('switch-to-provider')
-      }}</button>
+      <!-- <button @click="switchRole" class="btn m-c">{{ userIsRoleProvider ? $t('switch-to-buyer') : $t('switch-to-provider')
+      }}</button> -->
     </template>
   </TemplateHeader>
 </template>
@@ -41,9 +41,9 @@ export default {
         // {route:'service-provider-ready-services', text:vm.$t('service'),provider:true},
         /** client */
         { route: 'service-provider-ready-services', text: vm.$t('service'), provider: false },
-        // {route:'service-provider-proposals', text:vm.$t('requests'),provider:true},
-        // {route:'service-provider-proposals', text:vm.$t('requests'),provider:false},
-        { route: 'service-provider-my-proposals', text: vm.$t('my-proposals'), provider: false },
+        {route:'service-provider-request-purchase-services', text:"طلبات شراء خدماتك",provider:true},
+        { route: 'service-provider-my-offers', text: vm.$t('my-proposals'),provider:true},
+        { route: 'service-provider-my-proposals', text:'طلباتى', provider: false },
         { route: 'service-provider-client-my-purchases', text: vm.$t('my-purchases'), provider: false },
         { route: 'service-provider-providers', text: vm.$t('service-providers'), provider: false },
         { route: 'service-provider-contact-us', text: vm.$t('contact-us'), provider: true },

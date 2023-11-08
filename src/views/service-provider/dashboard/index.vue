@@ -41,7 +41,8 @@ export default {
  },
  data:()=>({
   isFirst:true,
- })
+ }),
+
 }
 </script>
 

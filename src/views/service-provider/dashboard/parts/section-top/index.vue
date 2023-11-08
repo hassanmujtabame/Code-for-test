@@ -32,12 +32,17 @@
                             aria-selected="false">سوق رياديات</button>
                     </a>
                 </ul>
+                <br />
+                <ul class="nav nav-pills mb-3 d-flex gap-2 flex-wrap ">
+                    <button @click="switchRole" class="btn border m-c">{{ userIsRoleProvider ? $t('switch-to-buyer') : $t('switch-to-provider')}}</button>
+                </ul>
 
             </div>
         </div>
         <div class="col-md-6 mt-4 ">
             <userDashInfo :member="{
-                name: user.name, image: user.image, job: 'مصمم واجهات امامية ومطور واجهات'}" />
+                        name: user.name, image: user.image, job: 'مصمم واجهات امامية ومطور واجهات'
+                    }" />
         </div>
     </div>
 </template>
@@ -46,12 +51,29 @@
 import userDashInfo from '@/components/cards/user-dash-info.vue';
 export default {
     name: 'section-top',
+    data: () => {
+        return {
+            userIsRoleProvider: false
+        }
+    },
     components: {
         userDashInfo
+    },
+    methods: {
+        switchRole() {
+            this.switchRoleProvider(!this.userIsRoleProvider)
+        },
+    },
+    watch: {
+    userIsProvider: {
+      deep: true,
+      immediate: true,
+      handler(val) {
+        this.userIsRoleProvider = val;
+      }
     }
+  },
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
