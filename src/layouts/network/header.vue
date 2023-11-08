@@ -6,7 +6,8 @@
               > -->
       <router-link :to="getRouteLocale('network-home')" class="nav-link">{{ $t('Home-page') }}</router-link>
     </li>
-    <li class="nav-item px-2">
+
+    <li class="nav-item px-2" v-if="user.id == 11" >
 
       <router-link :to="getRouteLocale('network-investment-project')" class="nav-link">{{ $t('Investment-projects')
       }}</router-link>

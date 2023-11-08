@@ -303,7 +303,7 @@ export default {
         },
         async payment() {
             const formData = {
-                service_id: 179000,
+                service_id: this.otherData.id,
                 user_id: this.user.id
             };
             console.log('formData')
