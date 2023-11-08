@@ -110,7 +110,7 @@
                             </button>
                             <div>
                                 <div>
-                                    <RateStars :size="32" :value="itemCard.rate" :readonly="true" />
+                                    <RateStars v-if="!loading" :size="32" :value="`${itemCard.rate}`" :readonly="true" />
                                 </div>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
 
 <script>
 import readyServicesAPI from '@/services/api/service-provider/provider/ready-service.js'
-import RateStars from "@/components/rate-stars/index";
+import RateStars from "@/components/rate-stars/show-rate.vue";
 
 export default {
     name: 'section-my-ready-services',
@@ -176,10 +176,10 @@ export default {
         },
 
         async initializing() {
-            console.log('ss')
             this.loading = true;
             try {
                 let { data } = await readyServicesAPI.getRateReadyServicesStatistics()
+                console.log('ss',data.data)
                 if (data.success) {
                     this.itemCard = data.data
                 }

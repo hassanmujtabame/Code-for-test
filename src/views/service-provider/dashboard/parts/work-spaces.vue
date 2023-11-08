@@ -9,7 +9,13 @@
     <div class="course-rate-item__info mx-3">
         <div class="w-100 d-flex justify-content-between">
         <h1 class="course-rate-item__name">{{ name }}</h1>
-         <button class="btn btn-main" style="width: 100px; height: 30px; font-size: 12px; padding: 5px;">عرض التفاصيل</button>
+
+
+            <router-link class="router-link" :to="to" style="width:100px">
+                <button class="btn btn-main" style="width: 100px; height: 30px; font-size: 12px; padding: 5px;">عرض
+                  التفاصيل</button>
+              </router-link>
+
         </div>
       <p class="course-rate-item__comment mt-1">
       {{comment}}
@@ -31,6 +37,7 @@ export default {
     image:{type:String},
     name:{type:String},
     comment:{type:String},
+    to:{type:String},
     datetime:{
         type:String
     }

@@ -6,6 +6,7 @@
       @click="click_(it)"
       class="fa-solid fa-star"
       :class="{active:it<=value_,clickable:!readonly}"
+      :style="`font-size: ${size}px;`"
     ></i>
   </span>
 </template>

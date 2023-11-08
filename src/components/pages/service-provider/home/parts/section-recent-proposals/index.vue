@@ -19,7 +19,7 @@
     </div>
 
     <div class="d-flex flex-row flex-wrap justify-content-lg-between justify-content-lg-center" >
-      <div v-for="(item, i) in items" :key="i">
+      <div v-for="(item, i) in items" :key="i" :style="`display: ${item.state == 'offline' ? 'none' : 'initial'};`">
         <div v-if="item.state != 'offline'">
           <showProposal :title="item.title" :description="item.description" :category="item.field_name"
             :price="item.price" :during="item.rest_days" :place="item.city" :offers="item.count_offer"

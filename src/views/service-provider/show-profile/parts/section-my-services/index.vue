@@ -16,17 +16,18 @@
         <div class="row p-2 order">
             <div v-for="(item,k) in items" :key="k" class="col-md-4 mt-2">
                 <router-link class="router-link" :to="getRouteLocale('service-provider-ready-service',{id:item.id})">
-                    <MyServiceCard 
-                     :image="item.image"
-                     :title="item.title"
-                     :description="item.desc"
-                     :place="item.city"
-                     :department="item.category_name"
-                     :price="item.price"
-                     :state="item.state"
-                     :name="item.user_name"
-                     :status="item.status"
-                    />
+                        <MyServiceCard 
+                         :image="item.image"
+                         :title="item.title"
+                         :description="item.desc"
+                         :place="item.city"
+                         :department="item.category_name"
+                         :price="item.price"
+                         :state="item.state"
+                         :name="item.user_info"
+                         :status="item.status"
+                         :id="item.id"
+                        />
                 </router-link>
             </div>
         </div>

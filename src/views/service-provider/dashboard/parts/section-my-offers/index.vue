@@ -122,7 +122,8 @@
                 class="btn border rounded-2 bg-transparent"
               >عرض التقييمات</button>
               <div>
-                <d-rate-stars :size="32" :value="itemCard.rate" />
+                <RateStars v-if="!loading" :size="32" :value="itemCard.rate" :readonly="true"/>
+                <!-- <d-rate-stars :size="32" :value="itemCard.rate" /> -->
               </div>
             </div>
           </div>
@@ -142,9 +143,13 @@
 </template>
 
 <script>
+import RateStars from "@/components/rate-stars/show-rate.vue";
 import readyServicesAPI from "@/services/api/service-provider/provider/ready-service.js";
 export default {
   name: "section-my-offers",
+  components: {
+    RateStars
+  },
   data: () => ({
     loading: true,
     itemCard: {}
