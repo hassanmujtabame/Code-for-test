@@ -31,7 +31,8 @@
                                     </ValidationProvider>
                                 </div>
                                 <div class="col-md-4 w-100">
-                                    <ValidationProvider :name="$t('Phone')" vid="phone" rules="required" v-slot="{ errors }">
+                                    <ValidationProvider :name="$t('Phone')" vid="phone" rules="required"
+                                        v-slot="{ errors }">
                                         <d-text-input type="text" :errors="errors" autocomplete="off" name="phone"
                                             :label="$t('Phone')" v-model="itemForm.phone" />
                                     </ValidationProvider>
@@ -156,7 +157,6 @@
                                     </div>
                                 </ValidationProvider>
                             </div>
-                            <Checkout />
 
                             <div class="col-md-4 w-100 mt-2">
 
@@ -197,7 +197,6 @@
     </div>
 </template>
 <script>
-import Checkout from "../../parts/checkout/body-check-out.vue"
 
 import PartnersAPI from '@/services/api/partners.js'
 import ImageBox from './image-box.vue'
@@ -205,7 +204,6 @@ export default {
     name: 'form-register',
     components: {
         ImageBox,
-        Checkout
 
     },
     data: () => {
@@ -223,34 +221,11 @@ export default {
                 description: '',
                 phone: '',
                 pdf: null
-            }
+            },
+            isSubscribedCompany: false
         }
     },
     methods: {
-        async payment() {
-            const formData = { 
-                package_id: 10,
-                package_type: 'company',
-                user_id: this.user.id,
-            };
-            console.log('formData')
-            console.log(formData)
-            console.log("formData")
-            const response = await axios.post("https://cp.riadiat.sa/api/v1/pay/myfatoorah", formData);
-            // this.articleId = response.data.id;
-            localStorage.clear()
-            if(response.data.success){
-                console.log('response')
-                console.log(response.data)
-                console.log('response')
-
-                window.open(response.data.data.payment_url, '_blank');
-            }else {
-                window.SwalError(" حدث خطاء يرجى اعاده المحاوله")
-            }
-
-            // this.$emit('payment', localStorage.getItem('selectedPackageId'))
-        },
         redirectoHome() {
             this.refreshPage({ name: 'network-home' })
         },
@@ -270,41 +245,46 @@ export default {
         },
         async save(evt) {
             if (evt) evt.preventDefault();
-            let valid = await this.$refs.form.validate();
-            if (!valid) {
-                console.log('form invalid');
-                return;
+            if (!this.isSubscribedCompany) {
+                this.openConfirmDialog();
             }
-            let formData = new FormData();
-            Object.keys(this.itemForm).forEach(key => {
-                if (this.token && ['email', 'phone', 'password', 'password_confirm'].includes(key))
+            else {
+                let valid = await this.$refs.form.validate();
+                if (!valid) {
+                    console.log('form invalid');
                     return;
-                formData.append(key, this.itemForm[key])
-            })
-            try {
-                this.payment();
-                let { data } = await PartnersAPI.addItem(formData)
-                if (data.success) {
-                    Object.keys(this.itemForm).forEach(key => {
-                        this.itemForm[key] = null;
-                    })
-                    this.openSuccessRegister()
-                    this.$nextTick(() => {
-                        if (this.$refs["form"]) {
-                            this.$refs.form.reset();
-                        }
-                    });
-                } else {
-                    window.SwalError(data.message)
                 }
-            } catch (error) {
-                console.log('error', error)
-                if (error.response) {
-                    let response = error.response
-                    console.log('error', response)
-                    if (response.status == 422) {
-                        if (response.data.errors)
-                            this.$refs.form.setErrors(response.data.errors)
+                let formData = new FormData();
+                Object.keys(this.itemForm).forEach(key => {
+                    if (this.token && ['email', 'phone', 'password', 'password_confirm'].includes(key))
+                        return;
+                    formData.append(key, this.itemForm[key])
+                })
+                try {
+                    let { data } = await PartnersAPI.addItem(formData)
+                    if (data.success) {
+                        Object.keys(this.itemForm).forEach(key => {
+                            this.itemForm[key] = null;
+                        })
+                        this.openSuccessRegister()
+                        this.$nextTick(() => {
+                            if (this.$refs["form"]) {
+                                this.$refs.form.reset();
+                            }
+                        });
+                    }
+                    else {
+                        window.SwalError(data.message)
+                    }
+                } catch (error) {
+                    console.log('error', error)
+                    if (error.response) {
+                        let response = error.response
+                        console.log('error', response)
+                        if (response.status == 422) {
+                            if (response.data.errors)
+                                this.$refs.form.setErrors(response.data.errors)
+                        }
                     }
                 }
             }
@@ -327,9 +307,36 @@ export default {
                 console.log('error', error)
             }
         },
+        openConfirmDialog() {
+            let dataEvt = {
+                title: '',
+                description: `يجب عليك الاشتراك فى باقة الشركات`,
+                type: 'warning',
+                btns: [
+                    { title: this.$t('subscribe'), action: () => this.router_push('network-subscribe') }
+                ]
+            }
+            this.showConfirmMsg(dataEvt)
+            //this.fireOpenDialog('go-to-pther-section',dept)
+        },
+        checkSubscribedCompany() {
+            for (let index = 0; index < this.user.system_subscriptions.length; index++) {
+                const element = this.user.system_subscriptions[index];
+                if (element.system_package.related_to.key == 'network' && element.system_package.name == 'الشركات') {
+                    // this.subscribedType = element.system_package.id
+                    // console.log('yay you are company', true)
+                    this.isSubscribedCompany = true
+                } else {
+                    this.isSubscribedCompany = false
+
+                }
+            }
+            // console.log('user_system', this.user.system_subscriptions)
+        }
     },
     mounted() {
         this.loadCategories()
+        this.checkSubscribedCompany()
     }
 }
 </script>

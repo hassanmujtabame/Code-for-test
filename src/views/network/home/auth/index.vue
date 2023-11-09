@@ -10,7 +10,7 @@
     <SectionEducationalMeeting />
 
     <!--investment projects-->
-    <SectionInvestementProject />
+    <SectionInvestementProject v-if="user.id == 11" />
     <!--exhibitions-->
     <SectionExhibitions />
 

@@ -8,44 +8,22 @@
             حافظ على إنتاجيتك مع أماكن العمل الحديثة والآمنة والمجهزة بأحدث
             الأجهزة في شبكة رياديات التي توجد في مختلف الأماكن!
           </p>
-             <button
-            @click="openAddWorkSpace"
-
-            class="btn  bg border text-white px-4 py-2"
-          >
-            <plusRectRoundIcon  class="mx-1"/>
+          <button @click="openAddWorkSpace" class="btn  bg border text-white px-4 py-2">
+            <plusRectRoundIcon class="mx-1" />
             {{ $t("add_workspace") }}
-          </button> 
+          </button>
         </div>
         <div class="col-lg-6">
           <div class="m-auto text-start ">
-            <img
-              class="w-60 main-img"
-              src="@/assets/img/work-spaces/workspace-home.png"
-              alt="WorkSpaceMainHeader"
-            />
+            <img class="w-60 main-img" src="@/assets/img/work-spaces/workspace-home.png" alt="WorkSpaceMainHeader" />
           </div>
         </div>
       </div>
-            <d-swiper
-        v-if="!loading"
-        :slides-per-view="4"
-        :space-between="20"
-        is-auto
-        :items="items"
-      >
+      <d-swiper v-if="!loading" :slides-per-view="4" :space-between="20" is-auto :items="items">
         <template v-slot:default="{ item }">
-            <WorkSpaceCard
-              :title="item.title"
-              :image="item.image_path"
-              :company="item"
-              :description="item.description"
-              :price="item.price"
-              :area="item.area"
-              :rate="item.rate"
-              :medias="item.medias"
-              :to="getRouteLocale('workspaces-details', { id: item.id })"
-            />
+          <WorkSpaceCard :title="item.title" :image="item.image_path" :company="item" :description="item.description"
+            :price="item.price" :area="item.area" :rate="item.rate" :medias="item.medias"
+            :to="getRouteLocale('workspaces-details', { id: item.id })" />
         </template>
       </d-swiper>
     </div>
@@ -60,20 +38,37 @@ export default {
   components: {
     plusRectRoundIcon,
   },
-  data:()=>{
+  data: () => {
     return {
       loading: true,
       items: [],
     };
   },
-    mounted() {
+  mounted() {
     this.getRecentWorkSpaces();
   },
-  methods:{
-        openAddWorkSpace() {
-      this.fireOpenDialog("add-dialog");
+  methods: {
+    openAddWorkSpace() {
+      if (this.userPartner) {
+        // console.log('is-user-partner', this.userPartner)
+        this.fireOpenDialog("add-dialog");
+      } else {
+        this.openConfirmDialog()
+      }
     },
-  async getRecentWorkSpaces() {
+    openConfirmDialog() {
+      let dataEvt = {
+        title: 'للأسف لايمكنك  اضافة مكان عملك',
+        description: `انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة معرض  - يجب تسجيل حسابك  كشركه و استفيد من إضافة معرضك و مكان عملك و المزيد من المميزات في الشبكة`,
+        image: `${this.publicPath}assets/img/Group 1171275670.png`,
+        btns: [
+          { title: 'سجل كشركه', action: () => this.router_push('register-networking') }
+        ]
+      }
+      this.showConfirmMsg(dataEvt);
+      return;
+    },
+    async getRecentWorkSpaces() {
       this.loading = true;
       try {
         let { data } = await workspaceAPI.getRecentWorkSpaces();
@@ -93,12 +88,11 @@ export default {
 .work-space-header p {
   font-size: 1.4em;
 }
+
 @media (max-width: 991px) {
 
   .main-img {
     display: none;
   }
 }
-
-
 </style>

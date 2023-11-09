@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-6 d-flex gap-1 visitor-action" style="height:40px">
+  <div class="col-md-6 d-flex justify-content-between gap-1 visitor-action" style="height:40px">
     <div>
       <button class="btn-main-v px-5 py-2 h-100" role="button" @click="rescheduleRequest">احجز الآن</button>
     </div>
