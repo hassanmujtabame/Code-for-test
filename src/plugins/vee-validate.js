@@ -26,6 +26,23 @@ extend('secret', {
   validate: value => value === 'example',
   message: 'This is not the magic word'
 });
+// phone
+// Define a regular expression for a phone number
+const MOBILEREG = /^((1[3578][0-9])+\\d{8})$/;
+
+// Create a custom rule called phone
+extend("tphone", (rule) => {
+  // Get the current value of the field
+  const value = rule.value;
+  // Check if the value matches the regex
+  const isValid = MOBILEREG.test(value);
+  // Return an object with two properties: valid and message
+  return {
+    valid: isValid,
+    message: () => `${value} غير صالح`,
+  };
+});
+
 
 // Register it globally
 Vue.component('ValidationProvider', ValidationProvider);

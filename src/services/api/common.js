@@ -10,7 +10,7 @@ class CommonApi extends BaseApi {
       return window.axios.get('https://restcountries.com/v3/lang/arabic')
     }
     ContactUsSend(data){
-        return window.axios.post(`contact-us`,{data});
+        return window.axios.post(`contact-us`,data);
     }
     getWidgetValue(data){
       return window.axios.post(`widget-dash`, data); 
