@@ -172,7 +172,7 @@
                                 <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
                                     <b-card-body>
                                         <b-card-text class="d-flex flex-wrap ">
-                                            <div v-for="item, i in featuresWorkSpace" :key="i" style="width:30%">
+                                            <div v-for="( item , i ) in featuresWorkSpace" :key="i" style="width:30%">
                                                 <div class="form-check d-flex justify-content-between"
                                                     style="display: flex;">
                                                     <input class="form-check-input" type="checkbox" :value="item.title"

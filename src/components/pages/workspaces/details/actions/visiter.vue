@@ -1,15 +1,15 @@
 <template>
-  <div class="col-md-6 d-flex justify-content-between gap-1 visitor-action" style="height:40px">
-    <div>
+  <div class="col-md-6 d-flex justify-content-between visitor-action" style="height:40px">
+    <div class="col-4">
       <button class="btn-main-v px-5 py-2 h-100" role="button" @click="rescheduleRequest">احجز الآن</button>
     </div>
-    <div>
+    <div class="col-4">
       <!-- <a :href="singleWorkspace.location" target="_blank" class=" google btn-main-v px-3  py-2" >العنوان </a> -->
           <a v-if="singleWorkspace && singleWorkspace.map_address !=null"  :href="`https://www.google.com/maps/search/${singleWorkspace.map_address.lat},${singleWorkspace.map_address.lng}`" target="_blank">
             <img style="height:40px; width153px"   class="w-100" :src="`${publicPath}assets/svg/Group 1171276111.svg`" />
           </a>
     </div>
-    <div>
+    <div class="col-4">
       <button @click="sendAbuse" class="border-0 px-3 py-1 rounded-3">
         <svg
           width="32"

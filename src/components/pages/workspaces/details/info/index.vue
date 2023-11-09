@@ -1,16 +1,19 @@
 <template>
   <div class="box border rounded-3 p-4">
-    <div class="border-bottom pb-3 px-2"  v-if="singleWorkspace && singleWorkspace.map_address && singleWorkspace.map_address.address_name">
+    <div class=" pb-3 px-2"  v-if="singleWorkspace && singleWorkspace.map_address && singleWorkspace.map_address.address_name">
       <h5>العنوان بالتفصيل</h5>
+      <hr>
       <p class="gray-color">{{ singleWorkspace.map_address.address_name }}</p>
     </div>
-    <div class="border-bottom py-3 px-2">
+    <div class=" py-3 px-2">
       <h5>وصف مكان العمل</h5> 
+      <hr>
       <p class="gray-color">{{ singleWorkspace.description }}</p>
     </div>
 
     <div>
-      <h3 class="border-bottom py-3 px-2">تفاصيل مكان العمل</h3>
+      <h5 class=" py-3 px-2">تفاصيل مكان العمل</h5>
+      <hr>
       <div class="row">
         <div class="col-6 p-2">
           <emptyWalletIcon :size="24" color="#979797" />

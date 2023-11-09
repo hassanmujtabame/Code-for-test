@@ -33,12 +33,12 @@ export default {
   data: () => ({
     loading: true,
     items: [],
-    addOffers: false,
+    // addOffers: false,
 
   }),
   methods: {
     addOffer() {
-      if (this.addOffers) {
+      if (this.userPartner) {
         this.router_push('network-offers-dashboard')
       } else {
         let dataEvt = {
@@ -53,21 +53,15 @@ export default {
       return;
 
       }
-      // if(!this.userPartner)
-      // this.fireOpenDialog('join-as-partner',this.getRouteLocale('register-networking'))
-      // else
-      // this.router_push('network-offers-dashboard')
-      //this.fireOpenDialog('add-dialog')
-
     },
-    checkSubscriptionOptions() {
-      for (let index = 0; index < this.user.subscription_options.length; index++) {
-        const element = this.user.subscription_options[index];
-        if (element.key == "add_offers") {
-          this.addOffers = true
-        }
-      }
-    },
+    // checkSubscriptionOptions() {
+    //   for (let index = 0; index < this.user.subscription_options.length; index++) {
+    //     const element = this.user.subscription_options[index];
+    //     if (element.key == "add_offers") {
+    //       this.addOffers = true
+    //     }
+    //   }
+    // },
     async getRecents() {
       this.loading = true;
       try {

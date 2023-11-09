@@ -23,13 +23,13 @@
            <!-- v-if="singleWorkspace.rates.length" -->
         </div>
 
-        <div class="col-md-6 mt-5">
+        <div class="col-md-6 mt-5 ">
           <d-user-info-li
             route-name="service-provider-show-profile"
             group-dialog="send-message-to-provider"
             :member="singleWorkspace.user_info"
-            class="mb-3"
-            :showBtnChat="isOwner ? false: true"
+            class="mb-3 border"
+            :showBtnChat="false"
           />
           <Info :singleWorkspace="singleWorkspace" /> 
         </div>

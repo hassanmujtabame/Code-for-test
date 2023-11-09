@@ -39,7 +39,7 @@ export default {
  },
  methods: {
     addOffer() {
-      if (this.addOffers) {
+      if (this.userPartner) {
         this.router_push('network-offers-dashboard')
       } else {
         let dataEvt = {
