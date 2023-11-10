@@ -1,11 +1,6 @@
 <template>
-  <d-dialog-large
-    :group="group"
-    :xl="false"
-    :openDialog="openDialog"
-    :closeDialog="closeDialog"
-    class="work-space-reschedule-header"
-  >
+  <d-dialog-large :group="group" :xl="false" :openDialog="openDialog" :closeDialog="closeDialog"
+    class="work-space-reschedule-header">
     <template v-slot:header>{{
       mode == "create" ? "" : "إعادة جدولة الحجز"
     }}</template>
@@ -13,8 +8,9 @@
       <div>
         <ValidationObserver ref="form" class="work-space-reschedule">
           <!-- start date-->
-            <vc-date-picker class="mb-3" v-model="form.date" :min-date="new Date()" style="width:100%; border-top: 0 ; border-left: 0; border-right: 0; border-radius:0 "/>
- 
+          <vc-date-picker class="mb-3" v-model="form.date" :min-date="new Date()"
+            style="width:100%; border-top: 0 ; border-left: 0; border-right: 0; border-radius:0 " />
+
           <!-- <ValidationProvider
             name="تاريخ الحجز"
             vid="start_date"
@@ -55,15 +51,17 @@
               />
             </div>
           </ValidationProvider> -->
-            <div class="mb-2">ميعاد الدخول</div>
-          <div class="d-flex justify-content-between" >
-          
-            <div v-for="(item,i) in startTime" :key="i">
-              <div  @click="getStartTime(item)"  class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"  :class="{'bg-main text-white':item.active}">
-                        {{item.value}}
-               </div>
 
-             </div>
+          <div class="mb-2">ميعاد الدخول</div>
+          <div class="d-flex justify-content-between">
+
+            <div v-for="( item, i ) in  startTime " :key="i">
+              <div @click="getStartTime(item)" class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"
+                :class="{ 'bg-main text-white': item.active }">
+                {{ item.value }}
+              </div>
+
+            </div>
           </div>
 
           <!-- end time -->
@@ -89,15 +87,16 @@
               />
             </div>
           </ValidationProvider> -->
-        <div class="my-3">ميعاد الخروج</div>
-          <div class="d-flex justify-content-between" >
-          
-            <div v-for="(item,i) in endTime" :key="i">
-              <div @click="getEndTime(item)" class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"  :class="{'bg-main text-white':item.active}">
-                        {{item.value}}
-               </div>
+          <div class="my-3">ميعاد الخروج</div>
+          <div class="d-flex justify-content-between">
 
-             </div>
+            <div v-for="( item, i ) in  endTime " :key="i">
+              <div @click="getEndTime(item)" class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"
+                :class="{ 'bg-main text-white': item.active }">
+                {{ item.value }}
+              </div>
+
+            </div>
           </div>
         </ValidationObserver>
 
@@ -130,21 +129,36 @@ export default {
 
   data() {
     return {
-      date : new Date(),
+      // date: new Date(),
       form: {
-        date:  new Date(),
-        start_time: null,
-        end_time: null,
+        date: new Date(),
+        // date: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
+        start_time: '9:00',
+        end_time: '11:00',
       },
       itemDialog: {},
       loading: false,
-      startTime:[{value:'9:00',id:'1',active:true},{value:'9:15',id:'2',active:false},{value:'9:30',id:'3',active:false},{value:'9:45',id:'4',active:false},{value:'10:15',id:'5',active:false},{value:'10:30',id:'6',active:false}],
-      endTime:[{value:'11:00',id:'12',active:true},{value:'11:15',id:'22',active:false},{value:'11:30',id:'32',active:false},{value:'11:45',id:'42',active:false},{value:'12:15',id:'62',active:false},{value:'12:30',id:'52',active:false}],
+      startTime: [{ value: '9:00', id: '1', active: true }, { value: '9:15', id: '2', active: false }, { value: '9:30', id: '3', active: false }, { value: '9:45', id: '4', active: false }, { value: '10:15', id: '5', active: false }, { value: '10:30', id: '6', active: false }],
+      endTime: [{ value: '11:00', id: '12', active: true }, { value: '11:15', id: '22', active: false }, { value: '11:30', id: '32', active: false }, { value: '11:45', id: '42', active: false }, { value: '12:15', id: '62', active: false }, { value: '12:30', id: '52', active: false }],
     };
   },
 
   methods: {
+    openConfirmDialog() {
+            let dataEvt = {
+                title: '',
+                description: `يجب عليك الاشتراك فى باقة الشركات`,
+                type: 'warning',
+                btns: [
+                    { title: this.$t('subscribe'), action: () => this.router_push('network-subscribe') }
+                ]
+            }
+            this.showConfirmMsg()
+            //this.fireOpenDialog('go-to-pther-section',dept)
+        },
     async save() {
+      this.openConfirmDialog()
+      // this.form.date = this.form.date.toJSON().slice(0,10).replace(/-/g,'/')      
       this.loading = true;
       let valid = await this.$refs.form.validate();
       if (!valid) {
@@ -152,7 +166,10 @@ export default {
         return;
       }
       const payload = {
-        ...this.form,
+        // ...this.form,
+        date: this.form.date.toJSON().slice(0,10).replace(/-/g,'/'),
+        start_time: this.form.start_time,
+        end_time: this.form.end_time,
         workspace_id: this.itemDialog.workspace_id ?? this.itemDialog.id,
         _method: "put",
       };
@@ -165,7 +182,7 @@ export default {
         let { data } = await WorkspaceAPI.reservations.reservationReschedule(
           !this.mode === "create" ? this.itemDialog.id : "",
           formData
-        );
+          );
         if (data.success) {
           window.successMsg();
           this.$emit("update-list");
@@ -188,26 +205,26 @@ export default {
     closeEvent() {
       this.fireEvent(this.group + "-close-dialog");
     },
-    getStartTime(item){
+    getStartTime(item) {
       this.form.start_time = item.value
       for (let index = 0; index < this.startTime.length; index++) {
         const element = this.startTime[index];
-        if (element.id==item.id) {
-          element.active=true
-        }else{
-          element.active=false
+        if (element.id == item.id) {
+          element.active = true
+        } else {
+          element.active = false
 
         }
       }
     },
-     getEndTime(item){
+    getEndTime(item) {
       this.form.end_time = item.value
       for (let index = 0; index < this.endTime.length; index++) {
         const element = this.endTime[index];
-        if (element.id==item.id) {
-          element.active=true
-        }else{
-          element.active=false
+        if (element.id == item.id) {
+          element.active = true
+        } else {
+          element.active = false
 
         }
       }
@@ -238,21 +255,20 @@ export default {
   border-color: #dee2e6;
 }
 
-.work-space-reschedule .vc-highlight{
-  background:#1FB9B3 !important;
-    border-radius: 20px 0 0px 20px !important;
+.work-space-reschedule .vc-highlight {
+  background: #1FB9B3 !important;
+  border-radius: 20px 0 0px 20px !important;
   width: 50px !important;
 }
 
-.t-g-c{
-  font-weight:100 ;
-color: #73737359;
-cursor: pointer;
+.t-g-c {
+  font-weight: 100;
+  color: #73737359;
+  cursor: pointer;
 }
-    .work-space-reschedule-header .modal-header{
-          /* display: none; */
-          padding: 5px;
-    }
-  
 
+.work-space-reschedule-header .modal-header {
+  /* display: none; */
+  padding: 5px;
+}
 </style>

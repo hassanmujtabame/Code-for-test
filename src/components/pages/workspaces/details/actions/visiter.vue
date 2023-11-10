@@ -2,6 +2,7 @@
   <div class="col-md-6 d-flex justify-content-between visitor-action" style="height:40px">
     <div class="col-4">
       <button class="btn-main-v px-5 py-2 h-100" role="button" @click="rescheduleRequest">احجز الآن</button>
+      <button class="btn-main-v px-5 py-2 h-100" role="button" @click="payment_test">test </button>
     </div>
     <div class="col-4">
       <!-- <a :href="singleWorkspace.location" target="_blank" class=" google btn-main-v px-3  py-2" >العنوان </a> -->
@@ -52,6 +53,10 @@ export default {
       console.log('singleWork', this.singleWorkspace)
       this.fireOpenDialog("reschedule-reservation", this.singleWorkspace);
     },
+    payment_test() {
+      console.log('singleWork', this.singleWorkspace)
+
+    }
 
   },
 };

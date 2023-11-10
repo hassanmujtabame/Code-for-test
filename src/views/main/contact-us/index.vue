@@ -27,7 +27,7 @@
                 <d-error-input :errors="errors" v-if="errors.length > 0" />
               </ValidationProvider> -->
               <!-- phone -->
-              <ValidationProvider v-slot="{ errors }" :name="$t('Phone')" rules="required" vid="Phone"
+              <ValidationProvider v-slot="{ errors }" :name="$t('Phone')" rules="required|numeric" vid="Phone"
                 tag="div" class="my-2">
                 <b-form-input v-model="itemForm.phone" type="text"
                   :placeholder="$t('Phone')"></b-form-input>
