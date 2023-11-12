@@ -1,124 +1,9 @@
 <template>
-    <div class="">
-        <div class="box p-4 shadow m-4 chekout">
-
-            <div class="row justify-content-between" >
-                <div class="col-7">
-                    <div class="row justify-content-center">
-                        <!-- btn pyment type-->
-                        <p class="fw-bold">معلومات الفاتوره</p>
-                        <div class="d-flex flex-wrap justify-content-around">
-                            <div class="mt-3 col-5">
-                                <p> الاسم الاول</p>
-                                <input class="form-control" type="text" />
-                            </div>
-
-                            <div class="mt-3 col-5">
-                                <p> الاسم الثانى </p>
-                                <input class="form-control" type="text" />
-                            </div>
-                            <div class="mt-3 col-5">
-                                <p> الايميل </p>
-                                <input class="form-control" type="email" />
-                            </div>
-                            <div class="mt-3 col-5">
-                                <p> الدوله</p>
-                                <select class="form-select">
-                                    <option value="1">السعوديه</option>
-                                    <option value="2">مصر</option>
-                                    <option value="3">فلسطين</option>
-                                </select>
-                            </div>
-
-                            <div class="mt-3 col-11">
-                                <p> العنوان</p>
-                                <input class="form-control" type="text" />
-
-                            </div>
-
-                            <div class="mt-3 col-5">
-                                <p> رقم المحمول </p>
-                                <input class="form-control" />
-                            </div>
-                            <div class="mt-3 col-5">
-                                <p> المنطقه</p>
-                                <select class="form-select">
-                                    <option value="1">المنطقه 1</option>
-                                    <option value="2">المنطقه 2</option>
-                                    <option value="3">المنطقه 3</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="row justify-content-center">
-                        <!-- btn pyment type-->
-                        <p class="mt-4 fw-bold">وسائل الدفع</p>
-                        <div class="col-12">
-                            <div class="group-btn-type-pay">
-                                <btnTypePay name="pay-type" v-for="(btn, i) in payment_types" :key="i"
-                                    :valueDefault="btn.id" v-model="itemForm.payment_type">
-                                    <template v-if="btn.type == 'text'">
-                                        {{ btn.name }}
-                                    </template>
-                                    <component v-else :is="btn.name"></component>
-                                </btnTypePay>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="col-5 justify-content-end tex-end ">
-                    <div class="border mt-2 payment-card-detail">
-                        <div class="box ">
-                            <h6 class="">
-                                خطه
-                                ال{{ title_ }}
-                            </h6>
-                            <slot :item="itemForm" :otherData="otherData"></slot>
-
-                            <div v-if="!hideAmount" class="input-group mb-3 mt-2">
-                                <ValidationObserver ref="amount">
-
-                                    <ValidationProvider vid="price" :name="$t('amount')"
-                                        :rules="changeable_ ? 'required|numeric' : ''" v-slot="{ errors }">
-                                        <p class="fw-bold">
-                                            المجموع
-                                            ر.س
-
-                                        </p>
-                                        <input type="text" :disabled="!changeable_" v-model="total_ammount"
-                                            class="form-control" placeholder="ادخل المبلغ">
-
-                                        <d-error-input :errors="errors" v-if="errors" />
-                                    </ValidationProvider>
-                                </ValidationObserver>
-                            </div>
-                            <input type="text" class="form-control mb-2 mt-2" placeholder=" ادخل كود الخصم  " />
-
-                            <div>
-                                <p style="font-size: 12px;text-align: center;">
-                                    بإتمامك لعملية الشراء أنت توافق على
-                                    <span>
-                                        <a href="" class="m-c">
-                                            شروط الاستخدام
-                                        </a>
-                                    </span>
-                                </p>
-                            </div>
-                            <div class="text-center">
-                                <button @click="payment" class="btn bg-main p-2 text-white ">
-                                    تاكيد الدفع
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <div style="margin-top: 400px;">
+        <h1>
+            test
+            {{ age }}
+        </h1>
     </div>
 </template>
 
@@ -137,38 +22,6 @@ import incubatorAPI from '@/services/api/incubator';
 
 export default {
     mixins: [creditCardMixins],
-
-    props: {
-        group: {
-            type: String,
-            default: 'check-out-dialog'
-        },
-        title: {
-            type: String,
-            default: 'تفاصيل الدفع'
-        },
-        changeable: {
-            type: Boolean,
-            default: false,
-        },
-        hideAmount: {
-            type: Boolean,
-            default: false,
-        },
-        otherData: {
-            type: [Array, Object],
-            default: () => { return {} }
-        },
-        defaultForm: {
-            type: [Array, Object],
-            default: () => {
-                return {
-                    payment_type: 'new',
-                    amount: null,
-                }
-            }
-        }
-    },
     components: {
         btnTypePay,
         applePayIcon,
@@ -201,22 +54,9 @@ export default {
             departmentsIds: [],
             departmentsIncubatorSub: [],
             openDepartmentsDialog: false,
+            age: 0
 
         }
-    },
-    watch: {
-        card_number() {
-            this.sendNumberCard()
-        },
-        card_holder() {
-            this.sendHolderCard()
-        },
-        card_cvv() {
-            this.sendCVVCard()
-        },
-        expiry_date() {
-            this.sendExpiryCard()
-        },
     },
     methods: {
 
@@ -329,6 +169,7 @@ export default {
         },
     },
     mounted() {
+        this.age = this.$route.params.age
         if (process.env.NODE_ENV == 'development') {
             this.card_number = '4242424242424242'
             this.card_cvv = '123'

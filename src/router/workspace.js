@@ -24,6 +24,12 @@ const routers = [
     meta: { layout: LayoutDefault, title: 'Workspaces Details' },
     name: 'workspaces-details',
     component: () => import(/* webpackChunkName: "workspaces-home" */ '../views/workspaces/details/index.vue')
+  },
+  {
+    path: 'workspaces/:id(\\d+)/pay-first',
+    meta: { layout: LayoutDefault, title: 'Workspaces Details' },
+    name: 'workspaces-pay',
+    component: () => import(/* webpackChunkName: "workspaces-home" */ '../components/pages/workspaces/reservations/check-out/body-check-out.vue')
   }
 ]
 

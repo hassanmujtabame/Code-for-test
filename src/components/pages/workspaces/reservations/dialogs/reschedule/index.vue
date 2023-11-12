@@ -145,18 +145,26 @@ export default {
 
   methods: {
     openConfirmDialog() {
-            let dataEvt = {
-                title: '',
-                description: `يجب عليك الاشتراك فى باقة الشركات`,
-                type: 'warning',
-                btns: [
-                    { title: this.$t('subscribe'), action: () => this.router_push('network-subscribe') }
-                ]
-            }
-            this.showConfirmMsg()
-            //this.fireOpenDialog('go-to-pther-section',dept)
-        },
+      let dataEvt = {
+        title: '',
+        description: `يجب عليك الاشتراك فى باقة الشركات`,
+        type: 'warning',
+        btns: [
+          { title: this.$t('subscribe'), action: () => this.router_push('network-subscribe') }
+        ]
+      }
+      this.showConfirmMsg()
+      //this.fireOpenDialog('go-to-pther-section',dept)
+    },
     async save() {
+      this.$router.push({
+        name: 'workspaces-pay',
+        params: {
+          title: 'Alice',
+          age: 25
+        }
+      })
+      die()
       this.openConfirmDialog()
       // this.form.date = this.form.date.toJSON().slice(0,10).replace(/-/g,'/')      
       this.loading = true;
@@ -167,7 +175,7 @@ export default {
       }
       const payload = {
         // ...this.form,
-        date: this.form.date.toJSON().slice(0,10).replace(/-/g,'/'),
+        date: this.form.date.toJSON().slice(0, 10).replace(/-/g, '/'),
         start_time: this.form.start_time,
         end_time: this.form.end_time,
         workspace_id: this.itemDialog.workspace_id ?? this.itemDialog.id,
@@ -182,7 +190,7 @@ export default {
         let { data } = await WorkspaceAPI.reservations.reservationReschedule(
           !this.mode === "create" ? this.itemDialog.id : "",
           formData
-          );
+        );
         if (data.success) {
           window.successMsg();
           this.$emit("update-list");
