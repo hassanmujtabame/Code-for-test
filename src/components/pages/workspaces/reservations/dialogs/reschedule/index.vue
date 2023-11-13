@@ -169,6 +169,8 @@ export default {
       const differenceInHours = differenceInMs / (1000 * 60 * 60);
 
       return (this.price * differenceInHours) / 5
+
+      
     },
   },
   methods: {
