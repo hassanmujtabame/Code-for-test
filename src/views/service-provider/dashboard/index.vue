@@ -1,22 +1,22 @@
 <template>
   <main style="margin-top:85px">
     <div class="container dashbord">
-        <!--section top-->
-        <SectionTop />
-        <!-- <SectionFirstVisit v-else /> -->
-        <!--section balance-->
-        <SectionBalance />
+      <!--section top-->
+      <SectionTop />
+      <!-- <SectionFirstVisit v-else /> -->
+      <!--section balance-->
+      <SectionBalance />
       <!--section my ready services-->
       <SectionMyReadyServices />
-      
-      
+
+
       <!--section my offers-->
       <SectionMyOffers />
-      <SectionMyWorkSpace/>
-      <AskRiyadiate/>
-    
-</div>
-</main>
+      <SectionMyWorkSpace />
+      <AskRiyadiate />
+
+    </div>
+  </main>
 </template>
 
 <script>
@@ -29,8 +29,8 @@ import AskRiyadiate from './parts/ask-riyadiate/index.vue'
 import SectionMyReadyServices from './parts/section-my-ready-services/index.vue'
 
 export default {
- name:'service-provider-dashboard',
- components:{
+  name: 'service-provider-dashboard',
+  components: {
     SectionTop,
     SectionFirstVisit,
     SectionMyOffers,
@@ -38,14 +38,12 @@ export default {
     SectionMyReadyServices,
     SectionMyWorkSpace,
     AskRiyadiate
- },
- data:()=>({
-  isFirst:true,
- }),
+  },
+  data: () => ({
+    isFirst: true,
+  }),
 
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
