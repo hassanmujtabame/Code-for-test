@@ -214,7 +214,7 @@ export default {
         date: this.form.date.toJSON().slice(0, 10).replace(/-/g, '/'),
         start_time: this.form.start_time,
         end_time: this.form.end_time,
-        type: 'part',
+        type: this.form.selectedOption,
         gateway: 'myfatoorah',
         workspace_id: this.itemDialog.workspace_id ?? this.itemDialog.id,
         _method: "put",
