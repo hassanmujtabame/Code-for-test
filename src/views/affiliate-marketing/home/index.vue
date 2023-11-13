@@ -36,7 +36,7 @@ import incubatorAPI from '@/services/api/incubator';
 
 
 export default {
-    name: 'offers-page',
+    name: 'affiliate-marketing-home',
     data: () => ({
         loading: true,
         hasError: false,

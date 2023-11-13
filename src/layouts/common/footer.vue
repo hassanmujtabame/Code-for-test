@@ -80,7 +80,7 @@
                 >{{ $t("recruitment") }}</router-link
               >
               <router-link
-                :to="getRouteLocale('network-affiliate-marketing')"
+                :to="getRouteLocale('affiliate-marketing-home')"
                 class="d-block"
                 >{{ $t("Affiliate-marketing") }}</router-link
               >
