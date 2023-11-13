@@ -30,7 +30,7 @@
           </ul>
         </template>
         <template v-slot:default="{ item }">
-          <WorkSpaceReservationsCard :item="item" @update-list="updateList" />
+          <WorkSpaceReservationsCard v-if="item.status != 'cancel' " :item="item" @update-list="updateList" />
         </template>
       </d-filter-list>
     </div>

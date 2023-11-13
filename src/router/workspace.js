@@ -1,4 +1,4 @@
-import LayoutDefault from '@/layouts/network/index.vue'
+import LayoutDefault from '@/layouts/workspaces/index.vue'
 
 const routers = [
   {

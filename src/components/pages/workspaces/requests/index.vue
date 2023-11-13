@@ -80,7 +80,9 @@ export default {
           paginate: 4,
           ...this.filterItem,
         };
-        return await WorkspaceAPI.requests.getWorkSpacesRequests(params);
+        let data = await WorkspaceAPI.requests.getWorkSpacesRequests(params);
+        console.log('requests_workspaces', data)
+        return data 
       } catch (error) {
         console.log("error", error);
       }

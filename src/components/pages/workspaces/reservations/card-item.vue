@@ -1,6 +1,6 @@
 <template>
-  <div class="work-space-reservation">
-    <div class="d-flex align-items-center">
+  <div class="work-space-reservation" >
+    <div class="d-flex align-items-center" >
       <span class="status waiting-status" v-if="item.status == 'waiting'"
         >انتظار</span
       >

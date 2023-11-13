@@ -39,6 +39,16 @@
         class="nav-link"
       >{{ $t('services-provider') }}</router-link>
     </li>
+
+    <!-- workspace link -->
+
+    <li class="nav-item px-2">
+      <router-link
+        :to="{name:'workspaces-home',params:{lang:$i18n.locale}}"
+        class="nav-link"
+      >{{ $t('workspaces') }}</router-link>
+    </li>
+
     <li class="nav-item px-2">
       <router-link
         :to="{name:'consulting-home',params:{lang:$i18n.locale}}"
