@@ -5,6 +5,7 @@
         <SectionIntro />
         <SectionFeatures />
         <SectionHowWorkProgram />
+        <SectionJoin />
         <div v-if="token">
             <SectionGraduated title="ابرز سفيرات التسويق بالعموله"/>
         </div>
@@ -21,6 +22,7 @@
 
 <script>
 import SectionHeader from './parts/section-header/index.vue'
+import SectionJoin from './parts/section-join/index.vue'
 import SectionIntro from './parts/section-intro/index.vue'
 import SectionHowWorkProgram from './parts/section-how-work-program/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
@@ -43,6 +45,7 @@ export default {
         itemPage: {}
     }),
     components: {
+        SectionJoin,
         SectionHeader,
         SectionIntro,
         SectionHowWorkProgram,

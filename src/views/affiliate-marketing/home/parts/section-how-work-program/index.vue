@@ -3,15 +3,14 @@
         <h2 class="text-center ms-5">كيفية عمل البرنامج</h2>
 
         <div class="container mt-4">
-           
+            
             <div class="row justify-content-center">
-                <div v-for="(item, i) in items" :key="i" class="mt-3 col-lg-4 col-md-6 col-sm-12 position-relative">
-                    <hr class="line-dd" v-if="i!==(items.length-1)" />
-                    <cardShow :position="(i % 2) == 0 ? 'top' : 'bottom'" 
-                    :isFirst="i==0"
-                    :image="`${publicPath + item.image} `" :title="item.title"
-                        :description="item.description" />
-                </div>
+                <img src="@/assets/img/how-work.png" alt="">
+                <!-- <div v-for="(item, i) in items" :key="i" class="mt-3 col-lg-4 col-md-6 col-sm-12 position-relative">
+                    <hr class="line-dd" v-if="i !== (items.length - 1)" />
+                    <cardShow :position="(i % 2) == 0 ? 'top' : 'bottom'" :isFirst="i == 0"
+                        :image="`${publicPath + item.image} `" :title="item.title" :description="item.description" />
+                </div> -->
             </div>
         </div>
     </div>
@@ -37,7 +36,7 @@ export default {
 </script>
 
 <style>
-.line-dd{
+.line-dd {
     position: absolute;
     width: 100%;
     height: 0px;
@@ -45,14 +44,15 @@ export default {
     border: 2px solid var(--m-color);
     top: calc(50% + 2px);
     z-index: -2;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     opacity: 1;
 }
+
 @media screen and (max-width: 960px) {
-.line-dd {
-    width: 0;
-}
-    
+    .line-dd {
+        width: 0;
+    }
+
 }
 </style>

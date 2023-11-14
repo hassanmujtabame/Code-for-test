@@ -1,11 +1,7 @@
 <template>
-  <TemplateHeader
-  prefixRoute='network-'
-  >
-            <li class="nav-item px-2">
-              <!-- <a class="nav-link active" aria-current="page" href="../index.html"
-                >الرئيسية</a
-              > -->
+  <TemplateHeader prefixRoute='network-'>
+    <!-- <li class="nav-item px-2">
+
               <router-link :to="getRouteLocale('affiliate-marketing-home')"  class="nav-link">{{ $t('Home-page') }}</router-link>
             </li>
 
@@ -20,23 +16,21 @@
             
             <li class="nav-item px-2">
               <router-link :to="getRouteLocale('affiliate-marketing-generate-url')" class="nav-link">انشاء رابط</router-link>
-            </li>
-           
-      
-    </TemplateHeader>
+            </li> -->
+
+
+  </TemplateHeader>
 </template>
 
 <script>
 import TemplateHeader from '../tamplate/header/index.vue'
 export default {
-    name:'default-header',
-    components:{
-      TemplateHeader
-    },
-   
+  name: 'default-header',
+  components: {
+    TemplateHeader
+  },
+
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

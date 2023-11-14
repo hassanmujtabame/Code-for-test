@@ -1,4 +1,4 @@
-import LayoutDefault from '@/layouts/affiliate-marketing/index.vue'
+import LayoutDefault from '@/layouts/default/index.vue'
 
 const routers = [
 	{
