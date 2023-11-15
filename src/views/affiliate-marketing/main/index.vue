@@ -1,9 +1,9 @@
 <template>
-    <div style="margin-top: 85px; position: relative;" class="consult">
-        <div >
+    <div style="margin-top: 85px; position: relative;" class="consult row p-5 col-12">
+        <div class="col-3">
             <RightSideBar /> 
         </div>
-        <div class="box" style="border: 2px solid #000">
+        <div class="box col-9" style="border: 2px solid #000">
             <component :is="currentComponent"></component>
         </div>
 
