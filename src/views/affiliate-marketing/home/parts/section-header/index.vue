@@ -17,12 +17,15 @@
                         </li>
                         <li class="nav-item px-2 btn-main  text-center"
                             style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
-                            <router-link class="text-white" :to="getRouteLocale('login-affiliate')"> سجلى دخولك
-                            </router-link>
-
+                            <!-- <router-link class="text-white" :to="getRouteLocale('login-affiliate')">
+                                 سجلى دخولك
+                            </router-link> -->
+                            
+                            <button class="text-white border-0 bg-transparent" @click="showModal">
+                                سجلى دخولك
+                            </button>
+                            <login-dialog ref="modal"></login-dialog>
                         </li>
-                        <button class="btn btn-info" @click="showModal">show modal</button>
-                        <login-dialog ref="modal"></login-dialog>
 
                         <!-- <div class="btn-main-style py-5" style="width: fit-content;">
                             <router-link :to="getRouteLocale('register-affiliate')"
