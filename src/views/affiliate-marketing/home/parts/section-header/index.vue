@@ -4,8 +4,8 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-6">
                     <h1 class="fs-r-56 text-white"> التسويق بالعمولة </h1>
-                    <span data-v-c867e3b8="" class="line" 
-                    style="display: inline-block; width: 80%; background: #fff; height: 2px; margin-bottom: 29px;"></span>
+                    <span data-v-c867e3b8="" class="line"
+                        style="display: inline-block; width: 80%; background: #fff; height: 2px; margin-bottom: 29px;"></span>
                     <p class=" fs-r-24" style="color:#414042; width: 90%;">
                         كونى شريكة رياديات التسويقية من خلال برنامج التسويق بالعمولة وأكسبى مقابل كل عملية تسجيل
                     </p>
@@ -19,7 +19,11 @@
                             style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
                             <router-link class="text-white" :to="getRouteLocale('login-affiliate')"> سجلى دخولك
                             </router-link>
+
                         </li>
+                        <button class="btn btn-info" @click="showModal">show modal</button>
+                        <login-dialog ref="modal"></login-dialog>
+
                         <!-- <div class="btn-main-style py-5" style="width: fit-content;">
                             <router-link :to="getRouteLocale('register-affiliate')"
                             class="btn-default text-black mt-2" style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);"> انشاء حساب</router-link>
@@ -50,8 +54,31 @@
 </template>
 
 <script>
+import LoginDialog from '../login-dialog/index.vue';
+import $ from 'jquery';
+
 export default {
-    name: 'section-header'
+    name: 'section-header',
+    components: {
+        LoginDialog
+    },
+    data() {
+        return {
+            dialog: false,
+        };
+    },
+    methods: {
+        showLoginDialog() {
+            this.dialog = true;
+        },
+        updateDialog(value) {
+            this.dialog = value;
+        },
+        showModal() {
+            let element = this.$refs.modal.$el
+            $(element).modal('show')
+        }
+    },
 }
 </script>
 
