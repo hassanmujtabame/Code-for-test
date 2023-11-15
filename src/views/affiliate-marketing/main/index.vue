@@ -1,10 +1,14 @@
 <template>
     <div style="margin-top: 85px; position: relative;" class="consult row p-5 col-12">
         <div class="col-3">
-            <RightSideBar /> 
+            <RightSideBar @elementName="elementName" />
         </div>
         <div class="box col-9" style="border: 2px solid #000">
-            <component :is="currentComponent"></component>
+            <!-- {{ currentComponent }} -->
+            <transition name="fade" mode="out-in">
+
+                <component :is="currentComponent"></component>
+            </transition>
         </div>
 
     </div>
@@ -12,6 +16,9 @@
 
 <script>
 import Summary from "./summary/index.vue"
+import Referalls from "./referalls/index.vue"
+import Visits from "./visits/index.vue"
+import Deals from "./deals/index.vue"
 import Urls from "./urls/index.vue"
 import RightSideBar from './RightSideBar.vue'
 
@@ -20,6 +27,9 @@ export default {
     components: {
         Summary,
         Urls,
+        Referalls,
+        Visits,
+        Deals,
         RightSideBar
     },
     data: () => ({
@@ -28,7 +38,21 @@ export default {
         itemPage: {},
         currentComponent: 'Summary'
     }),
+    methods: {
+        elementName(payload) {
+            this.currentComponent = payload;
+        }
+    }
 }
 </script>
 
-<style></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}</style>
