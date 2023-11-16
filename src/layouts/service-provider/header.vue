@@ -17,8 +17,8 @@
         {{ userIsRoleProvider ? $t('add-new-service') : $t('add-new-request') }}
       </button>
 
-      <!-- <button @click="switchRole" class="btn m-c">{{ userIsRoleProvider ? $t('switch-to-buyer') : $t('switch-to-provider')
-      }}</button> -->
+      <button @click="switchRole" class="btn m-c">{{ userIsRoleProvider ? $t('switch-to-buyer') : $t('switch-to-provider')
+      }}</button>
     </template>
   </TemplateHeader>
 </template>

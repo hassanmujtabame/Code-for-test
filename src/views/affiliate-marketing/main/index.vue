@@ -3,10 +3,9 @@
         <div class="col-3">
             <RightSideBar @elementName="elementName" />
         </div>
-        <div class="box col-9" style="border: 2px solid #000">
+        <div class="col-9">
             <!-- {{ currentComponent }} -->
             <transition name="fade" mode="out-in">
-
                 <component :is="currentComponent"></component>
             </transition>
         </div>

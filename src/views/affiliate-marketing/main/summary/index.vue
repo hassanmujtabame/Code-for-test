@@ -1,7 +1,7 @@
 <template>
-    <div style="margin-top:200px">
-        <div class="container dashbord">
-            <div class="mt-5">
+    <div>
+        <div class="dashbord">
+            <div>
                 <div class="row">
                     <h1>
                         أخر الانجازات
@@ -10,7 +10,7 @@
                 </div>
                 <SectionBalance />
             </div>
-            <div class="mt-5">
+            <div class="mt-3">
                 <line-chart></line-chart>
             </div>
         </div>
