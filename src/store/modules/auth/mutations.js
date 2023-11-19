@@ -59,7 +59,7 @@ export default {
 		let data = payload;
 		//console.mylog('SET_IS_PROVIDER',state,!!data,state.subscribeProvider)
 		if (data) data = !!data && !!state.subscribeProvider;
-		//console.mylog('SET_IS_PROVIDER',data)
+		console.mylog('SET_IS_PROVIDER',data)
 		state.isProvider = data;
 		localStorage.setItem("user_provider", data ? "Y" : "N");
 	},

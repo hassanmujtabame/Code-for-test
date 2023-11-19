@@ -7,9 +7,14 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
+    isProviderRole: false
 
   },
   mutations: {
+    changeRole(state){
+      state.isProviderRole = !state.isProviderRole
+      return state.isProviderRole
+    }
   },
   actions: {
   },
