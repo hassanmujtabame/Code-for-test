@@ -1,10 +1,10 @@
 <template>
   <div>
-    <template>
+    <template v-if="user">
       <localHeader />
       <MyDrawer />
     </template>
-    <!-- <DefaultHeader v-else /> -->
+    <DefaultHeader v-else />
 
     <main>
       <faqBtn />

@@ -50,7 +50,7 @@ export default {
   methods: {
     openAddWorkSpace() {
       if (this.userPartner) {
-        // console.log('is-user-partner', this.userPartner)
+        console.log('is-user-partner', this.userPartner)
         this.fireOpenDialog("add-dialog");
       } else {
         this.openConfirmDialog()

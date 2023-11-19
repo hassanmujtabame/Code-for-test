@@ -14,7 +14,7 @@
           <p>انشئ حساب جديد وأنضمي الى عالم رياديات</p>
           <ValidationObserver ref="form">
 
-            <ValidationProvider :name="$t('Full-name')" vid="name" rules="required" v-slot="{ errors }" tag="div"
+            <!-- <ValidationProvider :name="$t('Full-name')" vid="name" rules="required" v-slot="{ errors }" tag="div"
               class="mb-3">
               <b-form-input type="text" :placeholder="$t('Full-name')" v-model="form.name" required />
               <div class="text-input-error">{{ errors[0] }}</div>
@@ -24,9 +24,9 @@
               class="mb-3">
               <b-form-input type="email" :placeholder="$t('Email')" v-model="form.email" required />
               <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
+            </ValidationProvider> -->
 
-            <div class="cols-12 d-flex gap-1 mb-3 align-items-start">
+            <!-- <div class="cols-12 d-flex gap-1 mb-3 align-items-start">
 
               <ValidationProvider :name="$t('Phone')" tag="div" class="flex-grow-1" vid="phone"
                 rules="required|numeric|min:10" v-slot="{ errors }">
@@ -43,53 +43,52 @@
                   </option>
                 </d-select-input>
               </ValidationProvider>
-            </div>
+            </div> -->
 
 
             <ValidationProvider :name="$t('id_number')" tag="div" class="flex-grow-1" vid="id_number"
-            rules="required|numeric|min:10" v-slot="{ errors }">
-            <b-form-input type="number" :placeholder="`رقم الهوية الوطنية / الاقامة`" v-model="form.id_number"
-              required />
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+              rules="required|numeric|min:10" v-slot="{ errors }">
+              <b-form-input type="number" :placeholder="`رقم الهوية الوطنية / الاقامة`" v-model="form.id_number"
+                required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
 
 
-          <ValidationProvider :name="$t('region')" vid="region" rules="required" v-slot="{ errors }" tag="div"
-            class="mb-3">
-            <b-form-input type="text" :placeholder="`المنطقة`" v-model="form.region" required />
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+            <ValidationProvider :name="$t('region')" vid="region" rules="required" v-slot="{ errors }" tag="div"
+              class="mb-3">
+              <b-form-input type="text" :placeholder="`المنطقة`" v-model="form.region" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
 
 
-          <ValidationProvider :name="$t('job_status')" vid="job_status" rules="required" v-slot="{ errors }" tag="div"
-            class="mb-3">
-            <b-form-input type="text" :placeholder="`الحالة الوظيفية`" v-model="form.job_status" required />
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+            <ValidationProvider :name="$t('job_status')" vid="job_status" rules="required" v-slot="{ errors }" tag="div"
+              class="mb-3">
+              <b-form-input type="text" :placeholder="`الحالة الوظيفية`" v-model="form.job_status" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
 
 
 
-          <ValidationProvider :name="$t('bank_account')" vid="bank_account" rules="required" v-slot="{ errors }"
-            tag="div" class="mb-3">
-            <b-form-input type="text" :placeholder="`  الحساب البنكي`" v-model="form.bank_account" required />
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+            <ValidationProvider :name="$t('bank_account')" vid="bank_account" rules="required" v-slot="{ errors }"
+              tag="div" class="mb-3">
+              <b-form-input type="text" :placeholder="`  الحساب البنكي`" v-model="form.bank_account" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
 
-          <ValidationProvider :name="$t('bank_name')" vid="bank_name" rules="required" v-slot="{ errors }" tag="div"
-            class="mb-3">
-            <b-form-input type="text" :placeholder="` اسم البنك`" v-model="form.bank_name" required />
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+            <ValidationProvider :name="$t('bank_name')" vid="bank_name" rules="required" v-slot="{ errors }" tag="div"
+              class="mb-3">
+              <b-form-input type="text" :placeholder="` اسم البنك`" v-model="form.bank_name" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
 
-          <ValidationProvider :name="$t('what_you_know')" vid="what_you_know" rules="required" v-slot="{ errors }"
-            tag="div" class="mb-3">
-            <b-form-input type="text" :placeholder="` ماذا تعرف عن رياديات ؟ `" v-model="form.what_you_know"
-              required />
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+            <ValidationProvider :name="$t('what_you_know')" vid="what_you_know" rules="required" v-slot="{ errors }"
+              tag="div" class="mb-3">
+              <b-form-input type="text" :placeholder="` ماذا تعرف عن رياديات ؟ `" v-model="form.what_you_know" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
 
 
-          <ValidationProvider :name="$t('gender')" vid="gender" rules="required" v-slot="{ errors }" tag="div"
+            <!-- <ValidationProvider :name="$t('gender')" vid="gender" rules="required" v-slot="{ errors }" tag="div"
             class="mb-3">
             <select class="form-select mb-3" aria-label="Default select example">
               <option selected disabled>الجنس </option>
@@ -97,32 +96,32 @@
               <option value="female"> أنثى </option>
             </select>
             <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+          </ValidationProvider> -->
 
-          <ValidationProvider :name="$t('reason_for_join')" vid="reason_for_join" rules="required" v-slot="{ errors }"
-            tag="div" class="mb-3">
-            <b-form-input type="text" :placeholder="` سبب انضمامك بالبرنامج؟ `" v-model="form.reason_for_join"
-              required />
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+            <ValidationProvider :name="$t('reason_for_join')" vid="reason_for_join" rules="required" v-slot="{ errors }"
+              tag="div" class="mb-3">
+              <b-form-input type="text" :placeholder="` سبب انضمامك بالبرنامج؟ `" v-model="form.reason_for_join"
+                required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
 
-          <ValidationProvider :name="$t('hours_number')" vid="hours_number" rules="required" v-slot="{ errors }"
-            tag="div" class="mb-3">
-            <b-form-input type="text" :placeholder="` عدد الساعات التي من الممكن تخصصيها للبرنامج بشكل اسبوعي ؟ `"
-              v-model="form.hours_number" required />
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+            <ValidationProvider :name="$t('hours_number')" vid="hours_number" rules="required" v-slot="{ errors }"
+              tag="div" class="mb-3">
+              <b-form-input type="text" :placeholder="` عدد الساعات التي من الممكن تخصصيها للبرنامج بشكل اسبوعي ؟ `"
+                v-model="form.hours_number" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
 
-          <ValidationProvider :name="$t('how_to_convence')" vid="how_to_convence" rules="required" v-slot="{ errors }"
-            tag="div" class="mb-3">
-            <b-form-input type="text" :placeholder="` كيف راح تقنع العملاء بالتسجيل معك ؟ `"
-              v-model="form.how_to_convence" required />
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider>
+            <ValidationProvider :name="$t('how_to_convence')" vid="how_to_convence" rules="required" v-slot="{ errors }"
+              tag="div" class="mb-3">
+              <b-form-input type="text" :placeholder="` كيف راح تقنع العملاء بالتسجيل معك ؟ `"
+                v-model="form.how_to_convence" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
 
 
 
-            <ValidationProvider vid="password" rules="required" :name="$t('Password')" v-slot="{ errors }" tag="div"
+            <!-- <ValidationProvider vid="password" rules="required" :name="$t('Password')" v-slot="{ errors }" tag="div"
               class="mb-3">
               <div class="position-relative">
                 <b-form-input id="password-field" :type="show ? 'text' : 'password'" v-model="form.password"
@@ -131,10 +130,9 @@
                   :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"></span>
               </div>
               <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider> -->
 
-            </ValidationProvider>
-
-            <ValidationProvider vid="passwordConfirm" rules="required" :name="$t('Password-confirm')" v-slot="{ errors }"
+            <!-- <ValidationProvider vid="passwordConfirm" rules="required" :name="$t('Password-confirm')" v-slot="{ errors }"
               tag="div" class="mb-3">
               <div class="position-relative">
                 <b-form-input id="password-register-confirm" :type="showC ? 'text' : 'password'"
@@ -144,19 +142,21 @@
               </div>
               <div class="text-input-error">{{ errors[0] }}</div>
               <span class="text-input-error" v-if="errorPasswordConfirm">{{ errorPasswordConfirm }}</span>
-            </ValidationProvider>
+            </ValidationProvider> -->
 
             <div class="col-12 text-center">
-              <button @click="signup" class="btn btn-main" type="submit"> ارسال </button>
+              <button @click="showModal" class="btn btn-main" type="submit"> ارسال </button>
             </div>
             <div>
-              <p class="py-4">
+              <!-- <p class="py-4">
                 بانشاءك حساب جديد، انت توافق على
                 <router-link :to="getRouteLocale('terms-and-conditions')" class="m-c" target="_blank">شروط الاستخدام
                   وسياسة الخصوصيه
                 </router-link>
-              </p>
+              </p> -->
             </div>
+
+            <sent-dialog ref="modal"></sent-dialog>
           </ValidationObserver>
         </div>
       </b-col>
@@ -164,12 +164,19 @@
         <b-img class="main-img" :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
       </b-col>
     </b-row>
+
   </div>
 </template>
 <script>
+import SentDialog from './sent-dialog/index.vue';
+import $ from 'jquery';
 import commonAPI from "@/services/api/common";
 
 export default {
+  components: {
+    SentDialog
+  },
+
   data: () => ({
     show: false,
     showC: false,
@@ -197,6 +204,16 @@ export default {
     message: ""
   }),
   methods: {
+    showLoginDialog() {
+      this.dialog = true;
+    },
+    updateDialog(value) {
+      this.dialog = value;
+    },
+    showModal() {
+      let element = this.$refs.modal.$el
+      $(element).modal('show')
+    },
     async loadCountries() {
       try {
         let { data } = await commonAPI.getListCountries();
@@ -220,8 +237,11 @@ export default {
         return;
       }
       try {
-        let { data } = await this.$axios.post("user/auth/affiliate-register", this.form);
+        this.showModal()
+        let { data } = await this.$axios.post("affiliates/register", this.form);
+        // console.log('affiliate_data', data)
         if (data.success) {
+          this.showModal();
           window.successMsg(data.message);
           let info = {
             data: data,
@@ -320,4 +340,5 @@ html[lang="en"] .icon-input-end {
   display: block;
   width: 100%;
   height: 100%;
-}</style>
+}
+</style>
