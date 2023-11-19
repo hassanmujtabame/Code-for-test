@@ -3,13 +3,7 @@
     <b-row>
       <b-col xl="7">
         <div class="login-form">
-          <div
-            :style="{ top: '17px', left: $i18n.locale == 'ar' ? 'auto' : '0', right: $i18n.locale !== 'ar' ? 'auto' : '0' }">
-            <h6>
-              لديك حساب بالفعل؟
-              <router-link :to="getRouteLocale('login')" class="m-c">سجل دخولك الان</router-link>
-            </h6>
-          </div>
+
           <h1 class="fw-bolder">مرحبا بك معنا</h1>
           <p>انشئ حساب جديد وأنضمي الى عالم رياديات</p>
           <ValidationObserver ref="form">
@@ -46,9 +40,9 @@
             </div> -->
 
 
-            <ValidationProvider :name="$t('id_number')" tag="div" class="flex-grow-1" vid="id_number"
-              rules="required|numeric|min:10" v-slot="{ errors }">
-              <b-form-input type="number" :placeholder="`رقم الهوية الوطنية / الاقامة`" v-model="form.id_number"
+            <ValidationProvider :name="$t('id_number')" tag="div" class="flex-grow-1 mb-3" vid="id_number"
+              rules="required|numeric" v-slot="{ errors }">
+              <b-form-input type="text" :placeholder="`رقم الهوية الوطنية / الاقامة`" v-model="form.id_number"
                 required />
               <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
@@ -145,7 +139,7 @@
             </ValidationProvider> -->
 
             <div class="col-12 text-center">
-              <button @click="showModal" class="btn btn-main" type="submit"> ارسال </button>
+              <button @click="signup" class="btn btn-main" type="submit"> ارسال </button>
             </div>
             <div>
               <!-- <p class="py-4">
@@ -237,7 +231,6 @@ export default {
         return;
       }
       try {
-        this.showModal()
         let { data } = await this.$axios.post("affiliates/register", this.form);
         // console.log('affiliate_data', data)
         if (data.success) {
@@ -247,6 +240,7 @@ export default {
             data: data,
             form: this.form
           };
+          this.$router.push('affiliate-marketing/home')
           this.$emit("success", info);
         } else {
           this.message = data.message;

@@ -2,8 +2,8 @@
   <div class="register-page">
     <div class="container">
       <RegisterForm @success="afterSuccessForm" v-if="status=='form'" />
-      <RegisterCheck @success="afterSuccessCheck" :dataInfo="dataCheck" v-if="status=='check'" />
-      <RegisterFinish v-if="status=='finish'" :dataInfo="dataFinish" />
+      <!-- <RegisterCheck @success="afterSuccessCheck" :dataInfo="dataCheck" v-if="status=='check'" /> -->
+      <!-- <RegisterFinish v-if="status=='finish'" :dataInfo="dataFinish" /> -->
     </div>
   </div>
 </template>
