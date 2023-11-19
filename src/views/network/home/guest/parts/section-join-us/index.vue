@@ -61,8 +61,8 @@
 </template>
 
 <script>
-import IconForPartner from './icon-partner.vue'
-import IconForNoPartner from './icon-no-partner.vue'
+import IconForPartner from './icon-partner-new.vue'
+import IconForNoPartner from './icon-no-partner-new.vue'
 export default {
   name: "section-join-us",
   components: {
