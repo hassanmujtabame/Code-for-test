@@ -1,22 +1,22 @@
 <template>
-  <div class="sec-color p-0 m-0 sec-one">
-    <div class="img-sec-one" :class="{'rotateY-180':$i18n.locale !=='ar'}">
-      <img class="img-fluid" :src="`${publicPath}assets/img/Group 14510.png`" alt="home-section-background" />
+  <div class="p-0 m-0 sec-one" style="background: var(--color-primary)">
+    <div class="img-sec-one" :class="{ 'rotateY-180': $i18n.locale !== 'ar' }">
+      <img class="img-fluid" src="@/assets/img/Group.png" alt="home-section-background" />
     </div>
-    <div class="container" style="position:relative">
+    <div class="container" style="position:relative" :class="[isMobile ? 'p-3' : 'p-5 pb-0']">
       <div class="row align-items-center pt-5 pb-5">
         <div class="col-xl-7 text">
-          <h1 class="header-title-page">{{ $t('page-home-title') }}</h1>
-          <p class="header-desc-page">{{ $t('page-home-desc') }}</p>
+          <h1 class="header-title-page text-white">{{ $t('page-home-title') }}</h1>
+          <p class="header-desc-page text-white">{{ $t('page-home-desc') }}</p>
           <div class v-if="!isAuthenticated">
-            <button class="btn-customer mx-3" @click="router_push('register')">انضمي الان</button>
-            <router-link custom :to="getRouteLocale('login')" v-slot="{navigate}">
-              <button class="btn-customer-w" @click="navigate">سجلي دخولك</button>
+            <button class="btn-custmer shadow mt-2 " @click="router_push('register')">انضمي الان</button>
+            <router-link custom :to="getRouteLocale('login')" v-slot="{ navigate }">
+              <button class="btn-custmer-w bg-transparent text-white mt-2 mx-3" @click="navigate">سجلي دخولك</button>
             </router-link>
           </div>
         </div>
-        <div class="col-xl-5 circle-img m-auto">
-            <img class="landing" :src="`${publicPath}assets/img/image.png`" alt="Image" />
+        <div style="overflow: hidden; background:rgba(255, 188, 0, 1);" class="img-cons m-auto ">
+          <img src="@/assets/img/main-page.png" alt="" style="height: 300px !important; object-fit: contain !important;">
         </div>
       </div>
     </div>
@@ -27,10 +27,10 @@
 import { mapGetters } from 'vuex'
 export default {
   name: "section-header",
-  computed:{
+  computed: {
     ...mapGetters({
-          isAuthenticated: 'auth/authenticated',
-      })
+      isAuthenticated: 'auth/authenticated',
+    })
   }
 };
 </script>
