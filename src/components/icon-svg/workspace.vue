@@ -1,0 +1,33 @@
+<template>
+    <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg :accent-height="size" :height="size" viewBox="0 5 65 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                <path :fill="color" :stroke="stroke" stroke-width="0.25" 
+                    d="M59,38h-4v-2h-4v2h-8v-4h9c0.6,0,1-0.4,1-1V15c0-0.6-0.4-1-1-1H26c-0.6,0-1,0.4-1,1v18c0,0.6,0.4,1,1,1h9v4H21v-3
+                c0-0.6-0.4-1-1-1h-1v-2h1c0.6,0,1-0.4,1-1v-4c0-0.6-0.4-1-1-1H7c-0.6,0-1,0.4-1,1v3H5c-0.6,0-1,0.4-1,1v4c0,0.6,0.4,1,1,1h1v2H1
+                c-0.6,0-1,0.4-1,1v5v16h2V45h2v15h2V45h48v15h2V45h2v15h2V44v-5C60,38.4,59.6,38,59,38z M51,16v11H27V16H51z M27,29h24v3h-9h-6h-9
+                V29z M37,34h4v4h-4V34z M8,28h11v2h-1H8V28z M6,32h1h10v2H7H6V32z M8,36h10h1v2H8V36z M55,43H5H2v-3h5h13h16h6h16v3H55z" />
+                <path :fill="color" :stroke="stroke" stroke-width="0.25"  d="M6,18h14c0.6,0,1-0.4,1-1v-6c0-2.2-1.8-4-4-4h-3V0h-2v7H9c-2.2,0-4,1.8-4,4v6C5,17.6,5.4,18,6,18z M9,9h8c1.1,0,2,0.9,2,2
+                v5H7v-2h5v-2H7v-1C7,9.9,7.9,9,9,9z" />
+
+    </svg>
+</template>
+<script>
+export default {
+    name: 'd-workspace-icon',
+    props: {
+    size: {
+      type: [String, Number],
+      default: 48
+    },
+    color: {
+      type: String,
+      default: '#1FB9B3'
+    },
+    stroke: {
+      type: String,
+      default: '#737373'
+    }
+  }
+}
+</script>
