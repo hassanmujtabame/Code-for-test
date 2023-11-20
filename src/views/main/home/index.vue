@@ -27,7 +27,7 @@
     <!--section hear about us-->
     <SectHearAboutUs />
     <!-- section 8-->
-    <SectBlog v-if="false" />
+    <SectBlog v-if="true" />
     <!-- #section 8-->
   </div>
 </template>

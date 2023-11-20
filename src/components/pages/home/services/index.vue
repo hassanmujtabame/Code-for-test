@@ -27,7 +27,6 @@
           reference="servProvider"
         >
           <HeartSVG />
-
           {{ $t("service-providers") }}
         </TabHead>
 
