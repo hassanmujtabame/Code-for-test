@@ -14,6 +14,7 @@
     <SectConsultingRiadiat />
     <!-- #section 4-->
     <SectionTopCoupons />
+    <SectionMembership />
     <!-- section 5 -->
     <SectTrainingCourses />
     <!-- #section 5-->
@@ -41,6 +42,7 @@ import SectPartnerRiadiat from "./parts/section-partners/index.vue";
 import SectAboutUs from "./parts/section-about-us/index.vue";
 import SectHearAboutUs from "./parts/section-hear-about-us/index.vue";
 import SectionTopCoupons from './parts/section-top-coupons/index.vue'
+import SectionMembership from './parts/section-membership/index.vue'
 
 // import SectionBlog from './parts/section-blog/index.vue'
 import SectionCoupons from './parts/section-coupons'
@@ -71,7 +73,8 @@ export default {
     SectBlog,
     SectHearAboutUs,
     SectionCoupons,
-    SectionTopCoupons
+    SectionTopCoupons,
+    SectionMembership
   },
   data: () => ({}),
 };
