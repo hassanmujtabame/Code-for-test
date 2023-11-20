@@ -13,6 +13,7 @@
     <!-- section 4 -->
     <SectConsultingRiadiat />
     <!-- #section 4-->
+    <SectionTopCoupons />
     <!-- section 5 -->
     <SectTrainingCourses />
     <!-- #section 5-->
@@ -39,6 +40,11 @@ import SectTrainingCourses from "@/components/pages/home/training-courses/index.
 import SectPartnerRiadiat from "./parts/section-partners/index.vue";
 import SectAboutUs from "./parts/section-about-us/index.vue";
 import SectHearAboutUs from "./parts/section-hear-about-us/index.vue";
+import SectionTopCoupons from './parts/section-top-coupons/index.vue'
+
+// import SectionBlog from './parts/section-blog/index.vue'
+import SectionCoupons from './parts/section-coupons'
+
 import SectBlog from "./parts/section-blog/index.vue";
 export default {
   name: "IndexView",
@@ -64,6 +70,8 @@ export default {
     SectAboutUs,
     SectBlog,
     SectHearAboutUs,
+    SectionCoupons,
+    SectionTopCoupons
   },
   data: () => ({}),
 };
