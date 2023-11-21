@@ -429,6 +429,7 @@ nav .lang {
 
 .nav-pills .nav-link.active svg {
     color: white;
+    fill: white !important;
 }
 
 .nav-pills .nav-link svg {

@@ -38,7 +38,7 @@ export default {
     },
     afterSuccessCheck(/*evt*/) {
       /*this.dataFinish= evt*/
-      window.SwalSuccess("تم تفيعل حسابك بنجاح");
+      window.SwalSuccess("تم تفعيل حسابك بنجاح");
       this.status = "form";
     }
   },

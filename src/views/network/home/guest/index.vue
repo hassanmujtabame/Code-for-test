@@ -9,6 +9,9 @@
             <SectionGrowYourNetwork />
             <!--section network's goals-->
             <SectionNetworkGoals />
+
+            <SectionOurAds />
+
             <!--معسكر ريادة الاعمال-->
             <SectionCampLeadership v-if="false"/>
             </div>
@@ -63,11 +66,13 @@ import SectionAds from '@/common/components/advertisements/index'
 import SectionNetworkGoals from './parts/section-network-goals/index.vue'
 import SectionCampLeadership from './parts/cam-leadership/index.vue'
 import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
+import SectionOurAds from './parts/section-our-ads/index.vue'
+
 export default {
 name:'IndexPageGuest',
 components:{
     SectionHeader,
-
+    SectionOurAds,
     SectionThree,
     SectionMembership,
     SectionSchedules,

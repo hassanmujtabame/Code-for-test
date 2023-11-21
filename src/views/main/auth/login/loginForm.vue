@@ -111,6 +111,9 @@ export default {
           let pin_code = data.data.pin_code;
           this.$emit("change-form", { data: { pin_code }, form: { email } });
           window.successMsg(data.message);
+          console.log('testlogin', data.message)
+          // window.history.back()
+
         } else {
           window.errorMsg(data.message);
         }
