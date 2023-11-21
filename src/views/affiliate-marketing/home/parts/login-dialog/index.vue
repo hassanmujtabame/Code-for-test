@@ -127,12 +127,13 @@ export default {
                     let { token, ...user } = data.data;
                     window.store.commit("auth/SET_TOKEN", token);
                     window.store.commit("auth/SET_USER", user);
-                    window.store.commit("auth/SET_IS_PROVIDER", user.subscribers.service_provider.subscribe);
+                    // window.store.commit("auth/SET_IS_PROVIDER", user.subscribers.service_provider.subscribe);
                     window.store.commit("auth/ACADEMY_ROLE", "student");
                     let element = document.getElementById('exampleModal');
                     $(element).modal('hide')
                     this.$router.push({ name: "affiliate-marketing-dashboard" })
-                } else {
+                } 
+                else {
                     if (data.data.type == "verify_code") {
                         this.verifyCode = true;
                     }
