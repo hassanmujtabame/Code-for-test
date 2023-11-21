@@ -5,9 +5,11 @@
         </div>
         <div class="col-9">
             <!-- {{ currentComponent }} -->
-            <transition name="fade" mode="out-in">
-                <component :is="currentComponent"></component>
-            </transition>
+            <div class="container">
+                <transition name="fade" mode="out-in">
+                    <component :is="currentComponent"></component>
+                </transition>
+            </div>
         </div>
 
     </div>
@@ -54,4 +56,5 @@ export default {
 .fade-enter,
 .fade-leave-to {
     opacity: 0;
-}</style>
+}
+</style>

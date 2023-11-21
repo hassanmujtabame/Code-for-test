@@ -20,7 +20,7 @@
                             <!-- <router-link class="text-white" :to="getRouteLocale('login-affiliate')">
                                  سجلى دخولك
                             </router-link> -->
-                            
+
                             <button class="text-white border-0 bg-transparent" @click="showModal">
                                 سجلى دخولك
                             </button>
