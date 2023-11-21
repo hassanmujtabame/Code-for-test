@@ -15,40 +15,20 @@
             <ValidationObserver ref="loginForm">
 
               <!-- Start Email -->
-              <ValidationProvider
-                vid="email"
-                rules="required|email"
-                :name="$t('Email')"
-                v-slot="{ errors }"
-                tag="div"
-                class="mb-3"
-              >
+              <ValidationProvider vid="email" rules="required|email" :name="$t('Email')" v-slot="{ errors }" tag="div"
+                class="mb-3">
                 <b-form-input type="text" :placeholder="$t('Email')" v-model="form.email" required />
                 <div class="text-input-error">{{ errors[0] }}</div>
               </ValidationProvider>
               <!-- End Email -->
 
               <!-- Start Password -->
-              <ValidationProvider
-                vid="password"
-                rules="required"
-                :name="$t('Password')"
-                v-slot="{ errors }"
-                tag="div"
-              >
+              <ValidationProvider vid="password" rules="required" :name="$t('Password')" v-slot="{ errors }" tag="div">
                 <div class="position-relative">
-                  <b-form-input
-                    id="password-field"
-                    :type="show ? 'text' : 'password'"
-                    v-model="form.password"
-                    class="form-control"
-                    :placeholder="$t('Password')"
-                  />
-                  <span
-                    @click="show = !show"
-                    class="icon-input-end fa-regular position-absolute"
-                    :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"
-                  ></span>
+                  <b-form-input id="password-field" :type="show ? 'text' : 'password'" v-model="form.password"
+                    class="form-control" :placeholder="$t('Password')" />
+                  <span @click="show = !show" class="icon-input-end fa-regular position-absolute"
+                    :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"></span>
                 </div>
                 <div class="text-input-error">{{ errors[0] }}</div>
               </ValidationProvider>
@@ -59,10 +39,7 @@
                   <input class="form-check-input" type="checkbox" value id="flexCheckDefault" />
                   <label class="form-check-label" for="flexCheckDefault">{{ $t('rememberme') }}</label>
                 </div>
-                <router-link
-                  :to="getRouteLocale('forget-password')"
-                  class="m-c"
-                >{{ $t('forgot_password') }}</router-link>
+                <router-link :to="getRouteLocale('forget-password')" class="m-c">{{ $t('forgot_password') }}</router-link>
               </div>
 
               <div v-if="verifyCode" class="alert alert-danger mt-2" role="alert">
@@ -70,11 +47,7 @@
               </div>
 
               <div class="text-center mt-5">
-                <button
-                  class="btn btn-main-v py-2 px-5"
-                  role="button"
-                  @click="login"
-                >{{ $t('login') }}</button>
+                <button class="btn btn-main-v py-2 px-5" role="button" @click="login">{{ $t('login') }}</button>
               </div>
             </ValidationObserver>
           </div>
@@ -132,19 +105,21 @@ export default {
         let { data } = await this.$axios.post("user/auth/login", this.form);
         if (data.success) {
           window.successMsg();
+          console.log('test', data.data)
+          window.history.back();
           let { token, ...user } = data.data;
           window.store.commit("auth/SET_TOKEN", token);
           window.store.commit("auth/SET_USER", user);
           window.store.commit("auth/SET_IS_PROVIDER", user.subscribers.service_provider.subscribe);
           window.store.commit("auth/ACADEMY_ROLE", "student");
-          window.location.reload();
         } else {
           if (data.data.type == "verify_code") {
             this.verifyCode = true;
           }
         }
         this.$refs.loginForm.reset();
-      } catch (error) {
+      } 
+      catch (error) {
         let response = error.response;
         window.errorMsg(response.data.message);
         if (response.status == 422) {
@@ -159,9 +134,11 @@ export default {
 .login-form {
   padding: 2em;
 }
+
 .no-have-account {
   text-align: end;
 }
+
 .form {
   padding-top: 2.5rem;
 }
@@ -175,6 +152,7 @@ html[lang="en"] .icon-input-end {
   left: auto;
   right: 15px;
 }
+
 .form-control {
   padding: 0.5rem 0.75rem;
 }

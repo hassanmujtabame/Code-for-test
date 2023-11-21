@@ -34,6 +34,7 @@ export default {
   methods: {
     afterSuccessForm(evt) {
       this.dataCheck = evt;
+      console.log('form-test', evt)
       this.status = "resend-code";
     },
     afterSuccessCheck(/*evt*/) {
