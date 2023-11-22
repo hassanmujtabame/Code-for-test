@@ -1,54 +1,57 @@
 <template>
-   <div style="" class="consult">
-        <!-- section header -->
-        <SectionHeader />
-        <!-- #section Header -->
-        <!-- section 2-->
-        <div class="container mt-5">
-    <!-- شبكة رياديات: وسع دائرة معارفك-->
-            <SectionGrowYourNetwork />
-            <!--section network's goals-->
-            <SectionNetworkGoals />
+  <div style="" class="consult">
+    <!-- section header -->
+    <SectionHeader />
+    <!-- #section Header -->
+    <!-- section 2-->
+    
+    <div class="container mt-5">
+      <!-- شبكة رياديات: وسع دائرة معارفك-->
+      <SectionGrowYourNetwork />
+      <!--section network's goals-->
+      <SectionNetworkGoals />
 
-            <SectionOurAds />
+      <SectionOurAds />
 
-            <!--معسكر ريادة الاعمال-->
-            <SectionCampLeadership v-if="false"/>
-            </div>
-            <div class=" mt-5">
-        <SectionAds department="network" url="network/home-banners" />
-        </div>
-        
-        <!-- #section 2-->
-         <!-- section 3-->
-         <SectionThree/>
-        <!-- #section 3-->
-        <!-- section 4-->
-        <SectionMembership />
-        <SectionSchedules />
-        <!-- #section 4-->
-        <!-- section 5-->
-        <SectionTopMember />
-        <!-- #section 5-->
-        <!-- section subscribe-->
-        <SectionPartners />
-        <!-- #section subscribe-->
-          <!-- section join us-->
-          <SectionJoin />
-        <!-- #section join us-->
-       <!-- section numbers in network-->
-       <SectionNumbers />
-        <!-- #section numbers in network-->
-       <!-- section influenceurs -->
-       <SectioninFluenceurs />
-       <!-- #section influenceurs -->
-     <!-- section continue learning -->
-     <SectionContinueLearning />
-       <!-- #section continue learning -->
-      <!-- section hear about us -->
-      <SectionHear />
-       <!-- #section hear about us -->
-</div>
+      <!--معسكر ريادة الاعمال-->
+      <SectionCampLeadership v-if="false" />
+    </div>
+
+
+    <div class=" mt-5">
+      <SectionAds department="network" url="network/home-banners" />
+    </div>
+
+    <!-- #section 2-->
+    <!-- section 3-->
+    <SectionThree />
+    <!-- #section 3-->
+    <!-- section 4-->
+    <SectionMembership />
+    <SectionSchedules />
+    <!-- #section 4-->
+    <!-- section 5-->
+    <SectionTopMember />
+    <!-- #section 5-->
+    <!-- section subscribe-->
+    <SectionPartners />
+    <!-- #section subscribe-->
+    <!-- section join us-->
+    <SectionJoin />
+    <!-- #section join us-->
+    <!-- section numbers in network-->
+    <SectionNumbers />
+    <!-- #section numbers in network-->
+    <!-- section influenceurs -->
+    <SectioninFluenceurs />
+    <!-- #section influenceurs -->
+    <!-- section continue learning -->
+    <SectionContinueLearning />
+    <!-- #section continue learning -->
+    <!-- section hear about us -->
+    <SectionHear />
+    <!-- #section hear about us -->
+  </div>
 </template>
 <script>
 import SectionHeader from './parts/section-header/index.vue';
@@ -69,8 +72,8 @@ import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
 import SectionOurAds from './parts/section-our-ads/index.vue'
 
 export default {
-name:'IndexPageGuest',
-components:{
+  name: 'IndexPageGuest',
+  components: {
     SectionHeader,
     SectionOurAds,
     SectionThree,
@@ -85,25 +88,25 @@ components:{
     SectionHear,
     SectionAds,
     SectionGrowYourNetwork,
-  SectionNetworkGoals,
-  SectionCampLeadership
-},
-methods:{
-        loadJS(src,async=true,defer=false){
-          const plugin = document.createElement("script");
-          plugin.setAttribute(
-          "src",
-          src
-        );
-        if(defer)
-        plugin.setAttribute("defer",true)
-        plugin.async = async;
-        document.body.appendChild(plugin);
-        }
-      },
-created(){
-    
-}
+    SectionNetworkGoals,
+    SectionCampLeadership
+  },
+  methods: {
+    loadJS(src, async = true, defer = false) {
+      const plugin = document.createElement("script");
+      plugin.setAttribute(
+        "src",
+        src
+      );
+      if (defer)
+        plugin.setAttribute("defer", true)
+      plugin.async = async;
+      document.body.appendChild(plugin);
+    }
+  },
+  created() {
+
+  }
 }
 </script>
 

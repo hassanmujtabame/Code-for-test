@@ -1,6 +1,7 @@
 <template>
   <div class="provider-card" >
     <div class="provider-card__wrapper">
+      <span class="jop_tilte">سفيره</span>
       <div class="provider-card__image mb-4">
         <router-link v-if="to" :to="to"> 
           <img :src="img" alt width="259" height="162" />
@@ -68,6 +69,21 @@ export default {
 </script>
 
 <style scoped>
+
+span.jop_tilte {
+  position: absolute;
+  background: #F55B00;
+  color: white;
+  padding: 5px;
+  width: 80px;
+  font-size: 22px;
+  right: 20px;
+  top: 20px;
+  border-radius: 5px;
+}
+.consultant {
+  background: #ffc107 !important;
+}
 .provider-card {
   --raduis-provider: 11px;
   padding: 5px;

@@ -2,19 +2,46 @@
   <div style="" class="consult">
     <!--section header-->
     <SectionHeader />
-    <!-- members of network-->
-    <SectionMemeberNetwork />
+
+
+    <div class="container mt-5">
+      <!-- شبكة رياديات: وسع دائرة معارفك-->
+      <SectionGrowYourNetwork />
+      <!--section network's goals-->
+      <SectionNetworkGoals />
+
+      <SectionOurAds />
+
+      <!--معسكر ريادة الاعمال-->
+      <SectionCampLeadership v-if="false" />
+    </div>
+
+    <div class=" mt-5">
+      <SectionAds department="network" url="network/home-banners" />
+    </div>
+    <!-- section 3-->
+    <SectionThree />
+    <!-- #section 3-->
+    <!-- section 4-->
+    <SectionMembership />
     <!--schedule network-->
     <SectionScheduleNework />
+    <!-- members of network-->
+    <!-- <SectionMemeberNetwork /> -->
+
+    <SectionTopMember />
+
     <!-- Educational meeting -->
-    <SectionEducationalMeeting />
+    <!-- <SectionEducationalMeeting /> -->
 
     <!--investment projects-->
     <SectionInvestementProject v-if="user.id == 11" />
     <!--exhibitions-->
     <SectionExhibitions />
 
-    <div class="container mt-5">
+
+
+    <!-- <div class="container mt-5">
       <div class="row">
         <div class="col-md-6">
           <div @click="checkSub" class="box clickable">
@@ -42,12 +69,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--قصص نجاح-->
-    <SectionStory />
+
+    <!-- <SectionStory /> -->
+
     <!--نماذج رياديات -->
-    <SectionModels />
-    <div class="main-top py-2 position-relative mt-5" :class="{ 'px-5': !isMobile, 'px-3': isMobile }">
+    <!-- <SectionModels /> -->
+
+    <!-- <div class="main-top py-2 position-relative mt-5" :class="{ 'px-5': !isMobile, 'px-3': isMobile }">
       <div class="row align-items-center m-auto">
         <div class="box col-12 col-md-6">
           <h1 class="text-white fw-bolder" :class="{ 'fs-2': !isMobile, 'fs-6': isMobile }">
@@ -88,13 +118,15 @@
       <div class="star-big position-absolute">
         <img class="landing" :src="`${publicPath}assets/svg/star-big.svg`" alt="" />
       </div>
-    </div>
+    </div> -->
 
     <!-- شركائنا-->
     <SectionPartner />
     <!-- تشاركينا ؟-->
     <SectionJoinUs v-if="!userPartner" />
+
     <SectionPodcast />
+
     <SectionWorkspace />
     <!--مدونات-->
     <SectionBlogs />
@@ -105,6 +137,16 @@
 </template>
 
 <script>
+import SectionAds from '@/common/components/advertisements/index'
+import SectionThree from './parts/section-3/index.vue';
+import SectionMembership from './parts/section-membership/index.vue';
+import SectionTopMember from './parts/section-top-members/index.vue';
+
+import SectionNetworkGoals from './parts/section-network-goals/index.vue'
+import SectionCampLeadership from './parts/cam-leadership/index.vue'
+import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
+import SectionOurAds from './parts/section-our-ads/index.vue'
+
 import SectionWorkspace from "./parts/section-workspace"
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionPodcast from "./parts/section-podcast/index.vue";
@@ -138,6 +180,15 @@ export default {
     SectionModels,
     SectionMemeberNetwork,
     SectionJoinUs,
+    SectionOurAds,
+    SectionGrowYourNetwork,
+    SectionNetworkGoals,
+    SectionCampLeadership,
+    SectionAds,
+    SectionThree,
+    SectionMembership,
+    SectionTopMember
+
   },
   data: () => {
     return {
