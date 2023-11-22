@@ -37,7 +37,6 @@
           this.loading = true;
           try {
               let {data} =  await commonAPI.getOpinions({department_name:'academy'})
-              //console.log(data)
               if(data.success){
                   this.items =data.data
               }else{

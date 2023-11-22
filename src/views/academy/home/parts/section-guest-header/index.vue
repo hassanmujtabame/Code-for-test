@@ -13,8 +13,8 @@
                              </div> 
                     </div>
                     <div class="col-3 col-md-6 m-auto" style="margin-bottom: 0 !important;">
-                        <div style="overflow: inherit;" class="img-cons m-auto ">
-                            <img  :src="`${publicPath}assets/img/Group 1171276207.png`" alt="academy-home" style="object-fit: contain !important;">
+                        <div style="overflow: hidden; background:rgba(255, 188, 0, 1); " class="img-cons m-auto ">
+                            <img  src="@/assets/img/main-page.png" alt="academy-home" style="object-fit: contain !important;">
                         </div>
 
                     </div>
