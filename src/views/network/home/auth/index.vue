@@ -122,18 +122,18 @@
 
     <!-- شركائنا-->
     <SectionPartner />
+    
+    <!-- تشاركينا ؟-->
+    <SectionJoinUs v-if="!userPartner" />
 
     <SectionNumbers />
     <SectioninFluenceurs />
 
-    <!-- تشاركينا ؟-->
-    <SectionJoinUs v-if="!userPartner" />
 
-    <SectionPodcast />
-
-    <SectionWorkspace />
+    <!-- <SectionPodcast /> -->
+    <!-- <SectionWorkspace /> -->
     <!--مدونات-->
-    <SectionBlogs />
+    <!-- <SectionBlogs /> -->
 
     <SectionContinueLearning />
     <SectionHear />
