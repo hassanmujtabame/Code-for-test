@@ -122,6 +122,10 @@
 
     <!-- شركائنا-->
     <SectionPartner />
+
+    <SectionNumbers />
+    <SectioninFluenceurs />
+
     <!-- تشاركينا ؟-->
     <SectionJoinUs v-if="!userPartner" />
 
@@ -141,12 +145,12 @@ import SectionAds from '@/common/components/advertisements/index'
 import SectionThree from './parts/section-3/index.vue';
 import SectionMembership from './parts/section-membership/index.vue';
 import SectionTopMember from './parts/section-top-members/index.vue';
-
+import SectioninFluenceurs from './parts/section-influenceurs/index.vue';
 import SectionNetworkGoals from './parts/section-network-goals/index.vue'
 import SectionCampLeadership from './parts/cam-leadership/index.vue'
 import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
 import SectionOurAds from './parts/section-our-ads/index.vue'
-
+import SectionNumbers from './parts/section-numbers/index.vue';
 import SectionWorkspace from "./parts/section-workspace"
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionPodcast from "./parts/section-podcast/index.vue";
@@ -170,7 +174,8 @@ export default {
   components: {
     SectionWorkspace,
     SectionPartner,
-    SectionBlogs,
+    SectionBlogs,   
+    SectionNumbers,
     SectionPodcast,
     SectionHear,
     SectionContinueLearning,
@@ -190,6 +195,7 @@ export default {
     SectionAds,
     SectionThree,
     SectionMembership,
+    SectioninFluenceurs,
     SectionTopMember
 
   },
