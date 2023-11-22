@@ -1,7 +1,7 @@
 <template>
   <div class="network-subscribe network-subscribe-custom2 p-3 mt-5">
     <h2 class="home-section-title text-center">
-      شركائنا في أكاديمية رياديات
+      شركائنا في شبكة رياديات
     </h2>
     <div class=" ">
       <DTabs group="pills" :current.sync="currentTab">
@@ -36,6 +36,7 @@ import DTabs from '@/components/tabs/DTabs.vue'
 
 import TabContentItem from './tab-content/index.vue'
 import partnersAPI from '@/services/api/academy/partners.js'
+import partnersNetworkAPI from '@/services/api/partners.js'
 export default {
   name: 'section-partners',
   components: {
@@ -48,6 +49,7 @@ export default {
     currentTab: '',
     loading: true,
     categories: [],
+    categorizedData: []
   }),
   methods: {
 
@@ -55,7 +57,36 @@ export default {
       this.loading = true;
       try {
         let { data } = await partnersAPI.getAll();
+
+        let networkData = await partnersNetworkAPI.getAll();
+
+        // let categorizedData = networkData.data.data.reduce(function (obj, item) {
+        //   obj[item.categoryName] = obj[item.categoryName] || [];
+        //   obj[item.categoryName].push(item);
+        //   return obj;
+        // }, {});
+
+
+        let categorizedData = networkData.data.data.reduce(function (obj, item) {
+          obj[item.categoryName] = obj[item.categoryName] || [];
+          obj[item.categoryName].push(item);
+          return obj;
+        }, {});
+
+        let resultArray = Object.keys(categorizedData).map(function (key) {
+          return { categoryName: key, instructors: categorizedData[key][0] };
+        });
+
+        
+        this.categorizedData = resultArray
+        
+        console.log('resultArray',resultArray);
+
+        console.log('categorizedData', categorizedData);
+
         console.log('academy', data.data)
+
+
         if (data.success) {
           this.categories = data.data
         }

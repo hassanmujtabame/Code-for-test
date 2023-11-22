@@ -156,7 +156,10 @@ import SectionScheduleNework from "../guest/parts/section-schedules/index.vue";
 import SectionEducationalMeeting from "./parts/section-educational-meeting/index.vue";
 import SectionMemeberNetwork from "./parts/section-member-network/index.vue";
 import SectionStory from "./parts/section-successful-story/index.vue";
-import SectionPartner from "./parts/section-partners/index.vue";
+
+// import SectionPartner from "./parts/section-partners/index.vue";
+import SectionPartner from "./parts/section-our-partners/index.vue";
+
 import SectionModels from "./parts/section-models/index.vue";
 import SectionHear from "../guest/parts/section-hear/index.vue";
 import SectionContinueLearning from "../guest/parts/section-continue-learning/index.vue";

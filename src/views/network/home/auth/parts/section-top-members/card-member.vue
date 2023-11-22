@@ -1,45 +1,33 @@
 <template>
-  <div class="provider-card" >
+  <div class="provider-card">
     <div class="provider-card__wrapper">
+      <span class="jop_tilte">سفيره</span>
       <div class="provider-card__image mb-4">
-        <router-link v-if="to" :to="to"> 
+        <router-link v-if="to" :to="to">
           <img :src="img" alt width="259" height="162" />
         </router-link>
         <img v-else @click="$emit('click-image')" :src="img" alt width="259" height="162" />
       </div>
-      <div class="provider-card__content" :class="{ 'h-job': showJob}"  style=" display: flex; flex-direction: column; justify-content: space-between;">
+      <div class="provider-card__content" :class="{ 'h-job': showJob }"
+        style=" display: flex; flex-direction: column; justify-content: space-between;">
         <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
-        <p class="provider-card__description t-c">{{description}} </p>
-        <div v-if="countCourse" class="provider-card__description t-c d-flex align-items-center pb-2">
-          
-          <img :src="`${publicPath}assets/svg/MyIcon.svg`"  /> 
-          <span >{{countCourse}}  دورة تدريبية </span>
-          </div>
-            <div v-if="!countCourse" class="provider-card__description t-c d-flex align-items-center pb-2">
-          
-       
-          </div>
-        <div v-if="showRate">
-          <RateStars :value="rate" :size="12" />
-        </div>
+        <p class="provider-card__description t-c">{{ description }} </p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import RateStars from "../rate-stars/index";
 export default {
   name: "card-parson",
   components: {
-    RateStars
   },
   props: {
     showRate: {
       type: Boolean,
       default: false
     },
-      showJob: {
+    showJob: {
       type: Boolean,
       default: false
     },
@@ -56,7 +44,7 @@ export default {
     description: {
       type: String
     },
-    countCourse:{
+    countCourse: {
       type: [String, Number],
     },
     rate: {
@@ -68,6 +56,21 @@ export default {
 </script>
 
 <style scoped>
+span.jop_tilte {
+  position: absolute;
+  background: #F55B00;
+  color: white;
+  padding: 5px;
+  width: 80px;
+  font-size: 22px;
+  right: 20px;
+  top: 20px;
+  border-radius: 5px;
+}
+
+.consultant {
+  background: #ffc107 !important;
+}
 
 .provider-card {
   --raduis-provider: 11px;
@@ -85,7 +88,7 @@ export default {
   border-radius: 11px;
   /*border:0.5px solid #f2f2f2;*/
   border: 1px solid #cdd7d8;
-      background: white;
+  background: white;
 
 }
 
@@ -95,9 +98,9 @@ export default {
 
 .provider-card__image {
   /*border-radius: 100%;*/
-    width: 100%;
-    height: 100%;
-    margin: auto;
+  width: 100%;
+  height: 100%;
+  margin: auto;
   overflow: hidden;
 }
 
@@ -149,14 +152,14 @@ export default {
   font-size: 20px;
   line-height: 24px;
   /* identical to box height, or 120% */
-height: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
   text-transform: capitalize;
 }
-.h-job{
+
+.h-job {
   height: 115px;
-}
-</style>
+}</style>

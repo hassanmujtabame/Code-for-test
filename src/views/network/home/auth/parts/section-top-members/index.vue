@@ -19,7 +19,7 @@
 
 <script>
 import memberAPI from '@/services/api/members'
-import CardMember from '@/components/cards/card-member.vue'
+import CardMember from './card-member.vue'
 export default {
   name: 'section-5',
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 85px " class="consult">
+  <div style="margin-top: 85px ">
     <auth-page v-if="token" />
     <GuestPage v-else />
           <faqBtn/>
@@ -28,8 +28,5 @@ components:{
 </script>
 
 <style>
-.consult{
-  /* width:100vw; */
-  overflow-x: hidden;
-}
+
 </style>
