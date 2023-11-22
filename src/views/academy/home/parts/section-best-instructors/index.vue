@@ -11,18 +11,15 @@
           </button>
         </div>
       </div>
-      <d-swiper v-if="!loading" :slides-per-view="5" is-auto :space-between="2" :items="items" :loop='true'
-        class="academy-departments">
+      <div class="container">
 
-        <template v-slot:default="{ item }">
+        <d-swiper v-if="!loading" :slides-per-view="4" is-auto :space-between="10" :items="items">
+          <template v-slot:default="{ item }">
+            <CardMember :countCourse="item.countCourse"  :name="item.name" :img="item.image" :to="getRouteLocale('academy-show-profile', { id: item.id })" />
+          </template>
+        </d-swiper>
 
-          <CardMember :to="getRouteLocale('academy-show-profile', { id: item.id })" :name="item.name"
-            :countCourse="item.countCourse" :img="item.image" />
-
-
-
-        </template>
-      </d-swiper>
+      </div>
     </div>
   </div>
 </template>
