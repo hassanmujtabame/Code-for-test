@@ -72,7 +72,7 @@ svg {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    padding: 8px;
+    padding: 5px;
     background-color: #fff;
 }
 </style>
