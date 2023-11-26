@@ -1,9 +1,10 @@
 <template>
-    <div style="margin-top: 85px" class="consult">
+    <div style="margin-top: 85px; overflow-x: hidden; overflow-y: hidden" class="consult">
         <!--section-header-->
         <SectionHeader />
         <SectionIntro />
         <SectionFeatures />
+        <SectionChoseUs />
         <SectionHowWorkProgram />
         <SectionJoin />
         <div v-if="token">
@@ -22,6 +23,7 @@
 
 <script>
 import SectionHeader from './parts/section-header/index.vue'
+import SectionChoseUs from './parts/section-chose-us/index.vue'
 import SectionJoin from './parts/section-join/index.vue'
 import SectionIntro from './parts/section-intro/index.vue'
 import SectionHowWorkProgram from './parts/section-how-work-program/index.vue'
@@ -45,6 +47,7 @@ export default {
         itemPage: {}
     }),
     components: {
+        SectionChoseUs,
         SectionJoin,
         SectionHeader,
         SectionIntro,
@@ -79,4 +82,6 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+
+</style>
