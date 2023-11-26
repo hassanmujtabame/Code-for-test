@@ -1,3 +1,225 @@
 <template>
-    <h1 style="margin:200px;">test urls</h1>
+    <div>
+        <div class="dashbord">
+            <div>
+                <div class="row">
+                    <h1>
+                        توليد الروابط
+                    </h1>
+                </div>
+
+                <div class="row mb-3" style="padding: 0 10px;">
+                    <div class="col-12 d-flex justify-content-between">
+                        <div class="col-4 row justify-content-between">
+                            <button class="text-white border-0 col-5"
+                                style="border-radius : 5px; box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; display: flex; justify-content: center; align-items: center; background-color: #2DB7B3">
+                                انشاء رابط
+                            </button>
+                            <button class="text-white border-0 col-5"
+                                style="border-radius : 5px; box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; display: flex; justify-content: center; align-items: center; background-color: #2DB7B3">
+                                الصفحه
+                            </button>
+
+                        </div>
+                        <div class="col-8 row justify-content-between">
+                            <span class="col-8" style="
+                                border: 1px solid #6666663d;
+                                border-radius : 5px; 
+                                box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.125); 
+                                padding:10px; height:auto; 
+                                display: flex; 
+                                justify-content: center; 
+                                align-items: center;">
+                                demo.riadiat.com
+                            </span>
+                            <span class="col-3" style="
+                                border: 1px solid #6666663d;
+                                border-radius : 5px; 
+                                box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.125); 
+                                padding:10px; height:auto; 
+                                display: flex; 
+                                justify-content: center; 
+                                align-items: center;">
+                                نسخ الرابط
+                                <svg style="margin-right: 5px;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M15.4653 4.62026L11.3995 0.343277C11.2585 0.195564 11.063 0.111328 10.8586 0.111328H2.24205C1.41844 0.111328 0.75 0.779766 0.75 1.60338V6.82555C0.75 7.23735 1.08422 7.57157 1.49602 7.57157C1.90858 7.57157 2.24205 7.23735 2.24205 6.82555V2.3494C2.24205 1.9376 2.57627 1.60338 2.98807 1.60338H9.70229V4.58747C9.70229 5.41183 10.3707 6.07952 11.1943 6.07952H14.1784V6.82555C14.1784 7.23735 14.5127 7.57157 14.9245 7.57157C15.337 7.57157 15.6705 7.23735 15.6705 6.82555V5.13424C15.6705 4.94326 15.5974 4.75902 15.4653 4.62026ZM8.95627 11.3017C8.95627 10.8899 8.6228 10.5557 8.21025 10.5557H7.46422V12.0477H8.21025C8.6228 12.0477 8.95627 11.7142 8.95627 11.3017ZM9.49714 13.1287L9.96787 14.0709C10.1887 14.5125 9.86791 15.0318 9.37404 15.0318H9.36658C9.11517 15.0318 8.8854 14.89 8.77275 14.6647L8.21025 13.5398H7.46422V14.3678C7.46422 14.7349 7.1673 15.0318 6.80026 15.0318H6.63613C6.26983 15.0318 5.97217 14.7349 5.97217 14.3678V9.72759C5.97217 9.3613 6.26983 9.06362 6.63613 9.06362H8.10058C9.26587 9.06362 10.317 9.9066 10.4364 11.0659C10.5244 11.9179 10.1305 12.6818 9.49714 13.1287ZM14.9245 13.5398H13.0594C12.8535 13.5398 12.6864 13.3727 12.6864 13.1668V9.80965C12.6864 9.39784 12.3529 9.06362 11.9404 9.06362C11.5286 9.06362 11.1943 9.39784 11.1943 9.80965V13.5398V14.2858C11.1943 14.6976 11.5286 15.0318 11.9404 15.0318H12.6864H14.9245C15.337 15.0318 15.6705 14.6976 15.6705 14.2858C15.6705 13.874 15.337 13.5398 14.9245 13.5398ZM5.22615 9.72759V12.7937C5.22615 14.0702 4.15858 15.0967 2.86796 15.0288C1.65791 14.9654 0.75 13.8792 0.75 12.6669V9.72759C0.75 9.3613 1.04766 9.06362 1.41396 9.06362H1.57809C1.94513 9.06362 2.24205 9.3613 2.24205 9.72759V12.7937C2.24205 13.2056 2.57627 13.5398 2.98807 13.5398C3.40062 13.5398 3.7341 13.2056 3.7341 12.7937V9.72759C3.7341 9.3613 4.03176 9.06362 4.39806 9.06362H4.56219C4.92923 9.06362 5.22615 9.3613 5.22615 9.72759Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row mb-3" style="padding: 0 10px;">
+                    <div class="col-12 d-flex justify-content-between">
+                        <div class="col-4 row">
+
+                            <button class="text-white border-0 col-12"
+                                style="border-radius : 5px; box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; display: flex; justify-content: center; align-items: center; background-color: #2DB7B3">
+                                اختصار الرابط
+                            </button>
+
+                        </div>
+                        <div class="col-8 row justify-content-between">
+                            <span class="col-8" style="
+                                border: 1px solid #6666663d;
+                                border-radius : 5px; 
+                                box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.125); 
+                                padding:10px; height:auto; 
+                                display: flex; 
+                                justify-content: center; 
+                                align-items: center;">
+                                demo.riadiat.com
+                            </span>
+                            <span class="col-3" style="
+                                border: 1px solid #6666663d;
+                                border-radius : 5px; 
+                                box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.125); 
+                                padding:10px; height:auto; 
+                                display: flex; 
+                                justify-content: center; 
+                                align-items: center;">
+                                نسخ الرابط
+                                <svg style="margin-right: 5px;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M15.4653 4.62026L11.3995 0.343277C11.2585 0.195564 11.063 0.111328 10.8586 0.111328H2.24205C1.41844 0.111328 0.75 0.779766 0.75 1.60338V6.82555C0.75 7.23735 1.08422 7.57157 1.49602 7.57157C1.90858 7.57157 2.24205 7.23735 2.24205 6.82555V2.3494C2.24205 1.9376 2.57627 1.60338 2.98807 1.60338H9.70229V4.58747C9.70229 5.41183 10.3707 6.07952 11.1943 6.07952H14.1784V6.82555C14.1784 7.23735 14.5127 7.57157 14.9245 7.57157C15.337 7.57157 15.6705 7.23735 15.6705 6.82555V5.13424C15.6705 4.94326 15.5974 4.75902 15.4653 4.62026ZM8.95627 11.3017C8.95627 10.8899 8.6228 10.5557 8.21025 10.5557H7.46422V12.0477H8.21025C8.6228 12.0477 8.95627 11.7142 8.95627 11.3017ZM9.49714 13.1287L9.96787 14.0709C10.1887 14.5125 9.86791 15.0318 9.37404 15.0318H9.36658C9.11517 15.0318 8.8854 14.89 8.77275 14.6647L8.21025 13.5398H7.46422V14.3678C7.46422 14.7349 7.1673 15.0318 6.80026 15.0318H6.63613C6.26983 15.0318 5.97217 14.7349 5.97217 14.3678V9.72759C5.97217 9.3613 6.26983 9.06362 6.63613 9.06362H8.10058C9.26587 9.06362 10.317 9.9066 10.4364 11.0659C10.5244 11.9179 10.1305 12.6818 9.49714 13.1287ZM14.9245 13.5398H13.0594C12.8535 13.5398 12.6864 13.3727 12.6864 13.1668V9.80965C12.6864 9.39784 12.3529 9.06362 11.9404 9.06362C11.5286 9.06362 11.1943 9.39784 11.1943 9.80965V13.5398V14.2858C11.1943 14.6976 11.5286 15.0318 11.9404 15.0318H12.6864H14.9245C15.337 15.0318 15.6705 14.6976 15.6705 14.2858C15.6705 13.874 15.337 13.5398 14.9245 13.5398ZM5.22615 9.72759V12.7937C5.22615 14.0702 4.15858 15.0967 2.86796 15.0288C1.65791 14.9654 0.75 13.8792 0.75 12.6669V9.72759C0.75 9.3613 1.04766 9.06362 1.41396 9.06362H1.57809C1.94513 9.06362 2.24205 9.3613 2.24205 9.72759V12.7937C2.24205 13.2056 2.57627 13.5398 2.98807 13.5398C3.40062 13.5398 3.7341 13.2056 3.7341 12.7937V9.72759C3.7341 9.3613 4.03176 9.06362 4.39806 9.06362H4.56219C4.92923 9.06362 5.22615 9.3613 5.22615 9.72759Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-5 justify-content-center">
+                    <button class="text-white border-0 col-3"
+                    style="border-radius : 5px; box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; display: flex; justify-content: center; align-items: center; background-color: #2DB7B3">
+                    انشاء بانر اعلانى
+                </button>
+                </div>
+
+
+                <div style="padding: 20px; border: 1px solid #2DB7B3">
+
+                    <SectionTable />
+                </div>
+            </div>
+
+        </div>
+    </div>
 </template>
+
+<script>
+
+import DatePick from 'vue-date-pick';
+import 'vue-date-pick/dist/vueDatePick.css';
+
+
+import SectionTable from './parts/section-table/index.vue'
+
+export default {
+    name: 'affiliate-marketing-visits',
+    components: {
+        SectionTable,
+        DatePick
+    },
+    data: () => ({
+        chartDataVisits: {
+            labels: ['1 jun', '2 jun', '3 jun', '4 jun', '5 jun', '6 jun', '7 jun', '8 jun', '9 jun', '10 jun',],
+            datasets:
+                [
+                    {
+                        label: 'الزيارات',
+                        backgroundColor: '#2DB7B3',
+                        // borderColor: 'rgba(75, 192, 192, 1)',
+                        // borderWidth: 1, 
+                        data: [40, 20, 12, 40, 20, 12, 30, 40, 20, 12]
+                    }]
+        },
+        chartOptionsVisits: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 32
+                        }
+                    }
+                },
+                tooltip: {
+                    enabled: true
+                }
+            },
+        },
+        chartDataRefers: {
+            labels: ['1 jun', '2 jun', '3 jun', '4 jun', '5 jun', '6 jun', '7 jun', '8 jun', '9 jun', '10 jun',],
+            datasets:
+                [
+                    {
+                        label: 'الاحالات',
+                        backgroundColor: '#2DB7B3',
+                        // borderColor: 'rgba(75, 192, 192, 1)',
+                        // borderWidth: 1, 
+                        data: [20, 30, 12, 10, 5, 30, 32, 28, 18, 17]
+                    }]
+        },
+        chartOptionsRefers: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 32
+                        }
+                    }
+                },
+                tooltip: {
+                    enabled: true
+                }
+            },
+        },
+        start_date: '2023-01-01',
+        end_date: '2024-01-01',
+        months: [
+            "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+        ],
+    })
+}
+</script>
+
+<style>
+.vdpArrowPrev:after {
+    border-right-color: #2db7b3;
+}
+
+.vdpArrowNext:after {
+    border-left-color: #2db7b3;
+}
+
+.vdpCell.selectable:hover .vdpCellContent,
+.vdpCell.selected .vdpCellContent {
+    background: #2db7b3;
+}
+
+.vdpCell.today {
+    color: #2db7b3;
+}
+
+.vdpTimeUnit>input:hover,
+.vdpTimeUnit>input:focus {
+    border-bottom-color: #2db7b3;
+}
+
+.vdpComponent.vdpWithInput>input {
+    height: 100%;
+    background: #eee;
+    border-radius: 5px;
+    border-color: #979797;
+    box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);
+}
+</style>
