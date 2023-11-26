@@ -9,21 +9,14 @@
           <img class="absolute-img" id="star3" src="@/assets/img/gold-star.png" alt="star">
           <img class="absolute-img" id="framearrow" src="@/assets/img/framearrow.png" alt="arrow">
           <div class="form" style="width: 80%; position:relative;">
-            <div class="rounded-circle" style="background: #1987544d;
-            width: 18rem;
-            height: 18rem;
-            position: absolute;
-            z-index: 998;
-            right: 50%;
-            transform: translateX(50%);">
-            </div>
-            <div style="z-index: 1000; position:relative;">
+
+            <div style="position:relative;">
               <ValidationObserver ref="loginForm">
 
                 <!-- Start fullname -->
                 <ValidationProvider vid="full-name" rules="required|text" :name="$t('full-name')" v-slot="{ errors }"
-                  tag="div" class="mb-3">
-                  <b-form-input style="box-shadow: rgba(0, 0, 0, 0.125) 4px 4px 8px 4px; padding:10px; border: none;"
+                  tag="div" class="mb-2">
+                  <b-form-input style="box-shadow: #CEE4C6 0px 0px 15px 10px; padding:10px; border: none;"
                     type="text" :placeholder="$t('full-name')" v-model="form.fullName" required />
                   <div class="text-input-error">{{ errors[0] }}</div>
                 </ValidationProvider>
@@ -32,11 +25,9 @@
 
                 <!-- Start gender -->
                 <ValidationProvider vid="gender" rules="required|text" :name="'ال' + $t('gender')" v-slot="{ errors }"
-                  tag="div" class="mb-3">
-                  <!-- <b-form-select style="box-shadow: rgba(0, 0, 0, 0.125) 4px 4px 8px 4px; padding:10px; border: none;"
-                  type="text" :placeholder="$t('gender')" v-model="form.gender" required /> -->
+                  tag="div" class="mb-2">
                   <select class="form-select"
-                    style="background-position: left 0.75rem center !important; box-shadow: rgba(0, 0, 0, 0.125) 4px 4px 8px 4px; padding:10px; border: none;"
+                    style="background-position: left 0.75rem center !important; box-shadow: #CEE4C6 0px 0px 15px 10px; padding:10px; border: none;"
                     aria-label="Default select example" required>
                     <option selected> {{ 'ال' + $t('gender') }} </option>
                     <option value="male">ذكر</option>
@@ -48,8 +39,8 @@
 
                 <!-- Start Email -->
                 <ValidationProvider vid="email" rules="required|email" :name="$t('Email')" v-slot="{ errors }" tag="div"
-                  class="mb-3">
-                  <b-form-input style="box-shadow: rgba(0, 0, 0, 0.125) 4px 4px 8px 4px; padding:10px; border: none;"
+                  class="mb-2">
+                  <b-form-input style="box-shadow: #CEE4C6 0px 0px 15px 10px; padding:10px; border: none;"
                     type="text" :placeholder="$t('Email')" v-model="form.email" required />
                   <div class="text-input-error">{{ errors[0] }}</div>
                 </ValidationProvider>
@@ -57,9 +48,9 @@
 
                 <!-- Start phone -->
                 <ValidationProvider vid="phone" rules="required|phone" :name="$t('Phone')" v-slot="{ errors }" tag="div"
-                  class="mb-3">
+                  class="mb-2">
                   <b-form-input
-                    style="width: 100%; box-shadow: rgba(0, 0, 0, 0.125) 4px 4px 8px 4px; padding:10px; border: none;"
+                    style="width: 100%; box-shadow: #CEE4C6 0px 0px 15px 10px; padding:10px; border: none;"
                     type="text" :placeholder="$t('Phone')" v-model="form.phone" required />
                   <div class="text-input-error">{{ errors[0] }}</div>
                 </ValidationProvider>
@@ -68,30 +59,15 @@
 
                 <!-- Start phone -->
                 <ValidationProvider rules="required|min:20" :name="$t('Field')" v-slot="{ errors }" tag="div"
-                  class="mb-3">
-                  <!-- <b-form-input style="box-shadow: rgba(0, 0, 0, 0.125) 4px 4px 8px 4px; padding:10px; border: none;"
-                  type="text" :placeholder="$t('Phone')" v-model="form.phone" required /> -->
+                  class="mb-2">
+
                   <textarea
-                    style="width:100%; outline: none;line-height: 2; box-shadow: rgba(0, 0, 0, 0.125) 4px 4px 8px 4px; padding:10px; border: none;"
+                    style="width:100%; outline: none;line-height: 2; box-shadow: #CEE4C6 0px 0px 15px 10px; padding:10px; border: none;"
                     placeholder="سبب انضمامك للبرنامج و هل لديك خبرات سابقه فى التسويق بالعموله" required name="other"
                     v-model="form.other" rows="3"></textarea>
                   <div class="text-input-error">{{ errors[0] }}</div>
                 </ValidationProvider>
                 <!-- End phone -->
-
-                <!-- Start Password -->
-                <!-- <ValidationProvider vid="password" rules="required" :name="$t('Password')" v-slot="{ errors }" tag="div">
-                <div class="position-relative">
-                  <b-form-input style="box-shadow: rgba(0, 0, 0, 0.125) 4px 4px 8px 4px; padding:10px; border: none;"
-                    id="password-field" :type="show ? 'text' : 'password'" v-model="form.password" class="form-control"
-                    :placeholder="$t('Password')" />
-                  <span @click="show = !show" class="icon-input-end fa-regular position-absolute"
-                    :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"></span>
-                </div>
-                <div class="text-input-error">{{ errors[0] }}</div>
-              </ValidationProvider> -->
-                <!-- End Password -->
-
 
                 <div v-if="verifyCode" class="alert alert-danger mt-2" role="alert">
                   <a href="#" @click="resendCode">{{ $t('resend-code') }}</a>

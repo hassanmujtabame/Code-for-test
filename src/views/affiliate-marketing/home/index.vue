@@ -7,22 +7,22 @@
         <SectionChoseUs />
         <SectionHowWorkProgram />
         <SectionJoin />
-        <div v-if="token">
-            <SectionGraduated title="ابرز سفيرات التسويق بالعموله"/>
-        </div>
+        <SectionWhatWeProvide />
+        <SectionGraduated title="ابرز سفيرات التسويق بالعموله" />
         <!-- <SectionDoubleWinings /> -->
         <SectionAreYouMember />
         <SectionRecognize />
         <SectionCommonQuistions />
         <!-- <SectionRecentCourses /> -->
         <SectionGraduated title=" المسوقين الاكثر ربحا " />
-        <SectionContinueLearning  />
-        <SectionHear :itemPage="itemPage"/>
+        <SectionContinueLearning />
+        <SectionHear :itemPage="itemPage" />
     </div>
 </template>
 
 <script>
 import SectionHeader from './parts/section-header/index.vue'
+import SectionWhatWeProvide from './parts/section-what-we-provide/index.vue'
 import SectionChoseUs from './parts/section-chose-us/index.vue'
 import SectionJoin from './parts/section-join/index.vue'
 import SectionIntro from './parts/section-intro/index.vue'
@@ -47,6 +47,7 @@ export default {
         itemPage: {}
     }),
     components: {
+        SectionWhatWeProvide,
         SectionChoseUs,
         SectionJoin,
         SectionHeader,
@@ -82,6 +83,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="login-page">
+    <div class="login-page" style="background-image: linear-gradient(-55deg, #FFF7E0, transparent);">
         <b-container>
             <LoginForm @change-form="afterSuccessForm" v-if="status == 'form'" />
             <ResendCodeView @success="afterSuccessCheck" @cancel="status = 'form'" :dataInfo="dataCheck"

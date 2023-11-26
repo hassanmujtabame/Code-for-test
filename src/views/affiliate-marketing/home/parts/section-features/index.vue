@@ -1,5 +1,5 @@
 <template>
-    <div style="background-color:#F6F8F9 ;" class="mt-5 p-5">
+    <div  class="mt-5 p-5">
         <h2 class="text-center">
             <span style="color: #ffcb00;">
                 مزايا التسويق

@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid mt-3 mb-3 col-12" style="background: #F4FBFB; padding: 50px 15%;">
+    <div class="container-fluid col-12" style="background: #F4FBFB; padding: 50px 15%;">
         <div class="row justify-content-center text-center mb-4">
             <span style="color: #FFBE39; font-size: 24px">
                 خطوه بخطوه
