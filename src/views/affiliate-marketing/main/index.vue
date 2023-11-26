@@ -20,6 +20,7 @@ import Summary from "./summary/index.vue"
 import Referalls from "./referalls/index.vue"
 import Visits from "./visits/index.vue"
 import Deals from "./deals/index.vue"
+import Paner from "./paner/index.vue"
 import Urls from "./urls/index.vue"
 import RightSideBar from './RightSideBar.vue'
 
@@ -31,7 +32,8 @@ export default {
         Referalls,
         Visits,
         Deals,
-        RightSideBar
+        RightSideBar,
+        Paner
     },
     data: () => ({
         loading: true,
