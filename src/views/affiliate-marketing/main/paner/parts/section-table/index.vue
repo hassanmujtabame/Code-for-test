@@ -10,8 +10,8 @@
     </thead>
     <tbody>
       <tr>
-        <td dir="ltr" class="d-flex justify-content-center position-relative">
-          <div style="width: 300px; height: 150px; border: 1px solid black;" v-html="escapeHTML(htmlCode)"></div>
+        <td dir="ltr" class="mt-2 d-flex justify-content-center position-relative" style=" border: 1px solid black;">
+          <div style="width: 300px; height: 150px;" v-html="escapeHTML(htmlCode)"></div>
           <span class="col-3 text-white position-absolute" style="
           height: 40px;
           width: 40px;
@@ -37,8 +37,8 @@
         <td>سوق رياديات</td>
       </tr>
       <tr>
-        <td dir="ltr" class="d-flex justify-content-center position-relative">
-          <div style="width: 300px; height: 150px; border: 1px solid black;" v-html="escapeHTML(htmlCode)"></div>
+        <td dir="ltr" class=" mt-2 d-flex justify-content-center position-relative" style=" border: 1px solid black;">
+          <div style="width: 300px; height: 150px;" v-html="escapeHTML(htmlCode)"></div>
           <span class="col-3 text-white position-absolute" style="
           height: 40px;
           width: 40px;

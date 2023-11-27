@@ -17,6 +17,8 @@
 
 <script>
 import Summary from "./summary/index.vue"
+import Profile from "./profile/index.vue"
+import Logout from "./logout/index.vue"
 import Referalls from "./referalls/index.vue"
 import Visits from "./visits/index.vue"
 import Deals from "./deals/index.vue"
@@ -27,6 +29,8 @@ import RightSideBar from './RightSideBar.vue'
 export default {
     name: 'affiliate-marketing-home',
     components: {
+        Profile,
+        Logout,
         Summary,
         Urls,
         Referalls,
