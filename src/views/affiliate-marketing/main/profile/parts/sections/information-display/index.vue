@@ -56,6 +56,127 @@
             <button @click="save" class="btn-main">{{ $t('save') }}</button>
           </div>
         </div>
+        <div class="row">
+          <div class="bg-white rounded-3 mobile-center">
+            <b-row>
+              <b-col xl="7">
+                <div class="login-form">
+        
+                  <h1 class="fw-bolder">مرحبا بك معنا</h1>
+                  <p>انشئ حساب جديد وأنضمي الى عالم رياديات</p>
+                  <ValidationObserver ref="form">
+        
+                    <!-- <ValidationProvider :name="$t('Full-name')" vid="name" rules="required" v-slot="{ errors }" tag="div"
+                      class="mb-3">
+                      <b-form-input type="text" :placeholder="$t('Full-name')" v-model="form.name" required />
+                      <div class="text-input-error">{{ errors[0] }}</div>
+                    </ValidationProvider>
+        
+                    <ValidationProvider :name="$t('Email')" vid="email" rules="required|email" v-slot="{ errors }" tag="div"
+                      class="mb-3">
+                      <b-form-input type="email" :placeholder="$t('Email')" v-model="form.email" required />
+                      <div class="text-input-error">{{ errors[0] }}</div>
+                    </ValidationProvider> -->
+        
+                    <!-- <div class="cols-12 d-flex gap-1 mb-3 align-items-start">
+        
+                      <ValidationProvider :name="$t('Phone')" tag="div" class="flex-grow-1" vid="phone"
+                        rules="required|numeric|min:10" v-slot="{ errors }">
+                        <b-form-input type="number" :placeholder="$t('Phone')" v-model="form.phone" required />
+                        <div class="text-input-error">{{ errors[0] }}</div>
+                      </ValidationProvider>
+        
+                      <ValidationProvider :name="$t('country-phone')" tag="div" class="flex-grow-1" vid="phone_code"
+                        rules="required" v-slot="{ errors }">
+                        <d-select-input :errors="errors" type="text" class="text-flag  rounded-3 align-items-center"
+                          v-model="form.phone_code">
+                          <option v-for="(it, i) in phone_codes" :key="i" :value="it.phone_code">{{ it.flag }}({{ it.phone_code
+                          }})
+                          </option>
+                        </d-select-input>
+                      </ValidationProvider>
+                    </div> -->
+        
+        
+                    <ValidationProvider :name="$t('id_number')" tag="div" class="flex-grow-1 mb-3" vid="id_number"
+                      rules="required|numeric" v-slot="{ errors }">
+                      <b-form-input type="text" :placeholder="`رقم الهوية الوطنية / الاقامة`" v-model="form.id_number"
+                        required />
+                      <div class="text-input-error">{{ errors[0] }}</div>
+                    </ValidationProvider>
+        
+        
+                    <ValidationProvider :name="$t('region')" vid="region" rules="required" v-slot="{ errors }" tag="div"
+                      class="mb-3">
+                      <b-form-input type="text" :placeholder="`المنطقة`" v-model="form.region" required />
+                      <div class="text-input-error">{{ errors[0] }}</div>
+                    </ValidationProvider>
+        
+        
+                    <ValidationProvider :name="$t('job_status')" vid="job_status" rules="required" v-slot="{ errors }" tag="div"
+                      class="mb-3">
+                      <b-form-input type="text" :placeholder="`الحالة الوظيفية`" v-model="form.job_status" required />
+                      <div class="text-input-error">{{ errors[0] }}</div>
+                    </ValidationProvider>
+        
+        
+        
+              
+                   <ValidationProvider :name="$t('gender')" vid="gender" rules="required" v-slot="{ errors }" tag="div"
+                    class="mb-3">
+                    <select class="form-select mb-3" aria-label="Default select example">
+                      <option selected disabled>الجنس </option>
+                      <option value="male">ذكر</option>
+                      <option value="female"> أنثى </option>
+                    </select>
+                    <div class="text-input-error">{{ errors[0] }}</div>
+                  </ValidationProvider>
+        
+
+        
+                    <!-- <ValidationProvider vid="password" rules="required" :name="$t('Password')" v-slot="{ errors }" tag="div"
+                      class="mb-3">
+                      <div class="position-relative">
+                        <b-form-input id="password-field" :type="show ? 'text' : 'password'" v-model="form.password"
+                          class="form-control" :placeholder="$t('Password')" />
+                        <span @click="show = !show" class="icon-input-end fa-regular position-absolute"
+                          :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"></span>
+                      </div>
+                      <div class="text-input-error">{{ errors[0] }}</div>
+                    </ValidationProvider> -->
+        
+                    <!-- <ValidationProvider vid="passwordConfirm" rules="required" :name="$t('Password-confirm')" v-slot="{ errors }"
+                      tag="div" class="mb-3">
+                      <div class="position-relative">
+                        <b-form-input id="password-register-confirm" :type="showC ? 'text' : 'password'"
+                          v-model="form.passwordConfirm" class="form-control" :placeholder="$t('Password-confirm')" />
+                        <span @click="showC = !showC" class="icon-input-end fa-regular position-absolute"
+                          :class="{ 'fa-eye': !showC, 'fa-eye-slash': showC }"></span>
+                      </div>
+                      <div class="text-input-error">{{ errors[0] }}</div>
+                      <span class="text-input-error" v-if="errorPasswordConfirm">{{ errorPasswordConfirm }}</span>
+                    </ValidationProvider> -->
+        
+                    <div>
+                      <!-- <p class="py-4">
+                        بانشاءك حساب جديد، انت توافق على
+                        <router-link :to="getRouteLocale('terms-and-conditions')" class="m-c" target="_blank">شروط الاستخدام
+                          وسياسة الخصوصيه
+                        </router-link>
+                      </p> -->
+                    </div>
+        
+                    <sent-dialog ref="modal"></sent-dialog>
+                  </ValidationObserver>
+                </div>
+              </b-col>
+              <b-col xl="5" class="tablet-hide">
+                <b-img class="main-img" :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
+              </b-col>
+            </b-row>
+        
+          </div>
+        </div>
       </ValidationObserver>
     </div>
   </div>
