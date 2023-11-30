@@ -1,5 +1,5 @@
 <template>
-  <div class="main-top py-3 px-5 mb-1">
+  <div class="main-top py-3 px-5">
     <div class="row align-items-center text-center m-auto">
       <div class="col-md-6 mt-2">
         <div class="img-screen  mobile-hide">

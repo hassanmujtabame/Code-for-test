@@ -40,7 +40,9 @@ import DefaultHeader from '../default/header.vue'
 import localHeader from './header.vue'
 import AddServiceDialog from './dialogs/add-service/index.vue'
 import AddProposalDialog from './dialogs/add-proposal/index.vue'
-import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
+// import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
+import SectSubscribe from './section-subscribe/index.vue';
+
 import sendMsgProvider from './dialogs/send-message/index'
 import graduateRiadiatFirstStep from './dialogs/graduate-riadiat/first'
 import graduateRiadiatFirstSecond from './dialogs/graduate-riadiat/second'

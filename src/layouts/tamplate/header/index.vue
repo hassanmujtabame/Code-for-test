@@ -29,7 +29,7 @@
               <UserNotif :prefixRoute="prefixRoute" />
               <UserNav :prefixRoute="prefixRoute" />
             </template>
-            
+
           </div>
         </div>
       </div>

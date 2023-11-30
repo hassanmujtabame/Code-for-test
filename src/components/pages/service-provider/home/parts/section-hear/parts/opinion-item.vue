@@ -1,20 +1,20 @@
 <template>
     <div class="item">
-        <div class="row align-items-stretch">
+        <div class="row">
             <div class="col-2">
                 <img class="opinion-img rounded-4" :src="image" :alt="name" width="100" height="100" />
             </div>
-            <div class="col-2">
+            <div class="col-10">
                 {{ title }}
-            </div>
-            <div class="col-8">
-                عميل يبحث عن انجاز عمله
+                <span style="color: #2EB9B3">
+                    -
+                    عميل يبحث عن انجاز عمله
+                </span>
             </div>
         </div>
         <div class="row">
-            <div class="col-8 position-relative" style="margin-top: 60px">
+            <div class="col-8 position-relative">
                 <div class="d-flex flex-column">
-                    <h6 class="opinion-name mb-3">{{ title }}</h6>
                     <p class="opinion-text mt-5" v-html="desc"></p>
                     <h6 class="opinion-name">{{ name }}</h6>
                 </div>
@@ -50,10 +50,11 @@ export default {
     background-color: #DDE5E6;
     padding: 30px;
     height: 400px;
+    border-radius: 10px;
 }
 .opinion-text {
     font-style: normal;
-    font-weight: 400;
+    font-weight: 350;
     font-size: 24px;
     line-height: 32px;
     /* or 133% */
@@ -63,19 +64,8 @@ export default {
 }
 
 .opinion-img {
-    width: 100px !important;
-    height: 100px !important;
-}
-
-.opinion-name {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 32px;
-    /* or 133% */
-    text-transform: capitalize;
-    color: #ffbc00;
-    flex: 0 0;
+    width: 50px !important;
+    height: 50px !important;
 }
 
 .mobile-layout .dote>img {
@@ -87,8 +77,8 @@ export default {
 }
 
 .mobile-layout .opinion-img {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
 }
 
 .mobile-layout .opinion-name,

@@ -49,6 +49,7 @@
 }
  
 :root {
+    --pc: #1FB9B3;
     --swiper-navigation-size: 15px;
     --b-color: #737373;
     --bg-gray: #F6F8F9;
@@ -120,6 +121,10 @@ box-sizing: border-box;
 
 .text-flag select {
     font-family: "Twemoji Country Flags"
+}
+
+.pc {
+    color: #1FB9B3;
 }
 
 select.text-flag>option,
