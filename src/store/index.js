@@ -11,9 +11,23 @@ const store = new Vuex.Store({
 
   },
   mutations: {
-    changeRole(state){
-      state.isProviderRole = !state.isProviderRole
-      return state.isProviderRole
+    changeRole(state, payload = {}){
+      if(payload == {} ){
+        state.isProviderRole = !state.isProviderRole
+        return state.isProviderRole
+      } 
+      else {
+        payload.selected == 'client' ? state.isProviderRole == false : state.isProviderRole == true
+        if(payload.selected == 'client'){
+          state.isProviderRole = false
+        }
+        else if(payload.selected == 'service-provider'){
+          state.isProviderRole = true
+        }
+        console.log('provider', state.isProviderRole)
+        console.log('provider', payload.selected)
+        return state.isProviderRole
+      }
     }
   },
   actions: {

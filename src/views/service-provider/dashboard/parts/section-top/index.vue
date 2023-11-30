@@ -64,8 +64,6 @@ export default {
         switchRole() {
             this.$store.commit('changeRole')
             this.userIsRoleProvider = !this.userIsRoleProvider
-
-
         },
     },
 }

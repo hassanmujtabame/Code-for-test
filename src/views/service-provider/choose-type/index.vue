@@ -41,12 +41,13 @@
             </label>
         </div>
         <div class="row justify-content-center d-flex">
-            <router-link :to="getRouteLocale('service-provider-contact-us')"
+            <router-link :to="getRouteLocale('service-provider-home')"  @click="switchRole()"
                 class="btn-customer mb-3 mt-4 d-flex gap-3 justify-content-center align-items-center"
                 style="line-height: initial; width: 35%;">
                 <div>
                     <h4>
-                        انشاء حساب مقدم خدمه
+                        انشاء حساب
+                        {{ selectedOption == 'client' ? 'عميل' : 'مقدم خدمه' }}
                     </h4>
                 </div>
             </router-link>
@@ -94,6 +95,11 @@ export default {
         return {
             selectedOption: null // Initialize a data property to store the selected option
         };
+    },
+    methods: {
+        switchRole() {
+            this.$store.commit('changeRole', { 'selected': this.selectedOption })
+        },
     }
 }
 
