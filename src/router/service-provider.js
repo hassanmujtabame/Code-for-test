@@ -106,6 +106,15 @@ const routers = [
 			),
 	},
 	{
+		path: "service-provider/choose-type",
+		meta: { layout: LayoutDefault, title: "Choose type" },
+		name: "service-provider-choose-type",
+		component: () =>
+			import(
+				/* webpackChunkName: "service-provider-my-proposals" */ "../views/service-provider/choose-type/index.vue"
+			),
+	},
+	{
 		path: "service-provider/my-proposals/:id(\\d+)/offers",
 		meta: { layout: LayoutDefault, auth: true, title: "My Proposal Offers" },
 		name: "service-provider-my-proposal-offers",

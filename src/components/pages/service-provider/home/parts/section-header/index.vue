@@ -17,7 +17,7 @@
                     </p>
 
                     <div class="my-5">
-                        <router-link :to="getRouteLocale('login')"
+                        <router-link :to="getRouteLocale('service-provider-choose-type')"
                             class="btn-custmer mt-2 mx-3"> انجز مهمتك
                         </router-link>
                     </div>
