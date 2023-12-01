@@ -2,7 +2,7 @@
     <div class="mt-5">
         <div class="sec-subscripe">
             <div class="container">
-                <div class="row align-items-center justify-content-center " :class="{'p-4':!isMobile,'py-4':isMobile}">
+                <div class="row align-items-center justify-content-center " :class="{ 'p-4': !isMobile, 'py-4': isMobile }">
                     <div class="col-md-6">
                         <h1 class="text-white">
                             {{ $t('subscribe-newsletter') }}
@@ -13,23 +13,15 @@
                     </div>
                     <div class="col-md-6">
                         <div class="input-group input-group-sm input-group-md input-group-lg  m-auto"
-                             :class="{'w-75':!isMobile,'w-100':isMobile}">
-                            <input type="text"
-                                   v-model="form.email"
-                                   class="form-control p-3"
-                                   :class="{'fs-6':isMobile}"
-                                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
-                                   :placeholder="$t('write-your-email')"
-                                   required
-                            >
-                            <span @click="subscribe" class="input-group-text bg-yal text-black"
-                            style="cursor:pointer"
-                                  :class="{'fs-6':isMobile}"
-                                  id="inputGroup-sizing-lg">{{ $t('Subscribe') }}</span>
+                            :class="{ 'w-75': !isMobile, 'w-100': isMobile }">
+                            <input type="text" v-model="form.email" class="form-control p-3" :class="{ 'fs-6': isMobile }"
+                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+                                :placeholder="$t('write-your-email')" required>
+                            <span @click="subscribe" class="input-group-text bg-yal text-black" style="cursor:pointer"
+                                :class="{ 'fs-6': isMobile }" id="inputGroup-sizing-lg">{{ $t('Subscribe') }}</span>
                         </div>
                         <div class="input-group input-group-sm input-group-md input-group-lg  m-auto"
-                             :class="{'w-75':!isMobile,'w-100':isMobile}"
-                        >
+                            :class="{ 'w-75': !isMobile, 'w-100': isMobile }">
                             <p style="display: none">{{ pointer }}</p>
                             <p class="text-input-error">{{ errors.email }} </p>
                         </div>
@@ -37,16 +29,15 @@
                 </div>
             </div>
         </div>
-        <Newsletter/>
+        <Newsletter />
     </div>
-
 </template>
 
 <script>
 import Newsletter from "@/views/network/blog/parts/dialogs/newsletter.vue";
 
 export default {
-    components: {Newsletter},
+    components: { Newsletter },
     data() {
         return {
             form: {
@@ -95,6 +86,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

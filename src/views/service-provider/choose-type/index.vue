@@ -5,7 +5,9 @@
         </h1>
         <div class="d-flex flex-wrap justify-content-center gap-5">
 
-            <label for="service-provider-choosen" :style="`border-color: ${selectedOption == 'service-provider' ? 'var(--pc)' : '#dee2e6'} !important`" class="col-sm-12 col-md-5 box p-5  rounded-2 border border-2">
+            <label for="service-provider-choosen"
+                :style="`border-color: ${selectedOption == 'service-provider' ? 'var(--pc)' : '#dee2e6'} !important`"
+                class="col-sm-12 col-md-5 box p-5  rounded-2 border border-2">
                 <div class="row mb-3 mt-5">
                     <h4 class="pc">
                         الانضمام كمقدم خدمه
@@ -17,12 +19,15 @@
                     </span>
                 </div>
                 <div>
-                    <input type="radio" v-model="selectedOption" id="service-provider-choosen" name="choose" value="service-provider">
+                    <input type="radio" v-model="selectedOption" id="service-provider-choosen" name="choose"
+                        value="service-provider">
                 </div>
             </label>
 
 
-            <label for="client-choosen" :style="`border-color: ${selectedOption == 'client' ? 'var(--pc)' : '#dee2e6'} !important`" class="col-sm-12 col-md-5 box p-5  rounded-2 border border-2">
+            <label for="client-choosen"
+                :style="`border-color: ${selectedOption == 'client' ? 'var(--pc)' : '#dee2e6'} !important`"
+                class="col-sm-12 col-md-5 box p-5  rounded-2 border border-2">
 
                 <div class="row mb-3 mt-5">
                     <h4 class="pc">
@@ -41,7 +46,7 @@
             </label>
         </div>
         <div class="row justify-content-center d-flex">
-            <router-link :to="getRouteLocale('service-provider-home')"  @click="switchRole()"
+            <button @click="switchRole()"
                 class="btn-customer mb-3 mt-4 d-flex gap-3 justify-content-center align-items-center"
                 style="line-height: initial; width: 35%;">
                 <div>
@@ -50,7 +55,7 @@
                         {{ selectedOption == 'client' ? 'عميل' : 'مقدم خدمه' }}
                     </h4>
                 </div>
-            </router-link>
+            </button>
         </div>
     </div>
 </template>
@@ -96,10 +101,35 @@ export default {
             selectedOption: null // Initialize a data property to store the selected option
         };
     },
+    computed: {
+        userIsRoleProvider() {
+            return this.$store.state.isProviderRole
+        },
+        clientOrProvider() {
+            return this.$store.state.clientOrProvider
+        }
+    },
     methods: {
         switchRole() {
+            localStorage.setItem('providerOrclient', JSON.stringify(this.selectedOption))
             this.$store.commit('changeRole', { 'selected': this.selectedOption })
+            if (this.token) {
+                this.$router.push('home')
+            }else if (this.clientOrProvider == 'client') {
+                this.$router.push({name: 'login'})
+            }else if (this.clientOrProvider == 'provider') {
+                this.$router.push({name: 'register'})
+            }
         },
+    },
+    mounted() {
+        let check = JSON.parse(localStorage.getItem('providerOrclient'))
+        console.log(check)
+        if (check && this.token) {
+            this.$store.commit('changeRole', { 'selected': check })
+            this.$router.push('home')
+        }
+        console.log(this.userIsRoleProvider)
     }
 }
 

@@ -92,7 +92,6 @@ export default {
   computed: {
     userIsRoleProvider(){
       return this.$store.state.isProviderRole
-
     } 
   },
   mounted() {

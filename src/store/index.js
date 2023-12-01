@@ -7,7 +7,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    isProviderRole: false
+    isProviderRole: false,
+    clientOrProvider: ''
 
   },
   mutations: {
@@ -17,15 +18,14 @@ const store = new Vuex.Store({
         return state.isProviderRole
       } 
       else {
-        payload.selected == 'client' ? state.isProviderRole == false : state.isProviderRole == true
         if(payload.selected == 'client'){
           state.isProviderRole = false
+          state.clientOrProvider = 'client'
         }
         else if(payload.selected == 'service-provider'){
           state.isProviderRole = true
+          state.clientOrProvider = 'provider'
         }
-        console.log('provider', state.isProviderRole)
-        console.log('provider', payload.selected)
         return state.isProviderRole
       }
     }

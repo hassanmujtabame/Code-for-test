@@ -1,19 +1,35 @@
 <template>
   <div>
-    <!-- <AuthPage v-if="token" />
-    <GuestPage v-else /> -->
-    <Default />
+    <Provider v-if="token && userIsRoleProvider == 'provider'" />
+    <Client v-if="token && userIsRoleProvider == 'client'" />
+    <Default v-else-if="userIsRoleProvider == ''" />
   </div>
 </template>
 <script>
-import GuestPage from "./guest.vue";
-import AuthPage from "./auth.vue";
+import Provider from "./provider";
+import Client from "./client";
 import Default from "./default.vue";
 export default {
   name: "service-provider",
-  components: { GuestPage, AuthPage, Default }
+  components: {
+    Default, Provider,
+    Client
+  },
+    computed: {
+        userIsRoleProvider() {
+            return this.$store.state.clientOrProvider
+        }
+    },
+    mounted() {
+        let check = JSON.parse(localStorage.getItem('providerOrclient'))
+        console.log(check)
+        if (check && this.token) {
+            this.$store.commit('changeRole', { 'selected': check })
+            window.reload()
+        }
+        console.log(this.userIsRoleProvider)
+    }
 };
 </script>
   
-  <style>
-</style>
+<style></style>
