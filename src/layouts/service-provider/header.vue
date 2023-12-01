@@ -41,12 +41,17 @@ export default {
         { route: 'service-provider-my-ready-services', text: vm.$t('my-services'), provider: true },
         // {route:'service-provider-ready-services', text:vm.$t('service'),provider:true},
         /** client */
-        { route: 'service-provider-ready-services', text: vm.$t('service'), provider: false },
         { route: 'service-provider-request-purchase-services', text: "طلبات شراء خدماتك", provider: true },
         { route: 'service-provider-my-offers', text: vm.$t('my-proposals'), provider: true },
-        { route: 'service-provider-my-proposals', text: 'طلباتى', provider: false },
-        { route: 'service-provider-client-my-purchases', text: vm.$t('my-purchases'), provider: false },
-        { route: 'service-provider-providers', text: vm.$t('service-providers'), provider: false },
+
+        { route: 'service-provider-ready-services', text: vm.$t('service'), provider: false },
+
+        // { route: 'service-provider-my-proposals', text: 'طلباتى', provider: false },
+        // { route: 'service-provider-client-my-purchases', text: vm.$t('my-purchases'), provider: false },
+
+        { route: 'service-provider-providers', text: vm.$t('services-provider'), provider: false },
+
+        // contact us
         { route: 'service-provider-contact-us', text: vm.$t('contact-us'), provider: true },
         { route: 'service-provider-contact-us', text: vm.$t('contact-us'), provider: false }
       ]

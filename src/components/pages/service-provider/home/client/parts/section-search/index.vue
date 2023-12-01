@@ -3,7 +3,7 @@
     <div class="box" style="background-color: #2EB9B3; border-radius: 10px">
       <div class="row">
         <h2 style="color: #fff; margin-bottom: 20px;">
-          ابحث عن الخدمات المطلوبه
+          ابحث عن الخدمات المعروضة بواسطة مقدمي الخدمات       
         </h2>
       </div>
 

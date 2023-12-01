@@ -34,7 +34,7 @@
                 </ul>
                 <br />
                 <ul class="nav nav-pills mb-3 d-flex gap-2 flex-wrap ">
-                    <button @click="switchRole" class="btn border m-c">{{ userIsRoleProvider ? $t('switch-to-buyer') :
+                    <button @click="switchRole()" class="btn border m-c">{{ userIsRoleProvider ? $t('switch-to-buyer') :
                         $t('switch-to-provider') }}</button>
                 </ul>
 
@@ -52,19 +52,23 @@
 import userDashInfo from '@/components/cards/user-dash-info.vue';
 export default {
     name: 'section-top',
-    data: () => {
-        return {
-            userIsRoleProvider: false
-        }
-    },
+    // data: () => {
+    //     return {
+    //         userIsRoleProvider: false
+    //     }
+    // },
     components: {
         userDashInfo
     },
     methods: {
         switchRole() {
             this.$store.commit('changeRole')
-            this.userIsRoleProvider = !this.userIsRoleProvider
         },
+    },
+    computed: {
+        userIsRoleProvider() {
+            return this.$store.state.isProviderRole
+        }
     },
 }
 </script>
