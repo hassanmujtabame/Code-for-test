@@ -1,39 +1,41 @@
 <template>
-  <div class="mt-5 blog">
-    <d-filter-list 
-    :call-list="loadList" 
-    @change="changeFilter" 
-    :searchPlaceholder="$t('search_by_service')"
-      orderName="price" 
-      newFilter 
-      hideTitle 
-      showBtnSearch 
-      :orderOpts="[
-          { id: 'asc', name: 'الأقل سعرا' },
-          { id: 'desc', name: 'الأغلى سعرا', }
-        ]" 
-        classColCard="col-lg-4 mt-3" 
-        classSideBar="w-100" 
-        classSearchOrder="col-md-9 flex-direction"
-      classColOrder="col-12 col-md-3" 
-      classColSearch="col-12 col-md-7" 
-      classTotal="col-md-3">
-      <!-- <template v-slot:side> -->
-      <!-- <template v-slot:total="{ }" v-if="this.userIsRoleProvider" >
-        <button @click="openAddService($event)"
-          style="line-height: 2.5; height: 46px; width: 230px !important; margin-bottom: 20px;"
-          class="btn-main btn-nav text-center text-white">
-          <plusCircleOutline :size="24" color="currentColor" class="mx-1" />
+  <div class="mt-5">
+    <div class="container">
 
-          {{ $t('add-new-service') }}
-        </button>
-      </template> -->
+      <div class="row">
+        <ul class="nav nav-pills mb-3 justify-content-center text-center">
+          <li class="nav-item col-12 col-md-3">
+            <!-- <router-link to="ready-services" class="nav-link  border w-75 t-c m-auto active">اطلب خدمة
+                جديدة</router-link> -->
+
+            <button @click="openAddService($event, closeNavList)"
+                class="nav-link  border w-75 t-c m-auto active" style="height: 100%">
+                {{ userIsRoleProvider ? $t('add-new-service') : $t('add-new-request') }}
+            </button>
+        </li>
+          <li class="nav-item col-12 col-md-3">
+            <router-link to="my-proposals" class="nav-link  border w-75 t-c m-auto ">طلباتي
+              المنشورة</router-link>
+          </li>
+          <li class="nav-item col-12 col-md-3">
+            <router-link to="my-purchases" class="nav-link  border w-75 t-c m-auto ">اعمالي قيد
+              التنفيذ
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <d-filter-list :call-list="loadList"
+      classSearchOrder="mb-5 justify-content-center flex-row-reverse align-items-center" showBtnSearch hideOrder hideTotal
+      classBtnSearch="col-2" classColSearch="col-6" @change="changeFilter" :searchPlaceholder="$t('search_by_service')">
+
       <template v-slot:side>
         <sidebarFilter @change="changeFilter" :filter-item="fitlterSide" />
       </template>
 
       <template v-slot="{ item }">
-        <readyServiceCard :image="item.image" :description="item.desc" :title="item.title" :place="item.city"
+        <readyServiceCard class="mt-4" :image="item.image" :description="item.desc" :title="item.title" :place="item.city"
           :price="item.price" :name="item.user_info" :id="item.id" :rates="item.rates"
           :categoryName="item.category_name" />
         <!-- </router-link> -->
@@ -79,14 +81,22 @@ export default {
     };
   },
   methods: {
+    openAddService(evt, closeNavList) {
+      evt.preventDefault();
+      // closeNavList()
+      if (!this.userIsRoleProvider)
+        this.fireOpenDialog('add-proposal')
+      else
+        this.fireOpenDialog('add-ready-service-dialog')
+    },
     changeFilter(val) {
       this.filterItem = { ...this.filterItem, ...val };
       this.fireEvent("d-filter-list-refresh");
     },
-    openAddService(evt) {
-      evt.preventDefault();
-      this.fireOpenDialog("add-ready-service-dialog");
-    },
+    // openAddService(evt) {
+    //   evt.preventDefault();
+    //   this.fireOpenDialog("add-ready-service-dialog");
+    // },
     closeAddService(evt) {
       evt.preventDefault();
       this.fireCloseDialog("add-ready-service-dialog");
@@ -126,6 +136,11 @@ export default {
     },
 
   },
+  computed: {
+    userIsRoleProvider() {
+      return this.$store.state.isProviderRole
+    }
+  },
   mounted() {
     this.getTotalYourServices()
     //this.getCategories();
@@ -134,9 +149,4 @@ export default {
 };
 </script>
 
-<style>
-.flex-direction {
-  flex-direction: row-reverse;
-  align-items: baseline;
-}
-</style>
+<style></style>

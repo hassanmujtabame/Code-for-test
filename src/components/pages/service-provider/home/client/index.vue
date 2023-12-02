@@ -4,8 +4,13 @@
             <div class="row">
                 <ul class="nav nav-pills mb-3 justify-content-center text-center">
                     <li class="nav-item col-12 col-md-3">
-                        <router-link to="ready-services" class="nav-link  border w-75 t-c m-auto active">اطلب خدمة
-                            جديدة</router-link>
+                        <!-- <router-link to="ready-services" class="nav-link  border w-75 t-c m-auto active">اطلب خدمة
+                            جديدة</router-link> -->
+
+                        <button @click="openAddService($event, closeNavList)"
+                            class="nav-link  border w-75 t-c m-auto active" style="height: 100%">
+                            {{ userIsRoleProvider ? $t('add-new-service') : $t('add-new-request') }}
+                        </button>
                     </li>
                     <li class="nav-item col-12 col-md-3">
                         <router-link to="my-proposals" class="nav-link  border w-75 t-c m-auto ">طلباتي
@@ -43,6 +48,21 @@ export default {
             status: null,
         }
     },
-    components: { SectionSearch, SectionServices, SectionBrowsing, SectionLearning }
+    components: { SectionSearch, SectionServices, SectionBrowsing, SectionLearning },
+    methods: {
+        openAddService(evt, closeNavList) {
+            evt.preventDefault();
+            // closeNavList()
+            if (!this.userIsRoleProvider)
+                this.fireOpenDialog('add-proposal')
+            else
+                this.fireOpenDialog('add-ready-service-dialog')
+        },
+    },
+    computed: {
+        userIsRoleProvider() {
+            return this.$store.state.isProviderRole
+        }
+    },
 }
 </script>

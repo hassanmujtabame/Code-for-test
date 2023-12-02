@@ -18,7 +18,7 @@
         </slot>
       </div>
       <div class="col-12 mt-3 row mb-3" :class="classSearchOrder">
-        <div v-if="showBtnSearch" class="mt-3 text-center" :class="classBtnSearch">
+        <div v-if="showBtnSearch" class="text-center" :class="classBtnSearch">
           <button @click="updateFilter" class="btn-custmer">{{ $t('search') }}</button>
         </div>
         <div v-if="!hideSearch" :class="classColSearch">
@@ -334,7 +334,7 @@ export default {
     },
     classBtnSearch: {
       type: String,
-      default: "col-12 col-md-2",
+      default: "col-12 col-md-2 mt-3",
     },
     hideTotal: {
       type: Boolean,

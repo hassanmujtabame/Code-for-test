@@ -1,7 +1,7 @@
 <template>
     <div style="margin-top: 85px " class="consult max-width-100-hidden">
       <div class="consulting" >
-        <SectionTop />
+        <!-- <SectionTop /> -->
       </div>
         <div class="container">
            <SectionFilterList />
