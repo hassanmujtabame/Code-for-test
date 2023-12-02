@@ -95,9 +95,9 @@ export default {
     },
   },
   computed: {
-    userIsRoleProvider(){
+    userIsRoleProvider() {
       return this.$store.state.isProviderRole
-    } 
+    }
   },
   mounted() {
   }
