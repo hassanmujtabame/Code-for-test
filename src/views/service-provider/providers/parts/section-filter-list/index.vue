@@ -3,35 +3,33 @@
         <div class="container">
 
             <div class="row">
-              <ul class="nav nav-pills mb-3 justify-content-center text-center">
-                <li class="nav-item col-12 col-md-3">
-                  <!-- <router-link to="ready-services" class="nav-link  border w-75 t-c m-auto active">اطلب خدمة
-                      جديدة</router-link> -->
-      
-                  <button @click="openAddService($event, closeNavList)"
-                      class="nav-link  border w-75 t-c m-auto active" style="height: 100%">
-                      {{ userIsRoleProvider ? $t('add-new-service') : $t('add-new-request') }}
-                  </button>
-              </li>
-                <li class="nav-item col-12 col-md-3">
-                  <router-link to="my-proposals" class="nav-link  border w-75 t-c m-auto ">طلباتي
-                    المنشورة</router-link>
-                </li>
-                <li class="nav-item col-12 col-md-3">
-                  <router-link to="my-purchases" class="nav-link  border w-75 t-c m-auto ">اعمالي قيد
-                    التنفيذ
-                  </router-link>
-                </li>
-              </ul>
+                <ul class="nav nav-pills mb-3 justify-content-center text-center">
+                    <li class="nav-item col-12 col-md-3">
+                        <!-- <router-link to="ready-services" class="nav-link  border w-75 t-c m-auto active">اطلب خدمة جديدة</router-link> -->
+
+                        <button @click="openAddService($event, closeNavList)"
+                            class="nav-link  border w-75 t-c m-auto active" style="height: 100%">
+                            {{ userIsRoleProvider ? $t('add-new-service') : $t('add-new-request') }}
+                        </button>
+                    </li>
+                    <li class="nav-item col-12 col-md-3">
+                        <router-link to="my-proposals" class="nav-link  border w-75 t-c m-auto ">طلباتي
+                            المنشورة</router-link>
+                    </li>
+                    <li class="nav-item col-12 col-md-3">
+                        <router-link to="my-purchases" class="nav-link  border w-75 t-c m-auto ">اعمالي قيد
+                            التنفيذ
+                        </router-link>
+                    </li>
+                </ul>
             </div>
-          </div>
-        <d-filter-list :call-list="loadList"  hideTotal @change="changeFilter" singleName="" classColCard="col-12 col-md-6 mt-3"
-            pluralName="مقدمو الخدمة" :searchPlaceholder="$t('search_by_service_provider')" orderName="rate" :orderOpts="[
-                    { id: 'asc', name: 'الأقل تقييما' },
-                    { id: 'desc', name: 'الأعلى تقييما', }
-                ]"
-                classSearchOrder="mb-5 justify-content-center flex-row-reverse align-items-center"
-                >
+        </div>
+        <d-filter-list :call-list="loadList" hideTotal @change="changeFilter" singleName=""
+            classColCard="col-12 col-md-6 mt-3" pluralName="مقدمو الخدمة"
+            :searchPlaceholder="$t('search_by_service_provider')" orderName="rate" :orderOpts="[
+                { id: 'asc', name: 'الأقل تقييما' },
+                { id: 'desc', name: 'الأعلى تقييما', }
+            ]" classSearchOrder="mb-5 justify-content-center flex-row-reverse align-items-center">
             <template v-slot:side>
                 <sidebarFilter @change="changeFilter" :filter-item="fitlterSide" />
             </template>
@@ -80,9 +78,17 @@ export default {
             this.filterItem = { ...this.filterItem, ...val }
             this.fireEvent('d-filter-list-refresh')
         },
+        // openAddService(evt) {
+        //     evt.preventDefault();
+        //     this.fireOpenDialog('add-ready-service-dialog')
+        // },
         openAddService(evt) {
             evt.preventDefault();
-            this.fireOpenDialog('add-ready-service-dialog')
+            // closeNavList()
+            if (!this.userIsRoleProvider)
+                this.fireOpenDialog('add-proposal')
+            else
+                this.fireOpenDialog('add-ready-service-dialog')
         },
         closeAddService(evt) {
             evt.preventDefault();

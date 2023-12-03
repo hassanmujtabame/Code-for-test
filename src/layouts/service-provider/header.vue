@@ -81,7 +81,7 @@ export default {
       // console.log(this.userIsRoleProvider)
       // this.userIsRoleProvider = !this.userIsRoleProvider
     },
-    openAddService(evt, closeNavList) {
+    openAddService(evt) {
       evt.preventDefault();
       // closeNavList()
       if (!this.userIsRoleProvider)

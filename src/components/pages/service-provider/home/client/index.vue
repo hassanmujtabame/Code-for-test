@@ -50,7 +50,7 @@ export default {
     },
     components: { SectionSearch, SectionServices, SectionBrowsing, SectionLearning },
     methods: {
-        openAddService(evt, closeNavList) {
+        openAddService(evt) {
             evt.preventDefault();
             // closeNavList()
             if (!this.userIsRoleProvider)

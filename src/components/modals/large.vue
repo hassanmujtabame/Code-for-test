@@ -1,6 +1,7 @@
 <template>
   <div
     class="modal fade"
+    style=""
     :style="styleObj"
     :class="{show:dialog}"
     :aria-hidden="!dialog?'true':'false'"
@@ -9,7 +10,10 @@
   >
     <div
       class="modal-dialog"
-      :class="{'modal-xl':xl&&!mlg,'modal-lg':mlg,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen}"
+      :class="{'modal-xl':xl&&!mlg,'modal-lg':mlg,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen,
+        [dynamicTextClass]: true
+    }"
+    :style="styleProps"
     >
       <div class="modal-content">
         <div v-if="!hideHeader" class="modal-header" style="margin-right: auto; border-bottom:0; width: 100%;">
@@ -63,6 +67,12 @@ export default {
     customHeaderClass: {
       default: ""
     },
+    dynamicTextClass: {
+      default: ""
+    },
+    styleProps: {
+      default: ""
+    },
     centered: {
       type: Boolean,
       default: true
@@ -91,7 +101,7 @@ export default {
   data: vm => {
     return {
       modalId: vm.generateRandomString(8),
-      dialog: false
+      dialog: false,
     };
   },
   watch: {
