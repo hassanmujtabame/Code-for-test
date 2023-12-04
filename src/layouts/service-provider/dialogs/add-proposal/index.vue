@@ -2,7 +2,7 @@
   <d-dialog-large dynamicTextClass="p-1" styleProps="max-width: calc(var(--bs-modal-width) + 150px);" :group="group"
     :xl="false" :openDialog="openDialog" :closeDialog="closeDialog" :loading="loading">
     <template v-slot>
-      <ValidationObserver style="display: block; width: 80%; margin: auto;" ref="form" v-if="showDialog">
+      <ValidationObserver id="step-one" style="display: block; width: 80%; margin: auto;" ref="form" v-if="showDialog && stepOne">
         <!--Title-->
         <div class="mb-3">
           <ValidationProvider :name="$t('request-title')" vid="title" rules="required" v-slot="{ errors }">
@@ -66,7 +66,7 @@
           </ValidationProvider>
         </div>
         <!--city-->
-        <div class="mb-3" v-if="itemForm.state == 'offline'">
+        <!-- <div class="mb-3" v-if="itemForm.state == 'offline'">
           <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group" rules="required"
             v-slot="{ errors }">
             <d-select-input :errors="errors" v-model="itemForm.city_id">
@@ -77,7 +77,7 @@
               </option>
             </d-select-input>
           </ValidationProvider>
-        </div>
+        </div> -->
 
         <!-- specialite -->
         <!-- <div class="mb-3">
@@ -95,7 +95,7 @@
             <label class="form-label">أكتب وصف لطلبك بالتفاصيل</label>
             <d-ckeditor-classic v-model="itemForm.desc" class="form-control" rows="10" :editorConfig="{
               minHeight: '150px'
-            }" ></d-ckeditor-classic>
+            }"></d-ckeditor-classic>
             <d-error-input :errors="errors" v-if="errors.length" />
           </ValidationProvider>
         </div>
@@ -107,10 +107,50 @@
           </ValidationProvider>
         </div>
       </ValidationObserver>
+
+      <div id="step-two" v-if="stepTwo">
+        <div class="row">
+          <h2 style="font-weight: 300;">
+            اختر مكان تنفيذ الخدمه
+          </h2>
+        </div>
+        <ul class="list">
+          <li class="list__item" :class="choose == 'selectFromWorkspaces' ? 'activeRadio' : ''">
+            <label class="label--radio">
+              <input type="radio" class="radio" name="foo" value="selectFromWorkspaces" v-model="choose">
+              اماكن عمل رياديات
+            </label>
+          </li>
+          <li class="list__item" :class="choose == 'addManually' ? 'activeRadio' : ''">
+            <label class="label--radio">
+              <input type="radio" class="radio" name="foo" value="addManually" v-model="choose">
+              اضافه مكان اخر
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <div id="step-three" v-if="stepThree">
+        <h2 style="font-weight: 300;">
+          test
+        </h2>
+      </div>
+
+      
     </template>
+
     <template v-slot:actions>
-      <button @click="save" style="height: 40px;" class="btn btn-main">{{
+      <button v-if="itemForm.state == 'online' && stepOne" @click="save" style="height: 40px;" class="btn btn-main">{{
         itemDialog.id ? $t('update-proposal') : $t('add-proposal') }}</button>
+      <button v-if="itemForm.state == 'offline' && stepOne" @click="chooseType" style="height: 40px;" class="btn btn-main">
+        احجز مكان للطلب 
+      </button>
+      <button v-if="itemForm.state == 'offline' && stepTwo" @click="workspaceSelect" style="height: 40px;" class="btn btn-main">
+        التالى
+      </button>
+      <button v-if="itemForm.state == 'offline' && stepThree" @click="workspaceSelect" style="height: 40px;" class="btn btn-main">
+        تابع ارسال طلبك
+      </button>
     </template>
   </d-dialog-large>
 </template>
@@ -120,6 +160,7 @@ import proposalsAPIs from "@/services/api/service-provider/user/proposals.js";
 import commonAPI from "@/services/api/common";
 
 export default {
+
   name: "add-proposal",
   props: {
     group: {
@@ -129,6 +170,10 @@ export default {
   },
   data: vm => {
     return {
+      stepOne: true,
+      stepTwo: false,
+      stepThree: false,
+      choose: 'selectFromWorkspaces',
       loading: false,
       itemDialog: { id: null },
       itemForm: {},
@@ -143,16 +188,33 @@ export default {
     };
   },
   methods: {
-    async loadCities() {
-      try {
-        let { data } = await commonAPI.cities();
-        if (data.success) {
-          this.cities = data.data;
-        }
-      } catch (error) {
-        console.log("error", error);
+    workspaceSelect() {
+      if(this.choose == 'addManually'){
+        this.stepThree = true
+        this.stepTwo = false
+        this.stepOne = false
       }
+
     },
+    async chooseType() {
+      let valid = await this.$refs.form.validate();
+      if (!valid) {
+        console.log("form invalid");
+        return;
+      }
+      this.stepOne = false
+      this.stepTwo = true
+    },
+    // async loadCities() {
+    //   try {
+    //     let { data } = await commonAPI.cities();
+    //     if (data.success) {
+    //       this.cities = data.data;
+    //     }
+    //   } catch (error) {
+    //     console.log("error", error);
+    //   }
+    // },
     async save() {
       this.loading = true;
       let valid = await this.$refs.form.validate();
@@ -203,6 +265,9 @@ export default {
       this.loading = false;
     },
     openDialog(dataEvent) {
+      this.stepOne = true
+      this.stepTwo = false
+      this.stepThree = false
       console.log('dataEvent', dataEvent);
       this.loading = false;
       this.itemForm = {
@@ -281,68 +346,220 @@ export default {
     }
   },
   mounted() {
-    this.loadCities();
+    // this.loadCities();
 
     this.loadCategories();
   }
 };
 </script>
   
-<style scoped>
-.info-item {
-  font-size: 16px;
-  padding: 5px;
+<style scoped lang="scss">
+$primaryColor: #2eb9b3;
+$secondaryColor: #f2f2f2;
+$twitter: #2980b9;
+$baseFontSize: 16;
+
+@mixin transition($property, $duration, $timing-function) {
+  -webkit-transition: $property $duration $timing-function;
+  -moz-transition: $property $duration $timing-function;
+  -o-transition: $property $duration $timing-function;
+  transition: $property $duration $timing-function;
 }
 
-.info-item-value {
-  color: #2c98b3;
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
 }
 
-.form-check-input-custom {
-  display: none;
+@function rem($val) {
+  @return #{$val / $baseFontSize}rem;
 }
 
-.form-check-input-custom:checked+label {
-  background-color: #1FB9B3;
-  border-radius: 5px;
-  color: white;
-}
+#step-one {
+  & .info-item {
+    font-size: 16px;
+    padding: 5px;
+  }
 
-.form-check-custom {
-  /* border: 1px solid #1FB9B3; */
-  /* border-radius: 8px; 
+  & .info-item-value {
+    color: #2c98b3;
+  }
+
+  & .form-check-input-custom {
+    display: none;
+  }
+
+  & .form-check-input-custom:checked+label {
+    background-color: #1FB9B3;
+    border-radius: 5px;
+    color: white;
+  }
+
+  & .form-check-custom {
+    /* border: 1px solid #1FB9B3; */
+    /* border-radius: 8px; 
   padding: 3px 45px;
   */
-  padding: 10px
+    padding: 10px
+  }
+
+  & .form-check-custom-states {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  & .form-check-states:checked+label {
+    background-color: #1FB9B3;
+    border-radius: 5px;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    color: white !important;
+  }
+
+  & .form-check-states:checked+#offline {
+    background-color: #1FB9B3;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+    color: white !important;
+  }
+
+  & .form-check-states {
+    display: none;
+  }
+
+  & #offline {
+    border-right: 1px solid #1FB9B3;
+  }
 }
 
-.form-check-custom-states {
-  padding: 0 !important;
-  margin: 0 !important;
-}
+#step-two {
+  .number {
+    position: absolute;
+    top: rem(35);
+    left: rem(-20);
 
-.form-check-states:checked+label {
-  background-color: #1FB9B3;
-  border-radius: 5px;
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
-  color: white !important;
-}
+    color: $primaryColor;
+    font-size: 2rem;
+    font-family: Helvetiva, Arial, sans-serif;
+  }
 
-.form-check-states:checked+#offline {
-  background-color: #1FB9B3;
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
-  border-top-left-radius: 5px !important;
-  border-bottom-left-radius: 5px !important;
-  color: white !important;
-}
+  .list {
+    padding: .5rem 1rem;
+    margin: .5rem .5rem 2rem .5rem;
+    list-style-type: none;
+    /*border-left: rem(3) solid $primaryColor;*/
+  }
 
-.form-check-states {
-  display: none;
-}
+  .list__item {
+    margin: 0 0 .7rem 0;
+    padding: 10px;
+    border: 1px solid #a8a8a8;
+    border-radius: 8px;
+    color: #a8a8a8;
+  }
+  .activeRadio {
+    border-color: $primaryColor;
+    color: var(--pc);
+  }
 
-#offline {
-  border-right: 1px solid #1FB9B3;
+  .label--checkbox,
+  .label--radio {
+    position: relative;
+    width: 100%;
+    margin: .5rem;
+
+    font-family: Arial, sans-serif;
+    line-height: 135%;
+
+    cursor: pointer;
+  }
+
+  .radio {
+    position: relative;
+
+    margin: 0 1rem 0 0;
+
+    cursor: pointer;
+
+    &:before {
+      @include transition(transform, .4s, cubic-bezier(.45, 1.8, .5, .75));
+      @include transform(scale(0, 0));
+
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: rem(2);
+      z-index: 1;
+
+      width: rem(12);
+      height: rem(12);
+
+      background: $primaryColor;
+
+      border-radius: 50%;
+    }
+
+    &:checked {
+      &:before {
+        @include transform(scale(1, 1));
+      }
+    }
+
+    &:after {
+      content: "";
+
+      position: absolute;
+      top: rem(-4);
+      left: rem(-2);
+
+      width: 1rem;
+      height: 1rem;
+
+      background: #fff;
+
+      border: 2px solid $secondaryColor;
+      border-radius: 50%;
+    }
+  }
+
+  .footer {
+    position: relative;
+  }
+
+  .btn {
+    @include transition(background, .3s, ease-in-out);
+
+    position: absolute;
+    top: 0;
+    right: 4.5rem;
+
+    padding: .5rem;
+
+    background: $primaryColor;
+
+    color: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+    text-decoration: none;
+
+    &:hover {
+      background: darken($primaryColor, 5%);
+    }
+  }
+
+  .btn--twitter {
+    right: 2rem;
+
+    background: $twitter;
+
+    &:hover {
+      background: darken($twitter, 5%);
+    }
+  }
 }
 </style>
