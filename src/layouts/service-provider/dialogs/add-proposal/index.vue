@@ -91,6 +91,16 @@
           </ValidationProvider>
         </div> -->
 
+        <!--field-->
+        <div class="mb-3">
+          <ValidationProvider tag="div" class="form-group" :name="$t('specialite')" vid="field_id" v-slot="{ errors }">
+            <d-select-input :errors="errors" class="form-select" v-model="itemForm.field_id">
+              <option selected disabled value=''> {{ $t('select-specialite') }} </option>
+              <option v-for="(field, i) in fields" :key="i" :value="field.id">{{ field.name }}</option>
+            </d-select-input>
+          </ValidationProvider>
+        </div>
+
         <div class="mb-3">
           <ValidationProvider :name="$t('request-description')" vid="description" rules="required" v-slot="{ errors }">
             <label class="form-label">أكتب وصف لطلبك بالتفاصيل</label>
@@ -133,37 +143,72 @@
 
       <div id="step-three" v-if="stepThree">
 
-        <div class="row">
-          <h2 style="font-weight: 300;">
-            اضف مكان من اختيارك
-          </h2>
+        <div v-if="choose == 'addManually'">
+          <div class="row">
+            <h2 style="font-weight: 300;">
+              اضف مكان من اختيارك
+            </h2>
+          </div>
+
+          <ValidationObserver ref="addWorkspaceForm">
+
+            <!--region-->
+            <div class="mb-3" v-if="itemForm.state == 'offline'">
+              <ValidationProvider :name="$t('Region')" vid="city_id" tag="div" class="form-group" rules="required"
+                v-slot="{ errors }">
+                <d-select-input :errors="errors" v-model="itemForm.city_id">
+                  <option selected disabled value=''> {{ $t('Region') }} </option>
+
+                  <option :key="i" v-for="(city, i) in cities" :value="city.id">
+                    {{ `${city.name}` }}
+                  </option>
+                </d-select-input>
+              </ValidationProvider>
+            </div>
+
+
+            <!--workspace type-->
+            <div class="mb-3" v-if="itemForm.state == 'offline'">
+              <ValidationProvider name="workspace" vid="workspace_category" tag="div" class="form-group" rules="required"
+                v-slot="{ errors }">
+                <d-select-input :errors="errors" v-model="itemForm.workspaceCategory_id">
+                  <option selected disabled value=''> اختر نوع المكان </option>
+
+                  <option :key="i" v-for="(workspaceCategory, i) in workspaceCategories" :value="workspaceCategory.id">
+                    {{ `${workspaceCategory.title}` }}
+                  </option>
+                </d-select-input>
+              </ValidationProvider>
+            </div>
+
+            <!-- address -->
+            <div class="mb-3">
+              <ValidationProvider :name="$t('Address')" vid="address" rules="required" v-slot="{ errors }">
+                <d-text-input :errors="errors" type="text" v-model="itemForm.address" class="form-control"
+                  :placeholder="$t('Address')" />
+              </ValidationProvider>
+            </div>
+
+            <!-- exhibition_map_url -->
+            <div class="mb-3">
+              <ValidationProvider :name="$t('exhibition_map_url')" vid="exhibition_map_url" rules="required"
+                v-slot="{ errors }">
+                <d-text-input :errors="errors" type="text" v-model="itemForm.exhibition_map_url" class="form-control"
+                  :placeholder="$t('exhibition_map_url')" />
+              </ValidationProvider>
+            </div>
+
+          </ValidationObserver>
         </div>
 
-        <ValidationObserver>
-
-          <!--city-->
-          <div class="mb-3" v-if="itemForm.state == 'offline'">
-            <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group" rules="required"
-              v-slot="{ errors }">
-              <d-select-input :errors="errors" v-model="itemForm.city_id">
-                <option selected disabled value=''> {{ $t('the_city') }} </option>
-
-                <option :key="i" v-for="(city, i) in cities" :value="city.id">
-                  {{ `${city.name}` }}
-                </option>
-              </d-select-input>
-            </ValidationProvider>
+        <div v-if="choose == 'selectFromWorkspaces'">
+          <div>
+            <div class="mt-5" style="font-weight: bold">
+              أختار من اماكن العمل لدينا
+              <Workspaces />
+            </div>
           </div>
-
-
-          <div class="mb-3">
-            <ValidationProvider :name="$t('Address')" vid="address" rules="required" v-slot="{ errors }">
-              <d-text-input :errors="errors" type="text" v-model="itemForm.address" class="form-control"
-                :placeholder="$t('Address')" />
-            </ValidationProvider>
-          </div>
-
-        </ValidationObserver>
+        </div>
       </div>
 
     </template>
@@ -179,7 +224,7 @@
         class="btn btn-main">
         التالى
       </button>
-      <button v-if="itemForm.state == 'offline' && stepThree" @click="save" style="height: 40px;"
+      <button v-if="itemForm.state == 'offline' && stepThree" @click="saveOffline" style="height: 40px;"
         class="btn btn-main">
         تابع ارسال طلبك
       </button>
@@ -190,9 +235,14 @@
 <script>
 import proposalsAPIs from "@/services/api/service-provider/user/proposals.js";
 import commonAPI from "@/services/api/common";
+import workspaceAPI from "@/services/api/workspace";
+import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
+import Workspaces from "./recent-workspaces/index.vue";
 
 export default {
-
+  components: {
+    Workspaces
+  },
   name: "add-proposal",
   props: {
     group: {
@@ -211,10 +261,11 @@ export default {
       itemForm: {},
       showDialog: false,
       categories: [],
+      workspaceCategories: [],
       fields: [],
       cities: [{
         "id": 47091,
-        "name": "Honobod",
+        "name": "جده",
         "region": {
           "id": 3999,
           "name": "Treinta y Tres"
@@ -222,7 +273,7 @@ export default {
       },
       {
         "id": 47092,
-        "name": "Ilyichevsk",
+        "name": "الرياض",
         "region": {
           "id": 3999,
           "name": "Treinta y Tres"
@@ -230,7 +281,7 @@ export default {
       },
       {
         "id": 47093,
-        "name": "Karabagis",
+        "name": "عمان",
         "region": {
           "id": 3999,
           "name": "Treinta y Tres"
@@ -243,12 +294,61 @@ export default {
     };
   },
   methods: {
-    workspaceSelect() {
-      if (this.choose == 'addManually') {
-        this.stepThree = true
-        this.stepTwo = false
-        this.stepOne = false
+
+    async saveOffline() {
+      // this.loading = true;
+      let valid = await this.$refs.addWorkspaceForm.validate();
+      if (!valid) {
+        console.log("addWorkspaceForm invalid");
+        this.loading = false;
+        return;
       }
+      let formData = new FormData();
+      Object.keys(this.itemForm).forEach(key => {
+        formData.append(key, this.itemForm[key]);
+      });
+
+      // try {
+      //   let { data } = this.itemForm.id
+      //     ? await proposalsAPIs.updateItem(this.itemForm.id, formData)
+      //     : await proposalsAPIs.addItem(formData);
+
+      //   if (data.success) {
+      //     let dataEvent;
+      //     if (!this.itemForm.id)
+      //       dataEvent = {
+      //         title: "لقد تم أضافة طلب جديد لك",
+      //         description:
+      //           "سيتم مراجعة الطلب  من خلالنا  خلال يوم  و سنخبرك عندما يكون جاهز  لاستقبال الطلبات"
+      //       };
+      //     else {
+      //       dataEvent = {
+      //         title: "لقد تم تعديل طلبك",
+      //         description: ""
+      //       };
+      //     }
+      //     this.fireOpenDialog("standard-success-message", dataEvent);
+      //     this.closeEvent();
+      //   } else {
+      //     window.SwalError(data.message);
+      //   }
+      // } catch (error) {
+      //   //
+      //   if (error.response) {
+      //     let response = error.response;
+      //     if (response.status == 422) {
+      //       if (response.data.errors)
+      //         this.$refs.form.setErrors(response.data.errors);
+      //     }
+      //   }
+      // }
+      // this.loading = false;
+    },
+
+    workspaceSelect() {
+      this.stepThree = true
+      this.stepTwo = false
+      this.stepOne = false
 
     },
     async chooseType() {
@@ -272,6 +372,24 @@ export default {
     //     console.log("error", error);
     //   }
     // },
+    async loadFields(val, ch = true) {
+      console.mylog('cc', val)
+      if (ch)
+        this.itemForm.field_id = [];
+
+      if (!this.itemForm.category_id) {
+        this.fields = [];
+        return;
+      }
+      try {
+        let { data } = await readyServiceAPIs.getFields(this.itemForm.category_id)
+        if (data.success) {
+          this.fields = data.data
+        }
+      } catch (error) {
+        console.log('error', error)
+      }
+    },
     async save() {
       this.loading = true;
       let valid = await this.$refs.form.validate();
@@ -328,6 +446,8 @@ export default {
       console.log('dataEvent', dataEvent);
       this.loading = false;
       this.itemForm = {
+        exhibition_map_url: '',
+        workspaceCategory_id: '',
         address: '',
         id: null,
         title: "",
@@ -401,11 +521,21 @@ export default {
       } catch (error) {
         console.log("error", error);
       }
+    },
+    async loadWorkspaceCategories() {
+      try {
+        let { data } = await workspaceAPI.getWorkSpaceCategories();
+        if (data.success) {
+          this.workspaceCategories = data.data;
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
     }
   },
   mounted() {
     // this.loadCities();
-
+    this.loadWorkspaceCategories();
     this.loadCategories();
   }
 };

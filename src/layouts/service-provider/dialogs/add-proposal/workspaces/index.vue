@@ -71,10 +71,10 @@ export default {
     rescheduleRequest(item) {
       this.fireOpenDialog("reschedule-reservation", item);
     },
-    async getWorkSpaces() {
+    async getRecentWorkSpaces() {
       this.loading = true;
       try {
-        let { data } = await workspaceAPI.getWorkSpaces();
+        let { data } = await workspaceAPI.getRecentWorkSpaces();
         if (data.success) {
           this.items = data.data;
         }
@@ -85,7 +85,7 @@ export default {
     },
   },
   mounted() {
-    this.getWorkSpaces();
+    this.getRecentWorkSpaces();
   },
 };
 </script>
