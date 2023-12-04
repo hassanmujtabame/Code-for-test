@@ -2,7 +2,8 @@
   <d-dialog-large dynamicTextClass="p-1" styleProps="max-width: calc(var(--bs-modal-width) + 150px);" :group="group"
     :xl="false" :openDialog="openDialog" :closeDialog="closeDialog" :loading="loading">
     <template v-slot>
-      <ValidationObserver id="step-one" style="display: block; width: 80%; margin: auto;" ref="form" v-if="showDialog && stepOne">
+      <ValidationObserver id="step-one" style="display: block; width: 80%; margin: auto;" ref="form"
+        v-if="showDialog && stepOne">
         <!--Title-->
         <div class="mb-3">
           <ValidationProvider :name="$t('request-title')" vid="title" rules="required" v-slot="{ errors }">
@@ -131,24 +132,55 @@
       </div>
 
       <div id="step-three" v-if="stepThree">
-        <h2 style="font-weight: 300;">
-          test
-        </h2>
+
+        <div class="row">
+          <h2 style="font-weight: 300;">
+            اضف مكان من اختيارك
+          </h2>
+        </div>
+
+        <ValidationObserver>
+
+          <!--city-->
+          <div class="mb-3" v-if="itemForm.state == 'offline'">
+            <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group" rules="required"
+              v-slot="{ errors }">
+              <d-select-input :errors="errors" v-model="itemForm.city_id">
+                <option selected disabled value=''> {{ $t('the_city') }} </option>
+
+                <option :key="i" v-for="(city, i) in cities" :value="city.id">
+                  {{ `${city.name}` }}
+                </option>
+              </d-select-input>
+            </ValidationProvider>
+          </div>
+
+
+          <div class="mb-3">
+            <ValidationProvider :name="$t('Address')" vid="address" rules="required" v-slot="{ errors }">
+              <d-text-input :errors="errors" type="text" v-model="itemForm.address" class="form-control"
+                :placeholder="$t('Address')" />
+            </ValidationProvider>
+          </div>
+
+        </ValidationObserver>
       </div>
 
-      
     </template>
 
     <template v-slot:actions>
       <button v-if="itemForm.state == 'online' && stepOne" @click="save" style="height: 40px;" class="btn btn-main">{{
         itemDialog.id ? $t('update-proposal') : $t('add-proposal') }}</button>
-      <button v-if="itemForm.state == 'offline' && stepOne" @click="chooseType" style="height: 40px;" class="btn btn-main">
-        احجز مكان للطلب 
+      <button v-if="itemForm.state == 'offline' && stepOne" @click="chooseType" style="height: 40px;"
+        class="btn btn-main">
+        احجز مكان للطلب
       </button>
-      <button v-if="itemForm.state == 'offline' && stepTwo" @click="workspaceSelect" style="height: 40px;" class="btn btn-main">
+      <button v-if="itemForm.state == 'offline' && stepTwo" @click="workspaceSelect" style="height: 40px;"
+        class="btn btn-main">
         التالى
       </button>
-      <button v-if="itemForm.state == 'offline' && stepThree" @click="workspaceSelect" style="height: 40px;" class="btn btn-main">
+      <button v-if="itemForm.state == 'offline' && stepThree" @click="save" style="height: 40px;"
+        class="btn btn-main">
         تابع ارسال طلبك
       </button>
     </template>
@@ -180,7 +212,30 @@ export default {
       showDialog: false,
       categories: [],
       fields: [],
-      cities: [],
+      cities: [{
+        "id": 47091,
+        "name": "Honobod",
+        "region": {
+          "id": 3999,
+          "name": "Treinta y Tres"
+        }
+      },
+      {
+        "id": 47092,
+        "name": "Ilyichevsk",
+        "region": {
+          "id": 3999,
+          "name": "Treinta y Tres"
+        }
+      },
+      {
+        "id": 47093,
+        "name": "Karabagis",
+        "region": {
+          "id": 3999,
+          "name": "Treinta y Tres"
+        }
+      },],
       states: [
         { id: "online", name: vm.$t("online-services") },
         { id: "offline", name: vm.$t("offline-services") },
@@ -189,7 +244,7 @@ export default {
   },
   methods: {
     workspaceSelect() {
-      if(this.choose == 'addManually'){
+      if (this.choose == 'addManually') {
         this.stepThree = true
         this.stepTwo = false
         this.stepOne = false
@@ -210,8 +265,10 @@ export default {
     //     let { data } = await commonAPI.cities();
     //     if (data.success) {
     //       this.cities = data.data;
+    //       console.log('cities', this.cities)
     //     }
     //   } catch (error) {
+    //     console.log('ccc')
     //     console.log("error", error);
     //   }
     // },
@@ -271,6 +328,7 @@ export default {
       console.log('dataEvent', dataEvent);
       this.loading = false;
       this.itemForm = {
+        address: '',
         id: null,
         title: "",
         state: "online",
@@ -462,6 +520,7 @@ $baseFontSize: 16;
     border-radius: 8px;
     color: #a8a8a8;
   }
+
   .activeRadio {
     border-color: $primaryColor;
     color: var(--pc);
