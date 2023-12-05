@@ -293,7 +293,7 @@ export default {
           "id": 3999,
           "name": "Treinta y Tres"
         }
-      },],
+      }],
       states: [
         { id: "online", name: vm.$t("online-services") },
         { id: "offline", name: vm.$t("offline-services") },
@@ -453,6 +453,7 @@ export default {
       this.loading = false;
     },
     openDialog(dataEvent) {
+      this.mainWidth = '150px',
       this.stepOne = true
       this.stepTwo = false
       this.stepThree = false

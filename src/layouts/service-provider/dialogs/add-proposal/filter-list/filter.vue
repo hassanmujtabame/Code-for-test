@@ -1,6 +1,6 @@
 <template>
   <div class="mt-5 blog">
-    <!-- <ul
+    <ul
       class="nav nav-pills mb-3 rounded-2 align-items-center"
       id="pills-tab"
       role="tablist"
@@ -19,10 +19,20 @@
         </li>
         <li v-if="categories.length > i + 1" :key="'d' + i">|</li>
       </template>
-    </ul> -->
-    <d-filter-list :call-list="loadList" @change="changeFilter" classColCard="col-lg-4 mt-3" hideTitle hideTotal hideTop
-     hideOrder hideSide hideSearch
-     >
+    </ul>
+    <d-filter-list
+    :call-list="loadList"
+    @change="changeFilter"
+    classColCard="col-lg-4 mt-3"
+    hideTitle
+    hideTotal
+    hideTop
+    newFilter
+    classSearchOrder="col-lg-8"
+    classColOrder="col-12 col-lg-4"
+    classColSearch="col-12 col-lg-8"
+    classSideBar="col-12"
+  >
 
       <template v-slot="{ item }">
         <workspaceCard :title="item.title" :image="item.image_path" :company="item" :description="item.description"
