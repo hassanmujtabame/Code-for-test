@@ -1,5 +1,5 @@
 <template>
-  <d-dialog-large dynamicTextClass="p-1" styleProps="max-width: calc(var(--bs-modal-width) + 150px);" :group="group"
+  <d-dialog-large dynamicTextClass="p-1" :styleProps="`max-width: calc(var(--bs-modal-width) + ${mainWidth});`" :group="group"
     :xl="false" :openDialog="openDialog" :closeDialog="closeDialog" :loading="loading">
     <template v-slot>
       <ValidationObserver id="step-one" style="display: block; width: 80%; margin: auto;" ref="form"
@@ -143,7 +143,7 @@
 
       <div id="step-three" v-if="stepThree">
 
-        <div v-if="choose == 'addManually'">
+        <div v-if="choose === 'addManually'">
           <div class="row">
             <h2 style="font-weight: 300;">
               اضف مكان من اختيارك
@@ -201,10 +201,14 @@
           </ValidationObserver>
         </div>
 
-        <div v-if="choose == 'selectFromWorkspaces'">
+        <div v-if="choose === 'selectFromWorkspaces'">
           <div>
             <div class="mt-5" style="font-weight: bold">
-              أختار من اماكن العمل لدينا
+              <div class="row">
+                <h2 style="font-weight: 300;">
+                  أختار من اماكن العمل لدينا
+                </h2>
+              </div>
               <Workspaces />
             </div>
           </div>
@@ -214,20 +218,22 @@
     </template>
 
     <template v-slot:actions>
-      <button v-if="itemForm.state == 'online' && stepOne" @click="save" style="height: 40px;" class="btn btn-main">{{
-        itemDialog.id ? $t('update-proposal') : $t('add-proposal') }}</button>
-      <button v-if="itemForm.state == 'offline' && stepOne" @click="chooseType" style="height: 40px;"
-        class="btn btn-main">
-        احجز مكان للطلب
-      </button>
-      <button v-if="itemForm.state == 'offline' && stepTwo" @click="workspaceSelect" style="height: 40px;"
-        class="btn btn-main">
-        التالى
-      </button>
-      <button v-if="itemForm.state == 'offline' && stepThree" @click="saveOffline" style="height: 40px;"
-        class="btn btn-main">
-        تابع ارسال طلبك
-      </button>
+      <div class="d-flex justify-content-start w-100 p-2" style="margin-right: 55px">
+        <button v-if="itemForm.state == 'online' && stepOne" @click="save" style="height: 40px;" class="btn btn-main">{{
+          itemDialog.id ? $t('update-proposal') : $t('add-proposal') }}</button>
+        <button v-if="itemForm.state == 'offline' && stepOne" @click="chooseType" style="height: 40px;"
+          class="btn btn-main">
+          احجز مكان للطلب
+        </button>
+        <button v-if="itemForm.state == 'offline' && stepTwo" @click="workspaceSelect" style="height: 40px;"
+          class="btn btn-main">
+          التالى
+        </button>
+        <button v-if="itemForm.state == 'offline' && stepThree" @click="saveOffline" style="height: 40px;"
+          class="btn btn-main">
+          تابع ارسال طلبك
+        </button>
+      </div>
     </template>
   </d-dialog-large>
 </template>
@@ -237,7 +243,7 @@ import proposalsAPIs from "@/services/api/service-provider/user/proposals.js";
 import commonAPI from "@/services/api/common";
 import workspaceAPI from "@/services/api/workspace";
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
-import Workspaces from "./recent-workspaces/index.vue";
+import Workspaces from "./filter-list/index.vue";
 
 export default {
   components: {
@@ -252,6 +258,7 @@ export default {
   },
   data: vm => {
     return {
+      mainWidth: '150px',
       stepOne: true,
       stepTwo: false,
       stepThree: false,
@@ -346,9 +353,15 @@ export default {
     },
 
     workspaceSelect() {
+      console.log(this.choose)
       this.stepThree = true
       this.stepTwo = false
       this.stepOne = false
+      if(this.choose == 'selectFromWorkspaces')
+      {
+        
+        this.mainWidth = '550px'
+      }
 
     },
     async chooseType() {
