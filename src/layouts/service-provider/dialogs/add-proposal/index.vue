@@ -115,16 +115,16 @@
         <!-- file -->
 
         <div class="input-file">
-          
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M13.8534 17.1104L13.8534 17.1104L13.8552 17.1087L15.7351 15.2287C16.0242 14.9397 16.5059 14.9397 16.7949 15.2287C17.0839 15.5178 17.0839 15.9995 16.7949 16.2885L16.9717 16.4653L16.7949 16.2885L14.9149 18.1685C14.5494 18.5341 14.3484 19.0105 14.3484 19.5186C14.3484 20.0228 14.5466 20.5148 14.9168 20.8706C15.6679 21.6197 16.8782 21.619 17.6285 20.8687L20.5885 17.9087C22.3794 16.1177 22.3794 13.2128 20.5885 11.4218C18.7975 9.63088 15.8926 9.63088 14.1016 11.4218L10.8749 14.6485L11.0517 14.8253L10.8749 14.6485C10.1488 15.3746 9.74837 16.3312 9.74837 17.3453C9.74837 18.3576 10.1476 19.3285 10.8758 20.0429C11.1639 20.332 11.1636 20.8131 10.8749 21.1018C10.5859 21.3908 10.1042 21.3908 9.81512 21.1018C8.80927 20.096 8.26172 18.7598 8.26172 17.3319C8.26172 15.9041 8.80927 14.5679 9.81512 13.5621L13.0418 10.3354L12.8651 10.1586L13.0418 10.3354C15.4109 7.96633 19.2792 7.96633 21.6483 10.3354C24.0173 12.7044 24.0173 16.5728 21.6483 18.9418L18.6883 21.9018L18.6883 21.9018L18.6867 21.9035C18.0155 22.5871 17.1472 22.9219 16.2651 22.9219C15.3948 22.9219 14.5127 22.586 13.8552 21.9285C13.2078 21.2811 12.8484 20.4244 12.8484 19.5186C12.8484 18.6114 13.2088 17.7427 13.8534 17.1104Z"
-                fill="#737373" stroke="white" stroke-width="0.5" />
-            </svg>
-            <label for="fileInput" class="custom-file-upload" v-text="buttonText">
-            </label>
-            <input id="fileInput" type="file" @change="handleFileUpload" ref="fileInput" />
-            
+
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M13.8534 17.1104L13.8534 17.1104L13.8552 17.1087L15.7351 15.2287C16.0242 14.9397 16.5059 14.9397 16.7949 15.2287C17.0839 15.5178 17.0839 15.9995 16.7949 16.2885L16.9717 16.4653L16.7949 16.2885L14.9149 18.1685C14.5494 18.5341 14.3484 19.0105 14.3484 19.5186C14.3484 20.0228 14.5466 20.5148 14.9168 20.8706C15.6679 21.6197 16.8782 21.619 17.6285 20.8687L20.5885 17.9087C22.3794 16.1177 22.3794 13.2128 20.5885 11.4218C18.7975 9.63088 15.8926 9.63088 14.1016 11.4218L10.8749 14.6485L11.0517 14.8253L10.8749 14.6485C10.1488 15.3746 9.74837 16.3312 9.74837 17.3453C9.74837 18.3576 10.1476 19.3285 10.8758 20.0429C11.1639 20.332 11.1636 20.8131 10.8749 21.1018C10.5859 21.3908 10.1042 21.3908 9.81512 21.1018C8.80927 20.096 8.26172 18.7598 8.26172 17.3319C8.26172 15.9041 8.80927 14.5679 9.81512 13.5621L13.0418 10.3354L12.8651 10.1586L13.0418 10.3354C15.4109 7.96633 19.2792 7.96633 21.6483 10.3354C24.0173 12.7044 24.0173 16.5728 21.6483 18.9418L18.6883 21.9018L18.6883 21.9018L18.6867 21.9035C18.0155 22.5871 17.1472 22.9219 16.2651 22.9219C15.3948 22.9219 14.5127 22.586 13.8552 21.9285C13.2078 21.2811 12.8484 20.4244 12.8484 19.5186C12.8484 18.6114 13.2088 17.7427 13.8534 17.1104Z"
+              fill="#737373" stroke="white" stroke-width="0.5" />
+          </svg>
+          <label for="fileInput" class="custom-file-upload" v-text="buttonText">
+          </label>
+          <input id="fileInput" type="file" @change="handleFileUpload" ref="fileInput" />
+
         </div>
 
         <div class="mb-3">
@@ -226,7 +226,7 @@
                   أختار من اماكن العمل لدينا
                 </h2>
               </div>
-              <Workspaces @recieveEmitt="recieveEmitWorkspace" />
+              <Workspaces  />
             </div>
           </div>
         </div>
@@ -235,7 +235,7 @@
     </template>
 
     <template v-slot:actions>
-      {{ workId }}
+      {{ getSelectedWorkspace }}
       <div class="d-flex justify-content-start w-100 p-2" style="margin-right: 55px">
         <button v-if="itemForm.state == 'online' && stepOne" @click="save" style="height: 40px;" class="btn btn-main">{{
           itemDialog.id ? $t('update-proposal') : $t('add-proposal') }}</button>
@@ -326,9 +326,7 @@ export default {
   // },
   computed: {
     getSelectedWorkspace() {
-      window.EventBus.listen("workspaceSelected", (data) => {
-        this.workId = data
-      });
+      return this.$store.state.serviceProviderWorkspaceSelected_id
     }
   },
   methods: {
@@ -344,15 +342,15 @@ export default {
         this.mainWidth = '550px'
         this.itemForm.workspace_id = 23
         this.itemForm.bookings = [{
-            "start_time": "02",
-            "end_time": "05",
-            "date": "2020-02-5"
+          "start_time": "02",
+          "end_time": "05",
+          "date": "2020-02-5"
         }]
       } else if (this.itemForm.type == 'other') {
         this.itemForm.location = ''
         this.itemForm.type_place = '',
-        this.itemForm.execution_place = '',
-        this.itemForm.region = ''
+          this.itemForm.execution_place = '',
+          this.itemForm.region = ''
 
       }
 
@@ -398,14 +396,14 @@ export default {
     },
     async save() {
       this.loading = true;
-      if(this.stepOne) {
+      if (this.stepOne) {
         let valid = await this.$refs.form.validate();
         if (!valid) {
           console.log("form invalid");
           this.loading = false;
           return;
         }
-      }else if(this.stepThree && this.itemForm['type'] == 'other'){
+      } else if (this.stepThree && this.itemForm['type'] == 'other') {
         let valid = await this.$refs.addWorkspaceForm.validate();
         if (!valid) {
           console.log("form invalid");
@@ -795,4 +793,5 @@ input[type="file"] {
 
 .input-file:hover {
   border-color: #2eb9b3;
-}</style>
+}
+</style>

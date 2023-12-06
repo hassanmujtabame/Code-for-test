@@ -88,9 +88,8 @@ export default {
     },
   },
   methods: {
-    workSpaceSelectedId() {
-      this.fire("workspaceSelected", this.id);
-
+    workSpaceSelected() {
+      this.$store.commit('serviceProviderWorkspaceSelected', this.id)
     }
   }
 };
