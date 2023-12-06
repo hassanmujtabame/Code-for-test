@@ -159,7 +159,6 @@
       </div>
 
       <div id="step-three" v-if="stepThree">
-
         <div v-if="itemForm['type'] === 'other'">
           <div class="row">
             <h2 style="font-weight: 300;">
@@ -226,8 +225,18 @@
                   أختار من اماكن العمل لدينا
                 </h2>
               </div>
-              <Workspaces  />
+              <Workspaces />
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="getSelectedWorkspace && getSelectedWorkspace != ''">
+        <div>
+          <div class="mt-5" style="font-weight: bold">
+            <p>test</p>
+            <h1>{{ getSelectedWorkspace }}</h1>
+            <WorkspaceDetails :workspaceId="getSelectedWorkspace" />
           </div>
         </div>
       </div>
@@ -235,7 +244,7 @@
     </template>
 
     <template v-slot:actions>
-      {{ getSelectedWorkspace }}
+      <!-- {{ getSelectedWorkspace }} -->
       <div class="d-flex justify-content-start w-100 p-2" style="margin-right: 55px">
         <button v-if="itemForm.state == 'online' && stepOne" @click="save" style="height: 40px;" class="btn btn-main">{{
           itemDialog.id ? $t('update-proposal') : $t('add-proposal') }}</button>
@@ -261,10 +270,12 @@ import commonAPI from "@/services/api/common";
 import workspaceAPI from "@/services/api/workspace";
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import Workspaces from "./workspaces/index.vue";
+import WorkspaceDetails from "./details/index.vue";
 
 export default {
   components: {
-    Workspaces
+    Workspaces,
+    WorkspaceDetails
   },
   name: "add-proposal",
   props: {
@@ -276,7 +287,6 @@ export default {
   data: vm => {
     return {
       buttonText: 'ارفق الملفات', // Initial button text
-      workId: 2,
       mainWidth: '150px',
       stepOne: true,
       stepTwo: false,
@@ -326,6 +336,8 @@ export default {
   // },
   computed: {
     getSelectedWorkspace() {
+      this.stepThree = false
+      this.stepOne = false
       return this.$store.state.serviceProviderWorkspaceSelected_id
     }
   },
@@ -340,12 +352,20 @@ export default {
       this.stepOne = false
       if (this.itemForm.type == 'workspace') {
         this.mainWidth = '550px'
-        this.itemForm.workspace_id = 23
-        this.itemForm.bookings = [{
-          "start_time": "02",
-          "end_time": "05",
-          "date": "2020-02-5"
-        }]
+        this.itemForm.workspace_id = this.getSelectedWorkspace
+        // this.itemForm.bookings = [
+
+        //{
+        //     start_time: "02",
+        //     end_time: "05",
+        //     date: "2020-02-5"
+        //   },
+        //   {
+        //     start_time: "02",
+        //     end_time: "05",
+        //     date: "2020-02-7"
+        //   }
+        // ]
       } else if (this.itemForm.type == 'other') {
         this.itemForm.location = ''
         this.itemForm.type_place = '',
@@ -415,6 +435,7 @@ export default {
       Object.keys(this.itemForm).forEach(key => {
         formData.append(key, this.itemForm[key]);
       });
+
       console.log('Form data values:');
       for (let pair of formData.entries()) {
         console.log(pair[0] + ', ' + pair[1]);
@@ -457,6 +478,14 @@ export default {
     },
 
     openDialog(dataEvent) {
+      const bookings = [
+        {
+          "start_time": "02",
+          "end_time": "05",
+          "date": "2020-02-5"
+        }
+      ];
+      this.$store.commit('serviceProviderWorkspaceSelected', false)
       this.mainWidth = '150px'
       this.stepOne = true
       this.stepTwo = false
@@ -464,6 +493,7 @@ export default {
       console.log('dataEvent', dataEvent);
       this.loading = false;
       this.itemForm = {
+        id: null,
         title: "",
         file: null,
         state: "online",
@@ -473,6 +503,9 @@ export default {
         execution_period: 0,
         type: 'workspace',
         skills: "",
+        workspace_id: 33,
+        bookings: JSON.stringify(bookings)
+
         // location: '',
         // type_place: '',
         // execution_place: '',
@@ -556,6 +589,16 @@ export default {
     // this.loadCities();
     this.loadWorkspaceCategories();
     this.loadCategories();
+    const bookings = [
+      {
+        "start_time": "02",
+        "end_time": "05",
+        "date": "2020-02-5"
+      }
+    ];
+
+    const jsonString = JSON.stringify({ bookings });
+    console.log(jsonString);
   }
 };
 </script>

@@ -111,8 +111,12 @@ export default {
       loading: true,
       singleWorkspace: {},
       shareLink: '',
-      id: 22,
     };
+  },
+  props: {
+    workspaceId: {
+      type: Number,
+    }
   },
 
   computed: {
@@ -126,13 +130,13 @@ export default {
       this.loading = true;
       try {
         let { data } = await WorkspaceAPI.getDetailsWorkspace(
-          this.id
+          this.workspaceId
         );
         if (data.success) {
           this.singleWorkspace = data.data;
           this.metaInfo_ = { title: this.singleWorkspace.title };
           try {
-            await readyServiceAPIs.setAsView(this.id);
+            await readyServiceAPIs.setAsView(this.workspaceId);
           } catch (error) {
             console.log("error", error);
           }
