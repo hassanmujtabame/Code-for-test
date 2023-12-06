@@ -260,7 +260,7 @@ import proposalsAPIs from "@/services/api/service-provider/user/proposals.js";
 import commonAPI from "@/services/api/common";
 import workspaceAPI from "@/services/api/workspace";
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
-import Workspaces from "./filter-list/index.vue";
+import Workspaces from "./workspaces/index.vue";
 
 export default {
   components: {
