@@ -35,9 +35,10 @@
   >
 
       <template v-slot="{ item }">
-        <workspaceCard :title="item.title" :image="item.image_path" :company="item" :description="item.description"
+        <workspaceCard :title="item.title" :image="item.image_path" :company="item"
+          :description="item.description"
           :price="item.price" :area="item.area" :rate="item.rate" :medias="item.medias"
-          :to="getRouteLocale('workspaces-details', { id: item.id })" />
+          :id="item.id" @showIdWorkspace="recieveEmit"/>
       </template>
       <template v-slot:side>
         <sidebarBox :filterItem="filterSide" @change="changeFilter" />
@@ -48,7 +49,8 @@
 
 <script>
 import workspaceAPI from "@/services/api/workspace";
-import workspaceCard from "@/components/pages/workspaces/home/recent-workspaces/WorkSpaceCard.vue";
+// import workspaceCard from "@/components/pages/workspaces/home/recent-workspaces/WorkSpaceCard.vue";
+import workspaceCard from "./WorkSpaceCard.vue";
 import sidebarBox from "./sidebar.vue";
 export default {
   name: "section-filter",
@@ -83,7 +85,15 @@ export default {
     };
   },
   computed: {},
+
+  // created() {
+  //   window.EventBus.listen("workspaceSelected" , (data)=> {
+  //     console.log('testedlist', data)
+  //   });
+  // },
+  
   methods: {
+  
     changeFilter(val) {
       this.filterItem = { ...this.filterItem, ...val };
       this.fireEvent("d-filter-list-refresh");
@@ -105,7 +115,8 @@ export default {
       }
     },
   },
-  mounted() { },
+  mounted() { 
+  },
 };
 </script>
 

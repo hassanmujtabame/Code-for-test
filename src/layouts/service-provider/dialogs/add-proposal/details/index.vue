@@ -110,7 +110,8 @@ export default {
       metaInfo_: {},
       loading: true,
       singleWorkspace: {},
-      shareLink: ''
+      shareLink: '',
+      id: 22,
     };
   },
 
@@ -125,13 +126,13 @@ export default {
       this.loading = true;
       try {
         let { data } = await WorkspaceAPI.getDetailsWorkspace(
-          this.$route.params.id
+          this.id
         );
         if (data.success) {
           this.singleWorkspace = data.data;
           this.metaInfo_ = { title: this.singleWorkspace.title };
           try {
-            await readyServiceAPIs.setAsView(this.$route.params.id);
+            await readyServiceAPIs.setAsView(this.id);
           } catch (error) {
             console.log("error", error);
           }

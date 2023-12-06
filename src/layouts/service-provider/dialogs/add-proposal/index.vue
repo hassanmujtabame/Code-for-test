@@ -1,6 +1,6 @@
 <template>
-  <d-dialog-large dynamicTextClass="p-1" :styleProps="`max-width: calc(var(--bs-modal-width) + ${mainWidth});`" :group="group"
-    :xl="false" :openDialog="openDialog" :closeDialog="closeDialog" :loading="loading">
+  <d-dialog-large dynamicTextClass="p-1" :styleProps="`max-width: calc(var(--bs-modal-width) + ${mainWidth});`"
+    :group="group" :xl="false" :openDialog="openDialog" :closeDialog="closeDialog" :loading="loading">
     <template v-slot>
       <ValidationObserver id="step-one" style="display: block; width: 80%; margin: auto;" ref="form"
         v-if="showDialog && stepOne">
@@ -110,6 +110,23 @@
             <d-error-input :errors="errors" v-if="errors.length" />
           </ValidationProvider>
         </div>
+
+
+        <!-- file -->
+
+        <div class="input-file">
+          
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.8534 17.1104L13.8534 17.1104L13.8552 17.1087L15.7351 15.2287C16.0242 14.9397 16.5059 14.9397 16.7949 15.2287C17.0839 15.5178 17.0839 15.9995 16.7949 16.2885L16.9717 16.4653L16.7949 16.2885L14.9149 18.1685C14.5494 18.5341 14.3484 19.0105 14.3484 19.5186C14.3484 20.0228 14.5466 20.5148 14.9168 20.8706C15.6679 21.6197 16.8782 21.619 17.6285 20.8687L20.5885 17.9087C22.3794 16.1177 22.3794 13.2128 20.5885 11.4218C18.7975 9.63088 15.8926 9.63088 14.1016 11.4218L10.8749 14.6485L11.0517 14.8253L10.8749 14.6485C10.1488 15.3746 9.74837 16.3312 9.74837 17.3453C9.74837 18.3576 10.1476 19.3285 10.8758 20.0429C11.1639 20.332 11.1636 20.8131 10.8749 21.1018C10.5859 21.3908 10.1042 21.3908 9.81512 21.1018C8.80927 20.096 8.26172 18.7598 8.26172 17.3319C8.26172 15.9041 8.80927 14.5679 9.81512 13.5621L13.0418 10.3354L12.8651 10.1586L13.0418 10.3354C15.4109 7.96633 19.2792 7.96633 21.6483 10.3354C24.0173 12.7044 24.0173 16.5728 21.6483 18.9418L18.6883 21.9018L18.6883 21.9018L18.6867 21.9035C18.0155 22.5871 17.1472 22.9219 16.2651 22.9219C15.3948 22.9219 14.5127 22.586 13.8552 21.9285C13.2078 21.2811 12.8484 20.4244 12.8484 19.5186C12.8484 18.6114 13.2088 17.7427 13.8534 17.1104Z"
+                fill="#737373" stroke="white" stroke-width="0.5" />
+            </svg>
+            <label for="fileInput" class="custom-file-upload" v-text="buttonText">
+            </label>
+            <input id="fileInput" type="file" @change="handleFileUpload" ref="fileInput" />
+            
+        </div>
+
         <div class="mb-3">
           <ValidationProvider :name="$t('required-skills')" vid="skills" rules="required" v-slot="{ errors }">
             <label class="form-label">{{ $t('required-skills') }}</label>
@@ -126,15 +143,15 @@
           </h2>
         </div>
         <ul class="list">
-          <li class="list__item" :class="choose == 'selectFromWorkspaces' ? 'activeRadio' : ''">
+          <li class="list__item" :class="itemForm['type'] == 'workspace' ? 'activeRadio' : ''">
             <label class="label--radio">
-              <input type="radio" class="radio" name="foo" value="selectFromWorkspaces" v-model="choose">
+              <input type="radio" class="radio" name="foo" value="workspace" v-model="itemForm['type']">
               اماكن عمل رياديات
             </label>
           </li>
-          <li class="list__item" :class="choose == 'addManually' ? 'activeRadio' : ''">
+          <li class="list__item" :class="itemForm['type'] == 'other' ? 'activeRadio' : ''">
             <label class="label--radio">
-              <input type="radio" class="radio" name="foo" value="addManually" v-model="choose">
+              <input type="radio" class="radio" name="foo" value="other" v-model="itemForm['type']">
               اضافه مكان اخر
             </label>
           </li>
@@ -143,7 +160,7 @@
 
       <div id="step-three" v-if="stepThree">
 
-        <div v-if="choose === 'addManually'">
+        <div v-if="itemForm['type'] === 'other'">
           <div class="row">
             <h2 style="font-weight: 300;">
               اضف مكان من اختيارك
@@ -154,12 +171,12 @@
 
             <!--region-->
             <div class="mb-3" v-if="itemForm.state == 'offline'">
-              <ValidationProvider :name="$t('Region')" vid="city_id" tag="div" class="form-group" rules="required"
+              <ValidationProvider :name="$t('Region')" vid="region" tag="div" class="form-group" rules="required"
                 v-slot="{ errors }">
-                <d-select-input :errors="errors" v-model="itemForm.city_id">
+                <d-select-input :errors="errors" v-model="itemForm.region">
                   <option selected disabled value=''> {{ $t('Region') }} </option>
 
-                  <option :key="i" v-for="(city, i) in cities" :value="city.id">
+                  <option :key="i" v-for="(city, i) in cities" :value="city.name">
                     {{ `${city.name}` }}
                   </option>
                 </d-select-input>
@@ -171,29 +188,29 @@
             <div class="mb-3" v-if="itemForm.state == 'offline'">
               <ValidationProvider name="workspace" vid="workspace_category" tag="div" class="form-group" rules="required"
                 v-slot="{ errors }">
-                <d-select-input :errors="errors" v-model="itemForm.workspaceCategory_id">
+                <d-select-input :errors="errors" v-model="itemForm.type_place">
                   <option selected disabled value=''> اختر نوع المكان </option>
 
-                  <option :key="i" v-for="(workspaceCategory, i) in workspaceCategories" :value="workspaceCategory.id">
+                  <option :key="i" v-for="(workspaceCategory, i) in workspaceCategories" :value="workspaceCategory.title">
                     {{ `${workspaceCategory.title}` }}
                   </option>
                 </d-select-input>
               </ValidationProvider>
             </div>
 
-            <!-- address -->
+            <!-- execution_place -->
             <div class="mb-3">
               <ValidationProvider :name="$t('Address')" vid="address" rules="required" v-slot="{ errors }">
-                <d-text-input :errors="errors" type="text" v-model="itemForm.address" class="form-control"
+                <d-text-input :errors="errors" type="text" v-model="itemForm.execution_place" class="form-control"
                   :placeholder="$t('Address')" />
               </ValidationProvider>
             </div>
 
-            <!-- exhibition_map_url -->
+            <!-- location -->
             <div class="mb-3">
               <ValidationProvider :name="$t('exhibition_map_url')" vid="exhibition_map_url" rules="required"
                 v-slot="{ errors }">
-                <d-text-input :errors="errors" type="text" v-model="itemForm.exhibition_map_url" class="form-control"
+                <d-text-input :errors="errors" type="text" v-model="itemForm.location" class="form-control"
                   :placeholder="$t('exhibition_map_url')" />
               </ValidationProvider>
             </div>
@@ -201,7 +218,7 @@
           </ValidationObserver>
         </div>
 
-        <div v-if="choose === 'selectFromWorkspaces'">
+        <div v-if="itemForm['type'] === 'workspace'">
           <div>
             <div class="mt-5" style="font-weight: bold">
               <div class="row">
@@ -209,7 +226,7 @@
                   أختار من اماكن العمل لدينا
                 </h2>
               </div>
-              <Workspaces />
+              <Workspaces @recieveEmitt="recieveEmitWorkspace" />
             </div>
           </div>
         </div>
@@ -218,6 +235,7 @@
     </template>
 
     <template v-slot:actions>
+      {{ workId }}
       <div class="d-flex justify-content-start w-100 p-2" style="margin-right: 55px">
         <button v-if="itemForm.state == 'online' && stepOne" @click="save" style="height: 40px;" class="btn btn-main">{{
           itemDialog.id ? $t('update-proposal') : $t('add-proposal') }}</button>
@@ -229,8 +247,7 @@
           class="btn btn-main">
           التالى
         </button>
-        <button v-if="itemForm.state == 'offline' && stepThree" @click="saveOffline" style="height: 40px;"
-          class="btn btn-main">
+        <button v-if="itemForm.state == 'offline' && stepThree" @click="save" style="height: 40px;" class="btn btn-main">
           تابع ارسال طلبك
         </button>
       </div>
@@ -258,11 +275,12 @@ export default {
   },
   data: vm => {
     return {
+      buttonText: 'ارفق الملفات', // Initial button text
+      workId: 2,
       mainWidth: '150px',
       stepOne: true,
       stepTwo: false,
       stepThree: false,
-      choose: 'selectFromWorkspaces',
       loading: false,
       itemDialog: { id: null },
       itemForm: {},
@@ -300,67 +318,42 @@ export default {
       ],
     };
   },
-  methods: {
 
-    async saveOffline() {
-      // this.loading = true;
-      let valid = await this.$refs.addWorkspaceForm.validate();
-      if (!valid) {
-        console.log("addWorkspaceForm invalid");
-        this.loading = false;
-        return;
-      }
-      let formData = new FormData();
-      Object.keys(this.itemForm).forEach(key => {
-        formData.append(key, this.itemForm[key]);
+  // created() {
+  //   window.EventBus.listen("workspaceSelected" , (data)=> {
+  //     console.log('tested', data)
+  //   });
+  // },
+  computed: {
+    getSelectedWorkspace() {
+      window.EventBus.listen("workspaceSelected", (data) => {
+        this.workId = data
       });
-
-      // try {
-      //   let { data } = this.itemForm.id
-      //     ? await proposalsAPIs.updateItem(this.itemForm.id, formData)
-      //     : await proposalsAPIs.addItem(formData);
-
-      //   if (data.success) {
-      //     let dataEvent;
-      //     if (!this.itemForm.id)
-      //       dataEvent = {
-      //         title: "لقد تم أضافة طلب جديد لك",
-      //         description:
-      //           "سيتم مراجعة الطلب  من خلالنا  خلال يوم  و سنخبرك عندما يكون جاهز  لاستقبال الطلبات"
-      //       };
-      //     else {
-      //       dataEvent = {
-      //         title: "لقد تم تعديل طلبك",
-      //         description: ""
-      //       };
-      //     }
-      //     this.fireOpenDialog("standard-success-message", dataEvent);
-      //     this.closeEvent();
-      //   } else {
-      //     window.SwalError(data.message);
-      //   }
-      // } catch (error) {
-      //   //
-      //   if (error.response) {
-      //     let response = error.response;
-      //     if (response.status == 422) {
-      //       if (response.data.errors)
-      //         this.$refs.form.setErrors(response.data.errors);
-      //     }
-      //   }
-      // }
-      // this.loading = false;
+    }
+  },
+  methods: {
+    handleFileUpload(event) {
+      this.itemForm.file = event.target.files[0];
+      this.buttonText = this.itemForm.file.name;
     },
-
     workspaceSelect() {
-      console.log(this.choose)
       this.stepThree = true
       this.stepTwo = false
       this.stepOne = false
-      if(this.choose == 'selectFromWorkspaces')
-      {
-        
+      if (this.itemForm.type == 'workspace') {
         this.mainWidth = '550px'
+        this.itemForm.workspace_id = 23
+        this.itemForm.bookings = [{
+            "start_time": "02",
+            "end_time": "05",
+            "date": "2020-02-5"
+        }]
+      } else if (this.itemForm.type == 'other') {
+        this.itemForm.location = ''
+        this.itemForm.type_place = '',
+        this.itemForm.execution_place = '',
+        this.itemForm.region = ''
+
       }
 
     },
@@ -405,17 +398,29 @@ export default {
     },
     async save() {
       this.loading = true;
-      let valid = await this.$refs.form.validate();
-      if (!valid) {
-        console.log("form invalid");
-        this.loading = false;
-        return;
+      if(this.stepOne) {
+        let valid = await this.$refs.form.validate();
+        if (!valid) {
+          console.log("form invalid");
+          this.loading = false;
+          return;
+        }
+      }else if(this.stepThree && this.itemForm['type'] == 'other'){
+        let valid = await this.$refs.addWorkspaceForm.validate();
+        if (!valid) {
+          console.log("form invalid");
+          this.loading = false;
+          return;
+        }
       }
       let formData = new FormData();
       Object.keys(this.itemForm).forEach(key => {
         formData.append(key, this.itemForm[key]);
       });
-
+      console.log('Form data values:');
+      for (let pair of formData.entries()) {
+        console.log(pair[0] + ', ' + pair[1]);
+      }
       try {
         let { data } = this.itemForm.id
           ? await proposalsAPIs.updateItem(this.itemForm.id, formData)
@@ -427,7 +432,7 @@ export default {
             dataEvent = {
               title: "لقد تم أضافة طلب جديد لك",
               description:
-                "سيتم مراجعة الطلب  من خلالنا  خلال يوم  و سنخبرك عندما يكون جاهز  لاستقبال الطلبات"
+                "سيتم مراجعة الطلب  من خلالنا  فى اقرب وقت  و سنخبرك عندما يكون جاهز  لاستقبال الطلبات"
             };
           else {
             dataEvent = {
@@ -452,27 +457,29 @@ export default {
       }
       this.loading = false;
     },
+
     openDialog(dataEvent) {
-      this.mainWidth = '150px',
+      this.mainWidth = '150px'
       this.stepOne = true
       this.stepTwo = false
       this.stepThree = false
       console.log('dataEvent', dataEvent);
       this.loading = false;
       this.itemForm = {
-        exhibition_map_url: '',
-        workspaceCategory_id: '',
-        address: '',
-        id: null,
         title: "",
+        file: null,
         state: "online",
-        city_id: "",
         category_id: null,
         field_id: null,
         price: null,
         execution_period: 0,
-        description: "",
-        skills: ""
+        type: 'workspace',
+        skills: "",
+        // location: '',
+        // type_place: '',
+        // execution_place: '',
+        // id: null,
+        // region: "",
       };
       if (dataEvent) {
         let {
@@ -765,4 +772,27 @@ $baseFontSize: 16;
     }
   }
 }
-</style>
+
+/* Styles for the file upload component */
+.file-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-file {
+  padding: 16px;
+  font-size: 16px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.input-file:hover {
+  border-color: #2eb9b3;
+}</style>

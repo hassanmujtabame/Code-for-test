@@ -34,10 +34,10 @@
       </div>
       <div class="d-flex align-items-center justify-content-between px-3 pb-3">
         
-        <router-link class="router-link" :to="to" style="width:100px">
+        <div class="router-link" @click="workSpaceSelected" style="width:100px">
           <button class="btn btn-main" style="width: 100px; height: 30px; font-size: 12px; padding: 5px;">عرض
             التفاصيل</button>
-        </router-link>
+          </div>
 
         <div class="d-flex align-items-center">
           <span class="px-1" style="font-size: 15px; color:#414042;">{{ rate }}</span> <img
@@ -68,6 +68,12 @@ export default {
     to: {
       type: String,
     },
+    to: {
+      type: Number,
+    },
+    id: {
+      type: Number,
+    },
     rate: {
       type: [String, Number],
     },
@@ -81,6 +87,12 @@ export default {
       type: [String, Number],
     },
   },
+  methods: {
+    workSpaceSelectedId() {
+      this.fire("workspaceSelected", this.id);
+
+    }
+  }
 };
 </script>
 
