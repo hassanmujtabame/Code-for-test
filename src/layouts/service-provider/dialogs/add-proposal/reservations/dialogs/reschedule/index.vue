@@ -1,5 +1,5 @@
 <template>
-  <d-dialog-large :group="group" :xl="false" :openDialog="openDialog" :closeDialog="closeDialog"
+  <large :group="group" :xl="false" :openDialog="openDialog" :closeDialog="closeDialog"
     class="work-space-reschedule-header">
     <template v-slot:header>{{
       mode == "create" ? "" : "إعادة جدولة الحجز"
@@ -113,14 +113,18 @@
         </div>
       </div>
     </template>
-  </d-dialog-large>
+  </large>
 </template>
 
 
 <script>
+import large from './large.vue'
 import WorkspaceAPI from "@/services/api/workspace";
 
 export default {
+  components: {
+    large
+  },
   name: "reschedule-reservation",
   props: {
     group: {

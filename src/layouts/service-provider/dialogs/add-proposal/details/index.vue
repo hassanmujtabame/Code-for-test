@@ -1,7 +1,7 @@
 <template>
   <div class="single-workspace mobile-center">
     <d-overlays-simple v-if="loading" />
-    <div v-else class="container py-4">
+    <div v-else class="container">
       <div class="row justify-content-between">
         <div class="col-md-6">
           <h3 class="word-break-all">
@@ -23,12 +23,23 @@
           <!-- v-if="singleWorkspace.rates.length" -->
         </div>
 
+        
         <div class="col-md-6 mt-5 ">
-          <d-user-info-li route-name="service-provider-show-profile" group-dialog="send-message-to-provider"
-            :member="singleWorkspace.user_info" class="mb-3 border" :showBtnChat="false" />
+          <div class="col-12 mb-5 ">
+            <button @click="notifyParent" class="w-100 fs-3 btn-main-v m-c bg-transparent border border-1 py-2" style="border-color: var(--pc) !important" role="button">
+              اختر المكان واحجز لاحقََا
+            </button>
+          </div>
+          <!-- user info -->
+          <!-- <d-user-info-li route-name="service-provider-show-profile" group-dialog="send-message-to-provider"
+            :member="singleWorkspace.user_info" class="mb-3 border" :showBtnChat="false" /> -->
           <Info :singleWorkspace="singleWorkspace" />
         </div>
-        <div style="margin-right: auto; padding: 0; " class="col-md-6 mt-5 box border rounded-3 ">
+
+
+        <!-- share section -->
+
+        <!-- <div style="margin-right: auto; padding: 0; " class="col-md-6 mt-5 box border rounded-3 ">
           <div class="border  p-4  p-4 " style="font-size:24px">
             شارك مساحة العمل
           </div>
@@ -37,19 +48,8 @@
               <ShareNetwork network="twitter" :url="shareLink" title="Share in twitter"
                 description="This is another awesome article for awesome readers">
                 <img class="h-100" :src="`${publicPath}assets/img/Twitter.png`" alt="" />
-                <!-- twitter-user="LindaOjo_" -->
               </ShareNetwork>
             </button>
-            <!-- <button>
-                      <ShareNetwork
-                          network="Instagram"
-                          :url="shareLink"
-                          title="Share in instagram"
-                          description="This is another awesome article for awesome readers"
-                          >
-                          <img class="h-100" :src="`${publicPath}assets/img/Instagram.png`" alt="" />
-                      </ShareNetwork>
-                  </button> -->
             <button style="background: transparent; border: 0;">
               <ShareNetwork network="Linkedin" :url="shareLink" title="Share in Linkedin"
                 description="This is another awesome article for awesome readers">
@@ -66,10 +66,10 @@
             </div>
           </div>
 
-        </div>
+        </div> -->
       </div>
     </div>
-    <showRescheduleDialog mode="create" :price="singleWorkspace.price" />
+    <!-- <showRescheduleDialog mode="create" :price="singleWorkspace.price" /> -->
     <DialogDeleteService />
 
   </div>
@@ -126,6 +126,9 @@ export default {
   },
 
   methods: {
+    notifyParent: function() {
+      this.$emit('custom-event', 'Some data to pass to the parent');
+    },
     async getDetailsWorkspace() {
       this.loading = true;
       try {

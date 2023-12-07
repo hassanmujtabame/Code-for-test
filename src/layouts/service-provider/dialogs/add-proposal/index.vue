@@ -2,137 +2,140 @@
   <d-dialog-large dynamicTextClass="p-1" :styleProps="`max-width: calc(var(--bs-modal-width) + ${mainWidth});`"
     :group="group" :xl="false" :openDialog="openDialog" :closeDialog="closeDialog" :loading="loading">
     <template v-slot>
-      <ValidationObserver id="step-one" style="display: block; width: 80%; margin: auto;" ref="form"
-        v-if="showDialog && stepOne">
-        <!--Title-->
-        <div class="mb-3">
-          <ValidationProvider :name="$t('request-title')" vid="title" rules="required" v-slot="{ errors }">
-            <d-text-input :errors="errors" type="text" v-model="itemForm.title" class="form-control"
-              :placeholder="$t('request-title')" />
-          </ValidationProvider>
-        </div>
-        <!--Price-->
-        <div class="mb-3">
-          <ValidationProvider :name="$t('request-price')" vid="price" rules="required|numeric" v-slot="{ errors }">
-            <d-text-input :errors="errors" type="text" v-model="itemForm.price" class="form-control"
-              :placeholder="$t('request-price')" />
-          </ValidationProvider>
-        </div>
-        <!--execution_period-->
-        <div class="mb-3">
-          <ValidationProvider :name="$t('execution_period')" vid="execution_period" rules="required|numeric"
-            v-slot="{ errors }">
-            <d-text-input :errors="errors" type="text" v-model="itemForm.execution_period" class="form-control"
-              :placeholder="$t('execution_period')" />
-          </ValidationProvider>
-        </div>
-        <!-- specialites
-        <div class="mb-3">
-          <ValidationProvider tag="div" class="form-group" :name="$t('request-category')" vid="state" rules="required"
-            v-slot="{ errors }">
-            <d-select-input :errors="errors" class="form-select" v-model="itemForm.state" >
-              <option selected disabled value=''> {{$t('request-category')}} </option>
-              <option v-for="(spec, i) in states" :key="i" :value="spec.id">{{ spec.name }}</option>
-            </d-select-input>
-          </ValidationProvider>
-        </div> -->
+      <ValidationObserver id="step-one" style="display: block; width: 80%; margin: auto;" ref="form" v-if="showDialog">
+        <div v-if="stepOne">
+
+          <!--Title-->
+          <div class="mb-3">
+            <ValidationProvider :name="$t('request-title')" vid="title" rules="required" v-slot="{ errors }">
+              <d-text-input :errors="errors" type="text" v-model="itemForm.title" class="form-control"
+                :placeholder="$t('request-title')" />
+            </ValidationProvider>
+          </div>
+          <!--Price-->
+          <div class="mb-3">
+            <ValidationProvider :name="$t('request-price')" vid="price" rules="required|numeric" v-slot="{ errors }">
+              <d-text-input :errors="errors" type="text" v-model="itemForm.price" class="form-control"
+                :placeholder="$t('request-price')" />
+            </ValidationProvider>
+          </div>
+          <!--execution_period-->
+          <div class="mb-3">
+            <ValidationProvider :name="$t('execution_period')" vid="execution_period" rules="required|numeric"
+              v-slot="{ errors }">
+              <d-text-input :errors="errors" type="text" v-model="itemForm.execution_period" class="form-control"
+                :placeholder="$t('execution_period')" />
+            </ValidationProvider>
+          </div>
+          <!-- specialites
+          <div class="mb-3">
+            <ValidationProvider tag="div" class="form-group" :name="$t('request-category')" vid="state" rules="required"
+              v-slot="{ errors }">
+              <d-select-input :errors="errors" class="form-select" v-model="itemForm.state" >
+                <option selected disabled value=''> {{$t('request-category')}} </option>
+                <option v-for="(spec, i) in states" :key="i" :value="spec.id">{{ spec.name }}</option>
+              </d-select-input>
+            </ValidationProvider>
+          </div> -->
 
 
-        <!-- online or offline -->
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-          aria-labelledby="panelsStayOpen-headingOne">
-          <div class="accordion-body mb-3">
-            <div class=" d-flex rounded-3 w-100 justify-content-center" style="border: 1px solid #1FB9B3;">
-              <div v-for="(state, i) in states" :key="i" class="form-check w-100 form-check-custom-states">
-                <input class="form-check-input form-check-states" type="radio" :value="state.id" name="stateRadioDefault"
-                  :id="state.id" v-model="itemForm.state" />
-                <label style="color: #1FB9B3; cursor: pointer;" :id="state.id"
-                  class="form-check-label w-100  text-center t form-check-custom" :for="state.id">{{ state.name }}</label>
+          <!-- online or offline -->
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body mb-3">
+              <div class=" d-flex rounded-3 w-100 justify-content-center" style="border: 1px solid #1FB9B3;">
+                <div v-for="(state, i) in states" :key="i" class="form-check w-100 form-check-custom-states">
+                  <input class="form-check-input form-check-states" type="radio" :value="state.id"
+                    name="stateRadioDefault" :id="state.id" v-model="itemForm.state" />
+                  <label style="color: #1FB9B3; cursor: pointer;" :id="state.id"
+                    class="form-check-label w-100  text-center t form-check-custom" :for="state.id">{{ state.name
+                    }}</label>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- end online or offline -->
-        <!-- category -->
-        <div class="mb-3">
-          <ValidationProvider tag="div" class="form-group" :name="$t('request-domain')" vid="category_id" rules="required"
-            v-slot="{ errors }">
-            <d-select-input :errors="errors" class="form-select" v-model="itemForm.category_id"
-              @change="loadFields($event)">
-              <option selected disabled value=''> {{ $t('request-domain') }} </option>
+          <!-- end online or offline -->
+          <!-- category -->
+          <div class="mb-3">
+            <ValidationProvider tag="div" class="form-group" :name="$t('request-domain')" vid="category_id"
+              rules="required" v-slot="{ errors }">
+              <d-select-input :errors="errors" class="form-select" v-model="itemForm.category_id"
+                @change="loadFields($event)">
+                <option selected disabled value=''> {{ $t('request-domain') }} </option>
 
-              <option v-for="(cat, i) in categories" :key="i" :value="cat.id">{{ cat.name }}</option>
-            </d-select-input>
-          </ValidationProvider>
-        </div>
-        <!--city-->
-        <!-- <div class="mb-3" v-if="itemForm.state == 'offline'">
-          <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group" rules="required"
-            v-slot="{ errors }">
-            <d-select-input :errors="errors" v-model="itemForm.city_id">
-              <option selected disabled value=''> {{ $t('the_city') }} </option>
+                <option v-for="(cat, i) in categories" :key="i" :value="cat.id">{{ cat.name }}</option>
+              </d-select-input>
+            </ValidationProvider>
+          </div>
+          <!--city-->
+          <!-- <div class="mb-3" v-if="itemForm.state == 'offline'">
+            <ValidationProvider :name="$t('the_city')" vid="city_id" tag="div" class="form-group" rules="required"
+              v-slot="{ errors }">
+              <d-select-input :errors="errors" v-model="itemForm.city_id">
+                <option selected disabled value=''> {{ $t('the_city') }} </option>
+  
+                <option :key="i" v-for="(city, i) in cities" :value="city.id">
+                  {{ `${city.name}` }}
+                </option>
+              </d-select-input>
+            </ValidationProvider>
+          </div> -->
 
-              <option :key="i" v-for="(city, i) in cities" :value="city.id">
-                {{ `${city.name}` }}
-              </option>
-            </d-select-input>
-          </ValidationProvider>
-        </div> -->
+          <!-- specialite -->
+          <!-- <div class="mb-3">
+  
+            <ValidationProvider tag="div" class="form-group" :name="$t('specialite')" vid="field_id" v-slot="{ errors }">
+              <d-select-input :errors="errors" class="form-select" v-model="itemForm.field_id">
+                <option selected disabled value=''> {{ $t('select-specialite') }} </option>
+                <option v-for="(field, i) in fields" :key="i" :value="field.id">{{ field.name }}</option>
+              </d-select-input>
+            </ValidationProvider>
+          </div> -->
 
-        <!-- specialite -->
-        <!-- <div class="mb-3">
+          <!--field-->
+          <div class="mb-3">
+            <ValidationProvider tag="div" class="form-group" :name="$t('specialite')" vid="field_id" v-slot="{ errors }">
+              <d-select-input :errors="errors" class="form-select" v-model="itemForm.field_id">
+                <option selected disabled value=''> {{ $t('select-specialite') }} </option>
+                <option v-for="(field, i) in fields" :key="i" :value="field.id">{{ field.name }}</option>
+              </d-select-input>
+            </ValidationProvider>
+          </div>
 
-          <ValidationProvider tag="div" class="form-group" :name="$t('specialite')" vid="field_id" v-slot="{ errors }">
-            <d-select-input :errors="errors" class="form-select" v-model="itemForm.field_id">
-              <option selected disabled value=''> {{ $t('select-specialite') }} </option>
-              <option v-for="(field, i) in fields" :key="i" :value="field.id">{{ field.name }}</option>
-            </d-select-input>
-          </ValidationProvider>
-        </div> -->
-
-        <!--field-->
-        <div class="mb-3">
-          <ValidationProvider tag="div" class="form-group" :name="$t('specialite')" vid="field_id" v-slot="{ errors }">
-            <d-select-input :errors="errors" class="form-select" v-model="itemForm.field_id">
-              <option selected disabled value=''> {{ $t('select-specialite') }} </option>
-              <option v-for="(field, i) in fields" :key="i" :value="field.id">{{ field.name }}</option>
-            </d-select-input>
-          </ValidationProvider>
-        </div>
-
-        <div class="mb-3">
-          <ValidationProvider :name="$t('request-description')" vid="description" rules="required" v-slot="{ errors }">
-            <label class="form-label">أكتب وصف لطلبك بالتفاصيل</label>
-            <d-ckeditor-classic v-model="itemForm.desc" class="form-control" rows="10" :editorConfig="{
-              minHeight: '150px'
-            }"></d-ckeditor-classic>
-            <d-error-input :errors="errors" v-if="errors.length" />
-          </ValidationProvider>
-        </div>
+          <div class="mb-3">
+            <ValidationProvider :name="$t('request-description')" vid="description" rules="required" v-slot="{ errors }">
+              <label class="form-label">أكتب وصف لطلبك بالتفاصيل</label>
+              <d-ckeditor-classic v-model="itemForm.desc" class="form-control" rows="10" :editorConfig="{
+                minHeight: '150px'
+              }"></d-ckeditor-classic>
+              <d-error-input :errors="errors" v-if="errors.length" />
+            </ValidationProvider>
+          </div>
 
 
-        <!-- file -->
+          <!-- file -->
 
-        <div class="input-file">
+          <div class="input-file">
 
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M13.8534 17.1104L13.8534 17.1104L13.8552 17.1087L15.7351 15.2287C16.0242 14.9397 16.5059 14.9397 16.7949 15.2287C17.0839 15.5178 17.0839 15.9995 16.7949 16.2885L16.9717 16.4653L16.7949 16.2885L14.9149 18.1685C14.5494 18.5341 14.3484 19.0105 14.3484 19.5186C14.3484 20.0228 14.5466 20.5148 14.9168 20.8706C15.6679 21.6197 16.8782 21.619 17.6285 20.8687L20.5885 17.9087C22.3794 16.1177 22.3794 13.2128 20.5885 11.4218C18.7975 9.63088 15.8926 9.63088 14.1016 11.4218L10.8749 14.6485L11.0517 14.8253L10.8749 14.6485C10.1488 15.3746 9.74837 16.3312 9.74837 17.3453C9.74837 18.3576 10.1476 19.3285 10.8758 20.0429C11.1639 20.332 11.1636 20.8131 10.8749 21.1018C10.5859 21.3908 10.1042 21.3908 9.81512 21.1018C8.80927 20.096 8.26172 18.7598 8.26172 17.3319C8.26172 15.9041 8.80927 14.5679 9.81512 13.5621L13.0418 10.3354L12.8651 10.1586L13.0418 10.3354C15.4109 7.96633 19.2792 7.96633 21.6483 10.3354C24.0173 12.7044 24.0173 16.5728 21.6483 18.9418L18.6883 21.9018L18.6883 21.9018L18.6867 21.9035C18.0155 22.5871 17.1472 22.9219 16.2651 22.9219C15.3948 22.9219 14.5127 22.586 13.8552 21.9285C13.2078 21.2811 12.8484 20.4244 12.8484 19.5186C12.8484 18.6114 13.2088 17.7427 13.8534 17.1104Z"
-              fill="#737373" stroke="white" stroke-width="0.5" />
-          </svg>
-          <label for="fileInput" class="custom-file-upload" v-text="buttonText">
-          </label>
-          <input id="fileInput" type="file" @change="handleFileUpload" ref="fileInput" />
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.8534 17.1104L13.8534 17.1104L13.8552 17.1087L15.7351 15.2287C16.0242 14.9397 16.5059 14.9397 16.7949 15.2287C17.0839 15.5178 17.0839 15.9995 16.7949 16.2885L16.9717 16.4653L16.7949 16.2885L14.9149 18.1685C14.5494 18.5341 14.3484 19.0105 14.3484 19.5186C14.3484 20.0228 14.5466 20.5148 14.9168 20.8706C15.6679 21.6197 16.8782 21.619 17.6285 20.8687L20.5885 17.9087C22.3794 16.1177 22.3794 13.2128 20.5885 11.4218C18.7975 9.63088 15.8926 9.63088 14.1016 11.4218L10.8749 14.6485L11.0517 14.8253L10.8749 14.6485C10.1488 15.3746 9.74837 16.3312 9.74837 17.3453C9.74837 18.3576 10.1476 19.3285 10.8758 20.0429C11.1639 20.332 11.1636 20.8131 10.8749 21.1018C10.5859 21.3908 10.1042 21.3908 9.81512 21.1018C8.80927 20.096 8.26172 18.7598 8.26172 17.3319C8.26172 15.9041 8.80927 14.5679 9.81512 13.5621L13.0418 10.3354L12.8651 10.1586L13.0418 10.3354C15.4109 7.96633 19.2792 7.96633 21.6483 10.3354C24.0173 12.7044 24.0173 16.5728 21.6483 18.9418L18.6883 21.9018L18.6883 21.9018L18.6867 21.9035C18.0155 22.5871 17.1472 22.9219 16.2651 22.9219C15.3948 22.9219 14.5127 22.586 13.8552 21.9285C13.2078 21.2811 12.8484 20.4244 12.8484 19.5186C12.8484 18.6114 13.2088 17.7427 13.8534 17.1104Z"
+                fill="#737373" stroke="white" stroke-width="0.5" />
+            </svg>
+            <label for="fileInput" class="custom-file-upload" v-text="buttonText">
+            </label>
+            <input id="fileInput" type="file" @change="handleFileUpload" ref="fileInput" />
 
-        </div>
+          </div>
 
-        <div class="mb-3">
-          <ValidationProvider :name="$t('required-skills')" vid="skills" rules="required" v-slot="{ errors }">
-            <label class="form-label">{{ $t('required-skills') }}</label>
-            <d-multi-select-tag v-model="itemForm.skills"></d-multi-select-tag>
-            <d-error-input :errors="errors" v-if="errors.length" />
-          </ValidationProvider>
+          <div class="mb-3">
+            <ValidationProvider :name="$t('required-skills')" vid="skills" rules="required" v-slot="{ errors }">
+              <label class="form-label">{{ $t('required-skills') }}</label>
+              <d-multi-select-tag v-model="itemForm.skills"></d-multi-select-tag>
+              <d-error-input :errors="errors" v-if="errors.length" />
+            </ValidationProvider>
+          </div>
         </div>
       </ValidationObserver>
 
@@ -232,19 +235,21 @@
       </div>
 
       <div v-if="getSelectedWorkspace && getSelectedWorkspace != ''">
-        <div>
+        <!-- <div v-if="getSelectedWorkspace && getSelectedWorkspace != ''"> -->
+        <div v-if="!stepThree && showDetails">
           <div class="mt-5" style="font-weight: bold">
-            <p>test</p>
-            <h1>{{ getSelectedWorkspace }}</h1>
-            <WorkspaceDetails :workspaceId="getSelectedWorkspace" />
+            <!-- <WorkspaceDetails :workspaceId="getSelectedWorkspace" /> -->
+            <WorkspaceDetails :workspaceId="getSelectedWorkspace" @custom-event="handleCustomEvent" /> />
           </div>
         </div>
       </div>
 
+      <div v-if="Book && Book != ''" >
+        <ReservationComponent />
+      </div>
     </template>
 
     <template v-slot:actions>
-      <!-- {{ getSelectedWorkspace }} -->
       <div class="d-flex justify-content-start w-100 p-2" style="margin-right: 55px">
         <button v-if="itemForm.state == 'online' && stepOne" @click="save" style="height: 40px;" class="btn btn-main">{{
           itemDialog.id ? $t('update-proposal') : $t('add-proposal') }}</button>
@@ -256,8 +261,13 @@
           class="btn btn-main">
           التالى
         </button>
-        <button v-if="itemForm.state == 'offline' && stepThree" @click="save" style="height: 40px;" class="btn btn-main">
-          تابع ارسال طلبك
+        <button v-if="itemForm.state == 'offline' && stepThree" style="height: 40px;" @click="backToTwo"
+          class="btn btn-customer-w bg-transparent">
+          السابق
+        </button>
+        <button v-if="itemForm.state == 'offline' && !stepThree && getSelectedWorkspace && getSelectedWorkspace != ''"
+          style="height: 40px;" class="btn btn-customer-w bg-transparent" @click="backToThree">
+          السابق
         </button>
       </div>
     </template>
@@ -271,11 +281,13 @@ import workspaceAPI from "@/services/api/workspace";
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import Workspaces from "./workspaces/index.vue";
 import WorkspaceDetails from "./details/index.vue";
+import ReservationComponent from "./reservations/dialogs/reschedule/index.vue"
 
 export default {
   components: {
     Workspaces,
-    WorkspaceDetails
+    WorkspaceDetails,
+    ReservationComponent
   },
   name: "add-proposal",
   props: {
@@ -288,9 +300,10 @@ export default {
     return {
       buttonText: 'ارفق الملفات', // Initial button text
       mainWidth: '150px',
-      stepOne: true,
+      stepOne: false,
       stepTwo: false,
       stepThree: false,
+      showDetails: false,
       loading: false,
       itemDialog: { id: null },
       itemForm: {},
@@ -328,20 +341,34 @@ export default {
       ],
     };
   },
-
-  // created() {
-  //   window.EventBus.listen("workspaceSelected" , (data)=> {
-  //     console.log('tested', data)
-  //   });
-  // },
   computed: {
     getSelectedWorkspace() {
+      this.showDetails = true
       this.stepThree = false
       this.stepOne = false
       return this.$store.state.serviceProviderWorkspaceSelected_id
+    },
+    Book() {
+      this.showDetails = false
+      return this.$store.state.book
     }
   },
   methods: {
+    backToTwo() {
+      this.stepThree = false
+      this.stepOne = false
+      this.stepTwo = true
+    },
+    backToThree() {
+      this.stepThree = true
+      this.stepTwo = false
+      this.stepOne = false
+      this.$store.commit('hideBook')
+    },
+    handleCustomEvent: function (data) {
+      // console.log('Received data from child:', data);
+      this.save()
+    },
     handleFileUpload(event) {
       this.itemForm.file = event.target.files[0];
       this.buttonText = this.itemForm.file.name;
@@ -351,8 +378,17 @@ export default {
       this.stepTwo = false
       this.stepOne = false
       if (this.itemForm.type == 'workspace') {
+        const bookings = [
+          {
+            "start_time": "02",
+            "end_time": "05",
+            "date": "2020-02-5"
+          }
+        ];
         this.mainWidth = '550px'
         this.itemForm.workspace_id = this.getSelectedWorkspace
+        // this.itemForm.bookings = JSON.stringify(bookings)
+
         // this.itemForm.bookings = [
 
         //{
@@ -478,20 +514,12 @@ export default {
     },
 
     openDialog(dataEvent) {
-      const bookings = [
-        {
-          "start_time": "02",
-          "end_time": "05",
-          "date": "2020-02-5"
-        }
-      ];
-      this.$store.commit('serviceProviderWorkspaceSelected', false)
-      this.mainWidth = '150px'
+      // console.log('dataEvent', dataEvent);
       this.stepOne = true
       this.stepTwo = false
       this.stepThree = false
-      console.log('dataEvent', dataEvent);
-      this.loading = false;
+      this.mainWidth = '150px'
+      this.loading = false
       this.itemForm = {
         id: null,
         title: "",
@@ -503,9 +531,6 @@ export default {
         execution_period: 0,
         type: 'workspace',
         skills: "",
-        workspace_id: 33,
-        bookings: JSON.stringify(bookings)
-
         // location: '',
         // type_place: '',
         // execution_place: '',
@@ -589,16 +614,9 @@ export default {
     // this.loadCities();
     this.loadWorkspaceCategories();
     this.loadCategories();
-    const bookings = [
-      {
-        "start_time": "02",
-        "end_time": "05",
-        "date": "2020-02-5"
-      }
-    ];
-
-    const jsonString = JSON.stringify({ bookings });
-    console.log(jsonString);
+  },
+  beforeDestroy() {
+    this.$store.commit('serviceProviderWorkspaceSelected', '')
   }
 };
 </script>

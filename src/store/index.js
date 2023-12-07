@@ -9,11 +9,18 @@ const store = new Vuex.Store({
   state: {
     isProviderRole: false,
     clientOrProvider: '',
-    serviceProviderWorkspaceSelected_id: ''
+    serviceProviderWorkspaceSelected_id: '',
+    book: false
   },
   mutations: {
     serviceProviderWorkspaceSelected(state, payload){
       state.serviceProviderWorkspaceSelected_id = payload
+    },
+    showBook(state){
+      state.book = true
+    },
+    hideBook(state){
+      state.book = false
     },
     changeRole(state, payload){
       if(!payload || payload == '' || payload == {}  ){
