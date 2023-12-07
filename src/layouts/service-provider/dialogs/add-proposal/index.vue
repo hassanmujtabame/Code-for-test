@@ -243,10 +243,6 @@
           </div>
         </div>
       </div>
-
-      <div v-if="Book && Book != ''" >
-        <ReservationComponent />
-      </div>
     </template>
 
     <template v-slot:actions>
@@ -269,6 +265,9 @@
           style="height: 40px;" class="btn btn-customer-w bg-transparent" @click="backToThree">
           السابق
         </button>
+        <div style="display: none">
+          {{ Book }}
+        </div>
       </div>
     </template>
   </d-dialog-large>
@@ -281,13 +280,11 @@ import workspaceAPI from "@/services/api/workspace";
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import Workspaces from "./workspaces/index.vue";
 import WorkspaceDetails from "./details/index.vue";
-import ReservationComponent from "./reservations/dialogs/reschedule/index.vue"
 
 export default {
   components: {
     Workspaces,
     WorkspaceDetails,
-    ReservationComponent
   },
   name: "add-proposal",
   props: {
@@ -349,7 +346,10 @@ export default {
       return this.$store.state.serviceProviderWorkspaceSelected_id
     },
     Book() {
-      this.showDetails = false
+      if(this.$store.state.book){
+        this.save()
+      }
+      console.log(this.$store.state.book)
       return this.$store.state.book
     }
   },
@@ -495,7 +495,11 @@ export default {
               description: ""
             };
           }
-          this.fireOpenDialog("standard-success-message", dataEvent);
+
+          if(!this.$store.state.book){
+            this.fireOpenDialog("standard-success-message", dataEvent);
+          }
+          console.log('request added successfully')
           this.closeEvent();
         } else {
           window.SwalError(data.message);
@@ -515,6 +519,7 @@ export default {
 
     openDialog(dataEvent) {
       // console.log('dataEvent', dataEvent);
+      this.$store.commit('hideBook')
       this.stepOne = true
       this.stepTwo = false
       this.stepThree = false

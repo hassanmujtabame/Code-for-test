@@ -69,7 +69,7 @@
         </div> -->
       </div>
     </div>
-    <!-- <showRescheduleDialog mode="create" :price="singleWorkspace.price" /> -->
+    <showRescheduleDialog mode="create" :price="singleWorkspace.price" />
     <DialogDeleteService />
 
   </div>

@@ -3,9 +3,9 @@
     <div class="col-12 fs-3">
       <button class="w-100 btn-main-v py-2" role="button" @click="rescheduleRequest">
         احجز الآن
-      |
-      {{ singleWorkspace.price }}
-      ريال للساعة
+        |
+        {{ singleWorkspace.price }}
+        ريال للساعة
       </button>
     </div>
     <!-- <div class="col-4" v-if="singleWorkspace && singleWorkspace.map_address !=null" >
@@ -54,11 +54,8 @@ export default {
     },
     rescheduleRequest() {
       this.$store.commit('showBook')
-      // console.log('singleWork', this.singleWorkspace)
-      // this.fireOpenDialog("reschedule-reservation", this.singleWorkspace);
+      this.fireOpenDialog("reschedule-reservation", this.singleWorkspace);
     },
-
-
   },
 };
 </script>
@@ -67,15 +64,17 @@ export default {
 .google {
   display: block;
 }
+
 .visitor-action {
   justify-content: end;
-      font-size: 13px;
+  font-size: 13px;
 }
+
 @media (max-width: 991px) {
 
   .visitor-action {
-    justify-content: center; 
-    margin-top:15px ;
-   }
+    justify-content: center;
+    margin-top: 15px;
+  }
 }
 </style>
