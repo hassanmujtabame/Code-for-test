@@ -23,10 +23,11 @@
           <!-- v-if="singleWorkspace.rates.length" -->
         </div>
 
-        
+
         <div class="col-md-6 mt-5 ">
           <div class="col-12 mb-5 ">
-            <button @click="notifyParent" class="w-100 fs-3 btn-main-v m-c bg-transparent border border-1 py-2" style="border-color: var(--pc) !important" role="button">
+            <button @click="notifyParent" class="w-100 fs-3 btn-main-v m-c bg-transparent border border-1 py-2"
+              style="border-color: var(--pc) !important" role="button">
               اختر المكان واحجز لاحقََا
             </button>
           </div>
@@ -69,8 +70,8 @@
         </div> -->
       </div>
     </div>
-    <showRescheduleDialog mode="create" :price="singleWorkspace.price" />
-    <DialogDeleteService />
+    <!-- <showRescheduleDialog mode="create" :price="singleWorkspace.price" /> -->
+    <!-- <DialogDeleteService /> -->
 
   </div>
 </template>
@@ -126,7 +127,7 @@ export default {
   },
 
   methods: {
-    notifyParent: function() {
+    notifyParent: function () {
       this.$emit('custom-event', 'Some data to pass to the parent');
     },
     async getDetailsWorkspace() {

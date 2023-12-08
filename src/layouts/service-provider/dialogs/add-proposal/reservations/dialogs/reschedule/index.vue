@@ -1,119 +1,13 @@
 <template>
-  <large :group="group" :xl="false" :openDialog="openDialog" :closeDialog="closeDialog"
-    class="work-space-reschedule-header">
-    <template v-slot:header>{{
-      mode == "create" ? "" : "إعادة جدولة الحجز"
-    }}</template>
-    <template v-slot>
-      <div>
-        <ValidationObserver ref="form" class="work-space-reschedule">
-          <!-- start date-->
-          <vc-date-picker class="mb-3" v-model="form.date" :min-date="new Date()"
-            style="width:100%; border-top: 0 ; border-left: 0; border-right: 0; border-radius:0 " />
+  <div class="container">
+    <!-- start date-->
+    <div class="work-space-reschedule">
+      <vc-date-picker class="mb-3" v-model="form.date" :min-date="new Date()"
+        style="width:100%; border-top: 0 ; border-left: 0; border-right: 0; border-radius:0 " />
+    </div>
 
-
-          <div class="mb-2">ميعاد الدخول</div>
-          <div class="d-flex justify-content-between">
-
-            <div v-for="( item, i ) in  startTime " :key="i">
-              <div @click="getStartTime(item)" class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"
-                :class="{ 'bg-main text-white': item.active }">
-                {{ item.value }}
-              </div>
-
-            </div>
-          </div>
-
-          <div class="my-3">ميعاد الخروج</div>
-          <div class="d-flex justify-content-between">
-
-            <div v-for="( item, i ) in  endTime " :key="i">
-              <div @click="getEndTime(item)" class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"
-                :class="{ 'bg-main text-white': item.active }">
-                {{ item.value }}
-              </div>
-
-            </div>
-          </div>
-          <hr>
-
-          <!-- start test -->
-
-
-
-
-          <div class="row mt-3">
-            <div class="col-12">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class=""> اختار المناسب ليك </h5>
-                  <hr class="style-1 mb-4">
-
-                  <ValidationProvider v-slot="{ errors }" :name="$t('الدفع')" rules="required" tag="div" class="my-2">
-
-                    <label class="card-radio-btn">
-                      <span style="width:fit-content; display:block; ">
-                        ادفع
-                        20%
-                        فقط
-                      </span>
-                      <input type="radio" name="options" class="card-input-element d-none" value="part"
-                        v-model="form.selectedOption">
-                      <div class="card card-body">
-                        <div class="content_head"> جزئي</div>
-                        <div class="content_sub"> ر.س {{ partPrice }}</div>
-                      </div>
-                    </label>
-
-                    <label class="card-radio-btn">
-                      <input type="radio" name="options" class="card-input-element d-none" value="full"
-                        v-model="form.selectedOption">
-                      <div class="card card-body">
-                        <div class="content_head">كلى</div>
-                        <div class="content_sub"> ر.س {{ fullPrice }}</div>
-                      </div>
-                    </label>
-
-                    <d-error-input :errors="errors" v-if="errors.length > 0" />
-
-                  </ValidationProvider>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- <ValidationProvider rules="required" v-slot="{ errors }">
-            <label class="card-radio-btn">
-              <input type="radio" name="options" id="total" class="card-input-element d-none" v-model="selectedOption" value="part">
-              <div class="card card-body">
-                <div class="content_head">كلى</div>
-                <div class="content_sub">$1049,00</div>
-              </div>
-            </label>
-            <div>
-              <input type="radio" id="option1" name="options" value="option1" v-model="selectedOption" />
-              <label for="option1">Option 1</label>
-            </div>
-            <div>
-              <input type="radio" id="option2" name="options" value="option2" v-model="selectedOption" />
-              <label for="option2">Option 2</label>
-            </div>
-            <span>{{ errors[0] }}</span>
-          </ValidationProvider> -->
-          <!-- end test -->
-        </ValidationObserver>
-
-        <div class="mt-3 text-center">
-          <button :disabled="loading" class="btn btn-customer" @click="save">
-            <!-- {{ $t("schedule-confirmation") }} -->
-            حجز
-          </button>
-        </div>
-      </div>
-    </template>
-  </large>
+    
+  </div>
 </template>
 
 
@@ -174,7 +68,7 @@ export default {
 
       return (this.price * differenceInHours) / 5
 
-      
+
     },
   },
   methods: {
@@ -324,10 +218,11 @@ export default {
   border-color: #dee2e6;
 }
 
-.work-space-reschedule .vc-highlight {
+.vc-highlight {
   background: #1FB9B3 !important;
-  border-radius: 20px 0 0px 20px !important;
-  width: 50px !important;
+  /* 
+  border-radius: 0 !important;
+  width: 50px !important; */
 }
 
 .t-g-c {

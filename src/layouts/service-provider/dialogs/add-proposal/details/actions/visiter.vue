@@ -54,7 +54,7 @@ export default {
     },
     rescheduleRequest() {
       this.$store.commit('showBook')
-      this.fireOpenDialog("reschedule-reservation", this.singleWorkspace);
+      // this.fireOpenDialog("reschedule-reservation", this.singleWorkspace);
     },
   },
 };

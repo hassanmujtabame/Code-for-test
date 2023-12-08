@@ -235,14 +235,23 @@
       </div>
 
       <div v-if="getSelectedWorkspace && getSelectedWorkspace != ''">
-        <!-- <div v-if="getSelectedWorkspace && getSelectedWorkspace != ''"> -->
         <div v-if="!stepThree && showDetails">
           <div class="mt-5" style="font-weight: bold">
-            <!-- <WorkspaceDetails :workspaceId="getSelectedWorkspace" /> -->
             <WorkspaceDetails :workspaceId="getSelectedWorkspace" @custom-event="handleCustomEvent" /> />
           </div>
         </div>
       </div>
+
+      <div>
+        <span style="display: none">
+          {{ Book }}
+        </span>
+        <div v-if="true">
+          <!-- <div v-if="!showDetails && Book && Book != ''"> -->
+          <ReservationComponent />
+        </div>
+      </div>
+
     </template>
 
     <template v-slot:actions>
@@ -265,9 +274,6 @@
           style="height: 40px;" class="btn btn-customer-w bg-transparent" @click="backToThree">
           السابق
         </button>
-        <div style="display: none">
-          {{ Book }}
-        </div>
       </div>
     </template>
   </d-dialog-large>
@@ -280,11 +286,14 @@ import workspaceAPI from "@/services/api/workspace";
 import readyServiceAPIs from '@/services/api/service-provider/provider/ready-service'
 import Workspaces from "./workspaces/index.vue";
 import WorkspaceDetails from "./details/index.vue";
+import ReservationComponent from "./reservations/dialogs/reschedule/index.vue"
+
 
 export default {
   components: {
     Workspaces,
     WorkspaceDetails,
+    ReservationComponent
   },
   name: "add-proposal",
   props: {
@@ -346,10 +355,7 @@ export default {
       return this.$store.state.serviceProviderWorkspaceSelected_id
     },
     Book() {
-      if(this.$store.state.book){
-        this.save()
-      }
-      console.log(this.$store.state.book)
+      this.showDetails = false
       return this.$store.state.book
     }
   },
@@ -495,7 +501,6 @@ export default {
               description: ""
             };
           }
-
           if(!this.$store.state.book){
             this.fireOpenDialog("standard-success-message", dataEvent);
           }
@@ -519,10 +524,18 @@ export default {
 
     openDialog(dataEvent) {
       // console.log('dataEvent', dataEvent);
+      this.$store.commit('serviceProviderWorkspaceSelected', '')
       this.$store.commit('hideBook')
-      this.stepOne = true
+      this.$store.commit('serviceProviderWorkspaceSelected', '')
+      this.$store.commit('hideBook')
+      this.showDetails = false
+      this.stepOne = false
       this.stepTwo = false
       this.stepThree = false
+      // this.showDetails = false
+      // this.stepOne = true
+      // this.stepTwo = false
+      // this.stepThree = false
       this.mainWidth = '150px'
       this.loading = false
       this.itemForm = {
