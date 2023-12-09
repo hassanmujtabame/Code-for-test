@@ -4,7 +4,7 @@
       <h1>
         {{ type }}
       </h1>
-      <LoginForm @change-form="afterSuccessForm" v-if="status == 'form'" />
+      <LoginForm @change-form="afterSuccessForm" v-if="status == 'form'" :type="type"/>
       <ResendCodeView
         @success="afterSuccessCheck"
         @cancel="status = 'form'"
@@ -45,6 +45,11 @@ export default {
       /*this.dataFinish= evt*/
       window.SwalSuccess("تم تفعيل حسابك بنجاح");
       this.status = "form";
+      if (this.type == 'client') {
+        this.$router.push('service-provider-home')
+      } else if (this.type == 'provider') {
+        this.$router.push('create-profile-service-provider')
+      }
     }
   },
   mounted() {

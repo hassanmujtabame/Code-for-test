@@ -337,6 +337,15 @@ const routers = [
 			),
 	},
 	{
+		path: "service-provider/create-profile",
+		meta: { layout: LayoutDefault, title: "Create Profile" },
+		name: "create-profile-service-provider",
+		component: () =>
+			import(
+				/* webpackChunkName: "service-provider-my-proposals" */ "../views/service-provider/create-profile/index.vue"
+			),
+	},
+	{
 		path: "service-provider/services-offline",
 		meta: { layout: LayoutDefault, title: "Services Offline" },
 		name: "service-provider-services-offline",

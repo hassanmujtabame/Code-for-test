@@ -5,7 +5,7 @@
         <div class="login-form">
           <h6 class="no-have-account">
             ليس لديك حساب ؟
-            <router-link :to="getRouteLocale('register')" class="m-c">أنشئ حساب الان</router-link>
+            <router-link :to="{ name: 'service-provider-register', params: { type: type } }" class="m-c">أنشئ حساب الان</router-link>
           </h6>
           <div class="form">
             <h1 class="fw-bolder">مرحبا بك من جديد</h1>
@@ -73,6 +73,12 @@ export default {
       verifyCode: false
     };
   },
+  props: {
+    type: {
+      type: String,
+      default: '',
+    }
+  },
   methods: {
     async resendCode() {
       let email = this.form.email;
@@ -106,7 +112,11 @@ export default {
         if (data.success) {
           window.successMsg();
           console.log('test', data.data)
-          window.history.back();
+          if (this.type == 'client') {
+            this.$router.push('service-provider-home')
+          } else if (this.type == 'provider') {
+            this.$router.push('create-profile')
+          }
           let { token, ...user } = data.data;
           window.store.commit("auth/SET_TOKEN", token);
           window.store.commit("auth/SET_USER", user);
@@ -118,7 +128,7 @@ export default {
           }
         }
         this.$refs.loginForm.reset();
-      } 
+      }
       catch (error) {
         let response = error.response;
         window.errorMsg(response.data.message);

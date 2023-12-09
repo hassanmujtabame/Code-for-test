@@ -1,9 +1,12 @@
 <template>
   <div class="register-page">
     <div class="container" style="margin-top: 85px;">
-      <RegisterForm @success="afterSuccessForm" v-if="status=='form'" :type="type"/>
-      <RegisterCheck @success="afterSuccessCheck" :dataInfo="dataCheck" v-if="status=='check'" />
-      <RegisterFinish v-if="status=='finish'" :dataInfo="dataFinish" />
+      <h1>
+        {{ type }}
+      </h1>
+      <RegisterForm @success="afterSuccessForm" v-if="status == 'form'" :type="type" />
+      <RegisterCheck @success="afterSuccessCheck" :dataInfo="dataCheck" v-if="status == 'check'" />
+      <RegisterFinish v-if="status == 'finish'" :dataInfo="dataFinish" />
     </div>
   </div>
 </template>
@@ -34,6 +37,11 @@ export default {
     afterSuccessCheck(evt) {
       this.dataFinish = evt;
       this.status = "finish";
+      if (this.type == 'client') {
+        this.$router.push('service-provider-home')
+      } else if (this.type == 'provider') {
+        this.$router.push('create-profile')
+      }
     }
   },
   mounted() {
