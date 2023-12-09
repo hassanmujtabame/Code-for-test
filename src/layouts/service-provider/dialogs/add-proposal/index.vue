@@ -246,9 +246,9 @@
         <span style="display: none">
           {{ Book }}
         </span>
-        <div v-if="true">
+        <div v-if="!showDetails && Book && Book != ''">
           <!-- <div v-if="!showDetails && Book && Book != ''"> -->
-          <ReservationComponent />
+          <ReservationComponent @save-request="saveRequest" :price="20" :workspace_id="22" />
         </div>
       </div>
 
@@ -270,7 +270,7 @@
           class="btn btn-customer-w bg-transparent">
           السابق
         </button>
-        <button v-if="itemForm.state == 'offline' && !stepThree && getSelectedWorkspace && getSelectedWorkspace != ''"
+        <button v-if="itemForm.state == 'offline' && !Book && !stepThree && getSelectedWorkspace && getSelectedWorkspace != ''"
           style="height: 40px;" class="btn btn-customer-w bg-transparent" @click="backToThree">
           السابق
         </button>
@@ -360,6 +360,9 @@ export default {
     }
   },
   methods: {
+    saveRequest() {
+      this.save()
+    },
     backToTwo() {
       this.stepThree = false
       this.stepOne = false
@@ -526,10 +529,8 @@ export default {
       // console.log('dataEvent', dataEvent);
       this.$store.commit('serviceProviderWorkspaceSelected', '')
       this.$store.commit('hideBook')
-      this.$store.commit('serviceProviderWorkspaceSelected', '')
-      this.$store.commit('hideBook')
       this.showDetails = false
-      this.stepOne = false
+      this.stepOne = true
       this.stepTwo = false
       this.stepThree = false
       // this.showDetails = false

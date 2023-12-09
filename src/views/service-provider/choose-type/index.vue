@@ -59,6 +59,59 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'service-provider-type',
+    data() {
+        return {
+            selectedOption: null // Initialize a data property to store the selected option
+        };
+    },
+    computed: {
+        userIsRoleProvider() {
+            return this.$store.state.isProviderRole
+        },
+        clientOrProvider() {
+            return this.$store.state.clientOrProvider
+        }
+    },
+    methods: {
+        switchRole() {
+            localStorage.setItem('providerOrclient', JSON.stringify(this.selectedOption))
+            this.$store.commit('changeRole', { 'selected': this.selectedOption })
+            if (this.token) {
+                this.$router.push('home')
+            } else if (this.clientOrProvider == 'client') {
+                this.$router.push({
+                    name: 'service-provider-register',
+                    params: {
+                        type: 'client'  // Additional data you want to send
+                    }
+                });
+            } else if (this.clientOrProvider == 'provider') {
+                this.$router.push({
+                    name: 'service-provider-register',
+                    params: {
+                        type: 'provider'  // Additional data you want to send
+                    }
+                });
+            }
+        },
+    },
+    mounted() {
+        let check = JSON.parse(localStorage.getItem('providerOrclient'))
+        console.log(check)
+        if (check && this.token) {
+            this.$store.commit('changeRole', { 'selected': check })
+            this.$router.push('home')
+        }
+        console.log(this.userIsRoleProvider)
+    }
+}
+
+</script>
+
 <style scoped>
 input[type="radio"] {
     appearance: none;
@@ -92,45 +145,3 @@ input[type="radio"]:checked::before {
     animation: appear 0.8s;
 }
 </style>
-
-<script>
-export default {
-    name: 'service-provider-type',
-    data() {
-        return {
-            selectedOption: null // Initialize a data property to store the selected option
-        };
-    },
-    computed: {
-        userIsRoleProvider() {
-            return this.$store.state.isProviderRole
-        },
-        clientOrProvider() {
-            return this.$store.state.clientOrProvider
-        }
-    },
-    methods: {
-        switchRole() {
-            localStorage.setItem('providerOrclient', JSON.stringify(this.selectedOption))
-            this.$store.commit('changeRole', { 'selected': this.selectedOption })
-            if (this.token) {
-                this.$router.push('home')
-            }else if (this.clientOrProvider == 'client') {
-                this.$router.push({name: 'login'})
-            }else if (this.clientOrProvider == 'provider') {
-                this.$router.push({name: 'register'})
-            }
-        },
-    },
-    mounted() {
-        let check = JSON.parse(localStorage.getItem('providerOrclient'))
-        console.log(check)
-        if (check && this.token) {
-            this.$store.commit('changeRole', { 'selected': check })
-            this.$router.push('home')
-        }
-        console.log(this.userIsRoleProvider)
-    }
-}
-
-</script>

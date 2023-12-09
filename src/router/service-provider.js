@@ -115,6 +115,24 @@ const routers = [
 			),
 	},
 	{
+		path: "service-provider/register",
+		meta: { layout: LayoutDefault, title: "Register" },
+		name: "service-provider-register",
+		component: () =>
+			import(
+				/* webpackChunkName: "service-provider-my-proposals" */ "../views/service-provider/register/index.vue"
+			),
+	},
+	{
+		path: "service-provider/login",
+		meta: { layout: LayoutDefault, title: "Login" },
+		name: "service-provider-login",
+		component: () =>
+			import(
+				/* webpackChunkName: "service-provider-my-proposals" */ "../views/service-provider/login/index.vue"
+			),
+	},
+	{
 		path: "service-provider/my-proposals/:id(\\d+)/offers",
 		meta: { layout: LayoutDefault, auth: true, title: "My Proposal Offers" },
 		name: "service-provider-my-proposal-offers",

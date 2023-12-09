@@ -1,24 +1,99 @@
 <template>
   <div class="container">
-    <!-- start date-->
-    <div class="work-space-reschedule">
-      <vc-date-picker class="mb-3" v-model="form.date" :min-date="new Date()"
-        style="width:100%; border-top: 0 ; border-left: 0; border-right: 0; border-radius:0 " />
-    </div>
+    <div>
+      <ValidationObserver ref="form" class="work-space-reschedule">
+        <!-- start date-->
+        <vc-date-picker class="mb-3" v-model="form.date" :min-date="new Date()"
+          style="width:100%; border-top: 0 ; border-left: 0; border-right: 0; border-radius:0 " />
 
-    
+
+        <div class="mb-2">ميعاد الدخول</div>
+        <div class="d-flex justify-content-between">
+
+          <div v-for="( item, i ) in  startTime " :key="i">
+            <div @click="getStartTime(item)" class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"
+              :class="{ 'bg-main text-white': item.active }">
+              {{ item.value }}
+            </div>
+
+          </div>
+        </div>
+
+        <div class="my-3">ميعاد الخروج</div>
+        <div class="d-flex justify-content-between">
+
+          <div v-for="( item, i ) in  endTime " :key="i">
+            <div @click="getEndTime(item)" class="px-3 py-1 t-g-c border rounded-2" style="width:fit-content"
+              :class="{ 'bg-main text-white': item.active }">
+              {{ item.value }}
+            </div>
+
+          </div>
+        </div>
+        <hr>
+
+        <!-- start test -->
+
+
+
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class=""> اختار المناسب ليك </h5>
+                <hr class="style-1 mb-4">
+
+                <ValidationProvider v-slot="{ errors }" :name="$t('الدفع')" rules="required" tag="div" class="my-2">
+
+                  <label class="card-radio-btn">
+                    <span style="width:fit-content; display:block; ">
+                      ادفع
+                      20%
+                      فقط
+                    </span>
+                    <input type="radio" name="options" class="card-input-element d-none" value="part"
+                      v-model="form.selectedOption">
+                    <div class="card card-body">
+                      <div class="content_head"> جزئي</div>
+                      <div class="content_sub"> ر.س {{ partPrice }}</div>
+                    </div>
+                  </label>
+
+                  <label class="card-radio-btn">
+                    <input type="radio" name="options" class="card-input-element d-none" value="full"
+                      v-model="form.selectedOption">
+                    <div class="card card-body">
+                      <div class="content_head">كلى</div>
+                      <div class="content_sub"> ر.س {{ fullPrice }}</div>
+                    </div>
+                  </label>
+
+                  <d-error-input :errors="errors" v-if="errors.length > 0" />
+
+                </ValidationProvider>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </ValidationObserver>
+
+      <div class="mt-3 text-center">
+        <button :disabled="loading" class="btn btn-customer" @click="save">
+          <!-- {{ $t("schedule-confirmation") }} -->
+          حجز مكان الطلب
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 
 <script>
-import large from './large.vue'
 import WorkspaceAPI from "@/services/api/workspace";
 
 export default {
-  components: {
-    large
-  },
   name: "reschedule-reservation",
   props: {
     group: {
@@ -30,7 +105,10 @@ export default {
       default: "create",
     },
     price: {
-      type: String
+      type: Number
+    },
+    workspace_id: {
+      type: Number
     }
   },
 
@@ -44,7 +122,9 @@ export default {
         end_time: '11:00',
         selectedOption: ''
       },
-      itemDialog: {},
+      itemDialog: {
+        
+      },
       loading: false,
       startTime: [{ value: '09:00', id: '1', active: true }, { value: '09:15', id: '2', active: false }, { value: '09:30', id: '3', active: false }, { value: '09:45', id: '4', active: false }, { value: '10:15', id: '5', active: false }, { value: '10:30', id: '6', active: false }],
       endTime: [{ value: '11:00', id: '12', active: true }, { value: '11:15', id: '22', active: false }, { value: '11:30', id: '32', active: false }, { value: '11:45', id: '42', active: false }, { value: '12:15', id: '62', active: false }, { value: '12:30', id: '52', active: false }],
@@ -116,39 +196,24 @@ export default {
         end_time: this.form.end_time,
         type: this.form.selectedOption,
         gateway: 'myfatoorah',
-        workspace_id: this.itemDialog.workspace_id ?? this.itemDialog.id,
+        workspace_id: this.workspace_id,
+        // workspace_id: this.itemDialog.workspace_id ?? this.itemDialog.id,
         _method: "put",
       };
       if (this.mode === "create") {
         delete payload._method;
       }
       const formData = this.loadObjectToForm(payload);
-
-      // try {
-      //   let { data } = await WorkspaceAPI.reservations.reservationReschedule(
-      //     !this.mode === "create" ? this.itemDialog.id : "",
-      //     formData
-      //   );
-      //   if (data.success) {
-      //     console.log('data.data.success', data)
-      //     window.successMsg();
-      //     this.$emit("update-list");
-      //   } else {
-      //     window.SwalError(data.message);
-      //   }
-      // } catch (error) {
-      //   window.DHelper.catchException.call(this, error, this.$refs.form);
-      // }
       try {
         let { data } = await WorkspaceAPI.reservations.reservationReschedule(
-          !this.mode === "create" ? this.itemDialog.id : "",
+          !this.mode === "create" ? this.workspace_id : "",
           formData
         );
         if (data.success) {
           console.log('data.data.success', data.data.payment_url)
           window.location = data.data.payment_url;
           // window.successMsg();
-          this.$emit("update-list");
+          this.$emit("save-request");
         } else {
           window.SwalError(data.message);
         }
@@ -158,10 +223,10 @@ export default {
       this.closeEvent();
       this.loading = false;
     },
-    openDialog(data) {
-      this.itemDialog = { ...data };
-      return true;
-    },
+    // openDialog(data) {
+    //   this.itemDialog = { ...data };
+    //   return true;
+    // },
     closeDialog() {
       return true;
     },
