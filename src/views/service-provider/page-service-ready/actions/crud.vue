@@ -1,21 +1,21 @@
 <template>
-  <div class="col-md-6  crud-actions" style="display:grid; gap: 10px; grid-template-columns: 1fr 1fr 1fr; align-items:end;" >
-    <div>
+  <div class="col-md-6  crud-actions" style="height: 100%; display:grid; gap: 10px; grid-template-columns: 1fr 1fr 1fr; align-items:end;" >
+    <div style="height:100%;">
       <button
         @click="openEditDialog"
-        style="height: 40px;"
+        style="height:100%;"
         class="btn-main px-3 w-100 border-0 rounded-2"
       >
         <i class="fa-regular fa-pen-to-square"></i>
         {{$t('modification')}}
       </button>
     </div>
-    <div>
+    <div style="height:100%;">
       <button
         :disabled="loading"
         @click="suspendItem"
         v-if="!itemPage.is_suspend"
-        style="height: 40px; background-color:#FFBC00 ;"
+        style="height:100%; background-color:#FFBC00 ;"
         class="btn-main px-3 w-100 border-0 rounded-2"
         role="button"
       >
@@ -26,7 +26,7 @@
         :disabled="loading"
         @click="notSuspendItem"
         v-else
-        style="height: 40px; background-color:#FFBC00 ;"
+        style="height:100%; background-color:#FFBC00 ;"
         class="btn-main px-3 w-100 border-0 rounded-2"
         role="button"
       >
@@ -34,10 +34,10 @@
         {{$t('republish')}}
       </button>
     </div>
-    <div>
+    <div style="height:100%;">
       <button
         @click="openDeleteDialog"
-        style="height: 40px;"
+        style="height:100%;"
         class="btn-main btn-danger px-3 w-100 border-0 rounded-2"
         role="button"
       >

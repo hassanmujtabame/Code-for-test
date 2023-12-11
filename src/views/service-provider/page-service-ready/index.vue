@@ -5,15 +5,18 @@
     <div v-else class="container pb-3">
       <div class="row justify-content-between">
         <div class="row justify-content-between">
-          <div class="col-md-6 border border-1 p-3" style="border-radius: 10px; border-color: var(--pc) !important">
-            <h3 class="m-c word-break-all d-flex justify-content-between">
-              <span class="m-c ">
-                {{ itemPage.title }}
-              </span>
-              <span class="m-c" style="font-size: 16px; background-color: #eee; padding: 10px; border-radius: 10px">
-                {{ title_page }} 
-              </span>
-            </h3>
+          <div class="col-md-6 ">
+            <div class="mx-5 border border-1 p-2" style="border-radius: 10px; border-color: var(--pc) !important">
+              <h3 class="m-c word-break-all d-flex justify-content-between" style="margin: 0 !important;">
+                <span class="m-c ">
+                  {{ itemPage.title }}
+                </span>
+                <span class="m-c" style="font-size: 16px; background-color: #eee; padding: 10px; border-radius: 10px">
+                  {{ title_page }}
+                </span>
+              </h3>
+            </div>
+
           </div>
           <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
 
@@ -29,16 +32,35 @@
 
         <!-- #actions page-->
         <div class="row redy-services">
-          <div class="col-lg-6 mt-5">
+          <div class="col-lg-6 mt-3">
+            <div class="row justify-content-center mx-5 mb-4">
+              <div class="col-12 border border-1 p-2" style="border-radius: 10px; border-color: #979797 !important">
+                <div class="m-c word-break-all d-flex justify-content-between" style="margin: 0 !important;">
+                  <div class="col-6 p-2">
+                    <emptyWalletIcon :size="24" color="#979797" />
+                    <span>سعر الخدمة : </span>
+                    <span >{{ itemPage.price }} {{ $t('riyals') }}</span>
+                  </div>
+                  <div class="col-6 p-2">
+                    <timerIcon :size="24" color="#979797" />
+                    <span>مدة التنفيذ : </span>
+                    <span>{{ numberToDay(itemPage.execution_period) }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <!-- gallary-->
             <SectionGallary :item="itemPage" />
             <!--rate service-->
             <SectionRateService :item="itemPage" />
-            <!--share service-->
-            <SectionShareService :item="itemPage" />
           </div>
 
-          <div class="col-lg-6 mt-5">
+          <div class="col-lg-6">
+            <div v-if="isOwner" class="box rounded-3 p-2 mb-4 mt-3 text-center" style=" background: #2eb9b3;">
+              <router-link style="width:100%; display:block; color: #fff;"
+                :to="getRouteLocale('service-provider-purchase-requests-one-service', { id: itemPage.id })"
+                class="fs-3">طلبات شراء هذه الخدمة</router-link>
+            </div>
             <!-- <d-user-info-li route-name="service-provider-show-profile" group-dialog="send-message-to-provider"
               :member="itemPage.user_info" :dataEvent="dataEventMessage" class="mb-3" v-if="!isOwner" /> -->
             <div class="box border rounded-3 p-3">
@@ -46,12 +68,14 @@
                 <h3 class="border-bottom p-2">وصف الخدمة</h3>
                 <p class="p-2" v-html="itemPage.desc"></p>
               </div>
-              <div>
+
+              <!-- user section -->
+              <!-- <div>
                 <h3 class="border-bottom p-2">بائع الخدمة</h3>
                 <d-user-info-li :showBtnChat="false" route-name="service-provider-show-profile"
                   group-dialog="send-message-to-provider" :member="itemPage.user_info" :dataEvent="dataEventMessage"
                   style="border: none;" class="mb-3" />
-              </div>
+              </div> -->
               <div>
                 <h3 class="border-bottom p-2">تفاصيل الخدمة</h3>
                 <div class="row">
@@ -115,20 +139,18 @@
                   </template>
                 </div>
               </div>
-              <div class="text-center">
+              <!-- <div class="text-center">
                 <span>{{ $t('publish-date') }}:</span>
                 <span class="m-c fw-bolder">{{ dateReverse(itemPage.created_at) ?? 'N/A' }}</span>
-              </div>
+              </div> -->
               <div class="mt-4">
                 <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" />
 
               </div>
             </div>
-            <div v-if="isOwner" class="box rounded-3 p-4 mt-3 text-center" style=" background: #2eb9b3;">
-              <router-link style="width:100%; display:block; color: #fff;"
-                :to="getRouteLocale('service-provider-purchase-requests-one-service', { id: itemPage.id })"
-                class="fs-3">طلبات شراء هذه الخدمة</router-link>
-            </div>
+            
+            <!--share service-->
+            <SectionShareService :item="itemPage" />
           </div>
         </div>
       </div>
