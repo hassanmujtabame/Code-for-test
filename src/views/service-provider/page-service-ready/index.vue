@@ -1,14 +1,18 @@
 <template>
-  <div style="margin-top:100px " class="mb-2">
+  <div style="margin-top:120px " class="mb-3">
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
     <div v-else class="container pb-3">
       <div class="row justify-content-between">
-        <div class="row justify-content-between" >
-          <div class="col-md-6">
-            <h3 class="word-break-all">
-              <span class="m-c">{{ title_page }} :</span>
-              {{ itemPage.title }}
+        <div class="row justify-content-between">
+          <div class="col-md-6 border border-1 p-3" style="border-radius: 10px; border-color: var(--pc) !important">
+            <h3 class="m-c word-break-all d-flex justify-content-between">
+              <span class="m-c ">
+                {{ itemPage.title }}
+              </span>
+              <span class="m-c" style="font-size: 16px; background-color: #eee; padding: 10px; border-radius: 10px">
+                {{ title_page }} 
+              </span>
             </h3>
           </div>
           <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
@@ -16,8 +20,9 @@
           <button v-if="!isOwner" style="width: 145px;
           height: 50px;
           text-align: center;
-          background: #ffbe39ff; border-radius:10px;" @click="openChat" class="col-md-6 text-white border-0 p-2 px-2 mx-4"><i
-              class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
+          background: #ffbe39ff; border-radius:10px;" @click="openChat"
+            class="col-md-6 text-white border-0 p-2 px-2 mx-4"><i class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat')
+            }}</button>
         </div>
         <!-- actions page-->
         <!-- <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" /> -->
@@ -41,11 +46,11 @@
                 <h3 class="border-bottom p-2">وصف الخدمة</h3>
                 <p class="p-2" v-html="itemPage.desc"></p>
               </div>
-              <div >
+              <div>
                 <h3 class="border-bottom p-2">بائع الخدمة</h3>
                 <d-user-info-li :showBtnChat="false" route-name="service-provider-show-profile"
                   group-dialog="send-message-to-provider" :member="itemPage.user_info" :dataEvent="dataEventMessage"
-                  style="border: none;" class="mb-3"  />
+                  style="border: none;" class="mb-3" />
               </div>
               <div>
                 <h3 class="border-bottom p-2">تفاصيل الخدمة</h3>
@@ -120,7 +125,8 @@
               </div>
             </div>
             <div v-if="isOwner" class="box rounded-3 p-4 mt-3 text-center" style=" background: #2eb9b3;">
-              <router-link style="width:100%; display:block; color: #fff;" :to="getRouteLocale('service-provider-purchase-requests-one-service', { id: itemPage.id })"
+              <router-link style="width:100%; display:block; color: #fff;"
+                :to="getRouteLocale('service-provider-purchase-requests-one-service', { id: itemPage.id })"
                 class="fs-3">طلبات شراء هذه الخدمة</router-link>
             </div>
           </div>
@@ -207,11 +213,11 @@ export default {
     title_page() {
       switch (this.itemPage.state) {
         case "online":
+          return 'خدمه حضورية';
         case "offline":
-          return `${this.$t("service")} ${this.$t(this.itemPage.state)}`;
+          return 'خدمه عن بعد';
         case "service":
-          return this.$t("ready-service");
-
+          return 'خدمه جاهزة';
         default:
           return this.$t("service");
       }

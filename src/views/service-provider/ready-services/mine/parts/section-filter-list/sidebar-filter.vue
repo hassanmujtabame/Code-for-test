@@ -50,6 +50,7 @@ export default {
             states: [
                 { id: 'online', name: vm.$t('online-services') },
                 { id: 'offline', name: vm.$t('offline-services') },
+                { id: "service", name: vm.$t("ready-service") }
             ],
             categories: [],
             filter: vm.filterItem
@@ -134,7 +135,7 @@ export default {
     display: none;
 }
 
-#offline {
+#offline, #service {
     border-right: 1px solid #1FB9B3;
 }
 </style>

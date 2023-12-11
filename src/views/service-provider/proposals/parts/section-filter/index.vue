@@ -1,6 +1,6 @@
 <template>
   <d-filter-list hideSide hideTitle :call-list="loadList" @change="changeFilter"
-    :searchPlaceholder="$t('search-for-project')" orderName="price" :orderOpts="[
+    :searchPlaceholder="'ابحث هنا'" orderName="price" :orderOpts="[
         { id: 'asc', name: 'الأقل سعرا' },
         { id: 'desc', name: 'الأغلى سعرا', }
       ]" classSearchOrder="col-md-9" classColOrder="col-12 col-md-4" classColSearch="col-12 col-md-8"

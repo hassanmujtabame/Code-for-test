@@ -318,7 +318,8 @@ export default {
               {
                 title: "قائمة خدماتي",
                 action: () =>
-                  this.router_push("service-provider-my-ready-services"),
+                  this.$router.push("my-ready-services").catch(()=>{}),
+
                 class: "btn btn-custmer"
               }
             ]
@@ -449,7 +450,7 @@ export default {
           field_id: [],
           desc: "",
           city_id: null,
-          delivery_place: "",
+          delivery_place: false,
           keywords: ""
         }
       );

@@ -14,8 +14,8 @@
         <div v-if="!opts || opts.length == 0" class="col-12 form-select__empty">
           <span>{{ $t('no-options') }}</span>
         </div>
-        <div v-else>
-          <div v-for="(item, i) in opts" :key="i" class="col-12 col-md-6">
+        <div v-else style="display: flex; flex-wrap: wrap; gap: 20px;">
+          <div v-for="(item, i) in opts" :key="i" style="width: fit-content">
             <div class="form-check">
               <input class="form-check-input" :id="getLabelOpt(item)" v-model="value_" :value="getTrackOpt(item)"
                 :type="multiSelect ? 'checkbox' : 'radio'">
@@ -158,6 +158,10 @@ export default {
 }
 </script>
 <style scoped>
+.form-check {
+  width: fit-content;
+}
+
 .form-group {
   background: #FFFFFF;
   border: 0.5px solid #D1D1D1;
@@ -216,7 +220,6 @@ html[lang=en] .select-arrow {
 
 .form-input__body {
   padding: 15px 15px;
-  width: fit-content
 }
 
 .form-select__empty {
@@ -252,4 +255,5 @@ html[lang=en] .select-arrow {
 .form-control:disabled {
   background-color: #f6f9fb00;
   opacity: 1;
-}</style>
+}
+</style>

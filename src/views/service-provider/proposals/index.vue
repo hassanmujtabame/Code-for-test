@@ -1,16 +1,14 @@
 <template>
-    <div style="margin-top: 85px " class="consult max-width-100-hidden ">
-        <div class="consulting ">
+    <div style="margin-top: 120px " class="consult max-width-100-hidden ">
+        <!-- <div class="consulting ">
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-md-6 mt-5">
                         <h1 class="fs-1 text-white my-5">
-                            <!-- الخدمات -->
                             الطلبات
                         </h1>
                         <p class="text-white fs-r-24 mt-5">
                             يمكنك أضافة خدماتك و ما يمكنك تقديمه الى العملاء كخدمات جاهزة يمكنهم طلب شرائها منك
-                            <!-- يمكنك عرض خدماتك ومهارتك على أصحاب المشاريع  و تحديد قيمة الصفقة المناسبة لكلاً منكم-->
                         </p>
 
                     </div>
@@ -31,7 +29,7 @@
 
             </div>
 
-        </div>
+        </div> -->
         <!--filter list-->
         <div class="container mt-5">
             <SectionFilterList />
@@ -40,6 +38,7 @@
         <SectionHear />
     </div>
 </template>
+
 
 <script>
 import SectionFilterList from './parts/section-filter/index.vue'
