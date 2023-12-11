@@ -70,11 +70,29 @@
           </div>
         </div>
         <div class="col-12 col-lg-8">
+
+          <!-- online or offline -->
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body mb-3">
+              <div class=" d-flex rounded-3 w-100 justify-content-center" style="border: 1px solid #1FB9B3;">
+                <div v-for="(state, i) in states" :key="i" class="form-check w-100 form-check-custom-states">
+                  <input class="form-check-input form-check-states" type="radio" :value="state.id"
+                    name="stateRadioDefault" v-model="itemForm.state" :id="state.id" />
+                  <label style="color: #1FB9B3; cursor: pointer;" :id="state.id"
+                    class="form-check-label w-100  text-center t form-check-custom" :for="state.id">{{ state.name
+                    }}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- end online or offline -->
           <!--title-->
           <div class="mb-3">
             <ValidationProvider :name="$t('service-title')" vid="title" rules="required" v-slot="{ errors }">
               <d-text-input :errors="errors" type="text" v-model="itemForm.title" class="form-control"
-                :label="$t('service-title')" />
+                :placeholder="$t('service-title')" />
             </ValidationProvider>
           </div>
           <!--price-->
@@ -82,32 +100,32 @@
             <ValidationProvider :name="$t('service-price')" vid="price"
               :rules="{ required: true, numeric: true, min_value: 1 }" v-slot="{ errors }">
               <d-text-input :errors="errors" type="number" v-model="itemForm.price" class="form-control"
-                :label="$t('service-price')" />
+                :placeholder="$t('service-price')" />
             </ValidationProvider>
           </div>
           <!-- execution during-->
-          <div class="mb-3">
+          <div class="mb-3" v-if="itemForm.state !== 'service'">
             <ValidationProvider :name="$t('execution-during')" vid="execution_period"
               :rules="{ required: true, numeric: true, min_value: 1 }" v-slot="{ errors }">
               <d-text-input :errors="errors" type="number" v-model="itemForm.execution_period" class="form-control"
-                :label="$t('execution-during') + ' (اليوم)'" />
+                :placeholder="$t('execution-during')" />
             </ValidationProvider>
           </div>
           <!-- تصنيف الخدمة-->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <ValidationProvider :name="$t('state-service')" vid="state" rules="required" v-slot="{ errors }">
-              <d-select-input :errors="errors" v-model="itemForm.state" :label="$t('state-service')" class="form-select">
+              <d-select-input :errors="errors" v-model="itemForm.state" class="form-select">
                 <option disabled value class="t-c">{{ $t('state-service') }}</option>
                 <option :key="i" v-for="(option, i) in states" :value="option.id">{{ option.name }}</option>
               </d-select-input>
             </ValidationProvider>
-          </div>
+          </div> -->
           <!-- category -->
           <div class="mb-3">
             <ValidationProvider tag="div" class="form-group" :name="$t('request-domain')" vid="category_id"
               rules="required" v-slot="{ errors }">
-              <d-select-input :errors="errors" v-model="itemForm.category_id" @change="loadFields($event)"
-                :label="$t('request-domain')">
+              <d-select-input :errors="errors" v-model="itemForm.category_id" @change="loadFields($event)">
+                <option disabled value class="t-c">{{ $t('request-domain') }}</option>
                 <option v-for="(cat, i) in categories" :key="i" :value="cat.id">{{ cat.name }}</option>
               </d-select-input>
             </ValidationProvider>
@@ -115,25 +133,12 @@
           <!--field-->
           <div class="mb-3">
             <ValidationProvider tag="div" :name="$t('specialite')" vid="field_id" v-slot="{ errors }">
-              <d-multiselect-input :errors="errors" :label="$t('select-specialite')" :opts="fields" track-id="id"
-                label-name="name" v-model="itemForm.field_id" multi-select opened />
-            </ValidationProvider>
-          </div>
-          <div style="border: 1px solid; padding: 10px; font-weight: bold" >
-            مكان إقامة الخدمة:
-            <div class="mt-5" style="font-weight: bold">
-              أختار من اماكن العمل لدينا
-              <WorkSpaces />
-            </div>
-            <div class="mt-2" style="font-weight: bold">
-              أو اختار موقع من على الخريطه
-              <ValidationProvider name="رابط العنوان على خرائط جوجل" vid="location" rules="required">
-                <!-- <d-text-input :errors="errors" v-model="form.location" label="رابط العنوان على خرائط جوجل" /> -->
-                <VGoogleMap @mapUpdated='getAddressMap' />
-            </ValidationProvider>
-            </div>
-          </div>
+              <option disabled value class="t-c">{{ $t('select-specialite') }}</option>
+              <MultiselectInput :errors="errors" :opts="fields" track-id="id" label-name="name"
+                v-model="itemForm.field_id" multi-select />
 
+            </ValidationProvider>
+          </div>
 
           <!--details-->
           <div class="my-3">
@@ -144,25 +149,29 @@
               <d-error-input :errors="errors" v-if="errors.length > 0" />
             </ValidationProvider>
           </div>
+
           <!-- if ready service offline-->
           <template v-if="itemForm.state == 'offline'">
+
             <!-- address-service-->
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <ValidationProvider :name="$t('address-service')" vid="city_id" rules="required" v-slot="{ errors }">
                 <d-select-input :errors="errors" v-model="itemForm.city_id" :label="$t('address-service')">
                   <option v-for="(it, i) in cities" :key="i" :value="it.id">{{ `${it.name}-${it.region.name}` }}</option>
                 </d-select-input>
               </ValidationProvider>
-            </div>
+            </div> -->
             <!-- delivery place-->
             <div class="mb-3">
               <ValidationProvider :name="$t('delivery-place')" vid="delivery_place" rules="required" v-slot="{ errors }">
-                <d-select-input :errors="errors" v-model="itemForm.delivery_place" :label="$t('delivery-place')">
+                <d-select-input :errors="errors" v-model="itemForm.delivery_place" >
+                  <option selected disabled value=''> {{ $t('delivery-place') }} </option>
                   <option v-for="(place, i) in delivery_places" :key="i" :value="place.id">{{ place.name }}</option>
                 </d-select-input>
               </ValidationProvider>
             </div>
           </template>
+          
           <!--keywords-->
           <div class="mb-3">
             <ValidationProvider :name="$t('keywords')" vid="keywords" rules="required" v-slot="{ errors }">
@@ -220,14 +229,15 @@ import TrashOutlineIcon from "@/components/icon-svg/trash-outline.vue";
 import ServiceProviderAPIs from "@/services/api/service-provider/provider/ready-service";
 import commonAPIs from "@/services/api/common.js";
 import galleryImage from "./gallery-image.vue";
-import WorkSpaces from "./recent-workspaces/index.vue";
+
+import MultiselectInput from "./multiselect.vue"
 export default {
   name: "add-ready-service-dialog",
   components: {
     PlusCircleOutlineIcon,
     TrashOutlineIcon,
     galleryImage,
-    WorkSpaces,
+    MultiselectInput,
     VGoogleMap
   },
   data: vm => {
@@ -236,11 +246,15 @@ export default {
       group: "add-ready-service-dialog",
       showDialog: false,
       states: [
-        { id: "online", name: vm.$t("online") },
-        { id: "offline", name: vm.$t("offline") },
+        { id: "online", name: "خدمه عن بعد" },
+        { id: "offline", name: 'خدمه حضورية ' },
         { id: "service", name: vm.$t("ready-service") }
       ],
-      delivery_places: [{ id: "client_choosen", name: "ما يفضله العميل" }],
+      delivery_places: [
+        { id: "client_place", name: "مكان العميل" },
+        { id: "special_place", name: "مكان خاص" },
+        { id: "reiadiat_workspaces", name: "اماكن رياديات" }
+      ],
       categories: [],
       fields: [],
 
@@ -276,7 +290,7 @@ export default {
       formData.append("state", this.itemForm.state);
       formData.append("execution_period", this.itemForm.execution_period);
       if (this.itemForm.state == "offline")
-        formData.append("city_id", this.itemForm.city_id);
+        // formData.append("city_id", this.itemForm.city_id);
       //formData.append('execution_place',this.itemForm.execution_place)
       formData.append("file", this.attachment);
       formData.append("keywords", this.itemForm.keywords);
@@ -412,16 +426,16 @@ export default {
         console.log("error", error);
       }
     },
-    async loadCities() {
-      try {
-        let { data } = await commonAPIs.cities();
-        if (data.success) {
-          this.cities = data.data;
-        }
-      } catch (error) {
-        console.mylog("error", error);
-      }
-    },
+    // async loadCities() {
+    //   try {
+    //     let { data } = await commonAPIs.cities();
+    //     if (data.success) {
+    //       this.cities = data.data;
+    //     }
+    //   } catch (error) {
+    //     console.mylog("error", error);
+    //   }
+    // },
     openDialog() {
       this.itemForm = Object.assign(
         {},
@@ -430,12 +444,12 @@ export default {
           title: null,
           price: "",
           execution_period: "",
-          state: "",
+          state: "online",
           category_id: null,
           field_id: [],
           desc: "",
           city_id: null,
-          delivery_place: "client_choosen",
+          delivery_place: "",
           keywords: ""
         }
       );
@@ -462,12 +476,69 @@ export default {
   },
   mounted() {
     this.loadCategories();
-    this.loadCities();
+    // this.loadCities();
   }
 };
 </script>
 
 <style scoped>
+.info-item {
+  font-size: 16px;
+  padding: 5px;
+}
+
+.info-item-value {
+  color: #2c98b3;
+}
+
+.form-check-input-custom {
+  display: none;
+}
+
+.form-check-input-custom:checked+label {
+  background-color: #1FB9B3;
+  border-radius: 5px;
+  color: white;
+}
+
+.form-check-custom {
+  /* border: 1px solid #1FB9B3; */
+  /* border-radius: 8px; 
+  padding: 3px 45px;
+  */
+  padding: 10px
+}
+
+.form-check-custom-states {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.form-check-states:checked+label {
+  background-color: #1FB9B3;
+  border-radius: 5px;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  color: white !important;
+}
+
+.form-check-states:checked+#offline {
+  background-color: #1FB9B3;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+  color: white !important;
+}
+
+.form-check-states {
+  display: none;
+}
+
+#offline, #service {
+  border-right: 1px solid #1FB9B3;
+}
+
 label {
   width: 100%;
   text-align: start;

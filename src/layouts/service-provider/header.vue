@@ -12,7 +12,7 @@
         <router-link :to="getRouteLocale(item.route)" class="nav-link">{{ item.text }}</router-link>
       </li>
 
-      <button @click="openAddService($event, closeNavList)" style="line-height: 2.5; height: 40px;"
+      <button @click="openAddService($event, closeNavList)" style="height: 40px;"
         class="btn-main btn-nav text-center text-white">
         {{ userIsRoleProvider ? $t('add-new-service') : $t('add-new-request') }}
       </button>
