@@ -37,12 +37,14 @@ export default {
       // user_Is_Role_Provider: localStorage.getItem('user_role_provider'),
       items: [
         /**provider */
-        { route: 'service-provider-proposals', text: vm.$t('show-your-services'), provider: true },
-        { route: 'service-provider-my-ready-services', text: vm.$t('my-services'), provider: true },
+        // { route: 'service-provider-proposals', text: vm.$t('show-your-services'), provider: true },
+        { route: 'service-provider-my-ready-services', text: 'متابعة خدماتى', provider: true },
+        { route: 'service-provider-proposals', text: 'اعثر على عمل', provider: true },
+        // { route: 'service-provider-my-ready-services', text: vm.$t('my-services'), provider: true },
         // {route:'service-provider-ready-services', text:vm.$t('service'),provider:true},
         /** client */
-        { route: 'service-provider-request-purchase-services', text: "طلبات شراء خدماتك", provider: true },
-        { route: 'service-provider-my-offers', text: vm.$t('my-proposals'), provider: true },
+        // { route: 'service-provider-request-purchase-services', text: "طلبات شراء خدماتك", provider: true },
+        // { route: 'service-provider-my-offers', text: vm.$t('my-proposals'), provider: true },
 
         { route: 'service-provider-ready-services', text: vm.$t('service'), provider: false },
 
