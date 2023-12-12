@@ -5,7 +5,8 @@
             <div class="col-md-4 text-start">
                 <router-link class="router-link" :to="getRouteLocale('service-provider-proposal-page', { id: id })">
                     <img v-if="image" :src="image" />
-                    <div v-else class="d-flex rounded-3 " style="width: 100%; height: 100%; background: #CAFFFD80 50%;">
+                    <div v-else class="d-flex rounded-3 " 
+                    style="width: 100%; height: 100; background: #CAFFFD80 50%;">
                         <svg class="m-auto" width="113" height="113" viewBox="0 0 113 113" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -16,7 +17,7 @@
                     </div>
                 </router-link>
             </div>
-            <div class="col-md-8" >
+            <div class="col-md-8">
                 <router-link class="router-link" :to="getRouteLocale('service-provider-proposal-page', { id: id })">
                     <div style="border-bottom: 1px solid #E8EFF0" class="my-1 pb-3">
 
@@ -26,7 +27,8 @@
                                     <h5>{{ title ?? 'N/A' }}</h5>
                                     <span class="rounded-3 text-white" style="padding: 4px 12px"
                                         :class="[state == 'offline' ? 'bg-off' : 'bg-on']">
-                                        {{ state == 'offline' ? 'منتهي' : 'متاح' }} </span>
+                                        {{ state == 'offline' ? 'حضورية' : 'عن بعد' }}
+                                    </span>
                                 </div>
                                 <p>
                                     <span class="m-c">{{ department ?? 'N/A' }}</span>

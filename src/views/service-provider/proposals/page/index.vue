@@ -6,7 +6,9 @@
     </div>
     <template v-else>
       <progressPage
-      v-if="(itemPage.is_offer_sent && itemPage.user_offer && ['underway', 'finished'].includes(itemPage.user_offer.status)) || (isOwner && ['underway', 'finished'].includes(itemPage.status))"
+      v-if="(itemPage.is_offer_sent && itemPage.user_offer 
+      && ['underway', 'finished'].includes(itemPage.user_offer.status)) 
+      || (isOwner && ['underway', 'finished'].includes(itemPage.status))"
       :item-page="itemPage" :isOwner="isOwner" />
 
       <showPage v-else :item-page="itemPage" :isOwner="isOwner" />
