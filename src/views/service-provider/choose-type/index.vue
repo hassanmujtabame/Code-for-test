@@ -20,7 +20,7 @@
                 </div>
                 <div>
                     <input type="radio" v-model="selectedOption" id="service-provider-choosen" name="choose"
-                        value="service-provider">
+                        value="provider">
                 </div>
             </label>
 

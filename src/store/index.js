@@ -37,7 +37,7 @@ const store = new Vuex.Store({
           state.isProviderRole = false
           state.clientOrProvider = 'client'
         }
-        else if(payload.selected == 'service-provider'){
+        else if(payload.selected == 'provider'){
           state.isProviderRole = true
           state.clientOrProvider = 'provider'
         }

@@ -1,9 +1,17 @@
 <template>
-  <div class="col-12 d-flex gap-2 justify-content-end">
+    <div class="col-6 d-flex gap-2 justify-content-end">
         <div style="width: 100%">
-            <button @click="openBooking" style="height: 70px; width:100%;" class="btn-main"  
-                role="button">
+            <button @click="openBooking" style="height: 70px; width:100%;"
+                class="btn-main d-flex justify-content-center align-items-center fs-4" role="button">
                 {{ labelBuyBtn }}
+                &nbsp;
+                |
+                &nbsp;
+                <div>
+                    <emptyWalletIcon :size="24" color="#fff" />
+                    &nbsp;
+                    <span class="text-white">{{ itemPage.price }} &nbsp;{{ $t('riyals') }}</span>
+                </div>
             </button>
         </div>
         <!-- <div>
@@ -24,59 +32,61 @@
 </template>
 
 <script>
+import emptyWalletIcon from "@/components/icon-svg/empty-wallet.vue";
 export default {
- name:'action-for-visiter',
- props:['itemPage'],
- computed:{
-    labelBuyBtn(){ 
-        if(this.itemPage.state=='offline')
-        return 'أطلب الخدمة';
-        return 'إشتري الخدمة';
-    }
- },
- methods:{
-    sendAbuse(){
-        this.showAbuseDialog({item:this.itemPage,form:{table_type:'ready-service',table_id:this.itemPage.id}})
+    components: {
+        emptyWalletIcon
     },
-    openBooking(){
-        if(this.itemPage.state=='online'){
-            this.openBookingOnlineSer()
-        }
-       
-        else if(this.itemPage.state=='offline')
-        this.fireOpenDialog('booking-service',this.itemPage)
-        else{
-            let dataEvt = {
-        title:'انت على وشك شراء الخدمة',
-        description:`بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
-                type:'warning',
-                btns:[
-                    {title:this.$t('buy_service'),action:()=> this.openCheckout()}
-                ]
-        }
-        this.showConfirmMsg(dataEvt)
+    name: 'action-for-visiter',
+    props: ['itemPage'],
+    computed: {
+        labelBuyBtn() {
+            if (this.itemPage.state == 'offline')
+                return 'أطلب الخدمة';
+            return 'إشتري الخدمة';
         }
     },
-        openBookingOnlineSer(){
-    
-            let dataEvt = {
-        title:'انت على وشك شراء الخدمة',
-        description:`بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
-                type:'warning',
-                btns:[
-                    {title:this.$t('buy_service'),action:()=> this.openCheckout()}
-                ]
-        }
-        this.showConfirmMsg(dataEvt)
-    },
-    openCheckout(){
-        this.fireOpenDialog('checkout-ready-service-online',{item:{amount:this.itemPage.price,title:this.itemPage.title},data:this.itemPage})
+    methods: {
+        sendAbuse() {
+            this.showAbuseDialog({ item: this.itemPage, form: { table_type: 'ready-service', table_id: this.itemPage.id } })
+        },
+        openBooking() {
+            if (this.itemPage.state == 'online') {
+                this.openBookingOnlineSer()
+            }
 
+            else if (this.itemPage.state == 'offline')
+                this.fireOpenDialog('booking-service', this.itemPage)
+            else {
+                let dataEvt = {
+                    title: 'انت على وشك شراء الخدمة',
+                    description: `بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
+                    type: 'warning',
+                    btns: [
+                        { title: this.$t('buy_service'), action: () => this.openCheckout() }
+                    ]
+                }
+                this.showConfirmMsg(dataEvt)
+            }
+        },
+        openBookingOnlineSer() {
+
+            let dataEvt = {
+                title: 'انت على وشك شراء الخدمة',
+                description: `بمجرد دفع للخدمة يمكنك تحميل الخدمة بحد اقصى 3 مرات و بعد ذلك يلزمك شراؤها من جديد`,
+                type: 'warning',
+                btns: [
+                    { title: this.$t('buy_service'), action: () => this.openCheckout() }
+                ]
+            }
+            this.showConfirmMsg(dataEvt)
+        },
+        openCheckout() {
+            this.fireOpenDialog('checkout-ready-service-online', { item: { amount: this.itemPage.price, title: this.itemPage.title }, data: this.itemPage })
+
+        }
     }
- }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

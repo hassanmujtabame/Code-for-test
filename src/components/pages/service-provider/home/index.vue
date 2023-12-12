@@ -22,7 +22,7 @@ export default {
     },
     mounted() {
         let check = JSON.parse(localStorage.getItem('providerOrclient'))
-        console.log(check)
+        console.log('chedh',check)
         if (check && this.token) {
             this.$store.commit('changeRole', { 'selected': check })
             window.reload()

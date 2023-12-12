@@ -19,13 +19,14 @@
 
           </div>
           <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
+          <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" />
 
-          <button v-if="!isOwner" style="width: 145px;
+          <!-- <button v-if="!isOwner" style="width: 145px;
           height: 50px;
           text-align: center;
           background: #ffbe39ff; border-radius:10px;" @click="openChat"
             class="col-md-6 text-white border-0 p-2 px-2 mx-4"><i class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat')
-            }}</button>
+            }}</button> -->
         </div>
         <!-- actions page-->
         <!-- <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" /> -->
@@ -33,13 +34,14 @@
         <!-- #actions page-->
         <div class="row redy-services">
           <div class="col-lg-6 mt-3">
-            <div class="row justify-content-center mx-5 mb-4">
+
+            <div v-if="itemPage.state == 'offline'" class="row justify-content-center mx-5 mb-4">
               <div class="col-12 border border-1 p-2" style="border-radius: 10px; border-color: #979797 !important">
                 <div class="m-c word-break-all d-flex justify-content-between" style="margin: 0 !important;">
                   <div class="col-6 p-2">
                     <emptyWalletIcon :size="24" color="#979797" />
                     <span>سعر الخدمة : </span>
-                    <span >{{ itemPage.price }} {{ $t('riyals') }}</span>
+                    <span>{{ itemPage.price }} {{ $t('riyals') }}</span>
                   </div>
                   <div class="col-6 p-2">
                     <timerIcon :size="24" color="#979797" />
@@ -49,6 +51,15 @@
                 </div>
               </div>
             </div>
+
+
+            <!-- user info section -->
+            <div class="box border rounded-3 mx-5 mt-1 mb-3">
+              <UserInfoLeftImg route-name="service-provider-show-profile" group-dialog="send-message-to-provider"
+                :member="itemPage.user_info" :dataEvent="dataEventMessage" class="mb-3" v-if="!isOwner" />
+            </div>
+
+
             <!-- gallary-->
             <SectionGallary :item="itemPage" />
             <!--rate service-->
@@ -61,9 +72,9 @@
                 :to="getRouteLocale('service-provider-purchase-requests-one-service', { id: itemPage.id })"
                 class="fs-3">طلبات شراء هذه الخدمة</router-link>
             </div>
-            <!-- <d-user-info-li route-name="service-provider-show-profile" group-dialog="send-message-to-provider"
-              :member="itemPage.user_info" :dataEvent="dataEventMessage" class="mb-3" v-if="!isOwner" /> -->
-            <div class="box border rounded-3 p-3">
+
+
+            <div class="box border mt-3 rounded-3 p-3">
               <div>
                 <h3 class="border-bottom p-2">وصف الخدمة</h3>
                 <p class="p-2" v-html="itemPage.desc"></p>
@@ -143,12 +154,12 @@
                 <span>{{ $t('publish-date') }}:</span>
                 <span class="m-c fw-bolder">{{ dateReverse(itemPage.created_at) ?? 'N/A' }}</span>
               </div> -->
-              <div class="mt-4">
+              <!-- <div class="mt-4">
                 <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" />
 
-              </div>
+              </div> -->
             </div>
-            
+
             <!--share service-->
             <SectionShareService :item="itemPage" />
           </div>
@@ -194,6 +205,7 @@ import eyeOpenIcon from "@/components/icon-svg/eye-open.vue";
 import signPostIcon from "@/components/icon-svg/sign-post-icon.vue";
 import lovelyIcon from "@/components/icon-svg/lovely-icon.vue";
 import starIcon from "@/components/icon-svg/star-icon.vue";
+import UserInfoLeftImg from './user-info-left-img.vue'
 export default {
   name: "page-service-ready",
   metaInfo() {
@@ -208,6 +220,7 @@ export default {
   },
   components: {
     CheckOutDialog,
+    UserInfoLeftImg,
     DialogBooking,
     DialogDeleteService,
     DialogSuccessSuspendService,
