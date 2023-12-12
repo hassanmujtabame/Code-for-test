@@ -8,9 +8,12 @@ class ServiceProviderApi extends BaseApi {
     readyService = readyService;
     partners = partners;
     //Get all project-categories
- getAll(params={}){
+getAll(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`service-provider/provider/projects?${s}`);
+}
+createProfile(data){
+    return window.axios.post(`service-provider/provider/portfolios`,data);
 }
 getHomeSchedules(params={}){
     let s=this.generateQueryUrl(params)

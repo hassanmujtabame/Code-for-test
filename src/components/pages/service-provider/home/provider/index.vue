@@ -66,5 +66,8 @@ export default {
             return this.$store.state.isProviderRole
         }
     },
+    mounted() {
+        console.log('userfd',this.user.serviceProviderPortfolio)
+    }
 }
 </script>

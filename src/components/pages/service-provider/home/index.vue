@@ -28,6 +28,8 @@ export default {
             window.reload()
         }
         console.log(this.userIsRoleProvider)
+        console.log('userfd',this.user)
+        
     }
 };
 </script>
