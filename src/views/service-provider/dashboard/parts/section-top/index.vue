@@ -63,6 +63,14 @@ export default {
     methods: {
         switchRole() {
             this.$store.commit('changeRole')
+            if(this.$store.state.isProviderRole)
+            {
+                localStorage.setItem('providerOrclient', JSON.stringify('provider'))
+            }
+            else if(!this.$store.state.isProviderRole)
+            {
+                localStorage.setItem('providerOrclient', JSON.stringify('client'))
+            }
         },
     },
     computed: {
