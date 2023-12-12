@@ -4,7 +4,9 @@
     <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
     <div v-else class="container pb-3">
       <div class="row justify-content-between">
+
         <div class="row justify-content-between">
+
           <div class="col-md-6 ">
             <div class="mx-5 border border-1 p-2" style="border-radius: 10px; border-color: var(--pc) !important">
               <h3 class="m-c word-break-all d-flex justify-content-between" style="margin: 0 !important;">
@@ -16,7 +18,6 @@
                 </span>
               </h3>
             </div>
-
           </div>
           <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
           <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" />

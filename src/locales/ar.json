@@ -406,6 +406,7 @@
   "max_service_period": "أقصى مدة للخدمة",
   "max_service_number": "أقصى عدد من العملاء لكل موعد",
   "color": "اللون",
+  "Settings": "الاعدادات",
   "new-password": "كلمة المرور جديدة",
   "Password-confirm": "تأكيد كلمة المرور",
   "add": "أضف",

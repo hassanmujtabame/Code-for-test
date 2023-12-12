@@ -27,7 +27,7 @@
                 <div class="box  mx-2 mt-3 ">
                     <controlIcon />
                     <router-link custom v-slot="{ navigate }" :to="getRouteLocale(dashboard)" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer"> {{ $t('Dashboard') }}
+                        <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer"> {{ $t('Settings') }}
                         </button>
                     </router-link>
                 </div>
