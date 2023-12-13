@@ -138,7 +138,7 @@
 
 <script>
 import readyServicesAPI from '@/services/api/service-provider/provider/ready-service.js'
-import RateStars from "@/components/rate-stars/show-rate.vue";
+import RateStars from "./show-rate.vue";
 
 export default {
     name: 'section-my-ready-services',

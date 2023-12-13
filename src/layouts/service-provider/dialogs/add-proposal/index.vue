@@ -270,6 +270,13 @@
           class="btn btn-customer-w bg-transparent">
           السابق
         </button>
+        <!-- <button v-if="itemForm.state == 'offline' && itemForm['type'] !== 'workspace'" style="height: 40px;" @click="save"
+          class="btn btn-customer-w bg-transparent">
+          السابق
+        </button> -->
+        <button v-if="itemForm.state == 'offline' && stepThree && itemForm['type'] === 'other'" @click="save" style="height: 40px; margin-right: 10px; margin-left: 10px" class="btn btn-main">{{
+          itemDialog.id ? $t('update-proposal') : $t('add-proposal') }}</button>
+
         <button v-if="itemForm.state == 'offline' && !Book && !stepThree && getSelectedWorkspace && getSelectedWorkspace != ''"
           style="height: 40px;" class="btn btn-customer-w bg-transparent" @click="backToThree">
           السابق
