@@ -1,43 +1,7 @@
 <template>
   <footer>
     <div class="container">
-      <div
-        class="row justify-content-between align-items-center p-3 text-center"
-      >
-        <div class="col-12 col-md-3 mt-2">
-          <a
-            href="/"
-            class="d-flex header-logo align-items-center justify-content-center mb-2 mb-lg-0 text-dark text-decoration-none"
-          >
-            <div>
-              <img :src="`${publicPath}assets/svg/logo-footer.svg`" />
-            </div>
-          </a>
-          <div class="social mt-3">
-            <a
-              v-for="(m, i) in socialMedias"
-              :key="i"
-              :href="m.url"
-              class="t-c"
-              target="_blank"
-            >
-              <i v-if="m.name == 'facebook'" class="fab fa-facebook-f"></i>
-              <i v-if="m.name == 'youtube'" class="fab fa-youtube"></i>
-              <i v-if="m.name == 'linkedin'" class="fab fa-linkedin-in"></i>
-              <i v-if="m.name == 'instagram'" class="fab fa-instagram"></i>
-              <i v-if="m.name == 'twitter'" class="fab fa-twitter"></i>
-              <i v-if="m.name == 'tiktok'" class="fab fa-tiktok"></i>
-            </a>
-          </div>
-          <div class="policy-links">
-            <router-link :to="getRouteLocale('terms-and-conditions')">
-              {{ $t("terms-use") }}
-            </router-link>
-            <router-link :to="getRouteLocale('terms-and-conditions')">
-              {{ $t("Privacy-policy") }}
-            </router-link>
-          </div>
-        </div>
+      <div class="row justify-content-between align-items-center p-3 text-center">
         <div class="col-12 col-md-7 mt-2">
           <div class="row justify-content-between nav">
             <div class="col-xl-3 col-lg-6 mt-3">
@@ -117,6 +81,41 @@
               </a>
             </div>
           </div>
+        </div>
+      </div>
+      <div style="border-color: var(--pc) !important;" class="d-flex fs-2 justify-content-between align-items-center border border-1 p-3 rounded-4 ">
+        <a
+          href="/"
+          class="d-flex header-logo align-items-center justify-content-center mb-2 mb-lg-0 text-dark text-decoration-none"
+        >
+          <div>
+            <img :src="`${publicPath}assets/svg/logo-footer.svg`" width="100" />
+          </div>
+        </a>  
+        <div class="policy-links">
+          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions')">
+            {{ $t("terms-use") }}
+          </router-link>
+          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions')">
+            {{ $t("Privacy-policy") }}
+          </router-link>
+        </div>
+        <div class="social mt-3">
+          <span class="d-block mb-3 text-center">تابعنا</span>
+          <a
+            v-for="(m, i) in socialMedias"
+            :key="i"
+            :href="m.url"
+            class="t-c"
+            target="_blank"
+          >
+            <i v-if="m.name == 'facebook'" class="fab fa-facebook-f"></i>
+            <i v-if="m.name == 'youtube'" class="fab fa-youtube"></i>
+            <i v-if="m.name == 'linkedin'" class="fab fa-linkedin-in"></i>
+            <i v-if="m.name == 'instagram'" class="fab fa-instagram"></i>
+            <i v-if="m.name == 'twitter'" class="fab fa-twitter"></i>
+            <i v-if="m.name == 'tiktok'" class="fab fa-tiktok"></i>
+          </a>
         </div>
       </div>
     </div>
