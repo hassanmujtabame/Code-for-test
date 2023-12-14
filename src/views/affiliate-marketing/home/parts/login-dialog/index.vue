@@ -25,7 +25,6 @@
                             <div class="text-input-error">{{ errors[0] }}</div>
                         </ValidationProvider>
                         <!-- End Email -->
-
                         <!-- Start Password -->
                         <ValidationProvider vid="password" rules="required" :name="$t('Password')" v-slot="{ errors }"
                             tag="div">
@@ -85,6 +84,12 @@
 </template>
 <script>
 export default {
+    props: {
+        profileData: {
+            type: String,
+            default: null
+        }
+    },
     data() {
         return {
             show: false,
@@ -131,7 +136,11 @@ export default {
                     window.store.commit("auth/ACADEMY_ROLE", "student");
                     let element = document.getElementById('exampleModal');
                     $(element).modal('hide')
-                    this.$router.push({ name: "affiliate-marketing-dashboard" })
+                    if (!this.profileData){
+                        window.errorMsg('انت لست مسجل كمقدم خدمه');
+                    }else if(this.profileData){
+                        this.$router.push({ name: "affiliate-marketing-dashboard" })
+                    }
                 } 
                 else {
                     if (data.data.type == "verify_code") {

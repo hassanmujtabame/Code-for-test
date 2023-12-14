@@ -8,42 +8,9 @@
           <p>انشئ حساب جديد وأنضمي الى عالم رياديات</p>
           <ValidationObserver ref="form">
 
-            <!-- <ValidationProvider :name="$t('Full-name')" vid="name" rules="required" v-slot="{ errors }" tag="div"
-              class="mb-3">
-              <b-form-input type="text" :placeholder="$t('Full-name')" v-model="form.name" required />
-              <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-
-            <ValidationProvider :name="$t('Email')" vid="email" rules="required|email" v-slot="{ errors }" tag="div"
-              class="mb-3">
-              <b-form-input type="email" :placeholder="$t('Email')" v-model="form.email" required />
-              <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider> -->
-
-            <!-- <div class="cols-12 d-flex gap-1 mb-3 align-items-start">
-
-              <ValidationProvider :name="$t('Phone')" tag="div" class="flex-grow-1" vid="phone"
-                rules="required|numeric|min:10" v-slot="{ errors }">
-                <b-form-input type="number" :placeholder="$t('Phone')" v-model="form.phone" required />
-                <div class="text-input-error">{{ errors[0] }}</div>
-              </ValidationProvider>
-
-              <ValidationProvider :name="$t('country-phone')" tag="div" class="flex-grow-1" vid="phone_code"
-                rules="required" v-slot="{ errors }">
-                <d-select-input :errors="errors" type="text" class="text-flag  rounded-3 align-items-center"
-                  v-model="form.phone_code">
-                  <option v-for="(it, i) in phone_codes" :key="i" :value="it.phone_code">{{ it.flag }}({{ it.phone_code
-                  }})
-                  </option>
-                </d-select-input>
-              </ValidationProvider>
-            </div> -->
-
-
             <ValidationProvider :name="$t('id_number')" tag="div" class="flex-grow-1 mb-3" vid="id_number"
               rules="required|numeric" v-slot="{ errors }">
-              <b-form-input type="text" :placeholder="`رقم الهوية الوطنية / الاقامة`" v-model="form.id_number"
-                required />
+              <b-form-input type="text" :placeholder="`رقم الهوية الوطنية / الاقامة`" v-model="form.id_number" required />
               <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
 
@@ -82,20 +49,35 @@
             </ValidationProvider>
 
 
-            <!-- <ValidationProvider :name="$t('gender')" vid="gender" rules="required" v-slot="{ errors }" tag="div"
-            class="mb-3">
-            <select class="form-select mb-3" aria-label="Default select example">
-              <option selected disabled>الجنس </option>
-              <option value="male">ذكر</option>
-              <option value="female"> أنثى </option>
-            </select>
-            <div class="text-input-error">{{ errors[0] }}</div>
-          </ValidationProvider> -->
 
-            <ValidationProvider :name="$t('reason_for_join')" vid="reason_for_join" rules="required" v-slot="{ errors }"
-              tag="div" class="mb-3">
-              <b-form-input type="text" :placeholder="` سبب انضمامك بالبرنامج؟ `" v-model="form.reason_for_join"
-                required />
+
+
+            <ValidationProvider :name="$t('gender')" vid="gender" rules="required" v-slot="{ errors }" tag="div"
+              class="mb-3">
+              <select class="form-select mb-3" v-model="form.gender" aria-label="Default select example">
+                <option selected disabled value="">النوع </option>
+                <option value="male">ذكر</option>
+                <option value="female"> أنثى </option>
+              </select>
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
+            <!-- 
+            <ValidationProvider :name="$t('Region')" vid="region" tag="div" class="form-group" rules="required"
+              v-slot="{ errors }">
+              <d-select-input :errors="errors" v-model="itemForm.region">
+                <option selected disabled value=''> {{ $t('Region') }} </option>
+
+                <option :key="i" v-for="(city, i) in cities" :value="city.name">
+                  {{ `${city.name}` }}
+                </option>
+              </d-select-input>
+            </ValidationProvider> -->
+
+
+
+            <ValidationProvider :name="$t('reason_for_join')" vid="reason_for_join" v-slot="{ errors }" tag="div"
+              class="mb-3">
+              <b-form-input type="text" :placeholder="` سبب انضمامك بالبرنامج؟ `" v-model="form.reason_for_join" />
               <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
 
@@ -167,6 +149,7 @@ import $ from 'jquery';
 import commonAPI from "@/services/api/common";
 
 export default {
+
   components: {
     SentDialog
   },
@@ -234,6 +217,7 @@ export default {
         let { data } = await this.$axios.post("affiliates/register", this.form);
         // console.log('affiliate_data', data)
         if (data.success) {
+          console.log(data.message)
           this.showModal();
           window.successMsg(data.message);
           let info = {

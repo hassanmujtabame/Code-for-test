@@ -12,21 +12,20 @@
                     <div class="row d-flex  gap-2">
                         <li class="nav-item px-2 btn-main border-0 text-center"
                             style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); background: white; padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
-                            <router-link class="text-black" :to="getRouteLocale('register-affiliate')"> انشاء حساب
-                            </router-link>
+                            <div v-if="profileData.status == 'deactive'" class="text-black">جارى تفعيل حسابك</div>
+                            <button v-else class="text-black bg-transparent border-0" @click="affiliateRegister"> انشاء حساب
+                            </button>
                         </li>
-                        <li class="nav-item px-2 btn-main  text-center"
-                            style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
-                            <!-- <router-link class="text-white" :to="getRouteLocale('login-affiliate')">
-                                 سجلى دخولك
-                            </router-link> -->
 
+                        <li v-if="!token" class="nav-item px-2 btn-main  text-center"
+                            style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+                            <!-- <router-link class="text-white" :to="getRouteLocale('login-affiliate')">سجلى دخولك
+                            </router-link> -->
                             <button class="text-white border-0 bg-transparent" @click="showModal">
                                 سجلى دخولك
                             </button>
-                            <login-dialog ref="modal"></login-dialog>
+                            <login-dialog :profileData="profileData" ref="modal"></login-dialog>
                         </li>
-
                         <!-- <div class="btn-main-style py-5" style="width: fit-content;">
                             <router-link :to="getRouteLocale('register-affiliate')"
                             class="btn-default text-black mt-2" style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);"> انشاء حساب</router-link>
@@ -68,6 +67,7 @@ export default {
     data() {
         return {
             dialog: false,
+            profileData: ''
         };
     },
     methods: {
@@ -80,8 +80,60 @@ export default {
         showModal() {
             let element = this.$refs.modal.$el
             $(element).modal('show')
+        },
+
+        affiliateRegister() {
+            if (!this.token) {
+                console.log('not registerd')
+                window.errorMsg('  يجب عليك تسجيل الدخول فى حسابك العام على رياديات  ');
+                this.hasError = true
+            } else {
+                this.$router.push({ name: 'register-affiliate' })
+            }
+        },
+        async checkAffiliate() {
+            try {
+                let { data } = await this.$axios.get("affiliates/profile-info");
+                if (data.success) {
+                    // console.log('affiliate_data', data.data)
+                    this.profileData = data.data
+                    if (data.data.status == 'active') {
+                        this.$router.push({ name: "affiliate-marketing-dashboard", params: { profileData: this.profileData } })
+                    }
+                } else {
+                    this.message = data.message;
+                    this.hasError = true;
+                }
+            } catch (error) {
+                this.profileData = ''
+                // console.log(error)
+                // if (error.response) {
+                //     let response = error.response;
+                window.errorMsg(' انت لست مسجل كمقدم خدمه, انشئ حساب');
+                //     if (response.status == 422) {
+                //         this.message = 'انت لست مسجل كمقدم خدمه';
+                //         if (Object.hasOwnProperty.call(response.data, "errors")) {
+                //             this.$refs.form.setErrors(response.data.errors);
+                //         }
+                //     }
+                // }
+
+                this.hasError = true;
+            }
         }
     },
+    mounted() {
+        this.shouldLoginMsg()
+        if (this.token) {
+            this.checkAffiliate()
+            // console.log('tsetsdf', this.profileData.status)
+            // if (this.profileData) {
+            //     this.$router.push({ name: "affiliate-marketing-dashboard" })
+
+            // }
+        }
+
+    }
 }
 </script>
 
