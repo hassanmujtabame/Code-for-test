@@ -7,37 +7,18 @@
         <!-- معومات العرض-->
         <SectionDisplay :currentUser="currentUser" />
         <!--معومات شخصية  -->
-        <!-- <SectionPersonal :currentUser="currentUser" /> -->
     </div>
 </template>
 
 <script>
 import userAPI from '@/services/api/user.js'
-import Sidebar from './parts/sidebar/index.vue'
-import SectionPaymentCards from './parts/sections/payment-cards/index.vue'
 import SectionDisplay from './parts/sections/information-display/index.vue'
-import SectionPersonal from './parts/sections/information-personal/index.vue'
-import SectionEducation from './parts/sections/information-education/index.vue'
-import SectionProfessional from './parts/sections/information-professional/index.vue'
-import SectionCommunication from './parts/sections/information-communication/index.vue'
-import SectionResidence from './parts/sections/information-residence/index.vue'
-import SectionSettingsNotif from './parts/sections/settings-notif/index.vue'
-import SectionListBlocks from './parts/sections/list-blocks/index.vue'
-import SectionShowerProject from './parts/sections/shower-project/index.vue'
+import Sidebar from './parts/sidebar/index.vue'
 export default {
     name: 'show-profile',
     components: {
         Sidebar,
-        SectionDisplay,
-        SectionPersonal,
-        SectionEducation,
-        SectionCommunication,
-        SectionProfessional,
-        SectionResidence,
-        SectionSettingsNotif,
-        SectionListBlocks,
-        SectionShowerProject,
-        SectionPaymentCards,
+        SectionDisplay
 
     },
     data: () => {
