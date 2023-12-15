@@ -95,7 +95,7 @@ export default {
             try {
                 let { data } = await this.$axios.get("affiliates/profile-info");
                 if (data.success) {
-                    // console.log('affiliate_data', data.data)
+                    console.log('affiliate_data', data.data)
                     this.profileData = data.data
                     if (data.data.status == 'active') {
                         this.$router.push({ name: "affiliate-marketing-dashboard", params: { profileData: this.profileData } })
