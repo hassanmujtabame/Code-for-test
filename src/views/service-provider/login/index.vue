@@ -1,9 +1,6 @@
 <template>
   <div class="login-page"  style="margin-top: 85px;">
     <b-container>
-      <h1>
-        {{ type }}
-      </h1>
       <LoginForm @change-form="afterSuccessForm" v-if="status == 'form'" :type="type"/>
       <ResendCodeView
         @success="afterSuccessCheck"
@@ -46,9 +43,9 @@ export default {
       window.SwalSuccess("تم تفعيل حسابك بنجاح");
       this.status = "form";
       if (this.type == 'client') {
-        this.$router.push('service-provider-home')
+        this.$router.push({name:'service-provider-home'})
       } else if (this.type == 'provider') {
-        this.$router.push('create-profile-service-provider')
+        this.$router.push({name: 'create-profile-service-provider'})
       }
     }
   },

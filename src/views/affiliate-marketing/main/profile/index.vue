@@ -65,9 +65,9 @@
 
             <div class="col-md-4 col-sm-12 mb-3">
               <label class=" fs-5 mb-1">
-                {{ $t('Full-name') }}
+               الاسم
               </label>
-              <ValidationProvider :name="$t('Full-name')" vid="Full-name" rules="required" v-slot="{ errors }">
+              <ValidationProvider name="الاسم" vid="الاسم" rules="required" v-slot="{ errors }">
                 <input type="text" v-model="form.name" class="form-control">
                 <d-error-input :errors="errors" v-if="errors.length" />
               </ValidationProvider>
@@ -190,18 +190,14 @@ export default {
         image: null,
 
         name: "",
-        id_number: '',
+        id_number: 'this.profileData.id_number',
         region: '',
-        job_status: '',
+        job_status: 'this.profileData.job_status',
         bank_name: '',
         bank_account: '',
         gender: '',
         phone: "",
       },
-
-      // itemForm: {
-      //   image: null,
-      // }
     }
   },
   computed: {
@@ -254,11 +250,6 @@ export default {
   },
   mounted() {
     this.loadCurrentUser()
-    console.log('safe', ...{
-      bank_account :"2335234",
-      email:"aljzarh46@gmail.com"
-    }
-)
 
 }
 }

@@ -2,7 +2,6 @@
     <div class="container" style="margin-top: 120px">
         <div v-if="!user.serviceProviderPortfolio">
             <div v-if="!done">
-    
                 <h1 class="fs-2">
                     انشاء ملف اعمالك
                 </h1>
@@ -238,6 +237,7 @@ export default {
         FormWizard,
         TabContent,
     },
+
     data() {
         return {
             done: false,
@@ -251,11 +251,11 @@ export default {
                 bio: '',
                 portfolio_url: '',
                 experience_year: '',
-                skills: '',
                 Workplace: '',
                 Educational_body: '',
                 degree: '',
                 graduation_year: '',
+                skills: '',
                 certificate_name: '',
                 certificate_url: '',
                 issuer: ''
@@ -301,18 +301,34 @@ export default {
             }
         },
         async save() {
+            console.log('form1',this.form)
             this.loading = true;
             let formData = new FormData();
-            Object.keys(this.form).forEach(key => {
-                formData.append(key, this.form[key]);
-            });
-            // console.log('Form data values sdf:');
-            // for (let pair of formData.entries()) {
-            //     console.log(pair[0] + ', ' + pair[1]);
-            // }
+            // Object.keys(this.form).forEach(key => {
+            // formData.append(key, this.form[key]);
+            // });
+            formData = {
+                file: this.form.file,
+                service_id: this.form.service_id,
+                category_id: this.form.category_id,
+                job_title: this.form.job_title,
+                bio: this.form.bio,
+                portfolio_url: this.form.portfolio_url,
+                experience_year: this.form.experience_year,
+                Workplace: this.form.Workplace,
+                Educational_body: this.form.Educational_body,
+                degree: this.form.degree,
+                graduation_year: this.form.graduation_year,
+                skills: this.form.skills.split(',').map(value => value.trim()),
+                issuer: [this.form.issuer],
+                certificate_url: [this.form.certificate_url],
+                certificate_name: [this.form.certificate_name],
+            }
+            console.log('form2', formData)
+
             try {
                 let { data } = await providerAPIs.createProfile(formData);
-
+                // let {data} = window.axios.post('service-provider/provider/portfolios',formData, { headers: {'Content-Type': 'application/json',}})
                 if (data.success) {
                     // let dataEvent;
                     // dataEvent = {
@@ -331,10 +347,11 @@ export default {
                 //
                 if (error.response) {
                     let response = error.response;
-                    if (response.status == 422) {
-                        if (response.data.errors)
-                            this.$refs.form.setErrors(response.data.errors);
-                    }
+                    console.log(response)
+                    // if (response.status == 422) {
+                    //     if (response.data.errors)
+                    //         this.$refs.form.setErrors(response.data.errors);
+                    // }
                 }
             }
             this.loading = false;

@@ -95,6 +95,9 @@ export default {
     SectionHowOfferService,
     SectoinBrowsing,
     SectionCommonQuistions,
+  },
+  mounted() {
+    console.log('ad', this.user)
   }
 };
 </script>
