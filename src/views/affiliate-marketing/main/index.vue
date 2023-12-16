@@ -7,7 +7,7 @@
             <!-- {{ currentComponent }} -->
             <div class="container">
                 <transition name="fade" mode="out-in">
-                    <component :is="currentComponent"></component>
+                    <component :is="currentComponent" :profileData="profileData" ></component>
                 </transition>
             </div>
         </div>
@@ -43,12 +43,34 @@ export default {
         loading: true,
         hasError: false,
         itemPage: {},
+        profileData: {},
         currentComponent: 'Summary'
     }),
     methods: {
+        async checkAffiliate() {
+            try {
+                let { data } = await this.$axios.get("affiliates/profile-info");
+                if (data.success) {
+                    this.profileData = data.data
+                    if (data.data.status == 'active') {
+                        this.profileData = data.data
+                    }
+                } else {
+                    this.message = data.message;
+                    this.hasError = true;
+                }
+            } catch (error) {
+                this.profileData = ''
+                window.errorMsg(' انت لست مسجل كمقدم خدمه, انشئ حساب');
+                this.hasError = true;
+            }
+        },
         elementName(payload) {
             this.currentComponent = payload;
         }
+    },
+    mounted() {
+        this.checkAffiliate()
     }
 }
 </script>

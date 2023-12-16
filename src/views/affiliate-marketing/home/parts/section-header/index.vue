@@ -98,7 +98,7 @@ export default {
                     console.log('affiliate_data', data.data)
                     this.profileData = data.data
                     if (data.data.status == 'active') {
-                        this.$router.push({ name: "affiliate-marketing-dashboard", params: { profileData: this.profileData } })
+                        this.$router.push({ name: "affiliate-marketing-dashboard" })
                     }
                 } else {
                     this.message = data.message;
@@ -106,18 +106,7 @@ export default {
                 }
             } catch (error) {
                 this.profileData = ''
-                // console.log(error)
-                // if (error.response) {
-                //     let response = error.response;
                 window.errorMsg(' انت لست مسجل كمقدم خدمه, انشئ حساب');
-                //     if (response.status == 422) {
-                //         this.message = 'انت لست مسجل كمقدم خدمه';
-                //         if (Object.hasOwnProperty.call(response.data, "errors")) {
-                //             this.$refs.form.setErrors(response.data.errors);
-                //         }
-                //     }
-                // }
-
                 this.hasError = true;
             }
         }

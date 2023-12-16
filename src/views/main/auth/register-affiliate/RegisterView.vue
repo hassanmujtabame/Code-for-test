@@ -30,7 +30,7 @@
 
 
 
-            <ValidationProvider :name="$t('bank_account')" vid="bank_account" rules="required" v-slot="{ errors }"
+            <ValidationProvider :name="$t('bank_account')" vid="bank_account" rules="required|numeric" v-slot="{ errors }"
               tag="div" class="mb-3">
               <b-form-input type="text" :placeholder="`  الحساب البنكي`" v-model="form.bank_account" required />
               <div class="text-input-error">{{ errors[0] }}</div>
