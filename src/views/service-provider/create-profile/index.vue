@@ -304,27 +304,27 @@ export default {
             console.log('form1',this.form)
             this.loading = true;
             let formData = new FormData();
-            // Object.keys(this.form).forEach(key => {
-            // formData.append(key, this.form[key]);
-            // });
-            formData = {
-                file: this.form.file,
-                service_id: this.form.service_id,
-                category_id: this.form.category_id,
-                job_title: this.form.job_title,
-                bio: this.form.bio,
-                portfolio_url: this.form.portfolio_url,
-                experience_year: this.form.experience_year,
-                Workplace: this.form.Workplace,
-                Educational_body: this.form.Educational_body,
-                degree: this.form.degree,
-                graduation_year: this.form.graduation_year,
-                skills: this.form.skills.split(',').map(value => value.trim()),
-                issuer: [this.form.issuer],
-                certificate_url: [this.form.certificate_url],
-                certificate_name: [this.form.certificate_name],
-            }
-            console.log('form2', formData)
+            Object.keys(this.form).forEach(key => {
+            formData.append(key, this.form[key]);
+            });
+            // formData = {
+            //     file: this.form.file,
+            //     service_id: this.form.service_id,
+            //     category_id: this.form.category_id,
+            //     job_title: this.form.job_title,
+            //     bio: this.form.bio,
+            //     portfolio_url: this.form.portfolio_url,
+            //     experience_year: this.form.experience_year,
+            //     Workplace: this.form.Workplace,
+            //     Educational_body: this.form.Educational_body,
+            //     degree: this.form.degree,
+            //     graduation_year: this.form.graduation_year,
+            //     skills: [this.form.skills],
+            //     issuer: [this.form.issuer],
+            //     certificate_url: [this.form.certificate_url],
+            //     certificate_name: [this.form.certificate_name],
+            // }
+            // console.log('form2', formData)
 
             try {
                 let { data } = await providerAPIs.createProfile(formData);

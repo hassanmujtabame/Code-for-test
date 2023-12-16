@@ -1,9 +1,8 @@
 <template>
   <div>
-    <!-- <Provider v-if="token && userIsRoleProvider == 'provider'" />
+    <Provider v-if="token && userIsRoleProvider == 'provider'" />
     <Client v-if="token && userIsRoleProvider == 'client'" />
-    <Default v-else-if="userIsRoleProvider == ''" /> -->
-    <Default  />
+    <Default v-else-if="userIsRoleProvider == ''" />
   </div>
 </template>
 <script>

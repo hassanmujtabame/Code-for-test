@@ -106,10 +106,10 @@
                 </div>
 
 
-                <div style="padding: 20px; border: 1px solid #2DB7B3">
+                 <div style="padding: 20px; border: 1px solid #2DB7B3">
 
                     <SectionTable />
-                </div>
+                </div> 
             </div>
 
         </div>

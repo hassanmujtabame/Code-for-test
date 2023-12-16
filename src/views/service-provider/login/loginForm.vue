@@ -115,7 +115,7 @@ export default {
           if (this.type == 'client') {
             this.$router.push('service-provider-home')
           } else if (this.type == 'provider') {
-            this.$router.push('create-profile')
+            this.$router.push({name: 'create-profile-service-provider'})
           }
           let { token, ...user } = data.data;
           window.store.commit("auth/SET_TOKEN", token);
