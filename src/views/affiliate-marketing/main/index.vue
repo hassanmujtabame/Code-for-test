@@ -61,13 +61,14 @@ export default {
                 }
             } catch (error) {
                 this.profileData = ''
-                window.errorMsg(' انت لست مسجل كمقدم خدمه, انشئ حساب');
+                window.errorMsg(' انت لست مسجل كمسوق بالعموله, انشئ حساب');
                 this.hasError = true;
             }
         },
         elementName(payload) {
             this.currentComponent = payload;
-        }
+        },
+
     },
     mounted() {
         this.checkAffiliate()

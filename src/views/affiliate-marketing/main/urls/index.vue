@@ -176,9 +176,9 @@
           </button>
         </div> -->
 
-        <div style="padding: 20px; border: 1px solid #2db7b3">
+        <!-- <div style="padding: 20px; border: 1px solid #2db7b3">
           <SectionTable />
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

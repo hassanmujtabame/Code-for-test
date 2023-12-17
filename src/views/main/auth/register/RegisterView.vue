@@ -202,6 +202,9 @@ export default {
         console.log("form invalid");
         return;
       }
+      if (localStorage.getItem('ComeFrom')) {
+        this.form['affiliate_id'] = localStorage.getItem('ComeFrom')
+      }
       try {
         let {data} = await this.$axios.post("user/auth/register", this.form);
         if (data.success) {

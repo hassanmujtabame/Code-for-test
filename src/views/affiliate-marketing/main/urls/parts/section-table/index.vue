@@ -2,15 +2,19 @@
   <table class="styled-table">
     <thead>
       <tr>
+        <th> الصفحه المستهدفه </th>
         <th>الرابط</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+
         <td>demo.riadiat.sa/ar/short</td>
+        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
       </tr>
       <tr>
         <td>demo.riadiat.sa/ar/short</td>
+        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
       </tr>
 
     </tbody>
