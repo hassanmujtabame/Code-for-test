@@ -41,11 +41,11 @@ import SectTrainingCourses from "@/components/pages/home/training-courses/index.
 import SectPartnerRiadiat from "./parts/section-partners/index.vue";
 import SectAboutUs from "./parts/section-about-us/index.vue";
 import SectHearAboutUs from "./parts/section-hear-about-us/index.vue";
-import SectionTopCoupons from './parts/section-top-coupons/index.vue'
-import SectionMembership from './parts/section-membership/index.vue'
+import SectionTopCoupons from "./parts/section-top-coupons/index.vue";
+import SectionMembership from "./parts/section-membership/index.vue";
 
 // import SectionBlog from './parts/section-blog/index.vue'
-import SectionCoupons from './parts/section-coupons'
+import SectionCoupons from "./parts/section-coupons";
 
 import SectBlog from "./parts/section-blog/index.vue";
 export default {
@@ -74,8 +74,13 @@ export default {
     SectHearAboutUs,
     SectionCoupons,
     SectionTopCoupons,
-    SectionMembership
+    SectionMembership,
   },
   data: () => ({}),
+  mounted() {
+    if (this.$route.query.affiliate_id){
+      localStorage.setItem("ComeFrom",this.$route.query.affiliate_id);
+    }
+  }
 };
 </script>

@@ -2,104 +2,17 @@
   <table class="styled-table">
     <thead>
       <tr>
-        <th>حذف</th>
-        <th> تاريخ الانشاء</th>
-        <th>بانر اعلانى</th>
-        <th>الرابط المختصر</th>
         <th>الرابط</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
         <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
       </tr>
       <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
         <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
       </tr>
-      <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
-        <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
-      </tr>
-      <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
-        <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
-      </tr>
-      <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
-        <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
-      </tr>
-      <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
-        <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
-      </tr>
-      <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
-        <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
-      </tr>
-      <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
-        <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
-      </tr>
-      <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
-        <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
-      </tr>
-      <tr>
-        <td><span style="width: 30px; height:30px;
-           border-radius:50%; background-color:red;
-            color:#fff; font-size: 15px" class="d-flex align-items-center justify-content-center">x</span></td>
-        <td>Jun 21,2023 10:30 am</td>
-        <td style="color: #2DB7B3;">انشاء بانر</td>
-        <td>demo.riadiat.sa/ar/short</td>
-        <td>demo.riadiat.sa/ar/affiliate-marketing/home</td>
-      </tr>
+
     </tbody>
   </table>
 </template>

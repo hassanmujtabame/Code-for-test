@@ -80,7 +80,10 @@ export default {
     SectionGraduated,
     SectionMemberIncubation
   },
-  mounted: function() {
+  mounted() {
+    if (this.$route.query.affiliate_id) {
+      localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
+    }
     if(!this.token) {
       this.shouldLoginMsg()
     } 

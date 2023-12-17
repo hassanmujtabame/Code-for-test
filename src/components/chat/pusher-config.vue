@@ -21,7 +21,6 @@ export default {
                     this.disconnect()
                     this.connect()
                 }
-                
             }
         }
     },

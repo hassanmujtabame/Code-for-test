@@ -3,16 +3,20 @@
     <ServiceProviderHome />
   </div>
 </template>
-  
-  <script>
+
+<script>
 import ServiceProviderHome from "@/components/pages/service-provider/home";
 export default {
   name: "service-provider-home",
   components: {
     ServiceProviderHome,
   },
+  mounted() {
+    if (this.$route.query.affiliate_id) {
+      localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
+    }
+  },
 };
 </script>
-  
-  <style>
-</style>   
+
+<style></style>

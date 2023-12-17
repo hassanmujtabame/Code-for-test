@@ -46,8 +46,8 @@
               </select>
             </div>
             <div class="col-8 row justify-content-between">
-              <span
-                class="col-8"
+              <input
+                class="col-8 text-center t-c" readonly
                 style="
                   border: 1px solid #6666663d;
                   border-radius: 5px;
@@ -58,12 +58,13 @@
                   justify-content: center;
                   align-items: center;
                 "
-              >
-                {{generatedUrl}}
-              </span>
-              <span
+                v-model='url'
+              />
+              <button
+                @click="copyToClipboard"
                 class="col-3"
                 style="
+                color: #444;
                   border: 1px solid #6666663d;
                   border-radius: 5px;
                   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.125);
@@ -74,7 +75,7 @@
                   align-items: center;
                 "
               >
-                نسخ الرابط
+              {{copied}}
                 <svg
                   width="15"
                   height="17"
@@ -87,7 +88,7 @@
                     fill="currentColor"
                   />
                 </svg>
-              </span>
+              </button>
             </div>
           </div>
         </div>
@@ -175,9 +176,9 @@
           </button>
         </div> -->
 
-        <!-- <div style="padding: 20px; border: 1px solid #2db7b3">
+        <div style="padding: 20px; border: 1px solid #2db7b3">
           <SectionTable />
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -196,16 +197,28 @@ export default {
     DatePick,
   },
   data: () => ({
+    textOfCopy: 'نسخ الرابط',
     page: '',
     url: ''
   }),
   computed: {
-    generatedUrl(){
-        return this.url
+    copied(){
+      return this.textOfCopy
     }
   },
   methods: {
+      copyToClipboard() {
+      this.textOfCopy = 'تم النسخ'
+      const textField = document.createElement("textarea");
+      textField.innerText = this.url;
+      document.body.appendChild(textField);
+      textField.select();
+      document.execCommand("copy");
+      textField.remove();
+      // alert("Text copied to clipboard!");
+    },
     generateUrl(){
+      this.textOfCopy = 'نسخ الرابط'
         let host = window.location.host
         let page = this.page
         let url = null

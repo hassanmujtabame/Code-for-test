@@ -21,7 +21,6 @@ export default {
         }
     },
     mounted() {
-      console.log('ksd', this.user)
         let check = JSON.parse(localStorage.getItem('providerOrclient'))
         if (check && this.token) {
             this.$store.commit('changeRole', { 'selected': check })
