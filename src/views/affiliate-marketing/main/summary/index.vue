@@ -24,7 +24,6 @@
             ></date-pick>
 
             <button
-            @click='countVisits()'
               class="text-white border-0"
               style="
                 border-radius: 5px;
@@ -95,25 +94,14 @@ export default {
   data: () => ({
     visits: [],
     chartDataVisits: {
-      labels: [
-        "1 jun",
-        "2 jun",
-        "3 jun",
-        "4 jun",
-        "5 jun",
-        "6 jun",
-        "7 jun",
-        "8 jun",
-        "9 jun",
-        "10 jun",
-      ],
+      labels: [],
       datasets: [
         {
           label: "الزيارات",
           backgroundColor: "#2DB7B3",
           // borderColor: 'rgba(75, 192, 192, 1)',
           // borderWidth: 1,
-          data: [40, 20, 12, 40, 20, 12, 30, 40, 20, 12],
+          data: [],
         },
       ],
     },
@@ -190,43 +178,43 @@ export default {
     ],
   }),
   methods: {
-    countVisits() {
-      let visitors = [
-        { id: 1, created_at: "2023-01-01" },
-        { id: 5, created_at: "2023-01-01" },
-        { id: 7, created_at: "2023-01-01" },
-        { id: 2, created_at: "2023-01-03" },
-        { id: 9, created_at: "2023-01-03" },
-        { id: 8, created_at: "2023-01-03" },
-      ];
-      let test = [];
-      let newTestDates = [];
-      let newTestData = [];
-      let newData = {
-        "2023-01-01": 5,
-        "2023-01-02": 10,
-      };
-      visitors.forEach((visit) => {
-        if (test[visit.created_at] || test[visit.created_at] == 0) {
-          test[visit.created_at] += 1;
-        } else {
-          test[visit.created_at] = 1;
-        }
-      });
-      Object.keys(test).forEach((key) => {
-        newTestDates.push(key);
-      });
-      Object.keys(test).forEach((key) => {
-        newTestData.push(test[key]);
-      });
+    // countVisits() {
+    //   let visitors = [
+    //     { id: 1, created_at: "2023-01-01" },
+    //     { id: 5, created_at: "2023-01-01" },
+    //     { id: 7, created_at: "2023-01-01" },
+    //     { id: 2, created_at: "2023-01-03" },
+    //     { id: 9, created_at: "2023-01-03" },
+    //     { id: 8, created_at: "2023-01-03" },
+    //   ];
+    //   let test = [];
+    //   let newTestDates = [];
+    //   let newTestData = [];
+    //   let newData = {
+    //     "2023-01-01": 5,
+    //     "2023-01-02": 10,
+    //   };
+    //   visitors.forEach((visit) => {
+    //     if (test[visit.created_at] || test[visit.created_at] == 0) {
+    //       test[visit.created_at] += 1;
+    //     } else {
+    //       test[visit.created_at] = 1;
+    //     }
+    //   });
+    //   Object.keys(test).forEach((key) => {
+    //     newTestDates.push(key);
+    //   });
+    //   Object.keys(test).forEach((key) => {
+    //     newTestData.push(test[key]);
+    //   });
 
-      this.chartDataVisits.labels = newTestDates;
-      this.chartDataVisits.datasets.data = newTestData;
-      console.log(test);
-      console.log(newTestDates);
-      console.log(newTestData);
-      console.log(this.chartDataVisits.labels);
-    },
+    //   this.chartDataVisits.labels = newTestDates;
+    //   this.chartDataVisits.datasets.data = newTestData;
+    //   console.log(test);
+    //   console.log(newTestDates);
+    //   console.log(newTestData);
+    //   console.log(this.chartDataVisits.labels);
+    // },
     async getVisits() {
       try {
         let { data } = await axios.get("/affiliates/visitors");
@@ -244,10 +232,37 @@ export default {
       }
     },
   },
-  mounted() {
-    this.getVisits();
-    this.countVisits();
+  async mounted() {
+    try {
+      const { data } = await axios.get("/affiliates/visitors"); // Replace with your API endpoint
+      let labels = []
+      data.data.forEach((visit) => {
+        if (labels[visit.created_at] || labels[visit.created_at] == 0) {
+          labels[visit.created_at] += 1;
+        } else {
+          test[visit.created_at] = 1;
+        }
+      });
+      Object.keys(test).forEach((key) => {
+        newTestDates.push(key);
+      });
+      Object.keys(test).forEach((key) => {
+        newTestData.push(test[key]);
+      });
+      if (data.success) {
+        this.chartData.labels = data.labels;
+        this.chartData.datasets[0].data = data.values;
+      } else {
+        console.error("Failed to fetch data");
+      }
+    } catch (error) {
+      console.error("Error fetching data", error);
+    }
   },
+  //   mounted() {
+  //     this.getVisits();
+  //     // this.countVisits();
+  //   },
 };
 </script>
 
