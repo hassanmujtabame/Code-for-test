@@ -120,6 +120,7 @@ export default {
   },
   mounted() {
     this.initializing()
+    console.log('hhh', this.userAcademyRole)
   }
 }
 </script>
