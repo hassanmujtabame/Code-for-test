@@ -4,17 +4,16 @@
               <div
                 class="d-flex justify-content-between align-items-center container"
               >
-              <h1 class="home-section-title"> أحدث دورتنا المسجلة  </h1>
+              <h1 class="home-section-title"> أحدث الدورات الاونلاين  </h1>
                 <div>
                     <button class="more">
-                      <router-link :to="getRouteLocale('academy-courses',{},{type:'recorded'})" class="text-dark">
+                      <router-link :to="getRouteLocale('academy-courses',{},{type:'live'})" class="text-dark">
                           {{ $t('more') }}
                       </router-link>
                     </button>
                   </div>
               </div>
               <d-swiper
-              class="custom-width"
               v-if="!loading"
               :slides-per-view="slidesperview"
               :space-between="10"
@@ -24,11 +23,11 @@
        
             <template  v-slot:default="{item}" >
               
-                <CardVue  
+                <CardVue 
                 :item="item"
                 :url="getRouteLocale('academy-course-show',{id:item.id})"
                 />
-              
+          
                 </template>
               </d-swiper>
             </div>
@@ -39,7 +38,7 @@
 import CardVue from '@/components/cards/academy-course.vue'
 import coursesApI from '@/services/api/academy/courses.js'
 export default {
-    name:'section-recent-courses-recorded',
+    name:'section-recent-courses-online',
     components:{
         CardVue
     },
@@ -52,7 +51,7 @@ export default {
      async loadList(){
       this.loading =  true;
         try {
-          let {data} = await coursesApI.getRecentCourses({paginate:6,type:'recorded'})
+          let {data} = await coursesApI.getRecentCourses({paginate:6,type:'live'})
           if(data.success){
             this.items = data.data
             if(this.items.length<=4) this.slidesperview=3
@@ -70,9 +69,5 @@ export default {
 </script>
 
 <style>
-.custom-width .swiper-slide{
-  /* width:257.5px !important */
-  width:280px !important
 
-}
 </style>
