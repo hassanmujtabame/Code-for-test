@@ -11,6 +11,7 @@
       <button class="more">المزيد</button>
     </template>
     <template v-slot="{ item }">
+      <h1>test</h1>
       <router-link class="router-link" :to="getRouteLocale('academy-course-show', { id: item.id })">
         <CourseCard :item="item" />
       </router-link>
@@ -49,7 +50,9 @@ export default {
           page: metaInfo.current_page,
           paginate: this.isMobile ? 2 : 12
         }
-        return await instructorAPI.getCourses(params)
+        let dd = await instructorAPI.getCourses(params)
+        console.log('dd', dd)
+        return dd
       } catch (error) {
         //
       }
@@ -68,10 +71,17 @@ export default {
         this.fireOpenDialog('add-course-first')
       }
     }
+  }, 
+  // Add a watcher on the $route object
+  watch: {
+    $route(to, from) {
+      // Check if you're navigating back to this component
+      if (to.name === 'filter-list' && from.name === 'academy-course-show') {
+        // Reload data when navigating back
+        this.loadList();
+      }
+    },
   },
-  mounted(){
-    this.loadList()
-  }
 }
 </script>
 
