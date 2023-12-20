@@ -15,5 +15,6 @@ export default () => ({
 	isProvider: false,
 	academyRole: null,
 	isInstructor: false,
+	canUploade: false,
 	isConsultant: false,
 });

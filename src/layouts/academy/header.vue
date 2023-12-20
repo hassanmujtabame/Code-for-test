@@ -56,22 +56,27 @@ export default {
       items: [
         /**instructor */
         { route: 'academy-instructor-your-courses', text: vm.$t('your-courses'), role: 'instructor' },
+        { route: 'academy-instructor-my-meetings', text: vm.$t('your-meetings'), role: 'instructor' },
         { route: 'academy-blogs', text: vm.$t('academy-blog'), role: 'instructor' },
         { route: 'academy-learning-meetings', text: vm.$t('academy-meetings'), role: 'instructor' },
-        { route: 'academy-contact-us', text: vm.$t('contact-us'), instructor: 'stuinstructordent' },
+        // { route: 'academy-contact-us', text: vm.$t('contact-us'), role: 'instructor' },
         /**student */
         { route: 'academy-courses', text: vm.$t('academy-courses'), role: 'student' },
         { route: 'academy-learning-meetings', text: vm.$t('academy-meetings'), role: 'student' },
         { route: 'academy-your-courses', text: vm.$t('your-courses'), role: 'student' },
         { route: 'academy-your-learning-meetings', text: vm.$t('your-learning-meetings'), role: 'student' },
+        // { route: 'academy-contact-us', text: vm.$t('contact-us'), role: 'student' },
         // {route:'academy-your-certificates', text:vm.$t('your-certificates'),role:'student'},
-        { route: 'academy-contact-us', text: vm.$t('contact-us'), instructor: 'student' },
       ]
     }
   },
   methods: {
     switchRole(newRole) {
       this.switchRoleAcademy(newRole)
+    },
+    async getMeetings() {
+      let { meetings } = await academyAPI.getAll(user.id)
+        console.log('test', meetings)
     },
     async initializing() {
       this.loading = true;
@@ -120,6 +125,7 @@ export default {
   },
   mounted() {
     this.initializing()
+    this.getMeetings()
   }
 }
 </script>

@@ -108,7 +108,6 @@ export default {
             this.loading = true;
             try {
                 let { data } = await adsAPI.getAll({ position: this.department })
-                console.log(data)
                 if (data.success) {
                     this.items = data.data
                 }
