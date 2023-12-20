@@ -59,13 +59,11 @@ export default {
     let data = payload;
     //console.mylog('SET_IS_PROVIDER',state,!!data,state.subscribeProvider)
     if (data) data = !!data && !!state.subscribeProvider;
-    console.mylog("SET_IS_PROVIDER", data);
     state.isProvider = data;
     localStorage.setItem("user_provider", data ? "Y" : "N");
   },
   SET_USER(state, payload) {
-    let { partner, subscribers, is_instructor, is_consultant, ...user } =
-      payload;
+    let { partner, subscribers, is_instructor, is_consultant, ...user } = payload;
     state.user = user;
     state.partner = partner ?? null; // if undefined makes it null
     state.isInstructor = is_instructor ?? false; // if undefined makes it null

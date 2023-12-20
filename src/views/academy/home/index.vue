@@ -12,7 +12,6 @@ import AuthPage from "./auth.vue";
 import GuestPage from "./guest.vue";
 import faqBtn from '@/layouts/common/faq-btn/index.vue'
 // import RateYourExperienceBtn from '@/layouts/common/rate-experience.vue'
-import UserApi from '@/services/api/user.js'
 export default {
   name: "academy-home",
   components: {
@@ -22,16 +21,11 @@ export default {
     // RateYourExperienceBtn
   },
   methods: {
-    async getUser() {
-      let {data} = await UserApi.me()
-      console.log('acdata',data)
-    }
   },
   mounted() {
     if (this.$route.query.affiliate_id) {
       localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
     }
-    this.getUser()
   },
 };
 </script>

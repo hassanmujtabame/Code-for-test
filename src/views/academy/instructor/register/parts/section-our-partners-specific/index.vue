@@ -86,11 +86,6 @@ export default {
         
         this.categorizedData = resultArray
         
-        console.log('resultArray',resultArray);
-
-        console.log('categorizedData', categorizedData);
-
-        console.log('academy', data.data)
 
 
         if (data.success) {

@@ -184,10 +184,7 @@ const mixin = {
               window.store.commit("auth/SET_TOKEN", token);
               window.store.commit("auth/SET_USER", user);
 
-              window.store.commit(
-                "auth/SET_IS_PROVIDER",
-                window.store.getters["auth/isProvider"]
-              );
+              window.store.commit("auth/SET_IS_PROVIDER",window.store.getters["auth/isProvider"]);
               //let isProvider = window.store.getters['auth/isProvider']
               /* if(this.$route.meta.role=='provider' && !isProvider){
                                let title ='يجب ان تكون من مقدمي الخدمة';

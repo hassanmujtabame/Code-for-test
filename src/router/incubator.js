@@ -11,15 +11,6 @@ const routers = [
 			),
 	},
 	{
-		path: "incubator/home",
-		meta: { layout: LayoutDefault, title: "Home" },
-		name: "incubator-home",
-		component: () =>
-			import(
-				/* webpackChunkName: "incubator-home" */ "../views/incubator/home/index.vue"
-			),
-	},
-	{
 		path: "incubator/my-learning-meetings",
 		meta: { layout: LayoutDefault, auth: true, title: "My Learning Meetings" },
 		name: "incubator-your-learning-meetings",

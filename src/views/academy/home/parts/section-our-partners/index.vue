@@ -55,7 +55,6 @@ export default {
       this.loading = true;
       try {
         let { data } = await partnersAPI.getAll();
-        console.log('academy', data.data)
         if (data.success) {
           this.categories = data.data
         }

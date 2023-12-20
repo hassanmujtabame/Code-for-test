@@ -20,15 +20,6 @@ const routers = [
       ),
   },
   {
-    path: "affiliate-marketing/dashboard",
-    meta: { layout: LayoutDefault, title: "Dashboard" },
-    name: "affiliate-marketing-dashboard",
-    component: () =>
-      import(
-        /* webpackChunkName: "affiliate-marketing-home" */ "../views/affiliate-marketing/main/index.vue"
-      ),
-  },
-  {
     path: "affiliate-marketing/generate-url",
     meta: { layout: LayoutDefault, title: "generate-url" },
     name: "affiliate-marketing-generate-url",
