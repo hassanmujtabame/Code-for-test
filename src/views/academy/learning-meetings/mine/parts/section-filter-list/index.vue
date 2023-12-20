@@ -90,8 +90,9 @@ export default {
                 page: metaInfo.current_page,
                 ...this.filterItem
             }
-            console.log('params', params)
-            return await instructorMeetingsAPI.getAll(params)
+            let meetings = await instructorMeetingsAPI.getAll(params)
+            
+            return meetings
         },
 
     },

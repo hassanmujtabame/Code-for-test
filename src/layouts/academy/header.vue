@@ -75,8 +75,8 @@ export default {
       this.switchRoleAcademy(newRole)
     },
     async getMeetings() {
-      let { meetings } = await academyAPI.getAll(user.id)
-        console.log('test', meetings)
+      let {data} = await window.axios.get(`academy/instructor/meetings?page=1`);
+      this.$store.commit('auth/SET_IS_UPLOAD_COURSES', data.data.length)
     },
     async initializing() {
       this.loading = true;
@@ -86,7 +86,7 @@ export default {
         if (data.success) {
           this.itemDepartments = data.data
         } else {
-          //window.SwalError(data.message)
+          window.SwalError(data.message)
         }
       } catch (error) {
         //

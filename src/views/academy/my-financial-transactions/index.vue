@@ -28,11 +28,11 @@
 
 
             </div>
-         <SectionBalance />
+            <SectionBalance />
             <!--filtered list-->
             <div class="container mt-5">
-            <FilteredList />
-        </div>
+                <FilteredList />
+            </div>
         </div>
 
     </main>
@@ -43,13 +43,11 @@ import FilteredList from './sections/filtered-list/index.vue'
 import SectionBalance from './sections/section-balance/index.vue'
 export default {
     name: 'my-financial-transactions',
-components:{
-    FilteredList,
-    SectionBalance
-}
+    components: {
+        FilteredList,
+        SectionBalance
+    }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

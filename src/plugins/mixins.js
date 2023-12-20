@@ -646,6 +646,7 @@ const mixin = {
           userPartner: "auth/partner",
           userIsProvider: "auth/isProvider",
           userIsInstructor: "auth/isInstructor",
+          canUploadCourse: "auth/canUploadCourse",
           userIsConsultant: "auth/isConsultant",
           userAcademyRole: "auth/academyRole",
           userSubNetwork: "auth/subscribeNetwork",

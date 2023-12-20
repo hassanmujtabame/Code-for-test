@@ -14,6 +14,9 @@ export default {
 	setSubscribeProvider({ commit }, payload) {
 		commit("SET_SUBSCRIBE_PROVIDER", payload);
 	},
+	setUploadCourses({ commit }, payload) {
+		commit("SET_IS_UPLOAD_COURSES", payload);
+	},
 	clearToken({ commit }) {
 		commit("CLEAR_TOKEN");
 	},

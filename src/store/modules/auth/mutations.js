@@ -62,6 +62,9 @@ export default {
     state.isProvider = data;
     localStorage.setItem("user_provider", data ? "Y" : "N");
   },
+  SET_IS_UPLOAD_COURSES(state, payload) {
+    state.canUploadCourse = payload;
+  },
   SET_USER(state, payload) {
     let { partner, subscribers, is_instructor, is_consultant, ...user } = payload;
     state.user = user;

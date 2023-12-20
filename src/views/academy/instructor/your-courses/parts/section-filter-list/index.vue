@@ -55,15 +55,22 @@ export default {
       }
       this.loading = false
     },
-    addCourseFirst() {
+    async addCourseFirst() {
+      let {data} = await window.axios.get(`academy/instructor/meetings?page=1`);
+
       if (!this.user.statusInstructor) {
         window.errorMsg("لم يفعل حسابك بعد !");
       }
-      //else if(){} 
+      else if(this.user.statusInstructor && data.data.length < 4){
+        window.errorMsg(`يجب عليك رفع ${4 - data.data.length} من اللقاءات لكى تنشئ دوره`);
+      } 
       else {
         this.fireOpenDialog('add-course-first')
       }
     }
+  },
+  mounted(){
+    this.loadList()
   }
 }
 </script>

@@ -12,6 +12,9 @@ export default {
 	isInstructor(state) {
 		return state.isInstructor;
 	},
+	canUploadCourse(state) {
+		return state.canUploadCourse;
+	},
 	isConsultant(state) {
 		return state.isConsultant;
 	},
