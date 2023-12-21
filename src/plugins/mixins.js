@@ -184,7 +184,10 @@ const mixin = {
               window.store.commit("auth/SET_TOKEN", token);
               window.store.commit("auth/SET_USER", user);
 
-              window.store.commit("auth/SET_IS_PROVIDER",window.store.getters["auth/isProvider"]);
+              window.store.commit(
+                "auth/SET_IS_PROVIDER",
+                window.store.getters["auth/isProvider"]
+              );
               //let isProvider = window.store.getters['auth/isProvider']
               /* if(this.$route.meta.role=='provider' && !isProvider){
                                let title ='يجب ان تكون من مقدمي الخدمة';
@@ -461,6 +464,7 @@ const mixin = {
             this.showConfirmMsg(dateEvt);
             return;
           }
+
           this.$store.commit("auth/SET_ACADEMY_ROLE", newRole);
           //this.refreshPage()
         },
@@ -493,29 +497,29 @@ const mixin = {
           a.remove();
         },
         switchRoleProvider(val) {
-        //   if (val && !this.userIsSubProvider) {
-            // if (
-            //   this.shouldSubNetworkMsg(
-            //     "يجب عليك الاشتراك في الشبكة حتى يمكنك الاشتراك في مقدمي الخدمات"
-            //   )
-            // )
-            //   return;
-            // let dateEvt = {
-            //   title: "لا يمكنك تغير كمقدم خدمة لانك غير مشترك بها ",
-            //   btns: [
-            //     {
-            //       title: "إشترك الأن",
-            //       action: () => this.router_push("service-provider-subscribe"),
-            //     },
-            //   ],
-            // };
-            // this.showConfirmMsg(dateEvt);
-            // console.mylog("if true");
-        //   } else {
-            console.mylog("switching role provider to", val);
-            this.$store.commit("auth/SET_IS_PROVIDER", val);
-            //this.refreshPage()
-        //   }
+          //   if (val && !this.userIsSubProvider) {
+          // if (
+          //   this.shouldSubNetworkMsg(
+          //     "يجب عليك الاشتراك في الشبكة حتى يمكنك الاشتراك في مقدمي الخدمات"
+          //   )
+          // )
+          //   return;
+          // let dateEvt = {
+          //   title: "لا يمكنك تغير كمقدم خدمة لانك غير مشترك بها ",
+          //   btns: [
+          //     {
+          //       title: "إشترك الأن",
+          //       action: () => this.router_push("service-provider-subscribe"),
+          //     },
+          //   ],
+          // };
+          // this.showConfirmMsg(dateEvt);
+          // console.mylog("if true");
+          //   } else {
+          console.mylog("switching role provider to", val);
+          this.$store.commit("auth/SET_IS_PROVIDER", val);
+          //this.refreshPage()
+          //   }
         },
 
         strip_tags(str) {

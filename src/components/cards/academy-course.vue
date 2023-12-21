@@ -106,7 +106,9 @@ export default {
                 console.mylog('not url')
             }
         }
-
+    },
+    unmounted() {
+        window.reload()
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- section 1-->
-    <SectionGuestHeader />
+    <SectionAuthHeader />
     <!--#section 1-->
     <!-- section 2-->
     <SectionTwo />
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import SectionGuestHeader from './parts/section-guest-header/index.vue'
+import SectionAuthHeader from './parts/section-auth-header/index.vue'
 import SectionTwo from './parts/section-2/index.vue'
 import SectionThree from './parts/section-3/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
@@ -78,7 +78,7 @@ import SectionHear from '@/views/academy/common-components/section-hear/index.vu
 export default {
   name: "academy-home",
   components: {
-    SectionGuestHeader,
+    SectionAuthHeader,
     SectionTwo,
     SectionThree,
     SectionHelpsYou,

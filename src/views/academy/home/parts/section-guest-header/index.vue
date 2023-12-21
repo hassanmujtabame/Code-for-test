@@ -18,10 +18,11 @@
                             class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }} </router-link>
                     </div>
                 </div>
-                <div class="col-3 col-md-6 m-auto" style="margin-bottom: 0 !important;">
-                    <div style="overflow: hidden; background:rgba(255, 188, 0, 1); " class="img-cons m-auto ">
-                        <img src="@/assets/img/main-page.png" alt="academy-home" style="object-fit: contain !important;">
-                    </div>
+                <div class="col-3 col-md-6 m-auto d-flex justify-content-center" style="margin-bottom: 0 !important;">
+                    <!-- <div style="overflow: hidden; background:rgba(255, 188, 0, 1); " class="img-cons m-auto "> -->
+                    <img src="@/assets/img/new_header_academy.png" alt="academy-home"
+                        style="width: 70%; object-fit: contain !important;">
+                    <!-- </div> -->
 
                 </div>
 

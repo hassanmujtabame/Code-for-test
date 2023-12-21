@@ -4,28 +4,19 @@
       <div>
         <div class="row justify-content-between">
           <h1 class="col-2">الملخص</h1>
-          <div
-            class="col-10 d-flex justify-content-end"
-            style="height: 35px; gap: 4%"
-          >
+          <div class="col-10 d-flex justify-content-end" style="height: 35px; gap: 4%">
             <!-- <input type="text" style="width: 32%">
                         <input type="text" style="width: 32%"> -->
-            <date-pick
-              :months="months"
-              nextMonthCaption=""
-              prevMonthCaption=""
-              v-model="start_date"
-            ></date-pick>
-            <date-pick
-              :months="months"
-              nextMonthCaption=""
-              prevMonthCaption=""
-              v-model="end_date"
-            ></date-pick>
+            <div class="d-flex justify-content-center gap-2 align-items-center">
+              <h3>من</h3>
+              <date-pick :months="months" nextMonthCaption="" prevMonthCaption="" v-model="startDate"></date-pick>
+            </div>
+            <div class="d-flex justify-content-center gap-2 align-items-center">
+              <h3>الى</h3>
+              <date-pick :months="months" nextMonthCaption="" prevMonthCaption="" v-model="endDate"></date-pick>
+            </div>
 
-            <button
-              class="text-white border-0"
-              style="
+            <button @click="filterData" class="text-white border-0" style="
                 border-radius: 5px;
                 box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);
                 padding: 10px;
@@ -36,8 +27,7 @@
                 align-items: center;
                 width: 25%;
                 background-color: #2db7b3;
-              "
-            >
+              ">
               فلتره
             </button>
           </div>
@@ -45,34 +35,20 @@
         <SectionBalance :visits="visits" />
       </div>
 
-      <div
-        class="mt-5 p-4"
-        style="
+      <div class="mt-5 p-4" style="
           border-radius: 20px;
           box-shadow: rgba(0, 0, 0, 0.125) 0 0 10px 1px;
-        "
-      >
+        ">
         <h2 class="row mb-2">الزيارات</h2>
-        <bar-chart
-          class="row"
-          :chart-data="chartDataVisits"
-          :chart-options="chartOptionsVisits"
-        ></bar-chart>
+        <bar-chart class="row" :chartData="chartDataVisits" :chart-options="chartOptionsVisits"></bar-chart>
       </div>
 
-      <div
-        class="mt-5 p-4"
-        style="
+      <div class="mt-5 p-4" style="
           border-radius: 20px;
           box-shadow: rgba(0, 0, 0, 0.125) 0 0 10px 1px;
-        "
-      >
+        ">
         <h2 class="row mb-2">الاحالات</h2>
-        <bar-chart
-          class="row"
-          :chart-data="chartDataRefers"
-          :chart-options="chartOptionsRefers"
-        ></bar-chart>
+        <bar-chart class="row" :chart-data="chartDataSubscriptions" :chart-options="chartOptionsSubscriptions"></bar-chart>
       </div>
     </div>
   </div>
@@ -91,179 +67,270 @@ export default {
     BarChart,
     DatePick,
   },
-  data: () => ({
-    visits: [],
-    chartDataVisits: {
-      labels: [],
-      datasets: [
-        {
-          label: "الزيارات",
-          backgroundColor: "#2DB7B3",
-          // borderColor: 'rgba(75, 192, 192, 1)',
-          // borderWidth: 1,
-          data: [],
-        },
-      ],
-    },
-    chartOptionsVisits: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "bottom",
-          labels: {
-            font: {
-              size: 32,
-            },
-          },
-        },
-        tooltip: {
-          enabled: true,
-        },
-      },
-    },
-    chartDataRefers: {
-      labels: [
-        "1 jun",
-        "2 jun",
-        "3 jun",
-        "4 jun",
-        "5 jun",
-        "6 jun",
-        "7 jun",
-        "8 jun",
-        "9 jun",
-        "10 jun",
-      ],
-      datasets: [
-        {
-          label: "الاحالات",
-          backgroundColor: "#2DB7B3",
-          // borderColor: 'rgba(75, 192, 192, 1)',
-          // borderWidth: 1,
-          data: [20, 30, 12, 10, 5, 30, 32, 28, 18, 17],
-        },
-      ],
-    },
-    chartOptionsRefers: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "bottom",
-          labels: {
-            font: {
-              size: 32,
-            },
-          },
-        },
-        tooltip: {
-          enabled: true,
-        },
-      },
-    },
-    start_date: "2023-12-01",
-    end_date: "2023-12-18",
-    months: [
-      "يناير",
-      "فبراير",
-      "مارس",
-      "أبريل",
-      "مايو",
-      "يونيو",
-      "يوليو",
-      "أغسطس",
-      "سبتمبر",
-      "أكتوبر",
-      "نوفمبر",
-      "ديسمبر",
-    ],
-  }),
-  methods: {
-    // countVisits() {
-    //   let visitors = [
-    //     { id: 1, created_at: "2023-01-01" },
-    //     { id: 5, created_at: "2023-01-01" },
-    //     { id: 7, created_at: "2023-01-01" },
-    //     { id: 2, created_at: "2023-01-03" },
-    //     { id: 9, created_at: "2023-01-03" },
-    //     { id: 8, created_at: "2023-01-03" },
-    //   ];
-    //   let test = [];
-    //   let newTestDates = [];
-    //   let newTestData = [];
-    //   let newData = {
-    //     "2023-01-01": 5,
-    //     "2023-01-02": 10,
-    //   };
-    //   visitors.forEach((visit) => {
-    //     if (test[visit.created_at] || test[visit.created_at] == 0) {
-    //       test[visit.created_at] += 1;
-    //     } else {
-    //       test[visit.created_at] = 1;
-    //     }
-    //   });
-    //   Object.keys(test).forEach((key) => {
-    //     newTestDates.push(key);
-    //   });
-    //   Object.keys(test).forEach((key) => {
-    //     newTestData.push(test[key]);
-    //   });
+  data() {
 
-    //   this.chartDataVisits.labels = newTestDates;
-    //   this.chartDataVisits.datasets.data = newTestData;
-    //   console.log(test);
-    //   console.log(newTestDates);
-    //   console.log(newTestData);
-    //   console.log(this.chartDataVisits.labels);
-    // },
-    async getVisits() {
-      try {
-        let { data } = await axios.get("/affiliates/visitors");
-        if (data.success) {
-          this.visits = data.data;
-          console.log("visits", data.data);
-        } else {
-          this.message = data.message;
-          this.hasError = true;
+    return {
+
+      visits: [],
+      categorizedVisitsChartData: {}, // Initialize with empty data or default
+      chartDataVisits: {
+        labels: [],
+        datasets: [
+          {
+            label: "الزيارات",
+            backgroundColor: "#2DB7B3",
+            // borderColor: 'rgba(75, 192, 192, 1)',
+            // borderWidth: 1,
+            data: [],
+          },
+        ],
+      },
+      chartOptionsVisits: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: {
+              font: {
+                size: 32,
+              },
+            },
+          },
+          tooltip: {
+            enabled: true,
+          },
+        }, scales: {
+          y: {
+            suggestedMin: 50,
+            suggestedMax: 100
+          }
         }
-      } catch (error) {
-        this.visits = [];
-        window.errorMsg(" ليس لديك زيارات ");
-        this.hasError = true;
-      }
-    },
-  },
-  async mounted() {
-    try {
-      const { data } = await axios.get("/affiliates/visitors"); // Replace with your API endpoint
-      let labels = []
-      data.data.forEach((visit) => {
-        if (labels[visit.created_at] || labels[visit.created_at] == 0) {
-          labels[visit.created_at] += 1;
-        } else {
-          test[visit.created_at] = 1;
+      },
+      chartDataSubscriptions: {
+        labels: [],
+        datasets: [
+          {
+            label: "الاحالات",
+            backgroundColor: "#2DB7B3",
+            // borderColor: 'rgba(75, 192, 192, 1)',
+            // borderWidth: 1,
+            data: [],
+          },
+        ],
+      },
+      chartOptionsSubscriptions: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: {
+              font: {
+                size: 32,
+              },
+            },
+          },
+          tooltip: {
+            enabled: true,
+          },
+        }, scales: {
+          y: {
+            suggestedMin: 50,
+            suggestedMax: 100
+          }
         }
-      });
-      Object.keys(test).forEach((key) => {
-        newTestDates.push(key);
-      });
-      Object.keys(test).forEach((key) => {
-        newTestData.push(test[key]);
-      });
-      if (data.success) {
-        this.chartData.labels = data.labels;
-        this.chartData.datasets[0].data = data.values;
-      } else {
-        console.error("Failed to fetch data");
-      }
-    } catch (error) {
-      console.error("Error fetching data", error);
+      },
+      startDate: '',
+      endDate: '',
+      months: [
+        "يناير",
+        "فبراير",
+        "مارس",
+        "أبريل",
+        "مايو",
+        "يونيو",
+        "يوليو",
+        "أغسطس",
+        "سبتمبر",
+        "أكتوبر",
+        "نوفمبر",
+        "ديسمبر",
+      ],
     }
   },
-  //   mounted() {
-  //     this.getVisits();
-  //     // this.countVisits();
-  //   },
-};
+  methods: {
+    async filterData() {
+      if (!this.startDate || !this.endDate) return;
+
+      const daysBetweenDates = this.getDaysBetweenDates();
+      console.log('Days between selected dates:', daysBetweenDates);
+
+      try {
+        const visitsResponse = await axios.get(`/affiliates/visitors`, {
+          params: {
+            start_date: this.startDate,
+            end_date: this.endDate,
+          },
+        });
+
+        if (visitsResponse.data.success) {
+          const categorizedVisits = this.categorizeVisitsByDate(visitsResponse.data.data);
+          this.updateChartDataVisits(categorizedVisits);
+
+          console.log('Fetched Visits:', categorizedVisits);
+        } else {
+          console.error("Failed to fetch visits data");
+        }
+
+        const subscriptionsResponse = await axios.get(`/affiliates/subscriptions`, {
+          params: {
+            start_date: this.startDate,
+            end_date: this.endDate,
+          },
+        });
+
+        if (subscriptionsResponse.data.success) {
+          const categorizedSubscriptions = this.categorizeSubscriptionsByDate(subscriptionsResponse.data.data);
+          this.updateChartDataSubscriptions(categorizedSubscriptions);
+
+          console.log('Fetched Subscriptions:', categorizedSubscriptions);
+        } else {
+          console.error("Failed to fetch subscriptions data");
+        }
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    },
+
+
+    formatLabel(dateString) {
+      const dateParts = dateString.split('-');
+      const day = parseInt(dateParts[0], 10);
+      const month = parseInt(dateParts[1], 10);
+      const monthNames = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+      ];
+      return `${day} ${monthNames[month - 1]}`;
+    },
+
+    updateChartDataVisits(categorizedVisits) {
+      const startDate = new Date(this.startDate);
+      const endDate = new Date(this.endDate);
+
+      const labels = [];
+      const dataPoints = [];
+
+      let currentDate = new Date(startDate);
+      while (currentDate <= endDate) {
+        const formattedDate = [
+          ('0' + currentDate.getDate()).slice(-2),
+          ('0' + (currentDate.getMonth() + 1)).slice(-2),
+          currentDate.getFullYear()
+        ].join('-');
+
+        labels.push(this.formatLabel(formattedDate)); // Apply custom label format
+        dataPoints.push(categorizedVisits[formattedDate] || 0);
+
+        currentDate.setDate(currentDate.getDate() + 1);
+      }
+
+      this.chartDataVisits = {
+        labels: labels,
+        datasets: [
+          {
+            label: "الزيارات",
+            backgroundColor: "#2DB7B3",
+            data: dataPoints,
+          },
+        ],
+      };
+    },
+
+    updateChartDataSubscriptions(categorizedSubscriptions) {
+      const startDate = new Date(this.startDate);
+      const endDate = new Date(this.endDate);
+
+      const labels = [];
+      const dataPoints = [];
+
+      let currentDate = new Date(startDate);
+      while (currentDate <= endDate) {
+        const formattedDate = [
+          ('0' + currentDate.getDate()).slice(-2),
+          ('0' + (currentDate.getMonth() + 1)).slice(-2),
+          currentDate.getFullYear()
+        ].join('-');
+
+        labels.push(this.formatLabel(formattedDate)); // Apply custom label format
+        dataPoints.push(categorizedSubscriptions[formattedDate] || 0);
+
+        currentDate.setDate(currentDate.getDate() + 1);
+      }
+
+      this.chartDataSubscriptions = {
+        labels: labels,
+        datasets: [
+          {
+            label: "الاحالات",
+            backgroundColor: "#2DB7B3",
+            data: dataPoints,
+          },
+        ],
+      };
+    },
+
+    getDaysBetweenDates() {
+      const days = [];
+      let currentDate = new Date(this.startDate);
+
+      while (currentDate <= new Date(this.endDate)) {
+        const formattedDate = [
+          ('0' + currentDate.getDate()).slice(-2),
+          ('0' + (currentDate.getMonth() + 1)).slice(-2),
+          currentDate.getFullYear()
+        ].join('-');
+
+        days.push(formattedDate);
+        currentDate.setDate(currentDate.getDate() + 1);
+      }
+
+      return days;
+    },
+    categorizeVisitsByDate(visitsData) {
+      const categorizedData = {};
+
+      // Loop through the received visits data
+      visitsData.forEach(visit => {
+        const visitDate = new Date(visit.created_at);
+        const formattedDate = `${visitDate.getDate()}-${visitDate.getMonth() + 1}-${visitDate.getFullYear()}`;
+
+        // Check if the date exists in categorizedData, if not initialize it with count 1
+        if (!categorizedData[formattedDate]) {
+          categorizedData[formattedDate] = 1;
+        } else {
+          // Increment the count for the existing date
+          categorizedData[formattedDate]++;
+        }
+      });
+
+      return categorizedData;
+    }
+  },
+  mounted() {
+    const today = new Date();
+    const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    const formattedFirstDay = `${firstDayOfMonth.getFullYear()}-${('0' + (firstDayOfMonth.getMonth() + 1)).slice(-2)}-${('0' + firstDayOfMonth.getDate()).slice(-2)}`;
+
+    const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+    const formattedLastDay = `${lastDayOfMonth.getFullYear()}-${('0' + (lastDayOfMonth.getMonth() + 1)).slice(-2)}-${('0' + lastDayOfMonth.getDate()).slice(-2)}`;
+
+
+    this.startDate = formattedFirstDay
+    this.endDate = formattedLastDay
+    this.filterData()
+  },
+
+}
 </script>
 
 <style>
@@ -284,12 +351,12 @@ export default {
   color: #2db7b3;
 }
 
-.vdpTimeUnit > input:hover,
-.vdpTimeUnit > input:focus {
+.vdpTimeUnit>input:hover,
+.vdpTimeUnit>input:focus {
   border-bottom-color: #2db7b3;
 }
 
-.vdpComponent.vdpWithInput > input {
+.vdpComponent.vdpWithInput>input {
   height: 100%;
   background: #eee;
   border-radius: 5px;
