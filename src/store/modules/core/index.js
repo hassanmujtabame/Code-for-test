@@ -8,5 +8,4 @@ export default{
     actions:actions,
     getters:getters,
     mutations:mutations
-   
 }

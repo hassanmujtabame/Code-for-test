@@ -1,20 +1,15 @@
 <template>
-  <WidgetItem title="لقائاتك"
-   code="my-meetings" color="#F2631C" 
-   :url="getRouteLocale('academy-my-meetings')"
-   />
+    <WidgetItem title="لقائاتك" code="my-meetings" color="#F2631C" :url="getRouteLocale('academy-my-meetings')" />
 </template>
 
 <script>
 import WidgetItem from '@/components/widgets/simple-card.vue';
 export default {
-    components:{
+    components: {
         WidgetItem
     }
 
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

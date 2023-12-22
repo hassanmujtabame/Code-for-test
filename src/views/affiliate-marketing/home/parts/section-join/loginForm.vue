@@ -14,7 +14,7 @@
               <ValidationObserver ref="loginForm">
 
                 <!-- Start fullname -->
-                <ValidationProvider vid="full-name" rules="required|text" :name="$t('full-name')" v-slot="{ errors }"
+                <ValidationProvider vid="full-name" rules="required" :name="$t('full-name')" v-slot="{ errors }"
                   tag="div" class="mb-2">
                   <b-form-input style="box-shadow: #CEE4C6 0px 0px 15px 10px; padding:10px; border: none;"
                     type="text" :placeholder="$t('full-name')" v-model="form.fullName" required />
@@ -24,7 +24,7 @@
 
 
                 <!-- Start gender -->
-                <ValidationProvider vid="gender" rules="required|text" :name="'ال' + $t('gender')" v-slot="{ errors }"
+                <ValidationProvider vid="gender" rules="" :name="'ال' + $t('gender')" v-slot="{ errors }"
                   tag="div" class="mb-2">
                   <select class="form-select"
                     style="background-position: left 0.75rem center !important; box-shadow: #CEE4C6 0px 0px 15px 10px; padding:10px; border: none;"
@@ -47,7 +47,7 @@
                 <!-- End Email -->
 
                 <!-- Start phone -->
-                <ValidationProvider vid="phone" rules="required|phone" :name="$t('Phone')" v-slot="{ errors }" tag="div"
+                <ValidationProvider vid="phone" rules="required|numeric|min:10" :name="$t('Phone')" v-slot="{ errors }" tag="div"
                   class="mb-2">
                   <b-form-input
                     style="width: 100%; box-shadow: #CEE4C6 0px 0px 15px 10px; padding:10px; border: none;"
@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="text-center mt-5">
-                  <button class="btn btn-main-v py-2 px-5" role="button" @click="login">{{ $t('login') }}</button>
+                  <router-link class="btn btn-main-v py-2 px-5" :to="{name: 'register-affiliate'}" role="button" >سجلى الان</router-link>
                 </div>
               </ValidationObserver>
             </div>

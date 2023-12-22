@@ -6,7 +6,7 @@
         <SectionFeatures />
         <SectionChoseUs />
         <SectionHowWorkProgram />
-        <SectionJoin />
+        <SectionJoin v-if="!user.affiliate"/>
         <SectionWhatWeProvide />
         <SectionGraduated title="ابرز سفيرات التسويق بالعموله" />
         <!-- <SectionDoubleWinings /> -->

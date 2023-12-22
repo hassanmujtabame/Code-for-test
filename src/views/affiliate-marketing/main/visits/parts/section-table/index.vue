@@ -3,75 +3,23 @@
         <thead>
           <tr>
             <th>التاريخ و الوقت</th>
-            <th>كود الزائر</th>
-            <th>رابط الزياره</th>
-            <th>عدد الزيارات</th>
+            <th>ايميل الزائر</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Jun 21,2023 10:30 am</td>
-            <td>127.0.0.1</td>
-            <td>riadiat.sa/ar/network/4325</td>
-            <td>2</td>
+          <tr v-for="(visit, i) in visits" :key="i">
+            <td>{{ visit.created_at }}</td>
+            <td>{{ visit.user.email }}</td>
           </tr>
         </tbody>
       </table>
 </template>
+
+<script>
+export default {
+  props: ['visits']
+}
+</script>
 
 <style scoped>
 .styled-table {

@@ -3,3 +3,10 @@
         logout
     </h1>
 </template>
+<script>
+export default {
+    created(){
+        this.logout()
+    }
+}
+</script>

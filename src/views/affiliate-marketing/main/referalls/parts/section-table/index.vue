@@ -1,110 +1,25 @@
 <template>
   <table class="styled-table">
-    <thead>
-      <tr>
-        <th>التاريخ و الوقت</th>
-        <th>حاله الدفع</th>
-        <th>العموله</th>
-        <th>قيمه الاشتراك</th>
-        <th>فعاليه الزيارات</th>
-        <th>عدد الزيارات</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Jun 21,2023 10:30 am</td>
-        <td>تم الدفع</td>
-        <td>10$</td>
-        <td>100$</td>
-        <td>تم الاشتراك</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Jun 21,2023 10:30 am</td>
-        <td>تم الدفع</td>
-        <td>10$</td>
-        <td>100$</td>
-        <td>تم الاشتراك</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Jun 21,2023 10:30 am</td>
-        <td>تم الدفع</td>
-        <td>10$</td>
-        <td>100$</td>
-        <td>تم الاشتراك</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Jun 21,2023 10:30 am</td>
-        <td>تم الدفع</td>
-        <td>10$</td>
-        <td>100$</td>
-        <td>تم الاشتراك</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Jun 21,2023 10:30 am</td>
-        <td>تم الدفع</td>
-        <td>10$</td>
-        <td>100$</td>
-        <td>تم الاشتراك</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Jun 21,2023 10:30 am</td>
-        <td>تم الدفع</td>
-        <td>10$</td>
-        <td>100$</td>
-        <td>تم الاشتراك</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Jun 21,2023 10:30 am</td>
-        <td>تم الدفع</td>
-        <td>10$</td>
-        <td>100$</td>
-        <td>تم الاشتراك</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Jun 21,2023 10:30 am</td>
-        <td>تم الدفع</td>
-        <td>10$</td>
-        <td>100$</td>
-        <td>تم الاشتراك</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Jun 21,2023 10:30 am</td>
-        <td>تم الدفع</td>
-        <td>10$</td>
-        <td>100$</td>
-        <td>تم الاشتراك</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td colspan="2"> 
-          <button class="text-white border-0"
-            style="border-radius : 5px; box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center; width: 200px; background-color: #2DB7B3">
-            اجمالى عدد الزيارات
-          </button>
-        </td>
-        <td style="color: red">
-          432$
-        </td>
-        <td style="color: red">
-          322$
-        </td>
-        <td></td>
-        <td style="color: red">
-          32
-        </td>
-        
-      </tr>
-    </tbody>
-  </table>
+      <thead>
+        <tr>
+          <th>التاريخ و الوقت</th>
+          <th>ايميل المشترى</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(subscription, i) in subscriptions" :key="i">
+          <td>{{ subscription.created_at }}</td>
+          <td>{{ subscription.user.email }}</td>
+        </tr>
+      </tbody>
+    </table>
 </template>
+
+<script>
+export default {
+props: ['subscriptions']
+}
+</script>
 
 <style scoped>
 .styled-table {
@@ -124,12 +39,7 @@
   padding: 16px 8px;
 }
 
-thead,
-tbody,
-tfoot,
-tr,
-td,
-th {
+thead, tbody, tfoot, tr, td, th {
   border-color: #777;
   border-style: solid;
   border-width: 1px;

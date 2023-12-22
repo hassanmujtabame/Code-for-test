@@ -1,0 +1,13 @@
+.btn-light {
+  background-color: #CDD7D8 !important;
+}
+
+.nav-tabs .nav-link {
+  border: 1px solid #1fb9b3;
+}
+.nav-tabs .nav-link:first-child {
+  border-radius: 0 5px 5px 0;
+}
+.nav-tabs .nav-link:last-child {
+  border-radius: 5px 0 0 5px;
+}/*# sourceMappingURL=main.css.map */

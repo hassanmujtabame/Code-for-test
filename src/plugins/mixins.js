@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { mapGetters } from "vuex";
 import { localize } from "vee-validate";
 import userAPI from "../services/api/user";
+import Axios from "axios";
 
 const mixin = {
   install(Vue) {
@@ -643,6 +644,7 @@ const mixin = {
         isDevelopment() {
           return process.env.NODE_ENV == "development";
         },
+        
         ...mapGetters({
           isMobile: "core/isMobile",
           isTablet: "core/isTablet",

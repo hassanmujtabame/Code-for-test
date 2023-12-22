@@ -1,32 +1,25 @@
 <template>
     <div class="mt-5">
-    <div class="blog">
+        <div class="blog">
 
-        <d-filter-list :call-list="loadList" 
-        hideSide
-        orderName="created_at"
-        searchPlaceholder="أبحث  في قائمة تدويناتك"
-        @change="changeFilter"
-        classColCard="col-md-12">
-            <template v-slot:total>
+            <d-filter-list :call-list="loadList" hideSide orderName="created_at" searchPlaceholder="أبحث  في قائمة تدويناتك"
+                @change="changeFilter" classColCard="col-md-12">
+                <template v-slot:total>
 
-                <h3 class="page-title">
-                    تدويناتك <button @click="addBlog"  class="btn m-c"><i class="fa fa-square-plus"></i></button>
-                </h3>
-            </template>
+                    <h3 class="page-title">
+                        تدويناتك <button @click="addBlog" class="btn m-c"><i class="fa fa-square-plus"></i></button>
+                    </h3>
+                </template>
 
-            <template v-slot="{ item }">
-                <router-link  class="router-link" :to="getRouteLocale('academy-blog-show', { id: item.id })">
-                    <BlogInfoCard 
-                   :item="item" 
-                   @delete="confirmDeleteItem"
-                   />
-                </router-link>
-            </template>
+                <template v-slot="{ item }">
+                    <router-link class="router-link" :to="getRouteLocale('academy-blog-show', { id: item.id })">
+                        <BlogInfoCard :item="item" @delete="confirmDeleteItem" />
+                    </router-link>
+                </template>
 
 
-        </d-filter-list>
-    </div>
+            </d-filter-list>
+        </div>
     </div>
 </template>
 
@@ -35,45 +28,45 @@ import instructorBlogsAPI from '@/services/api/academy/instructor/blogs.js'
 import BlogInfoCard from './blog-item.vue';
 export default {
     name: 'section-filter-list',
-    components:{
+    components: {
         BlogInfoCard
     },
     data: () => ({
-        filterItem:{
-            created_at:'asc',
-            search:null
+        filterItem: {
+            created_at: 'asc',
+            search: null
         }
     }),
     methods: {
-        addBlog(){
+        addBlog() {
             this.fireOpenDialog('add-blog')
         },
-        confirmDeleteItem(item){
-            let dataEvt={
-                title:'هل حقا تريد حذف هذه التدوينة؟',
-                description:`${item.title}`,
-                groupBtns:'d-flex flex-justify-evenly',
-                btns:[
-                    {title:'تراجع',class:'btn btn-custmer btn-danger'},
-                    {title:this.$t('confirm_delete'),action:()=>this.deleteItem(item),class:'btn btn-custmer'},
+        confirmDeleteItem(item) {
+            let dataEvt = {
+                title: 'هل حقا تريد حذف هذه التدوينة؟',
+                description: `${item.title}`,
+                groupBtns: 'd-flex flex-justify-evenly',
+                btns: [
+                    { title: 'تراجع', class: 'btn btn-custmer btn-danger' },
+                    { title: this.$t('confirm_delete'), action: () => this.deleteItem(item), class: 'btn btn-custmer' },
                 ]
             }
             this.showConfirmMsg(dataEvt)
         },
-       async deleteItem(item){
+        async deleteItem(item) {
             try {
-                let {data} =  await instructorBlogsAPI.deleteItem(item.id)
-                if(data.success){
+                let { data } = await instructorBlogsAPI.deleteItem(item.id)
+                if (data.success) {
                     this.fireEvent('d-filter-list-refresh')
-                }else{
+                } else {
                     window.SwalError(data.message)
                 }
             } catch (error) {
                 //
             }
         },
-        changeFilter(val){
-            this.filterItem = {...this.filterItem,...val}
+        changeFilter(val) {
+            this.filterItem = { ...this.filterItem, ...val }
             this.fireEvent('d-filter-list-refresh')
         },
         async loadList(metaInfo) {
@@ -91,20 +84,21 @@ export default {
 </script>
 
 <style scoped>
-.blog{
+.blog {
     border: 1px solid #c6c6c68c;
     border-radius: 9px;
 }
-.page-title{
+
+.page-title {
     font-style: normal;
-font-weight: 600;
-font-size: 32px;
-line-height: 40px;
-/* identical to box height, or 125% */
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    /* identical to box height, or 125% */
 
-text-align: right;
-text-transform: capitalize;
+    text-align: right;
+    text-transform: capitalize;
 
-color: #414042;
+    color: #414042;
 }
 </style>

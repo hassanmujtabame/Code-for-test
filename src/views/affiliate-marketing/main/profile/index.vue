@@ -1,19 +1,20 @@
 <template>
   <div style="margin-top: 96px;">
-    <d-overlays-simple v-if="loading" />
-    <div v-else-if="hasError">
+    <!-- <d-overlays-simple v-if="loading" /> -->
+    <!-- <div v-else-if="hasError">
       {{ hasError }}
-    </div>
-    <div v-else class="container">
+    </div> -->
+    <div  class="container">
 
       <div class="row  profile-services ">
         <div class="col-12 mt-3 p-4 rounded-2" style="box-shadow: 2px 2px 15px 2px #00000024;">
 
 
           <!-- test -->
-          <div class="box">
+          <ValidationObserver ref="itemForm">
+            <div class="box">
 
-            <ValidationObserver ref="form">
+
               <div class="row">
                 <div class="">
                   <ValidationProvider :name="$t('Image')" tag="div" vid="image" rules="image"
@@ -53,108 +54,102 @@
                   <button @click="save" class="btn-main">{{$t('save')}}</button>
                 </div> -->
               </div>
-            </ValidationObserver>
-          </div>
-          <!-- end test -->
-          <!-- معومات العرض-->
-          <!-- <SectionDisplay :currentUser="currentUser" /> -->
 
-          <!-- المدخلات -->
-          <div class="d-flex flex-wrap column-gap-5 justify-content-center">
-
-
-            <div class="col-md-4 col-sm-12 mb-3">
-              <label class=" fs-5 mb-1">
-               الاسم
-              </label>
-              <ValidationProvider name="الاسم" vid="الاسم" rules="required" v-slot="{ errors }">
-                <input type="text" v-model="form.name" class="form-control">
-                <d-error-input :errors="errors" v-if="errors.length" />
-              </ValidationProvider>
             </div>
+            <div class="d-flex flex-wrap column-gap-5 justify-content-center">
 
 
-            <div class="col-md-4 col-sm-12 mb-3">
-              <label class="fs-5 mb-1">
-                {{ $t('select-your-gender') }}
+              <div class="col-md-4 col-sm-12 mb-3">
+                <label class=" fs-5 mb-1">
+                  الاسم
+                </label>
+                <ValidationProvider name="الاسم" vid="الاسم" rules="required" v-slot="{ errors }">
+                  <input type="text" v-model="itemForm.name" class="form-control">
+                  <d-error-input :errors="errors" v-if="errors.length" />
+                </ValidationProvider>
+              </div>
 
-              </label>
-              <ValidationProvider tag="div" :name="$t('gender')" vid="gender" rules="required" v-slot="{ errors }">
-                <div class="">
-                  <d-select-input :errors="errors" v-model="form.gender" class="form-select">
-                    <!-- <option value="" class="t-c " disabled selected>{{ $t('select-your-gender') }}
-                    </option> -->
-                    <option value="male">{{ $t('male') }} </option>
-                    <option value="female">{{ $t('female') }}</option>
-                  </d-select-input>
-                </div>
-              </ValidationProvider>
-            </div>
-
-            <div class="col-md-4 col-sm-12 mb-3">
-              <label class=" fs-5 mb-1">
-                {{ $t('Email') }}
-              </label>
-              <ValidationProvider :name="$t('Email')" vid="Email" rules="required|email" v-slot="{ errors }">
-                <input type="text" v-model="form.email" class="form-control">
-                <d-error-input :errors="errors" v-if="errors.length" />
-              </ValidationProvider>
-            </div>
-
-            <div class="col-md-4 col-sm-12 mb-3">
-              <label class=" fs-5 mb-1">
-                {{ $t('Phone') }}
-              </label>
-              <ValidationProvider :name="$t('Phone')" vid="phone" rules="required|numeric" v-slot="{ errors }">
-                <input type="text" v-model="form.phone" class="form-control">
-                <d-error-input :errors="errors" v-if="errors.length" />
-              </ValidationProvider>
-            </div>
-
-            <div class="col-md-4 col-sm-12 mb-3">
-              <label class=" fs-5 mb-1">
-                {{ $t('number_residence_id') }}
-              </label>
-              <ValidationProvider tag="div" class="mb-3" :name="$t('number_residence_id')" vid="identification_number"
-                rules="required|numeric" v-slot="{ errors }">
-                <d-text-input :errors="errors" type="text" v-model="form.identification_number" class="form-control">
-                </d-text-input>
-              </ValidationProvider>
-            </div>
-
-            <div class="col-md-4 col-sm-12 mb-3">
-              <label class=" fs-5 mb-1">
-                المنطقه
-              </label>
-              <ValidationProvider :name="$t('region')" vid="region" rules="required" v-slot="{ errors }" tag="div"
+              <div class="col-md-4 col-sm-12 mb-3">
+                <label class=" fs-5 mb-1">
+                  {{ $t('Email') }}
+                </label>
+                <ValidationProvider :name="$t('Email')" vid="Email" rules="required|email" v-slot="{ errors }">
+                  <input type="text" readonly v-model="itemForm.email" class="form-control">
+                  <d-error-input :errors="errors" v-if="errors.length" />
+                </ValidationProvider>
+              </div>
+              
+              <div class="col-md-4 col-sm-12 mb-3">
+                <label class=" fs-5 mb-1">
+                  {{ $t('Phone') }}
+                </label>
+                <ValidationProvider :name="$t('Phone')" vid="phone" rules="required|numeric" v-slot="{ errors }">
+                  <input type="text" v-model="itemForm.phone" class="form-control">
+                  <d-error-input :errors="errors" v-if="errors.length" />
+                </ValidationProvider>
+              </div>
+              
+              <!-- <div class="col-md-4 col-sm-12 mb-3">
+                <label class=" fs-5 mb-1">
+                  {{ $t('number_residence_id') }}
+                </label>
+                <ValidationProvider tag="div" class="mb-3" :name="$t('number_residence_id')" vid="identification_number"
+                  rules="required|numeric" v-slot="{ errors }">
+                  <d-text-input :errors="errors" type="text" v-model="itemForm.id_number" class="form-control">
+                  </d-text-input>
+                </ValidationProvider>
+              </div> -->
+              
+              <div class="col-md-4 col-sm-12 mb-3">
+                <label class=" fs-5 mb-1">
+                  المنطقه
+                </label>
+                <ValidationProvider name="المنطقه" vid="المنطقه" rules="required" v-slot="{ errors }" tag="div"
                 class="mb-3">
-                <b-form-input type="text" v-model="form.region" required />
+                <b-form-input type="text" v-model="itemForm.region" required />
                 <div class="text-input-error">{{ errors[0] }}</div>
               </ValidationProvider>
             </div>
-
+            
             <div class="col-md-4 col-sm-12 mb-3">
               <label class=" fs-5 mb-1">
                 الحالة الوظيفية
               </label>
-              <ValidationProvider :name="$t('job_status')" vid="job_status" rules="required" v-slot="{ errors }" tag="div"
-                class="mb-3">
-                <b-form-input type="text" v-model="form.job_status" required />
+              <ValidationProvider name="الحالة الوظيفية" vid="الحالة الوظيفية" rules="required" v-slot="{ errors }"
+              tag="div" class="mb-3">
+              <b-form-input type="text" v-model="itemForm.job_status" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
+          </div>
+          
+          <div class="col-md-4 col-sm-12 mb-3">
+                <label class=" fs-5 mb-1">
+                  الحساب البنكي
+                </label>
+                <ValidationProvider name="الحساب البنكي" vid="الحساب البنكي" rules="required|numeric"
+                v-slot="{ errors }" tag="div" class="mb-3">
+                <b-form-input type="text" v-model="itemForm.bank_account" required />
                 <div class="text-input-error">{{ errors[0] }}</div>
               </ValidationProvider>
             </div>
-
+            
             <div class="col-md-4 col-sm-12 mb-3">
               <label class=" fs-5 mb-1">
-                الحساب البنكي
-
+                عدد ساعات العمل
               </label>
-              <ValidationProvider :name="$t('bank_account')" vid="bank_account" rules="required|numeric"
-                v-slot="{ errors }" tag="div" class="mb-3">
-                <b-form-input type="text" v-model="form.bank_account" required />
-                <div class="text-input-error">{{ errors[0] }}</div>
-              </ValidationProvider>
+              <ValidationProvider name="عدد ساعات العمل" vid="عدد ساعات العمل" rules="required|numeric" v-slot="{ errors }" tag="div"
+              class="mb-3">
+              <b-form-input type="text" v-model="itemForm.hours_number" required />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
+          </div> 
+          <!-- 
+          -->
             </div>
+          </ValidationObserver>
+
+          <div class="m-auto text-center p-3">
+            <button @click="save" class="btn-main">{{ $t('save') }}</button>
           </div>
         </div>
       </div>
@@ -166,12 +161,9 @@
 
 <script>
 import userAPI from '@/services/api/user.js'
-import SectionDisplay from './parts/sections/information-display/index.vue'
 export default {
   name: 'show-profile',
   components: {
-    SectionDisplay,
-
   },
   props: {
     profileData: {
@@ -179,33 +171,65 @@ export default {
       default: null
     }
   },
-  data: () => {
-    return {
+  data() {
+  return {
       urlTmp: null,
-      currentUser: {},
-      loading: true,
-      hasError: false,
-      // form
-      form: {
-        image: null,
-
-        name: "",
-        id_number: 'this.profileData.id_number',
-        region: '',
-        job_status: 'this.profileData.job_status',
-        bank_name: '',
-        bank_account: '',
-        gender: '',
-        phone: "",
+      // loading: true,
+      // hasError: false,
+      itemForm: {
+        image: this.profileData.image,
+        name: this.profileData.name,
+        // id_number: '',
+        region: this.profileData.region,
+        job_status: this.profileData.job_status,
+        bank_account: this.profileData.bank_account,
+        phone: this.profileData.phone,
+        hours_number: this.profileData.hours_number,
+        email: this.profileData.email,
       },
     }
   },
   computed: {
     imageUser() {
-      return this.currentUser.image;
+      return this.profileData.image;
+      // return "https://cp.riadiat.sa/uploads/users/oI7uJmLs0Ecy3lv7krFb8L8I3GzEHvesdEGLN6F0.png"
     }
   },
   methods: {
+    async save(evt) {
+      if (evt) evt.preventDefault();
+      let valid = await this.$refs.itemForm.validate();
+      if (!valid) {
+        console.log("form invalid");
+        return;
+      }
+
+
+      try {
+        let { data } = await window.axios.post(`affiliates/update-profile`, {
+          image: this.itemForm.image,
+          name: this.itemForm.name,
+          region: this.itemForm.region,
+          job_status: this.itemForm.job_status,
+          bank_account: this.itemForm.bank_account,
+          phone: this.itemForm.phone,
+          hours_number: this.itemForm.hours_number,
+          what_you_know: 'this.profileData.what_you_know',
+          id_number: false
+        });
+        if (profile.success) {
+          window.successMsg(data.message);
+        } else {
+          window.SwalError(data.message);
+        }
+      } catch (error) {
+        if (error.response) {
+          if (error.response.status == 422) {
+            this.$refs.itemForm.setErrors(error.response.data.errors);
+          }
+        }
+      }
+    },
     async uploadImage(evt, validate) {
       let valid = await validate(evt);
       if (!valid.valid) {
@@ -216,42 +240,18 @@ export default {
         }
         return;
       }
-      this.form.image = evt.target.files[0];
-      if (this.form.image)
-        this.urlTmp = URL.createObjectURL(this.form.image);
+      this.itemForm.image = evt.target.files[0];
+      if (this.itemForm.image)
+        this.urlTmp = URL.createObjectURL(this.itemForm.image);
       else {
         URL.revokeObjectURL(this.urlTmp);
         this.urlTmp = null;
       }
     },
-    async loadCurrentUser() {
-      this.loading = true;
-      this.hasError = false;
-      try {
-        let { data } = await userAPI.me()
-        if (data.success) {
-          this.currentUser = data.data
-        } else {
-          this.hasError = data.message
-        }
-      } catch (error) {
-        if (error.response) {
-          let response = error.response
-          if (response.status == 401) {
-            this.logout()
-          } else {
-            this.hasError = ' هناك خطأ غير معروف يرجي تحديث الصفحة'
-          }
-        }
-
-      }
-      this.loading = false;
-    },
   },
   mounted() {
-    this.loadCurrentUser()
-
-}
+    console.log('tr', this.profileData)
+  }
 }
 </script>
 

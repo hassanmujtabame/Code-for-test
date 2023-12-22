@@ -22,9 +22,10 @@ export default {
   },
   methods: {
   },
-  mounted() {
+  async mounted() {
     if (this.$route.query.affiliate_id) {
       localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
+      await window.axios.post('affiliates/visitor', {affiliate_id: this.$route.query.affiliate_id})
     }
   },
 };

@@ -7,7 +7,7 @@
             <!-- {{ currentComponent }} -->
             <div class="container">
                 <transition name="fade" mode="out-in">
-                    <component :is="currentComponent" :profileData="profileData" ></component>
+                    <component :is="currentComponent" :profileData="profileData"></component>
                 </transition>
             </div>
         </div>
@@ -44,7 +44,10 @@ export default {
         hasError: false,
         itemPage: {},
         profileData: {},
-        currentComponent: 'Summary'
+        currentComponent: 'Summary',
+        totalVisits: [],
+        totalSubscriptions: [],
+        currentUser: {}
     }),
     methods: {
         async checkAffiliate() {

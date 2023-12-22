@@ -13,6 +13,8 @@
                         <li class="nav-item px-2 btn-main border-0 text-center"
                             style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); background: white; padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
                             <div v-if="profileData.status == 'deactive'" class="text-black">جارى تفعيل حسابك</div>
+                            <router-link v-else-if="profileData.status == 'active'" class="text-black bg-transparent border-0" :to="{ name: 'affiliate-marketing-dashboard' }">  لوحه التحكم
+                            </router-link>
                             <button v-else class="text-black bg-transparent border-0" @click="affiliateRegister"> انشاء حساب
                             </button>
                         </li>
@@ -97,23 +99,20 @@ export default {
                 if (data.success) {
                     console.log('affiliate_data', data.data)
                     this.profileData = data.data
-                    if (data.data.status == 'active') {
-                        this.$router.push({ name: "affiliate-marketing-dashboard" })
-                    }
                 } else {
                     this.message = data.message;
                     this.hasError = true;
                 }
             } catch (error) {
                 this.profileData = ''
-                window.errorMsg(' انت لست مسجل كمقدم خدمه, انشئ حساب');
+                window.errorMsg(error.message);
                 this.hasError = true;
             }
         }
     },
     mounted() {
         this.shouldLoginMsg()
-        if (this.token) {
+        if (this.token && this.user.affiliate) {
             this.checkAffiliate()
             // console.log('tsetsdf', this.profileData.status)
             // if (this.profileData) {

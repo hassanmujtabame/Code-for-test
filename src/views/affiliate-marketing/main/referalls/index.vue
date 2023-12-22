@@ -3,29 +3,39 @@
         <div class="dashbord">
             <div>
                 <div class="row justify-content-between">
-                    <h1 class="col-2">
-                        الاحالات
-                    </h1>
+                    <h1 class="col-2">الاحالات</h1>
                     <div class="col-10 d-flex justify-content-end" style="height: 35px; gap: 4%">
-                        <!-- <input type="text" style="width: 32%">
-                        <input type="text" style="width: 32%"> -->
-                        <date-pick :months="months" nextMonthCaption="" prevMonthCaption=""
-                            v-model="start_date"></date-pick>
-                        <date-pick :months="months" nextMonthCaption="" prevMonthCaption="" v-model="end_date"></date-pick>
-
-                        <button class="text-white border-0"
-                            style="border-radius : 5px; box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center; width: 25%; background-color: #2DB7B3">
+                        <div class="d-flex justify-content-center gap-2 align-items-center">
+                            <h3>من</h3>
+                            <date-pick :months="months" nextMonthCaption="" prevMonthCaption=""
+                                v-model="startDate"></date-pick>
+                        </div>
+                        <div class="d-flex justify-content-center gap-2 align-items-center">
+                            <h3>الى</h3>
+                            <date-pick :months="months" nextMonthCaption="" prevMonthCaption=""
+                                v-model="endDate"></date-pick>
+                        </div>
+                        <button @click="filterData" class="text-white border-0" style="
+                border-radius: 5px; box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto;
+                margin-right: 5px; display: flex; justify-content: center; align-items: center; width: 25%;
+                background-color: #2DB7B3;">
                             فلتره
                         </button>
-
                     </div>
-
                 </div>
                 <div style="padding: 20px; border: 1px solid #2DB7B3">
-
-                    <SectionTable />
+                    <SectionTable :subscriptions="totalSubscriptions" />
                 </div>
-                
+                <div class="row mt-4 gap-3">
+                    <button
+                        style="border-radius : 5px; box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center; width: 100px; border: 2px solid rgb(182, 182, 182); background-color:transparent;">
+                        {{ totalSubscriptions.length }}
+                    </button>
+                    <button class="text-white border-0"
+                        style="border-radius : 5px; box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center; width: 150px; background-color: #2DB7B3">
+                        اجمالى عدد الاحالات
+                    </button>
+                </div>
             </div>
 
         </div>
@@ -41,74 +51,65 @@ import 'vue-date-pick/dist/vueDatePick.css';
 import SectionTable from './parts/section-table/index.vue'
 
 export default {
-    name: 'affiliate-marketing-referalls',
+    name: 'affiliate-marketing-subscriptions',
     components: {
         SectionTable,
         DatePick
     },
     data: () => ({
-        chartDataVisits: {
-            labels: ['1 jun', '2 jun', '3 jun', '4 jun', '5 jun', '6 jun', '7 jun', '8 jun', '9 jun', '10 jun',],
-            datasets:
-                [
-                    {
-                        label: 'الزيارات',
-                        backgroundColor: '#2DB7B3',
-                        // borderColor: 'rgba(75, 192, 192, 1)',
-                        // borderWidth: 1, 
-                        data: [40, 20, 12, 40, 20, 12, 30, 40, 20, 12]
-                    }]
-        },
-        chartOptionsVisits: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        font: {
-                            size: 32
-                        }
-                    }
-                },
-                tooltip: {
-                    enabled: true
-                }
-            },
-        },
-        chartDataRefers: {
-            labels: ['1 jun', '2 jun', '3 jun', '4 jun', '5 jun', '6 jun', '7 jun', '8 jun', '9 jun', '10 jun',],
-            datasets:
-                [
-                    {
-                        label: 'الاحالات',
-                        backgroundColor: '#2DB7B3',
-                        // borderColor: 'rgba(75, 192, 192, 1)',
-                        // borderWidth: 1, 
-                        data: [20, 30, 12, 10, 5, 30, 32, 28, 18, 17]
-                    }]
-        },
-        chartOptionsRefers: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        font: {
-                            size: 32
-                        }
-                    }
-                },
-                tooltip: {
-                    enabled: true
-                }
-            },
-        },
-        start_date: '2023-01-01',
-        end_date: '2024-01-01',
+        startDate: '',
+        endDate: '',
         months: [
             "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
         ],
-    })
+        totalSubscriptions: []
+    }),
+    methods: {
+        async filterData() {
+            try {
+                const subscriptionsResponse = await axios.get(`/affiliates/subscriptions-users`, {
+                    params: {
+                        startDate: this.startDate,
+                        endDate: this.endDate,
+                    },
+                });
+
+                if (subscriptionsResponse.data.success) {
+                    this.totalSubscriptions = subscriptionsResponse.data.data;
+                } else {
+                    console.error("Failed to fetch subscriptions data");
+                }
+            } catch (error) {
+                console.error("Error fetching data", error);
+            }
+        },
+        async total() {
+            try {
+                const subscriptionsResponse = await axios.get(`/affiliates/subscriptions-users`);
+
+                if (subscriptionsResponse.data.success) {
+                    this.totalSubscriptions = subscriptionsResponse.data.data;
+                } else {
+                    console.error("Failed to fetch subscriptions data");
+                }
+            } catch (error) {
+                console.error("Error fetching data", error);
+            }
+        },
+    },
+    mounted() {
+        const today = new Date();
+        const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        const formattedFirstDay = `${firstDayOfMonth.getFullYear()}-${('0' + (firstDayOfMonth.getMonth() + 1)).slice(-2)}-${('0' + firstDayOfMonth.getDate()).slice(-2)}`;
+
+        const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        const formattedLastDay = `${lastDayOfMonth.getFullYear()}-${('0' + (lastDayOfMonth.getMonth() + 1)).slice(-2)}-${('0' + lastDayOfMonth.getDate()).slice(-2)}`;
+
+
+        this.startDate = formattedFirstDay
+        this.endDate = formattedLastDay
+        this.filterData()
+    }
 }
 </script>
 
