@@ -76,6 +76,9 @@ class academyApi extends BaseApi {
         */
 		return window.axios.post(`academy/user-checkout`, data);
 	}
+	PayPackageSelect(data) {
+		return window.axios.post(`/pay/hyperbill`, data);
+	}
 }
 
 export default new academyApi();

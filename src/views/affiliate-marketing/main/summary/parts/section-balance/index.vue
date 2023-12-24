@@ -16,7 +16,7 @@
                         fill="currentColor" />
                 </svg>
 
-                <span>$ 132</span>
+                <span>$ {{totalProfite}}</span>
             </div>
         </div>
         <div class="card">
@@ -49,7 +49,7 @@
 </template>
 <script> 
 export default {
-    props: ['visits','subscriptions']
+    props: ['visits','subscriptions','totalProfite']
 }
 </script>
 <style scoped>

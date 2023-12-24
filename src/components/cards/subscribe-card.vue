@@ -23,11 +23,11 @@
       </ul>
     </div>
     <div class="subscription-actions">
-      <button @click="selected" v-if="typeSubscribe === 'مجانا' && packId.id !== subscribed" class="subscribe-button">{{
+      <button @click="selected" v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed" class="subscribe-button">{{
         $t('subscribe-now') }}</button>
-      <button @click="selected" :id="packId.id" v-else-if="(packId.id !== subscribed)" class="upgrade-button">رقي
+      <button @click="selected" :id="pack.id" v-else-if="(pack.id !== subscribed)" class="upgrade-button">رقي
         حسابك</button>
-      <button v-else-if="packId.id == subscribed" class="subscribed-button">انت مشترك الان</button>
+      <button v-else-if="pack.id == subscribed" class="subscribed-button">انت مشترك الان</button>
     </div>
   </div>
   <!-- end -->
@@ -52,7 +52,7 @@ export default {
     typeSectionSub: {
       type: String
     },
-    packId: {
+    pack: {
       type: [Array, Object]
     },
     features: {
@@ -77,7 +77,7 @@ export default {
       if (this.typeSubscribe == 'مجانا') {
         try {
           window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
-          window.axios.get(`payments/hyperbill/callback?package_id=${this.packId.id}&package_type=${this.packageType}&user_id=${this.user.id}`).then(res => {
+          window.axios.get(`payments/hyperbill/callback?package_id=${this.pack.id}&package_type=${this.packageType}&user_id=${this.user.id}`).then(res => {
             console.log('res', res);
             this.$refs.normalSteps.nextTab();
           })
@@ -87,18 +87,15 @@ export default {
 
         }
       } else {
-        let el = document.getElementById(this.packId.id)
+        let el = document.getElementById(this.pack.id)
         el.innerHTML = 'تم الاختيار'
         el.classList.add('upgrade-button');
         el.classList.remove('subscribe-button');
-        localStorage.setItem('selectedPackage', this.typeSubscribe)
-        localStorage.setItem('selectedPackageId', this.packId.id)
-        localStorage.setItem('packagePrice', this.price)
         // Advance to the next tab
-        const scrollY = document.body.scrollHeight - window.innerHeight - 400; // Adjust 100 to your preferred position
-        window.scrollTo(0, scrollY);
+        // const scrollY = document.body.scrollHeight - window.innerHeight - 400; // Adjust 100 to your preferred position
+        // window.scrollTo(0, scrollY);
         
-        this.$emit('next-step')
+        this.$emit('chosed', this.pack)
       }
     }
   },

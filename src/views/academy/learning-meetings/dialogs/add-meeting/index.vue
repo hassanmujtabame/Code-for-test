@@ -472,10 +472,17 @@ export default {
             )
           : await academyAPI.instructor.meetingsAPI.addItem(formData);
         if (data.success) {
+          console.log('gg',this.itemForm)
           this.closeEvent();
           //redirect to course page
           let dataEvt = {
             title: "تم رفع اللقاء الخاص بك سيتم مراجعة اللقاء و نشره على الفور",
+            btns: [
+              {
+            title: "عرض اللقاء",
+            action: () => this.$router.push({name:'academy-learning-meeting-show', params: {id: data.data.meeting_id}}),
+          },
+            ]
           };
           if (this.itemForm.id) {
             dataEvt = {

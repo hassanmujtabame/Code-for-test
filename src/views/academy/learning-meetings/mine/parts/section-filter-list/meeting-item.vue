@@ -18,10 +18,11 @@
         <i class="fa-regular fa-clock"></i>
         <span class="px-2">تاريخ النشر :</span>
         <span>{{ dateReverse(item.date) }}</span>
+
     </div>
     <div class="academy-meeting-item__btns">
         <button @click="sendToParticipants" class="btn btn-custmer btn-small">رسالة للمنضمين</button>
-        <button @click="deleteItem" class="btn btn-custmer btn-danger btn-small mx-1">خذف اللقاء</button>
+        <button @click="deleteItem" class="btn btn-custmer btn-danger btn-small mx-1">حذف اللقاء</button>
     </div>
 </div>
   </div>

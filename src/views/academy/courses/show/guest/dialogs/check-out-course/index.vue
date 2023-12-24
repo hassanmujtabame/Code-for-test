@@ -1,6 +1,6 @@
 <template>
-  <CheckOutDialog :group="group" title="تفاصيل الدفع" hideAmount :do-payment="payment">
-    <template v-slot:default="{ item, dialog }">
+  <div :group="group" title="تفاصيل الدفع" hideAmount :do-payment="payment">
+    <template >
       <div v-if="dialog" class="d-flex flex-wrap gap-2">
         <div>
           <svg width="133" height="67" viewBox="0 0 133 67" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,10 +81,10 @@
         <button style="background-color: #CDD7D8;" class="btn  disabled" type="button" id="button-addon1">تفعيل</button>
       </div>
     </template>
-  </CheckOutDialog>
+  </div>
 </template>
 <script>
-import CheckOutDialog from '@/common/dialogs/check-out-test/index'
+// import CheckOutDialog from '@/common/dialogs/check-out-test/index'
 import academyAPI from '@/services/api/academy/index.js'
 export default {
   name: "checkout-course-academy",
@@ -95,7 +95,7 @@ export default {
     }
   },
   components: {
-    CheckOutDialog
+    // CheckOutDialog
   },
   data: () => ({
     showDialog: false,

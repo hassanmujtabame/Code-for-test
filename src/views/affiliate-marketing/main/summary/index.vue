@@ -30,7 +30,7 @@
             </button>
           </div>
         </div>
-        <SectionBalance :visits="totalVisits" :subscriptions="totalSubscriptions"/>
+        <SectionBalance :visits="totalVisits" :totalProfite="profileData.Profitratio" :subscriptions="totalSubscriptions"/>
       </div>
 
       <div class="mt-5 p-4" style="
@@ -66,6 +66,7 @@ export default {
     BarChart,
     DatePick,
   },
+  props: ['profileData'],
   data() {
     return {
       categorizedVisitsChartData: {}, // Initialize with empty data or default

@@ -3,8 +3,8 @@
     <!--header -->
     <SectionHeader />
     <div class="container mt-5">
-    <SectionFilterList />
-    </div>  
+      <SectionFilterList />
+    </div>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ import SectionFilterList from './parts/section-filter-list/index';
 
 export default {
   name: 'courses-page',
-  components:{
+  components: {
     SectionHeader,
     SectionFilterList,
 
@@ -22,6 +22,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

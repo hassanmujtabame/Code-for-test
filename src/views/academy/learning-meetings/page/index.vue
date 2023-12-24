@@ -51,7 +51,7 @@
               <p class="t-c">
                 {{ itemPage.content }}
               </p>
-              <div>
+              <div v-if="!isOwner">
                 <button v-if="!isJoined" @click="openConfirmJoinMeeting" class="btn bg-main p-2 px-4 text-white">أنضم الى
                   اللقاء</button>
                 <button v-else @click="openConfirmCancelMeeting" class="btn bg-danger p-2 px-4 text-white"> تراجع عن

@@ -181,13 +181,29 @@ export default {
         window.DHelper.catchException.call(this, error)
       }
     },
-    buyCourse() {
+    async buyCourse() {
       if (this.shouldLoginMsg()) return;
-      this.fireOpenDialog('checkout-course-academy', { item: 
-        { 
-          amount: this.itemPage.price, 
-          title: `${this.$t('the-course')}:${this.itemPage.title}` 
-        }, data: this.itemPage })
+      try {
+        let { data } = await academyAPI.PayPackageSelect({
+          course_id: this.itemPage.id,
+          type: 'course',
+          user_id: this.user.id,
+
+        });
+        if (data.success) {
+          window.location.href = data.data.payment_url;
+        } else {
+          console.log(data.response)
+        }
+      } catch (error) {
+        console.log('error', error)
+      }
+
+      // this.fireOpenDialog('checkout-course-academy', { 
+      //   item: { 
+      //     amount: this.itemPage.price, 
+      //     title: `${this.$t('the-course')}:${this.itemPage.title}` 
+      //   }, data: this.itemPage })
 
     },
     gotToSubscribe() {
@@ -339,4 +355,5 @@ html[lang=ar] #subscribe-action {
 html[lang=en] #subscribe-action {
   border-right: 1px solid var(--color-border);
   padding-right: 10px;
-}</style>
+}
+</style>

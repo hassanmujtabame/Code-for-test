@@ -7,6 +7,7 @@
 export default {
     created(){
         this.logout()
+        this.$router.push('/')
     }
 }
 </script>

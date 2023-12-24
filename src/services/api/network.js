@@ -72,7 +72,7 @@ class NetworkApi extends BaseApi {
 		// window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
 		// return window.axios.post(`pay`, data);
 		// return window.axios.post(`payments/hyperbill/callback`, data);
-		return window.axios.post(`/pay/myfatoorah`, data);
+		return window.axios.post(`/pay/hyperbill`, data);
 	}
 	PayPackageFreeSelect(data) {
 		window.axios.defaults.baseURL = "https://cp.riadiat.sa/";

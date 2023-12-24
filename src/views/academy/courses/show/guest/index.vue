@@ -21,8 +21,9 @@
         <SectionSimilarCourses :itemPage="itemPage" />
       </div>
       <cardFixed :itemPage="itemPage" :isOwner="isOwner" />
-      <watchVideoLecture />
-      <checkoutCourseDiag />
+      <!-- <watchVideoLecture />
+      -->
+      <checkoutCourseDiag /> 
     </div>
   </div>
 </template>
@@ -37,14 +38,13 @@ import SectionInstructors from './sections/section-instructors/index.vue'
 import SectionRates from './sections/section-rates/index.vue'
 import SectionSimilarCourses from './sections/section-similar-courses/index.vue'
 import SectionAttachments from './sections/section-attachments'
-import watchVideoLecture from './dialogs/watch-video/index'
 import cardFixed from './card-fixed.vue'
+// import watchVideoLecture from './dialogs/watch-video/index'
 import checkoutCourseDiag from './dialogs/check-out-course/index.vue';
 import academyAPI from '@/services/api/academy'
 export default {
   name: 'course-show-recorded',
   components: {
-    checkoutCourseDiag,
     SectionHeader,
     SectionDesc,
     SectionWhatLearn,
@@ -54,7 +54,8 @@ export default {
     SectionRates,
     SectionSimilarCourses,
     SectionAttachments,
-    watchVideoLecture,
+    checkoutCourseDiag,
+    // watchVideoLecture,
     cardFixed,
   },
   data: () => {
