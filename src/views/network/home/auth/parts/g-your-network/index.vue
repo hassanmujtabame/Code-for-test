@@ -23,8 +23,10 @@
 
 <script>
 export default {
-    name: 'grow-your-network'
+ name:'grow-your-network'
 }
 </script>
 
-<style></style>
+<style>
+
+</style>
