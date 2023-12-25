@@ -201,11 +201,11 @@ export default {
     }
   },
   mounted() {
-       const title = this.$route.query.title;
-       if(title){
-         this.title = title
-       }
-     }
+    const title = this.$route.query.title;
+    if (title) {
+      this.title = title
+    }
+  }
 }
 </script>
 
