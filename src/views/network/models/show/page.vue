@@ -113,7 +113,7 @@ export default {
                         description:`انت مشترك في الباقة المجانية وهذه الباقة لا تمنحك نموذج - رقي حسابك الى الباقة الشهرية أو الباقة السنويه و استفيد من  النماذج و المزيد من المميزات في الشبكة`,
                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
                         btns:[
-                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                            {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})}
                         ]
                     }
                     this.showConfirmMsg(dataEvt);

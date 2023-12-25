@@ -14,7 +14,10 @@
                     <div class="m-auto " style="    display: flex;
                         justify-content: center;">
                         <!-- <img class="img-fluid"  :src="`${publicPath}assets/svg/Group 117127620699.svg`" alt="" > -->
-                        <img src="@/assets/svg/network-header.svg" style="height: 256px !important; object-fit: contain !important;" alt="">
+                        <img src="@/assets/svg/network-header.svg" style="position: absolute;
+                        height: 400px !important;
+                        object-fit: contain !important;
+                        top: 0;" alt="">
                         <!-- <img :src="`${publicPath}assets/img/1664179507602 aefwG.png`" alt="network-home" > -->
                     </div>
 

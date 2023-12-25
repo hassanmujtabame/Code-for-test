@@ -43,7 +43,7 @@ export default {
                         description:`انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من نشر قصة - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من  التسجيل معنا والحصول على المزيد من المميزات في الشبكة`,
                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
                         btns:[
-                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                            {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})}
                         ]
                     }
                     this.showConfirmMsg(dataEvt);

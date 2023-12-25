@@ -65,7 +65,7 @@ export default {
             //                     description:'يجب عليك الاشتراك في الحاضنه والاشتراك في الباقة السنوية كي تتمكن من إضافة معرض',
             //                     image:`${this.publicPath}assets/img/Group 1171275670.png`,
             //                     btns:[
-            //                         {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')},
+            //                         {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})},
             //                         {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
             //                     ]
             //                 }

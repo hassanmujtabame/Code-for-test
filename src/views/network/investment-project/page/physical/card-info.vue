@@ -174,7 +174,7 @@ export default {
                         description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك تمويل مشروع - رقي حسابك الى الباقة السنوية و استفيد من المميزات في الشبكة`,
                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
                         btns:[
-                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                            {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})}
                         ]
                     }
                     this.showConfirmMsg(dataEvt);

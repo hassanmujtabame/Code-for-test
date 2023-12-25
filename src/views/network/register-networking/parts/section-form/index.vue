@@ -313,7 +313,7 @@ export default {
                 description: `يجب عليك الاشتراك فى باقة الشركات`,
                 type: 'warning',
                 btns: [
-                    { title: this.$t('subscribe'), action: () => this.router_push('network-subscribe') }
+                    { title: this.$t('subscribe'), action: () => this.$router.push({name: 'network-subscribe'}) }
                 ]
             }
             this.showConfirmMsg(dataEvt)

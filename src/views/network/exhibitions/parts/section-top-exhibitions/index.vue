@@ -79,7 +79,7 @@ export default {
                         description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة معرض  - رقي حسابك الى الباقة السنويه و استفيد من إضافة معرضك و المزيد من المميزات في الشبكة`,
                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
                         btns:[
-                            {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+                            {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})}
                         ]
                     }
                     this.showConfirmMsg(dataEvt);
@@ -96,7 +96,7 @@ export default {
 //                         description:`انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة معرض  - رقي حسابك الى الباقة السنويه و استفيد من إضافة معرضك و المزيد من المميزات في الشبكة`,
 //                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
 //                         btns:[
-//                             {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')}
+//                             {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})}
 //                         ]
 //                     }
 //                     this.showConfirmMsg(dataEvt);
@@ -109,7 +109,7 @@ export default {
 //                         description:'يجب عليك الاشتراك في الحاضنه والاشتراك في الباقة السنوية كي تتمكن من إضافة معرض',
 //                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
 //                         btns:[
-//                             {title:'رقي حسابك',action:()=>this.router_push('network-subscribe')},
+//                             {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})},
 //                             {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
 //                         ]
 //                     }
