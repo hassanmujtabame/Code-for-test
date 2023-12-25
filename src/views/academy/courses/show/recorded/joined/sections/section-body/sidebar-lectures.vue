@@ -99,12 +99,13 @@ export default {
   },
   methods:{
     closeDrawer(){
-     
+
       var myOffcanvas = document.getElementById(this.drawerId+'-close')
       window.$(myOffcanvas).click()
     },
     showAddDialog(type){
       /**type:lecture | exam | project */
+      console.log('ts', type)
         this.fireOpenDialog(`add-${type}-course-dialog`,{page:this.itemPage,item:{id:null,title:null,video:null}})
     },
     showEditDialog(lect){
