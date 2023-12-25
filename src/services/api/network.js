@@ -71,13 +71,13 @@ class NetworkApi extends BaseApi {
 	PayPackageSelect(data) {
 		// window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
 		// return window.axios.post(`pay`, data);
-		// return window.axios.post(`payments/hyperbill/callback`, data);
-		return window.axios.post(`/pay/hyperbill`, data);
+		// return window.axios.post(`payments/myfatoorah/callback`, data);
+		return window.axios.post(`/pay/myfatoorah`, data);
 	}
 	PayPackageFreeSelect(data) {
 		window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
 		// return window.axios.post(`pay`, data);
-		return window.axios.get(`payments/hyperbill/callback?${data}`);
+		return window.axios.get(`payments/myfatoorah/callback?${data}`);
 		// return window.axios.post(`/pay/myfatoorah`, data);
 	}
 	getNumbers(params = {}) {
