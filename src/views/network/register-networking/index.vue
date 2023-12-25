@@ -31,6 +31,8 @@
                 <img class="landing" :src="`${publicPath}assets/svg/star-big.svg`" alt="">
             </div>
         </div>
+        <!-- section new  -->
+        <SectionNew />
         <!--features-->
         <SectionFeatures />
         <!-- form register-->
@@ -43,6 +45,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import SectionNew from "./parts/section-new/index.vue"
 import SectionForm from './parts/section-form/index.vue'
 import SectionServices from './parts/section-services/index.vue'
 import SectionFeatures from './parts/section-features/index.vue'
@@ -53,7 +56,8 @@ export default {
         SectionForm,
         successRegisterDialog,
         SectionServices,
-        SectionFeatures
+        SectionFeatures,
+        SectionNew
     },
  computed:{
 ...mapGetters({
