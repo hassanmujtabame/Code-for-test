@@ -1,5 +1,5 @@
 <template>
-      <div class="container mt-5" v-if="userSubNetwork.type=='year'">
+      <div class="container mt-5" v-if="userSubNetwork && userSubNetwork.type=='year'">
             <div
             class="d-flex justify-content-between align-items-center container"
           >

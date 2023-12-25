@@ -27,8 +27,6 @@ export default {
     name: 'network-subscribe',
     components: {
         SubscribeCard,
-        FormWizard,
-        TabContent,
         CardVue,
 
 
