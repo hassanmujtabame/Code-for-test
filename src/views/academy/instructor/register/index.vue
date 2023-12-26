@@ -13,7 +13,7 @@
          <SectionCreateCourse />
          <!-- <sectionRequireGuide /> -->
         <!-- register form-->
-        <SectionForm />
+        <SectionForm  v-if="!userIsInstructor" />
     </div>
 </template>
 
@@ -28,6 +28,8 @@ import SectionOurInstructorSpecific from './parts/section-our-instructor-specifi
 // import SectionOurInstructorPublic from './parts/section-our-partners/index.vue'
 // import SectionOurInstructorSpecific from './parts/section-our-partners-specific/index.vue'
 import SectionForm from './parts/section-form/index.vue'
+import { mapState } from 'vuex';
+
 
 export default {
  name:'register-instructor',
@@ -40,6 +42,11 @@ export default {
     SectionOurInstructorPublic,
     SectionOurInstructorSpecific,
     SectionForm
+ },
+ mounted(){
+   if(store.state.auth.isInstructor){
+      this.$router.push({name: 'academy-home'})
+   }
  }
 }
 </script>

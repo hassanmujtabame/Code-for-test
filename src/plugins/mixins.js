@@ -444,7 +444,8 @@ const mixin = {
           };
           this.showConfirmMsg(dataEvt);
         },
-        switchRoleAcademy(newRole) {
+        async switchRoleAcademy(newRole) {
+          await this.loadCurrentUser()
           if (newRole == "instructor" && !this.userIsInstructor) {
             let dateEvt = {
               title: "انت غير مسجل كمدرب",

@@ -22,16 +22,16 @@
 
       <button v-if="userAcademyRole == 'student'" @click="switchRole('instructor')" class="btn m-c">{{
         $t('switch-to-instructor') }}</button>
-      <button v-if="userAcademyRole == 'instructor'" @click="switchRole('student')"
-        class="btn m-c">{{ $t('switch-to-student') }}</button>
+      <button v-if="userAcademyRole == 'instructor'" @click="switchRole('student')" class="btn m-c">{{
+        $t('switch-to-student') }}</button>
 
-        <li v-if="!token" class="nav-item px-2 btn-main btn-nav text-center"
+      <li v-if="!token" class="nav-item px-2 btn-main btn-nav text-center"
         style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
         <router-link :to="getRouteLocale('register')" class="text-white">{{ $t("join-us") }}</router-link>
       </li>
       <li v-else-if="!userIsSubAcademy" class="nav-item px-2 btn-main btn-nav text-center"
-      style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
-  
+        style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+
         <router-link :to="getRouteLocale('academy-subscribe')" class="text-white"> {{ $t('join-us') }} </router-link>
       </li>
 
@@ -75,7 +75,7 @@ export default {
       this.switchRoleAcademy(newRole)
     },
     async getMeetings() {
-      let {data} = await window.axios.get(`academy/instructor/meetings?page=1`);
+      let { data } = await window.axios.get(`academy/instructor/meetings?page=1`);
       this.$store.commit('auth/SET_IS_UPLOAD_COURSES', data.data.length)
     },
     async initializing() {
@@ -169,4 +169,5 @@ export default {
 
 .itemDepartments:hover {
   color: #FFBC00 !important;
-}</style>
+}
+</style>

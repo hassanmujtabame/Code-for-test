@@ -15,7 +15,7 @@
                 </div>
                 <div v-if="!isMobile" class="col-3 col-md-6 m-auto d-flex justify-content-center" style="margin-bottom: 0 !important;">
                     <!-- <div style="overflow: hidden; background:rgba(255, 188, 0, 1); " class="img-cons m-auto "> -->
-                    <img src="@/assets/img/bro.png" alt="academy-home" style="width: 70%; object-fit: contain !important;">
+                    <img src="@/assets/img/_x361_.png" alt="academy-home" style="width: 70%; object-fit: contain !important;">
                     <!-- </div> -->
 
                 </div>
