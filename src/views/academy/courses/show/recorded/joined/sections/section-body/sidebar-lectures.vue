@@ -1,6 +1,8 @@
 <template>
-  <div class="course-show-page__lectures" :class="{ 'offcanvas offcanvas-end': isTablet || isMobile }" tabindex="-1"
-    :id="drawerId" aria-labelledby="course-menu-drawerLabel">
+  <div ref="courseOffcanvas" class="course-show-page__lectures"
+    :class="{ 'offcanvas offcanvas-end': isTablet || isMobile }" tabindex="-1" :id="drawerId"
+    aria-labelledby="course-menu-drawerLabel">
+
     <div class="course-show-page__lectures-close" :class="{ 'show': isTablet || isMobile }">
       <button :id="drawerId + '-close'" data-bs-dismiss="offcanvas" aria-label="Close" class="btn btn-danger"><i
           class="fa fa-window-close" aria-hidden="true"></i></button>
@@ -50,8 +52,8 @@
                 <template v-else>
                   <button class="btn " @click="showEditDialog({ ...exam, type: 'exam' })"><i class="fa fa-pen"
                       style="color:blue"></i></button>
-                  <button class="btn " @click="showConfirmDeleteItem({ ...exam, type: 'exam' })"><i class="fa-solid fa-trash"
-                      style="color:red"></i></button>
+                  <button class="btn " @click="showConfirmDeleteItem({ ...exam, type: 'exam' })"><i
+                      class="fa-solid fa-trash" style="color:red"></i></button>
                 </template>
               </span>
             </li>
@@ -59,7 +61,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -111,8 +112,10 @@ export default {
   },
   methods: {
     closeDrawer() {
-      var myOffcanvas = document.getElementById(this.drawerId + '-close')
-      window.$(myOffcanvas).click()
+      if (this.$refs.courseOffcanvas) {
+        const offcanvasInstance = new bootstrap.Offcanvas(this.$refs.courseOffcanvas);
+        offcanvasInstance.hide();
+      }
     },
     showAddDialog(type) {
       /**type:lecture | exam | project */
@@ -279,6 +282,7 @@ export default {
         this.showConfirmMsg(DataEvt);
         return;
       }
+
       this.selectedLecture = lect.uuid
       this.fireEvent('course-lecture-selected', lect)
     },
