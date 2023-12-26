@@ -110,7 +110,7 @@ export default {
 //                         image:`${this.publicPath}assets/img/Group 1171275670.png`,
 //                         btns:[
 //                             {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})},
-//                             {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
+//                             {title:'اشترك الان',action:()=>this.$router.push({name: 'incubator-subscribe'})}
 //                         ]
 //                     }
 //                     this.showConfirmMsg(dataEvt);
@@ -123,7 +123,7 @@ export default {
 //                 description:'انت غير مشترك في الحاضنة ٫ لذا عليك الاشتراك لتتمكن من اضافة معرض',
 //                 type:'warning',
 //                 btns:[
-//                     {title:'اشترك الان',action:()=>this.router_push('incubator-subscribe')}
+//                     {title:'اشترك الان',action:()=>this.$router.push({name: 'incubator-subscribe'})}
 //                 ]
 //             }
 //             this.showConfirmMsg(dataEvt)

@@ -1,8 +1,40 @@
 <template>
     <div>
-        <div class="container p-5 mt-5">
+
+        <SectionHeader style="margin-top: 85px" /> 
+
+        <div class="row mt-4">
+            <ul class="nav nav-pills mb-3 justify-content-center text-center">
+                <li class="nav-item" style="width: 150px">
+                    <router-link :to="{name: 'network-subscribe'}" class="nav-link active border t-c ">
+                         الشبكه
+                    </router-link>
+                </li>
+                <li class="nav-item" style="width: 150px">
+                    <router-link :to="{name: 'academy-subscribe'}" class="nav-link  border t-c ">
+                        الاكاديميه
+                    </router-link>
+                </li>
+
+                <li class="nav-item" style="width: 150px">
+                    <router-link :to="{name: 'incubator-subscribe'}" class="nav-link  border t-c ">
+                        الحاضنه
+                    </router-link>
+                </li>
+            </ul>
+        </div>
+
+        
+        <div class="container p-5 mt-3">
+            <div class="row">
+                <h1>  الشبكه</h1>
+                <h5 >
+                    شبكه رياديات بتساعدك فى مشروعك من الاف الى الياء و يمكن من خلالها الحصول على المساعدة و الشجيع للدخول فى مجال ريادة اﻷعمال من خلال مجموعه من الخدمات و المزايا
+                </h5>
+            </div>
             <div v-for="(pack, p) in packages" :key="p" class="mt-2">
                 <div class="row p-3">
+                    <SectionCompany class="mx-3" v-if="pack && pack.name == 'الشركات' " /> 
                     <SubscribeCard :itemId="pack.name" :pack="pack" :title="pack.name" :price="pack.price"
                         :features="pack.options.map(c => c.name_ar)" :type-subscribe="pack.name" @chosed="choose"
                         :subscribed="subscribedType" :typeSectionSub='"network"'>
@@ -12,11 +44,21 @@
         </div>
     </div>
 </template>
-
+<style scoped>
+ul li {
+    background-color: #eee;
+}
+ul li.active {
+    background: var(--pc);
+    color: white;
+}
+</style>
 <script>
 import SubscribeCard from '@/components/cards/subscribe-card.vue';
 import CardVue from '@/components/cards/incubator-dept-circle.vue'
 import networkAPI from '@/services/api/network.js';
+import SectionHeader from "./parts/section-header/index.vue"
+import SectionCompany from "./parts/section-company/index.vue"
 
 
 
@@ -25,7 +67,8 @@ export default {
     components: {
         SubscribeCard,
         CardVue,
-
+        SectionHeader,
+        SectionCompany,
 
     },
     data: () => ({

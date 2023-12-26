@@ -1,8 +1,40 @@
 <template>
     <div>
+
+
+        <SectionHeader style="margin-top: 85px" /> 
+        <div class="row mt-4 custom-ul">
+            <ul class="nav nav-pills mb-3 justify-content-center text-center">
+                <li class="nav-item" style="width: 150px">
+                    <router-link :to="{name: 'network-subscribe'}" class="nav-link border t-c m-auto ">
+                         الشبكه
+                    </router-link>
+                </li>
+                <li class="nav-item" style="width: 150px">
+                    <router-link :to="{name: 'academy-subscribe'}" class="nav-link active border t-c ">
+                        الاكاديميه
+                    </router-link>
+                </li>
+
+                <li class="nav-item" style="width: 150px">
+                    <router-link :to="{name: 'incubator-subscribe'}" class="nav-link  border t-c ">
+                        الحاضنه
+                    </router-link>
+                </li>
+            </ul>
+        </div>
+
         <!--start wizard  -->
 
         <div class="container p-5 mt-5">
+
+            <div class="row">
+                <h1>  الاكاديميه</h1>
+                <h5 >
+                    اكاديمية رياديات نقدم منصة متطورة وسهلة الاستخدام تخدم الجميع حول العالم. من خلال  قاعات تدريبية مجهزة بأحدث التقنيات الحديثة، بالإضافة إلى قاعات افتراضية. وذلك عن طريق مجموعة من الخدمات  التعليمية والإرشادية في مجال ريادة الأعمال وريادة الأعمال المتخصصة تقدم من قبل فريق مؤهل مهنيًا
+                </h5>
+            </div>
+
             <form-wizard color="#49b483ff" step-size="xs" @on-complete="onComplete" ref="normalSteps" nextButtonText="التالى" backButtonText="السابق" finishButtonText="الدفع و التأكيد ">
 
 
@@ -33,7 +65,7 @@
 
 <script>
 import SubscribeCard from '@/components/cards/subscribe-card.vue';
-
+import SectionHeader from "./parts/section-header/index.vue"
 import { FormWizard, TabContent } from 'vue-form-wizard'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 import CardVue from '@/components/cards/incubator-dept-circle.vue'
@@ -48,6 +80,7 @@ export default {
         FormWizard,
         TabContent,
         CardVue,
+        SectionHeader,
 
 
     },
@@ -214,4 +247,13 @@ export default {
 .wizard-header {
     display: none !important;
 }
+
+.custom-ul ul li {
+    background-color: #eee;
+}
+.custom-ul ul li.active {
+    background: var(--pc);
+    color: white;
+}
 </style>
+

@@ -78,7 +78,7 @@ export default {
                         {
                             title: 'اشترك الان',
                             action: () =>
-                                this.router_push('incubator-subscribe'),
+                                this.$router.push({name: 'incubator-subscribe'}),
                         },
                     ],
                 };
