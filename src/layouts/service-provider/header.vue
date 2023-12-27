@@ -102,11 +102,11 @@ export default {
     }
   },
   mounted() {
+    this.loadCurrentUser()
     let check = JSON.parse(localStorage.getItem('providerOrclient'))
     console.log(check)
     if (check && this.token) {
       this.$store.commit('changeRole', { 'selected': check })
-      window.reload()
     }
     console.log(this.userIsRoleProvider)
   }

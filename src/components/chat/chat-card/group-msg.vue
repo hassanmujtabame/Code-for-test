@@ -6,21 +6,22 @@
         class="message-group-avatar"
       />
         <div class="message-group-chat" :class="[user.id !== chatter.user_id ? 'align-items-end':''] ">
-          <showChatInfo :dateTime="chatter.list[chatter.list.length-1].created_at" 
+          
+          <showChatInfo :dateTime="chatter.created_at" 
           :name="chatter.user_name" 
           :userId="chatter.user_id" 
           />
           
-          <showMsg v-for="(msg, j) in chatter.list" :key="`msg-${chatter.id}-${j}`"
-            :class="[user.id == chatter.user_id ? 'ms-3 bg-my-msg' : 'me-3 bg-your-msg']">{{ msg.message }}</showMsg>
+          <showMsg :id="`msg-${chatter.id}`"
+            :class="[user.id == chatter.user_id ? 'ms-3 bg-my-msg' : 'me-3 bg-your-msg']">{{ chatter.message }}</showMsg>
         </div>
       </div>
 </template>
 
 <script>
 import avatarChat from './avatar-chat.vue'
-import showMsg from './show-msg'
-import showChatInfo from './chat-info'
+import showMsg from './show-msg.vue'
+import showChatInfo from './chat-info.vue'
 export default {
     name:'d-group-msg',
  props:{
