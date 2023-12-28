@@ -12,7 +12,8 @@ import Default from "./default.vue";
 export default {
   name: "service-provider",
   components: {
-    Default, Provider,
+    Default, 
+    Provider,
     Client
   },
     computed: {
@@ -21,7 +22,6 @@ export default {
         }
     },
     mounted() {
-      this.loadCurrentUser()
         let check = JSON.parse(localStorage.getItem('providerOrclient'))
         if (check && this.token) {
             this.$store.commit('changeRole', { 'selected': check })

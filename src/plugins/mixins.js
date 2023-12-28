@@ -317,6 +317,8 @@ const mixin = {
           window.store.commit("auth/CLEAR_TOKEN");
           window.store.commit("auth/CLEAR_USER");
           window.store.commit("chat/SET_MESSAGES", []);
+          localStorage.removeItem('providerOrclient')
+          this.$router.push({name: 'index'})
 
           if (this.$router.mode == "history") this.refreshPage();
           //this.$router.push({ name: 'login', params: { lang: this.$i18n.locale } })

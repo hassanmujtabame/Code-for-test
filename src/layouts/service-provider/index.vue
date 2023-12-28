@@ -1,6 +1,6 @@
 <template>
   <div>
-    <template v-if="user">
+    <template v-if="token && user">
       <localHeader />
       <MyDrawer :dashboard="'service-provider-dashboard'" />
     </template>
@@ -12,8 +12,8 @@
       <slot></slot>
     </main>
     <SectSubscribe />
-    <AddServiceDialog />
-    <AddProposalDialog />
+    <AddServiceDialog v-if="token" />
+    <AddProposalDialog v-if="token" />
     <DefaultFooter />
 
     <faqBtn />
