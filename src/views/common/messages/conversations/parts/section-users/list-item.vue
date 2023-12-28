@@ -2,16 +2,15 @@
     <div @click="selectItem" class="chat-users__item" :class="{ 'chat-users__item-selected': selected }">
         <div class="chat-users__item-wrapper">
             <avatarChat class="chat-users__item-avatar" :image="item.user_image" :name="item.user_name"
-                :userId="item.user_id" 
-                :dir="$i18n.locale == 'ar' ? 'left' : 'right'"
-                status="online"
-                >
+                :userId="item.user_id" :dir="$i18n.locale == 'ar' ? 'left' : 'right'" status="online">
             </avatarChat>
             <div class="chat-users__item-info">
                 <div class="chat-users__item-title">{{ item.user_name }}</div>
                 <div class="chat-users__item-subtitle">{{ item.message }}</div>
             </div>
-            <div class="chat-users__item-time"> <showTime :dateTime="item.datetime" /> </div>
+            <div class="chat-users__item-time">
+                <showTime :dateTime="item.datetime" />
+            </div>
         </div>
     </div>
 </template>
@@ -60,14 +59,14 @@ export default {
     /*border-bottom: 1px solid #f6f8f9;*/
     width: 100%;
     cursor: pointer;
-   
-background: rgba(240, 240, 251, 0.0001);
-border-radius: 5px;
+
+    background: rgba(240, 240, 251, 0.0001);
+    border-radius: 5px;
 }
 
 .chat-users__item-selected {
-    background: rgba(31, 185, 179,10%);
-  
+    background: rgba(31, 185, 179, 10%);
+
 }
 
 .chat-users__item-wrapper {
@@ -81,12 +80,14 @@ border-radius: 5px;
     height: 40px;
     border-radius: 50%;
 }
-.chat-users__item-avatar>img{
-    width:100%;
-    height:100%;
+
+.chat-users__item-avatar>img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 50%;
 }
+
 .chat-users__item-avatar,
 .chat-users__item-time {
     flex-shrink: 0;
@@ -131,4 +132,5 @@ border-radius: 5px;
     line-height: 15px;
     font-weight: 400;
     color: #737373
-}</style>
+}
+</style>

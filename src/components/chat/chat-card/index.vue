@@ -35,7 +35,7 @@
 
 <script>
 import userAPI from '@/services/api/user';
-import GroupMsg from './group-msg'
+import GroupMsg from './group-msg.vue'
 import { mapGetters } from 'vuex';
 import mixinChat from '@/common/mixins/mixin-chat.vue';
 import showDivider from '@/components/chat/chat-card/divider-chat.vue'
@@ -96,7 +96,6 @@ export default {
         date,
         messages: groupedMessages[date].reverse()
       }));
-      console.log(r)
       return r
     },
 
@@ -105,24 +104,27 @@ export default {
       // Filter the messages
       let filteredMessages = this.$store.getters['chat/messages']
         .filter(c =>
-          (c.receiver_id === this.item.id && c.sender_id === this.user.id) ||
-          (c.sender_id === this.item.id && c.receiver_id === this.user.id)
+          (c.receiver_id == this.item.id && c.sender_id == this.user.id) 
+          ||
+          (c.sender_id == this.item.id && c.receiver_id == this.user.id)
         )
-        .sort((a, b) => (a.created_at > b.created_at ? -1 : 1));
+        .sort((a, b) => (a.created_at > b.created_at ? 1 : -1)); // Update sorting logic
 
       // Assign the filtered messages
-      this.messages = filteredMessages;
+      this.messages = filteredMessages.reverse();
+      console.log('fromLoad', this.messages)
 
       // Process the filtered messages after assigning them
       this.messages.forEach(msg =>
         this.addMsgLoadByDate(msg, this.item.image, this.item.name)
       );
 
-      console.log('filtered', this.messages);
+      // Scroll to the bottom of the chat window
       this.$nextTick(() => {
         window.$("#" + this.group).animate({ scrollTop: document.getElementById(this.group).scrollHeight }, "fast");
       });
     },
+
 
     async sendMessage(evt) {
       if (evt) evt.preventDefault();
@@ -215,7 +217,7 @@ export default {
   },
   mounted() {
     this.itemForm.to_user_id = this.$route.params.id
-    console.log('id', this.$route.params.id);
+    // console.log('id', this.$route.params.id);
     //this.audio = new Audio()
     if (this.$refs['myaudio']) {
       this.$refs.myaudio.addEventListener('loadedmetadata', this.onloadedmetadata);

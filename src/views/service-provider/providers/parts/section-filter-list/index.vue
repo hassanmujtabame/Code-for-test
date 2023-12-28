@@ -37,7 +37,7 @@
 
             <template v-slot="{ item }">
                 <router-link class="router-link" :to="getRouteLocale('service-provider-show-profile', { id: item.id })">
-                    <cardInfoVue :name="item.name" :bio="item.bio" :job="item.job" :image="item.image" :rate="item.rate" />
+                    <cardInfoVue :providerId="item.id" :name="item.name" :bio="item.bio" :job="item.job" :image="item.image" :rate="item.rate" />
                 </router-link>
             </template>
 

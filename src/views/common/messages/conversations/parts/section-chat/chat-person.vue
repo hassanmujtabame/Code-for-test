@@ -101,7 +101,11 @@ export default {
   methods: {
     loadMsgsFromStore() {
       this.messages = []
-      this.$store.getters['chat/messages'].filter(c => (c.receiver_id == this.item.user_id && c.sender_id == this.user.id) || (c.sender_id == this.item.user_id && c.receiver_id == this.user.id)).sort((a, b) => { return a.created_at > b.created_at ? -1 : 1 }).forEach(msg => this.addMsgLoadByDate(msg, this.item.user_image, this.item.user_name))
+      this.$store.getters['chat/messages']
+      .filter(c => (c.receiver_id == this.item.user_id && c.sender_id == this.user.id) 
+      || (c.sender_id == this.item.user_id && c.receiver_id == this.user.id))
+      .sort((a, b) => { return a.created_at > b.created_at ? -1 : 1 })
+      .forEach(msg => this.addMsgLoadByDate(msg, this.item.user_image, this.item.user_name))
       this.$nextTick(() => {
         window.$('#chat-view').animate({ scrollTop: document.getElementById('chat-view').scrollHeight }, "fast");
       })
@@ -292,4 +296,5 @@ export default {
   width: 48px;
   height: 48px;
   border: none;
-}</style>
+}
+</style>
