@@ -23,7 +23,7 @@
                                       <!--append-icon-->
                             <div class="">
                                 <button @click="saveTitle" :disabled="invalid || saving" class="btn no-border" :class="{'c-save':!invalid,'t-c':invalid}" >
-                                    <i v-if="!saving" class="fa fa-floppy-disk"></i>
+                                    <i v-if="!saving" class="fa fa-floppy-disk fs-2"></i>
                                     <i v-else class="fa fa-spinner fa-spin"></i>
                                 </button>
                             </div>

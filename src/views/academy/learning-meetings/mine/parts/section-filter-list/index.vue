@@ -43,6 +43,7 @@ export default {
     },
     methods: {
         addItem() {
+            this.loadCurrentUser()
             if (!this.user.statusInstructor) {
                 window.errorMsg("لم يفعل حسابك بعد !");
             } else {

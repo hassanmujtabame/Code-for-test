@@ -21,7 +21,7 @@
     </div>
     <div class="chat-conversation__body chat-view" id="chat-view">
 
-      <div v-for="(dateMsg, i) in Object.keys(messages).reverse()" :key="i" :chatter="chatter">
+      <div v-for="(dateMsg, i) in Object.keys(messages).reverse()" :key="i">
         <showDivider :text="dateMsg" isDate></showDivider>
         <showMsg v-for="(chatter, j) in messages[dateMsg]" :key="`chatters${j}`" :chatter="chatter">
 
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import showMsg from '@/components/chat/chat-card/group-msg.vue'
+import showMsg from './group-msg.vue'
 import userAPI from '@/services/api/user';
 import { mapGetters } from 'vuex';
 import mixinChat from '@/common/mixins/mixin-chat.vue';

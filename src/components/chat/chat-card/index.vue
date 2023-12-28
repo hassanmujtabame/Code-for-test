@@ -18,9 +18,6 @@
           <GroupMsg v-for="(chatter, j) in dateMsg.messages" :key="`chatters${j}`" :chatter="chatter" />
         </div>
       </div>
-      <div v-else>
-        No messages available.
-      </div>
     </div>
 
     <div class="card-footer text-muted d-flex justify-content-start align-items-center">

@@ -69,7 +69,7 @@
                         <button  class="btn bg-custmer" :disabled="invalid || saving"  @click="save" role="button">
                           <i v-if="saving" class="fa fa-spinner fa-spin"></i>
                        
-                          <i v-else class="fa fa-floppy-disk"></i>
+                          <i v-else class="fa fa-floppy-disk fs-2"></i>
                           {{ $t('save') }}
                         </button>
                     </div>

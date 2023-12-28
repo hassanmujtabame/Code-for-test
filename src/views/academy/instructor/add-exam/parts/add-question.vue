@@ -36,7 +36,7 @@
                 <button v-if="selectedIndex===false" @click="addOption" class="btn h-100"><i    class="m-c fa  fa-circle-plus clickable"></i></button>
                 <template v-else>
                 <button  @click="updateOption" class="btn h-100">
-                    <i  style="color:blue"  class=" fa  fa-floppy-disk clickable"></i>
+                    <i  style="color:blue"  class=" fa  fa-floppy-disk fs-2 clickable"></i>
                 </button>
                 <button  @click="cancelUpdateOption" class="btn h-100">
                    
