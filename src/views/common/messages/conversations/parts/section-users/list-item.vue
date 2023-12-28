@@ -9,7 +9,7 @@
                 <div class="chat-users__item-subtitle">{{ item.message }}</div>
             </div>
             <div class="chat-users__item-time">
-                <showTime :dateTime="item.datetime" />
+                <showTime :dateTime="item.created_at" />
             </div>
         </div>
     </div>
