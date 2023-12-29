@@ -1,10 +1,10 @@
 
 import BaseApi from "../base-service";
 import coursesApi from "./courses";
-import lecturesAPI from "./lectures";
+import lecturesAPI from "./lectures.js";
 import projectsApi from "./project";
 import examsAPI from "./exams";
-import meetings from "./meetings";
+import meetings from "./meetings.js";
 import instructor from "./instructor";
 import student from "./student";
 import blogs from "../blogs";

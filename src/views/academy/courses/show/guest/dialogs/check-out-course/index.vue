@@ -1,7 +1,7 @@
 <template>
   <div :group="group" title="تفاصيل الدفع" hideAmount :do-payment="payment">
     <template >
-      <div v-if="dialog" class="d-flex flex-wrap gap-2">
+      <div v-if="showDialog" class="d-flex flex-wrap gap-2">
         <div>
           <svg width="133" height="67" viewBox="0 0 133 67" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect opacity="0.1" width="133" height="67" rx="4" fill="#1FB9B3" />

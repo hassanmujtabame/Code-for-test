@@ -305,4 +305,5 @@ export default {
 .label-disabled .m-c {
   color: var(--b-color) !important;
   border-color: var(--b-color);
-}</style>
+}
+</style>
