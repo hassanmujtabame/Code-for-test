@@ -97,7 +97,6 @@ export default {
     SectionCommonQuistions,
   },
   mounted() {
-    console.log('ad', this.user)
   }
 };
 </script>

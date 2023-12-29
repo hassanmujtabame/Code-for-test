@@ -1,6 +1,6 @@
 <template>
   <div>
-    <template v-if="token && user">
+    <template v-if="token && user && userIsRoleProvider != ''">
       <localHeader />
       <MyDrawer :dashboard="'service-provider-dashboard'" />
     </template>
@@ -63,6 +63,9 @@ export default {
     graduateRiadiatFirstStep,
     graduateRiadiatFirstSecond,
     faqBtn
+  },
+  userIsRoleProvider() {
+    return this.$store.state.clientOrProvider
   }
 }
 </script>

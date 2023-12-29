@@ -7,25 +7,25 @@
                 </h1>
                 <form-wizard color="#2eb9b3" step-size="xs" @on-complete="save" ref="normalSteps" nextButtonText="التالى"
                     backButtonText="السابق" finishButtonText="الانتهاء">
-                    <tab-content  title=" التعريف">
+                    <tab-content title=" التعريف">
                         <!-- <Step1 /> -->
                         <div>
                             <ValidationObserver>
                                 <!-- Start job title -->
                                 <ValidationProvider vid="job-position-name" rules="required" :name="$t('job-position-name')"
                                     v-slot="{ errors }" tag="div" class="mb-3">
-                                    <b-form-input v-model="form.job_title" type="text" :placeholder="$t('job-position-name')"
-                                        required />
+                                    <b-form-input v-model="form.job_title" type="text"
+                                        :placeholder="$t('job-position-name')" required />
                                     <div class="text-input-error">{{ errors[0] }}</div>
                                 </ValidationProvider>
                                 <!-- End job title -->
-    
-    
+
+
                                 <!-- Start the-services-you-offer 'الخدمات التى تقدمها'-->
                                 <span class="mb-2">
-                                    
+
                                     الخدمات التى تقدمها
-    
+
                                 </span>
                                 <!-- category -->
                                 <div class="mb-3">
@@ -41,17 +41,18 @@
                                 </div>
                                 <!--field-->
                                 <div class="mb-3">
-                                    <ValidationProvider tag="div" :name="$t('specialite')" vid="service_id" v-slot="{ errors }">
+                                    <ValidationProvider tag="div" :name="$t('specialite')" vid="service_id"
+                                        v-slot="{ errors }">
                                         <option disabled value class="t-c">{{ $t('select-specialite') }}</option>
                                         <MultiselectInput :errors="errors" :opts="fields" track-id="id" label-name="name"
                                             v-model="form.service_id" multi-select />
-    
+
                                     </ValidationProvider>
                                 </div>
                                 <!-- End the-services-you-offer -->
-    
+
                                 <!-- Start the-services-you-offer -->
-    
+
                                 <ValidationProvider :name="$t('skills-you-have')" vid="skills" rules="required"
                                     v-slot="{ errors }">
                                     <label class="form-label">{{ $t('skills-you-have') }}</label>
@@ -73,7 +74,7 @@
                                 <!-- Start pio -->
                                 <br>
                             </ValidationObserver>
-    
+
                         </div>
                     </tab-content>
                     <tab-content title="الخبرات">
@@ -83,13 +84,13 @@
                                 <!-- عدد سنوات الخبره -->
                                 <ValidationProvider vid="عدد سنوات الخبره" rules="required" :name="'عدد سنوات الخبره'"
                                     v-slot="{ errors }" tag="div" class="mb-3">
-                                    <b-form-input type="text" v-model="form.experience_year" :placeholder="'عدد سنوات الخبره'"
-                                        required />
+                                    <b-form-input type="text" v-model="form.experience_year"
+                                        :placeholder="'عدد سنوات الخبره'" required />
                                     <div class="text-input-error">{{ errors[0] }}</div>
                                 </ValidationProvider>
                                 <!-- عدد سنوات الخبره -->
-    
-    
+
+
                                 <!-- مكان او جهة العمل -->
                                 <ValidationProvider vid=" مكان او جهة العمل " rules="required" :name="' مكان او جهة العمل '"
                                     v-slot="{ errors }" tag="div" class="mb-3">
@@ -100,7 +101,7 @@
                                 <!-- End the-services-you-offer -->
                             </ValidationObserver>
                             <br>
-    
+
                         </div>
                     </tab-content>
                     <tab-content title="التعليم">
@@ -110,11 +111,11 @@
                                 <!-- الجهة التعيلمية -->
                                 <ValidationProvider vid="الجهة التعيلمية" rules="required" :name="'الجهة التعيلمية'"
                                     v-slot="{ errors }" tag="div" class="mb-3">
-                                    <b-form-input v-model="form.Educational_body" type="text" :placeholder="'الجهة التعيلمية'"
-                                        required />
+                                    <b-form-input v-model="form.Educational_body" type="text"
+                                        :placeholder="'الجهة التعيلمية'" required />
                                     <div class="text-input-error">{{ errors[0] }}</div>
                                 </ValidationProvider>
-    
+
                                 <!-- الدرجة التعليمية -->
                                 <ValidationProvider vid="الدرجة التعليمية" rules="required" :name="'الدرجة التعليمية'"
                                     v-slot="{ errors }" tag="div" class="mb-3">
@@ -122,17 +123,17 @@
                                         required />
                                     <div class="text-input-error">{{ errors[0] }}</div>
                                 </ValidationProvider>
-    
+
                                 <!--  سنة التخرج -->
-                                <ValidationProvider vid="سنة التخرج" rules="required" :name="'سنة التخرج'" v-slot="{ errors }"
-                                    tag="div" class="mb-3">
+                                <ValidationProvider vid="سنة التخرج" rules="required" :name="'سنة التخرج'"
+                                    v-slot="{ errors }" tag="div" class="mb-3">
                                     <b-form-input v-model="form.graduation_year" type="text" :placeholder="'سنة التخرج'"
                                         required />
                                     <div class="text-input-error">{{ errors[0] }}</div>
                                 </ValidationProvider>
                             </ValidationObserver> <br>
-    
-    
+
+
                         </div>
                     </tab-content>
                     <tab-content title="معرض الاعمال">
@@ -147,9 +148,9 @@
                                     <div class="text-input-error">{{ errors[0] }}</div>
                                 </ValidationProvider>
                                 <!-- file -->
-    
+
                                 <div class="input-file">
-    
+
                                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -159,31 +160,31 @@
                                     <label for="fileInput" class="custom-file-upload" v-text="buttonText">
                                     </label>
                                     <input id="fileInput" type="file" @change="handleFileUpload" ref="fileInput" />
-    
+
                                 </div>
                                 <br>
-    
+
                             </ValidationObserver>
-    
+
                         </div>
                     </tab-content>
                     <tab-content title="الشهادات">
                         <!-- <Step5 /> -->
                         <div>
                             <ValidationObserver>
-                                <ValidationProvider vid="اسم الشهادة" rules="required" :name="'اسم الشهادة'" v-slot="{ errors }"
-                                    tag="div" class="mb-3">
+                                <ValidationProvider vid="اسم الشهادة" rules="required" :name="'اسم الشهادة'"
+                                    v-slot="{ errors }" tag="div" class="mb-3">
                                     <b-form-input v-model="form.certificate_name" type="text" :placeholder="'اسم الشهادة'"
                                         required />
                                     <div class="text-input-error">{{ errors[0] }}</div>
                                 </ValidationProvider>
-    
-                                <ValidationProvider vid="جهة الإصدار" rules="required" :name="'جهة الإصدار'" v-slot="{ errors }"
-                                    tag="div" class="mb-3">
+
+                                <ValidationProvider vid="جهة الإصدار" rules="required" :name="'جهة الإصدار'"
+                                    v-slot="{ errors }" tag="div" class="mb-3">
                                     <b-form-input v-model="form.issuer" type="text" :placeholder="'جهة الإصدار'" required />
                                     <div class="text-input-error">{{ errors[0] }}</div>
                                 </ValidationProvider>
-    
+
                                 <ValidationProvider vid="رابط أو كود التوثيق" rules="required" :name="'رابط أو كود التوثيق'"
                                     v-slot="{ errors }" tag="div" class="mb-3">
                                     <b-form-input v-model="form.certificate_url" type="text"
@@ -191,9 +192,9 @@
                                     <div class="text-input-error">{{ errors[0] }}</div>
                                 </ValidationProvider>
                                 <br>
-    
+
                             </ValidationObserver>
-    
+
                         </div>
                     </tab-content>
                 </form-wizard>
@@ -301,30 +302,12 @@ export default {
             }
         },
         async save() {
-            console.log('form1',this.form)
+            console.log('form1', this.form)
             this.loading = true;
             let formData = new FormData();
             Object.keys(this.form).forEach(key => {
-            formData.append(key, this.form[key]);
+                formData.append(key, this.form[key]);
             });
-            // formData = {
-            //     file: this.form.file,
-            //     service_id: this.form.service_id,
-            //     category_id: this.form.category_id,
-            //     job_title: this.form.job_title,
-            //     bio: this.form.bio,
-            //     portfolio_url: this.form.portfolio_url,
-            //     experience_year: this.form.experience_year,
-            //     Workplace: this.form.Workplace,
-            //     Educational_body: this.form.Educational_body,
-            //     degree: this.form.degree,
-            //     graduation_year: this.form.graduation_year,
-            //     skills: [this.form.skills],
-            //     issuer: [this.form.issuer],
-            //     certificate_url: [this.form.certificate_url],
-            //     certificate_name: [this.form.certificate_name],
-            // }
-            // console.log('form2', formData)
 
             try {
                 let { data } = await providerAPIs.createProfile(formData);

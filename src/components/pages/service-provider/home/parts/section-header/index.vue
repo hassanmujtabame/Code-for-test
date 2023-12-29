@@ -25,7 +25,7 @@
 
                 <div class="col-3 col-md-6 m-auto d-none d-lg-block d-xl-block">
                     <div style="overflow: inherit;" class="m-auto d-flex justify-content-end">
-                        <img src="@/assets/img/service_provider_header.png" alt=""
+                        <img src="@/assets/img/ex1.png" alt=""
                             style="height: 256px !important; object-fit: contain !important;">
                     </div>
                 </div>
