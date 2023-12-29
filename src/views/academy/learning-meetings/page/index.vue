@@ -61,10 +61,13 @@
           </div>
           <div class="col-md-6">
             <div>
-              <iframe v-if="itemPage.video" height="384" class="rounded-3 w-100 " :src="itemPage.video + '?title=0&&byline=0&&portrait=0'"
-                :title="itemPage.title" frameborder="0" sandbox="allow-same-origin allow-scripts"
+              <!-- <iframe id="vimeoPlayer" v-if="itemPage.video" height="384" class="rounded-3 w-100 "
+                :src="itemPage.video + '?title=0&&byline=0&&portrait=0'" :title="itemPage.title" frameborder="0"
+                sandbox="allow-same-origin allow-scripts"
                 allow="payment 'none';camera 'none';microphone 'none';accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                allowfullscreen></iframe> -->
+              <iframe id="vimeoPlayer" v-if="itemPage.video" height="384" class="rounded-3 w-100 "
+                :src="itemPage.video + '?title=0&&byline=0&&portrait=0'" :title="itemPage.title" allowfullscreen></iframe>
               <img :src="itemPage.image" v-else class="border rounded-3 w-100 " height="384" :alt="itemPage.title" />
             </div>
           </div>
@@ -151,6 +154,8 @@ export default {
   },
   data: (vm) => {
     return {
+      videoId: null,
+      videoStatus: null,
       isJoined: false,
       isOwner: false,
       join_meeting: false,
@@ -234,7 +239,7 @@ export default {
       try {
         let { data } = await instructorMeetingsAPI.deleteItem(item.id)
         if (data.success) {
-          this.$router.push({name: 'academy-instructor-my-meetings'})
+          this.$router.push({ name: 'academy-instructor-my-meetings' })
         } else {
           window.SwalError(data.message)
         }
@@ -267,7 +272,7 @@ export default {
       this.loading = false;
     },
     checkSubscriptionOptions() {
-      if(this.user && this.user.subscription_options){
+      if (this.user && this.user.subscription_options) {
         for (let index = 0; index < this.user.subscription_options.length; index++) {
           const element = this.user.subscription_options[index];
           if (element.key == "show_meetings") {
@@ -275,13 +280,65 @@ export default {
           }
         }
       }
-    }
+    },
+    // checkVideoAvailable() {
+    //   const iframe = document.getElementById('vimeoPlayer');
+    //   iframe.onload = () => {
+    //     const iframeDocument = iframe.contentWindow.document;
+    //     const playerElement = iframeDocument.getElementById('player');
+    //     if (playerElement) {
+    //       console.log("Found player element:", playerElement);
+    //     } else {
+    //       console.log("Player element not found within the iframe.");
+    //     }
+    //   };
+    // }
+    extractVideoId(url) {
+      const vimeoUrl = url.trim(); // Remove leading/trailing spaces
+
+      // Regex pattern to match Vimeo video URLs
+      const vimeoRegex = /(?:https?:\/\/)?(?:www\.)?vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|video\/|)(\d+)(?:|\/\?)/;
+
+      // Match the Vimeo video ID using the regex pattern
+      const match = vimeoUrl.match(vimeoRegex);
+
+      if (match && match.length >= 2) {
+        const videoId = match[2]; // Extracted Vimeo video ID
+        console.log('Extracted Video ID:', videoId);
+        this.videoId = videoId
+        return videoId
+        // You can use the extracted videoId in your logic here
+      } else {
+        console.log('Invalid Vimeo URL or no ID found.');
+        // Handle invalid URL or no ID found
+      }
+    },
+    // async checkVideoValidity() {
+    //   const videoId = this.extractVideoId(this.itemPage.video); // Replace with your Vimeo video ID
+    //   const apiUrl = `https://vimeo.com/api/v2/video/${videoId}.json`;
+
+    //   try {
+    //     const response = await axios.get(apiUrl);
+    //     // Check if the response contains valid video data
+    //     if (response && response.data && response.data.length > 0) {
+    //       console.log('Video exists:', response.data[0]);
+    //       // You can handle the existence of the video here
+    //     } else {
+    //       console.log('Video does not exist or response data is empty.');
+    //       // Handle non-existing video
+    //     }
+    //   } catch (error) {
+    //     console.error('Error fetching video data:', error);
+    //     // Handle error (e.g., network issue or invalid request)
+    //   }
+    // },
 
   },
   mounted() {
     this.checkSubscriptionOptions()
     this.initializing()
     this.shareLink = window.location.href;
+
   }
 }
 </script>
