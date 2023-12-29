@@ -9,7 +9,7 @@
     tabindex="-1"
   >
     <div
-      class="modal-dialog" style="max-width: 700px !important"
+      class="modal-dialog" 
       :class="{'modal-xl':xl&&!mlg,'modal-lg':mlg,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen,
         [dynamicTextClass]: true
     }"

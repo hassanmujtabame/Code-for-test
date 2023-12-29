@@ -28,7 +28,7 @@
               </div>
               <div class="w-100 h-100 top-0 left-0 position-absolute">
                 <!-- <video id="video-add-lecture-player" :src="video" controls></video> -->
-                <iframe id="video-add-lecture-player"  allowfullscreen class="bg-black rounded-3" :src="video + '?title=0&&byline=0&&portrait=0'" ></iframe>
+                <iframe id="video-add-lecture-player"   allowfullscreen class="bg-black rounded-3" :src="video + '?title=0&&byline=0&&portrait=0'" ></iframe>
 
               </div>
 
