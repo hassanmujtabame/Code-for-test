@@ -4,9 +4,7 @@
       {{ itemDialog.id ? $t("meeting-modification") : $t("add-meeting") }}
     </template>
     <template v-slot:default>
-      <p class="t-c fs-r-16-24" v-if="itemForm.type == 'recored'">
-        يمكنك رفع فيديو تعليمي لمدة ساعة
-      </p>
+
       <div v-if="showDialog" ref="form" tag="div">
         <ValidationObserver class="form-step" ref="form1" id="form-step-1" v-show="step == 1">
           <!--meeting-type-->
@@ -108,12 +106,19 @@
               </div>
             </div>
           </ValidationProvider>
-          <ValidationProvider v-if="itemForm.type == 'recored'" tag="div" :name="$t('lecture-video')" vid="video"
-            :rules="videoRules" v-slot="{ errors, validate }">
+        </ValidationObserver>
+        <!-- form 3 -->
+        <ValidationObserver ref="form-video" v-slot="{ invalid }" class="form-step" v-show="step == 3">
+          <!-- <p class="t-c fs-r-16-24">
+            يمكنك رفع فيديو تعليمي لمدة ساعة
+          </p> -->
+          <!-- add video -->
+          <ValidationProvider v-if="itemForm.type == 'recored' && step == 3" tag="div" :name="$t('lecture-video')"
+            vid="video" rules="required|ext:mp4" v-slot="{ errors, validate }">
             <div class="add-lecture-video position-relative">
-              <d-overlays-simple v-if="loading" />
+              <!-- <d-overlays-simple v-if="videoing" /> -->
 
-              <label for="imginput" class="form-label file-label first w-100">
+              <label for="video-add-lecture" :style="{ 'pointer-events': videoing ? 'none' : 'auto', 'cursor': videoing ? 'progress' : 'pointer' }" class="form-label file-label first w-100">
                 <div class="text-center p-5">
                   <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -133,17 +138,31 @@
                       fill="#1FB9B3" />
                   </svg>
 
-                  <p class="m-c">أضغط هنا لرفع فيديو اللقاء</p>
-                  <p class="t-c">لن يتم رفع أي فيديو يتعدي ال5 جيجا</p>
+
+                  <p class="m-c">أضغط هنا لرفع فيديو اللقاء </p>
+                  <p class="t-c">لن يتم رفع أي فيديو يتعدي ال 5 جيجا</p>
+
                 </div>
                 <div class="w-100 h-100 top-0 left-0 position-absolute">
                   <video id="video-add-lecture-player" src="none"></video>
                 </div>
-                <input name="video" @change="uploadVideo($event, validate) || validate($event)"
-                  class="form-control hidden-file-input" type="file" id="video-add-lecture" />
+                <input  v-show="itemForm.meeting_id" @change="uploadVideo($event, validate) || validate($event)"
+                  class="form-control hidden-file-input" type="file" id="video-add-lecture">
               </label>
+
             </div>
             <d-error-input :errors="errors" v-if="errors && errors.length > 0" />
+            <div class="w-100 text-center mt-2">
+              <button @click="saveVideo" :disabled="invalid || videoing || !itemForm.video" class="btn btn-custmer">
+                <i v-if="!videoing" class="fa fa-upload"></i>
+                <i v-else>
+                  {{ percentVideo }} %
+                </i>
+                {{ $t('upload-video') }}
+              </button>
+              <button v-if="itemForm.video && false" @click="emptyVideo()" class="btn btn-custmer bg-danger">{{
+                $t('clear-video') }}</button>
+            </div>
           </ValidationProvider>
         </ValidationObserver>
       </div>
@@ -151,11 +170,11 @@
 
     <template v-slot:actions>
       <!-- <button :disabled="step==1 || loading"  @click="prevStep" class="btn bg-main btn-danger text-white px-3" >رجوع</button> -->
-      <button :class="{ 'btn-non': step == 1 || loading }" @click="prevStep"
+      <button v-if="step != 3" :class="{ 'btn-non': step == 1 || loading }" @click="prevStep"
         class="btn bg-main btn-danger text-white px-3">
         رجوع
       </button>
-      <button @click="save" :disabled="loading" class="btn bg-main text-white px-3">
+      <button v-if="step != 3" @click="save" :disabled="loading" class="btn bg-main text-white px-3">
         <i v-if="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
         أستمر
       </button>
@@ -181,6 +200,8 @@ export default {
     //let types = commonAPI.getMeetingTypes();
     let course_types = commonAPI.getCourseTypes();
     return {
+      videoing: false,
+      percentVideo: 0,
       types: course_types,
       step: 1,
       showDialog: false,
@@ -252,6 +273,13 @@ export default {
         .css("display", this.itemDialog.video ? "block" : "none");
       this.itemForm.video = null;
     },
+    emptyVideo() {
+      console.mylog('emptyVideo', this.itemDialog.video)
+      window.$('#video-add-lecture-player')
+        .attr('src', this.itemDialog.video ?? 'none')
+        .css('display', this.itemDialog.video ? 'block' : 'none');
+      this.itemForm.video = null;
+    },
     async uploadVideo(evt, validate) {
       this.makeVideoEmpty();
       if (validate) {
@@ -265,32 +293,77 @@ export default {
         this.makeVideoEmpty();
         return;
       }
-
-      const videoFile = evt.target.files[0];
-      const formData = new FormData();
-      formData.append('video', videoFile);
-
-      const config = {
-        onUploadProgress: progressEvent => {
-          const percentCompleted = Math.round(
-            (progressEvent.loaded * 100) / progressEvent.total
-          );
-          // Update the progress percentage in your Vue component's data
-          // For example, if you have a variable named 'uploadProgress':
-          this.uploadProgress = percentCompleted; // Update 'uploadProgress' with the percentage
-          console.log('hhh', percentCompleted)
-        }
+      this.itemForm.video = evt.target.files[0];
+      var reader = new FileReader();
+      reader.onload = (e) => {
+        //console.log('result',e,this.idImage)
+        window
+          .$("#video-add-lecture-player")
+          .attr("src", e.target.result)
+          .css("display", "block");
       };
-
-      // Example using Axios for the upload - replace this with your upload method
-      try {
-        const response = await academyAPI.uploadVideo(formData, config);
-        // Handle the response as needed
-      } catch (error) {
-        // Handle errors
-      }
+      reader.readAsDataURL(this.itemForm.video);
     },
+    async saveVideo() {
+      this.percentVideo = 0
+      this.videoing = true;
+      let valid = await this.$refs['form-video'].validate();
+      if (!valid) {
+        this.videoing = false;
+        return;
+      }
+      let formData = new FormData();
+      formData.append('video', this.itemForm.video)
 
+      let config = {
+        onUploadProgress: progressEvent => {
+
+          const { loaded, total } = progressEvent;
+          this.percentVideo = Math.floor((loaded * 100) / total);
+          /*if (percent < 100) {
+            console.log(`${loaded} bytes of ${total} bytes. ${percent}%`);
+          }*/
+        }
+      }
+      try {
+        console.log('started', this.itemForm.meeting_id, this.itemForm.video)
+        let { data } = await academyAPI.meetingsAPI.addVideo(this.itemForm.meeting_id, formData, config)
+        if (data.success) {
+          this.itemDialog.video = data.data.video;
+          this.emptyVideo()
+          console.log('addedVideo', data)
+          this.closeEvent();
+          let dataEvt = {
+            title: "تم رفع اللقاء الخاص بك سيتم مراجعة اللقاء و نشره على الفور",
+            btns: [
+              {
+                title: "عرض لقاءاتك",
+                action: () => this.closeDialog(),
+              },
+            ]
+          };
+          // if (this.itemForm.id) {
+          //   dataEvt = {
+          //     title: "تم تعديل اللقاء  بنجاح ",
+          //   };
+          // }
+          this.showSuccessMsg(dataEvt);
+
+        } else {
+          window.SwalError(data.message)
+        }
+
+      } catch (error) {
+        console.mylog('error', error)
+        if (error.response) {
+          let response = error.response
+          if (response.status == 422) {
+            this.setErrorsForm(this.$refs.form, response)
+          }
+        }
+      }
+      this.videoing = false;
+    },
     async saveStep1() {
       let valid = await this.$refs.form1.validate(["number_day"]);
       if (!valid) {
@@ -316,16 +389,21 @@ export default {
             formData
           )
           : await academyAPI.instructor.meetingsAPI.addItem(formData);
+        if (data.success && this.itemForm.type == 'recored' && !this.itemForm.video) {
+          this.step = 3
+          this.itemForm.meeting_id = data.data.meeting_id
+          console.log('step is now 3', data.data)
+          return
+        }
         if (data.success) {
-          console.log('gg', this.itemForm)
           this.closeEvent();
           //redirect to course page
           let dataEvt = {
             title: "تم رفع اللقاء الخاص بك سيتم مراجعة اللقاء و نشره على الفور",
             btns: [
               {
-                title: "عرض اللقاء",
-                action: () => this.$router.push({ name: 'academy-learning-meeting-show', params: { id: data.data.meeting_id } }),
+                title: "عرض لقاءاتك",
+                action: () => this.closeDialog(),
               },
             ]
           };
@@ -346,6 +424,9 @@ export default {
         }
       }
     },
+
+
+
     async save() {
       if (this.step == 1) {
         await this.saveStep1();
@@ -365,11 +446,9 @@ export default {
         //
       }
     },
-    changeInput(evt) {
-      console.mylog("dds", evt);
-    },
 
     closeEvent() {
+
       this.fireCloseDialog(this.group);
     },
     openDialog(dataEvt) {

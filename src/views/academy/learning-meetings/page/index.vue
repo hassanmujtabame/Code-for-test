@@ -61,7 +61,6 @@
           </div>
           <div class="col-md-6">
             <div>
-
               <iframe v-if="itemPage.video" height="384" class="rounded-3 w-100 " :src="itemPage.video"
                 :title="itemPage.title" frameborder="0" sandbox="allow-same-origin allow-scripts"
                 allow="payment 'none';camera 'none';microphone 'none';accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -158,10 +157,7 @@ export default {
       loading: true,
       hasError: false,
       colors: ['#F2631C', '#FFBC00', '#2C98B3'],
-      itemPage: {
-
-        video: 'https://www.youtube.com/embed/dGG9pWXS3ZQ'
-      },
+      itemPage: {},
       items: [],
       shareLink: '',
       itemTest: {
@@ -238,7 +234,7 @@ export default {
       try {
         let { data } = await instructorMeetingsAPI.deleteItem(item.id)
         if (data.success) {
-          this.router_push('academy-my-meetings')
+          this.$router.push({name: 'academy-instructor-my-meetings'})
         } else {
           window.SwalError(data.message)
         }
@@ -256,6 +252,7 @@ export default {
         let { data } = await meetingsAPI.getItem(this.$route.params.id)
         if (data.success) {
           this.itemPage = data.data;
+          console.log("itemPage tets", data.data)
           this.isJoined = this.itemPage.is_participant
           this.isOwner = this.itemPage.user_info.id == this.user.id
         } else {
@@ -270,10 +267,12 @@ export default {
       this.loading = false;
     },
     checkSubscriptionOptions() {
-      for (let index = 0; index < this.user.subscription_options.length; index++) {
-        const element = this.user.subscription_options[index];
-        if (element.key == "show_meetings") {
-          this.join_meeting = true
+      if(this.user && this.user.subscription_options){
+        for (let index = 0; index < this.user.subscription_options.length; index++) {
+          const element = this.user.subscription_options[index];
+          if (element.key == "show_meetings") {
+            this.join_meeting = true
+          }
         }
       }
     }

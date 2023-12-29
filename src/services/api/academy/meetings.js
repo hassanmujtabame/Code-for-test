@@ -27,6 +27,9 @@ class InstructorMeetingsApi extends BaseApi{
     postCancelJoinMeeting(id){
         return window.axios.post(`network/user-cancel-meeting/`,{meeting_id:id});
     }
+    addVideo(id_meeting,data,config={}){
+        return window.axios.post(`academy/instructor/meeting/${id_meeting}/upload-video`,data,config);
+    }
 }
 
 export default new InstructorMeetingsApi();
