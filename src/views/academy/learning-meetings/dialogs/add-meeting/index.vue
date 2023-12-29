@@ -118,7 +118,9 @@
             <div class="add-lecture-video position-relative">
               <!-- <d-overlays-simple v-if="videoing" /> -->
 
-              <label for="video-add-lecture" :style="{ 'pointer-events': videoing ? 'none' : 'auto', 'cursor': videoing ? 'progress' : 'pointer' }" class="form-label file-label first w-100">
+              <label for="video-add-lecture"
+                :style="{ 'pointer-events': videoing ? 'none' : 'auto', 'cursor': videoing ? 'progress' : 'pointer' }"
+                class="form-label file-label first w-100">
                 <div class="text-center p-5">
                   <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -146,7 +148,7 @@
                 <div class="w-100 h-100 top-0 left-0 position-absolute">
                   <video id="video-add-lecture-player" src="none"></video>
                 </div>
-                <input  v-show="itemForm.meeting_id" @change="uploadVideo($event, validate) || validate($event)"
+                <input v-show="itemForm.meeting_id" @change="uploadVideo($event, validate) || validate($event)"
                   class="form-control hidden-file-input" type="file" id="video-add-lecture">
               </label>
 

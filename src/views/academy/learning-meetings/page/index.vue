@@ -61,7 +61,7 @@
           </div>
           <div class="col-md-6">
             <div>
-              <iframe v-if="itemPage.video" height="384" class="rounded-3 w-100 " :src="itemPage.video"
+              <iframe v-if="itemPage.video" height="384" class="rounded-3 w-100 " :src="itemPage.video + '?title=0&&byline=0&&portrait=0'"
                 :title="itemPage.title" frameborder="0" sandbox="allow-same-origin allow-scripts"
                 allow="payment 'none';camera 'none';microphone 'none';accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>

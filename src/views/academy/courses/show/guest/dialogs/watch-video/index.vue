@@ -28,7 +28,8 @@
               </div>
               <div class="w-100 h-100 top-0 left-0 position-absolute">
                 <!-- <video id="video-add-lecture-player" :src="video" controls></video> -->
-                <iframe id="video-add-lecture-player"   allowfullscreen class="bg-black rounded-3" :src="video + '?title=0&&byline=0&&portrait=0'" ></iframe>
+                <iframe id="video-add-lecture-player" allowfullscreen class="bg-black rounded-3"
+                  :src="video + '?title=0&&byline=0&&portrait=0'"></iframe>
 
               </div>
 
@@ -43,7 +44,7 @@
 </template>
 
 <script>
-import Large from "./large.vue" 
+import Large from "./large.vue"
 export default {
   components: {
     Large
@@ -91,16 +92,17 @@ export default {
       this.fireEvent(this.group + '-close-dialog')
     }
   },
-  mounted(){
+  mounted() {
     console.log('watch called')
   }
 }
 </script>
 
 <style scoped>
-.modal-dialog { 
+.modal-dialog {
   background: red !important;
 }
+
 #video-add-lecture-player {
   position: absolute;
   /*display: none;*/
