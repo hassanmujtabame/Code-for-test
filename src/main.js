@@ -47,6 +47,9 @@ import './plugins/sweetalert2'
 import EventBus from './helper/EventBus';
 import Dhelper from './helper/d-helper';
 import VueSocialSharing from "vue-social-sharing";
+import vueVimeoPlayer from 'vue-vimeo-player'
+
+Vue.use(vueVimeoPlayer)
 
 Vue.use(VueSocialSharing);
 window.timeAgo = new TimeAgo();

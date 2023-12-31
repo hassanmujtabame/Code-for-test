@@ -1,7 +1,14 @@
 <template>
     <div class="academy-player-box">
         <d-overlays-simple v-if="progressing" />
-        <iframe ref="myVideoPreview" allowfullscreen class="bg-black rounded-3 w-100 h-100" :src="lectureSelected.video + '?title=0&&byline=0&&portrait=0'" id="course-video-preview" ></iframe>
+        <!-- <iframe ref="myVideoPreview" allowfullscreen class="bg-black rounded-3 w-100 h-100" :src="lectureSelected.video + '?title=0&&byline=0&&portrait=0'" id="course-video-preview" ></iframe> -->
+        <vimeo-player :options="{
+            title: 0,
+            byline: 0,
+            portrait: 0
+        }" ref="myVideoPreview" style="width: 100%; height: 100%;" :video-id="getVimeoVideoId(lectureSelected.video)"
+            class="bg-black rounded-3">
+        </vimeo-player>
     </div>
 </template>
 <script>
@@ -17,7 +24,7 @@ export default {
             loadedVideo: false,
             currentTime: '00:00',
             play: false,
-            playing: false,
+            play: false,
             pause: false,
             time_duration: 'N/A',
             time_duration_str: 'N/A',
@@ -25,11 +32,22 @@ export default {
         }
     },
     methods: {
+        getVimeoVideoId(url) {
+            // Match Vimeo video ID pattern in the URL
+            const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:player\.)?vimeo\.com\/(?:video\/)?(\d+)(?:.*)?/);
+
+            if (match && match[1]) {
+                return match[1]; // Return the matched Vimeo video ID
+            } else {
+                // Handle cases where the URL doesn't match the expected format
+                return null;
+            }
+        },
         doEvent(data) {
             this.fireEvent('video-tracker-video-events', data)
         },
         doPlay() {
-            if (this.playing)
+            if (this.play)
                 this.videoTag.pause();
             else
                 this.videoTag.play();
@@ -44,10 +62,11 @@ export default {
             /*Fires when the video stops because it needs to buffer the next frame */
         },
         async onEnded() {
-            this.playing = false;
-            this.pause = false;
-            this.play = false;
-            if (this.userAcademyRole !== 'student' || !this.loadedVideo) return;
+            console.log('ended')
+            // this.play = false;
+            // this.pause = false;
+            // this.play = false;
+            if (this.userAcademyRole !== 'student') return;
             this.fireEvent('update-lectures', {
                 item: { ...this.lectureSelected }, type: 'completed'
             })
@@ -65,11 +84,11 @@ export default {
         },
         onProgress() { },
         onPause() {
-            this.playing = false;
+            this.play = false;
             this.pause = true;
         },
-        onPlaying() {
-            this.playing = true;
+        onPlay() {
+            this.play = true;
             this.pause = false;
         },
         onError(evt) {
@@ -93,6 +112,7 @@ export default {
 
         },
         videoListener(evt) {
+            console.log('Event type:', evt.type);
             /** call function */
             let type = evt.type.charAt(0).toUpperCase() + evt.type.slice(1);
             let funcName = 'on' + type;
@@ -106,37 +126,42 @@ export default {
     },
     beforeDestroy() {
         if (this.$refs['myVideoPreview']) {
-            this.$refs.myVideoPreview.removeEventListener('play', this.videoListener);
-            this.$refs.myVideoPreview.removeEventListener('loadeddata', this.videoListener);
-            this.$refs.myVideoPreview.removeEventListener('loadedmetadata', this.videoListener);
-            this.$refs.myVideoPreview.removeEventListener('loadstart', this.videoListener);
-            this.$refs.myVideoPreview.removeEventListener('progress', this.videoListener);
-            this.$refs.myVideoPreview.removeEventListener('playing', this.videoListener);
-            this.$refs.myVideoPreview.removeEventListener('pause', this.videoListener);
-            this.$refs.myVideoPreview.removeEventListener('timeupdate', this.videoListener);
-            this.$refs.myVideoPreview.removeEventListener('ended', this.videoListener);
+            // this.$refs.myVideoPreview.$off('play', this.onPlay);
+            // this.$refs.myVideoPreview.$off('loadeddata', this.onLoadeddata);
+            // this.$refs.myVideoPreview.$off('loadedmetadata', this.onLoadedmetadata);
+            // this.$refs.myVideoPreview.$off('loadstart', this.onLoadstart);
+            // this.$refs.myVideoPreview.$off('progress', this.onProgress);
+            // this.$refs.myVideoPreview.$off('pause', this.onPause);
+            // this.$refs.myVideoPreview.$off('timeupdate', this.onTimeupdate);
+            this.$refs.myVideoPreview.$off('ended', this.onEnded);
         }
     },
     mounted() {
         if (this.lectureSelected.video)
             this.$nextTick(() => {
                 if (this.$refs['myVideoPreview']) {
-                    this.$refs.myVideoPreview.addEventListener('play', this.videoListener);
-                    this.$refs.myVideoPreview.addEventListener('loadeddata', this.videoListener);
-                    this.$refs.myVideoPreview.addEventListener('loadedmetadata', this.videoListener);
-                    this.$refs.myVideoPreview.addEventListener('loadstart', this.videoListener);
-                    this.$refs.myVideoPreview.addEventListener('progress', this.videoListener);
-                    this.$refs.myVideoPreview.addEventListener('playing', this.videoListener);
-                    this.$refs.myVideoPreview.addEventListener('pause', this.videoListener);
-                    this.$refs.myVideoPreview.addEventListener('timeupdate', this.videoListener);
-                    this.$refs.myVideoPreview.addEventListener('ended', this.videoListener);
+                    console.log('set $on')
+
+                    // this.$refs.myVideoPreview.$on('play', this.onPlay);
+                    // this.$refs.myVideoPreview.$on('loadeddata', this.onLoadeddata);
+                    // this.$refs.myVideoPreview.$on('loadedmetadata', this.onLoadedmetadata);
+                    // this.$refs.myVideoPreview.$on('loadstart', this.onLoadstart);
+                    // this.$refs.myVideoPreview.$on('progress', this.onProgress);
+                    // this.$refs.myVideoPreview.$on('pause', this.onPause);
+                    // this.$refs.myVideoPreview.$on('timeupdate', this.onTimeupdate);
+                    this.$refs.myVideoPreview.$on('ended', this.onEnded);
 
                 }
             })
     }
 }
 </script>
-<style scoped>
+<style >
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
 .academy-player-box {
     position: relative;
 }

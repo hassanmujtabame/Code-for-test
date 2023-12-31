@@ -50,6 +50,7 @@
     "vue-social-sharing": "^3.0.9",
     "vue-stepper": "^1.4.2",
     "vue-stepper-component": "^1.0.0",
+    "vue-vimeo-player": "^0.2.2",
     "vue2-google-maps": "^0.10.7",
     "vuedraggable": "^2.24.3",
     "vuelidate": "^0.7.7",

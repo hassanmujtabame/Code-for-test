@@ -339,6 +339,7 @@ export default {
   },
   created() {
     window.EventBus.listen('update-lectures', this.updateLectures)
+    console.log('lecuture-updatedd')
 
   },
   beforeDestroy() {
