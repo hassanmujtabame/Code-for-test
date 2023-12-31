@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import SectionFilterList from './parts/section-filter-list/index';
+import SectionFilterList from './parts/section-filter-list/index.vue';
 
 export default {
   name: 'your-courses-page',

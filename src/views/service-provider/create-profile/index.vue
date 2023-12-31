@@ -5,12 +5,12 @@
                 <h1 class="fs-2">
                     انشاء ملف اعمالك
                 </h1>
-                <form-wizard color="#2eb9b3" step-size="xs" @on-complete="save" ref="normalSteps" nextButtonText="التالى"
+                <form-wizard @on-before-change="checkValidation" color="#2eb9b3" step-size="xs" @on-complete="save" ref="normalSteps" nextButtonText="التالى"
                     backButtonText="السابق" finishButtonText="الانتهاء">
                     <tab-content title=" التعريف">
                         <!-- <Step1 /> -->
                         <div>
-                            <ValidationObserver>
+                            <ValidationObserver ref="step1">
                                 <!-- Start job title -->
                                 <ValidationProvider vid="job-position-name" rules="required" :name="$t('job-position-name')"
                                     v-slot="{ errors }" tag="div" class="mb-3">
@@ -80,7 +80,7 @@
                     <tab-content title="الخبرات">
                         <!-- <Step2 /> -->
                         <div>
-                            <ValidationObserver>
+                            <ValidationObserver ref="step2">
                                 <!-- عدد سنوات الخبره -->
                                 <ValidationProvider vid="عدد سنوات الخبره" rules="required" :name="'عدد سنوات الخبره'"
                                     v-slot="{ errors }" tag="div" class="mb-3">
@@ -107,7 +107,7 @@
                     <tab-content title="التعليم">
                         <!-- <Step3 /> -->
                         <div>
-                            <ValidationObserver>
+                            <ValidationObserver ref="step3">
                                 <!-- الجهة التعيلمية -->
                                 <ValidationProvider vid="الجهة التعيلمية" rules="required" :name="'الجهة التعيلمية'"
                                     v-slot="{ errors }" tag="div" class="mb-3">
@@ -139,7 +139,7 @@
                     <tab-content title="معرض الاعمال">
                         <!-- <Step4 /> -->
                         <div>
-                            <ValidationObserver>
+                            <ValidationObserver ref="step4">
                                 <!-- هل لديك رابط بورتفوليو خارجي؟ -->
                                 <ValidationProvider vid="هل لديك رابط بورتفوليو خارجي؟" rules="required"
                                     :name="'هل لديك رابط بورتفوليو خارجي؟'" v-slot="{ errors }" tag="div" class="mb-3">
@@ -171,7 +171,7 @@
                     <tab-content title="الشهادات">
                         <!-- <Step5 /> -->
                         <div>
-                            <ValidationObserver>
+                            <ValidationObserver ref="step5">
                                 <ValidationProvider vid="اسم الشهادة" rules="required" :name="'اسم الشهادة'"
                                     v-slot="{ errors }" tag="div" class="mb-3">
                                     <b-form-input v-model="form.certificate_name" type="text" :placeholder="'اسم الشهادة'"
@@ -268,6 +268,13 @@ export default {
         handleFileUpload(event) {
             this.form.file = event.target.files[0];
             this.buttonText = this.form.file.name;
+        },
+        async checkValidation(newStep, oldStep, prevent) {
+            const isValid = await this.$refs[`step${oldStep + 1}`].validate();
+
+            if (!isValid) {
+                prevent(); // Prevents the navigation
+            }
         },
         async loadFields(val, ch = true) {
             console.mylog("cc", val);

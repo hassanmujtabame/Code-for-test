@@ -11,7 +11,6 @@
       <button class="more">المزيد</button>
     </template>
     <template v-slot="{ item }">
-      <h1>test</h1>
       <router-link class="router-link" :to="getRouteLocale('academy-course-show', { id: item.id })">
         <CourseCard :item="item" />
       </router-link>
