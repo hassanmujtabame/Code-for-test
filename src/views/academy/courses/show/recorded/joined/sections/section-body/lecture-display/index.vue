@@ -66,7 +66,7 @@ export default {
             // this.play = false;
             // this.pause = false;
             // this.play = false;
-            if (this.userAcademyRole !== 'student') return;
+            if (this.userAcademyRole != 'student') return;
             this.fireEvent('update-lectures', {
                 item: { ...this.lectureSelected }, type: 'completed'
             })
