@@ -10,7 +10,6 @@ class LecturesApi extends BaseApi{
         return window.axios.get(`academy/instructor/courses/${course_id}/lessons/${id}`);
     }
     postAsEnded(lesson_id){
-       
         return window.axios.post(`academy/user/courses/lessons/${lesson_id}/completed`);
     }
     addItem(course_id,data){
@@ -34,7 +33,6 @@ class LecturesApi extends BaseApi{
     deleteAttachment(id){
         return window.axios.delete(`academy/instructor/courses/lessons/attachments/${id}`);
     }
-  
 }
 
 export default new LecturesApi();

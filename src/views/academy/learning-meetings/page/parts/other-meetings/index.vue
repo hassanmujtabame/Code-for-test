@@ -4,25 +4,20 @@
 
             <div class="">
                 <div class="d-flex justify-content-between align-items-center container">
-                    <h1>  لقاءات تعليمية أخرى </h1>
+                    <h1> لقاءات تعليمية أخرى </h1>
                     <!-- <div>
                         <button class="more">{{ $t('more') }}</button>
                     </div> -->
-                          <router-link custom :to="getRouteLocale('academy-learning-meetings')" v-slot="{navigate}">
-      <button @click="navigate" role="link" class="more">{{ $t('more') }}</button>
-      </router-link>
+                    <router-link custom :to="getRouteLocale('academy-learning-meetings')" v-slot="{ navigate }">
+                        <button @click="navigate" role="link" class="more">{{ $t('more') }}</button>
+                    </router-link>
                 </div>
-                <d-swiper v-if="!loading" is-auto :items="items">
+                <d-swiper v-if="!loading" is-auto :items="items" class="justify-content-around">
                     <template v-slot="{ item }">
                         <router-link class="router-link"
                             :to="getRouteLocale('academy-learning-meeting-show', { id: item.id })">
-                            <meetingCard 
-                            :item="item"
-                            :img="item.image" 
-                            :title="item.title" 
-                            :type="item.type" 
-                            :date="item.date"
-                            :time="item.time" />
+                            <meetingCard :item="item" :img="item.image" :title="item.title" :type="item.type"
+                                :date="item.date" :time="item.time" />
                         </router-link>
                     </template>
                 </d-swiper>
@@ -63,12 +58,10 @@ export default {
             this.loading = false;
         }
     },
-    mounted(){
+    mounted() {
         this.loadOtherMeetings()
     }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
