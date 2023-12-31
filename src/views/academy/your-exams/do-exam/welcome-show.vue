@@ -5,7 +5,7 @@
         <h3 class="course-exam-display__subtitle">النتيجة: <span :class="{'m-c':exam.status=='pass','m-r':exam.status=='fail'}">{{ $t(exam.status) }}</span></h3>
         <div class="text-center">
             <button v-if="exam.status!='fail'"  @click="doStart" :disabled="exam.status=='pass'" class="btn btn-custmer">إبدا الاختبار</button>
-            <button @click="doStart" v-if="exam.status=='fail'"  class="btn btn-custmer">حاول مرة أخرى</button>
+            <!-- <button @click="doStart" v-if="exam.status=='fail'"  class="btn btn-custmer">حاول مرة أخرى</button> -->
         </div>
         <!-- :disabled="exam.status=='pass' || !exam.is_open":disabled="exam.status=='pass' || !exam.is_open" -->
         </div>

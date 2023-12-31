@@ -333,6 +333,7 @@
             let formData = this.loadObjectToForm(this.itemForm)
            
             try {
+                console.log('gg', formData)
                 let {data } = this.itemForm.id?await academyAPI.coursesApi.updateItem(this.itemForm.id,formData): await academyAPI.coursesApi.addItem(formData)
              if(data.success){
                 this.closeEvent()

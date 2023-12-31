@@ -2,8 +2,8 @@
   <TemplateHeader prefixRoute="default-">
     <li class="nav-item px-2">
       <!-- <a class="nav-link active" aria-current="page" href="../index.html"
-                >الرئيسية</a
-      >-->
+                >الرئيسية</a>
+      -->
       <router-link
         :to="{name:'index',params:{lang:$i18n.locale}}"
         class="nav-link"
@@ -21,18 +21,21 @@
         class="nav-link"
       >{{ $t('academy') }}</router-link>
     </li>
-    <li class="nav-item px-2">
+    <!-- uncommit that after done the incubator -->
+    <!-- <li class="nav-item px-2">
       <router-link
         :to="{name:'incubator-home',params:{lang:$i18n.locale}}"
         class="nav-link"
       >{{ $t('incubator') }}</router-link>
-    </li>
-    <li class="nav-item px-2">
+    </li> -->
+    <!-- <li class="nav-item px-2">
       <router-link
         :to="{name:'affiliate-marketing-home',params:{lang:$i18n.locale}}"
         class="nav-link"
       >التسويق بالعموله</router-link>
-    </li>
+    </li> -->
+
+
     <li class="nav-item px-2">
       <router-link
         :to="{name:'service-provider-home',params:{lang:$i18n.locale}}"
@@ -42,12 +45,12 @@
 
     <!-- workspace link -->
 
-    <li class="nav-item px-2">
+    <!-- <li class="nav-item px-2">
       <router-link
         :to="{name:'workspaces-home',params:{lang:$i18n.locale}}"
         class="nav-link"
       >{{ $t('workspaces') }}</router-link>
-    </li>
+    </li> -->
 
     <li class="nav-item px-2">
       <router-link
