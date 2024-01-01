@@ -23,7 +23,7 @@
       <cardFixed :itemPage="itemPage" :isOwner="isOwner" />
       <!-- <watchVideoLecture />
       -->
-      <checkoutCourseDiag /> 
+      <!-- <checkoutCourseDiag />  -->
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@ import SectionSimilarCourses from './sections/section-similar-courses/index.vue'
 import SectionAttachments from './sections/section-attachments'
 import cardFixed from './card-fixed.vue'
 // import watchVideoLecture from './dialogs/watch-video/index'
-import checkoutCourseDiag from './dialogs/check-out-course/index.vue';
+// import checkoutCourseDiag from './dialogs/check-out-course/index.vue';
 import academyAPI from '@/services/api/academy'
 export default {
   name: 'course-show-recorded',
@@ -54,7 +54,7 @@ export default {
     SectionRates,
     SectionSimilarCourses,
     SectionAttachments,
-    checkoutCourseDiag,
+    // checkoutCourseDiag,
     // watchVideoLecture,
     cardFixed,
   },
