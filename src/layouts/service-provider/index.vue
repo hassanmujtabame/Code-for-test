@@ -64,9 +64,11 @@ export default {
     graduateRiadiatFirstSecond,
     faqBtn
   },
-  userIsRoleProvider() {
-    return this.$store.state.clientOrProvider
-  }
+  computed: {
+        userIsRoleProvider() {
+            return this.$store.state.clientOrProvider
+        }
+    },
 }
 </script>
   
