@@ -72,15 +72,15 @@
           </div>
         </a>
         <div class="policy-links">
-          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions-category')">
+          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions-category', { category: category })">
             {{ $t("terms-use") }}
           </router-link>
           <!-- <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions-category')">
             {{ $t("Privacy-policy") }}
           </router-link> -->
-          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions-category', { category: category })">
+          <!-- <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions-category', { category: category })">
             {{ $t(category) }}
-          </router-link>
+          </router-link> -->
           <a class="fs-2" style="cursor: pointer;" @click="openShowMsg('commercialRegister')">
             السجل التجارى
           </a>
@@ -101,6 +101,7 @@
         </div>
       </div>
     </div>
+    <d-success-message />
   </footer>
 </template>
 
