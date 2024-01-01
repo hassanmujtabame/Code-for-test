@@ -21,6 +21,8 @@
 
           </div>
         </div>
+        <div v-else-if="itemDialog.hideBtn" class="mt-3">
+        </div>
         <div v-else class="mt-3">
           <button @click="closeEvent" style="height: 40px;" class="btn btn-custmer">
             {{ $t('Home') }}</button>

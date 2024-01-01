@@ -65,7 +65,6 @@ data: () => ({
             ...this.filterItem,
             paginate: this.isMobile?3:undefined
           }
-          console.log('params',params);
             return await learningMeetingsAPI.getAll(params)
 
         } catch (error) {

@@ -187,7 +187,7 @@ const routes = [
           ),
       },
       {
-        path: "terms-and-conditions/:category",
+        path: "terms-and-conditions/:category?",
         meta: { layout: LayoutDefault },
         name: "terms-and-conditions-category",
         component: () =>
