@@ -11,10 +11,11 @@
           {{ $t("network") }}
         </TabHead>
 
-        <TabHead :current.sync="currentTab" group="pills" reference="profile">
+        <!-- uncomment after the incubator activated -->
+        <!-- <TabHead :current.sync="currentTab" group="pills" reference="profile">
           <LightSVG />
           {{ $t("incubator") }}
-        </TabHead>
+        </TabHead> -->
 
         <TabHead :current.sync="currentTab" group="pills" reference="contact">
           <CameraSVG />
@@ -50,14 +51,18 @@
             {{ $t("home-riadiat-srv-f-y-network") }}
           </ServiceCard>
         </TabItem>
-        <TabItem :current.sync="currentTab" group="pills" reference="profile" v-slot="{ selected }">
+
+        <!-- uncomment after the incubator activated -->
+
+        <!-- <TabItem :current.sync="currentTab" group="pills" reference="profile" v-slot="{ selected }">
           <div data-aos="fade-left" data-aos-duration="2000">
             <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />
           </div>
           <ServiceCard :title="$t('incubator')" :selected="selected" routeName="incubator-home">
             {{ $t("home-riadiat-srv-f-y-incubator") }}
           </ServiceCard>
-        </TabItem>
+        </TabItem> -->
+
         <TabItem :current.sync="currentTab" group="pills" reference="contact" v-slot="{ selected }">
           <div data-aos="fade-left" data-aos-duration="2000">
             <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />

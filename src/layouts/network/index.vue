@@ -12,7 +12,10 @@
           <slot></slot>
           </main>
           <SectSubscribe/>
-          <DefaultFooter/>
+          <DefaultFooter 
+          category="network"
+          
+          />
          
             <RateYourExperience
             :title="$t('network')"

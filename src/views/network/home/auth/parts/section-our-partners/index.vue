@@ -56,7 +56,7 @@ export default {
     async initlizing() {
       this.loading = true;
       try {
-        let { data } = await partnersAPI.getAll();
+        // let { data } = await partnersAPI.getAll();
 
         let networkData = await partnersNetworkAPI.getAll();
 

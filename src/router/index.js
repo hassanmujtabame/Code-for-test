@@ -187,14 +187,15 @@ const routes = [
           ),
       },
       {
-        path: "terms-and-conditions",
+        path: "terms-and-conditions/:category",
         meta: { layout: LayoutDefault },
-        name: "terms-and-conditions",
+        name: "terms-and-conditions-category",
         component: () =>
           import(
             /* webpackChunkName: "terms-and-conditions" */ "../views/main/policy/terms-and-conditions.vue"
           ),
       },
+      
       {
         path: "who-are-we",
         meta: { layout: LayoutDefault },

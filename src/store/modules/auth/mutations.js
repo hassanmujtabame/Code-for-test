@@ -71,11 +71,11 @@ export default {
     state.partner = partner ?? null; // if undefined makes it null
     state.isInstructor = is_instructor ?? false; // if undefined makes it null
     state.isConsultant = is_consultant ?? false; // if undefined makes it null
-    // state.subscribeNetwork = subscribers.network ?? null;
-    // state.subscribeProvider = subscribers.service_provider ?? null;
-    // state.subscribeAcademy = subscribers.academy ?? null;
-    // state.subscribeIncubator = subscribers.incubator ?? null;
-    // state.subscribeIncubators = subscribers.incubators ?? [];
+    state.subscribeNetwork = subscribers.network ?? null;
+    state.subscribeProvider = subscribers.service_provider ?? null;
+    state.subscribeAcademy = subscribers.academy ?? null;
+    state.subscribeIncubator = subscribers.incubator ?? null;
+    state.subscribeIncubators = subscribers.incubators ?? [];
     state.isSubscribeNetwork =
       subscribers && subscribers.network ? subscribers.network.subscribe : null;
     state.isSubscribeProvider =

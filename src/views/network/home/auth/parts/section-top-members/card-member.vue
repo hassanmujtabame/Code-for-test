@@ -1,7 +1,7 @@
 <template>
   <div class="provider-card">
     <div class="provider-card__wrapper">
-      <span class="jop_tilte">سفيره</span>
+      <span class="jop_tilte" :class="item.isPartner ? 'partner' : '' ">{{ item.isPartner ? 'شريك' : 'عضو' }}</span>
       <div class="provider-card__image mb-4">
         <router-link v-if="to" :to="to">
           <img :src="img" alt width="259" height="162" />
@@ -50,6 +50,10 @@ export default {
     rate: {
       type: [String, Number],
       default: 0
+    },
+    item: {
+      type: [Object, Array],
+      default: null
     }
   }
 };
@@ -68,7 +72,7 @@ span.jop_tilte {
   border-radius: 5px;
 }
 
-.consultant {
+.partner {
   background: #ffc107 !important;
 }
 

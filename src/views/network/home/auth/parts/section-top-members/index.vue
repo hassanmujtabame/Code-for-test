@@ -2,7 +2,7 @@
   <div class="sec-five mt-5 p-3" v-if="this.items">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center container">
-        <h1 class="home-section-title">أعضاء مميزون (السفيرات) </h1>
+        <h1 class="home-section-title">أعضاء مميزون </h1>
         <div>
           <!---->
         </div>
@@ -10,7 +10,7 @@
 
       <d-swiper v-if="!loading" :slides-per-view="4" is-auto :space-between="10" :items="items">
         <template v-slot:default="{ item }">
-          <CardMember :name="item.name" :img="item.image" :to="getRouteLocale('network-show-profile', { id: item.id })" />
+          <CardMember :name="item.name" :img="item.image" :item="item" :to="getRouteLocale('network-show-profile', { id: item.id })" />
         </template>
       </d-swiper>
     </div>

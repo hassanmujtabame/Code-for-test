@@ -14,7 +14,9 @@
     <SectSubscribe />
     <AddServiceDialog v-if="token" />
     <AddProposalDialog v-if="token" />
-    <DefaultFooter />
+    <DefaultFooter
+    category="service-provider" 
+    />
 
     <faqBtn />
     <RateYourExperience :title="$t('service-providers')" category="service-provider" />

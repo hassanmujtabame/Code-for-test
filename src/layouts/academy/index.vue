@@ -12,7 +12,9 @@
           <slot></slot>
           </main>
           <SectSubscribe/>
-          <DefaultFooter/>
+          <DefaultFooter
+          category="academy"
+          />
 
           
             <RateYourExperience

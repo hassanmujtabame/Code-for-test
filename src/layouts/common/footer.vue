@@ -10,7 +10,7 @@
                 $t("who-are-we")
               }}</router-link>
 
-              <a href="#" class="d-block">تمبليت</a>
+              <a href="#" class="d-block">النماذج</a>
               <router-link
                 :to="getRouteLocale('workspaces-home')"
                 class="d-block"
@@ -97,11 +97,14 @@
           </div>
         </a>  
         <div class="policy-links">
-          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions')">
+          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions-category')">
             {{ $t("terms-use") }}
           </router-link>
-          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions')">
+          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions-category')">
             {{ $t("Privacy-policy") }}
+          </router-link>
+          <router-link v-if="category" class="fs-2" :to="getRouteLocale('terms-and-conditions-category', {category: category})"> 
+            {{ $t(category) }}
           </router-link>
         </div>
         <div class="social mt-3">
@@ -129,6 +132,7 @@
 <script>
 export default {
   name: "default-footer",
+  props: ['category']
 };
 </script>
 
