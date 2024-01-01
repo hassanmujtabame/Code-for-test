@@ -55,7 +55,10 @@
                     الاكاديمية
                   </button>
                 </li>
-                <li class="nav-item m-2 col-12 col-md-3" role="presentation">
+
+                <!-- uncomment after edition in incubator  -->
+
+                <!-- <li class="nav-item m-2 col-12 col-md-3" role="presentation">
                   <button class="nav-link btn-custmer-subscribe w-100 py-3" id="pills-profile-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
                     aria-selected="false">
@@ -66,7 +69,7 @@
                     </svg>
                     الحاضنة
                   </button>
-                </li>
+                </li> -->
 
                 <li class="nav-item m-2 col-12 col-md-3" role="presentation">
                   <button class="nav-link btn-custmer-subscribe w-100 py-3" id="pills-servProvider-tab"

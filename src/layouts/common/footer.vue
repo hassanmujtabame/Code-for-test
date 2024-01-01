@@ -36,7 +36,10 @@
               >
               <a href="#" class="d-block">قناة رياديات</a>
             </div>
-            <div class="col-xl-3 col-lg-6 mt-3">
+
+                <!-- uncomment after edition in jobs  -->
+
+            <!-- <div class="col-xl-3 col-lg-6 mt-3">
               <h6>{{ $t("join-us") }}</h6>
               <router-link
                 :to="getRouteLocale('service-provider-jobs')"
@@ -48,7 +51,8 @@
                 class="d-block"
                 >{{ $t("Affiliate-marketing") }}</router-link
               >
-            </div>
+            </div> -->
+
             <div class="col-xl-3 col-lg-6 mt-3">
               <h6>{{ $t("support") }}</h6>
               <router-link

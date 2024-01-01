@@ -38,12 +38,16 @@
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('my-purchases') }}</button>
                     </router-link>
                 </div>
-                <div class="box  mx-2 mt-3 ">
+
+                <!-- uncomment after edition in jobs  -->
+
+                <!-- <div class="box  mx-2 mt-3 ">
                     <schoolWalletIcon :size="32" color="var(--m-color)" />
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-control-jobs')" class="mx-2 m-c ">
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('jobs') }}</button>
                     </router-link>
-                </div>
+                </div> -->
+
                 <div class="box  mx-2 mt-3 ">
                    <d-calendar-icon color="var(--m-color)"/>
                     
