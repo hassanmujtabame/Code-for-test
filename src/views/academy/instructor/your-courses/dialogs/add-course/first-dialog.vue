@@ -116,7 +116,7 @@ export default {
       /* key: when click on @ or # in open event
       */
       if (key) this.keyChoose = key;//just future when want to change list type  ex: @ for instructors ,# for students
-      let { data } = await academyAPI.instructor.getAll({ search: search })
+      let { data } = await academyAPI.instructor.getAllMentions({ search: search })
       if (data.data)
         this.instructors = data.data
     }

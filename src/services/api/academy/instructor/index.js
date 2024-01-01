@@ -8,6 +8,10 @@ class InstructorsApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructors?${s}`);
     } 
+    getAllMentions(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`academy/instructors?${s}&type=courseMention`);
+    } 
     getBest(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`academy/instructors?${s}`);
