@@ -322,7 +322,7 @@ export default {
         checkSubscribedCompany() {
             for (let index = 0; index < this.user.system_subscriptions.length; index++) {
                 const element = this.user.system_subscriptions[index];
-                if (element.system_package.related_to.key == 'network' && element.system_package.name == 'الشركات') {
+                if (element.system_package.related_to.key == 'network' && element.system_package.name.includes('شرك')) {
                     // this.subscribedType = element.system_package.id
                     // console.log('yay you are company', true)
                     this.isSubscribedCompany = true

@@ -38,7 +38,7 @@
         
         
         <div v-for="(pack, p) in packages" :key="p" class="mt-2">
-            <SectionCompany  class="mb-4" v-if="pack && pack.name == 'الشركات'" />
+            <SectionCompany  class="mb-4" v-if="pack && pack.name.includes('شرك')" />
             <div class="container">
                 <div class="row mb-4">
                     <SubscribeCard :itemId="pack.name" :pack="pack" :title="pack.name" :price="pack.price"
