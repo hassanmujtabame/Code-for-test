@@ -36,7 +36,7 @@
         <!--features-->
         <SectionFeatures />
         <!-- form register-->
-        <SectionForm />
+        <SectionForm v-if="false"/>
         <!--  خدمات رياديات لك-->
         <SectionServices />
         <successRegisterDialog />

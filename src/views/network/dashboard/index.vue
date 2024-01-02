@@ -16,25 +16,14 @@
                   يمكنك ترقية حسابك الان من عضو في الشبكة الى شريك في منصة
                   رياديات والاستفادة بالكثير من المميزات
                 </p>
-                <router-link
-                  custom
-                  :to="getRouteLocale('register-networking')"
-                  v-slot="{ navigate }"
-                >
-                  <button
-                    @click="navigate"
-                    class="border border-white rounded-2 text-white bg-transparent p-2"
-                  >
+                <router-link custom :to="getRouteLocale('register-networking')" v-slot="{ navigate }">
+                  <button @click="navigate" class="border border-white rounded-2 text-white bg-transparent p-2">
                     {{ $t("know_more") }}
                   </button>
                 </router-link>
               </div>
               <div>
-                <img
-                  class="img-fluid"
-                  :src="`${publicPath}assets/img/ve 1.png`"
-                  alt=""
-                />
+                <img class="img-fluid" :src="`${publicPath}assets/img/ve 1.png`" alt="" />
               </div>
             </div>
           </div>
@@ -48,19 +37,13 @@
                   لانك عضو في شبكة رياديات يمكنك طلب استشارات من مستشارينا
                   المميزين في اغلب المجالات بكل سهولة
                 </p>
-                <router-link
-                  :to="getRouteLocale('consulting-page')"
-                  class="border border-white rounded-2 text-white bg-main p-2"
-                >
+                <router-link :to="getRouteLocale('consulting-page')"
+                  class="border border-white rounded-2 text-white bg-main p-2">
                   {{ $t("know_more") }}
                 </router-link>
               </div>
               <div>
-                <img
-                  class="img-fluid"
-                  :src="`${publicPath}assets/img/vuesax/v2.png`"
-                  alt=""
-                />
+                <img class="img-fluid" :src="`${publicPath}assets/img/vuesax/v2.png`" alt="" />
               </div>
             </div>
           </div>
@@ -103,23 +86,23 @@
           </div>
         </div>
         <div class="col-12 row mt-3 gap-4">
-            <div class="col-md-5 border p-3">
-              <workspaceReservation />
-            </div>
-            
-            <div class="col-md-5 border p-3">
-              <workspaceRequest />
-            </div>
+          <div class="col-md-5 border p-3">
+            <workspaceReservation />
           </div>
-           <div class="col-12 row mt-3 gap-4">
-            <div class="col-md-5  p-3">
-              <freeConsultation />
-            </div>
-            
-            <div class="col-md-5  p-3">
-              <ideaSuggestion />
-            </div>
+
+          <div class="col-md-5 border p-3">
+            <workspaceRequest />
           </div>
+        </div>
+        <div class="col-12 row mt-3 gap-4">
+          <div class="col-md-5  p-3">
+            <freeConsultation />
+          </div>
+
+          <div class="col-md-5  p-3">
+            <ideaSuggestion />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -160,10 +143,9 @@ export default {
     workspaceReservation,
     freeConsultation,
     ideaSuggestion
-    
+
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

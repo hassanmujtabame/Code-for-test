@@ -24,6 +24,8 @@
     <!-- #section 3-->
     <!-- section 4-->
     <SectionMembership />
+<!-- section features -->
+    <SectionFeatures />
     <!--schedule network-->
     <SectionScheduleNework />
     <!-- members of network-->
@@ -160,6 +162,7 @@ import SectionScheduleNework from "../guest/parts/section-schedules/index.vue";
 import SectionEducationalMeeting from "./parts/section-educational-meeting/index.vue";
 import SectionMemeberNetwork from "./parts/section-member-network/index.vue";
 import SectionStory from "./parts/section-successful-story/index.vue";
+import SectionFeatures from "./parts/section-features/index.vue";
 
 // import SectionPartner from "./parts/section-partners/index.vue";
 import SectionPartner from "./parts/section-our-partners/index.vue";
@@ -172,6 +175,7 @@ import SectionBlogs from "./parts/section-blogs/index.vue";
 export default {
   name: "home-network",
   components: {
+    SectionFeatures,
     SectionWorkspace,
     SectionPartner,
     SectionBlogs,   

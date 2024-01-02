@@ -1,41 +1,39 @@
 <template>
-  <div class="provider-card">
-    <div class="provider-card__wrapper ">
-      <span class="jop_tilte" :class="item.isPartner ? 'partner' : ''">{{ item.isPartner ? 'شريك' : 'عضو' }}</span>
+  <div class="provider-card mb-5">
+    <div class="provider-card__wrapper">
       <div class="provider-card__image mb-4">
-        <router-link v-if="to" :to="to">
-          <img :src="img" alt width="259" height="200" />
-        </router-link>
-        <img v-else @click="$emit('click-image')" :src="img" alt width="259" height="200" />
+        <img :src="require(`@/assets/img/${img}`)" alt width="259" height="162" />
       </div>
-      <div class="provider-card__content" :class="{ 'h-job': showJob }"
+      <div class="provider-card__content"
         style=" display: flex; flex-direction: column; justify-content: space-between;">
-        <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
-        <p class="provider-card__description t-c">{{ description }} </p>
+        <h6 class="provider-card__name m-c">{{ name }}</h6>
+        <p class="provider-card__description">{{ description }} </p>
+        <router-link v-if="to" class="router-link mt-2" :to="{name: to}">
+            
+          اعرفى المزيد
+  
+          <Arrow />
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Arrow from "@/components/icon-svg/go-to-icon.vue"
 export default {
-  name: "card-parson",
+  name: "card-items",
   components: {
+    Arrow
   },
   props: {
-    showRate: {
-      type: Boolean,
-      default: false
-    },
-    showJob: {
-      type: Boolean,
-      default: false
-    },
     img: {
-      type: String
+      type: String,
+      default: false
     },
     name: {
-      type: String
+      type: String,
+      default: false
     },
     to: {
       type: [Object, Array],
@@ -43,50 +41,24 @@ export default {
     },
     description: {
       type: String
-    },
-    countCourse: {
-      type: [String, Number],
-    },
-    rate: {
-      type: [String, Number],
-      default: 0
-    },
-    item: {
-      type: [Object, Array],
-      default: null
     }
   }
 };
 </script>
 
 <style scoped>
-span.jop_tilte {
-  position: absolute;
-  background: #F55B00;
-  color: white;
-  padding: 5px;
-  width: 80px;
-  font-size: 22px;
-  right: 20px;
-  top: 20px;
-  border-radius: 5px;
-}
-
-.partner {
-  background: #ffc107 !important;
-}
-
 .provider-card {
   --raduis-provider: 11px;
   padding: 5px;
-  width: 100%;
-
+  width: 400px;
+  height: 340px;
 }
 
 .provider-card__wrapper {
-  overflow: hidden;
+  /*overflow: hidden;*/
   margin: 0 0 0px 0;
-  width: 90%;
+  width: 100%;
+  height: 100%;
   /*max-width: 250px;*/
   /*height: 340px;*/
   border-radius: 11px;
@@ -103,17 +75,18 @@ span.jop_tilte {
 .provider-card__image {
   /*border-radius: 100%;*/
   width: 100%;
-  /*height: 100%;*/
   margin: auto;
-  overflow: hidden;
+  height: 50%;
+  /*overflow: hidden;*/
 }
 
 .provider-card__image img {
-  object-fit: cover;
   width: 100%;
+  height: 100%;
 }
 
 .provider-card__content {
+  padding: 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -135,11 +108,6 @@ span.jop_tilte {
   font-size: 24px;
   line-height: 40px;
   /* identical to box height, or 167% */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   text-transform: capitalize;
 
   color: #737373;
@@ -152,15 +120,17 @@ span.jop_tilte {
   width: 100%;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show before truncating */
+  -webkit-box-orient: vertical;
   /* identical to box height, or 120% */
-  height: 30px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
+
   text-transform: capitalize;
+  color: #646464 !important;
 }
 
 .h-job {
