@@ -2,7 +2,7 @@
   <div style="margin-top: 120px" class="container">
     <div class="row gap-2">
 
-      <div class="col-3 p-3 flex-column align-items-center d-flex justify-content-center right-info box-main">
+      <div style="height:fit-content" class="col-3 p-3 flex-column align-items-center d-flex right-info box-main">
         <div class="mb-2 shadow-main d-flex justify-content-center align-items-center"
           style="width: 100px; height: 100px;">
           <img width="100" class="partner-img" :src="user.image" alt="...">
@@ -87,21 +87,26 @@
       </div>
 
       <!-- <div class="box-main"> -->
-        <Coupon class="col-2 " title="عنوان" discount="10" date="1-1-2024" during="10" />
+        <Coupon class="col-2 " style="height: fit-content; padding-bottom: 20px !important;padding-top: 20px !important" title="عنوان" discount="10" date="1-1-2024" during="10" />
       <!-- </div> -->
 
+    </div>
+    <div class="row">
+      <SectionOperations />
     </div>
   </div>
 </template>
 
 <script>
+import SectionOperations from './parts/section-operations/index.vue'
 import Phone from '@/components/icon-svg/go-to-icon.vue'
-import Coupon from './coupon.vue'
+import Coupon from './parts/coupon.vue'
 export default {
   name: 'control-member-partner',
   components: {
     Phone,
-    Coupon
+    Coupon,
+    SectionOperations
   }
 }
 </script>

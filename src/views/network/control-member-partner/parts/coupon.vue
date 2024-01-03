@@ -23,7 +23,7 @@
         <span class="input-group-text text-white" style="background: var(--pc);cursor:pointer; border-radius: 0px 5px 5px 0"
           :class="{ 'fs-6': isMobile }" id="inputGroup-sizing-lg">تعديل</span>
 
-        <input type="text" class="form-control p-3" style="color: var(--pc); border-style: dotted; border-color: var(--pc); border-radius: 5px 0px 0px 5px; padding: 10px 0 !important;border-right: hidden;" :class="{ 'fs-6': isMobile }" aria-label="Sizing example input"
+        <input type="text" class="form-control p-3" style="color: var(--pc); border-style: dotted; border-color: var(--pc); border-radius: 5px 0px 0px 5px; padding: 10px !important;border-right: hidden;" :class="{ 'fs-6': isMobile }" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-lg" :value="name" placeholder="الكوبون" required>
 
       </div>
