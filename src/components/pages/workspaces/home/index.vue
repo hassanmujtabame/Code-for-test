@@ -8,16 +8,16 @@
   </template>
   
   <script>
-  import Header from "@/components/pages/workspaces/home/header";
+  import Header from "@/components/pages/workspaces/home/header/index.vue";
   import Features from "@/components/pages/workspaces/home/features/index.vue";
-  import RecentWorkspaces from "@/components/pages/workspaces/home/recent-workspaces";
+  import RecentWorkspaces from "@/components/pages/workspaces/home/recent-workspaces/index.vue";
   import sectionFilter from "@/components/pages/workspaces/home/filter-list/index.vue";
   export default {
     name: "Workspaces-main",
     components: {
       Header,
-      Features,
       RecentWorkspaces,
+      Features,
       sectionFilter,
     },
   };

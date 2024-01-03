@@ -242,26 +242,26 @@ export default {
             providerCategories: [],
             // cities: [],
             categories: [
-                // {
-                //     title: "الأكاديمية",
-                //     value: "academy",
-                // },
-                // {
-                //     title: "مقدمي الخدمة",
-                //     value: "service-provider",
-                // },
+                {
+                    title: "الأكاديمية",
+                    value: "academy",
+                },
+                {
+                    title: "مقدمي الخدمة",
+                    value: "service-provider",
+                },
             ],
             selectedImages: [],
             featuresWorkSpace: [
-                // { name: 'مكيف', id: 'condition' },
-                // { name: 'واي فاي', id: 'wiFi' },
-                // { name: 'سبوره', id: 'dashboard' },
-                // { name: 'شاشات ال اي دي', id: 'screen' },
-                // { name: 'كافيتريا', id: 'cafeteria' },
-                // { name: 'مكتبة', id: 'library' },
-                // { name: 'غرفه للصلاة', id: 'pray' },
-                // { name: 'طابعة', id: 'print' },
-                // { name: 'قهوة مجانية', id: 'coffey' }
+                { name: 'مكيف', id: 'condition' },
+                { name: 'واي فاي', id: 'wiFi' },
+                { name: 'سبوره', id: 'dashboard' },
+                { name: 'شاشات ال اي دي', id: 'screen' },
+                { name: 'كافيتريا', id: 'cafeteria' },
+                { name: 'مكتبة', id: 'library' },
+                { name: 'غرفه للصلاة', id: 'pray' },
+                { name: 'طابعة', id: 'print' },
+                { name: 'قهوة مجانية', id: 'coffey' }
             ],
             featuresSelect: [],
             types: [
@@ -276,12 +276,12 @@ export default {
             this.loading = true;
             let valid = await this.$refs.form.validate();
             console.log(valid);
-            if (!valid) {
-              this.loading = false;
+            // if (!valid) {
+            //   this.loading = false;
 
-              console.log('err');
-              return;
-            }
+            //   console.log('err');
+            //   return;
+            // }
             let formData = this.loadObjectToForm({
                 ...this.form,
                 main_image: this.file,
