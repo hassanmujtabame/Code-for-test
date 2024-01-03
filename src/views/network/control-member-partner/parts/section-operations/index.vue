@@ -13,9 +13,8 @@
 <script>
 import navbar from './navbar.vue';
 import offers from './parts/offers/index.vue'
-import discounts from './parts/discounts.vue'
 import exhiptions from './parts/exhiptions.vue'
-import workspaces from './parts/workspaces.vue'
+import workspaces from './parts/workspaces/index.vue'
 export default {
     name: 'section-operation',
     data: () => {
@@ -26,7 +25,6 @@ export default {
     components: {
         navbar,
         offers,
-        discounts,
         exhiptions,
         workspaces,
     },

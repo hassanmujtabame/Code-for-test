@@ -4,9 +4,9 @@
             <li id="offers" class="nav-item  active" @click="addActive($event)">
                 العروض
             </li>
-            <li id="discounts" class="nav-item " @click="addActive($event)">
+            <!-- <li id="discounts" class="nav-item " @click="addActive($event)">
                 الخصومات
-            </li>
+            </li> -->
             <li id="exhiptions" class="nav-item " @click="addActive($event)">
                 المعارض
             </li>

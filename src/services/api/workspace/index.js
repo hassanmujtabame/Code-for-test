@@ -9,6 +9,10 @@ class WorkspaceApi extends BaseApi {
 		let s = this.generateQueryUrl(params);
 		return window.axios.get(`workspaces?${s}`);
 	}
+	getMyWorkspaces(params = {}) {
+		let s = this.generateQueryUrl(params);
+		return window.axios.get(`my-workspaces?${s}`);
+	}
 	getRecentWorkSpaces(
 		params = {
 			created_at: "desc",

@@ -5,7 +5,7 @@
       <div style="height:fit-content" class="col-3 p-3 flex-column align-items-center d-flex right-info box-main">
         <div class="mb-2 shadow-main d-flex justify-content-center align-items-center"
           style="width: 100px; height: 100px;">
-          <img width="100" class="partner-img" :src="userPartner.image" alt="...">
+          <img width="100" class="partner-img" :src="user.image" alt="...">
         </div>
         <p class="mb-1">
           {{ userPartner.company_name }}
@@ -73,9 +73,7 @@
             خدماتنا
           </h4>
           <span>
-            مسنيتب مكسشيمبن تسنمشيبت سنمشيبت شسنمي بتسشينم بتسنميشبتشسمنيلتسيمنبتسشي مت
-            مسنيتب مكسشيمبن تسنمشيبت سنمشيبت شسنمي بتسشينم بتسنميشبتشسمنيلتسيمنبتسشي مت
-            مسنيتب مكسشيمبن تسنمشيبت سنمشيبت شسنمي بتسشينم بتسنميشبتشسمنيلتسيمنبتسشي مت
+            {{ userPartner.services }}
           </span>
         </div>
         <!-- <div class="row mt-3">

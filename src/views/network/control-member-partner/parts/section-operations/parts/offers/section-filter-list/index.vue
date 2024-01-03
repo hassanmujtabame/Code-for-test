@@ -83,7 +83,8 @@ export default {
           page: metaInfo.current_page,
           ...this.filterItem
         }
-        return await networkAPI.offers.getMyOffers(params)
+        // return await networkAPI.offers.getMyOffers(params)
+        return await networkAPI.offers.getAll(params)
 
       } catch (error) {
         console.log('error', error)
