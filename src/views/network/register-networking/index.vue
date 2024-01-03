@@ -36,7 +36,7 @@
         <!--features-->
         <SectionFeatures />
         <!-- form register-->
-        <SectionForm v-if="false"/>
+        <SectionForm v-if="!userPartner"/>
         <!--  خدمات رياديات لك-->
         <SectionServices />
         <successRegisterDialog />

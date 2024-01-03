@@ -228,4 +228,5 @@ nav>ul li svg {
 
 .sidebar>.logo p {
     margin: 0 !important;
-}</style>
+}
+</style>

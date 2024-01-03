@@ -48,6 +48,7 @@ export default {
     this.getRecentWorkSpaces();
   },
   methods: {
+    
     openAddWorkSpace() {
       if (this.userPartner) {
         console.log('is-user-partner', this.userPartner)

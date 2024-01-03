@@ -1,9 +1,5 @@
 <template>
-    <d-dialog-large :group="group"
-                    :xl="false"
-                    :openDialog="openDialog"
-                    :closeDialog="closeDialog"
-    >
+    <d-dialog-large :group="group" :xl="false" :openDialog="openDialog" :closeDialog="closeDialog">
         <template v-slot>
             <div class="text-center" v-if="showed">
                 <div>
@@ -34,7 +30,7 @@ export default {
         }
     },
     data: () => ({
-        blog: {id: null},
+        blog: { id: null },
         showed: false,
     }),
     methods: {
@@ -54,6 +50,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

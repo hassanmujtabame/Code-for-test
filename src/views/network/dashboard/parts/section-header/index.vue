@@ -51,19 +51,47 @@ export default {
     },
     data: (vm) => {
         return {
+            isSubscribedCompany: false,
             isFirst: true,// will related to backend value
             btns: [
                 { id: 'service-provider', title: 'مقدمي الخدمة', route: vm.getRouteLocale('service-provider-home') },
-                { id: 'incubator', title: 'حاضنة رياديات', route: vm.getRouteLocale('incubator-home') },
+                // { id: 'incubator', title: 'حاضنة رياديات', route: vm.getRouteLocale('incubator-home') },
                 { id: 'academy', title: 'اكاديمية رياديات', route: vm.getRouteLocale('academy-home') },
                 //{id:'market',title:'سوق رياديات',route:vm.getRouteLocale('service-provider-home')},
             ]
         }
     },
     methods: {
-        goToPartner(){
-            if(this.userPartner){
-                this.$router.push({name: 'network-control-member-partner'})
+        checkSubscribedCompany() {
+            for (let index = 0; index < this.user.system_subscriptions.length; index++) {
+                const element = this.user.system_subscriptions[index];
+                if (element.system_package.related_to.key == 'network' && element.system_package.name.includes('شرك')) {
+                    // this.subscribedType = element.system_package.id
+                    // console.log('yay you are company', true)
+                    this.isSubscribedCompany = true
+                } else {
+                    this.isSubscribedCompany = false
+
+                }
+            }
+            // console.log('user_system', this.user.system_subscriptions)
+        },
+        goToPartner() {
+            if (!this.userPartner) {
+                this.router_push('register-networking')
+            } else if (!this.isSubscribedCompany) {
+                let dataEvt = {
+                    title: '',
+                    description: `يجب عليك الاشتراك فى باقة الشركات`,
+                    type: 'warning',
+                    btns: [
+                        { title: this.$t('subscribe'), action: () => this.$router.push({ name: 'network-subscribe' }) }
+                    ]
+                }
+                this.showConfirmMsg(dataEvt)
+                return;
+            }else {
+                this.$router.push({ name: 'network-control-member-partner' })
             }
         },
         openConfirmDialog(dept, evt) {
@@ -82,6 +110,9 @@ export default {
             this.showConfirmMsg(dataEvt)
             //this.fireOpenDialog('go-to-pther-section',dept)
         }
+    },
+    mounted(){
+        this.checkSubscribedCompany()
     }
 }
 </script>
