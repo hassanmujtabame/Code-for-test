@@ -176,6 +176,15 @@ const routers = [
       ),
   },
   {
+    path: "network/show-card",
+    meta: { layout: LayoutDefault, auth: true, title: "Show Card Membership" },
+    name: "show-card",
+    component: () =>
+      import(
+        /* webpackChunkName: "network-card-membership" */ "../views/network/card-membership/show-card.vue"
+      ),
+  },
+  {
     path: "network/blogs",
     meta: { layout: LayoutDefault, auth: true, title: "Blogs" },
     name: "network-blogs",

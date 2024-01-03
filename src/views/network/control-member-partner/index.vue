@@ -11,7 +11,7 @@
           {{ userPartner.company_name }}
         </p>
         <span>
-         {{ userPartner.categoryName }}
+          {{ userPartner.categoryName }}
         </span>
         <button @click="updatePartner" class="btn border m-c mt-3"
           style="width: 200px; border-color: var(--m-color) !important">
@@ -78,7 +78,7 @@
             مسنيتب مكسشيمبن تسنمشيبت سنمشيبت شسنمي بتسشينم بتسنميشبتشسمنيلتسيمنبتسشي مت
           </span>
         </div>
-        <div class="row mt-3">
+        <!-- <div class="row mt-3">
           <h4 class="m-c mb-3">
             الشروط والاحكام
           </h4>
@@ -88,7 +88,7 @@
             <li>منسشيبم شسميبن تشسيب نمسشيت بسيب</li>
             <li>منسشيبم شسميبن تشسيب نمسشيت بسيب</li>
           </ul>
-        </div>
+        </div> -->
       </div>
 
       <!-- <div class="box-main"> -->
