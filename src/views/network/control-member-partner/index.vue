@@ -5,11 +5,16 @@
       <div style="height:fit-content" class="col-3 p-3 flex-column align-items-center d-flex right-info box-main">
         <div class="mb-2 shadow-main d-flex justify-content-center align-items-center"
           style="width: 100px; height: 100px;">
-          <img width="100" class="partner-img" :src="user.image" alt="...">
+          <img width="100" class="partner-img" :src="userPartner.image" alt="...">
         </div>
-        <p class="mb-1">فلاورد</p>
-        <span>التجاره الالكترونيه</span>
-        <button class="btn border m-c mt-3" style="width: 200px; border-color: var(--m-color) !important">
+        <p class="mb-1">
+          {{ userPartner.company_name }}
+        </p>
+        <span>
+         {{ userPartner.categoryName }}
+        </span>
+        <button @click="updatePartner" class="btn border m-c mt-3"
+          style="width: 200px; border-color: var(--m-color) !important">
           تعديل
         </button>
 
@@ -26,7 +31,7 @@
           <p class="mb-2">
             <Phone />
             <span>
-              https://flowered.com
+              {{ userPartner.website }}
             </span>
           </p>
           <p class="mb-2">
@@ -87,26 +92,61 @@
       </div>
 
       <!-- <div class="box-main"> -->
-        <Coupon class="col-2 " style="height: fit-content; padding-bottom: 20px !important;padding-top: 20px !important" title="عنوان" discount="10" date="1-1-2024" during="10" />
+      <Coupon class="col-2 " style="height: fit-content; padding-bottom: 20px !important;padding-top: 20px !important"
+        title="عنوان" discount="10" date="1-1-2024" during="10" />
       <!-- </div> -->
 
     </div>
     <div class="row">
       <SectionOperations />
     </div>
+    <UpdatePartner />
   </div>
 </template>
 
 <script>
+
+import { mapGetters } from 'vuex'
 import SectionOperations from './parts/section-operations/index.vue'
 import Phone from '@/components/icon-svg/go-to-icon.vue'
 import Coupon from './parts/coupon.vue'
+import UpdatePartner from './parts/dialogs/update-partner/index.vue'
 export default {
   name: 'control-member-partner',
   components: {
     Phone,
     Coupon,
-    SectionOperations
+    SectionOperations,
+    UpdatePartner
+  },
+  data: () => ({
+    itemPage: { filePath: null }
+  }),
+  computed: {
+    ...mapGetters({
+      companyInfo: 'auth/partner'
+    })
+  },
+  watch: {
+    companyInfo: {
+      deep: true,
+      immediate: true,
+      handler() {
+        if (!this.userPartner) {
+          //  this.router_push('network-offers');
+          //   this.fireOpenDialog('join-as-partner',this.getRouteLocale('register-networking'))
+
+        }
+        this.itemPage = Object.assign(this.itemPage, this.companyInfo)
+        this.loading = false;
+      }
+    }
+  },
+  methods: {
+    updatePartner() {
+
+      this.fireOpenDialog('update-partner-dialog', this.itemPage)
+    }
   }
 }
 </script>

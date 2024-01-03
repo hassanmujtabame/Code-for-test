@@ -25,7 +25,8 @@
                     </ValidationProvider>
                 </div>
                 <div class="col-md-4 w-100">
-                    <ValidationProvider :name="$t('specialist_field')" vid="category_id" rules="required" v-slot="{ errors }">
+                    <ValidationProvider :name="$t('specialist_field')" vid="category_id" rules="required"
+                        v-slot="{ errors }">
                         <d-select-input :errors="errors" :label="$t('specialist_field')" v-model="itemForm.category_id"
                             class="form-select px-3">
                             <option selected disabled>{{ $t('specialist_field') }}</option>
