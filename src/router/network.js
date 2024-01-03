@@ -360,16 +360,16 @@ const routers = [
       ),
   },
   {
-    path: "network/control-mamber-partner",
+    path: "network/control-member-partner",
     meta: {
       layout: LayoutDefault,
       auth: true,
       title: "Control Member Partner",
     },
-    name: "network-control-mamber-partner",
+    name: "network-control-member-partner",
     component: () =>
       import(
-        /* webpackChunkName: "network-control-mamber-partner" */ "../views/network/control-mamber-partner/index.vue"
+        /* webpackChunkName: "network-control-member-partner" */ "../views/network/control-member-partner/index.vue"
       ),
   },
   {

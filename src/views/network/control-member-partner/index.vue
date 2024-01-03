@@ -550,7 +550,7 @@
 
 <script>
 export default {
- name:'control-mamber-partner'
+ name:'control-member-partner'
 }
 </script>
 
