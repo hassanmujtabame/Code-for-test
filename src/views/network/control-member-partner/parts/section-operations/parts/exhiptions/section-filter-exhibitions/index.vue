@@ -2,20 +2,12 @@
         <d-filter-list 
       
         :call-list="loadList" 
-        classColCard="col-lg-6 mt-2" 
-        classColSearch="col-12 col-lg-8"
-        classColOrder="col-12 col-lg-4"
-        :pluralName="$t('exhibitions')" 
-        :singleName="$t('exhibition')"
-        :searchPlaceholder="$t('search_by_service')"
-        orderName="price"
-        :orderOpts=" 
-             [
-                {id:'asc',name:'الأقل سعرا'},
-                {id:'desc',name:'الأغلى سعرا',}
-            ]"
-            @change="changeFilter"
-  
+        hideSide
+        hideTotal
+        classTitle="col-md-6"
+        classSearchOrder="col-md-6"
+        :hideOrder="true"
+        :hideSearch="true"
         >
             <template v-slot:default="{ item }">
                 <router-link class="router-link h-100" :to="getRouteLocale('network-exhibition-show', { id: item.id })">
@@ -73,7 +65,7 @@ export default {
                     paginate:9,
                     ...this.filterItem
                 }
-                return await exhibitionAPI.getAll(params)
+                return await exhibitionAPI.getMy(params)
 
             } catch (error) {
                 console.log('error', error)

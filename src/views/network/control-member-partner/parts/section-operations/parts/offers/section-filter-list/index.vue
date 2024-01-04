@@ -84,7 +84,7 @@ export default {
           ...this.filterItem
         }
         // return await networkAPI.offers.getMyOffers(params)
-        return await networkAPI.offers.getAll(params)
+        return await networkAPI.offers.getMyOffers(params)
 
       } catch (error) {
         console.log('error', error)

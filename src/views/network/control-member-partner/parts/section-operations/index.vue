@@ -13,7 +13,7 @@
 <script>
 import navbar from './navbar.vue';
 import offers from './parts/offers/index.vue'
-import exhiptions from './parts/exhiptions.vue'
+import exhiptions from './parts/exhiptions/index.vue'
 import workspaces from './parts/workspaces/index.vue'
 export default {
     name: 'section-operation',

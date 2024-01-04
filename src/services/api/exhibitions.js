@@ -10,6 +10,10 @@ class ExhibitionsApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/exhibitions/${id}/participate-requests?${s}`);
     }
+    getMy(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`network/my-exhibitions?${s}`);
+    }
     participateRequestApproveId(id){
         return window.axios.post(`network/exhibitions/participate-requests/${id}/approve`);
     }
