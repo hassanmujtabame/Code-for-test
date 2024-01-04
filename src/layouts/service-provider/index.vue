@@ -14,9 +14,7 @@
     <SectSubscribe />
     <AddServiceDialog v-if="token" />
     <AddProposalDialog v-if="token" />
-    <DefaultFooter
-    category="service-provider" 
-    />
+    <DefaultFooter category="service-provider" />
 
     <faqBtn />
     <RateYourExperience :title="$t('service-providers')" category="service-provider" />
@@ -67,10 +65,10 @@ export default {
     faqBtn
   },
   computed: {
-        userIsRoleProvider() {
-            return this.$store.state.clientOrProvider
-        }
-    },
+    userIsRoleProvider() {
+      return this.$store.state.clientOrProvider
+    }
+  },
 }
 </script>
   

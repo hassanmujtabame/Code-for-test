@@ -7,7 +7,7 @@
       <router-link :to="getRouteLocale('network-home')" class="nav-link">{{ $t('Home-page') }}</router-link>
     </li>
 
-    <li class="nav-item px-2" v-if="user.id == 11" >
+    <li class="nav-item px-2" v-if="user.id == 11">
 
       <router-link :to="getRouteLocale('network-investment-project')" class="nav-link">{{ $t('Investment-projects')
       }}</router-link>
@@ -35,7 +35,7 @@
       <router-link :to="getRouteLocale('register')" class="text-white">{{ $t("join-us") }}</router-link>
     </li>
     <li v-else-if="!userIsSubNetwork" class="nav-item px-2 btn-main btn-nav text-center"
-    style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+      style="padding:5px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
 
       <router-link :to="getRouteLocale('network-subscribe')" class="text-white"> {{ $t('join-us') }} </router-link>
     </li>
@@ -86,7 +86,7 @@ export default {
           description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على المعارض    - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من المعارض و المزيد من المميزات في الشبكة`,
           image: `${this.publicPath}assets/img/Group 1171275670.png`,
           btns: [
-            { title: 'رقي حسابك', action: () => this.$router.push({name: 'network-subscribe'}) }
+            { title: 'رقي حسابك', action: () => this.$router.push({ name: 'network-subscribe' }) }
           ]
         }
         this.showConfirmMsg(dataEvt);
@@ -102,7 +102,7 @@ export default {
           description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على النماذج  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من النماذج و المزيد من المميزات في الشبكة`,
           image: `${this.publicPath}assets/img/Group 1171275670.png`,
           btns: [
-            { title: 'رقي حسابك', action: () => this.$router.push({name: 'network-subscribe'}) }
+            { title: 'رقي حسابك', action: () => this.$router.push({ name: 'network-subscribe' }) }
           ]
         }
         this.showConfirmMsg(dataEvt);
@@ -118,7 +118,7 @@ export default {
           description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
           image: `${this.publicPath}assets/img/Group 1171275670.png`,
           btns: [
-            { title: 'رقي حسابك', action: () => this.$router.push({name: 'network-subscribe'}) }
+            { title: 'رقي حسابك', action: () => this.$router.push({ name: 'network-subscribe' }) }
           ]
         }
         this.showConfirmMsg(dataEvt);

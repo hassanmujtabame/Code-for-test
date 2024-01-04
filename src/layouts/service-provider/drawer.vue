@@ -1,61 +1,65 @@
 <template>
-    <TemplateDrawer :dashboard="dashboard" v-slot="{clickLink}">
+    <TemplateDrawer :dashboard="dashboard" v-slot="{ clickLink }">
 
-                <div class="box  mx-2 mt-3 ">
-                    <!--control icon -->
-                    <userRectIcon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-profile')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('personal_page') }}</button>
-                    </router-link>
-                </div>
-                <div v-if="userIsProvider" class="box  mx-2 mt-3 ">
-                    <!-- lamp-->
-                    <lamp-icon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-request-purchase-services')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('requisitions-services') }}
-                            </button>
-                    </router-link>
-                </div>
-                <div v-if="userIsProvider" class="box  mx-2 mt-3 ">
-                  <closedWalletIcon :size="32" color="var(--m-color)" />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-offers')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('your-offers') }}</button>
-                    </router-link>
-                    
-                </div>
-            
-                <div v-if="!userIsProvider" class="box  mx-2 mt-3 ">
-                    <!-- lamp-->
-                    <lamp-icon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-proposals')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('my-requests') }}
-                            </button>
-                    </router-link>
-                </div>
-                <div v-if="!userIsProvider" class="box  mx-2 mt-3 ">
-                  <closedWalletIcon :size="32" color="var(--m-color)" />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-client-my-purchases')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('my-purchases') }}</button>
-                    </router-link>
-                </div>
+        <div class="box  mx-2 mt-3 ">
+            <!--control icon -->
+            <userRectIcon />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-my-profile')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer"> {{ $t('personal_page')
+                }}</button>
+            </router-link>
+        </div>
+        <div v-if="userIsProvider" class="box  mx-2 mt-3 ">
+            <!-- lamp-->
+            <lamp-icon />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-request-purchase-services')"
+                class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('requisitions-services') }}
+                </button>
+            </router-link>
+        </div>
+        <div v-if="userIsProvider" class="box  mx-2 mt-3 ">
+            <closedWalletIcon :size="32" color="var(--m-color)" />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-my-offers')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('your-offers') }}</button>
+            </router-link>
 
-                <!-- uncomment after edition in jobs  -->
+        </div>
 
-                <!-- <div class="box  mx-2 mt-3 ">
+        <div v-if="!userIsProvider" class="box  mx-2 mt-3 ">
+            <!-- lamp-->
+            <lamp-icon />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-my-proposals')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('my-requests') }}
+                </button>
+            </router-link>
+        </div>
+        <div v-if="!userIsProvider" class="box  mx-2 mt-3 ">
+            <closedWalletIcon :size="32" color="var(--m-color)" />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-client-my-purchases')"
+                class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('my-purchases') }}</button>
+            </router-link>
+        </div>
+
+        <!-- uncomment after edition in jobs  -->
+
+        <!-- <div class="box  mx-2 mt-3 ">
                     <schoolWalletIcon :size="32" color="var(--m-color)" />
                     <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-control-jobs')" class="mx-2 m-c ">
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('jobs') }}</button>
                     </router-link>
                 </div> -->
 
-                <div class="box  mx-2 mt-3 ">
-                   <d-calendar-icon color="var(--m-color)"/>
-                    
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-schedules')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('schedules-your-services') }}</button>
-                    </router-link>
-                </div>
-                <!-- <div class="box  mx-2 mt-3 ">
+        <div class="box  mx-2 mt-3 ">
+            <d-calendar-icon color="var(--m-color)" />
+
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-my-schedules')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('schedules-your-services')
+                }}</button>
+            </router-link>
+        </div>
+        <!-- <div class="box  mx-2 mt-3 ">
                     <emptyWalletIcon :size="32" color="var(--m-color)" />
 
 
@@ -63,35 +67,41 @@
                         <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('subscribes') }}</button>
                     </router-link>
                 </div> -->
-                <div class="box  mx-2 mt-3 ">
-                    <!--invoice icon-->
+        <div class="box  mx-2 mt-3 ">
+            <!--invoice icon-->
 
-                    <invoiceIcon />
+            <invoiceIcon />
 
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-financial-transactions')" class="mx-2 m-c ">
-                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('My-financial-transactions') }}</button> 
-                    </router-link>
-                </div>
-                <div class="box  mx-2 mt-3 ">
-                    <eyeOpenIcon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-preview-profile')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('how-see-me-others') }}</button>
-                    </router-link>
-                </div>
-                  <div  class="box  mx-2 mt-3 ">
-                    <!-- lamp-->
-                    <lock-icon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('service-provider-my-ready-services')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('my-services') }}
-                            </button>
-                    </router-link>
-                </div>
-                <div class="box  mx-2 mt-3 ">
-                  <lockPassIcon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('change-password')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('password-change-request') }}</button>
-                    </router-link>
-                </div>
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-my-financial-transactions')"
+                class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{
+                    $t('My-financial-transactions') }}</button>
+            </router-link>
+        </div>
+        <div class="box  mx-2 mt-3 ">
+            <eyeOpenIcon />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-preview-profile')"
+                class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('how-see-me-others')
+                }}</button>
+            </router-link>
+        </div>
+        <div class="box  mx-2 mt-3 ">
+            <!-- lamp-->
+            <lock-icon />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-my-ready-services')"
+                class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('my-services') }}
+                </button>
+            </router-link>
+        </div>
+        <div class="box  mx-2 mt-3 ">
+            <lockPassIcon />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('change-password')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('password-change-request')
+                }}</button>
+            </router-link>
+        </div>
 
     </TemplateDrawer>
 </template>
@@ -110,13 +120,13 @@ import eyeOpenIcon from '@/components/icon-svg/eye-open.vue'
 import lockPassIcon from '@/components/icon-svg/lock-pass.vue'
 export default {
     name: 'drawer-profil',
-    props:{
-        dashboard:{
-            type:String,
-            default:'network-dashboard'
+    props: {
+        dashboard: {
+            type: String,
+            default: 'network-dashboard'
         }
     },
-    components:{
+    components: {
         TemplateDrawer,
         lampIcon,
         closedWalletIcon,
@@ -129,7 +139,7 @@ export default {
         lockIcon
     },
     methods: {
-        clickLink(navigate,evnt){
+        clickLink(navigate, evnt) {
             //this.myModal.hide();
             window.$(`#btn-close-drawer`).click()
             navigate(evnt)
@@ -138,9 +148,7 @@ export default {
 }
 </script>
 
-<style scoped>
-.btn-drawer{
+<style scoped>.btn-drawer {
     background: transparent;
     border: none;
-}
-</style>
+}</style>

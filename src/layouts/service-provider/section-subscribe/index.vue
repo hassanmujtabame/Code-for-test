@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <div class="">
             <div class="container">
                 <div class="row align-items-center justify-content-center " :class="{ 'p-4': !isMobile, 'py-4': isMobile }">
@@ -7,18 +7,19 @@
                         <h1 class="pc">
                             {{ $t('subscribe-newsletter') }}
                         </h1>
-                        <span >
+                        <span>
                             {{ $t('subscribe-newsletter-text') }}
                         </span>
                     </div>
                     <div class="col-md-6">
                         <div class="input-group input-group-sm input-group-md input-group-lg  m-auto"
                             :class="{ 'w-75': !isMobile, 'w-100': isMobile }">
-                            <input style="border-color: var(--pc)" type="text" v-model="form.email" class="form-control p-3" :class="{ 'fs-6': isMobile }"
-                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
-                                :placeholder="$t('write-your-email')" required>
-                            <span @click="subscribe" class="input-group-text bg-yal text-white" style="cursor:pointer; background-color: var(--pc)"
-                                :class="{ 'fs-6': isMobile }" id="inputGroup-sizing-lg">{{ $t('Subscribe') }}</span>
+                            <input style="border-color: var(--pc)" type="text" v-model="form.email" class="form-control p-3"
+                                :class="{ 'fs-6': isMobile }" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-lg" :placeholder="$t('write-your-email')" required>
+                            <span @click="subscribe" class="input-group-text bg-yal text-white"
+                                style="cursor:pointer; background-color: var(--pc)" :class="{ 'fs-6': isMobile }"
+                                id="inputGroup-sizing-lg">{{ $t('Subscribe') }}</span>
                         </div>
                         <div class="input-group input-group-sm input-group-md input-group-lg  m-auto"
                             :class="{ 'w-75': !isMobile, 'w-100': isMobile }">
