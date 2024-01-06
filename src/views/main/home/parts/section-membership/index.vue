@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row align-items-stretch">
                 <div class="col-md-6">
-                    <div>
+                    <div v-if="!isMobile">
                         <img v-if="false" class="img-fluid" :src="`${publicPath}assets/img/network 289320.png`" alt=""
                             width="470">
                         <AnimateCard />

@@ -15,7 +15,7 @@
             </router-link>
           </div>
         </div>
-        <div style="overflow: hidden; background:rgba(255, 188, 0, 1);" class="img-cons m-auto ">
+        <div v-if="!isMobile"  style="overflow: hidden; background:rgba(255, 188, 0, 1);" class="img-cons m-auto ">
           <img src="@/assets/img/main-page.png" alt="" style="height: 300px !important; object-fit: contain !important;">
         </div>
       </div>

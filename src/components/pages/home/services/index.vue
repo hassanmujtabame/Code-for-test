@@ -44,7 +44,7 @@
 
       <div class="tab-content" id="pills-tabContent">
         <TabItem :current.sync="currentTab" group="pills" reference="home" v-slot="{ selected }">
-          <div data-aos="fade-left" data-aos-duration="2000">
+          <div data-aos="fade-left" v-if="!isMobile" data-aos-duration="2000">
             <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />
           </div>
           <ServiceCard :selected="selected" :title="$t('network')" routeName="network-home">
@@ -55,7 +55,7 @@
         <!-- uncomment after the incubator activated -->
 
         <!-- <TabItem :current.sync="currentTab" group="pills" reference="profile" v-slot="{ selected }">
-          <div data-aos="fade-left" data-aos-duration="2000">
+          <div data-aos="fade-left" v-if="!isMobile" data-aos-duration="2000">
             <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />
           </div>
           <ServiceCard :title="$t('incubator')" :selected="selected" routeName="incubator-home">
@@ -64,7 +64,7 @@
         </TabItem> -->
 
         <TabItem :current.sync="currentTab" group="pills" reference="contact" v-slot="{ selected }">
-          <div data-aos="fade-left" data-aos-duration="2000">
+          <div data-aos="fade-left" v-if="!isMobile" data-aos-duration="2000">
             <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />
           </div>
           <ServiceCard :title="$t('academy')" :selected="selected" routeName="academy-home">
@@ -73,7 +73,7 @@
         </TabItem>
 
         <TabItem :current.sync="currentTab" group="pills" reference="servProvider" v-slot="{ selected }">
-          <div data-aos="fade-left" data-aos-duration="2000">
+          <div data-aos="fade-left" v-if="!isMobile" data-aos-duration="2000">
             <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />
           </div>
           <ServiceCard :title="$t('service-providers')" :selected="selected" routeName="service-provider-home">
@@ -82,7 +82,7 @@
         </TabItem>
 
         <TabItem :current.sync="currentTab" group="pills" reference="workspaces" v-slot="{ selected }">
-          <div data-aos="fade-left" data-aos-duration="2000">
+          <div data-aos="fade-left" v-if="!isMobile" data-aos-duration="2000">
             <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />
           </div>
           <ServiceCard :title="$t('workspaces')" :selected="selected" routeName="workspaces-home">
@@ -91,7 +91,7 @@
         </TabItem>
 
         <TabItem :current.sync="currentTab" group="pills" reference="affiliate" v-slot="{ selected }">
-          <div data-aos="fade-left" data-aos-duration="2000">
+          <div data-aos="fade-left" v-if="!isMobile" data-aos-duration="2000">
             <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />
           </div>
           <ServiceCard :title="$t('Affiliate-marketing')" :selected="selected" routeName="affiliate-marketing-home">
@@ -99,7 +99,7 @@
           </ServiceCard>
         </TabItem>
         <!-- <TabItem :current.sync="currentTab" group="pills" reference="shop" v-slot="{ selected }">
-          <div data-aos="fade-left" data-aos-duration="2000">
+          <div data-aos="fade-left" v-if="!isMobile" data-aos-duration="2000">
             <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />
           </div>
           <ServiceCard :title="$t('market')" :selected="selected">
