@@ -18,6 +18,9 @@
         </slot>
       </div>
       <div class="col-12 mt-3 row mb-3" :class="classSearchOrder">
+        <div v-if="showBtnSearch" class="text-center" :class="classBtnSearch">
+          <button @click="updateFilter" class="btn-custmer">{{ $t('search') }}</button>
+        </div>
         <div v-if="!hideSearch" :class="classColSearch">
           <slot name="search">
             <label for="" class="position-relative w-100">
@@ -38,19 +41,15 @@
         </div>
         <div v-if="!hideOrder" :class="classColOrder" class="position-relative margin">
           <slot name="order">
-            <p style="top: -13px; right: 280px; background: white" class="position-absolute">
-              ترتيب حسب
-            </p>
-            <select @change="updateFilter" v-model="filter.order" class="form-select py-3 m-c fs-r-12 w-25"
+            <select @change="updateFilter" v-model="filter.order" class="form-select py-3 m-c fs-r-12"
               aria-label=".form-select-lg example">
               <option v-for="(opt, i) in orderOpts" :key="i" :value="opt.id">
                 {{ opt.name }}
               </option>
             </select>
-
-          </slot>
-          <slot name="append-order">
-
+            <p style="top: -13px; right: 24px; background: white" class="position-absolute">
+              ترتيب حسب
+            </p>
           </slot>
         </div>
 
@@ -67,7 +66,7 @@
       <slot name="before-body"></slot>
     </div>
     <div class="row">
-      <div v-if="!hideSide" class="col-xl-3 mt-2">
+      <div v-if="!hideSide" class="mt-2" :class="classSideBar">
         <slot name="side">
           <div class="box border p-3 rounded-3">
             <h4>{{ $t("filter") }}</h4>
@@ -157,40 +156,66 @@
                   </div>
                 </div>
               </div>
-              <div class="accordion-item">
+              <!-- <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                    aria-controls="panelsStayOpen-collapseThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseThree"
+                  >
                     المدة
                   </button>
                 </h2>
-                <div id="panelsStayOpen-collapseThree" class="accordion-collapse"
-                  aria-labelledby="panelsStayOpen-headingThree">
+                <div
+                  id="panelsStayOpen-collapseThree"
+                  class="accordion-collapse"
+                  aria-labelledby="panelsStayOpen-headingThree"
+                >
                   <div style="margin: 20px 0px 0 0" class="a">
                     <div class="slider-container">
-                      <rslider-input :min.sync="valueMin2" :max.sync="valueMax2" :lmin="0" :lmax="100" />
+                      <rslider-input
+                        :min.sync="valueMin2"
+                        :max.sync="valueMax2"
+                        :lmin="0"
+                        :lmax="100"
+                      />
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item">
+              </div> -->
+              <!-- <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                    aria-controls="panelsStayOpen-collapseFour">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseFour"
+                    aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseFour"
+                  >
                     التكلفة
                   </button>
                 </h2>
-                <div id="panelsStayOpen-collapseFour" class="accordion-collapse"
-                  aria-labelledby="panelsStayOpen-headingFour">
+                <div
+                  id="panelsStayOpen-collapseFour"
+                  class="accordion-collapse"
+                  aria-labelledby="panelsStayOpen-headingFour"
+                >
                   <div style="margin: 20px 0px 0 0" class="a">
                     <div class="slider-container">
-                      <rslider-input :min.sync="valueMin1" :max.sync="valueMax1" :lmin="50" :lmax="1000" />
+                      <rslider-input
+                        :min.sync="valueMin1"
+                        :max.sync="valueMax1"
+                        :lmin="50"
+                        :lmax="1000"
+                      />
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="mt-3 text-center">
               <button class="btn-main">حفظ</button>
@@ -198,13 +223,13 @@
           </div>
         </slot>
       </div>
-      <div :class="{ 'col-xl-9': !hideSide, 'col-lg-12': hideSide }">
+      <div :class="{ 'col-xl-9': !hideSide, 'col-lg-12': hideSide, 'col-xl-12': newFilter }">
         <div class="row">
           <div v-if="items.length == 0">
-            <h1 class="t-c text-center">لا يوجد عناصر</h1>
+            <!-- <h1 class="t-c text-center">لا يوجد عناصر</h1> -->
           </div>
-          <div v-else class="col-12 row order filter-list-items">
-            <div v-for="(item, i) in items" :key="i" :class="classColCard">
+          <div v-else class="order filter-list-items d-flex flex-row flex-wrap gap-3">
+            <div style="width: fit-content" v-for="(item, i) in items" :key="i" :class="classColCard">
               <slot :item="item"></slot>
             </div>
           </div>
@@ -214,8 +239,8 @@
         </div>
       </div>
       <div class="mt-5">
-        <nav v-if="metaInfo.total_page > 1" aria-label="Page navigation example">
-          <ul class="pagination justify-content-center" :style="{
+        <nav v-if="metaInfo.total_page > 0" aria-label="Page navigation example">
+          <ul class="pagination justify-content-center gap-3" :style="{
             'flex-direction': $i18n.locale == 'ar' ? 'row-reverse' : 'row',
           }">
             <li class="page-item rotateY-180" :class="{ disabled: metaInfo.current_page == 1 }">
@@ -299,11 +324,23 @@ export default {
       type: String,
       default: "col-lg-6",
     },
+    classSideBar: {
+      type: String,
+      default: "col-xl-3",
+    },
     classColOrder: {
       type: String,
       default: "col-12 col-lg-6",
     },
+    classBtnSearch: {
+      type: String,
+      default: "col-12 col-md-2 mt-3",
+    },
     hideTotal: {
+      type: Boolean,
+      default: false,
+    },
+    showBtnSearch: {
       type: Boolean,
       default: false,
     },
@@ -320,6 +357,10 @@ export default {
       default: false,
     },
     hideSide: {
+      type: Boolean,
+      default: false,
+    },
+    newFilter: {
       type: Boolean,
       default: false,
     },

@@ -1,17 +1,9 @@
 <template>
-    <div class="position-relative" :class="{'swiper-mobile':isMobile}">
-        <swiper
-                :scrollbar="scrollbar"
-                :navigation="navigation"
-                :pagination="pagination"
-                :slides-per-view="isAuto?'auto':slidesPerView"
-                :space-between="spaceBetween"
-                :breakpoints="breakpoints"
-                v-bind="$attrs"
-                v-on="$listeners"
-        >
-            <SwiperSlide v-for="(item,i) in items" :key="i"
-            >
+    <div class="position-relative" :class="{ 'swiper-mobile': isMobile }">
+        <swiper :scrollbar="scrollbar" :navigation="navigation" :pagination="pagination"
+            :slides-per-view="isAuto ? 'auto' : slidesPerView" :space-between="spaceBetween" :breakpoints="breakpoints"
+            v-bind="$attrs" v-on="$listeners">
+            <SwiperSlide v-for="(item, i) in items" :key="i">
 
                 <slot :item="item">
                 </slot>
@@ -23,9 +15,9 @@
 </template>
 
 <script>
-import {Navigation, Pagination, Thumbs, Controller} from 'swiper'
+import { Navigation, Pagination, Thumbs, Controller } from 'swiper'
 
-import {SwiperCore, Swiper, SwiperSlide} from 'swiper-vue2'
+import { SwiperCore, Swiper, SwiperSlide } from 'swiper-vue2'
 // Import Swiper styles
 import 'swiper/swiper-bundle.css'
 

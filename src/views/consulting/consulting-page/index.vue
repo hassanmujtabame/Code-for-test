@@ -144,7 +144,7 @@
 <script>
 import CardMember from '@/components/cards/card-member.vue'
 export default {
-    name: 'counseling-page',
+    name: 'consulting-page',
     components:{
         CardMember
     },

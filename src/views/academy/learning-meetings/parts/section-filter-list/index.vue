@@ -1,16 +1,16 @@
 <template>
  <div class="container mt-5">
-        <d-filter-list
+        <filter-list
         :pluralName="$t('the_meetings')"
         :singleName="$t('meeting')"
         :call-list="loadList"
         :searchPlaceholder="$t('search_by_name')"
-        classColCard="col-12 col-md-6 mt-2"
+        classColCard="d-flex flex-wrap gap-2 flex-row justify-content-between"
         @change="changeFilter"
         >
               <template v-slot="{item}">
                 
-                  <router-link class="router-link" :to="getRouteLocale('academy-learning-meeting-show',{id:item.id})">
+                  <router-link style="display: block; width:fit-content" class="router-link" :to="getRouteLocale('academy-learning-meeting-show',{id:item.id})">
                     <meetingCard 
                       :item="item"
                      :img="item.image"
@@ -18,23 +18,24 @@
                      :type="item.type"
                      :date="item.date"
                     />
-        
                   </router-link>
               </template>
               <template v-slot:side>
                 <sidebarBox  :filterItem="filterSide" @change="changeFilter"/>
               </template>
-        </d-filter-list>
+        </filter-list>
       </div> 
 </template>
 
 <script>
+import FilterList from './fiter-list.vue'
 import learningMeetingsAPI from '@/services/api/learning-meetings';
 import sidebarBox from './sidebar.vue';
 import meetingCard from '@/components/cards/meeting.vue';
 export default {
 name:'section-list',
 components:{
+  FilterList,
   meetingCard,
   sidebarBox
 },

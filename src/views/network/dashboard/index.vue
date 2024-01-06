@@ -37,7 +37,7 @@
                   لانك عضو في شبكة رياديات يمكنك طلب استشارات من مستشارينا
                   المميزين في اغلب المجالات بكل سهولة
                 </p>
-                <router-link :to="getRouteLocale('consulting-page')"
+                <router-link :to="getRouteLocale('consulting-home')"
                   class="border border-white rounded-2 text-white bg-main p-2">
                   {{ $t("know_more") }}
                 </router-link>

@@ -14,7 +14,7 @@
                 </div>
                 <d-swiper v-if="!loading" is-auto :items="items" class="justify-content-around">
                     <template v-slot="{ item }">
-                        <router-link class="router-link"
+                        <router-link style="width: fit-content" class="router-link"
                             :to="getRouteLocale('academy-learning-meeting-show', { id: item.id })">
                             <meetingCard :item="item" :img="item.image" :title="item.title" :type="item.type"
                                 :date="item.date" :time="item.time" />

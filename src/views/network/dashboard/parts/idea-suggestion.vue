@@ -1,38 +1,32 @@
 <template>
-   <div> 
+  <div>
 
-                        <div class="box d-flex align-items-center justify-content-between mb-2">
-                            <h5 >
-              قدم فكرة أو اقتراح لفريق رياديات
-                            </h5>
-                    
-                        </div>
-                         <textarea class="form-control" 
-                            v-model="idea" 
-                            rows="6" 
-                            placeholder="قدم فكرة أو اقتراح لفريق رياديات"
-                            ></textarea>
+    <div class="box d-flex align-items-center justify-content-between mb-2">
+      <h5>
+        قدم فكرة أو اقتراح لفريق رياديات
+      </h5>
 
-                               <button  type="button" class="btn btn-main mt-3">
-                                  {{ $t('send') }}
-                                </button>
+    </div>
+    <textarea class="form-control" v-model="idea" rows="6" placeholder="قدم فكرة أو اقتراح لفريق رياديات"></textarea>
 
-                   </div>
+    <button type="button" class="btn btn-main mt-3">
+      {{ $t('send') }}
+    </button>
 
+  </div>
 </template>
   
-  <script>
+<script>
 export default {
   components: {
   },
-      data: () => {
-        return {
-        idea:''
+  data: () => {
+    return {
+      idea: ''
 
-        }
-    },
+    }
+  },
 };
 </script>
   
-  <style>
-</style>
+<style></style>

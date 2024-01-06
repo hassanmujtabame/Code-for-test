@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import SectionHeader from "./parts/section-header/index";
-import SectionFilterList from "./parts/section-filter-list/index";
+import SectionHeader from "./parts/section-header/index.vue";
+import SectionFilterList from "./parts/section-filter-list/index.vue";
 import AddMeetingDialog from "./dialogs/add-meeting/index.vue";
 
 export default {
