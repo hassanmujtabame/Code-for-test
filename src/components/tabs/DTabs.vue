@@ -1,9 +1,5 @@
 <template>
-  <ul
-    class="nav nav-pills mb-3 justify-content-center p-0"
-    :id="`${group}-tab`"
-    role="tablist"
-  >
+  <ul class="nav nav-pills mb-3 justify-content-center p-0" :id="`${group}-tab`" role="tablist">
     <slot></slot>
   </ul>
 </template>
@@ -22,5 +18,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

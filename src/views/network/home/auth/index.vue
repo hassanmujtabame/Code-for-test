@@ -20,11 +20,11 @@
       <SectionAds department="network" url="network/home-banners" />
     </div>
     <!-- section 3-->
-    <SectionThree />
+    <SectionThree v-if="!isMobile" />
     <!-- #section 3-->
     <!-- section 4-->
     <SectionMembership />
-<!-- section features -->
+    <!-- section features -->
     <SectionFeatures />
     <!--schedule network-->
     <SectionScheduleNework />
@@ -124,7 +124,7 @@
 
     <!-- شركائنا-->
     <SectionPartner />
-    
+
     <!-- تشاركينا ؟-->
     <SectionJoinUs v-if="!userPartner" />
 
@@ -143,7 +143,7 @@
 </template>
 
 <script>
-import SectionAds from '@/common/components/advertisements/index'
+import SectionAds from '@/common/components/advertisements/index.vue'
 import SectionThree from './parts/section-3/index.vue';
 import SectionMembership from './parts/section-membership/index.vue';
 import SectionTopMember from './parts/section-top-members/index.vue';
@@ -153,7 +153,7 @@ import SectionCampLeadership from './parts/cam-leadership/index.vue'
 import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
 import SectionOurAds from './parts/section-our-ads/index.vue'
 import SectionNumbers from './parts/section-numbers/index.vue';
-import SectionWorkspace from "./parts/section-workspace"
+import SectionWorkspace from "./parts/section-workspace/index.vue"
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionPodcast from "./parts/section-podcast/index.vue";
 import SectionExhibitions from "./parts/section-exhibitions/index.vue";
@@ -178,7 +178,7 @@ export default {
     SectionFeatures,
     SectionWorkspace,
     SectionPartner,
-    SectionBlogs,   
+    SectionBlogs,
     SectionNumbers,
     SectionPodcast,
     SectionHear,
@@ -224,7 +224,7 @@ export default {
           description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
           image: `${this.publicPath}assets/img/Group 1171275670.png`,
           btns: [
-            { title: 'رقي حسابك', action: () => this.$router.push({name: 'network-subscribe'}) }
+            { title: 'رقي حسابك', action: () => this.$router.push({ name: 'network-subscribe' }) }
           ]
         }
         this.showConfirmMsg(dataEvt);

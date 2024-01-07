@@ -2,7 +2,7 @@
     <div class="consulting" :class="[isMobile ? 'p-3' : 'p-5']">
         <div class="netwok-home-header">
             <div class="row">
-                <div class="col-8 col-md-6">
+                <div class="col-12 col-md-6" >
                     <h1 class="header-title-page">شبكة رياديات </h1>
                     <p class="header-desc-page">طموحة و تسعين لتحقيق حلمك و شغفك ؟</p>
                     <p class="header-desc-page">
@@ -10,7 +10,8 @@
                     </p>
 
                 </div>
-                <div class="col-3 col-md-6 m-auto">
+                <div v-if="!isMobile" class="col-3 col-md-6 m-auto"
+                >
                     <div class="m-auto " style="    display: flex;
                         justify-content: center;">
                         <!-- <img class="img-fluid"  :src="`${publicPath}assets/svg/Group 117127620699.svg`" alt="" > -->
@@ -22,7 +23,7 @@
                     </div>
 
                 </div>
-                <div class="col-12 my-3">
+                <div class="col-12 my-3" :class="{'d-flex justify-content-center' : isMobile}">
                     <router-link v-if="user" :to="getRouteLocale('network-dashboard')" class="btn-custmer shadow mt-2">الصفة
                         الرئيسية</router-link>
 
@@ -37,10 +38,10 @@
                 </div>
 
             </div>
-            <div class="star-cons">
+            <div v-if="!isMobile"  class="star-cons">
                 <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
             </div>
-            <div class="star-cons stars">
+            <div v-if="!isMobile"  class="star-cons stars">
                 <img :src="`${publicPath}assets/img/starsss.png`" alt="">
             </div>
 

@@ -18,13 +18,8 @@
                         </d-hover>
                     </div>
                 </div>
-
             </div>
-
-
-
         </div>
-
     </div>
 </template>
 

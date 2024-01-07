@@ -10,7 +10,7 @@
                     </p>
 
                 </div>
-                <div class="col-3 col-md-6">
+                <div class="col-3 col-md-6" v-if="!isMobile">
                     <div style="overflow: inherit;" class=" m-auto text-start ">
                         <img class="img-fluid" :src="`${publicPath}assets/img/Group 1171274931s.png`" alt="">
                     </div>
