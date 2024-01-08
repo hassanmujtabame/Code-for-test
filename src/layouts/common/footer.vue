@@ -82,10 +82,11 @@
             {{ $t(category) }}
           </router-link> -->
           <a class="fs-2" style="cursor: pointer;" @click="openShowMsg('commercialRegister')">
-            السجل التجارى
+            السجل التجارى: 1010457094
+          
           </a>
           <a class="fs-2" style="cursor: pointer;" @click="openShowMsg('taxNumber')">
-            الرقم الضريبى
+            الرقم الضريبى: 310227304700003
           </a>
         </div>
         <div class="social mt-3">
