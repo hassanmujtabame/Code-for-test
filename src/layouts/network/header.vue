@@ -67,6 +67,7 @@ export default {
   methods: {
 
     checkSubscriptionOptions() {
+      console.log("optoins", this.user)
       for (let index = 0; index < this.user.subscription_options.length; index++) {
         const element = this.user.subscription_options[index];
         if (element.key == "show_exhibitions") {

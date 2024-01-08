@@ -64,11 +64,11 @@
 
                                 <d-select-input type="text" :errors="errors" v-model="form.project_field"
                                     :label="$t('project-field')">
-                                    <option >حدد المجال</option>
-                                    <option >حدد المجال</option>
-                                    <option >حدد المجال</option>
-                                    <option >حدد المجال</option>
-                                    <option >حدد المجال</option>
+                                    <option>حدد المجال</option>
+                                    <option>حدد المجال</option>
+                                    <option>حدد المجال</option>
+                                    <option>حدد المجال</option>
+                                    <option>حدد المجال</option>
                                 </d-select-input>
 
 
