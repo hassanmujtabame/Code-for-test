@@ -5,7 +5,8 @@
                 <div class="row align-items-center ">
                     <div class="col-md-6">
                         <div>
-                            <img v-if="false" class="img-fluid" :src="`${publicPath}assets/img/network 289320.png`" alt="" width="470">
+                            <img v-if="false" class="img-fluid" :src="`${publicPath}assets/img/network 289320.png`" alt=""
+                                width="470">
                             <AnimateCard />
                         </div>
                     </div>
@@ -53,7 +54,7 @@
                     يمكنك ابراز بطاقتك لكاشير العلامات التجارية التالية
                 </h3>
                 <div class="mt-3">
-                   <dFilterList />
+                    <dFilterList />
                 </div>
             </div>
         </div>
@@ -65,19 +66,19 @@ import dFilterList from './filter-list/filter'
 import AnimateCard from '@/components/cards/image-card-membership/index.vue'
 export default {
     name: 'card-membership',
-    components:{
+    components: {
         AnimateCard,
         dFilterList
     },
-    
-       data: () => {
+
+    data: () => {
         return {
             offersCardMember: false
         }
-   },
-    methods:{
-        showCard(evt){
-            this.$router.push({name: "show-card"})
+    },
+    methods: {
+        showCard(evt) {
+            this.$router.push({ name: "show-card" })
             // if(!this.shouldSubNetworkMsg('انت غير مشترك في الشبكة',evt)){
             //     if(!this.offersCardMember){
             //         let dataEvt ={
@@ -100,24 +101,24 @@ export default {
             // } 
 
         },
-        
-          checkSubscriptionOptions(){
-                for (let index = 0; index < this.user.subscription_options.length; index++) {
-                    const element = this.user.subscription_options[index];
-                    if (element.key == "offers_card_member") {
-                        this.offersCardMember = true
-                    }
+
+        checkSubscriptionOptions() {
+            for (let index = 0; index < this.user.subscription_options.length; index++) {
+                const element = this.user.subscription_options[index];
+                if (element.key == "offers_card_member") {
+                    this.offersCardMember = true
                 }
-    }
+            }
+        }
     },
-      mounted() {
-    this.checkSubscriptionOptions()
+    mounted() {
+        this.checkSubscriptionOptions()
     }
 }
 </script>
 
 <style scoped>
-.page-text{
+.page-text {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -125,5 +126,4 @@ export default {
     /* or 150% */
     color: #979797;
 }
-
 </style>
