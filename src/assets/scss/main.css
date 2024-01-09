@@ -10,4 +10,9 @@
 }
 .nav-tabs .nav-link:last-child {
   border-radius: 5px 0 0 5px;
+}
+@font-face {
+  font-family: "Caveat", cursive;
+  font-family: "Roboto", sans-serif;
+  src: url("~@/assets/font/roboto/Roboto-Regular.ttf") format("truetype");
 }/*# sourceMappingURL=main.css.map */
