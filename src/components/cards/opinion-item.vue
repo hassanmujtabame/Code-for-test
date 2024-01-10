@@ -1,19 +1,13 @@
 <template>
-    <div class="item">
-        <div class="row align-items-stretch"> 
-            <div class="col-8 position-relative" style="margin-top: 60px;">
-                <div class="d-flex flex-column">
-                 <h6 class="opinion-name mb-3">{{ title }}</h6>
-                <p class="opinion-text mt-5" v-html="desc"></p>
-                <h6 class="opinion-name">{{ name }}
-                </h6>
+    <div class="item px-4 py-2 rounded-2 shadow m-4 bg-white" >
+        <div class="d-flex justify-content-between flex-column" style=" min-height: 180px;">
+            <div>
+                <p v-html="desc"></p>
             </div>
-                <div class="position-absolute dote">
-                    <img :src="`${publicPath}assets/svg/double-quoted.svg`" alt="">
-                </div>
-            </div>
-            <div class="col-4">
-                <img class="opinion-img rounded-3" :src="image" :alt="name" width="368" height="368">
+            <div>
+                <img style="width: 40px; height: 40px; border-radius: 50%;" :src="image" :alt="name">
+                <p>{{ name }}</p>
+                <span>{{ title }}</span>
             </div>
         </div>
     </div>
@@ -21,71 +15,21 @@
 
 <script>
 export default {
- props:{
-    name:{
-        type:String
-    },
-      title:{
-        type:String
-    },
-    desc:{
-        type:String
-    },
-    image:{
-        type:String
+    props: {
+        name: {
+            type: String
+        },
+        title: {
+            type: String
+        },
+        desc: {
+            type: String
+        },
+        image: {
+            type: String
+        }
     }
- }
 }
 </script>
 
-<style scoped>
- .dote >img{
-    width:40px;
-    height:30px;
-}
-
-.dote {
-    top: -24px !important;
-    left:0 !important;
-}
-.opinion-text{
-    font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 32px;
-/* or 133% */
-text-transform: capitalize;
-color: #737373;
-flex: 1 0;
-}
-.opinion-img {
-    width: 368px;
-    height:368px;
-}
-.opinion-name{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 32px;
-    /* or 133% */
-    text-transform: capitalize;
-    color: #FFBC00;
-    flex: 0 0;
-}
-.mobile-layout .dote >img{
-    height:15px;
-}
-
-.mobile-layout .dote {
-    top: -10px !important;
-}
-.mobile-layout .opinion-img {
-    width: 100px;
-    height: 100px;
-}
-.mobile-layout .opinion-name
-,.mobile-layout .opinion-text{
-    font-size: 16px;
-    line-height: 1.3;
-}
-</style>
+<style scoped></style>

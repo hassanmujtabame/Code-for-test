@@ -22,13 +22,14 @@
     <SectPartnerRiadiat />
     <!-- #section 6 -->
     <!-- section 7-->
-    <SectAboutUs />
+    <!-- <SectAboutUs /> -->
     <!-- #section 7-->
     <!--section hear about us-->
     <SectHearAboutUs />
     <!-- section 8-->
     <SectBlog v-if="true" />
-    <!-- #section 8-->
+
+    <RecentWorkspaces />
   </div>
 </template>
 
@@ -43,6 +44,8 @@ import SectAboutUs from "./parts/section-about-us/index.vue";
 import SectHearAboutUs from "./parts/section-hear-about-us/index.vue";
 import SectionTopCoupons from "./parts/section-top-coupons/index.vue";
 import SectionMembership from "./parts/section-membership/index.vue";
+import RecentWorkspaces from "@/components/pages/workspaces/home/recent-workspaces/index.vue";
+
 
 // import SectionBlog from './parts/section-blog/index.vue'
 import SectionCoupons from "./parts/section-coupons";
@@ -75,6 +78,7 @@ export default {
     SectionCoupons,
     SectionTopCoupons,
     SectionMembership,
+    RecentWorkspaces
   },
   data: () => ({}),
   async mounted() {

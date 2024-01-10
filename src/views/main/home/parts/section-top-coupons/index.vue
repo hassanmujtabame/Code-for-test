@@ -5,12 +5,16 @@
         <h1> أهم اكواد الخصم </h1>
 
       </div>
-      <d-swiper v-if="!loading" :items="items" is-auto :slides-per-view="3" :space-between="5">
+      <h3 class="t-c m-auto" v-if="items.length == 0 || !items">
+        للأسف
+        لا يوجد اكواد حاليا
+      </h3>
+      <d-swiper v-if="!loading && items" :items="items" is-auto :slides-per-view="3" :space-between="5">
         <template v-slot="{ item }">
           <div class=" mt-2 ">
             <CouponCard :img="item.image" :title="item.name_company" :discount="item.discount" :date="item.start_date"
               :during="item.day" :name="item.code" :tag="item.category ? item.category.name : null" :id="item.id"
-              :sowDetails="addOffers" />
+              :sowDetails="true" />
           </div>
         </template>
       </d-swiper>

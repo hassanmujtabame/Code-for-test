@@ -3,9 +3,9 @@
     <div class="container" style="position:relative" :class="[isMobile ? 'p-3' : '']">
       <div class="row pb-5">
         <div class="col-12 col-md-4">
-          <h1 class="header-title-page ">
+          <h1 class="header-title-page text-black">
             <!-- {{ $t('page-home-title') }} -->
-<h1 class="header-title-page select-title" style="display: inline;">
+<h1 class="header-title-page select-title-main text-black" style="display: inline;">
   رياديات
   <img src="@/assets/img/new/main-page/header/Vector 14.png" alt="">
 </h1>
@@ -14,7 +14,7 @@
             <br>
 
           </h1>
-          <p class="header-desc-page ">
+          <p class="header-desc-page text-black">
             طموحة و تسعين لتحقيق حلمك و شغفك ؟
             <br>
             شبكة رياديات بتساعدك في مشروعك من الالف الى الياء
@@ -30,7 +30,8 @@
           </div>
         </div>
         <div v-if="!isMobile" class="col-8 d-flex justify-content-end">
-          <img  style="width: 75%;" class="img-fluid" src="@/assets/img/new/main-page/header/Group 50.png" alt="home-section-background" />
+          <img  style="  height: auto;
+          object-fit: contain;width: 75%;" class="img-fluid" src="@/assets/img/new/main-page/header/Group 50.png" alt="home-section-background" />
         </div>
       </div>
     </div>
@@ -49,15 +50,11 @@ export default {
 };
 </script>
 
-<style scoped>
-.header-title-page,
-.header-desc-page {
-  color: black;
-}
-.select-title{
+<style>
+.select-title-main{
   position: relative;
 }
-.select-title img {
+.select-title-main img {
   content: '';
   position: absolute;
   right: 0;

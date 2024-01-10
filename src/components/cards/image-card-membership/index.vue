@@ -3,7 +3,8 @@
     <div class="box__rect1"></div>
     <div class="box__rect2"></div>
     <div class="box__image">
-    <ImageFace />
+    <!-- <ImageFace /> -->
+    <img src="@/assets/img/new/main-page/new-card.png" alt="">
     </div>
     
   </div>
