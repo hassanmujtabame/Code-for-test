@@ -8,10 +8,10 @@
           </TabHead>
   
           <!-- uncomment after the incubator activated -->
-          <!-- <TabHead :current.sync="currentTab" group="pills" reference="profile">
+          <TabHead :current.sync="currentTab" group="pills" reference="profile">
             <LightSVG />
             {{ $t("incubator") }}
-          </TabHead> -->
+          </TabHead>
   
           <TabHead :current.sync="currentTab" group="pills" reference="contact">
             <CameraSVG />
@@ -50,14 +50,14 @@
   
           <!-- uncomment after the incubator activated -->
   
-          <!-- <TabItem :current.sync="currentTab" group="pills" reference="profile" v-slot="{ selected }">
+          <TabItem :current.sync="currentTab" group="pills" reference="profile" v-slot="{ selected }">
             <div data-aos="fade-left" v-if="!isMobile" data-aos-duration="2000">
               <img class="img-fluid" :src="`${publicPath}assets/img/Rectangle 1763.png`" alt="" />
             </div>
             <ServiceCard :title="$t('incubator')" :selected="selected" routeName="incubator-home">
               {{ $t("home-riadiat-srv-f-y-incubator") }}
             </ServiceCard>
-          </TabItem> -->
+          </TabItem>
   
           <TabItem :current.sync="currentTab" group="pills" reference="contact" v-slot="{ selected }">
             <div data-aos="fade-left" v-if="!isMobile" data-aos-duration="2000">

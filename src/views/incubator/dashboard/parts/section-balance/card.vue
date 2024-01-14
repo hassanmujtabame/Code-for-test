@@ -1,44 +1,42 @@
 <template>
-  <div>
-    <p>
-              <img :src="img">
-                {{title}}
-            </p>
-            <h3 class=" fw-bolder" :class="classValue">
-                {{ value }} ر.س
-            </h3>
+    <div>
+        <p>
+            <img :src="img">
+            {{ title }}
+        </p>
+        <h3 class=" fw-bolder" :class="classValue">
+            {{ value }} ر.س
+        </h3>
 
-  </div>
+    </div>
 </template>
 
 <script>
 export default {
-name:'card-vue',
-props:{
-    title:{
-        type:String,
-        require:true
+    name: 'card-vue',
+    props: {
+        title: {
+            type: String,
+            require: true
+        },
+        img: {
+            type: String,
+            require: true
+        },
+        classValue: {
+            type: String,
+            default: 'm-c'
+        },
+        value: {
+            default: 'N/A'
+        },
     },
-    img:{
-        type:String,
-        require:true
-    },
-    classValue:{
-        type:String,
-        default:'m-c'
-    },
-    value:{
-        default:'N/A'
-    },
-},
-watch:{
-    value(){
-        //
+    watch: {
+        value() {
+            //
+        }
     }
-}
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -15,13 +15,12 @@
                         الاكاديميه
                     </router-link>
                 </li>
-                <!-- uncomment after edition in incubator  -->
 
-                <!-- <li class="nav-item" style="width: 150px">
+                <li class="nav-item" style="width: 150px">
                     <router-link :to="{name: 'incubator-subscribe'}" class="nav-link  border t-c ">
                         الحاضنه
                     </router-link>
-                </li> -->
+                </li> 
             </ul>
         </div>
 

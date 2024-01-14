@@ -21,13 +21,13 @@
         class="nav-link"
       >{{ $t('academy') }}</router-link>
     </li>
-    <!-- uncommit that after done the incubator -->
-    <!-- <li class="nav-item px-2">
+    <li class="nav-item px-2">
       <router-link
         :to="{name:'incubator-home',params:{lang:$i18n.locale}}"
         class="nav-link"
       >{{ $t('incubator') }}</router-link>
-    </li> -->
+    </li>
+
     <!-- <li class="nav-item px-2">
       <router-link
         :to="{name:'affiliate-marketing-home',params:{lang:$i18n.locale}}"

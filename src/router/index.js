@@ -5,8 +5,7 @@ import middlewiare_auth from "@/middleware/auth";
 import LayoutDefault from "@/layouts/default/index.vue";
 import networkRoute from "./network";
 import academyRoute from "./academy";
-// uncommint that after the incubator is finished
-// import incubatorRoute from "./incubator";
+import incubatorRoute from "./incubator";
 import affiliateMarketingRoute from "./affiliate-marketing";
 import serviceRoute from "./service-provider";
 import consultingRoute from "./consulting";
@@ -217,8 +216,7 @@ const routes = [
 
       ...networkRoute,
       ...academyRoute,
-      // uncommint that after the incubator is finished
-      // ...incubatorRoute,
+      ...incubatorRoute,
       ...affiliateMarketingRoute,
       ...serviceRoute,
       ...consultingRoute,
