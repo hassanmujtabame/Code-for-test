@@ -1,50 +1,38 @@
 <template>
-    <div class="consulting" :class="[isMobile ? 'p-3' : 'p-5']">
+    <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
         <div class="netwok-home-header">
             <div class="row">
-                <div class="col-12 col-md-6" >
-                    <h1 class="header-title-page">شبكة رياديات </h1>
-                    <p class="header-desc-page">طموحة و تسعين لتحقيق حلمك و شغفك ؟</p>
-                    <p class="header-desc-page">
+                <div class="col-12 col-md-6">
+                    <h1 class="header-title-page text-black" style="display: inline;">
+                        شبكة
+                    </h1>
+                    <h1 class="header-title-page select-title-main text-black" style="display: inline;">
+                        رياديات
+                        <img src="@/assets/img/new/main-page/header/Vector 14.png" alt="">
+                    </h1>
+                    <p class="header-desc-page text-black mt-3">طموحة و تسعين لتحقيق حلمك و شغفك ؟</p>
+                    <p class="header-desc-page text-black">
                         شبكة رياديات بتساعدك في مشروعك من الالف الى الياء
                     </p>
+<div class="mt-4">
+    <router-link v-if="user" :to="getRouteLocale('network-dashboard')" class="btn-custmer shadow mx-2 mt-2">الصفة
+        الرئيسية</router-link>
+    <template v-else>
 
+
+        <router-link :to="getRouteLocale('register')" class="btn-custmer shadow mt-2">{{ $t('join-us')
+        }}</router-link>
+        <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">{{
+            $t('login-female') }}</router-link>
+    </template>
+</div>
                 </div>
-                <div v-if="!isMobile" class="col-3 col-md-6 m-auto"
-                >
-                    <div class="m-auto " style="    display: flex;
-                        justify-content: center;">
-                        <!-- <img class="img-fluid"  :src="`${publicPath}assets/svg/Group 117127620699.svg`" alt="" > -->
-                        <img src="@/assets/svg/network-header.svg" style="position: absolute;
-                        height: 400px !important;
-                        object-fit: contain !important;
-                        top: 0;" alt="">
-                        <!-- <img :src="`${publicPath}assets/img/1664179507602 aefwG.png`" alt="network-home" > -->
-                    </div>
-
-                </div>
-                <div class="col-12 my-3" :class="{'d-flex justify-content-center' : isMobile}">
-                    <router-link v-if="user" :to="getRouteLocale('network-dashboard')" class="btn-custmer shadow mt-2">الصفة
-                        الرئيسية</router-link>
-
-                    <template v-else>
-
-
-                        <router-link :to="getRouteLocale('register')" class="btn-custmer shadow mt-2">{{ $t('join-us')
-                        }}</router-link>
-                        <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">{{
-                            $t('login-female') }}</router-link>
-                    </template>
+                <div class="col-6">
+                    <iframe class="rounded" width="718" height="404" src="https://www.youtube.com/embed/mKfqJ_3-jWQ" title="جلسة حوارية عربيات" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
 
-            </div>
-            <div v-if="!isMobile"  class="star-cons">
-                <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
-            </div>
-            <div v-if="!isMobile"  class="star-cons stars">
-                <img :src="`${publicPath}assets/img/starsss.png`" alt="">
-            </div>
 
+            </div>
         </div>
 
     </div>
@@ -56,7 +44,19 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.select-title-main {
+  position: relative;
+}
+
+.select-title-main img {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  width: 100%;
+}
+</style>
 
 <!-- <template>
     <div class="consulting " :class="[isMobile ? 'p-3' : 'p-5']">
