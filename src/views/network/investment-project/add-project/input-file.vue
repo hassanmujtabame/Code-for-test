@@ -17,7 +17,7 @@
             </svg>
         </label>
         <input class="form-control" :name="name" type="file" @change="onchange($event)">
-        <span  class="mx-3 gray font-13 ">
+        <span class="mx-3 gray font-13 ">
             ارفق صورة او فيديو
         </span>
     </div>
@@ -25,19 +25,19 @@
 
 <script>
 export default {
-    name:'input-file',
-    props:{
-        name:{}
+    name: 'input-file',
+    props: {
+        name: {}
     },
-    data:()=>{
+    data: () => {
         return {
-            file:null,
+            file: null,
         }
     },
-    methods:{
+    methods: {
 
         onchange(evt) {
-            this.$emit('change',evt)
+            this.$emit('change', evt)
         },
         uploadFile(evt) {
             if (!evt.target.files && !evt.target.files[0]) {
@@ -45,14 +45,14 @@ export default {
                 return;
             }
             this.file = evt.target.files[0];
-            this.$emit('input',this.file)
+            this.$emit('input', this.file)
         },
     }
 }
 </script>
 
 <style scoped>
-input{
+input {
     position: absolute;
     opacity: 0;
 }

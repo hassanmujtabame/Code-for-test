@@ -8,7 +8,7 @@
                 <div class=" p-3">
                     <div class="row align-items-start ">
                         <label class="col-md-3 m-c fs-6 fw-bolder">
-                             {{ $t('position_role') }} :
+                            {{ $t('position_role') }} :
                         </label>
                         <div class="col-md-9 row mb-3 ">
 
@@ -16,7 +16,7 @@
                                 v-slot="{ errors }">
                                 <input type="text" v-model="itemForm.job_title" class="form-control"
                                     placeholder="مسماك الوظيفي ( مهندس - طبيب- مصمم - رائد اعمال)">
-                                    <d-error-input :errors="errors" v-if="errors.length" />
+                                <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
                         </div>
                     </div>
@@ -27,30 +27,28 @@
                         <div class="col-md-9 row">
                             <div class="w-100 ">
                                 <ValidationProvider tag="div" :name="$t('industry')" vid="field_id" rules="required"
-                                v-slot="{ errors }">
-                                <div class="mb-3 ">
-                                    <select v-model="itemForm.field_id" class="form-select">
-                                        <option value="" class="t-c" disabled selected> حدد مجالك</option>
-                                        <option v-for="(d,i) in industries" :key="i" :value="d.id">{{ d.name}} </option>
-                                    </select>
-                                </div>
-                                <d-error-input :errors="errors" v-if="errors.length" />
-                            </ValidationProvider>
+                                    v-slot="{ errors }">
+                                    <div class="mb-3 ">
+                                        <select v-model="itemForm.field_id" class="form-select">
+                                            <option value="" class="t-c" disabled selected> حدد مجالك</option>
+                                            <option v-for="(d, i) in industries" :key="i" :value="d.id">{{ d.name }} </option>
+                                        </select>
+                                    </div>
+                                    <d-error-input :errors="errors" v-if="errors.length" />
+                                </ValidationProvider>
                             </div>
                         </div>
                     </div>
                     <div class="row align-items-start ">
                         <label class="col-md-3 m-c fs-5 fw-bolder">
-                           {{$t('years_experience')}}:
+                            {{ $t('years_experience') }}:
                         </label>
                         <div class="col-md-9 row mb-3 ">
 
-                            <ValidationProvider tag="div" 
-                            :name="$t('years_experience')"
-                             vid="year_experience" 
-                             rules="required|numeric"
-                                v-slot="{ errors }">
-                                <input type="text" v-model="itemForm.year_experience" class="form-control" placeholder="   سوات الخبرة">
+                            <ValidationProvider tag="div" :name="$t('years_experience')" vid="year_experience"
+                                rules="required|numeric" v-slot="{ errors }">
+                                <input type="text" v-model="itemForm.year_experience" class="form-control"
+                                    placeholder="   سوات الخبرة">
                                 <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
 
@@ -58,16 +56,14 @@
                     </div>
                     <div class="row align-items-start ">
                         <label class="col-md-3 m-c fs-5 fw-bolder">
-                           {{$t('expected_salary')}}:
+                            {{ $t('expected_salary') }}:
                         </label>
                         <div class="col-md-9 row mb-3 ">
 
-                            <ValidationProvider tag="div" 
-                            :name="$t('expected_salary')" 
-                            vid="expected_salary"
-                             rules="required|numeric"
-                                v-slot="{ errors }">
-                                <input type="text" v-model="itemForm.expected_salary" class="form-control" :placeholder="$t('expected_salary')">
+                            <ValidationProvider tag="div" :name="$t('expected_salary')" vid="expected_salary"
+                                rules="required|numeric" v-slot="{ errors }">
+                                <input type="text" v-model="itemForm.expected_salary" class="form-control"
+                                    :placeholder="$t('expected_salary')">
                                 <d-error-input :errors="errors" v-if="errors.length" />
                             </ValidationProvider>
 
@@ -88,7 +84,7 @@
 import userAPI from '@/services/api/user.js'
 export default {
     name: 'professional-item',
- props:['currentUser'],
+    props: ['currentUser'],
     data: (vm) => {
         return {
             industries: [],
@@ -131,25 +127,23 @@ export default {
 
             }
         },
-        async loadIndustries(){
-                try {
-                    let { data } = await userAPI.getIndustries()
+        async loadIndustries() {
+            try {
+                let { data } = await userAPI.getIndustries()
                 if (data.success) {
-                   this.industries =  data.data
+                    this.industries = data.data
                 } else {
                     window.SwalError(data.message)
                 }
-                } catch (error) {
-                    console.log('error', error)
-                }
+            } catch (error) {
+                console.log('error', error)
+            }
         }
     },
-    mounted(){
+    mounted() {
         this.loadIndustries()
     }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

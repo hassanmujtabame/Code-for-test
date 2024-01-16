@@ -9,34 +9,20 @@
             الالف الى الياء
           </p>
           <div class="btn-main-style">
-            <router-link
-              v-if="user"
-              :to="getRouteLocale('network-dashboard')"
-              class="btn-custmer shadow mt-2"
-              >الصفحة الرئيسية</router-link
-            >
+            <router-link v-if="user" :to="getRouteLocale('network-dashboard')" class="btn-custmer shadow mt-2">الصفحة
+              الرئيسية</router-link>
 
             <template v-else>
-              <router-link
-                :to="getRouteLocale('network-subscribe')"
-                class="btn-custmer shadow mt-2"
-                >انضمي إلينا
+              <router-link :to="getRouteLocale('network-subscribe')" class="btn-custmer shadow mt-2">انضمي إلينا
               </router-link>
-              <router-link
-                :to="getRouteLocale('login')"
-                class="btn-custmer-w bg-transparent text-white mt-2"
-              >
-                سجلي دخولك</router-link
-              >
+              <router-link :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2">
+                سجلي دخولك</router-link>
             </template>
           </div>
         </div>
         <div class="col-md-6 m-auto">
           <div class="img-cons m-auto">
-            <img
-              :src="`${publicPath}assets/img/1664179507602 aefwG.png`"
-              alt="network-home"
-            />
+            <img :src="`${publicPath}assets/img/1664179507602 aefwG.png`" alt="network-home" />
           </div>
         </div>
       </div>
@@ -56,5 +42,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

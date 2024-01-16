@@ -1,24 +1,24 @@
 <template>
-  <div class="container mt-5">   
-            <PartMembership/>
-            <PartSchedule />
+    <div class="container mt-5">
+        <PartMembership />
+        <PartSchedule />
 
-        </div>
+    </div>
 </template>
 
 <script>
 import PartSchedule from './schedule-riadiat.vue'
 import PartMembership from './join-membership.vue'
 export default {
-name:"section-3",
-components:{
-    PartMembership,
-    PartSchedule
-},
+    name: "section-3",
+    components: {
+        PartMembership,
+        PartSchedule
+    },
 
-created(){
-    const plugin = document.createElement("script");
-    plugin.innerHTML=`
+    created() {
+        const plugin = document.createElement("script");
+        plugin.innerHTML = `
     $(function() {     $("#calendarContainer").simpleCalendar({
   displayEvent: true,
   events: [
@@ -45,11 +45,9 @@ created(){
 })
 })
 `;
-document.body.appendChild(plugin);   
-}
+        document.body.appendChild(plugin);
+    }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

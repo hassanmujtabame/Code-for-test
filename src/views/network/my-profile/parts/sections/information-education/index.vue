@@ -8,8 +8,7 @@
                 <div class=" p-3">
                     <div class="row align-items-start ">
                         <label class="col-md-3 m-c fs-5 fw-bolder">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M22 22.75H2C1.59 22.75 1.25 22.41 1.25 22C1.25 21.59 1.59 21.25 2 21.25H22C22.41 21.25 22.75 21.59 22.75 22C22.75 22.41 22.41 22.75 22 22.75Z"
                                     fill="#1FB9B3" />
@@ -55,8 +54,7 @@
                     </div>
                     <div class="row align-items-start ">
                         <label class="col-md-3 m-c fs-5 fw-bolder">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M12.1499 19.35C11.7399 19.35 11.3999 19.01 11.3999 18.6V16.5C11.3999 16.09 11.7399 15.75 12.1499 15.75C12.5599 15.75 12.8999 16.09 12.8999 16.5V18.6C12.8999 19.01 12.5599 19.35 12.1499 19.35Z"
                                     fill="#1FB9B3" />
@@ -96,8 +94,7 @@
                     </div>
                     <div class="row  align-items-start">
                         <label class="col-md-3 m-c fs-5 fw-bolder">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M16.0002 22.7498H8.00023C3.38023 22.7498 2.52023 20.5998 2.30023 18.5098L1.55023 10.4998C1.44023 9.44977 1.41023 7.89977 2.45023 6.73977C3.35023 5.73977 4.84023 5.25977 7.00023 5.25977H17.0002C19.1702 5.25977 20.6602 5.74977 21.5502 6.73977C22.5902 7.89977 22.5602 9.44977 22.4502 10.5098L21.7002 18.4998C21.4802 20.5998 20.6202 22.7498 16.0002 22.7498ZM7.00023 6.74977C5.31023 6.74977 4.15023 7.07977 3.56023 7.73977C3.07023 8.27977 2.91023 9.10977 3.04023 10.3498L3.79023 18.3598C3.96023 19.9398 4.39023 21.2498 8.00023 21.2498H16.0002C19.6002 21.2498 20.0402 19.9398 20.2102 18.3498L20.9602 10.3598C21.0902 9.10977 20.9302 8.27977 20.4402 7.73977C19.8502 7.07977 18.6902 6.74977 17.0002 6.74977H7.00023Z"
                                     fill="#1FB9B3" />
@@ -130,7 +127,7 @@
                                             <option v-for="(d, i) in degrees" :key="i" :value="d.id">{{ d.name }}</option>
 
                                         </select>
-                                     
+
                                     </div>
                                     <d-error-input :errors="errors" v-if="errors.length" />
                                 </ValidationProvider>
@@ -142,8 +139,7 @@
                     </div>
                     <div class="row align-items-start ">
                         <label class="col-md-3 m-c fs-5 fw-bolder">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M12.1499 19.35C11.7399 19.35 11.3999 19.01 11.3999 18.6V16.5C11.3999 16.09 11.7399 15.75 12.1499 15.75C12.5599 15.75 12.8999 16.09 12.8999 16.5V18.6C12.8999 19.01 12.5599 19.35 12.1499 19.35Z"
                                     fill="#1FB9B3" />
@@ -193,7 +189,7 @@
 import userAPI from '@/services/api/user.js'
 export default {
     name: 'eduction-item',
- props:['currentUser'],
+    props: ['currentUser'],
     data: (vm) => {
         return {
             degrees: [
@@ -246,6 +242,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
