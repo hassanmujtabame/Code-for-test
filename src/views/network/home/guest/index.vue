@@ -5,17 +5,18 @@
     <!-- #section Header -->
     <!-- section 2-->
     
-    <div class="container mt-5">
       <!-- شبكة رياديات: وسع دائرة معارفك-->
       <SectionGrowYourNetwork />
-      <!--section network's goals-->
-      <SectionNetworkGoals />
+      
+      <SectionMakeBig />
 
-      <SectionOurAds />
+      <!--section network's goals-->
+      <!-- <SectionNetworkGoals /> -->
+
+      <!-- <SectionOurAds /> -->
 
       <!--معسكر ريادة الاعمال-->
-      <SectionCampLeadership v-if="false" />
-    </div>
+      <!-- <SectionCampLeadership v-if="false" /> -->
 
 
     <div class=" mt-5">
@@ -70,10 +71,12 @@ import SectionNetworkGoals from './parts/section-network-goals/index.vue'
 import SectionCampLeadership from './parts/cam-leadership/index.vue'
 import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
 import SectionOurAds from './parts/section-our-ads/index.vue'
+import SectionMakeBig from './parts/section-make-big/index.vue'
 
 export default {
   name: 'IndexPageGuest',
   components: {
+    SectionMakeBig,
     SectionHeader,
     SectionOurAds,
     SectionThree,
