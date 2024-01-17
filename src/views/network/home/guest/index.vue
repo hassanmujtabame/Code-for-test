@@ -8,7 +8,7 @@
       <!-- شبكة رياديات: وسع دائرة معارفك-->
       <SectionGrowYourNetwork />
       
-      <SectionMakeBig />
+      <SectionFeatures />
 
       <!--section network's goals-->
       <!-- <SectionNetworkGoals /> -->
@@ -71,12 +71,13 @@ import SectionNetworkGoals from './parts/section-network-goals/index.vue'
 import SectionCampLeadership from './parts/cam-leadership/index.vue'
 import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
 import SectionOurAds from './parts/section-our-ads/index.vue'
-import SectionMakeBig from './parts/section-make-big/index.vue'
+// import SectionMakeBig from './parts/section-make-big/index.vue'
+import SectionFeatures from "./parts/section-features/index.vue";
 
 export default {
   name: 'IndexPageGuest',
   components: {
-    SectionMakeBig,
+    SectionFeatures,
     SectionHeader,
     SectionOurAds,
     SectionThree,

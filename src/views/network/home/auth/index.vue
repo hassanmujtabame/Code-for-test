@@ -4,9 +4,13 @@
     <SectionHeader />
 
 
+    <!-- شبكة رياديات: وسع دائرة معارفك-->
+    <SectionGrowYourNetwork />
+    
+    <!-- section features -->
+    <SectionFeatures />
+    
     <div class="container mt-5">
-      <!-- شبكة رياديات: وسع دائرة معارفك-->
-      <SectionGrowYourNetwork />
       <!--section network's goals-->
       <SectionNetworkGoals />
 
@@ -24,8 +28,7 @@
     <!-- #section 3-->
     <!-- section 4-->
     <SectionMembership />
-    <!-- section features -->
-    <SectionFeatures />
+
     <!--schedule network-->
     <SectionScheduleNework />
     <!-- members of network-->
