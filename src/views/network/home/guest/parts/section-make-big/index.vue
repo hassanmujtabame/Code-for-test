@@ -23,11 +23,16 @@
                 </div>
             </div>
         </div>
+        <SwiperPart />
     </div>
 </template>
 
 <script>
+import SwiperPart from './parts/swiper-part.vue'
 export default {
+    components: {
+        SwiperPart
+    },
     name: 'section-make-big'
 }
 </script>
