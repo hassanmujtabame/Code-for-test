@@ -1,19 +1,67 @@
 <template>
-    <div class="container-fluid" style="background-color: var(--pc);">
-        <h2 class="text-center text-white mb-4 pt-4">
-            بعض من المميزات التى تحصلين عليها بانضمامك الينا فى الشبكه و هناك المزيد
-        </h2>
-        <div class="d-flex flex-wrap gap-2 justify-content-center">
-            <Card v-for="(item, i) in items" :key="i" :name="item.name" :description="item.description" :to="item.to"
-                :img="item.img" />
-        </div>
+    <div class="container-fluid my-5 py-5" style="position:relative; overflow: hidden; background-color: var(--pc);">
+        <div class="circle-features" style="top: 0; left: 25%;"></div>
+        <div class="circle-features" style="bottom: 30px; left: -10px; width: 16rem; height: 16rem"></div>
+        <div class="circle-features" style="bottom: -30px; right: -30px; width: 18rem; height: 18rem; background-color: #7b7777 !important;"></div>
+
+            <div style="width: 80%;position: relative; z-index: 10" class="mx-auto my-3">
+                <div class="row">
+                    <div class="col-8">
+                        <h6 style="color: #666;">
+                            مميزات الانضمام الى شبكه رياديات
+                        </h6>
+                        <h2 class="text-white">
+                            اصنع شيئا كبيرا
+                        </h2>
+                        <p class="text-white">
+                            الوصول الى مجموعه واسعه من الموارد و الخدمات تقدم شبكة رياديات مجموعه واسعه من الموارد و الخدمات
+                            التى يمكن ان نساعدك على بدء و اداره عملك الخاص
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <router-link style="background-color: rgb(255, 174, 0);" :to="getRouteLocale('network-subscribe')"
+                            class="btn shadow mx-2 ">
+                            باقات الاشتراك
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <h2 class="text-center text-white mb-4 pt-4">
+            بعض من المميزات التى تحصلين عليها بانضمامك الينا فى الشبكه و هناك المزيد </h2> -->
+            <div style="width: 80%; position: relative; z-index: 10" class="mx-auto" id="swiper-custom">
+                <swiper-custom v-if="!loading" :slides-per-view="3.5" :space-between="10" is-auto :items="items">
+                    <template v-slot:default="{ item }">
+                        <Card :name="item.name" :description="item.description" :to="item.to" :img="item.img" />
+                    </template>
+                </swiper-custom>
+            </div>
+
     </div>
 </template>
+<style>
+#swiper-custom .swiper-button-next,
+#swiper-custom .swiper-button-prev {
+    color: #fff !important;
+    border-color: #fff !important;
+    border-radius: 50% !important;
+}
+
+.circle-features {
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    background-color: #e16e1a;
+    border-radius: 50%;
+    z-index: 1;
+}
+</style>
 <script>
 import Card from './card-member.vue'
+import SwiperCustom from './swiper/index.vue'
 export default {
     name: 'section-features',
-    components: { Card },
+    components: { Card, SwiperCustom },
     data: () => {
         return {
             items: [
