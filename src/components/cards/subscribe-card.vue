@@ -111,9 +111,10 @@ export default {
   padding: 20px;
   background: #f9f9f936;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   /* align-items: center; */
   transition: all 0.3s;
+  width: 30%;
 }
 
 @media  screen and (max-width: 1200px) {
