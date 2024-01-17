@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div style="overflow-x: hidden">
     <!-- section-1 -->
-    <SectMainSlider />
+    <SectHeader />
     <!-- #section-1 -->
 
     <!-- services -->
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import SectMainSlider from "@/components/pages/home/header/main-slider.vue";
+import SectHeader from "./parts/section-header/index.vue";
 import SectServices from "@/components/pages/home/services/index.vue";
 import SectCampRiadiat from "@/components/pages/home/camp-riadiat/index.vue";
 import SectConsultingRiadiat from "@/components/pages/home/consulting/index.vue";
@@ -66,7 +66,7 @@ export default {
     ],
   },
   components: {
-    SectMainSlider,
+    SectHeader,
     SectServices,
     SectCampRiadiat,
     SectConsultingRiadiat,
