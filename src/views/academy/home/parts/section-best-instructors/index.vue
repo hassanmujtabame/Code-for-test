@@ -15,7 +15,7 @@
 
         <d-swiper v-if="!loading" :slides-per-view="4" is-auto :space-between="10" :items="items">
           <template v-slot:default="{ item }">
-            <CardMember :countCourse="item.countCourse"  :name="item.name" :img="item.image" :to="getRouteLocale('academy-show-profile', { id: item.id })" />
+            <CardMember  :countCourse="item.countCourse"  :name="item.name" :img="item.image" :to="getRouteLocale('academy-show-profile', { id: item.id })" />
           </template>
         </d-swiper>
 

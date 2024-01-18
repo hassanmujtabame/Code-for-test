@@ -6,7 +6,7 @@
                 تقدم رياديات افضل العروض و الخصومات
             </h1>
             <button class="upgrade-button" @click="$router.push({ name: 'network-offers' })">
-                عرض التفاصيل
+                استكشف الأن
             </button>
         </div>
     </div>
