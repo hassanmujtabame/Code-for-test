@@ -68,13 +68,13 @@ export default {
                 {
                     name: 'لقاءات تعليمية',
                     description: 'نأخذك خطوة ثم خطوة في عالم ريادة الاعمال مع العديد من الدورات واللقاءات التعليمية وورش التعليم والتدريب علي يد مجموعة من افضل الخبراء',
-                    to: 'academy-meetings', img: 'section-features/3.png'
+                    to: 'network-learning-meetings', img: 'section-features/3.png'
                 },
 
                 // {name: 'مشاريع الاستثمار وحاضنة الاعمال', description: 'طرح مشروعك للاستثمار والحصول علي العديد من الفرص لكي يري مشروعك النور بالاضافة الي امكانية المشاركة والاستثمار في العديد من المشاريع الواعدة التي يطرحها اعضاء شبكتنا', to: 'index', img: 'section-features/3.png'},
                 {
                     name: 'المدونة', description: 'المشاركة في شبكة ومجتمع رياديات بكتابة المدونات والاطلاع علي مدونات اعضاء الشبكة من الرائدات والخبراء في جميع المجالات',
-                    to: 'academy-blogs', img: 'section-features/1.png'
+                    to: 'network-blogs', img: 'section-features/1.png'
                 },
 
                 {
