@@ -1,51 +1,52 @@
 <template>
-  <div class="container mt-5">   
-            <PartMembership/>
+    <div class="bg-grey w-100 py-2">
+        <div class="container">
+            <div class="row align-items-stretch">
+                <div class="col-md-6">
+                    <div v-if="!isMobile">
+                        <img v-if="false" class="img-fluid" :src="`${publicPath}assets/img/network 289320.png`" alt=""
+                            width="470">
+                        <AnimateCard />
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex flex-column h-100 py-3">
+                        <h3>
+                            بطاقة العضوية
+                        </h3>
+                        <div class="flex-grow-1 mt-2">
+                            <p class=" t-c ">
+                                رياديات ليست مجرد منصة !! نهتم بكم و نقدم الهدايا والعروض المذهلة , ليست فقط العروض اكواد
+                                خصم على المواقع الالكترونية !
+                            </p>
+                            <p class=" t-c ">
+                                بل تمكنكي بطاقة العضوية من الحصول على الخصومات من المحلات والمتجار فقط ابرزي بطاقتك وأستفيدي
+                                من خصموماتك
+                            </p>
+                        </div>
+                        <div>
+                            <router-link :to="getRouteLocale('network-card-membership')" class="btn btn-custmer">
+                                أعرضي بطاقتك
+                            </router-link>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
+    </div>
 </template>
 
 <script>
-import PartMembership from './join-membership.vue'
+import AnimateCard from '@/components/cards/image-card-membership/index.vue'
 export default {
-name:"section-membership",
-components:{
-    PartMembership,
-},
-
-created(){
-    const plugin = document.createElement("script");
-    plugin.innerHTML=`
-    $(function() {     $("#calendarContainer").simpleCalendar({
-  displayEvent: true,
-  events: [
-      // generate new event after tomorrow for one hour
-      {
-          startDate: new Date(new Date().setHours(new Date().getHours() + 24)).toDateString(),
-          endDate: new Date(new Date().setHours(new Date().getHours() + 25)).toISOString(),
-          summary: 'Visit of the Eiffel Tower'
-      },
-      // generate new event for yesterday at noon
-      {
-          startDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 12, 0)).toISOString(),
-          endDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 11)).getTime(),
-          summary: 'Restaurant'
-      },
-      // generate new event for the last two days
-      {
-          startDate: new Date(new Date().setHours(new Date().getHours() - 48)).toISOString(),
-          endDate: new Date(new Date().setHours(new Date().getHours() - 24)).getTime(),
-          summary: 'Visit of the Louvre'
-      }
-  ],
-  months: ['يناير', 'فبراير', 'مارس', 'ابريل', 'مايو', 'يونيو', 'يوليو', 'اغسطس', 'سبتمبر', 'اكتوبر', 'نوفمبر', 'ديسمبر'],
-})
-})
-`;
-document.body.appendChild(plugin);   
-}
+    name: 'section-membership',
+    components: {
+        AnimateCard
+    }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

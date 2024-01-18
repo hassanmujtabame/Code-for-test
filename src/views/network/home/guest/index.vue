@@ -9,10 +9,16 @@
       <SectionGrowYourNetwork />
       
       <SectionFeatures />
+      
+      <SectionCategory class="my-3" />
+      
+      <SectionCamp />
+
+      <SectionNetworkGoals />
+
       <SectionSubscribe />
 
       <!--section network's goals-->
-      <!-- <SectionNetworkGoals /> -->
 
       <!-- <SectionOurAds /> -->
 
@@ -24,15 +30,10 @@
       <SectionAds department="network" url="network/home-banners" />
     </div>
 
-    <!-- #section 2-->
-    <!-- section 3-->
-    <SectionThree />
-    <!-- #section 3-->
-    <!-- section 4-->
+    <!-- <SectionThree /> -->
     <SectionMembership />
     <SectionSchedules />
-    <!-- #section 4-->
-    <!-- section 5-->
+
     <SectionTopMember />
     <!-- #section 5-->
     <!-- section subscribe-->
@@ -75,10 +76,14 @@ import SectionOurAds from './parts/section-our-ads/index.vue'
 import SectionSubscribe from './parts/section-subscribe/index.vue'
 // import SectionMakeBig from './parts/section-make-big/index.vue'
 import SectionFeatures from "./parts/section-features/index.vue";
+import SectionCategory from "./parts/section-category/index.vue";
+import SectionCamp from "./parts/section-camp-riadiat/index.vue";
 
 export default {
   name: 'IndexPageGuest',
   components: {
+    SectionCamp,
+    SectionCategory,
     SectionSubscribe,
     SectionFeatures,
     SectionHeader,
