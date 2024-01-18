@@ -6,27 +6,28 @@
 
     <!-- شبكة رياديات: وسع دائرة معارفك-->
     <SectionGrowYourNetwork />
-    
-    <!-- section features -->
+
     <SectionFeatures />
+
+    <SectionCategory class="my-3" />
+
+    <SectionCamp />
+
+    <SectionNetworkGoals />
+
     <SectionSubscribe />
 
-    
-    <div class="container mt-5">
-      <!--section network's goals-->
-      <SectionNetworkGoals />
 
-      <SectionOurAds />
+    <!-- <SectionOurAds /> -->
 
-      <!--معسكر ريادة الاعمال-->
-      <SectionCampLeadership v-if="false" />
-    </div>
+    <!--معسكر ريادة الاعمال-->
+    <SectionCampLeadership v-if="false" />
 
     <div class=" mt-5">
       <SectionAds department="network" url="network/home-banners" />
     </div>
     <!-- section 3-->
-    <SectionThree v-if="!isMobile" />
+    <!-- <SectionThree v-if="!isMobile" /> -->
     <!-- #section 3-->
     <!-- section 4-->
     <SectionMembership />
@@ -169,6 +170,9 @@ import SectionMemeberNetwork from "./parts/section-member-network/index.vue";
 import SectionStory from "./parts/section-successful-story/index.vue";
 import SectionFeatures from "./parts/section-features/index.vue";
 import SectionSubscribe from './parts/section-subscribe/index.vue'
+import SectionCategory from "./parts/section-category/index.vue";
+import SectionCamp from "./parts/section-camp-riadiat/index.vue";
+
 
 
 // import SectionPartner from "./parts/section-partners/index.vue";
@@ -182,6 +186,8 @@ import SectionBlogs from "./parts/section-blogs/index.vue";
 export default {
   name: "home-network",
   components: {
+    SectionCategory,
+    SectionCamp,
     SectionSubscribe,
     SectionFeatures,
     SectionWorkspace,

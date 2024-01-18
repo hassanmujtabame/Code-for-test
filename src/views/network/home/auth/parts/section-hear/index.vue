@@ -1,31 +1,23 @@
 <template>
-    <div class="sex-eight mt-5  max-width-100-hidden" v-if="items && items.length > 0">
+    <div class="sex-eight mt-5  max-width-100-hidden" v-if="this.items.length">
         <div class="container">
-            <h2 class="text-center">{{ $t('what-do-they-say-about-us') }} </h2>
-            <div class="ad-slider">
-                <carousel :perPage="3" :navigationEnabled="true" :paginationEnabled="true">
-                    <slide v-for="(item, i) in items" :key="i">
-    
-                        <ItemSlide :desc="item.desc" :name="item.user_info.name" :image="item.user_info.image" />
-                    </slide>
-                </carousel>
-                
+            <h2 class="home-section-title text-center">ماذا يقولون المشتركات في الشبكة</h2>
+            <div :id="carouselId" class="hear-carousel owl-carousel owl-theme  mt-5">
+                <ItemSlide v-for="(item, i) in items" :key="i" :desc="item.desc" :name="item.user_info.name"
+                    :image="item.user_info.image" :title="item.title" />
             </div>
         </div>
     </div>
 </template>
 
+
 <script>
 import commonAPI from '@/services/api/common'
 import ItemSlide from '@/components/cards/opinion-item'
-import { Carousel, Slide } from 'vue-carousel';
-
 export default {
     name: 'section-hear',
     components: {
-        ItemSlide,
-        Carousel,
-        Slide
+        ItemSlide
     },
     data: (vm) => {
         return {
@@ -42,6 +34,7 @@ export default {
                 let { data } = await commonAPI.getOpinions({ department_name: 'network' })
                 //console.log(data)
                 if (data.success) {
+                    console.log('image-tests::', data.data)
                     this.items = data.data
                 }
             } catch (error) {
