@@ -8,7 +8,9 @@
     <!--#section 2-->
     <!-- section 3-->
     <SectionFeatures />
-    <SectionAds department="academy" />
+    <!-- <SectionAds department="academy" /> -->
+    <SectionTempForAds />
+
     <SectionHelpsYou />
     <SectionSubscribeNow />
     <!--#section 3-->
@@ -75,9 +77,12 @@ import SectionOurPartners from './parts/section-our-partners/index.vue'
 import SectionAcademyNumbers from './parts/section-academy-numbers/index.vue'
 import SectionContinueLearning from '@/views/academy/common-components/section-continue-learning/index.vue'
 import SectionHear from '@/views/academy/common-components/section-hear/index.vue'
+import SectionTempForAds from './parts/section-temp-for-ads/index.vue'
+
 export default {
   name: "academy-home",
   components: {
+    SectionTempForAds,
     SectionAuthHeader,
     SectionTwo,
     SectionThree,
