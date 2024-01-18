@@ -13,11 +13,11 @@
         <h1 class="home-section-title">
           اعضاء الحاضنه
         </h1>
-        <div>
+        <!-- <div>
           <router-link class="more" 
                 :to="getRouteLocale('network-member-network')"
                 >{{ $t('more') }}</router-link>
-        </div>
+        </div> -->
       </div>
       <d-swiper v-if="!loading" is-auto :slides-per-view="4" :space-between="4" :items="items">
         <template v-slot:default="{ item }">
@@ -56,7 +56,7 @@ export default {
     async initlizing(){
       this.loading = true;
         try {
-          let { data } =  await MembersAPI.getHomeNetwork();
+          let { data } =  await MembersAPI.getHomeIncubator();
           if(data.success){
             this.items = data.data
             this.total = data.meta.total
