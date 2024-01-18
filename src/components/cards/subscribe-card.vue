@@ -114,7 +114,6 @@ export default {
   flex-direction: column;
   /* align-items: center; */
   transition: all 0.3s;
-  width: 30%;
 }
 
 @media  screen and (max-width: 1200px) {

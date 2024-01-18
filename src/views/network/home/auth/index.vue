@@ -9,6 +9,8 @@
     
     <!-- section features -->
     <SectionFeatures />
+    <SectionSubscribe />
+
     
     <div class="container mt-5">
       <!--section network's goals-->
@@ -166,6 +168,8 @@ import SectionEducationalMeeting from "./parts/section-educational-meeting/index
 import SectionMemeberNetwork from "./parts/section-member-network/index.vue";
 import SectionStory from "./parts/section-successful-story/index.vue";
 import SectionFeatures from "./parts/section-features/index.vue";
+import SectionSubscribe from './parts/section-subscribe/index.vue'
+
 
 // import SectionPartner from "./parts/section-partners/index.vue";
 import SectionPartner from "./parts/section-our-partners/index.vue";
@@ -178,6 +182,7 @@ import SectionBlogs from "./parts/section-blogs/index.vue";
 export default {
   name: "home-network",
   components: {
+    SectionSubscribe,
     SectionFeatures,
     SectionWorkspace,
     SectionPartner,
