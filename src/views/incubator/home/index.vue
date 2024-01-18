@@ -3,14 +3,17 @@
     <!-- section top-->
     <SectionTop />
     <!-- section definition-->
+    <SectionFeatures />
+
+    <SectionTempForAds />
+
     <SectionDefinition />
 
     <!-- section members -->
     <SectionMemberIncubation />
 
     <!-- section features-->
-    <SectionFeatures />
-    <SectionOurAds />
+    <!-- <SectionOurAds /> -->
 
     <!-- section ads-->
     <SectionAds department="encubator" />
@@ -40,6 +43,7 @@
 </template>
 
 <script>
+import SectionTempForAds from './parts/section-temp-for-ads/index.vue'
 import SectionTop from './parts/section-top/index.vue'
 import SectionDefinition from './parts/section-definition/index.vue'
 import SectionMemberIncubation from './parts/section-member-incubation/index.vue'
@@ -61,6 +65,7 @@ import SectionGraduated from './parts/section-graduated/index.vue'
 export default {
   name: "incubator-home",
   components: {
+    SectionTempForAds,
     SectionTop,
     SectionDefinition,
     SectionFeatures,
@@ -85,9 +90,9 @@ export default {
       localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
       await window.axios.post('affiliates/visitor', { affiliate_id: this.$route.query.affiliate_id })
     }
-    if (!this.token) {
-      this.shouldLoginMsg()
-    }
+    // if (!this.token) {
+    //   this.shouldLoginMsg()
+    // }
   }
 }
 </script>

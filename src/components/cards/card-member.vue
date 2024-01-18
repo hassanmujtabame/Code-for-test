@@ -3,10 +3,10 @@
     <div class="provider-card__wrapper">
       <div class="provider-card__image mb-4">
         <router-link v-if="to" :to="to"> 
-          <img :src="img" alt width="259" height="162" />
+          <img :src="img" alt  />
         </router-link>
         <img v-else @click="$emit('click-image')" :src="img"
-         alt width="259" height="162" />
+         alt  />
       </div>
       <div class="provider-card__content" :class="{ 'h-job': showJob}"  style=" display: flex; flex-direction: column; justify-content: space-between;">
         <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
@@ -103,8 +103,12 @@ export default {
 }
 
 .provider-card__image img {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+  /*
   object-fit: fill;
-  /*width: 100%;
+  width: 100%;
   height: 100%;*/
 }
 

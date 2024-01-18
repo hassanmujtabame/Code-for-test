@@ -10,7 +10,9 @@
     </h2>
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <h1 class="home-section-title">{{ $t('network-members') }}</h1>
+        <h1 class="home-section-title">
+          اعضاء الحاضنه
+        </h1>
         <div>
           <router-link class="more" 
                 :to="getRouteLocale('network-member-network')"

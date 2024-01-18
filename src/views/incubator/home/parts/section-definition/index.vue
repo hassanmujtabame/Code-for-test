@@ -3,7 +3,7 @@
       <div class="row align-items-center m-auto">
         <div class="col-md-5 col-12">
           <div class="bg-back position-relative">
-            <img class="img-fluid" :src="`${publicPath}assets/img/Group 39920 - B@2x.svg`" alt="">
+            <img class="img-fluid" src="@/assets/img/new/incubator/Group 1171274848.png" alt="">
           </div>
         </div>
         <div class="col-md-7 col-8 text">
