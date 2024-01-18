@@ -5,10 +5,8 @@
                 <div>
                     <div class="bg-back position-relative">
                         <img class="img-fluid" src="@/assets/img/new/academy/Rectangle 1777.png" alt="">
-
                     </div>
                 </div>
-
             </div>
             <div class="col-12 col-md-6 text">
                 <h2 class="home-section-title">
