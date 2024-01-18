@@ -1,39 +1,36 @@
 <template>
-    <div class="consulting" :class="[isMobile ? 'p-3 pb-0' : 'px-5']">
-        <div class="" :class="{ container: !isMobile }">
+    <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
+        <div class="netwok-home-header">
             <div class="row">
-                <div class="col-8 col-md-6  mb-5">
-                    <h1 class="header-title-page">اكاديمية رياديات</h1>
-                    <p class="header-desc-page">
+                <div class="col-12 col-md-6">
+                    <h1 class="header-title-page text-black" style="display: inline;">
+                        اكاديمية
+                    </h1>
+                    <h1 class="header-title-page select-title-main text-black" style="display: inline;">
+                        رياديات
+                        <img src="@/assets/img/new/main-page/header/Vector 14.png" alt="">
+                    </h1>
+                    <p class="header-desc-page text-black my-5">
                         طوري مهاراتك و أنطلقي في عالم ريادة الاعمال والعمل الحر , أكاديمية رياديات ستكون معكِ خطوة بخطوة
                     </p>
-                    <div class="col-12 mb-3 mt-5">
-
-                        <router-link @click="shouldLoginMsg" class="btn-custmer shadow"
-                            :to="getRouteLocale('academy-instructor-register')">
-                            {{ $t('join-us') }}
-
-                        </router-link>
+                    <div class="mt-4">
+                        <a v-if="!token" @click="shouldLoginMsg" class="btn-custmer shadow mt-2 "> {{ $t('join-us') }} </a>
                         <router-link v-if="!token" :to="getRouteLocale('login')"
-                            class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }} </router-link>
+                            class="btn-custmer-w bg-transparent text-white mt-2 mx-3"> {{ $t('login-female') }}
+                        </router-link>
+                    </div>
+
+                </div>
+                <div  class="col-12 col-md-6" style="min-height: 414px;" v-if="!isMobile">
+                    <div style="height:100%;">
+
+                        <iframe class="rounded" style="width: 100%; height: 100%" src="https://www.youtube.com/embed/2sd9rg4lzBU"
+                            title="جلسة حوارية عربيات" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
-                <div class="col-3 col-md-6 m-auto d-flex justify-content-center" style="margin-bottom: 0 !important;">
-                    <!-- <div style="overflow: hidden; background:rgba(255, 188, 0, 1); " class="img-cons m-auto "> -->
-                    <img src="@/assets/img/new_header_academy.png" alt="academy-home"
-                        style="width: 70%; object-fit: contain !important;">
-                    <!-- </div> -->
-
-                </div>
-
             </div>
-            <div class="star-cons">
-                <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
-            </div>
-            <div class="star-cons stars">
-                <img :src="`${publicPath}assets/img/starsss.png`" alt="">
-            </div>
-
         </div>
 
     </div>
@@ -45,4 +42,17 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.select-title-main {
+    position: relative;
+  }
+  
+  .select-title-main img {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    width: 100%;
+  }
+</style>
+
