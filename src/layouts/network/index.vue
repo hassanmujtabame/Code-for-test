@@ -1,7 +1,8 @@
 <template>
   <div>
     <template v-if="user">
-      <localHeader />
+      <!-- <localHeader /> -->
+      <DefaultHeader />
       <MyDrawer />
     </template>
     <DefaultHeader v-else />

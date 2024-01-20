@@ -8,6 +8,9 @@
     <d-standard-rate-dialog />
     <SectSubscribe />
     <DefaultFooter />
+    <d-success-message />
+    <d-confirm-message />
+
   </div>
 </template>
 
