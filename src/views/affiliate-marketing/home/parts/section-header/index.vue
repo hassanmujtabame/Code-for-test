@@ -1,59 +1,65 @@
+
 <template>
-    <div class="consulting " style="background-image: linear-gradient(to bottom , #2EB9B3 , white);">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md-6">
-                    <h1 class="fs-r-56 text-white"> التسويق بالعمولة </h1>
-                    <span data-v-c867e3b8="" class="line"
-                        style="display: inline-block; width: 80%; background: #fff; height: 2px; margin-bottom: 29px;"></span>
-                    <p class=" fs-r-24" style="color:#414042; width: 90%;">
+    <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
+        <div class="netwok-home-header">
+        <div class="row">
+                <div class="col-12 col-md-6">
+                    <h1 class="header-title-page text-black" style="display: inline;">
+                        التسويق بالعمولة
+                    </h1>
+                    <p class="header-desc-page text-black mt-3">
                         كونى شريكة رياديات التسويقية من خلال برنامج التسويق بالعمولة وأكسبى مقابل كل عملية تسجيل
                     </p>
-                    <div class="row d-flex  gap-2">
-                        <li class="nav-item px-2 btn-main border-0 text-center"
-                            style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); background: white; padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
-                            <div v-if="profileData.status == 'deactive'" class="text-black">جارى تفعيل حسابك</div>
-                            <router-link v-else-if="profileData.status == 'active'" class="text-black bg-transparent border-0" :to="{ name: 'affiliate-marketing-dashboard' }">  لوحه التحكم
-                            </router-link>
-                            <button v-else class="text-black bg-transparent border-0" @click="affiliateRegister"> انشاء حساب
-                            </button>
-                        </li>
 
-                        <li v-if="!token" class="nav-item px-2 btn-main  text-center"
-                            style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
-                            <!-- <router-link class="text-white" :to="getRouteLocale('login-affiliate')">سجلى دخولك
-                            </router-link> -->
-                            <button class="text-white border-0 bg-transparent" @click="showModal">
-                                سجلى دخولك
-                            </button>
-                            <login-dialog :profileData="profileData" ref="modal"></login-dialog>
-                        </li>
-                        <!-- <div class="btn-main-style py-5" style="width: fit-content;">
-                            <router-link :to="getRouteLocale('register-affiliate')"
-                            class="btn-default text-black mt-2" style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);"> انشاء حساب</router-link>
-                        </div>
-    
-                        <div class="btn-main-style py-5" style="width: fit-content;">
-                            <router-link :to="getRouteLocale('register-affiliate')"
-                            class="btn-default text-black mt-2" style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);"> انشاء حساب</router-link>
-                        </div> -->
+                    <div class="my-4 ">
+                        <template>
+                            <div class="row d-flex  gap-2">
+                                <li class="nav-item px-2 btn-main border-0 text-center"
+                                    style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); background: white; padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+                                    <div v-if="profileData.status == 'deactive'" class="text-black">جارى تفعيل حسابك</div>
+                                    <router-link v-else-if="profileData.status == 'active'"
+                                        class="text-black bg-transparent border-0"
+                                        :to="{ name: 'affiliate-marketing-dashboard' }">
+                                        لوحه التحكم
+                                    </router-link>
+                                    <button v-else class="text-black bg-transparent border-0" @click="affiliateRegister">
+                                        انشاء حساب
+                                    </button>
+                                </li>
+
+                                <li v-if="!token" class="nav-item px-2 btn-main  text-center"
+                                    style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+                                    <!-- <router-link class="text-white" :to="getRouteLocale('login-affiliate')">سجلى دخولك
+                                            </router-link> -->
+                                    <button class="text-white border-0 bg-transparent" @click="showModal">
+                                        سجلى دخولك
+                                    </button>
+                                    <login-dialog :profileData="profileData" ref="modal"></login-dialog>
+                                </li>
+                                <!-- <div class="btn-main-style py-5" style="width: fit-content;">
+                                            <router-link :to="getRouteLocale('register-affiliate')"
+                                            class="btn-default text-black mt-2" style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);"> انشاء حساب</router-link>
+                                        </div>
+                    
+                                        <div class="btn-main-style py-5" style="width: fit-content;">
+                                            <router-link :to="getRouteLocale('register-affiliate')"
+                                            class="btn-default text-black mt-2" style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);"> انشاء حساب</router-link>
+                                        </div> -->
+                            </div>
+                        </template>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div style="overflow: inherit" class="m-auto text-start ">
-                        <img class="rounded-circle" style="background: rgb(255 188 0 / 10%);"
-                            src="@/assets/img/affiliate-top.png" alt="" />
+                <div class="col-12 col-md-6" style="min-height: 414px;" v-if="!isMobile">
+                    <div style="height:100%;">
+                        <iframe class="rounded" style="width: 100%; height: 100%"
+                            src="https://www.youtube.com/embed/mKfqJ_3-jWQ" title="جلسة حوارية عربيات" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
-            </div>
-
-            <div class="star-cons">
-                <img :src="`${publicPath}assets/img/starrrr.png`" alt="" />
-            </div>
-            <div class="star-cons stars">
-                <img :src="`${publicPath}assets/img/starsss.png`" alt="" />
             </div>
         </div>
+
     </div>
 </template>
 

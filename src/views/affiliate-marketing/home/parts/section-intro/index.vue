@@ -4,14 +4,14 @@
             <div class="col-md-6">
                 <div>
                     <div class="bg-back position-relative">
-                        <img class="img-fluid" :src="`${publicPath}assets/img/image1000.png`" alt="">
+                        <img class="img-fluid" src="@/assets/img/new/affiliate-marketing/Group 1171274848.png" alt="">
                     </div>
                 </div>
 
             </div>
             <div class="col-md-6 text">
                 <h2 class="fw-bolder m-c">
-                    <span style="color: #ffcb00;">
+                    <span >
                         سوقى بالعمولة
                     </span>
 

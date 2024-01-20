@@ -17,7 +17,7 @@
         <!-- <SectionRecentCourses /> -->
         <SectionGraduated title=" المسوقين الاكثر ربحا " />
         <SectionContinueLearning />
-        <SectionHear :itemPage="itemPage" />
+        <!-- <SectionHear :itemPage="itemPage" /> -->
     </div>
 </template>
 

@@ -17,19 +17,19 @@
                     </p>
                     <div>
                         <p>
-                            <i class="fas fa-check-circle mx-2"></i>
+                            <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                             مجالات متنوعة و فريدة
                         </p>
                         <p>
-                            <i class="fas fa-check-circle mx-2"></i>
+                            <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                             مجالات متنوعة و فريدة
                         </p>
                         <p>
-                            <i class="fas fa-check-circle mx-2"></i>
+                            <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                             مجالات متنوعة و فريدة
                         </p>
                         <p class="mb-4">
-                            <i class="fas fa-check-circle mx-2"></i>
+                            <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                             مجالات متنوعة و فريدة
                         </p>
                         <div class="mb-4">

@@ -1,10 +1,10 @@
 <template>
-    <div style="background: #DAE2E3;" class="p-5">
+    <div style="background: #ffffff;" class="p-5">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-6">
-                    <div class="row justify-content-center text-center mb-4">
-                        <span style="color: #FFBE39; font-size: 24px">
+                    <div class="row justify-content-center mb-4">
+                        <span style="color: #F2631C; font-size: 24px">
                             اليك ما نقوم بتقديمه لك
 
                         </span>
@@ -16,32 +16,37 @@
                         </h3>
                     </div>
                     <div class="row gap-3 align-items-start">
-                        <img class="col-2" src="@/assets/af-icons/Frame1000006527.png" style="width: 50px;" alt="">
+                        <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                         <p class="col-10">
                             التدريب والتعليم: نقدم التدريب والتعليم للمسوقين بالعمولة لمساعدتهم على فهم كيفية الترويج
                             لمنتجاتنا وخدماتنا بفعالية.
                         </p>
                     </div>
                     <div class="row gap-3 align-items-start">
-                        <img class="col-2" src="@/assets/af-icons/Frame1000006527.png" style="width: 50px;" alt="">
+                        <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                         <p class="col-10">
                             الأدوات والموارد: نقدم الأدوات والموارد للمسوقين بالعمولة لمساعدتهم على إدارة حملاتهم التسويقية.
                         </p>
                     </div>
                     <div class="row gap-3 align-items-start">
-                        <img class="col-2" src="@/assets/af-icons/Frame1000006527.png" style="width: 50px;" alt="">
+                        <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                         <p class="col-10">
                             التواصل المستمر: نتواصل باستمرار مع المسوقين بالعمولة لتقديم الدعم والإرشاد.
                         </p>
                     </div>
                     <div class="row  justify-content-center">
-            <button class="btn-custmer shadow mt-2" style="width: 200px; border-radius: 20px" @click="router_push('contact-us')">{{ $t('contact-us') }} الأن</button>
+                        <button class="btn-custmer shadow mt-2" style="width: 200px; border-radius: 20px"
+                            @click="$router.push({ name: 'contact-us' })">{{ $t('contact-us') }} الأن</button>
 
                     </div>
                 </div>
+                <div class="col-6 p-5">
+                    <img class="img-fluid rounded-3 " src="@/assets/img/new/affiliate-marketing/section.png" alt="">
+
+                </div>
 
 
-                <div class="col-3 justify-content-center image-part" style="background: #414042;
+                <!-- <div class="col-3 justify-content-center image-part" style="background: #414042;
                 padding: 20px 15px 0;
                 width: fit-content;
                 border-radius: 15px;
@@ -66,7 +71,7 @@
                         </small>
                     </span>
                     <img src="@/assets/af-icons/image1217.png" alt="">
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -122,4 +127,5 @@
     bottom: -10px;
     right: 50%;
     transform: translate(50%, 50%);
-}</style>
+}
+</style>

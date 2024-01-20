@@ -14,19 +14,19 @@
                     </p>
                     <div>
                         <p>
-                            <i class="fas fa-check-circle mx-2"></i>
+                            <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                             مقابل مادي مجزي
                         </p>
                         <p>
-                            <i class="fas fa-check-circle mx-2"></i>
+                            <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                             بيئة متميزة
                         </p>
                         <p>
-                            <i class="fas fa-check-circle mx-2"></i>
+                            <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                             أي مميزات أخرى تشد الشخص لاشتراك
                         </p>
                         <p class="mb-4">
-                            <i class="fas fa-check-circle mx-2"></i>
+                            <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
                             أي مميزات أخرى تشد الشخص لاشتراك
                         </p>
                         <div class="mb-4">
