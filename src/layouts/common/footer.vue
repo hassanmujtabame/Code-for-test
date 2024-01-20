@@ -10,7 +10,8 @@
                 $t("who-are-we")
               }}</router-link>
 
-              <a href="#" class="d-block">النماذج</a>
+              <!-- <a href="#" class="d-block">النماذج</a> -->
+              <router-link :to="getRouteLocale('network-models')" class="d-block">النماذج</router-link>
               <router-link :to="getRouteLocale('workspaces-home')" class="d-block">{{ $t("workspaces") }}</router-link>
             </div>
             <div class="col-xl-3 col-lg-6 mt-3">
@@ -19,7 +20,7 @@
               <router-link :to="getRouteLocale('network-podcasts')" class="d-block">{{ $t("podcast") }}</router-link>
               <router-link :to="getRouteLocale('network-success-stories')" class="d-block">{{ $t("success-story")
               }}</router-link>
-              <a href="#" class="d-block">قناة رياديات</a>
+              <a href="https://www.youtube.com/channel/UCM0gTqCAolncVWSr0aPbi6w" class="d-block">قناة رياديات</a>
             </div>
 
             <!-- uncomment after edition in jobs  -->
