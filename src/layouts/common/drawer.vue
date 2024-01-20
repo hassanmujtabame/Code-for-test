@@ -30,7 +30,8 @@
             </svg>
             <router-link custom v-slot="{ navigate }" :to="getRouteLocale('service-provider-request-purchase-services')"
                 class="mx-2 m-c ">
-                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('requisitions-services') }}
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('requisitions-services')
+                }}
                 </button>
             </router-link>
         </div>
@@ -232,7 +233,8 @@ export default {
 }
 </script>
 
-<style scoped>.btn-drawer {
+<style scoped>
+.btn-drawer {
     background: transparent;
     border: none;
 }</style>
