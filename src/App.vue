@@ -127,7 +127,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
 /*@import "https://unpkg.com/aos@2.3.1/dist/aos.css";*/
 @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css";
 @import "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css";
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css";
 @import "@/assets/css/main.css";
 @import "@/assets/css/colors.css";
 @import "@/assets/css/chat.css";
