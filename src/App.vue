@@ -4,7 +4,10 @@
       <d-laoding-tail-spin color="#fff" />
     </d-overlays-simple>
     <component :is="$route.meta.layout || 'div'">
-      <router-view />
+      <transition name="fade" mode="out-in">
+
+        <router-view />
+      </transition>
     </component>
     <portal-target name="body"> </portal-target>
     <JoinASPartnerDialog />
@@ -138,15 +141,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
   width: 150px;
   height: 150px;
 }
+
 @keyframes circle {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(45deg);
   }
 }
+
 svg.gear {
   animation: circle 0.5s infinite linear;
+}
+
+.fade-enter-active, .fade-leave-active {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  filter: blur(8px); /* Add blur effect */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0); /* Remove blur effect */
+  }
 }
 </style>

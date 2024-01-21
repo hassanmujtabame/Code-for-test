@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-xl">
+  <nav class="navbar navbar-expand-xl" style="--bs-navbar-nav-link-padding-x: 0 !important;">
     <div class="container">
       <router-link class="navbar-brand" :to="getRouteLocale('index')">
         <img :src="`${publicPath}assets/svg/logo-header.svg`" alt="">
@@ -23,7 +23,7 @@
         <div>
           <div class="d-flex res-search">
             <!-- search input -->
-            <SearchInput class="mx-2" v-if="!hideSearch" />
+            <!-- <SearchInput class="mx-2" v-if="!hideSearch" /> -->
             <template v-if="token">
               <UserMsg :prefixRoute="prefixRoute" />
               <UserNotif :prefixRoute="prefixRoute" />

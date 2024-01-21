@@ -2,7 +2,7 @@
 <template>
     <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
         <div class="netwok-home-header">
-        <div class="row">
+            <div class="row">
                 <div class="col-12 col-md-6">
                     <h1 class="header-title-page text-black" style="display: inline;">
                         التسويق بالعمولة
@@ -15,14 +15,15 @@
                         <template>
                             <div class="row d-flex  gap-2">
                                 <li class="nav-item px-2 btn-main border-0 text-center"
-                                    style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); background: white; padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
+                                    style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125); 
+                                    padding:10px; height:auto; margin-right: 5px; display: flex; justify-content: center; align-items: center;">
                                     <div v-if="profileData.status == 'deactive'" class="text-black">جارى تفعيل حسابك</div>
                                     <router-link v-else-if="profileData.status == 'active'"
-                                        class="text-black bg-transparent border-0"
+                                        class="text-white bg-transparent border-0"
                                         :to="{ name: 'affiliate-marketing-dashboard' }">
                                         لوحه التحكم
                                     </router-link>
-                                    <button v-else class="text-black bg-transparent border-0" @click="affiliateRegister">
+                                    <button v-else class="text-white bg-transparent border-0" @click="affiliateRegister">
                                         انشاء حساب
                                     </button>
                                 </li>
@@ -117,14 +118,8 @@ export default {
         }
     },
     mounted() {
-        this.shouldLoginMsg()
         if (this.token && this.user.affiliate) {
             this.checkAffiliate()
-            // console.log('tsetsdf', this.profileData.status)
-            // if (this.profileData) {
-            //     this.$router.push({ name: "affiliate-marketing-dashboard" })
-
-            // }
         }
 
     }
