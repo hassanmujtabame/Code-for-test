@@ -24,10 +24,10 @@
                 {{ $t("terms-use") }}
               </router-link>
             </div>
-            <h6 style="cursor: pointer; color: white;" class="mb-0" @click="openShowMsg('commercialRegister')">
+            <h6 style=" color: white;" class="mb-0" >
               السجل التجارى: 1010457094
             </h6>
-            <h6 style="cursor: pointer; color: white;" @click="openShowMsg('taxNumber')">
+            <h6 style=" color: white;">
               الرقم الضريبى: 310227304700003
             </h6>
           </div>

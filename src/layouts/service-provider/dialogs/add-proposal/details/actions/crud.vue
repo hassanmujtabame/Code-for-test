@@ -1,20 +1,12 @@
 <template>
   <div class="col-md-6 d-flex gap-2 crud-actions">
-            <button
-            @click="openAddWorkSpace"
-            style="height: 45px;"
-            class="btn bg-main bg border text-white px-5"
-          >
-                            <i class="fa fa-pen-to-square"></i>
-          تعديل
-          </button> 
+    <button @click="openAddWorkSpace" style="height: 45px;" class="btn bg-main bg border text-white px-5">
+      <i class="fa fa-pen-to-square"></i>
+      تعديل
+    </button>
     <div>
-      <button
-        @click="openDeleteDialog"
-        style="height: 45px;"
-        class="btn-main btn-danger px-5 w-100 border-0 rounded-2"
-        role="button"
-      >
+      <button @click="openDeleteDialog" style="height: 45px;" class="btn-main btn-danger px-5 w-100 border-0 rounded-2"
+        role="button">
         <i class="fa-solid fa-trash-can"></i>
         {{ $t("delete") }}
       </button>
@@ -32,7 +24,7 @@
     </template>
   </vc-date-picker>
 </div> -->
-        <edit />
+    <edit />
     <SuccessAddWorkspace />
   </div>
 </template>
@@ -45,15 +37,15 @@ import SuccessAddWorkspace from "@/components/pages/workspaces/edit/SuccessAddWo
 export default {
   name: "action-crud",
   props: ["singleWorkspace"],
-    components: {
+  components: {
     edit,
-SuccessAddWorkspace
+    SuccessAddWorkspace
   },
-    data:()=>{
+  data: () => {
     return {
       loading: true,
       items: [],
-         datesF: [
+      datesF: [
         { label: "Start Date", val: "start" },
         { label: "End Date", val: "end" },
       ],
@@ -64,7 +56,7 @@ SuccessAddWorkspace
     };
   },
   methods: {
-            openAddWorkSpace() {
+    openAddWorkSpace() {
       this.fireOpenDialog("edit-dialog");
     },
     openDeleteDialog() {
@@ -101,6 +93,7 @@ SuccessAddWorkspace
 .crud-actions {
   justify-content: end;
 }
+
 @media (max-width: 991px) {
   .crud-actions {
     justify-content: center;
