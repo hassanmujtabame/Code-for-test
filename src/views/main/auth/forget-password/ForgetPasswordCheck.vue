@@ -18,7 +18,7 @@
                 stroke="#1FB9B3" stroke-width="1.34152" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
-          <div class="px-5">
+          <div class="px-5 text-center">
             <h1 class="fw-bolder">أكتب الرمز</h1>
             <p>
               تلقيت رمز الاستعادة على البريد التالي
@@ -45,14 +45,7 @@
                 <button @click="verifyCode" class="btn btn-main mb-2 w-100">أستمر</button>
               </div>
             </ValidationObserver>
-            <router-link style="color: #F2631C;" :to="{ name: 'login' }" class="btn mt-2">
-              العودة لتسجيل الدخول
-
-            </router-link>
-          </div>           <router-link  style="color: #F2631C;" :to="{name: 'login'}" class="btn mt-2">
-            العودة لتسجيل الدخول
-
-            </router-link>
+          </div>
         </b-col>
       </div>
     </div>
