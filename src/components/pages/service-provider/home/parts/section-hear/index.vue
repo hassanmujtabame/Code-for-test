@@ -1,7 +1,7 @@
 <template>
     <div class="sex-eight mt-5  max-width-100-hidden" v-if="items && items.length > 0">
         <div class="container">
-            <h2 class="text-center">{{ $t('what-do-they-say-about-us') }} </h2>
+            <h2 >{{ $t('what-do-they-say-about-us') }} </h2>
             <div class="ad-slider">
                 <carousel :perPage="3" :navigationEnabled="true" :paginationEnabled="true">
                     <slide v-for="(item, i) in items" :key="i">

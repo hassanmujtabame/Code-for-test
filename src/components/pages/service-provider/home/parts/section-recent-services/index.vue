@@ -24,8 +24,8 @@
             class="router-link"
             :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
           > -->
-          <CardService :image="item.image" :description="item.desc" :title="item.title" :place="item.city"
-            :price="item.price" :name="item.user_info" :id="item.id" :rates="item.rates" :created_at="item.created_at" />
+          <CardService :keywords="item.keywords" :state="item.state" :image="item.image" :description="item.desc" :title="item.title" :place="item.city"
+            :price="item.price" :name="item.user_info" :id="item.id" :created_at="item.created_at" />
           <!-- </router-link> -->
         </div>
       </div>

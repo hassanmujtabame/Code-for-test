@@ -6,12 +6,7 @@
                     {{ title }}
                 </h4>
                 <div class="tags d-flex flex-row flex-wrap gap-2">
-                    <span class="tag">
-                        design
-                    </span>
-                    <span class="tag">
-                        full time
-                    </span>
+                    <span class="tag" v-for="(keyw, i) in keywords.split(',')" :key="i">{{ keyw }}</span>
                 </div>
                 <div class="price mt-3 d-flex justify-content-end px-4 fs-5">
                     ر.س
@@ -36,8 +31,8 @@
                         justify-content: center;
                         align-items: center;border-radius: 24px;
                         background: #FDC0AE;">
-                        75 وظيفه
 
+                        {{ state == 'offline' ? 'حضورى' : 'اونلاين' }}
                     </span>
                     <div style="
                     display: flex;
@@ -92,6 +87,9 @@ export default {
         title: {
             type: String,
         },
+        state: {
+            type: String,
+        },
         id: {
             type: [String, Number],
         },
@@ -105,16 +103,19 @@ export default {
         price: {
             type: [String, Number],
         },
+        keywords: {
+            type: [String, Array],
+        },
         created_at: {
             type: [String, Number],
-        },
-        rates: {
-            type: [String, Number],
-            default: 0,
-        },
+        }
     },
     data: () => {
         return {
+            state_ar: {
+                online: 'اونلاين',
+                offline: 'حضورى',
+        },
             shareLink: '',
         };
     },

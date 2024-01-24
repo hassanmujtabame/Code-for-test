@@ -14,7 +14,7 @@
           <div class=" mt-2 ">
             <CouponCard :img="item.image" :title="item.name_company" :discount="item.discount" :date="item.start_date"
               :during="item.day" :name="item.code" :tag="item.category ? item.category.name : null" :id="item.id"
-              :sowDetails="addOffers" />
+              :sowDetails="true" />
           </div>
         </template>
       </d-swiper>

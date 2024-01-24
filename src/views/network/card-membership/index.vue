@@ -78,27 +78,28 @@ export default {
     },
     methods: {
         showCard(evt) {
-            this.$router.push({ name: "show-card" })
             // if(!this.shouldSubNetworkMsg('انت غير مشترك في الشبكة',evt)){
-            //     if(!this.offersCardMember){
-            //         let dataEvt ={
-            //             title:'للأسف ليست لديك بطاقة عضوية',
-            //             description:`انت مشترك في الباقة المجانية وهذه الباقة لا تمنحك بطاقة العضوية - رقي حسابك الى الباقة الشهرية أو الباقة السنويه و استفيد من بطاقة العضوية و المزيد من المميزات في الشبكة`,
-            //             image:`${this.publicPath}assets/img/Group 1171275670.png`,
-            //             btns:[
-            //                 {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})}
-            //             ]
-            //         }
-            //         this.showConfirmMsg(dataEvt);
-            //         return;
-            //     }
-            //     let dataEvt ={
-            //             title:'بطاقة عضوية',
-            //             description:`بطاقة العضوية غير جاهزة الان`,
-            //             image:`${this.publicPath}assets/img/Group 1171275670.png`
-            //         }
-            //         this.showConfirmMsg(dataEvt);
+                if(!this.offersCardMember){
+                    let dataEvt ={
+                        title:'للأسف ليست لديك بطاقة عضوية',
+                        description:`انت مشترك في الباقة المجانية وهذه الباقة لا تمنحك بطاقة العضوية - رقي حسابك الى الباقة الشهرية أو الباقة السنويه و استفيد من بطاقة العضوية و المزيد من المميزات في الشبكة`,
+                        image:`${this.publicPath}assets/img/EmptyState2.png`,
+                        btns:[
+                            {title:'رقي حسابك',action:()=>this.$router.push({name: 'network-subscribe'})}
+                        ]
+                    }
+                    this.showConfirmMsg(dataEvt);
+                    return;
+                }
+                let dataEvt ={
+                        title:'بطاقة عضوية',
+                        description:`بطاقة العضوية غير جاهزة الان`,
+                        image:`${this.publicPath}assets/img/EmptyState2.png`
+                    }
+                    this.showConfirmMsg(dataEvt);
             // } 
+            this.$router.push({ name: "show-card" })
+
 
         },
 

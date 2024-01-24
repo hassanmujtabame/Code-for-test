@@ -200,7 +200,7 @@ export default {
         let dataEvt = {
           title: 'للأسف لايمكنك  رؤية المعارض  ',
           description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على المعارض    - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من المعارض و المزيد من المميزات في الشبكة`,
-          image: `${this.publicPath}assets/img/Group 1171275670.png`,
+          image: `${this.publicPath}assets/img/EmptyState.png`,
           btns: [
             { title: 'رقي حسابك', action: () => this.$router.push({ name: 'network-subscribe' }) }
           ]
@@ -216,7 +216,7 @@ export default {
         let dataEvt = {
           title: 'للأسف لايمكنك  رؤية النماذج  ',
           description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على النماذج  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من النماذج و المزيد من المميزات في الشبكة`,
-          image: `${this.publicPath}assets/img/Group 1171275670.png`,
+          image: `${this.publicPath}assets/img/EmptyState.png`,
           btns: [
             { title: 'رقي حسابك', action: () => this.$router.push({ name: 'network-subscribe' }) }
           ]
@@ -232,7 +232,7 @@ export default {
         let dataEvt = {
           title: 'للأسف لايمكنك  رؤية العروض  ',
           description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
-          image: `${this.publicPath}assets/img/Group 1171275670.png`,
+          image: `${this.publicPath}assets/img/EmptyState.png`,
           btns: [
             { title: 'رقي حسابك', action: () => this.$router.push({ name: 'network-subscribe' }) }
           ]

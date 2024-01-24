@@ -1,27 +1,7 @@
 
-import user from '@/services/api/user';
 <template>
-  <div style="margin-top: 85px">
-    <!-- header -->
-    <div class="consulting py-5 work-space-header mobile-center bg-header">
-      <div class="container">
-        <div class="row align-items-center justify-content-between">
-          <div class="col-lg-6 text-white">
-            <h1 class="fs-1 text-white">أماكن العمل</h1>
-            <p>
-              حافظ على إنتاجيتك مع أماكن العمل الحديثة والآمنة والمجهزة بأحدث
-              الأجهزة في شبكة رياديات التي توجد في مختلف الأماكن!
-            </p>
-          </div>
-          <div class="col-lg-6">
-            <div class="m-auto text-start ">
-              <img class="w-60 main-img" src="@/assets/img/work-spaces/workspace-home.png" alt="WorkSpaceMainHeader" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--end header -->
+  <div style="margin-top: 120px">
+
     <!-- card front face -->
     <div class="container">
       <div class="row justify-content-center mb-5 mt-3">
@@ -32,14 +12,14 @@ import user from '@/services/api/user';
             </div>
           </div>
           <h3 class="row mt-3">
-            الاسم : 
+            الاسم :
             {{ user.name }}
           </h3>
           <h3 class="row">
             رقم العضوية : 2910422
           </h3>
           <div class="row mt-5 d-flex justify-content-end ">
-            <h2 class="d-flex align-items-center" style="width: fit-content; margin: 0;" >MemberShip</h2> 
+            <h2 class="d-flex align-items-center" style="width: fit-content; margin: 0;">MemberShip</h2>
             <img style="width: 70px;" :src="`${publicPath}assets/img/starrrr.png`" alt="">
           </div>
           <div class="row">
@@ -57,12 +37,14 @@ import user from '@/services/api/user';
   </div>
 </template>
 <script>
+import user from '@/services/api/user';
+
 import QRCode from 'qrcode';
 
 export default {
   name: 'show-card',
   components: {
-QRCode
+    QRCode
   },
   data() {
     return {

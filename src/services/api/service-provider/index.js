@@ -12,6 +12,10 @@ getAll(params={}){
     let s=this.generateQueryUrl(params)
     return window.axios.get(`service-provider/provider/projects?${s}`);
 }
+getAnalytics(params={}){
+    let s=this.generateQueryUrl(params)
+    return window.axios.get(`service-provider/provider/service-analytics`);
+}
 createProfile(data){
     return window.axios.post(`service-provider/provider/portfolios`,data);
 }

@@ -1,34 +1,40 @@
 <template>
-    <div class="consulting">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md-6">
-                    <h1 class="fs-1 text-white"> المعارض </h1>
-                    <p class="text-white">
-                        ستجد في هذا القسم كل المعارض التي نشرها الاعضاء يمكنك المشاركة بها او زيارتها كما يمكنك
-                        اضافة معرضك </p>
-                    <button @click="openAddDialog" class="btn border text-white px-3">
-                        <!-- icon-->
-                        <plus-rect-round-icon />
-                        {{ $t('add_exhibition') }}
-                    </button>
+    <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
+        <div class="netwok-home-header container mx-auto">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h1 class="header-title-page text-black" style="display: inline;">
+                        معارض
+                    </h1>
+                    <p class="header-desc-page text-black mt-3">
+                        ستجد في هذا القسم كل المعارض التي نشرها الاعضاء يمكنك المشاركة بها او زيارتها كما يمكنك اضافة معرضك 
+                    </p>
+                    <div class="mt-4">
+                        <button @click="openAddDialog" class="px-3 btn-custmer shadow"
+                        style="background-color: #ff5722 !important; border: none !important; ">
+                            <!-- icon-->
+                            <plus-rect-round-icon />
+                            {{ $t('add_exhibition') }}
+                        </button>
+                        
+                    </div>
+
                 </div>
-                <div class="col-md-6">
-                    <div style="overflow: inherit" class="m-auto text-start ">
-                        <img class="cloud-bg" :src="`${publicPath}assets/svg/Group 1171275412.svg`" alt="" />
-                        <img class="img-header" :src="`${publicPath}assets/img/vector 555@2x.png`" alt="" />
+                <div  class="col-12 col-md-6" style="min-height: 414px;" v-if="!isMobile">
+                    <div style="height:100%;">
+
+                        <iframe class="rounded" style="width: 100%; height: 100%" src="https://www.youtube.com/embed/mKfqJ_3-jWQ"
+                            title="جلسة حوارية عربيات" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
-            <div class="star-cons">
-                <img :src="`${publicPath}assets/img/starrrr.png`" alt="" />
-            </div>
-            <div class="star-cons stars">
-                <img :src="`${publicPath}assets/img/starsss.png`" alt="" />
-            </div>
         </div>
+
     </div>
 </template>
+
 
 <script>
 import plusRectRoundIcon from '@/components/icon-svg/plus-rect-round.vue';

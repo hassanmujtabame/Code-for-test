@@ -22,6 +22,7 @@
       <template v-slot="{ item }">
        
           <CouponCard 
+          :sowDetails="true"
           :img="item.image"    
           :title="item.name_company" 
           :discount="item.discount"
