@@ -1,21 +1,25 @@
 <template>
   <div class="container mt-5 ">
     <div class="row align-items-center m-auto">
-      <div class="col-md-5 col-12">
+      <div class="col-md-7 col-12 text">
+        <h2 class="home-section-title m-c">
+          مقدم خدمة ؟
+                </h2>
+        <p class="home-section-text text-black">إذا كنت مقدم خدمة وتبحث عن فرصة للوصول إلى عملاء جدد وتنمية أعمالك، فإن منصة رياديات هي المكان المناسب لك.
+        </p>
+        <ul>
+          <li>وصول إلى قاعدة عملاء واسعة من رواد الأعمال وأصحاب المشاريع الصغيرة والمتوسطة من جميع أنحاء العالم.</li>
+          <li>القدرة على عرض خدماتك ومنتجاتك أمام جمهور مستهدف.</li>
+          <li>الحصول على الدعم والتوجيه من فريق رياديات.</li>
+        </ul>
+        <router-link :to="getRouteLocale('service-provider-proposals')" class="btn-custmer shadow" style="padding: 5px 20px">تقديم خدمة</router-link>
+      </div>
+      <div class="col-md-5 tablet-hide" >
         <div class="bg-back position-relative">
-          <img class="img-fluid" src="@/assets/img/service_provider_section_definition.png" alt="">
+          <img class="img-fluid" src="@/assets/img/new/service-provider/service-provider-section-definition.png" alt="">
         </div>
       </div>
-      <div class="col-md-7 col-8 text">
-        <h2 class="home-section-title m-c">
-          سنساعدك في التقدم
-        </h2>
-        <p class="home-section-text ">
-          مقدمات الخدمات هي أول منصة تجمع مقدمين الخدمات لعرض خدماتهم الخاصة بهم وتحديد المواعيد المناسبة لهم والموقع
-          الجغرافي والتواصل مع العملاء مباشرة عن طريق الموقع و الدفع الالكتروني اسهل مقدمات الخدمات هي أول منصة تجمع
-          مقدمين الخدمات لعرض خدماتهم الخاصة بهم وتحديد المواعيد
-        </p>
-      </div>
+
     </div>
   </div>
 </template>

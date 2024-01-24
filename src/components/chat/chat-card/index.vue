@@ -69,6 +69,7 @@ export default {
       immediate: true,
       handler() {
         this.loadMsgsFromStore()
+        console.log('test', this.messages)
       }
     },
   },

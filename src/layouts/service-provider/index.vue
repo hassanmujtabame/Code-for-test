@@ -1,7 +1,7 @@
 <template>
   <div>
-    <template v-if="token && user && userIsRoleProvider != ''">
-      <!-- <localHeader /> -->    
+    <template v-if="token">
+      <!-- <localHeader />     -->
       <DefaultHeader  />
 
       <MyDrawer :dashboard="'service-provider-dashboard'" />

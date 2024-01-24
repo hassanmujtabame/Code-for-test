@@ -1,6 +1,10 @@
 <template>
-  <div class="bg-white rounded-3 mobile-center">
+  <div class="bg-white rounded-3 mobile-center " style="overflow: hidden">
     <b-row>
+      <b-col xl="5" class="tablet-hide">
+        <b-img class="main-img" style="object-fit: cover;" :src="`${publicPath}assets/svg/riadiat-green-card.svg`"/>
+      </b-col>
+
       <b-col xl="7">
         <div class="login-form">
           <h6 class="no-have-account">
@@ -53,11 +57,7 @@
           </div>
         </div>
       </b-col>
-      <b-col xl="5" class="tablet-hide">
-        <div class="box">
-          <b-img fluid :src="`${publicPath}assets/svg/riadiat-green-card.svg`" />
-        </div>
-      </b-col>
+
     </b-row>
   </div>
 </template>
@@ -155,5 +155,11 @@ html[lang="en"] .icon-input-end {
 
 .form-control {
   padding: 0.5rem 0.75rem;
+}
+
+.main-img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 </style>

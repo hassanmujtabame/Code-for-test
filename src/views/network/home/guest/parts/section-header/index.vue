@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
-        <div class="netwok-home-header">
+        <div class="netwok-home-header container mx-auto">
             <div class="row">
                 <div class="col-12 col-md-6">
                     <h1 class="header-title-page text-black" style="display: inline;">
@@ -45,7 +45,7 @@
 
 <script>
 export default {
-    name: 'section-1'
+    name: 'section-header'
 }
 </script>
 

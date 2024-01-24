@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Provider v-if="token && userIsRoleProvider == 'provider'" />
-    <Client v-if="token && userIsRoleProvider == 'client'" />
-    <Default v-else-if="userIsRoleProvider == ''" />
+    <!-- <Provider v-if="token && userIsRoleProvider == 'provider'" />
+    <Client v-if="token && userIsRoleProvider == 'client'" /> -->
+    <Default />
   </div>
 </template>
 <script>
 import Provider from "./provider";
 import Client from "./client";
-import Default from "./default.vue";
+import Default from "./default";
 export default {
   name: "service-provider",
   components: {

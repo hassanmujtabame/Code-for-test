@@ -3,30 +3,34 @@
     <!-- section Header-->
     <SectionHeader />
 
-    <!-- section hear -->
-    <SectionHear />
+    <!-- section recent-services-->
+    <SectionRecentServices />
+
     <!-- <SectionHeader /> -->
     <!-- section defition-->
-    <!-- <SectionDefinition /> -->
-    <!-- section features -->
-    <SectionFeatures />
-    <!-- how to offer service  -->
-    <SectionHowOfferService />
-    <!-- section best-provider-->
-    <!-- <SectionBestProvider /> -->
+    <SectionDefinition />
 
+    <!-- section features -->
+    <!-- <SectionFeatures /> -->
+    
+    <!-- how to offer service  -->
+    <!-- <SectionHowOfferService /> -->
+    
+    <!-- section best-provider-->
+    <SectionBestProvider />
+    
+    <!-- SectionCommonQuistions -->
+    <SectionCommonQuistions class="my-3"/>
 
     <!-- browsing according field -->
+    
+    <!-- <SectoinBrowsing/> -->
+    
 
-    <SectoinBrowsing/>
 
-    <!-- SectionCommonQuistions -->
-
-
-    <SectionCommonQuistions />
 
     <!-- Section for still have quistions  -->
-    <SectionQuistion />
+    <!-- <SectionQuistion /> -->
     <!-- section recent-Proposals-->
     <!-- <SectionRecentProposals /> -->
     <!-- section need service -->
@@ -35,8 +39,7 @@
     <!-- <SectionExploreServices v-if="userIsProvider" /> -->
     <!-- section explore-services-->
     <!-- <SectionExploreServices v-if="!userIsProvider" /> -->
-    <!-- section recent-services-->
-    <!-- <SectionRecentServices /> -->
+
 
     <!-- <FeaturesService style="margin-top: 150px" /> -->
     <!-- section seek for job-->
@@ -45,6 +48,8 @@
 
     <!-- section continue-learning-->
     <SectionContinueLearning />
+        <!-- section hear -->
+    <SectionHear />
     <!-- section hear-->
     <!-- <SectionHear /> -->
 

@@ -3,48 +3,47 @@
     <div class="d-flex justify-content-between align-items-center container">
       <h1 class="home-section-title">أحدث الخدمات المضافة</h1>
       <div>
-        <router-link
-          class="router-link d-flex  align-items-center"
-          custom
-          :to="getRouteLocale('service-provider-ready-services')"
-          v-slot="{navigate}"
-        >
-   <button @click="navigate" class="more m-c seeMore px-0">{{ $t('seeMore') }}</button>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8.29302 12.7064C8.10555 12.5188 8.00024 12.2645 8.00024 11.9994C8.00024 11.7342 8.10555 11.4799 8.29302 11.2924L13.95 5.63537C14.0423 5.53986 14.1526 5.46367 14.2746 5.41126C14.3966 5.35886 14.5278 5.33127 14.6606 5.33012C14.7934 5.32896 14.9251 5.35426 15.048 5.40454C15.1709 5.45483 15.2825 5.52908 15.3764 5.62297C15.4703 5.71686 15.5446 5.82852 15.5948 5.95141C15.6451 6.07431 15.6704 6.20599 15.6693 6.33877C15.6681 6.47155 15.6405 6.60277 15.5881 6.72477C15.5357 6.84677 15.4595 6.95712 15.364 7.04937L10.414 11.9994L15.364 16.9494C15.5462 17.138 15.647 17.3906 15.6447 17.6528C15.6424 17.915 15.5373 18.1658 15.3518 18.3512C15.1664 18.5366 14.9156 18.6418 14.6534 18.644C14.3912 18.6463 14.1386 18.5455 13.95 18.3634L8.29302 12.7064Z" fill="#1FB9B3"/>
-</svg>
+        <router-link class="router-link d-flex  align-items-center" custom
+          :to="getRouteLocale('service-provider-ready-services')" v-slot="{ navigate }">
+          <button @click="navigate" class="more m-c seeMore px-0">{{ $t('seeMore') }}</button>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M8.29302 12.7064C8.10555 12.5188 8.00024 12.2645 8.00024 11.9994C8.00024 11.7342 8.10555 11.4799 8.29302 11.2924L13.95 5.63537C14.0423 5.53986 14.1526 5.46367 14.2746 5.41126C14.3966 5.35886 14.5278 5.33127 14.6606 5.33012C14.7934 5.32896 14.9251 5.35426 15.048 5.40454C15.1709 5.45483 15.2825 5.52908 15.3764 5.62297C15.4703 5.71686 15.5446 5.82852 15.5948 5.95141C15.6451 6.07431 15.6704 6.20599 15.6693 6.33877C15.6681 6.47155 15.6405 6.60277 15.5881 6.72477C15.5357 6.84677 15.4595 6.95712 15.364 7.04937L10.414 11.9994L15.364 16.9494C15.5462 17.138 15.647 17.3906 15.6447 17.6528C15.6424 17.915 15.5373 18.1658 15.3518 18.3512C15.1664 18.5366 14.9156 18.6418 14.6534 18.644C14.3912 18.6463 14.1386 18.5455 13.95 18.3634L8.29302 12.7064Z"
+              fill="#1FB9B3" />
+          </svg>
         </router-link>
       </div>
     </div>
-    <div class="row order mt-3">
-      <div v-for="(item,i) in items" :key="i" class="col-lg-4">
-        <!-- <router-link
-          class="router-link"
-          :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
-        > -->
-          <CardService
-            :image="item.image"
-            :description="item.desc"
-            :title="item.title"
-            :place="item.city"
-            :price="item.price"
-            :name="item.user_info"
-            :id="item.id"
-            :rates="item.rates"
-          />
-        <!-- </router-link> -->
+    <div class="row  mt-3 gap-4">
+      <div class="col-3">
+        <analytics></analytics>
       </div>
+      <div class="row order col-9" >
+        <div v-for="(item, i) in items" :key="i" class="col-lg-4">
+          <!-- <router-link
+            class="router-link"
+            :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
+          > -->
+          <CardService :image="item.image" :description="item.desc" :title="item.title" :place="item.city"
+            :price="item.price" :name="item.user_info" :id="item.id" :rates="item.rates" :created_at="item.created_at" />
+          <!-- </router-link> -->
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script>
 import serviceProviderAPIs from "@/services/api/service-provider/index";
-import CardService from "./card.vue";
-export default { 
+// import CardService from "./card.vue";
+import CardService from "./new-card.vue";
+import Analytics from './analytics.vue'
+export default {
   name: "section-recent-services",
   components: {
-    CardService
+    CardService,
+    Analytics
   },
   data: () => ({
     loading: true,
@@ -71,5 +70,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

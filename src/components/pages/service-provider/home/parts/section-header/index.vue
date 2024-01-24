@@ -1,50 +1,37 @@
 <template>
-    <div class="consulting " :class="[isMobile ? 'p-3' : 'p-5 pb-0']">
-        <div class="" :class="{ container: !isMobile }">
+    <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
+        <div class="container">
             <div class="row">
-                <div class="col-8 col-md-6">
-                    <h1 class="header-title-page">
-                        اي خدمه.
-                        <br>
-                        اي وقت.
-                        <br>
-                        اي مكان.
-
-                        
+                <div class="col-12 col-md-6">
+                    <h1 class="header-title-page text-black" style="display: inline;">
+                        خدمات
                     </h1>
-                    <p class="header-desc-page mb-5">
-                        منصة تجمع أهم وألمع رائدين و رائدات الأعمال في السعودية والخليج في مكان واحد
+
+                    <p class="header-desc-page text-black mt-3">
+                        أصبح بإمكانك الآن طلب الخدمات عبر الإنترنت أو في العالم الواقعي، كما يمكنك المشاركة في تقديم الخدمات
+                        للأعضاء الآخرين.
                     </p>
 
-                    <div class="my-5">
-                        <router-link :to="getRouteLocale('service-provider-choose-type')"
-                            class="btn-custmer mt-2 mx-3"> انجز مهمتك
-                        </router-link>
+                    <div class="my-5 ">
+                        <template >
+                            <router-link :to="getRouteLocale('register')" class="btn-custmer shadow mx-2">{{ $t('join-us')
+                            }}</router-link>
+                            <router-link :to="getRouteLocale('login')"
+                                class="btn-custmer-w bg-transparent text-white mt-2">{{
+                                    $t('login-female') }}</router-link>
+                        </template>
                     </div>
                 </div>
+                <div class="col-12 col-md-6" style="min-height: 414px;" v-if="!isMobile">
+                    <div style="height:100%;">
 
-                <div class="col-3 col-md-6 m-auto d-none d-lg-block d-xl-block">
-                    <div style="overflow: inherit;" class="m-auto d-flex justify-content-end">
-                        <img src="@/assets/img/ex1.png" alt=""
-                            style="height: 256px !important; object-fit: contain !important;">
+                        <iframe class="rounded" style="width: 100%; height: 100%"
+                            src="https://www.youtube.com/embed/mKfqJ_3-jWQ" title="جلسة حوارية عربيات" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
-                <!-- <div class="col-12">
-                      <div class="my-3">
-                      <a v-if="!token" @click="shouldLoginMsg" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
-                            <router-link v-else-if="userIsSubIncubator" :to="getRouteLocale('incubator-subscribe')" class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </router-link>
-                            <a v-else @click="shouldSubNetworkMsg(subNetworkTitle,$event)"  class="btn-custmer shadow mt-2"> {{ $t('join-us') }} </a>
-                            <router-link v-if="!token" :to="getRouteLocale('login')" class="btn-custmer-w bg-transparent text-white mt-2"> {{ $t('login-female') }}  </router-link>
-                           </div> 
-                          </div> -->
             </div>
-            <div class="star-cons">
-                <img :src="`${publicPath}assets/img/starrrr.png`" alt="">
-            </div>
-            <div class="star-cons stars">
-                <img :src="`${publicPath}assets/img/starsss.png`" alt="">
-            </div>
-
         </div>
 
     </div>
@@ -52,25 +39,20 @@
 
 <script>
 export default {
-    name: 'section-top',
-    data: () => {
-        return {
-            subNetworkTitle: 'يجب عليك الاشتراك في الشبكة حتى يمكنك الاشتراك في حاضنة رياديات'
-        }
-    }
+    name: 'section-header'
 }
 </script>
 
-<style scoped>
-
-.header-title-page {
-    color: #2EB9B3;
-}
-.consulting {
-    background: inherit;
-}
-.header-desc-page {
-    color: #838383;
+<style>
+.select-title-main {
+    position: relative;
 }
 
+.select-title-main img {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    width: 100%;
+}
 </style>
