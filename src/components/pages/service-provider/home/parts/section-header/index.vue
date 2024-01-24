@@ -13,7 +13,7 @@
                     </p>
 
                     <div class="my-5 ">
-                        <template >
+                        <template v-if="user">
                             <router-link :to="getRouteLocale('register')" class="btn-custmer shadow mx-2">{{ $t('join-us')
                             }}</router-link>
                             <router-link :to="getRouteLocale('login')"

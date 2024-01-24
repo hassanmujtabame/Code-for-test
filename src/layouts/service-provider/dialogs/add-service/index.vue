@@ -646,10 +646,11 @@ export default {
     },
     openDialog() {
       this.checkUser()
-      if (!this.checkUserIsProvider || this.checkUserIsProvider === null) {
-        this.openConfirmDialog()
-        return
-      }
+      // uncommint the check portfolio
+      // if (!this.checkUserIsProvider || this.checkUserIsProvider === null) {
+      //   this.openConfirmDialog()
+      //   return
+      // }
       this.itemForm = Object.assign(
         {},
         {
