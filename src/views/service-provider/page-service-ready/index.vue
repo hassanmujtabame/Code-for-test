@@ -249,9 +249,9 @@ export default {
     title_page() {
       switch (this.itemPage.state) {
         case "online":
-          return 'خدمه حضورية';
-        case "offline":
           return 'خدمه عن بعد';
+          case "offline":
+          return 'خدمه حضورية';
         case "service":
           return 'خدمه جاهزة';
         default:
