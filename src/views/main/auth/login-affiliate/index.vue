@@ -2,12 +2,8 @@
   <div class="login-page">
     <b-container>
       <LoginForm @change-form="afterSuccessForm" v-if="status == 'form'" />
-      <ResendCodeView
-        @success="afterSuccessCheck"
-        @cancel="status = 'form'"
-        :dataInfo="dataCheck"
-        v-if="status == 'resend-code'"
-      />
+      <ResendCodeView @success="afterSuccessCheck" @cancel="status = 'form'" :dataInfo="dataCheck"
+        v-if="status == 'resend-code'" />
     </b-container>
   </div>
 </template>
@@ -48,9 +44,8 @@ export default {
 };
 </script>
 
-<style scoped> 
-.login-page {
+<style scoped> .login-page {
    background-color: #f6f8f9;
    padding: 3em 0 6em;
-}
+ }
 </style>

@@ -251,10 +251,8 @@
 
 <script>
 export default {
-name:'description-project'
+    name: 'description-project'
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

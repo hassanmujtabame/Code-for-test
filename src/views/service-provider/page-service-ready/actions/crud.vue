@@ -1,48 +1,29 @@
 <template>
-  <div class="col-md-6  crud-actions" style="height: 100%; display:grid; gap: 10px; grid-template-columns: 1fr 1fr 1fr; align-items:end;" >
+  <div class="col-md-6  crud-actions"
+    style="height: 100%; display:grid; gap: 10px; grid-template-columns: 1fr 1fr 1fr; align-items:end;">
     <div style="height:100%;">
-      <button
-        @click="openEditDialog"
-        style="height:100%;"
-        class="btn-main px-3 w-100 border-0 rounded-2"
-      >
+      <button @click="openEditDialog" style="height:100%;" class="btn-main px-3 w-100 border-0 rounded-2">
         <i class="fa-regular fa-pen-to-square"></i>
-        {{$t('modification')}}
+        {{ $t('modification') }}
       </button>
     </div>
     <div style="height:100%;">
-      <button
-        :disabled="loading"
-        @click="suspendItem"
-        v-if="!itemPage.is_suspend"
-        style="height:100%; background-color:#FFBC00 ;"
-        class="btn-main px-3 w-100 border-0 rounded-2"
-        role="button"
-      >
+      <button :disabled="loading" @click="suspendItem" v-if="!itemPage.is_suspend"
+        style="height:100%; background-color:#FFBC00 ;" class="btn-main px-3 w-100 border-0 rounded-2" role="button">
         <img :src="`${publicPath}assets/svg/suspendu.svg`" />
-        {{$t('suspend')}}
+        {{ $t('suspend') }}
       </button>
-      <button
-        :disabled="loading"
-        @click="notSuspendItem"
-        v-else
-        style="height:100%; background-color:#FFBC00 ;"
-        class="btn-main px-3 w-100 border-0 rounded-2"
-        role="button"
-      >
+      <button :disabled="loading" @click="notSuspendItem" v-else style="height:100%; background-color:#FFBC00 ;"
+        class="btn-main px-3 w-100 border-0 rounded-2" role="button">
         <img :src="`${publicPath}assets/svg/suspendu.svg`" />
-        {{$t('republish')}}
+        {{ $t('republish') }}
       </button>
     </div>
     <div style="height:100%;">
-      <button
-        @click="openDeleteDialog"
-        style="height:100%;"
-        class="btn-main btn-danger px-3 w-100 border-0 rounded-2"
-        role="button"
-      >
+      <button @click="openDeleteDialog" style="height:100%;" class="btn-main btn-danger px-3 w-100 border-0 rounded-2"
+        role="button">
         <i class="fa-solid fa-trash-can"></i>
-        {{$t('delete')}}
+        {{ $t('delete') }}
       </button>
     </div>
   </div>
@@ -134,6 +115,7 @@ export default {
 .crud-actions {
   justify-content: end;
 }
+
 @media (max-width: 991px) {
   .crud-actions {
     justify-content: center;

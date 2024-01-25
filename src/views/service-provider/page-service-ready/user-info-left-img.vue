@@ -26,7 +26,8 @@
                                 {{ $t('message') }}
                             </p>
                         </button>
-                        <button v-if="showBtnChat" @click="openChat" style="background-color: #ffbe39;" class="d-flex justify-content-center align-items-center gap-1 text-white border-0 p-3 px-3 mx-2"><i
+                        <button v-if="showBtnChat" @click="openChat" style="background-color: #ffbe39;"
+                            class="d-flex justify-content-center align-items-center gap-1 text-white border-0 p-3 px-3 mx-2"><i
                                 class="fas fa-comments me-3 fa-sm"></i> {{ $t('chat') }}</button>
                     </div>
                 </div>

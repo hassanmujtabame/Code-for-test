@@ -5,7 +5,8 @@
         <div class="login-form">
           <h6 class="no-have-account">
             ليس لديك حساب ؟
-            <router-link :to="{ name: 'service-provider-register', params: { type: type } }" class="m-c">أنشئ حساب الان</router-link>
+            <router-link :to="{ name: 'service-provider-register', params: { type: type } }" class="m-c">أنشئ حساب
+              الان</router-link>
           </h6>
           <div class="form">
             <h1 class="fw-bolder">مرحبا بك من جديد</h1>
@@ -115,7 +116,7 @@ export default {
           if (this.type == 'client') {
             this.$router.push('service-provider-home')
           } else if (this.type == 'provider') {
-            this.$router.push({name: 'create-profile-service-provider'})
+            this.$router.push({ name: 'create-profile-service-provider' })
           }
           let { token, ...user } = data.data;
           window.store.commit("auth/SET_TOKEN", token);

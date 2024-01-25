@@ -250,7 +250,7 @@ export default {
       switch (this.itemPage.state) {
         case "online":
           return 'خدمه عن بعد';
-          case "offline":
+        case "offline":
           return 'خدمه حضورية';
         case "service":
           return 'خدمه جاهزة';

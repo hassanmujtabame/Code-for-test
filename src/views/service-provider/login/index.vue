@@ -1,13 +1,9 @@
 <template>
-  <div class="login-page"  style="margin-top: 85px;">
+  <div class="login-page" style="margin-top: 85px;">
     <b-container>
-      <LoginForm @change-form="afterSuccessForm" v-if="status == 'form'" :type="type"/>
-      <ResendCodeView
-        @success="afterSuccessCheck"
-        @cancel="status = 'form'"
-        :dataInfo="dataCheck"
-        v-if="status == 'resend-code'"
-      />
+      <LoginForm @change-form="afterSuccessForm" v-if="status == 'form'" :type="type" />
+      <ResendCodeView @success="afterSuccessCheck" @cancel="status = 'form'" :dataInfo="dataCheck"
+        v-if="status == 'resend-code'" />
     </b-container>
   </div>
 </template>
@@ -43,9 +39,9 @@ export default {
       window.SwalSuccess("تم تفعيل حسابك بنجاح");
       this.status = "form";
       if (this.type == 'client') {
-        this.$router.push({name:'service-provider-home'})
+        this.$router.push({ name: 'service-provider-home' })
       } else if (this.type == 'provider') {
-        this.$router.push({name: 'create-profile-service-provider'})
+        this.$router.push({ name: 'create-profile-service-provider' })
       }
     }
   },
@@ -56,9 +52,8 @@ export default {
 };
 </script>
 
-<style scoped> 
-.login-page {
+<style scoped> .login-page {
    background-color: #f6f8f9;
    padding: 3em 0 6em;
-}
+ }
 </style>

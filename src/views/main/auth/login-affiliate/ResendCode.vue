@@ -9,31 +9,20 @@
           <h1 class="fw-bolder">تفعيل الحساب</h1>
           <p>
             أرسلنا اليك رمز التأكيد على ايميلك
-            <span>{{dataInfo.form.email}}</span>
+            <span>{{ dataInfo.form.email }}</span>
           </p>
           <p v-if="code" style="color:red">
             للتجريب فقط :رقم التاكيد هو
-            <i>{{code}}</i>
+            <i>{{ code }}</i>
           </p>
           <p>
             لم يصلك الرمز؟
             <a href="#" @click="resendCode" class="m-c">أعد الارسال</a>
           </p>
           <ValidationObserver class="row g-3 needs-validation" ref="verifyCodeForm">
-            <ValidationProvider
-              tag="div"
-              :name="$t('confirm-code')"
-              class="col-md-4 w-100"
-              vid="pin_code"
-              rules="required"
-              v-slot="{errors}"
-            >
-              <input
-                type="text"
-                v-model="pin_code"
-                class="form-control"
-                placeholder="  رمز التاكيد"
-              />
+            <ValidationProvider tag="div" :name="$t('confirm-code')" class="col-md-4 w-100" vid="pin_code"
+              rules="required" v-slot="{ errors }">
+              <input type="text" v-model="pin_code" class="form-control" placeholder="  رمز التاكيد" />
 
               <d-error-input :errors="errors" v-if="errors" />
             </ValidationProvider>
@@ -127,5 +116,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
