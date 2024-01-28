@@ -2,16 +2,20 @@
   <div class="sec-six" v-if="items && items.length > 0">
     <div class="container p-3">
       <h2>{{ $t('our-partners-in-riadiat') }}</h2>
-      <d-swiper v-if="!loading" :slides-per-view="!isMobile ? 1 : 5" is-auto :space-between="10" :items="items">
-        <template v-slot:default="{ item }">
-          <div class="col-12 col-md-3 text-center" data-aos="fade-up"
+      <!-- <d-swiper v-if="!loading" :slides-per-view="!isMobile ? 1 : 5" is-auto :space-between="10" :items="items"> -->
+        <!-- <template v-slot:default="{ item }"> -->
+          <div class="d-flex justify-content-center gap-5">
+
+            <div v-for="(item,i) in items" :key="i" class="text-center" data-aos="fade-up"
             data-aos-duration="2000">
             <div class="mx-auto" style="width:fit-content">
               <ImgAvatar class="filter-shadow-partner mx-auto" :item="item" size="180" />
+              
             </div>
           </div>
-        </template>
-      </d-swiper>
+        </div>
+        <!-- </template> -->
+      <!-- </d-swiper> -->
     </div>
   </div>
 </template>

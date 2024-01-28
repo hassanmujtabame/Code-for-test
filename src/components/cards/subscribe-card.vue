@@ -94,7 +94,7 @@ export default {
         // Advance to the next tab
         // const scrollY = document.body.scrollHeight - window.innerHeight - 400; // Adjust 100 to your preferred position
         // window.scrollTo(0, scrollY);
-        
+
         this.$emit('chosed', this.pack)
       }
     }
@@ -116,19 +116,21 @@ export default {
   transition: all 0.3s;
 }
 
-@media  screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .subscription-card {
     flex-direction: column;
     align-items: center;
   }
+
   .subscription-header {
-  flex-direction: column;
-  align-items: center !important;
+    flex-direction: column;
+    align-items: center !important;
   }
+
   .subscription-actions {
     align-self: center !important;
   }
-  
+
 }
 
 .subscription-card:hover {
@@ -154,6 +156,7 @@ export default {
   align-items: center;
   margin: 40px 20px 0;
 }
+
 .subscription-price span {
   color: #ffbe39;
   margin-right: 5px;
@@ -245,5 +248,4 @@ export default {
 
 .subscribed-button:hover {
   opacity: 0.8;
-}
-</style>
+}</style>

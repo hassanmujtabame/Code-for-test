@@ -1,24 +1,19 @@
 <template>
     <div class="box border rounded-3 p-4 bg-card" v-bind="$attrs">
         <div class="row justify-content-center">
-            <div class="col-md-4 justify-content-center"
-           
-            >
-            <div class="col-md-4  text-center avatar-user-card clickable"
-            @click="showProfile"
-            :style="{'height':`${sizeImage}px`,'width':`${sizeImage}px`}"
-            >
-            <img :src="member.image"/>
-</div>
+            <div class="col-md-4 justify-content-center">
+                <div class="col-md-4  text-center avatar-user-card clickable" @click="showProfile"
+                    :style="{ 'height': `${sizeImage}px`, 'width': `${sizeImage}px` }">
+                    <img :src="member.image" />
+                </div>
             </div>
             <div class="col-md-8 t-c">
                 <h4 class="fw-bold">
-                  {{member.name??'N/A'}}
+                    {{ member.name ?? 'N/A' }}
                 </h4>
-                <p>{{ member.job??member.job_title??'N/A' }}</p>
+                <p>{{ member.job ?? member.job_title ?? 'N/A' }}</p>
                 <div class="message-service">
-                    <button v-if="showBtnMsg" class="text-white border-0 p-2 px-3"
-                       @click="sendMessage" >
+                    <button v-if="showBtnMsg" class="text-white border-0 p-2 px-3" @click="sendMessage">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M17 21.25H7C3.35 21.25 1.25 19.15 1.25 15.5V8.5C1.25 4.85 3.35 2.75 7 2.75H17C20.65 2.75 22.75 4.85 22.75 8.5V15.5C22.75 19.15 20.65 21.25 17 21.25ZM7 4.25C4.14 4.25 2.75 5.64 2.75 8.5V15.5C2.75 18.36 4.14 19.75 7 19.75H17C19.86 19.75 21.25 18.36 21.25 15.5V8.5C21.25 5.64 19.86 4.25 17 4.25H7Z"
@@ -30,8 +25,8 @@
                         {{ $t('message') }}
                     </button>
                     <!-- <button style="display: flex; align-items: baseline;"  @click="openChat" class="text-white border-0 p-2 px-3 mx-2"><i class="fa-solid mx-1 fa-envelope me-3 fa-sm"></i>{{ $t('the_message') }}</button> -->
-                    <button   @click="openChat" class="text-white border-0 p-2 px-3 mx-2">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <button @click="openChat" class="text-white border-0 p-2 px-3 mx-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M17 21.25H7C3.35 21.25 1.25 19.15 1.25 15.5V8.5C1.25 4.85 3.35 2.75 7 2.75H17C20.65 2.75 22.75 4.85 22.75 8.5V15.5C22.75 19.15 20.65 21.25 17 21.25ZM7 4.25C4.14 4.25 2.75 5.64 2.75 8.5V15.5C2.75 18.36 4.14 19.75 7 19.75H17C19.86 19.75 21.25 18.36 21.25 15.5V8.5C21.25 5.64 19.86 4.25 17 4.25H7Z"
                                 fill="white" />
@@ -43,9 +38,9 @@
                 </div>
             </div>
 
-        <AddMessage  />        
+            <AddMessage />
 
-        </div> 
+        </div>
     </div>
 </template>
 
@@ -53,67 +48,69 @@
 import AddMessage from './exhibitions-message.vue'
 
 export default {
-    name:'user-info-li',
-      components:{
-    AddMessage
-},
- props:{
-    sizeImage:{
-        type:String,
-        default:'145'
+    name: 'user-info-li',
+    components: {
+        AddMessage
     },
-    groupDialog:{
-        type:String,
+    props: {
+        sizeImage: {
+            type: String,
+            default: '145'
+        },
+        groupDialog: {
+            type: String,
+        },
+        routeName: {
+            type: String,
+        },
+        showBtnMsg: {
+            type: Boolean,
+            default: false,
+        },
+        showBtnChat: {
+            type: Boolean,
+            default: true,
+        },
+        dataEvent: {
+            default: () => {
+                return {
+                    /**
+                     formData:{},
+                    opts:{}
+                     */
+                }
+            }
+        },
+        member: {
+            type: [Array, Object],
+            default: () => {
+                return {
+                    image: '/assets/img/avatar-11.jpg',
+                    name: 'عبد الرحمن الشيخ',
+                    job: 'مصمم واجهات اميامية',
+                    summary: 'مصمم واجهات محترفة لدي الكثير من الخبرة في تصميم الازياء والعبايات يسرني مساعدتك'
+                }
+            }
+        }
     },
-    routeName:{
-        type:String,
-    },
-    showBtnMsg:{
-        type:Boolean,
-        default:false,
-    },
-    showBtnChat:{
-        type:Boolean,
-        default:true,
-    },
-    dataEvent:{
-        default:()=>{return {
-            /**
-             formData:{},
-            opts:{}
-             */
-        }}
-    },
-   member:{
-     type:[Array,Object],
-     default:()=>{return {
-        image:'/assets/img/avatar-11.jpg',
-        name:'عبد الرحمن الشيخ',
-        job:'مصمم واجهات اميامية',
-        summary:'مصمم واجهات محترفة لدي الكثير من الخبرة في تصميم الازياء والعبايات يسرني مساعدتك'
-     }}
-   }
- },
- methods:{
-    showProfile(){
-        console.mylog('sss',this.routeName)
-        if(this.routeName){
-            this.router_push(this.routeName,{id:this.member.id})
-        } 
-    },
-    sendMessage(){
-        if(!this.groupDialog) return;
-        if(!this.member.id) return;
-        this.fireOpenDialog(this.groupDialog,this.dataEvent)
-    },
-    openChat(){
-    this.fireOpenDialog('send-message',this.member)
+    methods: {
+        showProfile() {
+            console.mylog('sss', this.routeName)
+            if (this.routeName) {
+                this.router_push(this.routeName, { id: this.member.id })
+            }
+        },
+        sendMessage() {
+            if (!this.groupDialog) return;
+            if (!this.member.id) return;
+            this.fireOpenDialog(this.groupDialog, this.dataEvent)
+        },
+        openChat() {
+            this.fireOpenDialog('send-message', this.member)
+        }
+
     }
-    
- }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

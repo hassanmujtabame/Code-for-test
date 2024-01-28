@@ -36,7 +36,7 @@
                     <div class="text-white">
                         {{ $t('offers-count') }}
                         <p class="t-c">
-                            {{ offers }} {{$t('offers')}}
+                            {{ offers }} {{ $t('offers') }}
                         </p>
                     </div>
                 </div>
@@ -58,9 +58,9 @@
 
                     </div>
                     <div class="text-white">
-                       {{ $t('annual-rent') }}
+                        {{ $t('annual-rent') }}
                         <p class="t-c">
-                            من {{minRent}} ألف -{{maxRent}} ألف
+                            من {{ minRent }} ألف -{{ maxRent }} ألف
                         </p>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        {{ $t('offered-property')  }} 
+                        {{ $t('offered-property') }}
                         <p class="t-c">
                             {{ offered_property }} %
                         </p>
@@ -144,7 +144,7 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        {{ $t('publisher-name')  }} 
+                        {{ $t('publisher-name') }}
                         <p class="t-c">
                             {{ publisher }}
                         </p>
@@ -161,48 +161,46 @@ export default {
     props: {
         title: {
             type: String,
-            default:'N/A'
+            default: 'N/A'
         },
         datePublish: {
             type: String,
-            default:'N/A'
+            default: 'N/A'
         },
         publisher: {
             type: String,
-            default:'N/A'
+            default: 'N/A'
         },
         offered_property: {
             type: [String, Number],
-            default:'N/A'
+            default: 'N/A'
         },
         offers: {
             type: [String, Number],
-            default:'N/A'
+            default: 'N/A'
         },
         place: {
             type: String,
-            default:'N/A'
+            default: 'N/A'
         },
         description: {
             type: String
         },
         restDay: {
             type: [String, Number],
-            default:'N/A'
+            default: 'N/A'
         },
         minRent: {
             type: [String, Number],
-            default:'N/A'
+            default: 'N/A'
         },
         maxRent: {
             type: [String, Number],
-            default:'N/A'
+            default: 'N/A'
         },
 
     }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -17,7 +17,7 @@
 
 <script>
 import commonAPI from '@/services/api/common'
-import ItemSlide from '@/components/cards/opinion-item'
+import ItemSlide from '@/components/cards/opinion-item.vue'
 import { Carousel, Slide } from 'vue-carousel';
 
 export default {

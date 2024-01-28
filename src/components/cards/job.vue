@@ -5,23 +5,23 @@
                 <h5>{{ title }}</h5>
                 <p>
                     <span class="m-c">
-                    {{ department }}
+                        {{ department }}
                     </span>
                     -
                     <span style="color: #FFBC00;">
-                        {{ category??'N/A' }}
+                        {{ category ?? 'N/A' }}
                     </span>
                 </p>
             </div>
             <div class="col-md-3 text-start ">
-               <slot name="icon">
+                <slot name="icon">
 
-               </slot>
+                </slot>
             </div>
 
         </div>
         <p class="t-c">
-           {{ description }}
+            {{ description }}
         </p>
         <div class="d-flex gap-2  align-items-center">
             <p class="t-c fs-r-12">
@@ -62,7 +62,7 @@
                         d="M9.98959 22.75C9.78959 22.75 9.62959 22.71 9.50959 22.66C9.10959 22.51 8.42959 22.02 8.42959 20.47V14.02H6.08959C4.74959 14.02 4.26959 13.39 4.09959 13.02C3.92959 12.64 3.77959 11.87 4.65959 10.86L12.2296 2.26C13.2496 1.1 14.0796 1.18 14.4796 1.33C14.8796 1.48 15.5596 1.97 15.5596 3.52V9.97H17.8996C19.2396 9.97 19.7196 10.6 19.8896 10.97C20.0596 11.35 20.2096 12.12 19.3296 13.13L11.7596 21.73C11.0496 22.54 10.4296 22.75 9.98959 22.75ZM13.9296 2.74C13.8996 2.78 13.6896 2.88 13.3596 3.26L5.78959 11.86C5.50959 12.18 5.46959 12.38 5.46959 12.42C5.48959 12.43 5.66959 12.53 6.08959 12.53H9.17959C9.58959 12.53 9.92959 12.87 9.92959 13.28V20.48C9.92959 20.98 10.0196 21.2 10.0596 21.26C10.0896 21.22 10.2996 21.12 10.6296 20.74L18.1996 12.14C18.4796 11.82 18.5196 11.62 18.5196 11.58C18.4996 11.57 18.3196 11.47 17.8996 11.47H14.8096C14.3996 11.47 14.0596 11.13 14.0596 10.72V3.52C14.0696 3.02 13.9696 2.81 13.9296 2.74Z"
                         fill="#979797" />
                 </svg>
-                {{ offers }} {{$t('offers')}}
+                {{ offers }} {{ $t('offers') }}
             </p>
             <p class="t-c fs-r-12">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,11 +75,11 @@
                 </svg>
                 {{ $t(place) }}
             </p>
-           
+
         </div>
         <div class="d-flex gap-2 align-items-center">
             <p class="t-c opacity-50 fs-r-12">
-              <span>تاريخ النشر :</span>  {{ datePublish }}
+                <span>تاريخ النشر :</span> {{ datePublish }}
             </p>
         </div>
     </div>
@@ -87,40 +87,38 @@
 
 <script>
 export default {
- name:'job-card',
- props:{
-    title:{
-        type:String,
-    },
-    department:{
-        type:String,
-    },
-    category:{
-        type:String,
-    },
-    during:{
-        type:String,
-    },
-    description:{
-        type:String,
-    },
-    price:{
-        type:[String,Number],
-    },
-    offers:{
-        type:[String,Number],
-    },
-    place:{
-        type:String,
-    },
-    datePublish:{
-        type:String,
-    }
+    name: 'job-card',
+    props: {
+        title: {
+            type: String,
+        },
+        department: {
+            type: String,
+        },
+        category: {
+            type: String,
+        },
+        during: {
+            type: String,
+        },
+        description: {
+            type: String,
+        },
+        price: {
+            type: [String, Number],
+        },
+        offers: {
+            type: [String, Number],
+        },
+        place: {
+            type: String,
+        },
+        datePublish: {
+            type: String,
+        }
 
- }
+    }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
