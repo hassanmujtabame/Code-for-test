@@ -4,11 +4,11 @@
       <div class="provider-card__image mb-4">
         <img :src="require(`@/assets/img/${img}`)" alt width="259" height="162" />
       </div>
-      <div class="provider-card__content"
+      <div class="provider-card__content text-end"
         style=" display: flex; flex-direction: column; justify-content: space-between;">
-        <h6 class="provider-card__name m-c">{{ name }}</h6>
+        <h6 class="provider-card__name" style="color: #F2631C">{{ name }}</h6>
         <p class="provider-card__description">{{ description }} </p>
-        <router-link v-if="to" class="router-link mt-2" :to="{name: to}">
+        <router-link v-if="to" class="router-link mt-2 m-c" :to="{name: to}">
             
           اعرفى المزيد
   

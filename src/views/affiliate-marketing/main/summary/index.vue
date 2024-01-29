@@ -256,6 +256,8 @@ export default {
         labels.push(this.formatLabel(formattedDate)); // Apply custom label format
         dataPoints.push(categorizedVisits[formattedDate] || 0);
 
+        console.log('aaaa', categorizedVisits['28-1-2024'])
+
         currentDate.setDate(currentDate.getDate() + 1);
       }
 

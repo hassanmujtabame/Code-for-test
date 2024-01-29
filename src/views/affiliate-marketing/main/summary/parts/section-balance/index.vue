@@ -50,6 +50,10 @@
 <script> 
 export default {
     props: ['visits','subscriptions','totalProfite']
+    ,
+  mounted(){
+    console.log('test', this.visits)
+  }
 }
 </script>
 <style scoped>
