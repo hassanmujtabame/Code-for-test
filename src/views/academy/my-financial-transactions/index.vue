@@ -24,9 +24,6 @@
                         أشحن رصيدك
                     </button>
                 </div>
-
-
-
             </div>
             <SectionBalance />
             <!--filtered list-->

@@ -66,7 +66,7 @@ export default {
       type: [String, Number],
     },
     to: {
-      type: String,
+      type: [String, Object],
     },
     rate: {
       type: [String, Number],
@@ -75,7 +75,7 @@ export default {
       type: String,
     },
     company: {
-      type: String,
+      type: [String, Object],
     },
     price: {
       type: [String, Number],

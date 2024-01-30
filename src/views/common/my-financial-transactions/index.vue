@@ -125,12 +125,10 @@
 import FilteredList from './sections/filtered-list/index.vue'
 export default {
     name: 'my-financial-transactions',
-components:{
-    FilteredList
-}
+    components: {
+        FilteredList
+    }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

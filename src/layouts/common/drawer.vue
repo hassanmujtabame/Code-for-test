@@ -163,10 +163,10 @@
 
 
 
-            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('my-financial-transactions')" class="mx-2 m-c ">
+            <!-- <router-link custom v-slot="{ navigate }" :to="getRouteLocale('my-financial-transactions')" class="mx-2 m-c ">
                 <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{
                     $t('My-financial-transactions') }}</button>
-            </router-link>
+            </router-link> -->
         </div>
         <div class="box  mx-2 mt-3 ">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
