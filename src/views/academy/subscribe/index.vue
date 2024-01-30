@@ -221,14 +221,6 @@ export default {
                 return true
             }
         },
-        // beforeChange_1() {
-        //     if (!this.selectedPackage || this.selectedPackage == '') {
-        //         window.errorMsg('اختار الباقه');
-        //         return false;
-        //     } else {
-        //         return true
-        //     }
-        // },
         async getDepartments() {
             this.loading = true;
             try {
@@ -307,9 +299,7 @@ export default {
                     return false;
             }
         },
-        onComplete() {
-            this.pay()
-        }
+
     },
     mounted() {
         this.checkTypePackage()

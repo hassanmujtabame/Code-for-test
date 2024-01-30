@@ -35,11 +35,11 @@
                 </h5>
             </div>
 
-            <form-wizard color="#49b483ff" step-size="xs" @on-complete="onComplete" ref="normalSteps"
+            <form-wizard color="#49b483ff" step-size="xs" @on-complete="proceedToPayment" ref="normalSteps"
                 nextButtonText="التالى" backButtonText="السابق" finishButtonText="الدفع و التأكيد ">
 
 
-                <tab-content :before-change="beforeChange_1" title=" الباقه ">
+                <tab-content :before-change="beforeChange" title=" الباقه ">
                     <div v-for="(pack, p) in packages" :key="p" class="mt-2">
                         <div class="row p-3">
                             <SubscribeCard :itemId="pack.name" :pack="pack" :title="pack.name" :price="pack.price"
@@ -56,13 +56,51 @@
                         </div>
                     </div>
                 </tab-content>
+                <tab-content  title="  اختيار طريقة الدفع ">
+                    <h3 class="my-4"> اختيار طريقة الدفع </h3>
+                    <div class="mt-4 p-3 d-flex gap-4">
+                        
+                        <div class="card border-info mb-3" style="width: fit-content">
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <label class="form-check-label" for="tamara">Tamara
+                                        <input type="radio" class="form-check-input" id="tamara" value="tamara" v-model="selectedProvider" />
+
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card border-info mb-3" style="width: fit-content">
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <label class="form-check-label" for="hyperbill">HyperBill
+                                        <input type="radio" class="form-check-input" id="hyperbill" value="hyperbill" v-model="selectedProvider" />
+
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="card border-info mb-3" style="width: fit-content">
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <label class="form-check-label" for="myfatoorah">MyFatoorah
+                                        <input type="radio" class="form-check-input" id="myfatoorah" value="myfatoorah" v-model="selectedProvider" />
+
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </tab-content>
             </form-wizard>
         </div>
 
 
         <!-- end wizard -->
-        <successSubscribeDialog />
-        <checkoutPackageDiag />
     </div>
 </template>
 
@@ -73,6 +111,7 @@ import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 import CardVue from '@/components/cards/incubator-dept-circle.vue'
 import incubatorAPI from '@/services/api/incubator';
 import SectionHeader from './parts/section-header/index.vue'
+import PaymentApi from '@/services/api/payment'
 
 
 
@@ -102,7 +141,9 @@ export default {
         fieldIds: [],
         show: false,
         packages: [],
-        subscribedType: ''
+        subscribedType: '',
+        selectedPackage: '',
+        selectedProvider: null,
     }),
     props: {
         packageData: {
@@ -179,18 +220,16 @@ export default {
         },
 
         beforeChange() {
-            if (this.fieldIds.length == 0) {
-                window.errorMsg('اختار المجال');
-                return false;
-            } else {
-                return true
-            }
-        },
-        beforeChange_1() {
-            if (!this.selectedPackage || this.selectedPackage == '') {
+
+            if (this.$refs.normalSteps.activeTabIndex == 0 && (!this.selectedPackage || this.selectedPackage == '')) {
                 window.errorMsg('اختار الباقه');
                 return false;
-            } else {
+            }
+            else if (this.$refs.normalSteps.activeTabIndex == 1 && this.fieldIds.length == 0) {
+                window.errorMsg('اختار المجال');
+                return false;
+            }
+            else {
                 return true
             }
         },
@@ -206,10 +245,10 @@ export default {
             }
             this.loading = false;
         },
-        async pay() {
+        async proceedToPayment() {
             if (this.selectedPackage.type == 'free') {
                 try {
-                    let { data } = await incubatorAPI.checkoutPackageFree({ package_id: selectedPackage.id });
+                    let { data } = await academyAPI.checkoutPackageFree({ package_id: selectedPackage.id });
                     if (data.success) {
                         console.log('itsfree', data.data)
                     } else {
@@ -218,28 +257,60 @@ export default {
                 } catch (error) {
                     console.log('error', error)
                 }
-
-            } else {
-                try {
-                    let { data } = await incubatorAPI.PayPackageSelect({
-                        package_id: this.selectedPackage.id,
-                        user_id: this.user.id,
-                        departments_ids: this.fieldIds
-
-                    });
-                    if (data.success) {
-                        window.location.href = data.data.payment_url;
-                    } else {
-                        console.log(data.response)
-                    }
-                } catch (error) {
-                    console.log('error', error)
-                }
+                return;
+            }
+            switch (this.selectedProvider) {
+                case 'tamara':
+                    try {
+                        let { data } = await PaymentApi.PayPackageTammara({
+                            package_id: this.selectedPackage.id,
+                            departments_ids: this.fieldIds,
+                            type: 'package'
+                        });
+                        if (data.success) {
+                            window.location.href = data.data.payment_url;
+                        } else {
+                            console.log(data.response)
+                        }
+                    } catch (error) {
+                        console.log('error', error)
+                    } break;
+                case 'hyperbill':
+                    try {
+                        let { data } = await PaymentApi.PayPackageHyperBill({
+                            package_id: this.selectedPackage.id,
+                            departments_ids: this.fieldIds,
+                            type: 'package'
+                        });
+                        if (data.success) {
+                            window.location.href = data.data.payment_url;
+                        } else {
+                            console.log(data.response)
+                        }
+                    } catch (error) {
+                        console.log('error', error)
+                    } break;
+                case 'myfatoorah':
+                    try {
+                        let { data } = await PaymentApi.PayPackageMyFatoorah({
+                            package_id: this.selectedPackage.id,
+                            departments_ids: this.fieldIds,
+                            type: 'package'
+                        });
+                        if (data.success) {
+                            window.location.href = data.data.payment_url;
+                        } else {
+                            console.log(data.response)
+                        }
+                    } catch (error) {
+                        console.log('error', error)
+                    } break;
+                default:
+                    // Handle case where no provider is selected
+                    window.errorMsg('اختار بوابة الدفع');
+                    return false;
             }
         },
-        onComplete() {
-            this.pay()
-        }
     },
     mounted() {
         this.checkTypePackage()
@@ -267,4 +338,5 @@ export default {
 .custom-ul ul li.active {
     background: var(--pc);
     color: white;
-}</style>
+}
+</style>
