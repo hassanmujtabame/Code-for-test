@@ -8,7 +8,11 @@
     <SectServices />
     <!--# service-->
     <!-- section 3-->
-    <SectCampRiadiat />
+
+    <!-- <SectCampRiadiat /> -->
+
+    <SectionAds department="network" url="network/home-banners" />
+
     <!-- #section-3 -->
     <!-- section 4 -->
     <SectConsultingRiadiat />
@@ -45,7 +49,7 @@ import SectHearAboutUs from "./parts/section-hear-about-us/index.vue";
 import SectionTopCoupons from "./parts/section-top-coupons/index.vue";
 import SectionMembership from "./parts/section-membership/index.vue";
 import RecentWorkspaces from "@/components/pages/workspaces/home/recent-workspaces/index.vue";
-
+import SectionAds from '@/common/components/advertisements/index.vue'
 
 // import SectionBlog from './parts/section-blog/index.vue'
 import SectionCoupons from "./parts/section-coupons";
@@ -66,6 +70,7 @@ export default {
     ],
   },
   components: {
+    SectionAds,
     SectHeader,
     SectServices,
     SectCampRiadiat,
