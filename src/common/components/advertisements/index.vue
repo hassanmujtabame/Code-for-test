@@ -5,11 +5,11 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 //import commonAPI from '@/services/api/common'
 import adsAPI from '@/services/api/ads'
-import ItemSlide from './card-item'
+import ItemSlide from './card-item.vue'
 export default {
     name: 'section-ads',
     props: {

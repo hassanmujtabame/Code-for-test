@@ -11,7 +11,11 @@
 
     <SectionCategory class="my-3" />
 
-    <SectionCamp />
+    <!-- <SectionCamp /> -->
+
+    <div class=" mt-5">
+      <SectionAds department="network" url="network/home-banners" />
+    </div>
 
     <SectionNetworkGoals />
 
@@ -23,9 +27,7 @@
     <!--معسكر ريادة الاعمال-->
     <SectionCampLeadership v-if="false" />
 
-    <div class=" mt-5">
-      <SectionAds department="network" url="network/home-banners" />
-    </div>
+
     <!-- section 3-->
     <!-- <SectionThree v-if="!isMobile" /> -->
     <!-- #section 3-->

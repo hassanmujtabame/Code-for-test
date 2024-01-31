@@ -30,6 +30,9 @@
               <span class="px-3 btn-custmer shadow mx-3" @click="navigate">سجلي دخولك</span>
             </router-link> -->
           </div>
+          <button v-if="isAuthenticated" class="px-3 btn-custmer shadow"
+          style="background-color: #ff5722 !important; border: none !important; "
+          @click="router_push('network-subscribe')">انضمي الان</button>
         </div>
         <div v-if="!isMobile" style="position: relative " class="col-6 d-flex flex-column">
           <div class="d-flex align-items-center">

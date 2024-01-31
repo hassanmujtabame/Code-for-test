@@ -4,7 +4,7 @@
             <div>
                 <div>
                     <div class="bg-back position-relative">
-                        <img  src="@/assets/img/new/network/Group 138.png" alt="">
+                        <img src="@/assets/img/new/network/Group 138.png" alt="">
                     </div>
                 </div>
             </div>
@@ -18,11 +18,10 @@
                     والتشجيع للدخول في مجال ريادة الأعمال من خلال مجموعة من الخدمات والمزايا، وقد صممت لمساعدة رائدات
                     الأعمال على التعلم وزيادة نمو أعمالهن والتواصل مع الرياديات
                 </p>
-                <router-link v-if="!user" :to="getRouteLocale('register')" 
-                class="btn-custmer shadow my-3 ">
-                {{ $t('join-us')
-                }}
-            </router-link>
+                <router-link v-if="!user" :to="getRouteLocale('register')" class="btn-custmer shadow my-3 ">
+                    {{ $t('join-us')
+                    }}
+                </router-link>
             </div>
         </div>
     </div>

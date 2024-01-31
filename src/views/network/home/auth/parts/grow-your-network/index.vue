@@ -1,11 +1,10 @@
 <template>
     <div class="container mt-5">
-
         <div class="d-flex">
             <div>
                 <div>
                     <div class="bg-back position-relative">
-                        <img  src="@/assets/img/new/network/Group 138.png" alt="">
+                        <img src="@/assets/img/new/network/Group 138.png" alt="">
                     </div>
                 </div>
             </div>
@@ -19,11 +18,9 @@
                     والتشجيع للدخول في مجال ريادة الأعمال من خلال مجموعة من الخدمات والمزايا، وقد صممت لمساعدة رائدات
                     الأعمال على التعلم وزيادة نمو أعمالهن والتواصل مع الرياديات
                 </p>
-                <router-link v-if="!user" :to="getRouteLocale('register')" 
-                class="btn-custmer shadow my-3 ">
-                {{ $t('join-us')
-                }}
-            </router-link>
+                <button class="px-5 btn-custmer shadow"
+                    style="background-color: #ff5722 !important; border: none !important; "
+                    @click="router_push('network-subscribe')">انضمي الان</button>
             </div>
         </div>
     </div>
