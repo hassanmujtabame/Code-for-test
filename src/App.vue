@@ -105,6 +105,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
   mounted() {
     this.onResizeBrowser();
     window.addEventListener("resize", this.onResizeBrowser, { passive: true });
+
+    // Dynamically add HubSpot script tag to head
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = 'hs-script-loader';
+    script.async = true;
+    script.defer = true;
+    script.src = '//js-eu1.hs-scripts.com/144053130.js';
+
+    script.onload = () => {
+      // Code to run after the HubSpot script has loaded
+      console.log('HubSpot script loaded!');
+      // You can perform additional actions related to HubSpot here
+    };
+
+    document.head.appendChild(script);
+
   },
   created() {
 
@@ -122,6 +139,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`*/
   },
 };
 </script>
+
+
 <style>
 @import "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css";
 /*@import "https://unpkg.com/aos@2.3.1/dist/aos.css";*/
@@ -156,13 +175,16 @@ svg.gear {
   animation: circle 0.5s infinite linear;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
-  filter: blur(8px); /* Add blur effect */
+  filter: blur(8px);
+  /* Add blur effect */
 }
 
 @keyframes fadeIn {
@@ -170,9 +192,10 @@ svg.gear {
     opacity: 0;
     filter: blur(8px);
   }
+
   to {
     opacity: 1;
-    filter: blur(0); /* Remove blur effect */
+    filter: blur(0);
+    /* Remove blur effect */
   }
-}
-</style>
+}</style>

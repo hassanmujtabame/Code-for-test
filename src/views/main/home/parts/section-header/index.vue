@@ -166,6 +166,7 @@ export default {
   mounted() {
     this.animateText();
   }
+  
 }
 </script>
 
