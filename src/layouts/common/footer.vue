@@ -21,11 +21,12 @@
 
           <div class="row mx-auto">
             <div class="my-2">
-              <router-link class="text-white" :to="getRouteLocale('terms-and-conditions-category', { category: category })">
+              <router-link class="text-white"
+                :to="getRouteLocale('terms-and-conditions-category', { category: category })">
                 {{ $t("terms-use") }}
               </router-link>
             </div>
-            <h6 style=" color: white;" class="mb-0" >
+            <h6 style=" color: white;" class="mb-0">
               السجل التجارى: 1010457094
             </h6>
             <h6 style=" color: white;">
@@ -133,6 +134,11 @@
       </div> -->
     </div>
     <d-success-message />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://wa.me/966504913601"
+      class="float" target="_blank">
+      <i class="fa fa-whatsapp my-float"></i>
+    </a>
   </footer>
 </template>
 
@@ -147,6 +153,7 @@ export default {
 <style scoped>
 footer {
   background-color: #333;
+  position: relative;
   max-width: 100vw;
   overflow: hidden;
 }
@@ -158,5 +165,23 @@ footer .nav a {
 footer h6 {
   color: #fff;
 }
+.float{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
 
+.my-float{
+	margin-top:16px;
+}
 </style>
