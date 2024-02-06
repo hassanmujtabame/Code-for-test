@@ -13,6 +13,7 @@
               <i v-if="m.name == 'youtube'" class="fab fa-youtube col-3"></i>
               <i v-if="m.name == 'linkedin'" class="fab fa-linkedin-in col-3"></i>
               <i v-if="m.name == 'instagram'" class="fab fa-instagram col-3"></i>
+              <i v-if="m.name == 'whatsapp'" class="fab fa-whatsapp col-3"></i>
               <i v-if="m.name == 'twitter'" class="fa-brands fa-x-twitter col-3"></i>
               <i v-if="m.name == 'tiktok'" class="fab fa-tiktok col-3"></i>
             </a>

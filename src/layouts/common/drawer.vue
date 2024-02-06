@@ -237,4 +237,5 @@ export default {
 .btn-drawer {
     background: transparent;
     border: none;
-}</style>
+}
+</style>

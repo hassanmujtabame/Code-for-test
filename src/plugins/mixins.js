@@ -317,8 +317,8 @@ const mixin = {
           window.store.commit("auth/CLEAR_TOKEN");
           window.store.commit("auth/CLEAR_USER");
           window.store.commit("chat/SET_MESSAGES", []);
-          localStorage.removeItem('providerOrclient')
-          this.$router.push({name: 'index'})
+          localStorage.removeItem("providerOrclient");
+          this.$router.push({ name: "index" });
 
           if (this.$router.mode == "history") this.refreshPage();
           //this.$router.push({ name: 'login', params: { lang: this.$i18n.locale } })
@@ -447,7 +447,7 @@ const mixin = {
           this.showConfirmMsg(dataEvt);
         },
         async switchRoleAcademy(newRole) {
-          await this.loadCurrentUser()
+          await this.loadCurrentUser();
           if (newRole == "instructor" && !this.userIsInstructor) {
             let dateEvt = {
               title: "انت غير مسجل كمدرب",
@@ -647,7 +647,7 @@ const mixin = {
         isDevelopment() {
           return process.env.NODE_ENV == "development";
         },
-        
+
         ...mapGetters({
           isMobile: "core/isMobile",
           isTablet: "core/isTablet",

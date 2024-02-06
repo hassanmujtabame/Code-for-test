@@ -1,58 +1,64 @@
 <template>
-    <TemplateDrawer :dashboard="dashboard" v-slot="{clickLink}">
+    <TemplateDrawer :dashboard="dashboard" v-slot="{ clickLink }">
 
-                <div class="box  mx-2 mt-3 ">
-                    <d-user-rect-icon class="m-c" color="currentColor"/>
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-profile')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('personal_page') }}</button>
-                    </router-link>
-                </div>
-                <div class="box  mx-2 mt-3 ">
-                    <d-cup-icon class="m-c" color="currentColor"/>
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-your-courses')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer"> {{ $t('my-training-courses') }}</button>
-                    </router-link>
-                </div>
-                <div class="box  mx-2 mt-3 ">
-                   <d-calendar-icon color="var(--m-color)"/>
-                    
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-schedules')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('my-schedules') }}</button>
-                    </router-link>
-                </div>
-                <div class="box  mx-2 mt-3 ">
-                    <d-empty-wallet-icon class="m-c" color="currentColor" />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-menu-subscribe')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('subscribes') }}</button>
-                    </router-link>
-                </div>
+        <div class="box  mx-2 mt-3 ">
+            <d-user-rect-icon class="m-c" color="currentColor" />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-profile')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer"> {{ $t('personal_page')
+                }}</button>
+            </router-link>
+        </div>
+        <div class="box  mx-2 mt-3 ">
+            <d-cup-icon class="m-c" color="currentColor" />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-your-courses')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer"> {{ $t('my-training-courses')
+                }}</button>
+            </router-link>
+        </div>
+        <div class="box  mx-2 mt-3 ">
+            <d-calendar-icon color="var(--m-color)" />
 
-                      <div class="box  mx-2 mt-3 ">
-                    <d-cup-icon class="m-c" color="currentColor"/>
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-your-exams')" class="mx-2 m-c ">
-                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">إختباراتك</button> 
-                    </router-link>
-                </div>
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-schedules')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('my-schedules') }}</button>
+            </router-link>
+        </div>
+        <div class="box  mx-2 mt-3 ">
+            <d-empty-wallet-icon class="m-c" color="currentColor" />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-menu-subscribe')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('subscribes') }}</button>
+            </router-link>
+        </div>
+
+        <div class="box  mx-2 mt-3 ">
+            <d-cup-icon class="m-c" color="currentColor" />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-your-exams')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">إختباراتك</button>
+            </router-link>
+        </div>
 
 
-                <div class="box  mx-2 mt-3 ">
-                  <d-invoice-icon class="m-c" color="currentColor"/>
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-financial-transactions')" class="mx-2 m-c ">
-                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('My-financial-transactions') }}</button> 
-                    </router-link>
-                </div>
-                <div class="box  mx-2 mt-3 ">
-                    <d-eye-open-icon class="m-c" color="currentColor"/>
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-preview-profile')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('how-see-me-others') }}</button>
-                    </router-link>
-                </div>
-                <div class="box  mx-2 mt-3 ">
-                  <d-lock-pass-icon class="m-c" color="currentColor"/>
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('change-password')" class="mx-2 m-c ">
-                        <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('password-change-request') }}</button>
-                    </router-link>
-                </div>
+        <div class="box  mx-2 mt-3 ">
+            <d-invoice-icon class="m-c" color="currentColor" />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-financial-transactions')"
+                class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{
+                    $t('My-financial-transactions') }}</button>
+            </router-link>
+        </div>
+        <div class="box  mx-2 mt-3 ">
+            <d-eye-open-icon class="m-c" color="currentColor" />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-preview-profile')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('how-see-me-others')
+                }}</button>
+            </router-link>
+        </div>
+        <div class="box  mx-2 mt-3 ">
+            <d-lock-pass-icon class="m-c" color="currentColor" />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('change-password')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('password-change-request')
+                }}</button>
+            </router-link>
+        </div>
 
     </TemplateDrawer>
 </template>
@@ -62,17 +68,17 @@ import TemplateDrawer from '@/layouts/tamplate/drawer/index.vue'
 
 export default {
     name: 'drawer-profil',
-    props:{
-        dashboard:{
-            type:String,
+    props: {
+        dashboard: {
+            type: String,
             default: 'academy-dashboard'
         }
     },
-    components:{
+    components: {
         TemplateDrawer
     },
     methods: {
-        clickLink(navigate,evnt){
+        clickLink(navigate, evnt) {
             //this.myModal.hide();
             window.$(`#btn-close-drawer`).click()
             navigate(evnt)
@@ -81,9 +87,7 @@ export default {
 }
 </script>
 
-<style scoped>
-.btn-drawer{
+<style scoped>.btn-drawer {
     background: transparent;
     border: none;
-}
-</style>
+}</style>

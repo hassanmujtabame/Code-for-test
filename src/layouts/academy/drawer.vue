@@ -4,36 +4,37 @@
         <div class="box  mx-2 mt-3 ">
             <!--control icon -->
             <userRectIcon />
-            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-profile')"
-                class="mx-2 m-c ">
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-profile')" class="mx-2 m-c ">
                 <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer"> {{
                     $t('personal_page')
                 }}</button>
             </router-link>
         </div>
-       
-        <div class="box  mx-2 mt-3 ">
-                    <cupIcon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-projects')" class="mx-2 m-c ">
-                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('students-projects') }}</button> 
-                    </router-link>
-                </div>
-
-                  
-
 
         <div class="box  mx-2 mt-3 ">
-                    <invoiceIcon />
-                    <router-link custom v-slot="{navigate}" :to="getRouteLocale('academy-my-financial-transactions')" class="mx-2 m-c ">
-                       <button @click="clickLink(navigate,$event)" role="link" class="btn-drawer">{{ $t('My-financial-transactions') }}</button> 
-                    </router-link>
-                </div>
-       
+            <cupIcon />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-projects')" class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('students-projects')
+                }}</button>
+            </router-link>
+        </div>
+
+
+
+
+        <div class="box  mx-2 mt-3 ">
+            <invoiceIcon />
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-financial-transactions')"
+                class="mx-2 m-c ">
+                <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{
+                    $t('My-financial-transactions') }}</button>
+            </router-link>
+        </div>
+
         <div class="box  mx-2 mt-3 ">
             <!--eye-open-->
             <eyeOpenIcon />
-            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-preview-profile')"
-                class="mx-2 m-c ">
+            <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-preview-profile')" class="mx-2 m-c ">
                 <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{
                     $t('how-see-me-others')
                 }}</button>

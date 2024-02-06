@@ -94,4 +94,5 @@ html[dir=ltr] .rate-experience {
         padding: 0;
         margin: 0;
     }
-}</style>
+}
+</style>
