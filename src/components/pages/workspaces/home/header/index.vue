@@ -1,29 +1,61 @@
 <template>
-  <div class="consulting py-5 work-space-header mobile-center bg-header">
+  <div class="consulting bg-light py-5 work-space-header mobile-center">
     <div class="container">
       <div class="row align-items-center justify-content-between">
-        <div class="col-lg-6 text-white">
-          <h1 class="fs-1 text-white">أماكن العمل</h1>
+        <div class="col-lg-6 text-dark">
+          <h1 class="fs-1 text-dark">أماكن رياديات</h1>
           <p>
             حافظ على إنتاجيتك مع أماكن العمل الحديثة والآمنة والمجهزة بأحدث
             الأجهزة في شبكة رياديات التي توجد في مختلف الأماكن!
           </p>
-          <button @click="openAddWorkSpace" class="btn  bg border text-white px-4 py-2">
-            <plusRectRoundIcon class="mx-1" />
-            {{ $t("add_workspace") }}
-          </button>
+          <div class="d-flex">
+            <button
+              style="background-color: #f2631c"
+              @click="openAddWorkSpace"
+              class="btn btn-lg mx-1 bg border text-white px-4 py-2"
+            >
+              <plusRectRoundIcon class="mx-1" />
+              {{ $t("add_workspace") }}
+            </button>
+            <button
+              style="color: #1fb9b3"
+              @click="openAddWorkSpace"
+              class="btn btn-lg bg-light bg mx-1 px-4 py-2"
+            >
+              <play-icon class="mx-1" />
+              عرض توجيهى
+            </button>
+          </div>
         </div>
         <div class="col-lg-6">
-          <div class="m-auto text-start ">
-            <img class="w-60 main-img" src="@/assets/img/work-spaces/workspace-home.png" alt="WorkSpaceMainHeader" />
+          <div class="m-auto text-start">
+            <img
+              class="w-100 rounded main-img"
+              src="@/assets/img/work-spaces/Video.png"
+              alt="WorkSpaceMainHeader"
+            />
           </div>
         </div>
       </div>
-      <d-swiper v-if="!loading" :slides-per-view="4" :space-between="20" is-auto :items="items">
+      <d-swiper
+        v-if="!loading"
+        :slides-per-view="4"
+        :space-between="20"
+        is-auto
+        :items="items"
+      >
         <template v-slot:default="{ item }">
-          <WorkSpaceCard :title="item.title" :image="item.image_path" :company="item" :description="item.description"
-            :price="item.price" :area="item.area" :rate="item.rate" :medias="item.medias"
-            :to="getRouteLocale('workspaces-details', { id: item.id })" />
+          <WorkSpaceCard
+            :title="item.title"
+            :image="item.image_path"
+            :company="item"
+            :description="item.description"
+            :price="item.price"
+            :area="item.area"
+            :rate="item.rate"
+            :medias="item.medias"
+            :to="getRouteLocale('workspaces-details', { id: item.id })"
+          />
         </template>
       </d-swiper>
     </div>
@@ -32,11 +64,13 @@
 
 <script>
 import plusRectRoundIcon from "@/components/icon-svg/plus-rect-round.vue";
+import playIcon from "@/components/icon-svg/play.vue";
 
 export default {
   name: "WorkSpaceHeader",
   components: {
     plusRectRoundIcon,
+    playIcon,
   },
   data: () => {
     return {
@@ -48,26 +82,8 @@ export default {
     this.getRecentWorkSpaces();
   },
   methods: {
-    
     openAddWorkSpace() {
-      if (this.userPartner) {
-        console.log('is-user-partner', this.userPartner)
-        this.fireOpenDialog("add-dialog");
-      } else {
-        this.openConfirmDialog()
-      }
-    },
-    openConfirmDialog() {
-      let dataEvt = {
-        title: 'للأسف لايمكنك  اضافة مكان عملك',
-        description: `انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  إضافة معرض  - يجب تسجيل حسابك  كشركه و استفيد من إضافة معرضك و مكان عملك و المزيد من المميزات في الشبكة`,
-        image: `${this.publicPath}assets/img/Group 1171275670.png`,
-        btns: [
-          { title: 'سجل كشركه', action: () => this.router_push('register-networking') }
-        ]
-      }
-      this.showConfirmMsg(dataEvt);
-      return;
+      this.fireOpenDialog("add-dialog");
     },
     async getRecentWorkSpaces() {
       this.loading = true;
@@ -81,7 +97,7 @@ export default {
         this.loading = false;
       }
     },
-  }
+  },
 };
 </script>
 
@@ -89,9 +105,7 @@ export default {
 .work-space-header p {
   font-size: 1.4em;
 }
-
 @media (max-width: 991px) {
-
   .main-img {
     display: none;
   }
