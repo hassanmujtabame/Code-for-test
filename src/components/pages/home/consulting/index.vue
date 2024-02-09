@@ -5,7 +5,7 @@
         <h2>{{ $t("Riadiat-consulting") }}</h2>
         <p style="line-height: 2" class="pt-3">
           {{ $t("Riadiat-consulting-text") }}
-          <a style="color: #ffbc00" href="">
+          <a style="" class="text-dark" href="">
             {{ $t("Riadiat-consulting-link") }}
           </a>
         </p>
