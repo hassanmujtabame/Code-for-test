@@ -12,10 +12,10 @@
       <p class="container">
         {{ $t("home-section-courses-text") }}
       </p>
-      <div class="container">
+      <div class="container-fluid">
         <d-swiper
           v-if="!loading"
-          :slides-per-view="5"
+          :slides-per-view="3"
           is-auto
           :space-between="10"
           :items="items"
@@ -52,25 +52,25 @@ export default {
       courses: [
         {
           image_path: `${vm.publicPath}assets/img/Rectangle 1775.png`,
-          title: "تصميم واجهات المواقع والتطبيقات",
-          price: 2000,
+          title: "دورة تصميم تجربة المستخدم   ",
+          price: 500,
           currency: "ريال",
         },
         {
           image_path: `${vm.publicPath}assets/img/Rectangle 1775.png`,
-          title: "تصميم واجهات المواقع والتطبيقات",
+          title: "دورة تصميم ازياء من الصفر",
           price: 1000,
           currency: "ريال",
         },
         {
           image_path: `${vm.publicPath}assets/img/Rectangle 1775.png`,
-          title: "تصميم واجهات المواقع والتطبيقات",
-          price: 1000,
+          title: "دورة تصميم  جرافيك ",
+          price: 500,
           currency: "ريال",
         },
         {
           image_path: `${vm.publicPath}assets/img/Rectangle 1775.png`,
-          title: "تصميم واجهات المواقع والتطبيقات",
+          title: "",
           price: 1000,
           currency: "ريال",
         },
@@ -125,7 +125,7 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .img-fluid {
   max-width: 100%;
   height: auto;

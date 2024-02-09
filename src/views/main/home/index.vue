@@ -16,6 +16,7 @@
     <!-- #section-3 -->
     <!-- section 4 -->
     <SectConsultingRiadiat />
+
     <!-- #section 4-->
     <SectionTopCoupons />
     <SectionMembership />
@@ -49,7 +50,7 @@ import SectHearAboutUs from "./parts/section-hear-about-us/index.vue";
 import SectionTopCoupons from "./parts/section-top-coupons/index.vue";
 import SectionMembership from "./parts/section-membership/index.vue";
 import RecentWorkspaces from "@/components/pages/workspaces/home/recent-workspaces/index.vue";
-import SectionAds from '@/common/components/advertisements/index.vue'
+import SectionAds from "@/common/components/advertisements/index.vue";
 
 // import SectionBlog from './parts/section-blog/index.vue'
 import SectionCoupons from "./parts/section-coupons";
@@ -83,14 +84,16 @@ export default {
     SectionCoupons,
     SectionTopCoupons,
     SectionMembership,
-    RecentWorkspaces
+    RecentWorkspaces,
   },
   data: () => ({}),
   async mounted() {
-    if (this.$route.query.affiliate_id){
-      localStorage.setItem("ComeFrom",this.$route.query.affiliate_id);
-      await window.axios.post('affiliates/visitor', {affiliate_id: this.$route.query.affiliate_id})
+    if (this.$route.query.affiliate_id) {
+      localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
+      await window.axios.post("affiliates/visitor", {
+        affiliate_id: this.$route.query.affiliate_id,
+      });
     }
-  }
+  },
 };
 </script>
