@@ -6,6 +6,7 @@
 
     <!-- services -->
     <SectServices />
+    <heroRegister />
     <!--# service-->
     <!-- section 3-->
 
@@ -51,6 +52,7 @@ import SectionTopCoupons from "./parts/section-top-coupons/index.vue";
 import SectionMembership from "./parts/section-membership/index.vue";
 import RecentWorkspaces from "@/components/pages/workspaces/home/recent-workspaces/index.vue";
 import SectionAds from "@/common/components/advertisements/index.vue";
+import heroRegister from "@/components/cards/heroRegister.vue";
 
 // import SectionBlog from './parts/section-blog/index.vue'
 import SectionCoupons from "./parts/section-coupons";
@@ -85,6 +87,7 @@ export default {
     SectionTopCoupons,
     SectionMembership,
     RecentWorkspaces,
+    heroRegister,
   },
   data: () => ({}),
   async mounted() {

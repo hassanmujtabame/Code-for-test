@@ -1,11 +1,13 @@
 <template>
-  <div class="box rounded-3 border w-100 blog-info-card h-100">
+  <div class="box mx-4 shadow border w-100 blog-info-card h-100">
     <div class="image">
-      <img class="w-100" :src="img" :alt="title" height="184">
+      <img class="w-100 overflow-hidden" :src="img" :alt="title" height="184" />
     </div>
     <div class="text p-3 text-end">
       <h6 class="blog-info__title text-two-lines">{{ title }}</h6>
-      <p style="height:80px" class="description-blog text-end">{{ strip_tags(description) }}</p>
+      <p style="height: 80px" class="description-blog text-end">
+        {{ strip_tags(description) }}
+      </p>
     </div>
     <div class="d-flex text-end">
       <div class="blog-info-category date text-start mx-1 flex-grow-1">
@@ -16,17 +18,35 @@
           </p>
         </div> -->
       </div>
-      <div class="blog-info-date date d-flex align-items-center text-start  mx-1 flex-shrink-0">
+      <div
+        class="blog-info-date date d-flex align-items-center text-start mx-1 flex-shrink-0"
+      >
         <p class="d-flex m-0">
-          <bdi class="blog-info__date text-two-lines" style="padding: 0 5px;">
-            {{ dayjs(date, 'DD-MM-YYYY').locale('ar').format('DD MMMM YYYY') }}
+          <bdi class="blog-info__date text-two-lines" style="padding: 0 5px">
+            {{ dayjs(date, "DD-MM-YYYY").locale("ar").format("DD MMMM YYYY") }}
           </bdi>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="#979797"/>
-            <path d="M10.4 11.2002L8.4688 9.269C8.16872 8.96901 8.00009 8.56211 8 8.1378V3.2002" fill="#979797"/>
-            <path d="M10.4 11.2002L8.4688 9.269C8.16872 8.96901 8.00009 8.56211 8 8.1378V3.2002" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
+              fill="#979797"
+            />
+            <path
+              d="M10.4 11.2002L8.4688 9.269C8.16872 8.96901 8.00009 8.56211 8 8.1378V3.2002"
+              fill="#979797"
+            />
+            <path
+              d="M10.4 11.2002L8.4688 9.269C8.16872 8.96901 8.00009 8.56211 8 8.1378V3.2002"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </p>
       </div>
     </div>
@@ -34,45 +54,46 @@
 </template>
 
 <script>
-var locale_de = require('dayjs/locale/ar')
-import customParseFormat from 'dayjs/plugin/customParseFormat'
+var locale_de = require("dayjs/locale/ar");
+import customParseFormat from "dayjs/plugin/customParseFormat";
 import dayjs from "dayjs";
-dayjs.extend(customParseFormat)
+dayjs.extend(customParseFormat);
 
 export default {
   props: {
     img: {
       type: String,
-      require: true
+      require: true,
     },
     title: {
       type: String,
-      require: true
+      require: true,
     },
     date: {
       type: String,
-      require: true
+      require: true,
     },
     description: {
       type: String,
-      default: ''
+      default: "",
     },
     categories: {
       type: [Array, Object],
-      default: () => { return [] }
-    }
+      default: () => {
+        return [];
+      },
+    },
   },
   data: () => ({
-    colors: ['#1FB9B3', '#FFBC00', '#F2631C', '#2C98B3']
+    colors: ["#1FB9B3", "#FFBC00", "#F2631C", "#2C98B3"],
   }),
   computed: {
     dayjs() {
-      return dayjs
+      return dayjs;
     },
     dateText() {
-
-      if (!this.date) return 'N/A';
-      return this.dateTextMonth(this.date)
+      if (!this.date) return "N/A";
+      return this.dateTextMonth(this.date);
       /*let parts = this.date.trim().split('-');
          
           let date = new Date(parts[2],parts[1],parts[0]);
@@ -81,20 +102,24 @@ export default {
           let m =  date.toLocaleString('default', { month: 'short' });
           let y =date.getFullYear();
       return `${d} ${m},${y}`*/
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
 .image {
-  height: 184px
+  height: 184px;
+  border-radius: 32px;
 }
 
-.image>img {
+.image > img {
   object-fit: fill;
   width: 100%;
   height: 100%;
+  border-top-right-radius: 32px;
+  border-top-left-radius: 32px;
+  border-end-end-radius: none;
 }
 
 .description-blog {
@@ -136,4 +161,10 @@ export default {
   align-items: center;
 
   color: #979797;
-}</style>
+}
+.blog-info-card {
+  border-top-right-radius: 32px;
+  border-top-left-radius: 32px;
+  border-end-end-radius: none;
+}
+</style>

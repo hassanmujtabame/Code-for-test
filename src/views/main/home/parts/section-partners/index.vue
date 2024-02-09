@@ -3,24 +3,27 @@
     <div class="container p-3">
       <div class="text-center">
         <h2>{{ $t("our-partners-in-riadiat") }}</h2>
+
         <img src="" alt="" />
       </div>
       <!-- <d-swiper v-if="!loading" :slides-per-view="!isMobile ? 1 : 5" is-auto :space-between="10" :items="items"> -->
       <!-- <template v-slot:default="{ item }"> -->
       <div class="d-flex container-fluid justify-content-center gap-5">
-        <div
-          v-for="(item, i) in items"
-          :key="i"
-          class="text-center row"
-          data-aos="fade-up"
-          data-aos-duration="2000"
-        >
-          <div class="mx-auto" style="width: fit-content">
-            <ImgAvatar
-              class="filter-shadow-partner mx-auto"
-              :item="item"
-              size="180"
-            />
+        <div class="row">
+          <div
+            v-for="(item, i) in items"
+            :key="i"
+            class="text-center col-12 col-md-3"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <div class="mx-auto py-3 py-md-0" style="width: fit-content">
+              <ImgAvatar
+                class="filter-shadow-partner mx-auto"
+                :item="item"
+                size="180"
+              />
+            </div>
           </div>
         </div>
       </div>

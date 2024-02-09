@@ -1,6 +1,6 @@
 <template>
   <div
-    class="d-image-avatar col-12 col-md-3"
+    class="d-image-avatar"
     :class="$attrs.class ?? ''"
     :style="{ height: `${size}px`, width: `${size}px` }"
   >

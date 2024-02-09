@@ -4,9 +4,11 @@
       <div class="d-flex justify-content-between align-items-center container">
         <h1>{{ $t("home-section-courses-title") }}</h1>
         <div>
-          <router-link :to="getRouteLocale('academy-courses')" class="more">{{
-            $t("more")
-          }}</router-link>
+          <router-link
+            :to="getRouteLocale('academy-courses')"
+            class="more-link"
+            >{{ $t("more") }}</router-link
+          >
         </div>
       </div>
       <p class="container">

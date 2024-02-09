@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row my-5 header">
         <div class="col-lg-6">
-          <h2>أحدث مساحات العمل</h2>
+          <h2 class="font-weight-bold">أحدث اماكن العمل</h2>
         </div>
         <!-- <div class="col-lg-6 add-work-space">
           <button
@@ -23,27 +23,25 @@
         :items="items"
       >
         <template v-slot:default="{ item }">
-   
-            <WorkSpaceCard
-              :title="item.title"
-              :medias="item.medias"
-              :image="item.image_path"
-              :company="item"
-              :description="item.description"
-              :price="item.price"
-              :area="item.area"
-              :rate="item.rate"
-              :to="getRouteLocale('workspaces-details', { id: item.id })"
-
-            />
+          <WorkSpaceCard
+            :title="item.title"
+            :medias="item.medias"
+            :image="item.image_path"
+            :company="item"
+            :description="item.description"
+            :price="item.price"
+            :area="item.area"
+            :rate="item.rate"
+            :to="getRouteLocale('workspaces-details', { id: item.id })"
+          />
         </template>
       </d-swiper>
     </div>
   </div>
 </template>
- 
- <script>
-import workspaceAPI from "@/services/api/workspace"; 
+
+<script>
+import workspaceAPI from "@/services/api/workspace";
 import WorkSpaceCard from "@/components/pages/workspaces/home/recent-workspaces/WorkSpaceCard.vue";
 import plusRectRoundIcon from "@/components/icon-svg/plus-rect-round.vue";
 export default {
@@ -52,8 +50,8 @@ export default {
     plusRectRoundIcon,
     WorkSpaceCard,
   },
-  
-  data:()=>{
+
+  data: () => {
     return {
       loading: true,
       items: [],
@@ -83,8 +81,8 @@ export default {
   },
 };
 </script>
- 
- <style scoped>
+
+<style scoped>
 .recent-work-spaces {
   background-color: #f6f8f9;
 }
