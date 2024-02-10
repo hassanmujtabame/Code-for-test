@@ -1,10 +1,19 @@
 <template>
   <div class="sec-six" v-if="items && items.length > 0">
     <div class="container p-3">
-      <div class="text-center">
-        <h2>{{ $t("our-partners-in-riadiat") }}</h2>
+      <div class="text-center py-4">
+        <h2>
+          شركائنا في
+          <h2 class="d-inline position-relative">
+            رياديات
 
-        <img src="" alt="" />
+            <img
+              class="position-absolute vector"
+              src="../../../../../../public/assets/img/Vector 14.png"
+              alt=""
+            />
+          </h2>
+        </h2>
       </div>
       <!-- <d-swiper v-if="!loading" :slides-per-view="!isMobile ? 1 : 5" is-auto :space-between="10" :items="items"> -->
       <!-- <template v-slot:default="{ item }"> -->
@@ -68,4 +77,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.vector {
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
+</style>
