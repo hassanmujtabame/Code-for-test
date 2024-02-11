@@ -47,9 +47,9 @@ export default {
       hideImage: false,
       itemDialog: {
         title: null,
-        description: null, 
-        btns: null, 
-        type: 'error', 
+        description: null,
+        btns: null,
+        type: 'error',
         image: `${vm.publicPath}assets/img/tick-square-2.png`
       },
       showDialog: false,

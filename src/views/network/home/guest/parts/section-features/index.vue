@@ -79,12 +79,12 @@ export default {
 
                 {
                     name: 'المعارض', description: 'روج لمعرضك ومشروعك من خلال المشاركة وعرض مشروعك ومعرضك التجاري كما يمكنك متابعة والمشاركة في معارض ومشاريع اعضاء الشبكة الاخرين  ',
-                    to: 'network-exhibtions', img: 'section-features/2.png'
+                    to: 'network-exhibitions', img: 'section-features/2.png'
                 },
 
                 {
                     name: 'العروض', description: 'احصلي على عروض و خصومات هائلة ومذهلة سواء من اكواد الخصم للمواقع الالكترونية او من خلال بطاقة عضوية رياديات للحصول على الخصومات من المحلات والمتاجر',
-                    to: 'netowrk-offers', img: 'section-features/3.png'
+                    to: 'network-offers', img: 'section-features/3.png'
                 },
 
                 {

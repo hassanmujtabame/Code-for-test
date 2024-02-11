@@ -24,6 +24,7 @@
 import memberAPI from '@/services/api/members'
 import CardMember from './card-member.vue'
 export default {
+  name: "section-top-members",
   components: {
     CardMember
   },

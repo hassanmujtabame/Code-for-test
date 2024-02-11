@@ -29,15 +29,12 @@ export default {
   props: {
     img: {
       type: String,
-      default: false
     },
     name: {
       type: String,
-      default: false
     },
     to: {
-      type: [Object, Array],
-      default: null
+      type: [Object, Array, String],
     },
     description: {
       type: String
