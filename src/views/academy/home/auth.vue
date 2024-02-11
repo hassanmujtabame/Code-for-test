@@ -34,6 +34,8 @@
     <!-- section 9-->
     <SectionBestInstructors />
     <!--#section 9-->
+    <SectionMostPopularCourses />
+
     <!-- section 10-->
     <SectionTen />
     <!--#section 10-->
@@ -64,6 +66,7 @@ import SectionThree from "./parts/section-3/index.vue";
 import SectionFeatures from "./parts/section-features/index.vue";
 // import sectionAdvertisements from './parts/section-advertisements/index.vue'
 import SectionAds from "@/common/components/advertisements/index.vue";
+import SectionMostPopularCourses from "./parts/section-most-popular-courses/index.vue";
 
 import SectionHelpsYou from "./parts/section-helps-you/index.vue";
 import SectionSubscribeNow from "./parts/section-subscribe-now/index.vue";
@@ -104,6 +107,7 @@ export default {
     SectionAcademyNumbers,
     SectionContinueLearning,
     SectionHear,
+    SectionMostPopularCourses,
   },
 };
 </script>

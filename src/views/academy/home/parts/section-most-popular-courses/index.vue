@@ -30,7 +30,7 @@
           :items="items"
         >
           <template v-slot:default="{ item }">
-            <CardVue
+            <MostPopularCards
               :item="item"
               :url="getRouteLocale('academy-course-show', { id: item.id })"
             />
@@ -43,11 +43,12 @@
 
 <script>
 import CardVue from "@/components/cards/academy-course.vue";
+import MostPopularCards from "@/components/Most-popular-cards.vue";
 import coursesApI from "@/services/api/academy/courses.js";
 export default {
   name: "section-most-popular-courses",
   components: {
-    CardVue,
+    MostPopularCards,
   },
   data: () => ({
     items: [],
