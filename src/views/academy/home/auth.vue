@@ -44,7 +44,9 @@
     <SectionOurPartners />
     <!--#section 12-->
     <!-- section 13-->
-    <SectionAcademyNumbers />
+    <div class="d-none">
+      <SectionAcademyNumbers />
+    </div>
     <!--#section 13-->
     <!-- section 14-->
     <SectionContinueLearning />
@@ -52,34 +54,32 @@
     <!-- section 15-->
     <SectionHear />
     <!--#section 15-->
-
-
   </div>
 </template>
 
 <script>
-import SectionAuthHeader from './parts/section-auth-header/index.vue'
-import SectionTwo from './parts/section-2/index.vue'
-import SectionThree from './parts/section-3/index.vue'
-import SectionFeatures from './parts/section-features/index.vue'
+import SectionAuthHeader from "./parts/section-auth-header/index.vue";
+import SectionTwo from "./parts/section-2/index.vue";
+import SectionThree from "./parts/section-3/index.vue";
+import SectionFeatures from "./parts/section-features/index.vue";
 // import sectionAdvertisements from './parts/section-advertisements/index.vue'
-import SectionAds from '@/common/components/advertisements/index.vue'
+import SectionAds from "@/common/components/advertisements/index.vue";
 
-import SectionHelpsYou from './parts/section-helps-you/index.vue'
-import SectionSubscribeNow from './parts/section-subscribe-now/index.vue'
-import sectionTopInstructor from './parts/section-top-instructor/index.vue'
-import SectionTrainingFields from './parts/section-training-fields/index.vue'
-import SectionExploringEntrepreneurship from './parts/section-exploring-entrepreneurship/index.vue'
-import SectionExploringSpecializedEntrepreneurship from './parts/section-exploring-specialized-entrepreneurship/index.vue'
-import SectionAcademySchedule from './parts/section-academy-schedule/index.vue'
-import SectionBestInstructors from './parts/section-best-instructors/index.vue'
-import SectionTen from './parts/section-10/index.vue'
-import SectionRecentCourses from './parts/section-recent-courses/index.vue'
-import SectionOurPartners from './parts/section-our-partners/index.vue'
-import SectionAcademyNumbers from './parts/section-academy-numbers/index.vue'
-import SectionContinueLearning from '@/views/academy/common-components/section-continue-learning/index.vue'
-import SectionHear from '@/views/academy/common-components/section-hear/index.vue'
-import SectionTempForAds from './parts/section-temp-for-ads/index.vue'
+import SectionHelpsYou from "./parts/section-helps-you/index.vue";
+import SectionSubscribeNow from "./parts/section-subscribe-now/index.vue";
+import sectionTopInstructor from "./parts/section-top-instructor/index.vue";
+import SectionTrainingFields from "./parts/section-training-fields/index.vue";
+import SectionExploringEntrepreneurship from "./parts/section-exploring-entrepreneurship/index.vue";
+import SectionExploringSpecializedEntrepreneurship from "./parts/section-exploring-specialized-entrepreneurship/index.vue";
+import SectionAcademySchedule from "./parts/section-academy-schedule/index.vue";
+import SectionBestInstructors from "./parts/section-best-instructors/index.vue";
+import SectionTen from "./parts/section-10/index.vue";
+import SectionRecentCourses from "./parts/section-recent-courses/index.vue";
+import SectionOurPartners from "./parts/section-our-partners/index.vue";
+import SectionAcademyNumbers from "./parts/section-academy-numbers/index.vue";
+import SectionContinueLearning from "@/views/academy/common-components/section-continue-learning/index.vue";
+import SectionHear from "@/views/academy/common-components/section-hear/index.vue";
+import SectionTempForAds from "./parts/section-temp-for-ads/index.vue";
 
 export default {
   name: "academy-home",
@@ -103,9 +103,9 @@ export default {
     SectionOurPartners,
     SectionAcademyNumbers,
     SectionContinueLearning,
-    SectionHear
-  }
-}
+    SectionHear,
+  },
+};
 </script>
 
 <style></style>
