@@ -30,11 +30,12 @@
                 </div>
                 <div  class="col-12 col-md-6" style="min-height: 414px;" v-if="!isMobile">
                     <div style="height:100%;">
+                        <img src="@/assets/img/Left.png" alt="">
 
-                        <iframe class="rounded" style="width: 100%; height: 100%" src="https://www.youtube.com/embed/mKfqJ_3-jWQ"
+                        <!-- <iframe class="rounded" style="width: 100%; height: 100%" src="https://www.youtube.com/embed/mKfqJ_3-jWQ"
                             title="جلسة حوارية عربيات" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
+                            allowfullscreen></iframe> -->
                     </div>
                 </div>
             </div>

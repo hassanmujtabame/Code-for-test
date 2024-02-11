@@ -36,7 +36,8 @@ import DTabs from '@/components/tabs/DTabs.vue'
 
 import TabContentItem from './tab-content/index.vue'
 import partnersAPI from '@/services/api/academy/partners.js'
-import partnersNetworkAPI from '@/services/api/partners.js'
+// import partnersNetworkAPI from '@/services/api/partners.js'
+
 export default {
   name: 'section-partners',
   components: {
@@ -56,9 +57,16 @@ export default {
     async initlizing() {
       this.loading = true;
       try {
-        // let { data } = await partnersAPI.getAll();
+        let { data } = await partnersAPI.getAll();
 
-        let networkData = await partnersNetworkAPI.getAll();
+        // let networkData = await partnersNetworkAPI.getAll();
+
+        // let categorizedData = networkData.data.data.reduce(function (obj, item) {
+        //   obj[item.categoryName] = obj[item.categoryName] || [];
+        //   obj[item.categoryName].push(item);
+        //   return obj;
+        // }, {});
+          // console.log('networkData', networkData)
 
         // let categorizedData = networkData.data.data.reduce(function (obj, item) {
         //   obj[item.categoryName] = obj[item.categoryName] || [];
@@ -66,19 +74,12 @@ export default {
         //   return obj;
         // }, {});
 
-
-        let categorizedData = networkData.data.data.reduce(function (obj, item) {
-          obj[item.categoryName] = obj[item.categoryName] || [];
-          obj[item.categoryName].push(item);
-          return obj;
-        }, {});
-
-        let resultArray = Object.keys(categorizedData).map(function (key) {
-          return { categoryName: key, instructors: categorizedData[key][0] };
-        });
+        // let resultArray = Object.keys(categorizedData).map(function (key) {
+        //   return { categoryName: key, instructors: categorizedData[key][0] };
+        // });
 
         
-        this.categorizedData = resultArray
+        // this.categorizedData = resultArray
         
 
         if (data.success) {

@@ -30,7 +30,7 @@
             <!-- <h2 class="text-center text-white mb-4 pt-4">
             بعض من المميزات التى تحصلين عليها بانضمامك الينا فى الشبكه و هناك المزيد </h2> -->
             <div style="width: 80%; position: relative; z-index: 10" class="mx-auto" id="swiper-custom">
-                <swiper-custom v-if="!loading" :slides-per-view="3.5" :space-between="10" is-auto :items="items">
+                <swiper-custom :slides-per-view="3.5" :space-between="10" is-auto :items="items">
                     <template v-slot:default="{ item }">
                         <Card :name="item.name" :description="item.description" :to="item.to" :img="item.img" />
                     </template>
@@ -79,12 +79,12 @@ export default {
 
                 {
                     name: 'المعارض', description: 'روج لمعرضك ومشروعك من خلال المشاركة وعرض مشروعك ومعرضك التجاري كما يمكنك متابعة والمشاركة في معارض ومشاريع اعضاء الشبكة الاخرين  ',
-                    to: 'network-exhibtions', img: 'section-features/2.png'
+                    to: 'network-exhibitions', img: 'section-features/2.png'
                 },
 
                 {
                     name: 'العروض', description: 'احصلي على عروض و خصومات هائلة ومذهلة سواء من اكواد الخصم للمواقع الالكترونية او من خلال بطاقة عضوية رياديات للحصول على الخصومات من المحلات والمتاجر',
-                    to: 'netowrk-offers', img: 'section-features/3.png'
+                    to: 'network-offers', img: 'section-features/3.png'
                 },
 
                 {

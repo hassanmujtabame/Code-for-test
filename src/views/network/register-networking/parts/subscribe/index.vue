@@ -89,7 +89,6 @@ export default {
             try {
                 let { data } = await networkAPI.getPackages();
                 if (data.success) {
-                    console.log('Packages', data);
                     this.packages = data.data
                 }
             } catch (error) {

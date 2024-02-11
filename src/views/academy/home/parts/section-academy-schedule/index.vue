@@ -10,7 +10,8 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div v-for="(item, i) in items.filter((x, i) => i < 4)" :key="i" class="col-6  col-lg-3">
-                                <router-link class="router-link" :to="getRouteLocale('academy-course-show', { id: item.id })">
+                                <router-link class="router-link"
+                                    :to="getRouteLocale('academy-course-show', { id: item.id })">
                                     <scheduleItem :title="item.title" :image="item.image" :time="item.time"
                                         :date="item.date" />
                                 </router-link>
@@ -28,7 +29,8 @@
                                         <div class="text-xs text-gray-300 font-semibold text-center">
                                             {{ format(day.date, masks.dayPopover) }}
                                             <hr class="mt-1" />
-                                            <div :class="{ 'text-right': $i18n.locale == 'ar', 'text-left': $i18n.locale !== 'ar' }">
+                                            <div
+                                                :class="{ 'text-right': $i18n.locale == 'ar', 'text-left': $i18n.locale !== 'ar' }">
                                                 <p class=" pb-1 mb-1">{{ day.attributes[0].customData.categoryName }}</p>
                                                 <p class=" pb-1 mb-1">{{ $t('titled') }} : {{
                                                     day.attributes[0].customData.title }}</p>
