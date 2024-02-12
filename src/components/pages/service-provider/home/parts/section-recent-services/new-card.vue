@@ -3,9 +3,9 @@
     style="color: inherit"
     :to="getRouteLocale('service-provider-ready-service', { id: id })"
   >
-    <div class="card-container d-flex flex-column justify-content-between">
+    <div class="card-container mx-1 d-flex flex-column">
       <div>
-        <h4 class="card-title m-3">
+        <h4 class="card-title h-6 m-3">
           {{ title }}
         </h4>
         <div class="tags d-flex flex-row flex-wrap gap-2">
@@ -89,11 +89,10 @@
 }
 
 .card-container {
-  width: 300px;
-  height: 332px;
   border-radius: 16px;
   background: rgba(31, 185, 179, 0.2);
   padding: 10px;
+  min-height: 300px;
 }
 </style>
 
@@ -109,6 +108,7 @@ export default {
     name: {
       type: [String, Object],
     },
+
     image: {
       type: String,
     },
