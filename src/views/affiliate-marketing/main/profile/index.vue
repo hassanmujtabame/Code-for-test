@@ -192,7 +192,7 @@ export default {
   computed: {
     imageUser() {
       return this.profileData.image;
-      // return "https://cp.riadiat.sa/uploads/users/oI7uJmLs0Ecy3lv7krFb8L8I3GzEHvesdEGLN6F0.png"
+      // return "https://api.riadiat.sa/uploads/users/oI7uJmLs0Ecy3lv7krFb8L8I3GzEHvesdEGLN6F0.png"
     }
   },
   methods: {

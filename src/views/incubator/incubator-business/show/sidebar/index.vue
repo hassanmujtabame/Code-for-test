@@ -105,7 +105,7 @@ export default {
 
     onChoose(phase, stage_id_) {
       axios
-        .post('https://cp.riadiat.sa/api/v1/incubator/stage/user-completed',
+        .post('https://api.riadiat.sa/api/v1/incubator/stage/user-completed',
           {
             stage_id: stage_id_,
             is_completed: 1,

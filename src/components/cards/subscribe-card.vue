@@ -76,7 +76,7 @@ export default {
 
       if (this.typeSubscribe == 'مجانا') {
         try {
-          window.axios.defaults.baseURL = "https://cp.riadiat.sa/";
+          window.axios.defaults.baseURL = "https://api.riadiat.sa/";
           window.axios.get(`payments/myfatoorah/callback?package_id=${this.pack.id}&package_type=${this.packageType}&user_id=${this.user.id}`).then(res => {
             console.log('res', res);
             this.$refs.normalSteps.nextTab();

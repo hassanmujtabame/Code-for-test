@@ -152,7 +152,7 @@ export default {
             console.log('formData')
             console.log(formData)
             console.log("formData")
-            const response = await axios.post("https://cp.riadiat.sa/api/v1/pay/myfatoorah", formData);
+            const response = await axios.post("https://api.riadiat.sa/api/v1/pay/myfatoorah", formData);
             // this.articleId = response.data.id;
             localStorage.clear()
             if(response.data.success){
