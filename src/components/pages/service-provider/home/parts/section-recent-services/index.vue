@@ -1,7 +1,10 @@
 <template>
   <div class="container mt-5 mb-5 pt-5">
     <div class="d-flex justify-content-between align-items-center container">
-      <h1 class="home-section-title">أحدث الخدمات المضافة</h1>
+      <h1 class="home-section-title h-1 d-flex align-items-center">
+        <span class="mx-1" style="color: #1fb9b3">أحدث</span>
+        الخدمات
+      </h1>
       <div>
         <router-link
           class="router-link d-flex align-items-center"
@@ -29,19 +32,28 @@
         </router-link>
       </div>
     </div>
-    <div class="row mt-3 gap-4">
+    <div class="row mt-3">
       <div class="col-3">
         <analytics></analytics>
       </div>
-      <div class="row order col-9">
-        <div v-for="(item, i) in items" :key="i" class="col-lg-4">
-          <!-- <router-link
+
+      <!-- <div v-for="(item, i) in items" :key="i" class=" "> -->
+      <!-- <router-link
             class="router-link"
             :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
           > -->
+      <d-swiper
+        class="col-9"
+        style="height: 332px"
+        :slides-per-view="3"
+        is-auto
+        :space-between="1"
+        :items="items"
+      >
+        <template v-slot:default="{ item }">
           <CardService
             :keywords="item.keywords"
-            :index="i"
+            :index="item.id"
             :state="item.state"
             :image="item.image"
             :description="item.desc"
@@ -52,15 +64,20 @@
             :id="item.id"
             :created_at="item.created_at"
           />
-          <!-- </router-link> -->
-        </div>
-      </div>
+        </template>
+      </d-swiper>
+
+      <!-- </router-link> -->
+      <!-- </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import serviceProviderAPIs from "@/services/api/service-provider/index";
+import AddOnSlider from "@/components/Add-on-service-slider.vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/swiper-bundle.css"; // Import Swiper styles
 // import CardService from "./card.vue";
 import CardService from "./new-card.vue";
 import Analytics from "./analytics.vue";
@@ -69,6 +86,9 @@ export default {
   components: {
     CardService,
     Analytics,
+    AddOnSlider,
+    Swiper,
+    SwiperSlide,
   },
   data: () => ({
     loading: true,
@@ -81,6 +101,7 @@ export default {
         let { data } = await serviceProviderAPIs.getRecentServices();
         if (data.success) {
           this.items = data.data;
+          console.log(data.data);
         }
       } catch (error) {
         console.log("error", error);
