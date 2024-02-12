@@ -1,11 +1,10 @@
 <template>
   <div class="sec-five mt-5 p-3" v-if="showMembers" >
     <h2 class="m-c text-center text-bold">
-      <!-- {{ $t('network-sect-members-network-count') }}  -->
       بنضمامك لنا أسرة الحاضنه أصبح عددها
-      <a href="" class="y-c">
+      <span class="y-c">
         {{total}}
-      </a>
+      </span>
       
     </h2>
     <div class="container">
@@ -13,15 +12,16 @@
         <h1 class="home-section-title">
           اعضاء الحاضنه
         </h1>
-        <!-- <div>
-          <router-link class="more" 
-                :to="getRouteLocale('network-member-network')"
+        <div>
+          <router-link class="more-btn" 
+                :to="getRouteLocale('incubator-members')"
                 >{{ $t('more') }}</router-link>
-        </div> -->
+                
+        </div>
       </div>
       <d-swiper v-if="!loading" is-auto :slides-per-view="4" :space-between="4" :items="items">
         <template v-slot:default="{ item }">
-            <CardMember  :description="item.job_title" :name="item.name" :to="getRouteLocale('network-show-profile',{id:item.id})" :img="item.image" />
+            <CardMember  :description="item.job_title" :name="item.name" :to="getRouteLocale('incubator-show-profile',{id:item.id})" :img="item.image" />
         </template> 
       </d-swiper>
     </div>
@@ -32,7 +32,7 @@
 import MembersAPI from '@/services/api/members.js'
 import CardMember from '@/components/cards/card-member.vue'
 export default {
-  name: 'section-member-network',
+  name: 'section-member-incubation',
   components: {
     CardMember
   },
@@ -40,17 +40,7 @@ export default {
     loading:true,
     total:0,
     showMembers:true,
-    items: [
-     /*{ id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-     { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-     { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-     { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-     { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-     { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-     { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-     { id:1, name: 'العنقود محمد', image: 'https://test.riadiat.sa/uploads/default.jpeg', description: 'التصوير' },
-      */
-    ]
+    items: []
   }),
   methods:{
     async initlizing(){
@@ -59,7 +49,7 @@ export default {
           let { data } =  await MembersAPI.getHomeIncubator();
           if(data.success){
             this.items = data.data
-            this.total = data.meta.total
+            this.total = data.data.length + 1
           }
         } catch (error) {
           console.log('error',error)

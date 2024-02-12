@@ -10,6 +10,10 @@ class MembersApi extends BaseApi{
         let s=this.generateQueryUrl(params)
         return window.axios.get(`network/home-members?${s}`);
     }
+    getGraduates(params={}){
+        let s=this.generateQueryUrl(params)
+        return window.axios.get(`incubator/graduates?${s}`);
+    }
     getHomeIncubator(params={}){
         let s=this.generateQueryUrl(params)
         return window.axios.get(`incubator/members?${s}`);
@@ -24,6 +28,7 @@ class MembersApi extends BaseApi{
     getIncubator(id){
         return window.axios.get(`incubator/member/${id}`);
     }
+
 }
 
 export default new MembersApi();

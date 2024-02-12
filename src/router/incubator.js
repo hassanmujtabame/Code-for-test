@@ -114,6 +114,15 @@ const routers = [
       ),
   },
   {
+    path: "incubator/members",
+    name: "incubator-members",
+    meta: { layout: LayoutDefault, title: "Show Members" },
+    component: () =>
+      import(
+        /* webpackChunkName: "incubator-show-profile" */ "../views/incubator/members/index.vue"
+      ),
+  },
+  {
     path: "incubator/contact-us-for-project",
     meta: { layout: LayoutDefault, title: "Contact Us for Project" },
     name: "incubator-contact-us-for-project",

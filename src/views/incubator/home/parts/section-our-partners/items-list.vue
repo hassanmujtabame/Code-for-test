@@ -1,21 +1,22 @@
 <template>
     <div>
         <d-swiper  
-            v-if="items && items.length > 1"
+            v-if="items && items.length"
             :slides-per-view="5"
             :space-between="30"
             is-auto
             :items="items"
             :navigation="true"
-            :loop="true"
+            :loop="false"
         >
             <template v-slot="{item}">
                 <div class="slide-content">
                     <ImgAvatar class="filter-shadow-partner mx-auto avatar-image" :img="item.image" size='180' />
-                    <p class="avatar-name">{{ item.user_name }}</p> <!-- Assuming the item has a 'name' property -->
+                    <p class="avatar-name">{{ item.user_name }}</p> 
                 </div>
             </template>             
         </d-swiper>
+        <p v-if="error" class="error-message">Error loading partners. Please try again later.</p>
     </div>
 </template>
 
@@ -30,30 +31,25 @@ export default {
     },
     data() {
         return {
-            loading: true,
+            loading: false,
             items: [],
+            error: null,
         };
-    },
-    watch: {
-        loading() {
-            if (!this.loading) {
-                window.AOS.init();
-            }
-        },
     },
     methods: {
         async initializing() {
-            this.loading = false;
+            this.loading = true;
+            this.error = null;
             try {
                 const { data } = await incubatorAPI.getPartners();
                 if (data.success) {
                     this.items = data.data;
                 }
             } catch (error) {
-                // Handle the error appropriately
+                this.error = "Failed to load partners.";
                 console.error("Error fetching partners:", error);
             }
-            this.loading = true;
+            this.loading = false;
         },
     },
     async mounted() {

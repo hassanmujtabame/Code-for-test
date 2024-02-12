@@ -63,7 +63,7 @@ import SectionSchedule from "./parts/section-schedule/index.vue";
 import SectionContinueLearning from "./parts/section-continue-learning/index.vue";
 import SectionHear from "./parts/section-hear/index.vue";
 import SectionHaveProject from "./parts/section-have-project/index.vue";
-import SectionOurAds from "./parts/section-our-ads/index.vue";
+// import SectionOurAds from "./parts/section-our-ads/index.vue";
 import SectionGraduated from "./parts/section-graduated/index.vue";
 import SectionHugging from "@/components/section-hugging.vue";
 export default {
@@ -86,7 +86,7 @@ export default {
     SectionContinueLearning,
     SectionHear,
     SectionHaveProject,
-    SectionOurAds,
+    // SectionOurAds,
     SectionGraduated,
     SectionMemberIncubation,
   },

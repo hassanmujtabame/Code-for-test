@@ -19,13 +19,6 @@
             لتحقيقه أشتراكك في حاضنة رياديات
           </p>
           <div class="mt-4">
-            <a
-              v-if="!token"
-              @click="shouldLoginMsg"
-              class="btn-custmer shadow mt-2"
-            >
-              {{ $t("join-us") }}
-            </a>
             <router-link
               v-if="!token"
               :to="getRouteLocale('login')"
@@ -35,7 +28,6 @@
             </router-link>
             <button
               style="color: #1fb9b3"
-              @click="openAddWorkSpace"
               class="btn btn-lg bg-light bg mx-1 px-4 py-2"
             >
               <play-icon class="mx-1" />
