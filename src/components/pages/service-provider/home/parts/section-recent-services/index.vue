@@ -43,9 +43,8 @@
             :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
           > -->
       <d-swiper
-      v-if="!loading"
+        v-if="!loading"
         class="col-9"
-        style="height: 332px"
         :slides-per-view="3"
         is-auto
         :space-between="1"
@@ -54,7 +53,7 @@
         <template v-slot:default="{ item }">
           <CardService
             :keywords="item.keywords"
-            :index="item.id"
+            :index="i"
             :state="item.state"
             :image="item.image"
             :description="item.desc"
@@ -95,7 +94,6 @@ export default {
         let { data } = await serviceProviderAPIs.getRecentServices();
         if (data.success) {
           this.items = data.data;
-          console.log(data.data);
         }
       } catch (error) {
         console.log("error", error);
