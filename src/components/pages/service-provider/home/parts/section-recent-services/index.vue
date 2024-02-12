@@ -43,6 +43,7 @@
             :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
           > -->
       <d-swiper
+      v-if="!loading"
         class="col-9"
         style="height: 332px"
         :slides-per-view="3"
@@ -75,10 +76,6 @@
 
 <script>
 import serviceProviderAPIs from "@/services/api/service-provider/index";
-import AddOnSlider from "@/components/Add-on-service-slider.vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper-bundle.css"; // Import Swiper styles
-// import CardService from "./card.vue";
 import CardService from "./new-card.vue";
 import Analytics from "./analytics.vue";
 export default {
@@ -86,9 +83,6 @@ export default {
   components: {
     CardService,
     Analytics,
-    AddOnSlider,
-    Swiper,
-    SwiperSlide,
   },
   data: () => ({
     loading: true,
