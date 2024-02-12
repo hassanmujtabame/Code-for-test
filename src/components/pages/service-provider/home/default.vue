@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 85px " class="consult max-width-100-hidden">
+  <div style="margin-top: 85px" class="consult max-width-100-hidden">
     <!-- section Header-->
     <SectionHeader />
 
@@ -9,25 +9,27 @@
     <!-- <SectionHeader /> -->
     <!-- section defition-->
     <SectionDefinition />
+    <!-- section for the filter data -->
+    <div>
+      <SectionFliterData />
+    </div>
+    <!-- end section for the filter data -->
 
     <!-- section features -->
     <!-- <SectionFeatures /> -->
-    
+
     <!-- how to offer service  -->
     <!-- <SectionHowOfferService /> -->
-    
+
     <!-- section best-provider-->
     <SectionBestProvider />
-    
+
     <!-- SectionCommonQuistions -->
-    <SectionCommonQuistions class="my-3"/>
+    <SectionCommonQuistions class="my-3" />
 
     <!-- browsing according field -->
-    
+
     <!-- <SectoinBrowsing/> -->
-    
-
-
 
     <!-- Section for still have quistions  -->
     <!-- <SectionQuistion /> -->
@@ -35,27 +37,24 @@
     <!-- <SectionRecentProposals /> -->
     <!-- section need service -->
     <!-- <SectionNeedService /> -->
-    
+
     <!-- <SectionExploreServices v-if="userIsProvider" /> -->
     <!-- section explore-services-->
     <!-- <SectionExploreServices v-if="!userIsProvider" /> -->
-
 
     <!-- <FeaturesService style="margin-top: 150px" /> -->
     <!-- section seek for job-->
     <!-- <SectionSeekJob /> -->
 
-
     <!-- section continue-learning-->
     <SectionContinueLearning />
-        <!-- section hear -->
+    <!-- section hear -->
     <SectionHear />
     <!-- section hear-->
     <!-- <SectionHear /> -->
-
   </div>
 </template>
-  
+
 <script>
 // import SectionAuthHeader from "./parts/section-auth-header/index.vue";
 
@@ -70,7 +69,7 @@ import SectionDefinition from "./parts/section-definition/index.vue";
 // import SectionFeatures from "./parts/section-features/index.vue";
 import SectionFeatures from "./parts/section-features-new/index.vue";
 
-import SectionNeedService from './parts/section-need-service/index.vue'
+import SectionNeedService from "./parts/section-need-service/index.vue";
 import SectionExploreServices from "./parts/section-explore-services/index.vue";
 import FeaturesService from "./parts/features-service-provider/index.vue";
 
@@ -79,6 +78,7 @@ import SectionContinueLearning from "@/views/service-provider/common-components/
 // import SectionHear from "@/views/service-provider/common-components/section-hear/index.vue";
 // import SectionHowOfferService from "./parts/section-how-offer-service/index.vue";
 import SectionHowOfferService from "./parts/section-how-offer-service-new/index.vue";
+import SectionFliterData from "@/views/service-provider/ready-services/index.vue";
 import SectionHear from "./parts/section-hear/index.vue";
 export default {
   name: "service-provider-guest",
@@ -87,6 +87,7 @@ export default {
     // SectionAuthHeader,
     SectionSeekJob,
     SectionQuistion,
+    SectionFliterData,
     SectionBestProvider,
     SectionRecentProposals,
     SectionNeedService,
@@ -101,9 +102,8 @@ export default {
     SectoinBrowsing,
     SectionCommonQuistions,
   },
-  mounted() {
-  }
+  mounted() {},
 };
 </script>
-  
+
 <style></style>
