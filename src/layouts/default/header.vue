@@ -26,6 +26,9 @@
         <b-dropdown-item class="nav-item">
           <router-link :to="getRouteLocale('network-blogs')" class="nav-link">{{ $t('Blogs') }}</router-link>
         </b-dropdown-item>
+        <b-dropdown-item class="nav-item">
+          <router-link :to="getRouteLocale('network-member-network')" class="nav-link">{{ $t('members') }}</router-link>
+        </b-dropdown-item>
       </b-dropdown>
     </li>
     <li class="nav-item">
