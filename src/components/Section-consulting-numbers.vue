@@ -2,36 +2,46 @@
   <div class="container">
     <div class="mt-5">
       <div class="riadiat-of-number">
-        <h2 class="text-center">الاكاديمية في ارقام</h2>
+        <h2 class="text-center">مركز الاستشارات في أرقام</h2>
         <div class="row justify-content-center">
           <div class="col-6 col-md-auto mt-3">
-            <div class="box">
+            <div
+              class="d-flex justify-content-center align-items-center flex-column box"
+            >
               <h5 class="m-c fw-bolder">60000+</h5>
               <p>اشتراك في برامجنا</p>
             </div>
           </div>
           <div class="col-6 col-md-auto mt-3">
-            <div class="box">
+            <div
+              class="d-flex justify-content-center align-items-center flex-column box"
+            >
               <h5 class="m-c fw-bolder">5222+</h5>
-              <p>اشتراك في برامجنا</p>
+              <p>ساعة تدربية</p>
             </div>
           </div>
           <div class="col-6 col-md-auto mt-3">
-            <div class="box">
+            <div
+              class="d-flex justify-content-center align-items-center flex-column box"
+            >
               <h5 class="m-c fw-bolder">5222+</h5>
-              <p>اشتراك في برامجنا</p>
+              <p>اشتراك في الدورات</p>
             </div>
           </div>
           <div class="col-6 col-md-auto mt-3">
-            <div class="box">
+            <div
+              class="d-flex justify-content-center align-items-center flex-column box"
+            >
               <h5 class="m-c fw-bolder">9+</h5>
-              <p>اشتراك في برامجنا</p>
+              <p>مجالات تدريبية</p>
             </div>
           </div>
           <div class="col-6 col-md-auto mt-3">
-            <div class="box">
+            <div
+              class="d-flex justify-content-center align-items-center flex-column box"
+            >
               <h5 class="m-c fw-bolder">876+</h5>
-              <p>اشتراك في برامجنا</p>
+              <p>محاضرة</p>
             </div>
           </div>
         </div>
@@ -42,7 +52,7 @@
 
 <script>
 export default {
-  name: "section-academy-numbers",
+  name: "Section-consulting-numbers",
 };
 </script>
 

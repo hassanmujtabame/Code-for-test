@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 85px " class="consult">
+  <div style="margin-top: 85px" class="consult">
     <!-- section header-->
     <SectionHeader />
     <!-- <SectionHeader2 v-if="!token"/> -->
@@ -10,7 +10,7 @@
     <SectionGoals />
 
     <SectionLaunchNow />
-    
+
     <AreYouConsultor />
     <!--#section 2-->
     <div class="container mt-5">
@@ -26,7 +26,10 @@
     <!-- <div class="container mt-5">
           <Section6/>
         </div> -->
-    <div class=" mt-5">
+    <div class="mt-5">
+      <SectionConsultingNumbers />
+    </div>
+    <div class="mt-5">
       <Section7 />
     </div>
     <div class="container mt-5">
@@ -34,25 +37,25 @@
     </div>
 
     <!--#section 5-->
-
-
   </div>
 </template>
-  
+
 <script>
-import SectionHeader from './parts/section-header/index.vue'
-import SectionHeader2 from './parts/section-header-old/index.vue'
+import SectionHeader from "./parts/section-header/index.vue";
+import SectionHeader2 from "./parts/section-header-old/index.vue";
+import SectionConsultingNumbers from "../../../components/Section-consulting-numbers.vue";
 
-import SectionGoals from './parts/section-goals/index.vue'
-import SectionLaunchNow from './parts/section-launch-now/index.vue'
-import SectionHelpToStart from './parts/section-help-tostart/index.vue'
-import SectionConsultingCategories from './parts/section-consulting-categories/index.vue'
-import SectionBestConsultors from './parts/section-best-consultors/index.vue'
-import AreYouConsultor from './parts/are-you-consultor/index.vue'
+import SectionGoals from "./parts/section-goals/index.vue";
+import SectionAcademyNumbers from "../../../views/academy/home/parts/section-academy-numbers/index.vue";
+import SectionLaunchNow from "./parts/section-launch-now/index.vue";
+import SectionHelpToStart from "./parts/section-help-tostart/index.vue";
+import SectionConsultingCategories from "./parts/section-consulting-categories/index.vue";
+import SectionBestConsultors from "./parts/section-best-consultors/index.vue";
+import AreYouConsultor from "./parts/are-you-consultor/index.vue";
 
-import Section6 from './parts/section-6/index.vue'
-import whatSay from './parts/section-8/whatSay.vue'
-import Section7 from './parts/section-7/index.vue'
+import Section6 from "./parts/section-6/index.vue";
+import whatSay from "./parts/section-8/whatSay.vue";
+import Section7 from "./parts/section-7/index.vue";
 
 export default {
   name: "consulting-home",
@@ -67,10 +70,11 @@ export default {
     whatSay,
     Section7,
     SectionHeader2,
-    AreYouConsultor
-
-  }
-}
+    SectionConsultingNumbers,
+    AreYouConsultor,
+    SectionAcademyNumbers,
+  },
+};
 </script>
-  
+
 <style></style>
