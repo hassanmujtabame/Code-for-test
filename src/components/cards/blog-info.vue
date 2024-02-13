@@ -1,5 +1,5 @@
 <template>
-  <div class="box mx-4 shadow border w-100 blog-info-card h-100">
+  <div class="box shadow border w-100 blog-info-card h-100">
     <div class="image">
       <img class="w-100 overflow-hidden" :src="img" :alt="title" height="184" />
     </div>
@@ -10,17 +10,26 @@
       </p>
     </div>
     <div class="d-flex text-end">
-      <div class="blog-info-category date text-start mx-1 flex-grow-1">
-        <!-- <div class="d-flex gap-2   data">
+      <!-- <div class="blog-info-category date text-start mx-1 flex-grow-1">
+        <div class="d-flex gap-2   data">
           <p v-for="(cat, c) in categories" :key="c" :style="{ 'color': `${colors[c % 3]}!important` }"
             class="p-1 px-2 rounded-2 text-white m-0">
             {{ cat.name }}
           </p>
         </div> -->
-      </div>
+      <!-- </div> -->
       <div
-        class="blog-info-date date d-flex align-items-center text-start mx-1 flex-shrink-0"
+        class="d-flex align-items-center justify-content-between px-2 py-1 w-100"
       >
+        <!-- <h3 style="color: #2c98b3">{{ categories.name }}</h3> -->
+        <p
+          v-for="(item, c) in categories"
+          :key="c"
+          :style="{ color: `${colors[c % 3]}!important` }"
+          class="p-1 px-2 rounded-2 text-white m-0"
+        >
+          {{ item.name }}
+        </p>
         <p class="d-flex m-0">
           <bdi class="blog-info__date text-two-lines" style="padding: 0 5px">
             {{ dayjs(date, "DD-MM-YYYY").locale("ar").format("DD MMMM YYYY") }}
@@ -105,7 +114,6 @@ export default {
     },
   },
 };
-console.log(this?.img);
 </script>
 
 <style scoped>
