@@ -10,14 +10,6 @@
       </p>
     </div>
     <div class="d-flex text-end">
-      <!-- <div class="blog-info-category date text-start mx-1 flex-grow-1">
-        <div class="d-flex gap-2   data">
-          <p v-for="(cat, c) in categories" :key="c" :style="{ 'color': `${colors[c % 3]}!important` }"
-            class="p-1 px-2 rounded-2 text-white m-0">
-            {{ cat.name }}
-          </p>
-        </div> -->
-      <!-- </div> -->
       <div
         class="d-flex align-items-center justify-content-between px-2 py-1 w-100"
       >
