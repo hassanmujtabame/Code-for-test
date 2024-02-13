@@ -3,24 +3,27 @@
     <SectionHeader />
     <SectionList />
     <SectionContinueLearning />
+    <!-- <div>
+
     <SectionHear />
+    </div> -->
   </div>
 </template>
 
 <script>
-import SectionHeader from './parts/section-header/index.vue'
-import SectionList from './parts/section-list/index.vue'
-import SectionHear from '@/views/network/home/parts/section-hear/index.vue'
-import SectionContinueLearning from '@/views/network/home/parts/section-continue-learning/index.vue'
+import SectionHeader from "./parts/section-header/index.vue";
+import SectionList from "./parts/section-list/index.vue";
+import SectionHear from "@/views/network/home/parts/section-hear/index.vue";
+import SectionContinueLearning from "@/views/network/home/parts/section-continue-learning/index.vue";
 export default {
-  name: 'member-network',
+  name: "member-network",
   components: {
     SectionHeader,
     SectionList,
     SectionHear,
-    SectionContinueLearning
-  }
-}
+    SectionContinueLearning,
+  },
+};
 </script>
 
 <style></style>
