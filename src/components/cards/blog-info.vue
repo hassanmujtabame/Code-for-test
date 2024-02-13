@@ -105,6 +105,7 @@ export default {
     },
   },
 };
+console.log(this?.img);
 </script>
 
 <style scoped>
