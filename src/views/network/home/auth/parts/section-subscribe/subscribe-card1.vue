@@ -1,39 +1,37 @@
 <template>
   <!-- start -->
-  <div class="subscription-card">
+  <div style="height: 600px" class="subscription-card">
     <div class="subscription-header d-flex flex-column align-items-center">
-      <h2 class="subscription-title">
-        مجانا
-      </h2>
-      <span>
-        اذهب و اختبر قدراتك
-      </span>
+      <h2 class="subscription-title">مجانا</h2>
+      <span> اذهب و اختبر قدراتك </span>
       <div class="subscription-price d-flex flex-column align-items-center">
         <span class="price">0</span>
-        <span class="currency">{{ $t('riyals') }}</span>
+        <span class="currency">{{ $t("riyals") }}</span>
       </div>
     </div>
     <div class="subscription-features">
-
       <ul class="feature-list d-flex flex-row flex-wrap">
-        <li class="feature-item"><i class="fas fa-check-circle mx-2"></i><span>حصول على استشارة مجانية مكتوبة بعد تعبئة
-            النموذج</span></li>
-        <li class="feature-item"><i class="fas fa-check-circle mx-2"></i><span>الحصول على معلومات عن آخر المعارض
-            والفعاليات المقامة في السعودية والخليج والعالم.</span></li>
-        <li class="feature-item"><i class="fas fa-check-circle mx-2"></i><span>الاطلاع على شركاء شبكة رياديات</span></li>
-        <li class="feature-item"><i class="fas fa-check-circle mx-2"></i><span>حضور عدد من اللقاءات الإلكترونية التثقيفية
-            عن ريادة الأعمال (مباشرة، مسجلة)بمقابل مالي.</span></li>
-        <li class="feature-item"><i class="fas fa-check-circle mx-2"></i><span>الاطلاع على أبرز المستشارين و إمكانية حجز
-            موعد معهم بناء على المجال المطلوب بمقابل مالي.</span></li>
-        <li class="feature-item"><i class="fas fa-check-circle mx-2"></i><span>الاطلاع على النماذج المتاحة بالشبكة.</span>
+        <li class="feature-item">
+          <i class="fas fa-check-circle mx-2"></i
+          ><span> تواصلي مع أعضاء الشبكة </span>
         </li>
-        <li class="feature-item"><i class="fas fa-check-circle mx-2"></i><span>كتابة ونشر القصص الريادية المتميزة لأعضاء
-            الشبكة</span></li>
-        <li class="feature-item"><i class="fas fa-check-circle mx-2"></i><span>المشاركة في التدوين للمتميزين.</span></li>
+        <li class="feature-item">
+          <i class="fas fa-check-circle mx-2"></i
+          ><span> شاركي في اللقاءات المستمرة لرواد الشبكة </span>
+        </li>
+        <li class="feature-item">
+          <i class="fas fa-check-circle mx-2"></i
+          ><span> تواصلي مع أعضاء الشبكة </span>
+        </li>
       </ul>
     </div>
-    <div class="subscription-actions w-100 d-flex justify-content-center mt-auto">
-      <button class="upgrade-button" @click="$router.push({name: 'network-subscribe'})">
+    <div
+      class="subscription-actions w-100 d-flex justify-content-center mt-auto"
+    >
+      <button
+        class="upgrade-button"
+        @click="$router.push({ name: 'network-subscribe' })"
+      >
         عرض التفاصيل
       </button>
     </div>
@@ -42,9 +40,7 @@
 </template>
 
 <script>
-
-export default {
-};
+export default {};
 </script>
 <style scoped>
 .subscription-card {
@@ -72,7 +68,6 @@ export default {
   .subscription-actions {
     align-self: center !important;
   }
-
 }
 
 .subscription-card:hover {
@@ -135,7 +130,7 @@ export default {
 }
 
 .feature-item i {
-  color: #1FB9B3;
+  color: #1fb9b3;
   margin-right: 10px;
 }
 
@@ -158,22 +153,20 @@ export default {
 }
 
 .subscribe-button {
-  background: linear-gradient(to bottom, #1FB9B3, #13a89d);
+  background: linear-gradient(to bottom, #1fb9b3, #13a89d);
   color: #fff;
   margin-bottom: 15px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-
 }
 
 .subscribe-button:hover {
-  background: linear-gradient(to bottom, #13a89d, #1FB9B3);
+  background: linear-gradient(to bottom, #13a89d, #1fb9b3);
 }
 
 .upgrade-button {
   background: var(--pc);
   color: #fff;
   margin-bottom: 20px;
-
 }
 
 .upgrade-button:hover {
@@ -189,4 +182,5 @@ export default {
 
 .subscribed-button:hover {
   opacity: 0.8;
-}</style>
+}
+</style>

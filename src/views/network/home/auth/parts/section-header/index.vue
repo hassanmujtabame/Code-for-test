@@ -40,11 +40,11 @@
             </template>
           </div>
         </div>
-        <div class="col-12 col-md-6" style="min-height: 414px" v-if="!isMobile">
-          <div style="height: 100%">
+        <div class="col-12 col-md-6" v-if="!isMobile">
+          <div>
             <img
               src="@/assets/img/Left.png"
-              class="px-0 px-md-5"
+              class="img-fluid"
               alt="hero image"
             />
             <!-- <iframe class="rounded" style="width: 100%; height: 100%" src="https://www.youtube.com/embed/mKfqJ_3-jWQ"
