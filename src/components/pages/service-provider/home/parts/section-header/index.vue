@@ -26,6 +26,20 @@
               >
             </template>
           </div>
+          <div class="my-5">
+            <template v-if="user">
+              <router-link
+                :to="getRouteLocale('register')"
+                class="btn-custmer shadow mx-2"
+                >عرض عمل</router-link
+              >
+              <router-link
+                :to="getRouteLocale('login')"
+                class="btn-custmer-w bg-transparent text-white mt-2"
+                >قدم خدمة</router-link
+              >
+            </template>
+          </div>
         </div>
         <div class="col-12 col-md-6" v-if="!isMobile">
           <div>
