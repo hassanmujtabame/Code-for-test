@@ -3,7 +3,6 @@
     <!--section header-->
     <SectionHeader />
 
-
     <!-- شبكة رياديات: وسع دائرة معارفك-->
     <SectionGrowYourNetwork />
 
@@ -13,7 +12,7 @@
 
     <!-- <SectionCamp /> -->
 
-    <div class=" mt-5">
+    <div class="mt-5">
       <SectionAds department="network" url="network/home-banners" />
     </div>
 
@@ -21,12 +20,10 @@
 
     <SectionSubscribe />
 
-
     <!-- <SectionOurAds /> -->
 
     <!--معسكر ريادة الاعمال-->
     <SectionCampLeadership v-if="false" />
-
 
     <!-- section 3-->
     <!-- <SectionThree v-if="!isMobile" /> -->
@@ -35,7 +32,10 @@
     <SectionMembership />
 
     <!--schedule network-->
+    <!-- <div>
+
     <SectionScheduleNework />
+    </div> -->
     <!-- members of network-->
     <!-- <SectionMemeberNetwork /> -->
 
@@ -48,8 +48,6 @@
     <SectionInvestementProject v-if="user.id == 11" />
     <!--exhibitions-->
     <SectionExhibitions />
-
-
 
     <!-- <div class="container mt-5">
       <div class="row">
@@ -139,7 +137,6 @@
     <SectionNumbers />
     <SectioninFluenceurs />
 
-
     <!-- <SectionPodcast /> -->
     <!-- <SectionWorkspace /> -->
     <!--مدونات-->
@@ -151,17 +148,17 @@
 </template>
 
 <script>
-import SectionAds from '@/common/components/advertisements/index.vue'
-import SectionThree from './parts/section-3/index.vue';
-import SectionMembership from './parts/section-membership/index.vue';
-import SectionTopMember from './parts/section-top-members/index.vue';
-import SectioninFluenceurs from './parts/section-influenceurs/index.vue';
-import SectionNetworkGoals from './parts/section-network-goals/index.vue'
-import SectionCampLeadership from './parts/cam-leadership/index.vue'
-import SectionGrowYourNetwork from './parts/grow-your-network/index.vue'
-import SectionOurAds from './parts/section-our-ads/index.vue'
-import SectionNumbers from './parts/section-numbers/index.vue';
-import SectionWorkspace from "./parts/section-workspace/index.vue"
+import SectionAds from "@/common/components/advertisements/index.vue";
+import SectionThree from "./parts/section-3/index.vue";
+import SectionMembership from "./parts/section-membership/index.vue";
+import SectionTopMember from "./parts/section-top-members/index.vue";
+import SectioninFluenceurs from "./parts/section-influenceurs/index.vue";
+import SectionNetworkGoals from "./parts/section-network-goals/index.vue";
+import SectionCampLeadership from "./parts/cam-leadership/index.vue";
+import SectionGrowYourNetwork from "./parts/grow-your-network/index.vue";
+import SectionOurAds from "./parts/section-our-ads/index.vue";
+import SectionNumbers from "./parts/section-numbers/index.vue";
+import SectionWorkspace from "./parts/section-workspace/index.vue";
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionPodcast from "./parts/section-podcast/index.vue";
 import SectionExhibitions from "./parts/section-exhibitions/index.vue";
@@ -171,11 +168,9 @@ import SectionEducationalMeeting from "./parts/section-educational-meeting/index
 import SectionMemeberNetwork from "./parts/section-member-network/index.vue";
 import SectionStory from "./parts/section-successful-story/index.vue";
 import SectionFeatures from "./parts/section-features/index.vue";
-import SectionSubscribe from './parts/section-subscribe/index.vue'
+import SectionSubscribe from "./parts/section-subscribe/index.vue";
 import SectionCategory from "./parts/section-category/index.vue";
 import SectionCamp from "./parts/section-camp-riadiat/index.vue";
-
-
 
 // import SectionPartner from "./parts/section-partners/index.vue";
 import SectionPartner from "./parts/section-our-partners/index.vue";
@@ -216,43 +211,49 @@ export default {
     SectionThree,
     SectionMembership,
     SectioninFluenceurs,
-    SectionTopMember
-
+    SectionTopMember,
   },
   data: () => {
     return {
       showOffers: false,
-    }
+    };
   },
   methods: {
     checkSubscriptionOptions() {
-      for (let index = 0; index < this.user.subscription_options.length; index++) {
+      for (
+        let index = 0;
+        index < this.user.subscription_options.length;
+        index++
+      ) {
         const element = this.user.subscription_options[index];
         if (element.key == "show_offers") {
-          this.showOffers = true
+          this.showOffers = true;
         }
       }
     },
     checkSub() {
       if (!this.showOffers) {
         let dataEvt = {
-          title: 'للأسف لايمكنك  رؤية العروض  ',
+          title: "للأسف لايمكنك  رؤية العروض  ",
           description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
           image: `${this.publicPath}assets/img/Group 1171275670.png`,
           btns: [
-            { title: 'رقي حسابك', action: () => this.$router.push({ name: 'network-subscribe' }) }
-          ]
-        }
+            {
+              title: "رقي حسابك",
+              action: () => this.$router.push({ name: "network-subscribe" }),
+            },
+          ],
+        };
         this.showConfirmMsg(dataEvt);
         return;
       } else {
-        this.router_push('network-offers')
+        this.router_push("network-offers");
       }
-    }
+    },
   },
   mounted() {
-    this.checkSubscriptionOptions()
-  }
+    this.checkSubscriptionOptions();
+  },
 };
 </script>
 
