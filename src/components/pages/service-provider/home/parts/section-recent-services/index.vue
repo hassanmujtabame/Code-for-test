@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="row mt-3">
-      <div class="col-3">
+      <div class="col-md-3 col-12">
         <analytics></analytics>
       </div>
 
@@ -44,8 +44,13 @@
           > -->
       <d-swiper
         v-if="!loading"
-        class="col-9"
-        :slides-per-view="3"
+        class="col-md-9 col-12"
+        :slides-per-view="{
+          320: 1, // 1 slide for screens smaller than 320px
+          768: 2, // 2 slides for screens between 320px and 768px
+          1024: 3, // 3 slides for screens between 768px and 1024px
+          1440: 4, // 4 slides for screens larger than 1024px
+        }"
         is-auto
         :space-between="1"
         :items="items"
