@@ -1,7 +1,7 @@
 <template>
   <!-- start -->
   <div
-    style="background-color: #1fb9b3; height: 600px"
+    style="background-color: #1fb9b3; min-height: 600px; width: 100%"
     class="subscription-card"
   >
     <div

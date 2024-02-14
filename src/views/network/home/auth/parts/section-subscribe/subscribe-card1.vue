@@ -1,6 +1,6 @@
 <template>
   <!-- start -->
-  <div style="height: 600px" class="subscription-card">
+  <div style="min-height: 600px; width: 100%" class="subscription-card">
     <div class="subscription-header d-flex flex-column align-items-center">
       <h2 class="subscription-title">مجانا</h2>
       <span> اذهب و اختبر قدراتك </span>

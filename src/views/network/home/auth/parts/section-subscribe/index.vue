@@ -31,12 +31,18 @@
       </div>
     </div>
 
-    <div
-      class="container d-flex flex-row justify-content-between py-5 flex-wrap"
-    >
-      <SubscribeCard1 />
-      <SubscribeCard2 />
-      <SubscribeCard3 />
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-4 col-12">
+          <SubscribeCard1 />
+        </div>
+        <div class="col-md-4 col-12">
+          <SubscribeCard2 />
+        </div>
+        <div class="col-md-4 col-12">
+          <SubscribeCard3 />
+        </div>
+      </div>
     </div>
   </div>
 </template>
