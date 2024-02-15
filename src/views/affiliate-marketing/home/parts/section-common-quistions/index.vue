@@ -5,7 +5,13 @@
       <!-- <div class="col-md-5 image-side" style="min-height:400px">
                 <img src="@/assets/img/reset-password.png" style="width: 100%">
             </div> -->
-      <div class="quistions-side">
+      <div class="col-md-6 col-12">
+        <img
+          src="../../../../../../public/assets/img/about-com.png"
+          alt="about image"
+        />
+      </div>
+      <div class="quistions-side col-md-6 col-12">
         <div class="accordion accordion-flush" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header">
