@@ -1,52 +1,152 @@
 <template>
-    <div style="background: #ffffff;" class="p-5">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-6">
-                    <div class="row justify-content-center mb-4">
-                        <span style="color: #F2631C; font-size: 24px">
-                            اليك ما نقوم بتقديمه لك
+  <div style="background: #ffffff" class="p-5">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-6">
+          <div class="row justify-content-center mb-4">
+            <div class="text-center my-2">
+              <span style="color: #ffbc00; font-size: 24px">
+                اليك ما نقوم بتقديمه لك
+              </span>
+            </div>
+            <h3 class="mt-2">
+              نحن ندرك أن النجاح في التسويق بالعمولة يتطلب دعمًا مستمرًا. نقدم
+              الدعم المستمر للمسوقين بالعمولة لمساعدتهم على تحقيق النجاح.
+            </h3>
+          </div>
+          <div class="d-flex gap-2">
+            <svg
+              width="53"
+              height="48"
+              viewBox="0 0 53 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_71_161641)">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M24.4865 0.0556641C11.1819 0.0556641 0.396484 10.8433 0.396484 24.1478C0.396484 37.4524 11.1819 48.24 24.4865 48.24C28.9175 48.24 33.0691 47.0434 36.6359 44.9559L47.108 46.3587L46.1725 34.651C47.7127 31.4765 48.5765 27.913 48.5765 24.1478C48.5765 10.8433 37.791 0.0556641 24.4865 0.0556641Z"
+                  fill="#2CB7B3"
+                />
+                <path
+                  d="M18.4852 20.3479H14.2377C13.5339 20.3479 12.9634 20.8726 12.9634 21.5198V33.2385C12.9634 33.8857 13.5339 34.4104 14.2377 34.4104H18.4852C19.189 34.4104 19.7595 33.8857 19.7595 33.2385V21.5198C19.7595 20.8726 19.189 20.3479 18.4852 20.3479ZM16.3614 32.4573C15.6577 32.4573 15.0872 31.9326 15.0872 31.2854C15.0872 30.6382 15.6577 30.1135 16.3614 30.1135C17.0652 30.1135 17.6357 30.6382 17.6357 31.2854C17.6357 31.9326 17.0652 32.4573 16.3614 32.4573ZM33.3517 13.3875C33.3517 15.4586 31.9729 16.6204 31.5849 18.0042H36.9858C38.759 18.0042 40.1395 19.3589 40.1478 20.841C40.1523 21.7168 39.7471 22.6598 39.1157 23.2432L39.1098 23.2485C39.6321 24.388 39.5472 25.9847 38.6156 27.1289C39.0766 28.3933 38.612 29.9464 37.7458 30.7791C37.974 31.6384 37.865 32.3697 37.4194 32.9584C36.3358 34.3902 33.6499 34.4104 31.3787 34.4104L31.2276 34.4104C28.6638 34.4095 26.5656 33.5511 24.8796 32.8613C24.0324 32.5146 22.9246 32.0855 22.0841 32.0713C21.7369 32.0655 21.4585 31.8049 21.4585 31.4855V21.0475C21.4585 20.8913 21.5266 20.7413 21.6474 20.6314C23.7507 18.7201 24.6551 16.6965 26.3791 15.1084C27.1651 14.3842 27.4509 13.2903 27.7273 12.2324C27.9634 11.329 28.4573 9.4104 29.5289 9.4104C30.8032 9.4104 33.3517 9.80103 33.3517 13.3875Z"
+                  fill="white"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_71_161641">
+                  <rect
+                    width="52.1942"
+                    height="48"
+                    fill="white"
+                    transform="translate(0.805664)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+            <p class="col-10">
+              التدريب والتعليم: نقدم التدريب والتعليم للمسوقين بالعمولة
+              لمساعدتهم على فهم كيفية الترويج لمنتجاتنا وخدماتنا بفعالية.
+            </p>
+          </div>
+          <div class="d-flex gap-2">
+            <svg
+              width="53"
+              height="48"
+              viewBox="0 0 53 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_71_161641)">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M24.4865 0.0556641C11.1819 0.0556641 0.396484 10.8433 0.396484 24.1478C0.396484 37.4524 11.1819 48.24 24.4865 48.24C28.9175 48.24 33.0691 47.0434 36.6359 44.9559L47.108 46.3587L46.1725 34.651C47.7127 31.4765 48.5765 27.913 48.5765 24.1478C48.5765 10.8433 37.791 0.0556641 24.4865 0.0556641Z"
+                  fill="#2CB7B3"
+                />
+                <path
+                  d="M18.4852 20.3479H14.2377C13.5339 20.3479 12.9634 20.8726 12.9634 21.5198V33.2385C12.9634 33.8857 13.5339 34.4104 14.2377 34.4104H18.4852C19.189 34.4104 19.7595 33.8857 19.7595 33.2385V21.5198C19.7595 20.8726 19.189 20.3479 18.4852 20.3479ZM16.3614 32.4573C15.6577 32.4573 15.0872 31.9326 15.0872 31.2854C15.0872 30.6382 15.6577 30.1135 16.3614 30.1135C17.0652 30.1135 17.6357 30.6382 17.6357 31.2854C17.6357 31.9326 17.0652 32.4573 16.3614 32.4573ZM33.3517 13.3875C33.3517 15.4586 31.9729 16.6204 31.5849 18.0042H36.9858C38.759 18.0042 40.1395 19.3589 40.1478 20.841C40.1523 21.7168 39.7471 22.6598 39.1157 23.2432L39.1098 23.2485C39.6321 24.388 39.5472 25.9847 38.6156 27.1289C39.0766 28.3933 38.612 29.9464 37.7458 30.7791C37.974 31.6384 37.865 32.3697 37.4194 32.9584C36.3358 34.3902 33.6499 34.4104 31.3787 34.4104L31.2276 34.4104C28.6638 34.4095 26.5656 33.5511 24.8796 32.8613C24.0324 32.5146 22.9246 32.0855 22.0841 32.0713C21.7369 32.0655 21.4585 31.8049 21.4585 31.4855V21.0475C21.4585 20.8913 21.5266 20.7413 21.6474 20.6314C23.7507 18.7201 24.6551 16.6965 26.3791 15.1084C27.1651 14.3842 27.4509 13.2903 27.7273 12.2324C27.9634 11.329 28.4573 9.4104 29.5289 9.4104C30.8032 9.4104 33.3517 9.80103 33.3517 13.3875Z"
+                  fill="white"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_71_161641">
+                  <rect
+                    width="52.1942"
+                    height="48"
+                    fill="white"
+                    transform="translate(0.805664)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+            <p class="col-10">
+              الأدوات والموارد: نقدم الأدوات والموارد للمسوقين بالعمولة
+              لمساعدتهم على إدارة حملاتهم التسويقية.
+            </p>
+          </div>
+          <div class="d-flex gap-2">
+            <svg
+              width="53"
+              height="48"
+              viewBox="0 0 53 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_71_161641)">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M24.4865 0.0556641C11.1819 0.0556641 0.396484 10.8433 0.396484 24.1478C0.396484 37.4524 11.1819 48.24 24.4865 48.24C28.9175 48.24 33.0691 47.0434 36.6359 44.9559L47.108 46.3587L46.1725 34.651C47.7127 31.4765 48.5765 27.913 48.5765 24.1478C48.5765 10.8433 37.791 0.0556641 24.4865 0.0556641Z"
+                  fill="#2CB7B3"
+                />
+                <path
+                  d="M18.4852 20.3479H14.2377C13.5339 20.3479 12.9634 20.8726 12.9634 21.5198V33.2385C12.9634 33.8857 13.5339 34.4104 14.2377 34.4104H18.4852C19.189 34.4104 19.7595 33.8857 19.7595 33.2385V21.5198C19.7595 20.8726 19.189 20.3479 18.4852 20.3479ZM16.3614 32.4573C15.6577 32.4573 15.0872 31.9326 15.0872 31.2854C15.0872 30.6382 15.6577 30.1135 16.3614 30.1135C17.0652 30.1135 17.6357 30.6382 17.6357 31.2854C17.6357 31.9326 17.0652 32.4573 16.3614 32.4573ZM33.3517 13.3875C33.3517 15.4586 31.9729 16.6204 31.5849 18.0042H36.9858C38.759 18.0042 40.1395 19.3589 40.1478 20.841C40.1523 21.7168 39.7471 22.6598 39.1157 23.2432L39.1098 23.2485C39.6321 24.388 39.5472 25.9847 38.6156 27.1289C39.0766 28.3933 38.612 29.9464 37.7458 30.7791C37.974 31.6384 37.865 32.3697 37.4194 32.9584C36.3358 34.3902 33.6499 34.4104 31.3787 34.4104L31.2276 34.4104C28.6638 34.4095 26.5656 33.5511 24.8796 32.8613C24.0324 32.5146 22.9246 32.0855 22.0841 32.0713C21.7369 32.0655 21.4585 31.8049 21.4585 31.4855V21.0475C21.4585 20.8913 21.5266 20.7413 21.6474 20.6314C23.7507 18.7201 24.6551 16.6965 26.3791 15.1084C27.1651 14.3842 27.4509 13.2903 27.7273 12.2324C27.9634 11.329 28.4573 9.4104 29.5289 9.4104C30.8032 9.4104 33.3517 9.80103 33.3517 13.3875Z"
+                  fill="white"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_71_161641">
+                  <rect
+                    width="52.1942"
+                    height="48"
+                    fill="white"
+                    transform="translate(0.805664)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+            <p class="col-10">
+              التواصل المستمر: نتواصل باستمرار مع المسوقين بالعمولة لتقديم الدعم
+              والإرشاد.
+            </p>
+          </div>
+          <div class="row justify-content-center">
+            <button
+              class="btn-custmer shadow mt-2"
+              style="width: 200px; border-radius: 20px"
+              @click="$router.push({ name: 'contact-us' })"
+            >
+              {{ $t("contact-us") }} الأن
+            </button>
+          </div>
+        </div>
+        <div class="col-6 position-relative p-5">
+          <img
+            class="img-fluid rounded-3"
+            src="../../../../../../public/assets/img/com-image.png"
+            alt=""
+          />
+          <img
+            style="top: 0; left: 0"
+            class="img-fluid rounded-3 position-absolute"
+            src="../../../../../../public/assets/img/Rectangle 6668.png"
+            alt=""
+          />
+        </div>
 
-                        </span>
-                        <h3 class="mt-2">
-
-                            نحن ندرك أن النجاح في التسويق بالعمولة يتطلب دعمًا مستمرًا. نقدم الدعم المستمر للمسوقين بالعمولة
-                            لمساعدتهم على تحقيق النجاح.
-
-                        </h3>
-                    </div>
-                    <div class="row gap-3 align-items-start">
-                        <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
-                        <p class="col-10">
-                            التدريب والتعليم: نقدم التدريب والتعليم للمسوقين بالعمولة لمساعدتهم على فهم كيفية الترويج
-                            لمنتجاتنا وخدماتنا بفعالية.
-                        </p>
-                    </div>
-                    <div class="row gap-3 align-items-start">
-                        <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
-                        <p class="col-10">
-                            الأدوات والموارد: نقدم الأدوات والموارد للمسوقين بالعمولة لمساعدتهم على إدارة حملاتهم التسويقية.
-                        </p>
-                    </div>
-                    <div class="row gap-3 align-items-start">
-                        <i style="color:var(--pc)" class="fas fa-check-circle mx-2"></i>
-                        <p class="col-10">
-                            التواصل المستمر: نتواصل باستمرار مع المسوقين بالعمولة لتقديم الدعم والإرشاد.
-                        </p>
-                    </div>
-                    <div class="row  justify-content-center">
-                        <button class="btn-custmer shadow mt-2" style="width: 200px; border-radius: 20px"
-                            @click="$router.push({ name: 'contact-us' })">{{ $t('contact-us') }} الأن</button>
-
-                    </div>
-                </div>
-                <div class="col-6 p-5">
-                    <img class="img-fluid rounded-3 " src="@/assets/img/new/affiliate-marketing/section.png" alt="">
-
-                </div>
-
-
-                <!-- <div class="col-3 justify-content-center image-part" style="background: #414042;
+        <!-- <div class="col-3 justify-content-center image-part" style="background: #414042;
                 padding: 20px 15px 0;
                 width: fit-content;
                 border-radius: 15px;
@@ -72,60 +172,58 @@
                     </span>
                     <img src="@/assets/af-icons/image1217.png" alt="">
                 </div> -->
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
 .image-part {
-    position: relative;
+  position: relative;
 }
 
 .image-part::after {
-    position: absolute;
-    content: "عملأونا المميزون";
-    width: 180px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    background: #fff;
-    padding: 10px;
-    bottom: -10px;
-    border-radius: 15px;
-    background-size: contain;
-    background-image: url('~@/assets/af-icons/image1218.png');
-    background-repeat: no-repeat;
-    left: 15px;
-    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  content: "عملأونا المميزون";
+  width: 180px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 10px;
+  bottom: -10px;
+  border-radius: 15px;
+  background-size: contain;
+  background-image: url("~@/assets/af-icons/image1218.png");
+  background-repeat: no-repeat;
+  left: 15px;
+  box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.2);
 }
 
-
-
 .image-part span {
-    position: absolute;
-    content: '';
-    width: 80px;
-    height: 50px;
-    background: #fff;
-    top: 50%;
-    right: 50%;
-    border-radius: 10px;
-    transform: translate(50%, -50%);
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 50px;
+  background: #fff;
+  top: 50%;
+  right: 50%;
+  border-radius: 10px;
+  transform: translate(50%, -50%);
 }
 
 .image-part span::after {
-    position: absolute;
-    content: '';
-    border: 10px solid #fff;
-    /* height: 40px; */
-    /* width: 40px; */
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    /* background: red; */
-    bottom: -10px;
-    right: 50%;
-    transform: translate(50%, 50%);
+  position: absolute;
+  content: "";
+  border: 10px solid #fff;
+  /* height: 40px; */
+  /* width: 40px; */
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  /* background: red; */
+  bottom: -10px;
+  right: 50%;
+  transform: translate(50%, 50%);
 }
 </style>

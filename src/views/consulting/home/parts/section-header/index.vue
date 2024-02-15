@@ -33,13 +33,47 @@
               >
             </template>
           </div>
+          <div class="my-4 d-flex flex-wrap">
+            <template v-if="user">
+              <router-link
+                style="background-color: #f2631c"
+                :to="getRouteLocale('consulting-fields')"
+                class="px-5 rounded-2 py-2 text-light mx-1 shadow mt-2"
+                >اطلب استشارة</router-link
+              >
+              <router-link
+                style="background-color: #1fb9b3"
+                :to="getRouteLocale('consulting-register')"
+                class="px-5 py-2 rounded-2 mx-1 text-white mt-2"
+                >انضم كمستشار</router-link
+              >
+            </template>
+          </div>
         </div>
         <div class="col-12 col-md-6" style="min-height: 414px" v-if="!isMobile">
-          <div class="">
+          <div class="position-relative">
             <img
-              class="rounded-4 img-omar img-fluid shadow"
-              src="../../../../../../public/assets/img/video-con.png"
+              class="img-omar img-fluid"
+              src="../../../../../../public/assets/img/consulting-img.png"
               alt="hero img"
+            />
+            <img
+              style="top: -24px; left: 83px"
+              class="position-absolute"
+              src="../../../../../../public/assets/img/Ellipse 615.png"
+              alt=""
+            />
+            <img
+              style="top: 69px; right: 15px"
+              class="position-absolute"
+              src="../../../../../../public/assets/img/Ellipse 616.png"
+              alt=""
+            />
+            <img
+              style="bottom: -8px; right: 150px"
+              class="position-absolute"
+              src="../../../../../../public/assets/img/Ellipse 614.png"
+              alt=""
             />
           </div>
         </div>

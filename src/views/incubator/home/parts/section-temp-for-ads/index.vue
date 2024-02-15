@@ -1,5 +1,7 @@
 <template>
-  <div class="container d-flex justify-content-center position-relative">
+  <div
+    class="container d-md-flex d-none justify-content-center position-relative"
+  >
     <img
       style="object-fit: contain; width: 100%"
       src="@/assets/img/new/academy/Group 19.png"
