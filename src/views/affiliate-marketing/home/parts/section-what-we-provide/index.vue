@@ -138,12 +138,12 @@
             src="../../../../../../public/assets/img/com-image.png"
             alt=""
           />
-          <img
-            style="top: 0; left: 0"
+          <!-- <img
+            style="top: 0; z-index: -2; left: 174px"
             class="img-fluid rounded-3 position-absolute"
             src="../../../../../../public/assets/img/Rectangle 6668.png"
             alt=""
-          />
+          /> -->
         </div>
 
         <!-- <div class="col-3 justify-content-center image-part" style="background: #414042;
