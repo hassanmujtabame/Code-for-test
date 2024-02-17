@@ -19,7 +19,7 @@
               }}
             </button>
           </li>
-          <li class="nav-item col-12 col-md-3">
+          <!-- <li class="nav-item col-12 col-md-3">
             <router-link
               to="my-proposals"
               class="nav-link border w-75 t-c m-auto"
@@ -32,7 +32,7 @@
               class="nav-link border w-75 t-c m-auto"
               >اعمالي قيد التنفيذ
             </router-link>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>

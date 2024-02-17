@@ -1,46 +1,182 @@
 <template>
-  <d-dialog-large :group="group" :xl="false" :openDialog="openDialog" :closeDialog="closeDialog">
+  <d-dialog-large
+    :group="group"
+    :xl="false"
+    :openDialog="openDialog"
+    :closeDialog="closeDialog"
+  >
     <template v-slot>
       <div class="text-center" v-if="showDialog">
         <div v-if="!hideImage">
-          <img :src="itemDialog.image" class="confirm-msg__image" alt="">
+          <svg
+            width="302"
+            height="242"
+            viewBox="0 0 302 242"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="302" height="242" fill="white" />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M76.1041 162.14H186.032C186.654 162.14 187.26 162.073 187.844 161.945C188.428 162.073 189.034 162.14 189.656 162.14H252.472C257.142 162.14 260.928 158.348 260.928 153.67C260.928 148.992 257.142 145.2 252.472 145.2H245.224C240.554 145.2 236.768 141.408 236.768 136.73C236.768 132.052 240.554 128.26 245.224 128.26H268.176C272.846 128.26 276.632 124.468 276.632 119.79C276.632 115.112 272.846 111.32 268.176 111.32H241.6C246.27 111.32 250.056 107.528 250.056 102.85C250.056 98.1721 246.27 94.3799 241.6 94.3799H164.288C168.958 94.3799 172.744 90.5878 172.744 85.9099C172.744 81.2321 168.958 77.4399 164.288 77.4399H95.4321C90.762 77.4399 86.9761 81.2321 86.9761 85.9099C86.9761 90.5878 90.762 94.3799 95.4321 94.3799H47.1121C42.442 94.3799 38.6561 98.1721 38.6561 102.85C38.6561 107.528 42.442 111.32 47.1121 111.32H77.3121C81.9823 111.32 85.7681 115.112 85.7681 119.79C85.7681 124.468 81.9823 128.26 77.3121 128.26H28.9921C24.322 128.26 20.5361 132.052 20.5361 136.73C20.5361 141.408 24.322 145.2 28.9921 145.2H76.1041C71.434 145.2 67.6481 148.992 67.6481 153.67C67.6481 158.348 71.434 162.14 76.1041 162.14ZM273.008 162.14C277.678 162.14 281.464 158.348 281.464 153.67C281.464 148.992 277.678 145.2 273.008 145.2C268.338 145.2 264.552 148.992 264.552 153.67C264.552 158.348 268.338 162.14 273.008 162.14Z"
+              fill="#E5F5F3"
+            />
+            <path
+              d="M208.379 54.45V61.71"
+              stroke="#46BCA8"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M208.379 71.3899V78.6499"
+              stroke="#46BCA8"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M196.3 66.5499H203.548"
+              stroke="#46BCA8"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M213.212 66.5499H220.46"
+              stroke="#46BCA8"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M108.116 179.08V183.92"
+              stroke="#46BCA8"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M108.116 193.6V198.44"
+              stroke="#46BCA8"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M98.4521 188.76H103.284"
+              stroke="#46BCA8"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M112.948 188.76H117.78"
+              stroke="#46BCA8"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M194.139 158.663C195.819 156.602 197.329 154.447 198.669 152.216C201.616 147.311 203.74 142.04 205.039 136.606C206.352 131.11 206.82 125.447 206.44 119.826C206.108 114.92 205.131 110.046 203.506 105.342C201.893 100.675 199.643 96.1756 196.753 91.9782C195.031 89.477 193.081 87.0832 190.904 84.8253C187.708 81.5104 184.202 78.6765 180.477 76.3252C176.475 73.7989 172.219 71.8297 167.823 70.42C162.317 68.6546 156.59 67.7665 150.862 67.76C146.405 67.755 141.948 68.2837 137.594 69.3481C132.692 70.5464 127.921 72.4237 123.429 74.9828C119.48 77.2324 115.747 80.0089 112.329 83.3141C108.034 87.4679 104.556 92.1502 101.896 97.1613C99.292 102.067 97.4731 107.289 96.4422 112.637C95.3801 118.148 95.1545 123.794 95.7686 129.37C96.5645 136.598 98.771 143.709 102.395 150.256C104.714 154.445 107.613 158.404 111.095 162.015C116.622 167.747 123.075 172.041 129.986 174.888C138.39 178.35 147.473 179.672 156.393 178.838C163.879 178.138 171.251 175.919 178.012 172.171"
+              fill="white"
+            />
+            <path
+              d="M194.139 158.663C195.819 156.602 197.329 154.447 198.669 152.216C201.616 147.311 203.74 142.04 205.039 136.606C206.352 131.11 206.82 125.447 206.44 119.826C206.108 114.92 205.131 110.046 203.506 105.342C201.893 100.675 199.643 96.1756 196.753 91.9782C195.031 89.477 193.081 87.0832 190.904 84.8253C187.708 81.5104 184.202 78.6765 180.477 76.3252C176.475 73.7989 172.219 71.8297 167.823 70.42C162.317 68.6546 156.59 67.7665 150.862 67.76C146.405 67.755 141.948 68.2837 137.594 69.3481C132.692 70.5464 127.921 72.4237 123.429 74.9828C119.48 77.2324 115.747 80.0089 112.329 83.3141C108.034 87.4679 104.556 92.1502 101.896 97.1613C99.292 102.067 97.4731 107.289 96.4422 112.637C95.3801 118.148 95.1545 123.794 95.7686 129.37C96.5645 136.598 98.771 143.709 102.395 150.256C104.714 154.445 107.613 158.404 111.095 162.015C116.622 167.747 123.075 172.041 129.986 174.888C138.39 178.35 147.473 179.672 156.393 178.838C163.879 178.138 171.251 175.919 178.012 172.171"
+              stroke="#1FB9B3"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M182.047 169.858C185.558 167.595 188.679 164.772 190.71 162.492L182.047 169.858Z"
+              fill="white"
+            />
+            <path
+              d="M182.047 169.858C185.558 167.595 188.679 164.772 190.71 162.492"
+              stroke="#1FB9B3"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M201.736 126.587C201.39 126.593 201.044 126.596 200.697 126.596C170.191 126.596 145.212 102.773 143.119 72.6C118.837 76.4364 100.264 97.5896 100.264 123.11C100.264 151.348 123.005 174.24 151.057 174.24C177.949 174.24 199.96 153.204 201.736 126.587Z"
+              fill="#ECF5F4"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M131.7 121.451C130.222 120.084 127.93 120.189 126.58 121.686C125.23 123.182 125.334 125.503 126.812 126.87L143.867 142.646C145.936 144.559 149.145 144.412 151.035 142.317C151.114 142.228 151.114 142.229 151.191 142.137L175.53 112.496C176.81 110.937 176.6 108.624 175.061 107.328C173.522 106.032 171.237 106.245 169.957 107.804L147.074 135.671L131.7 121.451Z"
+              fill="white"
+              stroke="#1FB9B3"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M133.875 77.9396C131.52 78.8249 129.218 79.9007 126.995 81.1673C123.541 83.1357 120.274 85.565 117.285 88.4569C116.059 89.6424 114.91 90.877 113.836 92.1548M110.514 96.6036C109.661 97.8957 108.875 99.2203 108.157 100.572C107.627 101.571 107.135 102.584 106.679 103.61"
+              fill="white"
+            />
+            <path
+              d="M134.314 79.1109C134.96 78.8682 135.287 78.147 135.045 77.5001C134.802 76.8532 134.083 76.5256 133.437 76.7683L134.314 79.1109ZM126.995 81.1673L127.613 82.2547L126.995 81.1673ZM117.285 88.4569L116.417 87.557L117.285 88.4569ZM112.88 91.3494C112.436 91.878 112.504 92.6672 113.032 93.1121C113.56 93.5569 114.347 93.489 114.792 92.9603L112.88 91.3494ZM111.556 97.294C111.936 96.7178 111.779 95.9416 111.203 95.5603C110.628 95.1791 109.853 95.3371 109.473 95.9133L111.556 97.294ZM108.157 100.572L109.26 101.159L108.157 100.572ZM105.538 103.102C105.258 103.733 105.541 104.473 106.172 104.753C106.802 105.034 107.54 104.75 107.82 104.119L105.538 103.102ZM133.437 76.7683C131.02 77.6766 128.659 78.7803 126.378 80.0799L127.613 82.2547C129.778 81.021 132.019 79.9732 134.314 79.1109L133.437 76.7683ZM126.378 80.0799C122.833 82.0996 119.483 84.5917 116.417 87.557L118.152 89.3568C121.066 86.5382 124.248 84.1717 127.613 82.2547L126.378 80.0799ZM116.417 87.557C115.161 88.7725 113.982 90.0386 112.88 91.3494L114.792 92.9603C115.838 91.7154 116.958 90.5123 118.152 89.3568L116.417 87.557ZM109.473 95.9133C108.597 97.2389 107.791 98.598 107.055 99.985L109.26 101.159C109.959 99.8426 110.724 98.5525 111.556 97.294L109.473 95.9133ZM107.055 99.985C106.511 101.009 106.005 102.049 105.538 103.102L107.82 104.119C108.264 103.119 108.744 102.132 109.26 101.159L107.055 99.985Z"
+              fill="#46BCA8"
+            />
+          </svg>
         </div>
         <div class="mt-2">
           <h4>
             {{ itemDialog.title }}
           </h4>
-          <p v-if="itemDialog.description" class="t-c fs-r-16-24" v-html="itemDialog.description">
-
-          </p>
+          <p
+            v-if="itemDialog.description"
+            class="t-c fs-r-16-24"
+            v-html="itemDialog.description"
+          ></p>
         </div>
         <div v-if="itemDialog.btns" :class="[itemDialog.groupBtns ?? '']">
           <div v-for="(btn, i) in itemDialog.btns" :key="i" class="mt-3">
-            <button @click="callAction(btn)" :disabled="btn.loading" style="height: 40px;min-width:165px"
-              :class="[btn.class ?? 'btn btn-custmer']">
-              <i v-if="btn.loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+            <button
+              @click="callAction(btn)"
+              :disabled="btn.loading"
+              style="height: 40px; min-width: 165px"
+              :class="[btn.class ?? 'btn btn-custmer']"
+            >
+              <i
+                v-if="btn.loading"
+                class="fa fa-spinner fa-spin"
+                aria-hidden="true"
+              ></i>
               {{ btn.title }}
             </button>
-
           </div>
         </div>
         <div v-else class="mt-3">
-          <button @click="closeEvent" style="height: 40px;" class="btn btn-custmer"> {{ $t('Home') }}</button>
+          <button
+            @click="closeEvent"
+            style="height: 40px"
+            class="btn btn-custmer"
+          >
+            {{ $t("Home") }}
+          </button>
         </div>
-
       </div>
     </template>
-
   </d-dialog-large>
 </template>
 
 <script>
 export default {
-  name: 'standard-confirm-message',
+  name: "standard-confirm-message",
   props: {
     group: {
       type: String,
-      default: 'standard-confirm-message'
-    }
+      default: "standard-confirm-message",
+    },
   },
   data: (vm) => {
     return {
@@ -49,54 +185,54 @@ export default {
         title: null,
         description: null,
         btns: null,
-        type: 'error',
-        image: `${vm.publicPath}assets/img/tick-square-2.png`
+        type: "error",
+        image: `${vm.publicPath}assets/img/tick-square-2.png`,
       },
       showDialog: false,
-    }
+    };
   },
 
   methods: {
     async callAction(btn) {
       if (btn.action) {
         btn.loading = true;
-        await btn.action()
+        await btn.action();
         btn.loading = false;
       }
-      this.closeEvent()
+      this.closeEvent();
     },
     openDialog(data) {
       if (data.btns) {
-        data.btns.forEach(btn => btn.loading = false)
+        data.btns.forEach((btn) => (btn.loading = false));
       }
       this.itemDialog = Object.assign({}, data);
-      if (!data.btns) this.itemDialog.btns = null
+      if (!data.btns) this.itemDialog.btns = null;
 
       if (!data.image)
         //else
         switch (this.itemDialog.type) {
-          case 'warning':
-            this.itemDialog.image = `${this.publicPath}assets/svg/warning-dialog.svg`
+          case "warning":
+            this.itemDialog.image = `${this.publicPath}assets/svg/warning-dialog.svg`;
             break;
           default:
-            this.itemDialog.image = `${this.publicPath}assets/img/tick-square-2.png`
+            this.itemDialog.image = `${this.publicPath}assets/img/tick-square-2.png`;
             break;
         }
-      this.hideImage = data.hideImage === true
-      this.showDialog = true
+      this.hideImage = data.hideImage === true;
+      this.showDialog = true;
       return true;
     },
     closeDialog() {
-      this.showDialog = false
+      this.showDialog = false;
       return true;
     },
     closeEvent() {
-      this.fireEvent(this.group + '-close-dialog')
-    }
-  }
-}
+      this.fireEvent(this.group + "-close-dialog");
+    },
+  },
+};
 </script>
-  
+
 <style>
 .confirm-msg__image {
   max-width: 90%;

@@ -176,6 +176,11 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  name: "section-what-we-provide",
+};
+</script>
 
 <style scoped>
 .image-part {
