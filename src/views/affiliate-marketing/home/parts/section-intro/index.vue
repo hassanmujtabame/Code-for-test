@@ -6,15 +6,15 @@
           <div class="bg-back position-relative">
             <img
               class="img-fluid"
-              src="../../../../../../public/assets/img/vector-com.png"
-              alt="about img"
+              src="@/assets/img/new/affiliate-marketing/Group 1171274848.png"
+              alt=""
             />
           </div>
         </div>
       </div>
       <div class="col-md-6 text">
         <h2 class="fw-bolder m-c">
-          <span style="color: #ffbc00"> سوقى بالعمولة </span>
+          <span> سوقى بالعمولة </span>
 
           من خلال رياديات
         </h2>

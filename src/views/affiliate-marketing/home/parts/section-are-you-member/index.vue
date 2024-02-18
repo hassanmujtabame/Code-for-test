@@ -1,6 +1,6 @@
 <template>
   <div
-    class="main-bg py-2 position-relative mt-5 container-fluid"
+    class="main-top py-2 position-relative mt-5 container-fluid"
     style="border-radius: 10px"
     :class="{ 'px-5': !isMobile, 'px-3': isMobile }"
   >
@@ -23,8 +23,7 @@
         </p>
         <router-link
           :to="getRouteLocale('service-provider-home')"
-          style="background-color: #1fb9b3"
-          class="border px-5 py-2 my-2 text-white svg-network"
+          class="btn border p-2 text-white bg-transpernt svg-network"
         >
           <svg
             height="24"

@@ -16,9 +16,9 @@
     <!-- <SectionDoubleWinings /> -->
     <SectionAreYouMember />
     <SectionRecognize />
-    <div class="my-5">
+    <!-- <div class="my-5">
       <SectionWinning />
-    </div>
+    </div> -->
     <SectionCommonQuistions />
     <!-- <SectionRecentCourses /> -->
     <SectionGraduated title=" المسوقين الاكثر ربحا " />

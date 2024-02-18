@@ -1,19 +1,12 @@
 <template>
-  <div
-    style="height: 450px"
-    class="bg-custom"
-    :class="[isMobile ? 'p-3' : 'p-5']"
-  >
+  <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
     <div class="netwok-home-header">
       <div class="row">
         <div class="col-12 col-md-6">
-          <h1
-            class="header-title-page position-relative text-light font-weight-bold"
-          >
+          <h1 class="header-title-page text-black" style="display: inline">
             التسويق بالعمولة
-            <span class="empty"></span>
           </h1>
-          <p style="color: #414042" class="header-desc-page mt-3">
+          <p class="header-desc-page text-black mt-3">
             كونى شريكة رياديات التسويقية من خلال برنامج التسويق بالعمولة وأكسبى
             مقابل كل عملية تسجيل
           </p>
@@ -61,18 +54,10 @@
                   <!-- <router-link class="text-white" :to="getRouteLocale('login-affiliate')">سجلى دخولك
                                             </router-link> -->
                   <button
-                    style="background-color: #1fb9b3"
-                    class="text-white border-0 px-5 py-2 shadow rounded-3"
+                    class="text-white border-0 bg-transparent"
                     @click="showModal"
                   >
                     سجلى دخولك
-                  </button>
-                  <button
-                    style="background-color: #fff"
-                    class="text-يشقن border-0 px-5 py-2 shadow rounded-3"
-                    @click="showModal"
-                  >
-                    انشاء حساب
                   </button>
                   <login-dialog
                     :profileData="profileData"
@@ -96,8 +81,8 @@
         <div class="col-12 col-md-6" style="min-height: 414px" v-if="!isMobile">
           <div style="height: 100%">
             <img
-              src="../../../../../../public/assets/img/hero-com.png"
-              class="rounded-4 img-omar img-fluid"
+              src="../../../../../../public/assets/img/Video-com.png"
+              class="rounded-4 img-omar img-fluid shadow"
               alt="hero img"
             />
           </div>

@@ -3,12 +3,7 @@
     <div class="">
       <div class="d-flex justify-content-between align-items-center">
         <h1>
-          المسوقين الاكثر
-          <span
-            class="h-1 font-weight-bold"
-            style="color: #1fb9b3; font-size: 62px"
-            >ربحا</span
-          >
+          {{ title }}
         </h1>
       </div>
       <DSwiper
