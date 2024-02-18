@@ -2,7 +2,7 @@
   <div style="background: #ffffff" class="p-5">
     <div class="container">
       <div class="row justify-content-between">
-        <div class="col-6">
+        <div class="col-md-6 col-12">
           <div class="row justify-content-center mb-4">
             <span style="color: #f2631c; font-size: 24px">
               اليك ما نقوم بتقديمه لك
@@ -43,7 +43,7 @@
             </button>
           </div>
         </div>
-        <div class="col-6 p-5">
+        <div class="col-md-6 col-12 p-5">
           <img
             class="img-fluid rounded-3"
             src="@/assets/img/new/affiliate-marketing/section.png"

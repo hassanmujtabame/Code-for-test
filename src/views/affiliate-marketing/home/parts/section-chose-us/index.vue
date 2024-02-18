@@ -8,10 +8,10 @@
       <h2 class="mt-2" style="color: #2eb9b3">كيف تبدأى الأن بكل بساطه</h2>
     </div>
     <div class="row">
-      <div class="col-3 text-center">
+      <div class="col-md-3 col-12 text-center">
         <div class="icon d-flex icon-4 justify-content-center">
           <div>
-            <img src="@/assets/af-icons/Coin/Filled.svg" alt="" />
+            <img class="" src="@/assets/af-icons/Coin/Filled.svg" alt="" />
           </div>
         </div>
         <div class="content row">
@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <div class="col-3 text-center">
+      <div class="col-md-3 col-12 text-center">
         <div class="icon d-flex icon-3 justify-content-center">
           <div>
             <img src="@/assets/af-icons/Calendar/Filled.svg" alt="" />
@@ -43,7 +43,7 @@
         </div>
       </div>
 
-      <div class="col-3 text-center">
+      <div class="col-md-3 col-12 text-center">
         <div class="icon d-flex icon-2 justify-content-center">
           <div>
             <img src="@/assets/af-icons/Clock/Filled.svg" alt="" />
@@ -60,7 +60,7 @@
         </div>
       </div>
 
-      <div class="col-3 text-center">
+      <div class="col-md-3 col-12 text-center">
         <div class="icon d-flex icon-1 justify-content-center">
           <div>
             <img src="@/assets/af-icons/User/filled.svg" alt="" />
