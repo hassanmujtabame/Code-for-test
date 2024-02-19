@@ -1,5 +1,5 @@
 <template>
-  <div class="box rounded-top mb-3">
+  <div class="box rounded-top mb-3 overflow-y-auto">
     <div class="parent">
       <div
         v-b-modal="`my-modal-${id}`"
@@ -34,13 +34,13 @@
       :to="getRouteLocale('service-provider-ready-service', { id: id })"
     >
       <div class="position-relative">
-        <img class="w-100 image1" :src="image" :alt="title" height="264px" />
-        <h6
+        <!-- <img class="w-100 image1" :src="image" :alt="title" height="264px" /> -->
+        <!-- <h6
           class="px-3 py-1 position-absolute"
           style="background-color: #1fb9b3; color: white; top: 17px; left: 17px"
         >
           جديد
-        </h6>
+        </h6> -->
       </div>
 
       <div class="p-3">

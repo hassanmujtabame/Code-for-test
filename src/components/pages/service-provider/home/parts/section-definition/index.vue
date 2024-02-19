@@ -2,7 +2,7 @@
   <div class="container mt-5">
     <div class="row align-items-center m-auto">
       <div style="color: #737373" class="col-md-7 col-12 text">
-        <h2 class="home-section-title m-c">مقدم خدمة ؟</h2>
+        <h2 class="home-section-title m-c">هل تريد طلب خدمة ؟</h2>
         <p class="home-section-text text-black">
           إذا كنت مقدم خدمة وتبحث عن فرصة للوصول إلى عملاء جدد وتنمية أعمالك،
           فإن منصة رياديات هي المكان المناسب لك.
