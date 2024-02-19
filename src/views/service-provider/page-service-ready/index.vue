@@ -41,7 +41,6 @@
               </h3>
             </div> -->
           </div>
-          <ActionCrud @suspend="suspend" :itemPage="itemPage" v-if="isOwner" />
 
           <!-- <button v-if="!isOwner" style="width: 145px;
           height: 50px;
@@ -97,27 +96,27 @@
             <!-- gallary-->
             <!-- <SectionGallary :item="itemPage" /> -->
             <!--rate service-->
-            <SectionRateService :item="itemPage" />
+            <div>
+              <div style="width: 100%">
+                <ActionCrud
+                  @suspend="suspend"
+                  :itemPage="itemPage"
+                  v-if="isOwner"
+                />
+              </div>
+
+              <SectionRateService :item="itemPage" />
+            </div>
           </div>
 
           <div class="col-lg-6 justify-content-center d-flex felx-column">
-            <div
+            <!-- <div
               v-if="isOwner"
               class="box rounded-3 p-2 mb-4 mt-3 text-center"
               style="background: #2eb9b3"
             >
-              <router-link
-                style="width: 100%; display: block; color: #fff"
-                :to="
-                  getRouteLocale(
-                    'service-provider-purchase-requests-one-service',
-                    { id: itemPage.id }
-                  )
-                "
-                class="fs-3"
-                >طلبات شراء هذه الخدمة</router-link
-              >
-            </div>
+           
+            </div> -->
 
             <div
               style="object-fit: contain; width: auto; display: inline-block"
@@ -131,6 +130,24 @@
                     :src="itemPage.image"
                     alt=""
                   />
+                  <div
+                    v-if="isOwner"
+                    class="text-center my-4"
+                    style="background-color: #1fb9b3"
+                  >
+                    <router-link
+                      style="width: 100%; display: block; color: #fff"
+                      :to="
+                        getRouteLocale(
+                          'service-provider-purchase-requests-one-service',
+                          { id: itemPage.id }
+                        )
+                      "
+                      class="fs-3 px-5 py-2"
+                    >
+                      متابعه طلبات الخدمه
+                    </router-link>
+                  </div>
                 </div>
 
                 <ActionForVisiter v-if="!isOwner" :itemPage="itemPage" />

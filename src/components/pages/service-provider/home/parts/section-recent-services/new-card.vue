@@ -3,7 +3,10 @@
     style="color: inherit"
     :to="getRouteLocale('service-provider-ready-service', { id: id })"
   >
-    <div class="card-container mx-1 d-flex flex-column">
+    <div
+      style="height: 300px"
+      class="card-container mx-1 d-flex flex-column overflow-y-auto"
+    >
       <div>
         <h4 class="card-title h-6 m-3">
           {{ title }}

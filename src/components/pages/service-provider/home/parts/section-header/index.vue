@@ -29,14 +29,16 @@
           <div class="my-5">
             <template v-if="user">
               <router-link
-                :to="getRouteLocale('register')"
-                class="btn-custmer shadow mx-2"
-                >عرض عمل</router-link
+                style="background-color: #1fb9b3"
+                :to="getRouteLocale('service-provider-providers')"
+                class="btn py-2 px-5 fw-bold text-light sahdow mx-1"
+                >طلب خدمه</router-link
               >
               <router-link
-                :to="getRouteLocale('login')"
-                class="btn-custmer-w bg-transparent text-white mt-2"
-                >قدم خدمة</router-link
+                style="background-color: #f2631c"
+                :to="getRouteLocale('service-provider-proposals')"
+                class="btn py-2 px-5 text-light fw-bold sahdow mx-1 text-white"
+                >تقديم خدمة</router-link
               >
             </template>
           </div>

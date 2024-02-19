@@ -338,6 +338,7 @@
 import showProposal from "@/components/cards/proposal.vue";
 
 import SectionUserInfo from "./parts/section-user-info/index.vue";
+import SuccessSendOffer from "./parts/section-user-info/success-send-offer.vue";
 import SectionContinueLearning from "@/views/service-provider/common-components/section-continue-learning/index.vue";
 import SectionHear from "@/views/service-provider/common-components/section-hear/index.vue";
 import abuseCommentDialog from "./dialogs/abuse-comment.vue";
@@ -369,6 +370,7 @@ export default {
     thunderIcon,
     emptyWalletIcon,
     showProposal,
+    SuccessSendOffer,
   },
   data: (vm) => ({
     itemForm: {
