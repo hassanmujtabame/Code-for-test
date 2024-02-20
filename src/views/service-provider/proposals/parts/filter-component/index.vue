@@ -1,6 +1,6 @@
 <template>
   <div class="filter-list">
-    <div class="text-start ">
+    <div class="text-start">
       <slot name="top-end"></slot>
     </div>
     <div v-if="!hideTop" class="row align-items-center">
@@ -18,9 +18,15 @@
         </slot>
       </div>
       <div class="col-12 mt-3 row mb-3" :class="classSearchOrder">
-            <div v-if="showBtnSearch" class="mt-3 text-center" :class="classBtnSearch">
-      <button @click="updateFilter" class="btn-custmer">{{$t('search')}}</button>
-    </div>
+        <div
+          v-if="showBtnSearch"
+          class="mt-3 text-center"
+          :class="classBtnSearch"
+        >
+          <button @click="updateFilter" class="btn-custmer">
+            {{ $t("search") }}
+          </button>
+        </div>
         <div v-if="!hideSearch" :class="classColSearch">
           <slot name="search">
             <label for="" class="position-relative w-100">
@@ -52,7 +58,11 @@
             </label>
           </slot>
         </div>
-        <div v-if="!hideOrder" :class="classColOrder" class="position-relative margin">
+        <div
+          v-if="!hideOrder"
+          :class="classColOrder"
+          class="position-relative margin"
+        >
           <slot name="order">
             <select
               @change="updateFilter"
@@ -72,7 +82,6 @@
             </p>
           </slot>
         </div>
-     
       </div>
       <!--ordzer-->
       <div
@@ -314,14 +323,19 @@
           </div>
         </slot>
       </div>
-      <div :class="{ 'col-xl-9': !hideSide, 'col-lg-12': hideSide, 'col-xl-12': newFilter } "  >
+      <div
+        :class="{
+          'col-xl-9': !hideSide,
+          'col-lg-12': hideSide,
+          'col-xl-12': newFilter,
+        }"
+      >
         <div class="row">
-          
           <div v-if="items.length == 0">
             <!-- <h1 class="t-c text-center">لا يوجد عناصر</h1> -->
           </div>
           <div v-else class="col-12 row order filter-list-items">
-            <div v-for="(item, i) in items" :key="i" :class="classColCard" >
+            <div v-for="(item, i) in items" :key="i" :class="classColCard">
               <slot :item="item"></slot>
             </div>
           </div>
@@ -329,7 +343,7 @@
             <slot name="list" :items="items"></slot>
           </div>
         </div>
-      </div> 
+      </div>
       <div class="mt-5">
         <nav
           v-if="metaInfo.total_page > 0"
@@ -436,7 +450,7 @@ export default {
     },
     classColCard: {
       type: String,
-      default: "col-12 col-lg-6 mt-2",
+      default: "col-12 col-lg-4 mt-2",
     },
     classColSearch: {
       type: String,
@@ -454,7 +468,7 @@ export default {
       type: String,
       default: "col-lg-6",
     },
-    classSideBar:{
+    classSideBar: {
       type: String,
       default: "col-xl-3",
     },
@@ -462,15 +476,15 @@ export default {
       type: String,
       default: "col-12 col-lg-6",
     },
-    classBtnSearch:{
-     type: String,
+    classBtnSearch: {
+      type: String,
       default: "col-12 col-md-2",
     },
     hideTotal: {
       type: Boolean,
       default: false,
     },
-    showBtnSearch:{
+    showBtnSearch: {
       type: Boolean,
       default: false,
     },
@@ -490,8 +504,8 @@ export default {
       type: Boolean,
       default: false,
     },
-    newFilter:{
-       type: Boolean,
+    newFilter: {
+      type: Boolean,
       default: false,
     },
     hideTop: {
@@ -616,11 +630,10 @@ export default {
 };
 </script>
 
-
 <style scoped>
 @media (max-width: 991px) {
-    .margin{
-      margin-top: 15px !important;
-    }
+  .margin {
+    margin-top: 15px !important;
   }
+}
 </style>
