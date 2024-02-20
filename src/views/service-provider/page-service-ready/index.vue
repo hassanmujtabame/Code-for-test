@@ -4,15 +4,15 @@
     <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
     <div v-else class="container pb-3">
       <div class="row justify-content-between">
-        <div
+        <!-- <div
           style="
             background: linear-gradient(to right, #1e817d, #1fb9b3);
             height: 40vh;
           "
           class="col-12"
         >
-          <!-- Content goes here -->
-        </div>
+          Content goes here
+        </div> -->
 
         <div class="row justify-content-between my-5">
           <div class="col-md-6">
