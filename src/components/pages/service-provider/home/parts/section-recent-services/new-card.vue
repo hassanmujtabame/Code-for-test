@@ -93,7 +93,7 @@
 
 .card-container {
   border-radius: 16px;
-  background: rgba(31, 185, 179, 0.2);
+  /* background: rgba(31, 185, 179, 0.2); */
   padding: 10px;
   min-height: 300px;
 }
@@ -140,6 +140,9 @@ export default {
     created_at: {
       type: [String, Number],
     },
+    index: {
+      type: [String, Number],
+    },
   },
   data: () => {
     return {
@@ -149,6 +152,22 @@ export default {
       },
       shareLink: "",
     };
+  },
+  methods: {
+    calculateBackgroundColor(index) {
+      // Define an array of colors
+      const colors = [
+        "#FDC0AE",
+        "#AEC5FD",
+        "#A7FDC0",
+        "#FDD6AE",
+        "#AED0FD",
+        "#FDC0D7",
+      ];
+
+      // Return the color based on the index
+      return colors[index % colors.length];
+    },
   },
   mounted() {
     this.shareLink = window.location.href + "/" + this.id;

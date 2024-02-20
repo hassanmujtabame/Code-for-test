@@ -32,7 +32,7 @@
         </router-link>
       </div>
     </div>
-    <div class="row gx-2 mt-3">
+    <div class="row mt-3 gx-5">
       <div class="col-md-3 col-12">
         <analytics></analytics>
       </div>
@@ -42,7 +42,7 @@
             class="router-link"
             :to="getRouteLocale('service-provider-ready-service', { id: item.id })"
           > -->
-      <d-swiper
+      <!-- <d-swiper
         v-if="!loading"
         class="col-md-9 col-12"
         is-auto
@@ -50,7 +50,7 @@
           0: { slidesPerView: 1 },
           576: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
-          992: { slidesPerView: 4 },
+          992: { slidesPerView: 3 }, // Adjusted for large screens
         }"
         :space-between="1"
         :items="items"
@@ -70,7 +70,59 @@
             :created_at="item.created_at"
           />
         </template>
-      </d-swiper>
+      </d-swiper> -->
+      <div class="col-md-9 col-12">
+        <div class="row">
+          <div
+            v-for="(item, i) in items.filter((item, index) => index % 2 === 0)"
+            :key="i"
+            class="col-md-4 col-12 mb-3"
+          >
+            <div
+              class="rounded-3"
+              :style="{ backgroundColor: calculateBackgroundColor(i) }"
+            >
+              <CardService
+                :keywords="item.keywords"
+                :index="i"
+                :state="item.state"
+                :image="item.image"
+                :description="item.desc"
+                :title="item.title"
+                :place="item.city"
+                :price="item.price"
+                :name="item.user_info"
+                :id="item.id"
+                :created_at="item.created_at"
+              />
+            </div>
+          </div>
+          <div
+            v-for="(item, i) in items.filter((item, index) => index % 2 !== 0)"
+            :key="i"
+            class="col-md-4 col-12 mb-3"
+          >
+            <div
+              class="rounded-3"
+              :style="{ backgroundColor: calculateBackgroundColor(i) }"
+            >
+              <CardService
+                :keywords="item.keywords"
+                :index="i"
+                :state="item.state"
+                :image="item.image"
+                :description="item.desc"
+                :title="item.title"
+                :place="item.city"
+                :price="item.price"
+                :name="item.user_info"
+                :id="item.id"
+                :created_at="item.created_at"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- </router-link> -->
       <!-- </div> -->
@@ -105,6 +157,20 @@ export default {
         console.log("error response", error.response);
       }
       this.loading = false;
+    },
+    calculateBackgroundColor(index) {
+      // Define an array of colors
+      const colors = [
+        "rgba(31, 185, 179, 0.24)",
+        "rgba(242, 99, 28, 0.24)",
+        "#A7FDC0",
+        "#FDD6AE",
+        "#AED0FD",
+        "#FDC0D7",
+      ];
+
+      // Return the color based on the index
+      return colors[index % colors.length];
     },
   },
   mounted() {
