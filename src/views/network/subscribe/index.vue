@@ -50,7 +50,7 @@
         backButtonText="السابق"
         finishButtonText="الدفع و التأكيد "
       >
-        <tab-content class="" :before-change="beforeChange" title=" الباقه ">
+        <tab-content :before-change="beforeChange" title=" الباقه ">
           <div v-for="(pack, p) in packages" :key="p" class="mt-2">
             <SectionCompany
               class="mb-4"
