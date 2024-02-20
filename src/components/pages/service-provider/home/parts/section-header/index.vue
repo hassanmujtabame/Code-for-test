@@ -26,18 +26,18 @@
               >
             </template>
           </div>
-          <div class="my-5">
+          <div class="my-5 d-flex">
             <template v-if="user">
               <router-link
                 style="background-color: #1fb9b3"
                 :to="getRouteLocale('service-provider-providers')"
-                class="btn py-2 px-5 fw-bold text-light sahdow mx-1"
+                class="btn py-md-2 px-md-5 py-2 px-4 fw-bold text-light sahdow mx-1"
                 >طلب خدمه</router-link
               >
               <router-link
                 style="background-color: #f2631c"
                 :to="getRouteLocale('service-provider-proposals')"
-                class="btn py-2 px-5 text-light fw-bold sahdow mx-1 text-white"
+                class="btn py-md-2 px-md-5 px-4 py-2 text-light fw-bold sahdow mx-1 text-white"
                 >تقديم خدمة</router-link
               >
             </template>
