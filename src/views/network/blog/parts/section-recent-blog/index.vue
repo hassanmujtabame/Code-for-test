@@ -54,7 +54,8 @@
 
 <script>
 import BlogsAPI from "@/services/api/blogs.js";
-import BlogInfoCard from "@/components/cards/blog-info.vue";
+// import BlogInfoCard from "@/components/cards/blog-info.vue";
+import BlogInfoCard from "@/components/cards/blog-info-recent.vue";
 export default {
   name: "recent-blogs",
   components: {
