@@ -331,7 +331,12 @@
             <!-- <h1 class="t-c text-center">لا يوجد عناصر</h1> -->
           </div>
           <div v-else class="col-12 row order filter-list-items">
-            <div v-for="(item, i) in items" :key="i" :class="classColCard">
+            <div
+              class="col-12 col-lg-3"
+              v-for="(item, i) in items"
+              :key="i"
+              :class="classColCard"
+            >
               <slot :item="item"></slot>
             </div>
           </div>
