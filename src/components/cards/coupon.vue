@@ -1,7 +1,7 @@
 <template>
   <div
     @click="getDetailCoupon"
-    class="border rounded-3 coupon-card cursor-pointer position-relative d-flex flex-column"
+    class="border rounded-3 coupon-card cursor position-relative d-flex flex-column"
   >
     <!-- <div class="d-flex justify-content-end p-3" style="height: 75px">
       <p
@@ -153,14 +153,14 @@ export default {
   line-height: 17px;
 }
 
-. d-flex justify-content-between align-items-center {
+/* . d-flex justify-content-between align-items-center {
   font-weight: 400;
   font-size: 12px;
   line-height: 17px;
   color: #979797;
   width: fit-content;
   text-align: justify;
-}
+} */
 
 .overlay-alert {
   display: none;
@@ -218,5 +218,8 @@ export default {
   border-bottom-left-radius: 7px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
+}
+.cursor {
+  cursor: pointer;
 }
 </style>
