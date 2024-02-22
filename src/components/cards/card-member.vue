@@ -1,25 +1,36 @@
 <template>
-  <div class="provider-card" >
+  <div class="provider-card">
     <div class="provider-card__wrapper">
       <div class="provider-card__image mb-4">
-        <router-link v-if="to" :to="to"> 
-          <img :src="img" alt  />
+        <router-link v-if="to" :to="to">
+          <img :src="img" alt />
         </router-link>
-        <img v-else @click="$emit('click-image')" :src="img"
-         alt  />
+        <img v-else @click="$emit('click-image')" :src="img" alt />
       </div>
-      <div class="provider-card__content" :class="{ 'h-job': showJob}"  style=" display: flex; flex-direction: column; justify-content: space-between;">
+      <div
+        class="provider-card__content"
+        :class="{ 'h-job': showJob }"
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        "
+      >
         <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
-        <p class="provider-card__description t-c">{{description}} </p>
-        <div v-if="countCourse" class="provider-card__description t-c d-flex align-items-center pb-2">
-          
-          <img :src="`${publicPath}assets/svg/MyIcon.svg`"  /> 
-          <span >{{countCourse}}  دورة تدريبية </span>
-          </div>
-            <div v-if="!countCourse" class="provider-card__description t-c d-flex align-items-center pb-2">
-          
-       
-          </div>
+        <p style="color: #1fb9b3" class="provider-card__description t-c">
+          {{ description }}
+        </p>
+        <div
+          v-if="countCourse"
+          class="provider-card__description t-c d-flex align-items-center pb-2"
+        >
+          <img :src="`${publicPath}assets/svg/MyIcon.svg`" />
+          <span>{{ countCourse }} دورة تدريبية </span>
+        </div>
+        <div
+          v-if="!countCourse"
+          class="provider-card__description t-c d-flex align-items-center pb-2"
+        ></div>
         <div v-if="showRate">
           <RateStars :value="rate" :size="12" />
         </div>
@@ -33,48 +44,46 @@ import RateStars from "../rate-stars/index";
 export default {
   name: "card-parson",
   components: {
-    RateStars
+    RateStars,
   },
   props: {
     showRate: {
       type: Boolean,
-      default: false
+      default: false,
     },
-      showJob: {
+    showJob: {
       type: Boolean,
-      default: false
+      default: false,
     },
     img: {
-      type: String
+      type: String,
     },
     name: {
-      type: String
+      type: String,
     },
     to: {
       type: [Object, Array],
-      default: null
+      default: null,
     },
     description: {
-      type: String
+      type: String,
     },
-    countCourse:{
+    countCourse: {
       type: [String, Number],
     },
     rate: {
       type: [String, Number],
-      default: 0
-    }
-  }
+      default: 0,
+    },
+  },
 };
 </script>
 
 <style scoped>
-
 .provider-card {
   --raduis-provider: 11px;
   padding: 5px;
   width: 100%;
-
 }
 
 .provider-card__wrapper {
@@ -86,8 +95,7 @@ export default {
   border-radius: 11px;
   /*border:0.5px solid #f2f2f2;*/
   border: 1px solid #cdd7d8;
-      background: white;
-
+  background: white;
 }
 
 .provider-card__wrapper:hover {
@@ -96,9 +104,9 @@ export default {
 
 .provider-card__image {
   /*border-radius: 100%;*/
-    width: 100%;
-    height: 100%;
-    margin: auto;
+  width: 100%;
+  height: 100%;
+  margin: auto;
   overflow: hidden;
 }
 
@@ -154,14 +162,14 @@ export default {
   font-size: 20px;
   line-height: 24px;
   /* identical to box height, or 120% */
-height: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
   text-transform: capitalize;
 }
-.h-job{
+.h-job {
   height: 115px;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
   <div
     class="container-fluid my-5 py-5"
-    style="position: relative; overflow: hidden; background-color: var(--pc)"
+    style="position: relative; overflow: hidden"
   >
-    <div class="circle-features" style="top: 32px; left: 15.8%"></div>
+    <!-- <div class="circle-features" style="top: 32px; left: 15.8%"></div>
     <div
       class="circle-features"
       style="bottom: 30px; left: -10px; width: 16rem; height: 16rem"
-    ></div>
+    ></div> -->
     <div
       class="circle-features"
       style="
@@ -15,7 +15,7 @@
         right: -30px;
         width: 18rem;
         height: 18rem;
-        background-color: #7b7777 !important;
+        background-color: #e16e1a !important;
       "
     ></div>
 
@@ -73,9 +73,11 @@
 <style>
 #swiper-custom .swiper-button-next,
 #swiper-custom .swiper-button-prev {
-  color: #fff !important;
+  color: black !important;
   border-color: #fff !important;
+  background: white;
   border-radius: 50% !important;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1); /* Adjust values as needed */
 }
 
 .circle-features {
