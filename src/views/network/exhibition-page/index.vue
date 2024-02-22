@@ -51,13 +51,13 @@
                 {{ $t("delete") }}
               </button>
             </template>
-            <button
+            <!-- <button
               @click="openDemandParticipateDialog"
               v-else
               class="btn-main"
             >
               شارك في المعرض
-            </button>
+            </button> -->
           </div>
         </div>
         <div class="col-12">
@@ -74,7 +74,7 @@
             v-html="itemPage.content"
           ></p>
           <div>
-            <button
+            <!-- <button
               v-if="isOwner"
               @click="
                 router_push('network-exhibition-requests', { id: itemPage.id })
@@ -82,15 +82,15 @@
               class="btn btn-show-exhibition-req"
             >
               قائمة طلبات المشاركة في المعرض
-            </button>
+            </button> -->
           </div>
-          <div class="rounded-3 border mt-4 p-4">
+          <!-- <div class="rounded-3 border mt-4 p-4">
             <h4 class="border-bottom">شارك المعرض</h4>
             <div
               class="d-flex gap-4 justify-content-center p-4 icon-social-exibition"
             >
-              <!--facebook-->
-              <!-- <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"  data-show-count="false">Tweet</a> -->
+               facebook
+               <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"  data-show-count="false">Tweet</a> 
 
               <img
                 class="h-100"
@@ -113,25 +113,25 @@
                 alt=""
               />
 
-              <!-- <span v-if="false"> <i  class="fab fa-instagram" ></i></span> -->
+              <span v-if="false"> <i  class="fab fa-instagram" ></i></span>
 
-              <!-- <span v-if="false"> <i  class="fab fa-linkedin-in" ></i></span> -->
+              <span v-if="false"> <i  class="fab fa-linkedin-in" ></i></span>
               <div
                 class="fb-share-button"
                 :data-href="currentUrl"
                 data-layout="button_count"
               ></div>
             </div>
-          </div>
+          </div> -->
         </div>
-        <div class="col-12 col-md-4">
+        <div style="margin-top: -139px" class="col-12 col-md-4">
           <d-user-info-li
             v-if="!isOwner"
             sizeImage="100"
             :member="itemPage.user_info"
           />
           <!--details-exhibition-->
-          <detailsExhibitionSection :itemPage="itemPage" />
+          <detailsExhibitionSection :isOwner="isOwner" :itemPage="itemPage" />
         </div>
       </div>
     </div>
