@@ -332,7 +332,7 @@
           </div>
           <div v-else class="col-12 row order filter-list-items">
             <div
-              class="col-12 col-lg-3"
+              class="col-12 col-lg-4"
               v-for="(item, i) in items"
               :key="i"
               :class="classColCard"

@@ -6,13 +6,14 @@
           <div class="col-md-6">
             <h1 class="fs-1 text-white">المدونة</h1>
             <p class="text-white">
-              كابشن بسيط عن اللقاءات واهميتها في سطرين ببساطة كابشن بسيط عن
-              اللقاءات واهميتها في سطرين ببساطة
+              اللقاءات تجسّد فرصة للتواصل وتبادل الأفكار، حيث تعزز التفاعل
+              الاجتماعي وتعمّق العلاقات الإنسانية ببساطة.
             </p>
             <div>
               <button
                 @click="addBlog"
-                class="btn bg px-5 py-2 border text-white"
+                style="display: inline-flex"
+                class="btn bg px-5 py-2 border align-items-center gap-2 text-white"
               >
                 <svg
                   width="32"
