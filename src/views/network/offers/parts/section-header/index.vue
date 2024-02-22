@@ -11,23 +11,25 @@
             الالكترونية او من خلال بطاقة عضوية رياديات
           </p>
           <div class="mt-4">
-            <button
-              @click="addOffer"
-              class="px-3 mx-1 btn-custmer shadow"
+            <router-link
+              :to="getRouteLocale('network-card-membership')"
+              class="px-4 text-light py-2 mx-1 btn shadow"
               style="
                 background-color: #ff5722 !important;
                 border: none !important;
+                color: white;
               "
             >
               <!-- <plusRectRoundIcon class="mx-1" /> -->
               تعرف على بطاقه رياديات
-            </button>
+            </router-link>
             <button
               @click="addOffer"
-              class="px-3 mx-1 btn-custmer shadow"
+              class="px-5 py-2 text-light mx-1 btn shadow"
               style="
                 background-color: #1fb9b3 !important;
                 border: none !important;
+                color: white;
               "
             >
               <!-- <plusRectRoundIcon class="mx-1" /> -->
