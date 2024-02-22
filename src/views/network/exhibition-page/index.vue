@@ -38,14 +38,14 @@
             <template v-if="isOwner">
               <button
                 @click="openEditDialog"
-                class="btn bg-main border-0 text-white p-2 mx-1"
+                class="btn bg-main border-0 text-white px-4 py-2 mx-2"
               >
                 <img :src="`${publicPath}assets/svg/update.svg`" />
                 {{ $t("modification") }}
               </button>
               <button
                 @click="openDeleteDialog"
-                class="btn bg-danger border-0 text-white p-2"
+                class="btn bg-danger border-0 text-white mx-2 px-4 py-2"
               >
                 <img :src="`${publicPath}assets/svg/trash-outline.svg`" />
                 {{ $t("delete") }}
@@ -69,10 +69,7 @@
           </p>
         </div>
         <div class="col-12 col-md-8">
-          <p
-            class="pargrapg content-word-break mt-3"
-            v-html="itemPage.content"
-          ></p>
+          <p style="color: #888" class="" v-html="itemPage.content"></p>
           <div>
             <!-- <button
               v-if="isOwner"
