@@ -9,6 +9,9 @@
     <SectionFeatures />
 
     <SectionCategory class="my-3" />
+    <div class="my-2">
+      <SectionRegister />
+    </div>
 
     <!-- <SectionCamp /> -->
 
@@ -29,7 +32,6 @@
     <!-- <SectionThree v-if="!isMobile" /> -->
     <!-- #section 3-->
     <!-- section 4-->
-    <SectionMembership />
 
     <!--schedule network-->
     <!-- <div>
@@ -42,9 +44,11 @@
     <SectionTopMember />
 
     <!-- Educational meeting -->
+    <SectionMembership />
     <!-- <SectionEducationalMeeting /> -->
 
     <!--investment projects-->
+
     <SectionInvestementProject v-if="user.id == 11" />
     <!--exhibitions-->
     <SectionExhibitions />
@@ -171,6 +175,7 @@ import SectionFeatures from "./parts/section-features/index.vue";
 import SectionSubscribe from "./parts/section-subscribe/index.vue";
 import SectionCategory from "./parts/section-category/index.vue";
 import SectionCamp from "./parts/section-camp-riadiat/index.vue";
+import SectionRegister from "@/components/network-register.vue";
 
 // import SectionPartner from "./parts/section-partners/index.vue";
 import SectionPartner from "./parts/section-our-partners/index.vue";
@@ -188,6 +193,7 @@ export default {
     SectionSubscribe,
     SectionFeatures,
     SectionWorkspace,
+    SectionRegister,
     SectionPartner,
     SectionBlogs,
     SectionNumbers,
