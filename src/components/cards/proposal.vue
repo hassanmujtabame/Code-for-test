@@ -215,8 +215,8 @@
         </div>
       </b-modal> -->
     </div>
-    <div
-      class="box p-3 d-none rounded-3 proposal-card overflow-y-auto"
+    <!-- <div
+      class="box p-3  rounded-3 proposal-card overflow-y-auto"
       style="
         box-shadow: 5px 10px 18px #888888;
         margin-bottom: 20px;
@@ -284,15 +284,15 @@
                 v-html="description"
               ></p>
               <div class="d-flex gap-2">
-                <!-- style="flex-wrap: wrap;" -->
+                style="flex-wrap: wrap;"
                 <p class="t-c fs-r-12 mb-0">
-                  <!--timer-->
+                  timer
                   <TimerIcon />
                   <template
                     >{{ $t("ends-yet") }} {{ executionTime }}
                     {{ $t("day_s") }}</template
                   >
-                  <!--<template v-else>{{ $t('timeover') }}</template>-->
+                  <template v-else>{{ $t('timeover') }}</template>
                 </p>
                 <p class="t-c fs-r-12 mb-0">
                   <emptyWalletIcon :size="24" color="#979797" />
@@ -319,7 +319,7 @@
               height="35px"
             />
 
-            <!-- <img :src="`${publicPath}assets/img/Ellipse 603 (1).svg`" style="" /> -->
+            <img :src="`${publicPath}assets/img/Ellipse 603 (1).svg`" style="" />
             <div v-if="user_info">
               <span class="t-c">{{ user_info.name }}</span>
 
@@ -350,7 +350,7 @@
           </div>
         </div>
       </div>
-      <!-- The modal -->
+      The modal
       <b-modal :id="`my-modal-${id}`" :hide-header="true" :hide-footer="true">
         <h5 style="color: #ebae05" class="py-3">
           شارك {{ title ?? "N/A" }} على مواقع التواصل الاجتماعي
@@ -412,7 +412,7 @@
           ></div>
         </div>
       </b-modal>
-    </div>
+    </div> -->
   </div>
 </template>
 
