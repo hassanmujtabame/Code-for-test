@@ -14,9 +14,9 @@
           type="button"
         >
           {{ btn.name }}
-          <div>
+          <!-- <div>
             <img class="" :src="btn.image_path" alt="" />
-          </div>
+          </div> -->
         </button>
       </li>
     </ul>
