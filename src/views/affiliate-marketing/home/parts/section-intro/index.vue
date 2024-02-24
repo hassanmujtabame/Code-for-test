@@ -7,7 +7,7 @@
             <img
               class="img-fluid"
               src="@/assets/img/new/affiliate-marketing/Group 1171274848.png"
-              alt=""
+              alt="about image"
             />
           </div>
         </div>
