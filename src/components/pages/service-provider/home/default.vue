@@ -9,6 +9,9 @@
     <!-- <SectionHeader /> -->
     <!-- section defition-->
     <SectionDefinition />
+    <div class="container my-5">
+      <SectionProvideService />
+    </div>
     <!-- section for the filter data -->
     <div>
       <SectionFliterData />
@@ -75,6 +78,7 @@ import FeaturesService from "./parts/features-service-provider/index.vue";
 
 import SectionRecentServices from "./parts/section-recent-services/index.vue";
 import SectionContinueLearning from "@/views/service-provider/common-components/section-continue-learning/index.vue";
+import SectionProvideService from "@/components/serviceProvider.vue";
 // import SectionHear from "@/views/service-provider/common-components/section-hear/index.vue";
 // import SectionHowOfferService from "./parts/section-how-offer-service/index.vue";
 import SectionHowOfferService from "./parts/section-how-offer-service-new/index.vue";
@@ -87,6 +91,7 @@ export default {
     // SectionAuthHeader,
     SectionSeekJob,
     SectionQuistion,
+    SectionProvideService,
     SectionFliterData,
     SectionBestProvider,
     SectionRecentProposals,
