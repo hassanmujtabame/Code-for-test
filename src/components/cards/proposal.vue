@@ -1,8 +1,8 @@
 <template>
   <div>
     <div
-      class="box p-3 rounded-3 proposal-card d-flex flex-column"
-      style="box-shadow: 5px 10px 18px #888888; margin-bottom: 20px"
+      class="box shadow p-3 rounded-3 proposal-card d-flex flex-column"
+      style="margin-bottom: 20px"
     >
       <div class="">
         <div class="">

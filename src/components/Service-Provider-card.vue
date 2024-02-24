@@ -1,8 +1,8 @@
 <template>
   <div>
     <div
-      class="box p-3 rounded-3 proposal-card d-flex flex-column"
-      style="box-shadow: 5px 10px 18px #888888; margin-bottom: 20px"
+      class="box p-3 shadow rounded-3 proposal-card flex-wrap d-flex flex-column"
+      style="margin-bottom: 20px"
     >
       <div class="">
         <div class="">
@@ -19,7 +19,7 @@
               >
                 <svg
                   class="m-auto"
-                  width="113"
+                  width="100%"
                   height="196"
                   viewBox="0 0 113 113"
                   fill="none"
@@ -30,13 +30,13 @@
                     fill="#1FB9B3"
                   />
                 </svg>
-                <span
+                <!-- <span
                   class="rounded-3 px-3 py-1 text-white position-absolute"
                   style="top: 16px; left: 25px"
                   :class="[state == 'offline' ? 'bg-off' : 'bg-on']"
                 >
                   {{ state == "offline" ? "حضورية" : "عن بعد" }}
-                </span>
+                </span> -->
               </div>
             </div>
           </router-link>
@@ -62,7 +62,7 @@
                       {{ state == "offline" ? "حضورية" : "عن بعد" }}
                     </span> -->
                   </div>
-                  <p
+                  <!-- <p
                     class="d-flex justify-content-between px-2 align-items-center"
                   >
                     <span class="m-c">{{ department ?? "N/A" }}</span>
@@ -70,11 +70,11 @@
                       <MapIcon :size="24" color="#979797" />
                       {{ place ?? "N/A" }}
                     </span>
-                  </p>
+                  </p> -->
                 </div>
-                <span style="color: black; font-size: 20px">{{
+                <!-- <span style="color: black; font-size: 20px">{{
                   category ?? "N/A"
-                }}</span>
+                }}</span> -->
               </div>
               <div
                 class="overflow-y-auto"
@@ -82,12 +82,90 @@
               >
                 <p class="" v-html="description"></p>
               </div>
-              <p style="color: #f2631c; font-size: 20px" class="">
-                <!-- <emptyWalletIcon :size="24" color="#979797" /> -->
-                {{ price ?? "N/A" }} {{ $t("riyals") }}
-              </p>
+              <div
+                style="border-bottom: 1px #888 solid"
+                class="d-flex justify-between px-2"
+              >
+                <div class="d-flex align-items-center gap-1">
+                  <p style="color: #888">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.99967 15.1663C4.04634 15.1663 0.833008 11.953 0.833008 7.99967C0.833008 4.04634 4.04634 0.833008 7.99967 0.833008C11.953 0.833008 15.1663 4.04634 15.1663 7.99967C15.1663 11.953 11.953 15.1663 7.99967 15.1663ZM7.99967 1.83301C4.59967 1.83301 1.83301 4.59967 1.83301 7.99967C1.83301 11.3997 4.59967 14.1663 7.99967 14.1663C11.3997 14.1663 14.1663 11.3997 14.1663 7.99967C14.1663 4.59967 11.3997 1.83301 7.99967 1.83301Z"
+                        fill="#979797"
+                      />
+                      <path
+                        d="M10.4731 10.62C10.3864 10.62 10.2998 10.6 10.2198 10.5467L8.1531 9.31332C7.63977 9.00665 7.25977 8.33332 7.25977 7.73999V5.00665C7.25977 4.73332 7.48643 4.50665 7.75977 4.50665C8.0331 4.50665 8.25977 4.73332 8.25977 5.00665V7.73999C8.25977 7.97999 8.45977 8.33332 8.66643 8.45332L10.7331 9.68665C10.9731 9.82665 11.0464 10.1333 10.9064 10.3733C10.8064 10.5333 10.6398 10.62 10.4731 10.62Z"
+                        fill="#979797"
+                      />
+                    </svg>
+                    {{ formattedDatePublish }} |
+                  </p>
+                  <p style="color: #ff1616">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.9597 2.06641C9.75301 2.06641 8.67301 2.65307 7.99967 3.55307C7.32634 2.65307 6.24634 2.06641 5.03967 2.06641C2.99301 2.06641 1.33301 3.73307 1.33301 5.79307C1.33301 6.58641 1.45967 7.31974 1.67967 7.99974C2.73301 11.3331 5.97967 13.3264 7.58634 13.8731C7.81301 13.9531 8.18634 13.9531 8.41301 13.8731C10.0197 13.3264 13.2663 11.3331 14.3197 7.99974C14.5397 7.31974 14.6663 6.58641 14.6663 5.79307C14.6663 3.73307 13.0063 2.06641 10.9597 2.06641Z"
+                        fill="#FF1616"
+                      />
+                    </svg>
+                    15 |
+                  </p>
+                  <p style="color: #ffbc00">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.99995 10.8867C6.40661 10.8867 5.11328 9.59334 5.11328 8.00001C5.11328 6.40668 6.40661 5.11334 7.99995 5.11334C9.59328 5.11334 10.8866 6.40668 10.8866 8.00001C10.8866 9.59334 9.59328 10.8867 7.99995 10.8867ZM7.99995 6.11334C6.95995 6.11334 6.11328 6.96001 6.11328 8.00001C6.11328 9.04001 6.95995 9.88668 7.99995 9.88668C9.03995 9.88668 9.88661 9.04001 9.88661 8.00001C9.88661 6.96001 9.03995 6.11334 7.99995 6.11334Z"
+                        fill="#FFBC00"
+                      />
+                      <path
+                        d="M7.99875 14.013C5.49208 14.013 3.12542 12.5463 1.49875 9.99966C0.792083 8.89966 0.792083 7.10633 1.49875 5.99966C3.13208 3.45299 5.49875 1.98633 7.99875 1.98633C10.4988 1.98633 12.8654 3.45299 14.4921 5.99966C15.1988 7.09966 15.1988 8.893 14.4921 9.99966C12.8654 12.5463 10.4988 14.013 7.99875 14.013ZM7.99875 2.98633C5.84542 2.98633 3.78542 4.27966 2.34542 6.53966C1.84542 7.31966 1.84542 8.67966 2.34542 9.45966C3.78542 11.7197 5.84542 13.013 7.99875 13.013C10.1521 13.013 12.2121 11.7197 13.6521 9.45966C14.1521 8.67966 14.1521 7.31966 13.6521 6.53966C12.2121 4.27966 10.1521 2.98633 7.99875 2.98633Z"
+                        fill="#FFBC00"
+                      />
+                    </svg>
+                    200 مشاهده
+                  </p>
+                </div>
+              </div>
+              <div
+                class="justify-content-between my-1 d-flex px-2 align-items-center"
+              >
+                <p style="color: black; font-size: 20px" class="">
+                  <!-- <emptyWalletIcon :size="24" color="#979797" /> -->
+                  {{ price ?? "N/A" }} ريال
+                </p>
+                <div>
+                  <router-link
+                    style="background-color: #1fb9b3; display: block"
+                    class="text-light px-5 py-2 rounded-3"
+                    :to="
+                      getRouteLocale('service-provider-proposal-page', {
+                        id: id,
+                      })
+                    "
+                  >
+                    تفاصيل
+                  </router-link>
+                </div>
+              </div>
+
               <div class="text-center">
-                <router-link
+                <!-- <router-link
                   style="background-color: #1fb9b3; width: 100%; display: block"
                   class="text-light px-5 py-2 rounded-3"
                   :to="
@@ -95,7 +173,7 @@
                   "
                 >
                   تفاصيل
-                </router-link>
+                </router-link> -->
               </div>
               <!-- <div class="d-flex gap-2">
                 style="flex-wrap: wrap;"
@@ -487,6 +565,27 @@ export default {
   },
   data: () => {
     return {};
+  },
+  computed: {
+    formattedDatePublish() {
+      const date = new Date(this.datePublish);
+      const year = date.getFullYear().toString().slice(-2);
+      const month = (date.getMonth() + 1).toString().padStart(2, "0");
+      const day = date.getDate().toString().padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    },
+  },
+  methods: {
+    // convertDate() {
+    //   // Create a new Date object from the original date string
+    //   const date = new Date(this.originalDate);
+    //   // Extract year, month, and day from the date object
+    //   const year = date.getFullYear().toString().slice(-2);
+    //   const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    //   const day = date.getDate().toString().padStart(2, "0");
+    //   // Format the date as desired (YY-MM-DD)
+    //   this.convertedDate = `${year}-${month}-${day}`;
+    // },
   },
   mounted() {
     // this.shareLink = window.location.href + "/" + this.id;
