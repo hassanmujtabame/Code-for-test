@@ -31,8 +31,8 @@
                   />
                 </svg>
                 <span
-                  class="rounded-3 text-white position-absolute"
-                  style="padding: 4px 12px; top: 16px; left: 25px"
+                  class="rounded-3 px-3 py-1 text-white position-absolute"
+                  style="top: 16px; left: 25px"
                   :class="[state == 'offline' ? 'bg-off' : 'bg-on']"
                 >
                   {{ state == "offline" ? "حضورية" : "عن بعد" }}
@@ -76,7 +76,12 @@
                   category ?? "N/A"
                 }}</span>
               </div>
-              <p class="" v-html="description"></p>
+              <div
+                class="overflow-y-auto"
+                style="min-height: 30px; max-height: 50px"
+              >
+                <p class="" v-html="description"></p>
+              </div>
               <p style="color: #f2631c; font-size: 20px" class="">
                 <!-- <emptyWalletIcon :size="24" color="#979797" /> -->
                 {{ price ?? "N/A" }} {{ $t("riyals") }}
@@ -494,7 +499,7 @@ export default {
 }
 
 .bg-off {
-  background: #cf1f3e;
+  background: #cf1f3fbe;
 }
 
 .bg-on {
