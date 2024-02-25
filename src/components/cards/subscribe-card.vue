@@ -106,21 +106,21 @@
             @click="selected"
             :id="pack.id"
             v-else-if="pack.id !== subscribed"
-            class="upgrade-button"
+            class="upgrade-button shadow"
           >
             رقي حسابك
           </button>
           <button
             :class="{ 'top-btn': title === 'ستة شهور' }"
             v-else-if="pack.id == subscribed"
-            class="subscribed-button"
+            class="subscribed-button shadow"
           >
             انت مشترك الان
           </button>
         </div>
       </div>
     </div>
-    <div style="width: 100%" class="subscription-actions text-center">
+    <!-- <div style="width: 100%" class="subscription-actions text-center">
       <button
         @click="selected"
         v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed"
@@ -139,12 +139,14 @@
       <button v-else-if="pack.id == subscribed" class="subscribed-button">
         انت مشترك الان
       </button>
-    </div>
+    </div> -->
   </div>
   <!-- end -->
 </template>
 
 <script>
+import PaymentApi from "@/services/api/payment";
+
 export default {
   props: {
     itemId: {
@@ -207,6 +209,74 @@ export default {
         // window.scrollTo(0, scrollY);
 
         this.$emit("chosed", this.pack);
+      }
+    },
+    async proceedToPayment() {
+      if (this.selectedPackage.type == "free") {
+        try {
+          let { data } = await networkAPI.checkoutPackageFree({
+            package_id: selectedPackage.id,
+          });
+          if (data.success) {
+            console.log("itsfree", data.data);
+          } else {
+            window.SwalError(data.message);
+          }
+        } catch (error) {
+          console.log("error", error);
+        }
+        return;
+      }
+      switch (this.selectedProvider) {
+        case "tamara":
+          try {
+            let { data } = await PaymentApi.PayPackageTammara({
+              package_id: this.selectedPackage.id,
+              type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "hyperbill":
+          try {
+            let { data } = await PaymentApi.PayPackageHyperBill({
+              package_id: this.selectedPackage.id,
+              type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "myfatoorah":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.selectedPackage.id,
+              type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        default:
+          // Handle case where no provider is selected
+          window.errorMsg("اختار بوابة الدفع");
+          return false;
       }
     },
   },

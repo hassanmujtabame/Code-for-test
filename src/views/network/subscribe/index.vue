@@ -80,6 +80,7 @@
               </div>
             </div>
           </div>
+          <CardFeatures />
         </tab-content>
         <tab-content title="  اختيار طريقة الدفع ">
           <h3 class="my-4">اختيار طريقة الدفع</h3>
@@ -153,6 +154,7 @@ ul li.active {
 <script>
 import SubscribeCard from "@/components/cards/subscribe-card.vue";
 import CardVue from "@/components/cards/incubator-dept-circle.vue";
+import CardFeatures from "@/components/section-network-features.vue";
 import networkAPI from "@/services/api/network.js";
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionCompany from "./parts/section-company/index.vue";
@@ -169,6 +171,7 @@ export default {
     SectionCompany,
     FormWizard,
     TabContent,
+    CardFeatures,
   },
   data: () => ({
     fieldIds: [],
