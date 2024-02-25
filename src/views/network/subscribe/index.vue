@@ -44,7 +44,7 @@
           أعمالهن والتواصل مع الرياديات
         </h5>
       </div>
-      <form-wizard
+      <!-- <form-wizard
         color="#49b483ff"
         step-size="xs"
         @on-complete="proceedToPayment"
@@ -52,92 +52,99 @@
         nextButtonText="التالى"
         backButtonText="السابق"
         finishButtonText="الدفع و التأكيد "
-      >
-        <tab-content class="row" :before-change="beforeChange" title=" الباقه ">
-          <div
-            v-for="(pack, p) in packages"
-            :key="p"
-            class="mt-2 col-md-4 col-12"
-          >
-            <SectionCompany
-              class="mb-4"
-              v-if="pack && pack.name.includes('شرك')"
-            />
-            <div class="">
-              <div class="mb-4">
-                <SubscribeCard
-                  :itemId="pack.name"
-                  :pack="pack"
-                  :title="pack.name"
-                  :price="pack.price"
-                  :features="pack.options.map((c) => c.name_ar)"
-                  :type-subscribe="pack.name"
-                  @chosed="choose"
-                  :subscribed="subscribedType"
-                  :typeSectionSub="'network'"
-                >
-                </SubscribeCard>
-              </div>
+      > -->
+      <!-- <tab-content
+          class="row position-relative"
+          :before-change="beforeChange"
+          title=" الباقه "
+        > -->
+      <div class="row position-relative">
+        <div
+          v-for="(pack, p) in packages"
+          :key="p"
+          class="mt-2 col-md-4 col-12"
+        >
+          <SectionCompany
+            class="mb-4"
+            v-if="pack && pack.name.includes('شرك')"
+          />
+          <div class="">
+            <div class="mb-4">
+              <NetworkSubCard
+                :itemId="pack.name"
+                :pack="pack"
+                :title="pack.name"
+                :price="pack.price"
+                :features="pack.options.map((c) => c.name_ar)"
+                :type-subscribe="pack.name"
+                @chosed="choose"
+                :subscribed="subscribedType"
+                :typeSectionSub="'network'"
+              >
+              </NetworkSubCard>
             </div>
           </div>
-          <CardFeatures />
-        </tab-content>
-        <tab-content title="  اختيار طريقة الدفع ">
-          <h3 class="my-4">اختيار طريقة الدفع</h3>
-          <div class="mt-4 p-3 d-flex gap-4">
-            <div class="card border-info mb-3" style="width: fit-content">
-              <div class="card-body">
-                <div class="form-check">
-                  <label class="form-check-label" for="tamara"
-                    >Tamara
-                    <input
-                      type="radio"
-                      class="form-check-input"
-                      id="tamara"
-                      value="tamara"
-                      v-model="selectedProvider"
-                    />
-                  </label>
-                </div>
-              </div>
-            </div>
+        </div>
+      </div>
 
-            <div class="card border-info mb-3" style="width: fit-content">
-              <div class="card-body">
-                <div class="form-check">
-                  <label class="form-check-label" for="hyperbill"
-                    >HyperBill
-                    <input
-                      type="radio"
-                      class="form-check-input"
-                      id="hyperbill"
-                      value="hyperbill"
-                      v-model="selectedProvider"
-                    />
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="card border-info mb-3" style="width: fit-content">
-              <div class="card-body">
-                <div class="form-check">
-                  <label class="form-check-label" for="myfatoorah"
-                    >MyFatoorah
-                    <input
-                      type="radio"
-                      class="form-check-input"
-                      id="myfatoorah"
-                      value="myfatoorah"
-                      v-model="selectedProvider"
-                    />
-                  </label>
-                </div>
-              </div>
+      <CardFeatures />
+      <!-- </tab-content> -->
+      <!-- <tab-content title="  اختيار طريقة الدفع "> -->
+      <!-- <h3 class="my-4">اختيار طريقة الدفع</h3> -->
+      <!-- <div class="mt-4 p-3 d-flex gap-4">
+        <div class="card border-info mb-3" style="width: fit-content">
+          <div class="card-body">
+            <div class="form-check">
+              <label class="form-check-label" for="tamara"
+                >Tamara
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="tamara"
+                  value="tamara"
+                  v-model="selectedProvider"
+                />
+              </label>
             </div>
           </div>
-        </tab-content>
-      </form-wizard>
+        </div>
+
+        <div class="card border-info mb-3" style="width: fit-content">
+          <div class="card-body">
+            <div class="form-check">
+              <label class="form-check-label" for="hyperbill"
+                >HyperBill
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="hyperbill"
+                  value="hyperbill"
+                  v-model="selectedProvider"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="card border-info mb-3" style="width: fit-content">
+          <div class="card-body">
+            <div class="form-check">
+              <label class="form-check-label" for="myfatoorah"
+                >MyFatoorah
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="myfatoorah"
+                  value="myfatoorah"
+                  v-model="selectedProvider"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- </tab-content> -->
+      <!-- </form-wizard> -->
     </div>
   </div>
 </template>
@@ -155,6 +162,7 @@ ul li.active {
 import SubscribeCard from "@/components/cards/subscribe-card.vue";
 import CardVue from "@/components/cards/incubator-dept-circle.vue";
 import CardFeatures from "@/components/section-network-features.vue";
+import NetworkSubCard from "@/components/network-sub-card.vue";
 import networkAPI from "@/services/api/network.js";
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionCompany from "./parts/section-company/index.vue";
@@ -165,7 +173,7 @@ import PaymentApi from "@/services/api/payment";
 export default {
   name: "network-subscribe",
   components: {
-    SubscribeCard,
+    NetworkSubCard,
     CardVue,
     SectionHeader,
     SectionCompany,

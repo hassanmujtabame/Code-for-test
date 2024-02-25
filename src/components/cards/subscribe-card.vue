@@ -3,6 +3,7 @@
   <div
     :class="{ 'card-top': title === 'ستة شهور' }"
     class="subscription-card d-flex flex-column"
+    style="height: 630px"
   >
     <div class="subscription-header text-center">
       <h2
@@ -145,8 +146,6 @@
 </template>
 
 <script>
-import PaymentApi from "@/services/api/payment";
-
 export default {
   props: {
     itemId: {
@@ -209,74 +208,6 @@ export default {
         // window.scrollTo(0, scrollY);
 
         this.$emit("chosed", this.pack);
-      }
-    },
-    async proceedToPayment() {
-      if (this.selectedPackage.type == "free") {
-        try {
-          let { data } = await networkAPI.checkoutPackageFree({
-            package_id: selectedPackage.id,
-          });
-          if (data.success) {
-            console.log("itsfree", data.data);
-          } else {
-            window.SwalError(data.message);
-          }
-        } catch (error) {
-          console.log("error", error);
-        }
-        return;
-      }
-      switch (this.selectedProvider) {
-        case "tamara":
-          try {
-            let { data } = await PaymentApi.PayPackageTammara({
-              package_id: this.selectedPackage.id,
-              type: "package",
-            });
-            if (data.success) {
-              window.location.href = data.data.payment_url;
-            } else {
-              console.log(data.response);
-            }
-          } catch (error) {
-            console.log("error", error);
-          }
-          break;
-        case "hyperbill":
-          try {
-            let { data } = await PaymentApi.PayPackageHyperBill({
-              package_id: this.selectedPackage.id,
-              type: "package",
-            });
-            if (data.success) {
-              window.location.href = data.data.payment_url;
-            } else {
-              console.log(data.response);
-            }
-          } catch (error) {
-            console.log("error", error);
-          }
-          break;
-        case "myfatoorah":
-          try {
-            let { data } = await PaymentApi.PayPackageMyFatoorah({
-              package_id: this.selectedPackage.id,
-              type: "package",
-            });
-            if (data.success) {
-              window.location.href = data.data.payment_url;
-            } else {
-              console.log(data.response);
-            }
-          } catch (error) {
-            console.log("error", error);
-          }
-          break;
-        default:
-          // Handle case where no provider is selected
-          window.errorMsg("اختار بوابة الدفع");
-          return false;
       }
     },
   },
