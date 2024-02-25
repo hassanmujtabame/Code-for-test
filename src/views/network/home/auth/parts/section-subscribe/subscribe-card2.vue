@@ -20,8 +20,9 @@
         class="feature-list rounded-3 d-flex p-2 flex-row flex-wrap"
       >
         <li class="feature-item">
-          <i class="fas fa-check-circle mx-2"></i
-          ><span> تواصلي مع أعضاء الشبكة </span>
+          <i class="fas fa-check-circle mx-2"></i>
+
+          <span> تواصلي مع أعضاء الشبكة </span>
         </li>
         <li class="feature-item">
           <i class="fas fa-check-circle mx-2"></i

@@ -1,9 +1,12 @@
 <template>
   <!-- start -->
-  <div class="subscription-card d-flex flex-column flex-md-row">
-    <div class="subscription-header d-flex align-items-start">
+  <div
+    :class="{ 'card-top': title === 'ستة شهور' }"
+    class="subscription-card d-flex flex-column"
+  >
+    <div class="subscription-header text-center">
       <h2 class="subscription-title">{{ title }}</h2>
-      <div class="subscription-image">
+      <!-- <div class="subscription-image">
         <img
           v-if="title == 'شهر'"
           src="../../../public/assets/img/Clip path group.png"
@@ -19,10 +22,17 @@
           src="@/assets/img/subscription_year.png"
           alt=""
         />
-      </div>
+      </div> -->
       <div class="subscription-price d-flex flex-column">
         <div>
-          <span class="price">{{ price }}</span>
+          <span
+            :class="{
+              'feature-top': title === 'ستة شهور',
+              'text-dark': title !== 'ستة شهور',
+            }"
+            class="price"
+            >{{ price }}</span
+          >
           <span v-if="subscribed.type !== 'free'" class="currency">{{
             $t("riyals")
           }}</span>
@@ -31,13 +41,16 @@
       </div>
     </div>
     <div class="subscription-features">
-      <h3 class="features-title">الميزات و الخدمات:</h3>
+      <!-- <h3 class="features-title">الميزات و الخدمات:</h3> -->
       <ul
         style="max-height: 250px"
-        class="feature-list d-flex flex-row flex-wrap overflow-y-auto"
+        class="feature-list d-flex flex-row rounded-4 flex-wrap overflow-y-auto"
+        :class="{ 'feature-li': title === 'ستة شهور' }"
       >
         <li v-for="(feature, i) in features" :key="i" class="feature-item">
-          <svg
+          <i class="fas fa-check-circle mx-2"></i>
+
+          <!-- <svg
             width="17"
             height="16"
             viewBox="0 0 17 16"
@@ -60,12 +73,12 @@
                 />
               </clipPath>
             </defs>
-          </svg>
+          </svg> -->
           <span>{{ feature }}</span>
         </li>
       </ul>
     </div>
-    <div class="subscription-actions">
+    <div style="width: 100%" class="subscription-actions text-center">
       <button
         @click="selected"
         v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed"
@@ -211,10 +224,10 @@ export default {
   margin: 40px 20px 0;
 }
 
-.subscription-price span {
+/* .subscription-price span {
   color: #ffbe39;
   margin-right: 5px;
-}
+} */
 
 .currency {
   font-size: 24px;
@@ -300,5 +313,14 @@ export default {
 
 .subscribed-button:hover {
   opacity: 0.8;
+}
+.card-top {
+  background-color: #1fb9b3;
+}
+.feature-top {
+  color: white;
+}
+.feature-li {
+  background-color: white;
 }
 </style>

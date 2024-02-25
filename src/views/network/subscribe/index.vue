@@ -4,7 +4,7 @@
 
     <div class="row mt-4">
       <ul class="nav nav-pills mb-3 justify-content-center text-center">
-        <li class="nav-item" style="width: 150px">
+        <li class="nav-item nav-not-active" style="width: 150px">
           <router-link
             :to="{ name: 'network-subscribe' }"
             class="nav-link active border t-c"
@@ -12,7 +12,7 @@
             الشبكه
           </router-link>
         </li>
-        <li class="nav-item" style="width: 150px">
+        <li class="nav-item nav-not-active" style="width: 150px">
           <router-link
             :to="{ name: 'academy-subscribe' }"
             class="nav-link border t-c"
@@ -21,7 +21,7 @@
           </router-link>
         </li>
 
-        <li class="nav-item" style="width: 150px">
+        <li class="nav-item nav-not-active" style="width: 150px">
           <router-link
             :to="{ name: 'incubator-subscribe' }"
             class="nav-link border t-c"
@@ -34,11 +34,14 @@
 
     <div class="container p-5 mt-3">
       <div class="row mb-3 mt-2">
-        <h1>الشبكه</h1>
-        <h5>
-          شبكه رياديات بتساعدك فى مشروعك من الاف الى الياء و يمكن من خلالها
-          الحصول على المساعدة و الشجيع للدخول فى مجال ريادة اﻷعمال من خلال
-          مجموعه من الخدمات و المزايا
+        <h1>شبكة رياديات: وسع دائرة معارفك</h1>
+        <h5 style="color: #888">
+          رياديات شبكة تضم نخبة من رائدات الأعمال والمستثمرات والشركاء، وتهدف
+          إلى إلهام وتمكين وجمع رائدات الأعمال معًا على منصة واحدة ليساعد بعضهن
+          البعض الآخر على النجاح في أعمالهن. ويمكن من خلالها الحصول على المساعدة
+          والتشجيع للدخول في مجال ريادة الأعمال من خلال مجموعة من الخدمات
+          والمزايا، وقد صممت لمساعدة رائدات الأعمال على التعلم وزيادة نمو
+          أعمالهن والتواصل مع الرياديات
         </h5>
       </div>
       <form-wizard
@@ -50,14 +53,18 @@
         backButtonText="السابق"
         finishButtonText="الدفع و التأكيد "
       >
-        <tab-content :before-change="beforeChange" title=" الباقه ">
-          <div v-for="(pack, p) in packages" :key="p" class="mt-2">
+        <tab-content class="row" :before-change="beforeChange" title=" الباقه ">
+          <div
+            v-for="(pack, p) in packages"
+            :key="p"
+            class="mt-2 col-md-4 col-12"
+          >
             <SectionCompany
               class="mb-4"
               v-if="pack && pack.name.includes('شرك')"
             />
-            <div class="container">
-              <div class="row mb-4">
+            <div class="">
+              <div class="mb-4">
                 <SubscribeCard
                   :itemId="pack.name"
                   :pack="pack"
@@ -330,6 +337,9 @@ export default {
 
 .custom-ul ul li {
   background-color: #eee;
+}
+.nav-not-active {
+  background-color: white !important;
 }
 
 .custom-ul ul li.active {
