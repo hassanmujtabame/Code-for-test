@@ -5,7 +5,15 @@
     class="subscription-card d-flex flex-column"
   >
     <div class="subscription-header text-center">
-      <h2 class="subscription-title">{{ title }}</h2>
+      <h2
+        :class="{
+          'feature-top': title === 'ستة شهور',
+          'text-dark': title !== 'ستة شهور',
+        }"
+        class="subscription-title"
+      >
+        {{ title }}
+      </h2>
       <!-- <div class="subscription-image">
         <img
           v-if="title == 'شهر'"
@@ -30,27 +38,34 @@
               'feature-top': title === 'ستة شهور',
               'text-dark': title !== 'ستة شهور',
             }"
-            class="price"
+            class=""
             >{{ price }}</span
           >
-          <span v-if="subscribed.type !== 'free'" class="currency">{{
-            $t("riyals")
-          }}</span>
+          <span
+            :class="{
+              'feature-top': title === 'ستة شهور',
+              'text-dark': title !== 'ستة شهور',
+            }"
+            v-if="subscribed.type !== 'free'"
+            class=""
+            >{{ $t("riyals") }}</span
+          >
         </div>
-        <small style="font-size: 12px; color: #888">{{ title }}</small>
+        <!-- <small style="font-size: 12px; color: #888">{{ title }}</small> -->
       </div>
     </div>
     <div class="subscription-features">
       <!-- <h3 class="features-title">الميزات و الخدمات:</h3> -->
-      <ul
-        style="max-height: 250px"
-        class="feature-list d-flex flex-row rounded-4 flex-wrap overflow-y-auto"
-        :class="{ 'feature-li': title === 'ستة شهور' }"
-      >
-        <li v-for="(feature, i) in features" :key="i" class="feature-item">
-          <i class="fas fa-check-circle mx-2"></i>
+      <div class="rounded-4" :class="{ 'feature-li': title === 'ستة شهور' }">
+        <ul
+          style="max-height: 300px"
+          class="feature-list overflow-y-auto d-flex flex-row flex-wrap overflow-y-auto"
+          :class="{ 'feature-li': title === 'ستة شهور' }"
+        >
+          <li v-for="(feature, i) in features" :key="i" class="feature-item">
+            <i class="fas fa-check-circle mx-2"></i>
 
-          <!-- <svg
+            <!-- <svg
             width="17"
             height="16"
             viewBox="0 0 17 16"
@@ -74,15 +89,42 @@
               </clipPath>
             </defs>
           </svg> -->
-          <span>{{ feature }}</span>
-        </li>
-      </ul>
+            <span>{{ feature }}</span>
+          </li>
+        </ul>
+        <div style="width: 100%" class="subscription-actions text-center">
+          <button
+            @click="selected"
+            v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed"
+            class="subscribe-button shadow"
+            :class="{ 'top-btn': title === 'ستة شهور' }"
+          >
+            {{ $t("subscribe-now") }}
+          </button>
+          <button
+            :class="{ 'top-btn': title === 'ستة شهور' }"
+            @click="selected"
+            :id="pack.id"
+            v-else-if="pack.id !== subscribed"
+            class="upgrade-button"
+          >
+            رقي حسابك
+          </button>
+          <button
+            :class="{ 'top-btn': title === 'ستة شهور' }"
+            v-else-if="pack.id == subscribed"
+            class="subscribed-button"
+          >
+            انت مشترك الان
+          </button>
+        </div>
+      </div>
     </div>
     <div style="width: 100%" class="subscription-actions text-center">
       <button
         @click="selected"
         v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed"
-        class="subscribe-button"
+        class="subscribe-button shadow"
       >
         {{ $t("subscribe-now") }}
       </button>
@@ -224,10 +266,9 @@ export default {
   margin: 40px 20px 0;
 }
 
-/* .subscription-price span {
-  color: #ffbe39;
+.subscription-price span {
   margin-right: 5px;
-} */
+}
 
 .currency {
   font-size: 24px;
@@ -295,8 +336,8 @@ export default {
 }
 
 .upgrade-button {
-  background: #ffbe39;
-  color: #fff;
+  background: white;
+  color: #888;
   margin-bottom: 20px;
 }
 
@@ -322,5 +363,9 @@ export default {
 }
 .feature-li {
   background-color: white;
+}
+.top-btn {
+  background-color: #1fb9b3;
+  color: white;
 }
 </style>
