@@ -2,16 +2,14 @@
   <div class="bg-grey w-100 py-2">
     <div class="container">
       <div class="row align-items-stretch">
-        <div class="col-md-6">
+        <div class="col-md-6 d-none d-md-block">
           <div v-if="!isMobile">
             <img
-              v-if="false"
               class="img-fluid"
               :src="`${publicPath}assets/img/network 289320.png`"
-              alt=""
-              width="470"
+              alt="card image"
             />
-            <AnimateCard />
+            <!-- <AnimateCard /> -->
           </div>
         </div>
         <div class="col-md-6">

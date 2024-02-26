@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overflow-x-hidden overflow-x-none">
     <SectionHeader style="margin-top: 85px" />
 
     <div class="row mt-4">

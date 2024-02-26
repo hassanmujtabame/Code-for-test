@@ -24,9 +24,11 @@
       class="mx-auto my-3"
     >
       <div class="row">
-        <div class="col-8">
+        <div class="col-12 col-md-8">
           <h6 style="color: #666">مميزات الانضمام الى شبكه رياديات</h6>
-          <div class="d-flex gap-3 my-4 align-items-center">
+          <div
+            class="d-flex gap-3 my-4 flex-column d-md-row align-items-center"
+          >
             <h2 class="text-dark">اصنع شيئا كبيرا</h2>
 
             <router-link
