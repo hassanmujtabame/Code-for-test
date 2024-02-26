@@ -32,7 +32,35 @@
     </div>
 
     <div class="container py-5">
-      <div class="row">
+      <div class="row position-relative">
+        <div
+          v-for="(pack, p) in packages"
+          :key="p"
+          class="mt-2 col-md-4 col-12"
+        >
+          <!-- <SectionCompany
+            class="mb-4"
+            v-if="pack && pack.name.includes('شرك')"
+          /> -->
+          <div class="">
+            <div class="mb-4">
+              <NetworkSubCard
+                :itemId="pack.name"
+                :pack="pack"
+                :title="pack.name"
+                :price="pack.price"
+                :features="pack.options.map((c) => c.name_ar)"
+                :type-subscribe="pack.name"
+                @chosed="choose"
+                :subscribed="subscribedType"
+                :typeSectionSub="'network'"
+              >
+              </NetworkSubCard>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
         <div class="col-md-4 col-12">
           <SubscribeCard1 />
         </div>
@@ -42,7 +70,7 @@
         <div class="col-md-4 col-12">
           <SubscribeCard3 />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -57,6 +85,8 @@ ul li.active {
 }
 </style>
 <script>
+import NetworkSubCard from "@/components/network-sub-card.vue";
+
 import SubscribeCard1 from "./subscribe-card1.vue";
 import SubscribeCard2 from "./subscribe-card2.vue";
 import SubscribeCard3 from "./subscribe-card3.vue";
@@ -74,6 +104,7 @@ export default {
     CardVue,
     SectionHeader,
     SectionCompany,
+    NetworkSubCard,
   },
   data: () => ({
     fieldIds: [],
