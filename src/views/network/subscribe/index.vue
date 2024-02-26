@@ -88,6 +88,15 @@
       </div>
 
       <CardFeatures />
+      <div class="my-5">
+        <BigProject />
+      </div>
+      <div class="my-5">
+        <NetworkCreditCard />
+      </div>
+      <div class="my-5 container-fluid">
+        <Learning />
+      </div>
       <!-- </tab-content> -->
       <!-- <tab-content title="  اختيار طريقة الدفع "> -->
       <!-- <h3 class="my-4">اختيار طريقة الدفع</h3> -->
@@ -159,10 +168,12 @@ ul li.active {
 }
 </style>
 <script>
-import SubscribeCard from "@/components/cards/subscribe-card.vue";
+import BigProject from "@/components/big-project.vue";
+import Learning from "@/views/incubator/home/parts/section-continue-learning/index.vue";
 import CardVue from "@/components/cards/incubator-dept-circle.vue";
 import CardFeatures from "@/components/section-network-features.vue";
 import NetworkSubCard from "@/components/network-sub-card.vue";
+import NetworkCreditCard from "@/components/network-credit-card.vue";
 import networkAPI from "@/services/api/network.js";
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionCompany from "./parts/section-company/index.vue";
@@ -174,12 +185,15 @@ export default {
   name: "network-subscribe",
   components: {
     NetworkSubCard,
+    Learning,
     CardVue,
     SectionHeader,
     SectionCompany,
     FormWizard,
     TabContent,
     CardFeatures,
+    NetworkCreditCard,
+    BigProject,
   },
   data: () => ({
     fieldIds: [],

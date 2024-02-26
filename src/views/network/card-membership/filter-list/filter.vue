@@ -20,7 +20,7 @@
         </button>
       </li>
     </ul>
-    <d-filter-list
+    <!-- <d-filter-list
       :call-list="loadList"
       @change="changeFilter"
       hideSide
@@ -40,7 +40,7 @@
           height="180px"
         />
       </template>
-    </d-filter-list>
+    </d-filter-list> -->
   </div>
 </template>
 
