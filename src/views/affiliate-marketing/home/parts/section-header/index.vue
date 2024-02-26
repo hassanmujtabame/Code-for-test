@@ -30,7 +30,7 @@
                   </router-link>
 
                   <button
-                    v-else
+                    v-if="token"
                     class="text-white btn-omar px-5 py-3 border-0"
                     @click="affiliateRegister"
                   >

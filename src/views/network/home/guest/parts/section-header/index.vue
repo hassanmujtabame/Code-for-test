@@ -11,7 +11,11 @@
             style="display: inline"
           >
             رياديات
-            <img src="@/assets/img/new/main-page/header/Vector 14.png" alt="" />
+            <img
+              class="img-fluid"
+              src="@/assets/img/new/main-page/header/Vector 14.png"
+              alt=""
+            />
           </h1>
           <p class="header-desc-page text-black mt-3">
             طموحة و تسعين لتحقيق حلمك و شغفك ؟
@@ -29,7 +33,7 @@
 
             <template v-else>
               <div
-                class="d-flex flex-wrap gap-1 justify-content-center align-items-center"
+                class="d-flex flex-wrap gap-1 justify-content-center justify-content-md-start align-items-center"
               >
                 <router-link
                   :to="getRouteLocale('register')"
@@ -38,7 +42,7 @@
                 >
                 <router-link
                   :to="getRouteLocale('login')"
-                  class="btn-custmer-w bg-transparent text-white mt-2"
+                  class="btn-custmer-w bg-transparent text-white"
                   >{{ $t("login-female") }}</router-link
                 >
               </div>
@@ -47,7 +51,7 @@
         </div>
         <div class="col-12 col-md-6" v-if="!isMobile">
           <div class="img-fluid">
-            <img src="@/assets/img/Left.png" alt="hero" />
+            <img class="img-fluid" src="@/assets/img/Left.png" alt="hero" />
 
             <!-- <iframe class="rounded" style="width: 100%; height: 100%" src="https://www.youtube.com/embed/mKfqJ_3-jWQ"
                             title="جلسة حوارية عربيات" frameborder="0"

@@ -1,12 +1,14 @@
 <template>
-  <div style="margin-top: 85px " class="consult max-width-100-hidden">
+  <div style="margin-top: 85px" class="consult max-width-100-hidden">
     <!-- <SectionTop /> -->
 
     <div class="container">
       <SectionFilterList />
     </div>
+    <!-- <div>
 
     <SectionLearning />
+</div> -->
     <SectionHear />
   </div>
 </template>
@@ -22,11 +24,10 @@ export default {
     SectionHear,
     SectionTop,
     SectionLearning,
-    SectionFilterList
+    SectionFilterList,
   },
-  data: () => ({})
+  data: () => ({}),
 };
 </script>
 
-<style>
-</style>
+<style></style>
