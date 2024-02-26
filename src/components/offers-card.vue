@@ -1,7 +1,7 @@
 <template>
   <div class="main-top py-2 px-5 position-relative mt-5">
     <div class="row align-items-center text-center m-auto">
-      <div class="col-md-6 mt-2">
+      <div class="col-md-6 col-12 d-none d-md-block mt-2">
         <div class="img-screen">
           <img
             class="img-fluid"
@@ -15,7 +15,9 @@
           أكملي دوراتك، مراسلاتك وشاركي فـــــــي الشبكة والحاضنة من خلال تطبيق
           رياديــــــات
         </h2>
-        <div class="mt-4">
+        <div
+          class="mt-4 d-flex justify-content-center align-items-center gap-2 flex-wrap"
+        >
           <a href="#">
             <img
               :src="`${publicPath}assets/img/34-349265_app-store-google-play-svg 3.png`"

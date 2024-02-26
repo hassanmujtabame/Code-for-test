@@ -24,7 +24,7 @@
           النموذج وقم بتحميله بكل سهولة
         </p>
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 d-none d-md-block col-md-6">
         <img
           class="img-fluid"
           src="../../../../../assets/img/forms/Desktop.png"

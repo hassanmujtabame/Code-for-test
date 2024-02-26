@@ -10,7 +10,9 @@
             احصلي على عروض و خصومات هائلة ومذهلة سواء من اكواد الخصم للمواقع
             الالكترونية او من خلال بطاقة عضوية رياديات
           </p>
-          <div class="mt-4">
+          <div
+            class="mt-4 d-flex flex-wrap justify-content-center align-items-center gap-2"
+          >
             <router-link
               :to="getRouteLocale('network-card-membership')"
               class="px-4 text-light py-2 mx-1 btn shadow"
