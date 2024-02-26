@@ -144,9 +144,16 @@
     </div> -->
     </div>
     <div
-      style="top: 0; left: 0; z-index: 99999; width: 100%; height: 100%"
+      style="
+        top: 0;
+        left: 0;
+        z-index: 99999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+      "
       v-if="openModal"
-      class="position-absolute"
+      class="position-fixed"
     >
       <!-- <Modal
         :selectedProvider="selectedProvider"
@@ -154,70 +161,122 @@
         @closeModal="handleEmit"
       /> -->
       <div style="background-color: white; height: 100%" class="container">
-        <div class="text-end px-5">
-          <button @click="handleClose" class="btn" style="color: red">X</button>
+        <div class="text-end py-5 px-5">
+          <button
+            @click="handleClose"
+            class=""
+            style="
+              color: red;
+              font-size: 20px;
+              border: none;
+              background-color: transparent;
+            "
+          >
+            X
+          </button>
         </div>
         <div class="row justify-content-center align-items-center">
           <div class="text-center">
             <h3 class="my-4">اختيار طريقة الدفع</h3>
           </div>
 
-          <div
-            class="card border-info mx-1 col-md-4 col-12 mb-3"
-            style="width: fit-content"
-          >
-            <div class="card-body">
-              <div class="form-check">
-                <label class="form-check-label" for="tamara"
-                  >Tamara
-                  <input
-                    type="radio"
-                    class="form-check-input"
-                    id="tamara"
-                    value="tamara"
-                    v-model="selectedProvider"
-                  />
-                </label>
+          <div class="row">
+            <div class="card border-info col-12 mb-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <label
+                    class="form-check-label d-flex align-items-center justify-content-between px-2"
+                    for="tamara"
+                  >
+                    <div>
+                      الدفع بواسطة بطاقة الائتمان
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="tamara"
+                        disabled
+                      />
+                    </div>
+                    <img
+                      src="../assets/img/payment/Group 1171276314.png"
+                      alt="payment method"
+                    />
+                  </label>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div
-            class="card border-info mx-1 col-md-4 col-12 mb-3"
-            style="width: fit-content"
-          >
-            <div class="card-body">
-              <div class="form-check">
-                <label class="form-check-label" for="hyperbill"
-                  >HyperBill
-                  <input
-                    type="radio"
-                    class="form-check-input"
-                    id="hyperbill"
-                    value="hyperbill"
-                    v-model="selectedProvider"
-                  />
-                </label>
+            <div class="card border-info col-md-6 col-12 mb-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <label
+                    class="form-check-label d-flex align-items-center justify-content-between px-2"
+                    for="tamara"
+                  >
+                    <div>
+                      Tamara
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="tamara"
+                        value="tamara"
+                        v-model="selectedProvider"
+                      />
+                    </div>
+                    <img
+                      src="../assets/img/payment/Group 1171276324.png"
+                      alt="payment method"
+                    />
+                  </label>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div
-            class="card border-info mx-1 col-md-4 col-12 mb-3"
-            style="width: fit-content"
-          >
-            <div class="card-body">
-              <div class="form-check">
-                <label class="form-check-label" for="myfatoorah"
-                  >MyFatoorah
-                  <input
-                    type="radio"
-                    class="form-check-input"
-                    id="myfatoorah"
-                    value="myfatoorah"
-                    v-model="selectedProvider"
-                  />
-                </label>
+            <div class="card border-info col-md-6 col-12 mb-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <label
+                    class="form-check-label d-flex align-items-center justify-content-between px-2"
+                    for="hyperbill"
+                  >
+                    <div class="">
+                      HyperBill
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="hyperbill"
+                        value="hyperbill"
+                        v-model="selectedProvider"
+                      />
+                    </div>
+                    <img
+                      src="../assets/img/payment/Group 1171276318.png"
+                      alt="img"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="card border-info col-md-6 col-12 mb-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <label
+                    class="form-check-label d-flex align-items-center justify-content-between px-2"
+                    for="myfatoorah"
+                  >
+                    <div>
+                      MyFatoorah
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="myfatoorah"
+                        value="myfatoorah"
+                        v-model="selectedProvider"
+                      />
+                    </div>
+                    <img src="../assets/img/payment/Group.png" alt="img" />
+                  </label>
+                </div>
               </div>
             </div>
           </div>
@@ -233,6 +292,13 @@
         </div>
       </div>
     </div>
+    <!-- <div>
+      <b-button>Launch demo modal</b-button>
+
+      <b-modal class="baby" id="modal-1" title="BootstrapVue">
+        <p class="my-4">Hello from modal!</p>
+      </b-modal>
+    </div> -->
   </div>
   <!-- end -->
 </template>
@@ -575,5 +641,37 @@ export default {
 .top-btn {
   background-color: #1fb9b3;
   color: white;
+}
+.baby {
+  background: red;
+}
+.custom-modal-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.bv-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* Customize modal header */
+.b-modal-header {
+  background-color: #007bff;
+  color: #fff;
+}
+/* Customize modal title */
+.b-modal-title {
+  font-size: 1.5rem;
+}
+
+/* Customize modal body */
+.b-modal-body {
+  color: #333;
+}
+
+/* Customize modal footer */
+.b-modal-footer {
+  background-color: #007bff;
+  color: #fff;
+  border-top: none; /* Remove border */
 }
 </style>

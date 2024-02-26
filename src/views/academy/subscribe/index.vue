@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overflow-x-none overflow-x-hidden">
     <SectionHeader style="margin-top: 85px" />
     <div class="row mt-4">
       <ul class="nav nav-pills mb-3 justify-content-center text-center">
@@ -45,7 +45,7 @@
         </h5>
       </div>
 
-      <form-wizard
+      <!-- <form-wizard
         color="#49b483ff"
         step-size="xs"
         @on-complete="proceedToPayment"
@@ -53,30 +53,30 @@
         nextButtonText="التالى"
         backButtonText="السابق"
         finishButtonText="الدفع و التأكيد "
-      >
-        <tab-content class="row" :before-change="beforeChange" title=" الباقه ">
-          <div
-            v-for="(pack, p) in packages"
-            :key="p"
-            class="mt-2 col-md-4 col-12"
-          >
-            <div class="p-3">
-              <SubscribeCard
-                :itemId="pack.name"
-                :pack="pack"
-                :title="pack.name"
-                :price="pack.price"
-                :features="pack.options.map((c) => c.name_ar)"
-                :type-subscribe="pack.name"
-                @chosed="choose"
-                :subscribed="subscribedType"
-                :typeSectionSub="'academy'"
-              >
-              </SubscribeCard>
-            </div>
+      > -->
+      <div style="" class="row position-relative">
+        <div
+          v-for="(pack, p) in packages"
+          :key="p"
+          class="mt-2 col-md-4 col-12"
+        >
+          <div class="p-3">
+            <SubscribeCard
+              :itemId="pack.name"
+              :pack="pack"
+              :title="pack.name"
+              :price="pack.price"
+              :features="pack.options.map((c) => c.name_ar)"
+              :type-subscribe="pack.name"
+              @chosed="choose"
+              :subscribed="subscribedType"
+              :typeSectionSub="'academy'"
+            >
+            </SubscribeCard>
           </div>
-        </tab-content>
-        <tab-content
+        </div>
+      </div>
+      <!-- <tab-content
           :before-change="beforeChange"
           title="  اختيار مجال الاشتراك "
         >
@@ -94,8 +94,8 @@
               />
             </div>
           </div>
-        </tab-content>
-        <tab-content title="  اختيار طريقة الدفع ">
+        </tab-content> -->
+      <!-- <tab-content title="  اختيار طريقة الدفع ">
           <h3 class="my-4">اختيار طريقة الدفع</h3>
           <div class="mt-4 p-3 d-flex gap-4">
             <div class="card border-info mb-3" style="width: fit-content">
@@ -149,8 +149,8 @@
               </div>
             </div>
           </div>
-        </tab-content>
-      </form-wizard>
+        </tab-content> -->
+      <!-- </form-wizard> -->
     </div>
 
     <!-- end wizard -->

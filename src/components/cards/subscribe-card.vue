@@ -1,21 +1,22 @@
 <template>
   <!-- start -->
-  <div
-    :class="{ 'card-top': title === 'ستة شهور' }"
-    class="subscription-card d-flex flex-column"
-    style="height: 630px"
-  >
-    <div class="subscription-header text-center">
-      <h2
-        :class="{
-          'feature-top': title === 'ستة شهور',
-          'text-dark': title !== 'ستة شهور',
-        }"
-        class="subscription-title"
-      >
-        {{ title }}
-      </h2>
-      <!-- <div class="subscription-image">
+  <div>
+    <div
+      :class="{ 'card-top': title === 'ستة شهور' }"
+      class="subscription-card d-flex flex-column"
+      style="height: 630px"
+    >
+      <div class="subscription-header text-center">
+        <h2
+          :class="{
+            'feature-top': title === 'ستة شهور',
+            'text-dark': title !== 'ستة شهور',
+          }"
+          class="subscription-title"
+        >
+          {{ title }}
+        </h2>
+        <!-- <div class="subscription-image">
         <img
           v-if="title == 'شهر'"
           src="../../../public/assets/img/Clip path group.png"
@@ -32,41 +33,41 @@
           alt=""
         />
       </div> -->
-      <div class="subscription-price d-flex flex-column">
-        <div>
-          <span
-            :class="{
-              'feature-top': title === 'ستة شهور',
-              'text-dark': title !== 'ستة شهور',
-            }"
-            class=""
-            >{{ price }}</span
-          >
-          <span
-            :class="{
-              'feature-top': title === 'ستة شهور',
-              'text-dark': title !== 'ستة شهور',
-            }"
-            v-if="subscribed.type !== 'free'"
-            class=""
-            >{{ $t("riyals") }}</span
-          >
+        <div class="subscription-price d-flex flex-column">
+          <div>
+            <span
+              :class="{
+                'feature-top': title === 'ستة شهور',
+                'text-dark': title !== 'ستة شهور',
+              }"
+              class=""
+              >{{ price }}</span
+            >
+            <span
+              :class="{
+                'feature-top': title === 'ستة شهور',
+                'text-dark': title !== 'ستة شهور',
+              }"
+              v-if="subscribed.type !== 'free'"
+              class=""
+              >{{ $t("riyals") }}</span
+            >
+          </div>
+          <!-- <small style="font-size: 12px; color: #888">{{ title }}</small> -->
         </div>
-        <!-- <small style="font-size: 12px; color: #888">{{ title }}</small> -->
       </div>
-    </div>
-    <div class="subscription-features">
-      <!-- <h3 class="features-title">الميزات و الخدمات:</h3> -->
-      <div class="rounded-4" :class="{ 'feature-li': title === 'ستة شهور' }">
-        <ul
-          style="max-height: 300px"
-          class="feature-list overflow-y-auto d-flex flex-row flex-wrap overflow-y-auto"
-          :class="{ 'feature-li': title === 'ستة شهور' }"
-        >
-          <li v-for="(feature, i) in features" :key="i" class="feature-item">
-            <i class="fas fa-check-circle mx-2"></i>
+      <div class="subscription-features">
+        <!-- <h3 class="features-title">الميزات و الخدمات:</h3> -->
+        <div class="rounded-4" :class="{ 'feature-li': title === 'ستة شهور' }">
+          <ul
+            style="max-height: 300px"
+            class="feature-list overflow-y-auto d-flex flex-row flex-wrap overflow-y-auto"
+            :class="{ 'feature-li': title === 'ستة شهور' }"
+          >
+            <li v-for="(feature, i) in features" :key="i" class="feature-item">
+              <i class="fas fa-check-circle mx-2"></i>
 
-            <!-- <svg
+              <!-- <svg
             width="17"
             height="16"
             viewBox="0 0 17 16"
@@ -90,38 +91,38 @@
               </clipPath>
             </defs>
           </svg> -->
-            <span>{{ feature }}</span>
-          </li>
-        </ul>
-        <div style="width: 100%" class="subscription-actions text-center">
-          <button
-            @click="selected"
-            v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed"
-            class="subscribe-button shadow"
-            :class="{ 'top-btn': title === 'ستة شهور' }"
-          >
-            {{ $t("subscribe-now") }}
-          </button>
-          <button
-            :class="{ 'top-btn': title === 'ستة شهور' }"
-            @click="selected"
-            :id="pack.id"
-            v-else-if="pack.id !== subscribed"
-            class="upgrade-button shadow"
-          >
-            رقي حسابك
-          </button>
-          <button
-            :class="{ 'top-btn': title === 'ستة شهور' }"
-            v-else-if="pack.id == subscribed"
-            class="subscribed-button shadow"
-          >
-            انت مشترك الان
-          </button>
+              <span>{{ feature }}</span>
+            </li>
+          </ul>
+          <div style="width: 100%" class="subscription-actions text-center">
+            <button
+              @click="selected"
+              v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed"
+              class="subscribe-button shadow"
+              :class="{ 'top-btn': title === 'ستة شهور' }"
+            >
+              {{ $t("subscribe-now") }}
+            </button>
+            <button
+              :class="{ 'top-btn': title === 'ستة شهور' }"
+              @click="handleOpenModal"
+              :id="pack.id"
+              v-else-if="pack.id !== subscribed"
+              class="upgrade-button shadow"
+            >
+              رقي حسابك
+            </button>
+            <button
+              :class="{ 'top-btn': title === 'ستة شهور' }"
+              v-else-if="pack.id == subscribed"
+              class="subscribed-button shadow"
+            >
+              انت مشترك الان
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- <div style="width: 100%" class="subscription-actions text-center">
+      <!-- <div style="width: 100%" class="subscription-actions text-center">
       <button
         @click="selected"
         v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed"
@@ -141,12 +142,230 @@
         انت مشترك الان
       </button>
     </div> -->
+    </div>
+    <div
+      style="
+        top: 0;
+        left: 0;
+        z-index: 99999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+      "
+      v-if="openModal"
+      class="position-fixed overflow-x-hidden overflow-x-none overflow-y-auto"
+    >
+      <div style="background-color: white">
+        <div class="text-end px-5 py-5">
+          <button
+            @click="handleCloseModal"
+            style="
+              font-size: 20px;
+              color: red;
+              border: none;
+              background-color: transparent;
+            "
+          >
+            x
+          </button>
+        </div>
+        <div class="text-center">
+          <h1 style="color: #1fb9b3; font-size: 42px">اختيار مجال الاشتراك</h1>
+        </div>
+        <div class="row justify-content-center align-items-center">
+          <div
+            style="width: 640px"
+            class="row justify-content-center py-5 align-items-center"
+          >
+            <div
+              :id="`department${item.id}`"
+              @click="addFieldId(item.id)"
+              v-for="(item, i) in items"
+              :key="i"
+              class="col-md-3 d-flex justify-content-center align-items-center col-6"
+            >
+              <CardVue
+                :title="item.name"
+                :img="`${item.image_path}`"
+                :id="item.id"
+              />
+            </div>
+            <div class="my-5 text-center">
+              <button
+                style="background-color: #1fb9b3"
+                class="px-5 btn rounded-4 py-2 text-light"
+                @click="handleOpenSecModal"
+              >
+                التاكيد و الدفع
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style="
+        top: 0;
+        left: 0;
+        z-index: 99999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+      "
+      v-if="openSecModal"
+      class="position-fixed"
+    >
+      <!-- <Modal
+        :selectedProvider="selectedProvider"
+        @payNow="proceedToPayment"
+        @closeModal="handleEmit"
+      /> -->
+      <div style="background-color: white; height: 100%" class="container">
+        <div class="text-end py-5 px-5">
+          <button
+            @click="handleCloseSecModal"
+            class=""
+            style="
+              color: red;
+              font-size: 20px;
+              border: none;
+              background-color: transparent;
+            "
+          >
+            X
+          </button>
+        </div>
+        <div class="row justify-content-center align-items-center">
+          <div class="text-center">
+            <h3 class="my-4">اختيار طريقة الدفع</h3>
+          </div>
+
+          <div class="row">
+            <div class="card border-info col-12 mb-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <label
+                    class="form-check-label d-flex align-items-center justify-content-between px-2"
+                    for="tamara"
+                  >
+                    <div>
+                      الدفع بواسطة بطاقة الائتمان
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="tamara"
+                        disabled
+                      />
+                    </div>
+                    <img
+                      src="../../assets/img/payment/Group 1171276314.png"
+                      alt="payment method"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="card border-info col-md-6 col-12 mb-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <label
+                    class="form-check-label d-flex align-items-center justify-content-between px-2"
+                    for="tamara"
+                  >
+                    <div>
+                      Tamara
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="tamara"
+                        value="tamara"
+                        v-model="selectedProvider"
+                      />
+                    </div>
+                    <img
+                      src="../../assets/img/payment/Group 1171276324.png"
+                      alt="payment method"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="card border-info col-md-6 col-12 mb-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <label
+                    class="form-check-label d-flex align-items-center justify-content-between px-2"
+                    for="hyperbill"
+                  >
+                    <div class="">
+                      HyperBill
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="hyperbill"
+                        value="hyperbill"
+                        v-model="selectedProvider"
+                      />
+                    </div>
+                    <img
+                      src="../../assets/img/payment/Group 1171276318.png"
+                      alt="img"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="card border-info col-md-6 col-12 mb-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <label
+                    class="form-check-label d-flex align-items-center justify-content-between px-2"
+                    for="myfatoorah"
+                  >
+                    <div>
+                      MyFatoorah
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="myfatoorah"
+                        value="myfatoorah"
+                        v-model="selectedProvider"
+                      />
+                    </div>
+                    <img src="../../assets/img/payment/Group.png" alt="img" />
+                    <!-- <img src="../assets/img/payment/Group.png" alt="img" /> -->
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 text-center">
+          <button
+            @click="proceedToPayment"
+            style="background-color: #1fb9b3; color: white"
+            class="btn px-5 py-2"
+          >
+            استكمال
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+
   <!-- end -->
 </template>
 
 <script>
+import electronicFeasibilityStudy3Vue from "@/views/incubator/incubator-business/show/content/types/electronic-feasibility-study/electronicFeasibilityStudy3.vue";
+import CardVue from "@/components/cards/incubator-dept-circle.vue";
+import academyAPI from "@/services/api/academy";
+import PaymentApi from "@/services/api/payment";
+
 export default {
+  components: { CardVue },
   props: {
     itemId: {
       type: [String, Number],
@@ -178,9 +397,33 @@ export default {
     return {
       packageType: "",
       selected_package: true,
+      openModal: false,
+      openSecModal: false,
+
+      items: [],
+      fieldIds: [],
+      show: false,
+      packages: [],
+      subscribedType: "",
+      selectedPackage: "",
+      selectedProvider: null,
     };
   },
   methods: {
+    handleOpenModal() {
+      this.openModal = true;
+    },
+    handleOpenSecModal() {
+      this.openModal = false;
+      this.openSecModal = true;
+    },
+    handleCloseSecModal() {
+      this.openModal = false;
+      this.openSecModal = false;
+    },
+    handleCloseModal() {
+      this.openModal = false;
+    },
     selected(evt) {
       evt.preventDefault();
 
@@ -210,9 +453,110 @@ export default {
         this.$emit("chosed", this.pack);
       }
     },
+    addFieldId(id) {
+      if (this.fieldIds.includes(id)) {
+        let indexDepartment = this.fieldIds.indexOf(id);
+        this.fieldIds.splice(indexDepartment, 1);
+        const elem = document.getElementById(`department${id}`);
+        let children = elem.querySelectorAll("img");
+        children[0].style.border = "none";
+        elem.style.opacity = "1";
+      } else {
+        this.fieldIds.push(id);
+        const elem = document.getElementById(`department${id}`);
+        let children = elem.querySelectorAll("img");
+        elem.style.opacity = "0.4";
+        children[0].style.border = "5px solid #2eb9b3";
+        children[0].style.borderRadius = "50%";
+      }
+    },
+    async getDepartments() {
+      this.loading = true;
+      try {
+        let { data } = await academyAPI.getDepartments();
+        if (data.success) {
+          this.items = data.data;
+        }
+      } catch (error) {
+        console.mylog("error", error);
+      }
+      this.loading = false;
+    },
+    async proceedToPayment() {
+      if (this.selectedPackage.type == "free") {
+        try {
+          let { data } = await networkAPI.checkoutPackageFree({
+            package_id: selectedPackage.id,
+          });
+          if (data.success) {
+            console.log("itsfree", data.data);
+          } else {
+            window.SwalError(data.message);
+          }
+        } catch (error) {
+          console.log("error", error);
+        }
+        return;
+      }
+      switch (this.selectedProvider) {
+        case "tamara":
+          try {
+            let { data } = await PaymentApi.PayPackageTammara({
+              package_id: this.selectedPackage.id,
+              type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "hyperbill":
+          try {
+            let { data } = await PaymentApi.PayPackageHyperBill({
+              package_id: this.selectedPackage.id,
+              type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "myfatoorah":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.selectedPackage.id,
+              type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        default:
+          // Handle case where no provider is selected
+          window.errorMsg("اختار بوابة الدفع");
+          return false;
+      }
+    },
+    choose(pack) {
+      this.selectedPackage = pack;
+    },
   },
   mounted() {
     this.packageType = this.$route.meta.type;
+    this.getDepartments();
   },
 };
 </script>
