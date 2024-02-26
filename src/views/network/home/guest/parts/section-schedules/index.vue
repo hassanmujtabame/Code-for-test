@@ -1,21 +1,21 @@
 <template>
-  <div class="container mt-5">   
+  <!-- <div class="container mt-5">   
             <PartSchedule />
-        </div>
+        </div> -->
+  <div></div>
 </template>
 
 <script>
-import PartSchedule from './schedule-riadiat.vue'
+import PartSchedule from "./schedule-riadiat.vue";
 export default {
-name:"section-schedule",
-components:{
+  name: "section-schedule",
+  components: {
+    PartSchedule,
+  },
 
-    PartSchedule
-},
-
-created(){
+  created() {
     const plugin = document.createElement("script");
-    plugin.innerHTML=`
+    plugin.innerHTML = `
     $(function() {     $("#calendarContainer").simpleCalendar({
   displayEvent: true,
   events: [
@@ -42,11 +42,9 @@ created(){
 })
 })
 `;
-document.body.appendChild(plugin);   
-}
-}
+    document.body.appendChild(plugin);
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
