@@ -149,6 +149,16 @@
         </tab-content> -->
       <!-- </form-wizard> -->
     </div>
+    <CardFeatures />
+    <div class="my-5">
+      <BigProject />
+    </div>
+    <div class="my-5">
+      <NetworkCreditCard />
+    </div>
+    <div class="my-5 container-fluid">
+      <Learning />
+    </div>
 
     <!-- end wizard -->
   </div>
@@ -162,6 +172,10 @@ import CardVue from "@/components/cards/incubator-dept-circle.vue";
 import incubatorAPI from "@/services/api/incubator";
 import SectionHeader from "./parts/section-header/index.vue";
 import PaymentApi from "@/services/api/payment";
+import NetworkCreditCard from "@/components/network-credit-card.vue";
+import CardFeatures from "@/components/section-network-features.vue";
+import BigProject from "@/components/big-project.vue";
+import Learning from "@/views/incubator/home/parts/section-continue-learning/index.vue";
 
 export default {
   name: "incubator-subscribe",
@@ -171,6 +185,10 @@ export default {
     TabContent,
     CardVue,
     SectionHeader,
+    Learning,
+    BigProject,
+    CardFeatures,
+    NetworkCreditCard,
   },
   data: () => ({
     items: [
