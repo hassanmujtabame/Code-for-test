@@ -3,22 +3,30 @@
     <h2 class="home-section-title text-center">مزايا أماكن العمل</h2>
     <div class="row min-riadiat academy">
       <div class="col-xl-3 col-md-6 mt-2">
-        <CardItem :src="require('@/assets/img/work-spaces/Group.png')">
-           أماكن عمل موثوقة
+        <CardItem
+          :src="require('../../../../../assets/img/workspace/Icon.png')"
+        >
+          أماكن عمل موثوقة
         </CardItem>
       </div>
       <div class="col-xl-3 col-md-6 mt-2">
-        <CardItem :src="require('@/assets/img/work-spaces/earth-eco-ecology.png')">
+        <CardItem
+          :src="require('../../../../../assets/img/workspace/Icon (1).png')"
+        >
           موجودين في أماكن مختلفة
         </CardItem>
       </div>
       <div class="col-xl-3 col-md-6 mt-2">
-        <CardItem :src="require('@/assets/img/work-spaces/money-curreny.png')">
+        <CardItem
+          :src="require('../../../../../assets/img/workspace/Icon (2).png')"
+        >
           سعر مميز لأعضاء الشبكة
         </CardItem>
       </div>
       <div class="col-xl-3 col-md-6 mt-2">
-        <CardItem :src="require('@/assets/img/work-spaces/women.png')">
+        <CardItem
+          :src="require('../../../../../assets/img/workspace/Icon (3).png')"
+        >
           تطوير رائـــــدات الاعمــــــــــــــال
         </CardItem>
       </div>
@@ -34,4 +42,3 @@ export default {
   },
 };
 </script>
-

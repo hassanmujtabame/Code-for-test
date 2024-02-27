@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row my-5 header">
         <div class="col-lg-6">
-          <h2 class="font-weight-bold">أحدث اماكن العمل</h2>
+          <h2 class="font-weight-bold">أحدث اماكن رياديات</h2>
         </div>
         <!-- <div class="col-lg-6 add-work-space">
           <button
