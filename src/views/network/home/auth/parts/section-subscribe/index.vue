@@ -157,7 +157,18 @@ export default {
 
     async loadPackages() {
       try {
-        let { data } = await networkAPI.getPackages();
+        // Define your parameters object
+        const params = {
+          // Add your parameters here
+          // For example:
+          type_company: 0,
+          // Another parameter:
+          // And so on...
+        };
+
+        // Call the getPackages method with the params object
+        let { data } = await networkAPI.getPackages(params);
+
         if (data.success) {
           this.packages = data.data;
         }
@@ -165,6 +176,16 @@ export default {
         console.log("error", error);
       }
     },
+    // async loadPackages() {
+    //   try {
+    //     let { data } = await networkAPI.getPackages();
+    //     if (data.success) {
+    //       this.packages = data.data;
+    //     }
+    //   } catch (error) {
+    //     console.log("error", error);
+    //   }
+    // },
     checkSubscriptionOptions() {
       for (
         let index = 0;

@@ -44,6 +44,30 @@
           أعمالهن والتواصل مع الرياديات
         </h5>
       </div>
+      <div class="text-center">
+        <h1>اختر الخطة هذا مناسب لك</h1>
+        <p style="color: #888">
+          اختر الخطة التي تناسبك، فلا تتردد في الاتصال بنا
+        </p>
+        <div class="d-flex justify-content-center align-items-center">
+          <button
+            :class="{ 'current-tab': tab === 0 }"
+            @click="switchTab(tab)"
+            style="color: black; background-color: white; border: none"
+            class="px-5 rounded-2 shadow py-2"
+          >
+            الافراد
+          </button>
+          <button
+            :class="{ 'current-tab': tab === 1 }"
+            @click="switchTab(tab)"
+            style="color: black; background-color: white; border: none"
+            class="px-5 rounded-2 shadow py-2"
+          >
+            الشركات
+          </button>
+        </div>
+      </div>
       <!-- <form-wizard
         color="#49b483ff"
         step-size="xs"
@@ -201,6 +225,7 @@ export default {
     subscribedType: "",
     selectedPackage: "",
     selectedProvider: null,
+    tab: 1,
   }),
   methods: {
     getTypePackage(data) {
@@ -214,6 +239,10 @@ export default {
         default:
           return "N/A";
       }
+    },
+    switchTab(n) {
+      n === 1 ? (this.tab = 0) : (this.tab = 1);
+      console.log(this.tab);
     },
 
     beforeChange() {
@@ -234,7 +263,18 @@ export default {
 
     async loadPackages() {
       try {
-        let { data } = await networkAPI.getPackages();
+        // Define your parameters object
+        const params = {
+          // Add your parameters here
+          // For example:
+          type_company: this.tab,
+          // Another parameter:
+          // And so on...
+        };
+
+        // Call the getPackages method with the params object
+        let { data } = await networkAPI.getPackages(params);
+
         if (data.success) {
           this.packages = data.data;
         }
@@ -242,6 +282,16 @@ export default {
         console.log("error", error);
       }
     },
+    // async loadPackages() {
+    //   try {
+    //     let { data } = await networkAPI.getPackages();
+    //     if (data.success) {
+    //       this.packages = data.data;
+    //     }
+    //   } catch (error) {
+    //     console.log("error", error);
+    //   }
+    // },
     checkSubscriptionOptions() {
       for (
         let index = 0;
@@ -348,6 +398,15 @@ export default {
     this.loadPackages();
     this.checkTypePackage();
   },
+  watch: {
+    tab(newValue, oldValue) {
+      // Check if the new value is different from the old value
+      if (newValue !== oldValue) {
+        // Call your function here
+        this.loadPackages();
+      }
+    },
+  },
 };
 </script>
 <style>
@@ -370,5 +429,9 @@ export default {
 .custom-ul ul li.active {
   background: var(--pc);
   color: white;
+}
+.current-tab {
+  background: #1fb9b3 !important;
+  color: white !important;
 }
 </style>
