@@ -32,7 +32,7 @@
         </router-link>
       </div>
     </div>
-    <div class="row mt-3 gx-5">
+    <div class="row mt-3 gy-5 gx-5">
       <div class="col-md-3 col-12">
         <analytics></analytics>
       </div>

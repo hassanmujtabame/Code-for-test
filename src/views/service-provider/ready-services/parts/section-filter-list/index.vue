@@ -49,11 +49,11 @@
       :searchPlaceholder="$t('search_by_service')"
     >
       <template v-slot:side>
-        <sidebarFilter @change="changeFilter" :filter-item="fitlterSide" />
+        <SidebarFilter @change="changeFilter" :filter-item="fitlterSide" />
       </template>
 
       <template v-slot="{ item }">
-        <readyServiceCard
+        <ReadyServiceCard
           class="mt-4"
           :image="item.image"
           :description="item.desc"
@@ -73,13 +73,13 @@
 
 <script>
 import readyServiceAPIs from "@/services/api/service-provider/provider/ready-service";
-import readyServiceCard from "@/components/cards/ready-service.vue";
-import sidebarFilter from "./sidebar-filter.vue";
+import ReadyServiceCard from "@/components/cards/ready-service.vue";
+import SidebarFilter from "./sidebar-filter.vue";
 export default {
   name: "section-filter-list",
   components: {
-    readyServiceCard,
-    sidebarFilter,
+    ReadyServiceCard,
+    SidebarFilter,
   },
   data: (vm) => {
     let state = ["online", "offline", "service"].includes(vm.$route.query.state)

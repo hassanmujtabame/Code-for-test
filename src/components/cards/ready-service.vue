@@ -2,7 +2,7 @@
   <div>
     <div
       v-b-modal="`my-modal-${id}`"
-      class="box overflow-y-auto mb-3 rounded-2"
+      class="box shadow overflow-y-auto mb-3 rounded-2"
     >
       <router-link
         class="router-link"
