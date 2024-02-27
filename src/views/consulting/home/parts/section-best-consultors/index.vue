@@ -1,83 +1,86 @@
 <template>
-<div class="sec-five p-3" v-if="consultants">
-            <div class="">
-              <div
-                class="d-flex justify-content-between align-items-center container"
-              >
-                <h1 class="home-section-title">أبرز مستشارينا</h1>
-                <div>  
-                  <router-link :to="getRouteLocale('consulting-consultants')" class="more">{{ $t('more') }}</router-link>
-                </div>
-              </div>
-            
-              <DSwiper
-              v-if="!loading"
-              :slides-per-view="4"
-              :space-between="10"
-              is-auto
-              :pagination="false"
-              :navigation="true"
-              :items="items"
-            >
-       
-            <template  v-slot:default="{item}" >
-                <CardMember 
-                :to="getRouteLocale('consultant-page',{id:item.id})"
-                :name="item.name" 
-                :description="item.job_title" 
-                :img="item.image"/>
-                </template>
-            </DSwiper>
-            </div>
-          </div>
+  <div class="sec-five p-3" v-if="consultants">
+    <div class="px-3">
+      <div class="d-flex justify-content-between align-items-center container">
+        <h1 class="home-section-title">أبرز مستشارينا</h1>
+        <div>
+          <router-link
+            :to="getRouteLocale('consulting-consultants')"
+            class="more"
+            >{{ $t("more") }}</router-link
+          >
+        </div>
+      </div>
+
+      <DSwiper
+        v-if="!loading"
+        :slides-per-view="4"
+        :space-between="10"
+        is-auto
+        :pagination="false"
+        :navigation="true"
+        :items="items"
+      >
+        <template v-slot:default="{ item }">
+          <CardMember
+            :to="getRouteLocale('consultant-page', { id: item.id })"
+            :name="item.name"
+            :description="item.job_title"
+            :img="item.image"
+          />
+        </template>
+      </DSwiper>
+    </div>
+  </div>
 </template>
 
 <script>
-import DSwiper from '@/components/swiper/index.vue'
-import CardMember from '@/components/cards/card-member.vue'
-import consultingAPI from '@/services/api/consulting'
+import DSwiper from "@/components/swiper/index.vue";
+import CardMember from "@/components/cards/card-member.vue";
+import consultingAPI from "@/services/api/consulting";
 export default {
- name:'section-best-consultants',
- components:{
-  DSwiper,
-    CardMember
+  name: "section-best-consultants",
+  components: {
+    DSwiper,
+    CardMember,
   },
-  data:()=>({
-    loading:true,
-    items:[],
-    consultants:false
+  data: () => ({
+    loading: true,
+    items: [],
+    consultants: false,
   }),
-  methods:{
-    async initializing(){
-        this.loading = true;
-        try {
-          let {data}= await consultingAPI.consultants.getBest({paginate:4})
-          if(data.success){
-            this.items = data.data
-          }
-        } catch (error) {
-           // 
+  methods: {
+    async initializing() {
+      this.loading = true;
+      try {
+        let { data } = await consultingAPI.consultants.getBest({ paginate: 4 });
+        if (data.success) {
+          this.items = data.data;
         }
-        this.loading = false;
+      } catch (error) {
+        //
+      }
+      this.loading = false;
     },
-            checkSubscriptionOptions(){
-                for (let index = 0; index < this.user.subscription_options.length; index++) {
-                    const element = this.user.subscription_options[index];
-                   if (element.key == "consultants") {
-                        this.consultants = true
-                        
-                    } 
-                }
-    }
+    checkSubscriptionOptions() {
+      for (
+        let index = 0;
+        index < this.user.subscription_options.length;
+        index++
+      ) {
+        const element = this.user.subscription_options[index];
+        if (element.key == "consultants") {
+          this.consultants = true;
+        }
+      }
+    },
   },
-  mounted(){
-    this.checkSubscriptionOptions()
+  mounted() {
+    this.checkSubscriptionOptions();
 
-    this.initializing()
-  }
-}
+    this.initializing();
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -28,7 +28,7 @@
         </button>
       </div>
     </div>
-    <div v-if="isMobile">
+    <div class="px-5" v-if="isMobile">
       <d-swiper
         v-if="!loading"
         :slides-per-view="4"

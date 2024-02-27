@@ -56,6 +56,13 @@
             >{{ $t("members") }}</router-link
           >
         </b-dropdown-item>
+        <b-dropdown-item class="nav-item">
+          <router-link
+            :to="{ name: 'consulting-home', params: { lang: $i18n.locale } }"
+            class="nav-link"
+            >{{ $t("consulting") }}</router-link
+          >
+        </b-dropdown-item>
       </b-dropdown>
     </li>
     <li class="nav-item">
@@ -212,11 +219,11 @@
     <!-- <router-link :to="getRouteLocale('workspaces-home')" class="d-block">{{ $t("workspaces") }}</router-link> -->
 
     <li class="nav-item">
-      <router-link
-        :to="{ name: 'workspaces-home', params: { lang: $i18n.locale } }"
-        class="nav-link"
-        >{{ $t("workspaces") }}</router-link
-      >
+      <!-- <router-link :to="{ name: 'consulting-home', params: { lang: $i18n.locale } }" class="nav-link">{{ $t('consulting')
+      }}</router-link> -->
+      <router-link :to="getRouteLocale('workspaces-home')" class="nav-link">{{
+        $t("workspaces")
+      }}</router-link>
     </li>
     <li class="nav-item">
       <router-link
