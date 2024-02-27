@@ -6,28 +6,28 @@
         <CardItem
           :src="require('../../../../../assets/img/workspace/Icon.png')"
         >
-          أماكن عمل موثوقة
+          أماكن موثوقة وإمنه
         </CardItem>
       </div>
       <div class="col-xl-3 col-md-6 mt-2">
         <CardItem
           :src="require('../../../../../assets/img/workspace/Icon (1).png')"
         >
-          موجودين في أماكن مختلفة
+          موجودين في مناطق ودول مختلفة
         </CardItem>
       </div>
       <div class="col-xl-3 col-md-6 mt-2">
         <CardItem
           :src="require('../../../../../assets/img/workspace/Icon (2).png')"
         >
-          سعر مميز لأعضاء الشبكة
+          اماكن تناسب انشطة وفعاليات متعددة
         </CardItem>
       </div>
       <div class="col-xl-3 col-md-6 mt-2">
         <CardItem
           :src="require('../../../../../assets/img/workspace/Icon (3).png')"
         >
-          تطوير رائـــــدات الاعمــــــــــــــال
+          سعر مميز لأعضاء الشبكة
         </CardItem>
       </div>
     </div>

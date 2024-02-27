@@ -1,11 +1,12 @@
 <template>
   <div
-    class="work-spaces-features-item d-flex h-auto flex-column border rounded-2"
+    style="min-height: 150px"
+    class="work-spaces-features-item d-flex flex-column border rounded-2"
   >
     <div class="work-spaces-features-item-img py-1">
       <img :src="src" class="h-100 w-100" alt="" />
     </div>
-    <div class="work-spaces-features-item-text my-2">
+    <div class="work-spaces-features-item-text text-center my-2">
       <slot class="font-weight-bold" style="color: '#4D4D4D'"></slot>
     </div>
   </div>
