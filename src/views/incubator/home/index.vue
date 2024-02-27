@@ -36,7 +36,10 @@
     <SectionIncubationProjects />
 
     <!-- section 10-->
+    <!-- <div>
+
     <SectionSchedule />
+    </div> -->
     <!-- <SectionNumbers /> -->
     <!-- section 11-->
     <SectionContinueLearning />

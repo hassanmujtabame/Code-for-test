@@ -3,12 +3,14 @@
     <div class="row">
       <div class="col-12 col-md-6">
         <img
-          class="rounded-4 shadow"
+          class="rounded-4 img-fluid shadow"
           src="../../public/assets/img/Rectangle 17777.png"
           alt="image"
         />
       </div>
-      <div class="col-12 d-flex px-5 flex-column col-md-6">
+      <div
+        class="col-12 justify-content-center align-items-center justify-content-md-start align-items-md-start d-flex px-5 flex-column col-md-6"
+      >
         <h1>برنامج الاحتضان</h1>
         <p style="color: #979797">
           برنامج لأصحاب الأفكار يحتوي على جلسات استشارية وإرشادية وبرامج تدريبية

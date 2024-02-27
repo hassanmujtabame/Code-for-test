@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5">
+  <div class="p-5 d-none d-md-block">
     <h2 class="home-section-title text-center">رحلتك نحو الانطلاق</h2>
     <div class="mt-2 mx-1 text-center">
       <img
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'section-journey-launch'
+  name: "section-journey-launch",
 };
 </script>
 
