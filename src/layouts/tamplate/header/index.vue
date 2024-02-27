@@ -1,21 +1,41 @@
 <template>
-  <nav class="navbar navbar-expand-xl" style="--bs-navbar-nav-link-padding-x: 0 !important;">
+  <nav
+    class="navbar navbar-expand-xl"
+    style="--bs-navbar-nav-link-padding-x: 0 !important"
+  >
     <div class="container">
       <router-link class="navbar-brand" :to="getRouteLocale('index')">
-        <img :src="`${publicPath}assets/svg/logo-header.svg`" alt="">
+        <img :src="`${publicPath}assets/svg/logo-header.svg`" alt="" />
       </router-link>
       <!-- <div v-if="false" class="d-block d-sm-none">
         <SearchInput />
       </div> -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation" @click="toggleOffcanvas">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        @click="toggleOffcanvas"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="offcanvas offcanvas-start justify-content-between" id="offcanvasExample"
-        :class="{ 'show': showMobileNav }">
+      <div
+        class="offcanvas offcanvas-start justify-content-between"
+        id="offcanvasExample"
+        :class="{ show: showMobileNav }"
+      >
         <div class="offcanvas-header">
-          <button type="button" id="btn-close-header" class="btn-close me-3 m-c" data-bs-dismiss="offcanvas"
-            aria-label="Close" @click="toggleOffcanvas"></button>
+          <button
+            type="button"
+            id="btn-close-header"
+            class="btn-close me-3 m-c"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+            @click="toggleOffcanvas"
+          ></button>
         </div>
         <ul class="navbar-nav">
           <slot :closeNavList="closeNavList" :clickLink="clickLink"></slot>
@@ -29,7 +49,6 @@
               <UserNotif :prefixRoute="prefixRoute" />
               <UserNav :prefixRoute="prefixRoute" />
             </template>
-
           </div>
         </div>
       </div>
@@ -86,7 +105,7 @@ export default {
 
       window.location.reload();
     },
-  }
+  },
 };
 </script>
 

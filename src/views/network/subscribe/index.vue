@@ -225,7 +225,7 @@ export default {
     subscribedType: "",
     selectedPackage: "",
     selectedProvider: null,
-    tab: 1,
+    tab: 0,
   }),
   methods: {
     getTypePackage(data) {

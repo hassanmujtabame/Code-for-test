@@ -221,9 +221,9 @@
     <li class="nav-item">
       <!-- <router-link :to="{ name: 'consulting-home', params: { lang: $i18n.locale } }" class="nav-link">{{ $t('consulting')
       }}</router-link> -->
-      <router-link :to="getRouteLocale('workspaces-home')" class="nav-link">{{
-        $t("workspaces")
-      }}</router-link>
+      <router-link :to="getRouteLocale('network-subscribe')" class="nav-link"
+        >الاشتراكات</router-link
+      >
     </li>
     <li class="nav-item">
       <router-link
