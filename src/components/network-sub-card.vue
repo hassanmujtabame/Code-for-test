@@ -378,6 +378,7 @@
 
 <script>
 import PaymentApi from "@/services/api/payment";
+import networkAPI from "@/services/api/network";
 import Modal from "@/components/Modal-network.vue";
 
 export default {
@@ -418,8 +419,6 @@ export default {
       selectedPackage: "",
       openModal: false,
       selectedProvider: null,
-      selectedPackageName: "",
-      selectedPackagePrice: "",
     };
   },
   methods: {
@@ -454,8 +453,6 @@ export default {
     },
     handleModal() {
       this.openModal = true;
-      this.selectedPackagePrice = this.price;
-      this.selectedPackageName = this.title;
     },
     checkSubscriptionOptions() {
       for (
@@ -496,7 +493,7 @@ export default {
       if (this.selectedPackage.type == "free") {
         try {
           let { data } = await networkAPI.checkoutPackageFree({
-            package_id: selectedPackage.id,
+            package_id: this.selectedPackage.id,
           });
           if (data.success) {
             console.log("itsfree", data.data);

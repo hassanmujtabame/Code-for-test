@@ -19,9 +19,9 @@
     <!-- <div class="my-5">
       <SectionWinning />
     </div> -->
-    <SectionCommonQuistions />
-    <!-- <SectionRecentCourses /> -->
     <SectionGraduated title=" المسوقين الاكثر ربحا " />
+    <!-- <SectionRecentCourses /> -->
+    <SectionCommonQuistions />
     <SectionContinueLearning />
     <!-- <SectionHear :itemPage="itemPage" /> -->
   </div>
