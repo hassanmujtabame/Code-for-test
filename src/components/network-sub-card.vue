@@ -97,7 +97,7 @@
           <div style="width: 100%" class="subscription-actions text-center">
             <button
               @click="handleModal"
-              v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed"
+              v-if="type_subscribe === 'مجانا' && pack.id !== subscribed"
               class="subscribe-button shadow"
               :class="{ 'top-btn': title === 'ستة شهور' }"
             >
@@ -392,7 +392,7 @@ export default {
     price: {
       type: [String, Number],
     },
-    typeSubscribe: {
+    type_subscribe: {
       type: String,
     },
     typeSectionSub: {
@@ -425,12 +425,12 @@ export default {
     selected(evt) {
       evt.preventDefault();
 
-      if (this.typeSubscribe == "مجانا") {
+      if (this.type_subscribe == "مجانا") {
         try {
           window.axios.defaults.baseURL = "https://api.riadiat.sa/";
           window.axios
             .get(
-              `payments/myfatoorah/callback?package_id=${this.pack.id}&package_type=${this.packageType}&user_id=${this.user.id}`
+              `payments/myfatoorah/callback?package_id=${this.itemId}&package_type=${this.packageType}&user_id=${this.user.id}`
             )
             .then((res) => {
               console.log("res", res);
@@ -560,6 +560,9 @@ export default {
   },
   mounted() {
     this.packageType = this.$route.meta.type;
+  },
+  created() {
+    console.log(``);
   },
 };
 </script>

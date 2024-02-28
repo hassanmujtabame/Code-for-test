@@ -100,7 +100,7 @@
                 :title="pack.name"
                 :price="pack.price"
                 :features="pack.options.map((c) => c.name_ar)"
-                :type-subscribe="pack.name"
+                :type_subscribe="pack.name"
                 @chosed="choose"
                 :subscribed="subscribedType"
                 :typeSectionSub="'network'"
