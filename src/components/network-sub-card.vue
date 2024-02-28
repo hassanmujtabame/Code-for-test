@@ -560,10 +560,9 @@ export default {
   },
   mounted() {
     this.packageType = this.$route.meta.type;
+    this.checkTypePackage();
   },
-  created() {
-    console.log(``);
-  },
+  created() {},
 };
 </script>
 <style scoped>
