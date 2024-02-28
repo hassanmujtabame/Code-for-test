@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="login-page"
-    style="background-image: linear-gradient(-55deg, #fff7e0, transparent)"
-  >
+  <div class="login-page" style="">
     <b-container>
       <LoginForm @change-form="afterSuccessForm" v-if="status == 'form'" />
       <ResendCodeView

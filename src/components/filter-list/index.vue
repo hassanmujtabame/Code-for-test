@@ -451,7 +451,7 @@ export default {
     },
     classColCard: {
       type: String,
-      default: "col-12 col-lg-4 mt-2",
+      default: "col-12 col-lg-4 ",
     },
     classColSearch: {
       type: String,

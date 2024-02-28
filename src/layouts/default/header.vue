@@ -63,7 +63,16 @@
             >{{ $t("consulting") }}</router-link
           >
         </b-dropdown-item>
+        <!-- <b-dropdown-item class="nav-item">
+          <router-link
+            :to="{ name: 'consulting-home', params: { lang: $i18n.locale } }"
+            class="nav-link"
+          >
+            omar
+          </router-link>
+        </b-dropdown-item> -->
       </b-dropdown>
+      <!-- here  -->
     </li>
     <li class="nav-item">
       <router-link

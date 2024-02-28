@@ -2,7 +2,7 @@
   <div>
     <div
       v-b-modal="`my-modal-${id}`"
-      class="box shadow overflow-y-auto mb-3 rounded-2"
+      class="box shadow overflow-y-auto rounded-2"
     >
       <router-link
         class="router-link"
@@ -106,12 +106,14 @@
             </div>
             <div>
               <h6>{{ title }}</h6>
-              <div style="" class="overflow-y-auto">
-                <p
-                  style="color: #888; font-size: 10px"
-                  class="text-two-lines txt-description"
-                  v-html="description"
-                ></p>
+              <div style="height: 30px" class="overflow-y-auto;">
+                <div>
+                  <div
+                    style="color: #888; font-size: 10px; height: 30px"
+                    class="px-1 overflow-y-auto;"
+                    v-html="description"
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
