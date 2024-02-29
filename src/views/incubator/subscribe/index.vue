@@ -61,6 +61,7 @@
         >
           <div class="row p-3">
             <SubscribeCard
+              :id="pack.id"
               :itemId="pack.name"
               :pack="pack"
               :title="pack.name"

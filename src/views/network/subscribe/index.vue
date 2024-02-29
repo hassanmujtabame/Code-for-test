@@ -95,6 +95,7 @@
           <div class="">
             <div class="mb-4">
               <NetworkSubCard
+                :id="pack.id"
                 :itemId="pack.name"
                 :pack="pack"
                 :title="pack.name"

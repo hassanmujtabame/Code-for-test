@@ -64,6 +64,7 @@
             <div class="p-3">
               <SubscribeCard
                 :itemId="pack.name"
+                :id="pack.id"
                 :pack="pack"
                 :title="pack.name"
                 :price="pack.price"

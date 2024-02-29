@@ -363,6 +363,7 @@ import electronicFeasibilityStudy3Vue from "@/views/incubator/incubator-business
 import CardVue from "@/components/cards/incubator-dept-circle.vue";
 import academyAPI from "@/services/api/academy";
 import PaymentApi from "@/services/api/payment";
+import networkAPI from "@/services/api/network";
 
 export default {
   components: { CardVue },
@@ -389,6 +390,10 @@ export default {
       type: [Array, Object],
     },
     subscribed: {
+      // type: [Array, Object]
+      type: [String, Number],
+    },
+    id: {
       // type: [Array, Object]
       type: [String, Number],
     },
@@ -486,7 +491,7 @@ export default {
       if (this.selectedPackage.type == "free") {
         try {
           let { data } = await networkAPI.checkoutPackageFree({
-            package_id: selectedPackage.id,
+            package_id: this.id,
           });
           if (data.success) {
             console.log("itsfree", data.data);
@@ -501,8 +506,12 @@ export default {
       switch (this.selectedProvider) {
         case "tamara":
           try {
-            let { data } = await PaymentApi.PayPackageTammara({
-              package_id: this.selectedPackage.id,
+            // let { data } = await PaymentApi.PayPackageTammara({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
               type: "package",
             });
             if (data.success) {
@@ -516,8 +525,12 @@ export default {
           break;
         case "hyperbill":
           try {
-            let { data } = await PaymentApi.PayPackageHyperBill({
-              package_id: this.selectedPackage.id,
+            // let { data } = await PaymentApi.PayPackageHyperBill({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
               type: "package",
             });
             if (data.success) {
@@ -532,7 +545,7 @@ export default {
         case "myfatoorah":
           try {
             let { data } = await PaymentApi.PayPackageMyFatoorah({
-              package_id: this.selectedPackage.id,
+              package_id: this.id,
               type: "package",
             });
             if (data.success) {

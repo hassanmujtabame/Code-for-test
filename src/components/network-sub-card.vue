@@ -377,6 +377,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import PaymentApi from "@/services/api/payment";
 import networkAPI from "@/services/api/network";
 import Modal from "@/components/Modal-network.vue";
@@ -390,6 +392,9 @@ export default {
       type: String,
     },
     price: {
+      type: [String, Number],
+    },
+    id: {
       type: [String, Number],
     },
     type_subscribe: {
@@ -493,7 +498,7 @@ export default {
       if (this.selectedPackage.type == "free") {
         try {
           let { data } = await networkAPI.checkoutPackageFree({
-            package_id: this.selectedPackage.id,
+            package_id: this.id,
           });
           if (data.success) {
             console.log("itsfree", data.data);
@@ -508,8 +513,12 @@ export default {
       switch (this.selectedProvider) {
         case "tamara":
           try {
-            let { data } = await PaymentApi.PayPackageTammara({
-              package_id: this.selectedPackage.id,
+            // let { data } = await PaymentApi.PayPackageTammara({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
               type: "package",
             });
             if (data.success) {
@@ -523,8 +532,12 @@ export default {
           break;
         case "hyperbill":
           try {
-            let { data } = await PaymentApi.PayPackageHyperBill({
-              package_id: this.selectedPackage.id,
+            // let { data } = await PaymentApi.PayPackageHyperBill({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
               type: "package",
             });
             if (data.success) {
@@ -539,7 +552,7 @@ export default {
         case "myfatoorah":
           try {
             let { data } = await PaymentApi.PayPackageMyFatoorah({
-              package_id: this.selectedPackage.id,
+              package_id: this.id,
               type: "package",
             });
             if (data.success) {
@@ -561,8 +574,15 @@ export default {
   mounted() {
     this.packageType = this.$route.meta.type;
     this.checkTypePackage();
+    console.log(this.user);
+    console.log(`ppp ${this.pack}`);
   },
-  created() {},
+  computed: {
+    // Map the 'user' state from the 'auth' module to a local computed property
+    ...mapState("auth", {
+      user: (state) => state.user,
+    }),
+  },
 };
 </script>
 <style scoped>
