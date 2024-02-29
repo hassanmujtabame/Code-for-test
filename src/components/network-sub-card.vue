@@ -299,6 +299,7 @@
                 >
                   <h4 style="font-size: 18px">خطة {{ title }}</h4>
                   <button
+                    @click="handleClose"
                     style="
                       background-color: transparent;
                       color: #1fb9b3;
