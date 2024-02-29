@@ -11,20 +11,20 @@
           </div> -->
           <ValidationObserver class="row" ref="form">
             <ValidationProvider
-              :name="$t('id_number')"
+              name="name"
               tag="div"
               class="flex-grow-1 flex-column col-12 col-md-6 mb-3"
-              vid="id_number"
-              rules="required|numeric"
+              vid="name"
+              rules="required"
               v-slot="{ errors }"
             >
-              <label class="my-1" for="id">رقم الهوية</label>
+              <label class="my-1" for="name">الاسم </label>
               <b-form-input
-                id="id"
+                id="name"
                 class="col-md-6 col-12"
                 type="text"
-                :placeholder="`274829584032`"
-                v-model="form.id_number"
+                :placeholder="`ياسمين محمد`"
+                v-model="form.name"
                 required
               />
               <div class="text-input-error">{{ errors[0] }}</div>
@@ -45,6 +45,25 @@
                 v-model="form.email"
                 required
                 id="email"
+              />
+              <div class="text-input-error">{{ errors[0] }}</div>
+            </ValidationProvider>
+            <ValidationProvider
+              :name="$t('id_number')"
+              tag="div"
+              class="flex-grow-1 flex-column col-12 col-md-6 mb-3"
+              vid="id_number"
+              rules="required|numeric"
+              v-slot="{ errors }"
+            >
+              <label class="my-1" for="id">رقم الهوية</label>
+              <b-form-input
+                id="id"
+                class="col-md-6 col-12"
+                type="text"
+                :placeholder="`274829584032`"
+                v-model="form.id_number"
+                required
               />
               <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
@@ -222,7 +241,7 @@
                 id="what-know"
                 class=""
                 type="text"
-                placeholder=""
+                placeholder="منصه مفيدة للغايه لصانعى المحتوى"
                 v-model="form.what_you_know"
                 required
               />
@@ -251,12 +270,14 @@
               vid="reason_for_join"
               v-slot="{ errors }"
               tag="div"
-              class="col-12 col-md-6 mb-3"
+              class="col-12 flex-column col-md-6 mb-3"
             >
+              <label class="my-1" for="why">سبب انضمامك بالبرنامج؟</label>
               <b-form-input
+                id="why"
                 class="col-md-6 col-12"
                 type="text"
-                :placeholder="` سبب انضمامك بالبرنامج؟ `"
+                :placeholder="` لان رياديات منصه رائعه للغاية  `"
                 v-model="form.reason_for_join"
               />
               <div class="text-input-error">{{ errors[0] }}</div>
@@ -268,12 +289,16 @@
               rules="required"
               v-slot="{ errors }"
               tag="div"
-              class="col-12 col-md-6 mb-3"
+              class="col-12 flex-column col-md-6 mb-3"
             >
+              <label class="my-1" for="hours"
+                >عدد الساعات التي من الممكن تخصصيها للبرنامج
+              </label>
               <b-form-input
+                id="hours"
                 class="col-md-6 col-12"
                 type="text"
-                :placeholder="` عدد الساعات التي من الممكن تخصصيها للبرنامج بشكل اسبوعي ؟ `"
+                :placeholder="`  20`"
                 v-model="form.hours_number"
                 required
               />
@@ -286,12 +311,16 @@
               rules="required"
               v-slot="{ errors }"
               tag="div"
-              class="col-12 col-md-6 mb-3"
+              class="col-12 flex-column col-md-6 mb-3"
             >
+              <label class="my-1" for="how"
+                >كيف راح تقنع العملاء بالتسجيل معك</label
+              >
               <b-form-input
+                id="how"
                 class="col-md-6 col-12"
                 type="text"
-                :placeholder="` كيف راح تقنع العملاء بالتسجيل معك ؟ `"
+                :placeholder="`  عن طريق اظهار مدى براعتى فى المجال الخاص بى`"
                 v-model="form.how_to_convence"
                 required
               />
