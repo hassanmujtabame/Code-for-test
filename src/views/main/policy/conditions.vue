@@ -185,6 +185,7 @@
 
 <script>
 export default {
+    name:"conditions-and-service"
 
 }
 </script>
