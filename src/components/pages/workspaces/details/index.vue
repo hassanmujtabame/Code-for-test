@@ -15,14 +15,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-6 mt-5">
+        <div class="col-md-7 mt-5">
           <Gallery :singleWorkspace="singleWorkspace" />
           <!--rate service-->
           <SectionRate :singleWorkspace="singleWorkspace" />
           <!-- v-if="singleWorkspace.rates.length" -->
         </div>
 
-        <div class="col-md-6 mt-5">
+        <div class="col-md-5 mt-5">
           <d-user-info-li
             route-name="service-provider-show-profile"
             group-dialog="send-message-to-provider"
