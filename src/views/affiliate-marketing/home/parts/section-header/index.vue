@@ -31,10 +31,24 @@
 
                   <button
                     v-if="token"
-                    class="text-white btn-omar px-5 py-3 border-0"
+                    class="text-white btn-omar rounded-3 px-5 py-3 border-0"
                     @click="affiliateRegister"
                   >
                     أشترك الان
+                  </button>
+                  <!-- <button
+                    v-if="token"
+                    class="text-white btn-omar rounded-3 px-5 py-3 border-0"
+                  >
+                    أشترك الان
+                  </button> -->
+                  <button
+                    v-if="token"
+                    style="color: #1fb9b3"
+                    class="btn btn-lg bg-light bg mx-1 px-4 py-2"
+                  >
+                    <play-icon class="mx-1" />
+                    عرض توجيهى
                   </button>
                 </li>
 
@@ -94,12 +108,15 @@
 
 <script>
 import LoginDialog from "../login-dialog/index.vue";
+import playIcon from "@/components/icon-svg/play.vue";
+
 import $ from "jquery";
 
 export default {
   name: "section-header",
   components: {
     LoginDialog,
+    playIcon,
   },
   data() {
     return {
