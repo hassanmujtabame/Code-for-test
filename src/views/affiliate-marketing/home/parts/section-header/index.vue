@@ -11,7 +11,7 @@
             مقابل كل عملية تسجيل
           </p>
 
-          <div class="my-4">
+          <div class="my-4 d-flex justify-content-start">
             <template>
               <div class="row d-flex gap-2">
                 <li>
@@ -21,13 +21,13 @@
                   >
                     جارى تفعيل حسابك
                   </div>
-                  <router-link
+                  <!-- <router-link
                     v-else-if="profileData.status == 'active'"
                     class="text-white bg-transparent border-0"
                     :to="{ name: 'affiliate-marketing-dashboard' }"
                   >
                     لوحه التحكم
-                  </router-link>
+                  </router-link> -->
 
                   <button
                     v-if="token"

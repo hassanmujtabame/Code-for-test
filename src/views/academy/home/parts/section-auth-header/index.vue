@@ -18,13 +18,13 @@
             رياديات ستكون معكِ خطوة بخطوة
           </p>
           <div class="mt-4">
-            <a
-              v-if="!token"
-              @click="shouldLoginMsg"
+            <router-link
+              v-if="token"
+              :to="getRouteLocale('academy/instructor/register')"
               class="btn-custmer shadow mt-2"
             >
               {{ $t("join-us") }}
-            </a>
+            </router-link>
             <router-link
               v-if="!token"
               :to="getRouteLocale('login')"

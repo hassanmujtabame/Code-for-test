@@ -144,7 +144,7 @@
             >
               <!-- <select
                 v-for="(item, i) in countries"
-                v-model="form.selectedCountry"
+                v-model="form.country"
                 :key="i"
                 class="form-select mb-3"
                 name=""
@@ -157,7 +157,7 @@
               <label class="my-1" for="country">الدوله</label>
               <select
                 class="form-select"
-                :v-bind="form.selectedCountry"
+                :v-bind="form.country"
                 name=""
                 id="country"
               >
@@ -411,7 +411,7 @@ export default {
       phone: "",
       phone_code: "+966",
       passwordConfirm: "",
-      selectedCountry: "",
+      country: "",
     },
     hasError: false,
     message: "",
