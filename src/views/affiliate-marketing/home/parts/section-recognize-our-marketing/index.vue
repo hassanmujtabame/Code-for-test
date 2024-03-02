@@ -1,7 +1,7 @@
 <template>
   <div class="mt-5 p-3">
     <div class="container-fluid">
-      <div class="d-flex justify-content-center align-items-center container">
+      <div class="d-flex justify-content-start align-items-center container">
         <h1>تعرفي على مجالات التسويق لدينا</h1>
       </div>
       <d-swiper :slides-per-view="5" is-auto :space-between="10" :items="items">

@@ -12,14 +12,17 @@
     <SectionJoin v-if="token && !user.affiliate" />
     <SectionJoin v-if="!token" />
     <SectionWhatWeProvide />
-    <SectionGraduated title="ابرز سفيرات التسويق بالعموله" />
     <!-- <SectionDoubleWinings /> -->
     <SectionAreYouMember />
     <SectionRecognize />
+    <SectionGraduated title="المسوقين الاكثر ربحاً" />
     <!-- <div class="my-5">
       <SectionWinning />
     </div> -->
+    <!-- <div>
+
     <SectionGraduated title=" المسوقين الاكثر ربحا " />
+    </div> -->
     <!-- <SectionRecentCourses /> -->
     <SectionCommonQuistions />
     <SectionContinueLearning />

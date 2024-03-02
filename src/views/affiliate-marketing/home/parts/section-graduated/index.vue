@@ -46,7 +46,7 @@ export default {
       loading: false,
       items: [
         {
-          name: "العنود محمد",
+          name: "العمور محمد",
           description: "التصوير",
           img: `assets/img/Rectangle 1775qa.png`,
         },
