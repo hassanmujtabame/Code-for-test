@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-3 p-4 bg-card" v-bind="$attrs">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center align-items-center">
       <div class="col-md-4 justify-content-center">
         <div
           class="col-md-4 text-center avatar-user-card clickable"
@@ -10,7 +10,7 @@
           <img :src="member.image" />
         </div>
       </div>
-      <div class="col-md-8 t-c">
+      <div class="col-md-8 px-5 t-c">
         <h4 class="fw-bold">
           {{ member.name ?? "N/A" }}
         </h4>

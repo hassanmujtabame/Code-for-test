@@ -86,6 +86,12 @@
         {{ dateReverse(singleWorkspace.created_at) ?? "N/A" }}
       </span>
     </div>
+    <!-- <div class="pt-3 border-top text-center">
+      <span class="h3"> {{ $t("publish-date") }}: </span>
+      <span class="m-c h3 fw-bolder">
+        {{ dateReverse(singleWorkspace.created_at) ?? "N/A" }}
+      </span>
+    </div> -->
   </div>
 </template>
 
