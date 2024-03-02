@@ -10,7 +10,7 @@
             <img src="../../../../assets/img/Image.png" alt="img" />
           </div> -->
           <ValidationObserver class="row" ref="form">
-            <ValidationProvider
+            <!-- <ValidationProvider
               name="name"
               tag="div"
               class="flex-grow-1 flex-column col-12 col-md-6 mb-3"
@@ -28,8 +28,8 @@
                 required
               />
               <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-            <ValidationProvider
+            </ValidationProvider> -->
+            <!-- <ValidationProvider
               name="email"
               tag="div"
               class="flex-grow-1 flex-column col-12 col-md-6 mb-3"
@@ -47,7 +47,7 @@
                 id="email"
               />
               <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
+            </ValidationProvider> -->
             <ValidationProvider
               :name="$t('id_number')"
               tag="div"
@@ -67,7 +67,7 @@
               />
               <div class="text-input-error">{{ errors[0] }}</div>
             </ValidationProvider>
-            <ValidationProvider
+            <!-- <ValidationProvider
               name="phone number"
               tag="div"
               class="flex-grow-1 flex-column col-12 col-md-6 mb-3"
@@ -85,7 +85,7 @@
                 id="phone"
               />
               <div class="text-input-error">{{ errors[0] }}</div>
-            </ValidationProvider>
+            </ValidationProvider> -->
 
             <ValidationProvider
               :name="$t('region')"
@@ -292,7 +292,7 @@
               class="col-12 flex-column col-md-6 mb-3"
             >
               <label class="my-1" for="hours"
-                >عدد الساعات التي من الممكن تخصصيها للبرنامج
+                >عدد الساعات التي من الممكن تخصصيها
               </label>
               <b-form-input
                 id="hours"
@@ -320,7 +320,7 @@
                 id="how"
                 class="col-md-6 col-12"
                 type="text"
-                :placeholder="`  عن طريق اظهار مدى براعتى فى المجال الخاص بى`"
+                :placeholder="`  عن طريق اظهار مدى براعتى    `"
                 v-model="form.how_to_convence"
                 required
               />
