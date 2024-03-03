@@ -45,13 +45,9 @@
                 rules="required"
                 v-slot="{ errors }"
                 :disabled="!isEnabled"
-                :max-date="'2100-12-31'"
-                min-date="1960-1-1"
               >
                 <date-picker-input
                   :disabled="!isEnabled"
-                  :max-date="'2100-12-31'"
-                  min-date="1960-1-1"
                   mode="calendar"
                   class="form-control"
                   v-model="itemForm.birth_date"
