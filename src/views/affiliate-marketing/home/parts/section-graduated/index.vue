@@ -20,7 +20,7 @@
             :description="item.description"
             :name="item.name"
             :to="getRouteLocale('incubator-show-profile', { id: item.id })"
-            :img="`${publicPath + item.img}`"
+            :img="item.image"
           />
         </template>
       </DSwiper>
@@ -31,6 +31,7 @@
 <script>
 import DSwiper from "@/components/swiper/index.vue";
 import CardMember from "@/components/cards/card-member.vue";
+import topMarketApi from "@/services/api/market";
 export default {
   name: "section-graduated",
   props: {
@@ -44,54 +45,28 @@ export default {
   data: (vm) => {
     return {
       loading: false,
-      items: [
-        {
-          name: "العمور محمد",
-          description: "التصوير",
-          img: `assets/img/Rectangle 1775qa.png`,
-        },
-        {
-          name: "العنود محمد",
-          description: "التصوير",
-          img: `assets/img/Rectangle 1775qa.png`,
-        },
-        {
-          name: "العنود محمد",
-          description: "التصوير",
-          img: `assets/img/Rectangle 1775qa.png`,
-        },
-        {
-          name: "العنود محمد",
-          description: "التصوير",
-          img: `assets/img/Rectangle 1775qa.png`,
-        },
-        {
-          name: "العنود محمد",
-          description: "التصوير",
-          img: `assets/img/Rectangle 1775qa.png`,
-        },
-        {
-          name: "العنود محمد",
-          description: "التصوير",
-          img: `assets/img/Rectangle 1775qa.png`,
-        },
-        {
-          name: "العنود محمد",
-          description: "التصوير",
-          img: `assets/img/Rectangle 1775qa.png`,
-        },
-        {
-          name: "العنود محمد",
-          description: "التصوير",
-          img: `assets/img/Rectangle 1775qa.png`,
-        },
-        {
-          name: "العنود محمد",
-          description: "التصوير",
-          img: `assets/img/Rectangle 1775qa.png`,
-        },
-      ],
+      items: [],
     };
+  },
+  methods: {
+    async getData() {
+      this.loading = true;
+      try {
+        let { data } = await topMarketApi.getAll();
+        if (data.success) {
+          this.items = data.data;
+          console.log(data.data);
+          this.loading = false;
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        this.loading = false;
+      }
+    },
+  },
+  mounted() {
+    this.getData();
   },
 };
 </script>
