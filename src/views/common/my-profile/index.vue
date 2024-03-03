@@ -22,21 +22,40 @@
             <!--معومات شخصية  -->
             <SectionPersonal :currentUser="currentUser" />
             <!-- بطاقات الدفع -->
+            <!-- <div>
+
             <SectionPaymentCards />
+            </div> -->
             <!--معلومات الدراسة -->
+            <!-- <div>
+
             <SectionEducation :currentUser="currentUser" />
+            </div> -->
             <!--معلومات مهنية -->
+            <!-- <div>
+
             <SectionProfessional :currentUser="currentUser" />
+            </div> -->
             <!--معلومات الاقامة -->
+            <!-- <div>
+
             <SectionResidence :currentUser="currentUser" />
+            </div> -->
             <!-- معلومات التواصل -->
             <SectionCommunication :currentUser="currentUser" />
             <!-- اعدادات الاشعارات -->
+
             <SectionSettingsNotif :currentUser="currentUser" />
             <!--قائمة الحظر -->
+            <!-- <div>
+              
             <SectionListBlocks :currentUser="currentUser" />
+            </div> -->
             <!--معرض الاعمال -->
+            <!-- <div>
+
             <SectionShowerProject :currentUser="currentUser" />
+            </div> -->
           </div>
         </div>
       </div>

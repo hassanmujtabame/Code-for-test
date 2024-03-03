@@ -168,7 +168,9 @@
   <div class="box border">
     <ValidationObserver ref="form">
       <div class="row p-3">
-        <div class="col-md-12">
+        <div
+          class="col-md-12 flex-column d-flex justify-content-center align-items-center"
+        >
           <ValidationProvider
             :name="$t('Image')"
             tag="div"
@@ -205,7 +207,7 @@
                         />
                       </svg>
                     </p> -->
-                  <div class="add-img-selected">
+                  <div style="margin-left: -57px" class="add-img-selected">
                     <img
                       class="w-100 h-100 rounded-circle"
                       :src="urlTmp ?? imageUser"
@@ -225,6 +227,9 @@
               </div>
               <!-- <img class="rounded-circle img-person" src="../assets/img/avatar-11.jpg" alt="" width="140" height="140"> -->
             </div>
+            <h5 class="my-3" style="margin-left: -57px">
+              {{ name }}
+            </h5>
             <d-error-input
               :errors="errors"
               v-if="errors.length"
@@ -235,8 +240,9 @@
           <div
             class="border-bottom py-2 t-c px-3 d-flex justify-content-between align-items-center"
           >
-            <h3 class="t-c">معلومات العرض</h3>
+            <h3 style="color: #1fb9b3" class="t-c">معلومات العرض</h3>
             <button
+              v-if="!isEnabled"
               @click="enableInput"
               class="btn px-4 py-2 text-light"
               style="background-color: #1fb9b3"
@@ -255,6 +261,9 @@
                 />
               </svg>
               تعديل
+            </button>
+            <button v-else @click="save" class="btn-main">
+              {{ $t("save") }}
             </button>
           </div>
 
@@ -346,9 +355,9 @@
             ></d-error-input>
           </ValidationProvider>
         </div>
-        <div class="m-auto text-center p-3">
+        <!-- <div class="m-auto text-center p-3">
           <button @click="save" class="btn-main">{{ $t("save") }}</button>
-        </div>
+        </div> -->
       </div>
     </ValidationObserver>
   </div>
@@ -363,6 +372,7 @@ export default {
     return {
       urlTmp: null,
       imageUrl: vm.currentUser.image,
+      name: vm.currentUser.name,
       itemForm: {
         image: null,
         bio: vm.currentUser.bio !== null ? vm.currentUser.bio : "",
