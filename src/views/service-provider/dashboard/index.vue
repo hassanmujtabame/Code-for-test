@@ -2,10 +2,10 @@
   <main style="margin-top: 85px">
     <div class="container dashbord">
       <div class="row">
-        <div class="col-md-2">
+        <!-- <div class="col-md-2">
           <SideBar />
-        </div>
-        <div class="col-md-10">
+        </div> -->
+        <div class="col-md-12">
           <!--section top-->
           <SectionBalance />
           <SectionTop />

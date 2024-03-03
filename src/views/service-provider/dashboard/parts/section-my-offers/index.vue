@@ -4,7 +4,7 @@
       <div class="box border p-5 mt-3">
         <div class="d-flex align-items-center justify-content-between">
           <h3>عروضي</h3>
-          <p class="fw-bolder fs-3">{{itemCard.count_offers}}</p>
+          <p class="fw-bolder fs-3">{{ itemCard.count_offers }}</p>
         </div>
         <div class="row">
           <div class="col-md-6 mt-5">
@@ -13,7 +13,7 @@
                 class="progress-bar"
                 role="progressbar"
                 aria-label="Example with label"
-                :style="{width: `${percentUnderway}%`}"
+                :style="{ width: `${percentUnderway}%` }"
                 :aria-valuenow="percentUnderway"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -21,10 +21,12 @@
                 <div class="position-absolute text">
                   <div class="d-flex justify-content-between">
                     <p>
-                      <span class="fw-bolder m-c fs-6">{{itemCard.service_finished}}</span>
+                      <span class="fw-bolder m-c fs-6">{{
+                        itemCard.service_finished
+                      }}</span>
                       <span class="fs-6">عرض مكتمل</span>
                     </p>
-                    <p class="fs-6 t-c">{{percentFinished}}%</p>
+                    <p class="fs-6 t-c">{{ percentFinished }}%</p>
                   </div>
                 </div>
               </div>
@@ -36,7 +38,7 @@
                 class="progress-bar tow"
                 role="progressbar"
                 aria-label="Example with label"
-                :style="{width: `${percentWaiting}%`}"
+                :style="{ width: `${percentWaiting}%` }"
                 :aria-valuenow="percentWaiting"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -44,10 +46,12 @@
                 <div class="position-absolute text">
                   <div class="d-flex justify-content-between">
                     <p>
-                      <span class="fw-bolder m-c fs-6">{{itemCard.service_waiting}}</span>
+                      <span class="fw-bolder m-c fs-6">{{
+                        itemCard.service_waiting
+                      }}</span>
                       <span class="fs-6">عرض ينتظر الموافقة</span>
                     </p>
-                    <p class="fs-6 t-c">{{percentWaiting}}%</p>
+                    <p class="fs-6 t-c">{{ percentWaiting }}%</p>
                   </div>
                 </div>
               </div>
@@ -59,7 +63,7 @@
                 class="progress-bar three"
                 role="progressbar"
                 aria-label="Example with label"
-                :style="{width: `${percentUnderway}%`}"
+                :style="{ width: `${percentUnderway}%` }"
                 :aria-valuenow="percentUnderway"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -67,13 +71,12 @@
                 <div class="position-absolute text">
                   <div class="d-flex justify-content-between">
                     <p>
-                      <span
-                        style="color:#FFBC00 ;"
-                        class="fw-bolder m-c fs-6"
-                      >{{itemCard.service_underway}}</span>
+                      <span style="color: #ffbc00" class="fw-bolder m-c fs-6">{{
+                        itemCard.service_underway
+                      }}</span>
                       <span class="fs-6">قيد التنفيذ</span>
                     </p>
-                    <p class="fs-6 t-c">{{percentUnderway}}%</p>
+                    <p class="fs-6 t-c">{{ percentUnderway }}%</p>
                   </div>
                 </div>
               </div>
@@ -85,7 +88,7 @@
                 class="progress-bar four"
                 role="progressbar"
                 aria-label="Example with label"
-                :style="{width: `${percentExcluded}%`}"
+                :style="{ width: `${percentExcluded}%` }"
                 :aria-valuenow="percentExcluded"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -93,13 +96,12 @@
                 <div class="position-absolute text">
                   <div class="d-flex justify-content-between">
                     <p>
-                      <span
-                        style="color:#FFBC00 ;"
-                        class="fw-bolder m-c fs-6"
-                      >{{itemCard.service_excluded}}</span>
+                      <span style="color: #ffbc00" class="fw-bolder m-c fs-6">{{
+                        itemCard.service_excluded
+                      }}</span>
                       <span class="fs-6">عرض مستبعد</span>
                     </p>
-                    <p class="fs-6 t-c">{{percentExcluded}}%</p>
+                    <p class="fs-6 t-c">{{ percentExcluded }}%</p>
                   </div>
                 </div>
               </div>
@@ -114,20 +116,27 @@
           <div class="col-md-12 border p-3">
             <div class="box d-flex align-items-center justify-content-between">
               <h5>تقيم اعمالي</h5>
-              <p>{{itemCard.count_rate}}</p>
+              <p>{{ itemCard.count_rate }}</p>
             </div>
             <div class="box d-flex align-items-center justify-content-between">
               <button
                 @click="router_push('service-provider-my-offers')"
                 class="btn border rounded-2 bg-transparent"
-              >عرض التقييمات</button>
+              >
+                عرض التقييمات
+              </button>
               <div>
-                <RateStars v-if="!loading" :size="32" :value="itemCard.rate" :readonly="true"/>
+                <RateStars
+                  v-if="!loading"
+                  :size="32"
+                  :value="itemCard.rate"
+                  :readonly="true"
+                />
                 <!-- <d-rate-stars :size="32" :value="itemCard.rate" /> -->
               </div>
             </div>
           </div>
-          <div class="col-md-12 border mt-3 p-3">
+          <!-- <div class="col-md-12 border mt-3 p-3">
             <div class="box d-flex align-items-center justify-content-between">
               <h5>الرسائل الجديدة</h5>
               <p>0</p>
@@ -135,7 +144,7 @@
             <div class="box d-flex align-items-center justify-content-between">
               <button class="btn border rounded-2 bg-transparent">عرض الرسائل</button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -148,11 +157,11 @@ import readyServicesAPI from "@/services/api/service-provider/provider/ready-ser
 export default {
   name: "section-my-offers",
   components: {
-    RateStars
+    RateStars,
   },
   data: () => ({
     loading: true,
-    itemCard: {}
+    itemCard: {},
   }),
   computed: {
     percentFinished() {
@@ -178,7 +187,7 @@ export default {
         this.itemCard.service_excluded,
         this.itemCard.count_offers
       );
-    }
+    },
   },
   methods: {
     calcPercent(x, total) {
@@ -197,13 +206,12 @@ export default {
         console.log("error", error);
       }
       this.loading = false;
-    }
+    },
   },
   mounted() {
     this.initializing();
-  }
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

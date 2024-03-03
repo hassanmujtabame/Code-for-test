@@ -9,13 +9,21 @@
         <div class="row">
           <div class="col-md-6 mt-5">
             <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-label="Example with label"
-                :style="{ width: `${percentUnderway}%` }" :aria-valuenow="percentUnderway" aria-valuemin="0"
-                aria-valuemax="100">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                aria-label="Example with label"
+                :style="{ width: `${percentUnderway}%` }"
+                :aria-valuenow="percentUnderway"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
                 <div class="position-absolute text">
                   <div class="d-flex justify-content-between">
                     <p>
-                      <span class="fw-bolder m-c fs-6">{{ itemCard.service_finished }}</span>
+                      <span class="fw-bolder m-c fs-6">{{
+                        itemCard.service_finished
+                      }}</span>
                       <span class="fs-6"> تم حجزها </span>
                     </p>
                     <p class="fs-6 t-c">{{ percentFinished }}%</p>
@@ -26,13 +34,21 @@
           </div>
           <div class="col-md-6 mt-5">
             <div class="progress">
-              <div class="progress-bar tow" role="progressbar" aria-label="Example with label"
-                :style="{ width: `${percentWaiting}%` }" :aria-valuenow="percentWaiting" aria-valuemin="0"
-                aria-valuemax="100">
+              <div
+                class="progress-bar tow"
+                role="progressbar"
+                aria-label="Example with label"
+                :style="{ width: `${percentWaiting}%` }"
+                :aria-valuenow="percentWaiting"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
                 <div class="position-absolute text">
                   <div class="d-flex justify-content-between">
                     <p>
-                      <span class="fw-bolder m-c fs-6">{{ itemCard.service_waiting }}</span>
+                      <span class="fw-bolder m-c fs-6">{{
+                        itemCard.service_waiting
+                      }}</span>
                       <span class="fs-6"> حجز ينتظر الموافقة</span>
                     </p>
                     <p class="fs-6 t-c">{{ percentWaiting }}%</p>
@@ -43,13 +59,21 @@
           </div>
           <div class="col-md-6 mt-5">
             <div class="progress three">
-              <div class="progress-bar three" role="progressbar" aria-label="Example with label"
-                :style="{ width: `${percentUnderway}%` }" :aria-valuenow="percentUnderway" aria-valuemin="0"
-                aria-valuemax="100">
+              <div
+                class="progress-bar three"
+                role="progressbar"
+                aria-label="Example with label"
+                :style="{ width: `${percentUnderway}%` }"
+                :aria-valuenow="percentUnderway"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
                 <div class="position-absolute text">
                   <div class="d-flex justify-content-between">
                     <p>
-                      <span style="color:#FFBC00 ;" class="fw-bolder m-c fs-6">{{ itemCard.service_underway }}</span>
+                      <span style="color: #ffbc00" class="fw-bolder m-c fs-6">{{
+                        itemCard.service_underway
+                      }}</span>
                       <span class="fs-6"> قيد الحجز </span>
                     </p>
                     <p class="fs-6 t-c">{{ percentUnderway }}%</p>
@@ -60,13 +84,21 @@
           </div>
           <div class="col-md-6 mt-5">
             <div class="progress four">
-              <div class="progress-bar four" role="progressbar" aria-label="Example with label"
-                :style="{ width: `${percentExcluded}%` }" :aria-valuenow="percentExcluded" aria-valuemin="0"
-                aria-valuemax="100">
+              <div
+                class="progress-bar four"
+                role="progressbar"
+                aria-label="Example with label"
+                :style="{ width: `${percentExcluded}%` }"
+                :aria-valuenow="percentExcluded"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
                 <div class="position-absolute text">
                   <div class="d-flex justify-content-between">
                     <p>
-                      <span style="color:#FFBC00 ;" class="fw-bolder m-c fs-6">{{ itemCard.service_excluded }}</span>
+                      <span style="color: #ffbc00" class="fw-bolder m-c fs-6">{{
+                        itemCard.service_excluded
+                      }}</span>
                       <span class="fs-6">عرض مستبعد</span>
                     </p>
                     <p class="fs-6 t-c">{{ percentExcluded }}%</p>
@@ -79,7 +111,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
       <div class="box">
         <div class="row flex-column mt-3 gap-4">
           <div class="col-md-12 border p-3">
@@ -100,17 +132,16 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <workSpacesMap />
   </div>
 </template>
 
 <script>
 import readyServicesAPI from "@/services/api/service-provider/provider/ready-service.js";
-import workSpaces from '../work-spaces.vue'
-import workSpacesMap from './work-spaces-map.vue'
+import workSpaces from "../work-spaces.vue";
+import workSpacesMap from "./work-spaces-map.vue";
 import workspaceAPI from "@/services/api/workspace";
-
 
 export default {
   name: "section-near-work-spaces",
@@ -118,7 +149,7 @@ export default {
   data: () => ({
     loading: true,
     itemCard: {},
-    workSpaces: {}
+    workSpaces: {},
   }),
   computed: {
     percentFinished() {
@@ -144,7 +175,7 @@ export default {
         this.itemCard.service_excluded,
         this.itemCard.count_offers
       );
-    }
+    },
   },
   methods: {
     async getRecentWorkSpaces() {
@@ -177,13 +208,13 @@ export default {
       this.loading = false;
     },
     openDialog() {
-      this.fireOpenDialog('work-spaces-map', this.itemCard)
-    }
+      this.fireOpenDialog("work-spaces-map", this.itemCard);
+    },
   },
   mounted() {
     this.initializing();
     this.getRecentWorkSpaces();
-  }
+  },
 };
 </script>
 
