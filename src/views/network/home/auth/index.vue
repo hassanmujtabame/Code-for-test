@@ -147,7 +147,10 @@
     <!-- <SectionBlogs /> -->
 
     <SectionContinueLearning />
+    <!-- <div>
+
     <SectionHear />
+    </div> -->
   </div>
 </template>
 

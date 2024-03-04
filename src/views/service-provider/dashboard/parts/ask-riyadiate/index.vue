@@ -1,9 +1,6 @@
 <template>
-  <div
-    class="row mt-5 p-3 rounded-4"
-    style="background: rgba(245, 245, 245, 1)"
-  >
-    <div class="col-md-6 col-12 d-flex flex-column justify-content-between">
+  <div class="row mt-5 p-3 rounded-4">
+    <!-- <div class="col-md-6 col-12 d-flex flex-column justify-content-between">
       <h2>قدم فكرة أو اقتراح لفريق رياديات</h2>
       <div
         class="d-flex justify-content-center align-items-center mt-5 bg-white rounded-3"
@@ -15,6 +12,38 @@
           :src="`${publicPath}assets/svg/Vector1.svg`"
           alt=""
         />
+      </div>
+    </div> -->
+    <div class="col-md-6 network">
+      <div class="box bg-main p-3 rounded-2">
+        <div class="d-flex">
+          <div class="w-75">
+            <h3 class="text-white">تشاركينا ؟</h3>
+            <p class="text-white">
+              يمكنك ترقية حسابك الان من عضو في الشبكة الى شريك في منصة رياديات
+              والاستفادة بالكثير من المميزات
+            </p>
+            <router-link
+              custom
+              :to="getRouteLocale('register-networking')"
+              v-slot="{ navigate }"
+            >
+              <button
+                @click="navigate"
+                class="border border-white rounded-2 text-white bg-transparent p-2"
+              >
+                {{ $t("know_more") }}
+              </button>
+            </router-link>
+          </div>
+          <div>
+            <img
+              class="img-fluid"
+              :src="`${publicPath}assets/img/ve 1.png`"
+              alt=""
+            />
+          </div>
+        </div>
       </div>
     </div>
     <div

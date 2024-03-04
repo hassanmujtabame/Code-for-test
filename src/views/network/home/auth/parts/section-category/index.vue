@@ -2,19 +2,19 @@
   <section class="container">
     <div class="row">
       <div
-        class="box col-md-4 col-12 rounded-2 p-3 d-flex gap-1"
+        class="box col-md-4 col-12 rounded-2 p-3 d-flex gap-4"
         style="background-color: #eee"
       >
         <img
-          class="mx-1"
+          class=""
           style="object-fit: contain; width: 146px"
           src="@/assets/img/new/network/Group 58.png"
           alt=""
         />
         <div
-          class="d-flex align-items-center mx-1 flex-column justify-content-center"
+          class="d-flex align-items-center flex-column justify-content-center"
         >
-          <h2 style="font-size: 30px">عروض و خصومات</h2>
+          <h2 style="font-size: 22px">عروض و خصومات</h2>
           <button
             style="background-color: #1fb9b3"
             class="px-4 py-2 text-light btn"
@@ -25,19 +25,19 @@
         </div>
       </div>
       <div
-        class="box col-md-4 col-12 rounded-2 p-3 d-flex gap-1"
+        class="box col-md-4 col-12 rounded-2 p-3 d-flex gap-4"
         style="background-color: #eee"
       >
         <img
-          class="mx-1"
+          class=""
           style="object-fit: contain; width: 146px"
           src="@/assets/img/new/network/Frame.png"
           alt=""
         />
         <div
-          class="d-flex align-items-center mx-1 flex-column justify-content-center"
+          class="d-flex align-items-center flex-column justify-content-center"
         >
-          <h2 style="font-size: 30px">اماكن عمل</h2>
+          <h2 style="font-size: 22px">اماكن عمل</h2>
           <button
             style="background-color: #1fb9b3"
             class="px-4 py-2 text-light btn"
@@ -48,19 +48,19 @@
         </div>
       </div>
       <div
-        class="box col-md-4 col-12 rounded-2 p-3 d-flex gap-1"
+        class="box col-md-4 col-12 rounded-2 p-3 d-flex gap-4"
         style="background-color: #eee"
       >
         <img
-          class="mx-1"
+          class=""
           style="object-fit: contain; width: 146px"
           src="@/assets/img/new/network/Group 5.png"
           alt=""
         />
         <div
-          class="d-flex align-items-center mx-1 flex-column justify-content-center"
+          class="d-flex align-items-center flex-column justify-content-center"
         >
-          <h2 style="font-size: 30px">مشاريع استثماريه</h2>
+          <h2 style="font-size: 22px">مشاريع استثماريه</h2>
           <button
             style="background-color: #1fb9b3"
             class="px-4 py-2 text-light btn"
@@ -74,7 +74,7 @@
   </section>
   <!-- <section class="container d-flex flex-row flex-nowrap justify-content-between">
         
-        <div class="box rounded-2 p-3 d-flex gap-1" style="background-color: #eee;">
+        <div class="box rounded-2 p-3 d-flex gap-4" style="background-color: #eee;">
             <img style="object-fit: contain; width: 146px" src="@/assets/img/new/network/Group 58.png" alt="">
             <div>
                 <h2>
@@ -85,7 +85,7 @@
                 </button>
             </div>
         </div>
-        <div class="box rounded-2 p-3 d-flex gap-1" style="background-color: #eee;">
+        <div class="box rounded-2 p-3 d-flex gap-4" style="background-color: #eee;">
             <img style="object-fit: contain; width: 146px" src="@/assets/img/new/network/Frame.png" alt="">
             <div>
                 <h2>
@@ -96,7 +96,7 @@
                 </button>
             </div>
         </div>
-        <div class="box rounded-2 p-3 d-flex gap-1" style="background-color: #eee;">
+        <div class="box rounded-2 p-3 d-flex gap-4" style="background-color: #eee;">
             <img style="object-fit: contain; width: 146px" src="@/assets/img/new/network/Group 5.png" alt="">
             <div>
                 <h2>

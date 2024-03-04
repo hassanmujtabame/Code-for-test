@@ -8,15 +8,24 @@
         <div class="col-md-12">
           <!--section top-->
           <SectionBalance />
+          <!-- <div>
+
           <SectionTop />
+          </div> -->
           <!-- <SectionFirstVisit v-else /> -->
           <!--section balance-->
           <!--section my ready services-->
           <SectionMyReadyServices />
 
           <!--section my offers-->
+          <!-- <div>
+
           <SectionMyOffers />
+          </div> -->
+          <!-- <div>
+
           <SectionMyWorkSpace />
+          </div> -->
           <AskRiyadiate />
         </div>
       </div>
