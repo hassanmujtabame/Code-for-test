@@ -15,7 +15,9 @@
         </div>
       </div>
       <div class="text col-12 col-md-6">
-        <h2 class="home-section-title">شبكة رياديات: وسع دائرة معارفك</h2>
+        <h2 style="font-size: 36px" class="home-section-title">
+          شبكة رياديات: وسع دائرة معارفك
+        </h2>
         <p class="home-section-text mb-3">
           رياديات شبكة تضم نخبة من رائدات الأعمال والمستثمرات والشركاء، وتهدف
           إلى إلهام وتمكين وجمع رائدات الأعمال معًا على منصة واحدة ليساعد بعضهن
@@ -29,7 +31,7 @@
           style="background-color: #ff5722 !important; border: none !important"
           @click="router_push('network-subscribe')"
         >
-          انضمي الان
+          أنضمي الينا الان
         </button>
       </div>
     </div>

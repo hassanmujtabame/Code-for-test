@@ -15,7 +15,7 @@
         right: -30px;
         width: 18rem;
         height: 18rem;
-        background-color: #e16e1a !important;
+        background-color: #1fb9b428 !important;
       "
     ></div>
 
@@ -32,7 +32,7 @@
             <h2 class="text-dark">اصنع شيئا كبيرا</h2>
 
             <router-link
-              style="background-color: #1fb9b3"
+              style="background-color: #e16e1a"
               :to="getRouteLocale('network-subscribe')"
               class="btn shadow px-5 py-3 text-white"
             >
@@ -171,7 +171,7 @@
   position: absolute;
   width: 12rem;
   height: 12rem;
-  background-color: #e16e1a;
+  background-color: #1fb9b428;
   border-radius: 50%;
   z-index: 1;
 }

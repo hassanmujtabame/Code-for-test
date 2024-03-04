@@ -6,14 +6,18 @@
         style="background-color: #eee"
       >
         <img
+          class="mx-1"
           style="object-fit: contain; width: 146px"
           src="@/assets/img/new/network/Group 58.png"
           alt=""
         />
-        <div>
-          <h2>عروض و خصومات</h2>
+        <div
+          class="d-flex align-items-center mx-1 flex-column justify-content-center"
+        >
+          <h2 style="font-size: 30px">عروض و خصومات</h2>
           <button
-            class="upgrade-button"
+            style="background-color: #1fb9b3"
+            class="px-4 py-2 text-light btn"
             @click="$router.push({ name: 'network' })"
           >
             عرض التفاصيل
@@ -25,14 +29,18 @@
         style="background-color: #eee"
       >
         <img
+          class="mx-1"
           style="object-fit: contain; width: 146px"
           src="@/assets/img/new/network/Frame.png"
           alt=""
         />
-        <div>
-          <h2>اماكن عمل</h2>
+        <div
+          class="d-flex align-items-center mx-1 flex-column justify-content-center"
+        >
+          <h2 style="font-size: 30px">اماكن عمل</h2>
           <button
-            class="upgrade-button"
+            style="background-color: #1fb9b3"
+            class="px-4 py-2 text-light btn"
             @click="$router.push({ name: 'workspaces-home' })"
           >
             عرض التفاصيل
@@ -44,14 +52,18 @@
         style="background-color: #eee"
       >
         <img
+          class="mx-1"
           style="object-fit: contain; width: 146px"
           src="@/assets/img/new/network/Group 5.png"
           alt=""
         />
-        <div>
-          <h2>مشاريع استثماريه</h2>
+        <div
+          class="d-flex align-items-center mx-1 flex-column justify-content-center"
+        >
+          <h2 style="font-size: 30px">مشاريع استثماريه</h2>
           <button
-            class="upgrade-button"
+            style="background-color: #1fb9b3"
+            class="px-4 py-2 text-light btn"
             @click="$router.push({ name: 'network-investment-project' })"
           >
             عرض التفاصيل
