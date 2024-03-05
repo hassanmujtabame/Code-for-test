@@ -2,12 +2,12 @@
   <div style="margin-top: 85px">
     <div class="container dashbord">
       <div class="row">
-        <!-- <div
+        <div
           style="margin-top: 8rem !important; background-color: #fff"
           class="col-md-2 d-flex justify-content-center align-items-start shadow rounded-3"
         >
           <ul
-            class="d-flex py-3 text-end flex-column gap-3 justify-content-center align-items-center"
+            class="d-flex py-5 flex-column gap-3 justify-content-center align-items-center"
           >
             <li style="list-style: none" class="nav-item">
               <router-link
@@ -45,7 +45,7 @@
                 ألاكاديمية
               </router-link>
             </li>
-            <li style="list-style: none" class="nav-item">
+            <!-- <li style="list-style: none" class="nav-item">
               <router-link
                 style="color: #888"
                 :to="getRouteLocale('incubator-dashboard')"
@@ -53,9 +53,9 @@
               >
                 حاضنة رياديات
               </router-link>
-            </li>
+            </li> -->
           </ul>
-        </div> -->
+        </div>
 
         <!--section header-->
         <!-- <div>
@@ -63,12 +63,14 @@
             <SectionHeader />
             </div> -->
         <!--section balance-->
-        <div class="col-md-12">
+        <div class="col-md-10">
           <div class="my-5">
             <SectionBalance />
           </div>
           <!--#section balance-->
-          <Services />
+          <div class="mx-3">
+            <Services />
+          </div>
           <AskUs />
         </div>
         <!-- <div class="col-md-6">

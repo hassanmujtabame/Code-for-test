@@ -1,5 +1,6 @@
 <template>
-  <div id="list-item-8p" class="container">
+  <div id="list-item-8p" class="container arabic-text">
+    <div></div>
     <h1><span class="" style="color: #1fb9b3">نموذج : </span> الأربع أفكار</h1>
     <p class="s-c">
       خصِّص/ي بعض الوقت للتفكير مليًّا في المشكلات التي تعاني منها مجالات اهتمام
@@ -247,6 +248,7 @@ export default {
       //     doc.save("document.pdf");
       //   },
       // });
+
       html2pdf()
         .from(document.getElementById("list-item-8p"))
         .toContainer()
@@ -284,7 +286,11 @@ table {
   border: 1px solid rgba(200, 204, 204, 1);
   text-align: center;
 }
-
+.arabic-text {
+  direction: rtl;
+  text-align: right; /* Adjust text alignment as needed */
+  font-family: sans-serif;
+}
 th {
   background: rgba(227, 241, 241, 1);
   color: rgba(15, 119, 116, 1);

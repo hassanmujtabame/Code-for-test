@@ -1,6 +1,6 @@
 <template>
   <div
-    class="d-flex justify-content-center gap-4 align-items-center flex-column flex-md-row mt-5"
+    class="d-flex justify-content-center mx-5 gap-4 align-items-center flex-column flex-md-row"
   >
     <div
       class="col-md-4 shadow rounded-4 d-flex gap-2 justify-content-center align-items-center p-md-2 p-4"

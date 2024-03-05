@@ -4,9 +4,25 @@
     <div
       :class="{ 'card-top': title === 'ستة شهور' }"
       class="subscription-card d-flex justify-content-center align-items-center flex-column"
-      style="height: 623px"
+      style="height: 623px; position: relative; overflow: hidden"
     >
-      <div class="subscription-header text-center">
+      <span
+        v-if="title === 'ستة شهور'"
+        style="
+          bottom: -68px;
+          width: 600px;
+          height: 600px;
+          background-color: #66c6c4;
+          position: absolute;
+          border-radius: 50%;
+          z-index: 6;
+        "
+      >
+      </span>
+      <div
+        style="position: relative; z-index: 6"
+        class="subscription-header text-center"
+      >
         <h2
           :class="{
             'feature-top': title === 'ستة شهور',
@@ -58,7 +74,11 @@
       </div>
       <div class="subscription-features">
         <!-- <h3 class="features-title">الميزات و الخدمات:</h3> -->
-        <div class="rounded-4" :class="{ 'feature-li': title === 'ستة شهور' }">
+        <div
+          class="rounded-4"
+          style="position: relative; z-index: 10"
+          :class="{ 'feature-li': title === 'ستة شهور' }"
+        >
           <ul
             style="max-height: 300px"
             class="feature-list overflow-y-auto d-flex flex-row flex-wrap overflow-y-auto"

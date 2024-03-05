@@ -1,15 +1,74 @@
 <template>
   <div style="margin-top: 85px">
     <div class="container dashbord">
-      <SectionBalance />
-      <!-- <div>
+      <div class="row">
+        <div
+          style="margin-top: 8rem !important; background-color: #fff"
+          class="col-md-2 d-flex justify-content-center align-items-start shadow rounded-3"
+        >
+          <ul
+            class="d-flex py-5 flex-column gap-3 justify-content-center align-items-center"
+          >
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('network-dashboard')"
+                class="nav-link hover-li"
+              >
+                لوحه التحكم
+              </router-link>
+            </li>
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('network-dashboard')"
+                class="nav-link hover-li"
+              >
+                المستشار
+              </router-link>
+            </li>
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('service-provider-dashboard')"
+                class="nav-link hover-li"
+              >
+                مقدم الخدمة
+              </router-link>
+            </li>
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('academy-dashboard')"
+                class="nav-link li-active hover-li"
+              >
+                ألاكاديمية
+              </router-link>
+            </li>
+            <!-- <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('incubator-dashboard')"
+                class="nav-link hover-li"
+              >
+                حاضنة رياديات
+              </router-link>
+            </li> -->
+          </ul>
+        </div>
+        <div style="margin-top: 8rem !important" class="col-md-10">
+          <SectionBalance />
+          <!-- <div>
 
       <SectionHeader />
       </div> -->
-      <SectionWidgets v-if="userAcademyRole == 'student'" />
-      <SectionInstructorWidgets v-if="userAcademyRole == 'instructor'" />
-      <div>
-        <SectionAsk />
+          <div class="mx-3">
+            <SectionWidgets v-if="userAcademyRole == 'student'" />
+            <SectionInstructorWidgets v-if="userAcademyRole == 'instructor'" />
+          </div>
+
+          <SectionAsk />
+        </div>
       </div>
     </div>
   </div>

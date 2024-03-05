@@ -1,18 +1,76 @@
 <template>
   <div style="margin-top: 85px">
     <div class="container dashbord">
-      <!--section header-->
-      <!-- <div>
+      <div class="row">
+        <div
+          style="margin-top: 8rem !important; background-color: #fff"
+          class="col-md-2 d-flex justify-content-center align-items-start shadow rounded-3"
+        >
+          <ul
+            class="d-flex py-5 flex-column gap-3 justify-content-center align-items-center"
+          >
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('network-dashboard')"
+                class="nav-link li-active hover-li"
+              >
+                لوحه التحكم
+              </router-link>
+            </li>
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('incubator-dashboard')"
+                class="nav-link hover-li"
+              >
+                المستشار
+              </router-link>
+            </li>
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('service-provider-dashboard')"
+                class="nav-link hover-li"
+              >
+                مقدم الخدمة
+              </router-link>
+            </li>
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('academy-dashboard')"
+                class="nav-link hover-li"
+              >
+                ألاكاديمية
+              </router-link>
+            </li>
+            <!-- <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('incubator-dashboard')"
+                class="nav-link hover-li"
+              >
+                حاضنة رياديات
+              </router-link>
+            </li> -->
+          </ul>
+        </div>
+        <!--section header-->
+        <!-- <div>
+        
 
       <SectionHeader />
       </div> -->
-      <!--section balance-->
-      <SectionBalance />
-      <!--#section balance-->
-      <div class="row mt-5">
-        <Service />
-        <Ask />
-
+        <!--section balance-->
+        <div class="col-md-10 col-12">
+          <SectionBalance />
+          <!--#section balance-->
+          <div class="mx-3">
+            <Ask />
+          </div>
+          <Service />
+        </div>
         <!-- <div class="col-md-5 network">
           <div class="box bg-main p-3 rounded-2">
             <div class="d-flex">
@@ -172,4 +230,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.hover-li:hover {
+  color: #1fb9b3 !important;
+  transition: all;
+}
+.hover-li {
+  transition: all;
+}
+.li-active {
+  color: #1fb9b3 !important;
+}
+</style>
