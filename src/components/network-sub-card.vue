@@ -3,7 +3,7 @@
   <div>
     <div
       :class="{ 'card-top': title === 'ستة شهور' }"
-      class="subscription-card d-flex flex-column"
+      class="subscription-card d-flex justify-content-center align-items-center flex-column"
       style="height: 623px"
     >
       <div class="subscription-header text-center">
@@ -96,8 +96,8 @@
           </ul>
           <div style="width: 100%" class="subscription-actions text-center">
             <button
-              @click="handleModal"
-              v-if="type_subscribe === 'مجانا' && pack.id !== subscribed"
+              @click="proceedToPayment"
+              v-if="price == 0 && pack.id !== subscribed"
               class="subscribe-button shadow"
               :class="{ 'top-btn': title === 'ستة شهور' }"
             >
@@ -153,7 +153,7 @@
         background-color: rgba(0, 0, 0, 0.8);
       "
       v-if="openModal"
-      class="position-fixed"
+      class="position-fixed overflow-y-auto"
     >
       <!-- <Modal
         :selectedProvider="selectedProvider"
@@ -483,7 +483,7 @@ export default {
     selected(evt) {
       evt.preventDefault();
 
-      if (this.type_subscribe == "مجانا") {
+      if (this.price == 0) {
         try {
           window.axios.defaults.baseURL = "https://api.riadiat.sa/";
           window.axios
@@ -548,11 +548,12 @@ export default {
     },
 
     async proceedToPayment() {
-      if (this.selectedPackage.type == "free") {
+      if (this.price == 0) {
+        const requestData = {
+          package_id: this.id,
+        };
         try {
-          let { data } = await networkAPI.checkoutPackageFree({
-            package_id: this.id,
-          });
+          let { data } = await networkAPI.checkoutPackageFree(requestData);
           if (data.success) {
             console.log("itsfree", data.data);
           } else {
@@ -642,8 +643,6 @@ export default {
   mounted() {
     this.packageType = this.$route.meta.type;
     this.checkTypePackage();
-    console.log(this.user);
-    console.log(`ppp ${this.pack}`);
   },
   computed: {
     // Map the 'user' state from the 'auth' module to a local computed property

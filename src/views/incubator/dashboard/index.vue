@@ -3,12 +3,8 @@
     <div class="container dashbord">
       <div class="row">
         <!-- <div
-          style="
-            margin-top: 8rem !important;
-            margin-bottom: 3rem !important;
-            background-color: #fff;
-          "
-          class="col-md-2 shadow rounded-3"
+          style="margin-top: 8rem !important; background-color: #fff"
+          class="col-md-2 d-flex justify-content-center align-items-start shadow rounded-3"
         >
           <ul
             class="d-flex py-3 text-end flex-column gap-3 justify-content-center align-items-center"

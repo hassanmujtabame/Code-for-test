@@ -2,12 +2,18 @@
   <div style="margin-top: 85px">
     <div class="container dashbord">
       <!--section header-->
+      <!-- <div>
+
       <SectionHeader />
+      </div> -->
       <!--section balance-->
       <SectionBalance />
       <!--#section balance-->
       <div class="row mt-5">
-        <div class="col-md-5 network">
+        <Service />
+        <Ask />
+
+        <!-- <div class="col-md-5 network">
           <div class="box bg-main p-3 rounded-2">
             <div class="d-flex">
               <div class="w-75">
@@ -16,14 +22,25 @@
                   يمكنك ترقية حسابك الان من عضو في الشبكة الى شريك في منصة
                   رياديات والاستفادة بالكثير من المميزات
                 </p>
-                <router-link custom :to="getRouteLocale('register-networking')" v-slot="{ navigate }">
-                  <button @click="navigate" class="border border-white rounded-2 text-white bg-transparent p-2">
+                <router-link
+                  custom
+                  :to="getRouteLocale('register-networking')"
+                  v-slot="{ navigate }"
+                >
+                  <button
+                    @click="navigate"
+                    class="border border-white rounded-2 text-white bg-transparent p-2"
+                  >
                     {{ $t("know_more") }}
                   </button>
                 </router-link>
               </div>
               <div>
-                <img class="img-fluid" :src="`${publicPath}assets/img/ve 1.png`" alt="" />
+                <img
+                  class="img-fluid"
+                  :src="`${publicPath}assets/img/ve 1.png`"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -37,19 +54,25 @@
                   لانك عضو في شبكة رياديات يمكنك طلب استشارات من مستشارينا
                   المميزين في اغلب المجالات بكل سهولة
                 </p>
-                <router-link :to="getRouteLocale('consulting-home')"
-                  class="border border-white rounded-2 text-white bg-main p-2">
+                <router-link
+                  :to="getRouteLocale('consulting-home')"
+                  class="border border-white rounded-2 text-white bg-main p-2"
+                >
                   {{ $t("know_more") }}
                 </router-link>
               </div>
               <div>
-                <img class="img-fluid" :src="`${publicPath}assets/img/vuesax/v2.png`" alt="" />
+                <img
+                  class="img-fluid"
+                  :src="`${publicPath}assets/img/vuesax/v2.png`"
+                  alt=""
+                />
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
-      <div class="row justify-content-between">
+      <!-- <div class="row justify-content-between">
         <div v-if="userIsConsultant" class="col-12 row mt-3 gap-4">
           <div class="col-md-5 border p-3">
             <widget-consulting-requests />
@@ -95,15 +118,15 @@
           </div>
         </div>
         <div class="col-12 row mt-3 gap-4">
-          <div class="col-md-5  p-3">
+          <div class="col-md-5 p-3">
             <freeConsultation />
           </div>
 
-          <div class="col-md-5  p-3">
+          <div class="col-md-5 p-3">
             <ideaSuggestion />
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -112,6 +135,8 @@
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionBalance from "./parts/section-balance/index.vue";
 import WidgetConsultingRequests from "./parts/widget-consulting-requests.vue";
+import Service from "@/components/ask-us-network-dashboard.vue";
+import Ask from "@/components/dashboard-network-service.vue";
 import WidgetConsultingRates from "./parts/widget-consulting-rates";
 import WidgetConsultingBookings from "./parts/widget-consulting-bookings";
 import WidgetBlog from "./parts/widget-blog.vue";
@@ -124,13 +149,13 @@ import workspaceRequest from "./parts/workspaceRequest.vue";
 import freeConsultation from "./parts/free-consultation.vue";
 import ideaSuggestion from "./parts/idea-suggestion.vue";
 
-
-
 export default {
   name: "network-dashboard",
   components: {
     workspaceRequest,
     SectionHeader,
+    Ask,
+    Service,
     SectionBalance,
     WidgetConsultingRequests,
     WidgetConsultingRates,
@@ -142,8 +167,7 @@ export default {
     WidgetMyInscriptionMeetings,
     workspaceReservation,
     freeConsultation,
-    ideaSuggestion
-
+    ideaSuggestion,
   },
 };
 </script>
