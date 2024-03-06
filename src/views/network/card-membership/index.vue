@@ -1,10 +1,9 @@
 <template>
   <div class="d-flex flex-column">
+    <!-- <RiaCardHome /> -->
     <div style="margin-top: 96px">
       <div class="container">
-        <RiaCard />
-
-        <div v-if="false" class="container">
+        <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6">
               <div>
@@ -87,7 +86,7 @@
 
 <script>
 import dFilterList from "./filter-list/filter";
-import RiaCard from "../../../views/network/ria-card.vue";
+import RiaCardHome from "../../../views/network/ria-card-homepage.vue";
 import AnimateCard from "@/components/cards/image-card-membership/index.vue";
 import CardFeatures from "@/components/cards-features.vue";
 import CardStep from "@/components/Sextion-step.vue";
@@ -98,7 +97,7 @@ export default {
     dFilterList,
     CardFeatures,
     CardStep,
-    RiaCard,
+    RiaCardHome,
   },
 
   data: () => {

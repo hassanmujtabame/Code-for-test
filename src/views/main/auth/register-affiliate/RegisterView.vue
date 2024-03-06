@@ -461,8 +461,11 @@ export default {
           };
           this.$router.push("affiliate-marketing/home");
           this.$emit("success", info);
+        } else if (data.message === "affiliate exits alerdy") {
+          window.errorMsg("لقد سجلت بالفعل !");
         } else {
           this.message = data.message;
+          console.log(data.message);
           this.hasError = true;
         }
       } catch (error) {
