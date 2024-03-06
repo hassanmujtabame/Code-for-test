@@ -2,15 +2,32 @@
   <!-- start -->
   <div>
     <div
-      :class="{ 'card-top': title === 'ستة شهور' }"
+      :class="{ 'card-top': title === 'ستة اشهر' }"
       class="subscription-card d-flex flex-column"
-      style="height: 630px"
+      style="height: 630px; position: relative; overflow: hidden"
     >
-      <div class="subscription-header text-center">
+      <span
+        class="hope"
+        v-if="title === 'ستة اشهر'"
+        style="
+          bottom: -68px;
+          width: 600px;
+          height: 600px;
+          background-color: #66c6c4;
+          position: absolute;
+          border-radius: 50%;
+          z-index: 6;
+        "
+      >
+      </span>
+      <div
+        style="position: relative; z-index: 6"
+        class="subscription-header text-center"
+      >
         <h2
           :class="{
-            'feature-top': title === 'ستة شهور',
-            'text-dark': title !== 'ستة شهور',
+            'feature-top': title === 'ستة اشهر',
+            'text-dark': title !== 'ستة اشهر',
           }"
           class="subscription-title"
         >
@@ -37,16 +54,16 @@
           <div>
             <span
               :class="{
-                'feature-top': title === 'ستة شهور',
-                'text-dark': title !== 'ستة شهور',
+                'feature-top': title === 'ستة اشهر',
+                'text-dark': title !== 'ستة اشهر',
               }"
               class=""
               >{{ price }}</span
             >
             <span
               :class="{
-                'feature-top': title === 'ستة شهور',
-                'text-dark': title !== 'ستة شهور',
+                'feature-top': title === 'ستة اشهر',
+                'text-dark': title !== 'ستة اشهر',
               }"
               v-if="subscribed.type !== 'free'"
               class=""
@@ -58,11 +75,15 @@
       </div>
       <div class="subscription-features">
         <!-- <h3 class="features-title">الميزات و الخدمات:</h3> -->
-        <div class="rounded-4" :class="{ 'feature-li': title === 'ستة شهور' }">
+        <div
+          style="position: relative; z-index: 10"
+          class="rounded-4"
+          :class="{ 'feature-li': title === 'ستة اشهر' }"
+        >
           <ul
             style="max-height: 300px"
             class="feature-list overflow-y-auto d-flex flex-row flex-wrap overflow-y-auto"
-            :class="{ 'feature-li': title === 'ستة شهور' }"
+            :class="{ 'feature-li': title === 'ستة اشهر' }"
           >
             <li v-for="(feature, i) in features" :key="i" class="feature-item">
               <i class="fas fa-check-circle mx-2"></i>
@@ -99,12 +120,12 @@
               @click="selected"
               v-if="typeSubscribe === 'مجانا' && pack.id !== subscribed"
               class="subscribe-button shadow"
-              :class="{ 'top-btn': title === 'ستة شهور' }"
+              :class="{ 'top-btn': title === 'ستة اشهر' }"
             >
               {{ $t("subscribe-now") }}
             </button>
             <button
-              :class="{ 'top-btn': title === 'ستة شهور' }"
+              :class="{ 'top-btn': title === 'ستة اشهر' }"
               @click="handleOpenModal"
               :id="pack.id"
               v-else-if="pack.id !== subscribed"
@@ -113,7 +134,7 @@
               رقي حسابك
             </button>
             <button
-              :class="{ 'top-btn': title === 'ستة شهور' }"
+              :class="{ 'top-btn': title === 'ستة اشهر' }"
               v-else-if="pack.id == subscribed"
               class="subscribed-button shadow"
             >
@@ -1000,5 +1021,15 @@ export default {
 .top-btn {
   background-color: #1fb9b3;
   color: white;
+}
+.hope {
+  margin-right: -10px; /* For tablet and phone */
+}
+
+/* Media query for laptop and PC */
+@media only screen and (min-width: 1024px) {
+  .hope {
+    margin-right: -150px;
+  }
 }
 </style>

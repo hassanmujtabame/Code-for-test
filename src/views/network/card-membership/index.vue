@@ -75,9 +75,7 @@
     </div>
 
     <div class="p-3 mt-5">
-      <h3 class="home-section-title text-center fs-r-32-40">
-        يمكنك ابراز بطاقتك لكاشير العلامات التجارية التالية
-      </h3>
+      <h3 class="home-section-title text-end fs-r-32-40">مجالات العروض</h3>
       <div class="mt-3">
         <dFilterList />
       </div>

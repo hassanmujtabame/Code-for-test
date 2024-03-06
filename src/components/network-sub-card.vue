@@ -9,7 +9,7 @@
       <span
         v-if="title === 'ستة شهور'"
         style="
-          bottom: -68px;
+          bottom: -94px;
           width: 600px;
           height: 600px;
           background-color: #66c6c4;
