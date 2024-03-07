@@ -30,7 +30,9 @@
                   </router-link> -->
 
                   <button
-                    v-if="profileData.status == 'deactive'"
+                    v-if="
+                      profileData.status == 'deactive' || !profileData.status
+                    "
                     class="text-white btn-omar rounded-3 px-5 py-3 border-0"
                     @click="affiliateRegister"
                   >

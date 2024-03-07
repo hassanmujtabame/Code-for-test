@@ -56,6 +56,36 @@
                   </div>
           
                 </div> -->
+              <!-- <div class="workspace-card__footer" style="height: 55px;">
+                  <div class="workspace-card__footer-item flex-grow-1">
+                    <d-localisation-icon :size="20" color="#979797" class="mx-1" />
+                    <span v-if="company.map_address && company.map_address.address_name">{{ company.map_address.address_name
+                    }}</span>
+          
+          
+                  </div>
+                  <div class="workspace-card__footer-item flex-shrink-0 align-items-center">
+                    <d-empty-wallet-icon :size="20" color="#414042" class="mx-1" />
+                    <span style="color:#414042 !important">{{ price ?? "N/A" }}</span>
+                    <span style="color:#414042 !important"> {{ $t("R.S") }}</span>
+                  </div>
+          
+                </div> -->
+              <!-- <div class="workspace-card__footer" style="height: 55px;">
+                  <div class="workspace-card__footer-item flex-grow-1">
+                    <d-localisation-icon :size="20" color="#979797" class="mx-1" />
+                    <span v-if="company.map_address && company.map_address.address_name">{{ company.map_address.address_name
+                    }}</span>
+          
+          
+                  </div>
+                  <div class="workspace-card__footer-item flex-shrink-0 align-items-center">
+                    <d-empty-wallet-icon :size="20" color="#414042" class="mx-1" />
+                    <span style="color:#414042 !important">{{ price ?? "N/A" }}</span>
+                    <span style="color:#414042 !important"> {{ $t("R.S") }}</span>
+                  </div>
+          
+                </div> -->
               <div
                 class="d-flex align-items-center justify-content-between px-3 pb-3"
               >
