@@ -1,9 +1,9 @@
 <template>
   <div class="provider-card">
     <div class="provider-card__wrapper">
-      <div class="provider-card__image mb-4">
-        <router-link v-if="to" :to="to">
-          <img :src="img" alt />
+      <div class="provider-card__image mb-4 px-3 py-3 rounded-3">
+        <router-link class="" v-if="to" :to="to">
+          <img class="rounded-3" :src="img" alt />
         </router-link>
         <img v-else @click="$emit('click-image')" :src="img" alt />
       </div>
