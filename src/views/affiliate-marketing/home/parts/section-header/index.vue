@@ -13,11 +13,11 @@
 
           <div class="my-4 d-flex justify-content-start">
             <template>
-              <div class="row d-flex gap-2">
+              <div class="row d-flex align-items-center flex-wrap gap-2">
                 <li>
                   <div
                     v-if="profileData.status == 'deactive'"
-                    class="text-black"
+                    class="btn btn-warning"
                   >
                     جارى تفعيل حسابك
                   </div>
@@ -30,12 +30,27 @@
                   </router-link> -->
 
                   <button
-                    v-if="token"
+                    v-if="profileData.status == 'deactive'"
                     class="text-white btn-omar rounded-3 px-5 py-3 border-0"
                     @click="affiliateRegister"
                   >
                     أشترك الان
                   </button>
+                  <!-- <button
+                  style="background-color:##1fb9b3"
+                    v-if="profileData.status == 'active'"
+                    class="text-white  rounded-3 px-5 py-3 border-0"
+                    @click="affiliateRegister"
+                  >
+                    حسابى
+                  </button> -->
+                  <router-link
+                    v-if="profileData.status == 'active'"
+                    style="background-color: #1fb9b3"
+                    class="text-white rounded-3 px-5 py-3 border-0 btn"
+                    :to="getRouteLocale('affiliate-marketing-dashboard')"
+                    >حسابى
+                  </router-link>
                   <!-- <button
                     v-if="token"
                     class="text-white btn-omar rounded-3 px-5 py-3 border-0"
@@ -52,7 +67,7 @@
                   </button>
                 </li>
 
-                <li
+                <!-- <li
                   v-if="!token"
                   class="nav-item px-2 btn-main text-center"
                   style="
@@ -65,19 +80,40 @@
                     align-items: center;
                   "
                 >
-                  <!-- <router-link class="text-white" :to="getRouteLocale('login-affiliate')">سجلى دخولك
-                                            </router-link> -->
+                  <router-link
+                    class="text-white btn"
+                    :to="getRouteLocale('login-affiliate')"
+                    >سجلى دخولك
+                  </router-link>
+                
+                </li> -->
+                <div class="d-flex align-items-center gap-2">
                   <button
-                    class="text-white border-0 bg-transparent"
+                    v-if="!token"
+                    class="nav-item px-2 btn-main text-center"
                     @click="showModal"
                   >
                     سجلى دخولك
+                    <login-dialog
+                      :profileData="profileData"
+                      ref="modal"
+                    ></login-dialog>
                   </button>
-                  <login-dialog
-                    :profileData="profileData"
-                    ref="modal"
-                  ></login-dialog>
-                </li>
+                  <button
+                    v-if="!token"
+                    class="px-2 btn shadow"
+                    style="
+                      background-color: #ff5722 !important;
+                      border: none !important;
+                      color: #fff;
+                      width: 152px;
+                      height: 48px;
+                    "
+                    @click="router_push('register')"
+                  >
+                    انضمي الان
+                  </button>
+                </div>
 
                 <!-- <div class="btn-main-style py-5" style="width: fit-content;">
                                             <router-link :to="getRouteLocale('register-affiliate')"
@@ -151,6 +187,7 @@ export default {
         if (data.success) {
           console.log("affiliate_data", data.data);
           this.profileData = data.data;
+          console.log(data.data);
         } else {
           this.message = data.message;
           this.hasError = true;

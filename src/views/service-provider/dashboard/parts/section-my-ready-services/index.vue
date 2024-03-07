@@ -138,7 +138,7 @@
           <div>
             <RateStars
               v-if="!loading"
-              :size="32"
+              :size="20"
               :value="`${itemCard.rate}`"
               :readonly="true"
             />
