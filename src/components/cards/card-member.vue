@@ -1,5 +1,71 @@
 <template>
-  <div class="provider-card">
+  <div
+    style="
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      min-height: 250px;
+    "
+    class="d-flex gap-4 flex-column align-items-center shadow justify-content-center"
+  >
+    <div style="height: 164px; width: 100%" class="">
+      <router-link class="" v-if="to" :to="to">
+        <img
+          style="
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 100%;
+            width: 100%;
+          "
+          class="img-fluid"
+          :src="img"
+          alt
+        />
+      </router-link>
+      <img
+        style="
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          height: 100%;
+          width: 100%;
+        "
+        class="img-fluid"
+        v-else
+        @click="$emit('click-image')"
+        :src="img"
+        alt
+      />
+    </div>
+    <div style="min-height: 86px" class="text-center">
+      <h3>
+        {{ name }}
+      </h3>
+      <p style="color: #1fb9b3" class="my-2">
+        {{ description }}
+      </p>
+    </div>
+  </div>
+  <!-- <div class="" :class="{ 'h-job': showJob }" style="">
+      <h6 class="">{{ name | truncateWords(2) }}</h6>
+      <p style="color: #1fb9b3" class="">
+        {{ description }}
+      </p>
+      <div
+        v-if="countCourse"
+        class="provider-card__description t-c d-flex align-items-center pb-2"
+      >
+        <img :src="`${publicPath}assets/svg/MyIcon.svg`" />
+        <span>{{ countCourse }} دورة تدريبية </span>
+      </div>
+      <div
+        v-if="!countCourse"
+        class="provider-card__description t-c d-flex align-items-center pb-2"
+      ></div>
+      <div v-if="showRate">
+        <RateStars :value="rate" :size="12" />
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="provider-card">
     <div class="provider-card__wrapper">
       <div class="provider-card__image mb-4 px-3 py-3 rounded-3">
         <router-link class="" v-if="to" :to="to">
@@ -36,7 +102,125 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <!-- <div class="" :class="{ 'h-job': showJob }" style="">
+      <h6 class="">{{ name | truncateWords(2) }}</h6>
+      <p style="color: #1fb9b3" class="">
+        {{ description }}
+      </p>
+      <div
+        v-if="countCourse"
+        class="provider-card__description t-c d-flex align-items-center pb-2"
+      >
+        <img :src="`${publicPath}assets/svg/MyIcon.svg`" />
+        <span>{{ countCourse }} دورة تدريبية </span>
+      </div>
+      <div
+        v-if="!countCourse"
+        class="provider-card__description t-c d-flex align-items-center pb-2"
+      ></div>
+      <div v-if="showRate">
+        <RateStars :value="rate" :size="12" />
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="provider-card">
+    <div class="provider-card__wrapper">
+      <div class="provider-card__image mb-4 px-3 py-3 rounded-3">
+        <router-link class="" v-if="to" :to="to">
+          <img class="rounded-3" :src="img" alt />
+        </router-link>
+        <img v-else @click="$emit('click-image')" :src="img" alt />
+      </div>
+      <div
+        class="provider-card__content"
+        :class="{ 'h-job': showJob }"
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        "
+      >
+        <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
+        <p style="color: #1fb9b3" class="provider-card__description t-c">
+          {{ description }}
+        </p>
+        <div
+          v-if="countCourse"
+          class="provider-card__description t-c d-flex align-items-center pb-2"
+        >
+          <img :src="`${publicPath}assets/svg/MyIcon.svg`" />
+          <span>{{ countCourse }} دورة تدريبية </span>
+        </div>
+        <div
+          v-if="!countCourse"
+          class="provider-card__description t-c d-flex align-items-center pb-2"
+        ></div>
+        <div v-if="showRate">
+          <RateStars :value="rate" :size="12" />
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="" :class="{ 'h-job': showJob }" style="">
+      <h6 class="">{{ name | truncateWords(2) }}</h6>
+      <p style="color: #1fb9b3" class="">
+        {{ description }}
+      </p>
+      <div
+        v-if="countCourse"
+        class="provider-card__description t-c d-flex align-items-center pb-2"
+      >
+        <img :src="`${publicPath}assets/svg/MyIcon.svg`" />
+        <span>{{ countCourse }} دورة تدريبية </span>
+      </div>
+      <div
+        v-if="!countCourse"
+        class="provider-card__description t-c d-flex align-items-center pb-2"
+      ></div>
+      <div v-if="showRate">
+        <RateStars :value="rate" :size="12" />
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="provider-card">
+    <div class="provider-card__wrapper">
+      <div class="provider-card__image mb-4 px-3 py-3 rounded-3">
+        <router-link class="" v-if="to" :to="to">
+          <img class="rounded-3" :src="img" alt />
+        </router-link>
+        <img v-else @click="$emit('click-image')" :src="img" alt />
+      </div>
+      <div
+        class="provider-card__content"
+        :class="{ 'h-job': showJob }"
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        "
+      >
+        <h6 class="provider-card__name">{{ name | truncateWords(2) }}</h6>
+        <p style="color: #1fb9b3" class="provider-card__description t-c">
+          {{ description }}
+        </p>
+        <div
+          v-if="countCourse"
+          class="provider-card__description t-c d-flex align-items-center pb-2"
+        >
+          <img :src="`${publicPath}assets/svg/MyIcon.svg`" />
+          <span>{{ countCourse }} دورة تدريبية </span>
+        </div>
+        <div
+          v-if="!countCourse"
+          class="provider-card__description t-c d-flex align-items-center pb-2"
+        ></div>
+        <div v-if="showRate">
+          <RateStars :value="rate" :size="12" />
+        </div>
+      </div>
+    </div>
+  </div> -->
 </template>
 
 <script>

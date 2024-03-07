@@ -2,8 +2,8 @@
   <div style="margin-top: 85px" class="consult">
     <SectionHeader />
     <SectionVip />
-    <SectionList />
     <SectionContinueLearning />
+    <SectionList />
 
     <!-- <div>
 
