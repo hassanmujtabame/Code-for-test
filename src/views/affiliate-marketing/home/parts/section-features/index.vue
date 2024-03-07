@@ -1,9 +1,9 @@
 <template>
   <div class="mt-5 p-5">
     <h2 class="text-center">
-      <span style="color: #ffcb00"> مزايا التسويق </span>
-
-      بالعمولة من خلال رياديات
+      <!-- <span style="color: #ffcb00"> مزايا التسويق </span> -->
+      <!-- <span style=""> مزايا التسويق </span> -->
+      مزايا التسويق بالعمولة من خلال رياديات
     </h2>
     <div class="container-fluid">
       <div class="row min-riadiat network">

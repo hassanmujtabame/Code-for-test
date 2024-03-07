@@ -4,8 +4,13 @@
     style="background: #f4fbfb; padding: 50px 15%"
   >
     <div class="row justify-content-center text-center mb-4">
-      <span style="color: #ffbe39; font-size: 24px"> خطوه بخطوه </span>
-      <h2 class="mt-2" style="color: #2eb9b3">كيف تبدأى الأن بكل بساطه</h2>
+      <!-- <span style="color: #f2631c; font-size: 18px"> خطوه بخطوه </span> -->
+      <span style="color: #f2631c; font-size: 18px"> خطوه بخطوه </span>
+      <h2 class="mt-2" style="color: #000; font-size: 40px">
+        كيف تبدأى الأن بكل بساطه
+      </h2>
+      <!-- <h2 class="mt-2" style="color: #000">كيف تبدأى الأن بكل بساطه</h2> -->
+      <!-- <h2 class="mt-2" style="color: #2eb9b3">كيف تبدأى الأن بكل بساطه</h2> -->
     </div>
     <div class="row">
       <div class="col-md-3 col-12 text-center">

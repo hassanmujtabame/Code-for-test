@@ -8,7 +8,10 @@
     <SectionIntro />
     <SectionFeatures />
     <SectionChoseUs />
+    <!-- <div>
+
     <SectionHowWorkProgram />
+    </div> -->
     <SectionJoin v-if="token && !user.affiliate" />
     <SectionJoin v-if="!token" />
     <SectionWhatWeProvide />

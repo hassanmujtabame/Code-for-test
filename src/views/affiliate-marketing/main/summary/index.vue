@@ -4,17 +4,33 @@
       <div>
         <div class="row justify-content-between">
           <h1 class="col-2">الملخص</h1>
-          <div class="col-10 d-flex justify-content-end" style="height: 35px; gap: 4%">
+          <div
+            class="col-10 d-flex justify-content-end"
+            style="height: 35px; gap: 4%"
+          >
             <div class="d-flex justify-content-center gap-2 align-items-center">
               <h3>من</h3>
-              <date-pick :months="months" nextMonthCaption="" prevMonthCaption="" v-model="startDate"></date-pick>
+              <date-pick
+                :months="months"
+                nextMonthCaption=""
+                prevMonthCaption=""
+                v-model="startDate"
+              ></date-pick>
             </div>
             <div class="d-flex justify-content-center gap-2 align-items-center">
               <h3>الى</h3>
-              <date-pick :months="months" nextMonthCaption="" prevMonthCaption="" v-model="endDate"></date-pick>
+              <date-pick
+                :months="months"
+                nextMonthCaption=""
+                prevMonthCaption=""
+                v-model="endDate"
+              ></date-pick>
             </div>
 
-            <button @click="filterData" class="text-white border-0" style="
+            <button
+              @click="filterData"
+              class="text-white border-0"
+              style="
                 border-radius: 5px;
                 box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);
                 padding: 10px;
@@ -25,29 +41,47 @@
                 align-items: center;
                 width: 25%;
                 background-color: #2db7b3;
-              ">
+              "
+            >
               فلتره
             </button>
           </div>
         </div>
-        <SectionBalance :visits="totalVisits" :totalProfite="profileData.Profitratio" :subscriptions="totalSubscriptions"/>
+        <SectionBalance
+          :visits="totalVisits"
+          :totalProfite="profileData.Profitratio"
+          :subscriptions="totalSubscriptions"
+        />
       </div>
 
-      <div class="mt-5 p-4" style="
+      <div
+        class="mt-5 p-4"
+        style="
           border-radius: 20px;
           box-shadow: rgba(0, 0, 0, 0.125) 0 0 10px 1px;
-        ">
-        <h2 class="row mb-2">الزيارات</h2>
-        <bar-chart class="row" :chartData="chartDataVisits" :chart-options="chartOptionsVisits"></bar-chart>
+        "
+      >
+        <h4 class="row mb-2">الزيارات</h4>
+        <bar-chart
+          class="row"
+          :chartData="chartDataVisits"
+          :chart-options="chartOptionsVisits"
+        ></bar-chart>
       </div>
 
-      <div class="mt-5 p-4" style="
+      <div
+        class="mt-5 p-4"
+        style="
           border-radius: 20px;
           box-shadow: rgba(0, 0, 0, 0.125) 0 0 10px 1px;
-        ">
+        "
+      >
         <h2 class="row mb-2">الاحالات</h2>
-        <bar-chart class="row" :chart-data="chartDataSubscriptions"
-          :chart-options="chartOptionsSubscriptions"></bar-chart>
+        <bar-chart
+          class="row"
+          :chart-data="chartDataSubscriptions"
+          :chart-options="chartOptionsSubscriptions"
+        ></bar-chart>
       </div>
     </div>
   </div>
@@ -66,7 +100,7 @@ export default {
     BarChart,
     DatePick,
   },
-  props: ['profileData'],
+  props: ["profileData"],
   data() {
     return {
       categorizedVisitsChartData: {}, // Initialize with empty data or default
@@ -96,12 +130,13 @@ export default {
           tooltip: {
             enabled: true,
           },
-        }, scales: {
+        },
+        scales: {
           y: {
             suggestedMin: 50,
-            suggestedMax: 100
-          }
-        }
+            suggestedMax: 100,
+          },
+        },
       },
       chartDataSubscriptions: {
         labels: [],
@@ -129,15 +164,16 @@ export default {
           tooltip: {
             enabled: true,
           },
-        }, scales: {
+        },
+        scales: {
           y: {
             suggestedMin: 50,
-            suggestedMax: 100
-          }
-        }
+            suggestedMax: 100,
+          },
+        },
       },
-      startDate: '',
-      endDate: '',
+      startDate: "",
+      endDate: "",
       months: [
         "يناير",
         "فبراير",
@@ -154,38 +190,40 @@ export default {
       ],
       totalVisits: [],
       totalSubscriptions: [],
-    }
+    };
   },
   methods: {
     async total() {
-            try {
-                const visitsResponse = await axios.get(`/affiliates/visitors`);
+      try {
+        const visitsResponse = await axios.get(`/affiliates/visitors`);
 
-                if (visitsResponse.data.success) {
-                    this.totalVisits = visitsResponse.data.data;
-                } else {
-                    console.error("Failed to fetch visits data");
-                }
-            } catch (error) {
-                console.error("Error fetching data", error);
-            }
-            try {
-                const subscriptionsResponse = await axios.get(`/affiliates/subscriptions-users`);
+        if (visitsResponse.data.success) {
+          this.totalVisits = visitsResponse.data.data;
+        } else {
+          console.error("Failed to fetch visits data");
+        }
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+      try {
+        const subscriptionsResponse = await axios.get(
+          `/affiliates/subscriptions-users`
+        );
 
-                if (subscriptionsResponse.data.success) {
-                    this.totalSubscriptions = subscriptionsResponse.data.data;
-                } else {
-                    console.error("Failed to fetch subscriptions data");
-                }
-            } catch (error) {
-                console.error("Error fetching data", error);
-            }
-        },
+        if (subscriptionsResponse.data.success) {
+          this.totalSubscriptions = subscriptionsResponse.data.data;
+        } else {
+          console.error("Failed to fetch subscriptions data");
+        }
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    },
     async filterData() {
       if (!this.startDate || !this.endDate) return;
 
       const daysBetweenDates = this.getDaysBetweenDates();
-      console.log('Days between selected dates:', daysBetweenDates);
+      console.log("Days between selected dates:", daysBetweenDates);
 
       try {
         const visitsResponse = await axios.get(`/affiliates/visitors`, {
@@ -196,28 +234,33 @@ export default {
         });
 
         if (visitsResponse.data.success) {
-          const categorizedVisits = this.categorizeVisitsByDate(visitsResponse.data.data);
+          const categorizedVisits = this.categorizeVisitsByDate(
+            visitsResponse.data.data
+          );
           this.updateChartDataVisits(categorizedVisits);
 
-
-
-          console.log('Fetched Visits:', categorizedVisits);
+          console.log("Fetched Visits:", categorizedVisits);
         } else {
           console.error("Failed to fetch visits data");
         }
 
-        const subscriptionsResponse = await axios.get(`/affiliates/subscriptions-users`, {
-          params: {
-            start_date: this.startDate,
-            end_date: this.endDate,
-          },
-        });
+        const subscriptionsResponse = await axios.get(
+          `/affiliates/subscriptions-users`,
+          {
+            params: {
+              start_date: this.startDate,
+              end_date: this.endDate,
+            },
+          }
+        );
 
         if (subscriptionsResponse.data.success) {
-          const categorizedSubscriptions = this.categorizeSubscriptionsByDate(subscriptionsResponse.data.data);
+          const categorizedSubscriptions = this.categorizeSubscriptionsByDate(
+            subscriptionsResponse.data.data
+          );
           this.updateChartDataSubscriptions(categorizedSubscriptions);
 
-          console.log('Fetched Subscriptions:', categorizedSubscriptions);
+          console.log("Fetched Subscriptions:", categorizedSubscriptions);
         } else {
           console.error("Failed to fetch subscriptions data");
         }
@@ -226,14 +269,23 @@ export default {
       }
     },
 
-
     formatLabel(dateString) {
-      const dateParts = dateString.split('-');
+      const dateParts = dateString.split("-");
       const day = parseInt(dateParts[0], 10);
       const month = parseInt(dateParts[1], 10);
       const monthNames = [
-        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
       ];
       return `${day} ${monthNames[month - 1]}`;
     },
@@ -248,15 +300,15 @@ export default {
       let currentDate = new Date(startDate);
       while (currentDate <= endDate) {
         const formattedDate = [
-          ('0' + currentDate.getDate()).slice(-2),
-          ('0' + (currentDate.getMonth() + 1)).slice(-2),
-          currentDate.getFullYear()
-        ].join('-');
+          ("0" + currentDate.getDate()).slice(-2),
+          ("0" + (currentDate.getMonth() + 1)).slice(-2),
+          currentDate.getFullYear(),
+        ].join("-");
 
         labels.push(this.formatLabel(formattedDate)); // Apply custom label format
         dataPoints.push(categorizedVisits[formattedDate] || 0);
 
-        console.log('aaaa', categorizedVisits['28-1-2024'])
+        console.log("aaaa", categorizedVisits["28-1-2024"]);
 
         currentDate.setDate(currentDate.getDate() + 1);
       }
@@ -283,10 +335,10 @@ export default {
       let currentDate = new Date(startDate);
       while (currentDate <= endDate) {
         const formattedDate = [
-          ('0' + currentDate.getDate()).slice(-2),
-          ('0' + (currentDate.getMonth() + 1)).slice(-2),
-          currentDate.getFullYear()
-        ].join('-');
+          ("0" + currentDate.getDate()).slice(-2),
+          ("0" + (currentDate.getMonth() + 1)).slice(-2),
+          currentDate.getFullYear(),
+        ].join("-");
 
         labels.push(this.formatLabel(formattedDate)); // Apply custom label format
         dataPoints.push(categorizedSubscriptions[formattedDate] || 0);
@@ -312,10 +364,10 @@ export default {
 
       while (currentDate <= new Date(this.endDate)) {
         const formattedDate = [
-          ('0' + currentDate.getDate()).slice(-2),
-          ('0' + (currentDate.getMonth() + 1)).slice(-2),
-          currentDate.getFullYear()
-        ].join('-');
+          ("0" + currentDate.getDate()).slice(-2),
+          ("0" + (currentDate.getMonth() + 1)).slice(-2),
+          currentDate.getFullYear(),
+        ].join("-");
 
         days.push(formattedDate);
         currentDate.setDate(currentDate.getDate() + 1);
@@ -327,9 +379,11 @@ export default {
       const categorizedData = {};
 
       // Loop through the received visits data
-      visitsData.forEach(visit => {
+      visitsData.forEach((visit) => {
         const visitDate = new Date(visit.created_at);
-        const formattedDate = `${visitDate.getDate()}-${visitDate.getMonth() + 1}-${visitDate.getFullYear()}`;
+        const formattedDate = `${visitDate.getDate()}-${
+          visitDate.getMonth() + 1
+        }-${visitDate.getFullYear()}`;
 
         // Check if the date exists in categorizedData, if not initialize it with count 1
         if (!categorizedData[formattedDate]) {
@@ -343,37 +397,48 @@ export default {
       return categorizedData;
     },
     categorizeSubscriptionsByDate(subscriptionsData) {
-    const categorizedData = {};
+      const categorizedData = {};
 
-    subscriptionsData.forEach(subscription => {
-      const subscriptionDate = new Date(subscription.created_at);
-      const formattedDate = `${subscriptionDate.getDate()}-${subscriptionDate.getMonth() + 1}-${subscriptionDate.getFullYear()}`;
+      subscriptionsData.forEach((subscription) => {
+        const subscriptionDate = new Date(subscription.created_at);
+        const formattedDate = `${subscriptionDate.getDate()}-${
+          subscriptionDate.getMonth() + 1
+        }-${subscriptionDate.getFullYear()}`;
 
-      if (!categorizedData[formattedDate]) {
-        categorizedData[formattedDate] = 1;
-      } else {
-        categorizedData[formattedDate]++;
-      }
-    });
+        if (!categorizedData[formattedDate]) {
+          categorizedData[formattedDate] = 1;
+        } else {
+          categorizedData[formattedDate]++;
+        }
+      });
 
-    return categorizedData;
-  },
+      return categorizedData;
+    },
   },
   mounted() {
     const today = new Date();
     const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-    const formattedFirstDay = `${firstDayOfMonth.getFullYear()}-${('0' + (firstDayOfMonth.getMonth() + 1)).slice(-2)}-${('0' + firstDayOfMonth.getDate()).slice(-2)}`;
+    const formattedFirstDay = `${firstDayOfMonth.getFullYear()}-${(
+      "0" +
+      (firstDayOfMonth.getMonth() + 1)
+    ).slice(-2)}-${("0" + firstDayOfMonth.getDate()).slice(-2)}`;
 
-    const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-    const formattedLastDay = `${lastDayOfMonth.getFullYear()}-${('0' + (lastDayOfMonth.getMonth() + 1)).slice(-2)}-${('0' + lastDayOfMonth.getDate()).slice(-2)}`;
+    const lastDayOfMonth = new Date(
+      today.getFullYear(),
+      today.getMonth() + 1,
+      0
+    );
+    const formattedLastDay = `${lastDayOfMonth.getFullYear()}-${(
+      "0" +
+      (lastDayOfMonth.getMonth() + 1)
+    ).slice(-2)}-${("0" + lastDayOfMonth.getDate()).slice(-2)}`;
 
-
-    this.startDate = formattedFirstDay
-    this.endDate = formattedLastDay
-    this.filterData()
-    this.total()
+    this.startDate = formattedFirstDay;
+    this.endDate = formattedLastDay;
+    this.filterData();
+    this.total();
   },
-}
+};
 </script>
 
 <style>
@@ -394,12 +459,12 @@ export default {
   color: #2db7b3;
 }
 
-.vdpTimeUnit>input:hover,
-.vdpTimeUnit>input:focus {
+.vdpTimeUnit > input:hover,
+.vdpTimeUnit > input:focus {
   border-bottom-color: #2db7b3;
 }
 
-.vdpComponent.vdpWithInput>input {
+.vdpComponent.vdpWithInput > input {
   height: 100%;
   background: #eee;
   border-radius: 5px;

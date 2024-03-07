@@ -8,16 +8,19 @@
               اليك ما نقوم بتقديمه لك
             </span>
             <h3 class="mt-2">
+              نجاحك يهمنا: نقدم الدعم المستمر للمسوقين بالعمولة لتحقيق النجاح
+            </h3>
+            <!-- <h3 class="mt-2">
               نحن ندرك أن النجاح في التسويق بالعمولة يتطلب دعمًا مستمرًا. نقدم
               الدعم المستمر للمسوقين بالعمولة لمساعدتهم على تحقيق النجاح.
-            </h3>
+            </h3> -->
           </div>
           <div class="d-flex align-items-center gap-2">
             <i
               style="color: var(--pc); font-size: 25px; padding-bottom: 19px"
               class="fas fa-check-circle mx-2"
             ></i>
-            <p class="col-10">
+            <p style="font-size: 18px" class="col-10">
               تدريب المسوقين بالعمولة: نقدم برامج تدريبية للمسوقين بالعمولة
               لمساعدتهم على الترويج بفعالية.
             </p>
@@ -27,7 +30,7 @@
               style="color: var(--pc); font-size: 25px; padding-bottom: 19px"
               class="fas fa-check-circle mx-2"
             ></i>
-            <p class="col-10">
+            <p style="font-size: 18px" class="col-10">
               أدوات المسوقين بالعمولة: نقدم أدوات للمسوقين بالعمولة لإدارة
               حملاتهم التسويقية.
             </p>
@@ -37,7 +40,7 @@
               style="color: var(--pc); font-size: 25px; padding-bottom: 19px"
               class="fas fa-check-circle mx-2"
             ></i>
-            <p class="col-10">
+            <p style="font-size: 18px" class="col-10">
               الدعم المستمر: ندعم المسوقين بالعمولة باستمرار.
             </p>
           </div>
