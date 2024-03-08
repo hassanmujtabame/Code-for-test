@@ -16,7 +16,7 @@
         :items="items"
       >
         <template v-slot:default="{ item }">
-          <CardMember
+          <CardMemberMarket
             :description="item.description"
             :name="item.name"
             :to="getRouteLocale('incubator-show-profile', { id: item.id })"
@@ -31,6 +31,7 @@
 <script>
 import DSwiper from "@/components/swiper/index.vue";
 import CardMember from "@/components/cards/card-member.vue";
+import CardMemberMarket from "@/components/card-member-marketing.vue";
 import topMarketApi from "@/services/api/market";
 export default {
   name: "section-graduated",
@@ -39,6 +40,7 @@ export default {
     title: "",
   },
   components: {
+    CardMemberMarket,
     DSwiper,
     CardMember,
   },
