@@ -115,9 +115,10 @@
         </slot>
       </div>
     </d-expanded-panel>
-    <h4 class="">
-      عدد الأعضاء <span class="m-c">{{ totalMembers }} عضو </span>
-    </h4>
+    <h2 class="">
+      <!-- عدد الأعضاء <span class="m-c">{{ totalMembers }} عضو </span> -->
+      اعضاء رياديات
+    </h2>
   </div>
 </template>
 
