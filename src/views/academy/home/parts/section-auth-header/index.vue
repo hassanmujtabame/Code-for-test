@@ -19,12 +19,20 @@
           </p>
           <div class="mt-4">
             <router-link
+              style="color: #fff; background-color: #f2631c"
               v-if="token"
-              :to="getRouteLocale('academy/instructor/register')"
-              class="btn-custmer shadow mt-2"
+              :to="getRouteLocale('academy-instructor-register')"
+              class="shadow rounded-1 btn px-4 py-2 mt-2"
             >
-              {{ $t("join-us") }}
+              اشترك الان
             </router-link>
+            <button
+              style="color: #1fb9b3"
+              class="btn btn-lg bg-light bg mx-1 px-4 py-2"
+            >
+              <play-icon class="mx-1" />
+              عرض توجيهى
+            </button>
             <router-link
               v-if="!token"
               :to="getRouteLocale('login')"
@@ -53,7 +61,10 @@
 </template>
 
 <script>
+import playIcon from "@/components/icon-svg/play.vue";
+
 export default {
+  components: { playIcon },
   name: "section-auth-header",
   data: () => {
     return {

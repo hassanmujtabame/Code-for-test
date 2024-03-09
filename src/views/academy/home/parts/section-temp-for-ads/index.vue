@@ -1,11 +1,14 @@
 <template>
-  <div class="container d-flex justify-content-center position-relative">
+  <div
+    class="container d-md-flex d-none justify-content-center position-relative"
+  >
     <img
+      class=""
       style="object-fit: contain; width: 100%"
       src="@/assets/img/new/academy/Group 19.png"
       alt=""
     />
-    <div style="position: absolute; top: 40%; left: 5%">
+    <div class="" style="position: absolute; top: 40%; left: 5%">
       <h1>يقدم لكم رياديات خصم 30% هذا الموسم</h1>
       <p class="text-dark">
         يسري العرض الترويجي من 1 مايو 2024 إلى 30 يونيو 2024

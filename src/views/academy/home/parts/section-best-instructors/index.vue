@@ -2,9 +2,14 @@
   <div class="sec-five p-3">
     <div class="">
       <div class="d-flex justify-content-between align-items-center">
-        <h1 class="home-section-title px-3">
-          أبرز مدربتنا في اكاديمية رياديات
-        </h1>
+        <div class="d-flex flex-column">
+          <h1 class="home-section-title px-3">افضل المدربين لدينا</h1>
+          <p style="color: #888">
+            هل تبحث عن أفضل التدريب لنجاحك في ريادة الأعمال؟ إذا كان الأمر كذلك،
+            فنحن ندعوك للتعرف على أفضل المدربين لدينا.
+          </p>
+        </div>
+
         <div v-if="true">
           <button class="more">
             <a href="" class="text-dark">
@@ -14,18 +19,31 @@
         </div>
       </div>
       <div class="container">
-        <!-- <d-swiper v-if="!loading" :slides-per-view="4" is-auto :space-between="10" :items="items">
+        <d-swiper
+          v-if="!loading"
+          :slides-per-view="4"
+          is-auto
+          :space-between="10"
+          :items="items"
+        >
           <template v-slot:default="{ item }">
-            <CardMember  :countCourse="item.countCourse"  :name="item.name" :img="item.image" :to="getRouteLocale('academy-show-profile', { id: item.id })" />
+            <CardMember
+              class="my-2"
+              :countCourse="item.countCourse"
+              :name="item.name"
+              :img="item.image"
+              job_title:item.job_title
+              :to="getRouteLocale('academy-show-profile', { id: item.id })"
+            />
           </template>
-        </d-swiper> -->
+        </d-swiper>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CardMember from "@/components/cards/card-member.vue";
+import CardMember from "@/components/card-member-academy.vue";
 import academyAPI from "@/services/api/academy";
 import MostPopularVue from "@/components/MostPopular.vue";
 export default {

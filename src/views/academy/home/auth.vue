@@ -14,10 +14,10 @@
     <SectionTempForAds />
 
     <SectionHelpsYou />
-    <SectionSubscribeNow />
     <!--#section 3-->
     <!-- section top instructor-->
     <sectionTopInstructor />
+    <SectionSubscribeNow />
     <!--#section top instructor-->
     <!-- section training-fields-->
     <SectionTrainingFields />
@@ -29,12 +29,12 @@
     <section-exploring-specialized-entrepreneurship />
     <!--#section exploring-specialized-entrepreneurship-->
     <!-- section section-academy-schedule-->
+    <SectionMostPopularCourses />
     <section-academy-schedule />
     <!--#section section-academy-schedule-->
     <!-- section 9-->
     <SectionBestInstructors />
     <!--#section 9-->
-    <SectionMostPopularCourses />
 
     <!-- section 10-->
     <SectionTen />

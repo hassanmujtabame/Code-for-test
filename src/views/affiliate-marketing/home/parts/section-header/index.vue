@@ -16,8 +16,9 @@
               <div class="row d-flex align-items-center flex-wrap gap-2">
                 <li>
                   <div
+                    style="background-color: #1fb9b3"
                     v-if="profileData.status == 'deactive'"
-                    class="btn btn-warning"
+                    class="btn text-light"
                   >
                     جارى تفعيل حسابك
                   </div>
@@ -30,9 +31,7 @@
                   </router-link> -->
 
                   <button
-                    v-if="
-                      profileData.status == 'deactive' || !profileData.status
-                    "
+                    v-if="!profileData.status"
                     class="text-white btn-omar rounded-3 px-5 py-3 border-0"
                     @click="affiliateRegister"
                   >
