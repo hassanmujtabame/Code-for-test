@@ -76,10 +76,11 @@
     </div>
 
     <div class="p-3 mt-5">
-      <h3 class="home-section-title text-end fs-r-32-40">مجالات العروض</h3>
+      <!-- <h3 class="home-section-title text-end fs-r-32-40">مجالات العروض</h3>
       <div class="mt-3">
         <dFilterList />
-      </div>
+      </div> -->
+      <CategoryCards />
     </div>
   </div>
 </template>
@@ -89,11 +90,13 @@ import dFilterList from "./filter-list/filter";
 import RiaCardHome from "../../../views/network/ria-card-homepage.vue";
 import AnimateCard from "@/components/cards/image-card-membership/index.vue";
 import CardFeatures from "@/components/cards-features.vue";
+import CategoryCards from "@/components/categories.vue";
 import CardStep from "@/components/Sextion-step.vue";
 export default {
   name: "card-membership",
   components: {
     AnimateCard,
+    CategoryCards,
     dFilterList,
     CardFeatures,
     CardStep,
