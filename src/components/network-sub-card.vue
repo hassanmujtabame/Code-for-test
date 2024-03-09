@@ -132,13 +132,20 @@
             >
               رقي حسابك
             </button>
-            <button
+            <span
               :class="{ 'top-btn': title === 'ستة شهور' }"
               v-else-if="pack.id == subscribed"
               class="subscribed-button shadow"
             >
               انت مشترك الان
-            </button>
+            </span>
+            <!-- <span
+              :class="{ 'top-btn': title === 'ستة اشهر' }"
+              v-else-if="id == subscribed"
+              class="subscribed-button shadow"
+            >
+              انت مشترك الان
+            </span> -->
           </div>
         </div>
       </div>
@@ -569,13 +576,13 @@ export default {
 
     async proceedToPayment() {
       if (this.price == 0) {
-        const requestData = {
-          package_id: this.id,
-        };
         try {
-          let { data } = await networkAPI.checkoutPackageFree(requestData);
+          let { data } = await networkAPI.checkoutPackageFree({
+            package_id: this.id,
+          });
           if (data.success) {
             console.log("itsfree", data.data);
+            window.SwalSuccess("تم الاشتراك بنجاح");
           } else {
             window.SwalError(data.message);
           }

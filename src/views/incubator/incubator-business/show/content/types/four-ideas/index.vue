@@ -1,14 +1,5 @@
 <template>
   <div id="list-item-8p" class="container arabic-text">
-    <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta http-equiv="Content-Language" content="ar" />
-      <title>Document</title>
-      <!-- Link to import Arabic font -->
-      <!-- <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet"> -->
-    </head>
-    <div></div>
     <h1><span class="" style="color: #1fb9b3">نموذج : </span> الأربع أفكار</h1>
     <p class="s-c">
       خصِّص/ي بعض الوقت للتفكير مليًّا في المشكلات التي تعاني منها مجالات اهتمام

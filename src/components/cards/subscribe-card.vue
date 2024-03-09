@@ -776,6 +776,7 @@ export default {
           });
           if (data.success) {
             console.log("itsfree", data.data);
+            window.SwalSuccess("تم الاشتراك بنجاح");
           } else {
             window.SwalError(data.message);
           }

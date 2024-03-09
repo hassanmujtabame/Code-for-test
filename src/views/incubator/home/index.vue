@@ -3,11 +3,10 @@
     <!-- section top-->
     <SectionTop />
     <!-- section definition-->
+    <SectionDefinition />
     <SectionFeatures />
 
     <SectionTempForAds />
-
-    <SectionDefinition />
 
     <!-- section members -->
     <SectionMemberIncubation />

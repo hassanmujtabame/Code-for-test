@@ -86,30 +86,33 @@
       style="border-top: 1px, solid, #888"
       class="d-flex my-2 justify-content-between px-3 align-items-center"
     >
-      <button class="btn shadow" style="background-color: #fff">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6 18L18 6"
-            stroke="#6D737A"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M8.25 6H18V15.75"
-            stroke="#6D737A"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
+      <router-link :to="getRouteLocale('academy-course-show', { id: item.id })">
+        <button class="btn shadow" style="background-color: #fff">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 18L18 6"
+              stroke="#6D737A"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M8.25 6H18V15.75"
+              stroke="#6D737A"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </router-link>
+
       <h6 style="padding-top: 8px">{{ item.price }} ر.س</h6>
     </div>
     <!-- <p>

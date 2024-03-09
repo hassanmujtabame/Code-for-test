@@ -26,6 +26,14 @@
             >
               {{ $t("login-female") }}
             </router-link>
+            <router-link
+              v-if="token"
+              style="background-color: #f2631c"
+              :to="getRouteLocale('incubator-subscribe')"
+              class="btn px-4 py-2 rounded-1 text-white mt-2 mx-3"
+            >
+              اشترك الان
+            </router-link>
             <button
               style="color: #1fb9b3"
               class="btn btn-lg bg-light bg mx-1 px-4 py-2"
