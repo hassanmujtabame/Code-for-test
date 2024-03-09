@@ -141,7 +141,7 @@
       </div>
     </div>
     <button
-      class="py-2 px-5 btnFilter rounded-3"
+      class="py-2 px-5 d-md-none btnFilter rounded-3"
       style="background-color: transparent; border: none"
       :class="{ btnFilter: !showFilter }"
       @click="handleFilter"
