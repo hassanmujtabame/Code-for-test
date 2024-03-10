@@ -13,6 +13,9 @@ class OffersApi extends BaseApi{
     getItem(id){
         return window.axios.get(`network/offers/${id}`);
     }
+    deleteItem(id){
+        return window.axios.delete(`network/offers/${id}`);
+    }
     getCategories(){
         return window.axios.get(`network/offers-categories`);
     }
@@ -22,6 +25,9 @@ class OffersApi extends BaseApi{
 
     addOffer(data){
         return window.axios.post(`network/offers`,data);  
+    }
+    editOffer(data,id){
+        return window.axios.post(`network/offers/${id}`, data);  
     }
 }
 

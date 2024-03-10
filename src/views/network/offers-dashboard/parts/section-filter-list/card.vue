@@ -46,13 +46,14 @@
         </div> -->
       </div>
       <div class="d-flex align-items-center gap-2 my-2">
-        <button class="btn color2 px-4 py-2 rounded-3">
+        <button @click="sendIdToParent" class="btn color2 px-4 py-2 rounded-3">
           <i style="font-size: 25px" class="fa fa-pen-to-square"></i>
         </button>
         <!-- <button v-if="item.status == 'finished'" class="btn btn-custmer-w">
           <i class="fa fa-arrow-rotate-right"></i> إعادة النشر
         </button> -->
         <button
+          @click="deleteItem(item.id)"
           v-if="item.status == 'valid'"
           class="btn px-4 py-2 color rounded-3"
         >
@@ -103,10 +104,17 @@
 </template>
 
 <script>
+import networkAPI from "@/services/api/network.js";
+
 export default {
   name: "offer-item",
   props: {
     item: {},
+  },
+  data() {
+    return {
+      toggle: false,
+    };
   },
   computed: {
     statusText() {
@@ -117,6 +125,28 @@ export default {
           return this.$t("offer-finished");
         default:
           return this.item.status;
+      }
+    },
+  },
+  methods: {
+    addNewOffer() {
+      this.fireOpenDialog("add-new-offer", this.item);
+    },
+    sendIdToParent() {
+      this.$emit("sendId", this.item.id); // Emit an event with the ID
+      this.toggle = true;
+      this.$emit("sendToggle", this.toggle); // Emit an event with the ID
+    },
+    async deleteItem(id) {
+      try {
+        await networkAPI.offers.deleteItem(id);
+        console.log("deleted");
+
+        // this.$emit("itemDeleted"); // Emit event when item is deleted
+        this.fireEvent("d-filter-list-refresh");
+        window.SwalSuccess("تم حذف عرضك بنجاح");
+      } catch (err) {
+        console.log("error");
       }
     },
   },

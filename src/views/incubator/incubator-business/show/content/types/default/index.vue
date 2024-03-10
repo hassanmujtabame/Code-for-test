@@ -14,6 +14,7 @@
           :to="getRouteLocale('network-model-show', { id: phase.id })"
         >
           <ModelCard
+            :department_name="phase.department_name"
             :title="phase.title"
             :img="phase.image"
             :value="phase.count_download"
@@ -21,7 +22,7 @@
         </router-link>
       </div>
 
-      <button
+      <!-- <button
         class="col-md-4 btn bg-main p-2 px-4 text-white mt-3"
         @click="downloadModel"
       >
@@ -50,7 +51,7 @@
           />
         </svg>
         تحميل النموذج
-      </button>
+      </button> -->
     </div>
 
     <div v-if="phase.department_name">

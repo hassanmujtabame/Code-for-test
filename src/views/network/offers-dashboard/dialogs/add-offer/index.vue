@@ -133,7 +133,7 @@
               :name="$t('offer-during')"
               v-slot="errors"
             >
-              <d-text-input :errors="errors" v-model="itemForm.during">
+              <d-text-input :errors="errors" v-model="itemForm.duration">
               </d-text-input>
             </ValidationProvider>
           </div>
@@ -217,6 +217,7 @@ export default {
           //window.EventBus.fire('list-coupon-update')
           this.fireEvent("d-filter-list-refresh");
           this.closeEvent();
+          window.SwalSuccess("تم اضافه عرضك بنجاح");
         } else {
           window.SwalError(data.message);
         }
@@ -260,6 +261,9 @@ export default {
   },
   mounted() {
     this.loadCategories();
+
+    console.log(this.group);
+    this.itemForm = this.group;
   },
 };
 </script>

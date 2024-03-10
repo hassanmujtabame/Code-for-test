@@ -10,13 +10,18 @@
           height="186"
         />
       </div>
-      <div class="text-end bg-white p-2">
-        <h6
-          style="color: #414042"
-          class="model-card__title text-center text-two-lines"
-        >
-          {{ title }}
-        </h6>
+      <div class="bg-white p-2">
+        <div class="d-flex justify-content-start px-2">
+          <h6
+            style="color: black"
+            class="model-card__title text-center text-two-lines"
+          >
+            {{ title }}
+          </h6>
+          <p>
+            {{ department_name }}
+          </p>
+        </div>
         <div v-if="!hideCounter || value" class="text-center">
           <small class="m-c"> عدد التنزيلات </small>
           <span> | </span>
@@ -37,6 +42,9 @@ export default {
       type: String,
     },
     title: {
+      type: String,
+    },
+    department_name: {
       type: String,
     },
     value: {
