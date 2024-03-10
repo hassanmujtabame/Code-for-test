@@ -254,6 +254,34 @@ export default {
         .toImg()
         .toPdf()
         .save();
+      // html2pdf()
+      //   .from(document.getElementById("list-item-8p"))
+      //   .toContainer()
+      //   .toCanvas()
+      //   .toImg()
+      //   .toPdf()
+      //   .save();
+      // html2pdf()
+      //   .from(document.getElementById("list-item-8p"))
+      //   .toContainer()
+      //   .toCanvas()
+      //   .toImg()
+      //   .toPdf()
+      //   .save();
+      // html2pdf()
+      //   .from(document.getElementById("list-item-8p"))
+      //   .toContainer()
+      //   .toCanvas()
+      //   .toImg()
+      //   .toPdf()
+      //   .save();
+      // html2pdf()
+      //   .from(document.getElementById("list-item-8p"))
+      //   .toContainer()
+      //   .toCanvas()
+      //   .toImg()
+      //   .toPdf()
+      //   .save();
     },
   },
 };

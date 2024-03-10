@@ -11,22 +11,21 @@
 </template>
 
 <script>
-import dCourseContent from './types/course';
-import dConsultationContent from './types/consultation';
-import dModelsContent from './types/model';
-import dMeetingContent from './types/meeting';
-import dDefaultContent from './types/default';
-import dFourideasContent from './types/four-ideas';
-import dBusinessContent from './types/business';
-import dThelogoContent from './types/the-logo';
-import dInvestmentproposalContent from './types/investment-proposal';
-import dFinishContent from './types/finish';
-import dElectoronicfeasibilitystudyContent from './types/electronic-feasibility-study';
-import incubatorAPI from '@/services/api/incubator';
-
+import dCourseContent from "./types/course";
+import dConsultationContent from "./types/consultation";
+import dModelsContent from "./types/model";
+import dMeetingContent from "./types/meeting";
+import dDefaultContent from "./types/default";
+import dFourideasContent from "./types/four-ideas";
+import dBusinessContent from "./types/business";
+import dThelogoContent from "./types/the-logo";
+import dInvestmentproposalContent from "./types/investment-proposal";
+import dFinishContent from "./types/finish";
+import dElectoronicfeasibilitystudyContent from "./types/electronic-feasibility-study";
+import incubatorAPI from "@/services/api/incubator";
 
 export default {
-  name: 'd-content',
+  name: "d-content",
   components: {
     dCourseContent,
     dConsultationContent,
@@ -38,51 +37,53 @@ export default {
     dBusinessContent,
     dInvestmentproposalContent,
     dElectoronicfeasibilitystudyContent,
-    dFinishContent
+    dFinishContent,
   },
   data: () => ({
     loading: true,
     itemPage: null,
     phase: null,
-    typeContent: 'default'
+    typeContent: "default",
   }),
   computed: {
     componentBind() {
       return {
         phase: this.phase,
-        itemPage: this.itemPage
-      }
+        itemPage: this.itemPage,
+      };
     },
     componentChoosen() {
       switch (this.typeContent) {
-        case 'course':
-        case 'consultation':
-        case 'meeting':
-        case 'fourideas':
-        case 'thelogo':
-        case 'business':
-        case 'investmentproposal':
-        case 'electoronicfeasibilitystudy':
-        case 'finish':
-        case 'models': return `d-${this.typeContent}-content`
-
+        case "course":
+        case "consultation":
+        case "meeting":
+        case "fourideas":
+        case "thelogo":
+        case "business":
+        case "investmentproposal":
+        case "electoronicfeasibilitystudy":
+        case "finish":
+        case "models":
+          return `d-${this.typeContent}-content`;
 
         default:
-          return `d-default-content`
+          return `d-default-content`;
       }
-    }
+    },
   },
   mounted() {
-    this.initializing()
+    this.initializing();
   },
   methods: {
     async initializing() {
       this.loading = true;
       this.itemPage = null;
       try {
-        let { data } = await incubatorAPI.getStagePhase(this.phase.stage_id, { type: this.typeContent });
+        let { data } = await incubatorAPI.getStagePhase(this.phase.stage_id, {
+          type: this.typeContent,
+        });
         if (data.success) {
-          this.itemPage = data.data
+          this.itemPage = data.data;
         }
       } catch (error) {
         //
@@ -93,17 +94,17 @@ export default {
       if (this.phase && data.id == this.phase.id) return;
       this.phase = data;
       this.typeContent = this.phase.type;
-      this.initializing()
-    }
+      this.initializing();
+    },
   },
 
   beforeDestroy() {
-    window.EventBus.off('phase-choosen', this.loadContent)
+    window.EventBus.off("phase-choosen", this.loadContent);
   },
   created() {
-    window.EventBus.listen('phase-choosen', this.loadContent)
-  }
-}
+    window.EventBus.listen("phase-choosen", this.loadContent);
+  },
+};
 </script>
 
 <style>
@@ -114,7 +115,6 @@ export default {
   /* height: calc(100vh - 150px); */
   /* background: #c0c0c0;*/
   min-height: 400px;
-
 }
 
 .incubator-business-content__title {
@@ -126,7 +126,7 @@ export default {
 
   /* Secondary/#2D2F3A */
 
-  color: #2D2F3A;
+  color: #2d2f3a;
 }
 
 .incubator-business-content__desc {
@@ -135,7 +135,6 @@ export default {
   font-size: 16px;
   line-height: 35px;
   /* or 219% */
-
 
   /* Secondary/medium gray */
 

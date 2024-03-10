@@ -10,7 +10,7 @@
           height="186"
         />
       </div>
-      <div class="text-start bg-white p-2">
+      <div class="text-end bg-white p-2">
         <h6
           style="color: #414042"
           class="model-card__title text-center text-two-lines"

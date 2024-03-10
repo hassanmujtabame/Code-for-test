@@ -16,12 +16,12 @@
             <p style="color: #888; font-size: 20px">
               من كل انحاء السعودية و الوطن العربي والعالم
             </p>
-            <button
+            <!-- <button
               style="background-color: #f2631c"
               class="btn px-5 text-light py-2"
             >
               انضم الان
-            </button>
+            </button> -->
           </div>
         </div>
         <div class="col-12 col-md-6" v-if="!isMobile">
