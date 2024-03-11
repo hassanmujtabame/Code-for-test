@@ -149,9 +149,9 @@
             v-slot="errors"
           >
             <d-select-input :errors="errors" v-model="itemForm.category_id">
-              <option :value="itemForm.category_id" selected>
+              <!-- <option :value="itemForm.category_id" selected>
                 {{ itemForm.category.name }}
-              </option>
+              </option> -->
               <option v-for="(dept, i) in categories" :key="i" :value="dept.id">
                 {{ dept.name }}
               </option>
@@ -194,7 +194,6 @@ export default {
         type_company: "",
         name_company: "",
         image: "",
-        category: {},
       },
     };
   },
@@ -213,7 +212,6 @@ export default {
           type_company: this.itemForm.type_company,
           name_company: this.itemForm.name_company,
           image: this.itemForm.image,
-          category: this.itemForm.category,
         };
         const requestBody = {
           data: dataToUpdate,
