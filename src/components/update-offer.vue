@@ -150,7 +150,7 @@
           >
             <d-select-input :errors="errors" v-model="itemForm.category_id">
               <option :value="itemForm.category_id" selected>
-                {{ itemForm.category }}
+                {{ itemForm.category.name }}
               </option>
               <option v-for="(dept, i) in categories" :key="i" :value="dept.id">
                 {{ dept.name }}
@@ -194,7 +194,7 @@ export default {
         type_company: "",
         name_company: "",
         image: "",
-        category: "",
+        category: {},
       },
     };
   },
@@ -202,7 +202,32 @@ export default {
     handleToggle() {
       this.$emit("close");
     },
-    async save() {},
+    async save() {
+      try {
+        const dataToUpdate = {
+          duration: this.itemForm.duration,
+          code: this.itemForm.code,
+          category_id: this.itemForm.category_id,
+          website: this.itemForm.website,
+          description: this.itemForm.description,
+          type_company: this.itemForm.type_company,
+          name_company: this.itemForm.name_company,
+          image: this.itemForm.image,
+          category: this.itemForm.category,
+        };
+        const requestBody = {
+          data: dataToUpdate,
+          _method: "PUT",
+        };
+
+        return await Promise.all([
+          offersAPI.editOffer(requestBody, this.id),
+          this.fireEvent("d-filter-list-refresh"),
+        ]);
+      } catch (err) {
+        console.log(err);
+      }
+    },
     async getItem() {
       try {
         let { data } = await offersAPI.getItem(this.id);
@@ -215,7 +240,7 @@ export default {
           type_company: data.data.type_company || "",
           name_company: data.data.name_company || "",
           image: data.data.image || "",
-          category: data.data.category.name,
+          category: data.data.category,
         };
         this.itemForm = transformedData;
         console.log(`it worked`);
