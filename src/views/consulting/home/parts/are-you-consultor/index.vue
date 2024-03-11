@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row mt-5 align-items-center justify-content-between p-3">
         <div class="col-md-6">
-          <h2>مستشار ؟</h2>
+          <h2>هل انت مستشار ؟</h2>
           <p>
             يمكنك الان الاشتراك معنا كمستشار في منصة رياديات و سنوفر لك العديد
             من المميزات
@@ -39,9 +39,14 @@
         <div class="col-md-6 p-5">
           <img
             class="img-fluid rounded-3"
-            src="@/assets/img/new/consultion/second-section.png"
+            src="../../../../../assets/img/consult/young-pretty-modern-muslim-woman-hijab-working-laptop-office-room-education-online 1.png"
             alt="about image"
           />
+          <!-- <img
+            class="img-fluid rounded-3"
+            src="../../../../../assets/img/consult/young-pretty-modern-muslim-woman-hijab-working-laptop-office-room-education-online 1.png"
+            alt="about image"
+          /> -->
         </div>
       </div>
     </div>

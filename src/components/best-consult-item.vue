@@ -1,5 +1,33 @@
 <template>
-  <div
+  <div class="d-flex my-2 flex-column shadow rounded-3">
+    <div style="height: 164px; width: 100%" class="">
+      <router-link class="" v-if="to" :to="to">
+        <img
+          style="height: 100%; width: 100%; border-radius: 15px"
+          class="img-fluid py-2 px-2"
+          :src="img"
+          alt
+        />
+      </router-link>
+      <img
+        style="height: 100%; width: 100%"
+        class="img-fluid"
+        v-else
+        @click="$emit('click-image')"
+        :src="img"
+        alt
+      />
+    </div>
+    <div class="text-center">
+      <h6 style="color: #f2631c; font-size: 16px; font-weight: 400">
+        {{ name }}
+      </h6>
+      <p style="color: #888; font-size: 14px" class="">
+        {{ description }}
+      </p>
+    </div>
+  </div>
+  <!-- <div
     style="
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
@@ -43,7 +71,7 @@
         {{ description }}
       </p>
     </div>
-  </div>
+  </div> -->
   <!-- <div class="" :class="{ 'h-job': showJob }" style="">
       <h6 class="">{{ name | truncateWords(2) }}</h6>
       <p style="color: #1fb9b3" class="">

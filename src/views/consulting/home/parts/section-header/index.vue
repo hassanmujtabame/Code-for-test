@@ -7,11 +7,16 @@
             أستشارات
           </h1>
           <h1
-            class="header-title-page select-title-main text-black"
+            class="header-title-page position-relative select-title-main text-black"
             style="display: inline"
           >
             رياديات
-            <img src="@/assets/img/new/main-page/header/Vector 14.png" alt="" />
+            <img
+              style="width: 135px; bottom: 1px; right: -1px"
+              class="position-absolute"
+              src="@/assets/img/new/main-page/header/Vector 14.png"
+              alt=""
+            />
           </h1>
           <p class="header-desc-page text-black mt-3">
             طموحة و تسعين لتحقيق حلمك و شغفك ؟
@@ -53,11 +58,18 @@
         <div class="col-12 col-md-6" style="min-height: 414px" v-if="!isMobile">
           <div class="position-relative">
             <img
-              class="img-omar img-fluid"
-              src="../../../../../../public/assets/img/consulting-img.png"
+              style="z-index: 10"
+              class="img-omar position-relative img-fluid"
+              src="../../../../../assets/img/consult/Frame 1171276680.png"
               alt="hero img"
             />
             <img
+              class="position-absolute img-fluid"
+              src="../../../../../assets/img/consult/Path 2212.png"
+              alt=""
+              style="top: 20px; left: -57px; z-index: 5"
+            />
+            <!-- <img
               style="top: -24px; left: 83px"
               class="position-absolute"
               src="../../../../../../public/assets/img/Ellipse 615.png"
@@ -74,7 +86,7 @@
               class="position-absolute"
               src="../../../../../../public/assets/img/Ellipse 614.png"
               alt=""
-            />
+            /> -->
           </div>
         </div>
       </div>

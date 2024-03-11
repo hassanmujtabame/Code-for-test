@@ -2,7 +2,7 @@
   <div class="container">
     <div class="mt-5">
       <div class="riadiat-of-number">
-        <h2 class="text-center">مركز الاستشارات في أرقام</h2>
+        <h2 class="text-center">الاستشارات في أرقام</h2>
         <div class="row justify-content-center">
           <div class="col-6 col-md-auto mt-3">
             <div
