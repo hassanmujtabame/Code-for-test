@@ -3,16 +3,16 @@
         <label for="imginput" class="form-label file-label mx-auto">
             <div v-if="file" @click="makeImageEmpty" class="loading-image__close">X</div>
             <div class="file-label__wrapper w-100 h-100">
-            <div class="load-image__image-empty">
-                <img :src="`${publicPath}assets/svg/empty-image.svg`" height="96" width="96" />
-                <p class="m-c">{{ $t('add-display-image') }} </p>
-            </div>
-            <div class="add-img-selected">
-                <img class="image-selected-dialog" src="none" :id="idImage" width="150" height="150" />
-            </div>
+                <div class="load-image__image-empty">
+                    <img :src="`${publicPath}assets/svg/empty-image.svg`" height="96" width="96" />
+                    <p class="m-c">{{ $t('add-display-image') }} </p>
+                </div>
+                <div class="add-img-selected">
+                    <img class="image-selected-dialog" src="none" :id="idImage" width="150" height="150" />
+                </div>
 
-            <input @change="uploadImage($event, validate) || validate($event)" class="form-control opacity-0 " type="file"
-                id="imginput">
+                <input @change="uploadImage($event, validate) || validate($event)" class="form-control opacity-0 "
+                    type="file" id="imginput">
             </div>
         </label>
         <div v-if="errors.length !== 0" class="col-12 text-input-error text-center">
@@ -41,8 +41,8 @@ export default {
     },
     methods: {
         makeImageEmpty(evt) {
-            if(evt) evt.preventDefault();
-            
+            if (evt) evt.preventDefault();
+
             this.file = null;
             window.$('#' + this.idImage)
                 .attr('src', 'none')
@@ -83,22 +83,25 @@ export default {
     justify-content: center;
     border-radius: 20px;
 }
-.file-label__wrapper{
+
+.file-label__wrapper {
     border-radius: 20px;
     overflow: hidden;
     position: relative;
 }
+
 .load-image__image-empty {
     position: absolute;
     text-align: center;
-    width:100%
+    width: 100%
 }
 
 .add-img-selected {
     height: 150px;
     width: 150px;
 }
-.loading-image__close{
+
+.loading-image__close {
     z-index: 3;
     cursor: pointer;
     position: absolute;
@@ -111,5 +114,6 @@ export default {
     box-shadow: 2px 2px 10px rgba(12, 47, 51, 0.078);
     align-items: center;
     justify-content: center;
-    border-radius: 50%;}
+    border-radius: 50%;
+}
 </style>

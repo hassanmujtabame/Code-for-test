@@ -1,38 +1,21 @@
 <template>
-  <d-dialog-large
-    :group="group"
-    :openDialog="openDialog"
-    :closeDialog="closeDialog"
-    customHeaderClass="add-offer__header-title"
-    :xl="false"
-  >
+  <d-dialog-large :group="group" :openDialog="openDialog" :closeDialog="closeDialog"
+    customHeaderClass="add-offer__header-title" :xl="false">
     <template v-slot:header> أضف اعلان </template>
     <template v-slot>
-      <ValidationObserver
-        tag="div"
-        class="px-2"
-        style="height: 400px; overflow-y: auto"
-        ref="form"
-        v-if="showDialog"
-      >
+      <ValidationObserver tag="div" class="px-2" style="height: 400px; overflow-y: auto" ref="form" v-if="showDialog">
         <div class="mx-auto">
           <loadImageInput v-model="itemForm.image" />
         </div>
         <!-- company name -->
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               {{ $t("company-name") }}
             </div>
           </div>
           <div class="col-8 p-0">
-            <ValidationProvider
-              vid="name_company"
-              :name="$t('company-name')"
-              v-slot="errors"
-            >
+            <ValidationProvider vid="name_company" :name="$t('company-name')" v-slot="errors">
               <d-text-input :errors="errors" v-model="itemForm.name_company">
               </d-text-input>
             </ValidationProvider>
@@ -41,18 +24,12 @@
         <!-- company type -->
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               {{ $t("company-type") }}
             </div>
           </div>
           <div class="col-8 p-0">
-            <ValidationProvider
-              vid="type_company"
-              :name="$t('company-type')"
-              v-slot="errors"
-            >
+            <ValidationProvider vid="type_company" :name="$t('company-type')" v-slot="errors">
               <d-text-input :errors="errors" v-model="itemForm.type_company">
               </d-text-input>
             </ValidationProvider>
@@ -61,18 +38,12 @@
         <!-- offer desc -->
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               {{ $t("details") }}
             </div>
           </div>
           <div class="col-8 p-0">
-            <ValidationProvider
-              vid="description"
-              :name="$t('details')"
-              v-slot="errors"
-            >
+            <ValidationProvider vid="description" :name="$t('details')" v-slot="errors">
               <d-text-input :errors="errors" v-model="itemForm.description">
               </d-text-input>
             </ValidationProvider>
@@ -81,18 +52,12 @@
         <!-- web site -->
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               {{ $t("website") }}
             </div>
           </div>
           <div class="col-8 p-0">
-            <ValidationProvider
-              vid="website"
-              :name="$t('website')"
-              v-slot="errors"
-            >
+            <ValidationProvider vid="website" :name="$t('website')" v-slot="errors">
               <d-text-input :errors="errors" v-model="itemForm.website">
               </d-text-input>
             </ValidationProvider>
@@ -101,18 +66,12 @@
         <!-- discount code -->
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               {{ $t("discount-code") }}
             </div>
           </div>
           <div class="col-8 p-0">
-            <ValidationProvider
-              vid="code"
-              :name="$t('discount-code')"
-              v-slot="errors"
-            >
+            <ValidationProvider vid="code" :name="$t('discount-code')" v-slot="errors">
               <d-text-input :errors="errors" v-model="itemForm.code">
               </d-text-input>
             </ValidationProvider>
@@ -121,18 +80,12 @@
         <!-- offer during -->
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               {{ $t("offer-during") }}
             </div>
           </div>
           <div class="col-8 p-0">
-            <ValidationProvider
-              vid="during"
-              :name="$t('offer-during')"
-              v-slot="errors"
-            >
+            <ValidationProvider vid="during" :name="$t('offer-during')" v-slot="errors">
               <d-text-input :errors="errors" v-model="itemForm.duration">
               </d-text-input>
             </ValidationProvider>
@@ -140,9 +93,7 @@
         </div>
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               الخصم
             </div>
           </div>
@@ -156,33 +107,17 @@
 
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               نوع الخصم
             </div>
           </div>
           <div class="col-8 p-0">
-            <ValidationProvider
-              vid="discount_type"
-              name="discount_type"
-              v-slot="errors"
-            >
+            <ValidationProvider vid="discount_type" name="discount_type" v-slot="errors">
               <!-- <d-text-input :errors="errors" v-model="itemForm.discount_type">
               </d-text-input> -->
-              <input
-                type="radio"
-                id="percentage"
-                value="percentage"
-                v-model="itemForm.discount_type"
-              />
+              <input type="radio" id="percentage" value="percentage" v-model="itemForm.discount_type" />
               <label for="percentage">نسبه مئويه</label>
-              <input
-                type="radio"
-                id="fixed"
-                value="fixed"
-                v-model="itemForm.discount_type"
-              />
+              <input type="radio" id="fixed" value="fixed" v-model="itemForm.discount_type" />
               <label for="fixed"> سعر</label>
               <span v-if="errors">{{ errors[0] }}</span>
             </ValidationProvider>
@@ -190,9 +125,7 @@
         </div>
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               تاريخ بدايه العرض
             </div>
           </div>
@@ -204,9 +137,7 @@
         </div>
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               تاريخ نهايه العرض
             </div>
           </div>
@@ -219,25 +150,15 @@
         <!-- offer department -->
         <div class="row mt-3">
           <div class="col-4 p-0 border">
-            <div
-              class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
-            >
+            <div class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2">
               {{ $t("offer-department") }}
             </div>
           </div>
           <div class="col-8 p-0">
-            <ValidationProvider
-              vid="category_id"
-              :name="$t('offer-department')"
-              v-slot="errors"
-            >
+            <ValidationProvider vid="category_id" :name="$t('offer-department')" v-slot="errors">
               <d-select-input :errors="errors" v-model="itemForm.category_id">
                 <option></option>
-                <option
-                  v-for="(dept, i) in categories"
-                  :key="i"
-                  :value="dept.id"
-                >
+                <option v-for="(dept, i) in categories" :key="i" :value="dept.id">
                   {{ dept.name }}
                 </option>
               </d-select-input>
@@ -286,10 +207,10 @@ export default {
         this.loading = false;
         return;
       }
-      let formData = this.loadObjectToForm(this.itemForm);
+      // let formData = this.loadObjectToForm(this.itemForm);
 
       try {
-        let { data } = await offersAPI.addOffer(formData);
+        let { data } = await offersAPI.addOffer(this.itemForm);
         if (data.success) {
           console.mylog("success", data);
           //window.EventBus.fire('list-coupon-update')
