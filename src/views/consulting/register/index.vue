@@ -452,7 +452,7 @@
                       <label class="form-check-label" for="defaultCheck1">
                         أؤكد على اني أوافق على
                         <router-link
-                          :to="getRouteLocale('terms-and-conditions')"
+                          :to="getRouteLocale('terms-and-conditions-category')"
                           class="m-c"
                         >
                           {{ $t("terms_use") }}
@@ -608,7 +608,7 @@
                       </clipPath>
                     </defs>
                   </svg>
-                  <p style="color: #1fb9b3; padding-top: 11px">رفع ملف</p>
+                  <p style="color: #1fb9b3; padding-top: 11px">رفع ملف pdf</p>
                 </label>
               </div>
               <d-error-input :errors="errors" v-if="errors.length > 0" />

@@ -113,6 +113,84 @@
           </ValidationProvider>
         </div>
       </div>
+      <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            الخصم
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider vid="discount" name="discount" v-slot="errors">
+            <d-text-input :errors="errors" v-model="itemForm.discount">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            نوع الخصم
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="discount_type"
+            name="discount_type"
+            v-slot="errors"
+          >
+            <!-- <d-text-input :errors="errors" v-model="itemForm.discount_type">
+              </d-text-input> -->
+            <input
+              type="radio"
+              id="percentage"
+              value="percentage"
+              v-model="itemForm.discount_type"
+            />
+            <label for="percentage">نسبه مئويه</label>
+            <input
+              type="radio"
+              id="fixed"
+              value="fixed"
+              v-model="itemForm.discount_type"
+            />
+            <label for="fixed"> سعر</label>
+            <span v-if="errors">{{ errors[0] }}</span>
+          </ValidationProvider>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            تاريخ بدايه العرض
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider vid="start_date" name="start_date">
+            <input type="date" v-model="itemForm.start_date" />
+          </ValidationProvider>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            تاريخ نهايه العرض
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider vid="end_date" name="end_date">
+            <input type="date" v-model="itemForm.end_date" />
+          </ValidationProvider>
+        </div>
+      </div>
       <!-- offer during -->
       <div class="row mt-3">
         <div class="col-4 p-0 border">
@@ -307,6 +385,10 @@ export default {
           type_company: this.itemForm.type_company,
           name_company: this.itemForm.name_company,
           image: this.itemForm.image,
+          start_date: this.itemForm.start_date,
+          end_date: this.itemForm.end_date,
+          discount: this.itemForm.discount,
+          discount_type: this.itemForm.discount_type,
         };
         const requestBody = {
           data: dataToUpdate,
