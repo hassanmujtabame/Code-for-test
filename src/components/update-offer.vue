@@ -342,6 +342,31 @@
         تعديل
       </button>
     </div>
+    <!-- <div class="my-5 text-center">
+      <button @click="save" :disabled="loading" class="btn btn-custmer">
+        تعديل
+      </button>
+    </div> -->
+    <!-- <div class="my-5 text-center">
+      <button @click="save" :disabled="loading" class="btn btn-custmer">
+        تعديل
+      </button>
+    </div> -->
+    <!-- <div class="my-5 text-center">
+      <button @click="save" :disabled="loading" class="btn btn-custmer">
+        تعديل
+      </button>
+    </div> -->
+    <!-- <div class="my-5 text-center">
+      <button @click="save" :disabled="loading" class="btn btn-custmer">
+        تعديل
+      </button>
+    </div> -->
+    <!-- <div class="my-5 text-center">
+      <button @click="save" :disabled="loading" class="btn btn-custmer">
+        تعديل
+      </button>
+    </div> -->
   </div>
 </template>
 
@@ -362,21 +387,22 @@ export default {
     return {
       categories: [],
       loading: false,
+      baby: false,
       itemForm: {
-       category_id:5555
-name_company:test,
-type_company:555,
-//ar[short_description]:tt
-//en[short_description]:t
-description:tttt,
-website:fffffgfggf,
-duration:455,
-code:6fgfgf,
-start_date:2020-10-05
-end_date:2026-10-05
-discount:55
-discount_type:fixed
-_method:put
+        category_id: 5555,
+        name_company: "",
+        type_company: "",
+        //ar[short_description]:tt
+        //en[short_description]:t
+        description: "",
+        website: "",
+        duration: "",
+        code: "",
+        start_date: "",
+        end_date: "",
+        discount: "",
+        discount_type: "",
+        _method: "put",
       },
     };
   },
