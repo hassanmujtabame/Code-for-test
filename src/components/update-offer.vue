@@ -420,14 +420,14 @@ export default {
           description: this.itemForm.description,
           type_company: this.itemForm.type_company,
           name_company: this.itemForm.name_company,
-          image: this.itemForm.image,
+          // image: this.itemForm.image,
           start_date: this.itemForm.start_date,
           end_date: this.itemForm.end_date,
           discount: +this.itemForm.discount,
           discount_type: this.itemForm.discount_type,
         };
         const requestBody = {
-          data: dataToUpdate,
+          ...dataToUpdate,
           _method: "PUT",
         };
 
