@@ -310,6 +310,215 @@
           </ValidationProvider>
         </div>
       </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
+      <!-- <div class="row mt-3">
+        <div class="col-4 p-0 border">
+          <div
+            class="add-offer__field-name w-100 h-100 d-flex align-items-center px-2"
+          >
+            {{ $t("offer-during") }}
+          </div>
+        </div>
+        <div class="col-8 p-0">
+          <ValidationProvider
+            vid="during"
+            :name="$t('offer-during')"
+            v-slot="errors"
+          >
+            <d-text-input :errors="errors" v-model="itemForm.duration">
+            </d-text-input>
+          </ValidationProvider>
+        </div>
+      </div> -->
       <!-- offer department -->
       <div class="row mt-3">
         <div class="col-4 p-0 border">

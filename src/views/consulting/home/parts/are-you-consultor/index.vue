@@ -39,9 +39,19 @@
         <div class="col-md-6 p-5">
           <img
             class="img-fluid rounded-3"
-            src="../../../../../assets/img/consult/young-pretty-modern-muslim-woman-hijab-working-laptop-office-room-education-online 1.png"
+            src="../../../../../assets/img/consult/baby.png"
             alt="about image"
           />
+          <!-- <img
+            class="img-fluid rounded-3"
+            src="../../../../../assets/img/consult/baby.png"
+            alt="about image"
+          /> -->
+          <!-- <img
+            class="img-fluid rounded-3"
+            src="../../../../../assets/img/consult/baby.png"
+            alt="about image"
+          /> -->
           <!-- <img
             class="img-fluid rounded-3"
             src="../../../../../assets/img/consult/young-pretty-modern-muslim-woman-hijab-working-laptop-office-room-education-online 1.png"
