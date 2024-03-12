@@ -20,25 +20,41 @@
               <p class="consultant-text">
                 {{ itemPage.job_title }}
               </p>
-              <button
+              <!-- <button
                 style="background-color: #ffbc00"
                 class="text-white border-0 p-1"
               >
                 {{ itemPage.department_name }}
-              </button>
+              </button> -->
               <h5>نوع الاستشارة</h5>
-              <div
-                class="text-center rounded-5"
-                style="background-color: #1fb9b3"
-              >
-                <p
-                  class="px-4 py-2"
-                  style="color: white"
-                  v-if="itemPage.type === 'call'"
+              <div class="d-flex align-items-center gap-2">
+                <div
+                  class="text-center rounded-5"
+                  style="background-color: #1fb9b3; width: 155px"
                 >
-                  خدمه عن بعد
-                </p>
-                <p class="px-4 py-2" style="color: white" v-else>خدمه حضوريه</p>
+                  <p
+                    class="px-4"
+                    style="color: white; margin-top: 13px"
+                    v-if="itemPage.type === 'call'"
+                  >
+                    خدمه عن بعد
+                  </p>
+                  <p class="px-4" style="color: white; margin-top: 13px" v-else>
+                    خدمه حضوريه
+                  </p>
+                </div>
+                <div
+                  class="text-center rounded-5"
+                  style="
+                    background-color: white;
+                    width: 155px;
+                    border: 1px solid #1fb9b3;
+                  "
+                >
+                  <p class="px-4" style="color: #1fb9b3; margin-top: 13px">
+                    خدمه عن بعد
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -91,7 +107,7 @@
         <SectionRates :itemPage="itemPage" />
       </div>
     </div>
-    <AddBookingConsultant />
+    <AddBookingConsultant :itemPage="itemPage" />
   </div>
 </template>
 <script>
@@ -131,30 +147,64 @@ export default {
       return true;
     },
     openAddBooking() {
-      if (this.userSubNetwork.type == "year") {
-        this.fireOpenDialog("add-booking-consultant", {
-          item: this.itemPage,
-          opts: this.opts,
-        });
-      } else {
-        let dataEvt = {
-          title: "للأسف لايمكنك الحصول على استشارة ",
-          description: `انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  استشارة - رقي حسابك الى الباقة السنوية و استفيد من المميزات في الشبكة`,
+      this.fireOpenDialog("add-booking-consultant", {
+        item: this.itemPage,
+        opts: this.opts,
+      });
 
-          image: `${this.publicPath}assets/img/Group 1171275670.png`,
-          btns: [
-            {
-              title: "رقي حسابك",
-              action: () => this.$router.push({ name: "network-subscribe" }),
-            },
-          ],
-        };
-        this.showConfirmMsg(dataEvt);
-        return;
-      }
       // if(this.checkBeforeBooking())
       // this.fireOpenDialog('add-booking-consultant',{item:this.itemPage,opts:this.opts})
     },
+    // openAddBooking() {
+    //   if (this.userSubNetwork.type == "year") {
+    //     this.fireOpenDialog("add-booking-consultant", {
+    //       item: this.itemPage,
+    //       opts: this.opts,
+    //     });
+    //   } else {
+    //     let dataEvt = {
+    //       title: "للأسف لايمكنك الحصول على استشارة ",
+    //       description: `انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  استشارة - رقي حسابك الى الباقة السنوية و استفيد من المميزات في الشبكة`,
+
+    //       image: `${this.publicPath}assets/img/Group 1171275670.png`,
+    //       btns: [
+    //         {
+    //           title: "رقي حسابك",
+    //           action: () => this.$router.push({ name: "network-subscribe" }),
+    //         },
+    //       ],
+    //     };
+    //     this.showConfirmMsg(dataEvt);
+    //     return;
+    //   }
+    //   // if(this.checkBeforeBooking())
+    //   // this.fireOpenDialog('add-booking-consultant',{item:this.itemPage,opts:this.opts})
+    // },
+    // openAddBooking() {
+    //   if (this.userSubNetwork.type == "year") {
+    //     this.fireOpenDialog("add-booking-consultant", {
+    //       item: this.itemPage,
+    //       opts: this.opts,
+    //     });
+    //   } else {
+    //     let dataEvt = {
+    //       title: "للأسف لايمكنك الحصول على استشارة ",
+    //       description: `انت غير مشترك في الباقة السنوية وهذه الباقة لا تمنحك  استشارة - رقي حسابك الى الباقة السنوية و استفيد من المميزات في الشبكة`,
+
+    //       image: `${this.publicPath}assets/img/Group 1171275670.png`,
+    //       btns: [
+    //         {
+    //           title: "رقي حسابك",
+    //           action: () => this.$router.push({ name: "network-subscribe" }),
+    //         },
+    //       ],
+    //     };
+    //     this.showConfirmMsg(dataEvt);
+    //     return;
+    //   }
+    //   // if(this.checkBeforeBooking())
+    //   // this.fireOpenDialog('add-booking-consultant',{item:this.itemPage,opts:this.opts})
+    // },
   },
 };
 </script>
