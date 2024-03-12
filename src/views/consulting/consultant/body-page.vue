@@ -28,6 +28,71 @@
               </button> -->
               <h5>نوع الاستشارة</h5>
               <div class="d-flex align-items-center gap-2">
+                <!-- <div
+                  class="text-center rounded-5"
+                  style="background-color: #1fb9b3; width: 125px"
+                > -->
+                <!-- <p
+                    class="px-4"
+                    style="color: white; margin-top: 13px"
+                    v-if="itemPage.type === 'call'"
+                  >
+                    خدمه عن بعد
+                  </p> -->
+                <p
+                  class="px-4 py-2 rounded-3"
+                  style="
+                    color: white;
+                    background-color: #1fb9b3;
+                    font-size: 15px;
+                  "
+                >
+                  خدمه حضوريه
+                </p>
+                <!-- </div> -->
+                <!-- <div
+                  class="text-center rounded-5"
+                  style="
+                    background-color: white;
+                    width: 125px;
+                    border: 1px solid #1fb9b3;
+                  "
+                > -->
+                <p
+                  class="px-4 py-2 rounded-3"
+                  style="
+                    color: #1fb9b3;
+                    background-color: white;
+                    font-size: 15px;
+
+                    border: 1px solid #1fb9b3;
+                  "
+                >
+                  خدمه عن بعد
+                </p>
+                <!-- </div> -->
+                <!-- <div
+                  class="text-center rounded-5"
+                  style="
+                    background-color: white;
+                    width: 125px;
+                    border: 1px solid #1fb9b3;
+                  "
+                > -->
+                <p
+                  class="px-4 py-2 rounded-3"
+                  style="
+                    color: #1fb9b3;
+                    background-color: white;
+                    font-size: 15px;
+                    border: 1px solid #1fb9b3;
+                  "
+                >
+                  زياره شركه
+                </p>
+                <!-- </div> -->
+              </div>
+              <!-- <div class="d-flex align-items-center gap-2">
                 <div
                   class="text-center rounded-5"
                   style="background-color: #1fb9b3; width: 155px"
@@ -55,7 +120,7 @@
                     خدمه عن بعد
                   </p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="pt-3 mt-5">
