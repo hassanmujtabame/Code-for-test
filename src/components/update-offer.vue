@@ -123,7 +123,11 @@
         </div>
         <div class="col-8 p-0">
           <ValidationProvider vid="discount" name="discount" v-slot="errors">
-            <d-text-input :errors="errors" v-model="itemForm.discount">
+            <d-text-input
+              type="number"
+              :errors="errors"
+              v-model="itemForm.discount"
+            >
             </d-text-input>
           </ValidationProvider>
         </div>
@@ -359,14 +363,20 @@ export default {
       categories: [],
       loading: false,
       itemForm: {
-        duration: "",
-        code: "",
-        category_id: "",
-        website: "",
-        description: "",
-        type_company: "",
-        name_company: "",
-        image: "",
+       category_id:5555
+name_company:test,
+type_company:555,
+//ar[short_description]:tt
+//en[short_description]:t
+description:tttt,
+website:fffffgfggf,
+duration:455,
+code:6fgfgf,
+start_date:2020-10-05
+end_date:2026-10-05
+discount:55
+discount_type:fixed
+_method:put
       },
     };
   },
@@ -387,7 +397,7 @@ export default {
           image: this.itemForm.image,
           start_date: this.itemForm.start_date,
           end_date: this.itemForm.end_date,
-          discount: this.itemForm.discount,
+          discount: +this.itemForm.discount,
           discount_type: this.itemForm.discount_type,
         };
         const requestBody = {

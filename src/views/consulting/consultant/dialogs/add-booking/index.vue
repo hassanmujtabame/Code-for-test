@@ -68,7 +68,7 @@
       <ValidationObserver ref="form" tag="div" v-if="showDialog">
         <!-- date -->
         <div class="row">
-          <div class="form-group col-md-8 col-12">
+          <div class="form-group col-md-7 col-12">
             <ValidationProvider
               :name="$t('booking-desc')"
               vid="description"
@@ -82,7 +82,8 @@
             </ValidationProvider>
           </div>
           <ValidationProvider
-            class="col-md-4 d-flex flex-column gap-1 col-12"
+            style="height: 52px"
+            class="col-md-5 d-flex flex-column gap-1 col-12"
             :name="$t('booking-date')"
             tag="div"
             vid="start_date"
@@ -94,9 +95,13 @@
             >
               b
             </label> -->
-            <label for=""> اختيار معاد </label>
+            <!-- <label for=""> اختيار معاد </label> -->
             <!-- <div class="d-none"> -->
-            <d-datepicker-input id="date" v-model="itemForm.start_date" />
+            <d-datepicker-input
+              placeholder="اختيار المعاد"
+              id="date"
+              v-model="itemForm.start_date"
+            />
             <!-- </div> -->
             <d-error-input :errors="errors" v-if="errors.length > 1" />
           </ValidationProvider>
