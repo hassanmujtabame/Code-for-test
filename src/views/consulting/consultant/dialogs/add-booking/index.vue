@@ -146,15 +146,29 @@
             </label> -->
             <!-- <label for=""> اختيار معاد </label> -->
             <!-- <div class="d-none"> -->
-            <d-datepicker-input
-              style="border: 1px solid #2cb7b3; height: 52px"
-              class="rounded-3 form-control"
-              placeholder="اختيار المعاد"
-              id="date"
-              v-model="itemForm.start_date"
-            />
+            <div
+              class="rounded-3"
+              style="width: fit-content; border: 1px solid #2cb7b3"
+            >
+              <d-datepicker-input
+                style=" border:none height: 52px"
+                class="rounded-3 form-control"
+                placeholder="اختيار المعاد"
+                id="date"
+                v-model="itemForm.start_date"
+              />
+            </div>
             <!-- </div> -->
             <d-error-input :errors="errors" v-if="errors.length > 1" />
+          </ValidationProvider>
+        </div>
+        <div class="form-group col-md-12 my-2 col-12">
+          <ValidationProvider name="message" vid="message" v-slot="{ errors }">
+            <d-textarea-input
+              :errors="errors"
+              v-model="itemForm.message"
+              label=" ارسل رساله للمستشار"
+            />
           </ValidationProvider>
         </div>
         <!-- <div v-if="times.length" class="mt-3">
@@ -192,13 +206,41 @@
             />
           </ValidationProvider>
         </div> -->
+        <!-- <div class="form-group mt-3">
+          <ValidationProvider
+            :name="$t('booking-desc')"
+            vid="description"
+            v-slot="{ errors }"
+          >
+            <d-textarea-input
+              :errors="errors"
+              v-model="itemForm.description"
+              label="اكتبي ملخص ما تريدين التحدث عنه"
+            />
+          </ValidationProvider>
+        </div> -->
+        <!-- <div class="form-group mt-3">
+          <ValidationProvider
+            :name="$t('booking-desc')"
+            vid="description"
+            v-slot="{ errors }"
+          >
+            <d-textarea-input
+              :errors="errors"
+              v-model="itemForm.description"
+              label="اكتبي ملخص ما تريدين التحدث عنه"
+            />
+          </ValidationProvider>
+        </div> -->
       </ValidationObserver>
     </div>
     <template v-slot:actions>
-      <button :disabled="loading" @click="save" class="btn btn-custmer">
-        <i v-if="loading" class="fa fa-spinner fa-spin"></i>
-        أحجز الاستشارة
-      </button>
+      <div style="width: 100%" class="text-end">
+        <button :disabled="loading" @click="save" class="btn btn-custmer">
+          <i v-if="loading" class="fa fa-spinner fa-spin"></i>
+          طلب حجز معاد
+        </button>
+      </div>
     </template>
   </d-dialog-large>
 </template>
