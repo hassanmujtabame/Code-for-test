@@ -67,6 +67,7 @@
                 :name="$t('nationality')"
                 vid="nationality"
                 rules="required"
+                :disabled="!isEnabled"
                 v-slot="{ errors }"
               >
                 <d-text-input
@@ -122,6 +123,7 @@
                   <div class="">
                     <d-select-input
                       :errors="errors"
+                      :disabled="!isEnabled"
                       v-model="itemForm.gender"
                       :placeholder="$t('select-your-gender')"
                       class="form-select"
@@ -171,7 +173,7 @@
               <i class="fa fa-id-card"></i>
               {{ $t("freelance_document") }} :
             </label>
-            <div class="col-md-8 row mb-3">
+            <!-- <div class="col-md-8 row mb-3">
               <div class="col-md-12">
                 <ValidationProvider
                   tag="div"
@@ -189,7 +191,7 @@
                   />
                 </ValidationProvider>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </ValidationObserver>
@@ -216,7 +218,7 @@ export default {
         identification_number: "",
         ...vm.currentUser.personal_informations,
       },
-      file: null,
+      // file: null,
       isEnabled: false,
     };
   },
@@ -237,7 +239,7 @@ export default {
       Object.keys(this.itemForm).forEach((key) => {
         formData.append(`${key}`, this.itemForm[key]);
       });
-      if (this.isSaoudi) formData.append("file", this.file);
+      // if (this.isSaoudi) formData.append("file", this.file);
 
       try {
         let { data } = await userAPI.postPersonalInformation(formData);
@@ -256,12 +258,12 @@ export default {
         }
       }
     },
-    handlerFile(file) {
-      this.file = file;
-    },
-    emptyFile() {
-      this.file = null;
-    },
+    // handlerFile(file) {
+    //   this.file = file;
+    // },
+    // emptyFile() {
+    //   this.file = null;
+    // },
     enableInput() {
       !this.isEnabled ? (this.isEnabled = true) : "";
     },
