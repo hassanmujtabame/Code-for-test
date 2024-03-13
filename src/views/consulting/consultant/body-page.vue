@@ -171,12 +171,14 @@
 
                 <!-- <d-empty-wallet-icon style="color: #f2631c" :size="24" /> -->
 
-                {{ itemPage.consultation_price ?? "N/A" }} ريال
+                <!-- {{ itemPage.consultation_price ?? "N/A" }} ريال -->
+                {{ itemPage.remote_price ?? "N/A" }} -
+                {{ itemPage.site_price ?? "N/A" }}
               </p>
-              <p>
+              <!-- <p>
                 <d-timer-icon :size="24" />
-                {{ itemPage.during ?? "N/A" }} دقيقة
-              </p>
+                {{ itemPage.duration_time ?? "N/A" }} دقيقة
+              </p> -->
               <p>
                 <d-chatting-icon :size="24" />
                 مكالمة

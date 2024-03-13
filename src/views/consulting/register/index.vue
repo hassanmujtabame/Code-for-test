@@ -332,6 +332,40 @@
                   </d-select-input>
                 </ValidationProvider>
               </div>
+              <div class="col-md-4 w-100 mt-2">
+                <ValidationProvider
+                  tag="div"
+                  class="w-100"
+                  name="site_price"
+                  vid="site_price"
+                  rules="numeric"
+                  v-slot="{ errors }"
+                >
+                  <d-text-input
+                    :errors="errors"
+                    v-model="itemForm.site_price"
+                    label="سعر الاستشاره الحضوريه"
+                  >
+                  </d-text-input>
+                </ValidationProvider>
+              </div>
+              <div class="col-md-4 w-100 mt-2">
+                <ValidationProvider
+                  tag="div"
+                  class="w-100"
+                  name="remote price"
+                  rules="numeric"
+                  vid="remote_price"
+                  v-slot="{ errors }"
+                >
+                  <d-text-input
+                    :errors="errors"
+                    v-model="itemForm.remote_price"
+                    label="سعر الاستشارة عن بعد"
+                  >
+                  </d-text-input>
+                </ValidationProvider>
+              </div>
 
               <div class="col-md-4 w-100 mt-2">
                 <ValidationProvider
@@ -1016,78 +1050,51 @@ export default {
       };
       this.showSuccessMsg(dataEvt);
     },
-    async save() {
-      this.loading = true;
-
-      // Check if the user is already signed up as a consultant
-      if (this.user && !this.user.is_consultant) {
-        console.log("User is already signed up as a consultant.");
-        this.loading = false;
-        return; // Prevent further execution of the save method
-      }
-
-      try {
-        let valid = await this.$refs.form.validate();
-        if (!valid) {
-          console.log("Invalid form");
-          this.loading = false;
-          return;
-        }
-
-        let form = {};
-        if (!this.user) {
-          form = { ...this.itemForm };
-        } else {
-          let { department_id, job_title, bio, cv } = this.itemForm;
-          form = { department_id, job_title, bio, cv };
-        }
-
-        let formData = this.loadObjectToForm(form);
-
-        let { data } = await consultingAPI.consultants.register(formData);
-        if (data.success) {
-          this.successRegister();
-          console.log(this.user.is_consultant);
-        } else {
-          window.SwalError(data.message);
-        }
-      } catch (error) {
-        console.log("Error", error);
-        if (error.response) {
-          let response = error.response;
-          if (response.status == 422) {
-            this.setErrorsForm(this.$refs.form, response);
-          }
-        }
-      }
-      this.loading = false;
-    },
     // async save() {
     //   this.loading = true;
-    //   let valid = await this.$refs.form.validate();
-    //   if (!valid) {
-    //     console.mylog("invalid");
+
+    //   // Check if the user is already signed up as a consultant
+    //   if (this.user && !this.user.is_consultant) {
+    //     window.SwalError("انت مشترك بالفعل !");
     //     this.loading = false;
-    //     return;
+    //     return; // Prevent further execution of the save method
     //   }
 
     //   try {
-    //     let form = {};
-    //     if (!this.user) form = { ...this.itemForm };
-    //     else {
-    //       let { department_id, job_title, bio, cv } = this.itemForm;
-    //       form = { department_id, job_title, bio, cv };
+    //     let valid = await this.$refs.form.validate();
+    //     if (!valid) {
+    //       console.log("Invalid form");
+    //       this.loading = false;
+    //       return;
     //     }
+
+    //     let form = {};
+    //     if (!this.user) {
+    //       form = { ...this.itemForm };
+    //     } else {
+    //       let { department_id, job_title, bio, cv, site_price, remote_price } =
+    //         this.itemForm;
+    //       form = {
+    //         department_id,
+    //         job_title,
+    //         bio,
+    //         cv,
+    //         site_price,
+    //         remote_price,
+    //       };
+    //     }
+
     //     let formData = this.loadObjectToForm(form);
 
     //     let { data } = await consultingAPI.consultants.register(formData);
     //     if (data.success) {
     //       this.successRegister();
+    //       console.log(this.user.is_consultant);
     //     } else {
     //       window.SwalError(data.message);
     //     }
     //   } catch (error) {
-    //     console.mylog("error", error);
+    //     console.log("Error", error);
     //     if (error.response) {
     //       let response = error.response;
     //       if (response.status == 422) {
@@ -1097,6 +1104,49 @@ export default {
     //   }
     //   this.loading = false;
     // },
+    async save() {
+      this.loading = true;
+      let valid = await this.$refs.form.validate();
+      if (!valid) {
+        console.mylog("invalid");
+        this.loading = false;
+        return;
+      }
+
+      try {
+        let form = {};
+        if (!this.user) form = { ...this.itemForm };
+        else {
+          let { department_id, job_title, bio, cv, site_price, remote_price } =
+            this.itemForm;
+          form = {
+            department_id,
+            job_title,
+            bio,
+            cv,
+            site_price,
+            remote_price,
+          };
+        }
+        let formData = this.loadObjectToForm(form);
+
+        let { data } = await consultingAPI.consultants.register(formData);
+        if (data.success) {
+          this.successRegister();
+        } else {
+          window.SwalError(data.message);
+        }
+      } catch (error) {
+        console.mylog("error", error);
+        if (error.response) {
+          let response = error.response;
+          if (response.status == 422) {
+            this.setErrorsForm(this.$refs.form, response);
+          }
+        }
+      }
+      this.loading = false;
+    },
     async uploadFile(evt, validate) {
       let resValid = await validate(evt);
       if (!resValid.valid) {

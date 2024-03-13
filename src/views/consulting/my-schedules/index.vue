@@ -598,7 +598,7 @@ export default {
 
 .calendar-service-schedule .custom-calendar.vc-container .vc-day.weekday-1,
 .calendar-service-schedule .custom-calendar.vc-container .vc-day.weekday-7 {
-  background-color: #f2631c;
+  background-color: #f6f8f9;
 }
 
 .calendar-service-schedule

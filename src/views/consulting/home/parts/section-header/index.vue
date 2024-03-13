@@ -47,7 +47,7 @@
                 >اطلب استشارة</router-link
               >
               <router-link
-                v-if="user.is_consultant"
+                v-if="!user.is_consultant"
                 style="background-color: #1fb9b3"
                 :to="getRouteLocale('consulting-register')"
                 class="px-5 py-2 rounded-2 mx-1 text-white mt-2"
