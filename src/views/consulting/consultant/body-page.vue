@@ -172,8 +172,8 @@
                 <!-- <d-empty-wallet-icon style="color: #f2631c" :size="24" /> -->
 
                 <!-- {{ itemPage.consultation_price ?? "N/A" }} ريال -->
-                {{ itemPage.remote_price ?? "N/A" }} -
-                {{ itemPage.site_price ?? "N/A" }}
+                {{ itemPage.remote_price ?? 0 }} -
+                {{ itemPage.site_price ?? 0 }}
               </p>
               <!-- <p>
                 <d-timer-icon :size="24" />
