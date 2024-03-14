@@ -87,7 +87,7 @@
                 class="d-flex justify-between"
               >
                 <div class="d-flex align-items-center gap-1">
-                  <p style="color: #888">
+                  <p style="color: #888; font-size: 12px">
                     <svg
                       width="16"
                       height="16"
@@ -106,7 +106,7 @@
                     </svg>
                     {{ formattedDatePublish }} |
                   </p>
-                  <p style="color: #ff1616">
+                  <p style="color: #ff1616; font-size: 12px">
                     <svg
                       width="16"
                       height="16"
@@ -121,7 +121,7 @@
                     </svg>
                     15 |
                   </p>
-                  <p style="color: #ffbc00">
+                  <p style="color: #ffbc00; font-size: 12px">
                     <svg
                       width="16"
                       height="16"
