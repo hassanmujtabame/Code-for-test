@@ -52,7 +52,7 @@
         <div class="d-flex justify-content-center align-items-center">
           <button
             :class="{ 'current-tab': tab === 0 }"
-            @click="switchTab(tab)"
+            @click="switchTab1"
             style="color: black; background-color: white; border: none"
             class="px-5 rounded-2 shadow py-2"
           >
@@ -60,7 +60,7 @@
           </button>
           <button
             :class="{ 'current-tab': tab === 1 }"
-            @click="switchTab(tab)"
+            @click="switchTab2"
             style="color: black; background-color: white; border: none"
             class="px-5 rounded-2 shadow py-2"
           >
@@ -243,7 +243,12 @@ export default {
     },
     switchTab(n) {
       n === 1 ? (this.tab = 0) : (this.tab = 1);
-      console.log(this.tab);
+    },
+    switchTab1() {
+      this.tab = 0;
+    },
+    switchTab2() {
+      this.tab = 1;
     },
 
     beforeChange() {
