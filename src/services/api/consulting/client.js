@@ -9,5 +9,6 @@ class ClientsApi extends BaseApi{
     rateConsultation(booking_id,data){
         return window.axios.post(`consulting/user/${booking_id}/rates`,data);
     }
+    
 }
 export default new ClientsApi()

@@ -258,7 +258,7 @@
         <SectionRates :itemPage="itemPage" />
       </div>
     </div>
-    <AddBookingConsultant :itemPage="itemPage" />
+    <AddBookingConsultant :type="type" :itemPage="itemPage" />
   </div>
 </template>
 <script>
@@ -282,6 +282,7 @@ export default {
   },
   data: () => ({
     tab: 0,
+    type: "site",
   }),
   methods: {
     buyConsultation() {},
@@ -318,11 +319,11 @@ export default {
       // n === 1 ? (this.tab = 0) : (this.tab = 1);
       // console.log(this.tab);
       this.tab = 1;
-      console.log(this.tab);
+      this.type = "remote";
     },
     switchTab2() {
       this.tab = 0;
-      console.log(this.tab);
+      this.type = "site";
 
       // n === 1 ? (this.tab = 0) : (this.tab = 1);
       // console.log(this.tab);
