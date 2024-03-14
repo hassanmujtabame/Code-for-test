@@ -84,7 +84,7 @@
               </div>
               <div
                 style="border-bottom: 1px #888 solid"
-                class="d-flex justify-between px-2"
+                class="d-flex justify-between"
               >
                 <div class="d-flex align-items-center gap-1">
                   <p style="color: #888">

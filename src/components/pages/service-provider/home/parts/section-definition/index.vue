@@ -17,8 +17,7 @@
         </ul>
         <router-link
           :to="getRouteLocale('service-provider-proposals')"
-          class="btn-custmer shadow"
-          style="padding: 5px 20px"
+          class="btn-custmer px-5 py-2 shadow"
           >تقديم خدمة</router-link
         >
       </div>

@@ -80,7 +80,7 @@
           >
             <div
               class="rounded-3"
-              :style="{ backgroundColor: calculateBackgroundColor(i) }"
+              style="background-color: rgba(31, 185, 179, 0.2); height: 169px"
             >
               <CardService
                 :keywords="item.keywords"
@@ -104,7 +104,7 @@
           >
             <div
               class="rounded-3"
-              :style="{ backgroundColor: calculateBackgroundColor(i) }"
+              style="background-color: rgba(31, 185, 179, 0.2); height: 169px"
             >
               <CardService
                 :keywords="item.keywords"
