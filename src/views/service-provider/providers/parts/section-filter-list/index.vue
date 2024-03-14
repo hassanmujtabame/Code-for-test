@@ -59,7 +59,7 @@
           class="router-link"
           :to="getRouteLocale('service-provider-show-profile', { id: item.id })"
         >
-          <cardInfoVue
+          <CardInfoVue
             :providerId="item.id"
             :name="item.name"
             :bio="item.bio"
@@ -77,11 +77,11 @@
 import serviceProviderAPIs from "@/services/api/service-provider/provider/index";
 //import readyServiceCard from '@/components/cards/ready-service.vue';
 import sidebarFilter from "./sidebar-filter.vue";
-import cardInfoVue from "./card-item";
+import CardInfoVue from "./card-item";
 export default {
   name: "section-filter-list",
   components: {
-    cardInfoVue,
+    CardInfoVue,
     sidebarFilter,
   },
   data: () => ({
