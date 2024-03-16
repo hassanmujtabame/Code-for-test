@@ -25,7 +25,7 @@
               <i style="color: var(--pc)" class="fas fa-check-circle mx-2"></i>
               أي مميزات أخرى تشد الشخص لاشتراك
             </p>
-            <div v-if="user.is_consultant" class="mb-4">
+            <div v-if="!user.is_consultant" class="mb-4">
               <router-link
                 :to="getRouteLocale('consulting-register')"
                 class="btn-custmer px-5 py-1"
