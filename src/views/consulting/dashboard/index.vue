@@ -21,7 +21,7 @@
             <li style="list-style: none" class="nav-item">
               <router-link
                 style="color: #888"
-                :to="getRouteLocale('network-dashboard')"
+                :to="getRouteLocale('consulting-dashboard')"
                 class="nav-link li-active hover-li"
               >
                 المستشار
@@ -71,6 +71,9 @@
           <div class="mx-3">
             <Services />
           </div>
+          <!-- <div class="mx-3">
+            <Services />
+          </div> -->
           <AskUs />
         </div>
         <!-- <div class="col-md-6">
@@ -106,8 +109,8 @@
 
 <script>
 // import SectionHeader from "./parts/section-header/index.vue";
-import Services from "@/components/service-dashboard.vue";
-import AskUs from "@/components/ask-us-consulting.vue";
+import Services from "@/components/consult-dashborad-service.vue";
+import AskUs from "@/components/ask-us-consult.vue";
 import SectionBalance from "./parts/section-balance/index.vue";
 // import WidgetConsultations from "./parts/widget-consultations.vue";
 // import WidgetLearningMeetings from "./parts/widget-learning-meetings.vue";
