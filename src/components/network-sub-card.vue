@@ -114,7 +114,11 @@
               <span>{{ feature }}</span>
             </li>
           </ul>
-          <div style="width: 100%" class="subscription-actions text-center">
+          <div
+            v-if="token"
+            style="width: 100%"
+            class="subscription-actions text-center"
+          >
             <button
               @click="proceedToPayment"
               v-if="price == 0 && pack.id !== subscribed"
@@ -146,6 +150,15 @@
             >
               انت مشترك الان
             </span> -->
+          </div>
+          <div class="d-flex justify-content-center align-items-center" v-else>
+            <router-link
+              style="background-color: #1fb9b3"
+              :to="getRouteLocale('login')"
+              class="btn text-light my-2 rounded-3 px-4 py-2"
+            >
+              سجل دخولك
+            </router-link>
           </div>
         </div>
       </div>

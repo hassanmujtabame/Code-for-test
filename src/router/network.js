@@ -394,7 +394,6 @@ const routers = [
     path: "network/subscribe",
     meta: {
       layout: LayoutDefault,
-      auth: true,
       title: "Subscribe",
       type: "network",
     },

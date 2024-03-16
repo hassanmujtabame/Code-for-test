@@ -11,13 +11,13 @@
       >
     </li>
     <li class="nav-item">
-      <router-link
+      <!-- <router-link
         v-if="!user"
         :to="{ name: 'network-home', params: { lang: $i18n.locale } }"
         class="nav-link"
         >{{ $t("network") }}</router-link
-      >
-      <b-dropdown v-if="user" class="custom-dropdown" :text="'الشبكة'">
+      > -->
+      <b-dropdown class="custom-dropdown" :text="'الشبكة'">
         <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
           <router-link :to="{ name: 'network-home' }" class="nav-link">
             الصفحه الرئيسيه
@@ -63,15 +63,55 @@
             >{{ $t("consulting") }}</router-link
           >
         </b-dropdown-item>
-        <!-- <b-dropdown-item class="nav-item">
+      </b-dropdown>
+      <!-- <b-dropdown v-if="user" class="custom-dropdown" :text="'الشبكة'">
+        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+          <router-link :to="{ name: 'network-home' }" class="nav-link">
+            الصفحه الرئيسيه
+          </router-link>
+        </b-dropdown-item>
+        <b-dropdown-item
+          class="nav-link nav-item"
+          style="cursor: pointer"
+          @click="checkExhibitionsSub()"
+        >
+          {{ $t("Exhibitions") }}
+        </b-dropdown-item>
+        <b-dropdown-item
+          class="nav-link nav-item"
+          style="cursor: pointer"
+          @click="checkSub()"
+        >
+          {{ $t("Offers") }}
+        </b-dropdown-item>
+        <b-dropdown-item
+          class="nav-link nav-item"
+          style="cursor: pointer"
+          @click="checkModelsSub()"
+        >
+          {{ $t("Models") }}
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-item">
+          <router-link :to="getRouteLocale('network-blogs')" class="nav-link">{{
+            $t("Blogs")
+          }}</router-link>
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-item">
+          <router-link
+            :to="getRouteLocale('network-member-network')"
+            class="nav-link"
+            >{{ $t("members") }}</router-link
+          >
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-item">
           <router-link
             :to="{ name: 'consulting-home', params: { lang: $i18n.locale } }"
             class="nav-link"
+            >{{ $t("consulting") }}</router-link
           >
-            omar
-          </router-link>
-        </b-dropdown-item> -->
-      </b-dropdown>
+        </b-dropdown-item>
+        
+      </b-dropdown> -->
       <!-- here  -->
     </li>
     <li class="nav-item">
