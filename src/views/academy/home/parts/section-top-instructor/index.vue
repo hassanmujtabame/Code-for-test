@@ -1,7 +1,7 @@
 <template>
   <div class="bg-1 py-2 px-5 position-relative mt-5">
     <div class="row align-items-center justify-content-center m-auto p-3">
-      <div class="col-md-6">
+      <div class="col-md-6 m-auto">
         <h1 style="color: #2cb7b3" class="">هل انت مدرب مميز ؟</h1>
         <p style="color: #737373" class="">
           أكاديمية رياديات تضم العديد من المدربين المميزين في الممكلة و الوطن

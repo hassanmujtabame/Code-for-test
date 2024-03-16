@@ -43,7 +43,7 @@
 
 <script>
 import CardVue from "@/components/cards/academy-course.vue";
-import MostPopularCards from "@/components/Most-popular-cards.vue";
+import MostPopularCards from "@/components/most-popular-card-new.vue";
 import coursesApI from "@/services/api/academy/courses.js";
 export default {
   name: "section-most-popular-courses",
