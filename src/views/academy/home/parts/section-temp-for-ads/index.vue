@@ -1,5 +1,5 @@
 <template>
-  <div
+  <!-- <div
     class="container d-md-flex d-none justify-content-center position-relative"
   >
     <img
@@ -19,6 +19,38 @@
       >
         استكشف الأن
       </button>
+    </div>
+  </div> -->
+  <div class="container">
+    <div style="background-color: #e8f8f7" class="row">
+      <div class="col-12 px-5 py-2 col-md-8 d-flex flex-column gap-2">
+        <h1 style="color: #2cb7b3; font-size: 56px">
+          يقدم لكم رياديات خصم 30% هذا الموسم
+        </h1>
+        <p class="text-dark">
+          يسري العرض الترويجي من 1 مايو 2024 إلى 30 يونيو 2024
+        </p>
+        <button
+          class="upgrade-button"
+          @click="$router.push({ name: 'network-offers' })"
+        >
+          استكشف الأن
+        </button>
+      </div>
+      <div class="col-12 d-none d-md-block col-md-4 position-relative">
+        <img
+          style="z-index: 4; margin-right: -49px"
+          class="img-fluid position-relative"
+          src="../../../../../assets/img/academy/4.png"
+          alt="hero img"
+        />
+        <img
+          style="top: 0; left: 0; z-index: 3"
+          class="img-fluid position-absolute"
+          src="../../../../../assets/img/academy/Vector.png"
+          alt="hero img"
+        />
+      </div>
     </div>
   </div>
 </template>

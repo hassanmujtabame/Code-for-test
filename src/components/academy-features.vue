@@ -1,14 +1,13 @@
 <template>
   <div class="container">
-    <div style="color: #2cb7b3; font-size: 32px" class="text-center">
-      المزايا المُقدّمة من رياديات إلى المدربين
+    <div class="text-center my-4">
+      <h1 style="color: #2cb7b3; font-size: 32px">
+        المزايا المُقدّمة من رياديات إلى المدربين
+      </h1>
     </div>
     <div class="row my-4">
       <div class="col-12 p-3 col-md-3">
-        <div
-          style="background-color: #e1eeef; height: 280px"
-          class="rounded-2 overflow-y-auto"
-        >
+        <div style="background-color: #e1eeef; height: 280px" class="rounded-2">
           <div class="d-flex flex-column gap-3 px-3 py-3">
             <svg
               width="62"
@@ -31,10 +30,7 @@
         </div>
       </div>
       <div class="col-12 p-3 col-md-3">
-        <div
-          style="background-color: #414042; height: 280px"
-          class="rounded-2 overflow-y-auto"
-        >
+        <div style="background-color: #414042; height: 280px" class="rounded-2">
           <div class="d-flex flex-column gap-3 px-3 py-3">
             <svg
               width="64"
@@ -78,10 +74,7 @@
         </div>
       </div>
       <div class="col-12 p-3 col-md-3">
-        <div
-          style="background-color: #e1eeef; height: 280px"
-          class="rounded-2 overflow-y-auto"
-        >
+        <div style="background-color: #e1eeef; height: 280px" class="rounded-2">
           <div class="d-flex flex-column gap-3 px-3 py-3">
             <svg
               width="64"
@@ -135,10 +128,7 @@
         </div>
       </div>
       <div class="col-12 p-3 col-md-3">
-        <div
-          style="background-color: #414042; height: 280px"
-          class="rounded-2 overflow-y-auto"
-        >
+        <div style="background-color: #414042; height: 280px" class="rounded-2">
           <div class="d-flex flex-column gap-3 px-3 py-3">
             <svg
               width="64"
@@ -171,10 +161,7 @@
     </div>
     <div class="row my-4">
       <div class="col-12 p-3 col-md-3">
-        <div
-          style="background-color: #e1eeef; height: 280px"
-          class="rounded-2 overflow-y-auto"
-        >
+        <div style="background-color: #e1eeef; height: 280px" class="rounded-2">
           <div class="d-flex flex-column gap-3 px-3 py-3">
             <svg
               width="64"
@@ -253,10 +240,7 @@
         </div>
       </div>
       <div class="col-12 p-3 col-md-3">
-        <div
-          style="background-color: #414042; height: 280px"
-          class="rounded-2 overflow-y-auto"
-        >
+        <div style="background-color: #414042; height: 280px" class="rounded-2">
           <div class="d-flex flex-column gap-3 px-3 py-3">
             <svg
               width="60"
@@ -347,10 +331,7 @@
         </div>
       </div>
       <div class="col-12 p-3 col-md-3">
-        <div
-          style="background-color: #e1eeef; height: 280px"
-          class="rounded-2 overflow-y-auto"
-        >
+        <div style="background-color: #e1eeef; height: 280px" class="rounded-2">
           <div class="d-flex flex-column gap-3 px-3 py-3">
             <svg
               width="64"
@@ -378,10 +359,7 @@
         </div>
       </div>
       <div class="col-12 p-3 col-md-3">
-        <div
-          style="background-color: #414042; height: 280px"
-          class="rounded-2 overflow-y-auto"
-        >
+        <div style="background-color: #414042; height: 280px" class="rounded-2">
           <div class="d-flex flex-column gap-3 px-3 py-3">
             <svg
               width="64"

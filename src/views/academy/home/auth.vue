@@ -22,7 +22,7 @@
     <SectionHelpsYou />
     <!--#section 3-->
     <!-- section top instructor-->
-    <sectionTopInstructor />
+    <SectionTopInstructor />
     <SectionSubscribeNow />
     <!--#section top instructor-->
     <!-- section training-fields-->
@@ -77,7 +77,7 @@ import SectionMostPopularCourses from "./parts/section-most-popular-courses/inde
 
 import SectionHelpsYou from "./parts/section-helps-you/index.vue";
 import SectionSubscribeNow from "./parts/section-subscribe-now/index.vue";
-import sectionTopInstructor from "./parts/section-top-instructor/index.vue";
+import SectionTopInstructor from "./parts/section-top-instructor/index.vue";
 import SectionTrainingFields from "./parts/section-training-fields/index.vue";
 import SectionExploringEntrepreneurship from "./parts/section-exploring-entrepreneurship/index.vue";
 import SectionExploringSpecializedEntrepreneurship from "./parts/section-exploring-specialized-entrepreneurship/index.vue";
@@ -102,7 +102,7 @@ export default {
     SectionFeatures,
     SectionAds,
     SectionSubscribeNow,
-    sectionTopInstructor,
+    SectionTopInstructor,
     SectionTrainingFields,
     SectionExploringEntrepreneurship,
     SectionExploringSpecializedEntrepreneurship,

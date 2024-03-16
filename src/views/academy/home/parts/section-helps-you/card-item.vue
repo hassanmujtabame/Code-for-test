@@ -1,5 +1,8 @@
 <template>
-  <div class="academy-help-item border gap-4 rounded-2">
+  <div
+    style="background-color: transparent"
+    class="academy-help-item gap-4 rounded-2"
+  >
     <div class="academy-help-item_wrapper">
       <div class="text-end">
         <img :src="src" alt="" />
@@ -24,7 +27,7 @@ export default {
 
 <style scoped>
 .academy-help-item {
-  box-shadow: 0px 0px 6px 0.1px #1fb9b369;
+  /* box-shadow: 0px 0px 6px 0.1px #1fb9b369; */
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -33,9 +36,9 @@ export default {
 .academy-help-item_wrapper {
   padding: 15px;
 }
-.academy-help-item:hover {
+/* .academy-help-item:hover {
   box-shadow: 0px 0px 10px 2px var(--m-color);
-}
+} */
 .academy-help-item-title {
   font-style: normal;
   font-weight: 400;
