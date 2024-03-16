@@ -7,7 +7,13 @@
     <SectionTwo />
     <!--#section 2-->
     <!-- section 3-->
+    <div>
+      <SectionFeatures />
+    </div>
+    <!-- <div>
+
     <SectionFeatures />
+    </div> -->
 
     <SectionAds department="academy" />
 
@@ -63,7 +69,8 @@
 import SectionAuthHeader from "./parts/section-auth-header/index.vue";
 import SectionTwo from "./parts/section-2/index.vue";
 import SectionThree from "./parts/section-3/index.vue";
-import SectionFeatures from "./parts/section-features/index.vue";
+import SectionFeatures from "../../../components/academy-features.vue";
+// import SectionFeatures from "./parts/section-features/index.vue";
 // import sectionAdvertisements from './parts/section-advertisements/index.vue'
 import SectionAds from "@/common/components/advertisements/index.vue";
 import SectionMostPopularCourses from "./parts/section-most-popular-courses/index.vue";

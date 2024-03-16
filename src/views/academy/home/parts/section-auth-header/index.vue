@@ -22,7 +22,7 @@
               style="color: #fff; background-color: #f2631c"
               v-if="token"
               :to="getRouteLocale('academy-instructor-register')"
-              class="shadow rounded-1 btn px-4 py-2 mt-2"
+              class="shadow rounded-3 btn px-5 py-2 mt-2"
             >
               اشترك الان
             </router-link>
