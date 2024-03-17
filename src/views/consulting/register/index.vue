@@ -473,6 +473,7 @@
                   >
                     <div class="form-group">
                       <input
+                        style="border: 2px solid #2cb7b3"
                         :value="itemForm.terms_use"
                         @input="
                           (event) =>

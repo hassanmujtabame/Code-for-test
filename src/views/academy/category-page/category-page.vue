@@ -8,19 +8,26 @@
     <div class="my-5">
       <Blogs />
     </div>
+    <div class="my-5">
+      <Category />
+    </div>
+    <div class="my-5">
+      <Learn />
+    </div>
   </div>
 </template>
 
 <script>
-import playIcon from "@/components/icon-svg/play.vue";
 import Header from "./header.vue";
 import About from "./about-academy.vue";
 import Best from "./best.vue";
 import Blogs from "./blogs.vue";
+import Category from "./category.vue";
+import Learn from "./learn.vue";
 
 export default {
   name: "category-academdy",
-  components: { playIcon, Header, About, Best, Blogs },
+  components: { Header, About, Best, Blogs, Category, Learn },
   data() {
     return {
       id: 1,

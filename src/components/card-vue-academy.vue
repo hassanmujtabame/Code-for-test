@@ -1,25 +1,27 @@
 <template>
-  <div class="py-2">
-    <div
-      style="border-radius: 9999px; border: 2px solid #1fb9b3"
-      class="box-our-field-marketing shadow"
-    >
-      <div class="box-our-field-marketing__wrapper">
-        <div
-          style="
-            display: flex;
-            color: var(--m-color);
-            align-items: center;
-            justify-content: center;
-          "
-        >
-          <component :is="`${icon}-icon`" />
-          <img class="box-image" v-if="false" :src="img" />
+  <router-link class="m-c" :to="'/ar/academy/category/1'">
+    <div class="py-2">
+      <div
+        style="border-radius: 9999px; border: 2px solid #1fb9b3"
+        class="box-our-field-marketing shadow"
+      >
+        <div class="box-our-field-marketing__wrapper">
+          <div
+            style="
+              display: flex;
+              color: var(--m-color);
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <component :is="`${icon}-icon`" />
+            <img class="box-image" v-if="false" :src="img" />
+          </div>
+          <p style="color: #1fb9b3" class="">{{ title }}</p>
         </div>
-        <p style="color: #1fb9b3" class="">{{ title }}</p>
       </div>
     </div>
-  </div>
+  </router-link>
   <!-- <div class="py-2">
     <div
       style="border-radius: 9999px; border: 2px solid #1fb9b3"
