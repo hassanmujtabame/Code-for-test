@@ -23,7 +23,15 @@
     <!--#section 3-->
     <!-- section top instructor-->
     <SectionTopInstructor />
+    <div>
+      <SectionMostPopularCourses />
+    </div>
+    <div>
+      <CardCategory />
+    </div>
     <SectionSubscribeNow />
+    <SectionOurPartners />
+
     <!--#section top instructor-->
     <!-- section training-fields-->
     <SectionTrainingFields />
@@ -35,9 +43,7 @@
     <section-exploring-specialized-entrepreneurship />
     <!--#section exploring-specialized-entrepreneurship-->
     <!-- section section-academy-schedule-->
-    <div>
-      <SectionMostPopularCourses />
-    </div>
+
     <!-- <div>
 
     <section-academy-schedule />
@@ -57,7 +63,6 @@
     </div> -->
     <!--#section 11-->
     <!-- section 12-->
-    <SectionOurPartners />
     <!--#section 12-->
     <!-- section 13-->
     <div class="d-none">
@@ -96,6 +101,7 @@ import SectionRecentCourses from "./parts/section-recent-courses/index.vue";
 import SectionOurPartners from "./parts/section-our-partners/index.vue";
 import SectionAcademyNumbers from "./parts/section-academy-numbers/index.vue";
 import SectionContinueLearning from "@/components/learn-academy.vue";
+import CardCategory from "@/components/academy-category.vue";
 import SectionHear from "@/views/academy/common-components/section-hear/index.vue";
 import SectionTempForAds from "./parts/section-temp-for-ads/index.vue";
 
@@ -107,6 +113,7 @@ export default {
     SectionTwo,
     SectionThree,
     SectionHelpsYou,
+    CardCategory,
     SectionFeatures,
     SectionAds,
     SectionSubscribeNow,
