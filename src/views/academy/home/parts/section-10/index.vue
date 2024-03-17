@@ -1,6 +1,8 @@
 <template>
   <div class="bg-lola py-2 px-5 position-relative mt-5">
-    <div class="row align-items-center justify-content-center m-auto p-3">
+    <div
+      class="row align-items-center position-relative justify-content-center m-auto p-3"
+    >
       <div
         class="d-flex flex-column gap-2 justify-content-center align-items-center"
       >
@@ -10,7 +12,7 @@
           يمكنك شراء دورة تعليمة واحدة أو الاشتراك في الباقات الخاصة للأكاديمية
         </p>
 
-        <div class="btn-main-style">
+        <div class="btn-main-style my-2">
           <router-link
             style="background-color: #f2631c"
             :to="getRouteLocale('academy-subscribe')"
@@ -27,6 +29,19 @@
           </router-link>
         </div>
       </div>
+      <img
+        style="bottom: 0; right: 0; width: 100px"
+        class="position-absolute"
+        src="../../../../../assets/img/academy/Vector (1).png"
+        alt=""
+      />
+      <img
+        style="top: 0; left: 0; width: 100px"
+        class="position-absolute"
+        src="../../../../../assets/img/academy/Vector (1).png"
+        alt=""
+      />
+
       <!-- <div class="col-md-6 text-start">
         <svg
           width="100%"
