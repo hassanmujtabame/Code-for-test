@@ -1,29 +1,33 @@
 <template>
   <div class="sec-five p-3">
     <div class="">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="d-flex flex-column">
-          <h1 class="home-section-title px-3">افضل المدربين لدينا</h1>
-          <p style="color: #888">
+      <!-- <div class="d-flex justify-content-between align-items-center"> -->
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <div class="text-center">
+          <h1 style="font-size: 42px" class="home-section-title px-3">
+            أفضل المدربين في <span style="color: #1fb9b3"> رياديات</span>
+          </h1>
+        </div>
+        <!-- <p style="color: #888">
             هل تبحث عن أفضل التدريب لنجاحك في ريادة الأعمال؟ إذا كان الأمر كذلك،
             فنحن ندعوك للتعرف على أفضل المدربين لدينا.
-          </p>
-        </div>
+          </p> -->
+        <!-- </div> -->
 
-        <div v-if="true">
+        <!-- <div v-if="true">
           <button class="more">
             <a href="" class="text-dark">
               {{ $t("more") }}
             </a>
           </button>
-        </div>
+        </div> -->
       </div>
       <div class="container">
         <d-swiper
           v-if="!loading"
           :slides-per-view="4"
           is-auto
-          :space-between="10"
+          :space-between="25"
           :items="items"
         >
           <template v-slot:default="{ item }">
@@ -43,7 +47,7 @@
 </template>
 
 <script>
-import CardMember from "@/components/card-member-academy.vue";
+import CardMember from "@/components/card-best-academy.vue";
 import academyAPI from "@/services/api/academy";
 import MostPopularVue from "@/components/MostPopular.vue";
 export default {

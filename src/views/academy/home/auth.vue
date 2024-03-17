@@ -35,8 +35,13 @@
     <section-exploring-specialized-entrepreneurship />
     <!--#section exploring-specialized-entrepreneurship-->
     <!-- section section-academy-schedule-->
-    <SectionMostPopularCourses />
+    <div>
+      <SectionMostPopularCourses />
+    </div>
+    <!-- <div>
+
     <section-academy-schedule />
+    </div> -->
     <!--#section section-academy-schedule-->
     <!-- section 9-->
     <SectionBestInstructors />
