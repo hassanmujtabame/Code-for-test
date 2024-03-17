@@ -1,15 +1,15 @@
 <template>
   <div style="margin-top: 85px">
-    <workspaceDetails />
+    <WorkspaceDetails />
   </div>
 </template>
-  
-  <script>
-import workspaceDetails from "@/components/pages/workspaces/details";
+
+<script>
+import WorkspaceDetails from "@/components/pages/workspaces/details";
 export default {
-  name: "details",
+  name: "details-work",
   components: {
-    workspaceDetails,
+    WorkspaceDetails,
   },
 };
 </script>

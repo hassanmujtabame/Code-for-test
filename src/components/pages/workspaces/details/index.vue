@@ -123,6 +123,7 @@ import DialogDeleteService from "@/layouts/service-provider/dialogs/del-service.
 import Info from "./info/index.vue";
 import continueCourseCard from "../../../../components/cards/continueCourseCard.vue";
 import whatPeopleSaid from "../../../../components/cards/whatPeopleSaid.vue";
+import readyServiceAPIs from "@/services/api/service-provider/provider/ready-service";
 
 export default {
   name: "page-service-ready",
@@ -155,9 +156,12 @@ export default {
   },
 
   computed: {
-    isOwner() {
-      return this.singleWorkspace.user_info.id == this.user.id;
-    },
+    // isOwner() {
+    //   return this.singleWorkspace.user_info.id == this.user.id;
+    // },
+    // isOwner() {
+    //   return this.singleWorkspace.user_info.id == this.user.id;
+    // },
   },
 
   methods: {
@@ -167,9 +171,14 @@ export default {
         let { data } = await WorkspaceAPI.getDetailsWorkspace(
           this.$route.params.id
         );
+        this.loading = false;
+
         if (data.success) {
+          this.loading = false;
+
           this.singleWorkspace = data.data;
           this.metaInfo_ = { title: this.singleWorkspace.title };
+
           try {
             await readyServiceAPIs.setAsView(this.$route.params.id);
           } catch (error) {
@@ -179,8 +188,6 @@ export default {
       } catch (error) {
         console.log("error", error);
       }
-
-      this.loading = false;
     },
   },
   mounted() {
