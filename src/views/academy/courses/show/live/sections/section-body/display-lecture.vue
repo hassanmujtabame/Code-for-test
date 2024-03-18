@@ -4,9 +4,9 @@
       <h1>{{itemPage.title}}</h1>
         <h6>03 <bdi>يونيو</bdi> | 09:00 ص</h6>
     </div>
-    <div class="course-show-page__preview-content">
-      <img :src="itemPage.image_path"  height="415"
-                    class="rounded-3 w-100 "/> 
+    <div class="ratio ratio-16x9">
+      <img :src="itemPage.image_path" 
+                    class="rounded-3 "/> 
     </div>
   </div>
 </template>
