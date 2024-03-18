@@ -6,7 +6,7 @@
         <div class="text-center">
           <h1 style="font-size: 42px" class="home-section-title px-3">
             أفضل المدربين في
-            <span style="color: #1fb9b3"> مجال الازيــــــاء</span>
+            <span style="color: #1fb9b3"> مجال {{ item.name }} </span>
           </h1>
         </div>
         <!-- <p style="color: #888">
@@ -56,6 +56,11 @@ export default {
   components: {
     CardMember,
     MostPopularVue,
+  },
+  props: {
+    item: {
+      type: Object,
+    },
   },
   data: () => ({
     loading: true,

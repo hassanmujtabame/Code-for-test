@@ -10,8 +10,8 @@
             justify-content: center;
           "
         >
-          <component :is="`${icon}-icon`" />
-          <img class="box-image" v-if="false" :src="img" />
+          <!-- <component :is="`${icon}-icon`" /> -->
+          <img class="box-image" :src="img" />
         </div>
         <p class="s-c">{{ title }}</p>
       </div>

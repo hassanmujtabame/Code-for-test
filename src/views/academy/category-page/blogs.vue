@@ -21,7 +21,11 @@ export default {
       items: [],
     };
   },
-
+  props: {
+    item: {
+      type: Object,
+    },
+  },
   methods: {
     async getData() {
       try {

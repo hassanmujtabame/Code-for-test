@@ -3,8 +3,8 @@
     <div class="col-md-6 col-12">
       <h1 class="my-5" style="font-size: 52px; color: #414042">
         ابـــرزي شـــغــفــك وطوري موهـبتـــك في
-        <span class="position-relative" style="color: #414042" v-if="id === 1">
-          مجال الازيــــــاء
+        <span class="position-relative" style="color: #414042">
+          مجال {{ item.name }}
 
           <img
             style="bottom: -20px; left: 0; width: 100%"
@@ -67,6 +67,11 @@ import playIcon from "@/components/icon-svg/play.vue";
 export default {
   name: "header-academy",
   components: { playIcon },
+  props: {
+    item: {
+      type: Object,
+    },
+  },
 };
 </script>
 

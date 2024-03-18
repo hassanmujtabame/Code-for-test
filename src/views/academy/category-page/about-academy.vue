@@ -17,8 +17,8 @@
       </div>
     </div>
     <div class="col-12 col-md-6 text">
-      <h2 v-if="id === 1" style="color: #2cb7b3" class="home-section-title">
-        مجال الازياء في الاكاديمية
+      <h2 style="color: #2cb7b3" class="home-section-title">
+        مجال {{ item.name }} في الاكاديمية
       </h2>
       <p class="home-section-text">
         باشتراكك في اكاديمية ريايات ستتمكنين من الحصول على الدورات التدريبة
@@ -49,7 +49,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    item: {
+      type: Object,
+    },
+  },
+};
 </script>
 
 <style></style>

@@ -27,16 +27,19 @@ export default {
           title: "المجوهرات",
           img: `${vm.publicPath}assets/icons/jewelry.svg`,
           icon: "jewelry",
+          id: 7,
         },
         {
           title: "الازيــــــاء",
           img: `${vm.publicPath}assets/icons/fashion.svg`,
           icon: "fashion",
+          id: 36,
         },
         {
           title: "التقنية",
           img: `${vm.publicPath}assets/icons/techinic.svg`,
           icon: "techinic",
+          id: 9,
         },
         {
           title: "الزهــــور والهدايا",
@@ -47,11 +50,19 @@ export default {
           title: "التجـــــــارة الالكترونية",
           img: `${vm.publicPath}assets/icons/ecommerce.svg`,
           icon: "ecommerce",
+          id: 8,
         },
         {
-          title: "السباحة",
+          title: "السياحة",
           img: `${vm.publicPath}assets/icons/swimming.svg`,
           icon: "beauty",
+          id: 24,
+        },
+        {
+          title: "العطور",
+          img: `../../../../../assets/img/academy/fi_1890693.png`,
+          icon: "perfioum",
+          id: 32,
         },
         {
           title: "التجميل",
