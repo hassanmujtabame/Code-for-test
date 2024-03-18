@@ -69,6 +69,194 @@ export default {
           icon: "beauty",
         },
       ],
+      // items: [
+      //   {
+      //     title: "المجوهرات",
+      //     img: `${vm.publicPath}assets/icons/jewelry.svg`,
+      //     icon: "jewelry",
+      //   },
+      //   {
+      //     title: "الازيــــــاء",
+      //     img: `${vm.publicPath}assets/icons/fashion.svg`,
+      //     icon: "fashion",
+      //   },
+      //   {
+      //     title: "التقنية",
+      //     img: `${vm.publicPath}assets/icons/techinic.svg`,
+      //     icon: "techinic",
+      //   },
+      //   {
+      //     title: "الزهــــور والهدايا",
+      //     img: `${vm.publicPath}assets/icons/flowers-gifts.svg`,
+      //     icon: "flowers-gifts",
+      //   },
+      //   {
+      //     title: "التجـــــــارة الالكترونية",
+      //     img: `${vm.publicPath}assets/icons/ecommerce.svg`,
+      //     icon: "ecommerce",
+      //   },
+      //   {
+      //     title: "السباحة",
+      //     img: `${vm.publicPath}assets/icons/swimming.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      // ],
+      // items: [
+      //   {
+      //     title: "المجوهرات",
+      //     img: `${vm.publicPath}assets/icons/jewelry.svg`,
+      //     icon: "jewelry",
+      //   },
+      //   {
+      //     title: "الازيــــــاء",
+      //     img: `${vm.publicPath}assets/icons/fashion.svg`,
+      //     icon: "fashion",
+      //   },
+      //   {
+      //     title: "التقنية",
+      //     img: `${vm.publicPath}assets/icons/techinic.svg`,
+      //     icon: "techinic",
+      //   },
+      //   {
+      //     title: "الزهــــور والهدايا",
+      //     img: `${vm.publicPath}assets/icons/flowers-gifts.svg`,
+      //     icon: "flowers-gifts",
+      //   },
+      //   {
+      //     title: "التجـــــــارة الالكترونية",
+      //     img: `${vm.publicPath}assets/icons/ecommerce.svg`,
+      //     icon: "ecommerce",
+      //   },
+      //   {
+      //     title: "السباحة",
+      //     img: `${vm.publicPath}assets/icons/swimming.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      // ],
+      // items: [
+      //   {
+      //     title: "المجوهرات",
+      //     img: `${vm.publicPath}assets/icons/jewelry.svg`,
+      //     icon: "jewelry",
+      //   },
+      //   {
+      //     title: "الازيــــــاء",
+      //     img: `${vm.publicPath}assets/icons/fashion.svg`,
+      //     icon: "fashion",
+      //   },
+      //   {
+      //     title: "التقنية",
+      //     img: `${vm.publicPath}assets/icons/techinic.svg`,
+      //     icon: "techinic",
+      //   },
+      //   {
+      //     title: "الزهــــور والهدايا",
+      //     img: `${vm.publicPath}assets/icons/flowers-gifts.svg`,
+      //     icon: "flowers-gifts",
+      //   },
+      //   {
+      //     title: "التجـــــــارة الالكترونية",
+      //     img: `${vm.publicPath}assets/icons/ecommerce.svg`,
+      //     icon: "ecommerce",
+      //   },
+      //   {
+      //     title: "السباحة",
+      //     img: `${vm.publicPath}assets/icons/swimming.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      // ],
+      // items: [
+      //   {
+      //     title: "المجوهرات",
+      //     img: `${vm.publicPath}assets/icons/jewelry.svg`,
+      //     icon: "jewelry",
+      //   },
+      //   {
+      //     title: "الازيــــــاء",
+      //     img: `${vm.publicPath}assets/icons/fashion.svg`,
+      //     icon: "fashion",
+      //   },
+      //   {
+      //     title: "التقنية",
+      //     img: `${vm.publicPath}assets/icons/techinic.svg`,
+      //     icon: "techinic",
+      //   },
+      //   {
+      //     title: "الزهــــور والهدايا",
+      //     img: `${vm.publicPath}assets/icons/flowers-gifts.svg`,
+      //     icon: "flowers-gifts",
+      //   },
+      //   {
+      //     title: "التجـــــــارة الالكترونية",
+      //     img: `${vm.publicPath}assets/icons/ecommerce.svg`,
+      //     icon: "ecommerce",
+      //   },
+      //   {
+      //     title: "السباحة",
+      //     img: `${vm.publicPath}assets/icons/swimming.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      // ],
     };
   },
 };
