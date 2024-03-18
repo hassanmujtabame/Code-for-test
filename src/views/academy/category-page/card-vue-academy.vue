@@ -4,7 +4,10 @@
     :to="getRouteLocale('academy-category', { id: idCard })"
   >
     <div class="py-2">
-      <div style="border-radius: 9999px" class="box-our-field-marketing shadow">
+      <div
+        style="border-radius: 9999px; border: 3px solid #2cb7b3"
+        class="box-our-field-marketing shadow"
+      >
         <div class="box-our-field-marketing__wrapper">
           <div
             style="
@@ -61,7 +64,10 @@
     </div>
   </router-link>
   <div v-else class="py-2">
-    <div style="border-radius: 9999px" class="box-our-field-marketing shadow">
+    <div
+      style="border-radius: 9999px; border: 3px solid #2cb7b3"
+      class="box-our-field-marketing shadow"
+    >
       <div class="box-our-field-marketing__wrapper">
         <div
           style="

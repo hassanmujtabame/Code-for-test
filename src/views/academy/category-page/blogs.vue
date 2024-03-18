@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="text-center">
-      <h1 style="font-size: 40px; color: #2cb7b3">دورتنا في مجال الأزياء</h1>
+      <h1 style="font-size: 40px; color: #2cb7b3">
+        دورتنا في مجال {{ item.name }}
+      </h1>
     </div>
     <div class="row">
       <Card v-for="(item, i) in items" :key="i" :item="item" />

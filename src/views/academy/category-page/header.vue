@@ -3,7 +3,20 @@
     <div class="col-md-6 col-12">
       <h1 class="my-5" style="font-size: 52px; color: #414042">
         ابـــرزي شـــغــفــك وطوري موهـبتـــك في
-        <span class="position-relative" style="color: #414042">
+        <span
+          v-if="item.name === 'العبايات'"
+          class="position-relative"
+          style="color: #414042"
+        >
+          مجال الازيــــــاء
+          <img
+            style="bottom: -20px; left: 0; width: 100%"
+            class="position-absolute"
+            src="../../../assets/img/academy/Vector 14.png"
+            alt=""
+          />
+        </span>
+        <span v-else class="position-relative" style="color: #414042">
           مجال {{ item.name }}
 
           <img
