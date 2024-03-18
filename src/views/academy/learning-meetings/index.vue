@@ -2,7 +2,11 @@
   <div style="margin-top: 85px" class="consult">
     <SectionHeader />
     <div class="container mt-5 text-start">
-      <button @click="addItem" v-if="userAcademyRole != 'student'" class="btn btn-custmer">
+      <button
+        @click="addItem"
+        v-if="userAcademyRole != 'student'"
+        class="btn btn-custmer"
+      >
         <i class="fa fa-circle-plus"></i> إضافة لقاء تعليمي
       </button>
     </div>
@@ -27,15 +31,15 @@ export default {
   },
   methods: {
     addItem() {
-      if (!this.user.statusInstructor) {
-        window.errorMsg("لم يفعل حسابك بعد !");
-      } else {
-        this.fireOpenDialog("add-meeting", {
-          id: null,
-          title: null,
-          video: null,
-        });
-      }
+      // if (!this.user.statusInstructor) {
+      //   window.errorMsg("لم يفعل حسابك بعد !");
+      // } else {
+      this.fireOpenDialog("add-meeting", {
+        id: null,
+        title: null,
+        video: null,
+      });
+      // }
     },
   },
 };
