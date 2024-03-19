@@ -4,6 +4,18 @@
       <div class="box bg-white p-3 rounded-4 mt-5">
         <div class="row">
           <div class="col-md-6">
+            <div class="box h-100">
+              <div class="h-100 position-relative">
+                <b-img
+                  fluid
+                  :src="`${publicPath}assets/svg/riadiat-green-card.svg`"
+                />
+
+                <!-- <img style="width: 100%;" class="h-100" :src="`${publicPath}assets/img/wtIm.jpeg`" alt=""> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
             <h2>سجل معنا كمدرب</h2>
             <p>أدخل البيانات التالية بدقة لتكون شريك معنا</p>
             <ValidationObserver
@@ -15,19 +27,20 @@
                 <div class="col-md-4 w-100 mt-2">
                   <ValidationProvider
                     tag="div"
-                    class="w-100"
+                    class="w-100 d-flex flex-column gap-1"
                     :name="$t('name')"
                     rules="required"
                     vid="name"
                     v-slot="{ errors }"
                   >
+                    <label for="validationCustom03">الاسم</label>
                     <d-text-input
                       type="text"
                       :errors="errors"
                       v-model="itemForm.name"
                       class="form-control"
                       id="validationCustom03"
-                      :label="$t('name')"
+                      label="ادخل الاسم"
                     />
                   </ValidationProvider>
                 </div>
@@ -35,18 +48,20 @@
                 <div class="col-md-4 w-100 mt-2">
                   <ValidationProvider
                     tag="div"
-                    class="w-100"
+                    class="w-100 d-flex flex-column gap-1"
                     :name="$t('email')"
                     rules="required"
                     vid="email"
                     v-slot="{ errors }"
                   >
+                    <label for="email">البريد الالكترونى</label>
                     <d-text-input
                       :errors="errors"
                       type="email"
                       v-model="itemForm.email"
                       class="form-control"
-                      :label="$t('email')"
+                      label="ادخل البريد الالكترونى"
+                      id="email"
                     >
                     </d-text-input>
                   </ValidationProvider>
@@ -55,18 +70,19 @@
                 <div class="col-md-4 w-100 mt-2">
                   <ValidationProvider
                     tag="div"
-                    class="w-100"
+                    class="w-100 d-flex flex-column gap-1"
                     :name="$t('phone-number')"
                     rules="required|numeric"
                     vid="phone"
                     v-slot="{ errors }"
                   >
+                    <label for="phone">رقم الجوال </label>
                     <d-text-input
                       :errors="errors"
                       type="number"
                       v-model="itemForm.phone"
                       class="form-control"
-                      :label="$t('phone-number')"
+                      label="ادخل رقم الجوال"
                     >
                     </d-text-input>
                   </ValidationProvider>
@@ -74,12 +90,53 @@
                 <div class="col-md-4 w-100 mt-2">
                   <ValidationProvider
                     tag="div"
-                    class="w-100"
+                    class="w-100 d-flex flex-column gap-1"
+                    name="password"
+                    rules="required"
+                    vid="name"
+                    v-slot="{ errors }"
+                  >
+                    <label for="validationCustom99">كلمه السر</label>
+                    <d-text-input
+                      type="password"
+                      :errors="errors"
+                      v-model="itemForm.password"
+                      class="form-control"
+                      id="validationCustom99"
+                      placeholder="ادخل كلمه السر "
+                    />
+                  </ValidationProvider>
+                </div>
+                <div class="col-md-4 w-100 mt-2">
+                  <ValidationProvider
+                    tag="div"
+                    class="w-100 d-flex flex-column gap-1"
+                    name="password_confirmation"
+                    rules="required"
+                    vid="name"
+                    v-slot="{ errors }"
+                  >
+                    <label for="validationCustom11">تاكيد كلمه السر</label>
+                    <d-text-input
+                      type="password"
+                      :errors="errors"
+                      v-model="itemForm.password_confirmation"
+                      class="form-control"
+                      id="validationCustom11"
+                      placeholder="تاكيد كلمه السر "
+                    />
+                  </ValidationProvider>
+                </div>
+                <div class="col-md-4 w-100 mt-2">
+                  <ValidationProvider
+                    tag="div"
+                    class="w-100 d-flex gap-1 flex-column"
                     :name="$t('password')"
                     rules="required"
                     vid="password"
                     v-slot="{ errors }"
                   >
+                    <label for="">كلمه السر</label>
                     <d-text-input
                       :errors="errors"
                       id="password-register"
@@ -308,7 +365,7 @@
                   </ValidationProvider>
                 </div>
               </template>
-              <div class="col-md-4 w-100 mt-2">
+              <!-- <div class="col-md-4 w-100 mt-2">
                 <ValidationProvider
                   tag="div"
                   class="w-100"
@@ -469,7 +526,7 @@
                   </div>
                   <d-error-input :errors="errors" v-if="errors.length > 0" />
                 </ValidationProvider>
-              </div>
+              </div> -->
               <div class="col-md-4 w-100 mt-2">
                 <div class="form-check">
                   <ValidationProvider
@@ -522,18 +579,6 @@
                 </button>
               </div>
             </ValidationObserver>
-          </div>
-          <div class="col-md-6">
-            <div class="box h-100">
-              <div class="h-100 position-relative">
-                <b-img
-                  fluid
-                  :src="`${publicPath}assets/svg/riadiat-green-card.svg`"
-                />
-
-                <!-- <img style="width: 100%;" class="h-100" :src="`${publicPath}assets/img/wtIm.jpeg`" alt=""> -->
-              </div>
-            </div>
           </div>
         </div>
       </div>
