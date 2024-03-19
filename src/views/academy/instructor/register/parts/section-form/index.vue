@@ -6,188 +6,197 @@
           <div class="col-md-6">
             <div class="box h-100">
               <div class="h-100 position-relative">
-                <b-img
-                  fluid
-                  :src="`${publicPath}assets/svg/riadiat-green-card.svg`"
+                <img
+                  class="img-fluid"
+                  src="../../../../../../assets/img/academy/sign/Frame.png"
                 />
+                <!-- <b-img
+                  fluid
+                  src="../../../../../../assets/img/academy/sign/Frame.png"
+                /> -->
+                <!-- <b-img
+                  fluid
+                  src="`../../../../../../assets/img/academy/sign/Frame 1171276775.png`"
+                /> -->
 
                 <!-- <img style="width: 100%;" class="h-100" :src="`${publicPath}assets/img/wtIm.jpeg`" alt=""> -->
               </div>
             </div>
           </div>
           <div class="col-md-6">
-            <h2>سجل معنا كمدرب</h2>
-            <p>أدخل البيانات التالية بدقة لتكون شريك معنا</p>
+            <!-- <h2>سجل معنا كمدرب</h2>
+            <p>أدخل البيانات التالية بدقة لتكون شريك معنا</p> -->
             <ValidationObserver
               ref="form"
               tag="div"
               class="row g-3 needs-validation"
             >
-              <template v-if="!user">
-                <div class="col-md-4 w-100 mt-2">
-                  <ValidationProvider
-                    tag="div"
-                    class="w-100 d-flex flex-column gap-1"
-                    :name="$t('name')"
-                    rules="required"
-                    vid="name"
-                    v-slot="{ errors }"
-                  >
-                    <label for="validationCustom03">الاسم</label>
-                    <d-text-input
-                      type="text"
-                      :errors="errors"
-                      v-model="itemForm.name"
-                      class="form-control"
-                      id="validationCustom03"
-                      label="ادخل الاسم"
-                    />
-                  </ValidationProvider>
-                </div>
+              <template>
+                <div :class="{ bye: tab !== 1 }" class="d-flex flex-column">
+                  <div class="col-md-4 w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100 d-flex flex-column gap-1"
+                      :name="$t('name')"
+                      rules="required"
+                      vid="name"
+                      v-slot="{ errors }"
+                    >
+                      <label for="validationCustom03">الاسم</label>
+                      <d-text-input
+                        type="text"
+                        :errors="errors"
+                        v-model="itemForm.name"
+                        class="form-control"
+                        id="validationCustom03"
+                        placeholder="ادخل الاسم"
+                      />
+                    </ValidationProvider>
+                  </div>
 
-                <div class="col-md-4 w-100 mt-2">
-                  <ValidationProvider
-                    tag="div"
-                    class="w-100 d-flex flex-column gap-1"
-                    :name="$t('email')"
-                    rules="required"
-                    vid="email"
-                    v-slot="{ errors }"
-                  >
-                    <label for="email">البريد الالكترونى</label>
-                    <d-text-input
-                      :errors="errors"
-                      type="email"
-                      v-model="itemForm.email"
-                      class="form-control"
-                      label="ادخل البريد الالكترونى"
-                      id="email"
+                  <div class="col-md-4 w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100 d-flex flex-column gap-1"
+                      :name="$t('email')"
+                      rules="required"
+                      vid="email"
+                      v-slot="{ errors }"
                     >
-                    </d-text-input>
-                  </ValidationProvider>
-                </div>
+                      <label for="email">البريد الالكترونى</label>
+                      <d-text-input
+                        :errors="errors"
+                        type="email"
+                        v-model="itemForm.email"
+                        class="form-control"
+                        placeholder="ادخل البريد الالكترونى"
+                        id="email"
+                      >
+                      </d-text-input>
+                    </ValidationProvider>
+                  </div>
 
-                <div class="col-md-4 w-100 mt-2">
-                  <ValidationProvider
-                    tag="div"
-                    class="w-100 d-flex flex-column gap-1"
-                    :name="$t('phone-number')"
-                    rules="required|numeric"
-                    vid="phone"
-                    v-slot="{ errors }"
-                  >
-                    <label for="phone">رقم الجوال </label>
-                    <d-text-input
-                      :errors="errors"
-                      type="number"
-                      v-model="itemForm.phone"
-                      class="form-control"
-                      label="ادخل رقم الجوال"
+                  <div class="col-md-4 w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100 d-flex flex-column gap-1"
+                      :name="$t('phone-number')"
+                      rules="required|numeric"
+                      vid="phone"
+                      v-slot="{ errors }"
                     >
-                    </d-text-input>
-                  </ValidationProvider>
-                </div>
-                <div class="col-md-4 w-100 mt-2">
-                  <ValidationProvider
-                    tag="div"
-                    class="w-100 d-flex flex-column gap-1"
-                    name="password"
-                    rules="required"
-                    vid="name"
-                    v-slot="{ errors }"
-                  >
-                    <label for="validationCustom99">كلمه السر</label>
-                    <d-text-input
-                      type="password"
-                      :errors="errors"
-                      v-model="itemForm.password"
-                      class="form-control"
-                      id="validationCustom99"
-                      placeholder="ادخل كلمه السر "
-                    />
-                  </ValidationProvider>
-                </div>
-                <div class="col-md-4 w-100 mt-2">
-                  <ValidationProvider
-                    tag="div"
-                    class="w-100 d-flex flex-column gap-1"
-                    name="password_confirmation"
-                    rules="required"
-                    vid="name"
-                    v-slot="{ errors }"
-                  >
-                    <label for="validationCustom11">تاكيد كلمه السر</label>
-                    <d-text-input
-                      type="password"
-                      :errors="errors"
-                      v-model="itemForm.password_confirmation"
-                      class="form-control"
-                      id="validationCustom11"
-                      placeholder="تاكيد كلمه السر "
-                    />
-                  </ValidationProvider>
-                </div>
-                <div class="col-md-4 w-100 mt-2">
-                  <ValidationProvider
-                    tag="div"
-                    class="w-100 d-flex gap-1 flex-column"
-                    :name="$t('password')"
-                    rules="required"
-                    vid="password"
-                    v-slot="{ errors }"
-                  >
-                    <label for="">كلمه السر</label>
-                    <d-text-input
-                      :errors="errors"
-                      id="password-register"
-                      :type="show ? 'text' : 'password'"
-                      class="form-control"
-                      v-model="form.password"
-                      :label="$t('Password')"
-                      autocomplete="new-password"
+                      <label for="phone">رقم الجوال </label>
+                      <d-text-input
+                        :errors="errors"
+                        type="number"
+                        v-model="itemForm.phone"
+                        class="form-control"
+                        placeholder="ادخل رقم الجوال"
+                      >
+                      </d-text-input>
+                    </ValidationProvider>
+                  </div>
+                  <!-- <div class="col-md-4 w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100 d-flex flex-column gap-1"
+                      name="password"
+                      rules="required"
+                      vid="name"
+                      v-slot="{ errors }"
                     >
-                      <template v-slot:append-icon>
-                        <span
-                          style="color: #cdd7d8; font-size: 23px"
-                          @click="show = !show"
-                          class="fa-regular mx-1"
-                          :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"
-                        >
-                        </span>
-                      </template>
-                    </d-text-input>
-                  </ValidationProvider>
-                </div>
-                <div class="col-md-4 w-100 mt-2">
-                  <ValidationProvider
-                    tag="div"
-                    class="w-100"
-                    :name="$t('password-confirmation')"
-                    rules="required"
-                    vid="password_confirmation"
-                    v-slot="{ errors }"
-                  >
-                    <d-text-input
-                      :errors="errors"
-                      id="password-register-confirm"
-                      :type="showC ? 'text' : 'password'"
-                      class="form-control"
-                      v-model="form.passwordConfirm"
-                      :label="$t('Password-confirm')"
+                      <label for="validationCustom99">كلمه السر</label>
+                      <d-text-input
+                        type="password"
+                        :errors="errors"
+                        v-model="itemForm.password"
+                        class="form-control"
+                        id="validationCustom99"
+                        placeholder="ادخل كلمه السر "
+                      />
+                    </ValidationProvider>
+                  </div> -->
+                  <!-- <div class="col-md-4 w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100 d-flex flex-column gap-1"
+                      name="password_confirmation"
+                      rules="required"
+                      vid="name"
+                      v-slot="{ errors }"
                     >
-                      <template v-slot:append-icon>
-                        <span
-                          style="color: #cdd7d8; font-size: 23px"
-                          @click="show = !show"
-                          class="fa-regular mx-1"
-                          :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"
-                        >
-                        </span>
-                      </template>
-                    </d-text-input>
-                  </ValidationProvider>
-                </div>
-                <div class="col-md-4 w-100 mt-2">
+                      <label for="validationCustom11">تاكيد كلمه السر</label>
+                      <d-text-input
+                        type="password"
+                        :errors="errors"
+                        v-model="itemForm.password_confirmation"
+                        class="form-control"
+                        id="validationCustom11"
+                        placeholder="تاكيد كلمه السر "
+                      />
+                    </ValidationProvider>
+                  </div> -->
+                  <div class="col-md-4 w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100 d-flex gap-1 flex-column"
+                      :name="$t('password')"
+                      rules="required"
+                      vid="password"
+                      v-slot="{ errors }"
+                    >
+                      <label for="">كلمه السر</label>
+                      <d-text-input
+                        :errors="errors"
+                        id="password-register"
+                        :type="!show ? 'text' : 'password'"
+                        class="form-control"
+                        v-model="itemForm.password"
+                        :label="$t('Password')"
+                        autocomplete="new-password"
+                      >
+                        <template v-slot:append-icon>
+                          <span
+                            style="color: #cdd7d8; font-size: 23px"
+                            @click="show = !show"
+                            class="fa-regular mx-1"
+                            :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"
+                          >
+                          </span>
+                        </template>
+                      </d-text-input>
+                    </ValidationProvider>
+                  </div>
+                  <div class="col-md-4 w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100"
+                      :name="$t('password-confirmation')"
+                      rules="required"
+                      vid="password_confirmation"
+                      v-slot="{ errors }"
+                    >
+                      <d-text-input
+                        :errors="errors"
+                        id="password-register-confirm"
+                        :type="!showC ? 'text' : 'password'"
+                        class="form-control"
+                        v-model="itemForm.passwordConfirm"
+                        :label="$t('Password-confirm')"
+                      >
+                        <template v-slot:append-icon>
+                          <span
+                            style="color: #cdd7d8; font-size: 23px"
+                            @click="show = !show"
+                            class="fa-regular mx-1"
+                            :class="{ 'fa-eye': !show, 'fa-eye-slash': show }"
+                          >
+                          </span>
+                        </template>
+                      </d-text-input>
+                    </ValidationProvider>
+                  </div>
+                  <!-- <div class="col-md-4 w-100 mt-2">
                   <ValidationProvider
                     tag="div"
                     class="w-100"
@@ -338,8 +347,8 @@
                       </option>
                     </d-select-input>
                   </ValidationProvider>
-                </div>
-                <div class="col-md-4 w-100 mt-2">
+                </div> -->
+                  <!-- <div class="col-md-4 w-100 mt-2">
                   <ValidationProvider
                     tag="div"
                     class="w-100"
@@ -363,6 +372,87 @@
                       </option>
                     </select>
                   </ValidationProvider>
+                </div> -->
+                  <div class="col-md-4 w-100 mt-2">
+                    <div class="form-check">
+                      <ValidationProvider
+                        tag="div"
+                        class="w-100"
+                        :name="$t('terms_use')"
+                        rules="required"
+                        vid="terms_use"
+                        v-slot="{ errors }"
+                      >
+                        <div class="form-group">
+                          <input
+                            style="border: 2px solid #2cb7b3"
+                            :value="itemForm.terms_use"
+                            @input="
+                              (event) =>
+                                (itemForm.terms_use =
+                                  event.target.checked === true ? true : null)
+                            "
+                            class="form-check-input"
+                            type="checkbox"
+                            id="defaultCheck1"
+                          />
+                          <label class="form-check-label" for="defaultCheck1">
+                            أؤكد على اني أوافق على
+                            <router-link
+                              :to="getRouteLocale('terms-and-conditions')"
+                              class="m-c"
+                            >
+                              {{ $t("terms_use") }}
+                            </router-link>
+                          </label>
+                        </div>
+                        <d-error-input
+                          :errors="errors"
+                          v-if="errors.length > 0"
+                        />
+                      </ValidationProvider>
+                    </div>
+                  </div>
+                  <div class="col-12 my-4">
+                    <button
+                      style="
+                        background-color: transparent;
+                        border: 1px solid #2cb7b3;
+                        color: #2cb7b3;
+                      "
+                      class="btn btn-hover px-4 py-2"
+                      :disabled="loading"
+                      @click="goToTab2"
+                      role="button"
+                    >
+                      <i
+                        v-if="loading"
+                        class="fa fa-spinner fa-spin"
+                        aria-hidden="true"
+                      ></i>
+                      استمرار
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          opacity="0.5"
+                          d="M13.3327 8.75C13.7469 8.75 14.0827 8.41421 14.0827 8C14.0827 7.58579 13.7469 7.25 13.3327 7.25V8.75ZM13.3327 7.25H2.66602V8.75H13.3327V7.25Z"
+                          fill="#2CB7B3"
+                        />
+                        <path
+                          d="M6.66602 4L2.66602 8L6.66602 12"
+                          stroke="#2CB7B3"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </template>
               <!-- <div class="col-md-4 w-100 mt-2">
@@ -527,7 +617,7 @@
                   <d-error-input :errors="errors" v-if="errors.length > 0" />
                 </ValidationProvider>
               </div> -->
-              <div class="col-md-4 w-100 mt-2">
+              <!-- <div class="col-md-4 w-100 mt-2">
                 <div class="form-check">
                   <ValidationProvider
                     tag="div"
@@ -539,6 +629,7 @@
                   >
                     <div class="form-group">
                       <input
+                        style="border: 2px solid #2cb7b3"
                         :value="itemForm.terms_use"
                         @input="
                           (event) =>
@@ -565,7 +656,12 @@
               </div>
               <div class="col-12 my-4">
                 <button
-                  class="btn btn-main"
+                  style="
+                    background-color: transparent;
+                    border: 1px solid #2cb7b3;
+                    color: #2cb7b3;
+                  "
+                  class="btn btn-hover px-4 py-2"
                   :disabled="loading"
                   @click="save"
                   role="button"
@@ -575,9 +671,29 @@
                     class="fa fa-spinner fa-spin"
                     aria-hidden="true"
                   ></i>
-                  سجل الان
+                  استمرار
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      opacity="0.5"
+                      d="M13.3327 8.75C13.7469 8.75 14.0827 8.41421 14.0827 8C14.0827 7.58579 13.7469 7.25 13.3327 7.25V8.75ZM13.3327 7.25H2.66602V8.75H13.3327V7.25Z"
+                      fill="#2CB7B3"
+                    />
+                    <path
+                      d="M6.66602 4L2.66602 8L6.66602 12"
+                      stroke="#2CB7B3"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                 </button>
-              </div>
+              </div> -->
             </ValidationObserver>
           </div>
         </div>
@@ -598,6 +714,7 @@ export default {
       loading: false,
       departments: [],
       countries: [],
+      tab: 1,
       cities: [],
       degrees: [
         { id: "high-school", name: "ثانوي" },
@@ -625,8 +742,8 @@ export default {
         cv: null,
         terms_use: null,
       },
-      show: false,
-      showC: false,
+      show: true,
+      showC: true,
       modelConfig: {
         type: "string",
         mask: "YYYY-MM-DD", // Uses 'iso' if missing
@@ -650,56 +767,166 @@ export default {
       };
       this.showSuccessMsg(dataEvt);
     },
-    async save() {
-      this.loading = true;
+    async goToTab2() {
       let valid = await this.$refs.form.validate();
       if (!valid) {
         console.mylog("invalid");
         this.loading = false;
         return;
+      } else {
+        this.tab = 2;
       }
-
-      try {
-        let form = {};
-        if (!this.user) form = { ...this.itemForm };
-        else {
-          let {
-            department_id,
-            scientific_degree,
-            job_title,
-            years_experience,
-            bio,
-            cv,
-            terms_use,
-          } = this.itemForm;
-          form = {
-            department_id,
-            scientific_degree,
-            job_title,
-            years_experience,
-            bio,
-            cv,
-            terms_use,
-          };
-        }
-        let formData = this.loadObjectToForm(form);
-        let { data } = await instructorAPI.register(formData);
-        if (data.success) {
-          this.successRegister();
-        } else {
-          window.SwalError(data.message);
-        }
-      } catch (error) {
-        console.mylog("error", error);
-        if (error.response) {
-          let response = error.response;
-          if (response.status == 422) {
-            this.setErrorsForm(this.$refs.form, response);
-          }
-        }
-      }
-      this.loading = false;
     },
+    // async save() {
+    //   this.loading = true;
+    //   let valid = await this.$refs.form.validate();
+    //   if (!valid) {
+    //     console.mylog("invalid");
+    //     this.loading = false;
+    //     return;
+    //   }
+
+    //   try {
+    //     let form = {};
+    //     if (!this.user) form = { ...this.itemForm };
+    //     else {
+    //       let {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //       } = this.itemForm;
+    //       form = {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //       };
+    //     }
+    //     let formData = this.loadObjectToForm(form);
+    //     let { data } = await instructorAPI.register(formData);
+    //     if (data.success) {
+    //       this.successRegister();
+    //     } else {
+    //       window.SwalError(data.message);
+    //     }
+    //   } catch (error) {
+    //     console.mylog("error", error);
+    //     if (error.response) {
+    //       let response = error.response;
+    //       if (response.status == 422) {
+    //         this.setErrorsForm(this.$refs.form, response);
+    //       }
+    //     }
+    //   }
+    //   this.loading = false;
+    // },
+    // async save() {
+    //   this.loading = true;
+    //   let valid = await this.$refs.form.validate();
+    //   if (!valid) {
+    //     console.mylog("invalid");
+    //     this.loading = false;
+    //     return;
+    //   }
+
+    //   try {
+    //     let form = {};
+    //     if (!this.user) form = { ...this.itemForm };
+    //     else {
+    //       let {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //       } = this.itemForm;
+    //       form = {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //       };
+    //     }
+    //     let formData = this.loadObjectToForm(form);
+    //     let { data } = await instructorAPI.register(formData);
+    //     if (data.success) {
+    //       this.successRegister();
+    //     } else {
+    //       window.SwalError(data.message);
+    //     }
+    //   } catch (error) {
+    //     console.mylog("error", error);
+    //     if (error.response) {
+    //       let response = error.response;
+    //       if (response.status == 422) {
+    //         this.setErrorsForm(this.$refs.form, response);
+    //       }
+    //     }
+    //   }
+    //   this.loading = false;
+    // },
+    // async save() {
+    //   this.loading = true;
+    //   let valid = await this.$refs.form.validate();
+    //   if (!valid) {
+    //     console.mylog("invalid");
+    //     this.loading = false;
+    //     return;
+    //   }
+
+    //   try {
+    //     let form = {};
+    //     if (!this.user) form = { ...this.itemForm };
+    //     else {
+    //       let {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //       } = this.itemForm;
+    //       form = {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //       };
+    //     }
+    //     let formData = this.loadObjectToForm(form);
+    //     let { data } = await instructorAPI.register(formData);
+    //     if (data.success) {
+    //       this.successRegister();
+    //     } else {
+    //       window.SwalError(data.message);
+    //     }
+    //   } catch (error) {
+    //     console.mylog("error", error);
+    //     if (error.response) {
+    //       let response = error.response;
+    //       if (response.status == 422) {
+    //         this.setErrorsForm(this.$refs.form, response);
+    //       }
+    //     }
+    //   }
+    //   this.loading = false;
+    // },
     async uploadFile(evt, validate) {
       let resValid = await validate(evt);
       if (!resValid.valid) {
@@ -752,5 +979,13 @@ export default {
 html[lang="en"] .icon-input-end {
   left: auto;
   right: 15px;
+}
+/* .btn-hover:hover {
+  transition: all;
+  background-color: #2cb7b3 !important;
+  color: white !important;
+} */
+.bye {
+  display: none !important;
 }
 </style>
