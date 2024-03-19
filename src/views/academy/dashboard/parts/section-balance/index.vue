@@ -2,19 +2,22 @@
   <div
     class="d-flex justify-content-center mx-5 gap-4 align-items-center flex-column flex-md-row"
   >
-    <div class="d-flex align-items-center gap-2">
+    <div class="d-flex mx-5 align-items-center gap-2">
       <div>
         <img
           width="75"
           height="75"
           style="border-radius: 999px"
-          :src="user.user_info.image"
+          :src="currentUser.image"
           alt=""
         />
       </div>
+      <h5 style="color: #2cb7b3">
+        {{ currentUser.name }}
+      </h5>
     </div>
     <div
-      class="col-md-4 shadow rounded-4 d-flex gap-2 justify-content-center align-items-center p-md-2 p-4"
+      class="shadow col-md-3 rounded-4 d-flex gap-2 justify-content-center align-items-center p-md-2 p-4"
     >
       <p class="p">
         <svg
@@ -68,12 +71,12 @@
                     </svg> -->
       </p>
       <div class="d-flex flex-column gap-1">
-        <h4>الرصيد الكلي</h4>
+        <h4 style="font-size: 16px">الرصيد الكلي</h4>
         <h4 class="fw-bold">{{ itemCard.total_balance }} ر.س</h4>
       </div>
     </div>
     <div
-      class="col-md-4 shadow rounded-4 border-end d-flex gap-2 align-items-center p-md-2 justify-content-center p-4"
+      class="shadow col-md-3 rounded-4 border-end d-flex gap-2 align-items-center p-md-2 justify-content-center p-4"
     >
       <p>
         <svg
@@ -133,13 +136,13 @@
         </svg> -->
       </p>
       <div class="d-flex gap-1 flex-column">
-        <h4>الرصيد المعلق</h4>
+        <h4 style="font-size: 16px">الرصيد المعلق</h4>
 
         <h4 class="fw-bold">{{ itemCard.outstanding_balance }} ر.س</h4>
       </div>
     </div>
     <div
-      class="col-md-4 shadow rounded-4 p-4 p-md-2 d-flex gap-2 align-items-center justify-content-center"
+      class="shadow col-md-3 rounded-4 p-4 py-md-2 px-md-4 d-flex gap-2 align-items-center justify-content-center"
     >
       <p>
         <svg
@@ -199,7 +202,7 @@
         </svg> -->
       </p>
       <div class="d-flex flex-column gap-1">
-        <h4>الرصيد المتاح</h4>
+        <h4 style="font-size: 16px">الرصيد المتاح</h4>
         <h4 class="fw-bold">{{ itemCard.available_balance }} ر.س</h4>
       </div>
     </div>
@@ -292,6 +295,7 @@
 import serviceProviderAPI from "@/services/api/service-provider/index";
 export default {
   name: "section-balance",
+  props: ["currentUser"],
   data: () => ({
     loading: true,
     itemCard: {
