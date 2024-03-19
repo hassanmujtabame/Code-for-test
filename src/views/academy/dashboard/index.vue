@@ -1,6 +1,6 @@
 <template>
   <div style="margin-top: 85px">
-    <div class="container dashbord">
+    <div class="container-fluid dashbord">
       <div class="row">
         <div
           style="margin-top: 8rem !important; background-color: #fff"

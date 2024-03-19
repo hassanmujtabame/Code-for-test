@@ -2,6 +2,17 @@
   <div
     class="d-flex justify-content-center mx-5 gap-4 align-items-center flex-column flex-md-row"
   >
+    <div class="d-flex align-items-center gap-2">
+      <div>
+        <img
+          width="75"
+          height="75"
+          style="border-radius: 999px"
+          :src="user.user_info.image"
+          alt=""
+        />
+      </div>
+    </div>
     <div
       class="col-md-4 shadow rounded-4 d-flex gap-2 justify-content-center align-items-center p-md-2 p-4"
     >
