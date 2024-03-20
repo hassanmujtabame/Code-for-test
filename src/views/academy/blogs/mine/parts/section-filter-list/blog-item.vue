@@ -36,6 +36,93 @@
       </div>
       <div class="d-flex align-items-center gap-2">
         <button
+          style="background-color: #1fb9b3"
+          @click="router_push('academy-blog-show', { id: item.id })"
+          class="btn px-4 text-light rounded-3 py-2"
+        >
+          صفحة التدوينة
+        </button>
+        <button
+          style="
+            background-color: transparent;
+            border: 1px solid #ff1616;
+            color: #ff1616;
+          "
+          @click="deleteItem"
+          class="btn px-4 rounded-3 py-2"
+        >
+          خذف التدوينة
+        </button>
+      </div>
+    </div>
+    <p style="word-wrap: break-word" class="px-3" v-html="item.description"></p>
+  </div> -->
+  <!-- <div>
+    <div class="d-flex justify-content-between px-3 align-items-center">
+      <div class="d-flex flex-column">
+        <h1 style="color: #1fb9b3; font-size: 24px">{{ item.title }}</h1>
+        <p style="color: #888">تاريخ النشر {{ item.created_at }}</p>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button
+          style="background-color: #1fb9b3"
+          @click="router_push('academy-blog-show', { id: item.id })"
+          class="btn px-4 text-light rounded-3 py-2"
+        >
+          صفحة التدوينة
+        </button>
+        <button
+          style="
+            background-color: transparent;
+            border: 1px solid #ff1616;
+            color: #ff1616;
+          "
+          @click="deleteItem"
+          class="btn px-4 rounded-3 py-2"
+        >
+          خذف التدوينة
+        </button>
+      </div>
+    </div>
+    <p style="word-wrap: break-word" class="px-3" v-html="item.description"></p>
+  </div> -->
+  <!-- <div>
+    <div class="d-flex justify-content-between px-3 align-items-center">
+      <div class="d-flex flex-column">
+        <h1 style="color: #1fb9b3; font-size: 24px">{{ item.title }}</h1>
+        <p style="color: #888">تاريخ النشر {{ item.created_at }}</p>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button
+          style="background-color: #1fb9b3"
+          @click="router_push('academy-blog-show', { id: item.id })"
+          class="btn px-4 text-light rounded-3 py-2"
+        >
+          صفحة التدوينة
+        </button>
+        <button
+          style="
+            background-color: transparent;
+            border: 1px solid #ff1616;
+            color: #ff1616;
+          "
+          @click="deleteItem"
+          class="btn px-4 rounded-3 py-2"
+        >
+          خذف التدوينة
+        </button>
+      </div>
+    </div>
+    <p style="word-wrap: break-word" class="px-3" v-html="item.description"></p>
+  </div> -->
+  <!-- <div>
+    <div class="d-flex justify-content-between px-3 align-items-center">
+      <div class="d-flex flex-column">
+        <h1 style="color: #1fb9b3; font-size: 24px">{{ item.title }}</h1>
+        <p style="color: #888">تاريخ النشر {{ item.created_at }}</p>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button
           @click="router_push('academy-blog-show', { id: item.id })"
           class="btn px-4 py-2"
         >
