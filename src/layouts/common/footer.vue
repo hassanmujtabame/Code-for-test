@@ -186,10 +186,21 @@
           </div>
         </div>
       </div>
-      <div
+      <!-- <div
         class="d-flex justify-content-between px-3 align-items-center"
-        style="background-color: #98a2b3"
-      ></div>
+        style="background-color: #f6f8f9"
+      >
+        <div class="d-flex align-items-center gap-4">
+          <div class="d-flex flex-column gap-2">
+            <p style="color: #98a2b3">السجل التجاري</p>
+            <p style="color: #98a2b3">٢٣٤٥٦٧٨٩</p>
+          </div>
+          <div class="d-flex flex-column gap-2">
+            <p style="color: #98a2b3">الرقم الضريبي</p>
+            <p style="color: #98a2b3">١٢٣٤٥٦٧٨٩٠</p>
+          </div>
+        </div>
+      </div> -->
 
       <!-- <div style="border-color: var(--pc) !important;"
         class="d-flex fs-2 justify-content-between align-items-center border border-1 p-3 rounded-4 ">

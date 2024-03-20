@@ -1,5 +1,28 @@
 <template>
-   <div class="consulting">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 position-relative col-12">
+        <div style="z-index: 4" class="position-relative">
+          <h1>لقاءات تعليمية</h1>
+          <p>لقاءات وندوات إلكترونية وحضورية في مجالات مختلفة لتطوير</p>
+        </div>
+        <img
+          style="top: -36px; left: 211px; z-index: 3; height: 236px"
+          class="position-absolute"
+          src="../../../../../assets/img/academy/Path 2212.png"
+          alt=""
+        />
+      </div>
+      <div class="col-md-6 col-12">
+        <img
+          class="img-fluid"
+          src="../../../../../assets/img/academy/Frame 1171276147.png"
+          alt="hero image"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- <div class="consulting">
         <div class="container">
           <div class="row align-items-center justify-content-between">
             <div class="col-md-6">
@@ -22,15 +45,13 @@
             <img :src="`${publicPath}assets/img/starsss.png`" alt="" />
           </div>
         </div>
-      </div>
+      </div> -->
 </template>
 
 <script>
 export default {
- name:'section-header'
-}
+  name: "section-header",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
