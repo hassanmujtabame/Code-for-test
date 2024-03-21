@@ -92,7 +92,7 @@ export default {
         title: null,
         description: null,
         btns: null,
-        image: `${vm.publicPath}assets/img/cuate-2.png`,
+        image: `../../../assets/img/academy/Icon.png`,
       },
       showed: false,
     };
