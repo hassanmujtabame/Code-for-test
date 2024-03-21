@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6 position-relative col-12">
         <div style="z-index: 4" class="position-relative">
-          <h1>لقاءات تعليمية</h1>
+          <h1 style="color: #2cb7b3">لقاءات تعليمية</h1>
           <p>لقاءات وندوات إلكترونية وحضورية في مجالات مختلفة لتطوير</p>
         </div>
         <img
