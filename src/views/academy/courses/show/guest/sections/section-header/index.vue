@@ -1,5 +1,10 @@
 <template>
-<div class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6"></div>
+    </div>
+  </div>
+  <!-- <div class="">
    <div class="main-top py-5 position-relative">
       <div class="px-5" style="">
 
@@ -34,58 +39,58 @@
             <li @click="scollToElement('course-rates',$event)">التقييمات</li>
          </ul>
         </div>
-      </div>
+      </div> -->
 </template>
 
 <script>
 export default {
- name:'section-header',
- props:{
-    itemPage:{}
- }
-}
+  name: "section-header",
+  props: {
+    itemPage: {},
+  },
+};
 </script>
 
 <style scoped>
-.course-department-name{
-   font-style: normal;
-   font-weight: 700;
-   font-size: 12px;
-   line-height: 17px;
-   /* identical to box height, or 142% */
-   /* Medium gray */
-   color: #737373;
-   background: #F6F8F9;
-   border-radius: 4px;
+.course-department-name {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 17px;
+  /* identical to box height, or 142% */
+  /* Medium gray */
+  color: #737373;
+  background: #f6f8f9;
+  border-radius: 4px;
 }
-.course-menu-top{
-   display: flex;
-   align-items: center;
-   width: 100%;
-   height: 48px;
-   background: #FFFFFF;
-   box-shadow: 0px 6px 19px rgba(12, 47, 51, 0.07);
+.course-menu-top {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  background: #ffffff;
+  box-shadow: 0px 6px 19px rgba(12, 47, 51, 0.07);
 }
-.course-menu-top__wrapper{
-   list-style: none;
-   height: 24px;
-   display: flex;
-   flex-direction: row;
-   justify-content: start;
-   align-items: center;
-   padding: 0px;
-   gap: 48px;
-   margin:0;
+.course-menu-top__wrapper {
+  list-style: none;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding: 0px;
+  gap: 48px;
+  margin: 0;
 }
-.course-menu-top__wrapper>li{
-   cursor: pointer;
-   font-style: normal;
-   font-weight: 500;
-   font-size: 16px;
-   line-height: 24px;
-   /* identical to box height, or 150% */
-   display: flex;
-   align-items: center;
-   color: #737373;
+.course-menu-top__wrapper > li {
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+  display: flex;
+  align-items: center;
+  color: #737373;
 }
 </style>
