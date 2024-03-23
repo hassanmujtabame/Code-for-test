@@ -1,31 +1,17 @@
 <template>
   <div class="container mt-5">
-    <filter-list
-      :pluralName="$t('the_meetings')"
-      :singleName="$t('meeting')"
-      :call-list="loadList"
-      :searchPlaceholder="$t('search_by_name')"
-      classColCard="d-flex flex-wrap gap-2 flex-row justify-content-between"
-      @change="changeFilter"
-    >
+    <filter-list :hideSide="true" :pluralName="$t('the_meetings')" :singleName="$t('meeting')" :call-list="loadList"
+      :searchPlaceholder="$t('search_by_name')" classColCard="d-flex flex-wrap gap-2 flex-row justify-content-between"
+      @change="changeFilter">
       <template v-slot="{ item }">
-        <router-link
-          style="display: block; width: fit-content"
-          class="router-link"
-          :to="getRouteLocale('academy-learning-meeting-show', { id: item.id })"
-        >
-          <MeetingCard
-            :item="item"
-            :img="item.image"
-            :title="item.title"
-            :type="item.type"
-            :date="item.date"
-          />
+        <router-link style="display: block; width: fit-content" class="router-link"
+          :to="getRouteLocale('academy-learning-meeting-show', { id: item.id })">
+          <MeetingCard :item="item" :img="item.image" :title="item.title" :type="item.type" :date="item.date" />
         </router-link>
       </template>
-      <template v-slot:side>
+      <!-- <template v-slot:side>
         <sidebarBox :filterItem="filterSide" @change="changeFilter" />
-      </template>
+      </template> -->
     </filter-list>
   </div>
 </template>
