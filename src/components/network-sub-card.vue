@@ -200,7 +200,7 @@
         @payNow="proceedToPayment"
         @closeModal="handleEmit"
       /> -->
-      <div style="background-color: white; height: 100%" class="container">
+      <div style="background-color: white; height: auto" class="container">
         <div class="text-end py-5 px-5">
           <button
             @click="handleClose"
@@ -334,6 +334,54 @@
                         </label>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 my-5">
+                <h2 class="text-dark">اهداء الاشتراك لصديق؟</h2>
+                <div class="rounded-1 border">
+                  <p class="border-bottom mx-2 my-2">
+                    🎁 تقديم هذا الاشتراك كهدية؟
+                  </p>
+                  <div class="form-group my-2 mx-4">
+                    <input
+                      style="border: 2px solid #2cb7b3"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="defaultCheck1"
+                      v-bind="giveToAFriend"
+                      @input="handleChange"
+                    />
+                    <label class="form-check-label mx-2" for="defaultCheck1">
+                      نعم، أريد تقديم هذا الاشتراك كهدية
+                      <!-- <router-link
+                        :to="getRouteLocale('terms-and-conditions-category')"
+                        class="m-c"
+                      >
+                        {{ $t("terms_use") }}
+                      </router-link> -->
+                    </label>
+                    <div v-if="giveToAFriend">
+                      <input
+                        v-bind="email"
+                        required
+                        class="form-control"
+                        placeholder="ادخل البريد الالكترونى"
+                        type="email"
+                        name=""
+                        id="email"
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button
+                      @click="proceedToPaymentFriend"
+                      style="background-color: #1fb9b3; width: 80%"
+                      class="btn my-2 text-light"
+                      :disabled="!giveToAFriend"
+                    >
+                      التاكيد والدفع
+                    </button>
                   </div>
                 </div>
               </div>
@@ -474,9 +522,7 @@
                 </div>
               </div>
             </div>
-            <div style="background-color: #fff" class="col-12">
-              <h2 class="text-dark">اهداء الاشتراك لصديق؟</h2>
-            </div>
+
             <!-- <div class="d-flex flex-column">
               <h2 style="color: #">اهداء الاشتراك لصديق؟</h2>
             </div> -->
@@ -552,6 +598,8 @@ export default {
       selectedPackage: "",
       openModal: false,
       selectedProvider: null,
+      giveToAFriend: false,
+      email: "",
     };
   },
   methods: {
@@ -617,6 +665,9 @@ export default {
           }
         }
       }
+    },
+    handleChange() {
+      this.giveToAFriend = !this.giveToAFriend; // Toggle the value of giveToA
     },
     handleClose() {
       this.openModal = false;
@@ -713,6 +764,118 @@ export default {
             let { data } = await PaymentApi.PayPackageMyFatoorah({
               package_id: this.id,
               type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        default:
+          // Handle case where no provider is selected
+          window.errorMsg("اختار بوابة الدفع");
+          return false;
+      }
+    },
+    async proceedToPaymentFriend() {
+      if (this.price == 0) {
+        try {
+          let { data } = await networkAPI.checkoutPackageFree({
+            package_id: this.id,
+          });
+          if (data.success) {
+            console.log("itsfree", data.data);
+            window.SwalSuccess("تم الاشتراك بنجاح");
+          } else {
+            window.SwalError(data.message);
+          }
+        } catch (error) {
+          console.log("error", error);
+        }
+        return;
+      }
+      switch (this.selectedProvider) {
+        case "tamara":
+          try {
+            // let { data } = await PaymentApi.PayPackageTammara({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
+              type: "package",
+              email: this.email,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "hyperbill":
+          try {
+            let { data } = await PaymentApi.PayPackageHyperBill({
+              package_id: this.id,
+              type: "package",
+              email: this.email,
+            });
+            // let { data } = await PaymentApi.PayPackageMyFatoorah({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "myfatoorah":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
+              type: "package",
+              email: this.email,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "card":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
+              type: "package",
+              email: this.email,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "tabi":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
+              type: "package",
+              email: this.email,
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
