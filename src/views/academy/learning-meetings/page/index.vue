@@ -292,8 +292,7 @@
                   انضم الى اللقاء
                 </button>
               </div>
-             
-             
+            
             </div>
           </div> -->
           <div class="col-md-6 px-3">

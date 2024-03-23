@@ -474,6 +474,12 @@
                 </div>
               </div>
             </div>
+            <div style="background-color: #fff" class="col-12">
+              <h2 class="text-dark">اهداء الاشتراك لصديق؟</h2>
+            </div>
+            <!-- <div class="d-flex flex-column">
+              <h2 style="color: #">اهداء الاشتراك لصديق؟</h2>
+            </div> -->
           </div>
         </div>
         <!-- <div class="col-12 text-center">
