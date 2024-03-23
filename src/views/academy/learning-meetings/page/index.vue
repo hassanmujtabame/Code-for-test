@@ -42,7 +42,261 @@
       </div>
       <div :id="`meeting-${meetingId}`" class="p-3">
         <div class="row">
-          <div class="col-md-12 px-3">
+          <div class="col-md-6 px-3 my-4">
+            <div>
+              <p
+                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
+                class=""
+                v-if="itemPage.type === 'live'"
+              >
+                لقاء اونلاين
+              </p>
+              <p
+                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
+                class=""
+                v-if="itemPage.type === 'recorded'"
+              >
+                لقاء مسجل
+              </p>
+              <p
+                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
+                class=""
+                v-if="itemPage.type === 'on-site'"
+              >
+                لقاء حضورى
+              </p>
+              <!-- <p
+                style="background-color: #ffbc00; width: fit-content"
+                class="px-3 rounded-1 text-white"
+              >
+                {{ itemPage.categoryName }}
+              </p> -->
+              <div class="d-flex align-items-center gap-2">
+                <p
+                  style="color: #414042; font-size: 24px; font-weight: semibold"
+                >
+                  {{ itemPage.title }}
+                </p>
+                <p class="t-c">
+                  <span v-if="itemPage.date">{{
+                    dateTextMonth(itemPage.date)
+                  }}</span>
+                  <span v-if="itemPage.date"> | </span>
+                  {{ itemPage.time ? timeFormatAMPM(itemPage.time) : "" }}
+                </p>
+                <p
+                  v-if="!itemPage.date"
+                  style="color: #cf1f3e; font-size: 14px"
+                >
+                  ٢٣ يوليو - ٢:٣٠ ص
+                </p>
+              </div>
+              <div
+                class="rounded-3 d-flex flex-column"
+                style="background-color: #fafafa"
+              >
+                <h1
+                  class="py-2 px-2"
+                  style="color: #cf1f3e; font-size: 20px; font-weight: semibold"
+                >
+                  تفاصيل الدورة
+                </h1>
+
+                <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
+                  {{ itemPage.content }}
+                </p>
+              </div>
+              <div class="d-flex my-2">
+                <button
+                  @click="openConfirmJoinMeeting"
+                  style="background-color: #1fb9b3; width: 100%"
+                  class="btn text-light"
+                >
+                  انضم الى اللقاء
+                </button>
+              </div>
+              <!-- <p class="t-c">
+                {{ itemPage.content }}
+              </p> -->
+              <!-- <div v-if="!isOwner">
+                <button
+                  v-if="!isJoined"
+                  @click="openConfirmJoinMeeting"
+                  class="btn bg-main p-2 px-4 text-white"
+                >
+                  أنضم الى اللقاء
+                </button>
+                <button
+                  v-else
+                  @click="openConfirmCancelMeeting"
+                  class="btn bg-danger p-2 px-4 text-white"
+                >
+                  تراجع عن إنضمام
+                </button>
+              </div> -->
+              <!-- <div v-if="!isOwner">
+                <button
+                  v-if="!isJoined"
+                  @click="openConfirmJoinMeeting"
+                  class="btn bg-main p-2 px-4 text-white"
+                >
+                  أنضم الى اللقاء
+                </button>
+                <button
+                  v-else
+                  @click="openConfirmCancelMeeting"
+                  class="btn bg-danger p-2 px-4 text-white"
+                >
+                  تراجع عن إنضمام
+                </button>
+              </div> -->
+            </div>
+          </div>
+          <!-- <div class="col-md-6 px-3 my-4">
+            <div>
+              <p
+                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
+                class=""
+                v-if="itemPage.type === 'live'"
+              >
+                لقاء اونلاين
+              </p>
+              <p
+                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
+                class=""
+                v-if="itemPage.type === 'recorded'"
+              >
+                لقاء مسجل
+              </p>
+              <p
+                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
+                class=""
+                v-if="itemPage.type === 'on-site'"
+              >
+                لقاء حضورى
+              </p>
+            
+              <div class="d-flex align-items-center gap-2">
+                <p
+                  style="color: #414042; font-size: 24px; font-weight: semibold"
+                >
+                  {{ itemPage.title }}
+                </p>
+                <p class="t-c">
+                  <span v-if="itemPage.date">{{
+                    dateTextMonth(itemPage.date)
+                  }}</span>
+                  <span v-if="itemPage.date"> | </span>
+                  {{ itemPage.time ? timeFormatAMPM(itemPage.time) : "" }}
+                </p>
+                <p
+                  v-if="!itemPage.date"
+                  style="color: #cf1f3e; font-size: 14px"
+                >
+                  ٢٣ يوليو - ٢:٣٠ ص
+                </p>
+              </div>
+              <div
+                class="rounded-3 d-flex flex-column"
+                style="background-color: #fafafa"
+              >
+                <h1
+                  class="py-2 px-2"
+                  style="color: #cf1f3e; font-size: 20px; font-weight: semibold"
+                >
+                  تفاصيل الدورة
+                </h1>
+
+                <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
+                  {{ itemPage.content }}
+                </p>
+              </div>
+              <div class="d-flex my-2">
+                <button
+                  @click="openConfirmJoinMeeting"
+                  style="background-color: #1fb9b3; width: 100%"
+                  class="btn text-light"
+                >
+                  انضم الى اللقاء
+                </button>
+              </div>
+             
+             
+            </div>
+          </div> -->
+          <!-- <div class="col-md-6 px-3 my-4">
+            <div>
+              <p
+                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
+                class=""
+                v-if="itemPage.type === 'live'"
+              >
+                لقاء اونلاين
+              </p>
+              <p
+                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
+                class=""
+                v-if="itemPage.type === 'recorded'"
+              >
+                لقاء مسجل
+              </p>
+              <p
+                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
+                class=""
+                v-if="itemPage.type === 'on-site'"
+              >
+                لقاء حضورى
+              </p>
+            
+              <div class="d-flex align-items-center gap-2">
+                <p
+                  style="color: #414042; font-size: 24px; font-weight: semibold"
+                >
+                  {{ itemPage.title }}
+                </p>
+                <p class="t-c">
+                  <span v-if="itemPage.date">{{
+                    dateTextMonth(itemPage.date)
+                  }}</span>
+                  <span v-if="itemPage.date"> | </span>
+                  {{ itemPage.time ? timeFormatAMPM(itemPage.time) : "" }}
+                </p>
+                <p
+                  v-if="!itemPage.date"
+                  style="color: #cf1f3e; font-size: 14px"
+                >
+                  ٢٣ يوليو - ٢:٣٠ ص
+                </p>
+              </div>
+              <div
+                class="rounded-3 d-flex flex-column"
+                style="background-color: #fafafa"
+              >
+                <h1
+                  class="py-2 px-2"
+                  style="color: #cf1f3e; font-size: 20px; font-weight: semibold"
+                >
+                  تفاصيل الدورة
+                </h1>
+
+                <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
+                  {{ itemPage.content }}
+                </p>
+              </div>
+              <div class="d-flex my-2">
+                <button
+                  @click="openConfirmJoinMeeting"
+                  style="background-color: #1fb9b3; width: 100%"
+                  class="btn text-light"
+                >
+                  انضم الى اللقاء
+                </button>
+              </div>
+             
+             
+            </div>
+          </div> -->
+          <div class="col-md-6 px-3">
             <div>
               <!-- <iframe id="vimeoPlayer" v-if="itemPage.video" height="384" class="rounded-3 w-100 "
                 :src="itemPage.video + '?title=0&&byline=0&&portrait=0'" :title="itemPage.title" frameborder="0"
@@ -59,7 +313,6 @@
                 allowfullscreen
               ></iframe>
               <img
-                @click="openConfirmJoinMeeting"
                 :src="itemPage.image"
                 v-else
                 style="cursor: pointer"
@@ -69,60 +322,24 @@
               />
             </div>
           </div>
-          <div class="col-md-12 px-3 my-4">
-            <div>
-              <p
-                style="background-color: #ffbc00; width: fit-content"
-                class="px-3 rounded-1 text-white"
-              >
-                {{ itemPage.categoryName }}
-              </p>
-              <h2>
-                {{ itemPage.title }}
-              </h2>
-              <p class="t-c">
-                <span v-if="itemPage.date">{{
-                  dateTextMonth(itemPage.date)
-                }}</span>
-                <span v-if="itemPage.date"> | </span>
-                {{ itemPage.time ? timeFormatAMPM(itemPage.time) : "" }}
-              </p>
-              <p class="t-c">
-                {{ itemPage.content }}
-              </p>
-              <!-- <div v-if="!isOwner">
-                <button
-                  v-if="!isJoined"
-                  @click="openConfirmJoinMeeting"
-                  class="btn bg-main p-2 px-4 text-white"
-                >
-                  أنضم الى اللقاء
-                </button>
-                <button
-                  v-else
-                  @click="openConfirmCancelMeeting"
-                  class="btn bg-danger p-2 px-4 text-white"
-                >
-                  تراجع عن إنضمام
-                </button>
-              </div> -->
-              <!-- <div v-if="!isOwner">
-                <button
-                  v-if="!isJoined"
-                  @click="openConfirmJoinMeeting"
-                  class="btn bg-main p-2 px-4 text-white"
-                >
-                  أنضم الى اللقاء
-                </button>
-                <button
-                  v-else
-                  @click="openConfirmCancelMeeting"
-                  class="btn bg-danger p-2 px-4 text-white"
-                >
-                  تراجع عن إنضمام
-                </button>
-              </div> -->
-            </div>
+          <div
+            style="background-color: #fafafa"
+            class="col-md-12 d-flex flex-column my-2 rounded-3"
+          >
+            <p
+              class="px-2 py-4"
+              style="color: #cf1f3e; font-size: 20px; font-weight: semibold"
+            >
+              محاور الدورة
+            </p>
+            <ul class="d-flex align-items-center gap-2">
+              <li style="list-style: none">١. مقدمة</li>
+              <li style="list-style: none">٢. الخطة</li>
+              <li style="list-style: none">٣. مقدمة مالية</li>
+              <li style="list-style: none">٤. علم الماليات</li>
+              <li style="list-style: none">٥. طريقة العمل</li>
+              <li style="list-style: none">٦. ما العمل؟</li>
+            </ul>
           </div>
         </div>
       </div>
