@@ -3,7 +3,7 @@
     <div class="container">
       <div class="box bg-white p-3 rounded-3">
         <div class="row align-items-start">
-          <div class="col-md-8 my-2">
+          <div class="col-md-12 my-2">
             <h2>رقي حسابك معنا كمستشار</h2>
             <!-- <p>
               بمجرد تسجيلك فأنت توافق على
@@ -307,105 +307,107 @@
                   </ValidationProvider>
                 </div>
               </template>
-              <div class="col-md-4 w-100 mt-2">
-                <ValidationProvider
-                  tag="div"
-                  class="w-100"
-                  :name="$t('Specialization')"
-                  rules="required"
-                  vid="department_id"
-                  v-slot="{ errors }"
-                >
-                  <d-select-input
-                    :errors="errors"
-                    v-model="itemForm.department_id"
-                    :label="$t('Specialization')"
-                  >
-                    <option>مجال التخصص</option>
-                    <option
-                      v-for="(department, i) in departments"
-                      :key="i"
-                      :value="department.id"
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100"
+                      :name="$t('Specialization')"
+                      rules="required"
+                      vid="department_id"
+                      v-slot="{ errors }"
                     >
-                      {{ department.name }}
-                    </option>
-                  </d-select-input>
-                </ValidationProvider>
-              </div>
-              <div class="col-md-4 w-100 mt-2">
-                <ValidationProvider
-                  tag="div"
-                  class="w-100"
-                  name="site_price"
-                  vid="site_price"
-                  rules="numeric"
-                  v-slot="{ errors }"
-                >
-                  <d-text-input
-                    :errors="errors"
-                    v-model="itemForm.site_price"
-                    label="سعر الاستشاره الحضوريه"
-                  >
-                  </d-text-input>
-                </ValidationProvider>
-              </div>
-              <div class="col-md-4 w-100 mt-2">
-                <ValidationProvider
-                  tag="div"
-                  class="w-100"
-                  name="remote price"
-                  rules="numeric"
-                  vid="remote_price"
-                  v-slot="{ errors }"
-                >
-                  <d-text-input
-                    :errors="errors"
-                    v-model="itemForm.remote_price"
-                    label="سعر الاستشارة عن بعد"
-                  >
-                  </d-text-input>
-                </ValidationProvider>
-              </div>
+                      <d-select-input
+                        :errors="errors"
+                        v-model="itemForm.department_id"
+                        :label="$t('Specialization')"
+                      >
+                        <option>مجال التخصص</option>
+                        <option
+                          v-for="(department, i) in departments"
+                          :key="i"
+                          :value="department.id"
+                        >
+                          {{ department.name }}
+                        </option>
+                      </d-select-input>
+                    </ValidationProvider>
+                  </div>
+                  <div class="w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100"
+                      name="site_price"
+                      vid="site_price"
+                      rules="numeric"
+                      v-slot="{ errors }"
+                    >
+                      <d-text-input
+                        :errors="errors"
+                        v-model="itemForm.site_price"
+                        label="سعر الاستشاره الحضوريه"
+                      >
+                      </d-text-input>
+                    </ValidationProvider>
+                  </div>
+                  <div class="w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100"
+                      name="remote price"
+                      rules="numeric"
+                      vid="remote_price"
+                      v-slot="{ errors }"
+                    >
+                      <d-text-input
+                        :errors="errors"
+                        v-model="itemForm.remote_price"
+                        label="سعر الاستشارة عن بعد"
+                      >
+                      </d-text-input>
+                    </ValidationProvider>
+                  </div>
 
-              <div class="col-md-4 w-100 mt-2">
-                <ValidationProvider
-                  tag="div"
-                  class="w-100"
-                  :name="$t('job-position')"
-                  rules="required"
-                  vid="job_title"
-                  v-slot="{ errors }"
-                >
-                  <d-text-input
-                    :errors="errors"
-                    v-model="itemForm.job_title"
-                    type="text"
-                    :label="$t('job-position')"
-                    class="form-control"
-                  >
-                  </d-text-input>
-                </ValidationProvider>
-              </div>
+                  <div class="w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100"
+                      :name="$t('job-position')"
+                      rules="required"
+                      vid="job_title"
+                      v-slot="{ errors }"
+                    >
+                      <d-text-input
+                        :errors="errors"
+                        v-model="itemForm.job_title"
+                        type="text"
+                        :label="$t('job-position')"
+                        class="form-control"
+                      >
+                      </d-text-input>
+                    </ValidationProvider>
+                  </div>
 
-              <div class="col-md-4 w-100 mt-2">
-                <ValidationProvider
-                  tag="div"
-                  class="w-100"
-                  :name="$t('about-you')"
-                  rules="required"
-                  vid="bio"
-                  v-slot="{ errors }"
-                >
-                  <d-textarea-input
-                    :errors="errors"
-                    v-model="itemForm.bio"
-                    class="form-control"
-                    rows="5"
-                    :label="$t('about-you')"
-                  ></d-textarea-input>
-                </ValidationProvider>
-              </div>
-              <!-- <div class="col-md-4 w-100 mt-2">
+                  <div class="w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100"
+                      :name="$t('about-you')"
+                      rules="required"
+                      vid="bio"
+                      v-slot="{ errors }"
+                    >
+                      <d-textarea-input
+                        :errors="errors"
+                        v-model="itemForm.bio"
+                        class="form-control"
+                        rows="5"
+                        :label="$t('about-you')"
+                      ></d-textarea-input>
+                    </ValidationProvider>
+                  </div>
+                  <!-- <div class=" w-100 mt-2">
                 <ValidationProvider
                   tag="div"
                   class="w-100"
@@ -461,82 +463,89 @@
                   <d-error-input :errors="errors" v-if="errors.length > 0" />
                 </ValidationProvider>
               </div> -->
-              <div class="col-md-4 w-100 mt-2">
-                <div class="form-check">
+                  <div class="w-100 mt-2">
+                    <div class="form-check">
+                      <ValidationProvider
+                        tag="div"
+                        class="w-100"
+                        :name="$t('terms_use')"
+                        rules="required"
+                        vid="terms_use"
+                        v-slot="{ errors }"
+                      >
+                        <div class="form-group">
+                          <input
+                            style="border: 2px solid #2cb7b3"
+                            :value="itemForm.terms_use"
+                            @input="
+                              (event) =>
+                                (itemForm.terms_use =
+                                  event.target.checked === true ? true : null)
+                            "
+                            class="form-check-input"
+                            type="checkbox"
+                            id="defaultCheck1"
+                          />
+                          <label class="form-check-label" for="defaultCheck1">
+                            أؤكد على اني أوافق على
+                            <router-link
+                              :to="
+                                getRouteLocale('terms-and-conditions-category')
+                              "
+                              class="m-c"
+                            >
+                              {{ $t("terms_use") }}
+                            </router-link>
+                          </label>
+                        </div>
+                        <d-error-input
+                          :errors="errors"
+                          v-if="errors.length > 0"
+                        />
+                      </ValidationProvider>
+                    </div>
+                  </div>
+                  <div class="col-12 my-4">
+                    <button
+                      class="btn btn-main"
+                      :disabled="loading"
+                      @click="save"
+                      role="button"
+                    >
+                      <i
+                        v-if="loading"
+                        class="fa fa-spinner fa-spin"
+                        aria-hidden="true"
+                      ></i>
+                      سجل الان
+                    </button>
+                  </div>
+                </div>
+
+                <div class="col-md-4 my-2">
                   <ValidationProvider
                     tag="div"
                     class="w-100"
-                    :name="$t('terms_use')"
-                    rules="required"
-                    vid="terms_use"
-                    v-slot="{ errors }"
+                    :name="$t('attachment')"
+                    rules="required|ext:pdf"
+                    vid="cv"
+                    v-slot="{ errors, validate }"
                   >
                     <div class="form-group">
-                      <input
-                        style="border: 2px solid #2cb7b3"
-                        :value="itemForm.terms_use"
-                        @input="
-                          (event) =>
-                            (itemForm.terms_use =
-                              event.target.checked === true ? true : null)
-                        "
-                        class="form-check-input"
-                        type="checkbox"
-                        id="defaultCheck1"
-                      />
-                      <label class="form-check-label" for="defaultCheck1">
-                        أؤكد على اني أوافق على
-                        <router-link
-                          :to="getRouteLocale('terms-and-conditions-category')"
-                          class="m-c"
-                        >
-                          {{ $t("terms_use") }}
-                        </router-link>
-                      </label>
-                    </div>
-                    <d-error-input :errors="errors" v-if="errors.length > 0" />
-                  </ValidationProvider>
-                </div>
-              </div>
-              <div class="col-12 my-4">
-                <button
-                  class="btn btn-main"
-                  :disabled="loading"
-                  @click="save"
-                  role="button"
-                >
-                  <i
-                    v-if="loading"
-                    class="fa fa-spinner fa-spin"
-                    aria-hidden="true"
-                  ></i>
-                  سجل الان
-                </button>
-              </div>
-            </ValidationObserver>
-          </div>
-          <div class="col-md-4 my-2">
-            <ValidationProvider
-              tag="div"
-              class="w-100"
-              :name="$t('attachment')"
-              rules="required|ext:pdf"
-              vid="cv"
-              v-slot="{ errors, validate }"
-            >
-              <div class="form-group">
-                <label
-                  style="height: 150px; border: 1px solid #2cb7b3"
-                  class="w-100 position-relative rounded-2"
-                >
-                  <input
-                    id="file"
-                    type="file"
-                    @change="uploadFile($event, validate) || validate($event)"
-                    class="form-control opacity-0"
-                    required
-                  />
-                  <!-- <svg
+                      <label
+                        style="height: 150px; border: 1px solid #2cb7b3"
+                        class="w-100 position-relative rounded-2"
+                      >
+                        <input
+                          id="file"
+                          type="file"
+                          @change="
+                            uploadFile($event, validate) || validate($event)
+                          "
+                          class="form-control opacity-0"
+                          required
+                        />
+                        <!-- <svg
                     style="top: 6px; left: 6px"
                     class="position-absolute"
                     width="24"
@@ -562,93 +571,102 @@
                       fill="#CDD7D8"
                     />
                   </svg> -->
-                  <!-- <p
+                        <!-- <p
                     style="top: 6px; right: 13px; color: #979797"
                     class="position-absolute px-2"
                   >
                     السيرة الذاتية (بحد أقصى 10 ميجا)
                   </p> -->
-                  <svg
-                    style=""
-                    class="position-absolute center"
-                    width="67"
-                    height="81"
-                    viewBox="0 0 67 81"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M41.373 2H9.87461C7.78613 2 5.78319 2.8064 4.30642 4.24179C2.82964 5.67718 2 7.62399 2 9.65395V70.8855C2 72.9155 2.82964 74.8623 4.30642 76.2977C5.78319 77.7331 7.78613 78.5395 9.87461 78.5395H57.1222C59.2107 78.5395 61.2137 77.7331 62.6904 76.2977C64.1672 74.8623 64.9969 72.9155 64.9969 70.8855V24.9618L41.373 2Z"
-                      stroke="#2CB7B3"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M41.375 2V24.9629H64.9998"
-                      stroke="#2CB7B3"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M49.2588 44.0977H17.7598"
-                      stroke="#2CB7B3"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M49.2588 59.4062H17.7598"
-                      stroke="#2CB7B3"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M25.6347 28.7891H17.7598"
-                      stroke="#2CB7B3"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </label>
-                <label
-                  style="border: 1px solid #2cb7b3; background-color: #e9f8f7"
-                  for="file"
-                  class="d-flex rounded-3 my-3 py-2 justify-content-center px-5 align-items-center gap-3"
-                >
-                  <svg
-                    width="21"
-                    height="27"
-                    viewBox="0 0 21 27"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clip-path="url(#clip0_2469_109181)">
-                      <path
-                        d="M16.9628 5.05527C15.8598 3.85863 14.0699 3.85863 12.967 5.05527L4.65003 14.0792C2.74707 16.1439 2.74707 19.4886 4.65003 21.5533C6.55299 23.618 9.63569 23.618 11.5386 21.5533L18.4092 14.0988C18.9019 13.5642 19.7064 13.5642 20.1991 14.0988C20.6918 14.6334 20.6918 15.5063 20.1991 16.0409L13.3286 23.4954C10.4357 26.6342 5.75293 26.6342 2.86007 23.4954C-0.0327846 20.3567 -0.0327846 15.2758 2.86007 12.1371L11.177 3.11317C13.2698 0.842484 16.6599 0.842484 18.7527 3.11317C20.8455 5.38386 20.8455 9.06209 18.7527 11.3328L10.7973 19.9643C9.5046 21.367 7.40728 21.367 6.11454 19.9643C4.82179 18.5617 4.82179 16.2861 6.11454 14.8835L12.6235 7.8213C13.1162 7.28673 13.9207 7.28673 14.4134 7.8213C14.9061 8.35587 14.9061 9.22883 14.4134 9.7634L7.90449 16.8256C7.60165 17.1542 7.60165 17.6936 7.90449 18.0222C8.20734 18.3508 8.70455 18.3508 9.00739 18.0222L16.9628 9.39067C18.0657 8.19402 18.0657 6.25192 16.9628 5.05527Z"
-                        fill="#1FB9B3"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_2469_109181">
-                        <rect
-                          width="20.25"
-                          height="25.11"
-                          fill="white"
-                          transform="translate(0.500977 0.945312)"
-                        />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                  <p style="color: #1fb9b3; padding-top: 11px">رفع ملف pdf</p>
-                </label>
+                        <svg
+                          style=""
+                          class="position-absolute center"
+                          width="67"
+                          height="81"
+                          viewBox="0 0 67 81"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M41.373 2H9.87461C7.78613 2 5.78319 2.8064 4.30642 4.24179C2.82964 5.67718 2 7.62399 2 9.65395V70.8855C2 72.9155 2.82964 74.8623 4.30642 76.2977C5.78319 77.7331 7.78613 78.5395 9.87461 78.5395H57.1222C59.2107 78.5395 61.2137 77.7331 62.6904 76.2977C64.1672 74.8623 64.9969 72.9155 64.9969 70.8855V24.9618L41.373 2Z"
+                            stroke="#2CB7B3"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M41.375 2V24.9629H64.9998"
+                            stroke="#2CB7B3"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M49.2588 44.0977H17.7598"
+                            stroke="#2CB7B3"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M49.2588 59.4062H17.7598"
+                            stroke="#2CB7B3"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M25.6347 28.7891H17.7598"
+                            stroke="#2CB7B3"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </label>
+                      <label
+                        style="
+                          border: 1px solid #2cb7b3;
+                          background-color: #e9f8f7;
+                        "
+                        for="file"
+                        class="d-flex rounded-3 my-3 py-2 justify-content-center px-5 align-items-center gap-3"
+                      >
+                        <svg
+                          width="21"
+                          height="27"
+                          viewBox="0 0 21 27"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g clip-path="url(#clip0_2469_109181)">
+                            <path
+                              d="M16.9628 5.05527C15.8598 3.85863 14.0699 3.85863 12.967 5.05527L4.65003 14.0792C2.74707 16.1439 2.74707 19.4886 4.65003 21.5533C6.55299 23.618 9.63569 23.618 11.5386 21.5533L18.4092 14.0988C18.9019 13.5642 19.7064 13.5642 20.1991 14.0988C20.6918 14.6334 20.6918 15.5063 20.1991 16.0409L13.3286 23.4954C10.4357 26.6342 5.75293 26.6342 2.86007 23.4954C-0.0327846 20.3567 -0.0327846 15.2758 2.86007 12.1371L11.177 3.11317C13.2698 0.842484 16.6599 0.842484 18.7527 3.11317C20.8455 5.38386 20.8455 9.06209 18.7527 11.3328L10.7973 19.9643C9.5046 21.367 7.40728 21.367 6.11454 19.9643C4.82179 18.5617 4.82179 16.2861 6.11454 14.8835L12.6235 7.8213C13.1162 7.28673 13.9207 7.28673 14.4134 7.8213C14.9061 8.35587 14.9061 9.22883 14.4134 9.7634L7.90449 16.8256C7.60165 17.1542 7.60165 17.6936 7.90449 18.0222C8.20734 18.3508 8.70455 18.3508 9.00739 18.0222L16.9628 9.39067C18.0657 8.19402 18.0657 6.25192 16.9628 5.05527Z"
+                              fill="#1FB9B3"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_2469_109181">
+                              <rect
+                                width="20.25"
+                                height="25.11"
+                                fill="white"
+                                transform="translate(0.500977 0.945312)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                        <p style="color: #1fb9b3; padding-top: 11px">
+                          رفع ملف pdf
+                        </p>
+                      </label>
+                    </div>
+                    <d-error-input :errors="errors" v-if="errors.length > 0" />
+                  </ValidationProvider>
+                </div>
               </div>
-              <d-error-input :errors="errors" v-if="errors.length > 0" />
-            </ValidationProvider>
+            </ValidationObserver>
           </div>
+
           <!-- <div class="col-md-6">
             <div class="box">
               <div class="position-relative">

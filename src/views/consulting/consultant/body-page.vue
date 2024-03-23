@@ -135,12 +135,12 @@
             </p>
             <!--courses-->
           </div>
-          <div class="container">
+          <!-- <div class="container">
             <div class="row">
               <SectionCourses :itemPage="itemPage" />
               <SectionProjects :itemPage="itemPage" />
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="col-md-5">

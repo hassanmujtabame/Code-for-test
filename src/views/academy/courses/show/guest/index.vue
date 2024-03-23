@@ -344,6 +344,12 @@ export default {
   mounted() {
     this.initializing();
   },
+  watch: {
+    "$route.params.id": function (newId, oldId) {
+      // Invoke your function here
+      this.initializing();
+    },
+  },
 };
 </script>
 
