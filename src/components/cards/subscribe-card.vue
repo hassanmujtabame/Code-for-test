@@ -327,6 +327,33 @@
                       <div class="form-check">
                         <label
                           class="form-check-label d-flex align-items-center justify-content-between px-2"
+                          for="tabi"
+                        >
+                          <div class="">
+                            الدفع بواسطة تابى
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              id="tabi"
+                              value="tabi"
+                              v-model="selectedProvider"
+                            />
+                          </div>
+                          <img
+                            src="../../assets/img/payment/Group 1171276318.png"
+                            alt="img"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-container col-md-6 col-12 px-1">
+                  <div class="card border-info mb-3">
+                    <div class="card-body">
+                      <div class="form-check">
+                        <label
+                          class="form-check-label d-flex align-items-center justify-content-between px-2"
                           for="hyperbill"
                         >
                           <div class="">
@@ -340,7 +367,9 @@
                             />
                           </div>
                           <img
-                            src="../../assets/img/payment/Group 1171276318.png"
+                            width="91"
+                            height="25"
+                            src="../../assets/img/academy/hyber.png"
                             alt="img"
                           />
                         </label>
@@ -807,6 +836,29 @@ export default {
           break;
         case "hyperbill":
           try {
+            let { data } = await PaymentApi.PayPackageHyperBill({
+              package_id: this.id,
+              type: "package",
+            });
+            // let { data } = await PaymentApi.PayPackageMyFatoorah({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            // let { data } = await PaymentApi.PayPackageMyFatoorah({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "tabi":
+          try {
             // let { data } = await PaymentApi.PayPackageHyperBill({
             //   package_id: this.id,
             //   type: "package",
@@ -815,6 +867,10 @@ export default {
               package_id: this.id,
               type: "package",
             });
+            // let { data } = await PaymentApi.PayPackageMyFatoorah({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
             if (data.success) {
               window.location.href = data.data.payment_url;
             } else {
