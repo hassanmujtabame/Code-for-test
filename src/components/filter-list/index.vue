@@ -5,12 +5,12 @@
     </div>
     <div v-if="!hideTop" class="row align-items-center">
       <div v-if="!hideTotal" class="col-12 mt-3" :class="classTotal">
-        <slot name="total">
+        <!-- <slot name="total">
           <h4>
             {{ $t("nomber") }} {{ pluralName }} :
             <span class="m-c"> {{ metaInfo.total }} {{ singleName }} </span>
           </h4>
-        </slot>
+        </slot> -->
       </div>
       <div v-if="!hideTitle" class="col-12 mt-3" :class="classTitle">
         <slot name="title">
@@ -332,7 +332,7 @@
           </div>
           <div v-else class="col-12 row order filter-list-items">
             <div
-              class="col-12 col-lg-12"
+              class="col-12"
               v-for="(item, i) in items"
               :key="i"
               :class="classColCard"

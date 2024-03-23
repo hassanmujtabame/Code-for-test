@@ -5,13 +5,10 @@
         {{ item.title }}
       </h1>
       <div class="d-flex align-items-center gap-2">
-        <button @click="sendToParticipants" class="btn btn-custmer btn-small">
+        <button @click="sendToParticipants" class="btn btn-custmer">
           رسالة للمنضمين
         </button>
-        <button
-          @click="deleteItem"
-          class="btn btn-custmer btn-danger btn-small mx-1"
-        >
+        <button @click="deleteItem" class="btn btn-custmer btn-danger mx-1">
           حذف اللقاء
         </button>
       </div>

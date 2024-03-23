@@ -1,17 +1,26 @@
 <template>
-  <d-filter-list :call-list="loadList" hideSide hideOrder classColCard="col-12 col-md-4"
-    classSearchOrder="col-12 col-md-4" classColSearch="col-12">
-    <template v-slot:total="{ }">
-      <button class="btn bg-main text-white" @click="addCourseFirst" role="button">
+  <d-filter-list
+    :call-list="loadList"
+    hideSide
+    hideOrder
+    classColCard="col-12 col-md-4"
+    classSearchOrder="col-12 col-md-4"
+    classColSearch="col-12"
+  >
+    <template v-slot:total="{}">
+      <!-- <button class="btn bg-main text-white" @click="addCourseFirst" role="button">
         <plusCircleOutline :size="24" color="currentColor" />
         أضافة دورة جديدة
-      </button>
+      </button> -->
     </template>
     <template v-slot:head-end>
       <button class="more">المزيد</button>
     </template>
     <template v-slot="{ item }">
-      <router-link class="router-link" :to="getRouteLocale('academy-course-show', { id: item.id })">
+      <router-link
+        class="router-link"
+        :to="getRouteLocale('academy-course-show', { id: item.id })"
+      >
         <CourseCard :item="item" />
       </router-link>
     </template>
@@ -19,27 +28,20 @@
 </template>
 
 <script>
-import plusCircleOutline from '@/components/icon-svg/plus-circle-outline.vue';
-import CourseCard from './card'
-import instructorAPI from '@/services/api/academy/instructor';
+import plusCircleOutline from "@/components/icon-svg/plus-circle-outline.vue";
+import CourseCard from "./card";
+import instructorAPI from "@/services/api/academy/instructor";
 export default {
-  name: 'filter-list',
+  name: "filter-list",
   components: {
     plusCircleOutline,
-    CourseCard
+    CourseCard,
   },
   data: () => {
     return {
       loading: false,
-      items: [
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-      ]
-    }
+      items: [{}, {}, {}, {}, {}, {}],
+    };
   },
   methods: {
     async loadList(metaInfo) {
@@ -47,41 +49,43 @@ export default {
       try {
         let params = {
           page: metaInfo.current_page,
-          paginate: this.isMobile ? 2 : 12
-        }
-        let dd = await instructorAPI.getCourses(params)
-        console.log('dd', dd)
-        return dd
+          paginate: this.isMobile ? 2 : 12,
+        };
+        let dd = await instructorAPI.getCourses(params);
+        console.log("dd", dd);
+        return dd;
       } catch (error) {
         //
       }
-      this.loading = false
+      this.loading = false;
     },
     async addCourseFirst() {
-      let {data} = await window.axios.get(`academy/instructor/meetings?page=1`);
+      let { data } = await window.axios.get(
+        `academy/instructor/meetings?page=1`
+      );
 
       if (!this.user.statusInstructor) {
         window.errorMsg("لم يفعل حسابك بعد !");
+      } else if (this.user.statusInstructor && data.data.length < 4) {
+        window.errorMsg(
+          `يجب عليك رفع ${4 - data.data.length} من اللقاءات لكى تنشئ دوره`
+        );
+      } else {
+        this.fireOpenDialog("add-course-first");
       }
-      else if(this.user.statusInstructor && data.data.length < 4){
-        window.errorMsg(`يجب عليك رفع ${4 - data.data.length} من اللقاءات لكى تنشئ دوره`);
-      } 
-      else {
-        this.fireOpenDialog('add-course-first')
-      }
-    }
-  }, 
+    },
+  },
   // Add a watcher on the $route object
   watch: {
     $route(to, from) {
       // Check if you're navigating back to this component
-      if (to.name === 'filter-list' && from.name === 'academy-course-show') {
+      if (to.name === "filter-list" && from.name === "academy-course-show") {
         // Reload data when navigating back
         this.loadList();
       }
     },
   },
-}
+};
 </script>
 
 <style></style>

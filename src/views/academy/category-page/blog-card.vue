@@ -1,5 +1,6 @@
 <template>
   <div class="d-flex my-4 flex-column col-md-4 col-12">
+    <!-- <router-link :to="getRouteLocale('my-profile')"> -->
     <div class="position-relative">
       <img
         style="width: 100%; height: 200px"
@@ -42,7 +43,9 @@
         </p>
       </div>
     </div>
+    <!-- </router-link> -->
   </div>
+
   <!-- <div style="width: 250px" class="d-flex flex-column gap-2 border rouned-3">
     <router-link
       custom

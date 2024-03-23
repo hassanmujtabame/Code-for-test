@@ -6,7 +6,7 @@
         :pluralName="$t('members')"
         :singleName="$t('member')"
         :searchPlaceholder="$t('search-by-name-or-field')"
-        classColCard="col-md-3 mt-3"
+        classColCard="col-md-4  mt-3"
         classSideBar="w-100"
         newFilter
         hideTop
