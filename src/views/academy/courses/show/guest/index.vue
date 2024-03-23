@@ -177,9 +177,17 @@
           <!-- <p></p> -->
           <SectionWhatLearn :itemPage="itemPage" />
         </div>
-        <div class="col-md-4 box">
-          <div class="d-flex align-items-center gap-2">
-            <div class="d-flex align-items-center gap-2 px-1">
+        <div
+          style="
+            background-color: #fafafa;
+            min-height: 300px;
+            height: fit-content;
+            max-height: 600px;
+          "
+          class="col-md-4 rounded-3 box"
+        >
+          <div class="d-flex flex-column align-items-center gap-1">
+            <div class="d-flex align-items-center gap-4 px-1">
               <h1 style="color: #cf1f3e; font-size: 20px">محتويات الدورة</h1>
               <div style="margin-top: 16px" class="">
                 <p style="color: #666666; font-size: 12px">
@@ -202,7 +210,35 @@
                 </p>
               </div>
             </div>
+            <div
+              class="d-flex align-items-center justify-content-between rounded-3 overflow-y-auto px-4"
+              style="background-color: #e1eeef; width: 100%"
+            >
+              <h5 style="color: #1fb9b3">1.مقدمه</h5>
+              <p style="color: #1fb9b3; margin-top: 9px">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.96979 13.6422C8.61979 13.6422 8.29479 13.5589 8.00313 13.3922C7.33646 13.0089 6.95312 12.2256 6.95312 11.2339V8.76724C6.95312 7.7839 7.33646 6.99224 8.00313 6.6089C8.66979 6.22557 9.53646 6.2839 10.3948 6.7839L12.5365 8.01724C13.3865 8.5089 13.8781 9.2339 13.8781 10.0006C13.8781 10.7672 13.3865 11.4922 12.5365 11.9839L10.3948 13.2172C9.91146 13.5006 9.41979 13.6422 8.96979 13.6422ZM8.97813 7.6089C8.84479 7.6089 8.72812 7.6339 8.63646 7.69224C8.36979 7.85057 8.21146 8.24224 8.21146 8.76724V11.2339C8.21146 11.7589 8.36146 12.1506 8.63646 12.3089C8.90312 12.4672 9.31979 12.4006 9.77812 12.1339L11.9198 10.9006C12.3781 10.6339 12.6365 10.3089 12.6365 10.0006C12.6365 9.69224 12.3781 9.3589 11.9198 9.10057L9.77812 7.86724C9.47812 7.69224 9.20313 7.6089 8.97813 7.6089Z"
+                    fill="#1FB9B3"
+                  />
+                  <path
+                    d="M9.9974 18.9577C5.05573 18.9577 1.03906 14.941 1.03906 9.99935C1.03906 5.05768 5.05573 1.04102 9.9974 1.04102C14.9391 1.04102 18.9557 5.05768 18.9557 9.99935C18.9557 14.941 14.9391 18.9577 9.9974 18.9577ZM9.9974 2.29102C5.7474 2.29102 2.28906 5.74935 2.28906 9.99935C2.28906 14.2493 5.7474 17.7077 9.9974 17.7077C14.2474 17.7077 17.7057 14.2493 17.7057 9.99935C17.7057 5.74935 14.2474 2.29102 9.9974 2.29102Z"
+                    fill="#1FB9B3"
+                  />
+                </svg>
+                شاهد مجانا
+              </p>
+            </div>
           </div>
+        </div>
+        <div class="col-12">
+          <SectionSimilarCourses :itemPage="itemPage" />
         </div>
       </div>
       <!-- <SectionHeader :itemPage="itemPage" /> -->

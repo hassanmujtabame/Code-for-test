@@ -7,7 +7,10 @@
     <li>هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون</li>
     <li>هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم في نقاط هنا هيكون ماذا ستتعلم </li>
   </ul> -->
-      <ul class="course-teaching__list">
+      <ul
+        style="min-height: 300px; max-height: 400px"
+        class="course-teaching__list overflow-y-auto"
+      >
         <template v-if="itemPage.learn">
           <li v-for="(it, i) in itemPage.learn" :key="i">{{ it }}</li>
         </template>
