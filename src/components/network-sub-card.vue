@@ -363,7 +363,7 @@
                     </label>
                     <div v-if="giveToAFriend">
                       <input
-                        v-bind="email"
+                        v-model="email"
                         required
                         class="form-control"
                         placeholder="ادخل البريد الالكترونى"
