@@ -3,7 +3,7 @@
     <div class="text-center my-5">
       <h3 style="font-size: 40px; color: #495057">
         مدربينا في برامج ريادة الاعمال
-        <span style="color: #2cb7b3"> العامة</span>
+        <span style="color: #2cb7b3"> المتخصصة</span>
       </h3>
     </div>
     <div class="container">
