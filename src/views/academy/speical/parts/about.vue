@@ -1,21 +1,28 @@
 <template>
   <div class="row my-5">
-    <div
-      style="display: flex; flex-direction: column; justify-content: center"
-      class="col-md-6 my-5"
-    >
-      <h1 class="m-0" style="font-size: 50px; font-weight: bold">
-        شارك خبراتك ومهاراتك
-      </h1>
-      <p>ساهمي في تنمية نساء المجتمع بانضمامك إلينا</p>
+    <div class="col-md-6 my-auto">
+      <h2 class="my-0" style="font-size: 48px; font-weight: bold">
+        الإرشادات اللازمة
+      </h2>
+      <h2
+        style="width: fit-content; font-size: 48px; font-weight: bold"
+        class="position-relative my-0"
+      >
+        <img
+          style="width: 100%; bottom: -35px; left: -1px"
+          class="position-absolute"
+          src="@/assets/img/academy/Vector 14.png"
+          alt=""
+        />
+        لإنشاء الدورة
+      </h2>
       <router-link
-        class=""
-        style="color: #2cb7b3; font-size: 30px; font-weight: bold"
         :to="getRouteLocale('academy-instructor-register')"
+        style="color: #2cb7b3; font-size: 24px; font-weight: bold"
+        class="my-5 d-block"
       >
         أنضمي كمدربة
         <svg
-          class="mx-2"
           width="32"
           height="33"
           viewBox="0 0 32 33"
@@ -37,17 +44,10 @@
         </svg>
       </router-link>
     </div>
-    <div class="col-md-6 my-5 position-relative">
+    <div class="col-md-6 d-none my-5 d-md-block">
       <img
-        style="z-index: 4"
-        class="img-fluid position-relative"
-        src="@/assets/img/academy/Right.png"
-        alt=""
-      />
-      <img
-        style="height: 100%; width: 100%; z-index: 3; top: 0px; left: 0px"
-        class="position-absolute"
-        src="@/assets/img/academy/v.png"
+        class="img-fluid"
+        src="../../../../assets/img/academy/Desktop.png"
         alt=""
       />
     </div>
@@ -56,7 +56,7 @@
 
 <script>
 export default {
-  name: "header-speical",
+  name: "about-academy",
 };
 </script>
 
