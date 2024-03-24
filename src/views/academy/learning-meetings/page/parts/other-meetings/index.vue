@@ -2,48 +2,55 @@
   <div class="containerl">
     <div class="sec-five mt-5 p-3">
       <div class="">
-        <div
-          class="d-flex justify-content-between align-items-center container"
-        >
-          <h1 style="color: #cf1f3e">لقاءات تعليمية أخرى</h1>
-          <!-- <div>
+        <div class="container">
+          <div class="row">
+            <div class="d-flex justify-content-between align-items-center">
+              <h1 style="color: #cf1f3e">لقاءات تعليمية أخرى</h1>
+              <!-- <div>
                         <button class="more">{{ $t('more') }}</button>
                     </div> -->
-          <router-link
-            custom
-            :to="getRouteLocale('academy-learning-meetings')"
-            v-slot="{ navigate }"
-          >
-            <button @click="navigate" role="link" class="more">
-              {{ $t("more") }}
-            </button>
-          </router-link>
-        </div>
-        <d-swiper
+              <router-link
+                custom
+                :to="getRouteLocale('academy-learning-meetings')"
+                v-slot="{ navigate }"
+              >
+                <button @click="navigate" role="link" class="more">
+                  {{ $t("more") }}
+                </button>
+              </router-link>
+            </div>
+            <!-- <d-swiper
           v-if="!loading"
           is-auto
           :items="items"
           class="justify-content-around"
-        >
-          <template v-slot="{ item }">
-            <router-link
+        > -->
+            <!-- <template v-slot="{ item }"> -->
+            <!-- <router-link
               style="width: fit-content"
-              class="router-link"
+              class="router-link col-md-4 col-12"
               :to="
                 getRouteLocale('academy-learning-meeting-show', { id: item.id })
               "
-            >
-              <MeetingCard
-                :item="item"
-                :img="item.image"
-                :title="item.title"
-                :type="item.type"
-                :date="item.date"
-                :time="item.time"
-              />
-            </router-link>
-          </template>
-        </d-swiper>
+            > -->
+            <MeetingCard
+              class=""
+              v-for="(item, i) in items"
+              :key="i"
+              :item="item"
+              :img="item.image"
+              :title="item.title"
+              :type="item.type"
+              :date="item.date"
+              :time="item.time"
+              :id="item.id"
+            />
+            <!-- </router-link> -->
+          </div>
+        </div>
+
+        <!-- </template>
+        </d-swiper> -->
       </div>
     </div>
   </div>
