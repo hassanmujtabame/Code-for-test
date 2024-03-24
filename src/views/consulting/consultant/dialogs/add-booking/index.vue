@@ -143,6 +143,24 @@
                     :value="it"
                   />
                 </div>
+                <div class="d-flex my-1 flex-column">
+                  <label
+                    for="
+"
+                  >
+                    الايام المتاحه
+                  </label>
+                  <ul class="d-flex my-1 align-items-center p-0 gap-1">
+                    <li
+                      v-for="(day, i) in days.days"
+                      :key="i"
+                      class="time-card"
+                      style="list-style: none"
+                    >
+                      {{ translateDayToArabic(day) }}
+                    </li>
+                  </ul>
+                </div>
                 <d-error-input :errors="errors" v-if="errors.length > 1" />
               </ValidationProvider>
             </div>
@@ -580,6 +598,7 @@ export default {
     itemDailog: {},
     itemForm: { start_date: null, description: "", available_time: "" },
     times: [],
+    days: [],
     availability: {},
     attributes_date: [
       {
@@ -734,6 +753,68 @@ export default {
         //
       }
     },
+    translateDayToArabic(day) {
+      const daysMap = {
+        sunday: "الأحد",
+        monday: "الإثنين",
+        tuesday: "الثلاثاء",
+        wednesday: "الأربعاء",
+        thursday: "الخميس",
+        friday: "الجمعة",
+        saturday: "السبت",
+      };
+      return daysMap[day.toLowerCase()] || day; // If the day is not found in the map, return it as is
+    },
+    async loadDays() {
+      try {
+        let { data } = await consultingAPI.consultants.getAvailability(
+          this.itemDailog.id
+        );
+        if (data.success) {
+          // this.days = data.data[0].days;
+
+          this.days = Object.assign(this.availability, {
+            ...data.data[0],
+          });
+          let days = [new Date(this.availability.start_date)];
+          for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
+            days.push(this.addDays(this.availability.start_date, i));
+
+          this.minDate = days[0];
+          this.maxDate = days[days.length - 1];
+          this.times = this.availability.available_times;
+          this.availableDates = days;
+        }
+      } catch (error) {
+        console.mylog("error", error);
+        //
+      }
+    },
+    // async loadDays() {
+    //   try {
+    //     let { data } = await consultingAPI.consultants.getAvailability(
+    //       this.itemDailog.id
+    //     );
+    //     if (data.success) {
+    //       // this.days = data.data[0].days;
+
+    //       this.days = Object.assign(this.availability, {
+    //         ...data.data[0],
+    //       });
+    //       let days = [new Date(this.availability.start_date)];
+    //       for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
+    //         days.push(this.addDays(this.availability.start_date, i));
+
+    //       this.minDate = days[0];
+    //       this.maxDate = days[days.length - 1];
+    //       this.times = this.availability.available_times;
+    //       this.availableDates = days;
+    //     }
+    //   } catch (error) {
+    //     console.mylog("error", error);
+    //     //
+    //   }
+    // },
     openDialog(dataEvt) {
       this.itemDailog = dataEvt.item;
       this.loadAvailableDates();
@@ -757,6 +838,9 @@ export default {
       this.fireCloseDialog(this.group);
     },
   },
+  mounted() {
+    this.loadDays();
+  },
 };
 </script>
 
@@ -768,5 +852,19 @@ export default {
   line-height: 17px;
   /* identical to box height, or 106% */
   color: #979797;
+}
+.time-card {
+  cursor: pointer;
+  border: 1px solid #c1c1c1;
+  padding: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  /* identical to box height, or 142% */
+  color: #737373;
+  border-radius: 4px;
+  min-width: 60px;
+  text-align: center;
+  margin: 0 5px;
 }
 </style>

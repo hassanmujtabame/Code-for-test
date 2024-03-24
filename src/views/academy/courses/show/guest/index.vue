@@ -158,7 +158,7 @@
           <checkoutCourseDiag :show="show" />
 
           <button
-            @click="handleClick"
+            @click="buyCourse"
             style="background-color: #1fb9b3; color: white"
             class="btn px-4 py-2"
           >
@@ -339,6 +339,29 @@ export default {
     },
     handleClick() {
       this.show = true;
+    },
+    async buyCourse() {
+      if (this.shouldLoginMsg()) return;
+      try {
+        let { data } = await academyAPI.PayPackageSelect({
+          course_id: this.itemPage.id,
+          type: "course",
+          user_id: this.user.id,
+        });
+        if (data.success) {
+          window.location.href = data.data.payment_url;
+        } else {
+          console.log(data.response);
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+
+      // this.fireOpenDialog('checkout-course-academy', {
+      //   item: {
+      //     amount: this.itemPage.price,
+      //     title: `${this.$t('the-course')}:${this.itemPage.title}`
+      //   }, data: this.itemPage })
     },
   },
   mounted() {
