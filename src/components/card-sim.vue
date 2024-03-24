@@ -5,7 +5,7 @@
       class=""
     >
       <div class="position-relative">
-        <img :src="item.image_path" alt="" class="img-fluid" />
+        <img height="180px" :src="item.image_path" alt="" class="img-fluid" />
         <p
           class="text-light px-3 rounded-1 position-absolute"
           style="

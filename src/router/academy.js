@@ -65,6 +65,15 @@ const routers = [
       ),
   },
   {
+    path: "academy/speical",
+    meta: { layout: LayoutDefault, title: "Conversations" },
+    name: "academy-speical",
+    component: () =>
+      import(
+        /* webpackChunkName: "academy-conversations" */ "../views/academy/speical/index.vue"
+      ),
+  },
+  {
     path: "academy/my-profile",
     name: "academy-my-profile",
     meta: { layout: LayoutDefault, auth: true, title: "My Profile" },
