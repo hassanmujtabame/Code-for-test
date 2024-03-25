@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="{ opacity: o }">
     <!-- section 1-->
     <SectionAuthHeader />
     <!--#section 1-->
@@ -107,6 +107,11 @@ import SectionTempForAds from "./parts/section-temp-for-ads/index.vue";
 
 export default {
   name: "academy-home",
+  data() {
+    return {
+      o: 1,
+    };
+  },
   components: {
     SectionTempForAds,
     SectionAuthHeader,
@@ -130,6 +135,17 @@ export default {
     SectionContinueLearning,
     SectionHear,
     SectionMostPopularCourses,
+  },
+  methods: {
+    created() {
+      const s = new Date();
+      const d = new Date();
+      const f = 4 * 24 * 60 * 60 * 1000;
+
+      if (d - s >= f) {
+        this.o = 0;
+      }
+    },
   },
 };
 </script>
