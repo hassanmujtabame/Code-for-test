@@ -31,12 +31,18 @@
           </div>
           <sectionTabs :userPage="userPage" />
         </div>
-        <div class="col-12">
+        <div class="">
           <div class="text-start">
             <h5>نقدم دورتنا بكل شغف</h5>
-            <div></div>
           </div>
         </div>
+
+        <CourseCard
+          class="col-md-3 col-12"
+          :item="item"
+          v-for="(item, i) in items"
+          :key="i"
+        />
       </div>
     </div>
   </div>
@@ -210,17 +216,22 @@
 import userAPI from "@/services/api/user.js";
 import UserInfoCard from "@/components/cards/user-info.vue";
 import sectionTabs from "./section-tabs/index.vue";
+import CourseCard from "./card.vue";
+import CoursesAPI from "@/services/api/academy/courses.js";
+
 export default {
   name: "show-profile",
   components: {
     UserInfoCard,
     sectionTabs,
+    CourseCard,
   },
   data: () => {
     return {
       loading: true,
       hasError: false,
       userPage: {},
+      items: [],
     };
   },
   methods: {
@@ -240,9 +251,21 @@ export default {
       }
       this.loading = false;
     },
+    async loadList() {
+      try {
+        let { data } = await CoursesAPI.getAll();
+        if (data.success) {
+          this.items = data.data.slice(0, 4);
+        }
+      } catch (error) {
+        console.log("error", error);
+        console.log("response", error.response);
+      }
+    },
   },
   mounted() {
     this.initializing();
+    this.loadList();
   },
 };
 </script>
