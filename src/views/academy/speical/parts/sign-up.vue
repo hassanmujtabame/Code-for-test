@@ -157,8 +157,10 @@
         أدخل البيانات التالية بدقة لتكون شريك معنا, لابد من رفع ثلاث لقاءات
         مجانية قبل تفعيل حسابك كمدرب
       </p>
+
       <div class="d-flex justify-content-center">
         <router-link
+          v-if="!show"
           :to="getRouteLocale('academy-instructor-register')"
           class="px-5 py-2 d-block btn my-4 rounded-5"
           style="color: #2cb7b3; background-color: white; width: fit-content"
@@ -171,7 +173,57 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      show: true,
+    };
+  },
+  methods: {
+    toggle() {
+      if (this.user.is_instructor) {
+        this.show = false;
+      } else {
+        this.show = true;
+      }
+    },
+    //   toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+    //   toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+    //   toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+    //   toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+    //   toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+  },
+};
 </script>
 
 <style></style>

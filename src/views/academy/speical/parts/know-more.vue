@@ -18,7 +18,7 @@
           />
         </h1>
       </div>
-      <router-link style="color: #2cb7b3; font-size: 30px">
+      <router-link v-if="!show" style="color: #2cb7b3; font-size: 30px">
         أنضمي كمدربة
         <svg
           width="32"
@@ -53,7 +53,43 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      show: true,
+    };
+  },
+  methods: {
+    toggle() {
+      if (this.user.is_instructor) {
+        this.show = false;
+      } else {
+        this.show = true;
+      }
+    },
+    // toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+    // toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+    // toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+  },
+};
 </script>
 
 <style></style>

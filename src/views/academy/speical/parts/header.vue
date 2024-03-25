@@ -9,6 +9,7 @@
       </h1>
       <p>ساهمي في تنمية نساء المجتمع بانضمامك إلينا</p>
       <router-link
+        v-if="!show"
         class=""
         style="color: #2cb7b3; font-size: 30px; font-weight: bold"
         :to="getRouteLocale('academy-instructor-register')"
@@ -57,6 +58,49 @@
 <script>
 export default {
   name: "header-speical",
+  data() {
+    return {
+      // user: user, // Assuming USER is globally accessible
+      show: true,
+    };
+  },
+  methods: {
+    toggle() {
+      if (this.user.is_instructor) {
+        this.show = false;
+      } else {
+        this.show = true;
+      }
+    },
+    // toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+    // toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+    // toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+    // toggle() {
+    //   if (this.user.is_instructor) {
+    //     this.show = false;
+    //   } else {
+    //     this.show = true;
+    //   }
+    // },
+  },
 };
 </script>
 
