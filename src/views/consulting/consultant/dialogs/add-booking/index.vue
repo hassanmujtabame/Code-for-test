@@ -1,5 +1,7 @@
 <template>
   <div class="d-flex flex-column">
+    <d-overlays-simple v-if="loading" />
+
     <d-dialog-large
       v-if="!openSecModal"
       :xl="false"
@@ -616,7 +618,15 @@ export default {
   }),
   methods: {
     save() {
-      this.openSecModal = true;
+      if (
+        this.itemForm.available_time &&
+        this.itemForm.start_date &&
+        this.itemForm.message
+      ) {
+        this.openSecModal = true;
+      } else {
+        window.SwalError("اكمل بيانات الحجز اولا");
+      }
     },
     handleCloseSecModal() {
       this.openSecModal = false;
@@ -730,6 +740,82 @@ export default {
           return false;
       }
     },
+    // async proceedToPayment() {
+    //   switch (this.selectedProvider) {
+    //     case "tamara":
+    //       try {
+    //         // let { data } = await PaymentApi.PayPackageTammara({
+    //         //   package_id: this.id,
+    //         //   type: "package",
+    //         // });
+    //         let { data } = await payment.payNow({
+    //           type: this.type,
+    //           consaltant_id: this.itemPage.id,
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "hyperbill":
+    //       try {
+    //         // let { data } = await PaymentApi.PayPackageHyperBill({
+    //         //   package_id: this.id,
+    //         //   type: "package",
+    //         // });
+    //         let { data } = await payment.payNow({
+    //           type: this.type,
+    //           consaltant_id: this.itemPage.id,
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "myfatoorah":
+    //       try {
+    //         let { data } = await payment.payNow({
+    //           type: this.type,
+    //           consaltant_id: this.itemPage.id,
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "card":
+    //       try {
+    //         let { data } = await payment.payNow({
+    //           type: this.type,
+    //           consaltant_id: this.itemPage.id,
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     default:
+    //       // Handle case where no provider is selected
+    //       window.errorMsg("اختار بوابة الدفع");
+    //       return false;
+    //   }
+    // },
     async loadAvailableDates() {
       try {
         let { data } = await consultingAPI.consultants.getAvailability(
@@ -766,12 +852,14 @@ export default {
       return daysMap[day.toLowerCase()] || day; // If the day is not found in the map, return it as is
     },
     async loadDays() {
+      this.loading = true;
       try {
         let { data } = await consultingAPI.consultants.getAvailability(
           this.itemDailog.id
         );
         if (data.success) {
           // this.days = data.data[0].days;
+          // this.loading = false;
 
           this.days = Object.assign(this.availability, {
             ...data.data[0],
@@ -787,7 +875,11 @@ export default {
         }
       } catch (error) {
         console.mylog("error", error);
+        // this.loading = false;
+
         //
+      } finally {
+        this.loading = false;
       }
     },
     // async loadDays() {
@@ -854,7 +946,7 @@ export default {
   color: #979797;
 }
 .time-card {
-  cursor: pointer;
+  /* cursor: pointer; */
   border: 1px solid #c1c1c1;
   padding: 5px;
   font-weight: 400;
