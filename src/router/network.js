@@ -48,7 +48,7 @@ const routers = [
   },
   {
     path: "network/offers/dashboard",
-    meta: { auth: true, layout: LayoutDefault, title: "Offers Dashboard" },
+    meta: {  layout: LayoutDefault, title: "Offers Dashboard" },
     name: "network-offers-dashboard",
     component: () =>
       import(
@@ -186,7 +186,7 @@ const routers = [
   },
   {
     path: "network/blogs",
-    meta: { layout: LayoutDefault, auth: true, title: "Blogs" },
+    meta: { layout: LayoutDefault,  title: "Blogs" },
     name: "network-blogs",
     component: () =>
       import(
@@ -204,7 +204,7 @@ const routers = [
   },
   {
     path: "network/blogs/:id(\\d+)",
-    meta: { layout: LayoutDefault, auth: true, title: "Blog" },
+    meta: { layout: LayoutDefault,  title: "Blog" },
     name: "network-blog-show",
     component: () =>
       import(
@@ -240,7 +240,7 @@ const routers = [
   },
   {
     path: "network/exhibitions",
-    meta: { layout: LayoutDefault, auth: true, title: "Exhibitions" },
+    meta: { layout: LayoutDefault,  title: "Exhibitions" },
     name: "network-exhibitions",
     component: () =>
       import(
@@ -276,7 +276,7 @@ const routers = [
   },
   {
     path: "network/offers",
-    meta: { layout: LayoutDefault, auth: true, title: "Offers" },
+    meta: { layout: LayoutDefault,  title: "Offers" },
     name: "network-offers",
     component: () =>
       import(
@@ -307,7 +307,7 @@ const routers = [
   },
   {
     path: "network/members",
-    meta: { layout: LayoutDefault, auth: true, title: "Member Network" },
+    meta: { layout: LayoutDefault, title: "Member Network" },
     name: "network-member-network",
     component: () =>
       import(
@@ -325,7 +325,7 @@ const routers = [
   },
   {
     path: "network/models",
-    meta: { layout: LayoutDefault, auth: true, title: "Models" },
+    meta: { layout: LayoutDefault,  title: "Models" },
     name: "network-models",
     component: () =>
       import(

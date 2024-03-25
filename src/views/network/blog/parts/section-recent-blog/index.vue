@@ -6,6 +6,7 @@
       </div>
       <div>
         <button
+          v-if="token"
           @click="addBlog"
           class="btn bg-main px-5 py-2 border text-white"
         >

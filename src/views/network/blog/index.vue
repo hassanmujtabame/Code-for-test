@@ -11,6 +11,7 @@
             </p>
             <div>
               <button
+                v-if="token"
                 @click="addBlog"
                 style="display: inline-flex"
                 class="btn bg px-5 py-2 border align-items-center gap-2 text-white"

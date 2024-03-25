@@ -1,9 +1,9 @@
 <template>
   <div style="margin-top: 96px">
     <d-overlays-simple v-if="loading" />
-    <div v-else-if="hasError">
+    <!-- <div v-else-if="hasError">
       {{ $t("has-error") }}
-    </div>
+    </div> -->
     <div v-else class="container">
       <div class="position-relative">
         <img

@@ -23,26 +23,29 @@
             الصفحه الرئيسيه
           </router-link>
         </b-dropdown-item>
-        <b-dropdown-item
-          class="nav-link nav-item"
-          style="cursor: pointer"
-          @click="checkExhibitionsSub()"
-        >
-          {{ $t("Exhibitions") }}
+        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+          <!-- {{ $t("Exhibitions") }} -->
+          <router-link
+            :to="getRouteLocale('network-exhibitions')"
+            class="nav-link"
+            >{{ $t("Exhibitions") }}</router-link
+          >
         </b-dropdown-item>
-        <b-dropdown-item
-          class="nav-link nav-item"
-          style="cursor: pointer"
-          @click="checkSub()"
-        >
-          {{ $t("Offers") }}
+        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+          <!-- {{ $t("Offers") }} -->
+          <router-link
+            :to="getRouteLocale('network-offers')"
+            class="nav-link"
+            >{{ $t("Offers") }}</router-link
+          >
         </b-dropdown-item>
-        <b-dropdown-item
-          class="nav-link nav-item"
-          style="cursor: pointer"
-          @click="checkModelsSub()"
-        >
-          {{ $t("Models") }}
+        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+          <router-link
+            :to="getRouteLocale('network-models')"
+            class="nav-link"
+            >{{ $t("Models") }}</router-link
+          >
+          <!-- {{ $t("Models") }} -->
         </b-dropdown-item>
         <b-dropdown-item class="nav-item">
           <router-link :to="getRouteLocale('network-blogs')" class="nav-link">{{
@@ -410,63 +413,63 @@ export default {
         }
       }
     },
-    checkExhibitionsSub() {
-      if (!this.showExhibition) {
-        let dataEvt = {
-          title: "للأسف لايمكنك  رؤية المعارض  ",
-          description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على المعارض    - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من المعارض و المزيد من المميزات في الشبكة`,
-          image: `${this.publicPath}assets/img/EmptyState.png`,
-          btns: [
-            {
-              title: "رقي حسابك",
-              action: () => this.$router.push({ name: "network-subscribe" }),
-            },
-          ],
-        };
-        this.showConfirmMsg(dataEvt);
-        return;
-      } else {
-        this.router_push("network-exhibitions");
-      }
-    },
-    checkModelsSub() {
-      if (!this.showOffers) {
-        let dataEvt = {
-          title: "للأسف لايمكنك  رؤية النماذج  ",
-          description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على النماذج  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من النماذج و المزيد من المميزات في الشبكة`,
-          image: `${this.publicPath}assets/img/EmptyState.png`,
-          btns: [
-            {
-              title: "رقي حسابك",
-              action: () => this.$router.push({ name: "network-subscribe" }),
-            },
-          ],
-        };
-        this.showConfirmMsg(dataEvt);
-        return;
-      } else {
-        this.router_push("network-models");
-      }
-    },
-    checkSub() {
-      if (!this.showOffers) {
-        let dataEvt = {
-          title: "للأسف لايمكنك  رؤية العروض  ",
-          description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
-          image: `${this.publicPath}assets/img/EmptyState.png`,
-          btns: [
-            {
-              title: "رقي حسابك",
-              action: () => this.$router.push({ name: "network-subscribe" }),
-            },
-          ],
-        };
-        this.showConfirmMsg(dataEvt);
-        return;
-      } else {
-        this.router_push("network-offers");
-      }
-    },
+    // checkExhibitionsSub() {
+    //   if (!this.showExhibition) {
+    //     let dataEvt = {
+    //       title: "للأسف لايمكنك  رؤية المعارض  ",
+    //       description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على المعارض    - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من المعارض و المزيد من المميزات في الشبكة`,
+    //       image: `${this.publicPath}assets/img/EmptyState.png`,
+    //       btns: [
+    //         {
+    //           title: "رقي حسابك",
+    //           action: () => this.$router.push({ name: "network-subscribe" }),
+    //         },
+    //       ],
+    //     };
+    //     this.showConfirmMsg(dataEvt);
+    //     return;
+    //   } else {
+    //     this.router_push("network-exhibitions");
+    //   }
+    // },
+    // checkModelsSub() {
+    //   if (!this.showOffers) {
+    //     let dataEvt = {
+    //       title: "للأسف لايمكنك  رؤية النماذج  ",
+    //       description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على النماذج  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من النماذج و المزيد من المميزات في الشبكة`,
+    //       image: `${this.publicPath}assets/img/EmptyState.png`,
+    //       btns: [
+    //         {
+    //           title: "رقي حسابك",
+    //           action: () => this.$router.push({ name: "network-subscribe" }),
+    //         },
+    //       ],
+    //     };
+    //     this.showConfirmMsg(dataEvt);
+    //     return;
+    //   } else {
+    //     this.router_push("network-models");
+    //   }
+    // },
+    // checkSub() {
+    //   if (!this.showOffers) {
+    //     let dataEvt = {
+    //       title: "للأسف لايمكنك  رؤية العروض  ",
+    //       description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
+    //       image: `${this.publicPath}assets/img/EmptyState.png`,
+    //       btns: [
+    //         {
+    //           title: "رقي حسابك",
+    //           action: () => this.$router.push({ name: "network-subscribe" }),
+    //         },
+    //       ],
+    //     };
+    //     this.showConfirmMsg(dataEvt);
+    //     return;
+    //   } else {
+    //     this.router_push("network-offers");
+    //   }
+    // },
     switchRoleServiceProvider() {
       this.$store.commit("changeRole");
       if (this.$store.state.isProviderRole) {
