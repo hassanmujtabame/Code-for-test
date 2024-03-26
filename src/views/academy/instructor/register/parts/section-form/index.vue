@@ -33,7 +33,7 @@
             >
               <template>
                 <div :class="{ bye: tab !== 1 }" class="d-flex flex-column">
-                  <div class="col-md-4 w-100 mt-2">
+                  <!-- <div class="col-md-4 w-100 mt-2">
                     <ValidationProvider
                       tag="div"
                       class="w-100 d-flex flex-column gap-1"
@@ -52,7 +52,7 @@
                         placeholder="ادخل الاسم"
                       />
                     </ValidationProvider>
-                  </div>
+                  </div> -->
 
                   <div class="col-md-4 w-100 mt-2">
                     <ValidationProvider
@@ -136,7 +136,7 @@
                       />
                     </ValidationProvider>
                   </div> -->
-                  <div class="col-md-4 w-100 mt-2">
+                  <!-- <div class="col-md-4 w-100 mt-2">
                     <ValidationProvider
                       tag="div"
                       class="w-100 d-flex gap-1 flex-column"
@@ -166,8 +166,8 @@
                         </template>
                       </d-text-input>
                     </ValidationProvider>
-                  </div>
-                  <div class="col-md-4 w-100 mt-2">
+                  </div> -->
+                  <!-- <div class="col-md-4 w-100 mt-2">
                     <ValidationProvider
                       tag="div"
                       class="w-100"
@@ -195,7 +195,7 @@
                         </template>
                       </d-text-input>
                     </ValidationProvider>
-                  </div>
+                  </div> -->
                   <!-- <div class="col-md-4 w-100 mt-2">
                   <ValidationProvider
                     tag="div"
@@ -2101,10 +2101,10 @@ export default {
             bio,
             cv,
             terms_use,
-            name,
-            password,
+            // name,
+            // password,
             phone,
-            password_confirmation,
+            // password_confirmation,
             country_id,
             birthday,
             gender,
@@ -2118,10 +2118,10 @@ export default {
             bio,
             cv,
             terms_use,
-            name,
-            password,
+            // name,
+            // password,
             phone,
-            password_confirmation,
+            // password_confirmation,
             country_id,
             birthday,
             gender,
@@ -2146,6 +2146,138 @@ export default {
       }
       this.loading = false;
     },
+    // async save() {
+    //   this.loading = true;
+    //   let valid = await this.$refs.form.validate();
+    //   if (!valid) {
+    //     console.mylog("invalid");
+    //     this.loading = false;
+    //     return;
+    //   }
+
+    //   try {
+    //     let form = {};
+    //     if (!this.user) form = { ...this.itemForm };
+    //     else {
+    //       let {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //         // name,
+    //         // password,
+    //         phone,
+    //         // password_confirmation,
+    //         country_id,
+    //         birthday,
+    //         gender,
+    //         identity_id,
+    //       } = this.itemForm;
+    //       form = {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //         // name,
+    //         // password,
+    //         phone,
+    //         // password_confirmation,
+    //         country_id,
+    //         birthday,
+    //         gender,
+    //         identity_id,
+    //       };
+    //     }
+    //     let formData = this.loadObjectToForm(form);
+    //     let { data } = await instructorAPI.register(formData);
+    //     if (data.success) {
+    //       this.successRegister();
+    //     } else {
+    //       window.SwalError(data.message);
+    //     }
+    //   } catch (error) {
+    //     console.mylog("error", error);
+    //     if (error.response) {
+    //       let response = error.response;
+    //       if (response.status == 422) {
+    //         this.setErrorsForm(this.$refs.form, response);
+    //       }
+    //     }
+    //   }
+    //   this.loading = false;
+    // },
+    // async save() {
+    //   this.loading = true;
+    //   let valid = await this.$refs.form.validate();
+    //   if (!valid) {
+    //     console.mylog("invalid");
+    //     this.loading = false;
+    //     return;
+    //   }
+
+    //   try {
+    //     let form = {};
+    //     if (!this.user) form = { ...this.itemForm };
+    //     else {
+    //       let {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //         // name,
+    //         // password,
+    //         phone,
+    //         // password_confirmation,
+    //         country_id,
+    //         birthday,
+    //         gender,
+    //         identity_id,
+    //       } = this.itemForm;
+    //       form = {
+    //         department_id,
+    //         scientific_degree,
+    //         job_title,
+    //         years_experience,
+    //         bio,
+    //         cv,
+    //         terms_use,
+    //         // name,
+    //         // password,
+    //         phone,
+    //         // password_confirmation,
+    //         country_id,
+    //         birthday,
+    //         gender,
+    //         identity_id,
+    //       };
+    //     }
+    //     let formData = this.loadObjectToForm(form);
+    //     let { data } = await instructorAPI.register(formData);
+    //     if (data.success) {
+    //       this.successRegister();
+    //     } else {
+    //       window.SwalError(data.message);
+    //     }
+    //   } catch (error) {
+    //     console.mylog("error", error);
+    //     if (error.response) {
+    //       let response = error.response;
+    //       if (response.status == 422) {
+    //         this.setErrorsForm(this.$refs.form, response);
+    //       }
+    //     }
+    //   }
+    //   this.loading = false;
+    // },
     // async save() {
     //   this.loading = true;
     //   let valid = await this.$refs.form.validate();

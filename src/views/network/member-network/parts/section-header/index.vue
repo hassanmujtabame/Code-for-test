@@ -16,12 +16,22 @@
             <p style="color: #888; font-size: 20px">
               من كل انحاء السعودية و الوطن العربي والعالم
             </p>
-            <!-- <button
+            <router-link
+              v-if="!token"
+              :to="getRouteLocale('login')"
               style="background-color: #f2631c"
               class="btn px-5 text-light py-2"
             >
-              انضم الان
-            </button> -->
+              انضم الينا
+            </router-link>
+            <router-link
+              v-if="token"
+              :to="getRouteLocale('academy-instructor-register')"
+              style="background-color: #f2631c"
+              class="btn px-5 text-light py-2"
+            >
+              انضم الينا
+            </router-link>
           </div>
         </div>
         <div class="col-12 col-md-6" v-if="!isMobile">
