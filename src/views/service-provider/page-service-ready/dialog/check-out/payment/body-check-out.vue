@@ -1,145 +1,363 @@
 <template>
-  <div class="">
-    <div class="box p-4 shadow m-4 chekout">
-      <div class="row justify-content-between">
-        <div class="col-6">
-          <h6 style="color: #888" class="mt-4 fw-bold">استكمل عملية الدفع</h6>
-          <div class="group-btn-type-pay">
-            <btnTypePay
-              name="pay-type"
-              v-for="(btn, i) in payment_types"
-              :key="i"
-              :valueDefault="btn.id"
-              v-model="itemForm.payment_type"
-            >
-              <template v-if="btn.type == 'text'">
-                {{ btn.name }}
-              </template>
-              <component v-else :is="btn.name"></component>
-            </btnTypePay>
-          </div>
-        </div>
-        <div class="col-7">
-          <div class="row justify-content-center">
-            <!-- btn pyment type-->
-            <p class="fw-bold">معلومات الفاتوره</p>
-            <div class="d-flex flex-wrap justify-content-around">
-              <div class="mt-3 col-5">
-                <p>الاسم الاول</p>
-                <input class="form-control" type="text" />
-              </div>
-
-              <div class="mt-3 col-5">
-                <p>الاسم الثانى</p>
-                <input class="form-control" type="text" />
-              </div>
-              <div class="mt-3 col-5">
-                <p>الايميل</p>
-                <input class="form-control" type="email" />
-              </div>
-              <div class="mt-3 col-5">
-                <p>الدوله</p>
-                <select class="form-select">
-                  <option value="1">السعوديه</option>
-                  <option value="2">مصر</option>
-                  <option value="3">فلسطين</option>
-                </select>
-              </div>
-
-              <div class="mt-3 col-11">
-                <p>العنوان</p>
-                <input class="form-control" type="text" />
-              </div>
-
-              <div class="mt-3 col-5">
-                <p>رقم المحمول</p>
-                <input class="form-control" />
-              </div>
-              <div class="mt-3 col-5">
-                <p>المنطقه</p>
-                <select class="form-select">
-                  <option value="1">المنطقه 1</option>
-                  <option value="2">المنطقه 2</option>
-                  <option value="3">المنطقه 3</option>
-                </select>
-              </div>
+  <div
+    v-if="openModal"
+    style="
+      top: 0;
+      left: 0;
+      z-index: 99999;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    "
+    class="position-fixed overflow-y-auto"
+  >
+    <!-- <Modal
+        :selectedProvider="selectedProvider"
+        @payNow="proceedToPayment"
+        @closeModal="handleEmit"
+      /> -->
+    <div style="background-color: white; height: auto" class="container">
+      <div class="text-end py-5 px-5">
+        <button
+          @click="handleClose"
+          class=""
+          style="
+            color: red;
+            font-size: 20px;
+            border: none;
+            background-color: transparent;
+          "
+        >
+          X
+        </button>
+      </div>
+      <div class="row justify-content-center align-items-center">
+        <div class="row">
+          <div class="col-md-8 col-12">
+            <div class="text-end">
+              <h3 class="my-4">تفاصيل الدفع</h3>
             </div>
-          </div>
-          <div class="row justify-content-center">
-            <!-- btn pyment type-->
-          </div>
-        </div>
-        <div class="col-5 justify-content-end tex-end">
-          <div class="border mt-2 payment-card-detail">
-            <div class="box">
-              <h6 class="">
-                {{ title }}
-              </h6>
-              <slot :item="itemForm" :otherData="otherData"></slot>
-
-              <div v-if="!hideAmount" class="input-group mb-3 mt-2">
-                <ValidationObserver ref="amount">
-                  <ValidationProvider
-                    vid="price"
-                    :name="$t('amount')"
-                    :rules="changeable_ ? 'required|numeric' : ''"
-                    v-slot="{ errors }"
+            <div class="card border-info col-12 mb-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <label
+                    class="form-check-label d-flex align-items-center justify-content-between px-2"
+                    for="card"
                   >
-                    <p class="fw-bold">المجموع ر.س</p>
-                    <input
-                      type="text"
-                      :disabled="!changeable_"
-                      v-model="total_ammount"
-                      class="form-control"
-                      placeholder="ادخل المبلغ"
+                    <div>
+                      الدفع بواسطة بطاقة الائتمان
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="card"
+                        value="card"
+                        v-model="selectedProvider"
+                      />
+                    </div>
+                    <img
+                      src="@/assets/img/payment/Group 1171276314.png"
+                      alt="payment method"
                     />
-
-                    <d-error-input :errors="errors" v-if="errors" />
-                  </ValidationProvider>
-                </ValidationObserver>
+                  </label>
+                </div>
               </div>
-              <input
-                type="text"
-                class="form-control mb-2 mt-2"
-                placeholder=" ادخل كود الخصم  "
-              />
-
-              <div>
-                <p style="font-size: 12px; text-align: center">
-                  بإتمامك لعملية الشراء أنت توافق على
-                  <span>
-                    <a href="" class="m-c"> شروط الاستخدام </a>
-                  </span>
+            </div>
+            <div
+              style="
+                padding-right: 0.55rem !important;
+                padding-left: 0.55rem !important;
+              "
+              class="row"
+            >
+              <div class="card-container col-md-6 col-12 px-1">
+                <div style="padding-top: 4px" class="card border-info mb-3">
+                  <div class="card-body">
+                    <div class="form-check">
+                      <label
+                        class="form-check-label d-flex align-items-center justify-content-between px-2"
+                        for="tamara"
+                      >
+                        <div>
+                          الدفع بواسطة تمارا
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            id="tamara"
+                            value="tamara"
+                            v-model="selectedProvider"
+                          />
+                        </div>
+                        <img
+                          src="@/assets/img/payment/Group 1171276324.png"
+                          alt="payment method"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-container col-md-6 col-12 px-1">
+                <div class="card border-info mb-3">
+                  <div class="card-body">
+                    <div class="form-check">
+                      <label
+                        class="form-check-label d-flex align-items-center justify-content-between px-2"
+                        for="tabi"
+                      >
+                        <div class="">
+                          الدفع بواسطة تابى
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            id="tabi"
+                            value="tabi"
+                            v-model="selectedProvider"
+                          />
+                        </div>
+                        <img
+                          src="@/assets/img/payment/Group 1171276318.png"
+                          alt="img"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-container col-md-6 col-12 px-1">
+                <div class="card border-info mb-3">
+                  <div class="card-body">
+                    <div class="form-check">
+                      <label
+                        class="form-check-label d-flex align-items-center justify-content-between px-2"
+                        for="hyperbill"
+                      >
+                        <div class="">
+                          الدفع بواسطة هايبر بيل
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            id="hyperbill"
+                            value="hyperbill"
+                            v-model="selectedProvider"
+                          />
+                        </div>
+                        <img
+                          src="@/assets/img/academy/hyber.png"
+                          alt="img"
+                          width="91"
+                          height="25"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-12 my-5">
+              <h2 class="text-dark">اهداء الاشتراك لصديق؟</h2>
+              <div class="rounded-1 border">
+                <p class="border-bottom mx-2 my-2">
+                  🎁 تقديم هذا الاشتراك كهدية؟
                 </p>
+                <div class="form-group my-2 mx-4">
+                  <input
+                    style="border: 2px solid #2cb7b3"
+                    class="form-check-input"
+                    type="checkbox"
+                    id="defaultCheck1"
+                    v-bind="giveToAFriend"
+                    @input="handleChange"
+                  />
+                  <label class="form-check-label mx-2" for="defaultCheck1">
+                    نعم، أريد تقديم هذا الاشتراك كهدية
+                   
+                  </label>
+                  <div v-if="giveToAFriend">
+                    <input
+                      v-model="email"
+                      required
+                      class="form-control"
+                      placeholder="ادخل البريد الالكترونى"
+                      type="email"
+                      name=""
+                      id="email"
+                    />
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button
+                    @click="proceedToPaymentFriend"
+                    style="background-color: #1fb9b3; width: 80%"
+                    class="btn my-2 text-light"
+                    :disabled="!giveToAFriend"
+                  >
+                    التاكيد والدفع
+                  </button>
+                </div>
               </div>
-              <div class="text-center">
-                <button @click="payment" class="btn bg-main p-2 text-white">
-                  تاكيد الدفع
+            </div> -->
+
+            <!-- <div class="card border-info col-md-4 col-12 mb-3">
+                 <div class="card-body">
+                  <div class="form-check">
+                    <label
+                      class="form-check-label d-flex align-items-center justify-content-between px-2"
+                      for="myfatoorah"
+                    >
+                      <div>
+                        MyFatoorah
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="myfatoorah"
+                          value="myfatoorah"
+                          v-model="selectedProvider"
+                        />
+                      </div>
+                      <img src="@/assets/img/payment/Group.png" alt="img" />
+                    </label>
+                  </div>
+                </div> 
+              </div> -->
+          </div>
+          <div class="col-md-4 col-12">
+            <div class="d-flex my-4 flex-column gap-4">
+              <!-- <div
+                class="justify-content-between mx-2 align-items-center d-flex"
+              >
+                <h4 style="font-size: 18px">خطة {{ title }}</h4>
+                <button
+                  @click="handleClose"
+                  style="
+                    background-color: transparent;
+                    color: #1fb9b3;
+                    text-decoration: underline;
+                    border: none;
+                    font-size: 16px;
+                    font-weight: bold;
+                  "
+                >
+                  تغيير
                 </button>
+              </div>  -->
+              <!-- <div
+                style="border-bottom: 1px solid #888"
+                class="justify-content-between mx-2 align-items-center d-flex"
+              >
+                <h4 style="font-size: 16px; color: #888">
+                  <svg
+                    width="20"
+                    height="19"
+                    viewBox="0 0 28 27"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14 25.5938C8.105 25.5938 3.3125 20.8013 3.3125 14.9062C3.3125 9.01125 8.105 4.21875 14 4.21875C19.895 4.21875 24.6875 9.01125 24.6875 14.9062C24.6875 20.8013 19.895 25.5938 14 25.5938ZM14 5.90625C9.03875 5.90625 5 9.945 5 14.9062C5 19.8675 9.03875 23.9062 14 23.9062C18.9613 23.9062 23 19.8675 23 14.9062C23 9.945 18.9613 5.90625 14 5.90625Z"
+                      fill="#414042"
+                    />
+                    <path
+                      d="M14 15.4688C13.5387 15.4688 13.1562 15.0862 13.1562 14.625V9C13.1562 8.53875 13.5387 8.15625 14 8.15625C14.4612 8.15625 14.8438 8.53875 14.8438 9V14.625C14.8438 15.0862 14.4612 15.4688 14 15.4688Z"
+                      fill="#414042"
+                    />
+                    <path
+                      d="M17.375 3.09375H10.625C10.1637 3.09375 9.78125 2.71125 9.78125 2.25C9.78125 1.78875 10.1637 1.40625 10.625 1.40625H17.375C17.8363 1.40625 18.2188 1.78875 18.2188 2.25C18.2188 2.71125 17.8363 3.09375 17.375 3.09375Z"
+                      fill="#414042"
+                    />
+                  </svg>
+                  اشتراك كل
+
+                  {{ title }}
+                </h4>
+                <h4 style="color: #888; font-size: 16px">{{ price }} ر.س</h4>
+              </div> -->
+              <!-- <div
+                style="border-bottom: 1px solid #888"
+                class="justify-content-between mx-2 align-items-center d-flex"
+              >
+                <h4 style="font-size: 18px">المجموع</h4>
+                <h4 style="font-size: 18px">{{ price }} ر.س</h4>
+              </div> -->
+              <div class="text-center">
+                <label style="font-weight: bold; font-size: 20px" for="discount"
+                  >كود الخصم</label
+                >
+                <div class="row justify-content-center">
+                  <div
+                    class="d-flex flex-column my-3 w-75 position-relative align-items-center"
+                  >
+                    <input
+                      class="px-4 rounded-3 py-2 form-control"
+                      id="discount"
+                      type="text"
+                      style="border: 1px dashed gray; border-left: none"
+                      placeholder="ادخل كود الخصم"
+                    />
+                    <button
+                      style="
+                        background-color: rgb(31, 185, 179);
+                        color: white;
+                        font-size: 18px;
+                        top: -1px;
+                        left: 10px;
+                      "
+                      class="btn py-2 px-4 position-absolute rounded-2"
+                    >
+                      تطبيق
+                    </button>
+                    <button
+                      @click="proceedToPayment"
+                      style="background-color: #1fb9b3; color: white"
+                      class="btn my-4 w-100 px-5 py-2"
+                    >
+                      التاكيد و الدفع
+                    </button>
+                  </div>
+                  <p style="font-size: 14px">
+                    بالنقر على التاكيد و الدفع فانت توافق على
+                    <router-link
+                      :to="getRouteLocale('conditions')"
+                      class=""
+                      style="
+                        color: rgb(31, 185, 179);
+                        font-weight: 500;
+                        text-decoration: underline;
+                      "
+                    >
+                      الشروط و الاحكام
+                    </router-link>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+
+          <!-- <div class="d-flex flex-column">
+              <h2 style="color: #">اهداء الاشتراك لصديق؟</h2>
+            </div> -->
         </div>
       </div>
+      <!-- <div class="col-12 text-center">
+          <button
+            @click="proceedToPayment"
+            style="background-color: #1fb9b3; color: white"
+            class="btn px-5 py-2"
+          >
+            التاكيد و الدفع
+          </button>
+        </div> -->
     </div>
   </div>
 </template>
 
 <script>
-import btnTypePay from "./btn-type-pay.vue";
-import applePayIcon from "@/components/icon-svg/apple-pay.vue";
-import stcPayIcon from "@/components/icon-svg/stc-pay.vue";
-import visa2Icon from "@/components/icon-svg/visa.vue";
-import noPathIcon from "@/components/icon-svg/no-path.vue";
-import mastercardIcon from "@/components/icon-svg/master-card.vue";
-import CreditCardImage from "@/components/credit-card/credit-card-img.vue";
-import userAPI from "@/services/api/user.js";
-import creditCardMixins from "@/common/mixins/credit-card.vue";
-import incubatorAPI from "@/services/api/incubator";
+import { mapState } from "vuex";
+
+import PaymentApi from "@/services/api/payment";
+import networkAPI from "@/services/api/network";
+import Modal from "@/components/Modal-network.vue";
 
 export default {
-  mixins: [creditCardMixins],
-
   props: {
     group: {
       type: String,
@@ -173,264 +391,754 @@ export default {
       },
     },
   },
+  // props: {
+  //   itemId: {
+  //     type: [String, Number],
+  //   },
+  //   title: {
+  //     type: String,
+  //   },
+  //   price: {
+  //     type: [String, Number],
+  //   },
+  //   id: {
+  //     type: [String, Number],
+  //   },
+  //   type_subscribe: {
+  //     type: String,
+  //   },
+  //   typeSectionSub: {
+  //     type: String,
+  //   },
+  //   pack: {
+  //     type: [Array, Object],
+  //   },
+  //   features: {
+  //     type: [Array, Object],
+  //   },
+  //   subscribed: {
+  //     // type: [Array, Object]
+  //     type: [String, Number],
+  //   },
+  // },
   components: {
-    btnTypePay,
-    applePayIcon,
-    stcPayIcon,
-    visa2Icon,
-    noPathIcon,
-    mastercardIcon,
-    CreditCardImage,
+    Modal,
   },
-  data: (vm) => {
-    let def_form = { ...vm.defaultForm };
+  data() {
     return {
-      cards: [
-        { id: 5, last4Digits: 2134 },
-        { id: 6, last4Digits: 6433 },
-        { id: 7, last4Digits: 1236 },
-      ],
-      saveCard: false,
-      changeable_: vm.changeable,
-      total_ammount: localStorage.getItem("packagePrice"),
-      title_: localStorage.getItem("selectedPackage"),
-      showDialog: false,
-      payment_types: [
-        { id: 1, name: "بطاقة الائتمان", type: "text" },
-        { id: 3, name: "applePayIcon", type: "icon" },
-        { id: 2, name: "stcPayIcon", type: "icon" },
-      ],
-      itemForm: def_form,
-      itemsIncubator: [],
-      departmentsIds: [],
-      departmentsIncubatorSub: [],
-      openDepartmentsDialog: false,
+      packageType: "",
+      selected_package: true,
+      selectedPackage: "",
+      openModal: false,
+      selectedProvider: null,
+      giveToAFriend: false,
+      email: "",
     };
   },
-  watch: {
-    card_number() {
-      this.sendNumberCard();
-    },
-    card_holder() {
-      this.sendHolderCard();
-    },
-    card_cvv() {
-      this.sendCVVCard();
-    },
-    expiry_date() {
-      this.sendExpiryCard();
-    },
-  },
   methods: {
-    //
-    departmentsIdsIncubatorSelected(id) {
-      if (this.departmentsIncubatorSub.includes(id)) {
-        let indexDepartment = this.departmentsIncubatorSub.indexOf(id);
-        this.departmentsIncubatorSub.splice(indexDepartment, 1);
-        const elem = document.getElementById(`department${id}`);
-        elem.style.opacity = ".4";
-      } else {
-        this.departmentsIncubatorSub.push(id);
-        const elem = document.getElementById(`department${id}`);
-        elem.style.opacity = "1";
-      }
-    },
-    async getDepartmentsIncubator() {
-      try {
-        let { data } = await incubatorAPI.getDepartments();
-        if (data.success) {
-          this.itemsIncubator = data.data;
+    selected(evt) {
+      evt.preventDefault();
+
+      if (this.price == 0) {
+        try {
+          window.axios.defaults.baseURL = "https://api.riadiat.sa/";
+          window.axios
+            .get(
+              `payments/myfatoorah/callback?package_id=${this.itemId}&package_type=${this.packageType}&user_id=${this.user.id}`
+            )
+            .then((res) => {
+              console.log("res", res);
+              this.$refs.normalSteps.nextTab();
+            });
+        } catch (error) {
+          window.SwalError("The given data was invalid");
         }
-      } catch (error) {
-        console.mylog("error", error);
-        //
+      } else {
+        let el = document.getElementById(this.pack.id);
+        el.innerHTML = "تم الاختيار";
+        el.classList.add("upgrade-button");
+        el.classList.remove("subscribe-button");
+        // Advance to the next tab
+        // const scrollY = document.body.scrollHeight - window.innerHeight - 400; // Adjust 100 to your preferred position
+        // window.scrollTo(0, scrollY);
+
+        this.$emit("chosed", this.pack);
       }
     },
-    openDepartmentsDialogIncup() {
-      this.getDepartmentsIncubator();
-      this.openDepartmentsDialog = true;
+    handleModal() {
+      this.openModal = true;
     },
-    closeDepartmentsDialog() {
-      this.openDepartmentsDialog = false;
-    },
-    departmentsIdsSubscriptions() {
+    checkSubscriptionOptions() {
       for (
         let index = 0;
-        index < this.user.system_subscriptions.length;
+        index < this.user.subscription_options.length;
         index++
       ) {
-        const element = this.user.system_subscriptions[index];
-        if (element.system_package.related_to.key == "academy") {
-          for (let index2 = 0; index2 < element.departments.length; index2++) {
-            this.departmentsAcademysub = [];
+        const element = this.user.subscription_options[index];
+        if (element.key == "show_exhibitions") {
+          console.log("444", element);
+        }
+      }
+    },
 
-            // const element2 = element.departments[index2];
-            // this.departmentsAcademysub.push(element2)
-          }
-        } else if (element.system_package.related_to.key == "incubator") {
-          for (let index3 = 0; index3 < element.departments.length; index3++) {
-            this.departmentsIncubatorSub = [];
-
-            // const element3 = Number(element.departments[index3]);
-            // this.departmentsIncubatorSub.push(element3)
+    checkTypePackage() {
+      let date = this.dateToString(new Date());
+      if (this.user.system_subscriptions) {
+        for (
+          let index = 0;
+          index < this.user.system_subscriptions.length;
+          index++
+        ) {
+          const element = this.user.system_subscriptions[index];
+          if (
+            element.system_package.related_to.key == "network" &&
+            element.end_at > date
+          ) {
+            this.subscribedType = element.system_package.id;
           }
         }
       }
     },
-    //
-    async loadCards() {
-      try {
-        let { data } = await userAPI.getCreditCards();
-        if (data.success) {
-          // uncomment this after dealing with api
-          // this.cards = data.data
+    handleChange() {
+      this.giveToAFriend = !this.giveToAFriend; // Toggle the value of giveToA
+    },
+    handleClose() {
+      this.openModal = false;
+    },
+
+    async proceedToPayment() {
+      switch (this.selectedProvider) {
+        case "tamara":
+          try {
+            // let { data } = await PaymentApi.PayPackageTammara({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "hyperbill":
+          try {
+            let { data } = await PaymentApi.PayPackageHyperBill({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+            });
+            // let { data } = await PaymentApi.PayPackageMyFatoorah({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "myfatoorah":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "card":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "tabi":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        default:
+          // Handle case where no provider is selected
+          window.errorMsg("اختار بوابة الدفع");
+          return false;
+      }
+    },
+    async proceedToPaymentFriend() {
+      if (this.price == 0) {
+        try {
+          let { data } = await networkAPI.checkoutPackageFree({
+            package_id: this.id,
+          });
+          if (data.success) {
+            console.log("itsfree", data.data);
+            window.SwalSuccess("تم الاشتراك بنجاح");
+          } else {
+            window.SwalError(data.message);
+          }
+        } catch (error) {
+          console.log("error", error);
         }
-      } catch (error) {
-        console.log("error", error);
+        return;
+      }
+      switch (this.selectedProvider) {
+        case "tamara":
+          try {
+            // let { data } = await PaymentApi.PayPackageTammara({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+              email: this.email,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "hyperbill":
+          try {
+            let { data } = await PaymentApi.PayPackageHyperBill({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+              email: this.email,
+            });
+            // let { data } = await PaymentApi.PayPackageMyFatoorah({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "myfatoorah":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+              email: this.email,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "card":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+              email: this.email,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "tabi":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              // package_id: this.id,
+              // type: "package",
+              service_id: this.otherData.id,
+              user_id: this.user.id,
+              email: this.email,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        default:
+          // Handle case where no provider is selected
+          window.errorMsg("اختار بوابة الدفع");
+          return false;
       }
     },
-    sendChangeFaceCard(face) {
-      this.fireEvent(`credit-card-image-show-face`, face);
-    },
-    sendEventCard(name, data) {
-      this.fireEvent(`credit-card-image-${name}`, data);
-    },
-    sendNumberCard() {
-      this.sendEventCard("card-number", this.card_number);
-    },
-    sendHolderCard() {
-      this.sendEventCard("card-holder", this.card_holder);
-    },
-    sendCVVCard() {
-      this.sendEventCard("cvv", this.card_cvv);
-    },
-    sendExpiryCard() {
-      this.sendEventCard("expiry-date", this.expiry_date);
-    },
-    async payment() {
-      const formData = {
-        service_id: this.otherData.id,
-        user_id: this.user.id,
-      };
-      console.log("formData");
-      console.log(formData);
-      console.log("formData");
-      const response = await axios.post(
-        "https://api.riadiat.sa/api/v1/pay/myfatoorah",
-        formData
-      );
-      // this.articleId = response.data.id;
-      if (response.data.success) {
-        console.log("response");
-        console.log(response.data);
-        console.log("response");
-
-        window.open(response.data.data.payment_url, "_blank");
-      } else {
-        console.log("wrong", response.data);
-        window.SwalError(" حدث خطاء يرجى اعاده المحاوله");
-      }
-
-      // this.$emit('payment', localStorage.getItem('selectedPackageId'))
-    },
+    // async proceedToPayment() {
+    //   if (this.price == 0) {
+    //     try {
+    //       let { data } = await networkAPI.checkoutPackageFree({
+    //         package_id: this.id,
+    //       });
+    //       if (data.success) {
+    //         console.log("itsfree", data.data);
+    //         window.SwalSuccess("تم الاشتراك بنجاح");
+    //       } else {
+    //         window.SwalError(data.message);
+    //       }
+    //     } catch (error) {
+    //       console.log("error", error);
+    //     }
+    //     return;
+    //   }
+    //   switch (this.selectedProvider) {
+    //     case "tamara":
+    //       try {
+    //         // let { data } = await PaymentApi.PayPackageTammara({
+    //         //   package_id: this.id,
+    //         //   type: "package",
+    //         // });
+    //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "hyperbill":
+    //       try {
+    //         let { data } = await PaymentApi.PayPackageHyperBill({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         // let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //         //   package_id: this.id,
+    //         //   type: "package",
+    //         // });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "myfatoorah":
+    //       try {
+    //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "card":
+    //       try {
+    //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "tabi":
+    //       try {
+    //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     default:
+    //       // Handle case where no provider is selected
+    //       window.errorMsg("اختار بوابة الدفع");
+    //       return false;
+    //   }
+    // },
+    // async proceedToPayment() {
+    //   if (this.price == 0) {
+    //     try {
+    //       let { data } = await networkAPI.checkoutPackageFree({
+    //         package_id: this.id,
+    //       });
+    //       if (data.success) {
+    //         console.log("itsfree", data.data);
+    //         window.SwalSuccess("تم الاشتراك بنجاح");
+    //       } else {
+    //         window.SwalError(data.message);
+    //       }
+    //     } catch (error) {
+    //       console.log("error", error);
+    //     }
+    //     return;
+    //   }
+    //   switch (this.selectedProvider) {
+    //     case "tamara":
+    //       try {
+    //         // let { data } = await PaymentApi.PayPackageTammara({
+    //         //   package_id: this.id,
+    //         //   type: "package",
+    //         // });
+    //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "hyperbill":
+    //       try {
+    //         let { data } = await PaymentApi.PayPackageHyperBill({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         // let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //         //   package_id: this.id,
+    //         //   type: "package",
+    //         // });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "myfatoorah":
+    //       try {
+    //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "card":
+    //       try {
+    //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     case "tabi":
+    //       try {
+    //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+    //           package_id: this.id,
+    //           type: "package",
+    //         });
+    //         if (data.success) {
+    //           window.location.href = data.data.payment_url;
+    //         } else {
+    //           console.log(data.response);
+    //         }
+    //       } catch (error) {
+    //         console.log("error", error);
+    //       }
+    //       break;
+    //     default:
+    //       // Handle case where no provider is selected
+    //       window.errorMsg("اختار بوابة الدفع");
+    //       return false;
+    //   }
+    // },
   },
   mounted() {
-    if (process.env.NODE_ENV == "development") {
-      this.card_number = "4242424242424242";
-      this.card_cvv = "123";
-      this.expiry_date = "09/23";
-      this.card_holder = "full name";
-    }
-    this.loadCards();
+    this.packageType = this.$route.meta.type;
+    this.checkTypePackage();
+  },
+  computed: {
+    // Map the 'user' state from the 'auth' module to a local computed property
+    ...mapState("auth", {
+      user: (state) => state.user,
+    }),
   },
 };
 </script>
-
 <style scoped>
-.payment-card-detail {
-  width: 360px;
-  height: 352px;
-  padding: 55px 12px;
+.subscription-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  background: #f9f9f936;
+
+  /* align-items: center; */
+  transition: all 0.3s;
 }
 
-.payment-card-detail > .box {
-  width: 335px;
-  height: 242px;
-}
-
-.group-btn-type-pay {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.group-btn-type-pay > .btn-type-pay {
-  flex: 1;
-  margin-left: 3px;
-}
-
-@media (max-width: 600px) {
-  .chekout {
-    margin: 0 !important;
-  }
-
-  .payment-card-detail {
-    width: 100%;
-  }
-
-  .payment-card-detail > .box {
-    width: 100%;
-  }
-
-  input,
-  label {
-    font-size: 0.65rem;
-  }
-
-  .form-text {
-    font-size: 0.55rem;
-  }
-
-  .form-card {
-    padding: 0;
-  }
-
-  .form-card .form-title {
-    font-size: 0.75rem;
-  }
-
-  .form-check {
-    display: flex;
+@media screen and (max-width: 1200px) {
+  .subscription-card {
+    flex-direction: column;
     align-items: center;
   }
 
-  .form-check-label {
-    margin-left: 2px;
-    margin-right: 2px;
+  .subscription-header {
+    flex-direction: column;
+    align-items: center !important;
+  }
+
+  .subscription-actions {
+    align-self: center !important;
   }
 }
 
-.departmentsDialog-departments {
-  position: absolute;
-  top: 15%;
-  left: 30%;
-  width: 430px;
-  height: 75%;
+.subscription-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.subscription-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subscription-title {
+  font-size: 28px;
+  color: #333;
+  font-weight: 700;
+  margin: 10px 0 10px 20px;
+}
+
+.subscription-price {
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  margin: 40px 20px 0;
+}
+
+.subscription-price span {
+  margin-right: 5px;
+}
+
+.currency {
+  font-size: 24px;
+  color: #555;
+  margin-left: 8px;
+}
+
+.subscription-features {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.features-title {
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-item {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  color: #555;
+  font-size: 18px;
+}
+
+.feature-item i {
+  color: #1fb9b3;
+  margin-right: 10px;
+}
+
+.subscription-actions {
+  align-self: end;
+}
+
+.subscribe-button,
+.upgrade-button,
+.subscribed-button {
+  padding: 12px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  outline: none;
+  width: 180px;
+  transition: all 0.3s;
+}
+
+.subscribe-button {
+  background: linear-gradient(to bottom, #1fb9b3, #13a89d);
+  color: #fff;
+  margin-bottom: 15px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.subscribe-button:hover {
+  background: linear-gradient(to bottom, #13a89d, #1fb9b3);
+}
+
+.upgrade-button {
   background: white;
-  overflow-y: scroll;
+  color: #888;
+  margin-bottom: 20px;
 }
 
-.departmentsDialog {
-  position: absolute;
-  z-index: 100;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 80%;
-  background-color: rgb(0, 0, 0, 0.4);
-  /* overflow-y: scroll; */
+.upgrade-button:hover {
+  opacity: 0.8;
 }
 
-.custom-opacity {
-  opacity: 1 !important;
+.subscribed-button {
+  background: #2eb9b3;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.subscribed-button:hover {
+  opacity: 0.8;
+}
+.card-top {
+  background-color: #1fb9b3;
+}
+.feature-top {
+  color: white;
+}
+.feature-li {
+  background-color: white;
+}
+.top-btn {
+  background-color: #1fb9b3;
+  color: white;
+}
+.baby {
+  background: red;
+}
+.custom-modal-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.bv-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* Customize modal header */
+.b-modal-header {
+  background-color: #007bff;
+  color: #fff;
+}
+/* Customize modal title */
+.b-modal-title {
+  font-size: 1.5rem;
+}
+
+/* Customize modal body */
+.b-modal-body {
+  color: #333;
+}
+
+/* Customize modal footer */
+.b-modal-footer {
+  background-color: #007bff;
+  color: #fff;
+  border-top: none; /* Remove border */
 }
 </style>
