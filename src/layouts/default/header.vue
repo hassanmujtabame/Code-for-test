@@ -67,6 +67,53 @@
           >
         </b-dropdown-item>
       </b-dropdown>
+      <!-- <b-dropdown class="custom-dropdown" :text="'الشبكة'">
+        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+          <router-link :to="{ name: 'network-home' }" class="nav-link">
+            الصفحه الرئيسيه
+          </router-link>
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+          <router-link
+            :to="getRouteLocale('network-exhibitions')"
+            class="nav-link"
+            >{{ $t("Exhibitions") }}</router-link
+          >
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+          <router-link
+            :to="getRouteLocale('network-offers')"
+            class="nav-link"
+            >{{ $t("Offers") }}</router-link
+          >
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+          <router-link
+            :to="getRouteLocale('network-models')"
+            class="nav-link"
+            >{{ $t("Models") }}</router-link
+          >
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-item">
+          <router-link :to="getRouteLocale('network-blogs')" class="nav-link">{{
+            $t("Blogs")
+          }}</router-link>
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-item">
+          <router-link
+            :to="getRouteLocale('network-member-network')"
+            class="nav-link"
+            >{{ $t("members") }}</router-link
+          >
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-item">
+          <router-link
+            :to="{ name: 'consulting-home', params: { lang: $i18n.locale } }"
+            class="nav-link"
+            >{{ $t("consulting") }}</router-link
+          >
+        </b-dropdown-item>
+      </b-dropdown> -->
       <!-- <b-dropdown v-if="user" class="custom-dropdown" :text="'الشبكة'">
         <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
           <router-link :to="{ name: 'network-home' }" class="nav-link">
@@ -413,6 +460,22 @@ export default {
         }
       }
     },
+    // checkSubscriptionOptions() {
+    //   for (
+    //     let index = 0;
+    //     index < this.user.subscription_options.length;
+    //     index++
+    //   ) {
+    //     const element = this.user.subscription_options[index];
+    //     if (element.key == "show_exhibitions") {
+    //       this.showExhibition = true;
+    //     } else if (element.key == "models") {
+    //       this.showModels = true;
+    //     } else if (element.key == "show_offers") {
+    //       this.showOffers = true;
+    //     }
+    //   }
+    // },
     // checkExhibitionsSub() {
     //   if (!this.showExhibition) {
     //     let dataEvt = {
@@ -430,6 +493,25 @@ export default {
     //     return;
     //   } else {
     //     this.router_push("network-exhibitions");
+    //   }
+    // },
+    // checkModelsSub() {
+    //   if (!this.showOffers) {
+    //     let dataEvt = {
+    //       title: "للأسف لايمكنك  رؤية النماذج  ",
+    //       description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على النماذج  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من النماذج و المزيد من المميزات في الشبكة`,
+    //       image: `${this.publicPath}assets/img/EmptyState.png`,
+    //       btns: [
+    //         {
+    //           title: "رقي حسابك",
+    //           action: () => this.$router.push({ name: "network-subscribe" }),
+    //         },
+    //       ],
+    //     };
+    //     this.showConfirmMsg(dataEvt);
+    //     return;
+    //   } else {
+    //     this.router_push("network-models");
     //   }
     // },
     // checkModelsSub() {
@@ -470,6 +552,25 @@ export default {
     //     this.router_push("network-offers");
     //   }
     // },
+    // checkSub() {
+    //   if (!this.showOffers) {
+    //     let dataEvt = {
+    //       title: "للأسف لايمكنك  رؤية العروض  ",
+    //       description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الإطلاع على العروض والخصومات   - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من العروض و المزيد من المميزات في الشبكة`,
+    //       image: `${this.publicPath}assets/img/EmptyState.png`,
+    //       btns: [
+    //         {
+    //           title: "رقي حسابك",
+    //           action: () => this.$router.push({ name: "network-subscribe" }),
+    //         },
+    //       ],
+    //     };
+    //     this.showConfirmMsg(dataEvt);
+    //     return;
+    //   } else {
+    //     this.router_push("network-offers");
+    //   }
+    // },
     switchRoleServiceProvider() {
       this.$store.commit("changeRole");
       if (this.$store.state.isProviderRole) {
@@ -478,6 +579,14 @@ export default {
         localStorage.setItem("providerOrclient", JSON.stringify("client"));
       }
     },
+    // switchRoleServiceProvider() {
+    //   this.$store.commit("changeRole");
+    //   if (this.$store.state.isProviderRole) {
+    //     localStorage.setItem("providerOrclient", JSON.stringify("provider"));
+    //   } else if (!this.$store.state.isProviderRole) {
+    //     localStorage.setItem("providerOrclient", JSON.stringify("client"));
+    //   }
+    // },
   },
   computed: {
     userIsRoleProvider() {
