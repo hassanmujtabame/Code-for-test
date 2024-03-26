@@ -60,7 +60,8 @@ export default {
         },
         {
           title: "العطور",
-          img: `../../../../../assets/img/academy/fi_1890693.png`,
+          // img: `../../../../../assets/img/academy/fi_1890693.png`,
+          img: `../../../assets/img/academy/fi_1890693.png`,
           icon: "perfioum",
           id: 32,
         },
@@ -80,6 +81,64 @@ export default {
           icon: "beauty",
         },
       ],
+      // items: [
+      //   {
+      //     title: "المجوهرات",
+      //     img: `${vm.publicPath}assets/icons/jewelry.svg`,
+      //     icon: "jewelry",
+      //     id: 7,
+      //   },
+      //   {
+      //     title: "الازيــــــاء",
+      //     img: `${vm.publicPath}assets/icons/fashion.svg`,
+      //     icon: "fashion",
+      //     id: 36,
+      //   },
+      //   {
+      //     title: "التقنية",
+      //     img: `${vm.publicPath}assets/icons/techinic.svg`,
+      //     icon: "techinic",
+      //     id: 9,
+      //   },
+      //   {
+      //     title: "الزهــــور والهدايا",
+      //     img: `${vm.publicPath}assets/icons/flowers-gifts.svg`,
+      //     icon: "flowers-gifts",
+      //   },
+      //   {
+      //     title: "التجـــــــارة الالكترونية",
+      //     img: `${vm.publicPath}assets/icons/ecommerce.svg`,
+      //     icon: "ecommerce",
+      //     id: 8,
+      //   },
+      //   {
+      //     title: "السياحة",
+      //     img: `${vm.publicPath}assets/icons/swimming.svg`,
+      //     icon: "beauty",
+      //     id: 24,
+      //   },
+      //   {
+      //     title: "العطور",
+      //     img: `../../../../../assets/img/academy/fi_1890693.png`,
+      //     icon: "perfioum",
+      //     id: 32,
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      //   {
+      //     title: "التجميل",
+      //     img: `${vm.publicPath}assets/icons/beauty.svg`,
+      //     icon: "beauty",
+      //   },
+      // ],
       // items: [
       //   {
       //     title: "المجوهرات",
