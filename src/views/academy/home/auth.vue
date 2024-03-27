@@ -15,7 +15,7 @@
     <SectionFeatures />
     </div> -->
 
-    <SectionAds department="academy" />
+    <!-- <SectionAds department="academy" /> -->
 
     <SectionTempForAds />
 

@@ -20,7 +20,7 @@
           <div class="mt-4">
             <router-link
               style="color: #fff; background-color: #f2631c"
-              v-if="token"
+              v-if="!userIsInstructor"
               :to="getRouteLocale('academy-instructor-register')"
               class="shadow rounded-3 btn px-5 py-2 mt-2"
             >

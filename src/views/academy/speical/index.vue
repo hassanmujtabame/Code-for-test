@@ -1,15 +1,15 @@
 <template>
   <div class="container my-5">
-    <Header />
+    <Header :user="user" />
     <div>
       <!-- to do -->
       <Feature />
     </div>
-    <KnowMore />
+    <KnowMore :user="user" />
     <Market />
     <OurCoach />
     <OurCoach2 />
-    <About />
+    <About :user="user" />
     <Paths />
     <Question />
     <Sign />
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import UserApi from "@/services/api/user";
 import Header from "./parts/header.vue";
 import About from "./parts/about.vue";
 import Paths from "./parts/paths.vue";
@@ -29,6 +30,11 @@ import Question from "./parts/question.vue";
 import Sign from "./parts/sign-up.vue";
 export default {
   name: "speical-manager",
+  data() {
+    return {
+      user: {},
+    };
+  },
   components: {
     Question,
     Sign,
@@ -40,6 +46,18 @@ export default {
     OurCoach,
     OurCoach2,
     Paths,
+  },
+  methods: {
+    async getUser() {
+      try {
+        let { data } = await UserApi.me();
+        if (data.success) {
+          this.user = data.data;
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    },
   },
 };
 </script>

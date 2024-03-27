@@ -272,7 +272,7 @@ const routers = [
   },
   {
     path: "academy/instructor/register",
-    meta: { layout: LayoutDefault, auth: true, title: "Instructor Register" },
+    meta: { layout: LayoutDefault,  title: "Instructor Register" },
     name: "academy-instructor-register",
     component: () =>
       import(
