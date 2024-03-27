@@ -5,9 +5,7 @@
         <div class="row redy-services">
           <div class="row">
             <div class="col-md-6">
-              <div
-                class="box p-3 rounded-2 d-flex flex-row justify-content-between align-items-center"
-              >
+              <div class="box p-3 rounded-2 d-flex flex-column">
                 <h3 class="m-c m-0">
                   {{ itemPage.title }}
                 </h3>
@@ -33,6 +31,10 @@
                       {{ $t("delete") }}
                     </button>
                   </div>
+                </div>
+                <div v-if="!isOwner" class="">
+                  <!-- user info-->
+                  <SectionUserInfo :itemPage="itemPage" />
                 </div>
                 <!-- <div v-else>
                   <span
@@ -63,7 +65,7 @@
               </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 my-auto">
               <div
                 v-if="isOwner"
                 class="box border p-3 rounded-2 h-100 d-flex flex-row justify-content-between align-items-center"
@@ -312,10 +314,9 @@
                 </div>
               </div>
             </div>
-            <div v-if="!isOwner" class="col-md-6">
-              <!-- user info-->
+            <!-- <div v-if="!isOwner" class="col-md-6">
               <SectionUserInfo :itemPage="itemPage" />
-            </div>
+            </div> -->
             <!-- <div class="col-md-6 mt-3">
               <div class="box border p-3 rounded-2 h-100 d-flex flex-column">
                 <h2 class="border-bottom p-2 flex-shrink-0">الملحقات</h2>
@@ -344,8 +345,11 @@
     </div>
 
     <!-- section continue learning-->
+    <!-- <div>
+
     <SectionContinueLearning />
     <SectionHear />
+    </div> -->
     <abuseCommentDialog />
   </div>
 </template>
