@@ -944,6 +944,515 @@ export default {
     //   }
     // },
   },
+  // methods: {
+  //   selected(evt) {
+  //     evt.preventDefault();
+
+  //     if (this.price == 0) {
+  //       try {
+  //         window.axios.defaults.baseURL = "https://api.riadiat.sa/";
+  //         window.axios
+  //           .get(
+  //             `payments/myfatoorah/callback?package_id=${this.itemId}&package_type=${this.packageType}&user_id=${this.user.id}`
+  //           )
+  //           .then((res) => {
+  //             console.log("res", res);
+  //             this.$refs.normalSteps.nextTab();
+  //           });
+  //       } catch (error) {
+  //         window.SwalError("The given data was invalid");
+  //       }
+  //     } else {
+  //       let el = document.getElementById(this.pack.id);
+  //       el.innerHTML = "تم الاختيار";
+  //       el.classList.add("upgrade-button");
+  //       el.classList.remove("subscribe-button");
+  //       // Advance to the next tab
+  //       // const scrollY = document.body.scrollHeight - window.innerHeight - 400; // Adjust 100 to your preferred position
+  //       // window.scrollTo(0, scrollY);
+
+  //       this.$emit("chosed", this.pack);
+  //     }
+  //   },
+  //   handleModal() {
+  //     this.openModal = true;
+  //   },
+  //   checkSubscriptionOptions() {
+  //     for (
+  //       let index = 0;
+  //       index < this.user.subscription_options.length;
+  //       index++
+  //     ) {
+  //       const element = this.user.subscription_options[index];
+  //       if (element.key == "show_exhibitions") {
+  //         console.log("444", element);
+  //       }
+  //     }
+  //   },
+
+  //   checkTypePackage() {
+  //     let date = this.dateToString(new Date());
+  //     if (this.user.system_subscriptions) {
+  //       for (
+  //         let index = 0;
+  //         index < this.user.system_subscriptions.length;
+  //         index++
+  //       ) {
+  //         const element = this.user.system_subscriptions[index];
+  //         if (
+  //           element.system_package.related_to.key == "network" &&
+  //           element.end_at > date
+  //         ) {
+  //           this.subscribedType = element.system_package.id;
+  //         }
+  //       }
+  //     }
+  //   },
+  //   handleChange() {
+  //     this.giveToAFriend = !this.giveToAFriend; // Toggle the value of giveToA
+  //   },
+  //   handleClose() {
+  //     this.openModal = false;
+  //   },
+
+  //   async proceedToPayment() {
+  //     switch (this.selectedProvider) {
+  //       case "tamara":
+  //         try {
+  //           // let { data } = await PaymentApi.PayPackageTammara({
+  //           //   package_id: this.id,
+  //           //   type: "package",
+  //           // });
+  //           let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //           });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       case "hyperbill":
+  //         try {
+  //           let { data } = await PaymentApi.PayPackageHyperBill({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //           });
+  //           // let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //           //   package_id: this.id,
+  //           //   type: "package",
+  //           // });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       case "myfatoorah":
+  //         try {
+  //           let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //           });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       case "card":
+  //         try {
+  //           let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //           });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       case "tabi":
+  //         try {
+  //           let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //           });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       default:
+  //         // Handle case where no provider is selected
+  //         window.errorMsg("اختار بوابة الدفع");
+  //         return false;
+  //     }
+  //   },
+  //   async proceedToPaymentFriend() {
+  //     if (this.price == 0) {
+  //       try {
+  //         let { data } = await networkAPI.checkoutPackageFree({
+  //           package_id: this.id,
+  //         });
+  //         if (data.success) {
+  //           console.log("itsfree", data.data);
+  //           window.SwalSuccess("تم الاشتراك بنجاح");
+  //         } else {
+  //           window.SwalError(data.message);
+  //         }
+  //       } catch (error) {
+  //         console.log("error", error);
+  //       }
+  //       return;
+  //     }
+  //     switch (this.selectedProvider) {
+  //       case "tamara":
+  //         try {
+  //           // let { data } = await PaymentApi.PayPackageTammara({
+  //           //   package_id: this.id,
+  //           //   type: "package",
+  //           // });
+  //           let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //             email: this.email,
+  //           });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       case "hyperbill":
+  //         try {
+  //           let { data } = await PaymentApi.PayPackageHyperBill({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //             email: this.email,
+  //           });
+  //           // let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //           //   package_id: this.id,
+  //           //   type: "package",
+  //           // });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       case "myfatoorah":
+  //         try {
+  //           let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //             email: this.email,
+  //           });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       case "card":
+  //         try {
+  //           let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //             email: this.email,
+  //           });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       case "tabi":
+  //         try {
+  //           let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //             // package_id: this.id,
+  //             // type: "package",
+  //             service_id: this.otherData.id,
+  //             user_id: this.user.id,
+  //             email: this.email,
+  //           });
+  //           if (data.success) {
+  //             window.location.href = data.data.payment_url;
+  //           } else {
+  //             console.log(data.response);
+  //           }
+  //         } catch (error) {
+  //           console.log("error", error);
+  //         }
+  //         break;
+  //       default:
+  //         // Handle case where no provider is selected
+  //         window.errorMsg("اختار بوابة الدفع");
+  //         return false;
+  //     }
+  //   },
+  //   // async proceedToPayment() {
+  //   //   if (this.price == 0) {
+  //   //     try {
+  //   //       let { data } = await networkAPI.checkoutPackageFree({
+  //   //         package_id: this.id,
+  //   //       });
+  //   //       if (data.success) {
+  //   //         console.log("itsfree", data.data);
+  //   //         window.SwalSuccess("تم الاشتراك بنجاح");
+  //   //       } else {
+  //   //         window.SwalError(data.message);
+  //   //       }
+  //   //     } catch (error) {
+  //   //       console.log("error", error);
+  //   //     }
+  //   //     return;
+  //   //   }
+  //   //   switch (this.selectedProvider) {
+  //   //     case "tamara":
+  //   //       try {
+  //   //         // let { data } = await PaymentApi.PayPackageTammara({
+  //   //         //   package_id: this.id,
+  //   //         //   type: "package",
+  //   //         // });
+  //   //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     case "hyperbill":
+  //   //       try {
+  //   //         let { data } = await PaymentApi.PayPackageHyperBill({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         // let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //         //   package_id: this.id,
+  //   //         //   type: "package",
+  //   //         // });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     case "myfatoorah":
+  //   //       try {
+  //   //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     case "card":
+  //   //       try {
+  //   //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     case "tabi":
+  //   //       try {
+  //   //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     default:
+  //   //       // Handle case where no provider is selected
+  //   //       window.errorMsg("اختار بوابة الدفع");
+  //   //       return false;
+  //   //   }
+  //   // },
+  //   // async proceedToPayment() {
+  //   //   if (this.price == 0) {
+  //   //     try {
+  //   //       let { data } = await networkAPI.checkoutPackageFree({
+  //   //         package_id: this.id,
+  //   //       });
+  //   //       if (data.success) {
+  //   //         console.log("itsfree", data.data);
+  //   //         window.SwalSuccess("تم الاشتراك بنجاح");
+  //   //       } else {
+  //   //         window.SwalError(data.message);
+  //   //       }
+  //   //     } catch (error) {
+  //   //       console.log("error", error);
+  //   //     }
+  //   //     return;
+  //   //   }
+  //   //   switch (this.selectedProvider) {
+  //   //     case "tamara":
+  //   //       try {
+  //   //         // let { data } = await PaymentApi.PayPackageTammara({
+  //   //         //   package_id: this.id,
+  //   //         //   type: "package",
+  //   //         // });
+  //   //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     case "hyperbill":
+  //   //       try {
+  //   //         let { data } = await PaymentApi.PayPackageHyperBill({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         // let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //         //   package_id: this.id,
+  //   //         //   type: "package",
+  //   //         // });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     case "myfatoorah":
+  //   //       try {
+  //   //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     case "card":
+  //   //       try {
+  //   //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     case "tabi":
+  //   //       try {
+  //   //         let { data } = await PaymentApi.PayPackageMyFatoorah({
+  //   //           package_id: this.id,
+  //   //           type: "package",
+  //   //         });
+  //   //         if (data.success) {
+  //   //           window.location.href = data.data.payment_url;
+  //   //         } else {
+  //   //           console.log(data.response);
+  //   //         }
+  //   //       } catch (error) {
+  //   //         console.log("error", error);
+  //   //       }
+  //   //       break;
+  //   //     default:
+  //   //       // Handle case where no provider is selected
+  //   //       window.errorMsg("اختار بوابة الدفع");
+  //   //       return false;
+  //   //   }
+  //   // },
+  // },
   mounted() {
     this.packageType = this.$route.meta.type;
     this.checkTypePackage();

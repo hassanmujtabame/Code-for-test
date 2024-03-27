@@ -255,10 +255,24 @@
               </div> -->
             </div>
             <div class="col-md-4 col-12">
-              <div class="d-flex my-4 flex-column gap-4">
-                <p>
-                  نوع الدفع : <span style="color: #2cb7b3"> مقدم خدمة </span>
-                </p>
+              <div class="d-flex border rounded-3 my-4 flex-column gap-4">
+                <div class="text-center py-2">
+                  <p
+                    class="border-bottom py-2"
+                    style="font-size: 16px; font-weight: semibold"
+                  >
+                    نوع الدفع : <span style="color: #2cb7b3"> مقدم خدمة </span>
+                  </p>
+                  <div
+                    class="d-flex align-items-center justify-content-between px-3"
+                  >
+                    <p style="font-size: 18px; font-weight: bold">المجموع</p>
+                    <p style="font-size: 18px; font-weight: bold">
+                      {{ itemPage.price }}
+                      ر.س
+                    </p>
+                  </div>
+                </div>
                 <!-- <div
                 class="justify-content-between mx-2 align-items-center d-flex"
               >
