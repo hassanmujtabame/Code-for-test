@@ -1,6 +1,9 @@
 <template>
   <div class="mt-5">
     <div class="blog">
+      <button @click="addItem" class="btn m-c">
+        <i style="font-size: 35px" class="fa fa-square-plus"></i>
+      </button>
       <d-filter-list
         :call-list="loadList"
         hideSide

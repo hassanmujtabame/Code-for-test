@@ -32,7 +32,7 @@
               class="row g-3 needs-validation"
             >
               <template>
-                <div :class="{ bye: tab !== 1 }" class="d-flex flex-column">
+                <div :class="{ bye: tab !== 20 }" class="d-flex flex-column">
                   <!-- <div class="col-md-4 w-100 mt-2">
                     <ValidationProvider
                       tag="div"
@@ -76,7 +76,7 @@
                     </ValidationProvider>
                   </div>
 
-                  <div class="col-md-4 w-100 mt-2">
+                  <!-- <div class="col-md-4 w-100 mt-2">
                     <ValidationProvider
                       tag="div"
                       class="w-100 d-flex flex-column gap-1"
@@ -95,7 +95,7 @@
                       >
                       </d-text-input>
                     </ValidationProvider>
-                  </div>
+                  </div> -->
                   <!-- <div class="col-md-4 w-100 mt-2">
                     <ValidationProvider
                       tag="div"
@@ -454,7 +454,28 @@
                     </button>
                   </div>
                 </div>
-                <div :class="{ bye: tab !== 2 }" class="d-flex flex-column">
+                <div :class="{ bye: tab !== 1 }" class="d-flex flex-column">
+                  <div class="col-md-4 w-100 mt-2">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100 d-flex flex-column gap-1"
+                      :name="$t('email')"
+                      rules="required"
+                      vid="email"
+                      v-slot="{ errors }"
+                    >
+                      <label for="email">البريد الالكترونى</label>
+                      <d-text-input
+                        :errors="errors"
+                        type="email"
+                        v-model="itemForm.email"
+                        class="form-control"
+                        placeholder="ادخل البريد الالكترونى"
+                        id="email"
+                      >
+                      </d-text-input>
+                    </ValidationProvider>
+                  </div>
                   <!-- <div class="col-md-4 w-100 mt-2">
                     <ValidationProvider
                       tag="div"
@@ -776,6 +797,46 @@
                         </option>
                       </d-select-input>
                     </ValidationProvider>
+                  </div>
+                  <div class="col-md-4 w-100 mt-2">
+                    <div class="form-check">
+                      <ValidationProvider
+                        tag="div"
+                        class="w-100"
+                        :name="$t('terms_use')"
+                        rules="required"
+                        vid="terms_use"
+                        v-slot="{ errors }"
+                      >
+                        <div class="form-group">
+                          <input
+                            style="border: 2px solid #2cb7b3"
+                            :value="itemForm.terms_use"
+                            @input="
+                              (event) =>
+                                (itemForm.terms_use =
+                                  event.target.checked === true ? true : null)
+                            "
+                            class="form-check-input"
+                            type="checkbox"
+                            id="defaultCheck1"
+                          />
+                          <label class="form-check-label" for="defaultCheck1">
+                            أؤكد على اني أوافق على
+                            <router-link
+                              :to="getRouteLocale('terms-and-conditions')"
+                              class="m-c"
+                            >
+                              {{ $t("terms_use") }}
+                            </router-link>
+                          </label>
+                        </div>
+                        <d-error-input
+                          :errors="errors"
+                          v-if="errors.length > 0"
+                        />
+                      </ValidationProvider>
+                    </div>
                   </div>
 
                   <!-- <div class="col-md-4 w-100 mt-2">
@@ -2061,9 +2122,11 @@ export default {
     },
     async goToTab3() {
       if (
-        // this.itemForm.country_id &&
+        this.itemForm.country_id &&
         this.itemForm.gender &&
-        this.itemForm.birthday
+        this.itemForm.birthday &&
+        this.itemForm.email &&
+        this.itemForm.terms_use
       ) {
         this.tab = 3;
       }
@@ -2103,7 +2166,7 @@ export default {
             terms_use,
             // name,
             // password,
-            phone,
+            // phone,
             // password_confirmation,
             country_id,
             birthday,
@@ -2120,7 +2183,7 @@ export default {
             terms_use,
             // name,
             // password,
-            phone,
+            // phone,
             // password_confirmation,
             country_id,
             birthday,
@@ -2411,6 +2474,388 @@ export default {
       }
     },
   },
+  //   methods: {
+  //     gotoHome() {
+  //       this.$store.commit("auth/SET_ACADEMY_ROLE", "instructor");
+  //       this.refreshPage({ name: "academy-home" });
+  //     },
+  //     successRegister() {
+  //       let dataEvt = {
+  //         icon: true,
+  //         descriptionClass: "m-c",
+  //         title: "نشكرك على تسجيلك معنا",
+  //         description: `سنتواصل معك خلال الايام القليلة القادمة لتأكيد
+  // بيانتك و تأكيد الاشتراك  `,
+  //         onClose: this.gotoHome,
+  //         btns: [{ title: this.$t("Home"), action: () => this.gotoHome() }],
+  //       };
+  //       this.showSuccessMsg(dataEvt);
+  //     },
+  //     async goToTab2() {
+  //       if (
+  //         this.itemForm.name &&
+  //         this.itemForm.email &&
+  //         this.itemForm.password &&
+  //         this.itemForm.password_confirmation &&
+  //         this.itemForm.phone
+  //       ) {
+  //         this.tab = 2;
+  //       }
+  //     },
+  //     async goToTab3() {
+  //       if (
+  //         this.itemForm.country_id &&
+  //         this.itemForm.gender &&
+  //         this.itemForm.birthday &&
+  //         this.itemForm.email &&
+  //         this.itemForm.terms_use
+  //       ) {
+  //         this.tab = 3;
+  //       }
+  //     },
+  //     async goToTab4() {
+  //       if (
+  //         // this.itemForm.country_id &&
+  //         this.itemForm.years_experience &&
+  //         this.itemForm.job_title &&
+  //         this.itemForm.scientific_degree &&
+  //         this.itemForm.department_id &&
+  //         this.itemForm.bio
+  //       ) {
+  //         this.tab = 4;
+  //       }
+  //     },
+  //     async save() {
+  //       this.loading = true;
+  //       let valid = await this.$refs.form.validate();
+  //       if (!valid) {
+  //         console.mylog("invalid");
+  //         this.loading = false;
+  //         return;
+  //       }
+
+  //       try {
+  //         let form = {};
+  //         if (!this.user) form = { ...this.itemForm };
+  //         else {
+  //           let {
+  //             department_id,
+  //             scientific_degree,
+  //             job_title,
+  //             years_experience,
+  //             bio,
+  //             cv,
+  //             terms_use,
+  //             // name,
+  //             // password,
+  //             // phone,
+  //             // password_confirmation,
+  //             country_id,
+  //             birthday,
+  //             gender,
+  //             identity_id,
+  //           } = this.itemForm;
+  //           form = {
+  //             department_id,
+  //             scientific_degree,
+  //             job_title,
+  //             years_experience,
+  //             bio,
+  //             cv,
+  //             terms_use,
+  //             // name,
+  //             // password,
+  //             // phone,
+  //             // password_confirmation,
+  //             country_id,
+  //             birthday,
+  //             gender,
+  //             identity_id,
+  //           };
+  //         }
+  //         let formData = this.loadObjectToForm(form);
+  //         let { data } = await instructorAPI.register(formData);
+  //         if (data.success) {
+  //           this.successRegister();
+  //         } else {
+  //           window.SwalError(data.message);
+  //         }
+  //       } catch (error) {
+  //         console.mylog("error", error);
+  //         if (error.response) {
+  //           let response = error.response;
+  //           if (response.status == 422) {
+  //             this.setErrorsForm(this.$refs.form, response);
+  //           }
+  //         }
+  //       }
+  //       this.loading = false;
+  //     },
+  //     // async save() {
+  //     //   this.loading = true;
+  //     //   let valid = await this.$refs.form.validate();
+  //     //   if (!valid) {
+  //     //     console.mylog("invalid");
+  //     //     this.loading = false;
+  //     //     return;
+  //     //   }
+
+  //     //   try {
+  //     //     let form = {};
+  //     //     if (!this.user) form = { ...this.itemForm };
+  //     //     else {
+  //     //       let {
+  //     //         department_id,
+  //     //         scientific_degree,
+  //     //         job_title,
+  //     //         years_experience,
+  //     //         bio,
+  //     //         cv,
+  //     //         terms_use,
+  //     //         // name,
+  //     //         // password,
+  //     //         phone,
+  //     //         // password_confirmation,
+  //     //         country_id,
+  //     //         birthday,
+  //     //         gender,
+  //     //         identity_id,
+  //     //       } = this.itemForm;
+  //     //       form = {
+  //     //         department_id,
+  //     //         scientific_degree,
+  //     //         job_title,
+  //     //         years_experience,
+  //     //         bio,
+  //     //         cv,
+  //     //         terms_use,
+  //     //         // name,
+  //     //         // password,
+  //     //         phone,
+  //     //         // password_confirmation,
+  //     //         country_id,
+  //     //         birthday,
+  //     //         gender,
+  //     //         identity_id,
+  //     //       };
+  //     //     }
+  //     //     let formData = this.loadObjectToForm(form);
+  //     //     let { data } = await instructorAPI.register(formData);
+  //     //     if (data.success) {
+  //     //       this.successRegister();
+  //     //     } else {
+  //     //       window.SwalError(data.message);
+  //     //     }
+  //     //   } catch (error) {
+  //     //     console.mylog("error", error);
+  //     //     if (error.response) {
+  //     //       let response = error.response;
+  //     //       if (response.status == 422) {
+  //     //         this.setErrorsForm(this.$refs.form, response);
+  //     //       }
+  //     //     }
+  //     //   }
+  //     //   this.loading = false;
+  //     // },
+  //     // async save() {
+  //     //   this.loading = true;
+  //     //   let valid = await this.$refs.form.validate();
+  //     //   if (!valid) {
+  //     //     console.mylog("invalid");
+  //     //     this.loading = false;
+  //     //     return;
+  //     //   }
+
+  //     //   try {
+  //     //     let form = {};
+  //     //     if (!this.user) form = { ...this.itemForm };
+  //     //     else {
+  //     //       let {
+  //     //         department_id,
+  //     //         scientific_degree,
+  //     //         job_title,
+  //     //         years_experience,
+  //     //         bio,
+  //     //         cv,
+  //     //         terms_use,
+  //     //         // name,
+  //     //         // password,
+  //     //         phone,
+  //     //         // password_confirmation,
+  //     //         country_id,
+  //     //         birthday,
+  //     //         gender,
+  //     //         identity_id,
+  //     //       } = this.itemForm;
+  //     //       form = {
+  //     //         department_id,
+  //     //         scientific_degree,
+  //     //         job_title,
+  //     //         years_experience,
+  //     //         bio,
+  //     //         cv,
+  //     //         terms_use,
+  //     //         // name,
+  //     //         // password,
+  //     //         phone,
+  //     //         // password_confirmation,
+  //     //         country_id,
+  //     //         birthday,
+  //     //         gender,
+  //     //         identity_id,
+  //     //       };
+  //     //     }
+  //     //     let formData = this.loadObjectToForm(form);
+  //     //     let { data } = await instructorAPI.register(formData);
+  //     //     if (data.success) {
+  //     //       this.successRegister();
+  //     //     } else {
+  //     //       window.SwalError(data.message);
+  //     //     }
+  //     //   } catch (error) {
+  //     //     console.mylog("error", error);
+  //     //     if (error.response) {
+  //     //       let response = error.response;
+  //     //       if (response.status == 422) {
+  //     //         this.setErrorsForm(this.$refs.form, response);
+  //     //       }
+  //     //     }
+  //     //   }
+  //     //   this.loading = false;
+  //     // },
+  //     // async save() {
+  //     //   this.loading = true;
+  //     //   let valid = await this.$refs.form.validate();
+  //     //   if (!valid) {
+  //     //     console.mylog("invalid");
+  //     //     this.loading = false;
+  //     //     return;
+  //     //   }
+
+  //     //   try {
+  //     //     let form = {};
+  //     //     if (!this.user) form = { ...this.itemForm };
+  //     //     else {
+  //     //       let {
+  //     //         department_id,
+  //     //         scientific_degree,
+  //     //         job_title,
+  //     //         years_experience,
+  //     //         bio,
+  //     //         cv,
+  //     //         terms_use,
+  //     //       } = this.itemForm;
+  //     //       form = {
+  //     //         department_id,
+  //     //         scientific_degree,
+  //     //         job_title,
+  //     //         years_experience,
+  //     //         bio,
+  //     //         cv,
+  //     //         terms_use,
+  //     //       };
+  //     //     }
+  //     //     let formData = this.loadObjectToForm(form);
+  //     //     let { data } = await instructorAPI.register(formData);
+  //     //     if (data.success) {
+  //     //       this.successRegister();
+  //     //     } else {
+  //     //       window.SwalError(data.message);
+  //     //     }
+  //     //   } catch (error) {
+  //     //     console.mylog("error", error);
+  //     //     if (error.response) {
+  //     //       let response = error.response;
+  //     //       if (response.status == 422) {
+  //     //         this.setErrorsForm(this.$refs.form, response);
+  //     //       }
+  //     //     }
+  //     //   }
+  //     //   this.loading = false;
+  //     // },
+  //     // async save() {
+  //     //   this.loading = true;
+  //     //   let valid = await this.$refs.form.validate();
+  //     //   if (!valid) {
+  //     //     console.mylog("invalid");
+  //     //     this.loading = false;
+  //     //     return;
+  //     //   }
+
+  //     //   try {
+  //     //     let form = {};
+  //     //     if (!this.user) form = { ...this.itemForm };
+  //     //     else {
+  //     //       let {
+  //     //         department_id,
+  //     //         scientific_degree,
+  //     //         job_title,
+  //     //         years_experience,
+  //     //         bio,
+  //     //         cv,
+  //     //         terms_use,
+  //     //       } = this.itemForm;
+  //     //       form = {
+  //     //         department_id,
+  //     //         scientific_degree,
+  //     //         job_title,
+  //     //         years_experience,
+  //     //         bio,
+  //     //         cv,
+  //     //         terms_use,
+  //     //       };
+  //     //     }
+  //     //     let formData = this.loadObjectToForm(form);
+  //     //     let { data } = await instructorAPI.register(formData);
+  //     //     if (data.success) {
+  //     //       this.successRegister();
+  //     //     } else {
+  //     //       window.SwalError(data.message);
+  //     //     }
+  //     //   } catch (error) {
+  //     //     console.mylog("error", error);
+  //     //     if (error.response) {
+  //     //       let response = error.response;
+  //     //       if (response.status == 422) {
+  //     //         this.setErrorsForm(this.$refs.form, response);
+  //     //       }
+  //     //     }
+  //     //   }
+  //     //   this.loading = false;
+  //     // },
+  //     async uploadFile(evt, validate) {
+  //       let resValid = await validate(evt);
+  //       if (!resValid.valid) {
+  //         this.itemForm.cv = null;
+  //         return;
+  //       }
+  //       if (!evt.target.files && !evt.target.files[0]) {
+  //         this.itemForm.cv = null;
+  //         return;
+  //       }
+  //       this.itemForm.cv = evt.target.files[0];
+  //     },
+  //     async loadDepartments() {
+  //       try {
+  //         let { data } = await academyAPI.getDepartments();
+  //         if (data.success) {
+  //           this.departments = data.data;
+  //         }
+  //       } catch (error) {
+  //         //
+  //       }
+  //     },
+  //     async loadCountries() {
+  //       try {
+  //         let { data } = await commonAPI.getCountries();
+  //         if (data.success) {
+  //           this.countries = data.data;
+  //         }
+  //       } catch (error) {
+  //         //
+  //       }
+  //     },
+  //   },
   mounted() {
     if (this.user) {
       this.loadCountries();
