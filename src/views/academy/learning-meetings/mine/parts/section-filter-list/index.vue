@@ -1,9 +1,15 @@
 <template>
   <div class="mt-5">
     <div class="blog">
-      <button @click="addItem" class="btn m-c">
-        <i style="font-size: 35px" class="fa fa-square-plus"></i>
-      </button>
+      <div class="d-flex py-2 px-2 align-items-center gap-2">
+        <button
+          @click="addItem"
+          class="btn m-c d-flex align-items-center gap-2"
+        >
+          <i style="font-size: 35px" class="fa fa-square-plus"></i>
+          اضافه لقاء
+        </button>
+      </div>
       <d-filter-list
         :call-list="loadList"
         hideSide
@@ -12,6 +18,9 @@
         @change="changeFilter"
         classColCard="col-md-12"
       >
+        <button @click="addItem" class="btn m-c">
+          <i style="font-size: 35px" class="fa fa-square-plus"></i>
+        </button>
         <template v-slot:total>
           <h3 class="page-title">
             قائمة لقاءاتك

@@ -725,6 +725,16 @@ export default {
         return true;
       }
     },
+    // async saveStep1() {
+    //   let valid = await this.$refs.form1.validate(["number_day"]);
+    //   if (!valid) {
+    //     console.mylog("invalid step 1");
+    //     return false;
+    //   } else {
+    //     this.step += 1;
+    //     return true;
+    //   }
+    // },
     async saveStep2() {
       let valid = await this.$refs.form2.validate();
       if (!valid) {
@@ -752,17 +762,21 @@ export default {
         }
         if (data.success) {
           this.closeEvent();
+          this.fireEvent("d-filter-list-refresh");
+
           //redirect to course page
           let dataEvt = {
             title: "تم رفع اللقاء الخاص بك سيتم مراجعة اللقاء و نشره على الفور",
             btns: [
               {
                 title: "عرض اللقاء",
-                action: () =>
-                  this.$router.replace({
-                    name: "academy-learning-meeting-show",
-                    params: { id: this.itemForm.meeting_id },
-                  }),
+                action: () => {
+                  // this.$router.replace({
+                  //   name: "academy-instructor-my-meetings",
+                  //   // params: { id: this.itemForm.meeting_id },
+                  // }),
+                  this.closeEvent();
+                },
               },
             ],
           };
@@ -783,6 +797,68 @@ export default {
         }
       }
     },
+    // async saveStep2() {
+    //   let valid = await this.$refs.form2.validate();
+    //   if (!valid) {
+    //     console.mylog("invalid step 2");
+    //     return false;
+    //   }
+    //   let formData = this.loadObjectToForm(this.itemForm);
+
+    //   try {
+    //     let { data } = this.itemForm.id
+    //       ? await academyAPI.instructor.meetingsAPI.updateItem(
+    //           this.itemForm.id,
+    //           formData
+    //         )
+    //       : await academyAPI.instructor.meetingsAPI.addItem(formData);
+    //     if (
+    //       data.success &&
+    //       this.itemForm.type == "recored" &&
+    //       !this.itemForm.video
+    //     ) {
+    //       this.step = 3;
+    //       this.itemForm.meeting_id = data.data.meeting_id;
+    //       console.log("step is now 3", data.data);
+    //       return;
+    //     }
+    //     if (data.success) {
+    //       this.closeEvent();
+    //       this.fireEvent("d-filter-list-refresh");
+
+    //       //redirect to course page
+    //       let dataEvt = {
+    //         title: "تم رفع اللقاء الخاص بك سيتم مراجعة اللقاء و نشره على الفور",
+    //         btns: [
+    //           {
+    //             title: "عرض اللقاء",
+    //             action: () => {
+    //               // this.$router.replace({
+    //               //   name: "academy-instructor-my-meetings",
+    //               //   // params: { id: this.itemForm.meeting_id },
+    //               // }),
+    //               this.closeEvent();
+    //             },
+    //           },
+    //         ],
+    //       };
+    //       if (this.itemForm.id) {
+    //         dataEvt = {
+    //           title: "تم تعديل اللقاء  بنجاح ",
+    //         };
+    //       }
+    //       this.showSuccessMsg(dataEvt);
+    //     }
+    //   } catch (error) {
+    //     console.log("error", error);
+    //     if (error.response) {
+    //       let response = error.response;
+    //       if (response.status == 422) {
+    //         this.setErrorsForm(this.$refs.form, response);
+    //       }
+    //     }
+    //   }
+    // },
     // async saveStep2() {
     //   let valid = await this.$refs.form2.validate();
     //   if (!valid) {
