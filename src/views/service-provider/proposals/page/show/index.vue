@@ -6,7 +6,7 @@
           <div class="row">
             <div class="col-md-6">
               <div
-                class="box border p-3 rounded-2 d-flex flex-row justify-content-between align-items-center"
+                class="box p-3 rounded-2 d-flex flex-row justify-content-between align-items-center"
               >
                 <h3 class="m-c m-0">
                   {{ itemPage.title }}
@@ -34,7 +34,7 @@
                     </button>
                   </div>
                 </div>
-                <div v-else>
+                <!-- <div v-else>
                   <span
                     class="m-c"
                     style="
@@ -46,7 +46,20 @@
                   >
                     {{ itemPage.state }}
                   </span>
-                </div>
+                </div> -->
+                <!-- <div v-else>
+                  <span
+                    class="m-c"
+                    style="
+                      font-size: 16px;
+                      background-color: #eee;
+                      padding: 10px;
+                      border-radius: 10px;
+                    "
+                  >
+                    {{ itemPage.state }}
+                  </span>
+                </div> -->
               </div>
             </div>
 
@@ -115,11 +128,12 @@
                       <div class="col-12 text-center" style="height: auto">
                         <button
                           @click="sendOffer"
-                          class="btn btn-main h-100 w-100 fs-5 p-3"
+                          class="btn h-100 w-100 text-light fs-5 p-3"
                           type="submit"
                           role="button"
+                          style="background-color: #f2631c"
                         >
-                          أعرض خدمتك
+                          قدم عرض
                         </button>
                       </div>
 
@@ -224,16 +238,14 @@
                 </div> -->
               </div>
             </div>
-            <div v-if="!isOwner" class="col-md-6">
-              <!-- user info-->
-              <SectionUserInfo :itemPage="itemPage" />
-            </div>
+
             <div class="col-md-6">
               <div
                 class="box border p-3 rounded-2"
                 :class="{ 'mt-5l': !isOwner }"
               >
-                <h2 class="border-bottom p-2">تفاصيل عن المشروع</h2>
+                <h2 class="border-bottom p-2">تفاصيل الخدمة المطلوبة</h2>
+                <!-- <h2 class="border-bottom p-2">تفاصيل عن المشروع</h2> -->
 
                 <div class="row">
                   <!--sect 1-->
@@ -300,7 +312,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6 mt-3">
+            <div v-if="!isOwner" class="col-md-6">
+              <!-- user info-->
+              <SectionUserInfo :itemPage="itemPage" />
+            </div>
+            <!-- <div class="col-md-6 mt-3">
               <div class="box border p-3 rounded-2 h-100 d-flex flex-column">
                 <h2 class="border-bottom p-2 flex-shrink-0">الملحقات</h2>
                 <div class="d-flex gap-3 flex-wrap flex-shrink-0">
@@ -321,7 +337,7 @@
                   >
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -525,6 +541,146 @@ export default {
       // this.sending = false;
     },
   },
+  // methods: {
+  //   openSendAbuse() {
+  //     this.fireOpenDialog("abuse-comment", this.itemPage);
+  //   },
+  //   openEditDialog() {
+  //     this.fireOpenDialog("add-proposal", this.itemPage);
+  //   },
+  //   openDeleteDialog() {
+  //     let dataEvt = {
+  //       title: "انت على وشك حذف طلبك",
+  //       description: "",
+  //       type: "warning",
+  //       btns: [
+  //         {
+  //           title: this.$t("confirm_delete"),
+  //           action: this.deleteItem,
+  //           class: "btn btn-danger",
+  //         },
+  //       ],
+  //     };
+  //     this.showConfirmMsg(dataEvt);
+  //     //this.fireOpenDialog('delete-item',this.itemPage)
+  //   },
+  //   async deleteItem() {
+  //     this.loading = true;
+  //     try {
+  //       let { data } = await proposalsAPIs.deleteItem(this.itemPage);
+  //       if (data.success) {
+  //         this.router_push("service-provider-my-proposals");
+  //       } else {
+  //         window.SwalError(data.message);
+  //       }
+  //     } catch (error) {
+  //       //
+  //     }
+  //     this.loading = false;
+  //   },
+  //   uploadFile(evt) {
+  //     if (!evt.target.files && !evt.target.files[0]) {
+  //       this.itemForm.file = null;
+
+  //       return;
+  //     }
+  //     this.itemForm.file = evt.target.files[0];
+  //   },
+  //   async checkUser() {
+  //     let data = await window.axios.post(`user/me`);
+  //     let { ...user } = data.data.data;
+  //     return user;
+  //   },
+  //   async sendOffer() {
+  //     let checkUser = await this.checkUser();
+  //     // if(!checkUser.serviceProviderPortfolio){
+  //     //   this.openConfirmDialog()
+  //     //   return
+  //     // }
+  //     if (!this.$store.state.isProviderRole) {
+  //       let dataEvent = {
+  //         image: `${this.publicPath}assets/img/Group 1171275670.png`,
+  //         title: "لا يمكنك تقديم عرض تقديم الخدمة",
+  //         description:
+  //           "حتى تتمكن من التقديم على الخدمات يجب ان تكون كمقدم خدمة في المنصة",
+  //         btns: [
+  //           {
+  //             title: "تحول كمقدم خدمة",
+  //             action: () => this.$store.commit("changeRole", "provider"),
+  //             class: "btn btn-custmer",
+  //           },
+  //         ],
+  //       };
+  //       this.showSuccessMsg(dataEvent);
+  //       return;
+  //     } else if (checkUser.serviceProviderPortfolio === null) {
+  //       let dataEvt = {
+  //         title: "للأسف لايمكنك  اضافة  خدمه جديده",
+  //         description: `يجب عليك انشاء ملف اعمالك اولا لكى تستطيع اضافه خدماتك`,
+  //         image: `${this.publicPath}assets/img/Group 1171275670.png`,
+  //         btns: [
+  //           {
+  //             title: "انشاء ملف اعمالك",
+  //             action: () =>
+  //               this.$router.push({ name: "create-profile-service-provider" }),
+  //           },
+  //         ],
+  //       };
+  //       this.showConfirmMsg(dataEvt);
+  //       return;
+  //     }
+  //     // if (!this.userIsSubProvider) {
+  //     //     let dataEvent = {
+  //     //         image: `${this.publicPath}assets/img/Group 1171275670.png`,
+  //     //         title: 'لا يمكنك تقديم عرض تقديم الخدمة',
+  //     //         description: 'حتى تتمكن من التقديم على الخدمات يجب ان تكون مشترك كمقدم خدمة في المنصة',
+  //     //         btns: [
+  //     //             { title: 'إشترك الان', action: () => this.router_push('service-provider-subscribe'), class: 'btn btn-custmer' }
+  //     //         ]
+
+  //     //     }
+  //     //     this.showSuccessMsg(dataEvent)
+  //     //     return;
+  //     // }
+  //     this.sending = true;
+  //     let valid = this.$refs.form.validate();
+  //     if (!valid) {
+  //       this.sending = false;
+  //       return;
+  //     }
+  //     try {
+  //       let formData = new FormData();
+  //       Object.keys(this.itemForm).forEach((key) => {
+  //         formData.append(key, this.itemForm[key]);
+  //       });
+  //       formData.append("service_id", this.itemPage.id);
+  //       formData.append("user_id", this.itemPage.user_info.id);
+  //       let { data } = await window.axios.post(
+  //         "service-provider/user/offer-for-service",
+  //         formData
+  //       );
+  //       if (data.success) {
+  //         this.fireOpenDialog("success-send-offer");
+  //         this.itemForm.note = "";
+  //         this.itemForm.file = null;
+  //         this.$refs.form.reset();
+  //         this.is_offer_sent = true;
+  //         this.sending = false;
+  //         this.itempPage.is_offer_sent = true;
+  //       }
+  //     } catch (error) {
+  //       console.log("errorte", error);
+  //       if (error.response) {
+  //         let response = error.response;
+  //         if (response.status == 422) {
+  //           if (response.data.errors)
+  //             this.$refs.form.setErrors(response.data.errors);
+  //         }
+  //       }
+  //     }
+  //     // this.sending = false;
+  //   },
+  // },
   computed: {
     statusName() {
       switch (this.itemPage.status) {
