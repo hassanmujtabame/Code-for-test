@@ -12,7 +12,7 @@
       <router-link
         style="background-color: #f2631c"
         class="px-5 py-2 btn text-light rounded-2"
-        :to="getRouteLocale('')"
+        :to="getRouteLocale('network-subscribe')"
       >
         انضم كشركة
       </router-link>
