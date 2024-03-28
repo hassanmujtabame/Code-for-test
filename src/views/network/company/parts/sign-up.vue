@@ -15,7 +15,7 @@
       src="../../../../assets/img/academy/Cards Round (1).png"
       alt=""
     /> -->
-    <div class="text-center py-5">
+    <div class="text-center pt-5">
       <svg
         width="370"
         height="192"
@@ -151,7 +151,7 @@
     </div>
     <div class="text-center">
       <h1 style="color: white; font-size: 60px; font-weight: bold">
-        سجل معنا كمدرب
+        سجل معنا كشركة
       </h1>
       <p style="color: #ffffff; font-size: 24px">
         أدخل البيانات التالية بدقة لتكون شريك معنا, لابد من رفع ثلاث لقاءات
@@ -160,8 +160,7 @@
 
       <div class="d-flex justify-content-center">
         <router-link
-          v-if="!userIsInstructor"
-          :to="getRouteLocale('academy-instructor-register')"
+          :to="getRouteLocale('network-subscribe')"
           class="px-5 py-2 d-block btn my-4 rounded-5"
           style="color: #2cb7b3; background-color: white; width: fit-content"
         >

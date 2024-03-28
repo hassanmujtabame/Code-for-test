@@ -7,7 +7,7 @@
       <router-link
         class="text-light rounded-2 btn px-4 py-2"
         style="background-color: #2cb7b3"
-        :to="getRouteLocale('')"
+        :to="getRouteLocale('consulting-fields')"
       >
         اطلب استشاره
       </router-link>
