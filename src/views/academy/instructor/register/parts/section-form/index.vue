@@ -399,7 +399,7 @@
                           <label class="form-check-label" for="defaultCheck1">
                             أؤكد على اني أوافق على
                             <router-link
-                              :to="getRouteLocale('terms-and-conditions')"
+                              :to="getRouteLocale('conditions')"
                               class="m-c"
                             >
                               {{ $t("terms_use") }}
@@ -824,7 +824,7 @@
                           <label class="form-check-label" for="defaultCheck1">
                             أؤكد على اني أوافق على
                             <router-link
-                              :to="getRouteLocale('terms-and-conditions')"
+                              :to="getRouteLocale('conditions')"
                               class="m-c"
                             >
                               {{ $t("terms_use") }}
@@ -2209,6 +2209,118 @@ export default {
       }
       this.loading = false;
     },
+    //     successRegister() {
+    //       let dataEvt = {
+    //         icon: true,
+    //         descriptionClass: "m-c",
+    //         title: "نشكرك على تسجيلك معنا",
+    //         description: `سنتواصل معك خلال الايام القليلة القادمة لتأكيد
+    // بيانتك و تأكيد الاشتراك  `,
+    //         onClose: this.gotoHome,
+    //         btns: [{ title: this.$t("Home"), action: () => this.gotoHome() }],
+    //       };
+    //       this.showSuccessMsg(dataEvt);
+    //     },
+    //     async goToTab2() {
+    //       if (
+    //         this.itemForm.name &&
+    //         this.itemForm.email &&
+    //         this.itemForm.password &&
+    //         this.itemForm.password_confirmation &&
+    //         this.itemForm.phone
+    //       ) {
+    //         this.tab = 2;
+    //       }
+    //     },
+    //     async goToTab3() {
+    //       if (
+    //         this.itemForm.country_id &&
+    //         this.itemForm.gender &&
+    //         this.itemForm.birthday &&
+    //         this.itemForm.email &&
+    //         this.itemForm.terms_use
+    //       ) {
+    //         this.tab = 3;
+    //       }
+    //     },
+    //     async goToTab4() {
+    //       if (
+    //         // this.itemForm.country_id &&
+    //         this.itemForm.years_experience &&
+    //         this.itemForm.job_title &&
+    //         this.itemForm.scientific_degree &&
+    //         this.itemForm.department_id &&
+    //         this.itemForm.bio
+    //       ) {
+    //         this.tab = 4;
+    //       }
+    //     },
+    //     async save() {
+    //       this.loading = true;
+    //       let valid = await this.$refs.form.validate();
+    //       if (!valid) {
+    //         console.mylog("invalid");
+    //         this.loading = false;
+    //         return;
+    //       }
+
+    //       try {
+    //         let form = {};
+    //         if (!this.user) form = { ...this.itemForm };
+    //         else {
+    //           let {
+    //             department_id,
+    //             scientific_degree,
+    //             job_title,
+    //             years_experience,
+    //             bio,
+    //             cv,
+    //             terms_use,
+    //             // name,
+    //             // password,
+    //             // phone,
+    //             // password_confirmation,
+    //             country_id,
+    //             birthday,
+    //             gender,
+    //             identity_id,
+    //           } = this.itemForm;
+    //           form = {
+    //             department_id,
+    //             scientific_degree,
+    //             job_title,
+    //             years_experience,
+    //             bio,
+    //             cv,
+    //             terms_use,
+    //             // name,
+    //             // password,
+    //             // phone,
+    //             // password_confirmation,
+    //             country_id,
+    //             birthday,
+    //             gender,
+    //             identity_id,
+    //           };
+    //         }
+    //         let formData = this.loadObjectToForm(form);
+    //         let { data } = await instructorAPI.register(formData);
+    //         if (data.success) {
+    //           this.successRegister();
+    //         } else {
+    //           window.SwalError(data.message);
+    //         }
+    //       } catch (error) {
+    //         console.mylog("error", error);
+    //         if (error.response) {
+    //           let response = error.response;
+    //           if (response.status == 422) {
+    //             this.setErrorsForm(this.$refs.form, response);
+    //           }
+    //         }
+    //       }
+    //       this.loading = false;
+    //     },
     // async save() {
     //   this.loading = true;
     //   let valid = await this.$refs.form.validate();
