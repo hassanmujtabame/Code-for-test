@@ -40,6 +40,12 @@
           >
         </b-dropdown-item>
         <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+          <!-- {{ $t("Offers") }} -->
+          <router-link :to="getRouteLocale('network-company')" class="nav-link"
+            >الشركات</router-link
+          >
+        </b-dropdown-item>
+        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
           <router-link
             :to="getRouteLocale('network-models')"
             class="nav-link"

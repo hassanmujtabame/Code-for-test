@@ -48,7 +48,7 @@ const routers = [
   },
   {
     path: "network/offers/dashboard",
-    meta: {  layout: LayoutDefault, title: "Offers Dashboard" },
+    meta: { layout: LayoutDefault, title: "Offers Dashboard" },
     name: "network-offers-dashboard",
     component: () =>
       import(
@@ -186,7 +186,7 @@ const routers = [
   },
   {
     path: "network/blogs",
-    meta: { layout: LayoutDefault,  title: "Blogs" },
+    meta: { layout: LayoutDefault, title: "Blogs" },
     name: "network-blogs",
     component: () =>
       import(
@@ -204,7 +204,7 @@ const routers = [
   },
   {
     path: "network/blogs/:id(\\d+)",
-    meta: { layout: LayoutDefault,  title: "Blog" },
+    meta: { layout: LayoutDefault, title: "Blog" },
     name: "network-blog-show",
     component: () =>
       import(
@@ -240,7 +240,7 @@ const routers = [
   },
   {
     path: "network/exhibitions",
-    meta: { layout: LayoutDefault,  title: "Exhibitions" },
+    meta: { layout: LayoutDefault, title: "Exhibitions" },
     name: "network-exhibitions",
     component: () =>
       import(
@@ -276,7 +276,7 @@ const routers = [
   },
   {
     path: "network/offers",
-    meta: { layout: LayoutDefault,  title: "Offers" },
+    meta: { layout: LayoutDefault, title: "Offers" },
     name: "network-offers",
     component: () =>
       import(
@@ -325,7 +325,7 @@ const routers = [
   },
   {
     path: "network/models",
-    meta: { layout: LayoutDefault,  title: "Models" },
+    meta: { layout: LayoutDefault, title: "Models" },
     name: "network-models",
     component: () =>
       import(
@@ -379,6 +379,19 @@ const routers = [
     component: () =>
       import(
         /* webpackChunkName: "network-control-member-partner" */ "../views/network/control-member-partner/index.vue"
+      ),
+  },
+  {
+    path: "network/company",
+    meta: {
+      layout: LayoutDefault,
+      auth: true,
+      title: "network company ",
+    },
+    name: "network-company",
+    component: () =>
+      import(
+        /* webpackChunkName: "network-control-member-partner" */ "../views/network/company/index.vue"
       ),
   },
   {
