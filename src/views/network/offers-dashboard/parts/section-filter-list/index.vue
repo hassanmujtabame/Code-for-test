@@ -63,7 +63,7 @@
           background-color: white;
           z-index: 10;
         "
-        class="position-absolute"
+        class="position-fixed"
       >
         <EditOffer @close="closeToggle" :id="id" />
       </div>

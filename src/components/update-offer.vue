@@ -3,7 +3,9 @@
     style="width: 100%; height: 100%"
     class="py-5 overflow-x-hidden overflow-x-none"
   >
-    <button @click="handleToggle">x</button>
+    <div class="my-5">
+      <button class="btn" @click="handleToggle">x</button>
+    </div>
     <ValidationObserver
       tag="div"
       class="px-2 overflow-x-hidden overflow-x-none"
@@ -151,18 +153,22 @@
               </d-text-input> -->
             <input
               type="radio"
+              class="form-check-input mx-1"
               id="percentage"
               value="percentage"
               v-model="itemForm.discount_type"
             />
-            <label for="percentage">نسبه مئويه</label>
+            <label class="form-check-label mx-1" for="percentage"
+              >نسبه مئويه</label
+            >
             <input
+              class="form-check-input"
               type="radio"
               id="fixed"
               value="fixed"
               v-model="itemForm.discount_type"
             />
-            <label for="fixed"> سعر</label>
+            <label class="form-check-label mx-2" for="fixed"> سعر</label>
             <span v-if="errors">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
@@ -177,7 +183,12 @@
         </div>
         <div class="col-8 p-0">
           <ValidationProvider vid="start_date" name="start_date">
-            <input type="date" v-model="itemForm.start_date" />
+            <input
+              required
+              class="form-control"
+              type="date"
+              v-model="itemForm.start_date"
+            />
           </ValidationProvider>
         </div>
       </div>
@@ -191,7 +202,12 @@
         </div>
         <div class="col-8 p-0">
           <ValidationProvider vid="end_date" name="end_date">
-            <input type="date" v-model="itemForm.end_date" />
+            <input
+              required
+              class="form-control"
+              type="date"
+              v-model="itemForm.end_date"
+            />
           </ValidationProvider>
         </div>
       </div>
@@ -679,6 +695,134 @@ export default {
       }
     },
   },
+  // methods: {
+  //   handleToggle() {
+  //     this.$emit("close");
+  //   },
+  //   async save() {
+  //     try {
+  //       const dataToUpdate = {
+  //         duration: this.itemForm.duration,
+  //         code: this.itemForm.code,
+  //         category_id: this.itemForm.category_id,
+  //         website: this.itemForm.website,
+  //         description: this.itemForm.description,
+  //         type_company: this.itemForm.type_company,
+  //         name_company: this.itemForm.name_company,
+  //         // image: this.itemForm.image,
+  //         start_date: this.itemForm.start_date,
+  //         end_date: this.itemForm.end_date,
+  //         discount: +this.itemForm.discount,
+  //         discount_type: this.itemForm.discount_type,
+  //       };
+  //       const requestBody = {
+  //         ...dataToUpdate,
+  //         _method: "PUT",
+  //       };
+
+  //       return await Promise.all([
+  //         offersAPI.editOffer(requestBody, this.id),
+  //         this.fireEvent("d-filter-list-refresh"),
+  //       ]);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   },
+  //   async getItem() {
+  //     try {
+  //       let { data } = await offersAPI.getItem(this.id);
+  //       let transformedData = {
+  //         duration: data.data.duration || "",
+  //         code: data.data.code || "",
+  //         category_id: data.data.category_id || "",
+  //         website: data.data.website || "",
+  //         description: data.data.description || "",
+  //         type_company: data.data.type_company || "",
+  //         name_company: data.data.name_company || "",
+  //         image: data.data.image || "",
+  //         category: data.data.category,
+  //       };
+  //       this.itemForm = transformedData;
+  //       console.log(`it worked`);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   },
+  //   async loadCategories() {
+  //     try {
+  //       let { data } = await offersAPI.getCategories();
+  //       if (data.success) {
+  //         this.categories = data.data;
+  //       }
+  //     } catch (error) {
+  //       console.log("error", error);
+  //     }
+  //   },
+  // },
+  // methods: {
+  //   handleToggle() {
+  //     this.$emit("close");
+  //   },
+  //   async save() {
+  //     try {
+  //       const dataToUpdate = {
+  //         duration: this.itemForm.duration,
+  //         code: this.itemForm.code,
+  //         category_id: this.itemForm.category_id,
+  //         website: this.itemForm.website,
+  //         description: this.itemForm.description,
+  //         type_company: this.itemForm.type_company,
+  //         name_company: this.itemForm.name_company,
+  //         // image: this.itemForm.image,
+  //         start_date: this.itemForm.start_date,
+  //         end_date: this.itemForm.end_date,
+  //         discount: +this.itemForm.discount,
+  //         discount_type: this.itemForm.discount_type,
+  //       };
+  //       const requestBody = {
+  //         ...dataToUpdate,
+  //         _method: "PUT",
+  //       };
+
+  //       return await Promise.all([
+  //         offersAPI.editOffer(requestBody, this.id),
+  //         this.fireEvent("d-filter-list-refresh"),
+  //       ]);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   },
+  //   async getItem() {
+  //     try {
+  //       let { data } = await offersAPI.getItem(this.id);
+  //       let transformedData = {
+  //         duration: data.data.duration || "",
+  //         code: data.data.code || "",
+  //         category_id: data.data.category_id || "",
+  //         website: data.data.website || "",
+  //         description: data.data.description || "",
+  //         type_company: data.data.type_company || "",
+  //         name_company: data.data.name_company || "",
+  //         image: data.data.image || "",
+  //         category: data.data.category,
+  //       };
+  //       this.itemForm = transformedData;
+  //       console.log(`it worked`);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   },
+  //   async loadCategories() {
+  //     try {
+  //       let { data } = await offersAPI.getCategories();
+  //       if (data.success) {
+  //         this.categories = data.data;
+  //       }
+  //     } catch (error) {
+  //       console.log("error", error);
+  //     }
+  //   },
+  // },
   mounted() {
     this.getItem();
     this.loadCategories();
