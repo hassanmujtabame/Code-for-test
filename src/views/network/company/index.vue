@@ -5,6 +5,7 @@
     <Best />
     <Join />
     <Features />
+    <Place />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import Header from "./parts/header.vue";
 import Ask from "./parts/ask.vue";
 import Features from "./parts/features.vue";
+import Place from "./parts/recent-place.vue";
 import Best from "./parts/best-offers.vue";
 import Join from "./parts/join.vue";
 export default {
@@ -22,6 +24,7 @@ export default {
     Best,
     Join,
     Features,
+    Place,
   },
 };
 </script>
