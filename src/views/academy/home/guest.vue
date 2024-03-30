@@ -1,55 +1,91 @@
 <template>
   <div>
     <!-- section 1-->
-    <SectionGuestHeader />
+    <div class="my-5">
+      <SectionGuestHeader />
+    </div>
     <!--#section 1-->
     <!-- section 2-->
-    <SectionTwo />
+    <div class="my-5">
+      <SectionTwo />
+    </div>
     <!--#section 2-->
     <!-- section 3-->
     <SectionFeatures />
     <!-- <SectionAds department="academy" /> -->
-    <SectionTempForAds />
-
-    <SectionHelpsYou />
-    <sectionTopInstructor />
-    <SectionSubscribeNow />
+    <div class="my-5">
+      <SectionTempForAds />
+    </div>
+    <div class="my-5">
+      <SectionHelpsYou />
+    </div>
+    <div class="my-5">
+      <sectionTopInstructor />
+    </div>
+    <div class="my-5">
+      <SectionSubscribeNow />
+    </div>
     <!--#section 3-->
     <!-- section top instructor-->
     <!--#section top instructor-->
     <!-- section training-fields-->
-    <SectionTrainingFields />
+    <div class="my-5">
+      <SectionTrainingFields />
+    </div>
     <!--#section training-fields-->
+
     <!-- section exploring-entrepreneurship-->
-    <section-exploring-entrepreneurship />
+    <div class="my-5">
+      <section-exploring-entrepreneurship />
+    </div>
     <!--#section exploring-entrepreneurship-->
     <!-- section exploring-specialized-entrepreneurship-->
-    <section-exploring-specialized-entrepreneurship />
+    <div class="my-5">
+      <section-exploring-specialized-entrepreneurship />
+    </div>
     <!--#section exploring-specialized-entrepreneurship-->
     <!-- section section-academy-schedule-->
-    <section-academy-schedule />
+    <div class="my-5">
+      <section-academy-schedule />
+    </div>
     <!--#section section-academy-schedule-->
     <!-- section 9-->
-    <SectionBestInstructors />
-    <SectionMostPopularCourses />
+    <div class="my-5">
+      <SectionBestInstructors />
+    </div>
+    <div class="my-5">
+      <SectionMostPopularCourses />
+    </div>
     <!--#section 9-->
     <!-- section 10-->
-    <SectionTen />
+    <div class="my-5">
+      <SectionTen />
+    </div>
     <!--#section 10-->
     <!-- section 11-->
-    <SectionRecentCourses />
+    <div class="my-5">
+      <SectionRecentCourses />
+    </div>
     <!--#section 11-->
     <!-- section 12-->
-    <SectionOurPartners />
+    <div class="my-5">
+      <SectionOurPartners />
+    </div>
     <!--#section 12-->
     <!-- section 13-->
-    <SectionAcademyNumbers />
+    <div class="my-5">
+      <SectionAcademyNumbers />
+    </div>
     <!--#section 13-->
     <!-- section 14-->
-    <SectionContinueLearning />
+    <div class="my-5">
+      <SectionContinueLearning />
+    </div>
     <!--#section 14-->
     <!-- section 15-->
-    <SectionHear />
+    <div class="my-5">
+      <SectionHear />
+    </div>
     <!--#section 15-->
   </div>
 </template>

@@ -1,9 +1,9 @@
 <template>
-    <div class="mt-5">
-        <div v-if="userPartner"></div>
-        <div class="main-top p-5 position-relative">
+  <div class="mt-5">
+    <!-- <div v-if="userPartner"></div> -->
+    <!-- <div class="main-top p-5 position-relative">
             <h1 class="text-white p-5 fs-1"> {{ $t('Join-our-family-of-partners') }}</h1>
-            <!-- <a id="btn-register" href="#register-form" class="mx-5">
+         <a id="btn-register" href="#register-form" class="mx-5">
                 <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M12 21.5319C6.07 21.5319 1.25 17.0351 1.25 11.5028C1.25 5.97043 6.07 1.47363 12 1.47363C17.93 1.47363 22.75 5.97043 22.75 11.5028C22.75 17.0351 17.93 21.5319 12 21.5319ZM12 2.87305C6.9 2.87305 2.75 6.74477 2.75 11.5028C2.75 16.2608 6.9 20.1325 12 20.1325C17.1 20.1325 21.25 16.2608 21.25 11.5028C21.25 6.74477 17.1 2.87305 12 2.87305Z"
@@ -14,7 +14,7 @@
                 </svg>
 
                 {{ $t('Register-now') }}
-            </a> -->
+            </a> 
             <div class="position-absolute anim-hwo-ar-you" :style="$i18n.locale !== 'ar' ? { left: 'auto', right: 0 } : {}">
                 <img :src="`${publicPath}assets/svg/wave-top.svg`" :class="{ 'rotateY-180': $i18n.locale !== 'ar' }" alt="">
             </div>
@@ -30,69 +30,77 @@
             <div class="star-big position-absolute">
                 <img class="landing" :src="`${publicPath}assets/svg/star-big.svg`" alt="">
             </div>
-        </div>
-        <!-- section new  -->
+        </div> -->
+    <!-- section new  -->
+    <!-- <div>
+
         <SectionNew />
-        <!--features-->
+        </div> -->
+    <!--features-->
+    <!-- <div>
+
         <SectionFeatures />
-        <!-- form register-->
-        <SectionForm v-if="!userPartner"/>
-        <!--  خدمات رياديات لك-->
+        </div> -->
+    <!-- form register-->
+    <SectionForm v-if="!userPartner" />
+    <!--  خدمات رياديات لك-->
+    <!-- <div>
+
         <SectionServices />
-        <successRegisterDialog />
-    </div>
+        </div> -->
+    <successRegisterDialog />
+  </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import SectionNew from "./parts/section-new/index.vue"
-import SectionForm from './parts/section-form/index.vue'
-import SectionServices from './parts/section-services/index.vue'
-import SectionFeatures from './parts/section-features/index.vue'
-import successRegisterDialog from './parts/dialogs/success-register.vue'
+import { mapGetters } from "vuex";
+import SectionNew from "./parts/section-new/index.vue";
+import SectionForm from "./parts/section-form/index.vue";
+import SectionServices from "./parts/section-services/index.vue";
+import SectionFeatures from "./parts/section-features/index.vue";
+import successRegisterDialog from "./parts/dialogs/success-register.vue";
 export default {
-    name: 'register-networking',
-    components:{
-        SectionForm,
-        successRegisterDialog,
-        SectionServices,
-        SectionFeatures,
-        SectionNew
-    },
- computed:{
-...mapGetters({
-   companyInfo: 'auth/partner'
-})
-},
-watch:{
-    companyInfo:{
-        deep:true,
-        immediate:true,
-        handler(){
-            if(this.userPartner){
-            this.router_push('network-offers-dashboard')
+  name: "register-networking",
+  components: {
+    SectionForm,
+    successRegisterDialog,
+    SectionServices,
+    SectionFeatures,
+    SectionNew,
+  },
+  computed: {
+    ...mapGetters({
+      companyInfo: "auth/partner",
+    }),
+  },
+  watch: {
+    companyInfo: {
+      deep: true,
+      immediate: true,
+      handler() {
+        if (this.userPartner) {
+          this.router_push("network-offers-dashboard");
         }
-    }
-}
-}
-    
-}
+      },
+    },
+  },
+};
 </script>
 
 <style scoped>
 #btn-register {
-    border: 1px solid #FFFFFF;
-    box-shadow: 0px 4px 15px 1px rgb(0 0 0 / 25%);
-    border-radius: 8px;
-    background: transparent;
-    padding: 10px 25px;
-    color: white
+  border: 1px solid #ffffff;
+  box-shadow: 0px 4px 15px 1px rgb(0 0 0 / 25%);
+  border-radius: 8px;
+  background: transparent;
+  padding: 10px 25px;
+  color: white;
 }
 
 .eye-password-icon {
-    top: 12px;
-    left: 15px;
-    color: #CDD7D8;
-    font-size: 23px;
+  top: 12px;
+  left: 15px;
+  color: #cdd7d8;
+  font-size: 23px;
 }
 </style>

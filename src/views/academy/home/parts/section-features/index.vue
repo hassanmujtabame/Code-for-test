@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-5">
+  <div class="container my-5">
     <h2 class="home-section-title text-center">مزايا أكاديمية رياديات</h2>
     <div class="row min-riadiat academy">
       <div class="col-md-3 mt-2">
