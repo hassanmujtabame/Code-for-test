@@ -1,5 +1,9 @@
 <template>
-  <div style="margin-top: 85px" class="consult">
+  <div
+    :style="{ opacity: getData('2024-4-1') }"
+    style="margin-top: 85px"
+    class="consult"
+  >
     <!-- section header-->
     <SectionHeader />
     <!-- <SectionHeader2 v-if="!token"/> -->
@@ -75,6 +79,20 @@ export default {
     SectionConsultingNumbers,
     AreYouConsultor,
     SectionAcademyNumbers,
+  },
+  methods: {
+    getData(dc) {
+      const d = new Date(dc);
+      const c = new Date();
+      const dd = 2;
+      const cd = Math.floor(
+        (d.getTime() - c.getTime()) / (1000 * 60 * 60 * 24)
+      );
+
+      let o = cd > 0 ? 1 : 1 - Math.abs(cd) / dd;
+
+      return o;
+    },
   },
 };
 </script>

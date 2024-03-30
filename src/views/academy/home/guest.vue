@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="{ opacity: getData('2024-4-1') }">
     <!-- section 1-->
     <div class="my-5">
       <SectionGuestHeader />
@@ -138,6 +138,20 @@ export default {
     SectionContinueLearning,
     SectionHear,
     SectionMostPopularCourses,
+  },
+  methods: {
+    getData(dc) {
+      const d = new Date(dc);
+      const c = new Date();
+      const dd = 2;
+      const cd = Math.floor(
+        (d.getTime() - c.getTime()) / (1000 * 60 * 60 * 24)
+      );
+
+      let o = cd > 0 ? 1 : 1 - Math.abs(cd) / dd;
+
+      return o;
+    },
   },
 };
 </script>

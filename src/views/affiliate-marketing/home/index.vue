@@ -1,5 +1,6 @@
 <template>
   <div
+    :style="{ opacity: getData('2024-4-1') }"
     style="margin-top: 85px; overflow-x: hidden; overflow-y: hidden"
     class="consult"
   >
@@ -89,6 +90,18 @@ export default {
         console.log("error", error);
       }
       this.loading = false;
+    },
+    getData(dc) {
+      const d = new Date(dc);
+      const c = new Date();
+      const dd = 2;
+      const cd = Math.floor(
+        (d.getTime() - c.getTime()) / (1000 * 60 * 60 * 24)
+      );
+
+      let o = cd > 0 ? 1 : 1 - Math.abs(cd) / dd;
+
+      return o;
     },
   },
   mounted() {

@@ -284,6 +284,15 @@ const routers = [
       ),
   },
   {
+    path: "network/coupon",
+    meta: { layout: LayoutDefault, title: "coupon" },
+    name: "network-coupon",
+    component: () =>
+      import(
+        /* webpackChunkName: "network-offers" */ "../views/network/code/index.vue"
+      ),
+  },
+  {
     path: "network/offers/details-coupon/:id(\\d+)",
     meta: { layout: LayoutDefault, auth: true, title: "details Coupon" },
     name: "network-details-coupon",

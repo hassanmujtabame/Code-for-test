@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ opacity: o }">
+  <div :style="{ opacity: getData('2024-4-1') }">
     <!-- section 1-->
     <SectionAuthHeader />
     <!--#section 1-->
@@ -137,15 +137,27 @@ export default {
     SectionMostPopularCourses,
   },
   methods: {
-    created() {
-      const s = new Date();
-      const d = new Date();
-      const f = 4 * 24 * 60 * 60 * 1000;
+    getData(dc) {
+      const d = new Date(dc);
+      const c = new Date();
+      const dd = 2;
+      const cd = Math.floor(
+        (d.getTime() - c.getTime()) / (1000 * 60 * 60 * 24)
+      );
 
-      if (d - s >= f) {
-        this.o = 0;
-      }
+      let o = cd > 0 ? 1 : 1 - Math.abs(cd) / dd;
+
+      return o;
     },
+    // created() {
+    //   const s = new Date();
+    //   const d = new Date();
+    //   const f = 4 * 24 * 60 * 60 * 1000;
+
+    //   if (d - s >= f) {
+    //     this.o = 0;
+    //   }
+    // },
   },
 };
 </script>
