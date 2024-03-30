@@ -158,11 +158,17 @@
           <checkoutCourseDiag :show="show" />
 
           <button
+            v-if="!isOwner"
             @click="buyCourse"
             style="background-color: #1fb9b3; color: white"
             class="btn px-4 py-2"
           >
             اشترك الان
+          </button>
+          <!-- <button v-if="!isOwner" @click="inscription"
+          class="btn btn-custmer w-100">إشترك في الدورة</button> -->
+          <button v-else @click="showCourse" class="btn btn-custmer w-100">
+            الذهاب الى الدورة
           </button>
           <div class="text-center">
             <p style="color: #888">افتح هذه الدورة و 4 آخرين</p>
@@ -339,6 +345,9 @@ export default {
     },
     handleClick() {
       this.show = true;
+    },
+    showCourse() {
+      this.router_push("academy-course-preview-show");
     },
     async buyCourse() {
       if (this.shouldLoginMsg()) return;
