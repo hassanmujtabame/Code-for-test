@@ -1,8 +1,21 @@
 <template>
-  <div style="background-color: #f6f8f9" class="mt-5 p-4">
+  <div
+    :style="{ opacity: getData('2024-4-1') }"
+    style="background-color: #f6f8f9"
+    class="mt-5 p-4"
+  >
     <div class="container">
       <div class="box bg-white p-3 rounded-4">
         <div class="row align-items-center">
+          <div class="col-md-6">
+            <!-- image box-->
+            <!-- <ImageBox /> -->
+            <img
+              class="img-fluid"
+              src="../../../../../assets/img/company/Frame 1171276775.png"
+              alt=""
+            />
+          </div>
           <div class="col-md-6">
             <h2 id="register-form">
               {{ $t("Register-with-us-as-a-partner") }}
@@ -18,54 +31,55 @@
               class="row g-3 needs-validation"
               novalidate
             >
-              <div class="col-md-4 w-100">
-                <ValidationProvider
-                  :name="$t('company-name')"
-                  vid="company_name"
-                  rules="required"
-                  v-slot="{ errors }"
-                >
-                  <d-text-input
-                    :errors="errors"
-                    v-model="itemForm.company_name"
-                    :label="$t('company-name')"
-                  />
-                </ValidationProvider>
-              </div>
-              <template v-if="!token">
+              <div :class="{ 'd-none': tabs !== 1 }">
                 <div class="col-md-4 w-100">
                   <ValidationProvider
-                    :name="$t('Email')"
-                    vid="email"
-                    rules="required|email"
-                    v-slot="{ errors }"
-                  >
-                    <d-text-input
-                      :errors="errors"
-                      type="email"
-                      v-model="itemForm.email"
-                      :label="$t('Email')"
-                    />
-                  </ValidationProvider>
-                </div>
-                <div class="col-md-4 w-100">
-                  <ValidationProvider
-                    :name="$t('Phone')"
-                    vid="phone"
+                    :name="$t('company-name')"
+                    vid="company_name"
                     rules="required"
                     v-slot="{ errors }"
                   >
                     <d-text-input
-                      type="text"
                       :errors="errors"
-                      autocomplete="off"
-                      name="phone"
-                      :label="$t('Phone')"
-                      v-model="itemForm.phone"
+                      v-model="itemForm.company_name"
+                      :label="$t('company-name')"
                     />
                   </ValidationProvider>
                 </div>
-                <!-- <div class="col-md-4 w-100">
+                <template v-if="!token">
+                  <div class="col-md-4 w-100">
+                    <ValidationProvider
+                      :name="$t('Email')"
+                      vid="email"
+                      rules="required|email"
+                      v-slot="{ errors }"
+                    >
+                      <d-text-input
+                        :errors="errors"
+                        type="email"
+                        v-model="itemForm.email"
+                        :label="$t('Email')"
+                      />
+                    </ValidationProvider>
+                  </div>
+                  <div class="col-md-4 w-100">
+                    <ValidationProvider
+                      :name="$t('Phone')"
+                      vid="phone"
+                      rules="required"
+                      v-slot="{ errors }"
+                    >
+                      <d-text-input
+                        type="text"
+                        :errors="errors"
+                        autocomplete="off"
+                        name="phone"
+                        :label="$t('Phone')"
+                        v-model="itemForm.phone"
+                      />
+                    </ValidationProvider>
+                  </div>
+                  <!-- <div class="col-md-4 w-100">
                                 <ValidationProvider
                                 :name="$t('Password')" 
                                 vid="password"
@@ -108,7 +122,8 @@
                                 </div>
                                 </ValidationProvider>
                             </div> -->
-              </template>
+                </template>
+              </div>
               <div class="col-md-4 w-100">
                 <ValidationProvider
                   :name="$t('company_website')"
@@ -296,10 +311,6 @@
               </div>
             </ValidationObserver>
           </div>
-          <div class="col-md-6">
-            <!-- image box-->
-            <ImageBox />
-          </div>
         </div>
       </div>
     </div>
@@ -317,6 +328,7 @@ export default {
     return {
       loading: false,
       categories: [],
+      tab: 1,
       itemForm: {
         company_name: "",
         website: "",
@@ -333,168 +345,181 @@ export default {
     };
   },
   methods: {
-    redirectoHome() {
-      this.refreshPage({ name: "network-home" });
-    },
-    openSuccessRegister() {
-      //this.fireOpenDialog('success-register-as-partner')
-      let dataEvt = {
-        title: "نشكرك على تسجيلك معنا",
-        descriptionClass: "m-c",
-        description: `سنتواصل معك خلال الايام القليلة القادمة لتأكيد بيانتك و تأكيد الاشتراك`,
-        btns: [{ title: this.$t("Home"), action: () => this.redirectoHome() }],
-        onClose: this.redirectoHome,
-        icon: true,
-      };
-      this.showSuccessMsg(dataEvt);
-    },
-    async save(evt) {
-      if (evt) evt.preventDefault();
-      if (!this.isSubscribedCompany) {
-        this.openConfirmDialog();
-      } else {
-        let valid = await this.$refs.form.validate();
-        if (!valid) {
-          console.log("form invalid");
-          return;
-        }
-        let formData = new FormData();
-        Object.keys(this.itemForm).forEach((key) => {
-          if (
-            this.token &&
-            ["email", "phone", "password", "password_confirm"].includes(key)
-          )
-            return;
-          formData.append(key, this.itemForm[key]);
-        });
-        try {
-          let { data } = await PartnersAPI.addItem(formData);
-          if (data.success) {
-            Object.keys(this.itemForm).forEach((key) => {
-              this.itemForm[key] = null;
-            });
-            this.openSuccessRegister();
-            this.$nextTick(() => {
-              if (this.$refs["form"]) {
-                this.$refs.form.reset();
-              }
-            });
-          } else {
-            window.SwalError(data.message);
-          }
-        } catch (error) {
-          console.log("error", error);
-          if (error.response) {
-            let response = error.response;
-            console.log("error", response);
-            if (response.status == 422) {
-              if (response.data.errors)
-                this.$refs.form.setErrors(response.data.errors);
-            }
-          }
-        }
-      }
-    },
-    // async save(evt) {
-    //     if (evt) evt.preventDefault();
-    //     if (!this.isSubscribedCompany) {
-    //         this.openConfirmDialog();
-    //     }
-    //     else {
-    //         let valid = await this.$refs.form.validate();
-    //         if (!valid) {
-    //             console.log('form invalid');
-    //             return;
-    //         }
-    //         let formData = new FormData();
-    //         Object.keys(this.itemForm).forEach(key => {
-    //             if (this.token && ['email', 'phone', 'password', 'password_confirm'].includes(key))
-    //                 return;
-    //             formData.append(key, this.itemForm[key])
-    //         })
-    //         try {
-    //             let { data } = await PartnersAPI.addItem(formData)
-    //             if (data.success) {
-    //                 Object.keys(this.itemForm).forEach(key => {
-    //                     this.itemForm[key] = null;
-    //                 })
-    //                 this.openSuccessRegister()
-    //                 this.$nextTick(() => {
-    //                     if (this.$refs["form"]) {
-    //                         this.$refs.form.reset();
-    //                     }
-    //                 });
-    //             }
-    //             else {
-    //                 window.SwalError(data.message)
-    //             }
-    //         } catch (error) {
-    //             console.log('error', error)
-    //             if (error.response) {
-    //                 let response = error.response
-    //                 console.log('error', response)
-    //                 if (response.status == 422) {
-    //                     if (response.data.errors)
-    //                         this.$refs.form.setErrors(response.data.errors)
-    //                 }
-    //             }
-    //         }
-    //     }
-    // },
-    uploadFile(evt) {
-      if (!evt.target.files && !evt.target.files[0]) {
-        this.itemForm.pdf = null;
+    getData(dc) {
+      const d = new Date(dc);
+      const c = new Date();
+      const daysDeadline = 2;
+      const days = Math.floor(
+        (d.getTime() - c.getTime()) / (1000 * 60 * 60 * 24)
+      );
 
+      let o = days > 0 ? 1 : 1 - Math.abs(days) / daysDeadline;
+
+      return o;
+    },
+  },
+  redirectoHome() {
+    this.refreshPage({ name: "network-home" });
+  },
+  openSuccessRegister() {
+    //this.fireOpenDialog('success-register-as-partner')
+    let dataEvt = {
+      title: "نشكرك على تسجيلك معنا",
+      descriptionClass: "m-c",
+      description: `سنتواصل معك خلال الايام القليلة القادمة لتأكيد بيانتك و تأكيد الاشتراك`,
+      btns: [{ title: this.$t("Home"), action: () => this.redirectoHome() }],
+      onClose: this.redirectoHome,
+      icon: true,
+    };
+    this.showSuccessMsg(dataEvt);
+  },
+  async save(evt) {
+    if (evt) evt.preventDefault();
+    if (!this.isSubscribedCompany) {
+      this.openConfirmDialog();
+    } else {
+      let valid = await this.$refs.form.validate();
+      if (!valid) {
+        console.log("form invalid");
         return;
       }
-      this.itemForm.pdf = evt.target.files[0];
-    },
-    async loadCategories() {
+      let formData = new FormData();
+      Object.keys(this.itemForm).forEach((key) => {
+        if (
+          this.token &&
+          ["email", "phone", "password", "password_confirm"].includes(key)
+        )
+          return;
+        formData.append(key, this.itemForm[key]);
+      });
       try {
-        let { data } = await PartnersAPI.getCategories();
+        let { data } = await PartnersAPI.addItem(formData);
         if (data.success) {
-          this.categories = data.data;
+          Object.keys(this.itemForm).forEach((key) => {
+            this.itemForm[key] = null;
+          });
+          this.openSuccessRegister();
+          this.$nextTick(() => {
+            if (this.$refs["form"]) {
+              this.$refs.form.reset();
+            }
+          });
+        } else {
+          window.SwalError(data.message);
         }
       } catch (error) {
         console.log("error", error);
-      }
-    },
-    openConfirmDialog() {
-      let dataEvt = {
-        title: "",
-        description: `يجب عليك الاشتراك فى باقة الشركات`,
-        type: "warning",
-        btns: [
-          {
-            title: this.$t("subscribe"),
-            action: () => this.$router.push({ name: "network-subscribe" }),
-          },
-        ],
-      };
-      this.showConfirmMsg(dataEvt);
-      //this.fireOpenDialog('go-to-pther-section',dept)
-    },
-    checkSubscribedCompany() {
-      for (
-        let index = 0;
-        index < this.user.system_subscriptions.length;
-        index++
-      ) {
-        const element = this.user.system_subscriptions[index];
-        if (
-          element.system_package.related_to.key == "network" &&
-          element.system_package.name.includes("شرك")
-        ) {
-          // this.subscribedType = element.system_package.id
-          // console.log('yay you are company', true)
-          this.isSubscribedCompany = true;
-        } else {
-          this.isSubscribedCompany = false;
+        if (error.response) {
+          let response = error.response;
+          console.log("error", response);
+          if (response.status == 422) {
+            if (response.data.errors)
+              this.$refs.form.setErrors(response.data.errors);
+          }
         }
       }
-      // console.log('user_system', this.user.system_subscriptions)
-    },
+    }
   },
+  // async save(evt) {
+  //     if (evt) evt.preventDefault();
+  //     if (!this.isSubscribedCompany) {
+  //         this.openConfirmDialog();
+  //     }
+  //     else {
+  //         let valid = await this.$refs.form.validate();
+  //         if (!valid) {
+  //             console.log('form invalid');
+  //             return;
+  //         }
+  //         let formData = new FormData();
+  //         Object.keys(this.itemForm).forEach(key => {
+  //             if (this.token && ['email', 'phone', 'password', 'password_confirm'].includes(key))
+  //                 return;
+  //             formData.append(key, this.itemForm[key])
+  //         })
+  //         try {
+  //             let { data } = await PartnersAPI.addItem(formData)
+  //             if (data.success) {
+  //                 Object.keys(this.itemForm).forEach(key => {
+  //                     this.itemForm[key] = null;
+  //                 })
+  //                 this.openSuccessRegister()
+  //                 this.$nextTick(() => {
+  //                     if (this.$refs["form"]) {
+  //                         this.$refs.form.reset();
+  //                     }
+  //                 });
+  //             }
+  //             else {
+  //                 window.SwalError(data.message)
+  //             }
+  //         } catch (error) {
+  //             console.log('error', error)
+  //             if (error.response) {
+  //                 let response = error.response
+  //                 console.log('error', response)
+  //                 if (response.status == 422) {
+  //                     if (response.data.errors)
+  //                         this.$refs.form.setErrors(response.data.errors)
+  //                 }
+  //             }
+  //         }
+  //     }
+  // },
+  uploadFile(evt) {
+    if (!evt.target.files && !evt.target.files[0]) {
+      this.itemForm.pdf = null;
+
+      return;
+    }
+    this.itemForm.pdf = evt.target.files[0];
+  },
+  async loadCategories() {
+    try {
+      let { data } = await PartnersAPI.getCategories();
+      if (data.success) {
+        this.categories = data.data;
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  },
+  openConfirmDialog() {
+    let dataEvt = {
+      title: "",
+      description: `يجب عليك الاشتراك فى باقة الشركات`,
+      type: "warning",
+      btns: [
+        {
+          title: this.$t("subscribe"),
+          action: () => this.$router.push({ name: "network-subscribe" }),
+        },
+      ],
+    };
+    this.showConfirmMsg(dataEvt);
+    //this.fireOpenDialog('go-to-pther-section',dept)
+  },
+  checkSubscribedCompany() {
+    for (
+      let index = 0;
+      index < this.user.system_subscriptions.length;
+      index++
+    ) {
+      const element = this.user.system_subscriptions[index];
+      if (
+        element.system_package.related_to.key == "network" &&
+        element.system_package.name.includes("شرك")
+      ) {
+        // this.subscribedType = element.system_package.id
+        // console.log('yay you are company', true)
+        this.isSubscribedCompany = true;
+      } else {
+        this.isSubscribedCompany = false;
+      }
+    }
+    // console.log('user_system', this.user.system_subscriptions)
+  },
+
   mounted() {
     this.loadCategories();
     this.checkSubscribedCompany();
