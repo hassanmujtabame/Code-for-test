@@ -618,6 +618,7 @@ export default {
         email: "",
         description: "",
         phone: "",
+        terms_use: false,
         address: "",
 
         pdf: null,
@@ -629,12 +630,12 @@ export default {
     getData(dc) {
       const d = new Date(dc);
       const c = new Date();
-      const daysDeadline = 2;
-      const days = Math.floor(
+      const dd = 2;
+      const cd = Math.floor(
         (d.getTime() - c.getTime()) / (1000 * 60 * 60 * 24)
       );
 
-      let o = days > 0 ? 1 : 1 - Math.abs(days) / daysDeadline;
+      let o = cd > 0 ? 1 : 1 - Math.abs(cd) / dd;
 
       return o;
     },
@@ -655,51 +656,89 @@ export default {
     },
     async save(evt) {
       if (evt) evt.preventDefault();
-      if (!this.isSubscribedCompany) {
-        this.openConfirmDialog();
-      } else {
-        let valid = await this.$refs.form.validate();
-        if (!valid) {
-          console.log("form invalid");
-          return;
-        }
-        let formData = new FormData();
-        Object.keys(this.itemForm).forEach((key) => {
-          if (
-            this.token &&
-            ["email", "phone", "password", "password_confirm"].includes(key)
-          )
-            return;
-          formData.append(key, this.itemForm[key]);
-        });
-        try {
-          let { data } = await PartnersAPI.addItem(formData);
-          if (data.success) {
-            Object.keys(this.itemForm).forEach((key) => {
-              this.itemForm[key] = null;
-            });
-            this.openSuccessRegister();
-            this.$nextTick(() => {
-              if (this.$refs["form"]) {
-                this.$refs.form.reset();
-              }
-            });
-          } else {
-            window.SwalError(data.message);
-          }
-        } catch (error) {
-          console.log("error", error);
-          if (error.response) {
-            let response = error.response;
-            console.log("error", response);
-            if (response.status == 422) {
-              if (response.data.errors)
-                this.$refs.form.setErrors(response.data.errors);
+      //   if (!this.isSubscribedCompany) {
+      //     this.openConfirmDialog();
+      //   } else {
+      let valid = await this.$refs.form.validate();
+      if (!valid) {
+        console.log("form invalid");
+        return;
+      }
+
+      try {
+        let { data } = await PartnersAPI.addItem(this.itemForm);
+        if (data.success) {
+          Object.keys(this.itemForm).forEach((key) => {
+            this.itemForm[key] = null;
+          });
+          this.openSuccessRegister();
+          this.$nextTick(() => {
+            if (this.$refs["form"]) {
+              this.$refs.form.reset();
             }
+          });
+        } else {
+          window.SwalError(data.message);
+        }
+      } catch (error) {
+        console.log("error", error);
+        if (error.response) {
+          let response = error.response;
+          console.log("error", response);
+          if (response.status == 422) {
+            if (response.data.errors)
+              this.$refs.form.setErrors(response.data.errors);
           }
         }
       }
     },
+    // async save(evt) {
+    //   if (evt) evt.preventDefault();
+    //   if (!this.isSubscribedCompany) {
+    //     this.openConfirmDialog();
+    //   } else {
+    //     let valid = await this.$refs.form.validate();
+    //     if (!valid) {
+    //       console.log("form invalid");
+    //       return;
+    //     }
+    //     let formData = new FormData();
+    //     Object.keys(this.itemForm).forEach((key) => {
+    //       if (
+    //         this.token &&
+    //         ["email", "phone", "password", "password_confirm"].includes(key)
+    //       )
+    //         return;
+    //       formData.append(key, this.itemForm[key]);
+    //     });
+    //     try {
+    //       let { data } = await PartnersAPI.addItem(formData);
+    //       if (data.success) {
+    //         Object.keys(this.itemForm).forEach((key) => {
+    //           this.itemForm[key] = null;
+    //         });
+    //         this.openSuccessRegister();
+    //         this.$nextTick(() => {
+    //           if (this.$refs["form"]) {
+    //             this.$refs.form.reset();
+    //           }
+    //         });
+    //       } else {
+    //         window.SwalError(data.message);
+    //       }
+    //     } catch (error) {
+    //       console.log("error", error);
+    //       if (error.response) {
+    //         let response = error.response;
+    //         console.log("error", response);
+    //         if (response.status == 422) {
+    //           if (response.data.errors)
+    //             this.$refs.form.setErrors(response.data.errors);
+    //         }
+    //       }
+    //     }
+    //   }
+    // },
     async loadCountries() {
       try {
         let { data } = await commonAPI.getCountries();
@@ -713,13 +752,28 @@ export default {
     },
     goToTab2(e) {
       e.preventDefault();
-      if (
-        this.itemForm.company_name &&
-        this.itemForm.email &&
-        this.itemForm.phone
-      ) {
-        return (this.tab = 2);
+      if (!this.token) {
+        if (
+          this.itemForm.company_name &&
+          this.itemForm.email &&
+          this.itemForm.phone &&
+          this.itemForm.terms_use
+        ) {
+          return (this.tab = 2);
+        }
+      } else {
+        if (this.itemForm.company_name && this.itemForm.terms_use) {
+          return (this.tab = 2);
+        }
       }
+
+      //   if (
+      //     this.itemForm.company_name &&
+      //     this.itemForm.email &&
+      //     this.itemForm.phone
+      //   ) {
+      //     return (this.tab = 2);
+      //   }
     },
     goToTab3(e) {
       e.preventDefault();
@@ -738,13 +792,21 @@ export default {
         return (this.tab = 3);
       }
     },
-    uploadFile(evt) {
-      if (!evt.target.files && !evt.target.files[0]) {
-        this.itemForm.pdf = null;
+    // uploadFile(evt) {
+    //   if (!evt.target.files && !evt.target.files[0]) {
+    //     this.itemForm.pdf = null;
 
+    //     return;
+    //   }
+    //   this.itemForm.pdf = evt.target.files[0];
+    // },
+    uploadFile(event) {
+      const file = event.target.files[0];
+      if (!file) {
+        this.itemForm.pdf = null;
         return;
       }
-      this.itemForm.pdf = evt.target.files[0];
+      this.itemForm.pdf = file;
     },
     async loadCategories() {
       try {
