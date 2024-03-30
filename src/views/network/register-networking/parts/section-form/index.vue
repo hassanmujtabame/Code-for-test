@@ -31,7 +31,10 @@
               class="row g-3 needs-validation"
               novalidate
             >
-              <div :class="{ 'd-none': tabs !== 1 }">
+              <div
+                class="d-flex flex-column gap-2"
+                :class="{ 'd-none': tab !== 1 }"
+              >
                 <div class="col-md-4 w-100">
                   <ValidationProvider
                     :name="$t('company-name')"
@@ -123,8 +126,143 @@
                                 </ValidationProvider>
                             </div> -->
                 </template>
+                <div class="col-md-4 w-100 mt-2">
+                  <div class="form-check">
+                    <ValidationProvider
+                      tag="div"
+                      class="w-100"
+                      :name="$t('terms_use')"
+                      rules="required"
+                      vid="terms_use"
+                      v-slot="{ errors }"
+                    >
+                      <div class="form-group">
+                        <input
+                          :value="itemForm.terms_use"
+                          @input="
+                            (event) =>
+                              (itemForm.terms_use =
+                                event.target.checked === true ? true : null)
+                          "
+                          class="form-check-input"
+                          type="checkbox"
+                          id="defaultCheck1"
+                        />
+                        اوافق على
+                        <label class="form-check-label" for="defaultCheck1">
+                          <router-link
+                            :to="getRouteLocale('conditions')"
+                            class="m-c"
+                          >
+                            {{ $t("terms_use") }}
+                          </router-link>
+                        </label>
+                      </div>
+                      <d-error-input
+                        class="b"
+                        style="border: 2px solid #2cb7b3"
+                        :errors="errors"
+                        v-if="errors.length > 0"
+                      />
+                    </ValidationProvider>
+                  </div>
+                </div>
+                <button class="btn btn-main" type="button" @click="goToTab2">
+                  استمرار
+                  <!-- {{ $t("Register-now") }} -->
+                </button>
               </div>
-              <div class="col-md-4 w-100">
+              <div
+                :class="{ 'd-none': tab !== 2 }"
+                class="d-flex flex-column gap-2"
+              >
+                <div class="col-md-4 w-100">
+                  <ValidationProvider
+                    :name="$t('company_website')"
+                    vid="website"
+                    rules="required"
+                    class="d-flex flex-column gap-1"
+                    v-slot="{ errors }"
+                  >
+                    <label class="text-dark" for="books">
+                      السجل التجارى للشركه
+                    </label>
+                    <d-text-input
+                      class="form-control"
+                      id="books"
+                      placeholder="ادخل السجل التجارى"
+                      :errors="errors"
+                      v-model="itemForm.website"
+                    />
+                  </ValidationProvider>
+                </div>
+                <div class="col-md-4 w-100">
+                  <ValidationProvider
+                    name="address"
+                    vid="address"
+                    class="d-flex flex-column gap-1"
+                    v-slot="{ errors }"
+                  >
+                    <label class="text-dark" for="address">
+                      عنوان مقر الشركه المسجل
+                    </label>
+                    <d-text-input
+                      class="form-control"
+                      placeholder="ادخل عنوان الشركة"
+                      id="address"
+                      :errors="errors"
+                      v-model="itemForm.address"
+                    />
+                  </ValidationProvider>
+                </div>
+                <div class="col-md-4 w-100">
+                  <ValidationProvider
+                    :name="$t('specialist_field')"
+                    vid="category_id"
+                    rules="required"
+                    class="d-flex flex-column gap-1"
+                    v-slot="{ errors }"
+                  >
+                    <label class="text-dark" for="country"> التخصص </label>
+
+                    <d-select-input
+                      v-model="itemForm.category_id"
+                      :errors="errors"
+                    >
+                      <option value=""></option>
+                      <option
+                        v-for="(cat, i) in categories"
+                        :key="i"
+                        :value="cat.id"
+                      >
+                        {{ cat.name }}
+                      </option>
+                    </d-select-input>
+                  </ValidationProvider>
+                </div>
+                <div class="col-md-4 w-100">
+                  <ValidationProvider
+                    :name="$t('specialist_field')"
+                    vid="category_id"
+                    rules="required"
+                    class="d-flex flex-column gap-1"
+                    v-slot="{ errors }"
+                  >
+                    <label class="text-dark" for="country"> الدولة </label>
+                    <d-select-input v-model="itemForm.cuntory" :errors="errors">
+                      <option value=""></option>
+                      <option
+                        v-for="(cat, i) in countries"
+                        :key="i"
+                        :value="cat.id"
+                      >
+                        {{ cat.name }}
+                      </option>
+                    </d-select-input>
+                  </ValidationProvider>
+                </div>
+              </div>
+              <!-- <div class="col-md-4 w-100">
                 <ValidationProvider
                   :name="$t('company_website')"
                   vid="website"
@@ -261,9 +399,9 @@
                     {{ errors[0] }}
                   </div>
                 </ValidationProvider>
-              </div>
+              </div> -->
 
-              <div class="col-md-4 w-100 mt-2">
+              <!-- <div class="col-md-4 w-100 mt-2">
                 <div class="form-check">
                   <ValidationProvider
                     tag="div"
@@ -298,15 +436,16 @@
                     <d-error-input :errors="errors" v-if="errors.length > 0" />
                   </ValidationProvider>
                 </div>
-              </div>
-              <div class="col-12 m-2 text-start">
+              </div> -->
+              <div v-if="tab === 4" class="col-12 m-2 text-start">
                 <button
                   class="btn btn-main"
                   type="submit"
                   @click="save"
                   role="button"
                 >
-                  {{ $t("Register-now") }}
+                  تسجيل
+                  <!-- {{ $t("Register-now") }} -->
                 </button>
               </div>
             </ValidationObserver>
@@ -319,6 +458,8 @@
 <script>
 import PartnersAPI from "@/services/api/partners.js";
 import ImageBox from "./image-box.vue";
+import commonAPI from "@/services/api/common";
+
 export default {
   name: "form-register",
   components: {
@@ -328,7 +469,8 @@ export default {
     return {
       loading: false,
       categories: [],
-      tab: 1,
+      countries: [],
+      tab: 2,
       itemForm: {
         company_name: "",
         website: "",
@@ -357,69 +499,144 @@ export default {
 
       return o;
     },
-  },
-  redirectoHome() {
-    this.refreshPage({ name: "network-home" });
-  },
-  openSuccessRegister() {
-    //this.fireOpenDialog('success-register-as-partner')
-    let dataEvt = {
-      title: "نشكرك على تسجيلك معنا",
-      descriptionClass: "m-c",
-      description: `سنتواصل معك خلال الايام القليلة القادمة لتأكيد بيانتك و تأكيد الاشتراك`,
-      btns: [{ title: this.$t("Home"), action: () => this.redirectoHome() }],
-      onClose: this.redirectoHome,
-      icon: true,
-    };
-    this.showSuccessMsg(dataEvt);
-  },
-  async save(evt) {
-    if (evt) evt.preventDefault();
-    if (!this.isSubscribedCompany) {
-      this.openConfirmDialog();
-    } else {
-      let valid = await this.$refs.form.validate();
-      if (!valid) {
-        console.log("form invalid");
-        return;
-      }
-      let formData = new FormData();
-      Object.keys(this.itemForm).forEach((key) => {
-        if (
-          this.token &&
-          ["email", "phone", "password", "password_confirm"].includes(key)
-        )
+    redirectoHome() {
+      this.refreshPage({ name: "network-home" });
+    },
+    openSuccessRegister() {
+      //this.fireOpenDialog('success-register-as-partner')
+      let dataEvt = {
+        title: "نشكرك على تسجيلك معنا",
+        descriptionClass: "m-c",
+        description: `سنتواصل معك خلال الايام القليلة القادمة لتأكيد بيانتك و تأكيد الاشتراك`,
+        btns: [{ title: this.$t("Home"), action: () => this.redirectoHome() }],
+        onClose: this.redirectoHome,
+        icon: true,
+      };
+      this.showSuccessMsg(dataEvt);
+    },
+    async save(evt) {
+      if (evt) evt.preventDefault();
+      if (!this.isSubscribedCompany) {
+        this.openConfirmDialog();
+      } else {
+        let valid = await this.$refs.form.validate();
+        if (!valid) {
+          console.log("form invalid");
           return;
-        formData.append(key, this.itemForm[key]);
-      });
-      try {
-        let { data } = await PartnersAPI.addItem(formData);
-        if (data.success) {
-          Object.keys(this.itemForm).forEach((key) => {
-            this.itemForm[key] = null;
-          });
-          this.openSuccessRegister();
-          this.$nextTick(() => {
-            if (this.$refs["form"]) {
-              this.$refs.form.reset();
-            }
-          });
-        } else {
-          window.SwalError(data.message);
         }
-      } catch (error) {
-        console.log("error", error);
-        if (error.response) {
-          let response = error.response;
-          console.log("error", response);
-          if (response.status == 422) {
-            if (response.data.errors)
-              this.$refs.form.setErrors(response.data.errors);
+        let formData = new FormData();
+        Object.keys(this.itemForm).forEach((key) => {
+          if (
+            this.token &&
+            ["email", "phone", "password", "password_confirm"].includes(key)
+          )
+            return;
+          formData.append(key, this.itemForm[key]);
+        });
+        try {
+          let { data } = await PartnersAPI.addItem(formData);
+          if (data.success) {
+            Object.keys(this.itemForm).forEach((key) => {
+              this.itemForm[key] = null;
+            });
+            this.openSuccessRegister();
+            this.$nextTick(() => {
+              if (this.$refs["form"]) {
+                this.$refs.form.reset();
+              }
+            });
+          } else {
+            window.SwalError(data.message);
+          }
+        } catch (error) {
+          console.log("error", error);
+          if (error.response) {
+            let response = error.response;
+            console.log("error", response);
+            if (response.status == 422) {
+              if (response.data.errors)
+                this.$refs.form.setErrors(response.data.errors);
+            }
           }
         }
       }
-    }
+    },
+    async loadCountries() {
+      try {
+        let { data } = await commonAPI.getCountries();
+        if (data.success) {
+          this.countries = data.data;
+        }
+      } catch (error) {
+        console.log(error);
+        //
+      }
+    },
+    goToTab2(e) {
+      e.preventDefault();
+      if (
+        this.itemForm.company_name &&
+        this.itemForm.email &&
+        this.itemForm.phone
+      ) {
+        return (this.tab = 2);
+      }
+    },
+    uploadFile(evt) {
+      if (!evt.target.files && !evt.target.files[0]) {
+        this.itemForm.pdf = null;
+
+        return;
+      }
+      this.itemForm.pdf = evt.target.files[0];
+    },
+    async loadCategories() {
+      try {
+        let { data } = await PartnersAPI.getCategories();
+        if (data.success) {
+          this.categories = data.data;
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+    },
+    openConfirmDialog() {
+      let dataEvt = {
+        title: "",
+        description: `يجب عليك الاشتراك فى باقة الشركات`,
+        type: "warning",
+        btns: [
+          {
+            title: this.$t("subscribe"),
+            action: () => this.$router.push({ name: "network-subscribe" }),
+          },
+        ],
+      };
+      this.showConfirmMsg(dataEvt);
+      //this.fireOpenDialog('go-to-pther-section',dept)
+    },
+    checkSubscribedCompany() {
+      for (
+        let index = 0;
+        index < this.user.system_subscriptions.length;
+        index++
+      ) {
+        const element = this.user.system_subscriptions[index];
+        if (
+          element.system_package.related_to.key == "network" &&
+          element.system_package.name.includes("شرك")
+        ) {
+          // this.subscribedType = element.system_package.id
+          // console.log('yay you are company', true)
+          this.isSubscribedCompany = true;
+        } else {
+          this.isSubscribedCompany = false;
+        }
+      }
+      // console.log('user_system', this.user.system_subscriptions)
+    },
   },
+
   // async save(evt) {
   //     if (evt) evt.preventDefault();
   //     if (!this.isSubscribedCompany) {
@@ -466,61 +683,9 @@ export default {
   //         }
   //     }
   // },
-  uploadFile(evt) {
-    if (!evt.target.files && !evt.target.files[0]) {
-      this.itemForm.pdf = null;
-
-      return;
-    }
-    this.itemForm.pdf = evt.target.files[0];
-  },
-  async loadCategories() {
-    try {
-      let { data } = await PartnersAPI.getCategories();
-      if (data.success) {
-        this.categories = data.data;
-      }
-    } catch (error) {
-      console.log("error", error);
-    }
-  },
-  openConfirmDialog() {
-    let dataEvt = {
-      title: "",
-      description: `يجب عليك الاشتراك فى باقة الشركات`,
-      type: "warning",
-      btns: [
-        {
-          title: this.$t("subscribe"),
-          action: () => this.$router.push({ name: "network-subscribe" }),
-        },
-      ],
-    };
-    this.showConfirmMsg(dataEvt);
-    //this.fireOpenDialog('go-to-pther-section',dept)
-  },
-  checkSubscribedCompany() {
-    for (
-      let index = 0;
-      index < this.user.system_subscriptions.length;
-      index++
-    ) {
-      const element = this.user.system_subscriptions[index];
-      if (
-        element.system_package.related_to.key == "network" &&
-        element.system_package.name.includes("شرك")
-      ) {
-        // this.subscribedType = element.system_package.id
-        // console.log('yay you are company', true)
-        this.isSubscribedCompany = true;
-      } else {
-        this.isSubscribedCompany = false;
-      }
-    }
-    // console.log('user_system', this.user.system_subscriptions)
-  },
 
   mounted() {
+    this.loadCountries();
     this.loadCategories();
     this.checkSubscribedCompany();
   },
@@ -531,6 +696,9 @@ export default {
 .eye-password-icon {
   top: 12px;
   left: 10px;
+}
+.b {
+  border: 2px solid #2cb7b3 !important;
 }
 
 input:-webkit-autofill {
