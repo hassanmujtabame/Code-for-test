@@ -404,6 +404,19 @@ const routers = [
       ),
   },
   {
+    path: "network/company/:id",
+    meta: {
+      layout: LayoutDefault,
+      auth: true,
+      title: "network company id ",
+    },
+    name: "network-company-id",
+    component: () =>
+      import(
+        /* webpackChunkName: "network-control-member-partner" */ "../views/company/index.vue"
+      ),
+  },
+  {
     path: "network/home",
     meta: { layout: LayoutDefault, title: "network home" },
     name: "network-home",
