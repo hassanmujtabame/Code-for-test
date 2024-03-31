@@ -30,6 +30,9 @@
     <!-- <div class="container mt-5">
           <Section6/>
         </div> -->
+    <div>
+      <SectionSign />
+    </div>
     <div class="mt-5">
       <SectionConsultingNumbers />
     </div>
@@ -49,6 +52,7 @@ import SectionHeader from "./parts/section-header/index.vue";
 import SectionHeader2 from "./parts/section-header-old/index.vue";
 import SectionConsultingNumbers from "../../../components/Section-consulting-numbers.vue";
 import SectionBest from "../../../components/best-consult.vue";
+import SectionSign from "../../../components/sign-up-consult.vue";
 
 import SectionGoals from "./parts/section-goals/index.vue";
 import SectionAcademyNumbers from "../../../views/academy/home/parts/section-academy-numbers/index.vue";
@@ -66,6 +70,7 @@ export default {
   name: "consulting-home",
   components: {
     SectionHeader,
+    SectionSign,
     SectionBest,
     SectionHelpToStart,
     SectionConsultingCategories,

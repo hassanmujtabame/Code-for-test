@@ -1,6 +1,6 @@
 <template>
   <div class="box member-filter">
-    <d-expanded-panel
+    <!-- <d-expanded-panel
       style="height: 150px"
       class="accordion d-flex align-items-start"
       id="accordionPanelsStayOpenExample"
@@ -114,7 +114,7 @@
           </a>
         </slot>
       </div>
-    </d-expanded-panel>
+    </d-expanded-panel> -->
     <h2 class="">
       <!-- عدد الأعضاء <span class="m-c">{{ totalMembers }} عضو </span> -->
       اعضاء رياديات

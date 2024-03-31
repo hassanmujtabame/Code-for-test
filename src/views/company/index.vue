@@ -115,20 +115,32 @@
     <div class="" v-if="id === 2">
       <Discount />
     </div>
-    <div class="row" v-if="id === 3"></div>
-    <div class="row" v-if="id === 4"></div>
-    <div class="row" v-if="id === 5"></div>
+    <div class="" v-if="id === 3">
+      <Services />
+    </div>
+    <div class="" v-if="id === 4">
+      <Gallary />
+    </div>
+    <div class="" v-if="id === 5">
+      <Places />
+    </div>
   </div>
 </template>
 
 <script>
 import Offers from "./sections/offers.vue";
 import Discount from "./sections/discount.vue";
+import Places from "./sections/places.vue";
+import Services from "./sections/services.vue";
+import Gallary from "./sections/gallary.vue";
 export default {
   name: "company-page",
   components: {
     Offers,
     Discount,
+    Gallary,
+    Places,
+    Services,
   },
 
   data() {

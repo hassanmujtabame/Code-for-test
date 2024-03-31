@@ -10,11 +10,11 @@
           </p>
         </div>
         <div>
-          <router-link
+          <!-- <router-link
             :to="getRouteLocale('consulting-consultants')"
             class="more"
             >{{ $t("more") }}</router-link
-          >
+          > -->
         </div>
       </div>
 
@@ -54,13 +54,13 @@ export default {
   data: () => ({
     loading: true,
     items: [],
-    consultants: false,
+    consultants: true,
   }),
   methods: {
     async initializing() {
       this.loading = true;
       try {
-        let { data } = await consultingAPI.consultants.getBest({ paginate: 4 });
+        let { data } = await consultingAPI.consultants.getBest({ paginate: 6 });
         if (data.success) {
           this.items = data.data;
         }
@@ -83,7 +83,7 @@ export default {
     },
   },
   mounted() {
-    this.checkSubscriptionOptions();
+    // this.checkSubscriptionOptions();
 
     this.initializing();
   },

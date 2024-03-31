@@ -33,7 +33,7 @@
               <i style="color: var(--pc)" class="fas fa-check-circle mx-2"></i>
               مجالات متنوعة و فريدة
             </p>
-            <div v-if="!user.is_consultant" class="mb-4">
+            <div class="mb-4">
               <router-link
                 :to="getRouteLocale('consulting-register')"
                 class="btn-custmer px-5 py-1"

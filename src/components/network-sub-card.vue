@@ -153,8 +153,17 @@
           </div>
           <div class="d-flex justify-content-center align-items-center" v-else>
             <router-link
+              v-if="pack.type_company === 0"
               style="background-color: #1fb9b3"
               :to="getRouteLocale('login')"
+              class="btn text-light my-2 rounded-3 px-4 py-2"
+            >
+              سجل دخولك
+            </router-link>
+            <router-link
+              v-if="pack.type_company === 1"
+              style="background-color: #1fb9b3"
+              :to="getRouteLocale('register-networking')"
               class="btn text-light my-2 rounded-3 px-4 py-2"
             >
               سجل دخولك
@@ -582,6 +591,9 @@ export default {
     },
     features: {
       type: [Array, Object],
+    },
+    type_company: {
+      type: [Number],
     },
     subscribed: {
       // type: [Array, Object]

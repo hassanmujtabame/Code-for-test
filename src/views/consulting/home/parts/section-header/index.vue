@@ -61,15 +61,15 @@
             <img
               style="z-index: 10"
               class="img-omar position-relative img-fluid"
-              src="../../../../../assets/img/consult/Frame 1171276680.png"
+              src="../../../../../assets/img/consult/Left.png"
               alt="hero img"
             />
-            <img
+            <!-- <img
               class="position-absolute img-fluid"
               src="../../../../../assets/img/consult/Path 2212.png"
               alt=""
               style="top: 20px; left: -57px; z-index: 5"
-            />
+            /> -->
             <!-- <img
               style="top: -24px; left: 83px"
               class="position-absolute"

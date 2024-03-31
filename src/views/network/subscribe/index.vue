@@ -105,6 +105,7 @@
                 @chosed="choose"
                 :subscribed="subscribedType"
                 :typeSectionSub="'network'"
+                :type_company="pack.type_company"
               >
               </NetworkSubCard>
             </div>
