@@ -26,7 +26,7 @@
             </router-link>
             <router-link
               v-if="token"
-              :to="getRouteLocale('academy-instructor-register')"
+              :to="getRouteLocale('network-subscribe')"
               style="background-color: #f2631c"
               class="btn px-5 text-light py-2"
             >

@@ -666,7 +666,11 @@ export default {
       }
 
       try {
-        let { data } = await PartnersAPI.addItem(this.itemForm);
+        let { data } = await PartnersAPI.addItem(this.itemForm, {
+          headers: {
+            "Content-Type": "multipart/form-data", // Set content type for file upload
+          },
+        });
         if (data.success) {
           Object.keys(this.itemForm).forEach((key) => {
             this.itemForm[key] = null;

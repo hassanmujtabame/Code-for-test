@@ -28,6 +28,7 @@
               :to="getRouteLocale('academy-course-show', { id: item.id })"
             >
               <TrainingCourseCard
+                :item="item"
                 :img="item.image_path"
                 :title="item.title"
                 :price="item.price"

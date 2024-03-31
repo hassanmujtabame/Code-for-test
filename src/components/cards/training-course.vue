@@ -127,12 +127,12 @@
         </svg>
         <span class="mx-2">(15)</span>
       </div>
-      <div class="d-flex py-1">
+      <div class="d-flex">
         <h6>مشاهدة <span>30k</span></h6>
         <div class="pink mx-2"></div>
       </div>
     </div>
-    <div class="py-1 px-5">
+    <div class="px-5">
       <div class="text-end">
         <p class="title-course-card">{{ title }}</p>
       </div>
@@ -140,17 +140,28 @@
         <p class="price">{{ price }} {{ currency }}</p>
       </div>
     </div>
-    <div class="border-top py-3 d-flex align-items-center">
+    <div class="border-top d-flex align-items-center">
       <img
+        class="px-2"
+        style="border-radius: 999px"
+        width="75px"
+        height="75px"
+        :src="item.user_info.image"
+        alt="user img"
+      />
+      <!-- <img
         class="px-2"
         src="../../../public/assets/img/Ellipse 601.png"
         alt="user img"
-      />
+      /> -->
       <div
         class="d-flex align-items-center px-2 justify-content-center flex-column"
       >
-        <h6>العنود الخالدي</h6>
-        <small>مدربة تصميم تجربة المستخدم</small>
+        <h6>
+          {{ item.user_info.name }}
+        </h6>
+        <!-- <h6>العنود الخالدي</h6> -->
+        <!-- <small>مدربة تصميم تجربة المستخدم</small> -->
       </div>
     </div>
   </div>
@@ -161,6 +172,9 @@ export default {
   props: {
     img: {
       type: String,
+    },
+    item: {
+      type: Object,
     },
     title: {
       type: String,
@@ -185,9 +199,9 @@ export default {
   border-radius: 32px;
 }
 
-.title-course-card {
+/* .title-course-card {
   height: 54px;
-}
+} */
 
 .img-courses {
   height: 250px;
