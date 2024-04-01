@@ -6,8 +6,8 @@
             <userRectIcon />
             <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-profile')" class="mx-2 m-c ">
                 <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer"> {{
-                    $t('personal_page')
-                }}</button>
+        $t('personal_page')
+    }}</button>
             </router-link>
         </div>
 
@@ -15,7 +15,7 @@
             <cupIcon />
             <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-projects')" class="mx-2 m-c ">
                 <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{ $t('students-projects')
-                }}</button>
+                    }}</button>
             </router-link>
         </div>
 
@@ -27,7 +27,7 @@
             <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-my-financial-transactions')"
                 class="mx-2 m-c ">
                 <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{
-                    $t('My-financial-transactions') }}</button>
+        $t('My-financial-transactions') }}</button>
             </router-link>
         </div>
 
@@ -36,8 +36,8 @@
             <eyeOpenIcon />
             <router-link custom v-slot="{ navigate }" :to="getRouteLocale('academy-preview-profile')" class="mx-2 m-c ">
                 <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{
-                    $t('how-see-me-others')
-                }}</button>
+        $t('how-see-me-others')
+    }}</button>
             </router-link>
         </div>
         <div class="box  mx-2 mt-3 ">
@@ -45,8 +45,8 @@
             <lockPassIcon />
             <router-link custom v-slot="{ navigate }" :to="getRouteLocale('change-password')" class="mx-2 m-c ">
                 <button @click="clickLink(navigate, $event)" role="link" class="btn-drawer">{{
-                    $t('password-change-request')
-                }}</button>
+        $t('password-change-request')
+                    }}</button>
             </router-link>
         </div>
 
