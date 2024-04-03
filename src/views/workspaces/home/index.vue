@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ opacity: getData('2024-4-1') }" style="margin-top: 83px">
+  <div  style="margin-top: 83px">
     <WorkSpaceHome />
     <Create />
     <SuccessAddWorkspace />

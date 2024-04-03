@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="{ opacity: getData('2024-4-1') }"
+    
     style="background-color: #f6f8f9"
     class="mt-5 p-4"
   >

@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="{ opacity: getData('2024-4-1') }"
+    
     style="margin-top: 85px; overflow-x: hidden; overflow-y: hidden"
     class="consult"
   >

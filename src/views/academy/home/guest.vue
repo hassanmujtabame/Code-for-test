@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ opacity: getData('2024-4-1') }">
+  <div >
     <!-- section 1-->
     <div class="my-5">
       <SectionGuestHeader />
