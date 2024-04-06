@@ -2,7 +2,7 @@
   <footer style="padding-top: 20px; padding-bottom: 0px" class="">
     <div class="container">
       <div
-        class="row justify-content-between align-items-center p-3 text-center"
+        class="row justify-content-between p-3 text-right"
       >
         <div class="col-12 col-md-3 mt-2">
           <div>
@@ -64,7 +64,7 @@
         <div class="col-12 col-md-7 mt-2">
           <div class="row justify-content-between nav">
             <div class="col-xl-3 col-lg-6 mt-3">
-              <h6 style="color: #2cb7b3" class="">{{ $t("Riadiat") }}</h6>
+              <h6 style="color: #2cb7b3" class="">عن رياديات</h6>
               <router-link :to="getRouteLocale('who-are-we')" class="d-block">{{
                 $t("who-are-we")
               }}</router-link>
@@ -73,53 +73,14 @@
               <router-link
                 :to="getRouteLocale('network-models')"
                 class="d-block"
-                >النماذج</router-link
+                >الشروط والأحكام</router-link
               >
               <router-link
                 :to="getRouteLocale('workspaces-home')"
                 class="d-block"
-                >{{ $t("workspaces") }}</router-link
+                >سياسة الخصوصية</router-link
               >
             </div>
-            <div class="col-xl-3 col-lg-6 mt-3">
-              <h6 style="color: #2cb7b3">{{ $t("riadiat-channel") }}</h6>
-              <router-link
-                :to="getRouteLocale('network-blogs')"
-                class="d-block"
-                >{{ $t("Blogs") }}</router-link
-              >
-              <router-link
-                :to="getRouteLocale('network-podcasts')"
-                class="d-block"
-                >{{ $t("podcast") }}</router-link
-              >
-              <router-link
-                :to="getRouteLocale('network-success-stories')"
-                class="d-block"
-                >{{ $t("success-story") }}</router-link
-              >
-              <a
-                href="https://www.youtube.com/channel/UCM0gTqCAolncVWSr0aPbi6w"
-                class="d-block"
-                >قناة رياديات</a
-              >
-            </div>
-            <!-- uncomment after edition in jobs  -->
-
-            <!-- <div class="col-xl-3 col-lg-6 mt-3">
-              <h6>{{ $t("join-us") }}</h6>
-              <router-link
-                :to="getRouteLocale('service-provider-jobs')"
-                class="d-block"
-                >{{ $t("recruitment") }}</router-link
-              >
-              <router-link
-                :to="getRouteLocale('affiliate-marketing-home')"
-                class="d-block"
-                >{{ $t("Affiliate-marketing") }}</router-link
-              >
-            </div> -->
-
             <div class="col-xl-3 col-lg-6 mt-3">
               <h6 style="color: #2cb7b3">خدماتنا</h6>
               <router-link :to="getRouteLocale('network-home')" class="d-block"
@@ -138,9 +99,20 @@
                 class="d-block"
                 >الخدمات</router-link
               >
-              <!-- <router-link :to="getRouteLocale('contact-us')" class="d-block">{{
-                $t("contact-us")
-              }}</router-link> -->
+              <router-link :to="getRouteLocale('contact-us')" class="d-block">أماكن العمل</router-link>
+            </div>
+            <div class="col-xl-3 col-lg-6 mt-3">
+              <h6 style="color: #2cb7b3">انضم لنا</h6>
+              <router-link
+                :to="getRouteLocale('service-provider-jobs')"
+                class="d-block"
+                >انضم لفريق عملنا</router-link
+              >
+              <router-link
+                :to="getRouteLocale('affiliate-marketing-home')"
+                class="d-block"
+                >{{ $t("Affiliate-marketing") }}</router-link
+              >
             </div>
             <div class="col-xl-3 col-lg-6 mt-3">
               <h6 style="color: #2cb7b3">{{ $t("support") }}</h6>
@@ -155,34 +127,21 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-2 text-center mt-2">
-          <h6 style="color: #2cb7b3">{{ $t("download-application") }}</h6>
-          <div class="newsletter">
-            <div class="mt-3">
-              <a href="">
-                <img
-                  :src="`${publicPath}assets/svg/google-play-with-text.svg`"
-                />
-              </a>
-            </div>
-            <div class="mt-3">
-              <a href="">
-                <img
-                  :src="`${publicPath}assets/svg/app-store-with-text.svg`"
-                  alt=""
-                />
-              </a>
-            </div>
-            <!-- <div class="d-flex align-items-center gap-2">
-            <img
-              src="../../assets/img/footer/Mobile app store badge.png"
-              alt=""
-            />
-            <img
-              src="../../assets/img/footer/Mobile app store badge (1).png"
-              alt=""
-            />
-          </div> -->
+        <div class="col-12 col-md-2 text-right mt-2">
+          <h6 style="color: #2cb7b3" class="mt-3">{{ $t("download-application") }}</h6>
+          <div class="d-flex align-items-center gap-2">
+            <a href="/">
+              <img
+                src="../../assets/img/footer/Mobile app store badge.png"
+                alt=""
+              />
+            </a>
+            <a href="/">
+              <img
+                src="../../assets/img/footer/Mobile app store badge (1).png"
+                alt=""
+              />
+            </a>
           </div>
         </div>
         <div class="col-12 my-5">
