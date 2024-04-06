@@ -237,9 +237,9 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
-    <a href="https://wa.me/966504913601" class="float" target="_blank">
+    <!-- <a href="https://wa.me/966504913601" class="float" target="_blank">
       <i class="fa fa-whatsapp my-float"></i>
-    </a>
+    </a> -->
     <div
       class="py-4 d-flex align-items-center justify-content-between px-5"
       style="background-color: #f6f8f9"
