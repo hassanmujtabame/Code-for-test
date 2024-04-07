@@ -20,19 +20,23 @@
             شبكة رياديات بتساعدك في مشروعك من الالف الى الياء
             <!-- {{ $t('page-home-desc') }} -->
           </p>
-          <div class v-if="!isAuthenticated">
+          <div v-if="!isAuthenticated">
             <button class="px-3 btn-custmer shadow"
               style="background-color: #ff5722 !important; border: none !important; "
-              @click="router_push('register')">انضمي الان</button>
-            <button class="px-3 btn-custmer-w shadow mx-3" @click="router_push('login')">سجلي دخولك</button>
-
-            <!-- <router-link :to="getRouteLocale('login')">
-              <span class="px-3 btn-custmer shadow mx-3" @click="navigate">سجلي دخولك</span>
-            </router-link> -->
+              @click="router_push('register')">
+              اشترك الان
+            </button>
+            <button
+              style="color: #1fb9b3"
+              class="btn btn-lg bg-light bg mx-1 px-4 py-2"
+            >
+              <play-circle-icon class="mx-1" />
+              عرض توجيهى
+            </button>
           </div>
           <button v-if="isAuthenticated" class="px-3 btn-custmer shadow"
-          style="background-color: #ff5722 !important; border: none !important; "
-          @click="router_push('network-subscribe')">انضمي الان</button>
+            style="background-color: #ff5722 !important; border: none !important; "
+            @click="router_push('network-subscribe')">انضمي الان</button>
         </div>
         <div v-if="!isMobile" style="position: relative " class="col-6 d-flex flex-column">
           <div class="d-flex align-items-center">
@@ -85,9 +89,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
+import playCircleIcon from "@/components/icon-svg/play-circle.vue";
+
 export default {
   name: "section-header",
+  components: {
+    playCircleIcon,
+  },
   computed: {
     ...mapGetters({
       isAuthenticated: 'auth/authenticated',
