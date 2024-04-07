@@ -18,12 +18,12 @@
         >{{ $t("network") }}</router-link
       > -->
       <b-dropdown class="custom-dropdown" :text="'الشبكة'">
-        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
           <router-link :to="{ name: 'network-home' }" class="nav-link">
             الصفحه الرئيسيه
           </router-link>
         </b-dropdown-item>
-        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
           <!-- {{ $t("Exhibitions") }} -->
           <router-link
             :to="getRouteLocale('network-exhibitions')"
@@ -31,7 +31,7 @@
             >{{ $t("Exhibitions") }}</router-link
           >
         </b-dropdown-item>
-        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
           <!-- {{ $t("Offers") }} -->
           <router-link
             :to="getRouteLocale('network-offers')"
@@ -39,13 +39,13 @@
             >{{ $t("Offers") }}</router-link
           >
         </b-dropdown-item>
-        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
           <!-- {{ $t("Offers") }} -->
           <router-link :to="getRouteLocale('network-company')" class="nav-link"
             >الشركات</router-link
           >
         </b-dropdown-item>
-        <b-dropdown-item class="nav-link nav-item" style="cursor: pointer">
+        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
           <router-link
             :to="getRouteLocale('network-models')"
             class="nav-link"
@@ -53,19 +53,19 @@
           >
           <!-- {{ $t("Models") }} -->
         </b-dropdown-item>
-        <b-dropdown-item class="nav-item">
+        <b-dropdown-item class="nav-item text-right">
           <router-link :to="getRouteLocale('network-blogs')" class="nav-link">{{
             $t("Blogs")
           }}</router-link>
         </b-dropdown-item>
-        <b-dropdown-item class="nav-item">
+        <b-dropdown-item class="nav-item text-right">
           <router-link
             :to="getRouteLocale('network-member-network')"
             class="nav-link"
             >{{ $t("members") }}</router-link
           >
         </b-dropdown-item>
-        <b-dropdown-item class="nav-item">
+        <b-dropdown-item class="nav-item text-right">
           <router-link
             :to="{ name: 'consulting-home', params: { lang: $i18n.locale } }"
             class="nav-link"
