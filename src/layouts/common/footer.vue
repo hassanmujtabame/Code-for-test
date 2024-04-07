@@ -99,7 +99,7 @@
                 class="d-block"
                 >الخدمات</router-link
               >
-              <router-link :to="getRouteLocale('contact-us')" class="d-block">أماكن العمل</router-link>
+              <router-link :to="getRouteLocale('workspaces-home')" class="d-block">أماكن العمل</router-link>
             </div>
             <div class="col-xl-3 col-lg-6 mt-3">
               <h6 style="color: #2cb7b3">انضم لنا</h6>
