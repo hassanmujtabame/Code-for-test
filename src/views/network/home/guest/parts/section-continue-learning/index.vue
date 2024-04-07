@@ -1,66 +1,14 @@
 <template>
-  <div
-    class="main-top py-2 position-relative"
-    :class="{ 'px-5': !isMobile, 'px-3': isMobile }"
-  >
-    <div class="row align-items-center text-center m-auto">
-      <div class="col-md-6 col-12 d-none d-md-block mt-2">
-        <div class="img-screen">
-          <img
-            class="img-fluid"
-            :src="`${publicPath}assets/svg/mobile-screen-1.svg`"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="col-md-6 mt-4">
-        <h2 class="text-white" :class="{ 'fs-1': !isMobile, 'fs-6': isMobile }">
-          أكملي دوراتك، مراسلاتك وشاركي فـــــــي الشبكة والحاضنة من خلال تطبيق
-          رياديــــــات
-        </h2>
-        <div
-          class="mt-4 d-flex justify-content-center align-items-center gap-2 flex-wrap"
-        >
-          <a href="">
-            <img
-              :class="{ 'h-40px': isMobile }"
-              :src="`${publicPath}assets/svg/app-store-dark.svg`"
-              alt=""
-            />
-          </a>
-          <a href="">
-            <img
-              :class="{ 'h-40px': isMobile }"
-              :src="`${publicPath}assets/svg/google-play-dark.svg`"
-              alt=""
-            />
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="star position-absolute">
-      <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="" />
-    </div>
-    <div class="square position-absolute">
-      <img class="landing" :src="`${publicPath}assets/svg/square.svg`" alt="" />
-    </div>
-    <div class="star-two position-absolute">
-      <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="" />
-    </div>
-    <div class="star-big position-absolute">
-      <img
-        class="landing"
-        :src="`${publicPath}assets/svg/star-big.svg`"
-        alt=""
-      />
-    </div>
-  </div>
+  <download-app-banner />
 </template>
 
 <script>
+import DownloadAppBanner from '@/components/download-app-banner.vue';
 export default {
   name: "section-continue-learning",
+  components: {
+    DownloadAppBanner
+  }
 };
 </script>
 
