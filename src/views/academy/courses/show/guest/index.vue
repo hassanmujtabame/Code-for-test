@@ -159,7 +159,7 @@
 
           <button
             v-if="!isOwner"
-            @click="buyCourse"
+            @click="openDialog"
             style="background-color: #1fb9b3; color: white"
             class="btn px-4 py-2"
           >
@@ -267,6 +267,196 @@
       -->
       <!-- <checkoutCourseDiag />   -->
     </div>
+
+    <div
+      style="
+        top: 0;
+        left: 0;
+        z-index: 9999999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+      "
+      v-if="openModal"
+      class="position-fixed overflow-y-auto d-flex justify-content-center align-items-center"
+    >
+      <div style="background-color: white; height: auto" class="container">
+        <div class="text-end py-5 px-5">
+          <button
+            @click="handleClose"
+            class=""
+            style="
+              color: red;
+              font-size: 20px;
+              border: none;
+              background-color: transparent;
+            "
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="row justify-content-center align-items-center">
+          <div class="row">
+            <div class="col-xl-8 col-md-6 col-12">
+              <div class="text-end">
+                <h3 class="my-4">تفاصيل الدفع</h3>
+              </div>
+              <div class="card border-info col-12 mb-3">
+                <div class="card-body">
+                  <div class="form-check">
+                    <label
+                      class="form-check-label d-flex align-items-center justify-content-between px-2"
+                      for="card"
+                    >
+                      <div>
+                        الدفع بواسطة بطاقة الائتمان
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="card"
+                          value="card"
+                          v-model="selectedProvider"
+                        />
+                      </div>
+                      <img
+                        src="@/assets/img/payment/Group 1171276314.png"
+                        alt="payment method"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="
+                  padding-right: 0.55rem !important;
+                  padding-left: 0.55rem !important;
+                "
+                class="row"
+              >
+                <div class="card-container col-12 px-1">
+                  <div style="padding-top: 4px" class="card border-info mb-3">
+                    <div class="card-body">
+                      <div class="form-check">
+                        <label
+                          class="form-check-label d-flex align-items-center justify-content-between px-2"
+                          for="tamara"
+                        >
+                          <div>
+                            الدفع بواسطة تمارا
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              id="tamara"
+                              value="tamara"
+                              v-model="selectedProvider"
+                            />
+                          </div>
+                          <img
+                            src="@/assets/img/payment/Group 1171276324.png"
+                            alt="payment method"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-container col-12 px-1">
+                  <div class="card border-info mb-3">
+                    <div class="card-body">
+                      <div class="form-check">
+                        <label
+                          class="form-check-label d-flex align-items-center justify-content-between px-2"
+                          for="tabi"
+                        >
+                          <div class="">
+                            الدفع بواسطة تابى
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              id="tabi"
+                              value="tabi"
+                              v-model="selectedProvider"
+                            />
+                          </div>
+                          <img
+                            src="@/assets/img/payment/Group 1171276318.png"
+                            alt="img"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-12">
+              <div class="d-flex my-4 flex-column gap-4">
+                <div
+                  style="border-bottom: 1px solid #888"
+                  class="justify-content-between mx-2 align-items-center d-flex"
+                >
+                  <h4 style="font-size: 18px">المجموع</h4>
+                  <h4 style="font-size: 18px">{{ itemPage.price }} ر.س</h4>
+                </div>
+                <div class="text-center">
+                  <label
+                    style="font-weight: bold; font-size: 20px"
+                    for="discount"
+                    >كود الخصم</label
+                  >
+                  <div class="row justify-content-center">
+                    <div
+                      class="d-flex flex-column my-3 w-75 position-relative align-items-center"
+                    >
+                      <input
+                        class="px-4 rounded-3 py-2 form-control sale-code-input"
+                        id="discount"
+                        type="text"
+                        style="border: 1px dashed gray; border-left: none"
+                        placeholder="ادخل كود الخصم"
+                      />
+                      <button
+                        style="
+                          background-color: rgb(31, 185, 179);
+                          color: white;
+                          font-size: 18px;
+                          top: -1px;
+                          left: 10px;
+                        "
+                        class="btn px-4 sale-code-button position-absolute rounded-2"
+                      >
+                        تطبيق
+                      </button>
+                      <button
+                        @click="proceedToPayment"
+                        style="background-color: #1fb9b3; color: white"
+                        class="btn my-4 w-100 px-5 py-2"
+                      >
+                        التاكيد و الدفع
+                      </button>
+                    </div>
+                    <p style="font-size: 14px">
+                      بالنقر على التاكيد و الدفع فانت توافق على
+                      <router-link
+                        :to="getRouteLocale('conditions')"
+                        class=""
+                        style="
+                          color: rgb(31, 185, 179);
+                          font-weight: 500;
+                          text-decoration: underline;
+                        "
+                      >
+                        الشروط و الاحكام
+                      </router-link>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -307,16 +497,10 @@ export default {
       itemPage: {},
       isOwner: false,
       show: false,
+      openModal: false,
+      selectedProvider: null,
     };
   },
-  // watch: {
-  //   '$route': {
-  //     deep: true,
-  //     handler() {
-  //       this.initializing()
-  //     }
-  //   }
-  // },
   methods: {
     async initializing() {
       this.loading = true;
@@ -343,6 +527,94 @@ export default {
 
       this.loading = false;
     },
+    openDialog() {
+      this.openModal = true;
+    },
+    handleClose() {
+      this.openModal = false;
+    },
+    async proceedToPayment() {
+      if (this.itemPage.price == 0) {
+        try {
+          let { data } = await networkAPI.checkoutPackageFree({
+            package_id: this.id,
+          });
+          if (data.success) {
+            console.log("itsfree", data.data);
+            window.SwalSuccess("تم الاشتراك بنجاح");
+          } else {
+            window.SwalError(data.message);
+          }
+        } catch (error) {
+          console.log("error", error);
+        }
+        return;
+      }
+      switch (this.selectedProvider) {
+        case "tamara":
+          try {
+            // let { data } = await PaymentApi.PayPackageTammara({
+            //   package_id: this.id,
+            //   type: "package",
+            // });
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
+              type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "card":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
+              type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "tabi":
+          try {
+            let { data } = await PaymentApi.PayPackageMyFatoorah({
+              package_id: this.id,
+              type: "package",
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        default:
+          // Handle case where no provider is selected
+          window.errorMsg("اختار بوابة الدفع");
+          return false;
+      }
+    },
+    // watch: {
+    //   '$route': {
+    //     deep: true,
+    //     handler() {
+    //       this.initializing()
+    //     }
+    //   }
+    // },
+
     handleClick() {
       this.show = true;
     },
@@ -398,5 +670,15 @@ export default {
   /* Turquoise text */
   color: #0c2f33;
   margin: 0;
+}
+.sale-code-button {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+@media screen and (max-width: 600px) {
+  .sale-code-button {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
 }
 </style>
