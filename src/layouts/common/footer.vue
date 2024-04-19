@@ -1,9 +1,7 @@
 <template>
   <footer style="padding-top: 20px; padding-bottom: 0px" class="">
     <div class="container">
-      <div
-        class="row justify-content-between p-3 text-right"
-      >
+      <div class="row justify-content-between p-3 text-right">
         <div class="col-12 col-md-3 mt-2">
           <div>
             <!-- <img :src="`${publicPath}assets/svg/logo-footer.svg`" width="100" /> -->
@@ -99,7 +97,11 @@
                 class="d-block"
                 >الخدمات</router-link
               >
-              <router-link :to="getRouteLocale('workspaces-home')" class="d-block">أماكن العمل</router-link>
+              <router-link
+                :to="getRouteLocale('workspaces-home')"
+                class="d-block"
+                >أماكن العمل</router-link
+              >
             </div>
             <div class="col-xl-3 col-lg-6 mt-3">
               <h6 style="color: #2cb7b3">انضم لنا</h6>
@@ -128,7 +130,9 @@
           </div>
         </div>
         <div class="col-12 col-md-2 text-right mt-2">
-          <h6 style="color: #2cb7b3" class="mt-3">{{ $t("download-application") }}</h6>
+          <h6 style="color: #2cb7b3" class="mt-3">
+            {{ $t("download-application") }}
+          </h6>
           <div class="d-flex align-items-center gap-2">
             <a href="/">
               <img
@@ -247,11 +251,11 @@
       <div class="d-flex align-items-center gap-5">
         <div class="d-flex flex-column">
           <p style="color: #98a2b3">السجل التجاري</p>
-          <p style="color: #98a2b3">٢٣٤٥٦٧٨٩</p>
+          <p style="color: #98a2b3">1010457094</p>
         </div>
         <div class="d-flex flex-column">
           <p style="color: #98a2b3">الرقم الضريبي</p>
-          <p style="color: #98a2b3">١٢٣٤٥٦٧٨٩٠</p>
+          <p style="color: #98a2b3">310227304700003</p>
         </div>
         <!-- <div class="d-flex flex-column">
           <p style="color: #98a2b3">ابقي علي تواصل</p>
