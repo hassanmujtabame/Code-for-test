@@ -1,10 +1,7 @@
 <template>
-  <div
-    
-    style="margin-top: 85px"
-    class="consult"
-  >
+  <div style="margin-top: 85px" class="consult">
     <SectionHeader />
+    <SectionSearch />
     <SectionVip />
     <SectionContinueLearning />
     <SectionSpeical />
@@ -21,6 +18,7 @@
 <script>
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionList from "./parts/section-list/index.vue";
+import SectionSearch from "./parts/section-search/index.vue";
 import SectionHear from "@/views/network/home/parts/section-hear/index.vue";
 import SectionVip from "@/components/section-members-vip.vue";
 import SectionSpeical from "@/components/speical-members.vue";
@@ -29,6 +27,7 @@ export default {
   name: "member-network",
   components: {
     SectionHeader,
+    SectionSearch,
     SectionList,
     SectionSpeical,
     SectionHear,
