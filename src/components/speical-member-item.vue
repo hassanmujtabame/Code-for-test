@@ -21,6 +21,7 @@
           "
           class="img-fluid rounded-3"
           :src="img"
+          @error="handleImageError"
           alt
         />
       </div>
@@ -216,6 +217,11 @@
 <script>
 // import RateStars from "../rate-stars/index";
 export default {
+  data() {
+    return {
+      placeholderImageUrl: "assets/img/businesswoman.jpg",
+    };
+  },
   name: "card-parson-special",
   components: {},
   props: {
@@ -246,6 +252,12 @@ export default {
     rate: {
       type: [String, Number],
       default: 0,
+    },
+  },
+  methods: {
+    handleImageError(event) {
+      // Handle the image error by replacing the src attribute with the placeholder image URL
+      event.target.src = "/assets/img/businesswoman.jpg"; // Replace with your placeholder image URL
     },
   },
 };

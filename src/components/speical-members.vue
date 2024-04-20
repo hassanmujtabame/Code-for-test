@@ -2,17 +2,26 @@
   <div class="container">
     <div class="row speical-members-row px-md-4">
       <div class="d-flex justify-content-center align-items-center">
-        <h1 class="position-relative" style="width: 100%; text-align: center">
+        <p
+          class="position-relative"
+          style="
+            font-size: 32px;
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+            margin: 50px 0px;
+          "
+        >
           أعضاء مميزون
 
           <img
-            style="bottom: -25px; left: calc(50% - 100px)"
+            style="bottom: -10px; left: calc(50% - 100px); z-index: -1"
             class="position-absolute"
             width="200px"
             src="../assets/img/network/Vector 14.png"
             alt=""
           />
-        </h1>
+        </p>
       </div>
       <div
         class="col-md-6 col-lg-3 gap-2 col-12 p-2"
@@ -62,32 +71,32 @@ export default {
   },
   computed: {
     sliceArray() {
-      // this.items = [
-      //   {
-      //     id: 1,
-      //     name: "ريم محمد",
-      //     job_title: "مصممة جرافيك",
-      //     img: "assets/img/women_personal1.png",
-      //   },
-      //   {
-      //     id: 2,
-      //     name: "عبير أحمد",
-      //     job_title: "مصممة أزياء",
-      //     img: "assets/img/women_personal2.png",
-      //   },
-      //   {
-      //     id: 3,
-      //     name: "زينة علي",
-      //     job_title: "مديرة مشروع",
-      //     img: "assets/img/women_personal3.jpeg",
-      //   },
-      //   {
-      //     id: 4,
-      //     name: "سارة عبدالله",
-      //     job_title: "مديرة تسويق",
-      //     img: "assets/img/women_personal4.png",
-      //   },
-      // ];
+      this.items = [
+        {
+          id: 1,
+          name: "ريم محمد",
+          job_title: "مصممة جرافيك",
+          img: "assets/img/women_personasl1.png",
+        },
+        //   {
+        //     id: 2,
+        //     name: "عبير أحمد",
+        //     job_title: "مصممة أزياء",
+        //     img: "assets/img/women_personal2.png",
+        //   },
+        //   {
+        //     id: 3,
+        //     name: "زينة علي",
+        //     job_title: "مديرة مشروع",
+        //     img: "assets/img/women_personal3.jpeg",
+        //   },
+        //   {
+        //     id: 4,
+        //     name: "سارة عبدالله",
+        //     job_title: "مديرة تسويق",
+        //     img: "assets/img/women_personal4.png",
+        //   },
+      ];
       if (this.items.length < 4) {
         const placeholderItems = [
           {
