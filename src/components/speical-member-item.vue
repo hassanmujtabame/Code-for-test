@@ -1,49 +1,39 @@
 <template>
-  <div
-    style="
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      min-height: 250px;
-    "
-    class="d-flex rounded-3 gap-4 flex-column align-items-center shadow justify-content-center"
-  >
-    <div style="height: 164px; width: 100%" class="rounded-3 py-2 px-2">
-      <router-link class="" v-if="to" :to="to">
+  <router-link class="" :to="to">
+    <div
+      style="
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        min-height: 250px;
+        background-color: #fff;
+      "
+      class="d-flex rounded-3 gap-4 flex-column align-items-center shadow justify-content-center"
+    >
+      <div style="height: 210px; width: 100%" class="rounded-3 py-2 px-2">
         <img
           style="
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            height: 100%;
+            height: 210px;
             width: 100%;
+            object-fit: cover;
+            object-position: center top;
           "
           class="img-fluid rounded-3"
           :src="img"
           alt
         />
-      </router-link>
-      <img
-        style="
-          border-top-left-radius: 10px;
-          border-top-right-radius: 10px;
-          height: 100%;
-          width: 100%;
-        "
-        class="img-fluid"
-        v-else
-        @click="$emit('click-image')"
-        :src="img"
-        alt
-      />
+      </div>
+      <div style="min-height: 60px" class="text-center">
+        <p style="color: #f2631c; font-size: 16px" class="my-0">
+          {{ name }}
+        </p>
+        <p style="color: #000; font-size: 13px" class="my-0">
+          {{ description }}
+        </p>
+      </div>
     </div>
-    <div style="min-height: 86px" class="text-center">
-      <h5 style="color: #f2631c">
-        {{ name }}
-      </h5>
-      <p style="color: #000" class="my-2">
-        {{ description }}
-      </p>
-    </div>
-  </div>
+  </router-link>
   <!-- <div class="" :class="{ 'h-job': showJob }" style="">
       <h6 class="">{{ name | truncateWords(2) }}</h6>
       <p style="color: #1fb9b3" class="">
