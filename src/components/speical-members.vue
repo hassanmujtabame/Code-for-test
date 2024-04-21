@@ -71,32 +71,32 @@ export default {
   },
   computed: {
     sliceArray() {
-      this.items = [
-        {
-          id: 1,
-          name: "ريم محمد",
-          job_title: "مصممة جرافيك",
-          img: "assets/img/women_personasl1.png",
-        },
-        //   {
-        //     id: 2,
-        //     name: "عبير أحمد",
-        //     job_title: "مصممة أزياء",
-        //     img: "assets/img/women_personal2.png",
-        //   },
-        //   {
-        //     id: 3,
-        //     name: "زينة علي",
-        //     job_title: "مديرة مشروع",
-        //     img: "assets/img/women_personal3.jpeg",
-        //   },
-        //   {
-        //     id: 4,
-        //     name: "سارة عبدالله",
-        //     job_title: "مديرة تسويق",
-        //     img: "assets/img/women_personal4.png",
-        //   },
-      ];
+      // this.items = [
+      //   {
+      //     id: 1,
+      //     name: "ريم محمد",
+      //     job_title: "مصممة جرافيك",
+      //     img: "assets/img/women_personasl1.png",
+      //   },
+      //   {
+      //     id: 2,
+      //     name: "عبير أحمد",
+      //     job_title: "مصممة أزياء",
+      //     img: "assets/img/women_personal2.png",
+      //   },
+      //   {
+      //     id: 3,
+      //     name: "زينة علي",
+      //     job_title: "مديرة مشروع",
+      //     img: "assets/img/women_personal3.jpeg",
+      //   },
+      //   {
+      //     id: 4,
+      //     name: "سارة عبدالله",
+      //     job_title: "مديرة تسويق",
+      //     img: "assets/img/women_personal4.png",
+      //   },
+      //];
       if (this.items.length < 4) {
         const placeholderItems = [
           {
