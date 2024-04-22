@@ -29,10 +29,11 @@
         :key="item.id"
       >
         <CardItem
+          :id="item.id"
           :to="
             item.id > 0
               ? getRouteLocale('network-show-profile', { id: item.id })
-              : ''
+              : getRouteLocale()
           "
           :name="item.name"
           :description="item.job_title"

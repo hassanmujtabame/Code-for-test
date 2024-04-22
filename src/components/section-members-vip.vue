@@ -24,8 +24,8 @@
         </div>
       </div>
       <div class="col-md-8 my-5 col-12">
+        <!-- v-if="!loading" -->
         <d-swiper
-          v-if="!loading"
           :slides-per-view="2"
           :space-between="20"
           is-auto
