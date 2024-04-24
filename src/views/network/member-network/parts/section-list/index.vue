@@ -1,81 +1,52 @@
 <template>
   <div class="container mt-5 reverse-total-filter">
-    <div class="row">
-      <d-filter-list
-        :call-list="loadList"
-        :pluralName="$t('members')"
-        :singleName="$t('member')"
-        :searchPlaceholder="$t('search-by-name-or-field')"
-        classColCard="col-md-4  mt-3"
-        classSideBar="w-100"
-        newFilter
-        hideTop
-        hideOrder
-        :orderOpts="[
-          { id: 'asc', name: 'الاحدث' },
-          { id: 'desc', name: 'الاقدم' },
-        ]"
-        @change="changeFilter"
+    <div class="col-12">
+      <h2>أعضاء رياديات</h2>
+    </div>
+    <div class="row items-grid grid-container">
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        class="item-card-container"
       >
-        <template v-slot:side>
-          <SidebarBox :filterItem="filterSide" @change="changeFilter" />
-        </template>
-
-        <template v-slot="{ item }">
-          <ItemCard
-            :to="getRouteLocale('network-show-profile', { id: item.id })"
-            :name="item.name"
-            :description="item.job_title"
-            :img="item.image"
-            :showJob="true"
-          />
-        </template>
-      </d-filter-list>
-
-      <!-- <h3 class="t-c my-3">تنزيل البيانات الخاصة برواد الاعمال</h3> -->
-      <!-- <p class="p-0 m-0">
-                <a :href="itemPage.investment_contract" class="m-c" download>
-
-                    <svg width="19" height="18" viewBox="0 0 19 18" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M17.7637 8.9795C17.7637 13.6087 14.011 17.3613 9.38184 17.3613C4.75268 17.3613 1 13.6086 1 8.9795C1 4.35034 4.75268 0.597656 9.38184 0.597656C14.011 0.597656 17.7637 4.35034 17.7637 8.9795Z"
-                            stroke="#1FB9B3" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M6.0293 8.97949L9.38204 12.3322L12.7348 8.97949" stroke="#1FB9B3"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M9.38086 5.62695V12.3324" stroke="#1FB9B3" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                    تحميل 
-                </a>
-            </p> -->
-      <!-- <a :href="items.pdf" class="" download>
-        <button
-          style="width: 160px"
-          class="btn bg-main p-2 px-4 text-white d-flex align-items-center"
+        <ItemCard
+          :to="getRouteLocale('network-show-profile', { id: item.id })"
+          :name="item.name"
+          :description="item.job_title"
+          :img="item.image"
+          :showJob="true"
         >
-          <div>
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 36 36"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M27 27V31.5H9V27H6.75V31.5C6.75 32.0967 6.98705 32.669 7.40901 33.091C7.83097 33.5129 8.40326 33.75 9 33.75H27C27.5967 33.75 28.169 33.5129 28.591 33.091C29.0129 32.669 29.25 32.0967 29.25 31.5V27H27Z"
-                fill="white"
-              />
-              <path
-                d="M23.625 23.625L22.0343 22.0343L19.125 24.9435V15.75H16.875V24.9435L13.9657 22.0343L12.375 23.625L18 29.25L23.625 23.625ZM31.5 4.5V2.25H24.75V13.5H27V9H30.375V6.75H27V4.5H31.5ZM19.125 13.5H14.625V2.25H19.125C20.0198 2.25089 20.8778 2.60676 21.5105 3.2395C22.1432 3.87224 22.4991 4.73017 22.5 5.625V10.125C22.4991 11.0198 22.1432 11.8778 21.5105 12.5105C20.8778 13.1432 20.0198 13.4991 19.125 13.5ZM16.875 11.25H19.125C19.4233 11.2497 19.7093 11.1311 19.9202 10.9202C20.1311 10.7093 20.2497 10.4233 20.25 10.125V5.625C20.2497 5.32672 20.1311 5.04075 19.9202 4.82983C19.7093 4.61892 19.4233 4.5003 19.125 4.5H16.875V11.25ZM10.125 2.25H4.5V13.5H6.75V10.125H10.125C10.7215 10.1241 11.2932 9.88677 11.715 9.465C12.1368 9.04324 12.3741 8.47146 12.375 7.875V4.5C12.3744 3.90345 12.1372 3.3315 11.7153 2.90967C11.2935 2.48784 10.7216 2.2506 10.125 2.25ZM6.75 7.875V4.5H10.125L10.1261 7.875H6.75Z"
-                fill="white"
-              />
-            </svg>
-          </div>
-
-          <div class="mx-3">تنزيل</div>
-        </button>
-      </a> -->
+        </ItemCard>
+      </div>
+    </div>
+    <div>
+      <div class="pagination container2">
+        <ul class="pagination page2">
+          <li
+            class="pagination page__btn"
+            @click="navigate(links[0])"
+            :class="{ active: currentPage !== 1 }"
+          >
+            <i class="pagination fa-solid fa-chevron-right"></i>
+          </li>
+          <li
+            v-for="link in filteredLinks"
+            :key="link.label"
+            class="pagination page__numbers"
+            @click="navigate(link)"
+            :class="{ active: currentPage == link.label }"
+          >
+            {{ link.label }}
+          </li>
+          <li
+            class="pagination page__btn"
+            @click="navigate(links[links.length - 1])"
+            :class="{ active: currentPage !== lastPage }"
+          >
+            <i class="pagination fa-solid fa-chevron-left"></i>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -104,52 +75,94 @@ export default {
       },
       items_test: [
         {
+          id: 1,
           name: "العنقود محمد",
-          img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
-          description: "التصوير",
+          image: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
+          job_title: "التصوير",
         },
         {
+          id: 2,
           name: "العنقود محمد",
-          img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
-          description: "التصوير",
+          image: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
+          job_title: "التصوير",
         },
         {
+          id: 3,
           name: "العنقود محمد",
-          img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
-          description: "التصوير",
+          image: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
+          job_title: "التصوير",
         },
         {
+          id: 4,
           name: "العنقود محمد",
-          img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
-          description: "التصوير",
+          image: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
+          job_title: "التصوير",
         },
         {
+          id: 5,
           name: "العنقود محمد",
-          img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
-          description: "التصوير",
+          image: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
+          job_title: "التصوير",
         },
         {
+          id: 6,
           name: "العنقود محمد",
-          img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
-          description: "التصوير",
-        },
-        {
-          name: "العنقود محمد",
-          img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
-          description: "التصوير",
-        },
-        {
-          name: "العنقود محمد",
-          img: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
-          description: "التصوير",
+          image: `${vm.publicPath}assets/img/Rectangle 1775qa.png`,
+          job_title: "التصوير",
         },
       ],
       items: [],
+      metadata: {
+        links: [],
+        current_page: 1,
+        last_page: 1,
+      },
     };
+  },
+  computed: {
+    links() {
+      return this.metadata.links;
+    },
+    currentPage() {
+      return this.metadata.current_page;
+    },
+    lastPage() {
+      return this.metadata.last_page;
+    },
+    filteredLinks() {
+      const _filteredLinks = this.links.filter(
+        (link) =>
+          link.label !== "pagination.previous" &&
+          link.label !== "pagination.next"
+      );
+      console.log("1 _filteredLinks", _filteredLinks);
+      if (_filteredLinks.length <= 5) {
+        console.log("1 _filteredLinks<= 5", _filteredLinks);
+        return _filteredLinks;
+      }
+      console.log("2 _filteredLinks", _filteredLinks);
+      const result = [];
+      for (let i = 0; i < _filteredLinks.length; i++) {
+        if (i < 1 || i >= _filteredLinks.length - 1) {
+          // Keep the first two items and the last two items
+          result.push(_filteredLinks[i]);
+        } else if (
+          _filteredLinks[i].label - this.currentPage <= 1 &&
+          _filteredLinks[i].label - this.currentPage >= -1
+        ) {
+          console.log("3 aaa", i, _filteredLinks[i].label - this.currentPage);
+          result.push(_filteredLinks[i]);
+        }
+      }
+      console.log("3 result", result);
+      return result;
+    },
+  },
+  mounted() {
+    this.loadList({ current_page: 1 });
   },
   methods: {
     changeFilter(val) {
-      console.log(val);
       this.filterItem = { ...this.filterItem, ...val };
       this.fireEvent("d-filter-list-refresh");
     },
@@ -157,17 +170,148 @@ export default {
       try {
         let params = {
           page: metaInfo.current_page,
-          paginate: 6,
+          paginate: 15,
           ...this.filterItem,
         };
-        return await MembersApi.getAll(params);
+        //return this.items_test;
+        const a = await MembersApi.getAll(params);
+        this.items = a.data.data;
+        this.metadata = a.data.meta;
+        return a;
       } catch (error) {
         console.log("error", error);
         console.log("response", error.response);
+      }
+    },
+    navigate(link) {
+      console.log("link", link);
+      if (link.label == "pagination.previous") {
+        if (this.currentPage == 1) {
+          return;
+        }
+        this.loadList({ current_page: this.currentPage - 1 });
+      }
+      if (link.label == "pagination.next") {
+        if (this.currentPage == this.lastPage) {
+          return;
+        }
+        this.loadList({ current_page: this.currentPage + 1 });
+      } else {
+        this.loadList({ current_page: link.label });
       }
     },
   },
 };
 </script>
 
-<style></style>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+
+@media (max-width: 920px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 426px) {
+  .grid-container {
+    padding-inline: 10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 376px) {
+  .grid-container {
+    padding-inline: 10px;
+    grid-template-columns: 1fr;
+  }
+}
+.item-card-container {
+  margin-top: 20px;
+}
+:root {
+  --primary: #23adad;
+  --greyLight: #23adade1;
+  --greyLight-2: #cbe0dd;
+  --greyDark: #2d4848;
+}
+
+.pagination,
+.pagination::before,
+.pagination::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--greyDark);
+}
+
+ul.page2 {
+  list-style-type: none;
+}
+.page2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  margin: 3rem;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+}
+.page__numbers,
+.page__btn,
+.page__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.page__dots {
+  width: 2.6rem;
+  height: 2.6rem;
+  color: var(--greyLight);
+  cursor: initial;
+}
+
+.page__numbers {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.4rem;
+}
+.page__numbers:hover {
+  color: var(--primary);
+}
+
+.page__numbers.active {
+  color: #ffffff;
+  background: var(--primary);
+  font-weight: 600;
+  border: 1px solid var(--primary);
+}
+
+.page__btn {
+  color: var(--greyLight);
+  pointer-events: none;
+}
+
+.page__btn.active {
+  color: var(--greyDark);
+  pointer-events: initial;
+}
+.page__btn.active:hover {
+  color: var(--primary);
+}
+</style>
