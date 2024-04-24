@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row speical-members-row px-md-4">
+    <div class="row speical-members-row d-flex justify-content-center">
       <div class="d-flex justify-content-center align-items-center">
         <p
           class="position-relative"
@@ -24,7 +24,7 @@
         </p>
       </div>
       <div
-        class="col-md-6 col-lg-3 gap-2 col-12 p-2"
+        class="speical-members-card col-md-6 col-lg-3 gap-2 col-12 p-2"
         v-for="item in sliceArray"
         :key="item.id"
       >
@@ -36,7 +36,7 @@
               : getRouteLocale()
           "
           :name="item.name"
-          :description="item.job_title"
+          :description="item.job_title == null ? 'عضو مميز' : item.job_title"
           :img="`${publicPath + item.img}`"
           :showJob="true"
         />
@@ -98,35 +98,35 @@ export default {
       //     img: "assets/img/women_personal4.png",
       //   },
       //];
-      if (this.items.length < 4) {
-        const placeholderItems = [
-          {
-            id: -1,
-            name: "عضو مميز",
-            job_title: "...",
-            img: "assets/img/businesswoman.jpg",
-          },
-          {
-            id: -2,
-            name: "عضو مميز",
-            job_title: "...",
-            img: "assets/img/businesswoman.jpg",
-          },
-          {
-            id: -3,
-            name: "عضو مميز",
-            job_title: "...",
-            img: "assets/img/businesswoman.jpg",
-          },
-          {
-            id: -4,
-            name: "عضو مميز",
-            job_title: "...",
-            img: "assets/img/businesswoman.jpg",
-          },
-        ];
-        return [...this.items, ...placeholderItems].slice(0, 4);
-      }
+      // if (this.items.length < 4) {
+      //   const placeholderItems = [
+      //     {
+      //       id: -1,
+      //       name: "عضو مميز",
+      //       job_title: "...",
+      //       img: "assets/img/businesswoman.jpg",
+      //     },
+      //     {
+      //       id: -2,
+      //       name: "عضو مميز",
+      //       job_title: "...",
+      //       img: "assets/img/businesswoman.jpg",
+      //     },
+      //     {
+      //       id: -3,
+      //       name: "عضو مميز",
+      //       job_title: "...",
+      //       img: "assets/img/businesswoman.jpg",
+      //     },
+      //     {
+      //       id: -4,
+      //       name: "عضو مميز",
+      //       job_title: "...",
+      //       img: "assets/img/businesswoman.jpg",
+      //     },
+      //   ];
+      //   return [...this.items, ...placeholderItems].slice(0, 4);
+      // }
 
       return this.items.slice(0, 4);
     },
@@ -143,5 +143,18 @@ export default {
     url(@/assets/img/member/decorationIcons2.png);
   background-position: bottom right, left 30px;
   background-repeat: no-repeat;
+}
+.speical-members-card {
+  max-width: 80%;
+}
+@media screen and (min-width: 426px) {
+  .speical-members-card {
+    max-width: 46%;
+  }
+}
+@media screen and (min-width: 860px) {
+  .speical-members-card {
+    max-width: 22%;
+  }
 }
 </style>

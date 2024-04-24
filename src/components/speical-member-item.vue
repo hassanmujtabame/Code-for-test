@@ -7,7 +7,7 @@
         min-height: 250px;
         background-color: #fff;
       "
-      class="d-flex rounded-3 gap-4 flex-column align-items-center shadow justify-content-center"
+      class="d-flex rounded-3 gap-4 flex-column align-items-center shadow shadow-lg justify-content-center p-1"
     >
       <div style="height: 210px; width: 100%" class="rounded-3 py-2 px-2">
         <img
@@ -29,7 +29,7 @@
         <p style="color: #f2631c; font-size: 16px" class="my-0">
           {{ name }}
         </p>
-        <p style="color: #000; font-size: 13px" class="my-0">
+        <p style="color: #6d737a; font-size: 13px" class="my-1">
           {{ description }}
         </p>
       </div>
