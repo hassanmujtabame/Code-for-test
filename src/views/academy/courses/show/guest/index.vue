@@ -366,15 +366,15 @@
                       <div class="form-check">
                         <label
                           class="form-check-label d-flex align-items-center justify-content-between px-2"
-                          for="tabi"
+                          for="tabby"
                         >
                           <div class="">
                             الدفع بواسطة تابى
                             <input
                               type="radio"
                               class="form-check-input"
-                              id="tabi"
-                              value="tabi"
+                              id="tabby"
+                              value="tabby"
                               v-model="selectedProvider"
                             />
                           </div>
@@ -474,6 +474,7 @@ import cardFixed from "./card-fixed.vue";
 // import watchVideoLecture from './dialogs/watch-video/index'
 // import checkoutCourseDiag from './dialogs/check-out-course/index.vue';
 import academyAPI from "@/services/api/academy";
+import paymentAPI from "@/services/api/payment";
 export default {
   name: "course-show-recorded",
   components: {
@@ -536,7 +537,7 @@ export default {
     async proceedToPayment() {
       if (this.itemPage.price == 0) {
         try {
-          let { data } = await networkAPI.checkoutPackageFree({
+          let { data } = await academyAPI.checkoutPackageFree({
             package_id: this.id,
           });
           if (data.success) {
@@ -557,7 +558,7 @@ export default {
             //   package_id: this.id,
             //   type: "package",
             // });
-            let { data } = await PaymentApi.PayPackageMyFatoorah({
+            let { data } = await paymentAPI.PayPackageTammara({
               package_id: this.id,
               type: "package",
             });
@@ -572,7 +573,7 @@ export default {
           break;
         case "card":
           try {
-            let { data } = await PaymentApi.PayPackageMyFatoorah({
+            let { data } = await paymentAPI.PayPackageMyFatoorah({
               package_id: this.id,
               type: "package",
             });
@@ -585,9 +586,9 @@ export default {
             console.log("error", error);
           }
           break;
-        case "tabi":
+        case "tabby":
           try {
-            let { data } = await PaymentApi.PayPackageMyFatoorah({
+            let { data } = await paymentAPI.PayPackageTabby({
               package_id: this.id,
               type: "package",
             });

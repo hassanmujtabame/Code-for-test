@@ -295,15 +295,15 @@
                       <div class="form-check">
                         <label
                           class="form-check-label d-flex align-items-center justify-content-between px-2"
-                          for="tabi"
+                          for="tabby"
                         >
                           <div class="">
                             الدفع بواسطة تابى
                             <input
                               type="radio"
                               class="form-check-input"
-                              id="tabi"
-                              value="tabi"
+                              id="tabby"
+                              value="tabby"
                               v-model="selectedProvider"
                             />
                           </div>
@@ -709,7 +709,7 @@ export default {
             //   package_id: this.id,
             //   type: "package",
             // });
-            let { data } = await PaymentApi.PayPackageMyFatoorah({
+            let { data } = await PaymentApi.PayPackageTammara({
               package_id: this.id,
               type: "package",
             });
@@ -771,9 +771,9 @@ export default {
             console.log("error", error);
           }
           break;
-        case "tabi":
+        case "tabby":
           try {
-            let { data } = await PaymentApi.PayPackageMyFatoorah({
+            let { data } = await PaymentApi.PayPackageTabby({
               package_id: this.id,
               type: "package",
             });
@@ -882,9 +882,9 @@ export default {
             console.log("error", error);
           }
           break;
-        case "tabi":
+        case "tabby":
           try {
-            let { data } = await PaymentApi.PayPackageMyFatoorah({
+            let { data } = await PaymentApi.PayPackageTabby({
               package_id: this.id,
               type: "package",
               email: this.email,
@@ -990,7 +990,7 @@ export default {
     //         console.log("error", error);
     //       }
     //       break;
-    //     case "tabi":
+    //     case "tabby":
     //       try {
     //         let { data } = await PaymentApi.PayPackageMyFatoorah({
     //           package_id: this.id,
@@ -1097,7 +1097,7 @@ export default {
     //         console.log("error", error);
     //       }
     //       break;
-    //     case "tabi":
+    //     case "tabby":
     //       try {
     //         let { data } = await PaymentApi.PayPackageMyFatoorah({
     //           package_id: this.id,
