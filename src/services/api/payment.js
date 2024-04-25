@@ -10,6 +10,7 @@ class paymentApi extends BaseApi {
     return window.axios.post(`/pay/tammara`, data);
   }
   PayPackageTabby(data) {
+    data.url = window.location.href;
     return window.axios.post(`/pay/tabby`, data);
   }
 }
