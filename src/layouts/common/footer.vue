@@ -268,7 +268,7 @@
             <i class="footer-link-icon fa-brands fa-twitter"></i
           ></a>
           <a :href="facebookUrl">
-            <i class="footer-link-icon fa-brands fa-facbook"></i
+            <i class="footer-link-icon fa-brands fa-facebook"></i
           ></a>
           <a :href="linkedinUrl">
             <i class="footer-link-icon fa-brands fa-linkedin"></i
