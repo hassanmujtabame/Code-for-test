@@ -559,7 +559,7 @@ export default {
             //   type: "package",
             // });
             let { data } = await paymentAPI.PayPackageTammara({
-              package_id: this.id,
+              course_id: this.id,
               type: "package",
             });
             if (data.success) {
@@ -574,7 +574,7 @@ export default {
         case "card":
           try {
             let { data } = await paymentAPI.PayPackageMyFatoorah({
-              package_id: this.id,
+              course_id: this.id,
               type: "package",
             });
             if (data.success) {
@@ -589,7 +589,7 @@ export default {
         case "tabby":
           try {
             let { data } = await paymentAPI.PayPackageTabby({
-              package_id: this.id,
+              course_id: this.id,
               type: "package",
             });
             if (data.success) {
