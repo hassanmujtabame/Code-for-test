@@ -163,7 +163,7 @@
             style="background-color: #1fb9b3; color: white"
             class="btn px-4 py-2"
           >
-            اشترك الان
+            {{ token ? " اشترك الان" : "سجل دخولك" }}
           </button>
           <!-- <button v-if="!isOwner" @click="inscription"
           class="btn btn-custmer w-100">إشترك في الدورة</button> -->
@@ -529,7 +529,11 @@ export default {
       this.loading = false;
     },
     openDialog() {
-      this.openModal = true;
+      if (this.token) {
+        this.openModal = true;
+      } else {
+        this.$router.push(this.getRouteLocale("login"));
+      }
     },
     handleClose() {
       this.openModal = false;
