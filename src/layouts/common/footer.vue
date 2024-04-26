@@ -1,7 +1,16 @@
 <template>
   <footer style="padding-top: 20px; padding-bottom: 0px" class="">
     <div class="container">
-      <div class="row justify-content-between p-3 text-right">
+      <div
+        class="row justify-content-between p-3 text-right"
+        style="position: relative"
+      >
+        <div
+          style="color: #2cb7b3; position: absolute; right: 10px; bottom: 10px"
+          class="git-hash"
+        >
+          {{ gitHash }}
+        </div>
         <div class="col-12 col-md-3 mt-2">
           <div>
             <!-- <img :src="`${publicPath}assets/svg/logo-footer.svg`" width="100" /> -->
@@ -304,6 +313,7 @@ export default {
       snapchatUrl: process.env.VUE_APP_SANPCHAT,
       tiktokUrl: process.env.VUE_APP_TIKTOK,
       youtubeUrl: process.env.VUE_APP_YOUTUBE,
+      gitHash: process.env.VUE_APP_GIT_HASH.toUpperCase(),
     };
   },
 };
