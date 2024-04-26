@@ -559,8 +559,8 @@ export default {
             //   type: "package",
             // });
             let { data } = await paymentAPI.PayPackageTammara({
-              course_id: this.id,
-              type: "package",
+              course_id: this.itemPage.id,
+              type: "course",
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
@@ -574,8 +574,8 @@ export default {
         case "card":
           try {
             let { data } = await paymentAPI.PayPackageMyFatoorah({
-              course_id: this.id,
-              type: "package",
+              course_id: this.itemPage.id,
+              type: "course",
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
@@ -589,8 +589,8 @@ export default {
         case "tabby":
           try {
             let { data } = await paymentAPI.PayPackageTabby({
-              course_id: this.id,
-              type: "package",
+              course_id: this.itemPage.id,
+              type: "course",
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
