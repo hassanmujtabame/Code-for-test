@@ -49,6 +49,15 @@
               <UserNotif :prefixRoute="prefixRoute" />
               <UserNav :prefixRoute="prefixRoute" />
             </template>
+            <template v-else>
+              <button
+                @click="router_push('login')"
+                style="font-size: 15px; background-color: #1fb9b3; color: white"
+                class="btn px-4 py-2"
+              >
+                تسجيل الدخول
+              </button>
+            </template>
           </div>
         </div>
       </div>
