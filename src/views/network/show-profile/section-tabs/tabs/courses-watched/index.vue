@@ -1,6 +1,6 @@
 <template>
   <div class="container" style="min-height: 200px">
-    <div class="grid-container">
+    <div class="show-profile-grid-container">
       <div v-for="(item, i) in courses" :key="i" class="grid-item">
         <CardItem :item="item" />
       </div>
@@ -39,28 +39,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.grid-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px 14px;
-}
-@media screen and (max-width: 1024px) {
-  .grid-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media screen and (max-width: 670px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 376px) {
-  .grid-container {
-    padding-inline: 10px;
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+<style></style>

@@ -180,6 +180,30 @@ textarea {
   width: 100%;
 }
 
+.show-profile-grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px 14px;
+}
+@media screen and (max-width: 1024px) {
+  .show-profile-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 670px) {
+  .show-profile-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .show-profile-grid-container {
+    padding-inline: 10px;
+    grid-template-columns: 1fr;
+  }
+}
+
 .m-c {
   color: var(--m-color) !important;
 }
