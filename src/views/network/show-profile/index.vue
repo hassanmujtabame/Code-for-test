@@ -1,5 +1,8 @@
 <template>
-  <div style="margin-top: 75px" class="bg-body-page">
+  <div
+    style="margin-top: 75px; background-color: white !important"
+    class="bg-body-page"
+  >
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
     <div v-else class="container mt-5">
