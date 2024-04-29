@@ -1,7 +1,11 @@
 <template>
-  <div class="tab-body position-relative" style="min-height: 200px">
+  <EmptyCard
+    mainText="لا توجد قصة"
+    seconderyText="لم يضف هذا العضو قصته حتى الأن"
+    v-if="isEmptyObject"
+  />
+  <div v-else class="tab-body position-relative" style="min-height: 200px">
     <d-overlays-simple v-if="loading" />
-    <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
     <div v-else>
       <h5 class="m-c">
         {{ itemInfo.title }}
@@ -15,23 +19,31 @@
 
 <script>
 import userAPI from "@/services/api/user.js";
+import ConsultantsApi from "@/services/api/consulting/consultants";
+import EmptyCard from "../components/empty-card.vue";
 export default {
   name: "story-tab",
+  components: {
+    EmptyCard,
+  },
   data: () => ({
     loading: true,
-    hasError: false,
+    isEmptyObject: true,
     itemInfo: {},
   }),
   methods: {
     async initializing() {
       this.loading = true;
       try {
+        let response = await ConsultantsApi.getAll();
+        console.log("response : ", response);
         let { data } = await userAPI.getStoryUser(this.$route.params.id);
+        console.log(data.success);
         if (data.success) {
           this.itemInfo = data.data;
-          this.loading = false;
+          this.isEmptyObject = false;
         } else {
-          this.hasError = true;
+          this.isEmptyObject = true;
         }
       } catch (error) {
         this.hasError = true;

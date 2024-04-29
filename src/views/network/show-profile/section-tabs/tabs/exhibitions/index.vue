@@ -1,56 +1,55 @@
 <template>
-   <div class="position-relative container" style="min-height:200px">
-       <d-single-list
-       :call-list="initializing" 
-       :paginate="3"
-       showMore="أعرض المزيد من المعارض"
-       noMoreItems='لا يوجد المزيد من المعارض'
-       style="min-height:200px"
-       >
-           <template v-slot="{item}">
-   <CardItem  
-   :itemId="item.id"
-    :title="item.title"
-    :price="item.price"
-    :date="item.date_publish"
-    :image="item.image"
-    :place="item.city"
-    :status="item.status"
+  <EmptyCard
+    mainText="لا يوجد أي معرض"
+    seconderyText="لم ينضم هذا العضو لأي معرض حتى الأن"
+    v-if="isEmptyObject"
+  />
+  <div v-else class="container" style="min-height: 200px">
+    <div class="show-profile-grid-container">
+      <div v-for="(item, i) in exhibitions" :key="i" class="grid-item">
+        <CardItem :item="item" />
+      </div>
+    </div>
+  </div>
+</template>
 
-   />
- </template>
-   </d-single-list>
-   </div>
- </template>
- 
- <script>
-  import userAPI from '@/services/api/user.js'
- import CardItem from './card.vue';
- export default {
- name:'d-tab-pane-your-blogs',
- components:{
-   CardItem,
- },
- data:()=>({
-   loading:false,
- }),
- methods:{
-  async initializing(metaInfo){
-   this.loading = true;
-   try {
- 
-      return await userAPI.getExhibitionstUser(this.$route.params.id,metaInfo)
-     
-   } catch (error) {
-       //
-   }
-   this.loading = false;
- 
-  }
- }
- }
- </script>
- 
- <style>
- 
- </style>
+<script>
+import userAPI from "@/services/api/user.js";
+import CardItem from "./card.vue";
+import EmptyCard from "../components/empty-card.vue";
+export default {
+  name: "d-tab-pane-your-blogs",
+  components: {
+    CardItem,
+    EmptyCard,
+  },
+  data: () => ({
+    exhibitions: [],
+    loading: false,
+    isEmptyObject: true,
+  }),
+  methods: {
+    async initializing(metaInfo) {
+      this.loading = true;
+      try {
+        const response = userAPI.getExhibitionstUser(
+          this.$route.params.id,
+          metaInfo
+        );
+        this.exhibitions = response.data.data.slice(0, 8);
+        if (this.exhibitions.length > 0) {
+          this.isEmptyObject = false;
+        }
+      } catch (error) {
+        //
+      }
+      this.loading = false;
+    },
+  },
+  mounted() {
+    this.initializing();
+  },
+};
+</script>
+
+<style></style>

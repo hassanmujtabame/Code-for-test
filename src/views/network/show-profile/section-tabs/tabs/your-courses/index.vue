@@ -1,5 +1,10 @@
 <template>
-  <div class="container" style="min-height: 200px">
+  <EmptyCard
+    mainText="لا يوجد أي درس"
+    seconderyText="لم يضف هذا العضو أي درس حتى الأن"
+    v-if="isEmptyObject"
+  />
+  <div v-else class="container" style="min-height: 200px">
     <div class="show-profile-grid-container">
       <div v-for="(item, i) in courses" :key="i" class="grid-item">
         <CardItem :item="item" />
@@ -11,24 +16,31 @@
 <script>
 import instructorAPI from "@/services/api/academy/instructor";
 import CardItem from "../components/course-card";
+import EmptyCard from "../components/empty-card.vue";
+import { isEmptyObject } from "jquery";
 
 export default {
   name: "d-tab-pane-your-course",
   components: {
     CardItem,
+    EmptyCard,
   },
   data: () => ({
     loading: false,
+    isEmptyObject: true,
     courses: [],
   }),
+
   methods: {
     async initializing(metaInfo) {
-      console.log(metaInfo);
       this.loading = true;
       try {
         const response = await instructorAPI.getCourses(metaInfo);
-        console.log("response : ", response);
+
         this.courses = response.data.data.slice(0, 8);
+        if (this.courses.length > 0) {
+          this.isEmptyObject = false;
+        }
       } catch (error) {}
       this.loading = false;
     },

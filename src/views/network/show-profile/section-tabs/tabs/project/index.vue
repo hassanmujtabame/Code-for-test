@@ -1,5 +1,10 @@
 <template>
-  <div class="container" style="min-height: 200px">
+  <EmptyCard
+    mainText="لا يوجد أي مشروع"
+    seconderyText="لم يضف هذا العضو أي مشروع حتى الأن"
+    v-if="isEmptyObject"
+  />
+  <div v-else class="container" style="min-height: 200px">
     <div class="show-profile-3-grid-container">
       <div v-for="(item, i) in projects" :key="i" class="grid-item">
         <CardItem :item="item" />
@@ -11,13 +16,16 @@
 <script>
 import userAPI from "@/services/api/user.js";
 import CardItem from "./card";
+import EmptyCard from "../components/empty-card.vue";
 export default {
   name: "d-tab-pane-your-blogs",
   components: {
     CardItem,
+    EmptyCard,
   },
   data: () => ({
     loading: false,
+    isEmptyObject: true,
     projects: [],
   }),
   methods: {
@@ -29,6 +37,9 @@ export default {
           metaInfo
         );
         this.projects = response.data.data;
+        if (this.projects.length > 0) {
+          this.isEmptyObject = false;
+        }
       } catch (error) {
         //
       }
