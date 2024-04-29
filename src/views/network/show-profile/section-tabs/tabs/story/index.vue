@@ -35,10 +35,7 @@ export default {
     async initializing() {
       this.loading = true;
       try {
-        let response = await ConsultantsApi.getAll();
-        console.log("response : ", response);
         let { data } = await userAPI.getStoryUser(this.$route.params.id);
-        console.log(data.success);
         if (data.success) {
           this.itemInfo = data.data;
           this.isEmptyObject = false;
