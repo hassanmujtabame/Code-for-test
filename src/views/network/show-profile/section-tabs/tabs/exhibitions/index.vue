@@ -32,16 +32,18 @@ export default {
     async initializing(metaInfo) {
       this.loading = true;
       try {
-        const response = userAPI.getExhibitionstUser(
+        const response = await userAPI.getExhibitionstUser(
           this.$route.params.id,
           metaInfo
         );
         this.exhibitions = response.data.data.slice(0, 8);
+
         if (this.exhibitions.length > 0) {
           this.isEmptyObject = false;
         }
       } catch (error) {
         //
+        console.log(error);
       }
       this.loading = false;
     },
