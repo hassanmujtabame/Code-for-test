@@ -1,13 +1,13 @@
 <template>
-  <div class="position-relative" style="min-height: 200px">
+  <div class="tab-body position-relative" style="min-height: 200px">
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
     <div v-else>
       <h5 class="m-c">
         {{ itemInfo.title }}
       </h5>
-      <div class="w-100">
-        <p v-html="itemInfo.description" style="word-wrap: break-word"></p>
+      <div>
+        <p v-html="itemInfo.description"></p>
       </div>
     </div>
   </div>
@@ -47,4 +47,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.tab-body {
+  margin: 0px -25px;
+  padding: 35px;
+  border-radius: 36px;
+  background-color: white;
+  border: 1px;
+  box-shadow: 0 0 0.35rem rgba(0, 0, 0, 0.075);
+  font-family: change;
+}
+</style>
