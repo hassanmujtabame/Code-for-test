@@ -24,9 +24,11 @@ export default {
     async initializing(metaInfo) {
       this.loading = true;
       try {
-        const a = await userAPI.getCoursesUser(this.$route.params.id, metaInfo);
-        console.log("a : ", a);
-        this.courses = a.data.data.slice(0, 8);
+        const response = await userAPI.getCoursesUser(
+          this.$route.params.id,
+          metaInfo
+        );
+        this.courses = response.data.data;
       } catch (error) {
         //
       }
