@@ -101,7 +101,7 @@ export default {
   padding-inline: 10px;
   top: 5px;
   left: 6px;
-  z-index: 119;
+  z-index: 2;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 4px;
 }
@@ -145,6 +145,6 @@ export default {
 .price-text {
   color: #1fb9b3;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 200;
 }
 </style>
