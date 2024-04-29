@@ -204,6 +204,25 @@ textarea {
   }
 }
 
+.show-profile-3-grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px 14px;
+}
+@media screen and (max-width: 1020px) {
+  .show-profile-3-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .show-profile-3-grid-container {
+    padding-inline: 10px;
+    grid-template-columns: 1fr;
+  }
+}
+
 .m-c {
   color: var(--m-color) !important;
 }
