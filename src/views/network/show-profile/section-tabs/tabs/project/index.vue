@@ -18,7 +18,7 @@ import userAPI from "@/services/api/user.js";
 import CardItem from "./card";
 import EmptyCard from "../components/empty-card.vue";
 export default {
-  name: "d-tab-pane-your-blogs",
+  name: "d-tab-pane-projects",
   components: {
     CardItem,
     EmptyCard,

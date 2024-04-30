@@ -19,7 +19,7 @@ import CardItem from "../components/course-card";
 import EmptyCard from "../components/empty-card.vue";
 
 export default {
-  name: "d-tab-pane-your-course",
+  name: "d-tab-pane-consultations",
   components: {
     CardItem,
     EmptyCard,
