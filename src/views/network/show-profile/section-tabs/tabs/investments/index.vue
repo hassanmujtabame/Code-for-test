@@ -38,7 +38,6 @@ export default {
           this.$route.params.id,
           metaInfo
         );
-        console.log("response : ", response);
         this.investments = response.data.data.slice(0, 8);
         if (this.investments.length > 0) {
           this.isEmptyObject = false;
