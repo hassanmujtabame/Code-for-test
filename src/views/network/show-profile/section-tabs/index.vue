@@ -63,7 +63,7 @@ export default {
     if (vm.userPage.is_partner) tabActive = "offers";
     if (vm.userPage.is_instructor) tabActive = "your-course";
     if (vm.userPage.is_consultant) tabActive = "consulting";
-    //if (vm.userPage.is_investmentor) tabActive = "investments";
+    //if (vm.userPage.is_investors) tabActive = "investments";
     if (true) tabActive = "investments";
     return {
       tabActive: tabActive,
@@ -72,7 +72,7 @@ export default {
           tag: "investments",
           title: vm.$t("investments"),
           content: TabInvestments,
-          // show: !!vm.userPage.is_investmentor,
+          // show: !!vm.userPage.is_investors,
           show: true,
         },
         {
