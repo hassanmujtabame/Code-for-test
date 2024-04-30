@@ -36,6 +36,7 @@ import TabExhibitions from "./tabs/exhibitions/index.vue";
 import TabStory from "./tabs/story/index.vue";
 import TabProject from "./tabs/project/index.vue";
 import TabConsulting from "./tabs/consultations";
+import TabInvestments from "./tabs/investments";
 import DTabBtn from "@/components/tabs/DTabBtn.vue";
 import DTabPane from "@/components/tabs/DTabPane.vue";
 export default {
@@ -54,15 +55,25 @@ export default {
     TabProject,
     TabStory,
     TabConsulting,
+    TabInvestments,
   },
   data: (vm) => {
     let tabActive = "courses-watched";
     if (vm.userPage.is_partner) tabActive = "offers";
     if (vm.userPage.is_instructor) tabActive = "your-course";
     if (vm.userPage.is_consultant) tabActive = "consulting";
+    //if (vm.userPage.is_investmentor) tabActive = "investments";
+    if (true) tabActive = "investments";
     return {
       tabActive: tabActive,
       tabs: [
+        {
+          tag: "investments",
+          title: vm.$t("investments"),
+          content: TabInvestments,
+          // show: !!vm.userPage.is_investmentor,
+          show: true,
+        },
         {
           tag: "consulting",
           title: vm.$t("consulting"),
