@@ -1,7 +1,7 @@
 <template>
   <div class="bg-card">
     <ul
-      class="nav nav-pills mb-3 gap-3 pb-3 py-3 px-2"
+      class="d-flex nav nav-pills mb-3 gap-3 pb-3 py-3 px-2"
       id="pills-tab"
       role="tablist"
     >
@@ -10,6 +10,7 @@
         :key="i"
         :tag="tab.tag"
         :active="tab.tag === tabActive"
+        style="flex-grow: 1"
       >
         {{ tab.title }}
       </DTabBtn>

@@ -1,9 +1,5 @@
 <template>
-  <li
-    style="background-color: #fafafa"
-    class="nav-item rounded-3"
-    role="presentation"
-  >
+  <li class="nav-item rounded-3" role="presentation">
     <button
       class="nav-link px-4 shadow text-color"
       :class="{ active: active }"
@@ -40,8 +36,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .text-color {
   color: #888 !important;
+}
+.nav-link {
+  width: 100%;
 }
 </style>
