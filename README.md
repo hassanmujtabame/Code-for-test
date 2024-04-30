@@ -4,7 +4,8 @@
 
 ## Notes
 * Don't push any changes to the **main** branch.
-* Use [test-api.riadiat.sa](http://test-api.riadiat.sa/) for testing apis.
+* Use [test-api.riadiat.sa](http://test-api.riadiat.sa/) for testing APIs.
+* Use [test.riadiat.sa](http://test.riadiat.sa/) for frontend testing.
 * Don't forget to add your GitHub username below in Usage section.
 * Push your changes to your branch.
 * Don't forget to [create pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to the **develop** branch after ensuring your code is working.
