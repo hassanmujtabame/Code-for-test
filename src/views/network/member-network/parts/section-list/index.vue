@@ -135,12 +135,9 @@ export default {
           link.label !== "pagination.previous" &&
           link.label !== "pagination.next"
       );
-      console.log("1 _filteredLinks", _filteredLinks);
       if (_filteredLinks.length <= 5) {
-        console.log("1 _filteredLinks<= 5", _filteredLinks);
         return _filteredLinks;
       }
-      console.log("2 _filteredLinks", _filteredLinks);
       const result = [];
       for (let i = 0; i < _filteredLinks.length; i++) {
         if (i < 1 || i >= _filteredLinks.length - 1) {
@@ -150,11 +147,9 @@ export default {
           _filteredLinks[i].label - this.currentPage <= 1 &&
           _filteredLinks[i].label - this.currentPage >= -1
         ) {
-          console.log("3 aaa", i, _filteredLinks[i].label - this.currentPage);
           result.push(_filteredLinks[i]);
         }
       }
-      console.log("3 result", result);
       return result;
     },
   },
