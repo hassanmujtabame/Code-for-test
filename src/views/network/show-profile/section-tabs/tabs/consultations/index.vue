@@ -7,7 +7,7 @@
   <div v-else>
     <div class="container" style="min-height: 200px">
       <div class="show-profile-grid-container">
-        <div v-for="(item, i) in courses" :key="i" class="grid-item">
+        <div v-for="(item, i) in inPageCourses" :key="i" class="grid-item">
           <CardItem :item="item" />
         </div>
       </div>
@@ -75,7 +75,6 @@ export default {
       this.loading = false;
     },
     navigate(link) {
-      console.log("link", link);
       if (link.label == "pagination.previous") {
         if (this.currentPage == 1) {
           return;

@@ -74,7 +74,6 @@ export default {
       this.loading = false;
     },
     navigate(link) {
-      console.log("link", link);
       if (link.label == "pagination.previous") {
         if (this.currentPage == 1) {
           return;
