@@ -26,6 +26,7 @@ import exhibitionSuggestionsTab from "./exhibitions-suggestions-tab/index.vue";
 import investmentsSuggestionsTab from "./investments-suggestions-tab/index.vue";
 import providersSuggestionsTab from "./providers-suggestions-tab/index.vue";
 import consultantsSuggestionsTab from "./consulters-suggestions-tab/index.vue";
+import coursesSuggestionsTab from "./courses-suggestions-tab";
 
 export default {
   name: "suggestions-section-tabs",
@@ -42,6 +43,12 @@ export default {
   data: (vm) => {
     return {
       tabs: [
+        {
+          tag: "your-course",
+          title: vm.$t("best-consultants"),
+          content: coursesSuggestionsTab,
+          show: false,
+        },
         {
           tag: "consulting",
           title: vm.$t("best-consultants"),
