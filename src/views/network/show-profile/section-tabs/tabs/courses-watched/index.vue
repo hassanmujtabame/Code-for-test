@@ -73,10 +73,6 @@ export default {
       }
       this.loading = false;
     },
-    clear() {
-      this.responseData.data = [];
-      this.isEmptyObject = true;
-    },
     navigate(link) {
       console.log("link", link);
       if (link.label == "pagination.previous") {
