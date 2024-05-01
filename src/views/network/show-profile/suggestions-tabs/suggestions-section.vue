@@ -20,11 +20,13 @@
 <script>
 import DTabPane from "@/components/tabs/DTabPane.vue";
 import BlogSuggestionsTab from "./blogs-suggestions-tab/index.vue";
+import exhibitionSuggestionsTab from "./exhibitions-suggestions-tab/index.vue";
 export default {
   name: "suggestions-section-tabs",
   components: {
     DTabPane,
     BlogSuggestionsTab,
+    exhibitionSuggestionsTab,
   },
   data: () => {
     return {
@@ -33,6 +35,12 @@ export default {
   },
   mounted() {
     this.tabs = [
+      {
+        tag: "exhibitions",
+        title: this.$t("suggestions-exhibitions-title"),
+        content: exhibitionSuggestionsTab,
+        show: this.$store.getters["network_member/activeTab"] == "exhibitions",
+      },
       {
         tag: "blogs",
         title: this.$t("suggestions-blogs-title"),
