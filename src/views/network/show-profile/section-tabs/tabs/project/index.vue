@@ -57,6 +57,7 @@ export default {
     async initializing(metaInfo) {
       let params = {
         page: metaInfo.current_page,
+        paginate: 8,
       };
       this.loading = true;
       try {
