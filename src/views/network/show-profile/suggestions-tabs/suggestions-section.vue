@@ -1,18 +1,20 @@
 <template>
   <div>
-    <div class="mt-5">
-      <div class="text-start mb-4">
-        <h3
-          style="text-align: start"
-          v-for="(tab, i) in tabs.filter((f) => f.show)"
-          :key="i"
-        >
-          {{ tab.title }}
-        </h3>
+    <div :key="$store.getters['network_member/activeTab']">
+      <div class="mt-5">
+        <div class="text-start mb-4">
+          <h3
+            style="text-align: start"
+            v-for="(tab, i) in tabs.filter((f) => f.show)"
+            :key="i"
+          >
+            {{ tab.title }}
+          </h3>
+        </div>
       </div>
-    </div>
-    <div v-for="(tab, i) in tabs.filter((f) => f.show)" :key="i">
-      <component :is="tab.content" />
+      <div v-for="(tab, i) in tabs.filter((f) => f.show)" :key="i">
+        <component :is="tab.content" />
+      </div>
     </div>
   </div>
 </template>
@@ -27,6 +29,9 @@ import consultantsSuggestionsTab from "./consulters-suggestions-tab/index.vue";
 
 export default {
   name: "suggestions-section-tabs",
+  props: {
+    selectetTab: "",
+  },
   components: {
     DTabPane,
     BlogSuggestionsTab,
@@ -34,44 +39,60 @@ export default {
     investmentsSuggestionsTab,
     consultantsSuggestionsTab,
   },
-  data: () => {
+  data: (vm) => {
     return {
-      tabs: [],
+      tabs: [
+        {
+          tag: "consulting",
+          title: vm.$t("best-consultants"),
+          content: consultantsSuggestionsTab,
+          show: false,
+        },
+        {
+          tag: "offers",
+          title: vm.$t("best-providers"),
+          content: providersSuggestionsTab,
+          show: false,
+        },
+        {
+          tag: "investments",
+          title: vm.$t("more-invsetment-projects"),
+          content: investmentsSuggestionsTab,
+          show: false,
+        },
+        {
+          tag: "exhibitions",
+          title: vm.$t("suggestions-exhibitions-title"),
+          content: exhibitionSuggestionsTab,
+          show: false,
+        },
+        {
+          tag: "blog",
+          title: vm.$t("suggestions-blogs-title"),
+          content: BlogSuggestionsTab,
+          show: false,
+        },
+      ],
     };
   },
+  watch: {
+    selectetTab: function (val) {
+      this.changeTab(val);
+    },
+  },
+  methods: {
+    changeTab(tab) {
+      for (let i = 0; i < this.tabs.length; i++) {
+        if (this.tabs[i].tag === tab) {
+          this.tabs[i].show = true;
+        } else {
+          this.tabs[i].show = false;
+        }
+      }
+    },
+  },
   mounted() {
-    this.tabs = [
-      {
-        tag: "consultants",
-        title: this.$t("best-consultants"),
-        content: consultantsSuggestionsTab,
-        show: this.$store.getters["network_member/activeTab"] == "consultants",
-      },
-      {
-        tag: "offers",
-        title: this.$t("best-providers"),
-        content: providersSuggestionsTab,
-        show: this.$store.getters["network_member/activeTab"] == "offers",
-      },
-      {
-        tag: "investments",
-        title: this.$t("more-invsetment-projects"),
-        content: investmentsSuggestionsTab,
-        show: this.$store.getters["network_member/activeTab"] == "investments",
-      },
-      {
-        tag: "exhibitions",
-        title: this.$t("suggestions-exhibitions-title"),
-        content: exhibitionSuggestionsTab,
-        show: this.$store.getters["network_member/activeTab"] == "exhibitions",
-      },
-      {
-        tag: "blogs",
-        title: this.$t("suggestions-blogs-title"),
-        content: BlogSuggestionsTab,
-        show: this.$store.getters["network_member/activeTab"] == "blogs",
-      },
-    ];
+    this.changeTab(this.selectetTab);
   },
 };
 </script>

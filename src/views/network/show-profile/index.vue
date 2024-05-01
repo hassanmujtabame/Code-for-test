@@ -32,9 +32,10 @@
               />
             </div>
           </div>
-          <sectionTabs :userPage="userPage" />
+          <sectionTabs @tabChange="tabChanged" :userPage="userPage" />
         </div>
-        <SuggestionsSection />
+
+        <SuggestionsSection :selectetTab="selectetTab" />
       </div>
     </div>
   </div>
@@ -62,14 +63,11 @@ export default {
       hasError: false,
       userPage: {},
       items: [],
+      selectetTab: "",
     };
   },
   methods: {
     async initializing() {
-      console.log(
-        "$store.getters[network_member/activeTab]",
-        this.$store.getters["network_member/activeTab"]
-      );
       this.loading = true;
       this.hasError = false;
       try {
@@ -96,6 +94,9 @@ export default {
         console.log("error", error);
         console.log("response", error.response);
       }
+    },
+    tabChanged(newValue) {
+      this.selectetTab = newValue;
     },
   },
   mounted() {
