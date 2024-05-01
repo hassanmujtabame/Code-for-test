@@ -1,10 +1,5 @@
 <template>
-  <EmptyCard
-    mainText="لا يوجد أي درس"
-    seconderyText="لم يضف هذا العضو أي درس حتى الأن"
-    v-if="isEmptyObject"
-  />
-  <div v-else class="d-flex flex-wrap card-item">
+  <div class="d-flex flex-wrap card-item">
     <div class="card-img-contaner">
       <div class="course-category">{{ categoryName ?? "category" }}</div>
       <img
