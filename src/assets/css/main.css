@@ -222,6 +222,29 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+.suggestions-tab-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px 14px;
+}
+@media screen and (max-width: 1024px) {
+  .suggestions-tab-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 670px) {
+  .suggestions-tab-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .suggestions-tab-grid {
+    padding-inline: 10px;
+    grid-template-columns: 1fr;
+  }
+}
 
 .m-c {
   color: var(--m-color) !important;

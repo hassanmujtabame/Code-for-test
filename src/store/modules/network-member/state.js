@@ -1,3 +1,3 @@
 export default () => ({
-  activeTab: null,
+  activeTab: "blogs",
 });

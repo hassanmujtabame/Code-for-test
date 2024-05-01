@@ -1,5 +1,5 @@
 export default {
-  getActiveTab(state) {
+  activeTab(state) {
     return state.activeTab;
   },
 };
