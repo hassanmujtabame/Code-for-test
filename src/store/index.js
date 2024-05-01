@@ -3,7 +3,6 @@ import Vuex from "vuex";
 import module_auth from "./modules/auth";
 import module_core from "./modules/core";
 import module_chat from "./modules/chat";
-import module_network_member from "./modules/network-member";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -49,7 +48,6 @@ const store = new Vuex.Store({
     auth: module_auth,
     core: module_core,
     chat: module_chat,
-    network_member: module_network_member,
   },
 });
 window.store = store;
