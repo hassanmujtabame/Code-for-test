@@ -1,3 +1,3 @@
 export default () => ({
-  activeTab: "offers",
+  activeTab: "consultants",
 });

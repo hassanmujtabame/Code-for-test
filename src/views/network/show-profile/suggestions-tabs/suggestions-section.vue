@@ -23,6 +23,7 @@ import BlogSuggestionsTab from "./blogs-suggestions-tab/index.vue";
 import exhibitionSuggestionsTab from "./exhibitions-suggestions-tab/index.vue";
 import investmentsSuggestionsTab from "./investments-suggestions-tab/index.vue";
 import providersSuggestionsTab from "./providers-suggestions-tab/index.vue";
+import consultantsSuggestionsTab from "./consulters-suggestions-tab/index.vue";
 
 export default {
   name: "suggestions-section-tabs",
@@ -31,6 +32,7 @@ export default {
     BlogSuggestionsTab,
     exhibitionSuggestionsTab,
     investmentsSuggestionsTab,
+    consultantsSuggestionsTab,
   },
   data: () => {
     return {
@@ -39,6 +41,12 @@ export default {
   },
   mounted() {
     this.tabs = [
+      {
+        tag: "consultants",
+        title: this.$t("best-consultants"),
+        content: consultantsSuggestionsTab,
+        show: this.$store.getters["network_member/activeTab"] == "consultants",
+      },
       {
         tag: "offers",
         title: this.$t("best-providers"),
