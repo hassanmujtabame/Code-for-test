@@ -25,7 +25,6 @@ export default {
     async initializing() {
       try {
         const response = await ConsultantsApi.getBest();
-        console.log("response > ", response);
         this.consulters = response.data.data.slice(0, 5);
       } catch (error) {
         //
