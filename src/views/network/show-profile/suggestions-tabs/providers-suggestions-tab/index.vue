@@ -1,6 +1,13 @@
 <template>
   <div class="suggestions-tab-grid">
-    <Card v-for="(item, i) in providers" :key="i" :item="item"></Card>
+    <Card
+      v-for="(item, i) in providers"
+      :key="i"
+      :img="item.image"
+      :name="item.name"
+      :description:="item.job"
+      :to="getRouteLocale(item.to)"
+    ></Card>
   </div>
 </template>
 

@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="mt-5">
-      <div class="text-start">
-        <h5
+      <div class="text-start mb-4">
+        <h3
           style="text-align: start"
           v-for="(tab, i) in tabs.filter((f) => f.show)"
           :key="i"
         >
           {{ tab.title }}
-        </h5>
+        </h3>
       </div>
     </div>
     <div v-for="(tab, i) in tabs.filter((f) => f.show)" :key="i">
@@ -41,7 +41,7 @@ export default {
     this.tabs = [
       {
         tag: "offers",
-        title: this.$t("more-invsetment-projects"),
+        title: this.$t("best-providers"),
         content: providersSuggestionsTab,
         show: this.$store.getters["network_member/activeTab"] == "offers",
       },
