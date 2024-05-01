@@ -64,7 +64,7 @@ export default {
     if (vm.userPage.is_instructor) tabActive = "your-course";
     if (vm.userPage.is_consultant) tabActive = "consulting";
     //if (vm.userPage.is_investors) tabActive = "investments";
-    if (true) tabActive = "investments";
+    if (false) tabActive = "investments";
     return {
       tabActive: tabActive,
       tabs: [
@@ -73,7 +73,7 @@ export default {
           title: vm.$t("investments"),
           content: TabInvestments,
           // show: !!vm.userPage.is_investors,
-          show: true,
+          show: false,
         },
         {
           tag: "consulting",
