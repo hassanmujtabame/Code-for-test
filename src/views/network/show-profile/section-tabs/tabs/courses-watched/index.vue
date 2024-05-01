@@ -25,7 +25,7 @@
 import userAPI from "@/services/api/user.js";
 import CardItem from "./card.vue";
 import EmptyCard from "../components/empty-card.vue";
-import PaginationBar from "../../pagination-bar.vue";
+import PaginationBar from "@/components/pagination-card/index.vue";
 export default {
   name: "d-tab-pane-course-watched",
   components: {
