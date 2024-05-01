@@ -21,12 +21,15 @@
 import DTabPane from "@/components/tabs/DTabPane.vue";
 import BlogSuggestionsTab from "./blogs-suggestions-tab/index.vue";
 import exhibitionSuggestionsTab from "./exhibitions-suggestions-tab/index.vue";
+import investmentsSuggestionsTab from "./investments-suggestions-tab";
+
 export default {
   name: "suggestions-section-tabs",
   components: {
     DTabPane,
     BlogSuggestionsTab,
     exhibitionSuggestionsTab,
+    investmentsSuggestionsTab,
   },
   data: () => {
     return {
@@ -35,6 +38,12 @@ export default {
   },
   mounted() {
     this.tabs = [
+      {
+        tag: "investments",
+        title: this.$t("more-invsetment-projects"),
+        content: investmentsSuggestionsTab,
+        show: this.$store.getters["network_member/activeTab"] == "investments",
+      },
       {
         tag: "exhibitions",
         title: this.$t("suggestions-exhibitions-title"),
