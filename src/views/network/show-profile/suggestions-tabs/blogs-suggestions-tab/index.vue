@@ -19,7 +19,6 @@ export default {
       try {
         const response = await blogsAPI.getRecent();
         this.blogs = response.data.data.slice(0, 5);
-        console.log("blogs  ", this.blogs);
       } catch (error) {
         //
         console.log(error);
