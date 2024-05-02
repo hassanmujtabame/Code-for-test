@@ -62,7 +62,6 @@ export default {
       this.loading = true;
       try {
         let response = await offersAPI.getMyOffers(params);
-        console.log("response //", response);
         this.responseData = response.data;
         if (this.responseData.data.length > 0) {
           this.isEmptyObject = false;
