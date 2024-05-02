@@ -66,6 +66,14 @@ export default {
       selectetTab: "",
     };
   },
+  watch: {
+    $route(to, from) {
+      if (to.params.id !== from.params.id) {
+        // Reload the component or perform any action you need
+        location.reload();
+      }
+    },
+  },
   methods: {
     async initializing() {
       this.loading = true;

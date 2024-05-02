@@ -18,7 +18,6 @@ export default {
     async initializing() {
       try {
         const response = await coursesAPI.getRecentCourses();
-        console.log("response :> ", response.data.data);
         this.courses = response.data.data.slice(0, 5);
       } catch (error) {
         //

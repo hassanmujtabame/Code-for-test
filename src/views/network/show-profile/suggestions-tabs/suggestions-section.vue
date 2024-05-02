@@ -1,7 +1,7 @@
 <template>
   <div>
     <div :key="$store.getters['network_member/activeTab']">
-      <div class="mt-5">
+      <div class="mt-3">
         <div class="text-start mb-4">
           <h3
             style="text-align: start"
@@ -39,13 +39,14 @@ export default {
     exhibitionSuggestionsTab,
     investmentsSuggestionsTab,
     consultantsSuggestionsTab,
+    coursesSuggestionsTab,
   },
   data: (vm) => {
     return {
       tabs: [
         {
           tag: "your-course",
-          title: vm.$t("best-consultants"),
+          title: vm.$t("Recent-courses"),
           content: coursesSuggestionsTab,
           show: false,
         },
@@ -94,6 +95,9 @@ export default {
           this.tabs[i].show = true;
         } else {
           this.tabs[i].show = false;
+        }
+        if (tab === "courses-watched") {
+          this.tabs[0].show = true;
         }
       }
     },
