@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import offersAPI from "@/services/api/offers";
+import userAPI from "@/services/api/user.js";
 import CardItem from "./card-item.vue";
 import EmptyCard from "../components/empty-card.vue";
 import PaginationBar from "@/components/pagination-card/index.vue";
@@ -61,7 +61,10 @@ export default {
       };
       this.loading = true;
       try {
-        let response = await offersAPI.getMyOffers(params);
+        let response = await userAPI.getUserOffers(
+          this.$route.params.id,
+          params
+        );
         this.responseData = response.data;
         if (this.responseData.data.length > 0) {
           this.isEmptyObject = false;
