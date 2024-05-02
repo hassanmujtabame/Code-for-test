@@ -135,12 +135,9 @@ export default {
           link.label !== "pagination.previous" &&
           link.label !== "pagination.next"
       );
-      console.log("1 _filteredLinks", _filteredLinks);
       if (_filteredLinks.length <= 5) {
-        console.log("1 _filteredLinks<= 5", _filteredLinks);
         return _filteredLinks;
       }
-      console.log("2 _filteredLinks", _filteredLinks);
       const result = [];
       for (let i = 0; i < _filteredLinks.length; i++) {
         if (i < 1 || i >= _filteredLinks.length - 1) {
@@ -150,11 +147,9 @@ export default {
           _filteredLinks[i].label - this.currentPage <= 1 &&
           _filteredLinks[i].label - this.currentPage >= -1
         ) {
-          console.log("3 aaa", i, _filteredLinks[i].label - this.currentPage);
           result.push(_filteredLinks[i]);
         }
       }
-      console.log("3 result", result);
       return result;
     },
   },
@@ -184,7 +179,6 @@ export default {
       }
     },
     navigate(link) {
-      console.log("link", link);
       if (link.label == "pagination.previous") {
         if (this.currentPage == 1) {
           return;
@@ -204,7 +198,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .grid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -252,7 +246,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--greyDark);
+  color: #2d4848;
 }
 
 ul.page2 {
@@ -282,7 +276,7 @@ ul.page2 {
 .page__dots {
   width: 2.6rem;
   height: 2.6rem;
-  color: var(--greyLight);
+  color: #23adade1;
   cursor: initial;
 }
 
@@ -292,26 +286,26 @@ ul.page2 {
   border-radius: 0.4rem;
 }
 .page__numbers:hover {
-  color: var(--primary);
+  color: #23adad;
 }
 
 .page__numbers.active {
   color: #ffffff;
-  background: var(--primary);
+  background: #23adad;
   font-weight: 600;
-  border: 1px solid var(--primary);
+  border: 1px solid #23adad;
 }
 
 .page__btn {
-  color: var(--greyLight);
+  color: #23adade1;
   pointer-events: none;
 }
 
 .page__btn.active {
-  color: var(--greyDark);
+  color: #2d4848;
   pointer-events: initial;
 }
 .page__btn.active:hover {
-  color: var(--primary);
+  color: #23adad;
 }
 </style>

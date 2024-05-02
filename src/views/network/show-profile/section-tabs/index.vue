@@ -12,7 +12,7 @@
         :active="tab.tag === tabActive"
         style="flex-grow: 1"
       >
-        {{ tab.title }}
+        <div @click="$emit('tabChange', tab.tag)">{{ tab.title }}</div>
       </DTabBtn>
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -58,13 +58,15 @@ export default {
     TabConsulting,
     TabInvestments,
   },
+  methods: {},
   data: (vm) => {
     let tabActive = "courses-watched";
     if (vm.userPage.is_partner) tabActive = "offers";
     if (vm.userPage.is_instructor) tabActive = "your-course";
     if (vm.userPage.is_consultant) tabActive = "consulting";
-    //if (vm.userPage.is_investors) tabActive = "investments";
-    if (true) tabActive = "investments";
+    if (vm.userPage.is_investors) tabActive = "investments";
+
+    vm.$emit("tabChange", tabActive);
     return {
       tabActive: tabActive,
       tabs: [
@@ -72,8 +74,7 @@ export default {
           tag: "investments",
           title: vm.$t("investments"),
           content: TabInvestments,
-          // show: !!vm.userPage.is_investors,
-          show: true,
+          show: !!vm.userPage.is_investors,
         },
         {
           tag: "consulting",

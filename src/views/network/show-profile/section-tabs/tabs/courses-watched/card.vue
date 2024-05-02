@@ -1,10 +1,5 @@
 <template>
-  <EmptyCard
-    mainText="لا يوجد أي درس"
-    seconderyText="لم يضف هذا العضو أي درس حتى الأن"
-    v-if="isEmptyObject"
-  />
-  <div v-else class="d-flex flex-wrap card-item">
+  <div class="d-flex flex-wrap card-item">
     <div class="card-img-contaner">
       <div class="course-category">{{ categoryName ?? "category" }}</div>
       <img
@@ -90,6 +85,7 @@ export default {
       // Handle the image error by replacing the src attribute with the placeholder image URL
       event.target.src = "/assets/img/person1.png"; // Replace with your placeholder image URL
     },
+    linkToCourse() {},
   },
 };
 </script>

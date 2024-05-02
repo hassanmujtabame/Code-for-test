@@ -164,7 +164,6 @@ export default {
       try {
         let { data } = await MembersApi.getAll(this.filter);
         if (data.success) {
-          console.log("145", data);
           this.totalMembers = data.meta.total;
         }
       } catch (error) {
