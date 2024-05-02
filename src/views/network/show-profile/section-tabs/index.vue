@@ -92,7 +92,7 @@ export default {
           tag: "offers",
           title: vm.$t("offers"),
           content: TabOffers,
-          show: !!vm.userPage.is_partner,
+          show: true,
         },
         {
           tag: "courses-watched",
