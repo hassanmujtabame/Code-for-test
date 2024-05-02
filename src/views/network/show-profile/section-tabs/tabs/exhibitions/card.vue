@@ -75,7 +75,7 @@ export default {
   methods: {
     handleImageError(event) {
       // Handle the image error by replacing the src attribute with the placeholder image URL
-      event.target.src = "/assets/img/Flower-Show.jpg"; // Replace with your placeholder image URL
+      event.target.src = "/assets/img/no-img.png"; // Replace with your placeholder image URL
     },
     linkToCourse() {},
   },

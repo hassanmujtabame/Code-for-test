@@ -99,7 +99,7 @@ export default {
     handleImageError(event) {
       console.log("img Error : ", event.target.src);
       // Handle the image error by replacing the src attribute with the placeholder image URL
-      event.target.src = "/assets/img/flower.png"; // Replace with your placeholder image URL
+      event.target.src = "/assets/img/no-img.png"; // Replace with your placeholder image URL
     },
   },
 };
