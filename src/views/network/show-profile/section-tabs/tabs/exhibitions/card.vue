@@ -20,7 +20,7 @@
         >
 
         <span
-          :v-if="place"
+          v-if="place"
           class="mx-1"
           style="text-align: left; color: #f2631c"
         >
