@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .bg-back {
   background-image: url("../../../../../assets/img/Path2213.png"),
     url("../../../../../assets/img/Path2213.png");

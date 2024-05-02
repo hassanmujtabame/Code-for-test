@@ -8,7 +8,7 @@
         <button
           style="background-color: #fcd34d; border: none; border-radius: 9999px"
           @click="router_push('consulting-fields')"
-          class="d-flex btn align-items-center px-5 py-2 text-dark"
+          class="more-btn d-flex btn align-items-center px-5 py-2"
         >
           {{ $t("more") }}
           <svg
@@ -120,4 +120,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.more-btn {
+  font-size: 24px;
+  font-weight: 700;
+  color: #78350f;
+}
+</style>

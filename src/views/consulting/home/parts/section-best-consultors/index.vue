@@ -1,41 +1,45 @@
 <template>
-  <div class="sec-five p-3">
-    <div class="px-3">
-      <div class="d-flex justify-content-between align-items-center container">
-        <div class="d-flex flex-column gap-2">
-          <h1 class="home-section-title">أبرز مستشارينا</h1>
-          <p style="color: #888">
-            هل تبحث عن أفضل مستشار لنجاحك في ريادة الأعمال؟ إذا كان الأمر كذلك،
-            فنحن ندعوك للتعرف على أفضل المستشارين لدينا.
-          </p>
-        </div>
-        <div>
-          <!-- <router-link
+  <div class="my-5" style="background-color: #f6f8f9">
+    <div class="container sec-five p-3">
+      <div class="px-3">
+        <div
+          class="d-flex justify-content-between align-items-center container"
+        >
+          <div class="d-flex flex-column gap-2">
+            <h1 class="home-section-title">أبرز مستشارينا</h1>
+            <p style="color: #888">
+              هل تبحث عن أفضل مستشار لنجاحك في ريادة الأعمال؟ إذا كان الأمر
+              كذلك، فنحن ندعوك للتعرف على أفضل المستشارين لدينا.
+            </p>
+          </div>
+          <div>
+            <!-- <router-link
             :to="getRouteLocale('consulting-consultants')"
             class="more"
             >{{ $t("more") }}</router-link
           > -->
+          </div>
         </div>
-      </div>
 
-      <DSwiper
-        v-if="!loading"
-        :slides-per-view="4"
-        :space-between="10"
-        is-auto
-        :pagination="false"
-        :navigation="true"
-        :items="items"
-      >
-        <template v-slot:default="{ item }">
-          <Card
-            :to="getRouteLocale('consultant-page', { id: item.id })"
-            :name="item.name"
-            :description="item.job_title"
-            :img="item.image"
-          />
-        </template>
-      </DSwiper>
+        <DSwiper
+          v-if="!loading"
+          :slides-per-view="4"
+          :space-between="10"
+          is-auto
+          :pagination="false"
+          :navigation="true"
+          :items="items"
+        >
+          <template v-slot:default="{ item }">
+            <Card
+              :to="getRouteLocale('consultant-page', { id: item.id })"
+              :name="item.name"
+              :description="item.job_title"
+              :img="item.image"
+            />
+          </template>
+        </DSwiper>
+      </div>
     </div>
   </div>
 </template>

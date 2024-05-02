@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex my-2 flex-column shadow rounded-3">
+  <div class="d-flex my-2 flex-column shadow rounded-3" style="width: 90%">
     <div style="height: 164px; width: 100%" class="">
       <router-link class="" v-if="to" :to="to">
         <img

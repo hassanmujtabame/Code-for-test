@@ -1,9 +1,5 @@
 <template>
-  <div
-    
-    style="margin-top: 85px"
-    class="consult"
-  >
+  <div style="margin-top: 85px" class="consult">
     <!-- section header-->
     <SectionHeader />
     <!-- <SectionHeader2 v-if="!token"/> -->
@@ -23,9 +19,8 @@
     </div>
     <!--#section 4-->
     <!-- section 5-->
-    <div class="container mt-5">
-      <SectionBestConsultors />
-    </div>
+
+    <SectionBestConsultors />
 
     <!-- <div class="container mt-5">
           <Section6/>
