@@ -51,7 +51,7 @@ export default {
       return this.responseData.meta.links;
     },
     inPageCourses() {
-      return this.responseData.data.slice(0, 8);
+      return this.responseData.data;
     },
   },
   methods: {
