@@ -4,28 +4,28 @@
       <div class="row mt-5 align-items-center justify-content-between p-3">
         <div class="col-md-6">
           <h2>هل انت مستشار ؟</h2>
-          <p>
+          <p class="desc-text">
             يمكنك الان الاشتراك معنا كمستشار في منصة رياديات و سنوفر لك العديد
             من المميزات
           </p>
           <div>
-            <p>
+            <p class="point-text">
               <i style="color: var(--pc)" class="fas fa-check-circle mx-2"></i>
               مقابل مادي مجزي
             </p>
-            <p>
+            <p class="point-text">
               <i style="color: var(--pc)" class="fas fa-check-circle mx-2"></i>
               بيئة متميزة
             </p>
-            <p>
+            <p class="point-text">
               <i style="color: var(--pc)" class="fas fa-check-circle mx-2"></i>
               أي مميزات أخرى تشد الشخص لاشتراك
             </p>
-            <p class="mb-4">
+            <p class="point-text">
               <i style="color: var(--pc)" class="fas fa-check-circle mx-2"></i>
               أي مميزات أخرى تشد الشخص لاشتراك
             </p>
-            <div class="mb-4">
+            <div class="my-4">
               <router-link
                 :to="getRouteLocale('consulting-register')"
                 class="btn-custmer px-5 py-1"
@@ -36,12 +36,7 @@
           </div>
         </div>
 
-        <div class="col-md-6 p-5">
-          <img
-            class="img-fluid rounded-3"
-            src="../../../../../assets/img/consult/baby.png"
-            alt="about image"
-          />
+        <div class="img-side col-md-6 p-5">
           <!-- <img
             class="img-fluid rounded-3"
             src="../../../../../assets/img/consult/baby.png"
@@ -69,4 +64,29 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #414042;
+}
+.desc-text {
+  font-size: 24px;
+  color: #979797;
+}
+.point-text {
+  font-size: 20px;
+  color: #979797;
+  margin-bottom: 10px;
+}
+.img-side {
+  min-height: 400px;
+  height: 100%;
+  background-image: url("../../../../../assets/img/footer/Group 6.png"),
+    url("../../../../../assets/img/consult/baby.png"),
+    url("../../../../../assets/img/star-Icons.png");
+  background-position: center 185px, center, left;
+  background-size: 140px auto, auto 400px, auto 430px;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+</style>
