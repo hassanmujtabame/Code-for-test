@@ -61,11 +61,10 @@ export default {
   methods: {},
   data: (vm) => {
     let tabActive = "courses-watched";
-    if (vm.userPage.is_partner) tabActive = "offers";
+    if (vm.userPage.is_provider) tabActive = "offers";
     if (vm.userPage.is_instructor) tabActive = "your-course";
     if (vm.userPage.is_consultant) tabActive = "consulting";
-    if (vm.userPage.is_investors) tabActive = "investments";
-
+    if (vm.userPage.is_investor) tabActive = "investments";
     vm.$emit("tabChange", tabActive);
     return {
       tabActive: tabActive,
@@ -74,7 +73,7 @@ export default {
           tag: "investments",
           title: vm.$t("investments"),
           content: TabInvestments,
-          show: !!vm.userPage.is_investors,
+          show: !!vm.userPage.is_investor,
         },
         {
           tag: "consulting",
@@ -92,7 +91,7 @@ export default {
           tag: "offers",
           title: vm.$t("offers"),
           content: TabOffers,
-          show: true,
+          show: !!vm.userPage.is_provider,
         },
         {
           tag: "courses-watched",
