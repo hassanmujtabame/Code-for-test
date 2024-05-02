@@ -1,12 +1,13 @@
 <template>
-  <div class="container">
+  <div class="container mt-4">
     <div class="row align-items-center m-auto">
       <div class="col-md-6">
         <div>
           <div class="bg-back position-relative">
             <img
+              height="600px"
               class="img-fluid"
-              src="../../../../../assets/img/consult/istockphoto-1198872663-612x612-removebg-preview 1.png"
+              src="/assets/img/9f93cdbcfe.png"
               alt="hero"
             />
           </div>
@@ -37,4 +38,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.bg-back {
+  background-image: url("../../../../../assets/img/Path2213.png"),
+    url("../../../../../assets/img/Path2213.png");
+  background-size: contain, contain;
+  background-position: center 190px, center 210px;
+  background-repeat: no-repeat;
+}
+</style>
