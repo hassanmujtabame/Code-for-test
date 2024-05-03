@@ -17,6 +17,7 @@
 git clone git@github.com:riadiat/riadiat.sa.git
 cd riadiat.sa
 git checkout develop
+cp .env-example .env
 npm install
 ```
 
