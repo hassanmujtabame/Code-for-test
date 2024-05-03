@@ -46,7 +46,6 @@ import userAPI from "@/services/api/user.js";
 import UserInfoCard from "@/components/cards/user-info.vue";
 import sectionTabs from "./section-tabs/index.vue";
 import CourseCard from "./card.vue";
-import CoursesAPI from "@/services/api/academy/courses.js";
 import SuggestionsSection from "./suggestions-tabs/suggestions-section.vue";
 
 export default {
@@ -69,8 +68,7 @@ export default {
   watch: {
     $route(to, from) {
       if (to.params.id !== from.params.id) {
-        // Reload the component or perform any action you need
-        location.reload();
+        this.initializing();
       }
     },
   },
@@ -92,24 +90,13 @@ export default {
       }
       this.loading = false;
     },
-    async loadList() {
-      try {
-        let { data } = await CoursesAPI.getAll();
-        if (data.success) {
-          this.items = data.data.slice(0, 4);
-        }
-      } catch (error) {
-        console.log("error", error);
-        console.log("response", error.response);
-      }
-    },
+
     tabChanged(newValue) {
       this.selectetTab = newValue;
     },
   },
   mounted() {
     this.initializing();
-    this.loadList();
   },
 };
 </script>
