@@ -9,7 +9,7 @@
           style="color: #2cb7b3; position: absolute; right: 10px; bottom: 10px"
           class="git-hash"
         >
-          {{ gitHash }}
+          {{ gitTag }} - {{ gitHash }}
         </div>
         <div class="col-12 col-md-3 mt-2">
           <div>
@@ -267,6 +267,13 @@
           <p style="color: #98a2b3">310227304700003</p>
         </div>
       </div>
+
+      <div class="copy-rights">
+        <p style="color: #98a2b3">
+          {{ $t("Riadiat") }} <i class="fa-regular fa-copyright"></i> 2024
+          {{ gitTag }}
+        </p>
+      </div>
       <div class="d-flex flex-column">
         <p style="color: #98a2b3">ابقي علي تواصل</p>
         <div class="d-flex justify-content-center align-items-center gap-2">
@@ -314,6 +321,7 @@ export default {
       tiktokUrl: process.env.VUE_APP_TIKTOK,
       youtubeUrl: process.env.VUE_APP_YOUTUBE,
       gitHash: process.env.VUE_APP_GIT_HASH.toUpperCase(),
+      gitTag: process.env.VUE_APP_GIT_TAG,
     };
   },
 };
@@ -356,5 +364,10 @@ footer h6 {
 .footer-link-icon {
   font-size: 28px;
   color: #98a2b3;
+}
+.copy-rights {
+  height: 70px;
+  display: flex;
+  align-items: end;
 }
 </style>
