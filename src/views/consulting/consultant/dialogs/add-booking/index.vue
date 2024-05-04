@@ -9,14 +9,15 @@
       :close-dialog="closeDialog"
       :group="group"
     >
-      <div class="d-flex align-items-center my-3 gap-3">
+      <div class="d-flex align-items-center gap-3">
         <div>
           <img
-            class="rounded-3"
+            style="border-radius: 99px !important"
             :src="itemPage.image"
             :alt="itemPage.name"
             width="80"
             height="80"
+            @error="handleImageError"
           />
         </div>
         <div>
@@ -31,8 +32,9 @@
           </p>
         </div>
       </div>
-      <h6>تفاصيل الاستشارة</h6>
-
+      <div class="mt-2">
+        <h6>تفاصيل الاستشارة</h6>
+      </div>
       <div class="d-flex align-items-center gap-2">
         <h6 v-if="type === 'remote'" style="color: #f2631c">
           <svg
@@ -128,7 +130,7 @@
         <ValidationObserver ref="form" tag="div" v-if="showDialog">
           <!-- date -->
           <div class="row">
-            <div v-if="times.length" class="my-3">
+            <div v-if="times" class="my-3">
               <ValidationProvider
                 :name="$t('booking-time')"
                 tag="div"
@@ -200,7 +202,7 @@
                 style="width: fit-content; border: 1px solid #2cb7b3"
               >
                 <d-datepicker-input
-                  style=" border:none height: 52px"
+                  style="border: none; height: 52px"
                   class="rounded-3 form-control"
                   placeholder="اختيار المعاد"
                   id="date"
@@ -617,6 +619,9 @@ export default {
     availableDates: [],
   }),
   methods: {
+    handleImageError(e) {
+      e.target.src = `${this.publicPath}assets/img/no-img.png`;
+    },
     save() {
       if (
         this.itemForm.available_time &&
@@ -740,82 +745,6 @@ export default {
           return false;
       }
     },
-    // async proceedToPayment() {
-    //   switch (this.selectedProvider) {
-    //     case "tamara":
-    //       try {
-    //         // let { data } = await PaymentApi.PayPackageTammara({
-    //         //   package_id: this.id,
-    //         //   type: "package",
-    //         // });
-    //         let { data } = await payment.payNow({
-    //           type: this.type,
-    //           consaltant_id: this.itemPage.id,
-    //         });
-    //         if (data.success) {
-    //           window.location.href = data.data.payment_url;
-    //         } else {
-    //           console.log(data.response);
-    //         }
-    //       } catch (error) {
-    //         console.log("error", error);
-    //       }
-    //       break;
-    //     case "hyperbill":
-    //       try {
-    //         // let { data } = await PaymentApi.PayPackageHyperBill({
-    //         //   package_id: this.id,
-    //         //   type: "package",
-    //         // });
-    //         let { data } = await payment.payNow({
-    //           type: this.type,
-    //           consaltant_id: this.itemPage.id,
-    //         });
-    //         if (data.success) {
-    //           window.location.href = data.data.payment_url;
-    //         } else {
-    //           console.log(data.response);
-    //         }
-    //       } catch (error) {
-    //         console.log("error", error);
-    //       }
-    //       break;
-    //     case "myfatoorah":
-    //       try {
-    //         let { data } = await payment.payNow({
-    //           type: this.type,
-    //           consaltant_id: this.itemPage.id,
-    //         });
-    //         if (data.success) {
-    //           window.location.href = data.data.payment_url;
-    //         } else {
-    //           console.log(data.response);
-    //         }
-    //       } catch (error) {
-    //         console.log("error", error);
-    //       }
-    //       break;
-    //     case "card":
-    //       try {
-    //         let { data } = await payment.payNow({
-    //           type: this.type,
-    //           consaltant_id: this.itemPage.id,
-    //         });
-    //         if (data.success) {
-    //           window.location.href = data.data.payment_url;
-    //         } else {
-    //           console.log(data.response);
-    //         }
-    //       } catch (error) {
-    //         console.log("error", error);
-    //       }
-    //       break;
-    //     default:
-    //       // Handle case where no provider is selected
-    //       window.errorMsg("اختار بوابة الدفع");
-    //       return false;
-    //   }
-    // },
     async loadAvailableDates() {
       try {
         let { data } = await consultingAPI.consultants.getAvailability(
@@ -831,7 +760,8 @@ export default {
 
           this.minDate = days[0];
           this.maxDate = days[days.length - 1];
-          this.times = this.availability.available_times;
+          this.times = ["a", "b"];
+
           this.availableDates = days;
         }
       } catch (error) {
@@ -871,6 +801,7 @@ export default {
           this.minDate = days[0];
           this.maxDate = days[days.length - 1];
           this.times = this.availability.available_times;
+
           this.availableDates = days;
         }
       } catch (error) {
@@ -882,31 +813,6 @@ export default {
         this.loading = false;
       }
     },
-    // async loadDays() {
-    //   try {
-    //     let { data } = await consultingAPI.consultants.getAvailability(
-    //       this.itemDailog.id
-    //     );
-    //     if (data.success) {
-    //       // this.days = data.data[0].days;
-
-    //       this.days = Object.assign(this.availability, {
-    //         ...data.data[0],
-    //       });
-    //       let days = [new Date(this.availability.start_date)];
-    //       for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
-    //         days.push(this.addDays(this.availability.start_date, i));
-
-    //       this.minDate = days[0];
-    //       this.maxDate = days[days.length - 1];
-    //       this.times = this.availability.available_times;
-    //       this.availableDates = days;
-    //     }
-    //   } catch (error) {
-    //     console.mylog("error", error);
-    //     //
-    //   }
-    // },
     openDialog(dataEvt) {
       this.itemDailog = dataEvt.item;
       this.loadAvailableDates();
