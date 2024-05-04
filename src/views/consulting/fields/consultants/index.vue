@@ -7,7 +7,7 @@
 
   <SectionHeader :itemPage="itemPage" />
       </div> -->
-      <div class="container mt-3">
+      <div class="mt-3">
         <SectionFilterList :itemPage="itemPage" />
       </div>
     </div>
