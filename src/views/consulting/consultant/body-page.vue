@@ -1,59 +1,68 @@
 <template>
   <div class="container">
     <div class="row py-4">
-      <div class="col-md-7 bg-white p-3 rounded-4 border mt-5">
+      <div class="col-lg-7 bg-white p-5 rounded-4 border mt-5">
         <div class="box">
-          <div class="d-flex align-items-center gap-3">
+          <div class="consultant-info-box d-flex align-items-center gap-3">
             <div>
               <img
                 class="rounded-3"
                 :src="itemPage.image"
                 :alt="itemPage.name"
+                @error="handleImageError"
                 width="200"
                 height="200"
+                style="object-fit: cover"
               />
             </div>
-            <div>
-              <h2 class="consultant-name">
-                {{ itemPage.name }}
-              </h2>
-              <p class="consultant-text">
-                {{ itemPage.job_title }}
-              </p>
+
+            <div class="consultant-info-left">
+              <div>
+                <h2 class="consultant-name">
+                  {{ itemPage.name }}
+                </h2>
+                <p class="consultant-text">
+                  {{ itemPage.job_title }}
+                </p>
+              </div>
               <!-- <button
                 style="background-color: #ffbc00"
                 class="text-white border-0 p-1"
               >
                 {{ itemPage.department_name }}
               </button> -->
-              <h5>نوع الاستشارة</h5>
-              <div class="d-flex align-items-center gap-2">
-                <!-- <div
+              <div>
+                <h5 class="mb-2" style="font-size: 16px">نوع الاستشارة</h5>
+                <div
+                  style="flex-flow: wrap"
+                  class="d-flex align-items-center gap-2"
+                >
+                  <!-- <div
                   class="text-center rounded-5"
                   style="background-color: #1fb9b3; width: 125px"
                 > -->
-                <!-- <p
+                  <!-- <p
                     class="px-4"
                     style="color: white; margin-top: 13px"
                     v-if="itemPage.type === 'call'"
                   >
                     خدمه عن بعد
                   </p> -->
-                <button
-                  :class="{ activeTab: tab === 0 }"
-                  @click="switchTab2"
-                  class="px-4 py-2 btn rounded-3"
-                  style="
-                    font-size: 15px;
-                    color: #1fb9b3;
-                    background-color: white;
-                    border: 1px solid #1fb9b3;
-                  "
-                >
-                  خدمه حضوريه
-                </button>
-                <!-- </div> -->
-                <!-- <div
+                  <button
+                    :class="{ activeTab: tab === 0 }"
+                    @click="switchTab2"
+                    class="px-4 py-2 btn rounded-5"
+                    style="
+                      font-size: 15px;
+                      color: #1fb9b3;
+                      background-color: white;
+                      border: 1px solid #1fb9b3;
+                    "
+                  >
+                    خدمه حضوريه
+                  </button>
+                  <!-- </div> -->
+                  <!-- <div
                   class="text-center rounded-5"
                   style="
                     background-color: white;
@@ -61,20 +70,21 @@
                     border: 1px solid #1fb9b3;
                   "
                 > -->
-                <button
-                  :class="{ activeTab: tab === 1 }"
-                  @click="switchTab1"
-                  class="px-4 py-2 btn rounded-3"
-                  style="
-                    color: #1fb9b3;
-                    background-color: white;
-                    font-size: 15px;
+                  <button
+                    :class="{ activeTab: tab === 1 }"
+                    @click="switchTab1"
+                    class="px-4 py-2 btn rounded-5"
+                    style="
+                      color: #1fb9b3;
+                      background-color: white;
+                      font-size: 15px;
 
-                    border: 1px solid #1fb9b3;
-                  "
-                >
-                  خدمه عن بعد
-                </button>
+                      border: 1px solid #1fb9b3;
+                    "
+                  >
+                    خدمه عن بعد
+                  </button>
+                </div>
                 <!-- </div> -->
                 <!-- <div
                   class="text-center rounded-5"
@@ -128,10 +138,10 @@
               </div> -->
             </div>
           </div>
-          <div class="pt-3 mt-5">
-            <h4 class="consultant-title">نبذه عن المستشار</h4>
+          <div class="pt-3 mt-2">
+            <h4 class="consultant-about">نبذة عن المستشار</h4>
             <p class="consultant-text">
-              {{ itemPage.bio }}
+              {{ itemPage.bio ?? "لا يوجد نبذة عن المستشار حاليا" }}
             </p>
             <!--courses-->
           </div>
@@ -143,11 +153,11 @@
           </div> -->
         </div>
       </div>
-      <div class="col-md-5">
-        <div class="box bg-white mt-5 rounded-4 border">
-          <div class="div p-4">
-            <h4 class="consultant-title">تفاصيل جلسة الاستشارة</h4>
-            <div class="d-flex justify-content-between">
+      <div class="col-lg-5">
+        <div class="box bg-white mt-5 rounded-4 border mb-3">
+          <div class="div p-5">
+            <h4 class="consultant-name">تفاصيل جلسة الاستشارة</h4>
+            <div class="d-flex justify-content-between mt-4">
               <p v-if="!tab" style="color: #f2631c">
                 <svg
                   width="24"
@@ -201,7 +211,7 @@
                 <!-- <d-empty-wallet-icon style="color: #f2631c" :size="24" /> -->
 
                 <!-- {{ itemPage.consultation_price ?? "N/A" }} ريال -->
-                {{ itemPage.site_price ?? 0 }}
+                {{ itemPage.site_price ?? 10 }}
               </p>
               <p v-else style="color: #f2631c">
                 <svg
@@ -228,24 +238,24 @@
                     fill="#F2631C"
                   />
                 </svg>
-                {{ itemPage.remote_price ?? 0 }}
+                {{ itemPage.remote_price ?? 20 }}
 
                 <!-- <d-empty-wallet-icon style="color: #f2631c" :size="24" /> -->
 
                 <!-- {{ itemPage.consultation_price ?? "N/A" }} ريال -->
               </p>
-              <!-- <p>
+              <p class="status-icons">
                 <d-timer-icon :size="24" />
-                {{ itemPage.duration_time ?? "N/A" }} دقيقة
-              </p> -->
-              <p>
+                {{ itemPage.duration_time ?? "--" }} دقيقة
+              </p>
+              <p class="status-icons">
                 <d-chatting-icon :size="24" />
                 مكالمة
               </p>
             </div>
-            <div class="text-center">
+            <div class="text-center mt-4">
               <button
-                style="color: white; background-color: #1fb9b3"
+                style="color: white; background-color: #1fb9b3; font-size: 22px"
                 @click="openAddBooking"
                 class="px-5 btn rounded-3 py-2"
               >
@@ -285,6 +295,9 @@ export default {
     type: "site",
   }),
   methods: {
+    handleImageError(e) {
+      e.target.src = `${this.publicPath}assets/img/no-img.png`;
+    },
     buyConsultation() {},
     checkBeforeBooking() {
       /*
@@ -382,9 +395,33 @@ export default {
 };
 </script>
 <style scoped>
+.consultant-info-left {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.consultant-about,
+.consultant-name {
+  font-weight: 400;
+  font-size: 24px;
+  color: #414042;
+}
+
+.consultant-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: #979797;
+}
+
 .activeTab {
   color: #fff !important;
   background-color: #1fb9b3 !important;
   border: none;
+}
+.status-icons {
+  font-size: 16px;
+  font-weight: 400;
+  color: #979797;
 }
 </style>
