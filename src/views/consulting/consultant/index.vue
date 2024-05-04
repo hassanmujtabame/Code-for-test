@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-top: 80px;background-color: #F6F8F9;">
+  <div style="margin-top: 80px">
         <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">
       هناك خطأ غير معروف يرجي تحديث الصفحة
