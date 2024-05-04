@@ -118,7 +118,7 @@
           <div class="d-flex flex-column justify-content-center gap-1">
             <h3 style="color: #ffbc00">تقييم استشاراتي</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('consulting-rates')"
               style="
                 color: #888;
                 outline: 1px solid #888;
