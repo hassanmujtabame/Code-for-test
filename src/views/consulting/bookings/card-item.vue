@@ -60,7 +60,7 @@
           style="flex: 1; color: #1fb9b3"
           @click="rateDialog"
           class="btn btn-main-v bg-white"
-          v-if="status !== 'finished'"
+          v-if="status == 'finished'"
         >
           {{ $t("consultation-rate") }}
         </button>
@@ -68,7 +68,7 @@
           style="flex: 1"
           @click="rescheduleDialog"
           class="btn btn-main-v"
-          v-if="status == 'finished'"
+          v-if="status !== 'finished'"
         >
           {{ $t("reschedule") }}
         </button>
