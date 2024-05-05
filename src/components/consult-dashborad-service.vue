@@ -284,7 +284,7 @@
           <div class="d-flex flex-column justify-content-center gap-1">
             <h3 style="color: #1fb9b3">حجوزات استشاراتي</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('consulting-bookings')"
               style="
                 color: #888;
                 outline: 1px solid #888;
