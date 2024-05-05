@@ -29,18 +29,7 @@
           </ul>
         </template>
         <template v-slot:default="{ item }">
-          <ConsultingRequest
-            :itemId="item.id"
-            :status="item.status"
-            :title="item.department_name"
-            :userName="item.user_info.name"
-            :dateBooking="item.start_date"
-            :timeBooking="item.available_time"
-            :duringBooking="30"
-            :desc="item.description"
-            :price="item.price"
-            @update-list="updateList"
-          >
+          <ConsultingRequest :item="item" @update-list="updateList">
           </ConsultingRequest>
         </template>
       </d-filter-list>
