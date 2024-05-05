@@ -2,10 +2,21 @@
   <d-dialog-large
     :xl="false"
     :group="group"
+    customHeaderClass="m-2 w-100"
     :open-dialog="openDialog"
     :close-dialog="closeDialog"
   >
-    <template v-slot:header> جدول مواعيدي </template>
+    <template v-slot:header>
+      <div
+        style="
+          font-size: 24px !important;
+          font-weight: 600 !important;
+          color: #0c2f33 !important;
+        "
+      >
+        استشارة جديدة
+      </div>
+    </template>
     <template v-slot:default>
       <div style="height: 415px; overflow-y: auto">
         <ValidationObserver v-if="showDialog" ref="form" tag="div">
@@ -167,7 +178,7 @@ export default {
       consulting_types: type_consulations,
       loading: false,
       itemDialog: {},
-      itemForm: {},
+      itemForm: { available_times: [] },
       showDialog: false,
     };
   },
@@ -221,20 +232,23 @@ export default {
     //   return `${hours}:${minutes}:${seconds}`;
     // },
     addTime(time) {
-      this.itemForm.available_times.push(time);
+      if (this.itemForm.available_times == null) {
+        this.itemForm.available_times = [time];
+      } else if (this.itemForm.available_times.includes(time)) {
+        return;
+      } else this.itemForm.available_times.push(time);
     },
     async save() {
+      console.log("in save");
       this.loading = true;
       let valid = await this.$refs.form.validate();
       if (!valid) {
-        console.mylog("invalid", this.itemForm);
         this.loading = false;
         return;
       }
-      let formData = this.loadObjectToForm(this.itemForm);
       try {
         let { data } = await consultingAPI.consultants.updateMyAvailability(
-          formData
+          this.itemForm
         );
         if (data.success) {
           this.closeEvent();
