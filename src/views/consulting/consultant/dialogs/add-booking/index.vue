@@ -396,15 +396,15 @@
                       <div class="form-check">
                         <label
                           class="form-check-label d-flex align-items-center justify-content-between px-2"
-                          for="hyperbill"
+                          for="tabby"
                         >
                           <div class="">
                             الدفع بواسطة تابى
                             <input
                               type="radio"
                               class="form-check-input"
-                              id="hyperbill"
-                              value="hyperbill"
+                              id="tabby"
+                              value="tabby"
                               v-model="selectedProvider"
                             />
                           </div>
@@ -570,7 +570,8 @@
 </template>
 
 <script>
-import consultingAPI from "@/services/api/consulting";
+import consultantsApi from "@/services/api/consulting/consultants";
+import consultingApi from "@/services/api/consulting";
 import payment from "@/services/api/consulting/pay";
 import availableTimeCard from "./available-time.vue";
 import sectionPay from "../../../../../components/section-payment.vue";
@@ -646,7 +647,7 @@ export default {
     //   }
     //   const formData = this.loadObjectToForm(this.itemForm);
     //   try {
-    //     let { data } = await consultingAPI.bookingConsultant(formData);
+    //     let { data } = await consultantsApi.bookingConsultant(formData);
     //     if (data.data) {
     //       let dataEvt = {
     //         title: "لقت تم ارسال طلب حجز موعد بنجاح",
@@ -668,8 +669,21 @@ export default {
     //     window.DHelper.catchException.call(this, error, this.$refs.form);
     //   }
     //   this.loading = false;
-    // },
+    //  },
+
     async proceedToPayment() {
+      //               \\///////////////\\                          //
+      //                \\///////////////\\                         //
+      // temp code to book before payment jus to add data into databas
+      //                  \\///////////////\\                       //
+      //                   \\///////////////\\                      //
+      if (process.env.NODE_ENV == "development") {
+        let { data } = await consultingApi.bookingConsultant(this.itemForm);
+        console.log("data", data);
+        return;
+      }
+      //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
+
       switch (this.selectedProvider) {
         case "tamara":
           try {
@@ -677,41 +691,7 @@ export default {
             //   package_id: this.id,
             //   type: "package",
             // });
-            let { data } = await payment.payNow({
-              type: this.type,
-              consaltant_id: this.itemPage.id,
-            });
-            if (data.success) {
-              window.location.href = data.data.payment_url;
-            } else {
-              console.log(data.response);
-            }
-          } catch (error) {
-            console.log("error", error);
-          }
-          break;
-        case "hyperbill":
-          try {
-            // let { data } = await PaymentApi.PayPackageHyperBill({
-            //   package_id: this.id,
-            //   type: "package",
-            // });
-            let { data } = await payment.payNow({
-              type: this.type,
-              consaltant_id: this.itemPage.id,
-            });
-            if (data.success) {
-              window.location.href = data.data.payment_url;
-            } else {
-              console.log(data.response);
-            }
-          } catch (error) {
-            console.log("error", error);
-          }
-          break;
-        case "myfatoorah":
-          try {
-            let { data } = await payment.payNow({
+            let { data } = await payment.payTammara({
               type: this.type,
               consaltant_id: this.itemPage.id,
             });
@@ -726,7 +706,22 @@ export default {
           break;
         case "card":
           try {
-            let { data } = await payment.payNow({
+            let { data } = await payment.payMyfatoorah({
+              type: this.type,
+              consaltant_id: this.itemPage.id,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "tabby":
+          try {
+            let { data } = await payment.payTabby({
               type: this.type,
               consaltant_id: this.itemPage.id,
             });
@@ -747,9 +742,7 @@ export default {
     },
     async loadAvailableDates() {
       try {
-        let { data } = await consultingAPI.consultants.getAvailability(
-          this.itemDailog.id
-        );
+        let { data } = await consultantsApi.getAvailability(this.itemDailog.id);
         if (data.success) {
           this.availability = Object.assign(this.availability, {
             ...data.data[0],
@@ -760,7 +753,17 @@ export default {
 
           this.minDate = days[0];
           this.maxDate = days[days.length - 1];
-          this.times = ["a", "b"];
+          this.times = this.availability.available_times;
+
+          //               \\///////////////\\                          //
+          //                \\///////////////\\                         //
+          // temp code to book before payment jus to add data into databas
+          //                  \\///////////////\\                       //
+          //                   \\///////////////\\                      //
+          if (process.env.NODE_ENV == "development") {
+            this.times = ["09:00", "10:00", "11:00", "12:00"];
+          }
+          //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
 
           this.availableDates = days;
         }
@@ -784,9 +787,7 @@ export default {
     async loadDays() {
       this.loading = true;
       try {
-        let { data } = await consultingAPI.consultants.getAvailability(
-          this.itemDailog.id
-        );
+        let { data } = await consultantsApi.getAvailability(this.itemDailog.id);
         if (data.success) {
           // this.days = data.data[0].days;
           // this.loading = false;
