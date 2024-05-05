@@ -57,17 +57,17 @@
           {{ $t("Consultation-link") }}
         </button>
         <button
-          style="flex: 1; color: #1fb9b3"
+          style="flex: 1"
           @click="rateDialog"
-          class="btn btn-main-v bg-white"
+          class="btn btn-main-v"
           v-if="status == 'finished'"
         >
           {{ $t("consultation-rate") }}
         </button>
         <button
-          style="flex: 1"
+          style="flex: 1; color: #1fb9b3"
           @click="rescheduleDialog"
-          class="btn btn-main-v"
+          class="btn btn-main-v bg-white"
           v-if="status !== 'finished'"
         >
           {{ $t("reschedule") }}
