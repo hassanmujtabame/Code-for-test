@@ -81,6 +81,8 @@
 
             استشارة جديدة
           </button>
+
+          <!-- Delete button (disabeld now) -->
           <button
             v-if="false"
             style="height: 40px"
@@ -116,6 +118,7 @@
             </svg>
             حذف
           </button>
+          <!-- END Delete button  -->
         </div>
       </div>
       <div>
@@ -216,164 +219,6 @@
 
     <DialogNewSchedule @success="updateEventSuccess" />
   </div>
-  <!-- <div style="margin-top: 96px">
-    <d-overlays-simple v-if="loading" />
-    <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
-    <div v-else class="container">
-      <div class="row justify-content-between align-items-center">
-        <div class="col-md-6">
-          <h3 class="home-section-title">جدول مواعيدي</h3>
-          <p class="home-section-text">
-            قم بإضافة مواعيدك المتاحة ليتمكن أعضاء الشبكة من حجز الموعد المناسب
-            لهم
-          </p>
-        </div>
-        <div class="col-md-6 text-start">
-          <button
-            style="height: 40px"
-            class="bg-main text-white border-0 rounded-2 px-3"
-            @click="openDialogNewCatSchedule"
-          >
-            <i class="fa fa-pen-to-square"></i>
-            استشارة جديدة
-          </button>
-          <button
-            v-if="false"
-            style="height: 40px"
-            class="bg-danger text-white border-0 rounded-2 px-3"
-          >
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M28 8.97363C27.9733 8.97363 27.9333 8.97363 27.8933 8.97363C20.84 8.26696 13.8 8.00029 6.82668 8.70696L4.10668 8.97363C3.54668 9.02696 3.05334 8.62696 3.00001 8.06696C2.94668 7.50696 3.34668 7.02696 3.89334 6.97363L6.61334 6.70696C13.7067 5.98696 20.8933 6.26696 28.0933 6.97363C28.64 7.02696 29.04 7.52029 28.9867 8.06696C28.9467 8.58696 28.5067 8.97363 28 8.97363Z"
-                fill="white"
-              />
-              <path
-                d="M11.3334 7.62699C11.2801 7.62699 11.2267 7.62699 11.1601 7.61366C10.6267 7.52033 10.2534 7.00033 10.3467 6.46699L10.6401 4.72033C10.8534 3.44033 11.1467 1.66699 14.2534 1.66699H17.7467C20.8667 1.66699 21.1601 3.50699 21.3601 4.73366L21.6534 6.46699C21.7467 7.01366 21.3734 7.53366 20.8401 7.61366C20.2934 7.70699 19.7734 7.33366 19.6934 6.80032L19.4001 5.06699C19.2134 3.90699 19.1734 3.68033 17.7601 3.68033H14.2667C12.8534 3.68033 12.8267 3.86699 12.6267 5.05366L12.3201 6.78699C12.2401 7.28033 11.8134 7.62699 11.3334 7.62699Z"
-                fill="white"
-              />
-              <path
-                d="M20.2799 30.3334H11.7199C7.06661 30.3334 6.87995 27.7601 6.73328 25.6801L5.86661 12.2534C5.82661 11.7068 6.25328 11.2268 6.79995 11.1868C7.35995 11.1601 7.82661 11.5734 7.86661 12.1201L8.73328 25.5468C8.87995 27.5734 8.93328 28.3334 11.7199 28.3334H20.2799C23.0799 28.3334 23.1333 27.5734 23.2666 25.5468L24.1333 12.1201C24.1733 11.5734 24.6533 11.1601 25.1999 11.1868C25.7466 11.2268 26.1733 11.6934 26.1333 12.2534L25.2666 25.6801C25.1199 27.7601 24.9333 30.3334 20.2799 30.3334Z"
-                fill="white"
-              />
-              <path
-                d="M18.2133 23H13.7733C13.2266 23 12.7733 22.5467 12.7733 22C12.7733 21.4533 13.2266 21 13.7733 21H18.2133C18.76 21 19.2133 21.4533 19.2133 22C19.2133 22.5467 18.76 23 18.2133 23Z"
-                fill="white"
-              />
-              <path
-                d="M19.3333 17.667H12.6666C12.12 17.667 11.6666 17.2137 11.6666 16.667C11.6666 16.1203 12.12 15.667 12.6666 15.667H19.3333C19.88 15.667 20.3333 16.1203 20.3333 16.667C20.3333 17.2137 19.88 17.667 19.3333 17.667Z"
-                fill="white"
-              />
-            </svg>
-            حذف
-          </button>
-        </div>
-      </div>
-      <div>
-        <div class="m-4">
-          <div class="calendar-service-schedule" :class="{ mobile: isMobile }">
-            <d-calendar
-              v-if="!loading"
-              class="custom-calendar max-w-full"
-              is-expanded
-              :masks="masks"
-              disable-page-swipe
-              :attributes="attributes"
-              @dayclick="dayclick"
-            >
-              <template v-slot:day-content="{ day, attributes }">
-                <div
-                  class="d-flex flex-column h-100 z-10 overflow-hidden"
-                  :class="{
-                    'bg-day':
-                      attributes && attributes.some((x) => x.customData),
-                  }"
-                  :style="{
-                    background:
-                      attributes && attributes.some((x) => x.customData)
-                        ? category_schedule.color
-                        : 'inherit',
-                  }"
-                >
-                  <span class="day-label text-sm text-gray-900">{{
-                    day.day
-                  }}</span>
-                  <div
-                    class="d-flex flex-column justify-content-center align-items-start flex-grow-1 overflow-y-auto overflow-x-auto"
-                  >
-                    <div
-                      v-for="attr in attributes"
-                      :key="attr.id"
-                      class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1 w-100"
-                    >
-                      <div class="text-center" :class="attr.customData.class">
-                        <bdi>
-                          {{
-                            timeFormatAMPM(attr.customData.start_hour, true)
-                          }}
-                          :
-                          {{
-                            timeFormatAMPM(attr.customData.end_hour, true)
-                          }}</bdi
-                        >
-                      </div>
-                      <div v-if="false" class="text-center w-100">
-                        <button
-                          @click="showMenu($event, attr.customData)"
-                          class="btn"
-                        >
-                          <i class="fa-solid fa-ellipsis"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </template>
-              <template #day-popover="{ day, format, masks }">
-                <div class="text-xs text-gray-300 font-semibold text-center">
-                  {{ format(day.date, masks.dayPopover) }}
-                  <hr class="mt-1" />
-                  <div
-                    :class="{
-                      'text-right': $i18n.locale == 'ar',
-                      'text-left': $i18n.locale !== 'ar',
-                    }"
-                  >
-                    <p class="pb-1 mb-1">
-                      {{ day.attributes[0].customData.categoryName }}
-                    </p>
-                    <p class="pb-1 mb-1">
-                      {{ $t("titled") }} :
-                      {{
-                        day.attributes[0]
-                          ? day.attributes[0].customData.title
-                          : "N/A"
-                      }}
-                    </p>
-                    <p class="pb-1 mb-1">
-                      {{ $t("at-time") }} :
-                      {{ timeFormatAMPM(day.attributes[0].customData.time) }}
-                    </p>
-                  </div>
-                </div>
-              </template>
-            </d-calendar>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="day-menu" :style="styleObject">
-      <button class="btn" @click="updateEvent" href="#">تعديل</button>
-      <button class="btn" @click="deleteEvent" href="#">حذف</button>
-    </div>
-
-    <DialogNewSchedule @success="updateEventSuccess" />
-  </div> -->
 </template>
 
 <script>
@@ -383,7 +228,6 @@
 //import DialogNewCategorySchedule from '../dialogs/category-schedule/index.vue'
 import DialogNewSchedule from "./dialogs/new-schedule/index.vue";
 import consultingAPI from "@/services/api/consulting";
-
 export default {
   name: "page-schedule-consulting",
   components: {
@@ -398,7 +242,7 @@ export default {
       eventSelected: null,
       hasError: false,
       category_schedule: {
-        title: "j^vdf",
+        title: "",
         color: "var(--color-accent)",
       },
       items: [],
@@ -458,18 +302,21 @@ export default {
     },
     async initializing() {
       this.loading = true;
-      /*this.hasError = false;
+      this.hasError = false;
       try {
-        let { data } = await categoriesScheduleAPI.getItem(this.$route.params.id)
+        let { data } = await consultingAPI.consultants.myAppointments(
+          this.$route.params.id
+        );
         if (data.success) {
-          this.category_schedule = data.data
-        }else{
-          this.hasError = true;
+          this.items = data.data;
+          //this.category_schedule = data.data
+        } else {
+          //this.hasError = true;
         }
       } catch (error) {
-        console.log('error', error)
+        console.log("error", error);
         this.hasError = true;
-      }*/
+      }
       this.loading = false;
     },
     updateAttributes() {
@@ -488,12 +335,17 @@ export default {
     async loadList() {
       this.loading = true;
       try {
-        let { data } = await consultingAPI.consultants.myAppointments();
-        if (data.success) {
-          /*this.items = data.data.map(e=>{
-            let {category,...b} = e
-            return {...b,category_id:category.id}
-          })*/
+        let { data: appointmentsData } =
+          await consultingAPI.consultants.myAppointments();
+        let { data: availabilityData } =
+          await consultingAPI.consultants.getMyAvailability();
+
+        if (availabilityData.success) {
+          console.log("availabilityData", availabilityData.data);
+        }
+        if (appointmentsData.success) {
+          console.log("appointmentsData", appointmentsData.data);
+
           if (process.env.NODE_ENV !== "production")
             this.items.push({
               id: -1,
@@ -515,7 +367,7 @@ export default {
     },
   },
   async mounted() {
-    await this.initializing();
+    //await this.initializing();
     this.loadList();
   },
 };
