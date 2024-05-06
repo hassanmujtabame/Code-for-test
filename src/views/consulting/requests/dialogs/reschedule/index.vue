@@ -27,7 +27,7 @@
             <availableTimeVue
               :time="itemDialog.available_time"
               @click="() => {}"
-              :isSelected="false"
+              :isSelected="true"
             />
           </div>
           <!-- new date-->
@@ -163,6 +163,7 @@ export default {
       return null;
     },
     async save() {
+      console.log("this.itemDialog : ", this.itemDialog);
       this.loading = true;
       let valid = await this.$refs.form.validate();
       if (!valid) {
