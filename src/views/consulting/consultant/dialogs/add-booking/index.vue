@@ -119,13 +119,6 @@
           </p>
         </div>
       </div>
-      <!-- <div class="my-2">
-      <div class="text-end">
-        <h6 style="color: #888">الوقت المتاح</h6>
-      </div>
-    </div> -->
-      <!-- <template v-slot:header> إحجزي جلستك الان </template> -->
-
       <div>
         <ValidationObserver ref="form" tag="div" v-if="showDialog">
           <!-- date -->
@@ -226,67 +219,6 @@
               />
             </ValidationProvider>
           </div>
-          <!-- <div v-if="times.length" class="mt-3">
-          <ValidationProvider
-            :name="$t('booking-time')"
-            tag="div"
-            vid="time"
-            v-slot="{ errors }"
-          >
-            <label>الوقت المتاح</label>
-            <div class="d-flex">
-              <availableTimeCard
-                :isSelected="itemForm.available_time == it"
-                v-for="(it, i) in times"
-                :key="i"
-                @click="itemForm.available_time = $event"
-                :value="it"
-              />
-            </div>
-            <d-error-input :errors="errors" v-if="errors.length > 1" />
-          </ValidationProvider>
-        </div> -->
-          <!-- desc -->
-
-          <!-- <div class="form-group mt-3">
-          <ValidationProvider
-            :name="$t('booking-desc')"
-            vid="description"
-            v-slot="{ errors }"
-          >
-            <d-textarea-input
-              :errors="errors"
-              v-model="itemForm.description"
-              label="اكتبي ملخص ما تريدين التحدث عنه"
-            />
-          </ValidationProvider>
-        </div> -->
-          <!-- <div class="form-group mt-3">
-          <ValidationProvider
-            :name="$t('booking-desc')"
-            vid="description"
-            v-slot="{ errors }"
-          >
-            <d-textarea-input
-              :errors="errors"
-              v-model="itemForm.description"
-              label="اكتبي ملخص ما تريدين التحدث عنه"
-            />
-          </ValidationProvider>
-        </div> -->
-          <!-- <div class="form-group mt-3">
-          <ValidationProvider
-            :name="$t('booking-desc')"
-            vid="description"
-            v-slot="{ errors }"
-          >
-            <d-textarea-input
-              :errors="errors"
-              v-model="itemForm.description"
-              label="اكتبي ملخص ما تريدين التحدث عنه"
-            />
-          </ValidationProvider>
-        </div> -->
         </ValidationObserver>
       </div>
       <template v-slot:actions>
@@ -637,39 +569,6 @@ export default {
     handleCloseSecModal() {
       this.openSecModal = false;
     },
-    // async save() {
-    //   this.loading = true;
-    //   let valid = this.$refs.form.validate();
-    //   if (!valid) {
-    //     this.loading = false;
-    //     console.mylog("invalid");
-    //     return;
-    //   }
-    //   const formData = this.loadObjectToForm(this.itemForm);
-    //   try {
-    //     let { data } = await consultantsApi.bookingConsultant(formData);
-    //     if (data.data) {
-    //       let dataEvt = {
-    //         title: "لقت تم ارسال طلب حجز موعد بنجاح",
-    //         description: "سيتم التواصل معك عند اقتراب موعد الاستشارة",
-    //         btns: [
-    //           {
-    //             title: this.$t("Home"),
-    //             action: () => this.router_push("network-home"),
-    //           },
-    //         ],
-    //       };
-    //       this.showSuccessMsg(dataEvt);
-
-    //       this.closeEvent();
-    //     } else {
-    //       window.SwalError(data.message);
-    //     }
-    //   } catch (error) {
-    //     window.DHelper.catchException.call(this, error, this.$refs.form);
-    //   }
-    //   this.loading = false;
-    //  },
 
     async proceedToPayment() {
       //               \\///////////////\\                          //
@@ -743,7 +642,19 @@ export default {
     async loadAvailableDates() {
       try {
         let { data } = await consultantsApi.getAvailability(this.itemDailog.id);
+
         if (data.success) {
+          if (data.data == null || data.data.length == 0) {
+            window.Swal.fire({
+              icon: "info",
+              title: this.$t("Sorry"),
+              text: this.$t("no-available-cosultants"),
+              confirmButtonText: this.$t("Ok"),
+            });
+            this.closeDialog();
+            this.closeEvent();
+            return;
+          }
           this.availability = Object.assign(this.availability, {
             ...data.data[0],
           });
@@ -754,7 +665,6 @@ export default {
           this.minDate = days[0];
           this.maxDate = days[days.length - 1];
           this.times = this.availability.available_times;
-
           //               \\///////////////\\                          //
           //                \\///////////////\\                         //
           // temp code to book before payment jus to add data into databas
