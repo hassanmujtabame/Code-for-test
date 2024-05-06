@@ -2,7 +2,11 @@
   <div class="card-body d-flex gap-3">
     <div class="d-flex flex-column px-2 p py-2 gap-2" style="flex: 1">
       <div class="d-flex gap-2 flex-wrap align-items-center">
-        <div class="consulting-booking__status" :class="statusClass">
+        <div
+          v-if="statusText"
+          class="consulting-booking__status"
+          :class="statusClass"
+        >
           {{ statusText }}
         </div>
         <div class="text-center field-counseling">
@@ -123,7 +127,7 @@ export default {
         case "finished":
           return this.$t("finished-consulting");
         default:
-          return "N/A";
+          return "";
       }
     },
     statusClass() {
