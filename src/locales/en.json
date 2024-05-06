@@ -779,5 +779,10 @@
   "confirm_delete_story_message": "You are about to delete your story",
   "field-your-service": "field your service",
   "the_place": "place",
-  "submit-report": "Submit a report"
+  "submit-report": "Submit a report",
+  "booked-appointment": "Booked appointment",
+  "new-appointment": "New appointment",
+  "reschedule-appointment": "Reschedule the session appointment",
+  "consultation-time": "Consultation time",
+  "consultation-reschedule-reason": "rescdule reason ..."
 }

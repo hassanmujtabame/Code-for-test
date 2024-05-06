@@ -786,5 +786,10 @@
   "field-your-service": "مجال خدمتك",
   "the_place": "المكان",
   "submit-report": "قدم بلاغ",
-  "Field": "الحقل"
+  "Field": "الحقل",
+  "booked-appointment": "الموعد المحجوز",
+  "new-appointment": "الموعد الجديد",
+  "reschedule-appointment": "إعادة جدولة موعد الجلسة",
+  "consultation-time": "وقت الاستشارة",
+  "consultation-reschedule-reason": "سبب تغيير موعد الاستشارة ..."
 }
