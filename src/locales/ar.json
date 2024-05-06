@@ -267,6 +267,7 @@
   "Error": "خطأ",
   "Success": "تمت بنجاح",
   "Warning": "تحذير",
+  "alert": "تنبيه",
   "Info": "معلومة",
   "birthday": "تاريخ الميلاد",
   "nationality": "جنسية",
@@ -791,5 +792,6 @@
   "new-appointment": "الموعد الجديد",
   "reschedule-appointment": "إعادة جدولة موعد الجلسة",
   "consultation-time": "وقت الاستشارة",
-  "consultation-reschedule-reason": "سبب تغيير موعد الاستشارة ..."
+  "consultation-reschedule-reason": "سبب تغيير موعد الاستشارة ...",
+  "enter-different-appointment": "يرجى إدخال موعد مختلف عن الموعد الحالي"
 }

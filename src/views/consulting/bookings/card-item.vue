@@ -148,6 +148,13 @@ export default {
         لا تقلق  سنقوم تنبيهك قبل موعد الاستشارة!`,
       });
     },
+    rescheduleDialog() {
+      this.fireOpenDialog("reschedule-session", {
+        id: this.itemId,
+        start_date: this.dateBooking,
+        available_time: this.timeBooking,
+      });
+    },
     async rateConsultation(itemForm, refForm) {
       let valid = await refForm.validate();
       if (!valid) return;
@@ -178,10 +185,6 @@ export default {
         title: this.$t("consultation-rate"),
         btns: [{ title: this.$t("send-rate"), action: this.rateConsultation }],
       });
-    },
-    rescheduleDialog() {
-      console.log("reschedule-dialog");
-      //this.fireOpenDialog("reschedule-dialog");
     },
   },
 };

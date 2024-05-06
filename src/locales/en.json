@@ -784,5 +784,6 @@
   "new-appointment": "New appointment",
   "reschedule-appointment": "Reschedule the session appointment",
   "consultation-time": "Consultation time",
-  "consultation-reschedule-reason": "rescdule reason ..."
+  "consultation-reschedule-reason": "rescdule reason ...",
+  "enter-different-appointment": "Please enter a date different from the current one"
 }

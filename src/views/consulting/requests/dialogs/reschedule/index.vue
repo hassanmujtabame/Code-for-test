@@ -163,13 +163,27 @@ export default {
       return null;
     },
     async save() {
-      console.log("this.itemDialog : ", this.itemDialog);
       this.loading = true;
       let valid = await this.$refs.form.validate();
       if (!valid) {
         this.loading = false;
         return;
       }
+
+      // Prevent entering same consultation appointment as the current
+      if (
+        this.itemDialog.start_date == this.itemForm.start_date &&
+        this.itemDialog.available_time == this.itemForm.available_time
+      ) {
+        window.Swal.fire({
+          icon: "alert",
+          title: this.$t("alert"),
+          text: this.$t("enter-different-appointment"),
+          confirmButtonText: "Ok",
+        });
+        return;
+      }
+
       const formData = this.loadObjectToForm(this.itemForm);
       try {
         let { data } = await consultingAPI.requests.rescheduleIt(
