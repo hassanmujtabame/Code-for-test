@@ -1,4 +1,4 @@
-import LayoutDefault from '@/layouts/network/index.vue'
+import LayoutDefault from "@/layouts/network/index.vue";
 
 const routers = [
   {
@@ -89,15 +89,6 @@ const routers = [
     component: () =>
       import(
         /* webpackChunkName: "consultant-page" */ "../views/consulting/consultant/index.vue"
-      ),
-  },
-  {
-    path: "consulting/consulting-page",
-    meta: { layout: LayoutDefault, title: "Consulting Page" },
-    name: "consulting-page",
-    component: () =>
-      import(
-        /* webpackChunkName: "consulting-page" */ "../views/consulting/consulting-page/index.vue"
       ),
   },
   {
