@@ -367,7 +367,7 @@
           <div class="d-flex flex-column justify-content-center gap-1">
             <h3 style="color: #ffbc00">لقائات اشتركت بها</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('network-learning-meetings')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -450,7 +450,7 @@
           <div class="d-flex flex-column justify-content-center gap-1">
             <h3 style="color: #ffbc00">لقائات تعليمية</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('network-learning-meetings')"
               style="
                 color: #888;
                 outline: 1px solid #888;
