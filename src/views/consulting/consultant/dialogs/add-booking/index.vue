@@ -617,17 +617,17 @@ export default {
         console.log("data", data);
         console.log("itemPage", this.itemPage);
         if (data.success) {
-          // if (data.data == null || data.data.length == 0) {
-          //   window.Swal.fire({
-          //     icon: "info",
-          //     title: this.$t("Sorry"),
-          //     text: this.$t("no-available-cosultants"),
-          //     confirmButtonText: this.$t("Ok"),
-          //   });
-          //   this.closeDialog();
-          //   this.closeEvent();
-          //   return;
-          // }
+          if (data.data == null || data.data.length == 0) {
+            window.Swal.fire({
+              icon: "info",
+              title: this.$t("Sorry"),
+              text: this.$t("no-available-cosultants"),
+              confirmButtonText: this.$t("Ok"),
+            });
+            this.closeDialog();
+            this.closeEvent();
+            return;
+          }
           this.availability = Object.assign(this.availability, {
             ...data.data[0],
           });
