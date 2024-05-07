@@ -44,7 +44,7 @@
                 >اطلب استشارة</router-link
               >
               <router-link
-                v-if="!user.is_consultant"
+                v-if="!userIsConsultant"
                 style="background-color: #1fb9b3"
                 :to="getRouteLocale('consulting-register')"
                 class="header-desc-btn px-5 py-2 rounded-2 mx-1 text-white mt-2"
@@ -117,6 +117,7 @@ h1 {
   font-weight: 400;
 }
 .header-desc-btn {
+  max-width: 260px;
   min-height: 64px;
   font-size: 22px;
   font-weight: 700;

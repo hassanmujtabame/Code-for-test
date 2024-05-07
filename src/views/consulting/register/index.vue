@@ -1201,6 +1201,9 @@ export default {
     },
   },
   mounted() {
+    if (this.userIsConsultant) {
+      this.$router.push({ name: "consulting-home" });
+    }
     if (!this.user) {
       this.loadCountries();
     }
