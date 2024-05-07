@@ -56,17 +56,8 @@
           style="flex: 1"
           @click="showConsultationLink"
           class="btn btn-main-v"
-          v-if="status !== 'finished'"
         >
           {{ $t("Consultation-link") }}
-        </button>
-        <button
-          style="flex: 1"
-          @click="rateDialog"
-          class="btn btn-main-v"
-          v-if="status == 'finished'"
-        >
-          {{ $t("consultation-rate") }}
         </button>
         <button
           style="flex: 1; color: #1fb9b3"
@@ -157,37 +148,6 @@ export default {
         id: this.itemId,
         start_date: this.dateBooking,
         available_time: this.timeBooking,
-      });
-    },
-    async rateConsultation(itemForm, refForm) {
-      let valid = await refForm.validate();
-      if (!valid) return;
-      try {
-        let { data } = await consultingAPI.client.rateConsultation(
-          this.itemId,
-          itemForm
-        );
-        if (data.success) {
-          /* let dataEvt ={
-                        title:'',
-                        description:``
-                    }
-                    this.showSuccessMsg(dataEvt);
-                    */
-          return true;
-        } else {
-          window.SwalError(data.message);
-          return false;
-        }
-      } catch (error) {
-        window.DHelper.catchException.call(this, error, refForm);
-        return false;
-      }
-    },
-    rateDialog() {
-      this.fireOpenDialog("standard-rate-dialog", {
-        title: this.$t("consultation-rate"),
-        btns: [{ title: this.$t("send-rate"), action: this.rateConsultation }],
       });
     },
   },
