@@ -194,7 +194,7 @@ const routes = [
             /* webpackChunkName: "terms-and-conditions" */ "../views/main/policy/terms-and-conditions.vue"
           ),
       },
-      
+
       {
         path: "who-are-we",
         meta: { layout: LayoutDefault },
@@ -213,7 +213,24 @@ const routes = [
             /* webpackChunkName: "common-questions" */ "../views/main/CommonQuestions.vue"
           ),
       },
-
+      {
+        path: "dashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "dashbord" */ "../views/common/dashboard/index.vue"
+          ),
+        children: [
+          {
+            path: "consultant",
+            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            name: "consultant-dashboard",
+            component: () =>
+              import(
+                /* webpackChunkName: "network-dashboard" */ "@/views/consulting/dashboard/index.vue"
+              ),
+          },
+        ],
+      },
       ...networkRoute,
       ...academyRoute,
       ...incubatorRoute,

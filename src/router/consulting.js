@@ -38,15 +38,6 @@ const routers = [
       ),
   },
   {
-    path: "consulting/dashboard",
-    meta: { auth: true, layout: LayoutDefault, title: "success" },
-    name: "consulting-dashboard",
-    component: () =>
-      import(
-        /* webpackChunkName: "consulting-books" */ "../views/consulting/dashboard/index.vue"
-      ),
-  },
-  {
     path: "consulting/requests",
     meta: { auth: true, layout: LayoutDefault, title: "Requests" },
     name: "consulting-requests",
