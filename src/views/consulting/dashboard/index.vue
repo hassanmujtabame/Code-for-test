@@ -648,7 +648,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    if (!this.userIsConsultant) {
+      this.router_push("dashboard");
+    }
+  },
+};
 </script>
 
 <style></style>

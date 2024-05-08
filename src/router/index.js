@@ -215,6 +215,9 @@ const routes = [
       },
       {
         path: "dashboard",
+        meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+        name: "dashboard",
+        redirect: "dashboard/network",
         component: () =>
           import(
             /* webpackChunkName: "dashbord" */ "../views/common/dashboard/index.vue"
