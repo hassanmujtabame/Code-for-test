@@ -250,6 +250,15 @@ const routes = [
                 /* webpackChunkName: "service-provider-dashboard" */ "../views/service-provider/dashboard/index.vue"
               ),
           },
+          {
+            path: "academy",
+            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            name: "academy-dashboard",
+            component: () =>
+              import(
+                /* webpackChunkName: "academy-dashboard" */ "../views/academy/dashboard/index.vue"
+              ),
+          },
         ],
       },
       ...networkRoute,

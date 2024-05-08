@@ -1,4 +1,4 @@
-import LayoutDefault from '@/layouts/academy/index.vue';
+import LayoutDefault from "@/layouts/academy/index.vue";
 
 const routers = [
   {
@@ -17,15 +17,6 @@ const routers = [
     component: () =>
       import(
         /* webpackChunkName: "ContactUs" */ "../views/main/contact-us/index.vue"
-      ),
-  },
-  {
-    path: "academy/dashboard",
-    meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
-    name: "academy-dashboard",
-    component: () =>
-      import(
-        /* webpackChunkName: "academy-dashboard" */ "../views/academy/dashboard/index.vue"
       ),
   },
   {
@@ -272,7 +263,7 @@ const routers = [
   },
   {
     path: "academy/instructor/register",
-    meta: { layout: LayoutDefault,  title: "Instructor Register" },
+    meta: { layout: LayoutDefault, title: "Instructor Register" },
     name: "academy-instructor-register",
     component: () =>
       import(
