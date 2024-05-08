@@ -223,10 +223,25 @@ const routes = [
           {
             path: "consultant",
             meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            name: "consulting-dashboard",
+            component: () => import("@/views/consulting/dashboard/index.vue"),
+          },
+          {
+            path: "consultant",
+            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
             name: "consultant-dashboard",
             component: () =>
               import(
                 /* webpackChunkName: "network-dashboard" */ "@/views/consulting/dashboard/index.vue"
+              ),
+          },
+          {
+            path: "network",
+            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            name: "network-dashboard",
+            component: () =>
+              import(
+                /* webpackChunkName: "network-dashboard" */ "@/views/network/dashboard/index.vue"
               ),
           },
         ],

@@ -14,15 +14,21 @@
                 style="color: #888"
                 :to="getRouteLocale('network-dashboard')"
                 class="nav-link hover-li"
+                :class="{ 'li-active': $route.name === 'network-dashboard' }"
               >
                 لوحه التحكم
               </router-link>
             </li>
-            <li style="list-style: none" class="nav-item">
+            <li
+              v-if="userIsConsultant"
+              style="list-style: none"
+              class="nav-item"
+            >
               <router-link
                 style="color: #888"
                 :to="getRouteLocale('consultant-dashboard')"
-                class="nav-link li-active hover-li"
+                class="nav-link hover-li"
+                :class="{ 'li-active': $route.name === 'consultant-dashboard' }"
               >
                 المستشار
               </router-link>
@@ -32,6 +38,9 @@
                 style="color: #888"
                 :to="getRouteLocale('service-provider-dashboard')"
                 class="nav-link hover-li"
+                :class="{
+                  'li-active': $route.name === 'service-provider-dashboard',
+                }"
               >
                 مقدم الخدمة
               </router-link>
@@ -41,6 +50,7 @@
                 style="color: #888"
                 :to="getRouteLocale('academy-dashboard')"
                 class="nav-link hover-li"
+                :class="{ 'li-active': $route.name === 'academy-dashboard' }"
               >
                 ألاكاديمية
               </router-link>

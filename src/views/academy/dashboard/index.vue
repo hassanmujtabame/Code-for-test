@@ -21,7 +21,7 @@
             <li style="list-style: none" class="nav-item">
               <router-link
                 style="color: #888"
-                :to="getRouteLocale('consulting/dashboard')"
+                :to="getRouteLocale('consulting-dashboard')"
                 class="nav-link hover-li"
               >
                 المستشار
