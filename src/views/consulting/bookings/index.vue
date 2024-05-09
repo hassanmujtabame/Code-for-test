@@ -2,23 +2,26 @@
   <div style="margin-top: 96px">
     <div class="container mt-5">
       <d-filter-list
+        classTitle="col-lg-4"
+        classSearchOrder="col-lg-8 "
         :call-list="loadList"
         hideSide
         classColCard="col-12 mt-2"
         @change="changeFilter"
       >
-        <template v-slot:total>
-          <h4 class="fw-bold">حجوزات إستشارة</h4>
+        <template v-slot:title>
+          <h4 class="fw-bold mx-4">استشاراتي</h4>
         </template>
         <template v-slot:before-body>
           <ul class="nav nav-pills mb-3">
             <li
               v-for="(btn, i) in actions"
               :key="i"
-              class="nav-item col-12 col-md-3"
+              class="nav-item px-1 col-12 col-md-4"
             >
               <button
-                class="nav-link border w-75 t-c m-auto"
+                style="font-size: 24px; line-height: 32px"
+                class="nav-link border w-100 py-2 t-c m-auto"
                 :class="{ active: status == btn.status }"
                 type="button"
                 @click="changeStatus(btn.status)"
@@ -27,269 +30,73 @@
               </button>
             </li>
           </ul>
+          <!-- Upgrade your account WANRING tape -->
+          <div
+            class="d-flex warning-tap gap-2 justify-content-between align-items-center"
+          >
+            <div class="d-inline gap-2 flex-wrap">
+              <div class="d-inline icon">
+                <img
+                  src="@/assets/img/warning.png"
+                  height="26px"
+                  width="auto"
+                />
+              </div>
+              <div class="d-inline text">
+                تذكر أنك لا تستطيع قبول أكثر من 10 استشارات في نفس الوقت / تلغى
+                استشاراتك قيد الانتظار بعد مرور اسبوع
+              </div>
+            </div>
+            <div class="d-inline">
+              <div class="d-inline">
+                <router-link
+                  class="link"
+                  :to="getRouteLocale('network-subscribe')"
+                >
+                  رقي حسابك</router-link
+                >
+              </div>
+              <div class="d-inline text">
+                {{ " " }}لقبول اكثر من 10 استشارات
+              </div>
+            </div>
+          </div>
         </template>
         <template v-slot:default="{ item }">
-          <ConsultingRequest
-            :itemId="item.id"
-            :status="item.status"
-            :title="item.department_name"
-            :userName="item.user_info.name"
-            :dateBooking="item.start_date"
-            :timeBooking="item.available_time"
-            :duringBooking="30"
-            :desc="item.description"
-            :price="item.price"
-            @update-list="updateList"
-          >
+          <ConsultingRequest :item="item" @update-list="updateList">
           </ConsultingRequest>
         </template>
       </d-filter-list>
     </div>
     <showLinkDialog />
+
+    <showRescheduleDialog @update-list="updateList" />
   </div>
-  <!-- <div style="margin-top: 96px;">
-        <div class="container mt-5">
-      <d-filter-list
-      :call-list="loadList"
-      hideSide
-      classColCard="col-12 mt-2"
-      @change="changeFilter"
-      >
-        <template v-slot:total>
-            <h4 class="fw-bold">حجوزات إستشارة</h4>
-        </template>
-        <template v-slot:before-body>
-            <ul class="nav nav-pills  mb-3">
-                    <li v-for="(btn,i) in actions" :key="i" class="nav-item col-12 col-md-3">
-                        <button class="nav-link  border w-75 t-c m-auto" :class="{active:status==btn.status}"
-                             type="button" 
-                             @click="changeStatus(btn.status)"
-                            >{{ btn.label }}</button>
-                    </li>
-                </ul>
-        </template>
-        <template v-slot:default="{item}">
-            
-            <ConsultingRequest
-                            :itemId="item.id"
-                            :status="item.status"
-                            :title="item.department_name"
-                            :userName="item.user_info.name"
-                            :dateBooking="item.start_date"
-                            :timeBooking="item.available_time"
-                            :duringBooking="30"
-                            :desc="item.description"
-                            :price="item.price"
-                            @update-list="updateList"
-                            
-                            
-                            >
-                        </ConsultingRequest>
-            
-        </template>
-      </d-filter-list>
-    </div>
-    <showLinkDialog />
-    </div> -->
-  <!-- <div style="margin-top: 96px;">
-        <div class="container mt-5">
-      <d-filter-list
-      :call-list="loadList"
-      hideSide
-      classColCard="col-12 mt-2"
-      @change="changeFilter"
-      >
-        <template v-slot:total>
-            <h4 class="fw-bold">حجوزات إستشارة</h4>
-        </template>
-        <template v-slot:before-body>
-            <ul class="nav nav-pills  mb-3">
-                    <li v-for="(btn,i) in actions" :key="i" class="nav-item col-12 col-md-3">
-                        <button class="nav-link  border w-75 t-c m-auto" :class="{active:status==btn.status}"
-                             type="button" 
-                             @click="changeStatus(btn.status)"
-                            >{{ btn.label }}</button>
-                    </li>
-                </ul>
-        </template>
-        <template v-slot:default="{item}">
-            
-            <ConsultingRequest
-                            :itemId="item.id"
-                            :status="item.status"
-                            :title="item.department_name"
-                            :userName="item.user_info.name"
-                            :dateBooking="item.start_date"
-                            :timeBooking="item.available_time"
-                            :duringBooking="30"
-                            :desc="item.description"
-                            :price="item.price"
-                            @update-list="updateList"
-                            
-                            
-                            >
-                        </ConsultingRequest>
-            
-        </template>
-      </d-filter-list>
-    </div>
-    <showLinkDialog />
-    </div> -->
-  <!-- <div style="margin-top: 96px;">
-        <div class="container mt-5">
-      <d-filter-list
-      :call-list="loadList"
-      hideSide
-      classColCard="col-12 mt-2"
-      @change="changeFilter"
-      >
-        <template v-slot:total>
-            <h4 class="fw-bold">حجوزات إستشارة</h4>
-        </template>
-        <template v-slot:before-body>
-            <ul class="nav nav-pills  mb-3">
-                    <li v-for="(btn,i) in actions" :key="i" class="nav-item col-12 col-md-3">
-                        <button class="nav-link  border w-75 t-c m-auto" :class="{active:status==btn.status}"
-                             type="button" 
-                             @click="changeStatus(btn.status)"
-                            >{{ btn.label }}</button>
-                    </li>
-                </ul>
-        </template>
-        <template v-slot:default="{item}">
-            
-            <ConsultingRequest
-                            :itemId="item.id"
-                            :status="item.status"
-                            :title="item.department_name"
-                            :userName="item.user_info.name"
-                            :dateBooking="item.start_date"
-                            :timeBooking="item.available_time"
-                            :duringBooking="30"
-                            :desc="item.description"
-                            :price="item.price"
-                            @update-list="updateList"
-                            
-                            
-                            >
-                        </ConsultingRequest>
-            
-        </template>
-      </d-filter-list>
-    </div>
-    <showLinkDialog />
-    </div> -->
-  <!-- <div style="margin-top: 96px;">
-        <div class="container mt-5">
-      <d-filter-list
-      :call-list="loadList"
-      hideSide
-      classColCard="col-12 mt-2"
-      @change="changeFilter"
-      >
-        <template v-slot:total>
-            <h4 class="fw-bold">حجوزات إستشارة</h4>
-        </template>
-        <template v-slot:before-body>
-            <ul class="nav nav-pills  mb-3">
-                    <li v-for="(btn,i) in actions" :key="i" class="nav-item col-12 col-md-3">
-                        <button class="nav-link  border w-75 t-c m-auto" :class="{active:status==btn.status}"
-                             type="button" 
-                             @click="changeStatus(btn.status)"
-                            >{{ btn.label }}</button>
-                    </li>
-                </ul>
-        </template>
-        <template v-slot:default="{item}">
-            
-            <ConsultingRequest
-                            :itemId="item.id"
-                            :status="item.status"
-                            :title="item.department_name"
-                            :userName="item.user_info.name"
-                            :dateBooking="item.start_date"
-                            :timeBooking="item.available_time"
-                            :duringBooking="30"
-                            :desc="item.description"
-                            :price="item.price"
-                            @update-list="updateList"
-                            
-                            
-                            >
-                        </ConsultingRequest>
-            
-        </template>
-      </d-filter-list>
-    </div>
-    <showLinkDialog />
-    </div> -->
-  <!-- <div style="margin-top: 96px;">
-        <div class="container mt-5">
-      <d-filter-list
-      :call-list="loadList"
-      hideSide
-      classColCard="col-12 mt-2"
-      @change="changeFilter"
-      >
-        <template v-slot:total>
-            <h4 class="fw-bold">حجوزات إستشارة</h4>
-        </template>
-        <template v-slot:before-body>
-            <ul class="nav nav-pills  mb-3">
-                    <li v-for="(btn,i) in actions" :key="i" class="nav-item col-12 col-md-3">
-                        <button class="nav-link  border w-75 t-c m-auto" :class="{active:status==btn.status}"
-                             type="button" 
-                             @click="changeStatus(btn.status)"
-                            >{{ btn.label }}</button>
-                    </li>
-                </ul>
-        </template>
-        <template v-slot:default="{item}">
-            
-            <ConsultingRequest
-                            :itemId="item.id"
-                            :status="item.status"
-                            :title="item.department_name"
-                            :userName="item.user_info.name"
-                            :dateBooking="item.start_date"
-                            :timeBooking="item.available_time"
-                            :duringBooking="30"
-                            :desc="item.description"
-                            :price="item.price"
-                            @update-list="updateList"
-                            
-                            
-                            >
-                        </ConsultingRequest>
-            
-        </template>
-      </d-filter-list>
-    </div>
-    <showLinkDialog />
-    </div> -->
 </template>
 <script>
 import ConsultingRequest from "./card-item.vue";
 import consultingAPI from "@/services/api/consulting/index";
 import showLinkDialog from "./dialogs/show-consultation-link/index";
+import showRescheduleDialog from "../requests/dialogs/reschedule/index.vue";
 export default {
   name: "consultation-bookings-page",
   components: {
     ConsultingRequest,
     showLinkDialog,
+    showRescheduleDialog,
   },
   data: () => {
     return {
       status: null, //status=coming|past
       actions: [
-        { status: null, label: "كل حجوزات" },
-        { status: "coming", label: "حجوزات القادمة" },
-        { status: "past", label: "حجوزات الماضية  " },
+        { status: null, label: "كل الاستشارات" },
+        { status: "working_on", label: "استشارات تعمل عليها" },
+        { status: "done", label: "استشارات تم الانتهاء منها" },
       ],
       filterItem: {
         search: null,
         created_at: "asc",
-        status_date: null,
+        status_working: null,
       },
     };
   },
@@ -299,7 +106,7 @@ export default {
     },
     changeStatus(status) {
       this.status = status;
-      this.filterItem.status_date = status;
+      this.filterItem.status_working = status;
       this.fireEvent("d-filter-list-change-page", 1);
     },
     changeFilter(val) {
@@ -323,4 +130,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.warning-tap {
+  margin-block: calc(20px);
+  padding: 13px;
+  background-color: rgba(255, 222, 47, 0.1);
+}
+.warning-tap * {
+  font-size: 16px;
+  font-weight: 500;
+  color: #dc831d;
+}
+.link {
+  color: #1fb9b3;
+  text-decoration: underline;
+}
+</style>

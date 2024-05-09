@@ -2,15 +2,6 @@ import LayoutDefault from "@/layouts/network/index.vue";
 
 const routers = [
   {
-    path: "network/dashboard",
-    meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
-    name: "network-dashboard",
-    component: () =>
-      import(
-        /* webpackChunkName: "network-dashboard" */ "../views/network/dashboard/index.vue"
-      ),
-  },
-  {
     path: "network/contact-us",
     meta: { layout: LayoutDefault, title: "Contact Us" },
     name: "network-contact-us",

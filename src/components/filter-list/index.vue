@@ -4,14 +4,14 @@
       <slot name="top-end"></slot>
     </div>
     <div v-if="!hideTop" class="row align-items-center">
-      <div v-if="!hideTotal" class="col-12 mt-3" :class="classTotal">
-        <!-- <slot name="total">
+      <!-- <div v-if="!hideTotal" class="col-12 mt-3" :class="classTotal">
+        <slot name="total">
           <h4>
             {{ $t("nomber") }} {{ pluralName }} :
             <span class="m-c"> {{ metaInfo.total }} {{ singleName }} </span>
           </h4>
-        </slot> -->
-      </div>
+        </slot> 
+      </div>-->
       <div v-if="!hideTitle" class="col-12 mt-3" :class="classTitle">
         <slot name="title">
           <h3 v-if="title" class="t-c fw-bolder">{{ title }}</h3>

@@ -1,146 +1,75 @@
 <template>
-  <div class="d-flex flex-column shadow rounded-3 px-2 py-2 gap-2">
-    <div class="text-center">
-      <h6 class="">{{ $t("field-counseling") }} {{ title ?? "N/A" }}</h6>
+  <div class="card-body d-flex gap-3">
+    <div class="d-flex flex-column px-2 p py-2 gap-2" style="flex: 1">
+      <div class="d-flex gap-2 flex-wrap align-items-center">
+        <div
+          v-if="statusText"
+          class="consulting-booking__status"
+          :class="statusClass"
+        >
+          {{ statusText }}
+        </div>
+        <div class="text-center field-counseling">
+          {{ $t("field-counseling") }} : <span>{{ title ?? "N/A" }} </span>
+        </div>
+      </div>
+      <div class="d-flex gap-2 flex-wrap mt-3">
+        <p class="consulting-booking__info-label">
+          <d-user-rect-icon :size="16" color="currentColor" />
+          {{ userName }}
+        </p>
+        <p class="consulting-booking__info-label">
+          <d-calendar-icon :size="16" color="currentColor" />
+          {{ dateBooking }}
+        </p>
+        <p class="consulting-booking__info-label">
+          <d-time-icon :size="16" color="currentColor" />
+          {{ timeFormatAMPM(timeBooking, true) }}
+        </p>
+        <p class="consulting-booking__info-label">
+          <d-time-icon :size="16" color="currentColor" />
+          {{ duringBooking }}{{ $t("minute") }}
+        </p>
+        <p style="color: #ff1616" class="consulting-booking__info-label">
+          <d-empty-wallet-icon :size="16" color="#FF1616" />
+          {{ price }}{{ $t("riyals") }}
+        </p>
+      </div>
+      <div style="min-height: 30px">
+        <div class="desc-text t-c w-100 m-0" v-html="desc"></div>
+      </div>
     </div>
-    <div class="d-flex gap-2 flex-wrap">
-      <p class="consulting-booking__info-label">
-        <d-user-rect-icon :size="16" color="currentColor" />
-        {{ userName }}
-      </p>
-      <p class="consulting-booking__info-label">
-        <d-calendar-icon :size="16" color="currentColor" />
-        {{ dateBooking }}
-      </p>
-      <p class="consulting-booking__info-label">
-        <d-time-icon :size="16" color="currentColor" />
-        {{ timeFormatAMPM(timeBooking, true) }}
-      </p>
-      <p class="consulting-booking__info-label">
-        <d-time-icon :size="16" color="currentColor" />
-        {{ duringBooking }}{{ $t("minute") }}
-      </p>
-      <p style="color: #ff1616" class="consulting-booking__info-label">
-        <d-empty-wallet-icon :size="16" color="#FF1616" />
-        {{ price }}{{ $t("riyals") }}
-      </p>
-    </div>
-    <div class="overflow-y-auto" style="height: 30px">
-      <p style="word-wrap: break-word" class="t-c w-100 m-0" v-html="desc"></p>
+    <div
+      class="d-flex flex-column px-2 py-2 gap-2"
+      style="flex-grow: 0; justify-content: space-between"
+    >
+      <div class="start-time-text d-flex gap-2 flex-wrap">
+        <div class="clock-icon">
+          <d-time-icon :size="16" color="currentColor" />
+        </div>
+        <div class="consulting-start-date-text">
+          {{ $t("request-start-date") }} : {{ dateBooking }}
+        </div>
+      </div>
+      <div class="d-flex gap-2" style="">
+        <button
+          style="flex: 1"
+          @click="showConsultationLink"
+          class="btn btn-main-v"
+        >
+          {{ $t("Consultation-link") }}
+        </button>
+        <button
+          style="flex: 1; color: #1fb9b3"
+          @click="rescheduleDialog"
+          class="btn btn-main-v bg-white"
+          v-if="status !== 'finished'"
+        >
+          {{ $t("reschedule") }}
+        </button>
+      </div>
     </div>
   </div>
-  <!-- <div
-    class="consulting-booking shadow rounded-3 overflow-x-none overflow-x-hidden"
-  >
-    <div class="d-flex align-items-center justify-content-between">
-      <div>
-        <div class="d-flex justify-content-center">
-          <div class="consulting-booking__status" :class="statusClass">
-            <div class="consulting-booking__status-wrapper">
-              {{ statusText }}
-            </div>
-          </div>
-          <div class="text-center">
-            <h4 class="">{{ $t("field-counseling") }} {{ title ?? "N/A" }}</h4>
-          </div>
-        </div>
-        <div class="d-flex gap-2 flex-wrap">
-          <p class="consulting-booking__info-label">
-            <d-user-rect-icon :size="16" color="currentColor" />
-            {{ userName }}
-          </p>
-          <p class="consulting-booking__info-label">
-            <d-calendar-icon :size="16" color="currentColor" />
-            {{ dateBooking }}
-          </p>
-          <p class="consulting-booking__info-label">
-            <d-time-icon :size="16" color="currentColor" />
-            {{ timeFormatAMPM(timeBooking, true) }}
-          </p>
-          <p class="consulting-booking__info-label">
-            <d-time-icon :size="16" color="currentColor" />
-            {{ duringBooking }}{{ $t("minute") }}
-          </p>
-          <p class="consulting-booking__info-label">
-            <d-empty-wallet-icon :size="16" color="currentColor" />
-            {{ price }}{{ $t("riyals") }}
-          </p>
-        </div>
-        <div class="overflow-y-auto" style="height: 30px">
-          <p
-            style="word-wrap: break-word"
-            class="t-c w-75 m-0"
-            v-html="desc"
-          ></p>
-        </div>
-      </div>
-
-      <div class="d-flex flex-column flex-shrink-0 justify-content-end">
-        <div class="d-flex" v-if="status == 'approve'">
-          <button class="btn btn-custmer-w mx-2" @click="showConsultationLink">
-            {{ $t("Consultation-link") }}
-          </button>
-        </div>
-        <div class="d-flex" v-if="status == 'finished'">
-          <button class="btn btn-custmer-w mx-2" @click="rateDialog">
-            {{ $t("consultation-rate") }}
-          </button>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div class="consulting-booking shadow">
-    <div class="d-flex align-items-center justify-content-between">
-      <div>
-        <div class="d-flex">
-          <div class="consulting-booking__status" :class="statusClass">
-            <div class="consulting-booking__status-wrapper">
-              {{ statusText }}
-            </div>
-          </div>
-          <h4 class="consulting-booking__title">
-            {{ $t("field-counseling") }} {{ title ?? "N/A" }}
-          </h4>
-        </div>
-        <div class="d-flex gap-2 flex-wrap">
-          <p class="consulting-booking__info-label">
-            <d-user-rect-icon :size="16" color="currentColor" />
-            {{ userName }}
-          </p>
-          <p class="consulting-booking__info-label">
-            <d-calendar-icon :size="16" color="currentColor" />
-            {{ dateBooking }}
-          </p>
-          <p class="consulting-booking__info-label">
-            <d-time-icon :size="16" color="currentColor" />
-            {{ timeFormatAMPM(timeBooking, true) }}
-          </p>
-          <p class="consulting-booking__info-label">
-            <d-time-icon :size="16" color="currentColor" />
-            {{ duringBooking }}{{ $t("minute") }}
-          </p>
-          <p class="consulting-booking__info-label">
-            <d-empty-wallet-icon :size="16" color="currentColor" />
-            {{ price }}{{ $t("riyals") }}
-          </p>
-        </div>
-        <p class="t-c w-75 m-0" v-html="desc"></p>
-      </div>
-
-      <div class="d-flex flex-column flex-shrink-0 justify-content-end">
-        <div class="d-flex" v-if="status == 'approve'">
-          <button class="btn btn-custmer-w mx-2" @click="showConsultationLink">
-            {{ $t("Consultation-link") }}
-          </button>
-        </div>
-        <div class="d-flex" v-if="status == 'finished'">
-          <button class="btn btn-custmer-w mx-2" @click="rateDialog">
-            {{ $t("consultation-rate") }}
-          </button>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -148,35 +77,36 @@ import consultingAPI from "@/services/api/consulting";
 export default {
   name: "my-booking-client-card",
   props: {
-    itemId: {
-      type: [String, Number],
-    },
-    title: {
-      type: String,
-    },
-    userName: {
-      type: String,
-    },
-    price: {
-      type: String,
-    },
-    desc: {
-      type: String,
-    },
-    dateBooking: {
-      type: String,
-    },
-    timeBooking: {
-      type: String,
-    },
-    duringBooking: {
-      type: [String, Number],
-    },
-    status: {
-      type: String,
-    },
+    item: {},
   },
   computed: {
+    itemId() {
+      return this.item.id;
+    },
+    title() {
+      return this.item.department_name;
+    },
+    userName() {
+      return this.item.user_info.name;
+    },
+    price() {
+      return this.item.price;
+    },
+    desc() {
+      return this.item.description;
+    },
+    dateBooking() {
+      return this.item.start_date;
+    },
+    timeBooking() {
+      return this.item.available_time;
+    },
+    duringBooking() {
+      return this.item.during_booking ?? "N/A";
+    },
+    status() {
+      return this.item.status;
+    },
     statusText() {
       switch (this.status) {
         case "disapprove":
@@ -188,7 +118,7 @@ export default {
         case "finished":
           return this.$t("finished-consulting");
         default:
-          return "N/A";
+          return "";
       }
     },
     statusClass() {
@@ -213,35 +143,11 @@ export default {
         لا تقلق  سنقوم تنبيهك قبل موعد الاستشارة!`,
       });
     },
-    async rateConsultation(itemForm, refForm) {
-      let valid = await refForm.validate();
-      if (!valid) return;
-      try {
-        let { data } = await consultingAPI.client.rateConsultation(
-          this.itemId,
-          itemForm
-        );
-        if (data.success) {
-          /* let dataEvt ={
-                        title:'',
-                        description:``
-                    }
-                    this.showSuccessMsg(dataEvt);
-                    */
-          return true;
-        } else {
-          window.SwalError(data.message);
-          return false;
-        }
-      } catch (error) {
-        window.DHelper.catchException.call(this, error, refForm);
-        return false;
-      }
-    },
-    rateDialog() {
-      this.fireOpenDialog("standard-rate-dialog", {
-        title: this.$t("consultation-rate"),
-        btns: [{ title: this.$t("send-rate"), action: this.rateConsultation }],
+    rescheduleDialog() {
+      this.fireOpenDialog("reschedule-session", {
+        id: this.itemId,
+        start_date: this.dateBooking,
+        available_time: this.timeBooking,
       });
     },
   },
@@ -249,6 +155,10 @@ export default {
 </script>
 
 <style scoped>
+.card-body {
+  padding-bottom: 22px;
+  border-bottom: 1px #cdd7d8 solid;
+}
 .consulting-booking {
   padding: 10px;
   border-bottom: 1px solid rgba(205, 215, 216, 1);
@@ -287,13 +197,35 @@ export default {
 
   color: #737373;
 }
+.start-time-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: #737373;
+}
+.desc-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3; /* Number of lines to show */
+}
+.field-counseling > span,
+.field-counseling {
+  color: #1fb9b3;
+  font-size: 20px;
+  font-weight: 700;
+}
+.field-counseling > span {
+  color: #000;
+}
 .consulting-booking__status {
   padding: 3px 9px;
   border-radius: 4px;
-  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  color: white !important;
 }
 .consulting-booking__status-approve {
-  background: var(--color-primary);
+  background: var(--color-accent);
 }
 .consulting-booking__status-disapprove {
   background: var(--color-dark-gray);
@@ -302,6 +234,6 @@ export default {
   background: var(--color-secondary);
 }
 .consulting-booking__status-finished {
-  background: var(--color-accent);
+  background: var(--color-primary);
 }
 </style>

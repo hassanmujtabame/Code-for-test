@@ -1,244 +1,681 @@
 <template>
-  <div style="margin-top: 85px">
-    <div class="container dashbord">
-      <div class="row">
+  <div class="row mt-5">
+    <div class="p-3 col-md-6 col-12">
+      <div
+        style="min-height: 138px"
+        class="shadow rounded-3 d-flex justify-content-between align-items-center p-3"
+      >
+        <div class="d-flex align-items-center gap-4">
+          <div>
+            <svg
+              width="63"
+              height="54"
+              viewBox="0 0 63 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="62.0532"
+                height="54"
+                rx="15"
+                fill="#FFBC00"
+                fill-opacity="0.19"
+              />
+              <g clip-path="url(#clip0_3577_10837)">
+                <path
+                  d="M41.3286 22.1634V21.8077C41.3286 20.1727 39.9529 18.8425 38.2619 18.8425H20.6487C18.9577 18.8426 17.582 20.1727 17.582 21.8077V22.1634H41.3286Z"
+                  fill="#FFBC00"
+                />
+                <path
+                  d="M31.6114 31.7018C31.6114 30.1637 32.123 28.7017 33.0675 27.4969H17.582V31.6331C17.582 33.2681 18.9577 34.5983 20.6487 34.5983H32.2587C31.835 33.7007 31.6114 32.718 31.6114 31.7018ZM29.4553 30.8031H26.8086V29.2796H29.4553V30.8031ZM21.1144 29.2796H25.233V30.8031H21.1144V29.2796Z"
+                  fill="#FFBC00"
+                />
+                <path
+                  d="M34.7032 25.9735C35.9048 25.1606 37.3322 24.7227 38.8293 24.7227C39.6959 24.7227 40.5389 24.8698 41.3286 25.151V23.687H17.582V25.9735H34.7032Z"
+                  fill="#FFBC00"
+                />
+                <path
+                  d="M44.4724 31.7018C44.4724 28.6887 41.9461 26.2461 38.8299 26.2461C35.7137 26.2461 33.1875 28.6887 33.1875 31.7018C33.1875 34.7149 35.7137 37.1575 38.8299 37.1575C41.9461 37.1575 44.4724 34.7149 44.4724 31.7018ZM39.5905 34.6164V35.2364H38.8027V35.2364V35.2364H38.0149V34.6209C37.5386 34.465 37.149 34.1906 36.7684 33.9215L37.6985 32.6919C38.2098 33.0534 38.4714 33.2272 38.8299 33.2272C39.0327 33.2272 39.1968 33.1339 39.2583 32.9838C39.3328 32.802 39.2276 32.6345 38.9766 32.5357C38.9766 32.5357 37.8506 32.1726 37.3299 31.6593C36.8931 31.2288 36.7542 30.622 36.8932 30.0447C37.0333 29.4635 37.4391 29.0091 38.0149 28.7822V28.1671H39.5905V28.7567C39.9907 28.8641 40.3293 29.0229 40.5241 29.1251L39.7724 30.464C39.274 30.2024 38.8155 30.1239 38.637 30.1829C38.4639 30.2401 38.4376 30.3493 38.4276 30.3904C38.4136 30.4486 38.4061 30.538 38.5024 30.6418C38.5951 30.7417 39.5707 31.1248 39.5707 31.1248C40.6232 31.5391 41.1186 32.5795 40.723 33.5449C40.5175 34.0467 40.1039 34.4267 39.5905 34.6164Z"
+                  fill="#FFBC00"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_3577_10837">
+                  <rect
+                    width="26.8897"
+                    height="26"
+                    fill="white"
+                    transform="translate(17.582 15)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="d-flex flex-column justify-content-center gap-1">
+            <h3 style="color: #ffbc00">استشارات</h3>
+            <button
+              @click="router_push('consulting-bookings')"
+              style="
+                color: #888;
+                outline: 1px solid #888;
+                background-color: transparent;
+                width: 120px;
+              "
+              class="btn px-4 py-2"
+            >
+              عرض الكل
+            </button>
+          </div>
+        </div>
         <div
-          style="margin-top: 8rem !important; background-color: #fff"
-          class="col-md-2 d-flex justify-content-center align-items-start shadow rounded-3"
+          class="d-flex justify-content-center align-items-end flex-column gap-4"
         >
-          <ul
-            class="d-flex py-5 flex-column gap-3 justify-content-center align-items-center"
-          >
-            <li style="list-style: none" class="nav-item">
-              <router-link
-                style="color: #888"
-                :to="getRouteLocale('network-dashboard')"
-                class="nav-link li-active hover-li"
-              >
-                لوحه التحكم
-              </router-link>
-            </li>
-            <li style="list-style: none" class="nav-item">
-              <router-link
-                style="color: #888"
-                :to="getRouteLocale('consulting-dashboard')"
-                class="nav-link hover-li"
-              >
-                المستشار
-              </router-link>
-            </li>
-            <li style="list-style: none" class="nav-item">
-              <router-link
-                style="color: #888"
-                :to="getRouteLocale('service-provider-dashboard')"
-                class="nav-link hover-li"
-              >
-                مقدم الخدمة
-              </router-link>
-            </li>
-            <li style="list-style: none" class="nav-item">
-              <router-link
-                style="color: #888"
-                :to="getRouteLocale('academy-dashboard')"
-                class="nav-link hover-li"
-              >
-                ألاكاديمية
-              </router-link>
-            </li>
-            <!-- <li style="list-style: none" class="nav-item">
-              <router-link
-                style="color: #888"
-                :to="getRouteLocale('incubator-dashboard')"
-                class="nav-link hover-li"
-              >
-                حاضنة رياديات
-              </router-link>
-            </li> -->
-          </ul>
+          <!-- <h3>{{ itemCard.count_rate }}</h3> -->
+          <h3>3</h3>
+          <!-- <div>
+            <RateStars
+              v-if="!loading"
+              :size="32"
+              :value="`${itemCard.rate}`"
+              :readonly="true"
+            />
+          </div> -->
         </div>
-        <!--section header-->
-        <!-- <div>
-        
-
-      <SectionHeader />
-      </div> -->
-        <!--section balance-->
-        <div class="col-md-10 col-12">
-          <SectionBalance />
-          <!--#section balance-->
-          <div class="mx-3">
-            <Ask />
-          </div>
-          <Service />
-        </div>
-        <!-- <div class="col-md-5 network">
-          <div class="box bg-main p-3 rounded-2">
-            <div class="d-flex">
-              <div class="w-75">
-                <h3 class="text-white">تشاركينا ؟</h3>
-                <p class="text-white">
-                  يمكنك ترقية حسابك الان من عضو في الشبكة الى شريك في منصة
-                  رياديات والاستفادة بالكثير من المميزات
-                </p>
-                <router-link
-                  custom
-                  :to="getRouteLocale('register-networking')"
-                  v-slot="{ navigate }"
-                >
-                  <button
-                    @click="navigate"
-                    class="border border-white rounded-2 text-white bg-transparent p-2"
-                  >
-                    {{ $t("know_more") }}
-                  </button>
-                </router-link>
-              </div>
-              <div>
-                <img
-                  class="img-fluid"
-                  :src="`${publicPath}assets/img/ve 1.png`"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5 network">
-          <div class="box border p-4 rounded-2">
-            <div class="d-flex">
-              <div class="w-75">
-                <h3 class="text-dark">تحتاج الى المساعدة ؟</h3>
-                <p class="text-dark">
-                  لانك عضو في شبكة رياديات يمكنك طلب استشارات من مستشارينا
-                  المميزين في اغلب المجالات بكل سهولة
-                </p>
-                <router-link
-                  :to="getRouteLocale('consulting-home')"
-                  class="border border-white rounded-2 text-white bg-main p-2"
-                >
-                  {{ $t("know_more") }}
-                </router-link>
-              </div>
-              <div>
-                <img
-                  class="img-fluid"
-                  :src="`${publicPath}assets/img/vuesax/v2.png`"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
-      <!-- <div class="row justify-content-between">
-        <div v-if="userIsConsultant" class="col-12 row mt-3 gap-4">
-          <div class="col-md-5 border p-3">
-            <widget-consulting-requests />
-          </div>
+    </div>
 
-          <div class="col-md-5 border p-3">
-            <widget-consulting-rates />
+    <div class="p-3 col-md-6 col-12">
+      <div
+        style="min-height: 138px"
+        class="shadow rounded-3 d-flex justify-content-between align-items-center p-3"
+      >
+        <div class="d-flex align-items-center gap-4">
+          <div>
+            <svg
+              width="63"
+              height="54"
+              viewBox="0 0 63 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="62.0532"
+                height="54"
+                rx="15"
+                fill="#1FB9B3"
+                fill-opacity="0.19"
+              />
+              <g clip-path="url(#clip0_3580_12161)">
+                <path
+                  d="M41.3286 22.1634V21.8077C41.3286 20.1727 39.9529 18.8425 38.2619 18.8425H20.6487C18.9577 18.8425 17.582 20.1727 17.582 21.8077V22.1634H41.3286Z"
+                  fill="#1FB9B3"
+                />
+                <path
+                  d="M31.6114 31.7017C31.6114 30.1636 32.123 28.7017 33.0675 27.4968H17.582V31.6331C17.582 33.2681 18.9577 34.5983 20.6487 34.5983H32.2587C31.835 33.7007 31.6114 32.7179 31.6114 31.7017ZM29.4553 30.803H26.8086V29.2796H29.4553V30.803ZM21.1144 29.2796H25.233V30.803H21.1144V29.2796Z"
+                  fill="#1FB9B3"
+                />
+                <path
+                  d="M34.7032 25.9734C35.9048 25.1606 37.3322 24.7226 38.8293 24.7226C39.6959 24.7226 40.5389 24.8697 41.3286 25.1509V23.6869H17.582V25.9734H34.7032Z"
+                  fill="#1FB9B3"
+                />
+                <path
+                  d="M44.4724 31.7017C44.4724 28.6886 41.9461 26.246 38.8299 26.246C35.7137 26.246 33.1875 28.6886 33.1875 31.7017C33.1875 34.7148 35.7137 37.1574 38.8299 37.1574C41.9461 37.1574 44.4724 34.7148 44.4724 31.7017ZM39.5905 34.6163V35.2363H38.8027V35.2363V35.2363H38.0149V34.6209C37.5386 34.4649 37.149 34.1906 36.7684 33.9215L37.6985 32.6918C38.2098 33.0534 38.4714 33.2271 38.8299 33.2271C39.0327 33.2271 39.1968 33.1339 39.2583 32.9837C39.3328 32.8019 39.2276 32.6344 38.9766 32.5356C38.9766 32.5356 37.8506 32.1725 37.3299 31.6593C36.8931 31.2287 36.7542 30.6219 36.8932 30.0447C37.0333 29.4635 37.4391 29.009 38.0149 28.7821V28.167H39.5905V28.7566C39.9907 28.8641 40.3293 29.0229 40.5241 29.1251L39.7724 30.4639C39.274 30.2024 38.8155 30.1238 38.637 30.1828C38.4639 30.24 38.4376 30.3492 38.4276 30.3903C38.4136 30.4486 38.4061 30.538 38.5024 30.6418C38.5951 30.7416 39.5707 31.1247 39.5707 31.1247C40.6232 31.539 41.1186 32.5795 40.723 33.5449C40.5175 34.0466 40.1039 34.4266 39.5905 34.6163Z"
+                  fill="#1FB9B3"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_3580_12161">
+                  <rect
+                    width="26.8897"
+                    height="26"
+                    fill="white"
+                    transform="translate(17.582 15)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="d-flex flex-column justify-content-center gap-1">
+            <h3 style="color: #1fb9b3">جدولي</h3>
+            <button
+              @click="router_push('consulting-my-schedules')"
+              style="
+                color: #888;
+                outline: 1px solid #888;
+                background-color: transparent;
+                width: 120px;
+              "
+              class="btn px-4 py-2"
+            >
+              عرض الكل
+            </button>
           </div>
         </div>
+        <div
+          class="d-flex justify-content-center align-items-end flex-column gap-4"
+        >
+          <!-- <h3>{{ itemCard.count_rate }}</h3> -->
+          <h3>0</h3>
+          <!-- <div>
+            <RateStars
+              v-if="!loading"
+              :size="32"
+              :value="`${itemCard.rate}`"
+              :readonly="true"
+            />
+          </div> -->
+        </div>
+      </div>
+    </div>
 
-        <div class="col-12 row mt-5 gap-4">
-          <div class="col-md-5 border p-3">
-            <widget-investment />
+    <div class="p-3 col-md-6 col-12">
+      <div
+        style="min-height: 138px"
+        class="shadow rounded-3 d-flex justify-content-between align-items-center p-3"
+      >
+        <div class="d-flex align-items-center gap-4">
+          <div>
+            <svg
+              width="63"
+              height="54"
+              viewBox="0 0 63 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="62.0532"
+                height="54"
+                rx="15"
+                fill="#F2631C"
+                fill-opacity="0.21"
+              />
+              <g clip-path="url(#clip0_3577_10944)">
+                <path
+                  d="M41.3286 22.1634V21.8077C41.3286 20.1727 39.9529 18.8425 38.2619 18.8425H20.6487C18.9577 18.8426 17.582 20.1727 17.582 21.8077V22.1634H41.3286Z"
+                  fill="#F2631C"
+                />
+                <path
+                  d="M31.6114 31.7017C31.6114 30.1636 32.123 28.7017 33.0675 27.4968H17.582V31.6331C17.582 33.2681 18.9577 34.5983 20.6487 34.5983H32.2587C31.835 33.7007 31.6114 32.7179 31.6114 31.7017ZM29.4553 30.803H26.8086V29.2796H29.4553V30.803ZM21.1144 29.2796H25.233V30.803H21.1144V29.2796Z"
+                  fill="#F2631C"
+                />
+                <path
+                  d="M34.7032 25.9734C35.9048 25.1606 37.3322 24.7226 38.8293 24.7226C39.6959 24.7226 40.5389 24.8697 41.3286 25.1509V23.6869H17.582V25.9734H34.7032Z"
+                  fill="#F2631C"
+                />
+                <path
+                  d="M44.4724 31.7018C44.4724 28.6887 41.9461 26.2461 38.8299 26.2461C35.7137 26.2461 33.1875 28.6887 33.1875 31.7018C33.1875 34.7149 35.7137 37.1575 38.8299 37.1575C41.9461 37.1575 44.4724 34.7149 44.4724 31.7018ZM39.5905 34.6164V35.2364H38.8027V35.2364V35.2364H38.0149V34.6209C37.5386 34.465 37.149 34.1906 36.7684 33.9215L37.6985 32.6919C38.2098 33.0534 38.4714 33.2272 38.8299 33.2272C39.0327 33.2272 39.1968 33.1339 39.2583 32.9838C39.3328 32.802 39.2276 32.6345 38.9766 32.5357C38.9766 32.5357 37.8506 32.1726 37.3299 31.6593C36.8931 31.2288 36.7542 30.622 36.8932 30.0447C37.0333 29.4635 37.4391 29.0091 38.0149 28.7822V28.1671H39.5905V28.7567C39.9907 28.8641 40.3293 29.0229 40.5241 29.1251L39.7724 30.464C39.274 30.2024 38.8155 30.1239 38.637 30.1829C38.4639 30.2401 38.4376 30.3493 38.4276 30.3904C38.4136 30.4486 38.4061 30.538 38.5024 30.6418C38.5951 30.7417 39.5707 31.1248 39.5707 31.1248C40.6232 31.5391 41.1186 32.5795 40.723 33.5449C40.5175 34.0467 40.1039 34.4267 39.5905 34.6164Z"
+                  fill="#F2631C"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_3577_10944">
+                  <rect
+                    width="26.8897"
+                    height="26"
+                    fill="white"
+                    transform="translate(17.582 15)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
           </div>
-          <div class="col-md-5 border p-3">
-            <widget-investment-others />
+          <div class="d-flex flex-column justify-content-center gap-1">
+            <h3 style="color: #f2631c">الرسائل الجديدة</h3>
+            <button
+              @click="router_push('default-conversations')"
+              style="
+                color: #888;
+                outline: 1px solid #888;
+                background-color: transparent;
+                width: 120px;
+              "
+              class="btn px-4 py-2"
+            >
+              عرض الكل
+            </button>
           </div>
         </div>
+        <div
+          class="d-flex justify-content-center align-items-end flex-column gap-4"
+        >
+          <!-- <h3>{{ itemCard.count_rate }}</h3> -->
+          <h3>24</h3>
+          <!-- <div>
+            <RateStars
+              v-if="!loading"
+              :size="32"
+              :value="`${itemCard.rate}`"
+              :readonly="true"
+            />
+          </div> -->
+        </div>
+      </div>
+    </div>
 
-        <div class="col-12 row mt-3 gap-4">
-          <div class="col-md-5 border p-3">
-            <WidgetDownloadModels />
+    <div class="p-3 col-md-6 col-12">
+      <div
+        style="min-height: 138px"
+        class="shadow rounded-3 d-flex justify-content-between align-items-center p-3"
+      >
+        <div class="d-flex align-items-center gap-4">
+          <div>
+            <svg
+              width="63"
+              height="54"
+              viewBox="0 0 63 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="62.0532"
+                height="54"
+                rx="15"
+                fill="#2C98B3"
+                fill-opacity="0.19"
+              />
+              <g clip-path="url(#clip0_3577_10923)">
+                <path
+                  d="M41.3286 22.1634V21.8077C41.3286 20.1727 39.9529 18.8425 38.2619 18.8425H20.6487C18.9577 18.8426 17.582 20.1727 17.582 21.8077V22.1634H41.3286Z"
+                  fill="#2C98B3"
+                />
+                <path
+                  d="M31.6114 31.7017C31.6114 30.1636 32.123 28.7017 33.0675 27.4968H17.582V31.6331C17.582 33.2681 18.9577 34.5983 20.6487 34.5983H32.2587C31.835 33.7007 31.6114 32.7179 31.6114 31.7017ZM29.4553 30.803H26.8086V29.2796H29.4553V30.803ZM21.1144 29.2796H25.233V30.803H21.1144V29.2796Z"
+                  fill="#2C98B3"
+                />
+                <path
+                  d="M34.7032 25.9734C35.9048 25.1606 37.3322 24.7226 38.8293 24.7226C39.6959 24.7226 40.5389 24.8697 41.3286 25.1509V23.6869H17.582V25.9734H34.7032Z"
+                  fill="#2C98B3"
+                />
+                <path
+                  d="M44.4724 31.7018C44.4724 28.6887 41.9461 26.2461 38.8299 26.2461C35.7137 26.2461 33.1875 28.6887 33.1875 31.7018C33.1875 34.7149 35.7137 37.1575 38.8299 37.1575C41.9461 37.1575 44.4724 34.7149 44.4724 31.7018ZM39.5905 34.6164V35.2364H38.8027V35.2364V35.2364H38.0149V34.6209C37.5386 34.465 37.149 34.1906 36.7684 33.9215L37.6985 32.6919C38.2098 33.0534 38.4714 33.2272 38.8299 33.2272C39.0327 33.2272 39.1968 33.1339 39.2583 32.9838C39.3328 32.802 39.2276 32.6345 38.9766 32.5357C38.9766 32.5357 37.8506 32.1726 37.3299 31.6593C36.8931 31.2288 36.7542 30.622 36.8932 30.0447C37.0333 29.4635 37.4391 29.0091 38.0149 28.7822V28.1671H39.5905V28.7567C39.9907 28.8641 40.3293 29.0229 40.5241 29.1251L39.7724 30.464C39.274 30.2024 38.8155 30.1239 38.637 30.1829C38.4639 30.2401 38.4376 30.3493 38.4276 30.3904C38.4136 30.4486 38.4061 30.538 38.5024 30.6418C38.5951 30.7417 39.5707 31.1248 39.5707 31.1248C40.6232 31.5391 41.1186 32.5795 40.723 33.5449C40.5175 34.0467 40.1039 34.4267 39.5905 34.6164Z"
+                  fill="#2C98B3"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_3577_10923">
+                  <rect
+                    width="26.8897"
+                    height="26"
+                    fill="white"
+                    transform="translate(17.582 15)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
           </div>
-          <div class="col-md-5 border p-3">
-            <widget-blog />
+          <div class="d-flex flex-column justify-content-center gap-1">
+            <h3 style="color: #2c98b3">طلبات على اماكن رياديات</h3>
+            <button
+              @click="router_push('workspaces-requests')"
+              style="
+                color: #888;
+                outline: 1px solid #888;
+                background-color: transparent;
+                width: 120px;
+              "
+              class="btn px-4 py-2"
+            >
+              عرض الكل
+            </button>
           </div>
         </div>
-        <div class="col-12 row mt-3 gap-4">
-          <div class="col-md-5 border p-3">
-            <WidgetConsultingBookings />
-          </div>
-          <div class="col-md-5 border p-3">
-            <WidgetMyInscriptionMeetings />
-          </div>
+        <div
+          class="d-flex justify-content-center align-items-end flex-column gap-4"
+        >
+          <!-- <h3>{{ itemCard.count_rate }}</h3> -->
+          <h3>0</h3>
+          <!-- <div>
+            <RateStars
+              v-if="!loading"
+              :size="32"
+              :value="`${itemCard.rate}`"
+              :readonly="true"
+            />
+          </div> -->
         </div>
-        <div class="col-12 row mt-3 gap-4">
-          <div class="col-md-5 border p-3">
-            <workspaceReservation />
-          </div>
+      </div>
+    </div>
 
-          <div class="col-md-5 border p-3">
-            <workspaceRequest />
+    <div class="p-3 col-md-6 col-12">
+      <div
+        style="min-height: 138px"
+        class="shadow rounded-3 d-flex justify-content-between align-items-center p-3"
+      >
+        <div class="d-flex align-items-center gap-4">
+          <div>
+            <svg
+              width="63"
+              height="54"
+              viewBox="0 0 63 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="62.0532"
+                height="54"
+                rx="15"
+                fill="#2C98B3"
+                fill-opacity="0.19"
+              />
+              <g clip-path="url(#clip0_3577_10923)">
+                <path
+                  d="M41.3286 22.1634V21.8077C41.3286 20.1727 39.9529 18.8425 38.2619 18.8425H20.6487C18.9577 18.8426 17.582 20.1727 17.582 21.8077V22.1634H41.3286Z"
+                  fill="#2C98B3"
+                />
+                <path
+                  d="M31.6114 31.7017C31.6114 30.1636 32.123 28.7017 33.0675 27.4968H17.582V31.6331C17.582 33.2681 18.9577 34.5983 20.6487 34.5983H32.2587C31.835 33.7007 31.6114 32.7179 31.6114 31.7017ZM29.4553 30.803H26.8086V29.2796H29.4553V30.803ZM21.1144 29.2796H25.233V30.803H21.1144V29.2796Z"
+                  fill="#2C98B3"
+                />
+                <path
+                  d="M34.7032 25.9734C35.9048 25.1606 37.3322 24.7226 38.8293 24.7226C39.6959 24.7226 40.5389 24.8697 41.3286 25.1509V23.6869H17.582V25.9734H34.7032Z"
+                  fill="#2C98B3"
+                />
+                <path
+                  d="M44.4724 31.7018C44.4724 28.6887 41.9461 26.2461 38.8299 26.2461C35.7137 26.2461 33.1875 28.6887 33.1875 31.7018C33.1875 34.7149 35.7137 37.1575 38.8299 37.1575C41.9461 37.1575 44.4724 34.7149 44.4724 31.7018ZM39.5905 34.6164V35.2364H38.8027V35.2364V35.2364H38.0149V34.6209C37.5386 34.465 37.149 34.1906 36.7684 33.9215L37.6985 32.6919C38.2098 33.0534 38.4714 33.2272 38.8299 33.2272C39.0327 33.2272 39.1968 33.1339 39.2583 32.9838C39.3328 32.802 39.2276 32.6345 38.9766 32.5357C38.9766 32.5357 37.8506 32.1726 37.3299 31.6593C36.8931 31.2288 36.7542 30.622 36.8932 30.0447C37.0333 29.4635 37.4391 29.0091 38.0149 28.7822V28.1671H39.5905V28.7567C39.9907 28.8641 40.3293 29.0229 40.5241 29.1251L39.7724 30.464C39.274 30.2024 38.8155 30.1239 38.637 30.1829C38.4639 30.2401 38.4376 30.3493 38.4276 30.3904C38.4136 30.4486 38.4061 30.538 38.5024 30.6418C38.5951 30.7417 39.5707 31.1248 39.5707 31.1248C40.6232 31.5391 41.1186 32.5795 40.723 33.5449C40.5175 34.0467 40.1039 34.4267 39.5905 34.6164Z"
+                  fill="#2C98B3"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_3577_10923">
+                  <rect
+                    width="26.8897"
+                    height="26"
+                    fill="white"
+                    transform="translate(17.582 15)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="d-flex flex-column justify-content-center gap-1">
+            <h3 style="color: #2c98b3">تدويناتك</h3>
+            <button
+              @click="router_push('network-blogs-mine')"
+              style="
+                color: #888;
+                outline: 1px solid #888;
+                background-color: transparent;
+                width: 120px;
+              "
+              class="btn px-4 py-2"
+            >
+              عرض الكل
+            </button>
           </div>
         </div>
-        <div class="col-12 row mt-3 gap-4">
-          <div class="col-md-5 p-3">
-            <freeConsultation />
-          </div>
+        <div
+          class="d-flex justify-content-center align-items-end flex-column gap-4"
+        >
+          <!-- <h3>{{ itemCard.count_rate }}</h3> -->
+          <h3>6</h3>
+          <!-- <div>
+            <RateStars
+              v-if="!loading"
+              :size="32"
+              :value="`${itemCard.rate}`"
+              :readonly="true"
+            />
+          </div> -->
+        </div>
+      </div>
+    </div>
 
-          <div class="col-md-5 p-3">
-            <ideaSuggestion />
+    <div class="p-3 col-md-6 col-12">
+      <div
+        style="min-height: 138px"
+        class="shadow rounded-3 d-flex justify-content-between align-items-center p-3"
+      >
+        <div class="d-flex align-items-center gap-4">
+          <div>
+            <svg
+              width="63"
+              height="54"
+              viewBox="0 0 63 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="62.0532"
+                height="54"
+                rx="15"
+                fill="#FFBC00"
+                fill-opacity="0.19"
+              />
+              <g clip-path="url(#clip0_3577_10837)">
+                <path
+                  d="M41.3286 22.1634V21.8077C41.3286 20.1727 39.9529 18.8425 38.2619 18.8425H20.6487C18.9577 18.8426 17.582 20.1727 17.582 21.8077V22.1634H41.3286Z"
+                  fill="#FFBC00"
+                />
+                <path
+                  d="M31.6114 31.7018C31.6114 30.1637 32.123 28.7017 33.0675 27.4969H17.582V31.6331C17.582 33.2681 18.9577 34.5983 20.6487 34.5983H32.2587C31.835 33.7007 31.6114 32.718 31.6114 31.7018ZM29.4553 30.8031H26.8086V29.2796H29.4553V30.8031ZM21.1144 29.2796H25.233V30.8031H21.1144V29.2796Z"
+                  fill="#FFBC00"
+                />
+                <path
+                  d="M34.7032 25.9735C35.9048 25.1606 37.3322 24.7227 38.8293 24.7227C39.6959 24.7227 40.5389 24.8698 41.3286 25.151V23.687H17.582V25.9735H34.7032Z"
+                  fill="#FFBC00"
+                />
+                <path
+                  d="M44.4724 31.7018C44.4724 28.6887 41.9461 26.2461 38.8299 26.2461C35.7137 26.2461 33.1875 28.6887 33.1875 31.7018C33.1875 34.7149 35.7137 37.1575 38.8299 37.1575C41.9461 37.1575 44.4724 34.7149 44.4724 31.7018ZM39.5905 34.6164V35.2364H38.8027V35.2364V35.2364H38.0149V34.6209C37.5386 34.465 37.149 34.1906 36.7684 33.9215L37.6985 32.6919C38.2098 33.0534 38.4714 33.2272 38.8299 33.2272C39.0327 33.2272 39.1968 33.1339 39.2583 32.9838C39.3328 32.802 39.2276 32.6345 38.9766 32.5357C38.9766 32.5357 37.8506 32.1726 37.3299 31.6593C36.8931 31.2288 36.7542 30.622 36.8932 30.0447C37.0333 29.4635 37.4391 29.0091 38.0149 28.7822V28.1671H39.5905V28.7567C39.9907 28.8641 40.3293 29.0229 40.5241 29.1251L39.7724 30.464C39.274 30.2024 38.8155 30.1239 38.637 30.1829C38.4639 30.2401 38.4376 30.3493 38.4276 30.3904C38.4136 30.4486 38.4061 30.538 38.5024 30.6418C38.5951 30.7417 39.5707 31.1248 39.5707 31.1248C40.6232 31.5391 41.1186 32.5795 40.723 33.5449C40.5175 34.0467 40.1039 34.4267 39.5905 34.6164Z"
+                  fill="#FFBC00"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_3577_10837">
+                  <rect
+                    width="26.8897"
+                    height="26"
+                    fill="white"
+                    transform="translate(17.582 15)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="d-flex flex-column justify-content-center gap-1">
+            <h3 style="color: #ffbc00">لقائات تعليمية</h3>
+            <button
+              @click="router_push('network-learning-meetings')"
+              style="
+                color: #888;
+                outline: 1px solid #888;
+                background-color: transparent;
+                width: 120px;
+              "
+              class="btn px-4 py-2"
+            >
+              عرض الكل
+            </button>
           </div>
         </div>
-      </div> -->
+        <div
+          class="d-flex justify-content-center align-items-end flex-column gap-4"
+        >
+          <!-- <h3>{{ itemCard.count_rate }}</h3> -->
+          <h3>3</h3>
+          <!-- <div>
+            <RateStars
+              v-if="!loading"
+              :size="32"
+              :value="`${itemCard.rate}`"
+              :readonly="true"
+            />
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="p-3 col-md-6 col-12">
+      <div
+        style="min-height: 138px"
+        class="shadow rounded-3 d-flex justify-content-between align-items-center p-3"
+      >
+        <div class="d-flex align-items-center gap-4">
+          <div>
+            <svg
+              width="63"
+              height="54"
+              viewBox="0 0 63 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="62.0532"
+                height="54"
+                rx="15"
+                fill="#1FB9B3"
+                fill-opacity="0.19"
+              />
+              <g clip-path="url(#clip0_3580_12161)">
+                <path
+                  d="M41.3286 22.1634V21.8077C41.3286 20.1727 39.9529 18.8425 38.2619 18.8425H20.6487C18.9577 18.8425 17.582 20.1727 17.582 21.8077V22.1634H41.3286Z"
+                  fill="#1FB9B3"
+                />
+                <path
+                  d="M31.6114 31.7017C31.6114 30.1636 32.123 28.7017 33.0675 27.4968H17.582V31.6331C17.582 33.2681 18.9577 34.5983 20.6487 34.5983H32.2587C31.835 33.7007 31.6114 32.7179 31.6114 31.7017ZM29.4553 30.803H26.8086V29.2796H29.4553V30.803ZM21.1144 29.2796H25.233V30.803H21.1144V29.2796Z"
+                  fill="#1FB9B3"
+                />
+                <path
+                  d="M34.7032 25.9734C35.9048 25.1606 37.3322 24.7226 38.8293 24.7226C39.6959 24.7226 40.5389 24.8697 41.3286 25.1509V23.6869H17.582V25.9734H34.7032Z"
+                  fill="#1FB9B3"
+                />
+                <path
+                  d="M44.4724 31.7017C44.4724 28.6886 41.9461 26.246 38.8299 26.246C35.7137 26.246 33.1875 28.6886 33.1875 31.7017C33.1875 34.7148 35.7137 37.1574 38.8299 37.1574C41.9461 37.1574 44.4724 34.7148 44.4724 31.7017ZM39.5905 34.6163V35.2363H38.8027V35.2363V35.2363H38.0149V34.6209C37.5386 34.4649 37.149 34.1906 36.7684 33.9215L37.6985 32.6918C38.2098 33.0534 38.4714 33.2271 38.8299 33.2271C39.0327 33.2271 39.1968 33.1339 39.2583 32.9837C39.3328 32.8019 39.2276 32.6344 38.9766 32.5356C38.9766 32.5356 37.8506 32.1725 37.3299 31.6593C36.8931 31.2287 36.7542 30.6219 36.8932 30.0447C37.0333 29.4635 37.4391 29.009 38.0149 28.7821V28.167H39.5905V28.7566C39.9907 28.8641 40.3293 29.0229 40.5241 29.1251L39.7724 30.4639C39.274 30.2024 38.8155 30.1238 38.637 30.1828C38.4639 30.24 38.4376 30.3492 38.4276 30.3903C38.4136 30.4486 38.4061 30.538 38.5024 30.6418C38.5951 30.7416 39.5707 31.1247 39.5707 31.1247C40.6232 31.539 41.1186 32.5795 40.723 33.5449C40.5175 34.0466 40.1039 34.4266 39.5905 34.6163Z"
+                  fill="#1FB9B3"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_3580_12161">
+                  <rect
+                    width="26.8897"
+                    height="26"
+                    fill="white"
+                    transform="translate(17.582 15)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="d-flex flex-column justify-content-center gap-1">
+            <h3 style="color: #1fb9b3">قصص</h3>
+            <button
+              @click="router_push('network-success-stories')"
+              style="
+                color: #888;
+                outline: 1px solid #888;
+                background-color: transparent;
+                width: 120px;
+              "
+              class="btn px-4 py-2"
+            >
+              عرض الكل
+            </button>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-center align-items-end flex-column gap-4"
+        >
+          <!-- <h3>{{ itemCard.count_rate }}</h3> -->
+          <h3>0</h3>
+          <!-- <div>
+            <RateStars
+              v-if="!loading"
+              :size="32"
+              :value="`${itemCard.rate}`"
+              :readonly="true"
+            />
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="p-3 col-md-6 col-12">
+      <div
+        style="min-height: 138px"
+        class="shadow rounded-3 d-flex justify-content-between align-items-center p-3"
+      >
+        <div class="d-flex align-items-center gap-4">
+          <div>
+            <svg
+              width="63"
+              height="54"
+              viewBox="0 0 63 54"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="62.0532"
+                height="54"
+                rx="15"
+                fill="#F2631C"
+                fill-opacity="0.21"
+              />
+              <g clip-path="url(#clip0_3577_10944)">
+                <path
+                  d="M41.3286 22.1634V21.8077C41.3286 20.1727 39.9529 18.8425 38.2619 18.8425H20.6487C18.9577 18.8426 17.582 20.1727 17.582 21.8077V22.1634H41.3286Z"
+                  fill="#F2631C"
+                />
+                <path
+                  d="M31.6114 31.7017C31.6114 30.1636 32.123 28.7017 33.0675 27.4968H17.582V31.6331C17.582 33.2681 18.9577 34.5983 20.6487 34.5983H32.2587C31.835 33.7007 31.6114 32.7179 31.6114 31.7017ZM29.4553 30.803H26.8086V29.2796H29.4553V30.803ZM21.1144 29.2796H25.233V30.803H21.1144V29.2796Z"
+                  fill="#F2631C"
+                />
+                <path
+                  d="M34.7032 25.9734C35.9048 25.1606 37.3322 24.7226 38.8293 24.7226C39.6959 24.7226 40.5389 24.8697 41.3286 25.1509V23.6869H17.582V25.9734H34.7032Z"
+                  fill="#F2631C"
+                />
+                <path
+                  d="M44.4724 31.7018C44.4724 28.6887 41.9461 26.2461 38.8299 26.2461C35.7137 26.2461 33.1875 28.6887 33.1875 31.7018C33.1875 34.7149 35.7137 37.1575 38.8299 37.1575C41.9461 37.1575 44.4724 34.7149 44.4724 31.7018ZM39.5905 34.6164V35.2364H38.8027V35.2364V35.2364H38.0149V34.6209C37.5386 34.465 37.149 34.1906 36.7684 33.9215L37.6985 32.6919C38.2098 33.0534 38.4714 33.2272 38.8299 33.2272C39.0327 33.2272 39.1968 33.1339 39.2583 32.9838C39.3328 32.802 39.2276 32.6345 38.9766 32.5357C38.9766 32.5357 37.8506 32.1726 37.3299 31.6593C36.8931 31.2288 36.7542 30.622 36.8932 30.0447C37.0333 29.4635 37.4391 29.0091 38.0149 28.7822V28.1671H39.5905V28.7567C39.9907 28.8641 40.3293 29.0229 40.5241 29.1251L39.7724 30.464C39.274 30.2024 38.8155 30.1239 38.637 30.1829C38.4639 30.2401 38.4376 30.3493 38.4276 30.3904C38.4136 30.4486 38.4061 30.538 38.5024 30.6418C38.5951 30.7417 39.5707 31.1248 39.5707 31.1248C40.6232 31.5391 41.1186 32.5795 40.723 33.5449C40.5175 34.0467 40.1039 34.4267 39.5905 34.6164Z"
+                  fill="#F2631C"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_3577_10944">
+                  <rect
+                    width="26.8897"
+                    height="26"
+                    fill="white"
+                    transform="translate(17.582 15)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="d-flex flex-column justify-content-center gap-1">
+            <h3 style="color: #f2631c">تنزيلاتك لنماذج رياديات</h3>
+            <button
+              @click="router_push('network-models/mine')"
+              style="
+                color: #888;
+                outline: 1px solid #888;
+                background-color: transparent;
+                width: 120px;
+              "
+              class="btn px-4 py-2"
+            >
+              عرض الكل
+            </button>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-center align-items-end flex-column gap-4"
+        >
+          <!-- <h3>{{ itemCard.count_rate }}</h3> -->
+          <h3>0</h3>
+          <!-- <div>
+            <RateStars
+              v-if="!loading"
+              :size="32"
+              :value="`${itemCard.rate}`"
+              :readonly="true"
+            />
+          </div> -->
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import SectionHeader from "./parts/section-header/index.vue";
-import SectionBalance from "./parts/section-balance/index.vue";
-import WidgetConsultingRequests from "./parts/widget-consulting-requests.vue";
-import Service from "@/components/ask-us-network-dashboard.vue";
-import Ask from "@/components/dashboard-network-service.vue";
-import WidgetConsultingRates from "./parts/widget-consulting-rates";
-import WidgetConsultingBookings from "./parts/widget-consulting-bookings";
-import WidgetBlog from "./parts/widget-blog.vue";
-import WidgetInvestmentOthers from "./parts/widget-investment-others.vue";
-import WidgetInvestment from "./parts/widget-investment.vue";
-import WidgetDownloadModels from "./parts/widget-download-models.vue";
-import WidgetMyInscriptionMeetings from "./parts/widget-my-inscription-meetings.vue";
-import workspaceReservation from "./parts/workspaceReservation.vue";
-import workspaceRequest from "./parts/workspaceRequest.vue";
-import freeConsultation from "./parts/free-consultation.vue";
-import ideaSuggestion from "./parts/idea-suggestion.vue";
-
-export default {
-  name: "network-dashboard",
-  components: {
-    workspaceRequest,
-    SectionHeader,
-    Ask,
-    Service,
-    SectionBalance,
-    WidgetConsultingRequests,
-    WidgetConsultingRates,
-    WidgetConsultingBookings,
-    WidgetBlog,
-    WidgetInvestmentOthers,
-    WidgetInvestment,
-    WidgetDownloadModels,
-    WidgetMyInscriptionMeetings,
-    workspaceReservation,
-    freeConsultation,
-    ideaSuggestion,
-  },
-};
+export default {};
 </script>
 
-<style>
-.hover-li:hover {
-  color: #1fb9b3 !important;
-  transition: all;
-}
-.hover-li {
-  transition: all;
-}
-.li-active {
-  color: #1fb9b3 !important;
-}
-</style>
+<style></style>

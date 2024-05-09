@@ -357,7 +357,7 @@
                           for="hyperbill"
                         >
                           <div class="">
-                            الدفع بواسطة تابى
+                            الدفع بواسطة هايبر بيل
                             <input
                               type="radio"
                               class="form-check-input"

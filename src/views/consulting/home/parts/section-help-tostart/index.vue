@@ -7,7 +7,7 @@
             <img
               height="600px"
               class="img-fluid"
-              src="/assets/img/9f93cdbcfe.png"
+              :src="`${publicPath}assets/img/hero.png`"
               alt="hero"
             />
           </div>
@@ -43,7 +43,7 @@ export default {
   background-image: url("../../../../../assets/img/Path2213.png"),
     url("../../../../../assets/img/Path2213.png");
   background-size: contain, contain;
-  background-position: center 190px, center 210px;
+  background-position: center 210px, center 230px;
   background-repeat: no-repeat;
 }
 </style>

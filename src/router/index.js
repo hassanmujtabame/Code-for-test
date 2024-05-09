@@ -194,7 +194,7 @@ const routes = [
             /* webpackChunkName: "terms-and-conditions" */ "../views/main/policy/terms-and-conditions.vue"
           ),
       },
-      
+
       {
         path: "who-are-we",
         meta: { layout: LayoutDefault },
@@ -213,7 +213,54 @@ const routes = [
             /* webpackChunkName: "common-questions" */ "../views/main/CommonQuestions.vue"
           ),
       },
-
+      {
+        path: "dashboard",
+        meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+        name: "dashboard",
+        redirect: "dashboard/network",
+        component: () =>
+          import(
+            /* webpackChunkName: "dashbord" */ "../views/common/dashboard/index.vue"
+          ),
+        children: [
+          {
+            path: "consultant",
+            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            name: "consultant-dashboard",
+            component: () =>
+              import(
+                /* webpackChunkName: "network-dashboard" */ "@/views/consulting/dashboard/index.vue"
+              ),
+          },
+          {
+            path: "network",
+            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            name: "network-dashboard",
+            component: () =>
+              import(
+                /* webpackChunkName: "network-dashboard" */ "@/views/network/dashboard/index.vue"
+              ),
+          },
+          {
+            path: "service-provider",
+            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            name: "service-provider-dashboard",
+            component: () =>
+              import(
+                /* webpackChunkName: "service-provider-dashboard" */ "../views/service-provider/dashboard/index.vue"
+              ),
+          },
+          {
+            path: "academy",
+            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            name: "academy-dashboard",
+            component: () =>
+              import(
+                /* webpackChunkName: "academy-dashboard" */ "../views/academy/dashboard/index.vue"
+              ),
+          },
+        ],
+      },
       ...networkRoute,
       ...academyRoute,
       ...incubatorRoute,

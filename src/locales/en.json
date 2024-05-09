@@ -23,6 +23,7 @@
   "Start-time": "Start time",
   "End-time": "End time",
   "Start-date": "Start date",
+  "request-start-date": "request start date",
   "End-date": "End date",
   "Price": "Price",
   "Title": "Title",
@@ -609,6 +610,7 @@
   "booking-date": "Booking date",
   "booking-desc": "Description",
   "booking-time": "Booking time",
+  "book-counslting": "Book a counseling session",
   "audio": "Audio",
   "record-audio": "record audio",
   "add-audio-message": "add audio message",
@@ -685,6 +687,7 @@
   "page-home-title": "home",
   "page-home-desc": "desc",
   "no-items": "no items",
+  "no-available-cosultants": "There are currently no appointments available for this consultant",
   "my-proposals": "my proposals",
   "available-time": "available time",
   "time": "time",
@@ -778,5 +781,11 @@
   "confirm_delete_story_message": "You are about to delete your story",
   "field-your-service": "field your service",
   "the_place": "place",
-  "submit-report": "Submit a report"
+  "submit-report": "Submit a report",
+  "booked-appointment": "Booked appointment",
+  "new-appointment": "New appointment",
+  "reschedule-appointment": "Reschedule the session appointment",
+  "consultation-time": "Consultation time",
+  "consultation-reschedule-reason": "rescdule reason ...",
+  "enter-different-appointment": "Please enter a date different from the current one"
 }

@@ -12,6 +12,20 @@
         </div>
       </div>
     </div>
+    <div class="d-flex justify-content-center">
+      <button
+        @click="
+          $router.push(
+            getRouteLocale('consultant-page', { id: $route.params.id })
+          )
+        "
+        style="height: 40px"
+        class="btn btn-custmer"
+      >
+        {{ $t("book-counslting") }}
+      </button>
+    </div>
+
     <PaginationBar
       :links="links"
       :currentPage="currentPage"

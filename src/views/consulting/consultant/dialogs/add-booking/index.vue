@@ -9,14 +9,15 @@
       :close-dialog="closeDialog"
       :group="group"
     >
-      <div class="d-flex align-items-center my-3 gap-3">
+      <div class="d-flex align-items-center gap-3">
         <div>
           <img
-            class="rounded-3"
+            style="border-radius: 99px !important"
             :src="itemPage.image"
             :alt="itemPage.name"
             width="80"
             height="80"
+            @error="handleImageError"
           />
         </div>
         <div>
@@ -31,10 +32,14 @@
           </p>
         </div>
       </div>
-      <h6>تفاصيل الاستشارة</h6>
-
+      <div class="mt-2">
+        <h6>
+          تفاصيل الاستشارة
+          <span>{{ type === "remote" ? "(عن بعد)" : "(حضوريا)" }}</span>
+        </h6>
+      </div>
       <div class="d-flex align-items-center gap-2">
-        <h6 v-if="type === 'remote'" style="color: #f2631c">
+        <h6 style="color: #f2631c">
           <svg
             width="24"
             height="24"
@@ -59,35 +64,10 @@
               fill="#F2631C"
             />
           </svg>
-          {{ itemPage.remote_price }} ر.س
+          {{ type === "remote" ? itemPage.remote_price : itemPage.site_price }}
+          ر.س
         </h6>
-        <h6 v-if="type === 'site'" style="color: #f2631c">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17.74 22.75H6.26C3.77 22.75 1.75 20.73 1.75 18.24V11.51C1.75 9.02001 3.77 7 6.26 7H17.74C20.23 7 22.25 9.02001 22.25 11.51V12.95C22.25 13.36 21.91 13.7 21.5 13.7H19.48C19.13 13.7 18.81 13.83 18.58 14.07L18.57 14.08C18.29 14.35 18.16 14.72 18.19 15.1C18.25 15.76 18.88 16.29 19.6 16.29H21.5C21.91 16.29 22.25 16.63 22.25 17.04V18.23C22.25 20.73 20.23 22.75 17.74 22.75ZM6.26 8.5C4.6 8.5 3.25 9.85001 3.25 11.51V18.24C3.25 19.9 4.6 21.25 6.26 21.25H17.74C19.4 21.25 20.75 19.9 20.75 18.24V17.8H19.6C18.09 17.8 16.81 16.68 16.69 15.24C16.61 14.42 16.91 13.61 17.51 13.02C18.03 12.49 18.73 12.2 19.48 12.2H20.75V11.51C20.75 9.85001 19.4 8.5 17.74 8.5H6.26Z"
-              fill="#F2631C"
-            />
-            <path
-              d="M2.5 13.16C2.09 13.16 1.75 12.82 1.75 12.41V7.84006C1.75 6.35006 2.69 5.00001 4.08 4.47001L12.02 1.47001C12.84 1.16001 13.75 1.27005 14.46 1.77005C15.18 2.27005 15.6 3.08005 15.6 3.95005V7.75003C15.6 8.16003 15.26 8.50003 14.85 8.50003C14.44 8.50003 14.1 8.16003 14.1 7.75003V3.95005C14.1 3.57005 13.92 3.22003 13.6 3.00003C13.28 2.78003 12.9 2.73003 12.54 2.87003L4.6 5.87003C3.79 6.18003 3.24 6.97006 3.24 7.84006V12.41C3.25 12.83 2.91 13.16 2.5 13.16Z"
-              fill="#F2631C"
-            />
-            <path
-              d="M19.6005 17.8002C18.0905 17.8002 16.8105 16.6802 16.6905 15.2402C16.6105 14.4102 16.9105 13.6002 17.5105 13.0102C18.0205 12.4902 18.7205 12.2002 19.4705 12.2002H21.5505C22.5405 12.2302 23.3005 13.0102 23.3005 13.9702V16.0302C23.3005 16.9902 22.5405 17.7702 21.5805 17.8002H19.6005ZM21.5305 13.7002H19.4805C19.1305 13.7002 18.8105 13.8302 18.5805 14.0702C18.2905 14.3502 18.1505 14.7302 18.1905 15.1102C18.2505 15.7702 18.8805 16.3002 19.6005 16.3002H21.5605C21.6905 16.3002 21.8105 16.1802 21.8105 16.0302V13.9702C21.8105 13.8202 21.6905 13.7102 21.5305 13.7002Z"
-              fill="#F2631C"
-            />
-            <path
-              d="M14 12.75H7C6.59 12.75 6.25 12.41 6.25 12C6.25 11.59 6.59 11.25 7 11.25H14C14.41 11.25 14.75 11.59 14.75 12C14.75 12.41 14.41 12.75 14 12.75Z"
-              fill="#F2631C"
-            />
-          </svg>
-          {{ itemPage.site_price }} ر.س
-        </h6>
+
         <div
           v-if="itemPage.duration_time"
           class="d-flex gap-2 align-items-center"
@@ -117,18 +97,11 @@
           </p>
         </div>
       </div>
-      <!-- <div class="my-2">
-      <div class="text-end">
-        <h6 style="color: #888">الوقت المتاح</h6>
-      </div>
-    </div> -->
-      <!-- <template v-slot:header> إحجزي جلستك الان </template> -->
-
       <div>
         <ValidationObserver ref="form" tag="div" v-if="showDialog">
           <!-- date -->
           <div class="row">
-            <div v-if="times.length" class="my-3">
+            <div v-if="times" class="my-3">
               <ValidationProvider
                 :name="$t('booking-time')"
                 tag="div"
@@ -200,7 +173,7 @@
                 style="width: fit-content; border: 1px solid #2cb7b3"
               >
                 <d-datepicker-input
-                  style=" border:none height: 52px"
+                  style="border: none; height: 52px"
                   class="rounded-3 form-control"
                   placeholder="اختيار المعاد"
                   id="date"
@@ -224,67 +197,6 @@
               />
             </ValidationProvider>
           </div>
-          <!-- <div v-if="times.length" class="mt-3">
-          <ValidationProvider
-            :name="$t('booking-time')"
-            tag="div"
-            vid="time"
-            v-slot="{ errors }"
-          >
-            <label>الوقت المتاح</label>
-            <div class="d-flex">
-              <availableTimeCard
-                :isSelected="itemForm.available_time == it"
-                v-for="(it, i) in times"
-                :key="i"
-                @click="itemForm.available_time = $event"
-                :value="it"
-              />
-            </div>
-            <d-error-input :errors="errors" v-if="errors.length > 1" />
-          </ValidationProvider>
-        </div> -->
-          <!-- desc -->
-
-          <!-- <div class="form-group mt-3">
-          <ValidationProvider
-            :name="$t('booking-desc')"
-            vid="description"
-            v-slot="{ errors }"
-          >
-            <d-textarea-input
-              :errors="errors"
-              v-model="itemForm.description"
-              label="اكتبي ملخص ما تريدين التحدث عنه"
-            />
-          </ValidationProvider>
-        </div> -->
-          <!-- <div class="form-group mt-3">
-          <ValidationProvider
-            :name="$t('booking-desc')"
-            vid="description"
-            v-slot="{ errors }"
-          >
-            <d-textarea-input
-              :errors="errors"
-              v-model="itemForm.description"
-              label="اكتبي ملخص ما تريدين التحدث عنه"
-            />
-          </ValidationProvider>
-        </div> -->
-          <!-- <div class="form-group mt-3">
-          <ValidationProvider
-            :name="$t('booking-desc')"
-            vid="description"
-            v-slot="{ errors }"
-          >
-            <d-textarea-input
-              :errors="errors"
-              v-model="itemForm.description"
-              label="اكتبي ملخص ما تريدين التحدث عنه"
-            />
-          </ValidationProvider>
-        </div> -->
         </ValidationObserver>
       </div>
       <template v-slot:actions>
@@ -394,15 +306,15 @@
                       <div class="form-check">
                         <label
                           class="form-check-label d-flex align-items-center justify-content-between px-2"
-                          for="hyperbill"
+                          for="tabby"
                         >
                           <div class="">
                             الدفع بواسطة تابى
                             <input
                               type="radio"
                               class="form-check-input"
-                              id="hyperbill"
-                              value="hyperbill"
+                              id="tabby"
+                              value="tabby"
                               v-model="selectedProvider"
                             />
                           </div>
@@ -470,17 +382,14 @@
 
                     {{ title }}
                   </h4> -->
-                  <h4
-                    v-if="type === 'remote'"
-                    style="color: #888; font-size: 16px"
-                  >
-                    {{ itemPage.remote_price }} ر.س
-                  </h4>
-                  <h4
-                    v-if="type === 'site'"
-                    style="color: #888; font-size: 16px"
-                  >
-                    {{ itemPage.site_price }} ر.س
+
+                  <h4 style="color: #888; font-size: 16px">
+                    {{
+                      type === "remote"
+                        ? itemPage.remote_price
+                        : itemPage.site_price
+                    }}
+                    ر.س
                   </h4>
                 </div>
                 <div
@@ -488,17 +397,14 @@
                   class="justify-content-between mx-2 align-items-center d-flex"
                 >
                   <h4 style="font-size: 18px">المجموع</h4>
-                  <h4
-                    v-if="type === 'remote'"
-                    style="color: #888; font-size: 16px"
-                  >
-                    {{ itemPage.remote_price }} ر.س
-                  </h4>
-                  <h4
-                    v-if="type === 'site'"
-                    style="color: #888; font-size: 16px"
-                  >
-                    {{ itemPage.site_price }} ر.س
+
+                  <h4 style="color: #888; font-size: 16px">
+                    {{
+                      type === "remote"
+                        ? itemPage.remote_price
+                        : itemPage.site_price
+                    }}
+                    ر.س
                   </h4>
                 </div>
                 <div class="text-center">
@@ -568,7 +474,8 @@
 </template>
 
 <script>
-import consultingAPI from "@/services/api/consulting";
+import consultantsApi from "@/services/api/consulting/consultants";
+import consultingApi from "@/services/api/consulting";
 import payment from "@/services/api/consulting/pay";
 import availableTimeCard from "./available-time.vue";
 import sectionPay from "../../../../../components/section-payment.vue";
@@ -617,6 +524,9 @@ export default {
     availableDates: [],
   }),
   methods: {
+    handleImageError(e) {
+      e.target.src = `${this.publicPath}assets/img/no-img.png`;
+    },
     save() {
       if (
         this.itemForm.available_time &&
@@ -631,40 +541,20 @@ export default {
     handleCloseSecModal() {
       this.openSecModal = false;
     },
-    // async save() {
-    //   this.loading = true;
-    //   let valid = this.$refs.form.validate();
-    //   if (!valid) {
-    //     this.loading = false;
-    //     console.mylog("invalid");
-    //     return;
-    //   }
-    //   const formData = this.loadObjectToForm(this.itemForm);
-    //   try {
-    //     let { data } = await consultingAPI.bookingConsultant(formData);
-    //     if (data.data) {
-    //       let dataEvt = {
-    //         title: "لقت تم ارسال طلب حجز موعد بنجاح",
-    //         description: "سيتم التواصل معك عند اقتراب موعد الاستشارة",
-    //         btns: [
-    //           {
-    //             title: this.$t("Home"),
-    //             action: () => this.router_push("network-home"),
-    //           },
-    //         ],
-    //       };
-    //       this.showSuccessMsg(dataEvt);
 
-    //       this.closeEvent();
-    //     } else {
-    //       window.SwalError(data.message);
-    //     }
-    //   } catch (error) {
-    //     window.DHelper.catchException.call(this, error, this.$refs.form);
-    //   }
-    //   this.loading = false;
-    // },
     async proceedToPayment() {
+      //               \\///////////////\\                          //
+      //                \\///////////////\\                         //
+      // temp code to book before payment jus to add data into databas
+      //                  \\///////////////\\                       //
+      //                   \\///////////////\\                      //
+      // if (process.env.NODE_ENV == "development") {
+      //   let { data } = await consultingApi.bookingConsultant(this.itemForm);
+      //   console.log("data", data);
+      //   return;
+      // }
+      //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
+
       switch (this.selectedProvider) {
         case "tamara":
           try {
@@ -672,41 +562,7 @@ export default {
             //   package_id: this.id,
             //   type: "package",
             // });
-            let { data } = await payment.payNow({
-              type: this.type,
-              consaltant_id: this.itemPage.id,
-            });
-            if (data.success) {
-              window.location.href = data.data.payment_url;
-            } else {
-              console.log(data.response);
-            }
-          } catch (error) {
-            console.log("error", error);
-          }
-          break;
-        case "hyperbill":
-          try {
-            // let { data } = await PaymentApi.PayPackageHyperBill({
-            //   package_id: this.id,
-            //   type: "package",
-            // });
-            let { data } = await payment.payNow({
-              type: this.type,
-              consaltant_id: this.itemPage.id,
-            });
-            if (data.success) {
-              window.location.href = data.data.payment_url;
-            } else {
-              console.log(data.response);
-            }
-          } catch (error) {
-            console.log("error", error);
-          }
-          break;
-        case "myfatoorah":
-          try {
-            let { data } = await payment.payNow({
+            let { data } = await payment.payTammara({
               type: this.type,
               consaltant_id: this.itemPage.id,
             });
@@ -721,7 +577,22 @@ export default {
           break;
         case "card":
           try {
-            let { data } = await payment.payNow({
+            let { data } = await payment.payMyfatoorah({
+              type: this.type,
+              consaltant_id: this.itemPage.id,
+            });
+            if (data.success) {
+              window.location.href = data.data.payment_url;
+            } else {
+              console.log(data.response);
+            }
+          } catch (error) {
+            console.log("error", error);
+          }
+          break;
+        case "tabby":
+          try {
+            let { data } = await payment.payTabby({
               type: this.type,
               consaltant_id: this.itemPage.id,
             });
@@ -740,88 +611,23 @@ export default {
           return false;
       }
     },
-    // async proceedToPayment() {
-    //   switch (this.selectedProvider) {
-    //     case "tamara":
-    //       try {
-    //         // let { data } = await PaymentApi.PayPackageTammara({
-    //         //   package_id: this.id,
-    //         //   type: "package",
-    //         // });
-    //         let { data } = await payment.payNow({
-    //           type: this.type,
-    //           consaltant_id: this.itemPage.id,
-    //         });
-    //         if (data.success) {
-    //           window.location.href = data.data.payment_url;
-    //         } else {
-    //           console.log(data.response);
-    //         }
-    //       } catch (error) {
-    //         console.log("error", error);
-    //       }
-    //       break;
-    //     case "hyperbill":
-    //       try {
-    //         // let { data } = await PaymentApi.PayPackageHyperBill({
-    //         //   package_id: this.id,
-    //         //   type: "package",
-    //         // });
-    //         let { data } = await payment.payNow({
-    //           type: this.type,
-    //           consaltant_id: this.itemPage.id,
-    //         });
-    //         if (data.success) {
-    //           window.location.href = data.data.payment_url;
-    //         } else {
-    //           console.log(data.response);
-    //         }
-    //       } catch (error) {
-    //         console.log("error", error);
-    //       }
-    //       break;
-    //     case "myfatoorah":
-    //       try {
-    //         let { data } = await payment.payNow({
-    //           type: this.type,
-    //           consaltant_id: this.itemPage.id,
-    //         });
-    //         if (data.success) {
-    //           window.location.href = data.data.payment_url;
-    //         } else {
-    //           console.log(data.response);
-    //         }
-    //       } catch (error) {
-    //         console.log("error", error);
-    //       }
-    //       break;
-    //     case "card":
-    //       try {
-    //         let { data } = await payment.payNow({
-    //           type: this.type,
-    //           consaltant_id: this.itemPage.id,
-    //         });
-    //         if (data.success) {
-    //           window.location.href = data.data.payment_url;
-    //         } else {
-    //           console.log(data.response);
-    //         }
-    //       } catch (error) {
-    //         console.log("error", error);
-    //       }
-    //       break;
-    //     default:
-    //       // Handle case where no provider is selected
-    //       window.errorMsg("اختار بوابة الدفع");
-    //       return false;
-    //   }
-    // },
     async loadAvailableDates() {
       try {
-        let { data } = await consultingAPI.consultants.getAvailability(
-          this.itemDailog.id
-        );
+        let { data } = await consultantsApi.getAvailability(this.itemDailog.id);
+        console.log("data", data);
+        console.log("itemPage", this.itemPage);
         if (data.success) {
+          if (data.data == null || data.data.length == 0) {
+            window.Swal.fire({
+              icon: "info",
+              title: this.$t("Sorry"),
+              text: this.$t("no-available-cosultants"),
+              confirmButtonText: this.$t("Ok"),
+            });
+            this.closeDialog();
+            this.closeEvent();
+            return;
+          }
           this.availability = Object.assign(this.availability, {
             ...data.data[0],
           });
@@ -832,6 +638,16 @@ export default {
           this.minDate = days[0];
           this.maxDate = days[days.length - 1];
           this.times = this.availability.available_times;
+          //               \\///////////////\\                          //
+          //                \\///////////////\\                         //
+          // temp code to book before payment jus to add data into databas
+          //                  \\///////////////\\                       //
+          //                   \\///////////////\\                      //
+          // if (process.env.NODE_ENV == "development") {
+          //   this.times = ["09:00", "10:00", "11:00", "12:00"];
+          // }
+          //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
+
           this.availableDates = days;
         }
       } catch (error) {
@@ -854,9 +670,7 @@ export default {
     async loadDays() {
       this.loading = true;
       try {
-        let { data } = await consultingAPI.consultants.getAvailability(
-          this.itemDailog.id
-        );
+        let { data } = await consultantsApi.getAvailability(this.itemDailog.id);
         if (data.success) {
           // this.days = data.data[0].days;
           // this.loading = false;
@@ -871,6 +685,7 @@ export default {
           this.minDate = days[0];
           this.maxDate = days[days.length - 1];
           this.times = this.availability.available_times;
+
           this.availableDates = days;
         }
       } catch (error) {
@@ -882,31 +697,6 @@ export default {
         this.loading = false;
       }
     },
-    // async loadDays() {
-    //   try {
-    //     let { data } = await consultingAPI.consultants.getAvailability(
-    //       this.itemDailog.id
-    //     );
-    //     if (data.success) {
-    //       // this.days = data.data[0].days;
-
-    //       this.days = Object.assign(this.availability, {
-    //         ...data.data[0],
-    //       });
-    //       let days = [new Date(this.availability.start_date)];
-    //       for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
-    //         days.push(this.addDays(this.availability.start_date, i));
-
-    //       this.minDate = days[0];
-    //       this.maxDate = days[days.length - 1];
-    //       this.times = this.availability.available_times;
-    //       this.availableDates = days;
-    //     }
-    //   } catch (error) {
-    //     console.mylog("error", error);
-    //     //
-    //   }
-    // },
     openDialog(dataEvt) {
       this.itemDailog = dataEvt.item;
       this.loadAvailableDates();

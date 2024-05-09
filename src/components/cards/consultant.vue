@@ -1,18 +1,22 @@
 <template>
   <div class="card rounded-4" v-bind="$attrs">
-    <div class="px-2 py-2">
+    <div class="px-2 py-2" style="height: 185px">
       <img
+        style="height: 185px; width: 100%; object-fit: cover"
         :src="item.image"
-        class="card-img-top rounded-4 shadow"
+        class="rounded-4"
         :alt="item.name"
+        @error="handleImageError"
       />
     </div>
     <div class="card-body">
       <div
-        class="d-flex d-flex justify-content-center text-center align-items-center"
+        class="d-block column justify-content-center text-center align-items-center"
       >
-        <h5 class="card-title flex-grow-1">{{ item.name }}</h5>
-        <h6 class="card-field flex-shrink-0">{{ item.department_name }}</h6>
+        <div class="card-title mt-2">{{ item.name }}</div>
+        <div class="card-field">
+          {{ item.job_title ?? "مستشار" }}
+        </div>
       </div>
       <!-- <p class="card-text consultant-bio text-two-lines">حاصل على درجة الدكتوراة في ادارة الاعمال كما حصت على شهادة الجامعة الامريكية في هذا المجال</p> -->
       <!-- <div class="d-flex justify-content-between">
@@ -37,6 +41,12 @@ export default {
   props: {
     item: {},
   },
+  methods: {
+    handleImageError(event) {
+      // Handle the image error by replacing the src attribute with the placeholder image URL
+      event.target.src = "/assets/img/businesswoman.jpg"; // Replace with your placeholder image URL
+    },
+  },
 };
 </script>
 
@@ -47,15 +57,15 @@ export default {
   height: 173px;
 }
 .card-title {
+  width: 100%;
   font-style: normal;
   font-weight: 400;
-  font-size: 22.6px;
-  line-height: 38px;
+  font-size: 14px;
   /* identical to box height, or 167% */
 
   text-transform: capitalize;
 
-  color: #414042;
+  color: #1b1d1f;
 }
 .consultant-bio {
   height: 32px;
@@ -71,10 +81,10 @@ export default {
 .card-field {
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 17px;
   /* identical to box height, or 142% */
-  color: #1fb9b3;
+  color: #6d737a;
 }
 .consultant-price {
   font-style: normal;
