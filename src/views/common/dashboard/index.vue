@@ -16,7 +16,7 @@
                 class="nav-link hover-li"
                 :class="{ 'li-active': page == 'network-dashboard' }"
               >
-                لوحه التحكم
+                {{ $t("Dashboard") }}
               </router-link>
             </li>
             <li
@@ -30,7 +30,7 @@
                 class="nav-link hover-li"
                 :class="{ 'li-active': page == 'consultant-dashboard' }"
               >
-                المستشار
+                {{ $t("the-consultant") }}
               </router-link>
             </li>
             <li style="list-style: none" class="nav-item">
@@ -42,7 +42,7 @@
                   'li-active': page == 'service-provider-dashboard',
                 }"
               >
-                مقدم الخدمة
+                {{ $t("service-provider") }}
               </router-link>
             </li>
             <li style="list-style: none" class="nav-item">
@@ -52,7 +52,7 @@
                 class="nav-link hover-li"
                 :class="{ 'li-active': page == 'academy-dashboard' }"
               >
-                ألاكاديمية
+                {{ $t("academy") }}
               </router-link>
             </li>
           </ul>
