@@ -548,11 +548,11 @@ export default {
       // temp code to book before payment jus to add data into databas
       //                  \\///////////////\\                       //
       //                   \\///////////////\\                      //
-      if (process.env.NODE_ENV == "development") {
-        let { data } = await consultingApi.bookingConsultant(this.itemForm);
-        console.log("data", data);
-        return;
-      }
+      // if (process.env.NODE_ENV == "development") {
+      //   let { data } = await consultingApi.bookingConsultant(this.itemForm);
+      //   console.log("data", data);
+      //   return;
+      // }
       //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
 
       switch (this.selectedProvider) {
@@ -643,9 +643,9 @@ export default {
           // temp code to book before payment jus to add data into databas
           //                  \\///////////////\\                       //
           //                   \\///////////////\\                      //
-          if (process.env.NODE_ENV == "development") {
-            this.times = ["09:00", "10:00", "11:00", "12:00"];
-          }
+          // if (process.env.NODE_ENV == "development") {
+          //   this.times = ["09:00", "10:00", "11:00", "12:00"];
+          // }
           //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
 
           this.availableDates = days;
