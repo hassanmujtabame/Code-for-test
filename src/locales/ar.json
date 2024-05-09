@@ -797,5 +797,6 @@
   "reschedule-appointment": "إعادة جدولة موعد الجلسة",
   "consultation-time": "وقت الاستشارة",
   "consultation-reschedule-reason": "سبب تغيير موعد الاستشارة ...",
-  "enter-different-appointment": "يرجى إدخال موعد مختلف عن الموعد الحالي"
+  "enter-different-appointment": "يرجى إدخال موعد مختلف عن الموعد الحالي",
+  "remember-that-you-cannot-create-courses-before-creating-at-least-3-meetings-to-activate-your-account": "تذكر أنك لا تستطيع إنشاء دورات قبل إنشاء ٣ لقاءات على الأقل لتفعيل حسابك"
 }

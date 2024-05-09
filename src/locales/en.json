@@ -788,5 +788,6 @@
   "reschedule-appointment": "Reschedule the session appointment",
   "consultation-time": "Consultation time",
   "consultation-reschedule-reason": "rescdule reason ...",
-  "enter-different-appointment": "Please enter a date different from the current one"
+  "enter-different-appointment": "Please enter a date different from the current one",
+  "remember-that-you-cannot-create-courses-before-creating-at-least-3-meetings-to-activate-your-account": "Remember that you cannot create courses before creating at least 3 meetings to activate your account."
 }
