@@ -1,5 +1,5 @@
 <template>
-  <div class="w-100 d-flex flex-column">
+  <div class="w-100 d-flex flex-column bg-white mb-4">
     <div class="d-flex align-items-center justify-content-between px-3">
       <h1 style="color: #1fb9b3">
         {{ item.title }}
@@ -13,126 +13,16 @@
         </button>
       </div>
     </div>
-    <p class="px-3" style="color: #ff1616">
-      عدد المنضمين : {{ item.number_participants }} شخص
+    <p class="mx-3" style="color: #ff1616; font-size: 14px">
+      <span> عدد المنضمين : {{ item.number_participants }} شخص </span>
+      <span v-if="item.date != null" style="color: #737373">
+        تاريخ النشر : {{ item.date }}
+      </span>
     </p>
     <p style="color: #737373" class="px-3 py-2">
       {{ item.content }}
     </p>
   </div>
-
-  <!-- <div class="academy-meeting-item">
-  <div class="academy-meeting-item__wrapper">
-  <div class="academy-meeting-item__body">
-  <div class="academy-meeting-item__title">
-
-<h1 @click="router_push('academy-learning-meeting-show', { id: item.id })" class="clickable">{{ item.title }}</h1>
-  </div>
-  <div class="academy-meeting-item__subtitle">
-<h6>عدد المنضمين : {{ item.number_participants }} شخص</h6>
-  </div>
-  <div class="academy-meeting-item__description">
-    <p v-html="item.content"></p>
-    </div>
-  </div>
-  <div class="academy-meeting-item__actions">
-    <div class="academy-meeting-item__date">
-        <i class="fa-regular fa-clock"></i>
-        <span class="px-2">تاريخ النشر :</span>
-        <span>{{ dateReverse(item.date) }}</span>
-
-    </div>
-    <div class="academy-meeting-item__btns">
-        <button @click="sendToParticipants" class="btn btn-custmer btn-small">رسالة للمنضمين</button>
-        <button @click="deleteItem" class="btn btn-custmer btn-danger btn-small mx-1">حذف اللقاء</button>
-    </div>
-</div>
-  </div>
-  </div> -->
-  <!-- <div class="academy-meeting-item">
-  <div class="academy-meeting-item__wrapper">
-  <div class="academy-meeting-item__body">
-  <div class="academy-meeting-item__title">
-
-<h1 @click="router_push('academy-learning-meeting-show', { id: item.id })" class="clickable">{{ item.title }}</h1>
-  </div>
-  <div class="academy-meeting-item__subtitle">
-<h6>عدد المنضمين : {{ item.number_participants }} شخص</h6>
-  </div>
-  <div class="academy-meeting-item__description">
-    <p v-html="item.content"></p>
-    </div>
-  </div>
-  <div class="academy-meeting-item__actions">
-    <div class="academy-meeting-item__date">
-        <i class="fa-regular fa-clock"></i>
-        <span class="px-2">تاريخ النشر :</span>
-        <span>{{ dateReverse(item.date) }}</span>
-
-    </div>
-    <div class="academy-meeting-item__btns">
-        <button @click="sendToParticipants" class="btn btn-custmer btn-small">رسالة للمنضمين</button>
-        <button @click="deleteItem" class="btn btn-custmer btn-danger btn-small mx-1">حذف اللقاء</button>
-    </div>
-</div>
-  </div>
-  </div> -->
-  <!-- <div class="academy-meeting-item">
-  <div class="academy-meeting-item__wrapper">
-  <div class="academy-meeting-item__body">
-  <div class="academy-meeting-item__title">
-
-<h1 @click="router_push('academy-learning-meeting-show', { id: item.id })" class="clickable">{{ item.title }}</h1>
-  </div>
-  <div class="academy-meeting-item__subtitle">
-<h6>عدد المنضمين : {{ item.number_participants }} شخص</h6>
-  </div>
-  <div class="academy-meeting-item__description">
-    <p v-html="item.content"></p>
-    </div>
-  </div>
-  <div class="academy-meeting-item__actions">
-    <div class="academy-meeting-item__date">
-        <i class="fa-regular fa-clock"></i>
-        <span class="px-2">تاريخ النشر :</span>
-        <span>{{ dateReverse(item.date) }}</span>
-
-    </div>
-    <div class="academy-meeting-item__btns">
-        <button @click="sendToParticipants" class="btn btn-custmer btn-small">رسالة للمنضمين</button>
-        <button @click="deleteItem" class="btn btn-custmer btn-danger btn-small mx-1">حذف اللقاء</button>
-    </div>
-</div>
-  </div>
-  </div> -->
-  <!-- <div class="academy-meeting-item">
-  <div class="academy-meeting-item__wrapper">
-  <div class="academy-meeting-item__body">
-  <div class="academy-meeting-item__title">
-
-<h1 @click="router_push('academy-learning-meeting-show', { id: item.id })" class="clickable">{{ item.title }}</h1>
-  </div>
-  <div class="academy-meeting-item__subtitle">
-<h6>عدد المنضمين : {{ item.number_participants }} شخص</h6>
-  </div>
-  <div class="academy-meeting-item__description">
-    <p v-html="item.content"></p>
-    </div>
-  </div>
-  <div class="academy-meeting-item__actions">
-    <div class="academy-meeting-item__date">
-        <i class="fa-regular fa-clock"></i>
-        <span class="px-2">تاريخ النشر :</span>
-        <span>{{ dateReverse(item.date) }}</span>
-
-    </div>
-    <div class="academy-meeting-item__btns">
-        <button @click="sendToParticipants" class="btn btn-custmer btn-small">رسالة للمنضمين</button>
-        <button @click="deleteItem" class="btn btn-custmer btn-danger btn-small mx-1">حذف اللقاء</button>
-    </div>
-</div>
-  </div>
-  </div> -->
 </template>
 
 <script>
@@ -148,10 +38,18 @@ export default {
       this.$emit("delete", this.item);
     },
   },
+  mounted() {
+    console.log(this.item);
+  },
 };
 </script>
 
 <style scoped>
+h1 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
 .academy-meeting-item {
   width: 100%;
 }
