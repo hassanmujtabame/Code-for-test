@@ -3,7 +3,7 @@
     style="margin-top: 85px"
     class="consult max-width-100-hidden bg-body-page"
   >
-    <div class="container d-flex flex-column mt-5">
+    <div class="container d-flex flex-column mt-1">
       <!-- <button @click="addItem" class="btn m-c">
         <i style="font-size: 35px" class="fa fa-square-plus"></i>
       </button> -->
