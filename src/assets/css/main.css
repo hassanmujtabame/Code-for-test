@@ -60,6 +60,56 @@
   src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Light.woff2) format("woff2");
 }
 
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
   --pc: #1fb9b3;
   --swiper-navigation-size: 15px;
@@ -124,7 +174,9 @@ body:lang(en) {
   width: 100%;
   object-fit: cover;
 }
-
+.text-cairo {
+  font-family: "Cairo", sans-serif;
+}
 .text-flag {
   font-family: "Twemoji Country Flags";
 }
