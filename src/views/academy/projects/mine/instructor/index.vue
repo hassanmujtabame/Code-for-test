@@ -69,7 +69,7 @@
 
       <template v-slot="{ item }">
         {{ item }}
-        <!-- <BlogInfoCard :item="item" @delete="confirmDeleteItem" /> -->
+        <CardItem :item="item" @delete="confirmDeleteItem" />
       </template>
     </d-filter-list>
 
@@ -87,9 +87,11 @@
 </template>
 
 <script>
+import CoursesAPI from "@/services/api/academy/courses.js";
 import SettingsExams from "./tabs/settings-projects/index.vue";
 import NewProjects from "./tabs/courses-has-projects/index.vue";
 import ProjectsNeedRevision from "./tabs/project-need-revision/index.vue";
+import CardItem from "./card-item.vue";
 import UpdateProjectDialog from "@/views/academy/courses/show/recorded/dialogs/add-project/index.vue";
 export default {
   name: "your-certifcates-page",
@@ -98,6 +100,12 @@ export default {
     NewProjects,
     ProjectsNeedRevision,
     UpdateProjectDialog,
+    CardItem,
+  },
+  data() {
+    return {
+      loading: false,
+    };
   },
   methods: {
     addItem() {
@@ -150,12 +158,16 @@ export default {
       // }
     },
     async loadList(metaInfo) {
-      // let params = {
-      //   page: metaInfo.current_page,
-      //   ...this.filterItem,
-      // };
-      // let meetings = await instructorMeetingsAPI.getAll(params);
-      // return meetings;
+      this.loading = true;
+      try {
+        let params = {
+          page: metaInfo.current_page,
+        };
+        return await CoursesAPI.getProjectsNeedRevision(params);
+      } catch (error) {
+        console.mylog("error", error);
+      }
+      this.loading = false;
     },
   },
 };
