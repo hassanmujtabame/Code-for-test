@@ -190,6 +190,15 @@ const routers = [
   },
   // Add meta title to the remaining routes...
   {
+    path: "academy/projects-settings",
+    meta: { layout: LayoutDefault, auth: true, title: "Projects settings" },
+    name: "academy-projects-settings",
+    component: () =>
+      import(
+        /* webpackChunkName: "academy-my-projects" */ "../views/academy/projects/project-settings.vue"
+      ),
+  },
+  {
     path: "academy/my-projects",
     meta: { layout: LayoutDefault, auth: true, title: "My Projects" },
     name: "academy-my-projects",
