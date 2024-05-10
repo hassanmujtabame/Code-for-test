@@ -790,5 +790,8 @@
   "consultation-reschedule-reason": "rescdule reason ...",
   "enter-different-appointment": "Please enter a date different from the current one",
   "remember-that-you-cannot-create-courses-before-creating-at-least-3-meetings-to-activate-your-account": "Remember that you cannot create courses before creating at least 3 meetings to activate your account.",
-  "adjust-project-settings": "Adjust project settings"
+  "adjust-project-settings": "Adjust project settings",
+  "adjust-notification-settings": "Adjust notification settings",
+  "adjust-grading-settings": "Adjust grading settings",
+  "times-project-will-deliver": "Number of times the project will deliver"
 }
