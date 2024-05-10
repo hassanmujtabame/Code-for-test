@@ -179,15 +179,15 @@ const routers = [
     name: "academy-course-add-exam",
     component: () => import("../views/academy/instructor/add-exam/index.vue"),
   },
-  {
-    path: "academy/projects",
-    meta: { layout: LayoutDefault, auth: true, title: "Projects" },
-    name: "academy-projects",
-    component: () =>
-      import(
-        /* webpackChunkName: "academy-projects" */ "../views/academy/projects/index.vue"
-      ),
-  },
+  // {
+  //   path: "academy/projects",
+  //   meta: { layout: LayoutDefault, auth: true, title: "Projects" },
+  //   name: "academy-projects",
+  //   component: () =>
+  //     import(
+  //       /* webpackChunkName: "academy-projects" */ "../views/academy/projects/index.vue"
+  //     ),
+  // },
   // Add meta title to the remaining routes...
   {
     path: "academy/projects-settings",
