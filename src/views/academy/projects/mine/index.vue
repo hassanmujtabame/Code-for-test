@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 85px">
+  <div style="margin-top: 85px; background-color: #fafafa">
     <StudentProject v-if="userAcademyRole == 'student'" />
     <InstructorProject v-if="userAcademyRole == 'instructor'" />
   </div>
