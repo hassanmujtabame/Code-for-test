@@ -5,7 +5,14 @@
         {{ item.title }}
       </h1>
       <div class="d-flex align-items-center gap-2">
-        <button @click="editProject" class="btn btn-custmer">
+        <button
+          v-if="needRevision"
+          @click="showProject"
+          class="btn btn-custmer"
+        >
+          عرض المشروع
+        </button>
+        <button v-else @click="editProject" class="btn btn-custmer">
           تعديل المشروع
         </button>
         <button @click="deleteItem" class="btn btn-custmer btn-danger mx-1">
@@ -28,9 +35,13 @@
 <script>
 export default {
   props: {
+    needRevision: false,
     item: {},
   },
   methods: {
+    showProject() {
+      //   this.fireOpenDialog("send-all-participants", this.item);
+    },
     editProject() {
       //   this.fireOpenDialog("send-all-participants", this.item);
     },

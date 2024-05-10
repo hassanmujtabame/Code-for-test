@@ -34,7 +34,7 @@
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item col-12 col-md-6 px-2" role="presentation">
             <button
-              class="w-100 nav-link border t-c m-auto py-3"
+              class="w-100 nav-link border t-c m-auto py-3 active"
               id="pills-project-need-revision-tab"
               data-bs-toggle="pill"
               data-bs-target="#pills-project-need-revision"
