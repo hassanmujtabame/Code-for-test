@@ -811,5 +811,7 @@
   "times-project-will-deliver": "عدد مرات تسليم المشروع",
   "instructions": "التعليمات",
   "add-project-instructions": "أضف تعليمات للطلاب تظهر لهم في صفحة المشروع",
-  "save-the-project": "حفظ المشروع"
+  "save-the-project": "حفظ المشروع",
+  "your-blogs": "تدويناتك",
+  "add-blog": "أضف تدوينة جديدة"
 }

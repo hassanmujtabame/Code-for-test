@@ -802,5 +802,7 @@
   "times-project-will-deliver": "Number of times the project will deliver",
   "instructions": "instructions",
   "add-project-instructions": "Add instructions for students that appear on the project page",
-  "save-the-project": "Save the project"
+  "save-the-project": "Save the project",
+  "your-blogs": "Your blogs",
+  "add-blog": "Add new blog"
 }
