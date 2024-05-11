@@ -1,6 +1,19 @@
 <template>
-  <div class=" section container" style="margin-top: 125px">
-<h2 @click="loadBlogCategories">جدول خطة التسويق</h2>
+  <div class="section container" style="margin-top: 125px">
+    <div class="d-flex justify-content-between">
+      <h1 class="home-section-title">جدول مواعيدي</h1>
+      <span>
+        <button
+          @click="editSchedule"
+          class="mx-2 btn btn-danger btn-edit px-5 my-3"
+        >
+          <i class="fa-regular fa-pen-to-square"></i>{{ " " + $t("edit") }}
+        </button>
+        <button @click="deleteSchedule" class="mx-2 btn btn-danger px-5 my-3">
+          <i class="fa-regular fa-trash-can"></i> {{ " " + $t("delete") }}
+        </button>
+      </span>
+    </div>
 
     <vc-calendar
       class="custom-calendar max-w-full mt-5"
@@ -9,59 +22,82 @@
       disable-page-swipe
       is-expanded
       :locale="$i18n.locale"
-
     >
       <template v-slot:day-content="{ day, attributes }">
-        <div class="flex flex-col h-full position-relative z-10 overflow-hidden mb-3" style=" background: #F6F8F9; border-radius: 20px; width: 150px; height: 115px; padding: 14px;">
-          <span class="day-label text-sm" style="color: #CDD7D8">{{ day.day }}</span>
-          <div class="flex-grow overflow-y-autooverflow-x-auto overflow-hidden position-absolute top-0 left-0 w-100 h-100" >
+        <div
+          class="flex flex-col h-full position-relative z-10 overflow-hidden mb-3"
+          style="
+            background: #f6f8f9;
+            border-radius: 20px;
+            width: 150px;
+            height: 115px;
+            padding: 14px;
+          "
+        >
+          <span class="day-label text-sm" style="color: #cdd7d8">{{
+            day.day
+          }}</span>
+          <div
+            class="flex-grow overflow-y-autooverflow-x-auto overflow-hidden position-absolute top-0 left-0 w-100 h-100"
+          >
             <div
               v-for="attr in attributes"
               :key="attr.key"
-              class="text-xs  w-100 h-100 leading-tight rounded-sm mt-0 mb-1"
-              style="padding: 14px;"
+              class="text-xs w-100 h-100 leading-tight rounded-sm mt-0 mb-1"
+              style="padding: 14px"
               :class="attr.customData.class"
             >
-          <span class="day-label text-sm " style="color: #CDD7D8;">{{ day.day }}</span>
-            
-            <p class="text-center" style="margin-top: 10% !important;     margin-bottom: 0 !important;">
-              <!-- {{ attr.customData.title }} -->
-          <d-time-icon :size="16" color="white" />
-              10AM : 12PM
-            </p>
-            <div class="text-center"  >...</div>
+              <span class="day-label text-sm" style="color: #cdd7d8">{{
+                day.day
+              }}</span>
+
+              <p
+                class="text-center"
+                style="margin-top: 10% !important; margin-bottom: 0 !important"
+              >
+                <!-- {{ attr.customData.title }} -->
+                <d-time-icon :size="16" color="white" />
+                10AM : 12PM
+              </p>
+              <div class="text-center">...</div>
             </div>
           </div>
         </div>
       </template>
     </vc-calendar>
+
+    <DialogEditSchedule @success="updateEventSuccess" />
   </div>
 </template>
 
 <script>
+import DialogEditSchedule from "./dialogs/edit-schedule/index.vue";
 export default {
-  name:'my-schedule',
+  name: "my-schedule",
+  components: {
+    DialogEditSchedule,
+  },
   data() {
     const month = new Date().getMonth();
     const year = new Date().getFullYear();
     return {
       masks: {
-        weekdays: 'WWW',
+        weekdays: "WWW",
       },
       attributes: [
         {
           key: 1,
           customData: {
-            title: 'Lunch with mom.',
-            class: 'bg-red-600 text-white',
+            title: "Lunch with mom.",
+            class: "bg-red-600 text-white",
           },
           dates: new Date(year, month, 1),
         },
         {
           key: 2,
           customData: {
-            title: 'Take Noah to basketball practice',
-            class: 'bg-red-600 text-white',
+            title: "Take Noah to basketball practice",
+            class: "bg-red-600 text-white",
           },
           dates: new Date(year, month, 2),
         },
@@ -69,23 +105,23 @@ export default {
           key: 3,
           customData: {
             title: "Noah's basketball game.",
-            class: 'bg-red-600 text-white',
+            class: "bg-red-600 text-white",
           },
           dates: new Date(year, month, 5),
         },
         {
           key: 4,
           customData: {
-            title: 'Take car to the shop',
-            class: 'bg-red-600 text-white',
+            title: "Take car to the shop",
+            class: "bg-red-600 text-white",
           },
           dates: new Date(year, month, 20),
         },
         {
           key: 4,
           customData: {
-            title: 'Meeting with new client.',
-            class: 'bg-red-600 text-white',
+            title: "Meeting with new client.",
+            class: "bg-red-600 text-white",
           },
           dates: new Date(year, month, 7),
         },
@@ -93,15 +129,15 @@ export default {
           key: 5,
           customData: {
             title: "Mia's gymnastics practice.",
-            class: 'bg-red-600 text-white',
+            class: "bg-red-600 text-white",
           },
           dates: new Date(year, month, 11),
         },
         {
           key: 6,
           customData: {
-            title: 'Cookout with friends.',
-            class: 'bg-red-600 text-white',
+            title: "Cookout with friends.",
+            class: "bg-red-600 text-white",
           },
           dates: { months: 5, ordinalWeekdays: { 2: 1 } },
         },
@@ -109,45 +145,55 @@ export default {
           key: 7,
           customData: {
             title: "Mia's gymnastics recital.",
-            class: 'bg-pink-500 text-white',
+            class: "bg-pink-500 text-white",
           },
           dates: new Date(year, month, 22),
         },
         {
           key: 8,
           customData: {
-            title: 'Visit great grandma.',
-            class: 'bg-red-600 text-white',
+            title: "Visit great grandma.",
+            class: "bg-red-600 text-white",
           },
           dates: new Date(year, month, 25),
         },
       ],
     };
   },
-methods:{
-       async loadBlogCategories() {
-            try {
-                let { data } = await this.$axios.get('academy/schedule')
-                if (data.success) {
-                  console.log('data',data);
-                    // this.categories = data.data
-                }
-            } catch (error) {
-                console.log('error', error)
-            }
-        },
-}
+  methods: {
+    updateEventSuccess() {},
+    editSchedule() {
+      console.log("editSchedule");
+    },
+    deleteSchedule() {
+      console.log("delete Schedule");
+    },
+    async loadBlogCategories() {
+      try {
+        // let { data } = await this.$axios.get("academy/schedule");
+        if (data.success) {
+          console.log("data", data);
+          // this.categories = data.data
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-
-.bg-red-600{
-  background: #F2631C;
+.btn-edit {
+  border: 1px solid #1fb9b3 !important;
+  color: #1fb9b3 !important;
+}
+.bg-red-600 {
+  background: #f2631c;
 }
 ::-webkit-scrollbar {
   width: 0px;
-} 
+}
 
 ::-webkit-scrollbar-track {
   display: none;
@@ -202,6 +248,5 @@ methods:{
   & .vc-day-dots {
     margin-bottom: 5px;
   }
-} 
-
+}
 </style>

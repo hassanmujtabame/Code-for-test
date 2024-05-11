@@ -4,6 +4,7 @@
   "during_day": "During(day)",
   "link": "Link",
   "save": "Save",
+  "edit": "Edit",
   "seeMore": "see More",
   "name_company_ar": "Name company (Ar)",
   "name_company_en": "Name company (En)",
@@ -805,5 +806,6 @@
   "save-the-project": "Save the project",
   "your-blogs": "Your blogs",
   "add-blog": "Add new blog",
-  "add-schedule": "Add new schedule"
+  "add-schedule": "Add new schedule",
+  "edit-schedule": "Edit schedule"
 }
