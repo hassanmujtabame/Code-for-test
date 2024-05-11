@@ -551,6 +551,8 @@
   "course-place": "مكان اقامة الدورة",
   "course-observation": "ملاحظات الحضور",
   "add-project": "أضف المشروع",
+  "project-course": "الدورة التابع لها المشروع",
+  "chose-project-course": "اختار الدورة التابع لها المشروع",
   "add-exam": "أضف إختبار",
   "add-lecture": "أضف درس",
   "new-item": "عنصر جديد",
@@ -784,6 +786,8 @@
   "the-projects": "المشاريع",
   "adjust-projects-settings": "ضبط إعدادات المشاريع",
   "add-projects": "أضف مشروع",
+  "add-a-project": "إضافة مشروع",
+  "add-a-project-sup-title": "قم بإضافة تفاصيل المشروع المراد إضافته",
   "meeting-date": "موعد اللقاء",
   "start-time": "تبدا الساعة",
   "end-time": "تنتهي الساعة",
@@ -804,5 +808,8 @@
   "adjust-project-settings": "ضبط إعدادات المشروع",
   "adjust-notification-settings": "اضبط إعدادات الإشعارات",
   "adjust-grading-settings": "اضبط إعدادات الدرجات",
-  "times-project-will-deliver": "عدد مرات تسليم المشروع"
+  "times-project-will-deliver": "عدد مرات تسليم المشروع",
+  "instructions": "التعليمات",
+  "add-project-instructions": "أضف تعليمات للطلاب تظهر لهم في صفحة المشروع",
+  "save-the-project": "حفظ المشروع"
 }

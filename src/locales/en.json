@@ -776,6 +776,10 @@
   "the-projects": "Projects",
   "adjust-projects-settings": "Adjust grading settings",
   "add-projects": "Add project",
+  "project-course": "The course to which the project belongs",
+  "chose-project-course": "Chose the course to which the project belongs",
+  "add-a-project": "Add a project",
+  "add-a-project-sup-title": "Add the details of the project you want to add",
   "meeting-date": "meeting date",
   "start-time": "start time",
   "end-time": "end time",
@@ -795,5 +799,8 @@
   "adjust-project-settings": "Adjust project settings",
   "adjust-notification-settings": "Adjust notification settings",
   "adjust-grading-settings": "Adjust grading settings",
-  "times-project-will-deliver": "Number of times the project will deliver"
+  "times-project-will-deliver": "Number of times the project will deliver",
+  "instructions": "instructions",
+  "add-project-instructions": "Add instructions for students that appear on the project page",
+  "save-the-project": "Save the project"
 }

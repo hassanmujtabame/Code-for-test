@@ -199,6 +199,15 @@ const routers = [
       ),
   },
   {
+    path: "academy/add-project",
+    meta: { layout: LayoutDefault, auth: true, title: "Add project" },
+    name: "academy-add-project",
+    component: () =>
+      import(
+        /* webpackChunkName: "academy-add-projects" */ "../views/academy/projects/Add-project.vue"
+      ),
+  },
+  {
     path: "academy/my-projects",
     meta: { layout: LayoutDefault, auth: true, title: "My Projects" },
     name: "academy-my-projects",
