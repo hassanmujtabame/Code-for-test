@@ -298,6 +298,15 @@ const routers = [
       ),
   },
   {
+    path: "academy/instructor/exams-settings",
+    meta: { layout: LayoutDefault, auth: true, title: "Exams settings" },
+    name: "academy-instructor-exams-settings",
+    component: () =>
+      import(
+        /* webpackChunkName: "academy-instructor-exams" */ "../views/academy/instructor/exams/exams-settings.vue"
+      ),
+  },
+  {
     path: "academy/my-blogs",
     meta: { layout: LayoutDefault, auth: true, title: "My Blogs" },
     name: "academy-my-blogs",
