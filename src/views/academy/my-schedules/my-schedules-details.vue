@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import schedules from "@/services/api/service-provider/schedules";
 import DialogEditSchedule from "./dialogs/edit-schedule/index.vue";
 export default {
   name: "my-schedule",
@@ -81,6 +82,7 @@ export default {
     const month = new Date().getMonth();
     const year = new Date().getFullYear();
     return {
+      schedule: {},
       masks: {
         weekdays: "WWW",
       },
@@ -163,7 +165,7 @@ export default {
   methods: {
     updateEventSuccess() {},
     editSchedule() {
-      console.log("editSchedule");
+      this.fireOpenDialog("edit-schedule", this.schedule);
     },
     deleteSchedule() {
       console.log("delete Schedule");
