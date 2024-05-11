@@ -807,5 +807,6 @@
   "your-blogs": "Your blogs",
   "add-blog": "Add new blog",
   "add-schedule": "Add new schedule",
-  "edit-schedule": "Edit schedule"
+  "edit-schedule": "Edit schedule",
+  "confirm_delete_schedule_warning": "When you confirm deletion of the schedule, it will not be deleted before returning to the admin to ensure that there is no reservation on the schedule dates"
 }

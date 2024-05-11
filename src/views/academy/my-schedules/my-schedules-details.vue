@@ -67,16 +67,18 @@
     </vc-calendar>
 
     <DialogEditSchedule @success="updateEventSuccess" />
+    <DialogDeleteSchedule @success="updateEventSuccess" />
   </div>
 </template>
 
 <script>
-import schedules from "@/services/api/service-provider/schedules";
 import DialogEditSchedule from "./dialogs/edit-schedule/index.vue";
+import DialogDeleteSchedule from "./dialogs/delete-schedule/index.vue";
 export default {
   name: "my-schedule",
   components: {
     DialogEditSchedule,
+    DialogDeleteSchedule,
   },
   data() {
     const month = new Date().getMonth();
@@ -168,7 +170,7 @@ export default {
       this.fireOpenDialog("edit-schedule", this.schedule);
     },
     deleteSchedule() {
-      console.log("delete Schedule");
+      this.fireOpenDialog("delete-schedule", this.schedule);
     },
     async loadBlogCategories() {
       try {
