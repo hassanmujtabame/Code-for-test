@@ -3,30 +3,42 @@
     class="modal fade"
     style=""
     :style="styleObj"
-    :class="{show:dialog}"
-    :aria-hidden="!dialog?'true':'false'"
+    :class="{ show: dialog }"
+    :aria-hidden="!dialog ? 'true' : 'false'"
     :aria-labelledby="`modal-large-${modalId}`"
     tabindex="-1"
   >
     <div
       class="modal-dialog"
-      :class="{'modal-xl':xl&&!mlg,'modal-lg':mlg,'modal-dialog-centered':centered,'modal-fullscreen':fullscreen,
-        [dynamicTextClass]: true
-    }"
-    :style="styleProps"
+      :class="{
+        'modal-xl': xl && !mlg,
+        'modal-lg': mlg,
+        'modal-dialog-centered': centered,
+        'modal-fullscreen': fullscreen,
+        [dynamicTextClass]: true,
+      }"
+      :style="styleProps"
     >
       <div class="modal-content">
-        <div v-if="!hideHeader" class="modal-header" style="margin-right: auto; border-bottom:0; width: 100%;">
-          <h1 class="modal-title" :class="customHeaderClass" :id="`modal-large-${modalId}`">
+        <div
+          v-if="!hideHeader"
+          class="modal-header d-flex justify-content-between"
+          style="margin-right: auto; border-bottom: 0; width: 100%"
+        >
+          <h1
+            class="modal-title"
+            :class="customHeaderClass"
+            :id="`modal-large-${modalId}`"
+          >
             <slot name="header"></slot>
           </h1>
           <button
             type="button"
             class="btn-close"
-            @click="closeDialogLocal($event,true)"
-            :style="{'padding':fullscreen?'0 30px':null}"
+            @click="closeDialogLocal($event, true)"
+            :style="{ padding: fullscreen ? '0 30px' : null }"
             aria-label="Close"
-            style="margin:0 !important"
+            style="margin: 0 !important; color: #2cb7b3"
           ></button>
         </div>
         <div class="position-relative">
@@ -35,8 +47,15 @@
           <div class="modal-body">
             <slot :close="closeDialogLocal" :dialog="dialog"></slot>
           </div>
-          <div v-if="!hideFooter && $slots.actions" class="modal-footer justify-content-center">
-            <slot name="actions" :close="closeDialogLocal" :dialog="dialog"></slot>
+          <div
+            v-if="!hideFooter && $slots.actions"
+            class="modal-footer justify-content-center"
+          >
+            <slot
+              name="actions"
+              :close="closeDialogLocal"
+              :dialog="dialog"
+            ></slot>
           </div>
         </div>
       </div>
@@ -50,55 +69,55 @@ export default {
   props: {
     xl: {
       type: Boolean,
-      default: true
+      default: true,
     },
     mlg: {
       type: Boolean,
-      default: false
+      default: false,
     },
     fullscreen: {
       type: Boolean,
-      default: false
+      default: false,
     },
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     customHeaderClass: {
-      default: ""
+      default: "",
     },
     dynamicTextClass: {
-      default: ""
+      default: "",
     },
     styleProps: {
-      default: ""
+      default: "",
     },
     centered: {
       type: Boolean,
-      default: true
+      default: true,
     },
     hideHeader: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hideFooter: {
       type: Boolean,
-      default: false
+      default: false,
     },
     group: {
       type: String,
-      require: true
+      require: true,
     },
     openDialog: {
       type: Function,
-      default: null
+      default: null,
     },
     closeDialog: {
       type: Function,
-      default: null
-    }
+      default: null,
+    },
   },
-  data: vm => {
+  data: (vm) => {
     return {
       modalId: vm.generateRandomString(8),
       dialog: false,
@@ -108,16 +127,16 @@ export default {
     loading() {},
     xl() {},
     fullscreen() {},
-    mlg() {}
+    mlg() {},
   },
   computed: {
     styleObj() {
       return {
         "z-index": 99999999,
         background: "#000000a3",
-        display: this.dialog ? "block" : "none"
+        display: this.dialog ? "block" : "none",
       };
-    }
+    },
   },
 
   methods: {
@@ -146,7 +165,7 @@ export default {
         this.dialog = false;
         this.change();
       }
-    }
+    },
   },
   created() {
     window.EventBus.listen(this.group + "-open-dialog", this.openDialogLocal);
@@ -155,7 +174,7 @@ export default {
   beforeDestroy() {
     window.EventBus.off(this.group + "-open-dialog", this.openDialog);
     window.EventBus.off(this.group + "-close-dialog", this.closeDialog);
-  }
+  },
 };
 </script>
 
