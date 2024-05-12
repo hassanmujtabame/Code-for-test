@@ -554,7 +554,9 @@
   "add-project": "أضف المشروع",
   "project-course": "الدورة التابع لها المشروع",
   "chose-project-course": "اختار الدورة التابع لها المشروع",
-  "add-exam": "أضف إختبار",
+  "add-exam": "أضف اختبار",
+  "add-an-exam": "إضافة اختبار",
+  "add-exam-details": "قم بإضافة تفاصيل الاختبار المراد إضافته",
   "add-lecture": "أضف درس",
   "new-item": "عنصر جديد",
   "lecture-title": "عنوان الدرس",
@@ -569,7 +571,7 @@
   "GB": "جيغا",
   "TB": "تيرابايت",
   "exam-modification": "تعديل الاختبار",
-  "new-exam": "إختبار جديد",
+  "new-exam": "اختبار جديد",
   "exam-title": "عنوان الاختبار",
   "project-modification": "تعديل المشروع",
   "new-project": "مشروع جديد",
@@ -818,5 +820,6 @@
   "add-schedule": "أضف جدول",
   "edit-schedule": "تعديل الجدول",
   "confirm_delete_schedule_warning": "عند تأكيد حذف الجدول لن يتم حذفه قبل الرجوع الى الادمن  لتأكد من انه لا يوجد حجز في مواعيد الجدول",
-  "adjust-exams-settings": "ضبط إعدادات الاختبارات"
+  "adjust-exams-settings": "ضبط إعدادات الاختبارات",
+  "exam-course": "الدورة التابع لها الاختبار"
 }

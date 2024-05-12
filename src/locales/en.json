@@ -550,6 +550,8 @@
   "course-observation": "Present observation",
   "add-lecture": "Add lecture",
   "add-exam": "Add exam",
+  "add-an-exam": "Add an exam",
+  "add-exam-details": "Add the details of the exam you want to add",
   "add-project": "Add project",
   "new-item": "New item",
   "lecture-title": "Lecture title",
@@ -809,5 +811,6 @@
   "add-schedule": "Add new schedule",
   "edit-schedule": "Edit schedule",
   "confirm_delete_schedule_warning": "When you confirm deletion of the schedule, it will not be deleted before returning to the admin to ensure that there is no reservation on the schedule dates",
-  "adjust-exams-settings": "Adjust exams settings"
+  "adjust-exams-settings": "Adjust exams settings",
+  "exam-course": "The course to which the test belongs"
 }
