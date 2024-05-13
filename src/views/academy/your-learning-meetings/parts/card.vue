@@ -42,8 +42,8 @@ export default {
           return this.$t("live_meeting");
         case "on-site":
           return this.$t("on_site_meeting");
-        case "recored":
-          return this.$t("recored_meeting");
+        case "recorded":
+          return this.$t("recorded_meeting");
         default:
           return "نشاط";
       }
