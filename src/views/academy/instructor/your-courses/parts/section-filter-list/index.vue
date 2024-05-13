@@ -15,7 +15,7 @@
       <h4 class="text-cairo">{{ $t("your-courses") }}</h4>
     </template>
     <template v-slot:head-end>
-      <button class="btn btn-custmer py-3">
+      <button @click="addCourseFirst" class="btn btn-custmer py-3">
         <i class="fa-solid fa-plus"></i> أضف دورة تدريبية
       </button>
     </template>
