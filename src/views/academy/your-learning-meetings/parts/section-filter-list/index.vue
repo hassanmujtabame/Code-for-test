@@ -2,24 +2,29 @@
   <div class="container mt-5">
     <d-filter-list
       :call-list="loadList"
-      classColCard="col-12 col-md-4"
-      searchPlaceholder="أبحث  في قائمة القاءت"
       hideSide
+      classColCard="col-12 col-md-4"
+      classSearchOrder="col-12 col-md-6 justify-content-center "
+      classColSearch="col-12 col-md-8"
+      classColOrder="col-12 col-md-4"
+      classTitle="col-12 col-md-6"
+      searchPlaceholder="أبحث  في قائمة اللقاءات"
       @change="changeFilter"
+      orderName="created_at"
     >
-      <template v-slot:total="{}">
-        <h1>لقاءات تعليمية</h1>
+      <template v-slot:title>
+        <h4 class="text-cairo">{{ $t("your-learning-meetings") }}</h4>
       </template>
       <template v-slot:before-body>
-        <div class="row">
+        <div class="row mt-4">
           <div
             class="col-12 col-md-6 mb-3"
             v-for="btn in meetingType"
             :key="btn.id"
           >
             <button
-              class="btn w-100"
-              :class="[btn.active ? 'btn-custmer' : 'btn-default']"
+              class="btn w-100 py-3"
+              :class="[btn.active ? 'btn-custmer' : 'btn-custmer-w']"
               @click="getMeetingLearn(btn.id)"
             >
               {{ btn.text }}
@@ -111,4 +116,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h4 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #1fb9b3;
+}
+</style>
