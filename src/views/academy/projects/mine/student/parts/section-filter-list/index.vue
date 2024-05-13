@@ -1,23 +1,29 @@
 <template>
   <d-filter-list
     :fake-1items="items"
-    :call-list="loadList"
     classColCard="col-12"
-    searchPlaceholder=" أبحث  في قائمة المشاريع "
+    :call-list="loadList"
     hideSide
+    classSearchOrder="col-12 col-md-6 justify-content-center "
+    classColSearch="col-12 col-md-8"
+    classColOrder="col-12 col-md-4"
+    classTitle="col-12 col-md-6"
+    searchPlaceholder="أبحث  في قائمة المشاريع"
+    @change="changeFilter"
+    orderName="created_at"
   >
-    <template v-slot:total="{}">
-      <h1 class="fw-bold">مشاريعك</h1>
+    <template v-slot:title>
+      <h4 class="text-cairo">{{ $t("your-projects") }}</h4>
     </template>
     <template v-slot:before-body>
       <ul class="nav nav-pills mb-3">
         <li
           v-for="(btn, i) in actions"
           :key="i"
-          class="nav-item col-12 col-md-3"
+          class="nav-item col-12 col-md-3 px-2"
         >
           <button
-            class="nav-link border w-75 t-c m-auto"
+            class="nav-link border w-100 t-c m-auto py-2"
             :class="{ active: status == btn.status }"
             type="button"
             @click="changeStatus(btn.status)"
@@ -90,4 +96,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h4 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #1fb9b3;
+}
+</style>
