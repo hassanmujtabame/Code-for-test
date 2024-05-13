@@ -809,8 +809,12 @@
   "your-blogs": "Your blogs",
   "add-blog": "Add new blog",
   "add-schedule": "Add new schedule",
+  "my_schedule": "My schedule",
   "edit-schedule": "Edit schedule",
   "confirm_delete_schedule_warning": "When you confirm deletion of the schedule, it will not be deleted before returning to the admin to ensure that there is no reservation on the schedule dates",
   "adjust-exams-settings": "Adjust exams settings",
-  "exam-course": "The course to which the test belongs"
+  "exam-course": "The course to which the test belongs",
+  "your_exams_list": "Your exams list",
+  "your_courses_projects": "Your courses projects",
+  "training_and_employment_opportunities": "Training and employment opportunities"
 }

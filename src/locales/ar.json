@@ -497,7 +497,7 @@
   "academy-meetings": "لقاءات الأكاديمية",
   "your-courses": "دوراتك",
   "your-meetings": "لقاءاتك",
-  "your-learning-meetings": "لقاءات اشتركت بها",
+  "your-learning-meetings": "لقاءاتك التعليمية",
   "riadiat-academy": "أكاديمية رياديات",
   "search-by-course-or-instructor": "البحث باسم الدورة التدريبية أو باسم المدرب",
   "send_request_modify": "إرسال طلب التعديل",
@@ -818,8 +818,12 @@
   "your-blogs": "تدويناتك",
   "add-blog": "أضف تدوينة جديدة",
   "add-schedule": "أضف جدول",
+  "my_schedule": "جدولي",
   "edit-schedule": "تعديل الجدول",
   "confirm_delete_schedule_warning": "عند تأكيد حذف الجدول لن يتم حذفه قبل الرجوع الى الادمن  لتأكد من انه لا يوجد حجز في مواعيد الجدول",
   "adjust-exams-settings": "ضبط إعدادات الاختبارات",
-  "exam-course": "الدورة التابع لها الاختبار"
+  "exam-course": "الدورة التابع لها الاختبار",
+  "your_exams_list": "قائمة اختباراتك",
+  "your_courses_projects": "مشاريع دوراتك التدريبية",
+  "training_and_employment_opportunities": "فرص التدريب والتوظيف"
 }

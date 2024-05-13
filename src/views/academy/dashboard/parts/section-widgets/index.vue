@@ -10,9 +10,9 @@
             <cardIconSVG color="#1FB9B3" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #1fb9b3">دوراتك التدريبية</h3>
+            <h3 style="color: #1fb9b3">{{ $t("your-courses") }}</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('academy-your-courses')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -51,9 +51,9 @@
             <cardIconSVG color="#FFBC00" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #ffbc00">لقائات تعليمية</h3>
+            <h3 style="color: #ffbc00">{{ $t("your-learning-meetings") }}</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('academy-your-learning-meetings')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -92,9 +92,8 @@
             <cardIconSVG color="#F2631C" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #f2631c">النماذج</h3>
+            <h3 style="color: #f2631c">{{ $t("Models") }}</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -133,9 +132,9 @@
             <cardIconSVG color="#2C98B3" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #2c98b3">شهاداتك</h3>
+            <h3 style="color: #2c98b3">{{ $t("your-certificates") }}</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('academy-your-certificates')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -174,9 +173,9 @@
             <cardIconSVG color="#FFBC00" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #ffbc00">مشاريع دوراتك التدريبية</h3>
+            <h3 style="color: #ffbc00">{{ $t("your_courses_projects") }}</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('academy-my-projects')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -215,9 +214,9 @@
             <cardIconSVG color="#1FB9B3" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #1fb9b3">جدولي</h3>
+            <h3 style="color: #1fb9b3">{{ $t("my_schedule") }}</h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('academy-my-schedules')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -256,9 +255,10 @@
             <cardIconSVG color="#F2631C" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #2c98b3">فرص التدريب والتوظيف</h3>
+            <h3 style="color: #2c98b3">
+              {{ $t("training_and_employment_opportunities") }}
+            </h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -297,9 +297,11 @@
             <cardIconSVG color="#2C98B3" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #2c98b3">قائمة اختباراتك</h3>
+            <h3 style="color: #2c98b3">
+              {{ $t("your_exams_list") }}
+            </h3>
             <button
-              @click="router_push('service-provider-rate-my-service')"
+              @click="router_push('academy-your-exams')"
               style="
                 color: #888;
                 outline: 1px solid #888;
