@@ -389,7 +389,7 @@ textarea {
   background: white !important;
   border: 1px solid #1fb9b3 !important;
   border-radius: 8px !important;
-  padding: 10px 40px !important;
+  padding: 10px 40px;
   color: #1fb9b3 !important;
   font-size: 16px;
   line-height: 17px;

@@ -24,7 +24,7 @@
           >
             <button
               class="btn w-100 py-3"
-              :class="[btn.active ? 'btn-custmer' : 'btn-custmer-w']"
+              :class="[btn.active ? 'btn-custmer' : 'btn-custmer-w  ']"
               @click="getMeetingLearn(btn.id)"
             >
               {{ btn.text }}
@@ -37,13 +37,7 @@
           class="router-link"
           :to="getRouteLocale('academy-learning-meeting-show', { id: item.id })"
         >
-          <meetingCard
-            :item="item"
-            :img="item.image"
-            :title="item.title"
-            :type="item.type"
-            :date="item.date"
-          />
+          <meetingCard :item="item" />
         </router-link>
       </template>
     </d-filter-list>
@@ -51,7 +45,7 @@
 </template>
 
 <script>
-import meetingCard from "@/components/cards/meeting.vue";
+import meetingCard from "../card.vue";
 import academyAPI from "@/services/api/academy/index.js";
 export default {
   name: "filter-list",
@@ -81,7 +75,7 @@ export default {
         is_share: null,
         category_id: [],
       },
-      items: [{}, {}, {}, {}, {}, {}],
+      items: [],
     };
   },
   methods: {
