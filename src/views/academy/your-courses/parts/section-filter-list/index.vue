@@ -1,36 +1,61 @@
 <template>
   <d-filter-list
     :call-list="loadList"
-    classColCard="col-12 col-md-4 mt-3"
     hideSide
+    classColCard="col-12 col-md-4"
+    classSearchOrder="col-12 col-md-6 justify-content-center "
+    classColSearch="col-12 col-md-8"
+    classColOrder="col-12 col-md-4"
+    classTitle="col-12 col-md-6"
+    searchPlaceholder="أبحث  في قائمة دوراتك"
     @change="changeFilter"
+    orderName="created_at"
   >
-    <template v-slot:total="{}">
-      <h1 class="fw-bolder">دوراتي التدريبة</h1>
+    <template v-slot:title>
+      <h4 class="text-cairo">{{ $t("your-courses") }}</h4>
     </template>
     <template v-slot:before-body>
-      <div class="row">
-        <div class="col-12 col-md-6">
+      <div class="row my-3">
+        <div class="col-12 col-md-3">
           <button
-            @click="changeStatus('in-progress')"
+            @click="changeStatus('all')"
             class="btn w-100"
-            :class="[status == 'in-progress' ? 'btn-custmer' : 'btn-default']"
+            :class="[status == 'all' ? 'btn-custmer' : 'btn-custmer-w']"
           >
-            الدورات الحالية
+            كل الدورات
           </button>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-3">
           <button
-            @click="changeStatus('completed')"
+            @click="changeStatus('live')"
             class="btn w-100"
-            :class="[status == 'completed' ? 'btn-custmer' : 'btn-default']"
+            :class="[status == 'live' ? 'btn-custmer' : 'btn-custmer-w']"
           >
-            الدورات المنجزة
+            دورات مباشرة
+          </button>
+        </div>
+        <div class="col-12 col-md-3">
+          <button
+            @click="changeStatus('on-site')"
+            class="btn w-100"
+            :class="[status == 'on-site' ? 'btn-custmer' : 'btn-custmer-w']"
+          >
+            دورات حضورية
+          </button>
+        </div>
+        <div class="col-12 col-md-3">
+          <button
+            @click="changeStatus('recorded')"
+            class="btn w-100"
+            :class="[status == 'recorded' ? 'btn-custmer' : 'btn-custmer-w']"
+          >
+            دورات مسجلة
           </button>
         </div>
       </div>
       <div></div>
     </template>
+
     <template v-slot="{ item }">
       <CourseCard
         :item="item"
@@ -53,7 +78,7 @@ export default {
   },
   data: () => {
     return {
-      status: "in-progress",
+      status: "all",
       items: [],
       filterItem: {
         search: null,
@@ -99,4 +124,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h4 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #1fb9b3;
+}
+</style>
