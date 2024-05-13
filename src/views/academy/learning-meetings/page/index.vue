@@ -63,8 +63,10 @@
               />
             </div>
           </div>
-          <div class="col-12 px-3 my-4">
-            <div>
+          <div class="d-flex col-12 px-3 my-4 gap-2">
+            <div
+              :class="itemPage.type == 'on-site' ? 'col-md-8 col-12' : 'col-12'"
+            >
               <p
                 style="color: #2cb7b3; font-size: 20px; font-weight: bold"
                 class=""
@@ -98,16 +100,23 @@
                 >
                   {{ itemPage.title }}
                 </p>
-                <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
-                  {{ itemPage.content }}
-                </p>
-                <!-- <p class="t-c">
+                <p class="t-c">
                   <span v-if="itemPage.date">{{
                     dateTextMonth(itemPage.date)
                   }}</span>
                   <span v-if="itemPage.date"> | </span>
                   {{ itemPage.time ? timeFormatAMPM(itemPage.time) : "" }}
-                </p> -->
+                </p>
+                <p
+                  v-if="itemPage.map_address"
+                  style="color: #415c5e; font-size: 14px"
+                  class="py-2 px-2"
+                >
+                  {{ itemPage.map_address }}
+                </p>
+                <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
+                  {{ itemPage.content }}
+                </p>
               </div>
               <div class="d-flex my-2">
                 <button
@@ -118,6 +127,17 @@
                   انضم الى اللقاء
                 </button>
               </div>
+            </div>
+            <div
+              v-if="itemPage.type == 'on-site'"
+              :class="itemPage.type == 'on-site' ? 'col-md-4 col-12' : ''"
+            >
+              <GmapMap
+                :center="{ lat: 24.774265, lng: 46.738586 }"
+                :zoom="10"
+                style="width: 100%; height: 400px"
+              >
+              </GmapMap>
             </div>
           </div>
 
