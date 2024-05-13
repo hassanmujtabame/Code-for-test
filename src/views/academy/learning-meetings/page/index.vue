@@ -42,7 +42,28 @@
       </div>
       <div :id="`meeting-${meetingId}`" class="p-3">
         <div class="row">
-          <div class="col-md-6 px-3 my-4">
+          <div class="col-12 px-3">
+            <div>
+              <iframe
+                id="vimeoPlayer"
+                v-if="itemPage.video"
+                height="620px"
+                class="rounded-3 w-100"
+                :src="itemPage.video + '?title=0&&byline=0&&portrait=0'"
+                :title="itemPage.title"
+                allowfullscreen
+              ></iframe>
+              <img
+                :src="itemPage.image"
+                v-else
+                style="cursor: pointer"
+                class="border rounded-3 w-100"
+                height="620px"
+                :alt="itemPage.title"
+              />
+            </div>
+          </div>
+          <div class="col-12 px-3 my-4">
             <div>
               <p
                 style="color: #2cb7b3; font-size: 20px; font-weight: bold"
@@ -71,40 +92,22 @@
               >
                 {{ itemPage.categoryName }}
               </p> -->
-              <div class="d-flex align-items-center gap-2">
+              <div>
                 <p
                   style="color: #414042; font-size: 24px; font-weight: semibold"
                 >
                   {{ itemPage.title }}
                 </p>
-                <p class="t-c">
+                <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
+                  {{ itemPage.content }}
+                </p>
+                <!-- <p class="t-c">
                   <span v-if="itemPage.date">{{
                     dateTextMonth(itemPage.date)
                   }}</span>
                   <span v-if="itemPage.date"> | </span>
                   {{ itemPage.time ? timeFormatAMPM(itemPage.time) : "" }}
-                </p>
-                <p
-                  v-if="!itemPage.date"
-                  style="color: #cf1f3e; font-size: 14px"
-                >
-                  ٢٣ يوليو - ٢:٣٠ ص
-                </p>
-              </div>
-              <div
-                class="rounded-3 d-flex flex-column"
-                style="background-color: #fafafa"
-              >
-                <h1
-                  class="py-2 px-2"
-                  style="color: #cf1f3e; font-size: 20px; font-weight: semibold"
-                >
-                  تفاصيل الدورة
-                </h1>
-
-                <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
-                  {{ itemPage.content }}
-                </p>
+                </p> -->
               </div>
               <div class="d-flex my-2">
                 <button
@@ -118,28 +121,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 px-3">
-            <div>
-              <iframe
-                id="vimeoPlayer"
-                v-if="itemPage.video"
-                height="384"
-                class="rounded-3 w-100"
-                :src="itemPage.video + '?title=0&&byline=0&&portrait=0'"
-                :title="itemPage.title"
-                allowfullscreen
-              ></iframe>
-              <img
-                :src="itemPage.image"
-                v-else
-                style="cursor: pointer"
-                class="border rounded-3 w-100"
-                height="384"
-                :alt="itemPage.title"
-              />
-            </div>
-          </div>
-          <div
+          <!-- <div
             style="background-color: #fafafa"
             class="col-md-12 d-flex flex-column my-2 rounded-3"
           >
@@ -157,7 +139,7 @@
               <li style="list-style: none">٥. طريقة العمل</li>
               <li style="list-style: none">٦. ما العمل؟</li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- The modal -->
