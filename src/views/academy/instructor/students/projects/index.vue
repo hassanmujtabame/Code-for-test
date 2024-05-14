@@ -36,7 +36,11 @@
           <div class="project-attachments mt-4">ملف المشروع :</div>
 
           <div class="d-flex gap-2">
-            <button v-if="!delivered" class="btn btn-customer py-3 mt-5">
+            <button
+              v-if="!delivered"
+              @click="uploadProjectFile"
+              class="btn btn-customer py-3 mt-5"
+            >
               ارفع مشروعك الآن
             </button>
             <button v-if="delivered" class="btn btn-customer py-3 mt-5">
@@ -44,6 +48,13 @@
             </button>
             <button v-if="delivered" class="btn btn-customer-w py-3 mt-5">
               تعديل المشروع
+            </button>
+            <button
+              @click="rateProject"
+              v-if="delivered"
+              class="btn btn-customer-w py-3 mt-5"
+            >
+              تقييم المشروع
             </button>
           </div>
         </div>
@@ -63,6 +74,7 @@
       </div>
     </div>
     <project-note-dialog />
+    <upload-project-file-dialog />
   </div>
 </template>
 
@@ -70,12 +82,14 @@
 import cardItem from "./card-item.vue";
 import academyAPI from "@/services/api/academy";
 import projectNoteDialog from "./dialogs/project-note.vue";
+import uploadProjectFileDialog from "./dialogs/upload-project-file.vue";
 
 export default {
   name: "StudentProjects",
   components: {
     cardItem,
     projectNoteDialog,
+    uploadProjectFileDialog,
   },
   data() {
     return {
@@ -128,6 +142,12 @@ export default {
       } finally {
         this.loading = false;
       }
+    },
+    uploadProjectFile() {
+      this.fireOpenDialog("upload-project-file-dialog");
+    },
+    rateProject() {
+      this.fireOpenDialog("project-rate-dialog");
     },
   },
   mounted() {
