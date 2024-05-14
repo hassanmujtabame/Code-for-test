@@ -226,15 +226,6 @@ const routers = [
       ),
   },
   {
-    path: "academy/exams",
-    meta: { layout: LayoutDefault, auth: true, title: "Exams" },
-    name: "academy-exams",
-    component: () =>
-      import(
-        /* webpackChunkName: "academy-exams" */ "../views/academy/exams/index.vue"
-      ),
-  },
-  {
     path: "academy/my-exams",
     meta: { layout: LayoutDefault, auth: true, title: "My Exams" },
     name: "academy-your-exams",
