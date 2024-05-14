@@ -1,7 +1,7 @@
 <template>
   <div style="margin-top: 85px" class="consult">
-    <StudentExam v-if="userAcademyRole == 'student'" />
-    <InstructorExam v-if="userAcademyRole == 'instructor'" />
+    <StudentExam />
+    <!-- <InstructorExam v-if="userAcademyRole == 'instructor'" /> -->
     <SendToAllParticipants />
   </div>
 </template>
