@@ -1,23 +1,18 @@
 <template>
-      <div class="container mt-5">
+  <div class="container mt-5">
     <SectionFilterList />
-    </div>
+  </div>
 </template>
 
 <script>
-
-import SectionFilterList from './parts/section-filter-list/index';
+import SectionFilterList from "./parts/section-filter-list/index";
 
 export default {
-  name: 'your-exams-page',
-  components:{
-
+  name: "your-exams-page",
+  components: {
     SectionFilterList,
-
-  }
-}
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

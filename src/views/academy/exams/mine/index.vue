@@ -1,10 +1,8 @@
 <template>
   <div style="margin-top: 85px" class="consult">
-    <div class="bg-body-page">
-      <StudentExam v-if="userAcademyRole == 'student'" />
-      <InstructorExam v-if="userAcademyRole == 'instructor'" />
-      <SendToAllParticipants />
-    </div>
+    <StudentExam v-if="userAcademyRole == 'student'" />
+    <InstructorExam v-if="userAcademyRole == 'instructor'" />
+    <SendToAllParticipants />
   </div>
 </template>
 
