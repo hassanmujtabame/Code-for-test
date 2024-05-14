@@ -334,15 +334,6 @@ const routers = [
       ),
   },
   {
-    path: "academy/meetings",
-    meta: { layout: LayoutDefault, auth: true, title: "Meetings" },
-    name: "academy-meetings",
-    component: () =>
-      import(
-        /* webpackChunkName: "academy-meetings" */ "../views/academy/meetings/index.vue"
-      ),
-  },
-  {
     path: "academy/my-learning-meetings",
     meta: { layout: LayoutDefault, auth: true, title: "My Learning Meetings" },
     name: "academy-your-learning-meetings",
