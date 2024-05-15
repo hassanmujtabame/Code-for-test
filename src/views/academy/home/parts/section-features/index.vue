@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-5">
+  <div class="container my-5 icons-background">
     <h2 class="home-section-title text-center">مزايا أكاديمية رياديات</h2>
     <div class="row min-riadiat academy">
       <div
@@ -17,6 +17,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import CardItem from "./card-item";
 export default {
@@ -86,3 +87,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.icons-background {
+  padding-inline: 48px;
+  background-image: url("/src/assets/img/star-Icons.png"),
+    url("/src/assets/img/star-Icons.png");
+  background-size: auto 100%, auto 100%;
+  background-repeat: no-repeat, no-repeat;
+  background-position: 0px 0px, 100% 0px;
+}
+</style>
