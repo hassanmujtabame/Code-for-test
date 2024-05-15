@@ -8,7 +8,7 @@
 
     <!-- section 1-->
     <div class="my-5">
-      <SectionGuestHeader />
+      <subscriptionOfferingSection />
     </div>
     <!--#section 1-->
 
@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import SectionGuestHeader from "./parts/section-guest-header/index.vue";
+import subscriptionOfferingSection from "./parts/section-guest-header/index.vue";
 import StepTowardsLeadershipSection from "./parts/section-2/index.vue";
 import SectionThree from "./parts/section-3/index.vue";
 import SectionFeatures from "./parts/section-features/index.vue";
@@ -120,7 +120,7 @@ export default {
   name: "academy-home",
   components: {
     SectionTempForAds,
-    SectionGuestHeader,
+    subscriptionOfferingSection,
     StepTowardsLeadershipSection,
     SectionThree,
     SectionHelpsYou,

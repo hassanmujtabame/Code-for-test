@@ -54,6 +54,7 @@
   "Home-page": "Home",
   "network": "Network",
   "academy": "Academy",
+  "academy_": "Academy",
   "Babysitter": "Babysitter",
   "services-provider": "Services provider",
   "consulting": "Consulting",
@@ -348,6 +349,7 @@
   "attachment": "attachment",
   "search_by_service": "Search by service",
   "subscribe-now": "subscribe now!",
+  "subscribe-now-": "subscribe now",
   "confirm_join_meeting": "Confirm join",
   "confirm_cancel_join_meeting": "confirm cancel join meeting",
   "publish-story": "Publish my story",
@@ -823,5 +825,6 @@
   "send-date": "Send date",
   "your-exams": "Your exams",
   "your_step_towards_leadership": "Your step towards leadership",
-  "academy_your_step_towards_leadership_text": "It is the first entrepreneurship academy in Saudi Arabia, the Gulf, and the Arab world. The academy offers an advanced and user-friendly educational platform that serves everyone around the world, with training rooms equipped with the latest technologies and virtual rooms. The academy provides a range of educational and advisory services in the field of entrepreneurship and specialized skills, with qualified trainers in various fields."
+  "academy_your_step_towards_leadership_text": "It is the first entrepreneurship academy in Saudi Arabia, the Gulf, and the Arab world. The academy offers an advanced and user-friendly educational platform that serves everyone around the world, with training rooms equipped with the latest technologies and virtual rooms. The academy provides a range of educational and advisory services in the field of entrepreneurship and specialized skills, with qualified trainers in various fields.",
+  "academy_develop_your_skills_text": "Develop your skills and embark on the world of entrepreneurship and freelancing. The Entrepreneurs Academy will be with you every step of the way."
 }
