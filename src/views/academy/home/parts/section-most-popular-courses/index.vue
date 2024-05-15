@@ -1,31 +1,20 @@
 <template>
-  <div class="mt-5 p-3">
+  <div v-if="!loading" class="mt-5 p-3">
     <div class="container">
       <div class="row">
         <div
-          class="d-flex col-4 justify-content-between align-items-center container"
+          class="d-flex col-3 justify-content-center align-items-center container"
         >
-          <h1 style="color: #1fb9b3" class="home-section-title">
+          <div style="color: #1fb9b3" class="home-section-title text-cairo">
             الدورات <br />
-            <span class="text-dark">الأكثر</span> <br />
+            <span class="text-dark text-cairo">الأكثر</span> <br />
             شعبية
-          </h1>
-          <!-- <div>
-            <button class="more">
-              <router-link
-                :to="getRouteLocale('academy-courses')"
-                class="text-dark"
-              >
-                {{ $t("more") }}
-              </router-link>
-            </button>
-          </div> -->
+          </div>
         </div>
         <d-swiper
-          class="col-8"
-          v-if="!loading"
+          class="col-9"
           :slides-per-view="2"
-          :space-between="10"
+          :space-between="20"
           is-auto
           :items="items"
         >
@@ -76,4 +65,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.home-section-title {
+  text-align: center;
+}
+</style>

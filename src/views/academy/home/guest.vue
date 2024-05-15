@@ -14,6 +14,8 @@
 
     <!-- section 3-->
     <SectionFeatures />
+    <!--#section 3-->
+
     <!-- <SectionAds department="academy" /> -->
     <div class="my-5">
       <SectionTempForAds />
@@ -22,12 +24,16 @@
       <SectionHelpsYou />
     </div>
     <div class="my-5">
-      <sectionTopInstructor />
+      <AreYouSpecialInstructorSection />
     </div>
+    <div class="my-5">
+      <SectionMostPopularCourses />
+    </div>
+
     <div class="my-5">
       <SectionSubscribeNow />
     </div>
-    <!--#section 3-->
+
     <!-- section top instructor-->
     <!--#section top instructor-->
     <!-- section training-fields-->
@@ -55,9 +61,7 @@
     <div class="my-5">
       <SectionBestInstructors />
     </div>
-    <div class="my-5">
-      <SectionMostPopularCourses />
-    </div>
+
     <!--#section 9-->
     <!-- section 10-->
     <div class="my-5">
@@ -104,7 +108,7 @@ import SectionMostPopularCourses from "./parts/section-most-popular-courses/inde
 import SectionTempForAds from "./parts/section-temp-for-ads/index.vue";
 import SectionHelpsYou from "./parts/section-helps-you/index.vue";
 import SectionSubscribeNow from "./parts/section-subscribe-now/index.vue";
-import sectionTopInstructor from "./parts/section-top-instructor/index.vue";
+import AreYouSpecialInstructorSection from "./parts/section-top-instructor/index.vue";
 import SectionTrainingFields from "./parts/section-training-fields/index.vue";
 import SectionExploringEntrepreneurship from "./parts/section-exploring-entrepreneurship/index.vue";
 import SectionExploringSpecializedEntrepreneurship from "./parts/section-exploring-specialized-entrepreneurship/index.vue";
@@ -127,7 +131,7 @@ export default {
     SectionFeatures,
     SectionAds,
     SectionSubscribeNow,
-    sectionTopInstructor,
+    AreYouSpecialInstructorSection,
     SectionTrainingFields,
     SectionExploringEntrepreneurship,
     SectionExploringSpecializedEntrepreneurship,
