@@ -1,22 +1,22 @@
 <template>
-  <div class="bg-1 py-2 px-5 position-relative mt-5">
-    <div class="row align-items-center justify-content-center m-auto p-3">
+  <div class="bg-1 px-5 position-relative mt-5">
+    <div class="row align-items-center justify-content-center m-auto px-3">
       <div class="col-md-6 m-auto">
-        <h1 style="color: #2cb7b3" class="">هل انت مدرب مميز ؟</h1>
-        <p style="color: #737373" class="">
+        <h1 class="qustion">هل انت مدرب مميز ؟</h1>
+        <p class="section-text">
           أكاديمية رياديات تضم العديد من المدربين المميزين في الممكلة و الوطن
           العربي يمكنك أن تنضم لهذه العائلة الان !
         </p>
 
         <router-link
           :to="getRouteLocale('academy-speical')"
-          class="btn border px-4 py-2 text-white bg-transpernt svg-network"
+          class="btn rounded-3 px-5 py-3 mt-4 text-white bg-transpernt btn-text"
           style="background-color: #1fb9b3"
         >
           {{ $t("knows-more") }}
         </router-link>
       </div>
-      <div class="col-md-6 position-relative">
+      <div class="pt-5 col-md-6 position-relative">
         <img
           class="img-fluid"
           src="../../../../../assets/img/academy/Col.png"
@@ -25,17 +25,10 @@
       </div>
     </div>
 
-    <div class="star position-absolute">
-      <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="" />
-    </div>
-    <div class="square position-absolute">
-      <img class="landing" :src="`${publicPath}assets/img/square.png`" alt="" />
-    </div>
-    <div class="star-two position-absolute">
-      <img class="landing" :src="`${publicPath}assets/svg/start.svg`" alt="" />
-    </div>
     <div class="star-big position-absolute">
       <img
+        height=" 100%"
+        width="auto"
         class="landing"
         :src="`${publicPath}assets/svg/star-big.svg`"
         alt=""
@@ -51,7 +44,28 @@ export default {
 </script>
 
 <style>
+.qustion {
+  font-family: Cairo;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #2cb7b3;
+}
+.section-text {
+  font-family: Cairo;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 40px;
+  color: #737373;
+}
+.btn-text {
+  font-family: Cairo;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  text-align: center;
+}
 .bg-1 {
-  background-color: #1fb9b432 !important;
+  background-color: #f1f5f9 !important;
 }
 </style>
