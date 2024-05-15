@@ -9,11 +9,7 @@
           {{ $t("your_step_towards_leadership") }}
         </h1>
         <p class="home-section-text mt-5">
-          هي أول أكاديمية لريادة الأعمال في السعودية والخليج والعالم العربي.
-          تقدم الأكاديمية منصة تعليمية متطورة وسهلة الاستخدام تخدم الجميع حول
-          العالم، بقاعات تدريبية مجهزة بأحدث التقنيات وقاعات افتراضية. تقدم
-          الأكاديمية مجموعة من الخدمات التعليمية والإرشادية في مجال ريادة
-          الأعمال والمهارات المتخصصة، ومدربين مؤهلين في مجالات متعددة
+          {{ $t("academy_your_step_towards_leadership_text") }}
         </p>
       </div>
       <div class="col-12 col-md-5">
@@ -31,11 +27,6 @@
               src="../../../../../assets/img/academy/Frame 1171276924.png"
               alt=""
             />
-            <!-- <img
-              class="img-fluid"
-              src="@/assets/img/new/academy/Group 12.png"
-              alt=""
-            /> -->
           </div>
         </div>
       </div>
