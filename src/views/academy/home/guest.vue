@@ -1,15 +1,17 @@
 <template>
-  <div >
+  <div>
+    <!-- section 2-->
+    <div class="my-5">
+      <StepTowardsLeadershipSection />
+    </div>
+    <!--#section 2-->
+
     <!-- section 1-->
     <div class="my-5">
       <SectionGuestHeader />
     </div>
     <!--#section 1-->
-    <!-- section 2-->
-    <div class="my-5">
-      <SectionTwo />
-    </div>
-    <!--#section 2-->
+
     <!-- section 3-->
     <SectionFeatures />
     <!-- <SectionAds department="academy" /> -->
@@ -92,7 +94,7 @@
 
 <script>
 import SectionGuestHeader from "./parts/section-guest-header/index.vue";
-import SectionTwo from "./parts/section-2/index.vue";
+import StepTowardsLeadershipSection from "./parts/section-2/index.vue";
 import SectionThree from "./parts/section-3/index.vue";
 import SectionFeatures from "./parts/section-features/index.vue";
 // import sectionAdvertisements from './parts/section-advertisements/index.vue'
@@ -119,7 +121,7 @@ export default {
   components: {
     SectionTempForAds,
     SectionGuestHeader,
-    SectionTwo,
+    StepTowardsLeadershipSection,
     SectionThree,
     SectionHelpsYou,
     SectionFeatures,

@@ -2,30 +2,23 @@
   <div class="container mt-5">
     <div class="row align-items-center m-auto">
       <div class="col-12 col-md-7 text">
-        <h2 style="font-size: 36px" class="home-section-title">
-          اكاديمية رياديات
+        <h2 class="home-section-title">
+          {{ $t("riadiat-academy") }}
         </h2>
-        <h1 style="font-size: 64px" class="m-0">خطوتك نحو الريادة</h1>
-        <p class="home-section-text">
+        <h1 class="m-0 home-section-subtitle">
+          {{ $t("your_step_towards_leadership") }}
+        </h1>
+        <p class="home-section-text mt-5">
           هي أول أكاديمية لريادة الأعمال في السعودية والخليج والعالم العربي.
           تقدم الأكاديمية منصة تعليمية متطورة وسهلة الاستخدام تخدم الجميع حول
           العالم، بقاعات تدريبية مجهزة بأحدث التقنيات وقاعات افتراضية. تقدم
           الأكاديمية مجموعة من الخدمات التعليمية والإرشادية في مجال ريادة
           الأعمال والمهارات المتخصصة، ومدربين مؤهلين في مجالات متعددة
         </p>
-        <!-- <p class="home-section-text">
-          اكاديمية رياديات، وهي أول أكاديمية ريادة أعمال في السعودية والخليج،
-          تأسست خصيصًا للجيل الجديد من الرياديات والقيادات الريادية والمدراء
-          التنفيذيين الذين يبحثون عن فرص فريدة للتعلم من الخبراء في عالم
-          الأعمال. تقدم الأكاديمية منصة متطورة وسهلة الاستخدام تخدم الجميع حول
-          العالم، من خلال قاعات تدريبية مجهزة بأحدث التقنيات، بالإضافة إلى قاعات
-          افتراضية. وتقدم مجموعة من الخدمات التعليمية والإرشادية في مجال ريادة
-          متعددة.
-        </p> -->
       </div>
       <div class="col-12 col-md-5">
         <div>
-          <div class="bg-back position-relative">
+          <div class="bg-back side-img position-relative">
             <img
               style="z-index: 4"
               class="img-fluid position-relative"
@@ -52,8 +45,35 @@
 
 <script>
 export default {
-  name: "section-2",
+  name: "step-towards-leadership-section",
 };
 </script>
 
-<style></style>
+<style scoped>
+.home-section-title {
+  font-family: Cairo;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 70px;
+  color: #414042;
+}
+.home-section-subtitle {
+  font-family: Cairo;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 70px;
+  color: #414042;
+}
+.home-section-text {
+  font-family: Cairo;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 40px;
+}
+.side-img {
+  background-image: url("../../../../../assets/img/star-Icons.png");
+  background-position: left;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+</style>
