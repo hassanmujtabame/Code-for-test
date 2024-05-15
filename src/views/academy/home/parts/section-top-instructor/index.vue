@@ -2,10 +2,10 @@
   <div class="bg-1 px-5 position-relative mt-5">
     <div class="row align-items-center justify-content-center m-auto px-3">
       <div class="col-md-6 m-auto">
-        <h1 class="qustion">هل انت مدرب مميز ؟</h1>
+        <h1 class="qustion">هل أنت مدرب مميز ؟</h1>
         <p class="section-text">
           أكاديمية رياديات تضم العديد من المدربين المميزين في الممكلة و الوطن
-          العربي يمكنك أن تنضم لهذه العائلة الان !
+          العربي يمكنك أن تنضم لهذه العائلة الآن !
         </p>
 
         <router-link
