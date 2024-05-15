@@ -5,68 +5,14 @@
         class="row justify-content-between p-3 text-right"
         style="position: relative"
       >
-        <div
-          style="color: #2cb7b3; position: absolute; right: 10px; bottom: 10px"
-          class="git-hash"
-        >
-          {{ gitTag }} - {{ gitHash }}
-        </div>
         <div class="col-12 col-md-3 mt-2">
           <div>
-            <!-- <img :src="`${publicPath}assets/svg/logo-footer.svg`" width="100" /> -->
-            <!-- <img src="@/assets/logo-white.png" width="100" /> -->
             <img
               class="img-fluid"
               src="../../assets/img/footer/Group 6.png"
               alt="logo"
             />
           </div>
-          <!-- <div class="col-12 d-flex flex-row justify-content-center gap-2 mt-3">
-            <a
-              v-for="(m, i) in socialMedias"
-              :key="i"
-              :href="m.url"
-              class="text-white"
-              target="_blank"
-            >
-              <i
-                v-if="m.name == 'facebook'"
-                class="fab fa-facebook-f col-3"
-              ></i>
-              <i v-if="m.name == 'youtube'" class="fab fa-youtube col-3"></i>
-              <i
-                v-if="m.name == 'linkedin'"
-                class="fab fa-linkedin-in col-3"
-              ></i>
-              <i
-                v-if="m.name == 'instagram'"
-                class="fab fa-instagram col-3"
-              ></i>
-              <i v-if="m.name == 'whatsapp'" class="fab fa-whatsapp col-3"></i>
-              <i
-                v-if="m.name == 'twitter'"
-                class="fa-brands fa-x-twitter col-3"
-              ></i>
-              <i v-if="m.name == 'tiktok'" class="fab fa-tiktok col-3"></i>
-            </a>
-          </div> -->
-
-          <!-- <div class="row mx-auto">
-            <div class="my-2">
-              <router-link
-                class="text-white"
-                :to="
-                  getRouteLocale('terms-and-conditions-category', {
-                    category: category,
-                  })
-                "
-              >
-                {{ $t("terms-use") }}
-              </router-link>
-            </div>
-            <h6 style="color: white" class="mb-0">السجل التجارى: 1010457094</h6>
-            <h6 style="color: white">الرقم الضريبى: 310227304700003</h6>
-          </div> -->
         </div>
         <div class="col-12 col-md-7 mt-2">
           <div class="row justify-content-between nav">
@@ -75,8 +21,6 @@
               <router-link :to="getRouteLocale('who-are-we')" class="d-block">{{
                 $t("who-are-we")
               }}</router-link>
-
-              <!-- <a href="#" class="d-block">النماذج</a> -->
               <router-link
                 :to="getRouteLocale('network-models')"
                 class="d-block"
@@ -162,8 +106,6 @@
             <div class="text-end">
               <h6 style="color: #2cb7b3">منتجات رياديات</h6>
             </div>
-            <!-- <div class="d-flex flex-column"></div> -->
-
             <div class="align-items-center d-flex justify-content-center gap-2">
               <router-link :to="getRouteLocale('network-home')">
                 <img src="../../assets/img/footer/Logo.png" alt="" />
@@ -177,82 +119,17 @@
               <router-link :to="getRouteLocale('workspaces-home')">
                 <img src="../../assets/img/footer/Group 11549.png" alt="" />
               </router-link>
-              <!-- <img src="../../assets/img/footer/Group 11550.png" alt="" /> -->
-              <!-- <img src="../../assets/img/footer/Group 11552.png" alt="" /> -->
-              <!-- <img src="../../assets/img/footer/Group 11549.png" alt="" /> -->
             </div>
           </div>
-          <!-- <div class="d-flex align-items-center gap-2">
-            <div class="d-flex flex-column"></div>
-            <img src="../../assets/img/footer/Group 11550.png" alt="" />
-          </div> -->
-          <!-- <div class="d-flex align-items-center gap-2">
-            <div class="d-flex flex-column"></div>
-            <img src="../../assets/img/footer/Group 11552.png" alt="" />
-          </div> -->
-          <!-- <div class="d-flex align-items-center gap-2">
-            <div class="d-flex flex-column"></div>
-            <img src="../../assets/img/footer/Group 11549.png" alt="" />
-          </div> -->
         </div>
       </div>
-      <!-- <div
-        class="d-flex justify-content-between px-3 align-items-center"
-        style="background-color: #f6f8f9"
-      >
-        <div class="d-flex align-items-center gap-4">
-          <div class="d-flex flex-column gap-2">
-            <p style="color: #98a2b3">السجل التجاري</p>
-            <p style="color: #98a2b3">٢٣٤٥٦٧٨٩</p>
-          </div>
-          <div class="d-flex flex-column gap-2">
-            <p style="color: #98a2b3">الرقم الضريبي</p>
-            <p style="color: #98a2b3">١٢٣٤٥٦٧٨٩٠</p>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div style="border-color: var(--pc) !important;"
-        class="d-flex fs-2 justify-content-between align-items-center border border-1 p-3 rounded-4 ">
-        <a href="/"
-          class="d-flex header-logo align-items-center justify-content-center mb-2 mb-lg-0 text-dark text-decoration-none">
-          <div>
-            <img :src="`${publicPath}assets/svg/logo-footer.svg`" width="100" />
-          </div>
-        </a>
-        <div class="policy-links">
-          <router-link class="fs-2" :to="getRouteLocale('terms-and-conditions-category', { category: category })">
-            {{ $t("terms-use") }}
-          </router-link>
-          <a class="fs-2" style="cursor: pointer;" >
-            السجل التجارى: 1010457094
-
-          </a>
-          <a class="fs-2" style="cursor: pointer;">
-            الرقم الضريبى: 310227304700003
-          </a>
-        </div>
-        <div class="social mt-3">
-          <span class="d-block mb-3 text-center">تابعنا</span>
-          <a v-for="(m, i) in socialMedias" :key="i" :href="m.url" class="t-c" target="_blank">
-            <i v-if="m.name == 'facebook'" class="fab fa-facebook-f"></i>
-            <i v-if="m.name == 'youtube'" class="fab fa-youtube"></i>
-            <i v-if="m.name == 'linkedin'" class="fab fa-linkedin-in"></i>
-            <i v-if="m.name == 'instagram'" class="fab fa-instagram"></i>
-            <i v-if="m.name == 'twitter'" class="fab fa-twitter"></i>
-            <i v-if="m.name == 'tiktok'" class="fab fa-tiktok"></i>
-          </a>
-        </div>
-      </div> -->
     </div>
     <d-success-message />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
-    <!-- <a href="https://wa.me/966504913601" class="float" target="_blank">
-      <i class="fa fa-whatsapp my-float"></i>
-    </a> -->
+
     <div
       class="py-4 d-flex align-items-center justify-content-between px-5"
       style="background-color: #f6f8f9"
@@ -269,9 +146,11 @@
       </div>
 
       <div class="copy-rights">
-        <p style="color: #98a2b3">
-          {{ $t("Riadiat") }} <i class="fa-regular fa-copyright"></i> 2024
-          {{ gitTag }}
+        <p class="d-flex align-items-center gap-1" style="color: #98a2b3">
+          <span> {{ $t("Riadiat") }}</span>
+          <span> {{ gitTag }} </span>
+          <span><i class="fa-regular fa-copyright"></i></span>
+          <span>{{ currentYear }}</span>
         </p>
       </div>
       <div class="d-flex flex-column">
@@ -313,6 +192,7 @@ export default {
   props: ["category"],
   data() {
     return {
+      currentYear: new Date().getFullYear(),
       instagramUrl: process.env.VUE_APP_INSTAGRAM,
       twitterUrl: process.env.VUE_APP_TWITTER,
       facebookUrl: process.env.VUE_APP_FACEBOOK,
@@ -320,7 +200,6 @@ export default {
       snapchatUrl: process.env.VUE_APP_SANPCHAT,
       tiktokUrl: process.env.VUE_APP_TIKTOK,
       youtubeUrl: process.env.VUE_APP_YOUTUBE,
-      gitHash: process.env.VUE_APP_GIT_HASH.toUpperCase(),
       gitTag: process.env.VUE_APP_GIT_TAG,
     };
   },
