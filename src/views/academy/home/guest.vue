@@ -30,16 +30,12 @@
       <SectionMostPopularCourses />
     </div>
 
-    <div class="my-5">
-      <SectionSubscribeNow />
-    </div>
+    <SectionSubscribeNow />
 
-    <!-- section top instructor-->
-    <!--#section top instructor-->
     <!-- section training-fields-->
-    <div class="my-5">
-      <SectionTrainingFields />
-    </div>
+
+    <SectionTrainingFields />
+
     <!--#section training-fields-->
 
     <!-- section exploring-entrepreneurship-->
