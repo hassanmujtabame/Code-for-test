@@ -192,10 +192,13 @@
           "
           class="col-md-4 rounded-3 box"
         >
-          <SectionLectures
-            v-if="itemPage.type == 'recorded'"
-            :itemPage="itemPage"
-          />
+          <div class="d-flex flex-column align-items-center gap-1">
+            <SectionLectures
+              class="d-flex w-100 align-items-center justify-content-between rounded-3 overflow-y-auto px-4"
+              v-if="itemPage.type == 'recorded'"
+              :itemPage="itemPage"
+            />
+          </div>
         </div>
         <div class="col-12">
           <SectionSimilarCourses :itemPage="itemPage" />

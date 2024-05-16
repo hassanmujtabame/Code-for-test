@@ -10,12 +10,14 @@
 * Push your changes to your branch.
 * Don't forget to [create pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to the **develop** branch after ensuring your code is working.
 * Let your passion for coding shine through your code, have fun ☺️.
+* Don't forget to be updated with develop branch.
 
 ## Installation
 ```bash
 git clone git@github.com:riadiat/riadiat.sa.git
 cd riadiat.sa
 git checkout develop
+cp .env-example .env
 npm install
 ```
 
