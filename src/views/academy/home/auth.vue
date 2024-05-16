@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <!-- section 1-->
     <SectionAuthHeader />
     <!--#section 1-->
@@ -26,16 +26,20 @@
     <div>
       <SectionMostPopularCourses />
     </div>
-    <div>
+
+    <!-- section training-fields-->
+    <SectionTrainingFields />
+    <!--#section training-fields-->
+
+    <!--  <div>
       <CardCategory />
-    </div>
+    </div> -->
+
     <SectionSubscribeNow />
     <SectionOurPartners />
 
     <!--#section top instructor-->
-    <!-- section training-fields-->
-    <SectionTrainingFields />
-    <!--#section training-fields-->
+
     <!-- section exploring-entrepreneurship-->
     <section-exploring-entrepreneurship />
     <!--#section exploring-entrepreneurship-->
@@ -82,8 +86,8 @@
 import SectionAuthHeader from "./parts/section-auth-header/index.vue";
 import SectionTwo from "./parts/section-2/index.vue";
 import SectionThree from "./parts/section-3/index.vue";
-import SectionFeatures from "../../../components/academy-features.vue";
-// import SectionFeatures from "./parts/section-features/index.vue";
+//import SectionFeatures from "../../../components/academy-features.vue";
+import SectionFeatures from "./parts/section-features/index.vue";
 // import sectionAdvertisements from './parts/section-advertisements/index.vue'
 import SectionAds from "@/common/components/advertisements/index.vue";
 import SectionMostPopularCourses from "./parts/section-most-popular-courses/index.vue";
