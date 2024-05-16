@@ -18,12 +18,18 @@
         >{{ $t("network") }}</router-link
       > -->
       <b-dropdown class="custom-dropdown" :text="'الشبكة'">
-        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
+        <b-dropdown-item
+          class="nav-link nav-item text-right"
+          style="cursor: pointer"
+        >
           <router-link :to="{ name: 'network-home' }" class="nav-link">
             الصفحه الرئيسيه
           </router-link>
         </b-dropdown-item>
-        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
+        <b-dropdown-item
+          class="nav-link nav-item text-right"
+          style="cursor: pointer"
+        >
           <!-- {{ $t("Exhibitions") }} -->
           <router-link
             :to="getRouteLocale('network-exhibitions')"
@@ -31,7 +37,10 @@
             >{{ $t("Exhibitions") }}</router-link
           >
         </b-dropdown-item>
-        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
+        <b-dropdown-item
+          class="nav-link nav-item text-right"
+          style="cursor: pointer"
+        >
           <!-- {{ $t("Offers") }} -->
           <router-link
             :to="getRouteLocale('network-offers')"
@@ -39,13 +48,19 @@
             >{{ $t("Offers") }}</router-link
           >
         </b-dropdown-item>
-        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
+        <b-dropdown-item
+          class="nav-link nav-item text-right"
+          style="cursor: pointer"
+        >
           <!-- {{ $t("Offers") }} -->
           <router-link :to="getRouteLocale('network-company')" class="nav-link"
             >الشركات</router-link
           >
         </b-dropdown-item>
-        <b-dropdown-item class="nav-link nav-item text-right" style="cursor: pointer">
+        <b-dropdown-item
+          class="nav-link nav-item text-right"
+          style="cursor: pointer"
+        >
           <router-link
             :to="getRouteLocale('network-models')"
             class="nav-link"
@@ -451,6 +466,8 @@ export default {
       this.switchRoleAcademy(newRole);
     },
     checkSubscriptionOptions() {
+      if (!this.user) return;
+      if (!this.user.subscription_options) return;
       for (
         let index = 0;
         index < this.user.subscription_options.length;
