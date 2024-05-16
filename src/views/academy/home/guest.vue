@@ -45,19 +45,19 @@
     <!--#section 12-->
 
     <!-- section exploring-entrepreneurship-->
-    <div class="my-5">
+    <!-- <div class="my-5">
       <section-exploring-entrepreneurship />
-    </div>
+    </div> -->
     <!--#section exploring-entrepreneurship-->
     <!-- section exploring-specialized-entrepreneurship-->
-    <div class="my-5">
+    <!-- <div class="my-5">
       <section-exploring-specialized-entrepreneurship />
-    </div>
+    </div> -->
     <!--#section exploring-specialized-entrepreneurship-->
     <!-- section section-academy-schedule-->
-    <div class="my-5">
+    <!-- <div class="my-5">
       <section-academy-schedule />
-    </div>
+    </div> -->
     <!--#section section-academy-schedule-->
     <!-- section 9-->
     <div class="my-5">
@@ -71,15 +71,15 @@
     </div>
     <!--#section 10-->
     <!-- section 11-->
-    <div class="my-5">
+    <!-- <div class="my-5">
       <SectionRecentCourses />
-    </div>
+    </div> -->
     <!--#section 11-->
 
     <!-- section 13-->
-    <div class="my-5">
+    <!-- <div class="my-5">
       <SectionAcademyNumbers />
-    </div>
+    </div> -->
     <!--#section 13-->
     <!-- section 14-->
     <div class="my-5">
