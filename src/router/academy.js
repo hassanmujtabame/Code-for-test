@@ -360,6 +360,20 @@ const routers = [
     path: "academy/instructor/my-meetings",
     meta: { layout: LayoutDefault, auth: true, title: "My Meetings" },
     name: "academy-instructor-my-meetings",
+    beforeEnter: (to, from, next) => {
+      // ...
+      console.log("About Route Guard");
+      if (window.store.getters["auth/academyRole"] != "instructor") {
+        // Redirect to home page
+        next({
+          name: "academy-your-learning-meetings",
+          params: { lang: window.i18n.locale },
+        });
+      } else {
+        // Proceed to route
+        next();
+      }
+    },
     component: () =>
       import(
         /* webpackChunkName: "academy-my-meetings" */ "../views/academy/learning-meetings/mine/index.vue"

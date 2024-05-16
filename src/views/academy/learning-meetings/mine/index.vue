@@ -28,6 +28,13 @@ export default {
     SendToAllParticipants,
     AddMeetingDialog,
   },
+  watch: {
+    userAcademyRole(newRole) {
+      if (newRole != "instructor") {
+        this.router_push("academy-your-learning-meetings");
+      }
+    },
+  },
   methods: {
     addItem() {
       this.loadCurrentUser();
