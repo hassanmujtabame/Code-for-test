@@ -8,7 +8,7 @@
         <div class="row py-5">
           <d-swiper
             class="my-swiper-container"
-            :slides-per-view="3"
+            :slides-per-view="5.5"
             :space-between="3"
             is-auto
             :items="items"
