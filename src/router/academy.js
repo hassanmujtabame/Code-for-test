@@ -306,6 +306,20 @@ const routers = [
     path: "academy/instructor/exams-settings",
     meta: { layout: LayoutDefault, auth: true, title: "Exams settings" },
     name: "academy-instructor-exams-settings",
+    beforeEnter: (to, from, next) => {
+      // ...
+      console.log("About Route Guard");
+      if (window.store.getters["auth/academyRole"] != "instructor") {
+        // Redirect to home page
+        next({
+          name: "academy-your-exams",
+          params: { lang: window.i18n.locale },
+        });
+      } else {
+        // Proceed to route
+        next();
+      }
+    },
     component: () =>
       import(
         /* webpackChunkName: "academy-instructor-exams" */ "../views/academy/instructor/exams/exams-settings.vue"
