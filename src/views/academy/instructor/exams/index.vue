@@ -6,7 +6,9 @@
           <div class="row align-items-center mb-3">
             <div class="col-12 col-md-3 mt-3">
               <h4 class="text-cairo">الاختبارت</h4>
-              <router-link :to="getRouteLocale('academy-exams-settings')">
+              <router-link
+                :to="getRouteLocale('academy-instructor-exams-settings')"
+              >
                 <p class="exams-settings text-cairo">
                   <i class="fa-solid fa-gear"></i>
                   {{ $t("adjust-exams-settings") }}
@@ -133,6 +135,17 @@ export default {
     coursesHasExams,
     studentsPassExams,
     studentsFailsExams,
+  },
+
+  watch: {
+    userAcademyRole(newRole) {
+      if (newRole != "instructor") {
+        this.router_push("academy-your-exams");
+      }
+    },
+  },
+  methods: {
+    addItem() {},
   },
 };
 </script>

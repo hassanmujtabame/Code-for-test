@@ -3,7 +3,7 @@
     style="background-color: #1fb9b3"
     class="py-2 px-5 position-relative mt-5"
   >
-    <div class="row align-items-center text-center m-auto">
+    <div class="container row align-items-center text-center m-auto">
       <div class="col-md-6 mt-4">
         <h2 class="text-white fs-1">
           أكملي دوراتك، مراسلاتك وشاركي فـــــــي الشبكة والحاضنة من خلال تطبيق

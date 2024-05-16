@@ -1,9 +1,9 @@
 <template>
   <div class="container" style="background-color: #e8f8f7">
     <div class="row">
-      <div class="ad-content col-12 col-md-8 d-flex flex-column gap-2">
-        <div class="ad-title">يقدم لكم رياديات خصم 30% هذا الموسم</div>
-        <p class="ad-text">
+      <div class="side-content col-12 col-md-8 d-flex flex-column gap-2">
+        <div class="side-title">يقدم لكم رياديات خصم 30% هذا الموسم</div>
+        <p class="side-text">
           يسري العرض الترويجي من 1 مايو 2024 إلى 30 يونيو 2024
         </p>
         <button
@@ -31,18 +31,18 @@ export default {
 </script>
 
 <style scoped>
-.ad-content {
+.side-content {
   padding-block: 50px;
   padding-inline: 100px;
 }
-.ad-title {
+.side-title {
   font-family: Cairo;
   font-size: 56px;
   font-weight: 700;
   line-height: 78.4px;
   color: #2cb7b3;
 }
-.ad-text {
+.side-text {
   font-family: Cairo;
   font-size: 24px;
   font-weight: 400;

@@ -26,6 +26,13 @@ export default {
     AddCourseRecordedDialog,
     AddCourseOnSiteDialog,
   },
+  watch: {
+    userAcademyRole(newRole) {
+      if (newRole != "instructor") {
+        this.router_push("academy-your-courses");
+      }
+    },
+  },
 };
 </script>
 

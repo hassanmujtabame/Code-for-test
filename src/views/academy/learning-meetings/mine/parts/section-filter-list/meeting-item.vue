@@ -38,9 +38,7 @@ export default {
       this.$emit("delete", this.item);
     },
   },
-  mounted() {
-    console.log(this.item);
-  },
+  mounted() {},
 };
 </script>
 

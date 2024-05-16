@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "section-definition/2",
+  name: "section-definition-2",
 };
 </script>
 
