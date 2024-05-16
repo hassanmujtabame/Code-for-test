@@ -27,7 +27,7 @@
       </span>
     </p>
     <p style="color: #737373" class="px-3 py-2">
-      {{ item.content }}
+      {{ item.desc }}
     </p>
   </div>
 </template>

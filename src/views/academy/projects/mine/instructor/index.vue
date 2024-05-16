@@ -68,7 +68,6 @@
       </template>
 
       <template v-slot="{ item }">
-        {{ item }}
         <CardItem :item="item" @delete="confirmDeleteItem" />
       </template>
     </d-filter-list>
