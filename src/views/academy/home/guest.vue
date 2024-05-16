@@ -30,13 +30,19 @@
       <SectionMostPopularCourses />
     </div>
 
-    <SectionSubscribeNow />
-
     <!-- section training-fields-->
 
     <SectionTrainingFields />
 
     <!--#section training-fields-->
+
+    <SectionSubscribeNow />
+
+    <!-- section 12-->
+    <div class="my-5">
+      <SectionOurPartners />
+    </div>
+    <!--#section 12-->
 
     <!-- section exploring-entrepreneurship-->
     <div class="my-5">
@@ -69,11 +75,7 @@
       <SectionRecentCourses />
     </div>
     <!--#section 11-->
-    <!-- section 12-->
-    <div class="my-5">
-      <SectionOurPartners />
-    </div>
-    <!--#section 12-->
+
     <!-- section 13-->
     <div class="my-5">
       <SectionAcademyNumbers />
