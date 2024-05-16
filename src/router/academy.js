@@ -256,6 +256,17 @@ const routers = [
     path: "academy/instructor/my-students/:id(\\d+)",
     meta: { layout: LayoutDefault, auth: true, title: "My Student Show" },
     name: "academy-instructor-your-student-show",
+    beforeEnter: (to, from, next) => {
+      // ...
+      console.log("About Route Guard");
+      if (window.store.getters["auth/academyRole"] != "instructor") {
+        // Redirect to home page
+        next("/");
+      } else {
+        // Proceed to route
+        next();
+      }
+    },
     component: () =>
       import(
         /* webpackChunkName: "academy-instructor-your-student-show" */ "../views/academy/instructor/students/page/index.vue"
@@ -265,6 +276,20 @@ const routers = [
     path: "academy/instructor/my-courses",
     meta: { layout: LayoutDefault, auth: true, title: "My Courses" },
     name: "academy-instructor-your-courses",
+    beforeEnter: (to, from, next) => {
+      // ...
+      console.log("About Route Guard");
+      if (window.store.getters["auth/academyRole"] != "instructor") {
+        // Redirect to home page
+        next({
+          name: "academy-your-courses",
+          params: { lang: window.i18n.locale },
+        });
+      } else {
+        // Proceed to route
+        next();
+      }
+    },
     component: () =>
       import(
         /* webpackChunkName: "academy-instructor-your-courses" */ "../views/academy/instructor/your-courses/index.vue"
