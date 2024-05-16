@@ -1,14 +1,17 @@
 <template>
-  <div style="margin-top: 96px">
+  <div style="margin-top: 96px; background-color: #fafafa">
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
     <div v-else class="container blog-page">
-      <div class="position-relative">
+      <div
+        class="position-relative rounded-3"
+        style="height: 400px; overflow: hidden"
+      >
         <img
-          class="w-100"
+          class="w-100 header-img"
           :src="itemPage.image"
           :alt="itemPage.title"
-          height="432"
+          @error="handleImageError"
         />
         <div class="d-flex gap-2 position-absolute bottom-0 data">
           <p
@@ -22,21 +25,16 @@
         </div>
       </div>
 
-      <div class="row mt-5">
-        <div class="col-12 col-md-7">
+      <div class="row mt-5 title-bar rounded-3">
+        <div class="p-3 col-12 col-md-7">
           <h3 class="m-c">{{ itemPage.title }}</h3>
-          <p style="color: #888">
+          <p style="color: #cdd7d8">
             تاريخ النشر
 
             {{ itemPage.created_at }}
           </p>
-          <div
-            class="pargrapg"
-            style="width: 85%; word-wrap: break-word"
-            v-html="itemPage.description"
-          ></div>
         </div>
-        <div class="col-12 col-md-5">
+        <div class="col-12 col-md-5 m-auto">
           <div v-if="isOwner" class="box rounded-3 p-2">
             <div class="text-start">
               <button
@@ -69,7 +67,6 @@
                   </defs>
                 </svg>
 
-                <!-- <img :src="`${publicPath}assets/svg/update.svg`" /> -->
                 تعديل
               </button>
               <button
@@ -77,7 +74,6 @@
                 @click="openDeleteDialog"
                 class="btn rounded-3 px-4 mx-1 py-2"
               >
-                <!-- <img :src="`${publicPath}assets/svg/trash-outline.svg`" /> -->
                 <svg
                   width="16"
                   height="16"
@@ -112,8 +108,20 @@
             :member="itemPage.user_info"
             routeName="academy-show-profile"
           />
-          <div class="box border rounded-3 p-2 mt-3">
-            <h3 style="color: #1fb9b3">تدوينات أخرى</h3>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-12 col-md-7">
+          <div
+            class="pargrapg"
+            style="width: 85%; word-wrap: break-word"
+            v-html="itemPage.description"
+          ></div>
+        </div>
+        <div class="col-12 col-md-5">
+          <div class="box bg-white rounded-3 p-4 mt-3">
+            <h3 class="my-4 other-blogs">تدوينات أخرى</h3>
 
             <div
               class=""
@@ -121,15 +129,16 @@
               :key="index"
             >
               <div
-                class="box rounded-3 gap-2 flex-md-row flex-column d-flex align-items-center border mt-3"
+                class="box bg-white rounded-3 gap-2 flex-md-row flex-column d-flex align-items-center border mt-3"
               >
-                <div class="image">
+                <div class="image p-3 rounded-3">
                   <img
-                    width="250px"
-                    class=""
+                    width="210px"
+                    class="rounded-3"
                     :src="blog.image"
                     alt=""
                     height="184"
+                    @error="handleImageError"
                   />
                 </div>
                 <div class="d-flex flex-column">
@@ -142,141 +151,9 @@
                   >
                     اعرف المزيد
                   </router-link>
-                  <!-- <div class="date d-flex justify-content-between mx-1 p-3">
-                    <p
-                      v-for="(cat, c) in blog.categories"
-                      :key="c"
-                      :style="{ 'background-color': colors[c % 3] }"
-                      class="m-c p-1 rounded-3"
-                    ></p>
-                    {{ cat.name }}
-                    <p>
-                      {{ blog.date }}
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
-                          fill="#979797"
-                        />
-                      </svg>
-                    </p>
-                  </div> -->
                 </div>
               </div>
             </div>
-            <!-- 
-            <div class="blogs-auhter">
-              <div class="box rounded-3 border mt-3">
-                <div class="image">
-                  <img class="w-100" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="" height="184">
-                </div>
-                <div class="text p-3">
-                  <h5>عنوان المدونة </h5>
-                  <p>
-                    نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي
-                  </p>
-                </div>
-                <div class="date d-flex justify-content-between mx-1 p-3">
-                  <p class="m-c">
-                    ريادة الاعمال
-                  </p>
-                  <p>
-                    10 sep, 2021
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
-                        fill="#979797" />
-                    </svg>
-
-                  </p>
-
-                </div>
-
-              </div>
-              <div class="box rounded-3 border mt-3">
-                <div class="image">
-                  <img class="w-100" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="" height="184">
-                </div>
-                <div class="text p-3">
-                  <h5>عنوان المدونة </h5>
-                  <p>
-                    نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي
-                  </p>
-                </div>
-                <div class="date d-flex justify-content-between mx-1 p-3">
-                  <p class="m-c">
-                    ريادة الاعمال
-                  </p>
-                  <p>
-                    10 sep, 2021
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
-                        fill="#979797" />
-                    </svg>
-
-                  </p>
-
-                </div>
-
-              </div>
-              <div class="box rounded-3 border mt-3">
-                <div class="image">
-                  <img class="w-100" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="" height="184">
-                </div>
-                <div class="text p-3">
-                  <h5>عنوان المدونة </h5>
-                  <p>
-                    نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي
-                  </p>
-                </div>
-                <div class="date d-flex justify-content-between mx-1 p-3">
-                  <p class="m-c">
-                    ريادة الاعمال
-                  </p>
-                  <p>
-                    10 sep, 2021
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
-                        fill="#979797" />
-                    </svg>
-
-                  </p>
-
-                </div>
-
-              </div>
-              <div class="box rounded-3 border mt-3">
-                <div class="image">
-                  <img class="w-100" :sr="`${publicPath}assets/img/Rectangle 1768.png`" alt="" height="184">
-                </div>
-                <div class="text p-3">
-                  <h5>عنوان المدونة </h5>
-                  <p>
-                    نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي نص تعريفي
-                  </p>
-                </div>
-                <div class="date d-flex justify-content-between mx-1 p-3">
-                  <p class="m-c">
-                    ريادة الاعمال
-                  </p>
-                  <p>
-                    10 sep, 2021
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
-                        fill="#979797" />
-                    </svg>
-                  </p>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
@@ -332,6 +209,11 @@ export default {
 
       this.loading = false;
     },
+
+    handleImageError(event) {
+      // Handle the image error by replacing the src attribute with the placeholder image URL
+      event.target.src = "/assets/img/no-img.png"; // Replace with your placeholder image URL
+    },
   },
   mounted() {
     this.initializing();
@@ -340,7 +222,20 @@ export default {
 </script>
 
 <style>
+.other-blogs {
+  font-family: Cairo;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1fb9b3;
+}
+.header-img {
+  height: 400px;
+  object-fit: cover;
+}
 .blog-page .pargrapg > * {
   width: 100% !important;
+}
+.title-bar {
+  background-color: white !important;
 }
 </style>

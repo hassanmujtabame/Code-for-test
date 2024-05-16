@@ -227,7 +227,7 @@ export default {
           name: "لقاءات تعليمية",
           description:
             "نأخذك خطوة ثم خطوة في عالم ريادة الاعمال مع العديد من الدورات واللقاءات التعليمية وورش التعليم والتدريب علي يد مجموعة من افضل الخبراء",
-          to: "academy-meetings",
+          to: "academy-learning-meetings",
           img: "section-features/3.png",
         },
 

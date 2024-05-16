@@ -179,16 +179,34 @@ const routers = [
     name: "academy-course-add-exam",
     component: () => import("../views/academy/instructor/add-exam/index.vue"),
   },
+  // {
+  //   path: "academy/projects",
+  //   meta: { layout: LayoutDefault, auth: true, title: "Projects" },
+  //   name: "academy-projects",
+  //   component: () =>
+  //     import(
+  //       /* webpackChunkName: "academy-projects" */ "../views/academy/projects/index.vue"
+  //     ),
+  // },
+  // Add meta title to the remaining routes...
   {
-    path: "academy/projects",
-    meta: { layout: LayoutDefault, auth: true, title: "Projects" },
-    name: "academy-projects",
+    path: "academy/projects-settings",
+    meta: { layout: LayoutDefault, auth: true, title: "Projects settings" },
+    name: "academy-projects-settings",
     component: () =>
       import(
-        /* webpackChunkName: "academy-projects" */ "../views/academy/projects/index.vue"
+        /* webpackChunkName: "academy-my-projects" */ "../views/academy/projects/project-settings.vue"
       ),
   },
-  // Add meta title to the remaining routes...
+  {
+    path: "academy/add-project",
+    meta: { layout: LayoutDefault, auth: true, title: "Add project" },
+    name: "academy-add-project",
+    component: () =>
+      import(
+        /* webpackChunkName: "academy-add-projects" */ "../views/academy/projects/Add-project.vue"
+      ),
+  },
   {
     path: "academy/my-projects",
     meta: { layout: LayoutDefault, auth: true, title: "My Projects" },
@@ -205,15 +223,6 @@ const routers = [
     component: () =>
       import(
         /* webpackChunkName: "academy-my-project" */ "../views/academy/instructor/students/projects/index.vue"
-      ),
-  },
-  {
-    path: "academy/exams",
-    meta: { layout: LayoutDefault, auth: true, title: "Exams" },
-    name: "academy-exams",
-    component: () =>
-      import(
-        /* webpackChunkName: "academy-exams" */ "../views/academy/exams/index.vue"
       ),
   },
   {
@@ -280,6 +289,15 @@ const routers = [
       ),
   },
   {
+    path: "academy/instructor/exams-settings",
+    meta: { layout: LayoutDefault, auth: true, title: "Exams settings" },
+    name: "academy-instructor-exams-settings",
+    component: () =>
+      import(
+        /* webpackChunkName: "academy-instructor-exams" */ "../views/academy/instructor/exams/exams-settings.vue"
+      ),
+  },
+  {
     path: "academy/my-blogs",
     meta: { layout: LayoutDefault, auth: true, title: "My Blogs" },
     name: "academy-my-blogs",
@@ -313,15 +331,6 @@ const routers = [
     component: () =>
       import(
         /* webpackChunkName: "academy-your-certificates" */ "../views/academy/your-certificates/index.vue"
-      ),
-  },
-  {
-    path: "academy/meetings",
-    meta: { layout: LayoutDefault, auth: true, title: "Meetings" },
-    name: "academy-meetings",
-    component: () =>
-      import(
-        /* webpackChunkName: "academy-meetings" */ "../views/academy/meetings/index.vue"
       ),
   },
   {

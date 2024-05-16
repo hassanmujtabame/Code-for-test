@@ -1,33 +1,9 @@
 <template>
-  <!-- <div
-    class="container d-md-flex d-none justify-content-center position-relative"
-  >
-    <img
-      class=""
-      style="object-fit: contain; width: 100%"
-      src="@/assets/img/new/academy/Group 19.png"
-      alt=""
-    />
-    <div class="" style="position: absolute; top: 40%; left: 5%">
-      <h1>يقدم لكم رياديات خصم 30% هذا الموسم</h1>
-      <p class="text-dark">
-        يسري العرض الترويجي من 1 مايو 2024 إلى 30 يونيو 2024
-      </p>
-      <button
-        class="upgrade-button"
-        @click="$router.push({ name: 'network-offers' })"
-      >
-        استكشف الأن
-      </button>
-    </div>
-  </div> -->
-  <div class="container">
-    <div style="background-color: #e8f8f7" class="row">
-      <div class="col-12 px-5 py-2 col-md-8 d-flex flex-column gap-2">
-        <h1 style="color: #2cb7b3; font-size: 56px">
-          يقدم لكم رياديات خصم 30% هذا الموسم
-        </h1>
-        <p class="text-dark">
+  <div class="container" style="background-color: #e8f8f7">
+    <div class="row">
+      <div class="ad-content col-12 col-md-8 d-flex flex-column gap-2">
+        <div class="ad-title">يقدم لكم رياديات خصم 30% هذا الموسم</div>
+        <p class="ad-text">
           يسري العرض الترويجي من 1 مايو 2024 إلى 30 يونيو 2024
         </p>
         <button
@@ -37,17 +13,10 @@
           استكشف الأن
         </button>
       </div>
-      <div class="col-12 d-none d-md-block col-md-4 position-relative">
+      <div class="col-12 d-none d-md-block col-md-4 position-relative p-0">
         <img
-          style="z-index: 4; margin-right: -49px"
           class="img-fluid position-relative"
-          src="../../../../../assets/img/academy/4.png"
-          alt="hero img"
-        />
-        <img
-          style="top: 0; left: 0; z-index: 3"
-          class="img-fluid position-absolute"
-          src="../../../../../assets/img/academy/Vector.png"
+          :src="`${publicPath}assets/img/Frame_1171276680.png`"
           alt="hero img"
         />
       </div>
@@ -62,6 +31,34 @@ export default {
 </script>
 
 <style scoped>
+.ad-content {
+  padding-block: 50px;
+  padding-inline: 100px;
+}
+.ad-title {
+  font-family: Cairo;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 78.4px;
+  color: #2cb7b3;
+}
+.ad-text {
+  font-family: Cairo;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 44.98px;
+}
+.container {
+  background-image: url("/public/assets/img/Group_1171276438.png");
+  background-size: 90% auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.img-fluid {
+  left: 0px;
+  height: 100%;
+  object-fit: cover;
+}
 .subscription-card {
   border: 1px solid #e0e0e0;
   border-radius: 8px;

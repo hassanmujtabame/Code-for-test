@@ -1,17 +1,21 @@
 <template>
-  <div >
-    <!-- section 1-->
-    <div class="my-5">
-      <SectionGuestHeader />
-    </div>
-    <!--#section 1-->
+  <div>
     <!-- section 2-->
     <div class="my-5">
-      <SectionTwo />
+      <StepTowardsLeadershipSection />
     </div>
     <!--#section 2-->
+
+    <!-- section 1-->
+    <div class="my-5">
+      <subscriptionOfferingSection />
+    </div>
+    <!--#section 1-->
+
     <!-- section 3-->
     <SectionFeatures />
+    <!--#section 3-->
+
     <!-- <SectionAds department="academy" /> -->
     <div class="my-5">
       <SectionTempForAds />
@@ -20,18 +24,18 @@
       <SectionHelpsYou />
     </div>
     <div class="my-5">
-      <sectionTopInstructor />
+      <AreYouSpecialInstructorSection />
     </div>
     <div class="my-5">
-      <SectionSubscribeNow />
+      <SectionMostPopularCourses />
     </div>
-    <!--#section 3-->
-    <!-- section top instructor-->
-    <!--#section top instructor-->
+
+    <SectionSubscribeNow />
+
     <!-- section training-fields-->
-    <div class="my-5">
-      <SectionTrainingFields />
-    </div>
+
+    <SectionTrainingFields />
+
     <!--#section training-fields-->
 
     <!-- section exploring-entrepreneurship-->
@@ -53,9 +57,7 @@
     <div class="my-5">
       <SectionBestInstructors />
     </div>
-    <div class="my-5">
-      <SectionMostPopularCourses />
-    </div>
+
     <!--#section 9-->
     <!-- section 10-->
     <div class="my-5">
@@ -91,8 +93,8 @@
 </template>
 
 <script>
-import SectionGuestHeader from "./parts/section-guest-header/index.vue";
-import SectionTwo from "./parts/section-2/index.vue";
+import subscriptionOfferingSection from "./parts/section-guest-header/index.vue";
+import StepTowardsLeadershipSection from "./parts/section-2/index.vue";
 import SectionThree from "./parts/section-3/index.vue";
 import SectionFeatures from "./parts/section-features/index.vue";
 // import sectionAdvertisements from './parts/section-advertisements/index.vue'
@@ -102,7 +104,7 @@ import SectionMostPopularCourses from "./parts/section-most-popular-courses/inde
 import SectionTempForAds from "./parts/section-temp-for-ads/index.vue";
 import SectionHelpsYou from "./parts/section-helps-you/index.vue";
 import SectionSubscribeNow from "./parts/section-subscribe-now/index.vue";
-import sectionTopInstructor from "./parts/section-top-instructor/index.vue";
+import AreYouSpecialInstructorSection from "./parts/section-top-instructor/index.vue";
 import SectionTrainingFields from "./parts/section-training-fields/index.vue";
 import SectionExploringEntrepreneurship from "./parts/section-exploring-entrepreneurship/index.vue";
 import SectionExploringSpecializedEntrepreneurship from "./parts/section-exploring-specialized-entrepreneurship/index.vue";
@@ -118,14 +120,14 @@ export default {
   name: "academy-home",
   components: {
     SectionTempForAds,
-    SectionGuestHeader,
-    SectionTwo,
+    subscriptionOfferingSection,
+    StepTowardsLeadershipSection,
     SectionThree,
     SectionHelpsYou,
     SectionFeatures,
     SectionAds,
     SectionSubscribeNow,
-    sectionTopInstructor,
+    AreYouSpecialInstructorSection,
     SectionTrainingFields,
     SectionExploringEntrepreneurship,
     SectionExploringSpecializedEntrepreneurship,

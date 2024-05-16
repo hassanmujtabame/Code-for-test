@@ -1,27 +1,20 @@
 <template>
-  <div style="margin-top: 85px " class="consult">
-    <div class="bg-body-page">
-      <div class="container mt-5">
-    <SectionFilterList />
+  <div style="margin-top: 85px" class="consult">
+    <div class="container">
+      <SectionFilterList />
     </div>
-  </div>
   </div>
 </template>
 
 <script>
-
-import SectionFilterList from './parts/section-filter-list/index';
+import SectionFilterList from "./parts/section-filter-list/index";
 
 export default {
-  name: 'your-project-page',
-  components:{
-
+  name: "your-project-page",
+  components: {
     SectionFilterList,
-
-  }
-}
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

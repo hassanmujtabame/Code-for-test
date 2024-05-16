@@ -1,93 +1,194 @@
 <template>
-  <div class="container" style="background-color: white;">
-            <div class="box border shadow p-4">
+  <div class="container">
+    <d-filter-list
+      :call-list="loadList"
+      hideSide
+      classTitle="col-lg-4 mb-4"
+      classSearchOrder="col-lg-5 justify-content-center mb-4"
+      classColSearch="w-50 mb-3 "
+      classColOrder="w-50 mb-3"
+      HeadEndClasses="col-lg-3 mb-4"
+      orderName="created_at"
+      searchPlaceholder="أبحث  في قائمة المشاريع"
+      @change="changeFilter"
+      classColCard="col-md-12"
+    >
+      <template v-slot:title>
+        <h4 class="text-cairo">{{ $t("the-projects") }}</h4>
+        <router-link :to="getRouteLocale('academy-projects-settings')">
+          <p class="projects-settings text-cairo">
+            <i class="fa-solid fa-gear"></i>
+            {{ $t("adjust-projects-settings") }}
+          </p>
+        </router-link>
+      </template>
+      <template v-slot:head-end>
+        <button
+          @click="addItem"
+          class="py-3 btn btn-customer d-flex align-items-center gap-2"
+        >
+          <i class="fa-solid fa-plus"></i>{{ $t("add-projects") }}
+        </button>
+      </template>
+      <template v-slot:before-body>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item col-12 col-md-6 px-2" role="presentation">
+            <button
+              class="w-100 nav-link border t-c m-auto py-3 active"
+              id="pills-project-need-revision-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-project-need-revision"
+              type="button"
+              role="tab"
+              aria-controls="pills-project-need-revision"
+              aria-selected="true"
+            >
+              مشاريع جديدة
+            </button>
+          </li>
+          <li class="nav-item col-12 col-md-6 px-2" role="presentation">
+            <button
+              class="w-100 nav-link border t-c m-auto py-3"
+              id="pills-courses-has-projects-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-courses-has-projects"
+              type="button"
+              role="tab"
+              aria-controls="pills-courses-has-projects"
+              aria-selected="false"
+            >
+              مشاريع تحتاج إلى مراجعتك
+            </button>
+          </li>
 
-                <div class="row align-items-center mb-3">
-                    <div class=" col-12 col-md-4 mt-3">
-                        <h4 class="fw-bold">
-                            المشاريع 
-                        </h4>
-                    </div>
-                    <template v-if="false">
-                    <div class=" col-12 col-md-5 mt-3">
-                        <label for="" class="position-relative w-100">
-                            <input class="form-control py-3 px-5" type="text" placeholder=" أبحث  في قائمة المشاريع ">
-                            <p style="    top: 25%;
-                            right: 7px;
-                        " class="position-absolute">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.5 21.75C5.85 21.75 1.25 17.15 1.25 11.5C1.25 5.85 5.85 1.25 11.5 1.25C17.15 1.25 21.75 5.85 21.75 11.5C21.75 17.15 17.15 21.75 11.5 21.75ZM11.5 2.75C6.67 2.75 2.75 6.68 2.75 11.5C2.75 16.32 6.67 20.25 11.5 20.25C16.33 20.25 20.25 16.32 20.25 11.5C20.25 6.68 16.33 2.75 11.5 2.75Z" fill="#979797"/>
-                                    <path d="M22.0004 22.7499C21.8104 22.7499 21.6204 22.6799 21.4704 22.5299L19.4704 20.5299C19.1804 20.2399 19.1804 19.7599 19.4704 19.4699C19.7604 19.1799 20.2404 19.1799 20.5304 19.4699L22.5304 21.4699C22.8204 21.7599 22.8204 22.2399 22.5304 22.5299C22.3804 22.6799 22.1904 22.7499 22.0004 22.7499Z" fill="#979797"/>
-                                    </svg>
-                                    
-                            </p>
-                        </label>
-                    </div>
-                    <div  class=" col-12 col-md-3 mt-3 position-relative">
-                        <select class="form-select form-select-lg mb-3  py-3 m-c" aria-label=".form-select-lg example">
-                            <option selected> حسب الاحدث  </option>
-                            <option value="1">الاعلى سعرا</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                          </select>
-                          <p style="    top: -13px;
-                          right: 24px;
-                          background: white;
-                      " class="position-absolute">
-                            ترتيب حسب 
-                          </p>
-                    </div>
-                    </template>
-                </div>
-                <ul class="nav nav-pills  mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto active" id="pills-settings-projects-tab" data-bs-toggle="pill" data-bs-target="#pills-settings-projects" type="button" role="tab" aria-controls="pills-settings-projects" aria-selected="true">ظبط اعدادات المشاريع  </button>
-                    </li>
-                    <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto" id="pills-project-need-revision-tab" data-bs-toggle="pill" data-bs-target="#pills-project-need-revision" type="button" role="tab" aria-controls="pills-project-need-revision" aria-selected="false">مشاريع تحتاج مراجعتك </button>
-                    </li>
-                    <li class="nav-item col-12 col-md-3" role="presentation">
-                      <button class="nav-link  border t-c m-auto" id="pills-courses-has-projects-tab" data-bs-toggle="pill" data-bs-target="#pills-courses-has-projects" type="button" role="tab" aria-controls="pills-courses-has-projects" aria-selected="false"> دورات تحتوي الى مشاريع</button>
-                    </li>
-                    
-                    <li class="nav-item col-12 col-md-3" role="presentation">
+          <!-- <li class="nav-item col-12 col-md-3" role="presentation">
                       <button class="nav-link  border t-c m-auto" id="pills-students-list-tab" data-bs-toggle="pill" data-bs-target="#pills-students-list" type="button" role="tab" aria-controls="pills-students-list" aria-selected="false" >  قائمة الطلاب  </button>
-                    </li>
-                  </ul>
+                    </li> -->
+        </ul>
+      </template>
 
-                     <div class="tab-content" id="pills-tabContent">
-                   <!--settings-->
-                   <SettingsExams />
-                   <!--courses-has-projects-->
-                   <coursesHasExams />
-                    <!--project-need-revision-->
-                    <studentsPassExams />
-                    <!--students-list-->
-                    <studentsFailsExams />
-                    </div>
-                  </div>
-                  <UpdateProjectDialog />
+      <template v-slot="{ item }">
+        {{ item }}
+        <CardItem :item="item" @delete="confirmDeleteItem" />
+      </template>
+    </d-filter-list>
+
+    <!-- <div class="tab-content" id="pills-tabContent"> -->
+    <!-- courses-has-projects -->
+    <!-- <NewProjects /> -->
+    <!-- project-need-revision -->
+    <!-- <ProjectsNeedRevision /> -->
+    <!-- students-list -->
+    <!-- <studentsFailsExams /> -->
+    <!-- </div> -->
+
+    <UpdateProjectDialog />
   </div>
 </template>
 
 <script>
-import SettingsExams from './tabs/settings-projects/index.vue'
-import coursesHasExams from './tabs/courses-has-projects/index.vue'
-import studentsPassExams from './tabs/project-need-revision/index.vue'
-import studentsFailsExams from './tabs/students-list/index.vue'
-import UpdateProjectDialog from '@/views/academy/courses/show/recorded/dialogs/add-project/index'
+import CoursesAPI from "@/services/api/academy/courses.js";
+import SettingsExams from "./tabs/settings-projects/index.vue";
+import NewProjects from "./tabs/courses-has-projects/index.vue";
+import ProjectsNeedRevision from "./tabs/project-need-revision/index.vue";
+import CardItem from "./card-item.vue";
+import UpdateProjectDialog from "@/views/academy/courses/show/recorded/dialogs/add-project/index.vue";
 export default {
-  name: 'your-certifcates-page',
-  components:{
+  name: "your-certifcates-page",
+  components: {
     SettingsExams,
-    coursesHasExams,
-    studentsPassExams,
-    studentsFailsExams,
-    UpdateProjectDialog
-  }
-}
+    NewProjects,
+    ProjectsNeedRevision,
+    UpdateProjectDialog,
+    CardItem,
+  },
+  data() {
+    return {
+      loading: false,
+    };
+  },
+  methods: {
+    addItem() {
+      this.loadCurrentUser();
+      // if (!this.user.statusInstructor) {
+      //   window.errorMsg("لم يفعل حسابك بعد !");
+      // } else {
+      //   this.fireOpenDialog("add-meeting", {
+      //     id: null,
+      //     title: null,
+      //     video: null,
+      //   });
+      // }
+    },
+    changeCategories(cat) {
+      // this.category_id = cat;
+      // this.fireEvent("d-filter-list-refresh");
+    },
+    changeFilter(val) {
+      // this.filterItem = { ...this.filterItem, ...val };
+      // this.fireEvent("d-filter-list-refresh");
+    },
+    confirmDeleteItem(item) {
+      // let dataEvt = {
+      //   title: "هل انت متأكد من حذف اللقاء؟",
+      //   description: `${item.title}`,
+      //   groupBtns: "d-flex justify-content-evenly",
+      //   btns: [
+      //     { title: "تراجع", class: "btn btn-custmer btn-danger" },
+      //     {
+      //       title: this.$t("confirm_delete"),
+      //       action: () => this.deleteItem(item),
+      //       class: "btn btn-custmer",
+      //     },
+      //   ],
+      // };
+      // this.showConfirmMsg(dataEvt);
+    },
+    async deleteItem(item) {
+      // console.mylog("deleting....", item);
+      // try {
+      //   let { data } = await instructorMeetingsAPI.deleteItem(item.id);
+      //   if (data.success) {
+      //     this.fireEvent("d-filter-list-refresh");
+      //   } else {
+      //     window.SwalError(data.message);
+      //   }
+      // } catch (error) {
+      //   console.mylog("error", error);
+      // }
+    },
+    async loadList(metaInfo) {
+      this.loading = true;
+      try {
+        let params = {
+          page: metaInfo.current_page,
+        };
+        return await CoursesAPI.getProjectsNeedRevision(params);
+      } catch (error) {
+        console.mylog("error", error);
+      }
+      this.loading = false;
+    },
+  },
+};
 </script>
 
-<style>
-
+<style scoped>
+h4 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #1fb9b3;
+}
+.projects-settings {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1fb9b3;
+}
+ul {
+  padding-inline-start: 0px;
+}
+.nav-link {
+  font-size: 20px;
+  padding: 12px;
+}
 </style>

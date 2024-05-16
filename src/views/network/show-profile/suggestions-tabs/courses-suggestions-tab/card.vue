@@ -17,7 +17,7 @@
           <i
             class="fa-regular fa-star star-icon"
             v-for="i in 5 - rate"
-            :key="i"
+            :key="10 - i"
           ></i>
           <span class="mx-1" style="font-size: 9px">({{ ratesNumber }})</span>
         </div>

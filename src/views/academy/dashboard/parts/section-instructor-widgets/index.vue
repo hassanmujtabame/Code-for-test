@@ -194,7 +194,7 @@
               </div>
             </div>
             <router-link
-              :to="getRouteLocale('academy-my-meetings')"
+              :to="getRouteLocale('academy-instructor-my-meetings')"
               style="border: 1px solid #2cb7b3; background-color: transparent"
               class="btn px-4 py-2 rounded-3"
             >

@@ -73,7 +73,11 @@
             </ValidationProvider>
           </div>
           <!--start_date-->
-          <div class="mt-3" name="start_date" v-if="itemForm.type != 'recored'">
+          <div
+            class="mt-3"
+            name="start_date"
+            v-if="itemForm.type != 'recorded'"
+          >
             <ValidationProvider
               :name="$t('meeting-date')"
               vid="start_date"
@@ -94,7 +98,7 @@
           <!--time-->
           <div
             class="mt-3 d-flex justify-content-around gap-1"
-            v-if="itemForm.type != 'recored'"
+            v-if="itemForm.type != 'recorded'"
           >
             <ValidationProvider
               :name="$t('start-time')"
@@ -258,7 +262,7 @@
           </p> -->
           <!-- add video -->
           <ValidationProvider
-            v-if="itemForm.type == 'recored' && step == 3"
+            v-if="itemForm.type == 'recorded' && step == 3"
             tag="div"
             :name="$t('lecture-video')"
             vid="video"
@@ -352,7 +356,7 @@
         >
           
           <ValidationProvider
-            v-if="itemForm.type == 'recored' && step == 2"
+            v-if="itemForm.type == 'recorded' && step == 2"
             tag="div"
             :name="$t('lecture-video')"
             vid="video"
@@ -493,7 +497,7 @@ export default {
   },
   computed: {
     videoRules() {
-      if (this.itemForm.id || this.itemForm.type !== "recored") {
+      if (this.itemForm.id || this.itemForm.type !== "recorded") {
         return this.step == 2 ? "ext:mp4" : "";
       }
       return this.step == 2 ? "required|ext:mp4" : "";
@@ -752,7 +756,7 @@ export default {
           : await academyAPI.instructor.meetingsAPI.addItem(formData);
         if (
           data.success &&
-          this.itemForm.type == "recored" &&
+          this.itemForm.type == "recorded" &&
           !this.itemForm.video
         ) {
           this.step = 3;
@@ -814,7 +818,7 @@ export default {
     //       : await academyAPI.instructor.meetingsAPI.addItem(formData);
     //     if (
     //       data.success &&
-    //       this.itemForm.type == "recored" &&
+    //       this.itemForm.type == "recorded" &&
     //       !this.itemForm.video
     //     ) {
     //       this.step = 3;
@@ -876,7 +880,7 @@ export default {
     //       : await academyAPI.instructor.meetingsAPI.addItem(formData);
     //     if (
     //       data.success &&
-    //       this.itemForm.type == "recored" &&
+    //       this.itemForm.type == "recorded" &&
     //       !this.itemForm.video
     //     ) {
     //       this.step = 3;

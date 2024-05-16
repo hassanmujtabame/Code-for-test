@@ -1,7 +1,7 @@
 <template>
-  <div class="mt-5">
+  <div class=" ">
     <div class="blog">
-      <div class="d-flex py-2 px-2 align-items-center gap-2">
+      <!-- <div class="d-flex py-2 px-2 align-items-center gap-2">
         <button
           @click="addItem"
           class="btn m-c d-flex align-items-center gap-2"
@@ -9,27 +9,35 @@
           <i style="font-size: 35px" class="fa fa-square-plus"></i>
           اضافه لقاء
         </button>
-      </div>
+      </div> -->
       <d-filter-list
         :call-list="loadList"
         hideSide
+        classTitle="col-lg-4"
+        classSearchOrder="col-lg-5 justify-content-center"
+        classColSearch="w-50"
+        classColOrder="w-50"
+        HeadEndClasses="col-lg-3"
         orderName="created_at"
         searchPlaceholder="أبحث  في قائمة اللقاءات"
         @change="changeFilter"
         classColCard="col-md-12"
       >
-        <button @click="addItem" class="btn m-c">
+        <!--  <button @click="addItem" class="btn m-c">
           <i style="font-size: 35px" class="fa fa-square-plus"></i>
-        </button>
-        <template v-slot:total>
-          <h3 class="page-title">
-            قائمة لقاءاتك
-            <button @click="addItem" class="btn m-c">
-              <i style="font-size: 35px" class="fa fa-square-plus"></i>
-            </button>
-          </h3>
+        </button>-->
+        <template v-slot:title>
+          <h3 class="page-title">قائمة لقاءاتك</h3>
         </template>
-
+        <template v-slot:head-end>
+          <button
+            @click="addItem"
+            class="py-3 btn btn-customer d-flex align-items-center gap-2"
+          >
+            <i class="fa-solid fa-plus"></i>
+            أضف لقاء تعليمي
+          </button>
+        </template>
         <template v-slot="{ item }">
           <BlogInfoCard :item="item" @delete="confirmDeleteItem" />
         </template>
@@ -123,11 +131,6 @@ export default {
 </script>
 
 <style scoped>
-.blog {
-  border: 1px solid #c6c6c68c;
-  border-radius: 9px;
-}
-
 .page-title {
   font-style: normal;
   font-weight: 600;
@@ -137,7 +140,6 @@ export default {
 
   text-align: right;
   text-transform: capitalize;
-
-  color: #414042;
+  color: #1fb9b3;
 }
 </style>

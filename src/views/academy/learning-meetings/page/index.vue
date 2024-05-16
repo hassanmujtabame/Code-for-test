@@ -42,8 +42,31 @@
       </div>
       <div :id="`meeting-${meetingId}`" class="p-3">
         <div class="row">
-          <div class="col-md-6 px-3 my-4">
+          <div class="col-12 px-3">
             <div>
+              <iframe
+                id="vimeoPlayer"
+                v-if="itemPage.video"
+                height="620px"
+                class="rounded-3 w-100"
+                :src="itemPage.video + '?title=0&&byline=0&&portrait=0'"
+                :title="itemPage.title"
+                allowfullscreen
+              ></iframe>
+              <img
+                :src="itemPage.image"
+                v-else
+                style="cursor: pointer"
+                class="border rounded-3 w-100"
+                height="620px"
+                :alt="itemPage.title"
+              />
+            </div>
+          </div>
+          <div class="d-flex col-12 px-3 my-4 gap-2">
+            <div
+              :class="itemPage.type == 'on-site' ? 'col-md-8 col-12' : 'col-12'"
+            >
               <p
                 style="color: #2cb7b3; font-size: 20px; font-weight: bold"
                 class=""
@@ -71,7 +94,7 @@
               >
                 {{ itemPage.categoryName }}
               </p> -->
-              <div class="d-flex align-items-center gap-2">
+              <div>
                 <p
                   style="color: #414042; font-size: 24px; font-weight: semibold"
                 >
@@ -85,23 +108,12 @@
                   {{ itemPage.time ? timeFormatAMPM(itemPage.time) : "" }}
                 </p>
                 <p
-                  v-if="!itemPage.date"
-                  style="color: #cf1f3e; font-size: 14px"
-                >
-                  ٢٣ يوليو - ٢:٣٠ ص
-                </p>
-              </div>
-              <div
-                class="rounded-3 d-flex flex-column"
-                style="background-color: #fafafa"
-              >
-                <h1
+                  v-if="itemPage.map_address"
+                  style="color: #415c5e; font-size: 14px"
                   class="py-2 px-2"
-                  style="color: #cf1f3e; font-size: 20px; font-weight: semibold"
                 >
-                  تفاصيل الدورة
-                </h1>
-
+                  {{ itemPage.map_address }}
+                </p>
                 <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
                   {{ itemPage.content }}
                 </p>
@@ -115,213 +127,21 @@
                   انضم الى اللقاء
                 </button>
               </div>
-              <!-- <p class="t-c">
-                {{ itemPage.content }}
-              </p> -->
-              <!-- <div v-if="!isOwner">
-                <button
-                  v-if="!isJoined"
-                  @click="openConfirmJoinMeeting"
-                  class="btn bg-main p-2 px-4 text-white"
-                >
-                  أنضم الى اللقاء
-                </button>
-                <button
-                  v-else
-                  @click="openConfirmCancelMeeting"
-                  class="btn bg-danger p-2 px-4 text-white"
-                >
-                  تراجع عن إنضمام
-                </button>
-              </div> -->
-              <!-- <div v-if="!isOwner">
-                <button
-                  v-if="!isJoined"
-                  @click="openConfirmJoinMeeting"
-                  class="btn bg-main p-2 px-4 text-white"
-                >
-                  أنضم الى اللقاء
-                </button>
-                <button
-                  v-else
-                  @click="openConfirmCancelMeeting"
-                  class="btn bg-danger p-2 px-4 text-white"
-                >
-                  تراجع عن إنضمام
-                </button>
-              </div> -->
+            </div>
+            <div
+              v-if="itemPage.type == 'on-site'"
+              :class="itemPage.type == 'on-site' ? 'col-md-4 col-12' : ''"
+            >
+              <GmapMap
+                :center="{ lat: 24.774265, lng: 46.738586 }"
+                :zoom="10"
+                style="width: 100%; height: 400px"
+              >
+              </GmapMap>
             </div>
           </div>
-          <!-- <div class="col-md-6 px-3 my-4">
-            <div>
-              <p
-                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
-                class=""
-                v-if="itemPage.type === 'live'"
-              >
-                لقاء اونلاين
-              </p>
-              <p
-                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
-                class=""
-                v-if="itemPage.type === 'recorded'"
-              >
-                لقاء مسجل
-              </p>
-              <p
-                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
-                class=""
-                v-if="itemPage.type === 'on-site'"
-              >
-                لقاء حضورى
-              </p>
-            
-              <div class="d-flex align-items-center gap-2">
-                <p
-                  style="color: #414042; font-size: 24px; font-weight: semibold"
-                >
-                  {{ itemPage.title }}
-                </p>
-                <p class="t-c">
-                  <span v-if="itemPage.date">{{
-                    dateTextMonth(itemPage.date)
-                  }}</span>
-                  <span v-if="itemPage.date"> | </span>
-                  {{ itemPage.time ? timeFormatAMPM(itemPage.time) : "" }}
-                </p>
-                <p
-                  v-if="!itemPage.date"
-                  style="color: #cf1f3e; font-size: 14px"
-                >
-                  ٢٣ يوليو - ٢:٣٠ ص
-                </p>
-              </div>
-              <div
-                class="rounded-3 d-flex flex-column"
-                style="background-color: #fafafa"
-              >
-                <h1
-                  class="py-2 px-2"
-                  style="color: #cf1f3e; font-size: 20px; font-weight: semibold"
-                >
-                  تفاصيل الدورة
-                </h1>
 
-                <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
-                  {{ itemPage.content }}
-                </p>
-              </div>
-              <div class="d-flex my-2">
-                <button
-                  @click="openConfirmJoinMeeting"
-                  style="background-color: #1fb9b3; width: 100%"
-                  class="btn text-light"
-                >
-                  انضم الى اللقاء
-                </button>
-              </div>
-             
-             
-            </div>
-          </div> -->
-          <!-- <div class="col-md-6 px-3 my-4">
-            <div>
-              <p
-                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
-                class=""
-                v-if="itemPage.type === 'live'"
-              >
-                لقاء اونلاين
-              </p>
-              <p
-                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
-                class=""
-                v-if="itemPage.type === 'recorded'"
-              >
-                لقاء مسجل
-              </p>
-              <p
-                style="color: #2cb7b3; font-size: 20px; font-weight: bold"
-                class=""
-                v-if="itemPage.type === 'on-site'"
-              >
-                لقاء حضورى
-              </p>
-            
-              <div class="d-flex align-items-center gap-2">
-                <p
-                  style="color: #414042; font-size: 24px; font-weight: semibold"
-                >
-                  {{ itemPage.title }}
-                </p>
-                <p class="t-c">
-                  <span v-if="itemPage.date">{{
-                    dateTextMonth(itemPage.date)
-                  }}</span>
-                  <span v-if="itemPage.date"> | </span>
-                  {{ itemPage.time ? timeFormatAMPM(itemPage.time) : "" }}
-                </p>
-                <p
-                  v-if="!itemPage.date"
-                  style="color: #cf1f3e; font-size: 14px"
-                >
-                  ٢٣ يوليو - ٢:٣٠ ص
-                </p>
-              </div>
-              <div
-                class="rounded-3 d-flex flex-column"
-                style="background-color: #fafafa"
-              >
-                <h1
-                  class="py-2 px-2"
-                  style="color: #cf1f3e; font-size: 20px; font-weight: semibold"
-                >
-                  تفاصيل الدورة
-                </h1>
-
-                <p style="color: #415c5e; font-size: 14px" class="py-2 px-2">
-                  {{ itemPage.content }}
-                </p>
-              </div>
-              <div class="d-flex my-2">
-                <button
-                  @click="openConfirmJoinMeeting"
-                  style="background-color: #1fb9b3; width: 100%"
-                  class="btn text-light"
-                >
-                  انضم الى اللقاء
-                </button>
-              </div>
-            
-            </div>
-          </div> -->
-          <div class="col-md-6 px-3">
-            <div>
-              <!-- <iframe id="vimeoPlayer" v-if="itemPage.video" height="384" class="rounded-3 w-100 "
-                :src="itemPage.video + '?title=0&&byline=0&&portrait=0'" :title="itemPage.title" frameborder="0"
-                sandbox="allow-same-origin allow-scripts"
-                allow="payment 'none';camera 'none';microphone 'none';accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe> -->
-              <iframe
-                id="vimeoPlayer"
-                v-if="itemPage.video"
-                height="384"
-                class="rounded-3 w-100"
-                :src="itemPage.video + '?title=0&&byline=0&&portrait=0'"
-                :title="itemPage.title"
-                allowfullscreen
-              ></iframe>
-              <img
-                :src="itemPage.image"
-                v-else
-                style="cursor: pointer"
-                class="border rounded-3 w-100"
-                height="384"
-                :alt="itemPage.title"
-              />
-            </div>
-          </div>
-          <div
+          <!-- <div
             style="background-color: #fafafa"
             class="col-md-12 d-flex flex-column my-2 rounded-3"
           >
@@ -339,7 +159,7 @@
               <li style="list-style: none">٥. طريقة العمل</li>
               <li style="list-style: none">٦. ما العمل؟</li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- The modal -->
@@ -369,16 +189,7 @@
               <!-- twitter-user="LindaOjo_" -->
             </ShareNetwork>
           </button>
-          <!-- <button>
-                      <ShareNetwork
-                          network="Instagram"
-                          :url="shareLink"
-                          title="Share in instagram"
-                          description="This is another awesome article for awesome readers"
-                          >
-                          <img class="h-100" :src="`${publicPath}assets/img/Instagram.png`" alt="" />
-                      </ShareNetwork>
-                  </button> -->
+
           <button style="background: transparent; border: 0">
             <ShareNetwork
               network="Linkedin"
@@ -523,41 +334,7 @@ export default {
         return;
       }
     },
-    // openConfirmJoinMeeting() {
-    //   if (
-    //     this.user.subscribers &&
-    //     this.user.subscribers.network &&
-    //     this.user.subscribers.network.subscribe &&
-    //     this.itemPage.available_meetings_month > 0
-    //   ) {
-    //     // if (this.userIsSubNetwork && this.userSubNetwork.type == 'free' && this.itemPage.available_meetings_month > 0)
-    //     this.fireOpenDialog("confirm-join-meeting", this.itemPage);
-    //   } else if (
-    //     this.join_meeting &&
-    //     this.itemPage.available_meetings_month < 1
-    //   ) {
-    //     let dataEvt = {
-    //       title: "لا يمنك الانضمام",
-    //       description: "لقد استنفذت عدد اللقاءات الممنوحة لهذا الشهر",
-    //       btns: [{ title: this.$t("Ok") }],
-    //     };
-    //     this.showConfirmMsg(dataEvt);
-    //   } else if (!this.join_meeting) {
-    //     let dataEvt = {
-    //       title: "للأسف لايمكنك  الانضمام الى اللقاء",
-    //       description: `انتي مشتركة في الباقة المجانية وهذه الباقة لا تمكنك من الانضمام للقاء  - رقي حسابك الى الباقة الشهرية أو السنوية و استفيد من اللقاءات و المزيد من المميزات في الأكاديمية`,
-    //       image: `${this.publicPath}assets/img/Group 1171275670.png`,
-    //       btns: [
-    //         {
-    //           title: "رقي حسابك",
-    //           action: () => this.router_push("academy-subscribe"),
-    //         },
-    //       ],
-    //     };
-    //     this.showConfirmMsg(dataEvt);
-    //     return;
-    //   }
-    // },
+
     openConfirmCancelMeeting() {
       this.fireOpenDialog("confirm-cancel-join-meeting", this.itemPage);
     },
@@ -581,23 +358,7 @@ export default {
       };
       this.showConfirmMsg(dataEvt);
     },
-    // openDeleteDialog() {
-    //   let item = this.itemPage;
-    //   let dataEvt = {
-    //     title: "هل انت متأكد من حذف اللقاء؟",
-    //     description: `${item.title}`,
-    //     groupBtns: "d-flex justify-content-evenly",
-    //     btns: [
-    //       { title: "تراجع", class: "btn btn-custmer btn-danger" },
-    //       {
-    //         title: this.$t("confirm_delete"),
-    //         action: () => this.deleteItem(item),
-    //         class: "btn btn-custmer",
-    //       },
-    //     ],
-    //   };
-    //   this.showConfirmMsg(dataEvt);
-    // },
+
     async deleteItem(item) {
       console.mylog("deleting....", item);
       try {
@@ -611,19 +372,7 @@ export default {
         window.DHelper.catchException.call(this, error);
       }
     },
-    // async deleteItem(item) {
-    //   console.mylog("deleting....", item);
-    //   try {
-    //     let { data } = await instructorMeetingsAPI.deleteItem(item.id);
-    //     if (data.success) {
-    //       this.$router.push({ name: "academy-instructor-my-meetings" });
-    //     } else {
-    //       window.SwalError(data.message);
-    //     }
-    //   } catch (error) {
-    //     window.DHelper.catchException.call(this, error);
-    //   }
-    // },
+
     async initializing() {
       this.loading = true;
       this.hasError = false;
@@ -659,18 +408,7 @@ export default {
         }
       }
     },
-    // checkVideoAvailable() {
-    //   const iframe = document.getElementById('vimeoPlayer');
-    //   iframe.onload = () => {
-    //     const iframeDocument = iframe.contentWindow.document;
-    //     const playerElement = iframeDocument.getElementById('player');
-    //     if (playerElement) {
-    //       console.log("Found player element:", playerElement);
-    //     } else {
-    //       console.log("Player element not found within the iframe.");
-    //     }
-    //   };
-    // }
+
     extractVideoId(url) {
       const vimeoUrl = url.trim(); // Remove leading/trailing spaces
 
@@ -692,25 +430,6 @@ export default {
         // Handle invalid URL or no ID found
       }
     },
-    // async checkVideoValidity() {
-    //   const videoId = this.extractVideoId(this.itemPage.video); // Replace with your Vimeo video ID
-    //   const apiUrl = `https://vimeo.com/api/v2/video/${videoId}.json`;
-
-    //   try {
-    //     const response = await axios.get(apiUrl);
-    //     // Check if the response contains valid video data
-    //     if (response && response.data && response.data.length > 0) {
-    //       console.log('Video exists:', response.data[0]);
-    //       // You can handle the existence of the video here
-    //     } else {
-    //       console.log('Video does not exist or response data is empty.');
-    //       // Handle non-existing video
-    //     }
-    //   } catch (error) {
-    //     console.error('Error fetching video data:', error);
-    //     // Handle error (e.g., network issue or invalid request)
-    //   }
-    // },
   },
   mounted() {
     this.checkSubscriptionOptions();

@@ -60,6 +60,56 @@
   src: url(../fontYanoneKaffeesatz/YanoneKaffeesatz-Light.woff2) format("woff2");
 }
 
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url("../font/cairo/static/Cairo-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
   --pc: #1fb9b3;
   --swiper-navigation-size: 15px;
@@ -124,7 +174,9 @@ body:lang(en) {
   width: 100%;
   object-fit: cover;
 }
-
+.text-cairo {
+  font-family: "Cairo", sans-serif;
+}
 .text-flag {
   font-family: "Twemoji Country Flags";
 }
@@ -331,13 +383,22 @@ textarea {
   font-size: 16px;
   line-height: 17px;
 }
-
+.btn-accent {
+  cursor: pointer;
+  background: #f2631c;
+  border: 1px solid #f2631c;
+  border-radius: 8px;
+  padding: 10px 40px;
+  color: white;
+  font-size: 16px;
+  line-height: 17px;
+}
 .btn-custmer-w {
   cursor: pointer;
   background: white !important;
   border: 1px solid #1fb9b3 !important;
   border-radius: 8px !important;
-  padding: 10px 40px !important;
+  padding: 10px 40px;
   color: #1fb9b3 !important;
   font-size: 16px;
   line-height: 17px;
@@ -1792,7 +1853,6 @@ span {
 }
 
 .blog-page .data {
-  background: #00000029;
   width: 100%;
   padding: 10px;
 }
@@ -2241,7 +2301,6 @@ select.show-arrow {
 }
 
 .filter-list {
-  background-color: white;
   padding: 5px;
 }
 
@@ -2267,9 +2326,9 @@ select.show-arrow {
 }
 
 .filter-list__before-body .nav-pills .nav-link {
-  border: 1px solid #979797 !important;
+  border: 1px solid #2cb7b3 !important;
   border-radius: 4px !important;
-  color: #979797 !important;
+  color: #2cb7b3 !important;
   height: 100%;
 }
 
