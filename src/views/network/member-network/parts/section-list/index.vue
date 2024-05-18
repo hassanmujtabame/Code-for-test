@@ -3,56 +3,66 @@
     <div class="col-12">
       <h2>أعضاء رياديات</h2>
     </div>
-    <div class="row items-grid grid-container">
-      <div
-        v-for="(item, index) in items"
-        :key="index"
-        class="item-card-container"
-      >
-        <ItemCard
-          :to="getRouteLocale('network-show-profile', { id: item.id })"
-          :name="item.name"
-          :description="item.job_title"
-          :img="item.image"
-          :showJob="true"
-        >
-        </ItemCard>
+
+    <div v-if="userIsSubNetwork" class="empty-tab" style="min-height: 200px">
+      <img class="empty-img" src="/assets/img/noDataCloud.png" />
+      <div class="main-text">لا يمكنك رؤية الأعضاء</div>
+      <div class="sec-text">
+        اشترك الآن في الشبكة للتتمكن من الاستفادة من هذه الخدمة
       </div>
     </div>
-    <div>
-      <div class="pagination container2">
-        <ul class="pagination page2">
-          <li
-            class="pagination page__btn"
-            @click="navigate(links[0])"
-            :class="{ active: currentPage !== 1 }"
+    <div v-else>
+      <div class="row items-grid grid-container">
+        <div
+          v-for="(item, index) in items"
+          :key="index"
+          class="item-card-container"
+        >
+          <ItemCard
+            :to="getRouteLocale('network-show-profile', { id: item.id })"
+            :name="item.name"
+            :description="item.job_title"
+            :img="item.image"
+            :showJob="true"
           >
-            <i class="pagination fa-solid fa-chevron-right"></i>
-          </li>
-          <li
-            v-for="link in filteredLinks"
-            :key="link.label"
-            class="pagination page__numbers"
-            @click="navigate(link)"
-            :class="{ active: currentPage == link.label }"
-          >
-            {{ link.label }}
-          </li>
-          <li
-            class="pagination page__btn"
-            @click="navigate(links[links.length - 1])"
-            :class="{ active: currentPage !== lastPage }"
-          >
-            <i class="pagination fa-solid fa-chevron-left"></i>
-          </li>
-        </ul>
+          </ItemCard>
+        </div>
+      </div>
+      <div>
+        <div class="pagination container2">
+          <ul class="pagination page2">
+            <li
+              class="pagination page__btn"
+              @click="navigate(links[0])"
+              :class="{ active: currentPage !== 1 }"
+            >
+              <i class="pagination fa-solid fa-chevron-right"></i>
+            </li>
+            <li
+              v-for="link in filteredLinks"
+              :key="link.label"
+              class="pagination page__numbers"
+              @click="navigate(link)"
+              :class="{ active: currentPage == link.label }"
+            >
+              {{ link.label }}
+            </li>
+            <li
+              class="pagination page__btn"
+              @click="navigate(links[links.length - 1])"
+              :class="{ active: currentPage !== lastPage }"
+            >
+              <i class="pagination fa-solid fa-chevron-left"></i>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import MembersApi from "@/services/api/members.js";
+import MembersApi from "@/services/api-v2/network/members.js";
 import ItemCard from "@/components/cards/card-member.vue";
 import SidebarBox from "./sidebar.vue";
 export default {
@@ -61,18 +71,27 @@ export default {
     ItemCard,
     SidebarBox,
   },
+  props: {
+    searchData: {
+      type: Object,
+      default: () => {
+        return {
+          searchText: null,
+          classification: null,
+          regions: null,
+          competence: null,
+        };
+      },
+    },
+  },
+
   data: (vm) => {
     return {
       filterSide: {
         membership: null,
         category_id: [],
       },
-      filterItem: {
-        search: null,
-        created_at: "asc",
-        membership: null,
-        category_id: [],
-      },
+
       items_test: [
         {
           id: 1,
@@ -119,7 +138,27 @@ export default {
       },
     };
   },
+  watch: {
+    searchData: {
+      handler(newVal) {
+        this.loadList({ current_page: 1 });
+      },
+      deep: true, // Watch for changes within the object
+    },
+  },
   computed: {
+    filterItem() {
+      return {
+        search: this.searchData.searchText,
+        classification_id: this.searchData.classification
+          ? this.searchData.classification.id
+          : null,
+        region_id: this.searchData.regions ? this.searchData.regions.id : null,
+        competence_id: this.searchData.competence
+          ? this.searchData.competence.id
+          : null,
+      };
+    },
     links() {
       return this.metadata.links;
     },
@@ -157,22 +196,20 @@ export default {
     this.loadList({ current_page: 1 });
   },
   methods: {
-    changeFilter(val) {
-      this.filterItem = { ...this.filterItem, ...val };
-      this.fireEvent("d-filter-list-refresh");
-    },
     async loadList(metaInfo) {
+      if (!this.userIsSubNetwork) {
+        return;
+      }
       try {
         let params = {
           page: metaInfo.current_page,
-          paginate: 15,
+          paginate: 10,
           ...this.filterItem,
         };
         //return this.items_test;
-        const a = await MembersApi.getAll(params);
-        this.items = a.data.data;
-        this.metadata = a.data.meta;
-        return a;
+        const res = await MembersApi.getAll(params);
+        this.items = res.data.data;
+        this.metadata = res.data.meta;
       } catch (error) {
         console.log("error", error);
         console.log("response", error.response);
@@ -199,6 +236,25 @@ export default {
 </script>
 
 <style scoped>
+.empty-tab {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #fff;
+}
+.empty-img {
+  width: 50%;
+}
+.main-text {
+  font-size: 32px;
+  color: #414042;
+}
+.sec-text {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #737373;
+}
 .grid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
