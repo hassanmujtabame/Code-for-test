@@ -4,12 +4,18 @@
       <h2>أعضاء رياديات</h2>
     </div>
 
-    <div v-if="userIsSubNetwork" class="empty-tab" style="min-height: 200px">
+    <div v-if="!userIsSubNetwork" class="empty-tab" style="min-height: 200px">
       <img class="empty-img" src="/assets/img/noDataCloud.png" />
       <div class="main-text">لا يمكنك رؤية الأعضاء</div>
       <div class="sec-text">
-        اشترك الآن في الشبكة للتتمكن من الاستفادة من هذه الخدمة
+        اشترك الآن في الشبكة لتتمكن من الاطلاع على القائمة الخاصة بالأعضاء
       </div>
+    </div>
+
+    <div v-else-if="!items.length" class="empty-tab" style="min-height: 200px">
+      <img class="empty-img" src="/assets/img/noDataCloud.png" />
+      <div class="main-text">لا بوجد أي أعضاء</div>
+      <div class="sec-text">قد لا يكون هناك أعضاء حاليا توافق عملية البحث</div>
     </div>
     <div v-else>
       <div class="row items-grid grid-container">

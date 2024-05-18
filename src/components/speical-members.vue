@@ -24,6 +24,14 @@
         </p>
       </div>
       <div
+        v-if="!sliceArray.length"
+        class="empty-tab"
+        style="min-height: 200px"
+      >
+        <div class="main-text">لا يوجد أي أعضاء</div>
+        <div class="sec-text">قد لا يكون هناك أعضاء مميزون حالياً</div>
+      </div>
+      <div
         class="speical-members-card col-md-6 col-lg-3 gap-2 col-12 p-2"
         v-for="item in sliceArray"
         :key="item.id"
@@ -68,7 +76,26 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.empty-tab {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #fff;
+}
+.empty-img {
+  width: 50%;
+}
+.main-text {
+  font-size: 32px;
+  color: #414042;
+}
+.sec-text {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #737373;
+}
 .speical-members-row {
   background-image: url(@/assets/img/member/decorationIcons3.png),
     url(@/assets/img/member/decorationIcons2.png);
