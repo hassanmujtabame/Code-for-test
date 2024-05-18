@@ -12,7 +12,7 @@
     <SectionContinueLearning />
     <SectionSpeical :featured_members="featured_members" />
 
-    <SectionList :searchData="searchData" />
+    <SectionList id="section" :searchData="searchData" />
   </div>
 </template>
 
@@ -68,6 +68,13 @@ export default {
     },
     setSearchData(data) {
       this.searchData = data;
+      const section = document.getElementById("section");
+      if (section) {
+        const y = section.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      } else {
+        console.error('Element with ID "section" not found.');
+      }
     },
     getData(dc) {
       const d = new Date(dc);
