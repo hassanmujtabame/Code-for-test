@@ -76,6 +76,32 @@ _axios.interceptors.response.use(
   }
 );
 
+// create a v2 api axios
+// Create a new instance of Axios and assign it to axios_v2
+const _axios_v2 = axios.create({
+  // You can specify custom configuration options for axios_v2 here
+  // For example:
+  baseURL: process.env.VUE_APP_BASE_API_V2,
+  //  timeout: 5000, // milliseconds
+  // Add other configuration options as needed
+});
+
+// Add a request interceptor to axios_2
+_axios_v2.interceptors.request.use(
+  (config) => {
+    // Add the authorization token to the request headers
+    const token = window.store.getters["auth/token"];
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
+
 Plugin.install = function (Vue) {
   Vue.axios = _axios;
   window.axios = _axios;
@@ -88,6 +114,26 @@ Plugin.install = function (Vue) {
     $axios: {
       get() {
         return _axios;
+      },
+    },
+  });
+
+  // Assign the new instance to Vue.axios_v2
+  Vue.axios_v2 = _axios_v2;
+
+  // Assign the new instance to window.axios_v2
+  window.axios_v2 = _axios_v2;
+
+  // Define properties on Vue prototype for axios_v2
+  Object.defineProperties(Vue.prototype, {
+    axios_v2: {
+      get() {
+        return _axios_v2;
+      },
+    },
+    $axios_v2: {
+      get() {
+        return _axios_v2;
       },
     },
   });
