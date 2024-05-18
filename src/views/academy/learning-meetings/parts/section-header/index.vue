@@ -1,19 +1,15 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-md-6 position-relative col-12">
-        <div style="z-index: 4" class="position-relative">
-          <h1 style="color: #2cb7b3">لقاءات تعليمية</h1>
-          <p>لقاءات وندوات إلكترونية وحضورية في مجالات مختلفة لتطوير</p>
+      <div class="right-side col-md-7 position-relative col-12">
+        <div>
+          <h1 class="title mb-3">{{ $t("learning-meetings") }}</h1>
+          <p class="sub-title">
+            {{ $t("meetings-seminars-text") }}
+          </p>
         </div>
-        <img
-          style="top: -36px; left: 211px; z-index: 3; height: 236px"
-          class="position-absolute"
-          src="../../../../../assets/img/academy/Path 2212.png"
-          alt=""
-        />
       </div>
-      <div class="col-md-6 col-12">
+      <div class="col-md-5 col-12">
         <img
           class="img-fluid"
           src="../../../../../assets/img/academy/Frame 1171276147.png"
@@ -22,24 +18,6 @@
       </div>
     </div>
   </div>
-  <!-- <div class="consulting">
-        <div class="container">
-          <div class="row align-items-center justify-content-between">
-            <div class="col-md-6">
-              <img class="img-fluid position-absolute" style="width: 280px; top: 120px" src="@/assets/img/academy/Path 2212.png" alt="" />
-              <img class="img-fluid position-absolute" style="width: 280px; top: 160px" src="@/assets/img/academy/Path 2212.png" alt="" />
-
-              <h1 class="fs-1 text-gray">   لقاءات تعليمية  </h1>
-              <p class="text-gray">لقاءات وندوات إلكترونية وحضورية في مجالات مختلفة لتطوير</p>
-            </div>
-            <div class="col-md-6">
-              <div style="overflow: inherit" class="m-auto">
-                <img class="img-fluid" src="@/assets/img/academy/header-academy-meetings.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
 </template>
 
 <script>
@@ -48,4 +26,31 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.title {
+  font-family: Cairo;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 89.95px;
+  color: #414042;
+}
+.sub-title {
+  max-width: 85%;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #455a64;
+}
+.right-side {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("/public/assets/img/Path2213.png"),
+    url("/public/assets/img/Path2213.png");
+  background-size: auto 70%, auto 70%;
+  background-position-x: 90%, 85%;
+  background-position-y: 25%, 70%;
+  background-repeat: no-repeat;
+}
+</style>
