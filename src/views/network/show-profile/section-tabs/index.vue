@@ -65,27 +65,34 @@ export default {
     if (vm.userPage.is_instructor) tabActive = "your-course";
     if (vm.userPage.is_consultant) tabActive = "consulting";
     if (vm.userPage.is_investor) tabActive = "investments";
+    let isMyPage = vm.userPage.id == vm.$store.getters["auth/user"].id;
     vm.$emit("tabChange", tabActive);
     return {
       tabActive: tabActive,
       tabs: [
         {
+          tag: "blog",
+          title: vm.$t("the-blogs"),
+          content: TabBlog,
+          show: true,
+        },
+        {
           tag: "investments",
           title: vm.$t("investments"),
           content: TabInvestments,
-          show: !!vm.userPage.is_investor,
-        },
-        {
-          tag: "consulting",
-          title: vm.$t("consulting"),
-          content: TabConsulting,
-          show: !!vm.userPage.is_consultant,
+          show: isMyPage && !!vm.userPage.is_investor,
         },
         {
           tag: "your-course",
           title: vm.$t("your-courses"),
           content: TabYourCourses,
           show: !!vm.userPage.is_instructor,
+        },
+        {
+          tag: "consulting",
+          title: vm.$t("consulting"),
+          content: TabConsulting,
+          show: !!vm.userPage.is_consultant,
         },
         {
           tag: "offers",
@@ -97,25 +104,19 @@ export default {
           tag: "courses-watched",
           title: vm.$t("courses-you-have-watched"),
           content: TabWatchedCourses,
-          show: true,
-        },
-        {
-          tag: "blog",
-          title: vm.$t("the-blogs"),
-          content: TabBlog,
-          show: true,
+          show: isMyPage,
         },
         {
           tag: "exhibitions",
           title: vm.$t("the-exhibitions"),
           content: TabExhibitions,
-          show: true,
+          show: isMyPage,
         },
         {
           tag: "projects",
           title: vm.$t("the-projects"),
           content: TabProject,
-          show: true,
+          show: isMyPage,
         },
         {
           tag: "story",
