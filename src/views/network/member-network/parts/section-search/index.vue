@@ -9,9 +9,18 @@
             id="categories"
             class="dropdown-btn"
             right
-            text="اختر"
+            :text="classification ? classification.title : 'الكل'"
             style="text-align: right"
           >
+            <b-dropdown-item @click="setClassifications(null)"
+              >الكل</b-dropdown-item
+            >
+            <b-dropdown-item
+              v-for="classification in classifications"
+              :key="classification.id"
+              @click="setClassifications(classification)"
+              >{{ classification.title }}</b-dropdown-item
+            >
           </b-dropdown>
           <label for="categories" class="position-absolute dropdown-label"
             >تصنيف العضو</label
@@ -25,9 +34,15 @@
             id="categories"
             class="dropdown-btn"
             right
-            text="اختر"
+            :text="region ? region.title : 'الكل'"
             style="text-align: right"
-          >
+            ><b-dropdown-item @click="setRegions(null)">الكل</b-dropdown-item>
+            <b-dropdown-item
+              v-for="region in regions"
+              :key="region.id"
+              @click="setRegions(region)"
+              >{{ region.title }}</b-dropdown-item
+            >
           </b-dropdown>
           <label for="categories" class="position-absolute dropdown-label">
             المنطقة</label
@@ -41,9 +56,18 @@
             id="categories"
             class="dropdown-btn"
             right
-            text="اختر"
+            :text="competence ? competence.title : 'الكل'"
             style="text-align: right"
           >
+            <b-dropdown-item @click="setCompetences(null)"
+              >الكل</b-dropdown-item
+            >
+            <b-dropdown-item
+              v-for="competence in competences"
+              :key="competence.id"
+              @click="setCompetences(competence)"
+              >{{ competence.title }}</b-dropdown-item
+            >
           </b-dropdown>
           <label for="categories" class="position-absolute dropdown-label"
             >مجالات الاختصاص</label
@@ -65,10 +89,10 @@
           ></i>
         </div>
         <span
-          @click="search"
+          @click="advancedSearch"
           class="search-button input-group-text py-2 mx-2 rounded-3 text-light"
           :class="{ 'fs-6': isMobile }"
-          >بحث</span
+          >بحث متقدم</span
         >
       </div>
     </div>
@@ -78,8 +102,63 @@
 <script>
 export default {
   name: "section-search",
+  props: {
+    competences: [],
+    regions: [],
+    classifications: [],
+  },
+  data() {
+    return {
+      searchInput: "",
+      competence: null,
+      region: null,
+      classification: null,
+    };
+  },
   methods: {
-    search() {},
+    search() {
+      if (!this.userIsSubNetwork) {
+        window.Swal.fire({
+          icon: "warning",
+          title: this.$t("Sorry"),
+          text: this.$t("your-not-supscriped"),
+          confirmButtonText: this.$t("Ok"),
+        });
+        return;
+      }
+      if (!this.searchInput) return;
+      this.$emit("search", { searchText: this.searchInput });
+    },
+    advancedSearch() {
+      if (!this.userIsSubNetwork) {
+        window.Swal.fire({
+          icon: "warning",
+          title: this.$t("Sorry"),
+          text: this.$t("your-not-supscriped"),
+          confirmButtonText: this.$t("Ok"),
+        });
+        return;
+      }
+      const searchParams = {};
+
+      if (this.searchInput) searchParams.searchText = this.searchInput;
+      if (this.competence) searchParams.competence = this.competence;
+      if (this.classification)
+        searchParams.classification = this.classification;
+      // TODO:   set the region after backend
+      // if (this.region) searchParams.region = this.region;
+
+      this.$emit("search", searchParams);
+    },
+    setCompetences(c) {
+      this.competence = c;
+    },
+    setRegions(r) {
+      this.region = r;
+    },
+    setClassifications(c) {
+      this.classification = c;
+    },
   },
 };
 </script>
