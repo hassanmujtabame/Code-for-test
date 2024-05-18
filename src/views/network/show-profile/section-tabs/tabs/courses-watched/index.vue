@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import userAPI from "@/services/api/user.js";
+import studentAPI from "@/services/api/academy/student";
 import CardItem from "./card.vue";
 import EmptyCard from "../components/empty-card.vue";
 import PaginationBar from "@/components/pagination-card/index.vue";
@@ -61,10 +61,7 @@ export default {
       };
       this.loading = true;
       try {
-        const response = await userAPI.getCoursesUser(
-          this.$route.params.id,
-          params
-        );
+        const response = await studentAPI.getMyCourses(params);
         this.responseData = response.data;
         if (this.responseData.data.length > 0) {
           this.isEmptyObject = false;
