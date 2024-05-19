@@ -19,7 +19,7 @@
       </div>
       <router-link
         style="color: black"
-        :to="getRouteLocale('academy-course-show', { id: item.id })"
+        :to="getRouteLocale('academy-learning-meeting-show', { id: item.id })"
       >
         <div class="py-3">
           <div

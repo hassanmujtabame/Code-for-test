@@ -1,6 +1,8 @@
 <template>
   <div class="position-relative" :class="{ 'swiper-mobile': isMobile }">
     <swiper
+      :observer="true"
+      :observeParents="true"
       :loop="false"
       :watch-overflow="true"
       :scrollbar="scrollbar"

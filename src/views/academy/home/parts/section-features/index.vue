@@ -28,10 +28,6 @@ export default {
   components: {
     CardItem,
   },
-
-  mounted() {
-    console.log("vm : ", this);
-  },
   computed: {
     itemsData() {
       return [

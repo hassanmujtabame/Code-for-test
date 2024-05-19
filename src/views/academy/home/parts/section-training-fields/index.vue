@@ -14,7 +14,11 @@
             :items="items"
           >
             <template v-slot:default="{ item }">
-              <departmentCard :item="item" />
+              <router-link
+                :to="getRouteLocale('academy-department-show', { id: item.id })"
+              >
+                <departmentCard :item="item"
+              /></router-link>
             </template>
           </d-swiper>
         </div>

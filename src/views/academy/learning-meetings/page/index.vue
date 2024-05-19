@@ -3,7 +3,7 @@
     <d-overlays-simple v-if="loading" />
     <div v-else-if="hasError">هناك خطأ غير معروف يرجي تحديث الصفحة</div>
     <div v-else class="container">
-      <div v-if="isOwner" class="text-start">
+      <div v-if="isOwner && userAcademyRole == 'instructor'" class="text-start">
         <div class="d-flex gap-2 justify-content-end my-3">
           <div>
             <button

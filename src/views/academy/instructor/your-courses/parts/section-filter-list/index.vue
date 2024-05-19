@@ -25,7 +25,7 @@
           <button
             @click="changeStatus('all')"
             class="btn w-100"
-            :class="[status == 'all' ? 'btn-custmer' : 'btn-custmer-w']"
+            :class="type == 'all' ? 'btn-custmer' : 'btn-custmer-w'"
           >
             كل الدورات
           </button>
@@ -34,7 +34,7 @@
           <button
             @click="changeStatus('live')"
             class="btn w-100"
-            :class="[status == 'live' ? 'btn-custmer' : 'btn-custmer-w']"
+            :class="type == 'live' ? 'btn-custmer' : 'btn-custmer-w'"
           >
             دورات مباشرة
           </button>
@@ -43,7 +43,7 @@
           <button
             @click="changeStatus('on-site')"
             class="btn w-100"
-            :class="[status == 'on-site' ? 'btn-custmer' : 'btn-custmer-w']"
+            :class="type == 'on-site' ? 'btn-custmer' : 'btn-custmer-w'"
           >
             دورات حضورية
           </button>
@@ -52,7 +52,7 @@
           <button
             @click="changeStatus('recorded')"
             class="btn w-100"
-            :class="[status == 'recorded' ? 'btn-custmer' : 'btn-custmer-w']"
+            :class="type == 'recorded' ? 'btn-custmer' : 'btn-custmer-w'"
           >
             دورات مسجلة
           </button>
@@ -75,6 +75,7 @@
 import plusCircleOutline from "@/components/icon-svg/plus-circle-outline.vue";
 import CourseCard from "./card";
 import instructorAPI from "@/services/api/academy/instructor";
+import InstructorMeetingsApi from "@/services/api/academy/instructor/meetings";
 export default {
   name: "filter-list",
   components: {
@@ -83,15 +84,22 @@ export default {
   },
   data: () => {
     return {
-      status: "all",
+      type: "all",
       loading: false,
+      filterItem: {
+        type: "all",
+      },
       items: [{}, {}, {}, {}, {}, {}],
     };
   },
   methods: {
-    changeStatus(status) {
-      this.status = status;
-      this.filterItem.status = status;
+    changeFilter(val) {
+      this.filterItem = { ...this.filterItem, ...val };
+      this.fireEvent("d-filter-list-refresh");
+    },
+    changeStatus(type) {
+      this.type = type;
+      this.filterItem.type = type;
       this.fireEvent("d-filter-list-refresh");
     },
     async loadList(metaInfo) {
@@ -100,25 +108,22 @@ export default {
         let params = {
           page: metaInfo.current_page,
           paginate: this.isMobile ? 2 : 12,
+          ...this.filterItem,
         };
-        let dd = await instructorAPI.getCourses(params);
-        console.log("dd", dd);
-        return dd;
+        return await instructorAPI.getCourses(params);
       } catch (error) {
         //
       }
       this.loading = false;
     },
     async addCourseFirst() {
-      let { data } = await window.axios.get(
-        `academy/instructor/meetings?page=1`
-      );
+      let { data } = await InstructorMeetingsApi.getAll();
 
       if (!this.user.statusInstructor) {
         window.errorMsg("لم يفعل حسابك بعد !");
-      } else if (this.user.statusInstructor && data.data.length < 4) {
+      } else if (this.user.statusInstructor && data.data.length < 3) {
         window.errorMsg(
-          `يجب عليك رفع ${4 - data.data.length} من اللقاءات لكى تنشئ دوره`
+          `يجب عليك رفع ${3 - data.data.length} من اللقاءات لكى تنشئ دورة`
         );
       } else {
         this.fireOpenDialog("add-course-first");

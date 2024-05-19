@@ -19,20 +19,7 @@
                 </button>
               </router-link>
             </div>
-            <!-- <d-swiper
-          v-if="!loading"
-          is-auto
-          :items="items"
-          class="justify-content-around"
-        > -->
-            <!-- <template v-slot="{ item }"> -->
-            <!-- <router-link
-              style="width: fit-content"
-              class="router-link col-md-4 col-12"
-              :to="
-                getRouteLocale('academy-learning-meeting-show', { id: item.id })
-              "
-            > -->
+
             <MeetingCard
               class=""
               v-for="(item, i) in items"
@@ -45,12 +32,8 @@
               :time="item.time"
               :id="item.id"
             />
-            <!-- </router-link> -->
           </div>
         </div>
-
-        <!-- </template>
-        </d-swiper> -->
       </div>
     </div>
   </div>
