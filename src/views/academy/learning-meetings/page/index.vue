@@ -301,9 +301,7 @@ export default {
     },
     openConfirmJoinMeeting() {
       if (
-        this.user.subscribers &&
-        this.user.subscribers.network &&
-        this.user.subscribers.network.subscribe &&
+        (this.userIsSubAcademy || this.userIsSubNetwork) &&
         this.itemPage.available_meetings_month > 0
       ) {
         // if (this.userIsSubNetwork && this.userSubNetwork.type == 'free' && this.itemPage.available_meetings_month > 0)
@@ -313,7 +311,7 @@ export default {
         this.itemPage.available_meetings_month < 1
       ) {
         let dataEvt = {
-          title: "لا يمنك الانضمام",
+          title: "لا يمكنك الانضمام",
           description: "لقد استنفذت عدد اللقاءات الممنوحة لهذا الشهر",
           btns: [{ title: this.$t("Ok") }],
         };
