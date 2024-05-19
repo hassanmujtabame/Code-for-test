@@ -125,7 +125,6 @@ export default {
   },
   methods: {
     updateLecture(item) {
-      console.mylog("updateLecture", item);
       this.lectureSelected = item;
     },
   },
