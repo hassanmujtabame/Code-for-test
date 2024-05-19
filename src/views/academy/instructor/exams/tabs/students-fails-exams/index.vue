@@ -17,8 +17,6 @@
           <button
             style="background-color: #f2631c"
             class="btn text-white"
-            data-bs-toggle="modal"
-            href="#exampleModalToggle"
             role="button"
           >
             رسالة للجميع
