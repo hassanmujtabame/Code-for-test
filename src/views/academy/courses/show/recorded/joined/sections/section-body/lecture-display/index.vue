@@ -2,7 +2,9 @@
   <div class="academy-player-box">
     <d-overlays-simple v-if="progressing" />
     <!-- <iframe ref="myVideoPreview" allowfullscreen class="bg-black rounded-3 w-100 h-100" :src="lectureSelected.video + '?title=0&&byline=0&&portrait=0'" id="course-video-preview" ></iframe> -->
+
     <vimeo-player
+      v-if="getVimeoVideoId(lectureSelected.video)"
       :options="{
         title: 0,
         byline: 0,
@@ -42,7 +44,6 @@ export default {
       const match = url.match(
         /(?:https?:\/\/)?(?:www\.)?(?:player\.)?vimeo\.com\/(?:video\/)?(\d+)(?:.*)?/
       );
-
       if (match && match[1]) {
         return match[1]; // Return the matched Vimeo video ID
       } else {
