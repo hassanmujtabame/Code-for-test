@@ -14,7 +14,7 @@
           color: #0c2f33 !important;
         "
       >
-        استشارة جديدة
+        تحديث الأوقات وتفاصيل الاستشارات
       </div>
     </template>
     <template v-slot:default>
