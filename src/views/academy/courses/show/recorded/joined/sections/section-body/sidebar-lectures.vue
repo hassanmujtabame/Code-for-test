@@ -24,6 +24,7 @@
       <h1>محتويات الدورة :</h1>
       <div v-if="canEdit" class="course-show-page__lectures-header_btns">
         <button
+          v-if="false"
           @click="activeDraggable = !activeDraggable"
           class="btn"
           :class="{ 'c-save': activeDraggable }"
