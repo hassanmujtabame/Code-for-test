@@ -6,11 +6,16 @@
         hideSide
         classColCard="col-12 mt-2"
         @change="changeFilter"
+        classTitle="col-md-4"
+        classSearchOrder="col-md-8 justify-content-center"
+        classColSearch="w-50"
+        classColOrder="w-50"
+        searchPlaceholder="أبحث  في قائمة الاستشارات"
       >
-        <template v-slot:total>
-          <h4 class="fw-bold">طلبات إستشارة</h4>
+        <template v-slot:title>
+          <h4 class="page-title">استشاراتي</h4>
         </template>
-        <template v-slot:before-body>
+        <template v-if="false" v-slot:before-body>
           <ul class="nav nav-pills mb-3">
             <li
               v-for="(btn, i) in actions"
@@ -29,20 +34,7 @@
           </ul>
         </template>
         <template v-slot:default="{ item }">
-          <ConsultingRequest
-            :itemId="item.id"
-            :status="item.status"
-            :title="item.title"
-            :userName="item.user_info.name"
-            :dateRequest="item.start_date"
-            :timeRequest="item.available_time"
-            :place="item.city"
-            :desc="item.description"
-            :price="item.price"
-            @update-list="updateList"
-            :description="item.desc"
-          >
-          </ConsultingRequest>
+          <ConsultingRequest :item="item" @update-list="updateList" />
         </template>
       </d-filter-list>
     </div>
@@ -51,7 +43,7 @@
   </div>
 </template>
 <script>
-import ConsultingRequest from "./card-item.vue";
+import ConsultingRequest from "../bookings/card-item.vue";
 import showConfirmSessionDialog from "./dialogs/confirm-accept/index";
 import showRescheduleDialog from "./dialogs/reschedule/index";
 import consultingAPI from "@/services/api/consulting/index";
@@ -108,5 +100,16 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.page-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  /* identical to box height, or 125% */
+
+  text-align: right;
+  text-transform: capitalize;
+  color: #1fb9b3;
+}
 </style>
