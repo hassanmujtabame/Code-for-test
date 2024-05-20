@@ -43,7 +43,7 @@
                       border: 1px solid #1fb9b3;
                     "
                   >
-                    خدمه حضوريه
+                    خدمة حضورية
                   </button>
 
                   <button
@@ -58,7 +58,7 @@
                       border: 1px solid #1fb9b3;
                     "
                   >
-                    خدمه عن بعد
+                    خدمة عن بعد
                   </button>
                 </div>
               </div>
