@@ -32,7 +32,7 @@ window.successMsg = (msg) => {
     showConfirmButton: false,
     timer: 5000,
     timerProgressBar: true,
-    title: msg || "عمليه ناجحه",
+    title: msg || "عملية ناجحة",
     icon: "success",
   });
 };
