@@ -28,12 +28,10 @@ export default {
     },
   },
   methods: {
-    openAddBooking() {
-      this.fireOpenDialog("add-booking-consultant", this.itemPage);
-    },
     async initializing() {
       this.loading = true;
       this.hasError = false;
+
       try {
         let { data } = await consultingAPI.consultants.getItem(
           this.$route.params.id

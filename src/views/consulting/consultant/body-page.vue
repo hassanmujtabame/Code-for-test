@@ -183,10 +183,23 @@ export default {
       return true;
     },
     openAddBooking() {
-      this.fireOpenDialog("add-booking-consultant", {
-        item: this.itemPage,
-        opts: this.opts,
-      });
+      if (
+        this.itemPage.consultantAvailableTime &&
+        this.itemPage.consultantAvailableTime.available_times.length > 0 &&
+        this.itemPage.consultantAvailableTime.days.length > 0
+      ) {
+        this.fireOpenDialog("add-booking-consultant", {
+          item: this.itemPage,
+          opts: this.opts,
+        });
+      } else {
+        window.Swal.fire({
+          icon: "info",
+          title: this.$t("Sorry"),
+          text: this.$t("no-available-cosultants"),
+          confirmButtonText: this.$t("Ok"),
+        });
+      }
     },
 
     switchTab1() {

@@ -611,49 +611,18 @@ export default {
           return false;
       }
     },
-    async loadAvailableDates() {
-      try {
-        let { data } = await consultantsApi.getAvailability(this.itemDailog.id);
-        console.log("data", data);
-        console.log("itemPage", this.itemPage);
-        if (data.success) {
-          if (data.data == null || data.data.length == 0) {
-            window.Swal.fire({
-              icon: "info",
-              title: this.$t("Sorry"),
-              text: this.$t("no-available-cosultants"),
-              confirmButtonText: this.$t("Ok"),
-            });
-            this.closeDialog();
-            this.closeEvent();
-            return;
-          }
-          this.availability = Object.assign(this.availability, {
-            ...data.data[0],
-          });
-          let days = [new Date(this.availability.start_date)];
-          for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
-            days.push(this.addDays(this.availability.start_date, i));
+    loadAvailableDates() {
+      this.availability = Object.assign(this.availability, {
+        ...this.itemPage.consultantAvailableTime,
+      });
+      let days = [new Date(this.availability.start_date)];
+      for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
+        days.push(this.addDays(this.availability.start_date, i));
 
-          this.minDate = days[0];
-          this.maxDate = days[days.length - 1];
-          this.times = this.availability.available_times;
-          //               \\///////////////\\                          //
-          //                \\///////////////\\                         //
-          // temp code to book before payment jus to add data into databas
-          //                  \\///////////////\\                       //
-          //                   \\///////////////\\                      //
-          // if (process.env.NODE_ENV == "development") {
-          //   this.times = ["09:00", "10:00", "11:00", "12:00"];
-          // }
-          //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
-
-          this.availableDates = days;
-        }
-      } catch (error) {
-        console.mylog("error", error);
-        //
-      }
+      this.minDate = days[0];
+      this.maxDate = days[days.length - 1];
+      this.times = this.availability.available_times;
+      this.availableDates = days;
     },
     translateDayToArabic(day) {
       const daysMap = {
@@ -668,38 +637,23 @@ export default {
       return daysMap[day.toLowerCase()] || day; // If the day is not found in the map, return it as is
     },
     async loadDays() {
-      this.loading = true;
-      try {
-        let { data } = await consultantsApi.getAvailability(this.itemDailog.id);
-        if (data.success) {
-          // this.days = data.data[0].days;
-          // this.loading = false;
+      this.days = Object.assign(this.availability, {
+        ...this.itemPage.consultantAvailableTime,
+      });
+      let days = [new Date(this.availability.start_date)];
+      for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
+        days.push(this.addDays(this.availability.start_date, i));
 
-          this.days = Object.assign(this.availability, {
-            ...data.data[0],
-          });
-          let days = [new Date(this.availability.start_date)];
-          for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
-            days.push(this.addDays(this.availability.start_date, i));
+      this.minDate = days[0];
+      this.maxDate = days[days.length - 1];
+      this.times = this.availability.available_times;
 
-          this.minDate = days[0];
-          this.maxDate = days[days.length - 1];
-          this.times = this.availability.available_times;
-
-          this.availableDates = days;
-        }
-      } catch (error) {
-        console.mylog("error", error);
-        // this.loading = false;
-
-        //
-      } finally {
-        this.loading = false;
-      }
+      this.availableDates = days;
     },
     openDialog(dataEvt) {
       this.itemDailog = dataEvt.item;
       this.loadAvailableDates();
+      this.loadDays();
       this.itemForm = {
         start_date: null,
         consultant_id: this.itemDailog.id,
@@ -720,9 +674,7 @@ export default {
       this.fireCloseDialog(this.group);
     },
   },
-  mounted() {
-    this.loadDays();
-  },
+  mounted() {},
 };
 </script>
 
