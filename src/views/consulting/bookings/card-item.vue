@@ -9,8 +9,9 @@
         >
           {{ statusText }}
         </div>
-        <div class="text-center field-counseling">
-          {{ $t("field-counseling") }} : <span>{{ title ?? "N/A" }} </span>
+        <div v-if="departmentName" class="text-center field-counseling">
+          {{ $t("field-counseling") }} :
+          <span>{{ departmentName ?? "N/A" }} </span>
         </div>
       </div>
       <div class="d-flex gap-2 flex-wrap mt-3">
@@ -83,7 +84,7 @@ export default {
     itemId() {
       return this.item.id;
     },
-    title() {
+    departmentName() {
       return this.item.department_name;
     },
     userName() {

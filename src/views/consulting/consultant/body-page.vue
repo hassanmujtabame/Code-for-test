@@ -183,6 +183,7 @@ export default {
   },
   methods: {
     convertTimeToMinutes(timeString) {
+      if (!timeString) return "--";
       // Split the time string into hours, minutes, and seconds
       const [hours, minutes, seconds] = timeString.split(":").map(Number);
 
