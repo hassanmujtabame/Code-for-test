@@ -54,7 +54,7 @@
           <div class="d-flex flex-column justify-content-center gap-1">
             <h3 style="color: #ffbc00">استشارات</h3>
             <button
-              @click="router_push('consulting-bookings')"
+              @click="router_push('consulting-requests')"
               style="
                 color: #888;
                 outline: 1px solid #888;
