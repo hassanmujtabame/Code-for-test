@@ -119,17 +119,13 @@
                   />
                 </div>
                 <div class="d-flex my-1 flex-column">
-                  <label
-                    for="
-"
-                  >
-                    الايام المتاحه
-                  </label>
-                  <ul class="d-flex my-1 align-items-center p-0 gap-1">
+                  <label> الايام المتاحه </label>
+                  <ul class="d-flex my-1 align-items-center p-0">
                     <li
                       v-for="(day, i) in days.days"
                       :key="i"
-                      class="time-card"
+                      class="day-card"
+                      :class="{ first: i == 0 }"
                       style="list-style: none"
                     >
                       {{ translateDayToArabic(day) }}
@@ -175,7 +171,7 @@
                 <d-datepicker-input
                   style="border: none; height: 52px"
                   class="rounded-3 form-control"
-                  placeholder="اختيار المعاد"
+                  placeholder="اختيار الموعد"
                   id="date"
                   v-model="itemForm.start_date"
                 />
@@ -527,12 +523,30 @@ export default {
     handleImageError(e) {
       e.target.src = `${this.publicPath}assets/img/no-img.png`;
     },
-    save() {
+    async save() {
       if (
         this.itemForm.available_time &&
         this.itemForm.start_date &&
         this.itemForm.message
       ) {
+        if (
+          (this.type == "remote" && this.itemPage.remote_price == 0) ||
+          (this.type == "site" && this.itemPage.site_price == 0)
+        ) {
+          let { data } = await consultingApi.bookingConsultant(this.itemForm);
+          if (data.success) {
+            window.window.successMsg();
+            this.fireCloseDialog(this.group);
+
+            return;
+          } else {
+            this.fireCloseDialog(this.group);
+            window.errorMsg("حدث خطأ، يرجى المحاولة لاحقاً");
+
+            console.error(data.message);
+            return;
+          }
+        }
         this.openSecModal = true;
       } else {
         window.SwalError("اكمل بيانات الحجز اولا");
@@ -543,18 +557,6 @@ export default {
     },
 
     async proceedToPayment() {
-      //               \\///////////////\\                          //
-      //                \\///////////////\\                         //
-      // temp code to book before payment jus to add data into databas
-      //                  \\///////////////\\                       //
-      //                   \\///////////////\\                      //
-      // if (process.env.NODE_ENV == "development") {
-      //   let { data } = await consultingApi.bookingConsultant(this.itemForm);
-      //   console.log("data", data);
-      //   return;
-      // }
-      //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
-
       switch (this.selectedProvider) {
         case "tamara":
           try {
@@ -679,6 +681,21 @@ export default {
 </script>
 
 <style scoped>
+.day-card {
+  border-right: 1px solid #c1c1c1;
+  padding: 3px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 17px;
+  /* identical to box height, or 142% */
+  color: #737373;
+  min-width: 60px;
+  text-align: center;
+  margin: 0 3px;
+}
+.first {
+  border: 0px;
+}
 .label-dialog {
   font-style: normal;
   font-weight: 400;
@@ -688,7 +705,7 @@ export default {
   color: #979797;
 }
 .time-card {
-  /* cursor: pointer; */
+  cursor: pointer;
   border: 1px solid #c1c1c1;
   padding: 5px;
   font-weight: 400;
