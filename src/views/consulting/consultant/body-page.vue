@@ -123,7 +123,7 @@
               </p>
               <p v-if="type == 'remote'" class="status-icons">
                 <d-chatting-icon :size="24" />
-                {{ contact_type == 1 ? "مكالمة صوتية" : "مكالمة فيديو" }}
+                {{ type == 1 ? "مكالمة صوتية" : "مكالمة فيديو" }}
               </p>
             </div>
             <div class="text-center mt-4">
