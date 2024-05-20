@@ -119,10 +119,14 @@
 
               <p class="status-icons">
                 <d-timer-icon :size="24" />
-                {{ itemPage.duration_time ?? "--" }} دقيقة
+                {{ minutes ?? "--" }} دقيقة
               </p>
               <p v-if="type == 'remote'" class="status-icons">
-                <d-chatting-icon :size="24" />
+                <i
+                  v-if="itemPage.type == 'video'"
+                  class="fa-solid fa-video"
+                ></i>
+                <i v-else class="fa-solid fa-phone-volume"></i>
                 {{ type == 1 ? "مكالمة صوتية" : "مكالمة فيديو" }}
               </p>
             </div>
@@ -132,7 +136,7 @@
                 @click="openAddBooking"
                 class="px-5 btn rounded-3 py-2"
               >
-                احجز جلستك الان
+                احجز جلستك الآن
               </button>
             </div>
           </div>
@@ -168,6 +172,9 @@ export default {
     type: "site",
   }),
   computed: {
+    minutes() {
+      return this.convertTimeToMinutes(this.itemPage.duration_time);
+    },
     price() {
       if (this.type == "remote") return this.itemPage.remote_price;
       if (this.type == "site") return this.itemPage.site_price;
@@ -175,6 +182,15 @@ export default {
     },
   },
   methods: {
+    convertTimeToMinutes(timeString) {
+      // Split the time string into hours, minutes, and seconds
+      const [hours, minutes, seconds] = timeString.split(":").map(Number);
+
+      // Convert hours and seconds to minutes
+      const totalMinutes = hours * 60 + minutes;
+
+      return totalMinutes;
+    },
     handleImageError(e) {
       e.target.src = `${this.publicPath}assets/img/no-img.png`;
     },
