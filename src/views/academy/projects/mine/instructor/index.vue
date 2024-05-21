@@ -66,7 +66,7 @@
         <!-- head end -->
         <div class="col-lg-3 my-4">
           <button
-            @click="router_push('academy-add-project')"
+            @click="academyAddProject"
             class="py-3 btn btn-customer d-flex align-items-center gap-2"
           >
             <i class="fa-solid fa-plus"></i>{{ $t("add-projects") }}
@@ -161,7 +161,11 @@ export default {
         });
       }
     },
-
+    academyAddProject() {
+      this.fireOpenDialog(`add-project-course-dialog`, {
+        item: { id: null, title: null, video: null },
+      });
+    },
     changeFilter(val) {
       this.filterItem = { ...this.filterItem, ...val };
     },
