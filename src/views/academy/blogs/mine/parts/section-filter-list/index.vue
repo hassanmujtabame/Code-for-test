@@ -17,7 +17,10 @@
         <h4 class="text-cairo">{{ $t("your-blogs") }}</h4>
       </template>
       <template v-slot:head-end>
-        <button class="py-3 btn btn-customer d-flex align-items-center gap-2">
+        <button
+          @click="addBlog"
+          class="py-3 btn btn-customer d-flex align-items-center gap-2"
+        >
           <i class="fa-solid fa-plus"></i>{{ $t("add-blog") }}
         </button>
       </template>

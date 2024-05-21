@@ -1,5 +1,8 @@
 <template>
-  <div class="w-100 d-flex flex-column bg-white mb-4">
+  <div
+    @click="router_push('academy-learning-meeting-show', { id: item.id })"
+    class="w-100 d-flex flex-column bg-white mb-4"
+  >
     <div class="d-flex align-items-center justify-content-between px-3">
       <h1 style="color: #1fb9b3">
         {{ item.title }}

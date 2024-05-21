@@ -119,17 +119,13 @@
                   />
                 </div>
                 <div class="d-flex my-1 flex-column">
-                  <label
-                    for="
-"
-                  >
-                    الايام المتاحه
-                  </label>
-                  <ul class="d-flex my-1 align-items-center p-0 gap-1">
+                  <label> الايام المتاحه </label>
+                  <ul class="d-flex my-1 align-items-center p-0">
                     <li
                       v-for="(day, i) in days.days"
                       :key="i"
-                      class="time-card"
+                      class="day-card"
+                      :class="{ first: i == 0 }"
                       style="list-style: none"
                     >
                       {{ translateDayToArabic(day) }}
@@ -175,7 +171,7 @@
                 <d-datepicker-input
                   style="border: none; height: 52px"
                   class="rounded-3 form-control"
-                  placeholder="اختيار المعاد"
+                  placeholder="اختيار الموعد"
                   id="date"
                   v-model="itemForm.start_date"
                 />
@@ -523,16 +519,41 @@ export default {
     // maxDate: null,
     availableDates: [],
   }),
+  cmoputed: {
+    price() {
+      if (this.type == "remote") return this.itemPage.remote_price;
+      if (this.type == "site") return this.itemPage.site_price;
+      return 0;
+    },
+  },
   methods: {
     handleImageError(e) {
       e.target.src = `${this.publicPath}assets/img/no-img.png`;
     },
-    save() {
+    async save() {
       if (
         this.itemForm.available_time &&
         this.itemForm.start_date &&
         this.itemForm.message
       ) {
+        if (this.price == 0) {
+          let { data } = await consultingApi.bookingConsultant({
+            type: this.type,
+            ...this.itemForm,
+          });
+          if (data.success) {
+            window.window.successMsg();
+            this.fireCloseDialog(this.group);
+
+            return;
+          } else {
+            this.fireCloseDialog(this.group);
+            window.errorMsg("حدث خطأ، يرجى المحاولة لاحقاً");
+
+            console.error(data.message);
+            return;
+          }
+        }
         this.openSecModal = true;
       } else {
         window.SwalError("اكمل بيانات الحجز اولا");
@@ -543,18 +564,6 @@ export default {
     },
 
     async proceedToPayment() {
-      //               \\///////////////\\                          //
-      //                \\///////////////\\                         //
-      // temp code to book before payment jus to add data into databas
-      //                  \\///////////////\\                       //
-      //                   \\///////////////\\                      //
-      // if (process.env.NODE_ENV == "development") {
-      //   let { data } = await consultingApi.bookingConsultant(this.itemForm);
-      //   console.log("data", data);
-      //   return;
-      // }
-      //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
-
       switch (this.selectedProvider) {
         case "tamara":
           try {
@@ -564,7 +573,7 @@ export default {
             // });
             let { data } = await payment.payTammara({
               type: this.type,
-              consaltant_id: this.itemPage.id,
+              ...this.itemForm,
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
@@ -579,7 +588,7 @@ export default {
           try {
             let { data } = await payment.payMyfatoorah({
               type: this.type,
-              consaltant_id: this.itemPage.id,
+              ...this.itemForm,
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
@@ -594,7 +603,7 @@ export default {
           try {
             let { data } = await payment.payTabby({
               type: this.type,
-              consaltant_id: this.itemPage.id,
+              ...this.itemForm,
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
@@ -611,49 +620,18 @@ export default {
           return false;
       }
     },
-    async loadAvailableDates() {
-      try {
-        let { data } = await consultantsApi.getAvailability(this.itemDailog.id);
-        console.log("data", data);
-        console.log("itemPage", this.itemPage);
-        if (data.success) {
-          if (data.data == null || data.data.length == 0) {
-            window.Swal.fire({
-              icon: "info",
-              title: this.$t("Sorry"),
-              text: this.$t("no-available-cosultants"),
-              confirmButtonText: this.$t("Ok"),
-            });
-            this.closeDialog();
-            this.closeEvent();
-            return;
-          }
-          this.availability = Object.assign(this.availability, {
-            ...data.data[0],
-          });
-          let days = [new Date(this.availability.start_date)];
-          for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
-            days.push(this.addDays(this.availability.start_date, i));
+    loadAvailableDates() {
+      this.availability = Object.assign(this.availability, {
+        ...this.itemPage.consultantAvailableTime,
+      });
+      let days = [new Date(this.availability.start_date)];
+      for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
+        days.push(this.addDays(this.availability.start_date, i));
 
-          this.minDate = days[0];
-          this.maxDate = days[days.length - 1];
-          this.times = this.availability.available_times;
-          //               \\///////////////\\                          //
-          //                \\///////////////\\                         //
-          // temp code to book before payment jus to add data into databas
-          //                  \\///////////////\\                       //
-          //                   \\///////////////\\                      //
-          // if (process.env.NODE_ENV == "development") {
-          //   this.times = ["09:00", "10:00", "11:00", "12:00"];
-          // }
-          //////////////////////////\\\\\\\\\\\\\\\\\\\\//////////////////
-
-          this.availableDates = days;
-        }
-      } catch (error) {
-        console.mylog("error", error);
-        //
-      }
+      this.minDate = days[0];
+      this.maxDate = days[days.length - 1];
+      this.times = this.availability.available_times;
+      this.availableDates = days;
     },
     translateDayToArabic(day) {
       const daysMap = {
@@ -668,38 +646,23 @@ export default {
       return daysMap[day.toLowerCase()] || day; // If the day is not found in the map, return it as is
     },
     async loadDays() {
-      this.loading = true;
-      try {
-        let { data } = await consultantsApi.getAvailability(this.itemDailog.id);
-        if (data.success) {
-          // this.days = data.data[0].days;
-          // this.loading = false;
+      this.days = Object.assign(this.availability, {
+        ...this.itemPage.consultantAvailableTime,
+      });
+      let days = [new Date(this.availability.start_date)];
+      for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
+        days.push(this.addDays(this.availability.start_date, i));
 
-          this.days = Object.assign(this.availability, {
-            ...data.data[0],
-          });
-          let days = [new Date(this.availability.start_date)];
-          for (let i = 1; i <= parseInt(this.availability.duration_days); i++)
-            days.push(this.addDays(this.availability.start_date, i));
+      this.minDate = days[0];
+      this.maxDate = days[days.length - 1];
+      this.times = this.availability.available_times;
 
-          this.minDate = days[0];
-          this.maxDate = days[days.length - 1];
-          this.times = this.availability.available_times;
-
-          this.availableDates = days;
-        }
-      } catch (error) {
-        console.mylog("error", error);
-        // this.loading = false;
-
-        //
-      } finally {
-        this.loading = false;
-      }
+      this.availableDates = days;
     },
     openDialog(dataEvt) {
       this.itemDailog = dataEvt.item;
       this.loadAvailableDates();
+      this.loadDays();
       this.itemForm = {
         start_date: null,
         consultant_id: this.itemDailog.id,
@@ -720,13 +683,26 @@ export default {
       this.fireCloseDialog(this.group);
     },
   },
-  mounted() {
-    this.loadDays();
-  },
+  mounted() {},
 };
 </script>
 
 <style scoped>
+.day-card {
+  border-right: 1px solid #c1c1c1;
+  padding: 3px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 17px;
+  /* identical to box height, or 142% */
+  color: #737373;
+  min-width: 60px;
+  text-align: center;
+  margin: 0 3px;
+}
+.first {
+  border: 0px;
+}
 .label-dialog {
   font-style: normal;
   font-weight: 400;
@@ -736,7 +712,7 @@ export default {
   color: #979797;
 }
 .time-card {
-  /* cursor: pointer; */
+  cursor: pointer;
   border: 1px solid #c1c1c1;
   padding: 5px;
   font-weight: 400;

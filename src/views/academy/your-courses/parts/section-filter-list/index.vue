@@ -20,7 +20,7 @@
           <button
             @click="changeStatus('all')"
             class="btn w-100"
-            :class="[status == 'all' ? 'btn-custmer' : 'btn-custmer-w']"
+            :class="[type == 'all' ? 'btn-custmer' : 'btn-custmer-w']"
           >
             كل الدورات
           </button>
@@ -29,7 +29,7 @@
           <button
             @click="changeStatus('live')"
             class="btn w-100"
-            :class="[status == 'live' ? 'btn-custmer' : 'btn-custmer-w']"
+            :class="[type == 'live' ? 'btn-custmer' : 'btn-custmer-w']"
           >
             دورات مباشرة
           </button>
@@ -38,7 +38,7 @@
           <button
             @click="changeStatus('on-site')"
             class="btn w-100"
-            :class="[status == 'on-site' ? 'btn-custmer' : 'btn-custmer-w']"
+            :class="[type == 'on-site' ? 'btn-custmer' : 'btn-custmer-w']"
           >
             دورات حضورية
           </button>
@@ -47,7 +47,7 @@
           <button
             @click="changeStatus('recorded')"
             class="btn w-100"
-            :class="[status == 'recorded' ? 'btn-custmer' : 'btn-custmer-w']"
+            :class="[type == 'recorded' ? 'btn-custmer' : 'btn-custmer-w']"
           >
             دورات مسجلة
           </button>
@@ -78,12 +78,12 @@ export default {
   },
   data: () => {
     return {
-      status: "all",
+      type: "all",
       items: [],
       filterItem: {
         search: null,
         order_by: "asc",
-        status: "in-progress",
+        type: "",
       },
     };
   },
@@ -99,9 +99,9 @@ export default {
           return this.getRouteLocale("academy-course-show", { id: item.id });
       }
     },
-    changeStatus(status) {
-      this.status = status;
-      this.filterItem.status = status;
+    changeStatus(type) {
+      this.type = type;
+      this.filterItem.type = type == "all" ? "" : type;
       this.fireEvent("d-filter-list-refresh");
     },
     changeFilter(val) {

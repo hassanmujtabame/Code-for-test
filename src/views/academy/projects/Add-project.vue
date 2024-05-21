@@ -24,7 +24,7 @@
                   id="project-title"
                   type="text"
                   :placeholder="$t('project-title')"
-                  v-model="form.projectTitle"
+                  v-model="form.title"
                   required
                 />
                 <div class="text-input-error">{{ errors[0] }}</div>
@@ -43,7 +43,7 @@
                   $t("project-course")
                 }}</label>
                 <select
-                  v-model="form.projectCourse"
+                  v-model="form.course_id"
                   class="form-select py-3 m-c fs-r-12"
                 >
                   <option
@@ -51,7 +51,7 @@
                     :key="i"
                     :value="course.id"
                   >
-                    {{ course.name }}
+                    {{ course.title }}
                   </option>
                 </select>
                 <div class="text-input-error">{{ errors[0] }}</div>
@@ -108,7 +108,7 @@
                   id="project-instructions"
                   type="text"
                   :placeholder="$t('instructions')"
-                  v-model="form.projectInstructions"
+                  v-model="form.desc"
                   rows="12"
                 />
                 <div class="text-input-error">{{ errors[0] }}</div>
@@ -119,7 +119,9 @@
       </div>
 
       <div class="div w-100 d-flex justify-content-end my-3">
-        <button class="btn btn-customer">{{ $t("save-the-project") }}</button>
+        <button @click="save" class="btn btn-customer">
+          {{ $t("save-the-project") }}
+        </button>
       </div>
     </div>
   </div>
@@ -127,6 +129,8 @@
 
 <script>
 import settingsTap from "./mine/instructor/tabs/settings-projects/index.vue";
+import InstructorsApi from "@/services/api/academy/instructor";
+import ProjectsApi from "@/services/api/academy/project";
 export default {
   name: "add-project-page",
   components: {
@@ -135,20 +139,41 @@ export default {
   data() {
     return {
       form: {
-        projectTitle: "",
-        projectCourse: "",
-        projectInstructions: "",
+        title: "",
+        course_id: "",
+        desc: "",
       },
       myCourses: [],
-      attachments: [
-        { title: "دراسة الجدوى", format: "PDF", size: "25 MB" },
-        { title: "دراسة الجدوى", format: "PDF", size: "25 MB" },
-        { title: "دراسة الجدوى", format: "PDF", size: "25 MB" },
-        { title: "دراسة الجدوى", format: "PDF", size: "25 MB" },
-      ],
+      attachments: [],
     };
   },
+
   methods: {
+    async loadCourses() {
+      try {
+        let { data } = await InstructorsApi.getCourses();
+        if (data.success) {
+          this.myCourses = data.data;
+        }
+      } catch (error) {}
+    },
+    async save() {
+      let valid = await this.$refs.addProjectForm.validate();
+
+      if (!valid) {
+        return;
+      }
+      try {
+        let { data } = await ProjectsApi.addProject(this.form);
+        if (data.success) {
+          window.successMsg();
+        } else {
+          window.errorMsg(data.message);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
     addProjectAttachment() {},
     downloadAttachment(attachment) {},
   },
@@ -156,6 +181,9 @@ export default {
     if (this.userAcademyRole != "instructor") {
       this.router_push("academy-home");
     }
+  },
+  mounted() {
+    this.loadCourses();
   },
 };
 </script>

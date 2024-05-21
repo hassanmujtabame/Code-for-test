@@ -12,113 +12,10 @@
           </p>
         </div>
         <div class="col-md-6 text-start">
-          <button
-            style="
-              height: 40px;
-              border: 1px solid #f2631c;
-              color: #f2631c;
-              background-color: transparent;
-            "
-            class="rounded-2 px-3"
-            @click="openDialogNewCatSchedule"
-          >
-            <!-- <i class="fa fa-pen-to-square"></i> -->
-            <svg
-              width="18"
-              height="21"
-              viewBox="0 0 18 21"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g filter="url(#filter0_d_5001_2068)">
-                <path
-                  d="M13 8.5H5C4.72667 8.5 4.5 8.27333 4.5 8C4.5 7.72667 4.72667 7.5 5 7.5H13C13.2733 7.5 13.5 7.72667 13.5 8C13.5 8.27333 13.2733 8.5 13 8.5Z"
-                  fill="#F2631C"
-                />
-                <path
-                  d="M9 12.5C8.72667 12.5 8.5 12.2733 8.5 12V4C8.5 3.72667 8.72667 3.5 9 3.5C9.27333 3.5 9.5 3.72667 9.5 4V12C9.5 12.2733 9.27333 12.5 9 12.5Z"
-                  fill="#F2631C"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_5001_2068"
-                  x="0.5"
-                  y="3.5"
-                  width="17"
-                  height="17"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset dy="4" />
-                  <feGaussianBlur stdDeviation="2" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_5001_2068"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_5001_2068"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-
-            استشارة جديدة
+          <button class="btn btn-accent py-3" @click="openDialogNewCatSchedule">
+            <i style="font-size: 20px" class="fa fa-pen-to-square"></i>{{ " " }}
+            ضبط الأوقات وتفاصيل الاستشارات
           </button>
-
-          <!-- Delete button (disabeld now) -->
-          <button
-            v-if="false"
-            style="height: 40px"
-            class="bg-danger text-white border-0 rounded-2 px-3"
-          >
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M28 8.97363C27.9733 8.97363 27.9333 8.97363 27.8933 8.97363C20.84 8.26696 13.8 8.00029 6.82668 8.70696L4.10668 8.97363C3.54668 9.02696 3.05334 8.62696 3.00001 8.06696C2.94668 7.50696 3.34668 7.02696 3.89334 6.97363L6.61334 6.70696C13.7067 5.98696 20.8933 6.26696 28.0933 6.97363C28.64 7.02696 29.04 7.52029 28.9867 8.06696C28.9467 8.58696 28.5067 8.97363 28 8.97363Z"
-                fill="white"
-              />
-              <path
-                d="M11.3334 7.62699C11.2801 7.62699 11.2267 7.62699 11.1601 7.61366C10.6267 7.52033 10.2534 7.00033 10.3467 6.46699L10.6401 4.72033C10.8534 3.44033 11.1467 1.66699 14.2534 1.66699H17.7467C20.8667 1.66699 21.1601 3.50699 21.3601 4.73366L21.6534 6.46699C21.7467 7.01366 21.3734 7.53366 20.8401 7.61366C20.2934 7.70699 19.7734 7.33366 19.6934 6.80032L19.4001 5.06699C19.2134 3.90699 19.1734 3.68033 17.7601 3.68033H14.2667C12.8534 3.68033 12.8267 3.86699 12.6267 5.05366L12.3201 6.78699C12.2401 7.28033 11.8134 7.62699 11.3334 7.62699Z"
-                fill="white"
-              />
-              <path
-                d="M20.2799 30.3334H11.7199C7.06661 30.3334 6.87995 27.7601 6.73328 25.6801L5.86661 12.2534C5.82661 11.7068 6.25328 11.2268 6.79995 11.1868C7.35995 11.1601 7.82661 11.5734 7.86661 12.1201L8.73328 25.5468C8.87995 27.5734 8.93328 28.3334 11.7199 28.3334H20.2799C23.0799 28.3334 23.1333 27.5734 23.2666 25.5468L24.1333 12.1201C24.1733 11.5734 24.6533 11.1601 25.1999 11.1868C25.7466 11.2268 26.1733 11.6934 26.1333 12.2534L25.2666 25.6801C25.1199 27.7601 24.9333 30.3334 20.2799 30.3334Z"
-                fill="white"
-              />
-              <path
-                d="M18.2133 23H13.7733C13.2266 23 12.7733 22.5467 12.7733 22C12.7733 21.4533 13.2266 21 13.7733 21H18.2133C18.76 21 19.2133 21.4533 19.2133 22C19.2133 22.5467 18.76 23 18.2133 23Z"
-                fill="white"
-              />
-              <path
-                d="M19.3333 17.667H12.6666C12.12 17.667 11.6666 17.2137 11.6666 16.667C11.6666 16.1203 12.12 15.667 12.6666 15.667H19.3333C19.88 15.667 20.3333 16.1203 20.3333 16.667C20.3333 17.2137 19.88 17.667 19.3333 17.667Z"
-                fill="white"
-              />
-            </svg>
-            حذف
-          </button>
-          <!-- END Delete button  -->
         </div>
       </div>
       <div>
@@ -179,7 +76,7 @@
                   </div>
                 </div>
               </template>
-              <template #day-popover="{ day, format, masks }">
+              <template v-slot:day-popover="{ day, format, masks }">
                 <div class="text-xs text-gray-300 font-semibold text-center">
                   {{ format(day.date, masks.dayPopover) }}
                   <hr class="mt-1" />

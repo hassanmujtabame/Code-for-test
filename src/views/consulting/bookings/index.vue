@@ -10,7 +10,7 @@
         @change="changeFilter"
       >
         <template v-slot:title>
-          <h4 class="fw-bold mx-4">استشاراتي</h4>
+          <h4 class="page-title">استشاراتي</h4>
         </template>
         <template v-slot:before-body>
           <ul class="nav nav-pills mb-3">
@@ -20,7 +20,7 @@
               class="nav-item px-1 col-12 col-md-4"
             >
               <button
-                style="font-size: 24px; line-height: 32px"
+                style="font-size: 20px; line-height: 32px"
                 class="nav-link border w-100 py-2 t-c m-auto"
                 :class="{ active: status == btn.status }"
                 type="button"
@@ -32,6 +32,7 @@
           </ul>
           <!-- Upgrade your account WANRING tape -->
           <div
+            v-if="false"
             class="d-flex warning-tap gap-2 justify-content-between align-items-center"
           >
             <div class="d-inline gap-2 flex-wrap">
@@ -131,6 +132,17 @@ export default {
 </script>
 
 <style scoped>
+.page-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  /* identical to box height, or 125% */
+
+  text-align: right;
+  text-transform: capitalize;
+  color: #1fb9b3;
+}
 .warning-tap {
   margin-block: calc(20px);
   padding: 13px;

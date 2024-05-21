@@ -87,7 +87,7 @@ export default {
       type: "all",
       loading: false,
       filterItem: {
-        type: "all",
+        type: "",
       },
       items: [{}, {}, {}, {}, {}, {}],
     };
@@ -99,7 +99,7 @@ export default {
     },
     changeStatus(type) {
       this.type = type;
-      this.filterItem.type = type;
+      this.filterItem.type = type == "all" ? "" : type;
       this.fireEvent("d-filter-list-refresh");
     },
     async loadList(metaInfo) {

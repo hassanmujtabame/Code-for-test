@@ -43,7 +43,7 @@
                       border: 1px solid #1fb9b3;
                     "
                   >
-                    خدمه حضوريه
+                    خدمة حضورية
                   </button>
 
                   <button
@@ -58,7 +58,7 @@
                       border: 1px solid #1fb9b3;
                     "
                   >
-                    خدمه عن بعد
+                    خدمة عن بعد
                   </button>
                 </div>
               </div>
@@ -119,11 +119,15 @@
 
               <p class="status-icons">
                 <d-timer-icon :size="24" />
-                {{ itemPage.duration_time ?? "--" }} دقيقة
+                {{ minutes ?? "--" }} دقيقة
               </p>
               <p v-if="type == 'remote'" class="status-icons">
-                <d-chatting-icon :size="24" />
-                {{ contact_type == 1 ? "مكالمة صوتية" : "مكالمة فيديو" }}
+                <i
+                  v-if="itemPage.type == 'video'"
+                  class="fa-solid fa-video"
+                ></i>
+                <i v-else class="fa-solid fa-phone-volume"></i>
+                {{ type == 1 ? "مكالمة صوتية" : "مكالمة فيديو" }}
               </p>
             </div>
             <div class="text-center mt-4">
@@ -132,7 +136,7 @@
                 @click="openAddBooking"
                 class="px-5 btn rounded-3 py-2"
               >
-                احجز جلستك الان
+                احجز جلستك الآن
               </button>
             </div>
           </div>
@@ -168,6 +172,9 @@ export default {
     type: "site",
   }),
   computed: {
+    minutes() {
+      return this.convertTimeToMinutes(this.itemPage.duration_time);
+    },
     price() {
       if (this.type == "remote") return this.itemPage.remote_price;
       if (this.type == "site") return this.itemPage.site_price;
@@ -175,6 +182,16 @@ export default {
     },
   },
   methods: {
+    convertTimeToMinutes(timeString) {
+      if (!timeString) return "--";
+      // Split the time string into hours, minutes, and seconds
+      const [hours, minutes, seconds] = timeString.split(":").map(Number);
+
+      // Convert hours and seconds to minutes
+      const totalMinutes = hours * 60 + minutes;
+
+      return totalMinutes;
+    },
     handleImageError(e) {
       e.target.src = `${this.publicPath}assets/img/no-img.png`;
     },
@@ -183,10 +200,32 @@ export default {
       return true;
     },
     openAddBooking() {
-      this.fireOpenDialog("add-booking-consultant", {
-        item: this.itemPage,
-        opts: this.opts,
-      });
+      if (this.itemPage.id == this.user.id) {
+        window.Swal.fire({
+          icon: "info",
+          title: this.$t("Sorry"),
+          text: this.$t("you-cant-book-yourself"),
+          confirmButtonText: this.$t("Ok"),
+        });
+        return;
+      }
+      if (
+        this.itemPage.consultantAvailableTime &&
+        this.itemPage.consultantAvailableTime.available_times.length > 0 &&
+        this.itemPage.consultantAvailableTime.days.length > 0
+      ) {
+        this.fireOpenDialog("add-booking-consultant", {
+          item: this.itemPage,
+          opts: this.opts,
+        });
+      } else {
+        window.Swal.fire({
+          icon: "info",
+          title: this.$t("Sorry"),
+          text: this.$t("no-available-cosultants"),
+          confirmButtonText: this.$t("Ok"),
+        });
+      }
     },
 
     switchTab1() {
