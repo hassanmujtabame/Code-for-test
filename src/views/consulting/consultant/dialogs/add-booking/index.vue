@@ -570,7 +570,7 @@ export default {
             // });
             let { data } = await payment.payTammara({
               type: this.type,
-              consaltant_id: this.itemPage.id,
+              ...this.itemForm,
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
@@ -585,7 +585,7 @@ export default {
           try {
             let { data } = await payment.payMyfatoorah({
               type: this.type,
-              consaltant_id: this.itemPage.id,
+              ...this.itemForm,
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
@@ -600,7 +600,7 @@ export default {
           try {
             let { data } = await payment.payTabby({
               type: this.type,
-              consaltant_id: this.itemPage.id,
+              ...this.itemForm,
             });
             if (data.success) {
               window.location.href = data.data.payment_url;
