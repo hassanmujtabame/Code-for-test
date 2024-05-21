@@ -103,7 +103,7 @@ export default {
   padding-inline: 10px;
   top: 5px;
   left: 6px;
-  z-index: 119;
+  z-index: 9;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 4px;
   background-color: #2cb7b3;
