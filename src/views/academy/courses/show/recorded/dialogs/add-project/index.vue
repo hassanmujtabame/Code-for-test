@@ -39,26 +39,34 @@
                       :label="$t('project-title')"
                     />
                   </ValidationProvider>
-                  <div class="mt-3">
+                  <div class="mt-3" v-if="!itemPage.id">
+                    <!-- project's course -->
                     <ValidationProvider
-                      :name="$t('project-place')"
-                      tag="div"
-                      vid="state"
+                      vid="project-course"
                       rules="required"
+                      :name="$t('project-course')"
                       v-slot="{ errors }"
+                      tag="div"
+                      class="mb-4"
                     >
-                      <d-select-input
-                        :disabled="saving"
-                        :errors="errors"
-                        v-model="itemForm.state"
-                        label="مكان المشروع"
+                      <label
+                        class="text-cairo form-label"
+                        for="project-course"
+                        >{{ $t("project-course") }}</label
                       >
-                        <option value="" class="t-c" selected>
-                          حدد مكان المشروع
+                      <select
+                        v-model="itemForm.course_id"
+                        class="form-select py-3 m-c fs-r-12"
+                      >
+                        <option
+                          v-for="(course, i) in myCourses"
+                          :key="i"
+                          :value="course.id"
+                        >
+                          {{ course.title }}
                         </option>
-                        <option value="online">{{ $t("online") }}</option>
-                        <option value="offline">{{ $t("offline") }}</option>
-                      </d-select-input>
+                      </select>
+                      <div class="text-input-error">{{ errors[0] }}</div>
                     </ValidationProvider>
                   </div>
                   <div class="mt-3">
@@ -115,9 +123,11 @@
 <script>
 import academyAPI from "@/services/api/academy";
 import attachmentsList from "./attachments/index";
+import InstructorsApi from "@/services/api/academy/instructor";
 
 export default {
   name: "add-project-course-dialog",
+
   props: {
     group: {
       type: String,
@@ -144,8 +154,17 @@ export default {
     itemPage: {},
     itemForm: { id: null, title: "", state: "", desc: "" },
     lectureId: null,
+    myCourses: [],
   }),
   methods: {
+    async loadCourses() {
+      try {
+        let { data } = await InstructorsApi.getCourses();
+        if (data.success) {
+          this.myCourses = data.data;
+        }
+      } catch (error) {}
+    },
     async save() {
       this.saving = true;
       let valid = await this.$refs.form.validate();
@@ -155,7 +174,11 @@ export default {
         return;
       }
       let formData = this.loadObjectToForm(this.itemForm);
-      formData.append("course_id", this.itemPage.id);
+      if (this.itemPage.id) {
+        formData.append("course_id", this.itemPage.id);
+      } else {
+        formData.append("course_id", this.itemForm.course_id);
+      }
       formData.append("type", "project");
       try {
         let { data } = this.itemForm.id
@@ -202,9 +225,12 @@ export default {
       this.fireEvent("update-lectures", { item, type });
     },
     openDialog(dataItem) {
+      this.loadCourses();
+
       this.itemForm = { id: null, title: "", state: "", desc: "" };
       this.itemPage = { ...dataItem.page };
       this.itemDialog = { ...dataItem.item };
+
       if (dataItem) {
         let { id, title, state, desc } = dataItem.item;
         this.itemForm.id = id;
