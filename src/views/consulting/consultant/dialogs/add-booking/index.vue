@@ -537,7 +537,10 @@ export default {
         this.itemForm.message
       ) {
         if (this.price == 0) {
-          let { data } = await consultingApi.bookingConsultant(this.itemForm);
+          let { data } = await consultingApi.bookingConsultant({
+            type: this.type,
+            ...this.itemForm,
+          });
           if (data.success) {
             window.window.successMsg();
             this.fireCloseDialog(this.group);
