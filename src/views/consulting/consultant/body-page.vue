@@ -200,6 +200,15 @@ export default {
       return true;
     },
     openAddBooking() {
+      if (this.itemPage.id == this.user.id) {
+        window.Swal.fire({
+          icon: "info",
+          title: this.$t("Sorry"),
+          text: this.$t("you-cant-book-yourself"),
+          confirmButtonText: this.$t("Ok"),
+        });
+        return;
+      }
       if (
         this.itemPage.consultantAvailableTime &&
         this.itemPage.consultantAvailableTime.available_times.length > 0 &&
