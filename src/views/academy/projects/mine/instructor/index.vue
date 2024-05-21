@@ -1,46 +1,86 @@
 <template>
   <div class="container">
-    <d-filter-list
-      :call-list="loadList"
-      hideSide
-      classTitle="col-lg-4 mb-4"
-      classSearchOrder="col-lg-5 justify-content-center mb-4"
-      classColSearch="w-50 mb-3 "
-      classColOrder="w-50 mb-3"
-      HeadEndClasses="col-lg-3 mb-4"
-      orderName="created_at"
-      searchPlaceholder="أبحث  في قائمة المشاريع"
-      @change="changeFilter"
-      classColCard="col-md-12"
-    >
-      <template v-slot:title>
-        <h4 class="text-cairo">{{ $t("the-projects") }}</h4>
-        <router-link :to="getRouteLocale('academy-projects-settings')">
-          <p class="projects-settings text-cairo">
-            <i class="fa-solid fa-gear"></i>
-            {{ $t("adjust-projects-settings") }}
-          </p>
-        </router-link>
-      </template>
-      <template v-slot:head-end>
-        <button
-          @click="addItem"
-          class="py-3 btn btn-customer d-flex align-items-center gap-2"
-        >
-          <i class="fa-solid fa-plus"></i>{{ $t("add-projects") }}
-        </button>
-      </template>
-      <template v-slot:before-body>
+    <div>
+      <div class="row">
+        <!-- title -->
+        <div class="col-lg-4 my-4">
+          <h4 class="text-cairo">{{ $t("the-projects") }}</h4>
+          <router-link :to="getRouteLocale('academy-projects-settings')">
+            <p class="projects-settings text-cairo">
+              <i class="fa-solid fa-gear"></i>
+              {{ $t("adjust-projects-settings") }}
+            </p>
+          </router-link>
+        </div>
+        <!-- search order -->
+        <div class="row col-lg-5 justify-content-center mt-4">
+          <!-- search -->
+          <div class="w-50 mb-3">
+            <label for="" class="position-relative w-100">
+              <input
+                class="form-control fs-r-12 py-3 px-5"
+                type="text"
+                placeholder=" أبحث  في قائمة الاختبارات "
+              />
+              <p style="top: 25%; right: 7px" class="position-absolute">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.5 21.75C5.85 21.75 1.25 17.15 1.25 11.5C1.25 5.85 5.85 1.25 11.5 1.25C17.15 1.25 21.75 5.85 21.75 11.5C21.75 17.15 17.15 21.75 11.5 21.75ZM11.5 2.75C6.67 2.75 2.75 6.68 2.75 11.5C2.75 16.32 6.67 20.25 11.5 20.25C16.33 20.25 20.25 16.32 20.25 11.5C20.25 6.68 16.33 2.75 11.5 2.75Z"
+                    fill="#979797"
+                  />
+                  <path
+                    d="M22.0004 22.7499C21.8104 22.7499 21.6204 22.6799 21.4704 22.5299L19.4704 20.5299C19.1804 20.2399 19.1804 19.7599 19.4704 19.4699C19.7604 19.1799 20.2404 19.1799 20.5304 19.4699L22.5304 21.4699C22.8204 21.7599 22.8204 22.2399 22.5304 22.5299C22.3804 22.6799 22.1904 22.7499 22.0004 22.7499Z"
+                    fill="#979797"
+                  />
+                </svg>
+              </p>
+            </label>
+          </div>
+          <!-- order -->
+          <div class="w-50 mb-3 position-relative">
+            <select
+              class="form-select form-select-lg fs-r-12 py-3 m-c"
+              aria-label=".form-select-lg example"
+            >
+              <option selected>الأحدث</option>
+              <option value="1">الأقدم</option>
+            </select>
+            <p
+              style="top: -13px; right: 24px; background: white"
+              class="position-absolute"
+            >
+              ترتيب حسب
+            </p>
+          </div>
+        </div>
+        <!-- head end -->
+        <div class="col-lg-3 my-4">
+          <button
+            @click="addItem"
+            class="py-3 btn btn-customer d-flex align-items-center gap-2"
+          >
+            <i class="fa-solid fa-plus"></i>{{ $t("add-projects") }}
+          </button>
+        </div>
+      </div>
+      <div>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item col-12 col-md-6 px-2" role="presentation">
             <button
+              @click="setStatus('new')"
               class="w-100 nav-link border t-c m-auto py-3 active"
-              id="pills-project-need-revision-tab"
+              id="pills-courses-has-projects-tab"
               data-bs-toggle="pill"
-              data-bs-target="#pills-project-need-revision"
+              data-bs-target="#pills-courses-has-projects"
               type="button"
               role="tab"
-              aria-controls="pills-project-need-revision"
+              aria-controls="pills-courses-has-projects"
               aria-selected="true"
             >
               مشاريع جديدة
@@ -48,13 +88,14 @@
           </li>
           <li class="nav-item col-12 col-md-6 px-2" role="presentation">
             <button
+              @click="setStatus('needReview')"
               class="w-100 nav-link border t-c m-auto py-3"
-              id="pills-courses-has-projects-tab"
+              id="pills-project-need-revision-tab"
               data-bs-toggle="pill"
-              data-bs-target="#pills-courses-has-projects"
+              data-bs-target="#pills-project-need-revision"
               type="button"
               role="tab"
-              aria-controls="pills-courses-has-projects"
+              aria-controls="pills-project-need-revision"
               aria-selected="false"
             >
               مشاريع تحتاج إلى مراجعتك
@@ -65,21 +106,17 @@
                       <button class="nav-link  border t-c m-auto" id="pills-students-list-tab" data-bs-toggle="pill" data-bs-target="#pills-students-list" type="button" role="tab" aria-controls="pills-students-list" aria-selected="false" >  قائمة الطلاب  </button>
                     </li> -->
         </ul>
-      </template>
 
-      <template v-slot="{ item }">
-        <CardItem :item="item" @delete="confirmDeleteItem" />
-      </template>
-    </d-filter-list>
-
-    <!-- <div class="tab-content" id="pills-tabContent"> -->
-    <!-- courses-has-projects -->
-    <!-- <NewProjects /> -->
-    <!-- project-need-revision -->
-    <!-- <ProjectsNeedRevision /> -->
-    <!-- students-list -->
-    <!-- <studentsFailsExams /> -->
-    <!-- </div> -->
+        <div class="tab-content" id="pills-tabContent">
+          <!-- courses-has-projects -->
+          <NewProjects />
+          <!-- project-need-revision -->
+          <ProjectsNeedRevision />
+          <!-- students-list -->
+          <!-- <studentsFailsExams /> -->
+        </div>
+      </div>
+    </div>
 
     <UpdateProjectDialog />
   </div>
@@ -103,58 +140,63 @@ export default {
   },
   data() {
     return {
+      status: "new",
       loading: false,
     };
   },
   methods: {
     addItem() {
       this.loadCurrentUser();
-      // if (!this.user.statusInstructor) {
-      //   window.errorMsg("لم يفعل حسابك بعد !");
-      // } else {
-      //   this.fireOpenDialog("add-meeting", {
-      //     id: null,
-      //     title: null,
-      //     video: null,
-      //   });
-      // }
+      if (!this.user.statusInstructor) {
+        window.errorMsg("لم يفعل حسابك بعد !");
+      } else {
+        this.fireOpenDialog("add-meeting", {
+          id: null,
+          title: null,
+          video: null,
+        });
+      }
+    },
+    setStatus(status) {
+      this.status = status;
+      this.fireEvent("d-filter-list-refresh");
     },
     changeCategories(cat) {
-      // this.category_id = cat;
-      // this.fireEvent("d-filter-list-refresh");
+      this.category_id = cat;
+      this.fireEvent("d-filter-list-refresh");
     },
     changeFilter(val) {
-      // this.filterItem = { ...this.filterItem, ...val };
-      // this.fireEvent("d-filter-list-refresh");
+      this.filterItem = { ...this.filterItem, ...val };
+      this.fireEvent("d-filter-list-refresh");
     },
     confirmDeleteItem(item) {
-      // let dataEvt = {
-      //   title: "هل انت متأكد من حذف اللقاء؟",
-      //   description: `${item.title}`,
-      //   groupBtns: "d-flex justify-content-evenly",
-      //   btns: [
-      //     { title: "تراجع", class: "btn btn-custmer btn-danger" },
-      //     {
-      //       title: this.$t("confirm_delete"),
-      //       action: () => this.deleteItem(item),
-      //       class: "btn btn-custmer",
-      //     },
-      //   ],
-      // };
-      // this.showConfirmMsg(dataEvt);
+      let dataEvt = {
+        title: "هل انت متأكد من حذف اللقاء؟",
+        description: `${item.title}`,
+        groupBtns: "d-flex justify-content-evenly",
+        btns: [
+          { title: "تراجع", class: "btn btn-custmer btn-danger" },
+          {
+            title: this.$t("confirm_delete"),
+            action: () => this.deleteItem(item),
+            class: "btn btn-custmer",
+          },
+        ],
+      };
+      this.showConfirmMsg(dataEvt);
     },
     async deleteItem(item) {
-      // console.mylog("deleting....", item);
-      // try {
-      //   let { data } = await instructorMeetingsAPI.deleteItem(item.id);
-      //   if (data.success) {
-      //     this.fireEvent("d-filter-list-refresh");
-      //   } else {
-      //     window.SwalError(data.message);
-      //   }
-      // } catch (error) {
-      //   console.mylog("error", error);
-      // }
+      console.mylog("deleting....", item);
+      try {
+        let { data } = await instructorMeetingsAPI.deleteItem(item.id);
+        if (data.success) {
+          this.fireEvent("d-filter-list-refresh");
+        } else {
+          window.SwalError(data.message);
+        }
+      } catch (error) {
+        console.mylog("error", error);
+      }
     },
     async loadList(metaInfo) {
       this.loading = true;
@@ -162,7 +204,9 @@ export default {
         let params = {
           page: metaInfo.current_page,
         };
-        return await CoursesAPI.getProjectsNeedRevision(params);
+        if (this.status == "new")
+          return await CoursesAPI.getCoursesHasProjects(params);
+        else return await CoursesAPI.getProjectsNeedRevision(params);
       } catch (error) {
         console.mylog("error", error);
       }
