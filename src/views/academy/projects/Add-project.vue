@@ -51,7 +51,7 @@
                     :key="i"
                     :value="course.id"
                   >
-                    {{ course.name }}
+                    {{ course.title }}
                   </option>
                 </select>
                 <div class="text-input-error">{{ errors[0] }}</div>
@@ -119,7 +119,9 @@
       </div>
 
       <div class="div w-100 d-flex justify-content-end my-3">
-        <button class="btn btn-customer">{{ $t("save-the-project") }}</button>
+        <button class="btn btn-customer">
+          {{ $t("save-the-project") }}
+        </button>
       </div>
     </div>
   </div>
@@ -127,6 +129,7 @@
 
 <script>
 import settingsTap from "./mine/instructor/tabs/settings-projects/index.vue";
+import InstructorsApi from "@/services/api/academy/instructor";
 export default {
   name: "add-project-page",
   components: {
@@ -140,15 +143,19 @@ export default {
         projectInstructions: "",
       },
       myCourses: [],
-      attachments: [
-        { title: "دراسة الجدوى", format: "PDF", size: "25 MB" },
-        { title: "دراسة الجدوى", format: "PDF", size: "25 MB" },
-        { title: "دراسة الجدوى", format: "PDF", size: "25 MB" },
-        { title: "دراسة الجدوى", format: "PDF", size: "25 MB" },
-      ],
+      attachments: [],
     };
   },
+
   methods: {
+    async loadCourses() {
+      try {
+        let { data } = await InstructorsApi.getCourses();
+        if (data.success) {
+          this.myCourses = data.data;
+        }
+      } catch (error) {}
+    },
     addProjectAttachment() {},
     downloadAttachment(attachment) {},
   },
@@ -156,6 +163,9 @@ export default {
     if (this.userAcademyRole != "instructor") {
       this.router_push("academy-home");
     }
+  },
+  mounted() {
+    this.loadCourses();
   },
 };
 </script>
