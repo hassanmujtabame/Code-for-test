@@ -66,7 +66,7 @@
         <!-- head end -->
         <div class="col-lg-3 my-4">
           <button
-            @click="addItem"
+            @click="router_push('academy-add-project')"
             class="py-3 btn btn-customer d-flex align-items-center gap-2"
           >
             <i class="fa-solid fa-plus"></i>{{ $t("add-projects") }}
