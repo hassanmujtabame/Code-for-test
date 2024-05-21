@@ -519,6 +519,13 @@ export default {
     // maxDate: null,
     availableDates: [],
   }),
+  cmoputed: {
+    price() {
+      if (this.type == "remote") return this.itemPage.remote_price;
+      if (this.type == "site") return this.itemPage.site_price;
+      return 0;
+    },
+  },
   methods: {
     handleImageError(e) {
       e.target.src = `${this.publicPath}assets/img/no-img.png`;
@@ -529,10 +536,7 @@ export default {
         this.itemForm.start_date &&
         this.itemForm.message
       ) {
-        if (
-          (this.type == "remote" && this.itemPage.remote_price == 0) ||
-          (this.type == "site" && this.itemPage.site_price == 0)
-        ) {
+        if (this.price == 0) {
           let { data } = await consultingApi.bookingConsultant(this.itemForm);
           if (data.success) {
             window.window.successMsg();
