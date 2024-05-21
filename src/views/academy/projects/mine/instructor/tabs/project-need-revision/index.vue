@@ -24,6 +24,9 @@ import CoursesAPI from "@/services/api/academy/courses.js";
 import CardItem from "./card-item.vue";
 export default {
   name: "project-need-revision",
+  props: {
+    filterItem: {},
+  },
   components: {
     CardItem,
   },
@@ -32,12 +35,18 @@ export default {
       loading: false,
     };
   },
+  watch: {
+    filterItem() {
+      this.loadList({ current_page: 1 });
+    },
+  },
   methods: {
     async loadList(metaInfo) {
       this.loading = true;
       try {
         let params = {
           page: metaInfo.current_page,
+          ...this.filterItem,
         };
         return await CoursesAPI.getProjectsNeedRevision(params);
       } catch (error) {

@@ -18,9 +18,11 @@
           <div class="w-50 mb-3">
             <label for="" class="position-relative w-100">
               <input
+                v-model="filterItem.searchQuery"
+                @keyup.enter="changeFilter"
                 class="form-control fs-r-12 py-3 px-5"
                 type="text"
-                placeholder=" أبحث  في قائمة الاختبارات "
+                placeholder="ابحث في قائمة المشاريع"
               />
               <p style="top: 25%; right: 7px" class="position-absolute">
                 <svg
@@ -45,11 +47,13 @@
           <!-- order -->
           <div class="w-50 mb-3 position-relative">
             <select
+              v-model="filterItem.sortOrder"
+              @change="changeFilter"
               class="form-select form-select-lg fs-r-12 py-3 m-c"
               aria-label=".form-select-lg example"
             >
-              <option selected>الأحدث</option>
-              <option value="1">الأقدم</option>
+              <option selected value="asc">الأحدث</option>
+              <option value="desc">الأقدم</option>
             </select>
             <p
               style="top: -13px; right: 24px; background: white"
@@ -73,7 +77,6 @@
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item col-12 col-md-6 px-2" role="presentation">
             <button
-              @click="setStatus('new')"
               class="w-100 nav-link border t-c m-auto py-3 active"
               id="pills-courses-has-projects-tab"
               data-bs-toggle="pill"
@@ -88,7 +91,6 @@
           </li>
           <li class="nav-item col-12 col-md-6 px-2" role="presentation">
             <button
-              @click="setStatus('needReview')"
               class="w-100 nav-link border t-c m-auto py-3"
               id="pills-project-need-revision-tab"
               data-bs-toggle="pill"
@@ -109,9 +111,9 @@
 
         <div class="tab-content" id="pills-tabContent">
           <!-- courses-has-projects -->
-          <NewProjects />
+          <NewProjects :filterItem="filterItem" />
           <!-- project-need-revision -->
-          <ProjectsNeedRevision />
+          <ProjectsNeedRevision :filterItem="filterItem" />
           <!-- students-list -->
           <!-- <studentsFailsExams /> -->
         </div>
@@ -123,7 +125,6 @@
 </template>
 
 <script>
-import CoursesAPI from "@/services/api/academy/courses.js";
 import SettingsExams from "./tabs/settings-projects/index.vue";
 import NewProjects from "./tabs/courses-has-projects/index.vue";
 import ProjectsNeedRevision from "./tabs/project-need-revision/index.vue";
@@ -140,8 +141,11 @@ export default {
   },
   data() {
     return {
-      status: "new",
       loading: false,
+      filterItem: {
+        searchQuery: "",
+        sortOrder: "asc",
+      },
     };
   },
   methods: {
@@ -157,60 +161,9 @@ export default {
         });
       }
     },
-    setStatus(status) {
-      this.status = status;
-      this.fireEvent("d-filter-list-refresh");
-    },
-    changeCategories(cat) {
-      this.category_id = cat;
-      this.fireEvent("d-filter-list-refresh");
-    },
+
     changeFilter(val) {
       this.filterItem = { ...this.filterItem, ...val };
-      this.fireEvent("d-filter-list-refresh");
-    },
-    confirmDeleteItem(item) {
-      let dataEvt = {
-        title: "هل انت متأكد من حذف اللقاء؟",
-        description: `${item.title}`,
-        groupBtns: "d-flex justify-content-evenly",
-        btns: [
-          { title: "تراجع", class: "btn btn-custmer btn-danger" },
-          {
-            title: this.$t("confirm_delete"),
-            action: () => this.deleteItem(item),
-            class: "btn btn-custmer",
-          },
-        ],
-      };
-      this.showConfirmMsg(dataEvt);
-    },
-    async deleteItem(item) {
-      console.mylog("deleting....", item);
-      try {
-        let { data } = await instructorMeetingsAPI.deleteItem(item.id);
-        if (data.success) {
-          this.fireEvent("d-filter-list-refresh");
-        } else {
-          window.SwalError(data.message);
-        }
-      } catch (error) {
-        console.mylog("error", error);
-      }
-    },
-    async loadList(metaInfo) {
-      this.loading = true;
-      try {
-        let params = {
-          page: metaInfo.current_page,
-        };
-        if (this.status == "new")
-          return await CoursesAPI.getCoursesHasProjects(params);
-        else return await CoursesAPI.getProjectsNeedRevision(params);
-      } catch (error) {
-        console.mylog("error", error);
-      }
-      this.loading = false;
     },
   },
 };
