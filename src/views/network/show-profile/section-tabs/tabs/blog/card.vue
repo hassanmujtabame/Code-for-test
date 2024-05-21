@@ -1,5 +1,8 @@
 <template>
-  <div class="d-flex flex-wrap card-item">
+  <div
+    @click="router_push('network-blog-show', { id: item.id })"
+    class="d-flex flex-wrap card-item"
+  >
     <div class="card-img-contaner">
       <img
         height="150px"
