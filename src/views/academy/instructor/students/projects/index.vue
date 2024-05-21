@@ -8,16 +8,11 @@
       <div class="row border">
         <div class="col-12 col-md-9 project-details-box">
           <div class="project-title mt-3">{{ itemPage.title }}</div>
-          <div class="instructions mt-3">
-            اقرا جيدا تعليمات المدرب وقم بارفاق مشروعك بنفس الصيغة التي طلبها
-            المدرب
-          </div>
+
           <div class="teacher-instructions mt-4">
             تعليمات المدرب :
             <p class="mt-2">
-              نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص
-              نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص
-              نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص
+              {{ itemPage.desc }}
             </p>
           </div>
           <div class="project-attachments mt-4">مرفقات المدرب :</div>
