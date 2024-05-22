@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import SectionHeader from "./sections/section-header/index.vue";
+import SectionHeader from "../common/section-header/index.vue";
 import SectionHeaderOwner from "./sections/section-header-owner/index.vue";
 import SectionBody from "./sections/section-body/index.vue";
 import updateCourseDialog from "@/views/academy/instructor/your-courses/dialogs/add-course/on-site-course";
