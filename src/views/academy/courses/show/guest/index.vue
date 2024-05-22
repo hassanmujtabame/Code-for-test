@@ -204,25 +204,6 @@
           <SectionSimilarCourses :itemPage="itemPage" />
         </div>
       </div>
-      <!-- <SectionHeader :itemPage="itemPage" /> -->
-      <!-- <div style="max-width:628px" class="px-5">
-        <SectionDesc :itemPage="itemPage" />
-        <SectionWhatLearn :itemPage="itemPage" />
-        <SectionNotes v-if="['on-site'].includes(itemPage.type)" :itemPage="itemPage" />
-        <div class="mt-4">
-          <SectionAttachments hideHeader v-if="['live'].includes(itemPage.type)" :itemPage="itemPage" />
-        </div>
-        <SectionLectures v-if="itemPage.type == 'recorded'" :itemPage="itemPage" />
-        <SectionInstructors :itemPage="itemPage" />
-        <div class="mt-4">
-          <SectionRates :itemPage="itemPage" />
-        </div>
-        <SectionSimilarCourses :itemPage="itemPage" />
-      </div> -->
-      <!-- <cardFixed :itemPage="itemPage" :isOwner="isOwner" /> -->
-      <!-- <watchVideoLecture />
-      -->
-      <!-- <checkoutCourseDiag />   -->
     </div>
 
     <div
