@@ -43,9 +43,7 @@ export default {
     };
   },
   methods: {},
-  mounted() {
-    console.log("itemPage on-site : ", this.itemPage);
-  },
+  mounted() {},
 };
 </script>
 
