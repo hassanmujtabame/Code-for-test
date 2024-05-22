@@ -166,7 +166,7 @@ const routers = [
   },
   {
     path: "academy/courses/:id(\\d+)/preview",
-    meta: { layout: LayoutDefault, title: "Course Preview" },
+    meta: { layout: LayoutDefault, auth: true, title: "Course Preview" },
     name: "academy-course-preview-show",
     component: () =>
       import(
