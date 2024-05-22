@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import widgetInfo from "./widget-info.vue";
+import widgetInfo from "../../../common/section-header-owner/widget-info.vue";
 import actionsPage from "./actions-page.vue";
 export default {
   name: "section-header-owner",
