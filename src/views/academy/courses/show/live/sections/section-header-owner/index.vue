@@ -13,7 +13,7 @@
 
 <script>
 import widgetInfo from "../../../common/section-header-owner/widget-info.vue";
-import actionsPage from "./actions-page.vue";
+import actionsPage from "../../../common/section-header-owner/actions-page.vue";
 export default {
   name: "section-header-owner",
   props: {
