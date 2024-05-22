@@ -1,6 +1,7 @@
 <template>
   <div class="d-flex gap-2 justify-content-end my-3">
-    <div v-if="itemPage.exams.length > 0">
+    <div v-if="false">
+      <!-- <div v-if="itemPage.exams.length > 0"> -->
       <button
         @click="showConfirmDeleteExam(itemPage.exams[0])"
         class="btn-main btn-action-page btn-delete px-3 w-100 border-0 rounded-2"
@@ -9,7 +10,8 @@
         حذف الاختبار
       </button>
     </div>
-    <div>
+    <div v-if="false">
+      <!-- <div> -->
       <button
         @click="addExam"
         class="btn btn-action-page btn-primary px-3 w-100 border-0 rounded-2"
