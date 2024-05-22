@@ -4,12 +4,8 @@
       <div v-for="(widget, i) in widgets" :key="i" class="col-6 col-md-3">
         <widgetInfo v-bind="widget" />
       </div>
-
-
-
     </div>
-    <div class="text-start ">
-
+    <div class="text-start">
       <!--actions-->
       <actionsPage :item-page="itemPage" />
     </div>
@@ -17,28 +13,32 @@
 </template>
 
 <script>
-import actionsPage from './actions-page.vue'
-import widgetInfo from './widget-info.vue'
+import actionsPage from "./actions-page.vue";
+import widgetInfo from "./widget-info.vue";
 export default {
-  name: 'section-owner',
+  name: "section-owner",
   props: {
-    itemPage: {}
+    itemPage: {},
   },
   components: {
     widgetInfo,
-    actionsPage
+    actionsPage,
   },
   data: (vm) => {
     return {
       widgets: [
-        { title: 'المشاهدات', content: `${vm.itemPage.views} شخص`, link: null },
-        { title: 'حصلو على شهادة', content: `${vm.itemPage.persons_obtain_certification} شخص`, link: null },
-        { title: 'معدل درجات الاختبارات', content: '20/40', link: '/' },
-        { title: 'المشاريع المرسلة ', content: '20 مشروع', link: '/' },
-      ]
-    }
-  }
-}
+        { title: "المشاهدات", content: `${vm.itemPage.views} شخص`, link: null },
+        {
+          title: "حصلو على شهادة",
+          content: `${vm.itemPage.persons_obtain_certification} شخص`,
+          link: null,
+        },
+        { title: "معدل درجات الاختبارات", content: "20/40", link: "/" },
+        { title: "المشاريع المرسلة ", content: "20 مشروع", link: "/" },
+      ],
+    };
+  },
+};
 </script>
 
 <style></style>
