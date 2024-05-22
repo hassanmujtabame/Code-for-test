@@ -16,7 +16,7 @@
 
 <script>
 import SectionHeader from "../common/section-header/index.vue";
-import SectionHeaderOwner from "./sections/section-header-owner/index.vue";
+import SectionHeaderOwner from "../common/section-header-owner/index.vue";
 import SectionBody from "./sections/section-body/index.vue";
 import updateCourseDialog from "@/views/academy/instructor/your-courses/dialogs/add-course/on-site-course";
 
@@ -43,7 +43,9 @@ export default {
     };
   },
   methods: {},
-  mounted() {},
+  mounted() {
+    console.log("itemPage on-site : ", this.itemPage);
+  },
 };
 </script>
 
