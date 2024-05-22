@@ -151,27 +151,43 @@
 
             <p style="color: #737373">شهادة إتمام الدورة</p>
           </div>
-          <div class="d-flex align-items-center gap-2">
-            <p>تبدا من</p>
-            <h3 style="font-size: 22px">ر.س {{ itemPage.price }}</h3>
-          </div>
-          <checkoutCourseDiag :show="show" />
-
-          <button
-            v-if="!isOwner"
-            @click="openDialog"
-            style="background-color: #1fb9b3; color: white"
-            class="btn px-4 py-2"
+          <!-- two button ( subscribe - buy single course ) -->
+          <div
+            v-if="!(isOwner || userIsSubAcademy)"
+            class="d-flex justify-content-around align-items-center"
           >
-            {{ token ? " اشترك الان" : "سجل دخولك" }}
-          </button>
-          <!-- <button v-if="!isOwner" @click="inscription"
-          class="btn btn-custmer w-100">إشترك في الدورة</button> -->
-          <button v-else @click="showCourse" class="btn btn-custmer w-100">
-            الذهاب الى الدورة
-          </button>
-          <div class="text-center">
-            <p style="color: #888">افتح هذه الدورة و 4 آخرين</p>
+            <div class="text-center">
+              <div>
+                <div class="text_1">تبدأ من</div>
+                <div class="text_2">{{ 150 }} ر.س / شهر</div>
+              </div>
+
+              <button
+                @click="router_push('academy-subscribe')"
+                class="btn btn-customer"
+              >
+                اشتراك
+              </button>
+              <div class="text_1 mt-2">افتح هذه الدورة و 4 آخرين</div>
+
+              <!-- <checkoutCourseDiag :show="show" /> -->
+            </div>
+            <div class="vr mx-2"></div>
+            <div
+              class="text-center d-flex flex-column justify-content-start h-100"
+            >
+              <div class="text_1">اشتري هذه الدورة</div>
+              <div class="text_2">{{ itemPage.price }} رس</div>
+
+              <button @click="openDialog" class="btn btn-customer-w">
+                شراء
+              </button>
+            </div>
+          </div>
+          <div v-else>
+            <button @click="showCourse" class="btn btn-custmer w-100">
+              الذهاب الى الدورة
+            </button>
           </div>
         </div>
         <div class="col-md-8">
@@ -599,8 +615,24 @@ export default {
   },
 };
 </script>
-
 <style>
+.text_1 {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 275;
+  line-height: 17px;
+  color: #0c2f33;
+}
+.text_2 {
+  margin-bottom: 12px;
+  font-family: cairo;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: justified;
+
+  color: #0c2f33;
+}
 .course-guest-section__title {
   font-style: normal;
   font-weight: 600;
