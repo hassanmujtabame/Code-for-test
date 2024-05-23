@@ -7,7 +7,7 @@
           @click="inscription"
           class="btn btn-custmer"
         >
-          أشترك في الدورة
+          اشترك في الدورة
         </button>
         <button v-else @click="confirmCancelJoin" class="btn btn-danger">
           {{ $t("undo-joining") }}
@@ -30,8 +30,8 @@ export default {
   methods: {
     inscription() {
       let dataEvt = {
-        title: "هل أنت متأكد من أنضمامك لهذه الدورة ؟",
-        description: `بأنضمامك الى هذا الدورة  سيتبقى لك <span style="color:#F2631C">${this.resetCourse} دورات</span> هذا الشهر`,
+        title: "هل أنت متأكد من إنضمامك لهذه الدورة ؟",
+        description: `بإنضمامك إلى هذه الدورة سيتبقى لك <span style="color:#F2631C">${this.resetCourse} دورات</span> هذا الشهر`,
         type: "warning",
         btns: [
           {
@@ -47,7 +47,7 @@ export default {
         let { data } = await academyAPI.coursesApi.joinCourse(this.itemPage.id);
         if (data.success) {
           let dataEvt = {
-            title: "تم الانضمام الى هذه الدورة بنجاح",
+            title: "تم الإنضمام إلى هذه الدورة بنجاح",
             description: "",
             btns: [
               {
@@ -71,7 +71,7 @@ export default {
     },
     confirmCancelJoin() {
       let dataEvt = {
-        title: "هل أنت متأكد من ترجع من الإنضمام من هذه الدورة ؟",
+        title: "هل أنت متأكد من التراجع عن الإنضمام إلى هذه الدورة ؟",
         btns: [
           {
             title: this.$t("undo-joining"),
