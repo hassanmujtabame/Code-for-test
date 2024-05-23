@@ -259,6 +259,15 @@ const routes = [
                 /* webpackChunkName: "academy-dashboard" */ "../views/academy/dashboard/index.vue"
               ),
           },
+          {
+            path: "company",
+            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            name: "company-dashboard",
+            component: () =>
+              import(
+                /* webpackChunkName: "academy-dashboard" */ "../views/network/company/dashboard"
+              ),
+          },
         ],
       },
       ...networkRoute,
