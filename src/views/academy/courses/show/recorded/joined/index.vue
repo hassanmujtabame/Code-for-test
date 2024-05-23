@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import SectionHeader from "./sections/section-header/index.vue";
-import SectionHeaderOwner from "./sections/section-header-owner/index.vue";
+import SectionHeader from "../../common/section-header/index.vue";
+import SectionHeaderOwner from "../../common/section-header-owner/index.vue";
 import SectionBody from "./sections/section-body/index.vue";
 import AddLectureDialog from "../dialogs/add-lecture/index.vue";
 import AddExamDialog from "../dialogs/add-exam/index.vue";

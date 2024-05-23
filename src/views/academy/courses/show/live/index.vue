@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import SectionHeader from "./sections/section-header/index.vue";
-import SectionHeaderOwner from "./sections/section-header-owner/index.vue";
+import SectionHeader from "../common/section-header/index.vue";
+import SectionHeaderOwner from "../common/section-header-owner/index.vue";
 import SectionBody from "./sections/section-body/index.vue";
 import AddExamDialog from "../recorded/dialogs/add-exam/index";
 import updateCourseDialog from "@/views/academy/instructor/your-courses/dialogs/add-course/live-course";

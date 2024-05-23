@@ -151,27 +151,56 @@
 
             <p style="color: #737373">شهادة إتمام الدورة</p>
           </div>
-          <div class="d-flex align-items-center gap-2">
-            <p>تبدا من</p>
-            <h3 style="font-size: 22px">ر.س {{ itemPage.price }}</h3>
+          <!-- two button ( subscribe - buy single course ) -->
+          <div v-if="isOwner && userAcademyRole == 'instructor'">
+            <button @click="showCourse" class="btn btn-custmer w-100 mt-3 py-3">
+              الذهاب الى الدورة
+            </button>
           </div>
-          <checkoutCourseDiag :show="show" />
+          <div v-else-if="itemPage.user_is_join_course">
+            <button
+              @click="confirmCancelJoin"
+              class="btn btn-danger w-100 mt-3 py-3"
+            >
+              {{ $t("undo-joining") }}
+            </button>
+          </div>
+          <div v-else-if="userIsSubAcademy">
+            <button
+              @click="confirmJoinCourse"
+              class="btn btn-custmer w-100 mt-3 py-3"
+            >
+              اشترك في الدورة
+            </button>
+          </div>
+          <div v-else class="d-flex justify-content-around align-items-center">
+            <div class="text-center">
+              <div>
+                <div class="text_1">تبدأ من</div>
+                <div class="text_2">{{ 150 }} ر.س / شهر</div>
+              </div>
 
-          <button
-            v-if="!isOwner"
-            @click="openDialog"
-            style="background-color: #1fb9b3; color: white"
-            class="btn px-4 py-2"
-          >
-            {{ token ? " اشترك الان" : "سجل دخولك" }}
-          </button>
-          <!-- <button v-if="!isOwner" @click="inscription"
-          class="btn btn-custmer w-100">إشترك في الدورة</button> -->
-          <button v-else @click="showCourse" class="btn btn-custmer w-100">
-            الذهاب الى الدورة
-          </button>
-          <div class="text-center">
-            <p style="color: #888">افتح هذه الدورة و 4 آخرين</p>
+              <button
+                @click="router_push('academy-subscribe')"
+                class="btn btn-customer"
+              >
+                اشتراك
+              </button>
+              <div class="text_1 mt-2">افتح هذه الدورة و 4 آخرين</div>
+
+              <!-- <checkoutCourseDiag :show="show" /> -->
+            </div>
+            <div class="vr mx-2"></div>
+            <div
+              class="text-center d-flex flex-column justify-content-start h-100"
+            >
+              <div class="text_1">اشتري هذه الدورة</div>
+              <div class="text_2">{{ itemPage.price }} رس</div>
+
+              <button @click="openDialog" class="btn btn-customer-w">
+                {{ itemPage.price == 0 ? "إنضمام" : "شراء" }}
+              </button>
+            </div>
           </div>
         </div>
         <div class="col-md-8">
@@ -204,25 +233,6 @@
           <SectionSimilarCourses :itemPage="itemPage" />
         </div>
       </div>
-      <!-- <SectionHeader :itemPage="itemPage" /> -->
-      <!-- <div style="max-width:628px" class="px-5">
-        <SectionDesc :itemPage="itemPage" />
-        <SectionWhatLearn :itemPage="itemPage" />
-        <SectionNotes v-if="['on-site'].includes(itemPage.type)" :itemPage="itemPage" />
-        <div class="mt-4">
-          <SectionAttachments hideHeader v-if="['live'].includes(itemPage.type)" :itemPage="itemPage" />
-        </div>
-        <SectionLectures v-if="itemPage.type == 'recorded'" :itemPage="itemPage" />
-        <SectionInstructors :itemPage="itemPage" />
-        <div class="mt-4">
-          <SectionRates :itemPage="itemPage" />
-        </div>
-        <SectionSimilarCourses :itemPage="itemPage" />
-      </div> -->
-      <!-- <cardFixed :itemPage="itemPage" :isOwner="isOwner" /> -->
-      <!-- <watchVideoLecture />
-      -->
-      <!-- <checkoutCourseDiag />   -->
     </div>
 
     <div
@@ -485,9 +495,13 @@ export default {
 
       this.loading = false;
     },
-    openDialog() {
+    async openDialog() {
       if (this.token) {
-        this.openModal = true;
+        if (this.itemPage.price == 0) {
+          this.confirmJoinCourse();
+        } else {
+          this.openModal = true;
+        }
       } else {
         this.$router.push(this.getRouteLocale("login"));
       }
@@ -496,22 +510,6 @@ export default {
       this.openModal = false;
     },
     async proceedToPayment() {
-      if (this.itemPage.price == 0) {
-        try {
-          let { data } = await academyAPI.checkoutPackageFree({
-            package_id: this.id,
-          });
-          if (data.success) {
-            console.log("itsfree", data.data);
-            window.SwalSuccess("تم الاشتراك بنجاح");
-          } else {
-            window.SwalError(data.message);
-          }
-        } catch (error) {
-          console.log("error", error);
-        }
-        return;
-      }
       switch (this.selectedProvider) {
         case "tamara":
           try {
@@ -568,15 +566,6 @@ export default {
           return false;
       }
     },
-    // watch: {
-    //   '$route': {
-    //     deep: true,
-    //     handler() {
-    //       this.initializing()
-    //     }
-    //   }
-    // },
-
     handleClick() {
       this.show = true;
     },
@@ -606,6 +595,71 @@ export default {
       //     title: `${this.$t('the-course')}:${this.itemPage.title}`
       //   }, data: this.itemPage })
     },
+    confirmJoinCourse() {
+      let dataEvt = {
+        title: "هل أنت متأكد من إنضمامك لهذه الدورة ؟",
+        description: `بإنضمامك إلى هذه الدورة سيتبقى لك <span style="color:#F2631C">${this.resetCourse} دورات</span> هذا الشهر`,
+        type: "warning",
+        btns: [
+          {
+            title: this.$t("join_confirmation"),
+            action: () => this.joinCourse(),
+          },
+        ],
+      };
+      this.showConfirmMsg(dataEvt);
+    },
+    async joinCourse() {
+      try {
+        let { data } = await academyAPI.coursesApi.joinCourse(this.itemPage.id);
+        if (data.success) {
+          let dataEvt = {
+            title: "تم الإنضمام إلى هذه الدورة بنجاح",
+            description: "",
+            btns: [
+              {
+                title: this.$t("undo-joining"),
+                action: () => this.cancelJoin(),
+                class: "btn btn-danger",
+              },
+            ],
+          };
+          this.initializing();
+          this.showSuccessMsg(dataEvt);
+        } else {
+          window.SwalError(data.message);
+        }
+      } catch (error) {
+        window.DHelper.catchException.call(this, error);
+      }
+    },
+    confirmCancelJoin() {
+      let dataEvt = {
+        title: "هل أنت متأكد من التراجع عن الإنضمام إلى هذه الدورة ؟",
+        btns: [
+          {
+            title: this.$t("undo-joining"),
+            action: () => this.cancelJoin(),
+            class: "btn btn-danger",
+          },
+        ],
+      };
+      this.showConfirmMsg(dataEvt);
+    },
+    async cancelJoin() {
+      try {
+        let { data } = await academyAPI.coursesApi.cancelJoinCourse(
+          this.itemPage.id
+        );
+        if (data.success) {
+          this.initializing();
+        } else {
+          window.SwalError(data.message);
+        }
+      } catch (error) {
+        window.DHelper.catchException.call(this, error);
+      }
+    },
   },
   mounted() {
     this.initializing();
@@ -618,8 +672,24 @@ export default {
   },
 };
 </script>
-
 <style>
+.text_1 {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 275;
+  line-height: 17px;
+  color: #0c2f33;
+}
+.text_2 {
+  margin-bottom: 12px;
+  font-family: cairo;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: justified;
+
+  color: #0c2f33;
+}
 .course-guest-section__title {
   font-style: normal;
   font-weight: 600;

@@ -1,9 +1,17 @@
 <template>
-  <d-filter-list :call-list="loadList" :searchPlaceholder="$t('search-by-course-or-instructor')" pluralName="الدورات"
-    singleName="دورة" hideTitle classSearchOrder="col-lg-8" classColOrder="col-12 col-lg-4"
-    classColSearch="col-12 col-lg-8" @change="changeFilter">
+  <d-filter-list
+    :call-list="loadList"
+    :searchPlaceholder="$t('search-by-course-or-instructor')"
+    pluralName="الدورات"
+    singleName="دورة"
+    hideTitle
+    hideSide
+    classSearchOrder="col-lg-8"
+    classColOrder="col-12 col-lg-4"
+    classColSearch="col-12 col-lg-8"
+    @change="changeFilter"
+  >
     <template v-slot="{ item }">
-
       <CourseCard :item="item" />
     </template>
     <template v-slot:side>
@@ -13,23 +21,21 @@
 </template>
 
 <script>
-import CourseCard from '@/components/cards/academy-course.vue'
-import sidebarBox from './sidebar.vue';
-import CoursesAPI from '@/services/api/academy/courses.js'
+import CourseCard from "@/components/cards/academy-course.vue";
+import sidebarBox from "./sidebar.vue";
+import CoursesAPI from "@/services/api/academy/courses.js";
 export default {
-  name: 'filter-list',
+  name: "filter-list",
   components: {
-
     sidebarBox,
-    CourseCard
+    CourseCard,
   },
   data: (vm) => {
-    let type = vm.$route.query.type
-    if (!type || !['live', 'on-site', 'recorded'].includes(type))
-      type = null;
-    let type_training = vm.$route.query['training-type']
+    let type = vm.$route.query.type;
+    if (!type || !["live", "on-site", "recorded"].includes(type)) type = null;
+    let type_training = vm.$route.query["training-type"];
     //console.mylog('vm.$route.query',vm.$route.query)
-    if (!type_training || !['public', 'prive'].includes(type_training))
+    if (!type_training || !["public", "prive"].includes(type_training))
       type_training = null;
     return {
       filterSide: {
@@ -37,44 +43,36 @@ export default {
         type: type,
         department_id: [],
         min_price: 0,
-        max_price: 1000000
+        max_price: 1000000,
       },
       filterItem: {
         search: null,
-        created_at: 'asc',
-        type_training: type_training,
-        type: type,
-        department_id: [],
-        min_price: 0,
-        max_price: 1000000
+        created_at: "asc",
       },
-      items: []
-    }
+      items: [],
+    };
   },
   methods: {
     changeFilter(val) {
-      this.filterItem = { ...this.filterItem, ...val }
-      this.fireEvent('d-filter-list-refresh')
+      this.filterItem = { ...this.filterItem, ...val };
+      this.fireEvent("d-filter-list-refresh");
     },
     async loadList(metaInfo) {
-      console.log('metaInfo', metaInfo);
-      console.log('this.filterItem', this.filterItem);
+      console.log("metaInfo", metaInfo);
+      console.log("this.filterItem", this.filterItem);
       try {
         let params = {
           page: metaInfo.current_page,
-          ...this.filterItem
-        }
-        return await CoursesAPI.getAll(params)
-
+          ...this.filterItem,
+        };
+        return await CoursesAPI.getAll(params);
       } catch (error) {
-        console.log('error', error)
-        console.log('response', error.response)
+        console.log("error", error);
+        console.log("response", error.response);
       }
     },
-
   },
-
-}
+};
 </script>
 
 <style></style>

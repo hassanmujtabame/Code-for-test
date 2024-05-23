@@ -83,6 +83,9 @@ export default {
   },
   mounted() {
     this.initializing();
+    if (!this.isOwner) {
+      this.router_push("academy-course-show", { id: this.itemPage.id });
+    }
   },
 };
 </script>

@@ -166,8 +166,22 @@ const routers = [
   },
   {
     path: "academy/courses/:id(\\d+)/preview",
-    meta: { layout: LayoutDefault, title: "Course Preview" },
+    meta: { layout: LayoutDefault, auth: true, title: "Course Preview" },
     name: "academy-course-preview-show",
+    beforeEnter: (to, from, next) => {
+      // ...
+      console.log("About Route Guard");
+      if (window.store.getters["auth/academyRole"] != "instructor") {
+        // Redirect to home page
+        next({
+          name: "academy-course-show",
+          params: { lang: window.i18n.locale },
+        });
+      } else {
+        // Proceed to route
+        next();
+      }
+    },
     component: () =>
       import(
         /* webpackChunkName: "academy-course-show" */ "../views/academy/courses/show/index.vue"

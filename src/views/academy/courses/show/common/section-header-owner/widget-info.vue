@@ -1,5 +1,8 @@
 <template>
-  <div class="widget-course-top h-100 box   text-center p-2" :class="{ 'mobile': isMobile }">
+  <div
+    class="widget-course-top h-100 box text-center p-2"
+    :class="{ mobile: isMobile }"
+  >
     <div class="widget-course-top__wrapper border p-2 rounded-2 h-100">
       <div class="widget-course-top__header">
         <h6 class="widget-course-top__title">
@@ -20,15 +23,14 @@ export default {
     title: {},
     content: {},
     link: {},
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
 .widget-course-top__header {
   display: flex;
 }
-
 .widget-course-top__title {
   flex: 1;
   font-style: normal;
@@ -39,12 +41,10 @@ export default {
   text-align: start;
   color: #000000;
 }
-
 .mobile .widget-course-top__title {
   font-size: 0.7rem;
-  line-height: .75rem;
+  line-height: 0.75rem;
 }
-
 .widget-course-top__link {
   flex-shrink: 0;
   font-style: normal;
@@ -53,14 +53,12 @@ export default {
   line-height: 17px;
   /* identical to box height, or 142% */
   text-align: end;
-  color: #F2631C;
+  color: #f2631c;
 }
-
 .mobile .widget-course-top__link {
   font-size: 0.5rem;
-  line-height: .55rem;
+  line-height: 0.55rem;
 }
-
 .widget-course-top__content {
   font-style: normal;
   font-weight: 400;
@@ -70,10 +68,10 @@ export default {
   margin: 0;
   text-align: start;
   text-transform: capitalize;
-  color: #1FB9B3;
+  color: #1fb9b3;
 }
-
 .mobile .widget-course-top__content {
   font-size: 0.8rem;
   line-height: 1.2rem;
-}</style>
+}
+</style>
