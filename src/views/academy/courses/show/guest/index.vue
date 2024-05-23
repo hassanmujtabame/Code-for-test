@@ -152,10 +152,28 @@
             <p style="color: #737373">شهادة إتمام الدورة</p>
           </div>
           <!-- two button ( subscribe - buy single course ) -->
-          <div
-            v-if="!(isOwner || userIsSubAcademy)"
-            class="d-flex justify-content-around align-items-center"
-          >
+          <div v-if="isOwner && userAcademyRole == 'instructor'">
+            <button @click="showCourse" class="btn btn-custmer w-100 mt-3 py-3">
+              الذهاب الى الدورة
+            </button>
+          </div>
+          <div v-else-if="itemPage.user_is_join_course">
+            <button
+              @click="confirmCancelJoin"
+              class="btn btn-danger w-100 mt-3 py-3"
+            >
+              {{ $t("undo-joining") }}
+            </button>
+          </div>
+          <div v-else-if="userIsSubAcademy">
+            <button
+              @click="confirmJoinCourse"
+              class="btn btn-custmer w-100 mt-3 py-3"
+            >
+              اشترك في الدورة
+            </button>
+          </div>
+          <div v-else class="d-flex justify-content-around align-items-center">
             <div class="text-center">
               <div>
                 <div class="text_1">تبدأ من</div>
@@ -180,14 +198,9 @@
               <div class="text_2">{{ itemPage.price }} رس</div>
 
               <button @click="openDialog" class="btn btn-customer-w">
-                شراء
+                {{ itemPage.price == 0 ? "إنضمام" : "شراء" }}
               </button>
             </div>
-          </div>
-          <div v-else>
-            <button @click="showCourse" class="btn btn-custmer w-100">
-              الذهاب الى الدورة
-            </button>
           </div>
         </div>
         <div class="col-md-8">
@@ -482,9 +495,13 @@ export default {
 
       this.loading = false;
     },
-    openDialog() {
+    async openDialog() {
       if (this.token) {
-        this.openModal = true;
+        if (this.itemPage.price == 0) {
+          this.confirmJoinCourse();
+        } else {
+          this.openModal = true;
+        }
       } else {
         this.$router.push(this.getRouteLocale("login"));
       }
@@ -493,22 +510,6 @@ export default {
       this.openModal = false;
     },
     async proceedToPayment() {
-      if (this.itemPage.price == 0) {
-        try {
-          let { data } = await academyAPI.checkoutPackageFree({
-            package_id: this.id,
-          });
-          if (data.success) {
-            console.log("itsfree", data.data);
-            window.SwalSuccess("تم الاشتراك بنجاح");
-          } else {
-            window.SwalError(data.message);
-          }
-        } catch (error) {
-          console.log("error", error);
-        }
-        return;
-      }
       switch (this.selectedProvider) {
         case "tamara":
           try {
@@ -565,15 +566,6 @@ export default {
           return false;
       }
     },
-    // watch: {
-    //   '$route': {
-    //     deep: true,
-    //     handler() {
-    //       this.initializing()
-    //     }
-    //   }
-    // },
-
     handleClick() {
       this.show = true;
     },
@@ -602,6 +594,71 @@ export default {
       //     amount: this.itemPage.price,
       //     title: `${this.$t('the-course')}:${this.itemPage.title}`
       //   }, data: this.itemPage })
+    },
+    confirmJoinCourse() {
+      let dataEvt = {
+        title: "هل أنت متأكد من إنضمامك لهذه الدورة ؟",
+        description: `بإنضمامك إلى هذه الدورة سيتبقى لك <span style="color:#F2631C">${this.resetCourse} دورات</span> هذا الشهر`,
+        type: "warning",
+        btns: [
+          {
+            title: this.$t("join_confirmation"),
+            action: () => this.joinCourse(),
+          },
+        ],
+      };
+      this.showConfirmMsg(dataEvt);
+    },
+    async joinCourse() {
+      try {
+        let { data } = await academyAPI.coursesApi.joinCourse(this.itemPage.id);
+        if (data.success) {
+          let dataEvt = {
+            title: "تم الإنضمام إلى هذه الدورة بنجاح",
+            description: "",
+            btns: [
+              {
+                title: this.$t("undo-joining"),
+                action: () => this.cancelJoin(),
+                class: "btn btn-danger",
+              },
+            ],
+          };
+          this.initializing();
+          this.showSuccessMsg(dataEvt);
+        } else {
+          window.SwalError(data.message);
+        }
+      } catch (error) {
+        window.DHelper.catchException.call(this, error);
+      }
+    },
+    confirmCancelJoin() {
+      let dataEvt = {
+        title: "هل أنت متأكد من التراجع عن الإنضمام إلى هذه الدورة ؟",
+        btns: [
+          {
+            title: this.$t("undo-joining"),
+            action: () => this.cancelJoin(),
+            class: "btn btn-danger",
+          },
+        ],
+      };
+      this.showConfirmMsg(dataEvt);
+    },
+    async cancelJoin() {
+      try {
+        let { data } = await academyAPI.coursesApi.cancelJoinCourse(
+          this.itemPage.id
+        );
+        if (data.success) {
+          this.initializing();
+        } else {
+          window.SwalError(data.message);
+        }
+      } catch (error) {
+        window.DHelper.catchException.call(this, error);
+      }
     },
   },
   mounted() {
