@@ -1,11 +1,8 @@
 <template>
   <div class="row">
-    <Card
-      class="col-md-3"
-      v-for="(card, i) in cards"
-      :key="i"
-      :item="card"
-    ></Card>
+    <div v-for="(card, i) in cards" :key="i" class="col-md-3 p-2">
+      <Card :item="card"></Card>
+    </div>
   </div>
 </template>
 

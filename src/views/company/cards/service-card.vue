@@ -28,7 +28,8 @@
       <!-- <router-link :to="getRouteLocale('academy-course-show', { id: item_id })"> -->
       <router-link :to="getRouteLocale('')">
         <!-- ,lang : "ar" -->
-        <div @click="linkToCourse" class="shadow-sm arrow-box">
+        <!-- <div @click="linkToCourse" class="shadow-sm arrow-box"> -->
+        <div class="shadow-sm arrow-box">
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </div>
       </router-link>
