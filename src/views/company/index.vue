@@ -1,6 +1,7 @@
 <template>
   <div style="padding-top: 112px; background: #fafafa">
-    <div class="container bg-white p-4 rounded-4">
+    <i v-if="isLoading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+    <div v-else class="container bg-white p-4 rounded-4">
       <pageHeader :companyData="companyData" />
       <div class="row my-4">
         <nav>
@@ -58,6 +59,7 @@ export default {
 
   data() {
     return {
+      isLoading: false,
       companyData: {},
       navList: [
         { title: "العروض", id: 1 },
@@ -76,8 +78,19 @@ export default {
   },
   methods: {
     async loadData() {
-      let { data } = await PartnersApi.getItem(this.companyId);
-      this.companyData = data.data;
+      this.isLoading = true;
+      try {
+        let { data } = await PartnersApi.getItem(this.companyId);
+        if (data.success) {
+          this.companyData = data.data;
+        } else {
+          this.router_push("NotFound");
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.isLoading = false;
+      }
     },
   },
   mounted() {
