@@ -13,7 +13,6 @@
           <div class="d-flex flex-column justify-content-center gap-1">
             <h3 style="color: #1fb9b3">{{ $t("rate-my-services") }}</h3>
             <button
-              @click="router_push('academy-your-courses')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -30,12 +29,12 @@
           class="d-flex justify-content-center align-items-end flex-column gap-4"
         >
           <!-- <h3>{{ itemCard.count_rate }}</h3> -->
-          <h3>6</h3>
+          <h3>3</h3>
           <div>
-            <d-rate-stars
+            <d-rate-font-stars
               v-if="!loading"
-              :size="32"
-              :value="2"
+              :size="24"
+              :value="3"
               :readonly="true"
             />
           </div>
@@ -58,7 +57,6 @@
               {{ $t("gift-card-purchased-times") }}
             </h3>
             <button
-              @click="router_push('academy-your-learning-meetings')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -143,7 +141,6 @@
           <div class="d-flex flex-column justify-content-center gap-1">
             <h3 style="color: #2c98b3">{{ $t("workspaces-requests") }}</h3>
             <button
-              @click="router_push('academy-your-certificates')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -188,7 +185,6 @@
               {{ $t("workspaces-booking-number") }}
             </h3>
             <button
-              @click="router_push('academy-my-projects')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -231,7 +227,6 @@
           <div class="d-flex flex-column justify-content-center gap-1">
             <h3 style="color: #1fb9b3">{{ $t("completed-services") }}</h3>
             <button
-              @click="router_push('academy-my-schedules')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -320,7 +315,6 @@
               {{ $t("sales-offers") }}
             </h3>
             <button
-              @click="router_push('academy-your-exams')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -349,14 +343,13 @@
       >
         <div class="d-flex align-items-center gap-4">
           <div>
-            <cardIconSVG color="#2C98B3" />
+            <cardIconSVG color="#1FB9B3" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #2c98b3">
+            <h3 style="color: #1fb9b3">
               {{ $t("ads") }}
             </h3>
             <button
-              @click="router_push('academy-your-exams')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -385,14 +378,13 @@
       >
         <div class="d-flex align-items-center gap-4">
           <div>
-            <cardIconSVG color="#2C98B3" />
+            <cardIconSVG color="#FFBC00" />
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
-            <h3 style="color: #2c98b3">
+            <h3 style="color: #ffbc00">
               {{ $t("compaty-exhibitions") }}
             </h3>
             <button
-              @click="router_push('academy-your-exams')"
               style="
                 color: #888;
                 outline: 1px solid #888;
@@ -413,44 +405,6 @@
       </div>
     </div>
   </div>
-
-  <!-- <div class="row justify-content-between mt-5 ">
-  
-  
-  
-          <div class="col-md-6 ">
-              <div class="widget-card w-100 mt-3 p-3">
-                  <div class="border p-3">
-                      <widget-rate-service />
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-6">
-              <div class="widget-card w-100 mt-3 p-3">
-                  <div class="border p-3">
-                      <widget-investment />
-                  </div>
-              </div>
-          </div>
-  
-  
-          <div class="col-md-6 ">
-              <div class="widget-card w-100  mt-3 p-3">
-                  <div class="border p-3">
-                      <widget-investment-others />
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-6">
-              <div class="widget-card w-100 mt-3 p-3">
-                  <div class="border p-3">
-                      <widget-blog />
-                  </div>
-              </div>
-          </div>
-  
-  
-      </div> -->
 </template>
 
 <script>
