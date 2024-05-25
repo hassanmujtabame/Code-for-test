@@ -5,7 +5,7 @@
       <pageHeader :companyData="companyData" />
       <div class="row my-4">
         <nav>
-          <ul class="d-flex align-items-center gap-2">
+          <ul class="d-flex nav nav-pills mb-3 gap-3 pb-3 py-3 px-2">
             <li
               class="tab-btn rounded-3 py-3"
               :class="{ sp: item.id === id }"
