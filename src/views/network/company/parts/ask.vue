@@ -5,6 +5,7 @@
         الخدمات التي تحصل عليها الشركة
       </h1>
       <router-link
+        v-if="false"
         class="text-light rounded-2 btn px-4 py-2"
         style="background-color: #2cb7b3"
         :to="getRouteLocale('consulting-fields')"
