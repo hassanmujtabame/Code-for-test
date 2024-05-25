@@ -1,9 +1,9 @@
 <template>
   <div class="row">
-    <div class="img-container col-md-4">
+    <div class="img-container col-12 col-lg-4">
       <img class="img" :src="image" alt="logo " />
     </div>
-    <div class="col-md-8">
+    <div class="col-12 col-lg-8">
       <h1 class="name">{{ companyName }}</h1>
       <div class="about-box">
         <p class="about-text">عن الشركة</p>
