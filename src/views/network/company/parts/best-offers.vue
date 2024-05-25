@@ -4,12 +4,7 @@
       <div class="d-flex justify-content-between align-items-center container">
         <h1>أهم العروض</h1>
         <div>
-          <button class="btn-more">
-            <div class="px-5">
-              {{ $t("more") }}
-            </div>
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
+          <more-button @click="router_push('network-offers')" />
         </div>
       </div>
       <d-swiper
