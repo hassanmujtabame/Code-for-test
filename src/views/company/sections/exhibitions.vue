@@ -67,7 +67,7 @@
 
 <script>
 export default {
-  name: "tabs-for-nav",
+  name: "exhibitions-tab",
   data() {
     return {
       cards: [

@@ -28,7 +28,7 @@
         <Services />
       </div>
       <div class="" v-if="id === 4">
-        <Gallary />
+        <Exhibitions />
       </div>
       <div class="" v-if="id === 5">
         <Places />
@@ -45,14 +45,14 @@ import Offers from "./sections/offers.vue";
 import Discount from "./sections/discount.vue";
 import Places from "./sections/places.vue";
 import Services from "./sections/services.vue";
-import Gallary from "./sections/gallary.vue";
+import Exhibitions from "./sections/exhibitions.vue";
 export default {
   name: "company-page",
   components: {
     pageHeader,
     Offers,
     Discount,
-    Gallary,
+    Exhibitions,
     Places,
     Services,
   },
