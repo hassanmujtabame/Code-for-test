@@ -4,18 +4,10 @@
       <pageHeader :companyData="companyData" />
       <div class="row my-4">
         <nav>
-          <ul class="d-flex align-items-center gap-1">
+          <ul class="d-flex align-items-center gap-2">
             <li
-              class="rounded-3 py-2"
+              class="tab-btn rounded-3 py-3"
               :class="{ sp: item.id === id }"
-              style="
-                list-style: none;
-                background-color: #fafafa;
-                color: #8a8a8a;
-                padding-left: 75px;
-                padding-right: 75px;
-                cursor: pointer;
-              "
               v-for="item in navList"
               :key="item.id"
               @click="id = item.id"
@@ -94,9 +86,23 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .sp {
   background-color: #1fb9b3 !important;
   color: white !important;
+}
+.tab-btn {
+  list-style: none;
+  background-color: #fafafa;
+  color: #8a8a8a;
+  padding-left: 75px;
+  padding-right: 75px;
+  cursor: pointer;
+  text-align: center;
+  flex-grow: 1;
+  font-family: Cairo;
+  font-size: 15.36px;
+  font-weight: 500;
+  line-height: 15.36px;
 }
 </style>
