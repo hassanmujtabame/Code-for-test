@@ -68,7 +68,7 @@ export default {
           btns: [
             {
               title: "سجل كشركه",
-              action: () => this.router_push("register-networking"),
+              action: () => this.router_push("network-subscribe"),
             },
           ],
         };
