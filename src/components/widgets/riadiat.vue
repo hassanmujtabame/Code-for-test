@@ -1,16 +1,16 @@
 <template>
   <h1
-    class="header-title-page select-title-main text-black"
+    class="text_"
     style="display: inline"
     :style="{
       color: fontColor,
       fontSize: fontsize,
       fontWeight: fontWeight,
       fontFamily: fontFamily,
+      backgroundImage: `url(${require('@/assets/img/new/main-page/header/Vector 14.png')})`,
     }"
   >
     {{ $t("Riadiat") }}
-    <img src="@/assets/img/new/main-page/header/Vector 14.png" alt="" />
   </h1>
 </template>
 
@@ -39,15 +39,9 @@ export default {
 </script>
 
 <style scoped>
-.select-title-main {
-  position: relative;
-}
-
-.select-title-main img {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0px;
-  width: 100%;
+.text_ {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position-y: 90%;
 }
 </style>

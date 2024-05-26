@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col-12 col-md-6">
           <h1 class="header-title-page text-black" style="display: inline">
-            العروض
+            {{ $t("offers") }}
+            <Riadiat />
           </h1>
           <p class="header-desc-page text-black mt-3">
             احصلي على عروض و خصومات هائلة ومذهلة سواء من اكواد الخصم للمواقع
@@ -55,11 +56,12 @@
 
 <script>
 import plusRectRoundIcon from "@/components/icon-svg/plus-rect-round.vue";
-
+import Riadiat from "@/components/widgets/riadiat.vue";
 export default {
   name: "section-header",
   components: {
     plusRectRoundIcon,
+    Riadiat,
   },
   methods: {
     addOffer() {
