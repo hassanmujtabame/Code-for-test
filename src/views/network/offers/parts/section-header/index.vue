@@ -1,52 +1,35 @@
 <template>
   <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
-    <div class="netwok-home-header container mx-auto">
+    <div class="container mx-auto">
       <div class="row">
-        <div class="col-12 col-md-6">
-          <h1 class="header-title-page text-black" style="display: inline">
+        <div class="col-12 col-md-6 my-auto">
+          <h1 class="header-title-page" style="display: inline">
             {{ $t("offers") }}
             <Riadiat />
           </h1>
-          <p class="header-desc-page text-black mt-3">
+          <p class="header-desc-page mt-3">
             احصلي على عروض و خصومات هائلة ومذهلة سواء من اكواد الخصم للمواقع
             الالكترونية او من خلال بطاقة عضوية رياديات
           </p>
           <div
-            class="mt-4 d-flex flex-wrap justify-content-center align-items-center gap-2"
+            class="my-5 d-flex flex-wrap justify-content-stae align-items-center gap-2"
           >
             <router-link
               :to="getRouteLocale('network-card-membership')"
-              class="px-4 text-light py-2 mx-1 btn shadow"
+              class="px-4 py-3 mx-1 btn rounded-3 know-more-btn"
               style="
                 background-color: #ff5722 !important;
                 border: none !important;
                 color: white;
               "
             >
-              <!-- <plusRectRoundIcon class="mx-1" /> -->
               تعرف على بطاقه رياديات
             </router-link>
-            <button
-              @click="addOffer"
-              class="px-5 py-2 text-light mx-1 btn shadow"
-              style="
-                background-color: #1fb9b3 !important;
-                border: none !important;
-                color: white;
-              "
-            >
-              <!-- <plusRectRoundIcon class="mx-1" /> -->
-              اضافة اعلان
-            </button>
           </div>
         </div>
         <div class="col-12 col-md-6" style="min-height: 414px" v-if="!isMobile">
           <div style="height: 100%">
-            <!-- <iframe class="rounded" style="width: 100%; height: 100%" src="https://www.youtube.com/embed/mKfqJ_3-jWQ"
-                          title="جلسة حوارية عربيات" frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe> -->
-            <img class="img-fluid" src="@/assets/img/Component 7.png" alt="" />
+            <img class="img-fluid" src="@/assets/img/memberCard.png" alt="" />
           </div>
         </div>
       </div>
@@ -87,4 +70,25 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.header-title-page {
+  font-family: Cairo;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 90.24px;
+  color: #414042;
+}
+.header-desc-page {
+  font-family: Cairo;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38.4px;
+  color: #414042;
+}
+.know-more-btn {
+  font-family: Cairo;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+</style>
