@@ -2,7 +2,7 @@
   <div class="row my-5">
     <div class="col-md-6 my-auto">
       <h1 style="color: #2cb7b3; font-size: 56px; font-weight: bolder">
-        أنضم الى حلول ريادة الاعمال
+        انضم الى حلول ريادة الاعمال
       </h1>
       <p style="color: #737373; font-size: 24px; font-weight: semibold">
         باستضافتك عروضك وخصوماتك على منصتنا، ستصل إلى مجتمعات واسعة في المملكة
@@ -21,7 +21,7 @@
         v-if="userPartner"
         style="background-color: #f2631c"
         class="px-5 py-2 btn text-light rounded-2"
-        :to="getRouteLocale('network-offers-dashboard')"
+        :to="getRouteLocale('company-dashboard')"
       >
         حسابى
       </router-link>
