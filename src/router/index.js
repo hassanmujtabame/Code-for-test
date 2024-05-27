@@ -225,7 +225,11 @@ const routes = [
         children: [
           {
             path: "consultant",
-            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "Dashboard | Consultant",
+            },
             name: "consultant-dashboard",
             component: () =>
               import(
@@ -234,7 +238,11 @@ const routes = [
           },
           {
             path: "network",
-            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "Dashboard | Network",
+            },
             name: "network-dashboard",
             component: () =>
               import(
@@ -243,7 +251,11 @@ const routes = [
           },
           {
             path: "service-provider",
-            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "Dashboard | Service provider",
+            },
             name: "service-provider-dashboard",
             component: () =>
               import(
@@ -252,7 +264,11 @@ const routes = [
           },
           {
             path: "academy",
-            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "Dashboard | Academy",
+            },
             name: "academy-dashboard",
             component: () =>
               import(
@@ -261,7 +277,11 @@ const routes = [
           },
           {
             path: "company",
-            meta: { layout: LayoutDefault, auth: true, title: "Dashboard" },
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "Dashboard | Company",
+            },
             name: "company-dashboard",
             component: () =>
               import(
