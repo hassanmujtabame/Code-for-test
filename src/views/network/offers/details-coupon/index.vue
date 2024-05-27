@@ -1,8 +1,8 @@
 <template>
   <div style="margin-top: 100px" class="container">
     <div
-      class="row shadow-sm rounded-4 d-flex justify-content-start align-items-center p-4"
-      style="width: fit-content"
+      class="shadow-sm rounded-4 d-flex justify-content-start align-items-center gap-2 p-4"
+      style="width: fit-content; margin-inline: -12px"
     >
       <div class="img-box d-inline">
         <img :src="details.image" alt="company_img" />
