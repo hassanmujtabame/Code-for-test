@@ -54,6 +54,7 @@
         {{ item.date }}
       </p>
       <button
+        @click="router_push('network-coupon')"
         class="text-light rounded-3 mx-2 btn py-2"
         style="background-color: #1fb9b3"
       >
