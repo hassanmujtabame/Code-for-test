@@ -95,6 +95,18 @@ export default {
       return this.item.img;
     },
   },
+  methods: {
+    goToPage() {
+      if (this.item.type == "offer") {
+        this.router_push({
+          name: "network-coupon",
+          params: { id: this.item.id },
+        });
+      } else {
+        this.router_push("network-details-coupon", { id: itemId });
+      }
+    },
+  },
 };
 </script>
 

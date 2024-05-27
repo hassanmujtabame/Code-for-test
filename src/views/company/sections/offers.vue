@@ -25,6 +25,7 @@ export default {
           time: 5,
           date: "2024/2/22",
           des: "خصم 100 ريال عند استخدام البطاقة",
+          type: "offer",
         },
         {
           img: require("@/assets/img/company/pic.png"),
@@ -32,6 +33,7 @@ export default {
           time: 5,
           date: "2024/2/22",
           des: "خصم حتى 500 ريال عند استخدام البطاقة",
+          type: "offer",
         },
         {
           img: require("@/assets/img/company/pic.png"),
@@ -39,6 +41,7 @@ export default {
           time: 5,
           date: "2024/2/22",
           des: "خصم حتى 300 ريال عند استخدام البطاقة",
+          type: "offer",
         },
       ],
     };
