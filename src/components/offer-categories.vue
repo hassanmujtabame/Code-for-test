@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row" style="width: 90%; margin: auto">
       <div class="col-12 col-md-4 mb-4">
         <div
           class="rounded-5 shadow"
@@ -11,8 +11,8 @@
           >
             <h6>فئه الباركود و الكوبون</h6>
             <img
-              class="w-50"
-              src="@/assets/img/offers/Group (1).png"
+              class="w-75"
+              src="@/assets/img/Frame76468.png"
               alt="card image 1"
             />
           </div>
@@ -28,8 +28,8 @@
           >
             <h6>فئه بطاقات شراء</h6>
             <img
-              class="w-50"
-              src="@/assets/img/offers/gift-card-svgrepo-com 1.png"
+              class="w-75"
+              src="@/assets/img/gift-card.png"
               alt="card image 1"
             />
           </div>
@@ -44,11 +44,7 @@
             class="d-flex px-5 py-5 align-items-center justify-content-center flex-column"
           >
             <h6>فئه بطاقات هدايا</h6>
-            <img
-              class="w-50"
-              src="@/assets/img/offers/gift-svgrepo-com 1.png"
-              alt="card image 1"
-            />
+            <img class="w-75" src="@/assets/img/gift.png" alt="card image 1" />
           </div>
         </div>
       </div>
@@ -62,4 +58,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h6 {
+  font-family: Cairo;
+  font-size: 25.6px;
+  font-weight: 500;
+  line-height: 25.6px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+</style>

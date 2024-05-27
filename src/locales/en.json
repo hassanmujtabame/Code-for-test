@@ -461,6 +461,7 @@
   "update-job": "Job Modification",
   "appy-job-note": "Tell employer about you",
   "the_company": "Company",
+  "the-companies": "The companies",
   "the_experience": "Experience",
   "download_cv": "download CV",
   "continuity": "continuity",
@@ -829,5 +830,15 @@
   "your_step_towards_leadership": "Your step towards leadership",
   "academy_your_step_towards_leadership_text": "It is the first entrepreneurship academy in Saudi Arabia, the Gulf, and the Arab world. The academy offers an advanced and user-friendly educational platform that serves everyone around the world, with training rooms equipped with the latest technologies and virtual rooms. The academy provides a range of educational and advisory services in the field of entrepreneurship and specialized skills, with qualified trainers in various fields.",
   "academy_develop_your_skills_text": "Develop your skills and embark on the world of entrepreneurship and freelancing. The Entrepreneurs Academy will be with you every step of the way.",
-  "you-cant-book-yourself": "You cant book yourself"
+  "you-cant-book-yourself": "You cant book yourself",
+  "rate-my-services": "Rate my services ",
+  "gift-card-purchased-times": "Number of times gift cards were purchased",
+  "code-used-times": "Number of code uses",
+  "workspaces-requests": "Requests on the workplace",
+  "workspaces-booking-number": "Number of workspace reservations",
+  "completed-services": "Completed service",
+  "service-in-progress": "Service in progress",
+  "sales-offers": "Company offers and discounts",
+  "ads": "Ads",
+  "compaty-exhibitions": "Company Exhibitions"
 }

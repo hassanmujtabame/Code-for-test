@@ -1,134 +1,51 @@
 <template>
   <div style="margin-top: 96px">
-    <d-overlays-simple v-if="loading" />
-    <div v-else-if="hasError">
+    <d-overlays-simple v-if="false" />
+    <!-- <div v-else-if="hasError">
       {{ $t("has-error") }}
-    </div>
-    <div v-else class="container exhibition-page">
-      <div class="position-relative">
-        <img
-          class="w-100"
-          :src="itemPage.image"
-          :alt="itemPage.title"
-          height="432"
-        />
-        <div class="d-flex gap-2 position-absolute bottom-0 data">
-          <template v-if="itemPage.categories && itemPage.categories.length">
-            <p
-              v-for="(cat, c) in itemPage.categories"
-              :key="c"
-              :style="{ 'background-color': colors[c % 3] }"
-              class="p-1 px-2 rounded-2 text-white m-0"
-            >
-              {{ cat.name }}
-            </p>
-          </template>
-          <p
-            v-else
-            :style="{ 'background-color': colors[0] }"
-            class="p-1 px-2 rounded-2 text-white m-0"
+    </div> -->
+
+    <div v-else class="container">
+      <div class="row">
+        <div class="col-12 col-lg-7 p-3">
+          <div
+            class="title-box d-flex justify-content-between align-items-start mt-4"
           >
-            {{ itemPage.categoryName }}
-          </p>
-        </div>
-      </div>
-      <div class="row mt-5">
-        <div class="row mb-3">
-          <div class="col-12">
-            <template v-if="isOwner">
-              <button
-                @click="openEditDialog"
-                class="btn bg-main border-0 text-white px-4 py-2 mx-2"
-              >
-                <img :src="`${publicPath}assets/svg/update.svg`" />
-                {{ $t("modification") }}
-              </button>
-              <button
-                @click="openDeleteDialog"
-                class="btn bg-danger border-0 text-white mx-2 px-4 py-2"
-              >
-                <img :src="`${publicPath}assets/svg/trash-outline.svg`" />
-                {{ $t("delete") }}
-              </button>
-            </template>
-            <!-- <button
-              @click="openDemandParticipateDialog"
-              v-else
-              class="btn-main"
-            >
-              شارك في المعرض
-            </button> -->
-          </div>
-        </div>
-        <div class="col-12">
-          <h3 class="m-c">
-            {{ itemPage.title ?? "معرض" }}
-          </h3>
-          <p v-if="!isOwner" class="t-c p-0 m-0">
-            {{ $t("publish-date") }}: {{ itemPage.date_publish }}
-          </p>
-        </div>
-        <div class="col-12 col-md-8">
-          <p style="color: #888" class="" v-html="itemPage.content"></p>
-          <div>
-            <!-- <button
-              v-if="isOwner"
-              @click="
-                router_push('network-exhibition-requests', { id: itemPage.id })
-              "
-              class="btn btn-show-exhibition-req"
-            >
-              قائمة طلبات المشاركة في المعرض
-            </button> -->
-          </div>
-          <!-- <div class="rounded-3 border mt-4 p-4">
-            <h4 class="border-bottom">شارك المعرض</h4>
-            <div
-              class="d-flex gap-4 justify-content-center p-4 icon-social-exibition"
-            >
-               facebook
-               <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"  data-show-count="false">Tweet</a> 
-
-              <img
-                class="h-100"
-                :src="`${publicPath}assets/img/Twitter.png`"
-                alt=""
-              />
-              <img
-                class="h-100"
-                :src="`${publicPath}assets/img/Instagram.png`"
-                alt=""
-              />
-              <img
-                class="h-100"
-                :src="`${publicPath}assets/img/Linkedin.png`"
-                alt=""
-              />
-              <img
-                class="h-100"
-                :src="`${publicPath}assets/img/Facebook.png`"
-                alt=""
-              />
-
-              <span v-if="false"> <i  class="fab fa-instagram" ></i></span>
-
-              <span v-if="false"> <i  class="fab fa-linkedin-in" ></i></span>
-              <div
-                class="fb-share-button"
-                :data-href="currentUrl"
-                data-layout="button_count"
-              ></div>
+            <div class="title-text">
+              {{ " معرض" + " " + title }}
             </div>
-          </div> -->
+            <div class="publish-date mt-1 px-2">
+              {{ $t("publish-date") }}: {{ publishDate }}
+            </div>
+          </div>
+          <div class="desc-box rounded-4 p-4 mt-4">
+            <div class="desc-title">تفاصيل المعرض</div>
+            <div class="desc-text mt-3">
+              {{ desc }}
+            </div>
+          </div>
         </div>
-        <div style="margin-top: -139px" class="col-12 col-md-4">
-          <d-user-info-li
-            v-if="!isOwner"
-            sizeImage="100"
-            :member="itemPage.user_info"
-          />
-          <!--details-exhibition-->
-          <detailsExhibitionSection :isOwner="isOwner" :itemPage="itemPage" />
+        <div class="col-12 col-lg-5 p-3">
+          <img :src="`${publicPath}assets\\img\\Rectangle 77.png`" />
+          <div class="details-list d-flex gap-3 mt-5">
+            <div
+              v-for="(d, i) in detalis"
+              :key="i"
+              class="border rounded-2 details-box mb-2 p-2"
+            >
+              <div class="details-title">
+                {{ d.title }}
+              </div>
+              <div class="detail-text">
+                {{ d.value }}
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-customer rounded-3 w-100 mt-4 py-3">
+            <!-- <button @click="openDemandParticipateDialog" class="btn-main"> -->
+            شارك في المعرض
+          </button>
         </div>
       </div>
     </div>
@@ -161,6 +78,80 @@ export default {
       itemPage: {},
       colors: ["#F2631C", "#FFBC00", "#2C98B3"],
     };
+  },
+  computed: {
+    title() {
+      return this.itemPage.title ?? "الورود";
+    },
+    publishDate() {
+      return this.itemPage.date_publish ?? "22-8-2024";
+    },
+    desc() {
+      return (
+        this.itemPage.desc ??
+        "مهرجان تمور الأحساء في السعودية يعتبر من العوامل المهمه لزيادة الجذب السياحي للمواطنين و زوار المملكة العربية السعودية، و دشن أمير منطقة الشرقية “سعود بن نايف بن عبد العزيز” ذلك يوم الاربعاء 12 يناير  في نسخته الرابعة بالمملكة، حيث أكد الأمير أن “مدينة الأحساء” أنها سجلت 11 رقم قياسي في موسوعة جينيس العالمية، كما انها تحتوي على أفضل وأجود أنواع التمور بالعالم مشيرا إلي أن “مدينة الأحساء” تحتوي على 2.2 مليون نخلة، حيث حضر العديد من الشخصيات المهمه في ليلة افتتاح هذا المهرجان ومن أهم الشخصيات التي حضرت  “الأمير بندر بن محمد محافظ الأحساء و عصام الملا أمين المدينة و فهد المطلق رئيس هيئة تطوير المنطقة"
+      );
+    },
+    views() {
+      return this.itemPage.views ?? 150;
+    },
+    price() {
+      return this.itemPage.views ?? 200;
+    },
+    participants() {
+      return this.itemPage.views ?? 15;
+    },
+    category() {
+      return this.itemPage.category ?? "الورود";
+    },
+    city() {
+      return this.itemPage.city ?? "الرياض";
+    },
+    address() {
+      return this.itemPage.address ?? "اضغط هنا";
+    },
+    date() {
+      return this.itemPage.date ?? "22\\8\\2024 - 26\\8\\2024";
+    },
+    time() {
+      return this.itemPage.time ?? "10:00 - 20:00";
+    },
+    detalis() {
+      return [
+        {
+          title: "المشاهدات",
+          value: this.views,
+        },
+        {
+          title: "سعر الدخول",
+          value: this.price,
+        },
+        {
+          title: "المشاركين",
+          value: this.participants,
+        },
+        {
+          title: "تصنيف المعرض",
+          value: this.category,
+        },
+        {
+          title: "المدينة",
+          value: this.city,
+        },
+        {
+          title: "عنوان",
+          value: this.address,
+        },
+        {
+          title: "تاريخ المعرض",
+          value: this.date,
+        },
+        {
+          title: "توقيت",
+          value: this.time,
+        },
+      ];
+    },
   },
   methods: {
     convertTime(time) {
@@ -235,45 +226,69 @@ fjs.parentNode.insertBefore(js, fjs);
 </script>
 
 <style>
-.btn-show-exhibition-req {
-  width: 617px;
-  height: 108px;
-  background: rgba(31, 185, 179, 0.1);
-  /* CDD7D8 */
-
-  border: 0.5px solid #cdd7d8;
-  /* box */
-
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
-  /** text */
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 40px;
-  /* identical to box height, or 167% */
-
-  text-align: center;
-  text-transform: capitalize;
-
-  /* Dark gray */
-
-  color: #414042;
+.title-text {
+  font-family: Cairo;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 59.97px;
+  color: #1fb9b3;
 }
+.publish-date {
+  font-family: Cairo;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 29.98px;
+  color: #424143;
+}
+.desc-box {
+  background: #fafafa;
+}
+.desc-title {
+  font-family: Cairo;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 44.98px;
 
-.icon-social-exibition > span,
-.icon-social-exibition span {
-  background: #979797;
-  text-align: center;
-  display: inline-block;
-  height: 56px;
-  width: 56px;
-  font-size: 40px;
-  color: white;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: #cf1f3e;
+}
+.desc-text {
+  font-family: Cairo;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 29.98px;
+  color: #415c5e;
+}
+img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 480px;
+}
+.details-list {
+  flex-wrap: wrap;
+}
+.details-box {
+  width: 31%;
+  flex-grow: 1;
+}
+.details-title {
+  font-family: Cairo;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 29.98px;
+  color: #1fb9b3;
+}
+.detail-text {
+  font-family: Cairo;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 18.74px;
+  color: #000;
+}
+.btn-customer {
+  font-family: Cairo;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 37.48px;
+  color: #ffffff;
 }
 </style>

@@ -55,6 +55,16 @@
                 {{ $t("academy") }}
               </router-link>
             </li>
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('company-dashboard')"
+                class="nav-link hover-li"
+                :class="{ 'li-active': page == 'company-dashboard' }"
+              >
+                {{ $t("the-companies") }}
+              </router-link>
+            </li>
           </ul>
         </div>
 

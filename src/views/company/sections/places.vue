@@ -1,250 +1,55 @@
 <template>
   <div class="row">
-    <div class="col-md-4 p-1" v-for="(card, i) in cards" :key="i">
-      <div class="d-flex px-3 py-2 rounded-3 border flex-column">
-        <div class="d-flex align-items-center gap-2">
-          <img width="68px" height="68px" :src="card.img" alt="" />
-          <div class="d-flex flex-column">
-            <h5 style="color: #1fb9b3">
-              {{ card.title }}
-            </h5>
-            <p style="color: #737373; font-size: 10px">
-              {{ card.des }}
-            </p>
-          </div>
-        </div>
-        <p style="font-size: 12px">
-          <svg
-            width="15"
-            height="17"
-            viewBox="0 0 15 17"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9.31399 15.4871H5.68085C4.62118 15.4871 3.84746 14.9605 3.5503 14.0538C3.24193 13.1071 3.52788 11.9338 4.26796 11.1405L6.86947 8.32047L4.26796 5.50047C3.52788 4.70714 3.24193 3.53381 3.5503 2.58714C3.84746 1.67381 4.62118 1.15381 5.68085 1.15381H9.31399C10.3737 1.15381 11.1474 1.68048 11.4445 2.58714C11.7529 3.53381 11.467 4.70714 10.7269 5.50047L8.12537 8.32047L10.7325 11.1405C11.467 11.9338 11.7585 13.1071 11.4501 14.0538C11.1474 14.9605 10.3737 15.4871 9.31399 15.4871ZM7.49742 8.99381L4.83424 11.8738C4.36328 12.3871 4.15583 13.1338 4.33524 13.6871C4.50344 14.2005 4.98001 14.4871 5.68085 14.4871H9.31399C10.0148 14.4871 10.4914 14.2071 10.6596 13.6871C10.839 13.1338 10.6372 12.3871 10.1606 11.8738L7.49742 8.99381ZM5.68085 2.15381C4.98001 2.15381 4.50344 2.43381 4.33524 2.95381C4.15583 3.50714 4.35767 4.25381 4.83424 4.76714L7.49742 7.64714L10.1606 4.76714C10.6316 4.25381 10.839 3.50714 10.6596 2.95381C10.4914 2.44048 10.0148 2.15381 9.31399 2.15381H5.68085Z"
-              fill="#979797"
-            />
-          </svg>
-          المدة
-          {{ card.time }}
-          ايام
-        </p>
-        <p style="font-size: 12px">
-          <svg
-            width="17"
-            height="17"
-            viewBox="0 0 17 17"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.66781 15.4865C5.17447 15.4865 2.33447 12.6465 2.33447 9.15316C2.33447 5.65982 5.17447 2.81982 8.66781 2.81982C12.1611 2.81982 15.0011 5.65982 15.0011 9.15316C15.0011 12.6465 12.1611 15.4865 8.66781 15.4865ZM8.66781 3.81982C5.72781 3.81982 3.33447 6.21316 3.33447 9.15316C3.33447 12.0932 5.72781 14.4865 8.66781 14.4865C11.6078 14.4865 14.0011 12.0932 14.0011 9.15316C14.0011 6.21316 11.6078 3.81982 8.66781 3.81982Z"
-              fill="#979797"
-            />
-            <path
-              d="M8.6665 9.48519C8.39317 9.48519 8.1665 9.25852 8.1665 8.98519V5.65186C8.1665 5.37852 8.39317 5.15186 8.6665 5.15186C8.93984 5.15186 9.1665 5.37852 9.1665 5.65186V8.98519C9.1665 9.25852 8.93984 9.48519 8.6665 9.48519Z"
-              fill="#979797"
-            />
-            <path
-              d="M10.6665 2.15381H6.6665C6.39317 2.15381 6.1665 1.92714 6.1665 1.65381C6.1665 1.38048 6.39317 1.15381 6.6665 1.15381H10.6665C10.9398 1.15381 11.1665 1.38048 11.1665 1.65381C11.1665 1.92714 10.9398 2.15381 10.6665 2.15381Z"
-              fill="#979797"
-            />
-          </svg>
-          تاريخ النشر
-          {{ card.data }}
-        </p>
-        <button
-          class="text-light rounded-3 mx-2 btn py-2"
-          style="background-color: #1fb9b3"
-        >
-          عرض التفاصيل
-        </button>
-      </div>
+    <div v-for="(card, i) in cards" :key="i" class="col-md-4 p-2">
+      <card :item="card"></card>
     </div>
   </div>
 </template>
 
 <script>
+import card from "@/views/company/cards/place-card.vue";
+
 export default {
-  name: "tabs-for-nav",
+  name: "plces-tab",
+  components: {
+    card,
+  },
   data() {
     return {
       cards: [
         {
-          img: require("@/assets/img/company/pic.png"),
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
+          id: 1,
+          image: require("@/assets/img/company/83f.jpeg"),
+          title: "مكان 1",
+          description:
+            "معرض مخصص للملابس الرجالية انتاج محلي و ماركات معرض مخصص للملابس الرجالية انتاج محلي و ماركات  ",
+          location: "الرياض - شارع التخصصي",
+          options: [
+            "واي فاي",
+            "مواقف سيارات",
+            "شاشات عرض",
+            "غرفة للصلاة",
+            "مطعم",
+            "مقهى",
+          ],
         },
         {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
+          id: 2,
+          image: require("@/assets/img/company/83f.jpeg"),
+          title: "مكان 2",
+          description:
+            "معرض مخصص للملابس الرجالية انتاج محلي و ماركات معرض مخصص للملابس الرجالية انتاج محلي و ماركات  ",
+          location: "الرياض - شارع التخصصي",
+          options: ["مكان للأطفال", "شاشات عرض", "غرفة للصلاة", "مقهى"],
         },
         {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
-        },
-        {
-          img: require("@/assets/img/company/pic.png"),
-
-          title: "فلاورد",
-          time: 5,
-          data: "2024/2/22",
-          des: "احصل على خصم 10% عند استخدامك كود الخصم",
+          id: 3,
+          image: require("@/assets/img/company/83f.jpeg"),
+          title: "مكان 3",
+          description:
+            "معرض مخصص للملابس الرجالية انتاج محلي و ماركات معرض مخصص للملابس الرجالية انتاج محلي و ماركات  ",
+          location: "الرياض - شارع التخصصي",
+          options: ["واي فاي", "مواقف سيارات", "غرفة للصلاة", "مكيف", "مطعم"],
         },
       ],
     };

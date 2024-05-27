@@ -4,9 +4,7 @@
       <div class="d-flex justify-content-between align-items-center container">
         <h1>أهم العروض</h1>
         <div>
-          <!-- <button @click="addOffer" class="btn bg-main text-white p-2">
-            أضف عرض او خصم
-          </button> -->
+          <more-button @click="router_push('network-offers')" />
         </div>
       </div>
       <d-swiper
