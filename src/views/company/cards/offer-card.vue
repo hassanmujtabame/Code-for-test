@@ -54,7 +54,7 @@
         {{ item.date }}
       </p>
       <button
-        @click="router_push('network-coupon')"
+        @click="goToPage"
         class="text-light rounded-3 mx-2 btn py-2"
         style="background-color: #1fb9b3"
       >
@@ -98,12 +98,9 @@ export default {
   methods: {
     goToPage() {
       if (this.item.type == "offer") {
-        this.router_push({
-          name: "network-coupon",
-          params: { id: this.item.id },
-        });
+        this.router_push("network-coupon");
       } else {
-        this.router_push("network-details-coupon", { id: itemId });
+        this.router_push("network-details-coupon", { id: 1 });
       }
     },
   },
