@@ -25,6 +25,7 @@ export default {
           time: 5,
           date: "2024/2/22",
           des: "احصل على خصم 10% عند استخدامك كود الخصم",
+          type: "dicount",
         },
         {
           img: require("@/assets/img/company/pic.png"),
@@ -32,6 +33,7 @@ export default {
           time: 5,
           date: "2024/2/22",
           des: "احصل على خصم 10% عند استخدامك كود الخصم",
+          type: "dicount",
         },
         {
           img: require("@/assets/img/company/pic.png"),
@@ -39,6 +41,7 @@ export default {
           time: 5,
           date: "2024/2/22",
           des: "احصل على خصم 10% عند استخدامك كود الخصم",
+          type: "dicount",
         },
       ],
     };
