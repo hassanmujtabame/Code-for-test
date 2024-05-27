@@ -29,6 +29,7 @@
       </div>
     </div>
     <button
+      @click="router_push('network-exhibition-show', { id: itemId })"
       class="text-light rounded-3 mx-2 btn py-1 w-100"
       style="background-color: #1fb9b3"
     >
