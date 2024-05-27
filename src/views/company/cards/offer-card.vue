@@ -51,7 +51,7 @@
           />
         </svg>
         تاريخ النشر
-        {{ item.data }}
+        {{ item.date }}
       </p>
       <button
         class="text-light rounded-3 mx-2 btn py-2"
