@@ -12,7 +12,7 @@
         {{ member.name }}
       </h5>
       <h5 style="font-size: 16px; font-weight: semibold" class="m-c mt-2">
-        رياده اعمال
+        {{ member.job_title ?? "ريادة أعمال" }}
       </h5>
       <h6 style="color: #f2631c; font-size: 12px">
         <svg
@@ -31,7 +31,7 @@
             fill="#F2631C"
           />
         </svg>
-        جده
+        {{ member.city ?? "--" }}
       </h6>
       <p>
         {{ member.job ?? member.job_title }}
