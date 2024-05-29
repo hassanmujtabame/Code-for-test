@@ -1,13 +1,12 @@
 <template>
   <div
-    
     style="margin-top: 85px; overflow-x: hidden; overflow-y: hidden"
     class="consult"
   >
     <!--section-header-->
     <SectionHeader />
-    <SectionIntro />
     <SectionFeatures />
+    <SectionIntro />
     <SectionChoseUs />
     <!-- <div>
 
