@@ -14,6 +14,7 @@
       </template>
       <template v-slot:head-end>
         <button
+          @click="openAddDialog"
           class="py-3 btn btn-danger w-100 d-flex justify-content-center align-items-center gap-2"
         >
           <i class="fa-solid fa-plus"></i>{{ $t("add-exhibitions") }}
@@ -23,17 +24,21 @@
         <Card :item="item" />
       </template>
     </d-filter-list>
+    <addExhibitionDialg />
   </div>
 </template>
 
 <script>
 import exhibitionAPI from "@/services/api/exhibitions.js";
 import Card from "@/components/list-cards/network/ExhibitionCard.vue";
+import addExhibitionDialg from "@/components/dialogs/network/AddExhibition.vue";
 
 export default {
   name: "company-exhibitions",
-  components: { Card },
-  data: () => ({}),
+  components: { Card, addExhibitionDialg },
+  data: () => ({
+    addExhibition: false,
+  }),
   methods: {
     async loadList(metaInfo) {
       try {
@@ -47,8 +52,42 @@ export default {
         console.log("response", error.response);
       }
     },
+    openAddDialog() {
+      if (this.addExhibition) {
+        this.fireOpenDialog("add-dialog");
+      } else {
+        let dataEvt = {
+          title: "للأسف لا يمكنك  إضافة معرض",
+          description: `هذه الباقة لا تمكنك من إضافة معرض - رقي حسابك إلى الباقة السنوية واستفيد من إضافة معرضك و المزيد من المميزات في الشبكة`,
+          image: `${this.publicPath}assets/img/Group 1171275670.png`,
+          btns: [
+            {
+              title: "رقي حسابك",
+              action: () => this.$router.push({ name: "network-subscribe" }),
+            },
+          ],
+        };
+        this.showConfirmMsg(dataEvt);
+        return;
+      }
+    },
+    checkSubscriptionOptions() {
+      for (
+        let index = 0;
+        index < this.user.subscription_options.length;
+        index++
+      ) {
+        const element = this.user.subscription_options[index];
+        if (element.key == "add_exhibitions") {
+          this.addExhibition = true;
+          console.log("element", element);
+        }
+      }
+    },
   },
-  mounted() {},
+  mounted() {
+    this.checkSubscriptionOptions();
+  },
 };
 </script>
 
