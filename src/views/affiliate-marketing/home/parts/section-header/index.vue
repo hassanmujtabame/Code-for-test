@@ -1,11 +1,11 @@
 <template>
   <div class="bg-white container" :class="[isMobile ? 'p-3' : 'p-5']">
     <div class="row align-items-center">
-      <div class="col-12 col-md-6">
-        <h1 class="header-title-page text-black" style="display: inline">
+      <div class="col-12 col-md-5">
+        <h1 class="header-title-page" style="display: inline">
           التسويق بالعمولة
         </h1>
-        <p class="header-desc-page text-black mt-3">
+        <p class="header-desc-page my-4">
           كونى شريكة رياديات التسويقية من خلال برنامج التسويق بالعمولة وأكسبى
           مقابل كل عملية تسجيل
         </p>
@@ -78,8 +78,8 @@
           </template>
         </div>
       </div>
-      <div class="col-12 col-md-6" style="min-height: 414px" v-if="!isMobile">
-        <div style="height: 100%">
+      <div class="col-12 col-md-7" style="min-height: 414px" v-if="!isMobile">
+        <div class="no-select" style="height: 100%">
           <img
             src="@/assets/img/affiliate/affliate-home-header.png"
             class="header-img"
@@ -156,9 +156,30 @@ export default {
 };
 </script>
 <style scoped>
+.header-title-page {
+  font-family: Cairo;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #414042;
+}
+.header-desc-page {
+  font-family: Cairo;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38.4px;
+  color: #a6a6a6;
+}
 .header-img {
   width: 100%;
   height: auto;
+}
+.no-select {
+  user-select: none; /* Prevents text selection in most browsers */
+  -webkit-user-select: none; /* Prevents text selection in Safari */
+  -moz-user-select: none; /* Prevents text selection in Firefox */
+  -ms-user-select: none; /* Prevents text selection in Internet Explorer/Edge */
+  pointer-events: none;
 }
 .star-cons {
   position: absolute;
