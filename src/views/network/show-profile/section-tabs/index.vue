@@ -92,7 +92,7 @@ export default {
         },
         {
           tag: "offers",
-          title: vm.$t("offers"),
+          title: vm.$t("services"),
           content: TabOffers,
           show: !!vm.userPage.is_provider,
         },
