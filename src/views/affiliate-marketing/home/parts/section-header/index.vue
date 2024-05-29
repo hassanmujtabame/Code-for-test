@@ -1,142 +1,90 @@
 <template>
   <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
-    <div class="netwok-home-header">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <h1 class="header-title-page text-black" style="display: inline">
-            التسويق بالعمولة
-          </h1>
-          <p class="header-desc-page text-black mt-3">
-            كونى شريكة رياديات التسويقية من خلال برنامج التسويق بالعمولة وأكسبى
-            مقابل كل عملية تسجيل
-          </p>
-
-          <div class="my-4 d-flex justify-content-start">
-            <template>
-              <div class="row d-flex align-items-center flex-wrap gap-2">
-                <li>
-                  <div
-                    style="background-color: #1fb9b3"
-                    v-if="profileData.status == 'deactive'"
-                    class="btn text-light"
-                  >
-                    جارى تفعيل حسابك
-                  </div>
-                  <!-- <router-link
-                    v-else-if="profileData.status == 'active'"
-                    class="text-white bg-transparent border-0"
-                    :to="{ name: 'affiliate-marketing-dashboard' }"
-                  >
-                    لوحه التحكم
-                  </router-link> -->
-
-                  <button
-                    v-if="!profileData.status"
-                    class="text-white btn-omar rounded-3 px-5 py-3 border-0"
-                    @click="affiliateRegister"
-                  >
-                    أشترك الان
-                  </button>
-                  <!-- <button
-                  style="background-color:##1fb9b3"
-                    v-if="profileData.status == 'active'"
-                    class="text-white  rounded-3 px-5 py-3 border-0"
-                    @click="affiliateRegister"
-                  >
-                    حسابى
-                  </button> -->
-                  <router-link
-                    v-if="profileData.status == 'active'"
-                    style="background-color: #1fb9b3"
-                    class="text-white rounded-3 px-5 py-3 border-0 btn"
-                    :to="getRouteLocale('affiliate-marketing-dashboard')"
-                    >حسابى
-                  </router-link>
-                  <!-- <button
-                    v-if="token"
-                    class="text-white btn-omar rounded-3 px-5 py-3 border-0"
-                  >
-                    أشترك الان
-                  </button> -->
-                  <button
-                    v-if="token"
-                    style="color: #1fb9b3"
-                    class="btn btn-lg bg-light bg mx-1 px-4 py-2"
-                  >
-                    <play-icon class="mx-1" />
-                    عرض توجيهى
-                  </button>
-                </li>
-
-                <!-- <li
-                  v-if="!token"
-                  class="nav-item px-2 btn-main text-center"
-                  style="
-                    box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);
-                    padding: 10px;
-                    height: auto;
-                    margin-right: 5px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h1 class="header-title-page text-black" style="display: inline">
+          التسويق بالعمولة
+        </h1>
+        <p class="header-desc-page text-black mt-3">
+          كونى شريكة رياديات التسويقية من خلال برنامج التسويق بالعمولة وأكسبى
+          مقابل كل عملية تسجيل
+        </p>
+        <div class="my-4 d-flex justify-content-start">
+          <template>
+            <div class="row d-flex align-items-center flex-wrap gap-2">
+              <li>
+                <div
+                  style="background-color: #1fb9b3"
+                  v-if="profileData.status == 'deactive'"
+                  class="btn text-light"
                 >
-                  <router-link
-                    class="text-white btn"
-                    :to="getRouteLocale('login-affiliate')"
-                    >سجلى دخولك
-                  </router-link>
-                
-                </li> -->
-                <div class="d-flex align-items-center gap-2">
-                  <button
-                    v-if="!token"
-                    class="nav-item px-2 btn-main text-center"
-                    @click="showModal"
-                  >
-                    سجلى دخولك
-                    <login-dialog
-                      :profileData="profileData"
-                      ref="modal"
-                    ></login-dialog>
-                  </button>
-                  <button
-                    v-if="!token"
-                    class="px-2 btn shadow"
-                    style="
-                      background-color: #ff5722 !important;
-                      border: none !important;
-                      color: #fff;
-                      width: 152px;
-                      height: 48px;
-                    "
-                    @click="router_push('register')"
-                  >
-                    انضمي الان
-                  </button>
+                  جارى تفعيل حسابك
                 </div>
 
-                <!-- <div class="btn-main-style py-5" style="width: fit-content;">
-                                            <router-link :to="getRouteLocale('register-affiliate')"
-                                            class="btn-default text-black mt-2" style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);"> انشاء حساب</router-link>
-                                        </div>
-                    
-                                        <div class="btn-main-style py-5" style="width: fit-content;">
-                                            <router-link :to="getRouteLocale('register-affiliate')"
-                                            class="btn-default text-black mt-2" style="box-shadow: 4px 4px 7px 1px rgba(0, 0, 0, 0.125);"> انشاء حساب</router-link>
-                                        </div> -->
+                <button
+                  v-if="!profileData.status"
+                  class="text-white btn-omar rounded-3 px-5 py-3 border-0"
+                  @click="affiliateRegister"
+                >
+                  أشترك الان
+                </button>
+
+                <router-link
+                  v-if="profileData.status == 'active'"
+                  style="background-color: #1fb9b3"
+                  class="text-white rounded-3 px-5 py-3 border-0 btn"
+                  :to="getRouteLocale('affiliate-marketing-dashboard')"
+                  >حسابى
+                </router-link>
+
+                <button
+                  v-if="token"
+                  style="color: #1fb9b3"
+                  class="btn btn-lg bg-light bg mx-1 px-4 py-2"
+                >
+                  <play-icon class="mx-1" />
+                  عرض توجيهى
+                </button>
+              </li>
+
+              <div class="d-flex align-items-center gap-2">
+                <button
+                  v-if="!token"
+                  class="nav-item px-2 btn-main text-center"
+                  @click="showModal"
+                >
+                  سجلى دخولك
+                  <login-dialog
+                    :profileData="profileData"
+                    ref="modal"
+                  ></login-dialog>
+                </button>
+                <button
+                  v-if="!token"
+                  class="px-2 btn shadow"
+                  style="
+                    background-color: #ff5722 !important;
+                    border: none !important;
+                    color: #fff;
+                    width: 152px;
+                    height: 48px;
+                  "
+                  @click="router_push('register')"
+                >
+                  انضمي الان
+                </button>
               </div>
-            </template>
-          </div>
+            </div>
+          </template>
         </div>
-        <div class="col-12 col-md-6" style="min-height: 414px" v-if="!isMobile">
-          <div style="height: 100%">
-            <img
-              src="../../../../../../public/assets/img/Video-com.png"
-              class="rounded-4 img-omar img-fluid shadow"
-              alt="hero img"
-            />
-          </div>
+      </div>
+      <div class="col-12 col-md-6" style="min-height: 414px" v-if="!isMobile">
+        <div style="height: 100%">
+          <img
+            src="../../../../../../public/assets/img/Video-com.png"
+            class="rounded-4 img-omar img-fluid shadow"
+            alt="hero img"
+          />
         </div>
       </div>
     </div>
