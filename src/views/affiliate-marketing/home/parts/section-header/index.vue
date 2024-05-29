@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white" :class="[isMobile ? 'p-3' : 'p-5']">
-    <div class="row">
+  <div class="bg-white container" :class="[isMobile ? 'p-3' : 'p-5']">
+    <div class="row align-items-center">
       <div class="col-12 col-md-6">
         <h1 class="header-title-page text-black" style="display: inline">
           التسويق بالعمولة
@@ -81,8 +81,8 @@
       <div class="col-12 col-md-6" style="min-height: 414px" v-if="!isMobile">
         <div style="height: 100%">
           <img
-            src="../../../../../../public/assets/img/Video-com.png"
-            class="rounded-4 img-omar img-fluid shadow"
+            src="@/assets/img/affiliate/affliate-home-header.png"
+            class="header-img"
             alt="hero img"
           />
         </div>
@@ -155,8 +155,11 @@ export default {
   },
 };
 </script>
-
 <style scoped>
+.header-img {
+  width: 100%;
+  height: auto;
+}
 .star-cons {
   position: absolute;
   left: 38.15%;
