@@ -23,6 +23,7 @@ export default {
           date: "30 يونيو 2021",
           status: "open",
           location: "جدة",
+          price: 100,
         },
         {
           id: 2,
@@ -31,6 +32,7 @@ export default {
           date: "30 يونيو 2021",
           status: "closed",
           location: "جدة",
+          price: 0,
         },
         {
           id: 3,
@@ -39,6 +41,7 @@ export default {
           date: "30 يونيو 2021",
           status: "closed",
           location: "جدة",
+          price: 240,
         },
         {
           id: 4,
@@ -47,6 +50,7 @@ export default {
           date: "30 يونيو 2021",
           status: "open",
           location: "جدة",
+          price: 75,
         },
       ],
     };
