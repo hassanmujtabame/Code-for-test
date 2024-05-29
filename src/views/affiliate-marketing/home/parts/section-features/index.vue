@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-5 p-5">
-    <h2 class="text-center">مزايا التسويق بالعمولة من خلال رياديات</h2>
+  <div class=" ">
+    <h2 class="text-center my-5">مزايا التسويق بالعمولة من خلال رياديات</h2>
     <div class="container">
       <div class="row features-row">
         <div
