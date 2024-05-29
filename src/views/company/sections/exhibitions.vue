@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Card from "../cards/exhibition-card.vue";
+import Card from "@/components/list-cards/network/ExhibitionCard.vue";
 export default {
   name: "exhibitions-tab",
   components: {
