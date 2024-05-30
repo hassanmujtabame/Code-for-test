@@ -7,6 +7,7 @@
     <SectionHeader />
     <SectionFeatures />
     <SectionIntro />
+    <SectionWhatWeProvide />
     <SectionChoseUs />
     <!-- <div>
 
@@ -14,7 +15,6 @@
     </div> -->
     <SectionJoin v-if="token && !user.affiliate" />
     <SectionJoin v-if="!token" />
-    <SectionWhatWeProvide />
     <!-- <SectionDoubleWinings /> -->
     <SectionAreYouMember />
     <SectionRecognize />
