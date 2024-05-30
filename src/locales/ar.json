@@ -852,5 +852,9 @@
   "sales-offers": "عروض وخصومات الشركة ",
   "ads": "اعلانات ",
   "company-exhibitions": "معارض الشركة ",
-  "add-exhibitions": "إضافة معرض"
+  "add-exhibitions": "إضافة معرض",
+  "visits": "الزيارات",
+  "referrals": "الإحالات",
+  "operations": "العمليات",
+  "links": "الروابط"
 }

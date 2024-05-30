@@ -2,20 +2,20 @@
   <div class="d-flex flex-wrap">
     <div class="chart-container">
       <label>
-        <label>الزيارات <i class="fa-solid fa-share"></i></label>
+        <label>{{ $t("visits") }} <i class="fa-solid fa-share"></i></label>
       </label>
       <apexchart type="bar" :options="chartOptions" :series="series1" />
     </div>
     <div class="chart-container">
-      <label>الإحالات <i class="fa-solid fa-share"></i></label>
+      <label>{{ $t("referrals") }} <i class="fa-solid fa-share"></i></label>
       <apexchart type="bar" :options="chartOptions" :series="series2" />
     </div>
     <div class="chart-container">
-      <label>العمليات <i class="fa-solid fa-share"></i></label>
+      <label>{{ $t("operations") }} <i class="fa-solid fa-share"></i></label>
       <apexchart type="bar" :options="chartOptions" :series="series3" />
     </div>
     <div class="chart-container">
-      <label>الروابط <i class="fa-solid fa-share"></i></label>
+      <label>{{ $t("links") }} <i class="fa-solid fa-share"></i></label>
       <apexchart type="bar" :options="chartOptions" :series="series4" />
     </div>
   </div>
