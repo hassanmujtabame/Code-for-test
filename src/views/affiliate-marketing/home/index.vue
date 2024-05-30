@@ -10,15 +10,11 @@
     <SectionWhatWeProvide />
     <StepByStepSection />
     <!-- <div>
-
     <SectionHowWorkProgram />
     </div> -->
-    <SectionJoin v-if="token && !user.affiliate" />
-    <SectionJoin v-if="!token" />
+
     <!-- <SectionDoubleWinings /> -->
-    <SectionAreYouMember />
-    <SectionRecognize />
-    <SectionGraduated title="المسوقين الاكثر ربحاً" />
+    <SectionGraduated />
     <!-- <div class="my-5">
       <SectionWinning />
     </div> -->
