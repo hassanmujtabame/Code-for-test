@@ -65,6 +65,18 @@
                 {{ $t("the-companies") }}
               </router-link>
             </li>
+            <li style="list-style: none" class="nav-item">
+              <router-link
+                style="color: #888"
+                :to="getRouteLocale('affiliate-marketing-dashboard')"
+                class="nav-link hover-li"
+                :class="{
+                  'li-active': page == 'affiliate-marketing-dashboard',
+                }"
+              >
+                {{ $t("Affiliate-marketing") }}
+              </router-link>
+            </li>
           </ul>
         </div>
 

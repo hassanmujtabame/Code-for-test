@@ -288,6 +288,17 @@ const routes = [
                 /* webpackChunkName: "academy-dashboard" */ "../views/network/company/dashboard"
               ),
           },
+          {
+            path: "affiliate-marketing",
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "Dashboard | affiliate marketing",
+            },
+            name: "affiliate-marketing-dashboard",
+            component: () =>
+              import("../views/affiliate-marketing/dashboard/index.vue"),
+          },
         ],
       },
       ...networkRoute,
