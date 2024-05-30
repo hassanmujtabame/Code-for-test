@@ -23,8 +23,8 @@
     <SectionGraduated title=" المسوقين الاكثر ربحا " />
     </div> -->
     <!-- <SectionRecentCourses /> -->
-    <CommonQuistions :questions="commonQuestions" />
     <SectionContinueLearning />
+    <CommonQuistions :questions="commonQuestions" />
     <!-- <SectionHear :itemPage="itemPage" /> -->
   </div>
 </template>
