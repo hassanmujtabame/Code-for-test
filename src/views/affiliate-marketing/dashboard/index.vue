@@ -1,19 +1,21 @@
 <template>
   <div class="d-flex flex-wrap">
     <div class="chart-container">
-      <label>الزيارات</label>
+      <label>
+        <label>الزيارات <i class="fa-solid fa-share"></i></label>
+      </label>
       <apexchart type="bar" :options="chartOptions" :series="series1" />
     </div>
     <div class="chart-container">
-      <label>الإحالات</label>
+      <label>الإحالات <i class="fa-solid fa-share"></i></label>
       <apexchart type="bar" :options="chartOptions" :series="series2" />
     </div>
     <div class="chart-container">
-      <label>العمليات</label>
+      <label>العمليات <i class="fa-solid fa-share"></i></label>
       <apexchart type="bar" :options="chartOptions" :series="series3" />
     </div>
     <div class="chart-container">
-      <label>الروابط</label>
+      <label>الروابط <i class="fa-solid fa-share"></i></label>
       <apexchart type="bar" :options="chartOptions" :series="series4" />
     </div>
   </div>
@@ -110,5 +112,8 @@ label {
   font-weight: 600;
   line-height: 41.23px;
   color: #414042;
+}
+label i {
+  font-size: 20px;
 }
 </style>
