@@ -8,7 +8,7 @@
     <SectionFeatures />
     <SectionIntro />
     <SectionWhatWeProvide />
-    <SectionChoseUs />
+    <StepByStepSection />
     <!-- <div>
 
     <SectionHowWorkProgram />
@@ -37,7 +37,7 @@
 import SectionHeader from "./parts/section-header/index.vue";
 import SectionWinning from "@/components/Double-your-winnings.vue";
 import SectionWhatWeProvide from "./parts/section-what-we-provide/index.vue";
-import SectionChoseUs from "./parts/section-chose-us/index.vue";
+import StepByStepSection from "./parts/section-chose-us/index.vue";
 import SectionJoin from "./parts/section-join/index.vue";
 import SectionIntro from "./parts/section-intro/index.vue";
 import SectionHowWorkProgram from "./parts/section-how-work-program/index.vue";
@@ -61,7 +61,7 @@ export default {
   }),
   components: {
     SectionWhatWeProvide,
-    SectionChoseUs,
+    StepByStepSection,
     SectionJoin,
     SectionHeader,
     SectionIntro,
