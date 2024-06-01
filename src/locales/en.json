@@ -849,5 +849,6 @@
   "links": "Links",
   "copy-link": "Copy link",
   "shortcut-link": "Shortcut link",
-  "create-link": "Create link"
+  "create-link": "Create link",
+  "generate-code": "Generate code"
 }

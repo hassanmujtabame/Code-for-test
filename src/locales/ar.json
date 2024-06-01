@@ -859,5 +859,6 @@
   "links": "الروابط",
   "copy-link": "نسخ الرابط",
   "shortcut-link": "إختصار الرابط",
-  "create-link": "إنشاء رابط"
+  "create-link": "إنشاء رابط",
+  "generate-code": "إنشاء كود"
 }
