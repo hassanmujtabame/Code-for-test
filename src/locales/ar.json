@@ -862,5 +862,10 @@
   "create-link": "إنشاء رابط",
   "generate-code": "إنشاء كود",
   "generate-new-code": "إنشاء كود جديد",
-  "copy-code": "نسخ الكود"
+  "copy-code": "نسخ الكود",
+  "operation-summary": "ملخص العمليات",
+  "remaining-in-transfer": "باقي قيد التحويل",
+  "total-transfers": "إجمالي التحويلات",
+  "total-commissions": "إجمالي العمولات",
+  "transfer-request": "طلب تحويل"
 }

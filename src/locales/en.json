@@ -852,5 +852,10 @@
   "create-link": "Create link",
   "generate-code": "Generate code",
   "generate-new-code": "Generate new code",
-  "copy-code": "Copy code"
+  "copy-code": "Copy code",
+  "operation-summary": "Operation summary",
+  "remaining-in-transfer": "Remaining in Transfer",
+  "total-transfers": "Total Transfers",
+  "total-commissions": "Total Commissions",
+  "transfer-request": "Transfer request"
 }
