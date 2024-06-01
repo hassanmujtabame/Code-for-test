@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import marketAPI from "@/services/api/market";
+
 import faqBtn from "../common/faq-btn/index.vue";
 import RateYourExperienceBtn from "../common/rate-experience.vue";
 import RateYourExperience from "../common/dialogs/rate-experience/index.vue";
@@ -51,9 +53,7 @@ export default {
   async mounted() {
     if (this.$route.query.affiliate_id) {
       localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
-      await window.axios.post("affiliates/visitor", {
-        affiliate_id: this.$route.query.affiliate_id,
-      });
+      await marketAPI.recoredVisit(this.$route.query.affiliate_id);
     }
   },
 };
