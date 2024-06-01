@@ -9,12 +9,17 @@
         </button>
       </div>
     </div>
+    <GenerateCodeBar />
   </div>
 </template>
 
 <script>
+import GenerateCodeBar from "./GenerateCodeBar.vue";
 export default {
   name: "affiliate-marketing-operations",
+  components: {
+    GenerateCodeBar,
+  },
 };
 </script>
 

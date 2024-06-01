@@ -860,5 +860,7 @@
   "copy-link": "نسخ الرابط",
   "shortcut-link": "إختصار الرابط",
   "create-link": "إنشاء رابط",
-  "generate-code": "إنشاء كود"
+  "generate-code": "إنشاء كود",
+  "generate-new-code": "إنشاء كود جديد",
+  "copy-code": "نسخ الكود"
 }
