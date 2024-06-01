@@ -308,18 +308,20 @@ const routes = [
             },
             name: "affiliate-marketing-visits",
             component: () =>
-              import("../views/affiliate-marketing/dashboard/index.vue"),
+              import("../views/affiliate-marketing/dashboard/visits/index.vue"),
           },
           {
             path: "affiliate-marketing/referrals",
             meta: {
               layout: LayoutDefault,
               auth: true,
-              title: "ffiliate marketing | operation",
+              title: "ffiliate marketing | referrals",
             },
             name: "affiliate-marketing-referrals",
             component: () =>
-              import("../views/affiliate-marketing/dashboard/index.vue"),
+              import(
+                "../views/affiliate-marketing/dashboard/referrals/index.vue"
+              ),
           },
           {
             path: "affiliate-marketing/operations",
@@ -330,7 +332,9 @@ const routes = [
             },
             name: "affiliate-marketing-operations",
             component: () =>
-              import("../views/affiliate-marketing/dashboard/index.vue"),
+              import(
+                "../views/affiliate-marketing/dashboard/operations/index.vue"
+              ),
           },
           {
             path: "affiliate-marketing/links",
@@ -341,7 +345,7 @@ const routes = [
             },
             name: "affiliate-marketing-links",
             component: () =>
-              import("../views/affiliate-marketing/dashboard/index.vue"),
+              import("../views/affiliate-marketing/dashboard/links/index.vue"),
           },
         ],
       },
