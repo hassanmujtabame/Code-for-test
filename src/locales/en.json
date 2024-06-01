@@ -846,5 +846,8 @@
   "visits": "Visits",
   "referrals": "Referrals",
   "operations": "Operations",
-  "links": "Links"
+  "links": "Links",
+  "copy-link": "Copy link",
+  "shortcut-link": "Shortcut link",
+  "create-link": "Create link"
 }

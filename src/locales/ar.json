@@ -856,5 +856,8 @@
   "visits": "الزيارات",
   "referrals": "الإحالات",
   "operations": "العمليات",
-  "links": "الروابط"
+  "links": "الروابط",
+  "copy-link": "نسخ الرابط",
+  "shortcut-link": "إختصار الرابط",
+  "create-link": "إنشاء رابط"
 }
