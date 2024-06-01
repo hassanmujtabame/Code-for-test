@@ -19,10 +19,30 @@
                 style="color: #888"
                 :to="getRouteLocale(item.name)"
                 class="nav-link hover-li"
-                :class="{ 'li-active': page == item.name }"
+                :class="{ 'li-active': isActivePage(item) }"
               >
                 {{ item.title }}
               </router-link>
+              <ul
+                v-if="isActivePage(item) && item.children"
+                class="d-flex py-2 flex-column gap-4 justify-content-start align-items-start"
+              >
+                <li
+                  v-for="(item, index) in item.children"
+                  :key="index"
+                  style="list-style: none"
+                  class="nav-item"
+                >
+                  <router-link
+                    style="color: #888"
+                    :to="getRouteLocale(item.name)"
+                    class="nav-link hover-li"
+                    :class="{ 'li-active': isActivePage(item) }"
+                  >
+                    {{ item.title }}
+                  </router-link>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -114,6 +134,21 @@ export default {
     },
     pagesToShow() {
       return this.pages.filter((page) => page.show);
+    },
+  },
+  methods: {
+    isActivePage(item) {
+      console.log(item.name);
+      if (item.name === this.page) {
+        console.log("1");
+        return true;
+      }
+      if (item.children) {
+        console.log("2");
+        return item.children.some((child) => child.name === this.page);
+      }
+      console.log("3");
+      return false;
     },
   },
 };
