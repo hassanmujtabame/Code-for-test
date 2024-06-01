@@ -37,7 +37,6 @@ export default {
   methods: {
     generateCodeConfirm() {
       let dataEvent = {
-        image: require("@/assets/img/warning-2.png"),
         title: "لديك كود بالفعل",
         description:
           "هل أنت متأكد من طلب كود جديد سيتم استبدال الكود الحالي بالكود الجديد؟",
@@ -49,7 +48,7 @@ export default {
           },
         ],
       };
-      this.showSuccessMsg(dataEvent);
+      this.showConfirmMsg(dataEvent);
     },
     generateCode() {
       this.code = Math.random().toString(36).substring(2, 8).toUpperCase();
