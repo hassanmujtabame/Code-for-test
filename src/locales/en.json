@@ -84,6 +84,7 @@
   "Privacy-policy": "Privacy policy",
   "terms-use": "terms of use",
   "faq": "FAQ",
+  "common-questions": "Common questions",
   "publish-service": "Publish service",
   "execution-during": "execution during",
   "service-field": "Service field",
@@ -840,5 +841,10 @@
   "service-in-progress": "Service in progress",
   "sales-offers": "Company offers and discounts",
   "ads": "Ads",
-  "compaty-exhibitions": "Company Exhibitions"
+  "company-exhibitions": "Company Exhibitions",
+  "add-exhibitions": "Add Exhibitions",
+  "visits": "Visits",
+  "referrals": "Referrals",
+  "operations": "Operations",
+  "links": "Links"
 }

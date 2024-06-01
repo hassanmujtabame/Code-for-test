@@ -382,9 +382,10 @@
           </div>
           <div class="d-flex flex-column justify-content-center gap-1">
             <h3 style="color: #ffbc00">
-              {{ $t("compaty-exhibitions") }}
+              {{ $t("company-exhibitions") }}
             </h3>
             <button
+              @click="router_push('company-exhibitions')"
               style="
                 color: #888;
                 outline: 1px solid #888;

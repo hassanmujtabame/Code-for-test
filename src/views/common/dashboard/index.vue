@@ -9,61 +9,40 @@
           <ul
             class="d-flex py-5 flex-column gap-4 justify-content-center align-items-start"
           >
-            <li style="list-style: none" class="nav-item">
-              <router-link
-                style="color: #888"
-                :to="getRouteLocale('network-dashboard')"
-                class="nav-link hover-li"
-                :class="{ 'li-active': page == 'network-dashboard' }"
-              >
-                {{ $t("Dashboard") }}
-              </router-link>
-            </li>
             <li
-              v-if="userIsConsultant"
+              v-for="(item, index) in pagesToShow"
+              :key="index"
               style="list-style: none"
               class="nav-item"
             >
               <router-link
                 style="color: #888"
-                :to="getRouteLocale('consultant-dashboard')"
+                :to="getRouteLocale(item.name)"
                 class="nav-link hover-li"
-                :class="{ 'li-active': page == 'consultant-dashboard' }"
+                :class="{ 'li-active': isActivePage(item) }"
               >
-                {{ $t("the-consultant") }}
+                {{ item.title }}
               </router-link>
-            </li>
-            <li style="list-style: none" class="nav-item">
-              <router-link
-                style="color: #888"
-                :to="getRouteLocale('service-provider-dashboard')"
-                class="nav-link hover-li"
-                :class="{
-                  'li-active': page == 'service-provider-dashboard',
-                }"
+              <ul
+                v-if="isActivePage(item) && item.children"
+                class="d-flex py-2 flex-column gap-4 justify-content-start align-items-start"
               >
-                {{ $t("service-provider") }}
-              </router-link>
-            </li>
-            <li style="list-style: none" class="nav-item">
-              <router-link
-                style="color: #888"
-                :to="getRouteLocale('academy-dashboard')"
-                class="nav-link hover-li"
-                :class="{ 'li-active': page == 'academy-dashboard' }"
-              >
-                {{ $t("academy") }}
-              </router-link>
-            </li>
-            <li style="list-style: none" class="nav-item">
-              <router-link
-                style="color: #888"
-                :to="getRouteLocale('company-dashboard')"
-                class="nav-link hover-li"
-                :class="{ 'li-active': page == 'company-dashboard' }"
-              >
-                {{ $t("the-companies") }}
-              </router-link>
+                <li
+                  v-for="(item, index) in item.children"
+                  :key="index"
+                  style="list-style: none"
+                  class="nav-item"
+                >
+                  <router-link
+                    style="color: #888"
+                    :to="getRouteLocale(item.name)"
+                    class="nav-link hover-li"
+                    :class="{ 'li-active': isActivePage(item) }"
+                  >
+                    {{ item.title }}
+                  </router-link>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -95,9 +74,81 @@ export default {
     AskUs,
     SectionBalance,
   },
+  data(vm) {
+    return {
+      pages: [
+        {
+          name: "network-dashboard",
+          title: vm.$t("Dashboard"),
+          show: true,
+        },
+        {
+          name: "consultant-dashboard",
+          title: vm.$t("the-consultant"),
+          show: vm.userIsConsultant,
+        },
+        {
+          name: "service-provider-dashboard",
+          title: vm.$t("service-provider"),
+          show: true,
+        },
+        {
+          name: "academy-dashboard",
+          title: vm.$t("academy"),
+          show: true,
+        },
+        {
+          name: "company-dashboard",
+          title: vm.$t("the-companies"),
+          show: true,
+        },
+        {
+          name: "affiliate-marketing-dashboard",
+          title: vm.$t("Affiliate-marketing"),
+          show: true,
+          children: [
+            {
+              name: "affiliate-marketing-visits",
+              title: vm.$t("visits"),
+            },
+            {
+              name: "affiliate-marketing-referrals",
+              title: vm.$t("referrals"),
+            },
+            {
+              name: "affiliate-marketing-operations",
+              title: vm.$t("operations"),
+            },
+            {
+              name: "affiliate-marketing-links",
+              title: vm.$t("links"),
+            },
+          ],
+        },
+      ],
+    };
+  },
   computed: {
     page() {
       return this.$route.name;
+    },
+    pagesToShow() {
+      return this.pages.filter((page) => page.show);
+    },
+  },
+  methods: {
+    isActivePage(item) {
+      console.log(item.name);
+      if (item.name === this.page) {
+        console.log("1");
+        return true;
+      }
+      if (item.children) {
+        console.log("2");
+        return item.children.some((child) => child.name === this.page);
+      }
+      console.log("3");
+      return false;
     },
   },
 };

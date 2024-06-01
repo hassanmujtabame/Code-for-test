@@ -85,6 +85,7 @@
   "Privacy-policy": "سياسة الخصوصية",
   "terms-use": "شروط الاستخدام",
   "faq": "الأسئلة الشائعة",
+  "common-questions": "الأسئلة الشائعة",
   "publish-service": "انشري الخدمة",
   "execution-during": "مدة التنفيذ",
   "service-field": "مجال الخدمة",
@@ -850,5 +851,10 @@
   "service-in-progress": "خدمة قيد التنفيذ ",
   "sales-offers": "عروض وخصومات الشركة ",
   "ads": "اعلانات ",
-  "compaty-exhibitions": "معارض الشركة "
+  "company-exhibitions": "معارض الشركة ",
+  "add-exhibitions": "إضافة معرض",
+  "visits": "الزيارات",
+  "referrals": "الإحالات",
+  "operations": "العمليات",
+  "links": "الروابط"
 }

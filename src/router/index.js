@@ -288,6 +288,65 @@ const routes = [
                 /* webpackChunkName: "academy-dashboard" */ "../views/network/company/dashboard"
               ),
           },
+          {
+            path: "affiliate-marketing",
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "Dashboard | affiliate marketing",
+            },
+            name: "affiliate-marketing-dashboard",
+            component: () =>
+              import("../views/affiliate-marketing/dashboard/index.vue"),
+          },
+          {
+            path: "affiliate-marketing/visits",
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "ffiliate marketing | visits",
+            },
+            name: "affiliate-marketing-visits",
+            component: () =>
+              import("../views/affiliate-marketing/dashboard/visits/index.vue"),
+          },
+          {
+            path: "affiliate-marketing/referrals",
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "ffiliate marketing | referrals",
+            },
+            name: "affiliate-marketing-referrals",
+            component: () =>
+              import(
+                "../views/affiliate-marketing/dashboard/referrals/index.vue"
+              ),
+          },
+          {
+            path: "affiliate-marketing/operations",
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "affiliate marketing | operations",
+            },
+            name: "affiliate-marketing-operations",
+            component: () =>
+              import(
+                "../views/affiliate-marketing/dashboard/operations/index.vue"
+              ),
+          },
+          {
+            path: "affiliate-marketing/links",
+            meta: {
+              layout: LayoutDefault,
+              auth: true,
+              title: "affiliate marketing | links",
+            },
+            name: "affiliate-marketing-links",
+            component: () =>
+              import("../views/affiliate-marketing/dashboard/links/index.vue"),
+          },
         ],
       },
       ...networkRoute,

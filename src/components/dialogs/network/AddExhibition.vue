@@ -85,21 +85,21 @@
             </div>
           </div>
           <!-- 
-                    <div class="mb-3">
-                        <ValidationProvider :name="$t('the_city')" 
-                        vid="region_id" 
-                        tag="div"
-                        class="form-group"
-                        rules="required" v-slot="{ errors }"
-                        >
-                        <d-select-input :errors="errors" v-model="itemForm.region_id"   :label="$t('the_city')">
-                            <option :key="i" v-for="(it,i) in cities" :value="it.id">
-                                {{ `${it.name}-${it.region.name}` }}
-                            </option>
-
-                        </d-select-input>
-                        </ValidationProvider>
-                    </div> -->
+                      <div class="mb-3">
+                          <ValidationProvider :name="$t('the_city')" 
+                          vid="region_id" 
+                          tag="div"
+                          class="form-group"
+                          rules="required" v-slot="{ errors }"
+                          >
+                          <d-select-input :errors="errors" v-model="itemForm.region_id"   :label="$t('the_city')">
+                              <option :key="i" v-for="(it,i) in cities" :value="it.id">
+                                  {{ `${it.name}-${it.region.name}` }}
+                              </option>
+  
+                          </d-select-input>
+                          </ValidationProvider>
+                      </div> -->
           <div class="mb-3">
             <ValidationProvider
               :name="$t('exhibition_map_url')"
@@ -361,31 +361,31 @@
               </div>
 
               <!-- <div  class="col-12 col-md-4 col-lg-4">
-                        <div  class="mb-3 d-flex">
-                        <div>
-                                <ValidationProvider 
-                                :name="$t('insurance_price')" 
-                                tag="div"
-                                class="form-group"
-                                :vid="`insurance_price.${i}`" 
-                                rules="required|numeric"
-                                v-slot="{ errors }"
-                            >
-                            <div class="position-relative d-flex">
-                            <d-text-input :errors="errors" type="text" v-model="itemForm.insurance_price[i]" :label="$t('insurance_price')">
-                            </d-text-input>
-                                                       
-                            <div class="d-flex align-items-center">
-                        <button v-if="i!==0" @click="removeBooth(i)"
-                        style="border: none;background: transparent;color: red;"
-                        ><trashOutlineIcon color="red" :size="24"/></button>
-                       </div>
-                        </div>
-                            </ValidationProvider>
-                        </div>
-                      
-                    </div>
-                    </div> -->
+                          <div  class="mb-3 d-flex">
+                          <div>
+                                  <ValidationProvider 
+                                  :name="$t('insurance_price')" 
+                                  tag="div"
+                                  class="form-group"
+                                  :vid="`insurance_price.${i}`" 
+                                  rules="required|numeric"
+                                  v-slot="{ errors }"
+                              >
+                              <div class="position-relative d-flex">
+                              <d-text-input :errors="errors" type="text" v-model="itemForm.insurance_price[i]" :label="$t('insurance_price')">
+                              </d-text-input>
+                                                         
+                              <div class="d-flex align-items-center">
+                          <button v-if="i!==0" @click="removeBooth(i)"
+                          style="border: none;background: transparent;color: red;"
+                          ><trashOutlineIcon color="red" :size="24"/></button>
+                         </div>
+                          </div>
+                              </ValidationProvider>
+                          </div>
+                        
+                      </div>
+                      </div> -->
             </div>
             <!-- end list-->
             <div class="row m-3 p-0 position-relatiuve">
@@ -576,8 +576,8 @@ export default {
       reader.onload = (e) => {
         this.showImage = e.target.result;
         /* window.$('#'+this.idImage)
-                    .attr('src', e.target.result)
-                    .css('opacity', '1');*/
+                      .attr('src', e.target.result)
+                      .css('opacity', '1');*/
       };
       reader.readAsDataURL(this.file);
     },

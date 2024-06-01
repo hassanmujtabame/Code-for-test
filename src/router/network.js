@@ -266,6 +266,12 @@ const routers = [
       ),
   },
   {
+    path: "network/company-exhibitions",
+    meta: { layout: LayoutDefault, auth: true, title: "Company exhibitions" },
+    name: "company-exhibitions",
+    component: () => import("../views/network/company/Exhibitions.vue"),
+  },
+  {
     path: "network/offers",
     meta: { layout: LayoutDefault, title: "Offers" },
     name: "network-offers",

@@ -12,24 +12,33 @@
       />
     </div>
     <hr />
-    <div class="card-title-box px-3">
+    <div
+      class="card-title-box d-flex justify-content-between align-items-center px-3"
+    >
       <p class="card-title my-1 p-0">
         {{ title }}
       </p>
-      <div class="card-date-box">
-        <div class="date">
-          <i class="fa-regular fa-clock mx-1"></i>
-          {{ date }}
-        </div>
-        <div class="vr mx-2"></div>
-        <div class="location">
-          <i class="fa-solid fa-location-dot mx-1"></i>
-          {{ location }}
+      <div class="price-box mx-1">
+        <div class="price">
+          <i class="fa-solid fa-tag"></i>
+          {{ price }}
+          <span v-if="price != $t('free')"> ريال </span>
         </div>
       </div>
     </div>
+    <div class="card-date-box">
+      <div class="date">
+        <i class="fa-regular fa-clock mx-1"></i>
+        {{ date }}
+      </div>
+      <div class="vr mx-2"></div>
+      <div class="location">
+        <i class="fa-solid fa-location-dot mx-1"></i>
+        {{ location }}
+      </div>
+    </div>
     <button
-      @click="router_push('network-exhibition-show', { id: itemId })"
+      @click="router_push('network-exhibition-show', { id: item_id })"
       class="text-light rounded-3 mx-2 btn py-1 w-100"
       style="background-color: #1fb9b3"
     >
@@ -50,6 +59,10 @@ export default {
   computed: {
     title() {
       return this.item.title;
+    },
+    price() {
+      if (this.item.price) return this.item.price;
+      else return this.$t("free");
     },
     date() {
       return this.item.date;
@@ -143,5 +156,19 @@ export default {
   font-weight: 400;
   line-height: 17px;
   color: #f2631c;
+}
+.price {
+  font-family: Cairo;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #04b100;
+}
+.price span {
+  font-family: Cairo;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #04b100;
 }
 </style>

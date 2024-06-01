@@ -1,10 +1,8 @@
 <template>
-  <div class="sec-five mt-5 p-5 container-fluid">
+  <div class="mt-5 p-5 container">
     <div class="">
-      <div class="d-flex justify-content-between align-items-center">
-        <h1>
-          {{ title }}
-        </h1>
+      <div class="d-flex justify-content-center align-items-center">
+        <h1>المسوقين الأكثر <span>ربحاً</span></h1>
       </div>
       <DSwiper
         v-if="!loading"
@@ -17,7 +15,7 @@
       >
         <template v-slot:default="{ item }">
           <CardMemberMarket
-            :description="item.description"
+            :description="item.description ?? ' ريادية'"
             :name="item.name"
             :to="getRouteLocale('incubator-show-profile', { id: item.id })"
             :img="item.image"
@@ -31,7 +29,7 @@
 <script>
 import DSwiper from "@/components/swiper/index.vue";
 import CardMember from "@/components/cards/card-member.vue";
-import CardMemberMarket from "@/components/card-member-marketing.vue";
+import CardMemberMarket from "@/components/list-cards/affiliate/card-member-marketing.vue";
 import topMarketApi from "@/services/api/market";
 export default {
   name: "section-graduated",
@@ -73,4 +71,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h1 {
+  font-family: Cairo;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 89.95px;
+  text-align: center;
+}
+h1 span {
+  font-family: Cairo;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 89.95px;
+  text-align: center;
+  color: #1fb9b3;
+}
+</style>

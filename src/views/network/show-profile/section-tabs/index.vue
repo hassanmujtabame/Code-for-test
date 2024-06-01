@@ -60,11 +60,7 @@ export default {
   },
   methods: {},
   data: (vm) => {
-    let tabActive = "courses-watched";
-    if (vm.userPage.is_provider) tabActive = "offers";
-    if (vm.userPage.is_instructor) tabActive = "your-course";
-    if (vm.userPage.is_consultant) tabActive = "consulting";
-    if (vm.userPage.is_investor) tabActive = "investments";
+    let tabActive = "blog";
     let isMyPage = vm.userPage.id == vm.$store.getters["auth/user"].id;
     vm.$emit("tabChange", tabActive);
     return {
@@ -96,7 +92,7 @@ export default {
         },
         {
           tag: "offers",
-          title: vm.$t("offers"),
+          title: vm.$t("services"),
           content: TabOffers,
           show: !!vm.userPage.is_provider,
         },
