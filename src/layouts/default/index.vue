@@ -10,25 +10,32 @@
     <DefaultFooter />
     <d-success-message />
     <d-confirm-message />
-
   </div>
 </template>
 
 <script>
-import "@/plugins/mixins.js"
-import DefaultFooter from '../common/footer.vue'
-import MyDrawer from '@/layouts/common/drawer.vue'
-import DefaultHeader from './header.vue'
-import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
+import "@/plugins/mixins.js";
+import DefaultFooter from "../common/footer.vue";
+import MyDrawer from "@/layouts/common/drawer.vue";
+import DefaultHeader from "./header.vue";
+import SectSubscribe from "@/layouts/common/section-subscribe/sect-subscribe.vue";
 export default {
-  name: 'default-layout',
+  name: "default-layout",
   components: {
     DefaultFooter,
     DefaultHeader,
     SectSubscribe,
-    MyDrawer
-  }
-}
+    MyDrawer,
+  },
+  async mounted() {
+    if (this.$route.query.affiliate_id) {
+      localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
+      await window.axios.post("affiliates/visitor", {
+        affiliate_id: this.$route.query.affiliate_id,
+      });
+    }
+  },
+};
 </script>
 
 <style></style>

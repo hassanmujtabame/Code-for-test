@@ -1,9 +1,5 @@
 <template>
-  <div
-    
-    style="margin-top: 85px"
-    class="consult"
-  >
+  <div style="margin-top: 85px" class="consult">
     <!-- section top-->
     <SectionTop />
     <!-- section definition-->
@@ -96,17 +92,7 @@ export default {
     SectionGraduated,
     SectionMemberIncubation,
   },
-  async mounted() {
-    if (this.$route.query.affiliate_id) {
-      localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
-      await window.axios.post("affiliates/visitor", {
-        affiliate_id: this.$route.query.affiliate_id,
-      });
-    }
-    // if (!this.token) {
-    //   this.shouldLoginMsg()
-    // }
-  },
+
   methods: {
     getData(dc) {
       const d = new Date(dc);

@@ -4,18 +4,19 @@
       <!-- <localHeader /> -->
       <DefaultHeader />
 
-      <MyDrawerInstructor v-if="userAcademyRole == 'instructor'" :dashboard="'academy-dashboard'" />
+      <MyDrawerInstructor
+        v-if="userAcademyRole == 'instructor'"
+        :dashboard="'academy-dashboard'"
+      />
       <MyDrawerStudent v-else :dashboard="'academy-dashboard'" />
     </template>
     <DefaultHeader v-else />
-
 
     <main>
       <slot></slot>
     </main>
     <SectSubscribe />
     <DefaultFooter category="academy" />
-
 
     <RateYourExperience :title="$t('riadiat-academy')" category="academy" />
     <!-- <RateSuccessExperience /> -->
@@ -25,24 +26,23 @@
     <d-confirm-message />
     <d-standard-rate-dialog />
     <faqBtn />
-
   </div>
 </template>
-  
-<script>
-import faqBtn from '@/layouts/common/faq-btn/index.vue'
-import RateYourExperienceBtn from '@/layouts/common/rate-experience.vue'
 
-import RateYourExperience from '../common/dialogs/rate-experience/index.vue'
-import RateSuccessExperience from '../common/dialogs/rate-experience/success-rate.vue'
-import MyDrawerInstructor from './drawer-instructor.vue'
-import MyDrawerStudent from './drawer-student.vue'
-import DefaultFooter from '@/layouts/common/footer.vue'
-import DefaultHeader from '../default/header.vue'
-import localHeader from './header.vue'
-import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
+<script>
+import faqBtn from "@/layouts/common/faq-btn/index.vue";
+import RateYourExperienceBtn from "@/layouts/common/rate-experience.vue";
+
+import RateYourExperience from "../common/dialogs/rate-experience/index.vue";
+import RateSuccessExperience from "../common/dialogs/rate-experience/success-rate.vue";
+import MyDrawerInstructor from "./drawer-instructor.vue";
+import MyDrawerStudent from "./drawer-student.vue";
+import DefaultFooter from "@/layouts/common/footer.vue";
+import DefaultHeader from "../default/header.vue";
+import localHeader from "./header.vue";
+import SectSubscribe from "@/layouts/common/section-subscribe/sect-subscribe.vue";
 export default {
-  name: 'provider-layout',
+  name: "provider-layout",
   components: {
     RateYourExperience,
     DefaultFooter,
@@ -53,10 +53,17 @@ export default {
     RateSuccessExperience,
     MyDrawerInstructor,
     MyDrawerStudent,
-    faqBtn
-
-  }
-}
+    faqBtn,
+  },
+  async mounted() {
+    if (this.$route.query.affiliate_id) {
+      localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
+      await window.axios.post("affiliates/visitor", {
+        affiliate_id: this.$route.query.affiliate_id,
+      });
+    }
+  },
+};
 </script>
-  
+
 <style></style>

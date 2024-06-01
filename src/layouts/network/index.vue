@@ -21,22 +21,21 @@
     <d-standard-rate-dialog />
     <d-confirm-message />
     <d-share-social-media />
-
   </div>
 </template>
-  
+
 <script>
-import faqBtn from '../common/faq-btn/index.vue'
-import RateYourExperienceBtn from '../common/rate-experience.vue'
-import RateYourExperience from '../common/dialogs/rate-experience/index.vue'
-import RateSuccessExperience from '../common/dialogs/rate-experience/success-rate.vue'
-import MyDrawer from './drawer.vue'
-import DefaultFooter from '@/layouts/common/footer.vue'
-import DefaultHeader from '../default/header.vue'
-import localHeader from './header.vue'
-import SectSubscribe from '@/layouts/common/section-subscribe/sect-subscribe.vue';
+import faqBtn from "../common/faq-btn/index.vue";
+import RateYourExperienceBtn from "../common/rate-experience.vue";
+import RateYourExperience from "../common/dialogs/rate-experience/index.vue";
+import RateSuccessExperience from "../common/dialogs/rate-experience/success-rate.vue";
+import MyDrawer from "./drawer.vue";
+import DefaultFooter from "@/layouts/common/footer.vue";
+import DefaultHeader from "../default/header.vue";
+import localHeader from "./header.vue";
+import SectSubscribe from "@/layouts/common/section-subscribe/sect-subscribe.vue";
 export default {
-  name: 'network-layout',
+  name: "network-layout",
   components: {
     DefaultFooter,
     DefaultHeader,
@@ -46,9 +45,17 @@ export default {
     RateYourExperience,
     faqBtn,
     RateSuccessExperience,
-    MyDrawer
-  }
-}
+    MyDrawer,
+  },
+  async mounted() {
+    if (this.$route.query.affiliate_id) {
+      localStorage.setItem("ComeFrom", this.$route.query.affiliate_id);
+      await window.axios.post("affiliates/visitor", {
+        affiliate_id: this.$route.query.affiliate_id,
+      });
+    }
+  },
+};
 </script>
-  
+
 <style></style>
