@@ -410,7 +410,6 @@ import { mapState } from "vuex";
 
 import PaymentApi from "@/services/api/payment";
 import networkAPI from "@/services/api/network";
-import Modal from "@/components/Modal-network.vue";
 
 export default {
   components: {
