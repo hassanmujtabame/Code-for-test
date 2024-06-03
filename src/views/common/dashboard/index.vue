@@ -138,16 +138,12 @@ export default {
   },
   methods: {
     isActivePage(item) {
-      console.log(item.name);
       if (item.name === this.page) {
-        console.log("1");
         return true;
       }
       if (item.children) {
-        console.log("2");
         return item.children.some((child) => child.name === this.page);
       }
-      console.log("3");
       return false;
     },
   },

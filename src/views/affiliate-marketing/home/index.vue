@@ -9,6 +9,7 @@
     <SectionIntro />
     <SectionWhatWeProvide />
     <StepByStepSection />
+    <CardFeatures />
     <!-- <div>
     <SectionHowWorkProgram />
     </div> -->
@@ -47,6 +48,7 @@ import CommonQuistions from "@/components/common-questions-section/index.vue";
 import SectionContinueLearning from "@/views/incubator/home/parts/section-continue-learning/index.vue";
 import SectionHear from "./parts/section-hear/index.vue";
 import incubatorAPI from "@/services/api/incubator";
+import CardFeatures from "@/components/section-network-features.vue";
 
 export default {
   name: "affiliate-marketing-home",
@@ -84,6 +86,7 @@ export default {
     ],
   }),
   components: {
+    CardFeatures,
     SectionWhatWeProvide,
     StepByStepSection,
     SectionJoin,

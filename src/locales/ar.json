@@ -856,5 +856,16 @@
   "visits": "الزيارات",
   "referrals": "الإحالات",
   "operations": "العمليات",
-  "links": "الروابط"
+  "links": "الروابط",
+  "copy-link": "نسخ الرابط",
+  "shortcut-link": "إختصار الرابط",
+  "create-link": "إنشاء رابط",
+  "generate-code": "إنشاء كود",
+  "generate-new-code": "إنشاء كود جديد",
+  "copy-code": "نسخ الكود",
+  "operation-summary": "ملخص العمليات",
+  "remaining-in-transfer": "باقي قيد التحويل",
+  "total-transfers": "إجمالي التحويلات",
+  "total-commissions": "إجمالي العمولات",
+  "transfer-request": "طلب تحويل"
 }

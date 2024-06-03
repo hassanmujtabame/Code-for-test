@@ -564,7 +564,6 @@ import { mapState } from "vuex";
 
 import PaymentApi from "@/services/api/payment";
 import networkAPI from "@/services/api/network";
-import Modal from "@/components/Modal-network.vue";
 
 export default {
   props: {
@@ -600,9 +599,7 @@ export default {
       type: [String, Number],
     },
   },
-  components: {
-    Modal,
-  },
+
   data() {
     return {
       packageType: "",
