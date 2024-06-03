@@ -101,15 +101,32 @@
             </div>
           </div>
           <div class="col-xl-4 col-md-6 col-12">
-            <div class="d-flex my-4 flex-column gap-4">
+            <div class="d-flex my-4 flex-column gap-2">
+              <div
+                class="justify-content-between mx-2 align-items-center d-flex"
+              >
+                <h4 style="font-size: 18px; color: #475569">السعر</h4>
+                <h4 style="font-size: 18px; color: #475569">
+                  {{ oldPrice }} ر.س
+                </h4>
+              </div>
+              <div
+                style="border-bottom: 1px dashed #979599"
+                class="justify-content-between mx-2 align-items-center d-flex"
+              >
+                <h4 style="font-size: 18px; color: #ea580c">الخصم</h4>
+                <h4 style="font-size: 18px; color: #ea580c">
+                  {{ discount }} ر.س
+                </h4>
+              </div>
               <div
                 style="border-bottom: 1px solid #888"
                 class="justify-content-between mx-2 align-items-center d-flex"
               >
                 <h4 style="font-size: 18px">المجموع</h4>
-                <h4 style="font-size: 18px">{{ itemPage.price }} ر.س</h4>
+                <h4 style="font-size: 18px">{{ newPrice }} ر.س</h4>
               </div>
-              <div class="text-center">
+              <div class="text-center my-2">
                 <label style="font-weight: bold; font-size: 20px" for="discount"
                   >كود الخصم</label
                 >
@@ -122,9 +139,17 @@
                       id="discount"
                       type="text"
                       style="border: 1px dashed gray; border-left: none"
+                      :style="{
+                        border: isWrongCode
+                          ? '1px dashed #ff1616'
+                          : isValidCode
+                          ? '1px dashed green'
+                          : '',
+                      }"
                       placeholder="ادخل كود الخصم"
                     />
                     <button
+                      @click="CheckforCode"
                       style="
                         background-color: rgb(31, 185, 179);
                         color: white;
@@ -136,6 +161,16 @@
                     >
                       تطبيق
                     </button>
+                    <label v-if="isWrongCode">
+                      <small style="color: #ff1616; font-size: 12px"
+                        >هذا الكود غير فعال أو خاطئ</small
+                      >
+                    </label>
+                    <label v-if="isValidCode">
+                      <small style="color: green; font-size: 12px">
+                        خصم 10%</small
+                      >
+                    </label>
                     <button
                       @click="proceedToPayment"
                       style="background-color: #1fb9b3; color: white"
@@ -176,14 +211,21 @@ export default {
       type: String,
       default: "payment-modal",
     },
+    price: {
+      type: Number,
+      required: true,
+    },
   },
 
   data() {
     return {
       selectedProvider: "card",
-      itemPage: {
-        price: 100,
-      },
+      code: "AAA",
+      discount: 0,
+      oldPrice: this.price,
+      newPrice: this.price,
+      isWrongCode: false,
+      isValidCode: false,
     };
   },
   methods: {
@@ -200,6 +242,12 @@ export default {
     closeDialog() {
       console.log("close dialog");
       return true;
+    },
+    CheckforCode() {
+      // TODO : check for code ( after RD-239 )
+      console.log("check for code");
+      //   this.isWrongCode = true;
+      //   this.isValidCode = true;
     },
   },
 };
