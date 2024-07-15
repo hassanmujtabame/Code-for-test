@@ -77,6 +77,8 @@ export default {
       this.textOfCopy = "نسخ الرابط";
       let host = window.location.host;
       let page = this.page;
+      console.log(this.page,host)
+
       let url = null;
       if (page == "") {
         url = host + "/ar" + "?affiliate_id=" + this.user.affiliate_id;
